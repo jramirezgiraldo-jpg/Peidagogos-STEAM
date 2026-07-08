@@ -1,0 +1,574 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Peidagogos - FormaciÃ³n Integral</title>
+        <link rel="stylesheet" href="assets/css/framework.css">
+    <link rel="stylesheet" href="assets/fonts/fonts.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Global HUD -->
+    <div id="global-hud" class="global-hud hidden">
+        <div class="hud-content container">
+            <div class="hud-profile">
+                <div class="hud-avatar" id="hud-avatar"></div>
+                <div class="hud-info">
+                    <span id="hud-name">Estudiante</span>
+                    <span id="hud-level">Nivel 1</span>
+                </div>
+            </div>
+            <div class="hud-score">
+                <span class="score-icon">?</span>
+                <span id="hud-points" class="score-number">0</span> pts
+            </div>
+        </div>
+    </div>
+    <!-- App Container -->
+    <div id="app">
+        <!-- VISTA: Landing Page -->
+        <div id="view-landing" class="view active">
+            <header class="main-header">
+                <div class="container nav-container">
+                    <div class="logo">
+                        <h1>Peidagogos</h1>
+                    </div>
+                    <nav class="main-nav">
+                        <ul>
+                            <li><a href="#" onclick="app.navigate('view-landing')">Inicio</a></li>
+                            <li><a href="#metodologia">MetodologÃ­a</a></li>
+                            <li><a href="#" class="btn-login" onclick="app.navigate('view-auth')">Ingresar</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </header>
+
+            <main>
+                <section id="hero" class="hero-section">
+                    <!-- Esquina Superior Izquierda: BiologÃ­a -->
+                    <div class="stem-cluster cluster-tl">
+                        <img src="assets/images/icon-dna.svg" alt="BiologÃ­a">
+                    </div>
+                    <!-- Esquina Superior Derecha: TecnologÃ­a -->
+                    <div class="stem-cluster cluster-tr">
+                        <img src="assets/images/icon-code.svg" alt="TecnologÃ­a">
+                    </div>
+                    <!-- Esquina Inferior Izquierda: FÃ­sica -->
+                    <div class="stem-cluster cluster-bl">
+                        <img src="assets/images/icon-atom.svg" alt="FÃ­sica">
+                    </div>
+                    <!-- Centro Izquierda: QuÃ­mica -->
+                    <div class="stem-cluster cluster-ml">
+                        <img src="assets/images/icon-flask-conical.svg" alt="QuÃ­mica">
+                    </div>
+                    <!-- Centro Derecha: AstronomÃ­a -->
+                    <div class="stem-cluster cluster-mr">
+                        <img src="assets/images/icon-globe.svg" alt="AstronomÃ­a">
+                    </div>
+                    <!-- Esquina Inferior Derecha: MatemÃ¡ticas -->
+                    <div class="stem-cluster cluster-br">
+                        <img src="assets/images/icon-triangle.svg" alt="MatemÃ¡ticas">
+                    </div>
+
+                    <div class="container hero-content">
+                        <!-- STEM Icon SVG (Atom) -->
+                        <svg class="hero-icon" viewBox="0 0 24 24" fill="none" stroke="var(--accent-blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="3"></circle>
+                            <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(45 12 12)"></ellipse>
+                            <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(-45 12 12)"></ellipse>
+                        </svg>
+                        <h2 class="hero-title">Aprender es una Aventura</h2>
+                        <p class="hero-subtitle">Descubre una formaciÃ³n integral en ciencias y tecnologÃ­a a travÃ©s del juego, la autonomÃ­a y la innovaciÃ³n.</p>
+                        <button class="cta-button" onclick="app.navigate('view-auth')">Comenzar Aventura</button>
+                    </div>
+                </section>
+
+                <section id="metodologia" class="metodologia-section">
+                    <div class="container">
+                        <h2 class="section-title">Nuestra MetodologÃ­a</h2>
+                        <div class="cards-grid">
+                            <div class="card">
+                                <div class="card-icon">
+                                    <svg viewBox="0 0 24 24" width="48" height="48" stroke="var(--accent-green)" stroke-width="2" fill="none">
+                                        <polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"></polygon>
+                                        <line x1="12" y1="22" x2="12" y2="12"></line>
+                                        <line x1="22" y1="8.5" x2="12" y2="12"></line>
+                                        <line x1="2" y1="8.5" x2="12" y2="12"></line>
+                                    </svg>
+                                </div>
+                                <h3 class="card-title">GamificaciÃ³n</h3>
+                                <p class="card-description">Implementamos sistemas de recompensas, logros y progreso para mantener la motivaciÃ³n al mÃ¡ximo.</p>
+                            </div>
+                            <div class="card">
+                                <div class="card-icon">
+                                    <svg viewBox="0 0 24 24" width="48" height="48" stroke="var(--accent-blue)" stroke-width="2" fill="none">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                                        <path d="M2 12h20"></path>
+                                    </svg>
+                                </div>
+                                <h3 class="card-title">Base PrÃ¡ctica</h3>
+                                <p class="card-description">Supera retos y misiones diseÃ±ados especÃ­ficamente para desarrollar habilidades reales.</p>
+                            </div>
+                            <div class="card">
+                                <div class="card-icon">
+                                    <svg viewBox="0 0 24 24" width="48" height="48" stroke="var(--text-main)" stroke-width="2" fill="none">
+                                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                                    </svg>
+                                </div>
+                                <h3 class="card-title">Aprendizaje AutÃ³nomo</h3>
+                                <p class="card-description">Rutas adaptables al ritmo y estilo de cada estudiante, fomentando la independencia.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+
+            <footer id="contacto" class="main-footer">
+                <div class="container footer-content">
+                    <p class="footer-message">"La educaciÃ³n es el encendido de una llama, no el llenado de un recipiente."</p>
+                    <p class="footer-copy">&copy; 2026 Peidagogos. Todos los derechos reservados.</p>
+                </div>
+            </footer>
+        </div>
+
+        <!-- VISTA: AutenticaciÃ³n (Login / Registro) -->
+        <div id="view-auth" class="view" style="display:none;">
+            <div class="auth-container">
+                <button class="back-btn" onclick="app.navigate('view-landing')">â† Volver</button>
+                <div class="auth-tabs">
+                    <button class="tab-btn active" onclick="app.switchAuthTab('login')">Iniciar SesiÃ³n</button>
+                    <button class="tab-btn" onclick="app.switchAuthTab('register')">Estudiante Nuevo</button>
+                </div>
+                
+                <div id="auth-login" class="auth-form-container">
+                    <h2>Ingreso a Peidagogos</h2>
+                    <form id="form-login" onsubmit="app.handleLogin(event)">
+                        <div class="form-group">
+                            <label>Usuario o Documento</label>
+                            <input type="text" id="login-user" required>
+                        </div>
+                        <div class="form-group">
+                            <label>ContraseÃ±a</label>
+                            <input type="password" id="login-pass" required>
+                            <small class="help-text">Estudiantes: Usen su NÂ° de documento como contraseÃ±a inicial.</small>
+                        </div>
+                        <button type="submit" class="cta-button full-width">Entrar</button>
+                    </form>
+                </div>
+
+                <div id="auth-register" class="auth-form-container" style="display:none;">
+                    <h2>Registro de Estudiante</h2>
+                    <form id="form-register" onsubmit="app.handleRegister(event)">
+                        <div class="form-group">
+                            <label>Nombres</label>
+                            <input type="text" id="reg-nombres" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Apellidos</label>
+                            <input type="text" id="reg-apellidos" required>
+                        </div>
+                        <div class="form-group">
+                            <label>NÃºmero de Documento</label>
+                            <input type="number" id="reg-doc" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Edad</label>
+                                <input type="number" id="reg-edad" min="5" max="99" required>
+                            </div>
+                            <div class="form-group">
+                                <label>GÃ©nero</label>
+                                <select id="reg-genero" required>
+                                    <option value="">Seleccione...</option>
+                                    <option value="M">Masculino</option>
+                                    <option value="F">Femenino</option>
+                                    <option value="O">Otro</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Grado</label>
+                            <select id="reg-grado" required>
+                                <option value="">Seleccione...</option>
+                                <option value="1">1Â°</option>
+                                <option value="2">2Â°</option>
+                                <option value="3">3Â°</option>
+                                <option value="4">4Â°</option>
+                                <option value="5">5Â°</option>
+                                <option value="6">6Â°</option>
+                                <option value="7">7Â°</option>
+                                <option value="8">8Â°</option>
+                                <option value="9">9Â°</option>
+                                <option value="10">10Â°</option>
+                                <option value="11">11Â°</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="cta-button full-width">Completar Registro</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- VISTA: Dashboard Administrador -->
+        <div id="view-admin" class="view" style="display:none;">
+            <header class="dash-header">
+                <div class="container dash-nav">
+                    <h2>Panel de Control - Administrador</h2>
+                    <button class="btn-logout" onclick="app.logout()">Cerrar SesiÃ³n</button>
+                </div>
+            </header>
+            <main class="container dash-content">
+                <section class="admin-section">
+                    <h3>Gestor de Mallas Curriculares</h3>
+                    <div style="margin-bottom:1rem;">
+                        <button class="cta-button" onclick="app.openLeaderboard()">?? Ver Tabla de Posiciones</button>
+                    </div>
+                    <div class="malla-controls">
+                        <div class="select-group">
+                            <label>Grado:</label>
+                            <select id="malla-grado-admin" onchange="app.handleMallaFilter('admin')">
+                                <option value="">Seleccione...</option>
+                                <option value="6">6Â°</option>
+                                <option value="7">7Â°</option>
+                                <option value="8">8Â°</option>
+                                <option value="9">9Â°</option>
+                                <option value="10">10Â°</option>
+                                <option value="11">11Â°</option>
+                            </select>
+                        </div>
+                        <div class="select-group">
+                            <label>Periodo:</label>
+                            <select id="malla-periodo-admin" onchange="app.handleMallaFilter('admin')" disabled>
+                                <option value="">Seleccione...</option>
+                                <option value="1">Periodo 1</option>
+                                <option value="2">Periodo 2</option>
+                                <option value="3">Periodo 3</option>
+                                <option value="4">Periodo 4</option>
+                            </select>
+                        </div>
+                        <div class="select-group">
+                            <label>Semana:</label>
+                            <select id="malla-semana-admin" onchange="app.handleMallaFilter('admin')" disabled>
+                                <option value="">Seleccione...</option>
+                                <option value="1">Semana 1</option>
+                                <option value="2">Semana 2</option>
+                                <option value="3">Semana 3</option>
+                                <option value="4">Semana 4</option>
+                                <option value="5">Semana 5</option>
+                                <option value="6">Semana 6</option>
+                                <option value="7">Semana 7</option>
+                                <option value="8">Semana 8</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- Tarjeta de MisiÃ³n Renderizada DinÃ¡micamente -->
+                    <div id="malla-result-admin" class="mission-card-container"></div>
+                </section>
+
+                <hr style="margin: 3rem 0; border: none; border-top: 1px solid #ddd;">
+
+                <section class="admin-section">
+                    <h3>Matricular Grupos</h3>
+                    <div class="card">
+                        <form id="form-grupo" onsubmit="app.handleCrearGrupo(event)">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Grado</label>
+                                    <select id="grupo-grado" required>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                        <option value="11">11</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Letra del Grupo</label>
+                                    <select id="grupo-letra" required>
+                                        <option value="A">A</option>
+                                        <option value="B">B</option>
+                                        <option value="C">C</option>
+                                        <option value="D">D</option>
+                                        <option value="E">E</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <button type="submit" class="cta-button">Crear Grupo</button>
+                        </form>
+                    </div>
+                    
+                    <div class="grupos-lista-container">
+                        <h4>Grupos Matriculados</h4>
+                        <ul id="lista-grupos" class="lista-items"></ul>
+                    </div>
+                </section>
+            </main>
+        </div>
+
+        <!-- VISTA: Dashboard Estudiante -->
+        <div id="view-student" class="view" style="display:none;">
+            <header class="dash-header">
+                <div class="container dash-nav">
+                    <h2>Hola, <span id="student-name-display">Estudiante</span></h2>
+                    <button class="btn-logout" onclick="app.logout()">Cerrar SesiÃ³n</button>
+                </div>
+            </header>
+            <main class="container dash-content">
+                <section class="student-section">
+                    <h3>Mi Ruta de Aprendizaje</h3>
+                    <div class="malla-controls">
+                        <div class="select-group">
+                            <label>Periodo:</label>
+                            <select id="malla-periodo-student" onchange="app.handleMallaFilter('student')">
+                                <option value="">Seleccione...</option>
+                                <option value="1">Periodo 1</option>
+                                <option value="2">Periodo 2</option>
+                                <option value="3">Periodo 3</option>
+                                <option value="4">Periodo 4</option>
+                            </select>
+                        </div>
+                        <div class="select-group">
+                            <label>Semana:</label>
+                            <select id="malla-semana-student" onchange="app.handleMallaFilter('student')" disabled>
+                                <option value="">Seleccione...</option>
+                                <option value="1">Semana 1</option>
+                                <option value="2">Semana 2</option>
+                                <option value="3">Semana 3</option>
+                                <option value="4">Semana 4</option>
+                                <option value="5">Semana 5</option>
+                                <option value="6">Semana 6</option>
+                                <option value="7">Semana 7</option>
+                                <option value="8">Semana 8</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- Tarjeta de MisiÃ³n Renderizada DinÃ¡micamente -->
+                    <div id="malla-result-student" class="mission-card-container"></div>
+                </section>
+
+                <hr style="margin: 3rem 0; border: none; border-top: 1px solid #ddd;">
+
+                <h3>Mis Laboratorios</h3>
+                <div class="cards-grid" id="student-materias-grid">
+                    <!-- Cards will be populated by JS -->
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Vista OVA (Gamificada) -->
+    <div id="view-ova" class="view" style="display: none;">
+        <header class="dash-header">
+            <div class="container dash-nav">
+                <h2 id="ova-title">MisiÃ³n en Curso</h2>
+                <button class="btn-logout" onclick="app.navigate('view-student')">Salir de MisiÃ³n</button>
+            </div>
+            <div class="progress-bar-container" style="width: 100%; height: 8px; background: rgba(255,255,255,0.2); margin-top: 1rem;">
+                <div id="ova-progress" style="width: 0%; height: 100%; background: var(--accent-green); transition: width 0.5s ease;"></div>
+            </div>
+        </header>
+        <main class="container dash-content" id="ova-content-container">
+            <!-- El contenido dinÃ¡mico de la OVA se inyecta aquÃ­ -->
+        </main>
+    </div>
+
+    <!-- Gamification Modal -->
+    <div id="ova-modal" class="modal-overlay">
+                <div class="modal-content" style="max-width: 900px;">
+            <div id="panel-conexion-aula" class="panel-conexion-aula mb-4 text-center rounded-3 p-4">
+                <h3 class="mb-4 fw-bold">Instrucciones de Conexión</h3>
+                <div class="d-flex flex-column flex-md-row justify-content-around gap-3">
+                    <div class="conexion-step flex-fill bg-white bg-opacity-10 rounded-3 p-3">
+                        <div class="fs-1 mb-2">📶</div>
+                        <h5 class="fw-bold">Paso 1</h5>
+                        <p class="mb-0 small">Conéctate al Wi-Fi del aula (Red: <span id="ssid-proyector">Detectando...</span>)</p>
+                    </div>
+                    <div class="conexion-step flex-fill bg-white bg-opacity-10 rounded-3 p-3">
+                        <div class="fs-1 mb-2">🌐</div>
+                        <h5 class="fw-bold">Paso 2</h5>
+                        <p class="mb-0 small">Abre tu navegador (Chrome, Safari, etc.)</p>
+                    </div>
+                    <div class="conexion-step flex-fill bg-white bg-opacity-10 rounded-3 p-3">
+                        <div class="fs-1 mb-2">🔗</div>
+                        <h5 class="fw-bold">Paso 3: Ingresa esta IP</h5>
+                        <div id="ip-proyector" class="ip-gigante mt-2">Cargando...</div>
+                    </div>
+                </div>
+            </div>
+            <h3>Configura tu Aventura de Aprendizaje</h3>
+            
+            <div class="custom-select" id="select-universo" data-value="">
+                <span class="select-label">Universo de InterÃ©s (Entorno)</span>
+                <div class="select-trigger" onclick="app.toggleSelect('select-universo')">
+                    <span class="trigger-text">Selecciona un universo...</span>
+                    <span>â–¼</span>
+                </div>
+                <div class="select-options">
+                    <div class="select-option" onclick="app.selectOption('select-universo', 'ðŸŒŒ ExploraciÃ³n Espacial', 'espacio')">
+                        <span class="icon-emoji">ðŸŒŒ</span> ExploraciÃ³n Espacial y Galaxias
+                    </div>
+                    <div class="select-option" onclick="app.selectOption('select-universo', 'ðŸ§™â€â™‚ï¸ FantasÃ­a y Magia', 'magia')">
+                        <span class="icon-emoji">ðŸ§™â€â™‚ï¸</span> FantasÃ­a y Magia
+                    </div>
+                    <div class="select-option" onclick="app.selectOption('select-universo', 'ðŸ•µï¸ Agencia de Detectives', 'detective')">
+                        <span class="icon-emoji">ðŸ•µï¸</span> Agencia de Detectives
+                    </div>
+                    <div class="select-option" onclick="app.selectOption('select-universo', 'ðŸŒ¿ Supervivencia Extrema', 'supervivencia')">
+                        <span class="icon-emoji">ðŸŒ¿</span> Supervivencia Extrema
+                    </div>
+                </div>
+            </div>
+
+            <div class="custom-select" id="select-rol" data-value="">
+                <span class="select-label">Rol TÃ¡ctico (MecÃ¡nica)</span>
+                <div class="select-trigger" onclick="app.toggleSelect('select-rol')">
+                    <span class="trigger-text">Selecciona tu rol...</span>
+                    <span>â–¼</span>
+                </div>
+                <div class="select-options">
+                    <div class="select-option" onclick="app.selectOption('select-rol', 'ðŸ› ï¸ Ingeniero/a', 'ingeniero')">
+                        <span class="icon-emoji">ðŸ› ï¸</span> Ingeniero/a (Constructor de soluciones)
+                    </div>
+                    <div class="select-option" onclick="app.selectOption('select-rol', 'ðŸ”¬ Investigador/a', 'investigador')">
+                        <span class="icon-emoji">ðŸ”¬</span> Investigador/a (Analista de datos)
+                    </div>
+                    <div class="select-option" onclick="app.selectOption('select-rol', 'ðŸ§­ Explorador/a', 'explorador')">
+                        <span class="icon-emoji">ðŸ§­</span> Explorador/a (Buscador de recursos)
+                    </div>
+                </div>
+            </div>
+
+            <div class="custom-select" id="select-canal" data-value="">
+                <span class="select-label">Canal de DecodificaciÃ³n (Estilo)</span>
+                <div class="select-trigger" onclick="app.toggleSelect('select-canal')">
+                    <span class="trigger-text">Selecciona tu canal preferido...</span>
+                    <span>â–¼</span>
+                </div>
+                <div class="select-options">
+                    <div class="select-option" onclick="app.selectOption('select-canal', 'ðŸ‘ï¸ Visual', 'visual')">
+                        <span class="icon-emoji">ðŸ‘ï¸</span> Visual (Hologramas, GrÃ¡ficas)
+                    </div>
+                    <div class="select-option" onclick="app.selectOption('select-canal', 'ðŸŽ§ Auditivo', 'auditivo')">
+                        <span class="icon-emoji">ðŸŽ§</span> Auditivo (Transmisiones, Relatos)
+                    </div>
+                    <div class="select-option" onclick="app.selectOption('select-canal', 'âœ‹ KinestÃ©sico', 'kinestesico')">
+                        <span class="icon-emoji">âœ‹</span> KinestÃ©sico / PrÃ¡ctico (Experimentos)
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-actions">
+                <button class="cta-button outline" onclick="app.closeOvaModal()">Cancelar</button>
+                <button class="cta-button" onclick="app.generarMisionOva()">Generar MisiÃ³n</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast-container">
+        <span class="toast-icon">ðŸš€</span>
+        <span id="toast-msg" class="toast-message">MisiÃ³n configurada</span>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/mock_ova_data.js"></script>
+    <script src="js/curriculumData.js"></script>
+    <script src="js/app.js"></script>
+    <!-- Modal Leaderboard -->
+    <div id="modal-leaderboard" class="modal">
+        <div class="modal-content modal-large">
+            <span class="close" onclick="app.closeLeaderboard()">&times;</span>
+            <div class="modal-header">
+                <h2>?? Tabla de Posiciones Global</h2>
+            </div>
+            <div class="modal-body">
+                <div class="leaderboard-filters">
+                    <select id="lb-grado" onchange="app.fetchLeaderboard()">
+                        <option value="all">Todos los Grados</option>
+                        <option value="6">6°</option>
+                        <option value="7">7°</option>
+                        <option value="8">8°</option>
+                        <option value="9">9°</option>
+                        <option value="10">10°</option>
+                        <option value="11">11°</option>
+                    </select>
+                </div>
+                <div class="leaderboard-container">
+                    <ul id="leaderboard-list" class="leaderboard-list">
+                        <!-- Renderizado por JS -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Gacha (Huevos) -->
+    <div id="modal-gacha" class="modal" style="z-index: 2000;">
+        <div class="modal-content modal-gacha-content">
+            <h2>¡Recompensa Misteriosa!</h2>
+            <p>Has completado una actividad. Elige un huevo para revelar tu destino:</p>
+            <div class="huevos-container" id="huevos-container">
+                <div class="huevo" onclick="app.abrirHuevo(this)">??</div>
+                <div class="huevo" onclick="app.abrirHuevo(this)">??</div>
+                <div class="huevo" onclick="app.abrirHuevo(this)">??</div>
+            </div>
+            <div id="gacha-resultado" class="gacha-resultado" style="display:none;"></div>
+        </div>
+    </div>
+
+    <!-- Modal PvP (Robo) -->
+    <div id="modal-pvp" class="modal" style="z-index: 2001;">
+                <div class="modal-content" style="max-width: 900px;">
+            <div id="panel-conexion-aula" class="panel-conexion-aula mb-4 text-center rounded-3 p-4">
+                <h3 class="mb-4 fw-bold">Instrucciones de Conexión</h3>
+                <div class="d-flex flex-column flex-md-row justify-content-around gap-3">
+                    <div class="conexion-step flex-fill bg-white bg-opacity-10 rounded-3 p-3">
+                        <div class="fs-1 mb-2">📶</div>
+                        <h5 class="fw-bold">Paso 1</h5>
+                        <p class="mb-0 small">Conéctate al Wi-Fi del aula (Red: <span id="ssid-proyector">Detectando...</span>)</p>
+                    </div>
+                    <div class="conexion-step flex-fill bg-white bg-opacity-10 rounded-3 p-3">
+                        <div class="fs-1 mb-2">🌐</div>
+                        <h5 class="fw-bold">Paso 2</h5>
+                        <p class="mb-0 small">Abre tu navegador (Chrome, Safari, etc.)</p>
+                    </div>
+                    <div class="conexion-step flex-fill bg-white bg-opacity-10 rounded-3 p-3">
+                        <div class="fs-1 mb-2">🔗</div>
+                        <h5 class="fw-bold">Paso 3: Ingresa esta IP</h5>
+                        <div id="ip-proyector" class="ip-gigante mt-2">Cargando...</div>
+                    </div>
+                </div>
+            </div>
+            <h2>¡Modo PvP Activado! ??</h2>
+            <p>Elige a un compañero para robarle puntos:</p>
+            <ul id="pvp-lista" class="pvp-lista">
+                <!-- Compañeros cargados por JS -->
+            </ul>
+        </div>
+    </div>
+
+    <!-- Modal Calificación Final -->
+    <div id="modal-final-ova" class="modal" style="z-index: 3000;">
+        <div class="modal-content" style="text-align:center; background: linear-gradient(135deg, #1e293b, #0f172a); color: white; border: 2px solid #fbbf24;">
+            <h1 style="font-size: 3rem; margin-bottom: 0;">???</h1>
+            <h2 style="color: #fbbf24;">¡Misión Completada!</h2>
+            <p style="font-size: 1.2rem;">Tu Calificación Académica:</p>
+            <div id="nota-final-display" style="font-size: 4rem; font-weight: bold; text-shadow: 0 0 20px #fbbf24; margin: 1rem 0;">5.0</div>
+            <p>Tus puntos gamificados se han guardado en el Leaderboard global.</p>
+            <button class="cta-button" onclick="app.cerrarFinalOva()">Regresar al Dashboard</button>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+

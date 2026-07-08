@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peidagogos STEAM</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+    <div id="app-container">
+        <!-- 1. LANDING & AUTH (SPLIT GRID 100vh) -->
+        <div id="login-screen-container">
+            <div class="split-layout">
+                
+                <!-- LADO IZQUIERDO: SHOWCASE -->
+                <div class="split-left">
+                    <div class="logo-container">
+                        <span class="logo-text">PEIDAGOGOS</span><span class="logo-steam">STEAM</span>
+                    </div>
+                    
+                    <div class="showcase-content">
+                        <h1 class="hero-title">Arquitectura<br>del Aprendizaje</h1>
+                        <p class="hero-subtitle">Plataforma dise&ntilde;ada para la era digital.</p>
+                        
+                        <div class="bento-grid">
+                            <div class="bento-card bento-hero">
+                                <i class="ph ph-game-controller bento-icon text-neon"></i>
+                                <div class="bento-text">
+                                    <h3>Gamificaci&oacute;n</h3>
+                                    <p>Sistema de recompensas y huevos coleccionables.</p>
+                                </div>
+                            </div>
+                            <div class="bento-card">
+                                <i class="ph ph-dna bento-icon text-electric"></i>
+                                <div class="bento-text">
+                                    <h3>Adaptativo</h3>
+                                    <p>Est&aacute;ndares ICFES integrados.</p>
+                                </div>
+                            </div>
+                            <div class="bento-card">
+                                <i class="ph ph-brain bento-icon text-electric"></i>
+                                <div class="bento-text">
+                                    <h3>Aprendizaje Aut&oacute;nomo</h3>
+                                    <p>Motor 100% offline.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- LADO DERECHO: AUTH PANEL -->
+                <div class="split-right">
+                    <div class="auth-panel">
+                        <h2 class="auth-title">Portal de Acceso</h2>
+                        <p class="auth-subtitle">Selecciona tu v&iacute;a de ingreso a la plataforma.</p>
+                        
+                        <div class="auth-actions">
+                            <!-- Auth form mock integration -->
+                            <div id="login-module" style="margin-top: 15px; display: flex; flex-direction: column; gap: 10px;">
+    <input type="text" id="admin-user" placeholder="Usuario" style="padding: 10px; border: 1px solid #ccc; border-radius: 8px; font-family: Inter, sans-serif;">
+    <input type="password" id="admin-pass" placeholder="Contrase&ntilde;a" style="padding: 10px; border: 1px solid #ccc; border-radius: 8px; font-family: Inter, sans-serif;">
+    <button id="btn-login-core" style="background-color: #2C3E50; color: white; padding: 10px; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; transition: 0.3s;">Iniciar Sesi&oacute;n</button>
+    <div id="login-error-msg" style="color: #e74c3c; font-size: 12px; display: none;">Credenciales incorrectas.</div>
+</div>
+                            
+                            <button class="auth-btn btn-secondary-split">
+                                <i class="ph ph-user-plus"></i>
+                                <span>Nuevo Usuario</span>
+                            </button>
+                            <button class="auth-btn btn-secondary-split">
+                                <i class="ph ph-house"></i>
+                                <span>HomeSchool</span>
+                            </button>
+                            <button class="auth-btn btn-secondary-split">
+                                <i class="ph ph-graduation-cap"></i>
+                                <span>Validar Bachillerato</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        <!-- DASHBOARD ADMIN RECREADO -->
+        <div id="dashboard-view" style="display: none; padding: 40px; font-family: Inter, sans-serif; background-color: #F8FAFC; height: 100vh; overflow-y: auto;">
+            <h1 style="font-weight: 900; color: #1F2937;">Panel de Control Administrativo</h1>
+            <p style="color: #6B7280; margin-bottom: 30px;">Bienvenido al centro de mando de Peidagogos STEAM.</p>
+            
+            <div style="background: white; padding: 30px; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); max-width: 600px;">
+                <h2 style="font-weight: 800; font-size: 1.5rem; margin-bottom: 15px;">Centro de Producci&oacute;n Semanal</h2>
+                <p style="color: #6B7280; margin-bottom: 20px;">Generador por lotes (Batch Processor) de Gu&iacute;as Pedag&oacute;gicas.</p>
+                
+                <label style="font-weight: bold; display: block; margin-bottom: 10px;">Selecciona la Semana:</label>
+                <select id="select-semana-batch" style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #ccc; margin-bottom: 20px;">
+                    <option value="1">Semana 1</option>
+                    <option value="2">Semana 2</option>
+                    <option value="3">Semana 3</option>
+                    <option value="4">Semana 4</option>
+                    <option value="5">Semana 5</option>
+                </select>
+                
+                <button id="btn-generar-batch" onclick="app && app.generarSemanaBatch ? app.generarSemanaBatch() : alert('El generador batch aÃºn requiere restaurar app.js')" style="width: 100%; background: #3B82F6; color: white; border: none; padding: 15px; border-radius: 8px; font-weight: bold; cursor: pointer; transition: 0.3s; font-size: 1.1rem;">
+                    &#128640; Generar Lote de 216 Gu&iacute;as
+                </button>
+                
+                <div id="batch-progress-container" class="d-none" style="margin-top: 20px;">
+                    <p id="batch-status-text" style="font-weight: bold;">Inicializando generador...</p>
+                    <div style="background: #e2e8f0; border-radius: 8px; height: 20px; overflow: hidden; margin-top: 10px;">
+                        <div id="batch-progress-bar" style="background: #10B981; height: 100%; width: 0%; transition: width 0.3s;"></div>
+                    </div>
+                    <p id="batch-percentage" style="text-align: right; font-size: 0.9rem; margin-top: 5px;">0%</p>
+                </div>
+            </div>
+        </div>
+
+        <script src="js/app.js"></script>
+        <script>
+document.addEventListener('DOMContentLoaded', () => {
+    const loginBtn = document.getElementById('btn-login-core');
+    const userField = document.getElementById('admin-user');
+    const passField = document.getElementById('admin-pass');
+    const errorMsg = document.getElementById('login-error-msg');
+
+    if (loginBtn) {
+        loginBtn.addEventListener('click', (e) => {
+            e.preventDefault(); // Detiene recargas fantasma
+            
+            const username = userField.value.trim();
+            const password = passField.value.trim();
+            
+            // 1. Hardcode Bypass de Administrador (Prioridad Máxima)
+            if (username === 'jramirezgiraldo' && password === 'Biol2008%') {
+                console.log('Login Admin Exitoso - Bypass activado');
+                // Cambia 'dashboard.html' por la ruta real de tu panel
+                // Transici&oacute;n Pure JS (Bypass sin framework)
+                document.getElementById('login-screen-container').style.display = 'none';
+                const dashboard = document.getElementById('dashboard-view');
+                if(dashboard) dashboard.style.display = 'block';
+                return; 
+                return;
+            }
+
+            // 2. Fetch al Backend Python (Para otros usuarios)
+            fetch('/api/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ user: username, pass: password })
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Transici&oacute;n Pure JS (Bypass sin framework)
+                document.getElementById('login-screen-container').style.display = 'none';
+                const dashboard = document.getElementById('dashboard-view');
+                if(dashboard) dashboard.style.display = 'block';
+                return;
+                } else {
+                    errorMsg.style.display = 'block';
+                }
+            })
+            .catch(error => {
+                console.error('Error en el servidor:', error);
+                errorMsg.innerHTML = 'Error de conexi&oacute;n con el servidor.';
+                errorMsg.style.display = 'block';
+            });
+        });
+    } else {
+        console.error('ERROR DOM: No se encontró el botón btn-login-core');
+    }
+});
+</script>
+</body>

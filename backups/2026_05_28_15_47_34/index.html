@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peidagogos STEAM</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+    <div id="app-container">
+        <!-- 1. LANDING & AUTH (SPLIT GRID 100vh) -->
+        <div id="view-landing" class="view active">
+            <div class="split-layout">
+                
+                <!-- LADO IZQUIERDO: SHOWCASE -->
+                <div class="split-left">
+                    <div class="logo-container">
+                        <span class="logo-text">PEIDAGOGOS</span><span class="logo-steam">STEAM</span>
+                    </div>
+                    
+                    <div class="showcase-content">
+                        <h1 class="hero-title">Arquitectura<br>del Aprendizaje</h1>
+                        <p class="hero-subtitle">Plataforma dise&ntilde;ada para la era digital.</p>
+                        
+                        <div class="bento-grid">
+                            <div class="bento-card bento-hero">
+                                <i class="ph ph-game-controller bento-icon text-neon"></i>
+                                <div class="bento-text">
+                                    <h3>Gamificaci&oacute;n</h3>
+                                    <p>Sistema de recompensas y huevos coleccionables.</p>
+                                </div>
+                            </div>
+                            <div class="bento-card">
+                                <i class="ph ph-dna bento-icon text-electric"></i>
+                                <div class="bento-text">
+                                    <h3>Adaptativo</h3>
+                                    <p>Est&aacute;ndares ICFES integrados.</p>
+                                </div>
+                            </div>
+                            <div class="bento-card">
+                                <i class="ph ph-brain bento-icon text-electric"></i>
+                                <div class="bento-text">
+                                    <h3>Aprendizaje Aut&oacute;nomo</h3>
+                                    <p>Motor 100% offline.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- LADO DERECHO: AUTH PANEL -->
+                <div class="split-right">
+                    <div class="auth-panel">
+                        <h2 class="auth-title">Portal de Acceso</h2>
+                        <p class="auth-subtitle">Selecciona tu v&iacute;a de ingreso a la plataforma.</p>
+                        
+                        <div class="auth-actions">
+                            <!-- Auth form mock integration -->
+                            <div id="login-container" style="margin-bottom: 20px; width: 100%;">
+                                <input id="login-username" type="text" class="form-control mb-3" placeholder="Usuario" style="border-radius: 12px; padding: 1rem;">
+                                <input id="login-password" type="password" class="form-control mb-3" placeholder="Contrase&ntilde;a" style="border-radius: 12px; padding: 1rem;">
+                                <button id="btn-ingresar" class="auth-btn btn-primary-split" style="width: 100%; justify-content: center;">
+                                    <i class="ph ph-identification-badge"></i>
+                                    <span>Iniciar Sesi&oacute;n</span>
+                                </button>
+                            </div>
+                            
+                            <button class="auth-btn btn-secondary-split">
+                                <i class="ph ph-user-plus"></i>
+                                <span>Nuevo Usuario</span>
+                            </button>
+                            <button class="auth-btn btn-secondary-split">
+                                <i class="ph ph-house"></i>
+                                <span>HomeSchool</span>
+                            </button>
+                            <button class="auth-btn btn-secondary-split">
+                                <i class="ph ph-graduation-cap"></i>
+                                <span>Validar Bachillerato</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        <!-- DUMMY AUTH PARA EVITAR ERRORES JS -->
+        <div id="view-auth" class="view d-none"></div>
+
+        </body>

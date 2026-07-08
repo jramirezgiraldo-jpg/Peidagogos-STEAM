@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peidagogos - Formación Integral</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- App Container -->
+    <div id="app">
+        <!-- VISTA: Landing Page -->
+        <div id="view-landing" class="view active">
+            <header class="main-header">
+                <div class="container nav-container">
+                    <div class="logo">
+                        <h1>Peidagogos</h1>
+                    </div>
+                    <nav class="main-nav">
+                        <ul>
+                            <li><a href="#" onclick="app.navigate('view-landing')">Inicio</a></li>
+                            <li><a href="#metodologia">Metodología</a></li>
+                            <li><a href="#" class="btn-login" onclick="app.navigate('view-auth')">Ingresar</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </header>
+
+            <main>
+                <section id="hero" class="hero-section">
+                    <!-- Esquina Superior Izquierda: Biología -->
+                    <div class="stem-cluster cluster-tl">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2v20M8 6h8M8 18h8M6 10c0-3 3-5 6-5s6 2 6 5M6 14c0 3 3 5 6 5s6-2 6-5"></path></svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 2v7.31M14 9.3V1.99M8.5 2h7M14 9.3a4.7 4.7 0 0 1-4 0M10 21.5c-2.5 0-4-2-4-5 0-2 2-3 2-3v-4.2"></path></svg>
+                    </div>
+                    <!-- Esquina Superior Derecha: Tecnología -->
+                    <div class="stem-cluster cluster-tr">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12.55a11 11 0 0 1 14.08 0M1.42 9a16 16 0 0 1 21.16 0M8.53 16.11a6 6 0 0 1 6.95 0M12 20h.01"></path></svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg>
+                    </div>
+                    <!-- Esquina Inferior Izquierda: Física -->
+                    <div class="stem-cluster cluster-bl">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2.5l5.5 5.5-11 11L3 13.5z"></path><path d="M9 13.5l1.5 1.5"></path><path d="M3 21l5-5"></path></svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 14l4-4 4 4 4-4 4 4"></path></svg>
+                    </div>
+                    <!-- Esquina Inferior Derecha: Ingeniería -->
+                    <div class="stem-cluster cluster-br">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="11" width="18" height="10" rx="2"></rect><circle cx="12" cy="5" r="2"></circle><path d="M12 7v4"></path><line x1="8" y1="16" x2="8" y2="16"></line><line x1="16" y1="16" x2="16" y2="16"></line></svg>
+                    </div>
+                    <!-- Centro Izquierda: Química y Matemáticas -->
+                    <div class="stem-cluster cluster-ml">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 3v8.53A4 4 0 0 0 7.6 15l-1.33 2.65A2 2 0 0 0 8 21h8a2 2 0 0 0 1.73-3.35L16.4 15A4 4 0 0 0 15 11.53V3"></path><path d="M8 3h8"></path><path d="M7 16h10"></path></svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18z"></path><path d="M12 8v8"></path><path d="M8 12h8"></path></svg>
+                    </div>
+                    <!-- Centro Derecha: Programación y Astronomía -->
+                    <div class="stem-cluster cluster-mr">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="8"></circle><path d="M4 12a14 14 0 0 1 16 0"></path><path d="M4 12a14 14 0 0 0 16 0"></path><path d="M12 4a14 14 0 0 1 0 16"></path><path d="M12 4a14 14 0 0 0 0 16"></path></svg>
+                    </div>
+
+                    <div class="container hero-content">
+                        <!-- STEM Icon SVG (Atom) -->
+                        <svg class="hero-icon" viewBox="0 0 24 24" fill="none" stroke="var(--accent-blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="3"></circle>
+                            <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(45 12 12)"></ellipse>
+                            <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(-45 12 12)"></ellipse>
+                        </svg>
+                        <h2 class="hero-title">Aprender es una Aventura</h2>
+                        <p class="hero-subtitle">Descubre una formación integral en ciencias y tecnología a través del juego, la autonomía y la innovación.</p>
+                        <button class="cta-button" onclick="app.navigate('view-auth')">Comenzar Aventura</button>
+                    </div>
+                </section>
+
+                <section id="metodologia" class="metodologia-section">
+                    <div class="container">
+                        <h2 class="section-title">Nuestra Metodología</h2>
+                        <div class="cards-grid">
+                            <div class="card">
+                                <div class="card-icon">
+                                    <svg viewBox="0 0 24 24" width="48" height="48" stroke="var(--accent-green)" stroke-width="2" fill="none">
+                                        <polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"></polygon>
+                                        <line x1="12" y1="22" x2="12" y2="12"></line>
+                                        <line x1="22" y1="8.5" x2="12" y2="12"></line>
+                                        <line x1="2" y1="8.5" x2="12" y2="12"></line>
+                                    </svg>
+                                </div>
+                                <h3 class="card-title">Gamificación</h3>
+                                <p class="card-description">Implementamos sistemas de recompensas, logros y progreso para mantener la motivación al máximo.</p>
+                            </div>
+                            <div class="card">
+                                <div class="card-icon">
+                                    <svg viewBox="0 0 24 24" width="48" height="48" stroke="var(--accent-blue)" stroke-width="2" fill="none">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                                        <path d="M2 12h20"></path>
+                                    </svg>
+                                </div>
+                                <h3 class="card-title">Base Práctica</h3>
+                                <p class="card-description">Supera retos y misiones diseñados específicamente para desarrollar habilidades reales.</p>
+                            </div>
+                            <div class="card">
+                                <div class="card-icon">
+                                    <svg viewBox="0 0 24 24" width="48" height="48" stroke="var(--text-main)" stroke-width="2" fill="none">
+                                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                                    </svg>
+                                </div>
+                                <h3 class="card-title">Aprendizaje Autónomo</h3>
+                                <p class="card-description">Rutas adaptables al ritmo y estilo de cada estudiante, fomentando la independencia.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+
+            <footer id="contacto" class="main-footer">
+                <div class="container footer-content">
+                    <p class="footer-message">"La educación es el encendido de una llama, no el llenado de un recipiente."</p>
+                    <p class="footer-copy">&copy; 2026 Peidagogos. Todos los derechos reservados.</p>
+                </div>
+            </footer>
+        </div>
+
+        <!-- VISTA: Autenticación (Login / Registro) -->
+        <div id="view-auth" class="view" style="display:none;">
+            <div class="auth-container">
+                <button class="back-btn" onclick="app.navigate('view-landing')">← Volver</button>
+                <div class="auth-tabs">
+                    <button class="tab-btn active" onclick="app.switchAuthTab('login')">Iniciar Sesión</button>
+                    <button class="tab-btn" onclick="app.switchAuthTab('register')">Estudiante Nuevo</button>
+                </div>
+                
+                <div id="auth-login" class="auth-form-container">
+                    <h2>Ingreso a Peidagogos</h2>
+                    <form id="form-login" onsubmit="app.handleLogin(event)">
+                        <div class="form-group">
+                            <label>Usuario o Documento</label>
+                            <input type="text" id="login-user" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Contraseña</label>
+                            <input type="password" id="login-pass" required>
+                            <small class="help-text">Estudiantes: Usen su N° de documento como contraseña inicial.</small>
+                        </div>
+                        <button type="submit" class="cta-button full-width">Entrar</button>
+                    </form>
+                </div>
+
+                <div id="auth-register" class="auth-form-container" style="display:none;">
+                    <h2>Registro de Estudiante</h2>
+                    <form id="form-register" onsubmit="app.handleRegister(event)">
+                        <div class="form-group">
+                            <label>Nombres</label>
+                            <input type="text" id="reg-nombres" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Apellidos</label>
+                            <input type="text" id="reg-apellidos" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Número de Documento</label>
+                            <input type="number" id="reg-doc" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Edad</label>
+                                <input type="number" id="reg-edad" min="5" max="99" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Género</label>
+                                <select id="reg-genero" required>
+                                    <option value="">Seleccione...</option>
+                                    <option value="M">Masculino</option>
+                                    <option value="F">Femenino</option>
+                                    <option value="O">Otro</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Grado</label>
+                            <select id="reg-grado" required>
+                                <option value="">Seleccione...</option>
+                                <option value="1">1°</option>
+                                <option value="2">2°</option>
+                                <option value="3">3°</option>
+                                <option value="4">4°</option>
+                                <option value="5">5°</option>
+                                <option value="6">6°</option>
+                                <option value="7">7°</option>
+                                <option value="8">8°</option>
+                                <option value="9">9°</option>
+                                <option value="10">10°</option>
+                                <option value="11">11°</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="cta-button full-width">Completar Registro</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- VISTA: Dashboard Administrador -->
+        <div id="view-admin" class="view" style="display:none;">
+            <header class="dash-header">
+                <div class="container dash-nav">
+                    <h2>Panel de Control - Administrador</h2>
+                    <button class="btn-logout" onclick="app.logout()">Cerrar Sesión</button>
+                </div>
+            </header>
+            <main class="container dash-content">
+                <section class="admin-section">
+                    <h3>Matricular Grupos</h3>
+                    <div class="card">
+                        <form id="form-grupo" onsubmit="app.handleCrearGrupo(event)">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Grado</label>
+                                    <select id="grupo-grado" required>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                        <option value="11">11</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Letra del Grupo</label>
+                                    <select id="grupo-letra" required>
+                                        <option value="A">A</option>
+                                        <option value="B">B</option>
+                                        <option value="C">C</option>
+                                        <option value="D">D</option>
+                                        <option value="E">E</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <button type="submit" class="cta-button">Crear Grupo</button>
+                        </form>
+                    </div>
+                    
+                    <div class="grupos-lista-container">
+                        <h4>Grupos Matriculados</h4>
+                        <ul id="lista-grupos" class="lista-items"></ul>
+                    </div>
+                </section>
+            </main>
+        </div>
+
+        <!-- VISTA: Dashboard Estudiante -->
+        <div id="view-student" class="view" style="display:none;">
+            <header class="dash-header">
+                <div class="container dash-nav">
+                    <h2>Hola, <span id="student-name-display">Estudiante</span></h2>
+                    <button class="btn-logout" onclick="app.logout()">Cerrar Sesión</button>
+                </div>
+            </header>
+            <main class="container dash-content">
+                <h3>Mis Materias</h3>
+                <div class="cards-grid" id="student-materias-grid">
+                    <!-- Cards will be populated by JS -->
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

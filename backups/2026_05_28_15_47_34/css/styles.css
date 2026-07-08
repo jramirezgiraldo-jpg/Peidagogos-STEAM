@@ -1,0 +1,197 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap');
+
+:root {
+    --primary: #3B82F6;
+    --primary-hover: #2563EB;
+    --neon: #10B981;
+    --dark: #1F2937;
+    --text-muted: #6B7280;
+    --bg-main: #FFFFFF;
+    --bg-left: #F8FAFC;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', system-ui, sans-serif !important;
+    background-color: var(--bg-main);
+    color: var(--dark);
+    /* 100vh Ocultando scroll */
+    height: 100vh;
+    overflow: hidden;
+}
+
+.view { display: none; }
+.view.active { display: block; height: 100%; }
+
+/* === SPLIT LAYOUT 100vh === */
+.split-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* LEFT COLUMN */
+.split-left {
+    background-color: var(--bg-left);
+    padding: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+
+.logo-container {
+    position: absolute;
+    top: 2rem;
+    left: 4rem;
+    font-size: 1.5rem;
+    font-weight: 900;
+}
+.logo-steam { color: var(--primary); font-weight: 300; margin-left: 0.5rem; }
+
+.showcase-content {
+    max-width: 600px;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+    color: var(--dark);
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    margin-bottom: 3rem;
+}
+
+/* BENTO GRID */
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.bento-card {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    border: 1px solid rgba(0,0,0,0.02);
+    transition: transform 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.bento-hero {
+    grid-column: span 2;
+}
+
+.bento-icon {
+    font-size: 2rem;
+    margin-bottom: 0;
+    flex-shrink: 0;
+}
+
+.text-neon { color: var(--neon); }
+.text-electric { color: var(--primary); }
+
+.bento-card h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.bento-card p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+/* RIGHT COLUMN */
+.split-right {
+    background-color: var(--bg-main);
+    padding: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
+}
+
+.auth-panel {
+    width: 100%;
+    max-width: 400px;
+}
+
+.auth-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    color: var(--dark);
+}
+
+.auth-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin-bottom: 3rem;
+}
+
+.auth-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.auth-btn {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    padding: 1.25rem 1.5rem;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border: 1px solid rgba(0,0,0,0.1);
+    background: white;
+    color: var(--dark);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.auth-btn i { font-size: 1.5rem; }
+
+.btn-primary-split {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+}
+
+.btn-primary-split:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+}
+
+.btn-secondary-split:hover {
+    background-color: #F8FAFC;
+    transform: translateY(-2px);
+}
+
+.d-none { display: none !important; }
+
+/* OVERRIDES FOR PRESERVED APP VIEWS SO THEY SCROLL PROPERLY */
+#view-student, #view-ova, #view-admin {
+    height: 100vh;
+    overflow-y: auto;
+}
+
+/* MOCK CSS FOR HUD, ETC (Keeping the system stable) */
+#global-hud { position: fixed; top: 10px; right: 10px; background: white; padding: 10px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); z-index: 2000; }
+.hidden { display: none !important; }

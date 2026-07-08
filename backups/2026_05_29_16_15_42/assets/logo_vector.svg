@@ -1,0 +1,25 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 150" preserveAspectRatio="xMidYMid meet" width="100%" class="logo-peidagogos">
+    <!-- Circuito/Nodos Tecnológicos (Azul Pizarra) -->
+    <path d="M 120 40 L 150 40 L 170 60 L 170 80" fill="none" stroke="#4682B4" stroke-width="3" stroke-linejoin="round" />
+    <circle cx="120" cy="40" r="4" fill="#4682B4" />
+    <circle cx="170" cy="80" r="4" fill="#4682B4" />
+    
+    <path d="M 30 110 L 50 110 L 70 90 L 70 70" fill="none" stroke="#4682B4" stroke-width="3" stroke-linejoin="round" />
+    <circle cx="30" cy="110" r="4" fill="#4682B4" />
+    <circle cx="70" cy="70" r="4" fill="#4682B4" />
+
+    <!-- Silueta de Microscopio (Indigo) -->
+    <path d="M 80 120 L 140 120 L 130 100 L 90 100 Z" fill="#2C3E50" />
+    <path d="M 105 100 L 105 50" stroke="#2C3E50" stroke-width="12" stroke-linecap="round" />
+    <path d="M 105 70 Q 135 60 125 30" fill="none" stroke="#2C3E50" stroke-width="12" stroke-linecap="round" />
+    <circle cx="120" cy="25" r="8" fill="#2C3E50" />
+    
+    <!-- Lente Objetivo (Verde Salvia) -->
+    <rect x="95" y="45" width="20" height="15" rx="3" fill="#6B8E23" />
+    
+    <!-- Texto PEIDAGOGOS -->
+    <text x="190" y="80" font-family="'Poppins', sans-serif" font-weight="bold" font-size="44" fill="#2C3E50">PEIDAGOGOS</text>
+    
+    <!-- Texto STEAM -->
+    <text x="195" y="115" font-family="'Inter', sans-serif" font-weight="300" font-size="20" fill="#6B8E23" letter-spacing="12">STEAM</text>
+</svg>

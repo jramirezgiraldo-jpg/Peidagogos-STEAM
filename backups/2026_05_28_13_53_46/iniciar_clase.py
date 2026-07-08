@@ -1,0 +1,159 @@
+import http.server
+import socketserver
+import socket
+import webbrowser
+import os
+import shutil
+import datetime
+import json
+from urllib.parse import urlparse, parse_qs
+
+PORT = 8080
+HOST = "0.0.0.0"
+DB_FILE = "db_scores.json"
+
+def realizar_backup():
+    now = datetime.datetime.now().strftime("%Y_%m_%d_%H_%M_%S")
+    backup_dir = os.path.join("backups", now)
+    
+    def ignore_backups(dir, contents):
+        if os.path.basename(dir) == "backups":
+            return contents
+        if "backups" in contents:
+            return ["backups"]
+        return []
+
+    try:
+        shutil.copytree(".", backup_dir, ignore=ignore_backups)
+        print(f"[*] Backup automático creado exitosamente en: {backup_dir}")
+    except Exception as e:
+        print(f"[!] Error al crear backup: {e}")
+
+def get_ip():
+    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    try:
+        s.connect(('10.255.255.255', 1))
+        IP = s.getsockname()[0]
+    except Exception:
+        IP = '127.0.0.1'
+    finally:
+        s.close()
+    return IP
+
+class CustomHandler(http.server.SimpleHTTPRequestHandler):
+    def load_db(self):
+        if not os.path.exists(DB_FILE):
+            with open(DB_FILE, 'w', encoding='utf-8') as f:
+                json.dump([], f)
+        with open(DB_FILE, 'r', encoding='utf-8') as f:
+            try:
+                return json.load(f)
+            except json.JSONDecodeError:
+                return []
+                
+    def save_db(self, data):
+        with open(DB_FILE, 'w', encoding='utf-8') as f:
+            json.dump(data, f, indent=4)
+
+    def do_GET(self):
+        parsed_path = urlparse(self.path)
+        if parsed_path.path == '/api/leaderboard':
+            query = parse_qs(parsed_path.query)
+            grado = query.get('grado', [''])[0]
+            grupo = query.get('grupo', [''])[0]
+            
+            db = self.load_db()
+            
+            # Filtrar por grado y grupo si se envían (opcional)
+            filtered = db
+            if grado and grado != 'all':
+                filtered = [s for s in filtered if str(s.get('grado')) == str(grado)]
+            if grupo and grupo != 'all':
+                filtered = [s for s in filtered if str(s.get('grupo')) == str(grupo)]
+                
+            # Ordenar por puntaje
+            filtered.sort(key=lambda x: x.get('puntos_obtenidos', 0), reverse=True)
+            
+            self.send_response(200)
+            self.send_header('Content-Type', 'application/json')
+            self.send_header('Access-Control-Allow-Origin', '*')
+            self.end_headers()
+            self.wfile.write(json.dumps(filtered).encode('utf-8'))
+            return
+            
+        # Fallback a archivos estáticos
+        return super().do_GET()
+
+    def do_POST(self):
+        parsed_path = urlparse(self.path)
+        if parsed_path.path == '/api/puntos':
+            content_length = int(self.headers['Content-Length'])
+            post_data = self.rfile.read(content_length)
+            
+            try:
+                data = json.loads(post_data.decode('utf-8'))
+                student_id = str(data.get('id', ''))
+                puntos = int(data.get('puntos_obtenidos', 0))
+                
+                db = self.load_db()
+                
+                # Buscar estudiante
+                found = False
+                for student in db:
+                    if str(student.get('id')) == student_id:
+                        student['puntos_obtenidos'] = student.get('puntos_obtenidos', 0) + puntos
+                        # Actualizar info extra por si cambió
+                        student['nombre'] = data.get('nombre', student.get('nombre'))
+                        student['grado'] = data.get('grado', student.get('grado'))
+                        student['grupo'] = data.get('grupo', student.get('grupo'))
+                        found = True
+                        break
+                        
+                if not found:
+                    data['puntos_obtenidos'] = puntos
+                    db.append(data)
+                    
+                self.save_db(db)
+                
+                self.send_response(200)
+                self.send_header('Content-Type', 'application/json')
+                self.send_header('Access-Control-Allow-Origin', '*')
+                self.end_headers()
+                self.wfile.write(json.dumps({"status": "success", "message": "Puntos actualizados"}).encode('utf-8'))
+                
+            except Exception as e:
+                self.send_response(400)
+                self.send_header('Content-Type', 'application/json')
+                self.send_header('Access-Control-Allow-Origin', '*')
+                self.end_headers()
+                self.wfile.write(json.dumps({"status": "error", "message": str(e)}).encode('utf-8'))
+            return
+
+    def do_OPTIONS(self):
+        self.send_response(200, "ok")
+        self.send_header('Access-Control-Allow-Origin', '*')
+        self.send_header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
+        self.send_header("Access-Control-Allow-Headers", "X-Requested-With, Content-type")
+        self.end_headers()
+
+def start_server():
+    socketserver.TCPServer.allow_reuse_address = True
+    with socketserver.TCPServer((HOST, PORT), CustomHandler) as httpd:
+        print("[*] Servidor en ejecución con API REST. Presiona Ctrl+C en esta terminal para detenerlo.")
+        httpd.serve_forever()
+
+if __name__ == '__main__':
+    print("Iniciando Peidagogos Local LMS...")
+    # Ejecutar directiva permanente de backup en cada arranque
+    realizar_backup()
+    
+    ip_local = get_ip()
+    print(f"\n========================================================")
+    print(f"[*] ADMINISTRADOR: Puedes acceder localmente en: http://localhost:{PORT}")
+    print(f"[*] ESTUDIANTES: Deben conectarse en la red a: http://{ip_local}:{PORT}")
+    print(f"========================================================\n")
+    
+    # Apertura Autónoma del navegador
+    webbrowser.open(f"http://localhost:{PORT}")
+    
+    start_server()

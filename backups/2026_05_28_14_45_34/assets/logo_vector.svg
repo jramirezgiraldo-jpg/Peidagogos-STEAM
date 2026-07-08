@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 150" preserveAspectRatio="xMidYMid meet" width="100%" class="logo-peidagogos">
+    <!-- Orbita Tecnológica (Azul Pizarra) -->
+    <ellipse cx="80" cy="75" rx="60" ry="25" fill="none" stroke="#4682B4" stroke-width="4" transform="rotate(-20 80 75)" />
+    
+    <!-- Tallo y Base de la P (Indigo) -->
+    <path d="M 60 30 L 60 120" stroke="#2C3E50" stroke-width="14" stroke-linecap="round" />
+    
+    <!-- Curva de la P fusionada con Hoja (Verde Salvia) -->
+    <path d="M 60 40 Q 130 30 110 80 Q 90 100 60 90" fill="none" stroke="#6B8E23" stroke-width="14" stroke-linecap="round" />
+    
+    <!-- Nodo de Creatividad (Ámbar) -->
+    <circle cx="110" cy="80" r="8" fill="#FFBF00" />
+    <circle cx="35" cy="40" r="5" fill="#4682B4" />
+
+    <!-- Texto PEIDAGOGOS -->
+    <text x="160" y="80" font-family="'Poppins', sans-serif" font-weight="bold" font-size="44" fill="#2C3E50">PEIDAGOGOS</text>
+    
+    <!-- Texto STEAM -->
+    <text x="165" y="115" font-family="'Inter', sans-serif" font-weight="300" font-size="20" fill="#6B8E23" letter-spacing="12">STEAM</text>
+</svg>

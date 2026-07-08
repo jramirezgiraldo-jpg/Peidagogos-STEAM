@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peidagogos - Formación Integral</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- App Container -->
+    <div id="app">
+        <!-- VISTA: Landing Page -->
+        <div id="view-landing" class="view active">
+            <header class="main-header">
+                <div class="container nav-container">
+                    <div class="logo">
+                        <h1>Peidagogos</h1>
+                    </div>
+                    <nav class="main-nav">
+                        <ul>
+                            <li><a href="#" onclick="app.navigate('view-landing')">Inicio</a></li>
+                            <li><a href="#metodologia">Metodología</a></li>
+                            <li><a href="#" class="btn-login" onclick="app.navigate('view-auth')">Ingresar</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </header>
+
+            <main>
+                <section id="hero" class="hero-section">
+                    <div class="container hero-content">
+                        <!-- STEM Icon SVG (Atom) -->
+                        <svg class="hero-icon" viewBox="0 0 24 24" fill="none" stroke="var(--accent-blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="3"></circle>
+                            <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(45 12 12)"></ellipse>
+                            <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(-45 12 12)"></ellipse>
+                        </svg>
+                        <h2 class="hero-title">Aprender es una Aventura</h2>
+                        <p class="hero-subtitle">Descubre una formación integral en ciencias y tecnología a través del juego, la autonomía y la innovación.</p>
+                        <button class="cta-button" onclick="app.navigate('view-auth')">Comenzar Aventura</button>
+                    </div>
+                </section>
+
+                <section id="metodologia" class="metodologia-section">
+                    <div class="container">
+                        <h2 class="section-title">Nuestra Metodología</h2>
+                        <div class="cards-grid">
+                            <div class="card">
+                                <div class="card-icon">
+                                    <svg viewBox="0 0 24 24" width="48" height="48" stroke="var(--accent-green)" stroke-width="2" fill="none">
+                                        <polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"></polygon>
+                                        <line x1="12" y1="22" x2="12" y2="12"></line>
+                                        <line x1="22" y1="8.5" x2="12" y2="12"></line>
+                                        <line x1="2" y1="8.5" x2="12" y2="12"></line>
+                                    </svg>
+                                </div>
+                                <h3 class="card-title">Gamificación</h3>
+                                <p class="card-description">Implementamos sistemas de recompensas, logros y progreso para mantener la motivación al máximo.</p>
+                            </div>
+                            <div class="card">
+                                <div class="card-icon">
+                                    <svg viewBox="0 0 24 24" width="48" height="48" stroke="var(--accent-blue)" stroke-width="2" fill="none">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                                        <path d="M2 12h20"></path>
+                                    </svg>
+                                </div>
+                                <h3 class="card-title">Base Práctica</h3>
+                                <p class="card-description">Supera retos y misiones diseñados específicamente para desarrollar habilidades reales.</p>
+                            </div>
+                            <div class="card">
+                                <div class="card-icon">
+                                    <svg viewBox="0 0 24 24" width="48" height="48" stroke="var(--text-main)" stroke-width="2" fill="none">
+                                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                                    </svg>
+                                </div>
+                                <h3 class="card-title">Aprendizaje Autónomo</h3>
+                                <p class="card-description">Rutas adaptables al ritmo y estilo de cada estudiante, fomentando la independencia.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+
+            <footer id="contacto" class="main-footer">
+                <div class="container footer-content">
+                    <p class="footer-message">"La educación es el encendido de una llama, no el llenado de un recipiente."</p>
+                    <p class="footer-copy">&copy; 2026 Peidagogos. Todos los derechos reservados.</p>
+                </div>
+            </footer>
+        </div>
+
+        <!-- VISTA: Autenticación (Login / Registro) -->
+        <div id="view-auth" class="view" style="display:none;">
+            <div class="auth-container">
+                <button class="back-btn" onclick="app.navigate('view-landing')">← Volver</button>
+                <div class="auth-tabs">
+                    <button class="tab-btn active" onclick="app.switchAuthTab('login')">Iniciar Sesión</button>
+                    <button class="tab-btn" onclick="app.switchAuthTab('register')">Estudiante Nuevo</button>
+                </div>
+                
+                <div id="auth-login" class="auth-form-container">
+                    <h2>Ingreso a Peidagogos</h2>
+                    <form id="form-login" onsubmit="app.handleLogin(event)">
+                        <div class="form-group">
+                            <label>Usuario o Documento</label>
+                            <input type="text" id="login-user" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Contraseña</label>
+                            <input type="password" id="login-pass" required>
+                            <small class="help-text">Estudiantes: Usen su N° de documento como contraseña inicial.</small>
+                        </div>
+                        <button type="submit" class="cta-button full-width">Entrar</button>
+                    </form>
+                </div>
+
+                <div id="auth-register" class="auth-form-container" style="display:none;">
+                    <h2>Registro de Estudiante</h2>
+                    <form id="form-register" onsubmit="app.handleRegister(event)">
+                        <div class="form-group">
+                            <label>Nombres</label>
+                            <input type="text" id="reg-nombres" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Apellidos</label>
+                            <input type="text" id="reg-apellidos" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Número de Documento</label>
+                            <input type="number" id="reg-doc" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Edad</label>
+                                <input type="number" id="reg-edad" min="5" max="99" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Género</label>
+                                <select id="reg-genero" required>
+                                    <option value="">Seleccione...</option>
+                                    <option value="M">Masculino</option>
+                                    <option value="F">Femenino</option>
+                                    <option value="O">Otro</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Grado</label>
+                            <select id="reg-grado" required>
+                                <option value="">Seleccione...</option>
+                                <option value="1">1°</option>
+                                <option value="2">2°</option>
+                                <option value="3">3°</option>
+                                <option value="4">4°</option>
+                                <option value="5">5°</option>
+                                <option value="6">6°</option>
+                                <option value="7">7°</option>
+                                <option value="8">8°</option>
+                                <option value="9">9°</option>
+                                <option value="10">10°</option>
+                                <option value="11">11°</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="cta-button full-width">Completar Registro</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- VISTA: Dashboard Administrador -->
+        <div id="view-admin" class="view" style="display:none;">
+            <header class="dash-header">
+                <div class="container dash-nav">
+                    <h2>Panel de Control - Administrador</h2>
+                    <button class="btn-logout" onclick="app.logout()">Cerrar Sesión</button>
+                </div>
+            </header>
+            <main class="container dash-content">
+                <section class="admin-section">
+                    <h3>Matricular Grupos</h3>
+                    <div class="card">
+                        <form id="form-grupo" onsubmit="app.handleCrearGrupo(event)">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Grado</label>
+                                    <select id="grupo-grado" required>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                        <option value="11">11</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Letra del Grupo</label>
+                                    <select id="grupo-letra" required>
+                                        <option value="A">A</option>
+                                        <option value="B">B</option>
+                                        <option value="C">C</option>
+                                        <option value="D">D</option>
+                                        <option value="E">E</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <button type="submit" class="cta-button">Crear Grupo</button>
+                        </form>
+                    </div>
+                    
+                    <div class="grupos-lista-container">
+                        <h4>Grupos Matriculados</h4>
+                        <ul id="lista-grupos" class="lista-items"></ul>
+                    </div>
+                </section>
+            </main>
+        </div>
+
+        <!-- VISTA: Dashboard Estudiante -->
+        <div id="view-student" class="view" style="display:none;">
+            <header class="dash-header">
+                <div class="container dash-nav">
+                    <h2>Hola, <span id="student-name-display">Estudiante</span></h2>
+                    <button class="btn-logout" onclick="app.logout()">Cerrar Sesión</button>
+                </div>
+            </header>
+            <main class="container dash-content">
+                <h3>Mis Materias</h3>
+                <div class="cards-grid" id="student-materias-grid">
+                    <!-- Cards will be populated by JS -->
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
