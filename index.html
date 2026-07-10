@@ -3,173 +3,312 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Peidagogos STEAM - Educación en Casa</title>
+    <title>Peidagogos STEAM - Innovación en Educación en Casa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #4a90e2;
-            --secondary-color: #2c3e50;
-            --accent-color: #e74c3c;
-            --bg-color: #f8f9fa;
-            --text-color: #333;
-            --font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            /* Color Theory: Focus and Concentration */
+            --bg-dark: #0f172a; /* Deep slate blue for deep focus and reduction of eye strain */
+            --primary: #38bdf8; /* Calming yet vibrant sky blue */
+            --secondary: #818cf8; /* Indigo for creativity and mental clarity */
+            --accent: #10b981; /* Emerald green for growth and balance */
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --glass-bg: rgba(30, 41, 59, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         body {
-            margin: 0;
-            font-family: var(--font-family);
-            background-color: var(--bg-color);
-            color: var(--text-color);
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            overflow-x: hidden;
             line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Outfit', sans-serif;
+        }
+
+        /* Animated Background */
+        .bg-glow {
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 50% 50%, rgba(56, 189, 248, 0.05) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(129, 140, 248, 0.05) 0%, transparent 40%);
+            z-index: -1;
+            animation: rotateGlow 30s linear infinite;
+        }
+
+        @keyframes rotateGlow {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, var(--secondary-color), #34495e);
-            color: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
-            padding: 100px 20px;
+            padding: 2rem;
+            position: relative;
         }
 
         .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
+            font-size: clamp(3rem, 8vw, 5.5rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(to right, #38bdf8, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 10px 30px rgba(56, 189, 248, 0.2);
+            animation: fadeInUp 1s ease-out;
         }
 
         .hero p {
-            font-size: 1.2rem;
+            font-size: clamp(1.1rem, 2vw, 1.5rem);
+            color: var(--text-muted);
             max-width: 800px;
-            margin: 0 auto 40px auto;
+            margin-bottom: 3.5rem;
+            animation: fadeInUp 1s ease-out 0.2s backwards;
         }
 
         .cta-button {
-            display: inline-block;
-            background-color: var(--accent-color);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
-            padding: 15px 30px;
+            padding: 1.2rem 3rem;
             border-radius: 50px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 700;
             text-decoration: none;
-            font-size: 1.1rem;
-            font-weight: bold;
-            transition: background-color 0.3s ease, transform 0.2s;
+            box-shadow: 0 10px 25px -5px rgba(56, 189, 248, 0.5);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            animation: fadeInUp 1s ease-out 0.4s backwards;
         }
 
         .cta-button:hover {
-            background-color: #c0392b;
-            transform: translateY(-2px);
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 20px 35px -5px rgba(56, 189, 248, 0.6);
         }
 
         /* Pillars Section */
         .pillars {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 30px;
-            padding: 80px 20px;
-            background-color: white;
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
         }
 
         .card {
-            background: var(--bg-color);
-            border-radius: 10px;
-            padding: 30px;
-            max-width: 300px;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 3rem 2.5rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
         .card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            border-color: rgba(56, 189, 248, 0.3);
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
         }
 
         .card h3 {
-            color: var(--primary-color);
-            margin-bottom: 15px;
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+            color: var(--text-main);
+            font-weight: 700;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            line-height: 1.8;
         }
 
         /* Creator Section */
         .creator {
-            background-color: #ecf0f1;
-            padding: 60px 20px;
-            text-align: center;
+            padding: 8rem 2rem;
+            background: linear-gradient(to bottom, transparent, rgba(30, 41, 59, 0.8));
         }
 
         .creator-content {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
-            font-size: 1.2rem;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 4rem 3rem;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        .creator-content::after {
+            content: '"';
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 8rem;
+            font-family: 'Outfit', sans-serif;
+            color: var(--primary);
+            opacity: 0.15;
+            line-height: 1;
+        }
+
+        .creator-text {
+            font-size: 1.35rem;
             font-style: italic;
-            color: var(--secondary-color);
-            border-left: 4px solid var(--primary-color);
-            padding-left: 20px;
-            text-align: left;
+            color: var(--text-main);
+            font-weight: 300;
+            line-height: 1.9;
+            position: relative;
+            z-index: 1;
         }
 
         /* Footer */
         .footer {
-            background-color: var(--secondary-color);
-            color: white;
             text-align: center;
-            padding: 30px 20px;
+            padding: 3rem 2rem;
+            border-top: 1px solid var(--glass-border);
+            color: var(--text-muted);
+            background-color: #0b1120;
         }
 
         .footer p {
-            margin: 0 0 10px 0;
+            margin-bottom: 0.5rem;
         }
 
         .footer a {
-            color: var(--primary-color);
+            color: var(--primary);
             text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
         }
 
         .footer a:hover {
+            color: var(--secondary);
             text-decoration: underline;
         }
 
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2rem; }
-            .pillars { padding: 40px 20px; }
-            .card { max-width: 100%; }
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Subtle Animated Background -->
+    <div class="bg-glow"></div>
 
     <!-- Hero Section -->
     <section class="hero">
         <h1>Peidagogos STEAM</h1>
-        <p>La solución definitiva al modelo de educación en casa (Homeschooling).</p>
-        <a href="login.html" class="cta-button">Iniciar Sesión</a>
+        <p>La solución definitiva y vanguardista al modelo de educación en casa (Homeschooling).</p>
+        <a href="login.html" class="cta-button">
+            Iniciar Sesión
+        </a>
     </section>
 
     <!-- Pilares Educativos -->
     <section class="pillars">
-        <div class="card">
-            <h3>Gamificación</h3>
-            <p>Transformando el progreso en una aventura.</p>
-        </div>
-        <div class="card">
-            <h3>Aprendizaje Basado en Juegos (ABJ)</h3>
-            <p>Dinámicas interactivas para retener el conocimiento.</p>
-        </div>
-        <div class="card">
-            <h3>Aprendizaje Personalizado</h3>
-            <p>Adaptación al ritmo del estudiante en casa.</p>
+        <div class="pillars-grid">
+            <!-- Tarjeta 1 -->
+            <div class="card">
+                <div class="card-icon">🎯</div>
+                <h3>Gamificación</h3>
+                <p>Aplicamos mecánicas de juego en entornos educativos para transformar el proceso de aprendizaje en una aventura inmersiva. A través de un sistema de recompensas, niveles y desafíos constantes, estimulamos la motivación intrínseca. Esto logra que el estudiante disfrute cada etapa de su desarrollo cognitivo, manteniéndose enfocado y comprometido con sus metas.</p>
+            </div>
+            <!-- Tarjeta 2 -->
+            <div class="card">
+                <div class="card-icon">🧩</div>
+                <h3>Aprendizaje Basado en Juegos (ABJ)</h3>
+                <p>Utilizamos juegos dinámicos diseñados específicamente con propósitos pedagógicos. Estas experiencias interactivas permiten al estudiante experimentar, probar hipótesis y resolver problemas en un entorno seguro. De este modo, conceptos que tradicionalmente son complejos se retienen de manera natural, potenciando el pensamiento analítico, la creatividad y la resiliencia.</p>
+            </div>
+            <!-- Tarjeta 3 -->
+            <div class="card">
+                <div class="card-icon">🧠</div>
+                <h3>Aprendizaje Personalizado</h3>
+                <p>Entendemos profundamente que cada mente procesa la información de forma única. Nuestro enfoque pedagógico se adapta milimétricamente al ritmo, estilo y capacidades individuales del estudiante en casa. Mediante metodologías flexibles y adaptativas, potenciamos sus talentos naturales y fortalecemos sus áreas de mejora, garantizando una educación verdaderamente integral y efectiva.</p>
+            </div>
         </div>
     </section>
 
     <!-- Sección del Creador -->
     <section class="creator">
         <div class="creator-content">
-            "Plataforma creada por un Licenciado en Biología y Educación Ambiental, Magíster en Recursos Digitales y Ph.D.c en Ciencias Biomédicas con más de 15 años de experiencia en el sector educativo."
+            <p class="creator-text">
+                "Plataforma creada por un Licenciado en Biología y Educación Ambiental, Magíster en Recursos Digitales y Ph.D.c en Ciencias Biomédicas con más de 15 años de experiencia en el sector educativo."
+            </p>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
         <p>&copy; 2026 Peidagogos STEAM. Todos los derechos reservados.</p>
-        <p><a href="login.html">Iniciar Sesión</a></p>
+        <p><a href="login.html">Acceder a la plataforma</a></p>
     </footer>
-
 </body>
 </html>
