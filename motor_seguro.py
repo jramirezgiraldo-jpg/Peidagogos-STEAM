@@ -14,6 +14,12 @@ if sys.stdout.encoding != 'utf-8':
 PORT = 8080
 
 class GestorAPI(http.server.SimpleHTTPRequestHandler):
+    def end_headers(self):
+        self.send_header('Cache-Control', 'no-store, no-cache, must-revalidate, max-age=0')
+        self.send_header('Pragma', 'no-cache')
+        self.send_header('Expires', '0')
+        super().end_headers()
+
     def do_OPTIONS(self):
         self.send_response(200, "ok")
         self.send_header('Access-Control-Allow-Origin', '*')
@@ -42,6 +48,46 @@ class GestorAPI(http.server.SimpleHTTPRequestHandler):
                 self.wfile.write(json.dumps({"error": str(e)}).encode('utf-8'))
             return
             
+        elif self.path == '/api/docentes':
+            try:
+                archivo_db = 'docentes.json'
+                docentes = []
+                if os.path.exists(archivo_db):
+                    with open(archivo_db, 'r', encoding='utf-8') as f:
+                        try: docentes = json.load(f)
+                        except: pass
+                self.send_response(200)
+                self.send_header('Content-Type', 'application/json')
+                self.send_header('Access-Control-Allow-Origin', '*')
+                self.end_headers()
+                self.wfile.write(json.dumps(docentes).encode('utf-8'))
+            except Exception as e:
+                self.send_response(500)
+                self.send_header('Content-Type', 'application/json')
+                self.end_headers()
+                self.wfile.write(json.dumps({"error": str(e)}).encode('utf-8'))
+            return
+
+        elif self.path == '/api/asignaturas':
+            try:
+                archivo_db = 'asignaturas.json'
+                asignaturas = []
+                if os.path.exists(archivo_db):
+                    with open(archivo_db, 'r', encoding='utf-8') as f:
+                        try: asignaturas = json.load(f)
+                        except: pass
+                self.send_response(200)
+                self.send_header('Content-Type', 'application/json')
+                self.send_header('Access-Control-Allow-Origin', '*')
+                self.end_headers()
+                self.wfile.write(json.dumps(asignaturas).encode('utf-8'))
+            except Exception as e:
+                self.send_response(500)
+                self.send_header('Content-Type', 'application/json')
+                self.end_headers()
+                self.wfile.write(json.dumps({"error": str(e)}).encode('utf-8'))
+            return
+
         elif self.path == '/favicon.ico':
             self.send_response(204)
             self.end_headers()
@@ -57,7 +103,7 @@ class GestorAPI(http.server.SimpleHTTPRequestHandler):
                 content_length = int(self.headers.get('Content-Length', 0))
                 post_data = self.rfile.read(content_length)
                 datos = json.loads(post_data.decode('utf-8'))
-                print(f"[INFO] REGISTRO: {datos.get('nombre')} (Doc: {datos.get('documento')})")
+                print(f"[INFO] REGISTRO ESTUDIANTE: {datos.get('nombre')} (Doc: {datos.get('documento')})")
                 
                 archivo_db = 'usuarios.json'
                 usuarios = []
@@ -79,6 +125,60 @@ class GestorAPI(http.server.SimpleHTTPRequestHandler):
                 self.send_response(500)
                 self.end_headers()
                 self.wfile.write(json.dumps({"error": str(e)}).encode('utf-8'))
+                
+        elif self.path == '/api/registro-docente':
+            try:
+                content_length = int(self.headers.get('Content-Length', 0))
+                post_data = self.rfile.read(content_length)
+                datos = json.loads(post_data.decode('utf-8'))
+                
+                archivo_db = 'docentes.json'
+                docentes = []
+                if os.path.exists(archivo_db):
+                    with open(archivo_db, 'r', encoding='utf-8') as f:
+                        try: docentes = json.load(f)
+                        except: pass
+                
+                docentes.append(datos)
+                with open(archivo_db, 'w', encoding='utf-8') as f:
+                    json.dump(docentes, f, indent=4, ensure_ascii=False)
+
+                self.send_response(200)
+                self.send_header('Content-Type', 'application/json')
+                self.send_header('Access-Control-Allow-Origin', '*')
+                self.end_headers()
+                self.wfile.write(json.dumps({"status": "success", "message": "Docente Creado"}).encode('utf-8'))
+            except Exception as e:
+                self.send_response(500)
+                self.end_headers()
+                self.wfile.write(json.dumps({"error": str(e)}).encode('utf-8'))
+
+        elif self.path == '/api/asignaturas':
+            try:
+                content_length = int(self.headers.get('Content-Length', 0))
+                post_data = self.rfile.read(content_length)
+                datos = json.loads(post_data.decode('utf-8'))
+                
+                archivo_db = 'asignaturas.json'
+                asignaturas = []
+                if os.path.exists(archivo_db):
+                    with open(archivo_db, 'r', encoding='utf-8') as f:
+                        try: asignaturas = json.load(f)
+                        except: pass
+                
+                asignaturas.append(datos)
+                with open(archivo_db, 'w', encoding='utf-8') as f:
+                    json.dump(asignaturas, f, indent=4, ensure_ascii=False)
+
+                self.send_response(200)
+                self.send_header('Content-Type', 'application/json')
+                self.send_header('Access-Control-Allow-Origin', '*')
+                self.end_headers()
+                self.wfile.write(json.dumps({"status": "success", "message": "Asignatura Creada"}).encode('utf-8'))
+            except Exception as e:
+                self.send_response(500)
+                self.end_headers()
+                self.wfile.write(json.dumps({"error": str(e)}).encode('utf-8'))
 
         elif self.path == '/api/login':
             try:
@@ -88,25 +188,46 @@ class GestorAPI(http.server.SimpleHTTPRequestHandler):
                 
                 usuario_input = creds.get('usuario', '').strip()
                 clave_input = creds.get('clave', '').strip()
+                rol_esperado = creds.get('rol', '').strip() # "admin", "docente", "estudiante"
                 
-                archivo_db = 'usuarios.json'
                 encontrado = False
-                nombre_estudiante = ""
-                grado_estudiante = ""
+                nombre = ""
+                grado = ""
+                rol_asignado = ""
 
-                if os.path.exists(archivo_db):
-                    with open(archivo_db, 'r', encoding='utf-8') as f:
-                        try:
-                            usuarios = json.load(f)
-                            for u in usuarios:
-                                doc_db = str(u.get('documento', '')).strip()
-                                print(f"[DEBUG] Comparando BD [{doc_db}] contra Input Usuario [{usuario_input}] y Clave [{clave_input}]")
-                                if doc_db == usuario_input and doc_db == clave_input:
-                                    encontrado = True
-                                    nombre_estudiante = f"{u.get('nombre', '')} {u.get('apellidos', '')}"
-                                    grado_estudiante = str(u.get('grado', ''))
-                                    # Sin break, sigue buscando el válido en caso de duplicados vacíos
-                        except Exception: pass
+                if rol_esperado == "admin":
+                    if usuario_input == "jramirezgiraldo" and clave_input == "Biol2008%":
+                        encontrado = True
+                        nombre = "Administrador"
+                        rol_asignado = "admin"
+                elif rol_esperado == "docente":
+                    archivo_db = 'docentes.json'
+                    if os.path.exists(archivo_db):
+                        with open(archivo_db, 'r', encoding='utf-8') as f:
+                            try:
+                                docentes = json.load(f)
+                                for u in docentes:
+                                    if str(u.get('documento', '')).strip() == usuario_input and str(u.get('clave', '')).strip() == clave_input:
+                                        encontrado = True
+                                        nombre = f"{u.get('nombre', '')} {u.get('apellidos', '')}"
+                                        rol_asignado = "docente"
+                                        break
+                            except: pass
+                else: # Estudiante por defecto
+                    archivo_db = 'usuarios.json'
+                    if os.path.exists(archivo_db):
+                        with open(archivo_db, 'r', encoding='utf-8') as f:
+                            try:
+                                usuarios = json.load(f)
+                                for u in usuarios:
+                                    doc_db = str(u.get('documento', '')).strip()
+                                    if doc_db == usuario_input and doc_db == clave_input:
+                                        encontrado = True
+                                        nombre = f"{u.get('nombre', '')} {u.get('apellidos', '')}"
+                                        grado = str(u.get('grado', ''))
+                                        rol_asignado = "estudiante"
+                                        break
+                            except: pass
 
                 self.send_response(200)
                 self.send_header('Content-Type', 'application/json')
@@ -114,10 +235,8 @@ class GestorAPI(http.server.SimpleHTTPRequestHandler):
                 self.end_headers()
 
                 if encontrado:
-                    print(f"[EXITO] LOGIN CONCEDIDO: {nombre_estudiante}")
-                    self.wfile.write(json.dumps({"status": "success", "nombre": nombre_estudiante, "grado": grado_estudiante}).encode('utf-8'))
+                    self.wfile.write(json.dumps({"status": "success", "nombre": nombre, "grado": grado, "rol": rol_asignado, "usuario": usuario_input}).encode('utf-8'))
                 else:
-                    print(f"[FALLO] LOGIN DENEGADO")
                     self.wfile.write(json.dumps({"status": "error", "message": "Inválido"}).encode('utf-8'))
             except Exception as e:
                 self.send_response(500)

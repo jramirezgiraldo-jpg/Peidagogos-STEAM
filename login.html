@@ -22,6 +22,14 @@
         <p style="font-size: 1rem; color: #6B7280; margin: 10px 0 30px 0;">Selecciona tu v&iacute;a de ingreso.</p>
         
         <div style="display: flex; flex-direction: column; gap: 15px; margin-bottom: 30px;">
+            <div style="display: flex; flex-direction: column; gap: 5px; text-align: left;">
+                <label for="login-role" style="font-weight: 800; color: #111827; font-size: 0.95rem;">Selecciona tu perfil de ingreso:</label>
+                <select id="login-role" style="padding: 12px; border: 2px solid #3B82F6; border-radius: 8px; font-weight: bold; color: #111827; cursor: pointer; background-color: #F0F9FF;">
+                <option value="estudiante">👨‍🎓 Soy Estudiante</option>
+                <option value="docente">👩‍🏫 Soy Docente Home School</option>
+                <option value="admin">🛡️ Soy Administrador</option>
+            </select>
+            </div>
             <input type="text" id="admin-user" placeholder="Usuario" style="padding: 12px; border: 1px solid #d1d5db; border-radius: 8px;">
             <input type="password" id="admin-pass" placeholder="Contrase&ntilde;a" style="padding: 12px; border: 1px solid #d1d5db; border-radius: 8px;">
             <button id="btn-login-core" style="background-color: #2C3E50; color: white; padding: 14px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;">Iniciar Sesi&oacute;n</button>
@@ -56,6 +64,64 @@
 
 
 
+<!-- DASHBOARD DOCENTE (NUEVO) -->
+<div id="docente-dashboard-container" style="display: none; height: 100vh; overflow-y: auto; background-color: #F8FAFC;">
+    <header style="background: white; border-bottom: 1px solid #E5E7EB; padding: 15px 30px; display: flex; justify-content: space-between; align-items: center;">
+        <div style="font-weight: 900; font-size: 1.4rem; color: #111827;">
+            <img src="logo-peidagogos.png" alt="Peidagogos STEAM" style="height: 55px; width: auto; object-fit: contain;">
+        </div>
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <div style="background: #F3F4F6; padding: 8px 15px; border-radius: 20px; font-size: 0.9rem; font-weight: 700; color: #374151;">
+                Panel Docente: <span id="docente-nombre-header">Docente</span>
+            </div>
+            <button onclick="location.reload()" style="background: #EF4444; color: white; border: none; padding: 8px 20px; border-radius: 8px; font-weight: bold; cursor: pointer;">Cerrar Sesi&oacute;n</button>
+        </div>
+    </header>
+
+    <div style="padding: 40px 30px; max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 2fr; gap: 20px;">
+        <!-- Formulario Matrícula Estudiante -->
+        <div style="background: white; padding: 30px; border-radius: 16px; box-shadow: 0 10px 25px rgba(0,0,0,0.05);">
+            <h3 style="font-weight: 800; margin-bottom: 20px;">Matricular Estudiante</h3>
+            <div style="display: flex; flex-direction: column; gap: 15px;">
+                <input type="number" id="docente-reg-doc" placeholder="Documento" style="padding: 10px; border: 1px solid #d1d5db; border-radius: 8px;">
+                <input type="text" id="docente-reg-nom" placeholder="Nombres" style="padding: 10px; border: 1px solid #d1d5db; border-radius: 8px;">
+                <input type="text" id="docente-reg-ape" placeholder="Apellidos" style="padding: 10px; border: 1px solid #d1d5db; border-radius: 8px;">
+                <input type="number" id="docente-reg-edad" placeholder="Edad" style="padding: 10px; border: 1px solid #d1d5db; border-radius: 8px;">
+                <select id="docente-reg-gen" style="padding: 10px; border: 1px solid #d1d5db; border-radius: 8px;">
+                    <option value="">Género...</option><option value="F">Femenino</option><option value="M">Masculino</option>
+                </select>
+                <select id="docente-reg-grado" style="padding: 10px; border: 1px solid #d1d5db; border-radius: 8px;" onchange="cargarAsignaturasDocente(this.value)">
+                    <option value="">Grado...</option><option value="6">6°</option><option value="7">7°</option><option value="8">8°</option>
+                </select>
+                <div>
+                    <strong>Materias a cursar:</strong>
+                    <div id="materias-checkboxes-container" style="display: flex; flex-direction: column; gap: 5px; margin-top: 10px;">
+                        <span style="color: #6B7280; font-size: 0.9rem;">Selecciona un grado primero.</span>
+                    </div>
+                </div>
+                <button id="btn-docente-matricular" style="background-color: #10B981; color: white; padding: 12px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;">Matricular</button>
+            </div>
+        </div>
+
+        <!-- Lista Estudiantes -->
+        <div style="background: white; padding: 30px; border-radius: 16px; box-shadow: 0 10px 25px rgba(0,0,0,0.05);">
+            <h3 style="font-weight: 800; margin-bottom: 20px;">Mis Estudiantes Matriculados</h3>
+            <table style="width: 100%; border-collapse: collapse; text-align: left;">
+                <thead>
+                    <tr style="border-bottom: 2px solid #E5E7EB;">
+                        <th style="padding: 10px;">Doc</th>
+                        <th style="padding: 10px;">Nombre</th>
+                        <th style="padding: 10px;">Grado</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody-docente-estudiantes">
+                    <!-- Se llena con JS -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
 <!-- DASHBOARD ADMIN RECREADO -->
         <div id="dashboard-screen-container" style="display: none; height: 100vh; overflow-y: auto; background-color: #F8FAFC;">
             <!-- Header Superior -->
@@ -81,8 +147,16 @@
                         <p style="color: #22D3EE; margin: 8px 0 0 0; font-weight: 600; font-size: 1.1rem;">Panel de Control Docente - Hub de Administraci&oacute;n</p>
                     </div>
 
+                    <!-- TABS ADMIN -->
+                    <div style="display: flex; background: #F3F4F6; border-bottom: 1px solid #E5E7EB; flex-wrap: wrap;">
+                        <button class="admin-tab-btn active" data-tab="mallas" style="padding: 15px 30px; border: none; background: white; font-weight: bold; cursor: pointer; border-bottom: 3px solid #3B82F6;">Mallas Curriculares</button>
+                        <button class="admin-tab-btn" data-tab="docentes" style="padding: 15px 30px; border: none; background: transparent; font-weight: bold; cursor: pointer; color: #6B7280;">Lista Docentes</button>
+                        <button class="admin-tab-btn" data-tab="estudiantes" style="padding: 15px 30px; border: none; background: transparent; font-weight: bold; cursor: pointer; color: #6B7280;">Lista Estudiantes</button>
+                        <button class="admin-tab-btn" data-tab="asignaturas" style="padding: 15px 30px; border: none; background: transparent; font-weight: bold; cursor: pointer; color: #6B7280;">Asignaturas</button>
+                    </div>
                     
-                    <!-- Mallas Admin (NUEVO) -->
+                    <div id="admin-view-mallas" class="admin-view" style="display: block; padding: 20px;">
+                        <!-- Mallas Admin (NUEVO) -->
 <div id="malla-grado-6" class="contenedor-malla" style="display:none;">
 <div class="grade-title">Malla Curricular: Grado Sexto (6°)</div><table>
 <thead>
@@ -676,8 +750,44 @@
 <tr class="w-met"><td>Semana 8</td><td>Metacognición</td><td>Fase de Defensa Pública Magistral Virtual de la Monografía Anual de Ciencias: Congreso Científico Escolar en Red. Autoevaluación general de egreso.</td><td>Consolidación definitiva del perfil de egreso: ciudadanos éticos competentes intelectualmente autónomos humanistas activos en la sociedad.</td></tr>
 </tbody>
 </table>
-</div>
+</div> <!-- fin malla-grado-11 -->
 
-                    <script src="app.js"></script>
+                    </div> <!-- CIERRE admin-view-mallas -->
+
+                    <!-- OTRAS VISTAS ADMIN -->
+                    <div id="admin-view-docentes" class="admin-view" style="display: none; padding: 20px;">
+                        <h3 style="font-weight: 800; margin-bottom: 20px;">Docentes Home School</h3>
+                        <table style="width: 100%; border-collapse: collapse; text-align: left; background: white; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+                            <thead><tr style="border-bottom: 2px solid #E5E7EB;"><th style="padding: 15px;">Documento</th><th style="padding: 15px;">Docente</th><th style="padding: 15px;">Estudiantes Matriculados</th></tr></thead>
+                            <tbody id="tbody-admin-docentes"></tbody>
+                        </table>
+                    </div>
+
+                    <div id="admin-view-estudiantes" class="admin-view" style="display: none; padding: 20px;">
+                        <h3 style="font-weight: 800; margin-bottom: 20px;">Todos los Estudiantes</h3>
+                        <table style="width: 100%; border-collapse: collapse; text-align: left; background: white; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+                            <thead><tr style="border-bottom: 2px solid #E5E7EB;"><th style="padding: 15px;">Documento</th><th style="padding: 15px;">Nombre</th><th style="padding: 15px;">Grado</th></tr></thead>
+                            <tbody id="tbody-admin-todos-estudiantes"></tbody>
+                        </table>
+                    </div>
+
+                    <div id="admin-view-asignaturas" class="admin-view" style="display: none; padding: 20px;">
+                        <h3 style="font-weight: 800; margin-bottom: 20px;">Crear Asignatura</h3>
+                        <div style="display: flex; gap: 10px; margin-bottom: 20px; align-items: center; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+                            <input type="text" id="admin-asig-nombre" placeholder="Nombre Asignatura" style="padding: 12px; border: 1px solid #d1d5db; border-radius: 8px; flex: 1;">
+                            <select id="admin-asig-grado" style="padding: 12px; border: 1px solid #d1d5db; border-radius: 8px;">
+                                <option value="6">6°</option><option value="7">7°</option><option value="8">8°</option><option value="9">9°</option><option value="10">10°</option><option value="11">11°</option>
+                            </select>
+                            <button id="btn-crear-asignatura" style="background: #10B981; color: white; padding: 12px 24px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;">Registrar Asignatura</button>
+                        </div>
+                    </div>
+
+                </div> <!-- fin div bg white admin central -->
+            </div> <!-- fin contenedor central -->
+        </div> <!-- fin dashboard-screen-container -->
+    </div> <!-- fin app-container -->
+
+    <script src="app.js"></script>
         
 </body>
+</html>
