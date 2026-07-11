@@ -1,3 +1,21 @@
+// ==========================================
+// MATRIZ FÍSICA INYECTADA (FASE 2)
+// ==========================================
+const mallaFisicaMontenegro = {
+  "6": {
+    "1": "Movimiento planetario y gravitación universal.",
+    "2": "Conceptos de posición, desplazamiento, velocidad y aceleración.",
+    "3": "Impulso, cantidad de movimiento y choques.",
+    "4": "Fenómenos naturales comunes en el entorno."
+  },
+  "7": {
+    "1": "Cantidades escalares y vectoriales en fenómenos naturales.",
+    "2": "Análisis y construcción de gráficas de movimiento.",
+    "3": "Movimiento de un cuerpo en dos dimensiones.",
+    "4": "Energía mecánica y principio de conservación de la energía."
+  }
+};
+
 document.addEventListener("DOMContentLoaded", function() {
     const btnShowReg = document.getElementById("btn-show-register");
     const btnCancelReg = document.getElementById("btn-cancel-register");
@@ -197,15 +215,17 @@ document.addEventListener("DOMContentLoaded", function() {
             const ed = document.getElementById("reg-edad") ? document.getElementById("reg-edad").value.trim() : "";
             const gen = document.getElementById("reg-genero") ? document.getElementById("reg-genero").value : "";
             const gra = document.getElementById("reg-grado") ? document.getElementById("reg-grado").value : "";
+            const grupo = document.getElementById("registro-grupo") ? document.getElementById("registro-grupo").value : "";
+            const asig = document.getElementById("registro-asignatura") ? document.getElementById("registro-asignatura").value : "";
 
-            if (!doc || !ap || !nom || !ed || !gen || !gra) {
+            if (!doc || !ap || !nom || !ed || !gen || !gra || !grupo || !asig) {
                 alert("⚠️ Por favor, completa todos los campos.");
                 return;
             }
             fetch("/api/registro-estudiante", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ documento: doc, apellidos: ap, nombre: nom, edad: ed, genero: gen, grado: gra })
+                body: JSON.stringify({ documento: doc, apellidos: ap, nombre: nom, edad: ed, genero: gen, grado: gra, grupo: grupo, asignatura: asig })
             }).then(r => {
                 if(r.ok) { alert("Registrado!"); location.reload(); }
             });
@@ -260,6 +280,51 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
+    // ==========================================
+    // RENDERIZADO INTELIGENTE PESTAÑAS (FASE 3)
+    // ==========================================
+    const tabBtns = document.querySelectorAll('.tab-grado-btn');
+    if (tabBtns.length > 0) {
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const target = this.getAttribute('data-target');
+                const grado = target.charAt(0);
+                
+                // Mostrar la planeación
+                const mallaDisplay = document.getElementById('malla-display');
+                if (mallaDisplay && mallaFisicaMontenegro[grado]) {
+                    const plan = mallaFisicaMontenegro[grado];
+                    mallaDisplay.innerHTML = `
+                        <div style="background: white; border-radius: 12px; padding: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: left;">
+                            <h4 style="border-bottom: 2px solid #E5E7EB; padding-bottom: 10px; margin-bottom: 15px; font-weight: 800; font-family: Outfit, sans-serif; font-size: 1.4rem;">Planeación Física ${target}</h4>
+                            <ul style="list-style-type: none; padding: 0; color: #374151; font-size: 1.1rem; line-height: 1.8;">
+                                <li style="margin-bottom: 10px;"><b>Semana 1:</b> ${plan["1"]}</li>
+                                <li style="margin-bottom: 10px;"><b>Semana 2:</b> ${plan["2"]}</li>
+                                <li style="margin-bottom: 10px;"><b>Semana 3:</b> ${plan["3"]}</li>
+                                <li><b>Semana 4:</b> ${plan["4"]}</li>
+                            </ul>
+                        </div>
+                    `;
+                }
+
+                // Filtrar tabla de estudiantes
+                const tbody = document.getElementById('tbody-docente-estudiantes');
+                if (tbody) {
+                    const rows = tbody.querySelectorAll('tr');
+                    rows.forEach(row => {
+                        const txt = row.innerText;
+                        // Checking if row contains the specific group
+                        if (txt.includes(` - ${target} `) || txt.includes(` - ${target} (`)) {
+                            row.style.display = 'table-row';
+                        } else {
+                            row.style.display = 'none';
+                        }
+                    });
+                }
+            });
+        });
+    }
+
 }); // Fin DOMContentLoaded
 
 // ==========================================
@@ -271,15 +336,22 @@ async function cargarEstudiantesDocente(docenteId) {
         const res = await fetch('/api/estudiantes');
         const estudiantes = await res.json();
         const tbody = document.getElementById('tbody-docente-estudiantes');
+        
+        const filtroAsig = document.getElementById('filtro-asignatura') ? document.getElementById('filtro-asignatura').value : "Todas las Asignaturas";
+        const filtroGrupo = document.getElementById('filtro-grupo') ? document.getElementById('filtro-grupo').value : "Todos los Grupos";
+
         if (tbody) {
             tbody.innerHTML = '';
             estudiantes.forEach(est => {
-                if (est.docente_id === docenteId) {
+                const matchAsig = (filtroAsig === "Todas las Asignaturas") || (est.asignatura === filtroAsig);
+                const matchGrupo = (filtroGrupo === "Todos los Grupos") || (est.grupo === filtroGrupo);
+
+                if (est.docente_id === docenteId && matchAsig && matchGrupo) {
                     tbody.innerHTML += `
                     <tr>
                         <td style="padding: 10px;">${est.documento || ''}</td>
                         <td style="padding: 10px; font-weight: bold;">${est.nombre || ''} ${est.apellidos || ''}</td>
-                        <td style="padding: 10px;">${est.grado || ''}°</td>
+                        <td style="padding: 10px;">${est.grado || ''}° - ${est.grupo || ''} (${est.asignatura || ''})</td>
                     </tr>`;
                 }
             });

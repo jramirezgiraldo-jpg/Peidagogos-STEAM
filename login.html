@@ -56,6 +56,23 @@
         <select id="reg-grado" style="padding: 12px; border: 1px solid #d1d5db; border-radius: 8px;">
             <option value="">Grado a cursar...</option><option value="6">6&deg;</option><option value="7">7&deg;</option><option value="8">8&deg;</option><option value="9">9&deg;</option><option value="10">10&deg;</option><option value="11">11&deg;</option>
         </select>
+        <select id="registro-grupo" style="padding: 12px; border: 1px solid #d1d5db; border-radius: 8px;" required>
+            <option value="">Grupo...</option>
+            <option value="6A">6A</option><option value="6B">6B</option>
+            <option value="7A">7A</option><option value="7B">7B</option><option value="7C">7C</option>
+            <option value="8A">8A</option><option value="8B">8B</option>
+            <option value="9A">9A</option>
+            <option value="10A">10A</option><option value="10D">10D</option>
+            <option value="PENS">PENS</option>
+        </select>
+        <select id="registro-asignatura" style="padding: 12px; border: 1px solid #d1d5db; border-radius: 8px;" required>
+            <option value="">Asignatura...</option>
+            <option value="Física">Física</option>
+            <option value="Artística">Artística</option>
+            <option value="Ética">Ética</option>
+            <option value="Turismo">Turismo</option>
+            <option value="Química">Química</option>
+        </select>
         <button id="btn-submit-register" style="background-color: #10B981; color: white; padding: 14px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;">Crear Estudiante</button>
         <button id="btn-cancel-register" style="background-color: transparent; color: #6B7280; padding: 10px; border: none; cursor: pointer; text-decoration: underline;">Volver al Acceso Principal</button>
         <div id="reg-feedback-msg" style="text-align: center; font-size: 0.9rem; display: none; font-weight: bold;"></div>
@@ -106,6 +123,27 @@
         <!-- Lista Estudiantes -->
         <div style="background: white; padding: 30px; border-radius: 16px; box-shadow: 0 10px 25px rgba(0,0,0,0.05);">
             <h3 style="font-weight: 800; margin-bottom: 20px;">Mis Estudiantes Matriculados</h3>
+            
+            <div style="display: flex; gap: 15px; margin-bottom: 20px;">
+                <select id="filtro-asignatura" style="padding: 10px; border: 1px solid #d1d5db; border-radius: 8px;" onchange="cargarEstudiantesDocente(usuario_actual)">
+                    <option value="Todas las Asignaturas">Todas las Asignaturas</option>
+                    <option value="Física">Física</option>
+                    <option value="Artística">Artística</option>
+                    <option value="Ética">Ética</option>
+                    <option value="Turismo">Turismo</option>
+                    <option value="Química">Química</option>
+                </select>
+                <select id="filtro-grupo" style="padding: 10px; border: 1px solid #d1d5db; border-radius: 8px;" onchange="cargarEstudiantesDocente(usuario_actual)">
+                    <option value="Todos los Grupos">Todos los Grupos</option>
+                    <option value="6A">6A</option><option value="6B">6B</option>
+                    <option value="7A">7A</option><option value="7B">7B</option><option value="7C">7C</option>
+                    <option value="8A">8A</option><option value="8B">8B</option>
+                    <option value="9A">9A</option>
+                    <option value="10A">10A</option><option value="10D">10D</option>
+                    <option value="PENS">PENS</option>
+                </select>
+            </div>
+
             <table style="width: 100%; border-collapse: collapse; text-align: left;">
                 <thead>
                     <tr style="border-bottom: 2px solid #E5E7EB;">
