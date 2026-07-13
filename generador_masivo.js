@@ -3,31 +3,31 @@ const fs = require('fs');
 const roles = [
     "Detective de Misterios",
     "Explorador Espacial",
-    "Científico Loco",
-    "Youtuber Científico",
-    "Hacker Tecnológico"
+    // "Científico Loco",
+    // "Youtuber Científico",
+    // "Hacker Tecnológico"
 ];
 
 const ambientes = [
     "Mundo Post-Apocalíptico",
     "Estación Espacial Internacional",
-    "Expedición en la Selva",
-    "Laboratorio Secreto Subterráneo",
-    "Metrópolis del Futuro"
+    // "Expedición en la Selva",
+    // "Laboratorio Secreto Subterráneo",
+    // "Metrópolis del Futuro"
 ];
 
 const niveles = [
     "Modo Novato (Fácil)",
     "Modo Supervivencia (Intermedio)",
-    "Modo Héroe (Difícil)",
-    "Modo Dios (Reto Épico)"
+    // "Modo Héroe (Difícil)",
+    // "Modo Dios (Reto Épico)"
 ];
 
 const enfoques = [
     "Resolver un misterio (Indagación)",
     "Explicar un fenómeno extraño",
-    "Usar la ciencia para sobrevivir",
-    "Desmentir un mito popular"
+    // "Usar la ciencia para sobrevivir",
+    // "Desmentir un mito popular"
 ];
 
 const materias = [
