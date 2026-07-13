@@ -181,6 +181,84 @@ DEBES DEVOLVER EXCLUSIVAMENTE UN OBJETO JSON VÁLIDO (sin bloques de código mar
     }
 });
 
+// ==========================================
+// NUEVOS ENDPOINTS DE USUARIOS (MIGRADOS DE PYTHON)
+// ==========================================
+const readJSON = (file) => {
+    try {
+        return JSON.parse(fs.readFileSync(path.join(__dirname, file), 'utf-8'));
+    } catch(e) {
+        return [];
+    }
+};
+const writeJSON = (file, data) => {
+    fs.writeFileSync(path.join(__dirname, file), JSON.stringify(data, null, 4), 'utf-8');
+};
+
+app.get('/api/usuarios', (req, res) => res.json(readJSON('usuarios.json')));
+app.get('/api/docentes', (req, res) => res.json(readJSON('docentes.json')));
+app.get('/api/asignaturas', (req, res) => res.json(readJSON('asignaturas.json')));
+
+app.post('/api/registro-estudiante', (req, res) => {
+    const usuarios = readJSON('usuarios.json');
+    usuarios.push(req.body);
+    writeJSON('usuarios.json', usuarios);
+    res.json({status: "success"});
+});
+
+app.post('/api/registro-docente', (req, res) => {
+    const docentes = readJSON('docentes.json');
+    docentes.push(req.body);
+    writeJSON('docentes.json', docentes);
+    res.json({status: "success"});
+});
+
+app.post('/api/eliminar-estudiante', (req, res) => {
+    let usuarios = readJSON('usuarios.json');
+    usuarios = usuarios.filter(u => u.documento !== req.body.documento);
+    writeJSON('usuarios.json', usuarios);
+    res.json({status: "success"});
+});
+
+app.post('/api/asignaturas', (req, res) => {
+    const asignaturas = readJSON('asignaturas.json');
+    asignaturas.push(req.body);
+    writeJSON('asignaturas.json', asignaturas);
+    res.json({status: "success"});
+});
+
+app.post('/api/login', (req, res) => {
+    const { usuario, clave, rol } = req.body;
+    let encontrado = false;
+    let nombre = "", grado = "", grupo = "", asignatura = "", rol_asignado = "";
+
+    if (rol === 'admin') {
+        if (usuario === 'jramirezgiraldo' && clave === 'Biol2008%') {
+            encontrado = true; nombre = "Administrador"; rol_asignado = "admin";
+        }
+    } else if (rol === 'docente') {
+        const docentes = readJSON('docentes.json');
+        const doc = docentes.find(d => String(d.documento).trim() === String(usuario).trim() && String(d.clave).trim() === String(clave).trim());
+        if (doc) {
+            encontrado = true; nombre = `${doc.nombre} ${doc.apellidos}`; rol_asignado = "docente";
+        }
+    } else {
+        const usuarios = readJSON('usuarios.json');
+        const est = usuarios.find(u => String(u.documento).trim() === String(usuario).trim() && String(u.documento).trim() === String(clave).trim());
+        if (est) {
+            encontrado = true; nombre = `${est.nombre} ${est.apellidos}`;
+            grado = est.grado || ""; grupo = est.grupo || ""; asignatura = est.asignatura || "";
+            rol_asignado = "estudiante";
+        }
+    }
+
+    if (encontrado) {
+        res.json({ status: "success", usuario, nombre, rol: rol_asignado, grado, grupo, asignatura });
+    } else {
+        res.status(401).json({ status: "error", message: "Credenciales invalidas" });
+    }
+});
+
 // Ruta principal para servir el index.html en cualquier otra ruta
 app.get(/(.*)/, (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
