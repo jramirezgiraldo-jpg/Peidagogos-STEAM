@@ -1,0 +1,188 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Qué forma tiene la trayectoria de los planetas alrededor del Sol según las observaciones modernas?",
+      "opciones": [
+        "Circular perfecta",
+        "Elíptica",
+        "Zigzag",
+        "Espiral ascendente"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Cuál es la fuerza responsable de mantener a los planetas en su órbita?",
+      "opciones": [
+        "Fuerza Magnética",
+        "Fuerza de Fricción",
+        "Fuerza Gravitacional",
+        "Fuerza Nuclear"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "Si un planeta se aleja del Sol en su órbita, ¿qué sucede con su velocidad orbital?",
+      "opciones": [
+        "Aumenta",
+        "Disminuye",
+        "Permanece constante",
+        "Se detiene"
+      ],
+      "correcta": 1
+    }
+  ],
+  "texto_inductivo": "Saludos, aspirante a Detective del Cosmos. Me encuentro en las ruinas de lo que solía ser el Observatorio de Atacama. El cielo ya no es azul; una neblina perpetua de ceniza y partículas ionizadas cubre nuestra atmósfera desde el Gran Colapso de 2098. Sin embargo, mi labor no se detiene. Mi objetivo es resolver el 'Misterio del Tiempo Perdido'. Los supervivientes en los búnkeres informan que los inviernos son ahora tres semanas más largos que en los registros de la Era Antigua. Algunos dicen que la Tierra se está escapando del Sol; otros afirman que el Sol se está apagando. Pero un detective de la física no se basa en rumores, sino en la mecánica celeste. Al limpiar las lentes del telescopio principal, logré capturar datos de la posición de Marte y la Tierra durante los últimos tres ciclos. Lo que encontré desafía la intuición de los neófitos pero confirma las leyes de los antiguos maestros. \n\nDebes comprender que el universo no se mueve por capricho. Johannes Kepler, un detective de datos del siglo XVII, descubrió patrones en el caos. Observó que los planetas no describen círculos perfectos, una idea que los antiguos mantenían por pura vanidad estética. En realidad, nos movemos en **elipses**. En una elipse, el Sol no está en el centro, sino en uno de los puntos llamados **focos**. Esto significa que hay momentos en que estamos más cerca del Sol (perihelio) y momentos en que estamos más lejos (afelio). ¿Es esta la causa de nuestros inviernos prolongados? No necesariamente por la distancia, sino por la velocidad. Kepler notó algo fascinante: cuando el planeta está lejos del Sol, se mueve más lento, como si estuviera cansado de luchar contra la gravedad. Al estar cerca, acelera, como un corredor cuesta abajo. Esta es su Segunda Ley, la ley de las áreas iguales en tiempos iguales. Si los inviernos se sienten más largos, ¿será que nuestra órbita se ha vuelto más estirada, más excéntrica? \n\nInvestigando los archivos digitales recuperados, encontré una anomalía en la Tercera Ley de Kepler. Esta ley es la herramienta definitiva del detective: relaciona el tiempo que tarda un planeta en dar la vuelta al Sol (periodo) con su distancia promedio. Si el periodo ha cambiado, la distancia debe haber cambiado. Pero, ¿por qué? Aquí es donde entra la sombra de Isaac Newton. La gravedad es el hilo invisible que sostiene este baile. En este mundo post-apocalíptico, donde la tecnología falla, las matemáticas de la gravitación universal son nuestra única brújula. Si una masa desconocida —quizás un agujero negro errante o un planeta masivo oscuro— hubiera pasado cerca de nuestro sistema, las órbitas se habrían perturbado. Mi evidencia sugiere que no es el Sol el que falla, sino que la geometría de nuestro camino ha sido alterada por un 'Intruso Gravitacional'. Tu misión es analizar estos movimientos, entender las leyes que rigen el cielo y determinar si la humanidad podrá volver a ver una primavera de duración normal o si estamos condenados a un elipse eterna de frío.",
+  "recurso_visual": "| Ley de Kepler | Nombre | Concepto Clave | Efecto en el Movimiento |\n|---|---|---|---|\n| Primera | Ley de las Órbitas | Elipses con el Sol en un foco | La distancia planeta-sol varía constantemente. |\n| Segunda | Ley de las Áreas | Áreas iguales en tiempos iguales | El planeta va más rápido cerca del sol y más lento lejos. |\n| Tercera | Ley de los Periodos | $T^2 \\propto r^3$ | Planetas más lejanos tardan mucho más en completar su año. |\n| Newton | Gravitación Universal | $F = G \\frac{m_1 m_2}{r^2}$ | La fuerza disminuye drásticamente al aumentar la distancia. |",
+  "preguntas_inductivas_pagina": [
+    "¿Por qué el detective menciona que el Sol no está en el centro de la órbita?",
+    "¿Qué fenómeno físico explica que los inviernos se sientan más largos según la Segunda Ley de Kepler?",
+    "¿Cómo define el texto la diferencia entre perihelio y afelio?",
+    "¿Cuál es la relación que establece la Tercera Ley de Kepler entre el tiempo y la distancia?",
+    "¿Qué papel juega la gravedad de Newton en el misterio del 'Intruso Gravitacional'?"
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema de una órbita elíptica exagerada, ubicando el Sol en un foco, el perihelio, el afelio y sombreando dos sectores de 'áreas iguales' que representen diferentes velocidades.",
+    "Realiza un cuadro comparativo entre la visión del movimiento circular (antigua) y la visión elíptica (Kepleriana), destacando ventajas y desventajas para explicar el clima.",
+    "Escribe una reflexión de 15 líneas: Si fueras el detective, ¿qué mediciones adicionales harías para confirmar la presencia de un 'Intruso Gravitacional'?",
+    "Representa gráficamente la relación entre la fuerza de gravedad y la distancia (Ley de la inversa del cuadrado) mediante un diagrama de flechas o vectores."
+  ],
+  "juegos_ordenar_letras_1": [
+    "ELIPSE",
+    "GRAVEDAD",
+    "PERIODO"
+  ],
+  "juego_ordenar_frase_1": "LOS PLANETAS DESCRIBEN ORBITAS ELIPTICAS ALREDEDOR DEL SOL EL CUAL SE UBICA EN UNO DE LOS FOCOS",
+  "texto_deductivo": "Para resolver el misterio del 'Intruso Gravitacional' en este mundo devastado, debemos aplicar el rigor deductivo de la mecánica celeste. No basta con observar; debemos calcular. La ciencia del movimiento planetario no es una colección de hechos aislados, sino un sistema unificado por la física de Newton y refinado por Einstein. La clave reside en la constante gravitacional y la conservación del momento angular. Cuando decimos que un planeta orbita, en realidad está en una caída libre perpetua. El detective debe entender que la Tierra no cae hacia el Sol porque su velocidad tangencial es lo suficientemente alta como para 'fallar' el suelo constantemente. \n\nSi el misterio indica que el año terrestre se ha alargado, la deducción lógica, basada en la Tercera Ley de Kepler ($T^2 = k \\cdot r^3$), es que el radio promedio de la órbita ($r$) ha aumentado. Para que el radio aumente, algo debió suministrar energía adicional al sistema o la masa del Sol debió disminuir de forma catastrófica. Sin embargo, nuestras mediciones espectroscópicas indican que la masa solar es estable. Por lo tanto, la deducción nos lleva a la influencia externa. Un objeto masivo pasando por el sistema solar exterior podría haber 'tirado' de la Tierra, aumentando su excentricidad. La excentricidad es la medida de qué tan 'aplastada' es la elipse. Una elipse más excéntrica significa que pasamos mucho más tiempo en el afelio (lejos del calor) y un tiempo breve y violento en el perihelio. \n\nDesde el punto de vista físico, la fuerza gravitatoria se describe como $F = G (m_1 m_2) / r^2$. Esta ecuación es la ley suprema del detective. Si la distancia $r$ se duplica, la fuerza no se reduce a la mitad, sino a la cuarta parte. Esto explica por qué pequeñas perturbaciones en la distancia pueden causar efectos climáticos devastadores en nuestro mundo post-apocalíptico. Además, debemos considerar el Momento Angular ($L = mvr$). En una órbita cerrada, el momento angular se conserva. Si el planeta se aleja ($r$ aumenta), su velocidad ($v$) debe disminuir para que $L$ permanezca constante. Aquí está la prueba irrefutable: si nuestros instrumentos muestran que la Tierra se mueve más lento en el punto más alejado de lo que solía hacerlo en la Era Antigua, hemos confirmado el cambio orbital. \n\nFinalmente, el detective debe integrar la Ley de Inercia. La Tierra quiere seguir en línea recta, pero la curvatura del espacio-tiempo (gravedad) la obliga a girar. Si el 'Intruso' deformó este tejido, las órbitas de todos los planetas vecinos también deberían mostrar anomalías. Al revisar los datos de Júpiter, notamos que su órbita también se ha desplazado tres grados. La deducción final es clara: el sistema solar no es un mecanismo de relojería estático, sino un campo de fuerzas dinámico que ha sido alterado por un evento externo masivo. La resolución del misterio no solo nos devuelve el conocimiento, sino la esperanza de predecir cuándo terminará este invierno eterno y si la órbita volverá a su equilibrio original o si debemos adaptarnos a una nueva era de leyes físicas extremas.",
+  "preguntas_deductivas_pagina": [
+    "¿Qué sucede con la fuerza de gravedad si la distancia entre dos cuerpos se triplica?",
+    "¿Cómo explica el texto que la Tierra no 'caiga' directamente hacia el Sol?",
+    "Si la masa del Sol disminuyera, ¿qué pasaría con el periodo orbital de la Tierra según las leyes discutidas?",
+    "¿Qué relación existe entre el momento angular y la velocidad de un planeta en el afelio?",
+    "¿Cuál es la prueba irrefutable que menciona el detective para confirmar el cambio orbital?"
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Realiza un diagrama detallado que explique la Ley de Gravitación Universal de Newton, identificando cada variable y su unidad de medida.",
+    "Elabora un mapa mental que conecte las tres Leyes de Kepler con la Ley de Gravitación de Newton, usando conectores lógicos como 'causado por' o 'explicado mediante'.",
+    "Dibuja un esquema explicativo que muestre la diferencia entre una órbita de baja excentricidad (casi circular) y una de alta excentricidad, señalando las zonas de mayor y menor velocidad.",
+    "Diseña una infografía artesanal titulada 'El Intruso Gravitacional' donde expliques cómo un objeto masivo altera las órbitas planetarias usando los conceptos de fuerza y aceleración."
+  ],
+  "juegos_ordenar_letras_2": [
+    "NEWTON",
+    "INERCIA",
+    "AFELIO"
+  ],
+  "juego_ordenar_frase_2": "LA FUERZA DE GRAVEDAD DISMINUYE CON EL CUADRADO DE LA DISTANCIA ENTRE LOS CENTROS DE LOS CUERPOS",
+  "sopa_letras": [
+    "KEPLER",
+    "NEWTON",
+    "ORBITA",
+    "ELIPSE",
+    "FOCO",
+    "GRAVEDAD",
+    "PERIODO",
+    "MASA",
+    "INERCIA",
+    "DISTANCIA"
+  ],
+  "crucigrama": [
+    {
+      "palabra": "KEPLER",
+      "pista": "Científico que determinó que las órbitas son elípticas."
+    },
+    {
+      "palabra": "AFELIO",
+      "pista": "Punto de la órbita más alejado del Sol."
+    },
+    {
+      "palabra": "PERIHELIO",
+      "pista": "Punto de la órbita más cercano al Sol."
+    },
+    {
+      "palabra": "GRAVEDAD",
+      "pista": "Fuerza de atracción entre dos masas."
+    },
+    {
+      "palabra": "ELIPSE",
+      "pista": "Figura geométrica de la trayectoria planetaria."
+    },
+    {
+      "palabra": "FOCO",
+      "pista": "Lugar que ocupa el Sol dentro de la elipse orbital."
+    },
+    {
+      "palabra": "NEWTON",
+      "pista": "Formuló la Ley de Gravitación Universal."
+    },
+    {
+      "palabra": "PERIODO",
+      "pista": "Tiempo que tarda un planeta en dar una vuelta completa."
+    },
+    {
+      "palabra": "EXCENTRICIDAD",
+      "pista": "Parámetro que mide qué tan estirada es una elipse."
+    },
+    {
+      "palabra": "INERCIA",
+      "pista": "Tendencia de los cuerpos a mantener su estado de movimiento."
+    }
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "En el mundo post-apocalíptico, los científicos observan que un satélite artificial ha perdido velocidad debido al roce con restos de ceniza volcánica en la alta atmósfera.",
+      "tabla_o_grafica_markdown": "| Estado | Velocidad Orbital | Radio de la Órbita |\n|---|---|---|\n| Inicial | 7500 m/s | 6700 km |\n| Final | 7200 m/s | ? |",
+      "pregunta": "De acuerdo con las leyes del movimiento planetario y la energía orbital, si el satélite pierde velocidad tangencial, ¿cuál será el efecto inmediato en su trayectoria?",
+      "opciones": [
+        "El radio de la órbita disminuirá y el satélite se acercará a la Tierra.",
+        "El radio de la órbita aumentará para compensar la pérdida de energía.",
+        "El satélite se detendrá en seco y flotará en el espacio.",
+        "La gravedad dejará de actuar sobre él."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. Al perder velocidad, la fuerza centrípeta necesaria disminuye, y la gravedad tira del objeto hacia un radio menor (caída en espiral).",
+        "1": "Incorrecto. Para aumentar el radio se requiere aplicar más energía (acelerar), no perderla.",
+        "2": "Incorrecto. Los objetos en el espacio tienen inercia; no se detienen instantáneamente.",
+        "3": "Incorrecto. La gravedad es una propiedad de la masa y no desaparece por cambios de velocidad."
+      }
+    },
+    {
+      "competencia": "Uso comprensivo del conocimiento científico",
+      "texto_introductorio": "Un detective astronómico compara dos planetas del sistema: 'Planeta Refugio' y 'Planeta Hielo'.",
+      "tabla_o_grafica_markdown": "| Planeta | Distancia Media al Sol (UA) | Periodo Orbital (Años) |\n|---|---|---|\n| Refugio | 1 | 1 |\n| Hielo | 4 | ? |",
+      "pregunta": "Usando la Tercera Ley de Kepler ($T^2 = R^3$), ¿cuál es el periodo orbital del Planeta Hielo?",
+      "opciones": [
+        "2 años",
+        "4 años",
+        "8 años",
+        "16 años"
+      ],
+      "correcta": 2,
+      "retroalimentacion": {
+        "0": "Incorrecto. Revisa el cálculo de la potencia al cubo y la raíz cuadrada.",
+        "1": "Incorrecto. El periodo no es igual a la distancia.",
+        "2": "Correcto. $4^3 = 64$. La raíz cuadrada de 64 es 8. El periodo es 8 años.",
+        "3": "Incorrecto. Se calculó mal el exponente o la raíz."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "El Detective Orion encuentra un registro que dice: 'En el punto A del camino, el planeta barre 100 millones de km² en 30 días. En el punto B, que está mucho más lejos del sol, barre la misma área en el mismo tiempo'.",
+      "tabla_o_grafica_markdown": "| Punto | Área Barreda | Tiempo | Distancia al Sol |\n|---|---|---|---|\n| A | 100M km² | 30 días | Cercana (Perihelio) |\n| B | 100M km² | 30 días | Lejana (Afelio) |",
+      "pregunta": "¿Qué conclusión se puede sacar sobre la velocidad lineal del planeta en los puntos A y B?",
+      "opciones": [
+        "La velocidad en A es mayor que en B.",
+        "La velocidad en B es mayor que en A.",
+        "Las velocidades son idénticas en ambos puntos.",
+        "La velocidad no tiene relación con el área barreda."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. Al estar más cerca (A), el arco recorrido debe ser mayor para cubrir la misma área, por lo tanto, la velocidad es mayor.",
+        "1": "Incorrecto. En el afelio (B) los planetas se mueven más lentamente.",
+        "2": "Incorrecto. La velocidad orbital varía en una elipse.",
+        "3": "Incorrecto. La Segunda Ley de Kepler establece precisamente esa relación."
+      }
+    }
+  ]
+}

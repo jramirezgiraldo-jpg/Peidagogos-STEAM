@@ -1,0 +1,188 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Cuál es la forma geométrica predominante de las órbitas planetarias según Kepler?",
+      "opciones": [
+        "Círculo perfecto",
+        "Elipse",
+        "Parábola",
+        "Línea recta"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Qué fuerza mantiene a los planetas en su órbita alrededor del Sol?",
+      "opciones": [
+        "Magnetismo",
+        "Fricción",
+        "Gravitación",
+        "Presión atmosférica"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "Si un planeta se acerca al Sol en su órbita, ¿qué sucede con su velocidad orbital?",
+      "opciones": [
+        "Disminuye",
+        "Se mantiene constante",
+        "Aumenta",
+        "Se detiene"
+      ],
+      "correcta": 2
+    }
+  ],
+  "texto_inductivo": "Saludos, **Exploradores del Código Universal**. Soy su Hacker Tecnológico guía en esta incursión a lo profundo de la **Selva de los Ancestros Estelares**. Hemos hackeado los sistemas de navegación satelital para llegar a una zona donde las brújulas giran sin control y los drones caen como moscas. Ante nosotros se alza el **Zigurat de Kepler**, una estructura masiva que parece ser un observatorio planetario analógico construido por una civilización que entendía el cielo mucho antes de que existieran las computadoras. Nuestro objetivo en este 'Modo Dios' es descifrar el fenómeno extraño de la 'Danza de los Gigantes': por qué los planetas no se pierden en el vacío infinito y qué leyes invisibles programan sus rutas. \n\nAl observar el firmamento desde la cúpula de esta pirámide vegetal, notamos algo perturbador: las estrellas no se mueven de forma errática. Siguen un patrón. Johannes Kepler, el primer gran hacker de la astronomía, descubrió que la naturaleza no usa círculos perfectos, sino **elipses**. Imaginen que el Sol es el procesador central (CPU) situado en uno de los focos de esta elipse, enviando pulsos gravitacionales que dictan el movimiento. El fenómeno extraño aquí es la variación de la velocidad: cuando un planeta está en el *perihelio* (punto más cercano al Sol), parece 'acelerar su reloj interno', moviéndose más rápido. Cuando está en el *afelio* (punto más lejano), el sistema entra en un estado de ahorro de energía y se mueve más lento. \n\nEn esta selva, hemos encontrado glifos que representan la **Segunda Ley de Kepler**: áreas iguales en tiempos iguales. Es como si el planeta barriera sectores del espacio con un escáner láser; aunque la forma del sector cambie, los datos (el área) procesados en el mismo tiempo son idénticos. Esto no es magia, es la optimización del código orbital. Para un hacker, entender esto es como leer el kernel de un sistema operativo cósmico. No podemos simplemente observar; debemos inferir por qué el radio vector que une al planeta con el Sol no es una simple cuerda, sino una variable dinámica que ajusta la velocidad para conservar el momento angular. \n\nEste fenómeno extraño de órbitas no circulares desafió milenios de dogmas. En nuestra expedición, hemos recolectado muestras de 'resonancia orbital'. La Tercera Ley de Kepler es el algoritmo definitivo: el cuadrado del periodo orbital es proporcional al cubo de la distancia media al Sol. Si logramos hackear esta proporción, podremos predecir la posición de cualquier cuerpo en el sistema solar con precisión de nanosegundos. Estamos ante una arquitectura de red a escala astronómica. La selva nos susurra que el cielo es un gran servidor y los planetas son paquetes de datos en tránsito. Si fallamos en explicar este fenómeno, nos quedaremos atrapados en este bucle temporal selvático. La pregunta es: ¿están listos para compilar la realidad y entender el movimiento planetario como los arquitectos del cosmos lo diseñaron? La expedición apenas comienza, y el firewall de la ignorancia es lo primero que vamos a derribar.",
+  "recurso_visual": "graph TD\n    A[Sol en un Foco] --> B(Primera Ley: Órbitas Elípticas)\n    B --> C{Movimiento Planetario}\n    C --> D[Segunda Ley: Áreas Iguales / Tiempos Iguales]\n    D --> E(Velocidad variable: Perihelio vs Afelio)\n    C --> F[Tercera Ley: Armonía de Periodos]\n    F --> G(P^2 proporcional a a^3)",
+  "preguntas_inductivas_pagina": [
+    "¿Por qué Kepler descartó las órbitas circulares perfectas en su modelo?",
+    "¿Qué sucede con la velocidad de un planeta cuando alcanza el punto más alejado del Sol?",
+    "¿Cómo describirías la relación entre el tiempo y el área barrida por un planeta según el texto?",
+    "¿Cuál es el papel del Sol en la configuración de la elipse orbital?",
+    "¿Qué significa matemáticamente que el periodo al cuadrado sea proporcional al cubo de la distancia?"
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema de una órbita elíptica marcando el Sol en uno de sus focos, el perihelio y el afelio.",
+    "Realiza un cuadro comparativo entre el movimiento de un planeta en el perihelio y en el afelio (velocidad, distancia, energía).",
+    "Escribe una reflexión de 15 líneas sobre cómo el cambio de órbitas circulares a elípticas cambió la visión del universo del ser humano.",
+    "Representa gráficamente mediante un diagrama de barras la relación entre la distancia al sol y el tiempo que tarda un planeta en dar una vuelta completa (usa datos hipotéticos de 3 planetas)."
+  ],
+  "juegos_ordenar_letras_1": [
+    "ELIPSE",
+    "PERIHELIO",
+    "GRAVEDAD"
+  ],
+  "juego_ordenar_frase_1": "EL PLANETA BARRE AREAS IGUALES EN TIEMPOS IGUALES",
+  "texto_deductivo": "Para un Hacker Tecnológico, la observación es solo el front-end; ahora vamos a entrar al **back-end** del movimiento planetario: la Ley de Gravitación Universal de Newton. Si Kepler nos dio el 'qué' y el 'cómo', Isaac Newton nos entregó el 'por qué', el motor de renderizado de toda la simulación universal. El fenómeno extraño que estamos analizando es la acción a distancia: ¿cómo puede el Sol 'tirar' de la Tierra a través de millones de kilómetros de vacío absoluto? La respuesta está en el código fuente de la masa y la distancia. \n\nNewton postuló que cada partícula de materia en el universo atrae a todas las demás partículas con una fuerza que es directamente proporcional al producto de sus masas e inversamente proporcional al cuadrado de la distancia que las separa. La fórmula `F = G * (m1 * m2) / r^2` es el comando root del universo. En esta selva, donde la gravedad parece fluctuar cerca de las ruinas, entendemos que si duplicamos la distancia entre dos cuerpos celestes, la fuerza de atracción no se reduce a la mitad, sino a la cuarta parte (2 al cuadrado). Este es el **algoritmo de la inversa del cuadrado**, una medida de seguridad que evita que todo colapse instantáneamente o se disperse sin control. \n\nEl movimiento planetario es, en esencia, una caída libre perpetua. El planeta intenta moverse en línea recta debido a su inercia (su 'momentum' de ejecución), pero la gravedad del Sol hackea esa trayectoria continuamente, curvándola en una elipse. Es un equilibrio perfecto entre el ímpetu de escape y la captura gravitacional. Si la velocidad fuera mayor, el planeta rompería el firewall y escaparía de la red solar; si fuera menor, el sistema se caería y el planeta colisionaría con el Sol. \n\nEn nuestro Reto Épico de Modo Dios, debemos explicar por qué los planetas exteriores como Neptuno tardan siglos en completar una órbita mientras que Mercurio lo hace en días. No es solo distancia; es la debilidad de la señal gravitacional a largo alcance. La Tercera Ley de Kepler se deriva directamente de las leyes de Newton. Al igualar la fuerza centrípeta necesaria para mantener el movimiento circular (una aproximación útil) con la fuerza gravitatoria, emerge la constante que gobierna el sistema. \n\nAnalizando los 'logs' del sistema solar, vemos que la gravedad es la que deforma el tejido del espacio-tiempo, creando los carriles por los que circulan los planetas. En esta expedición selvática, hemos descubierto que las anomalías que observamos son simples variaciones en la densidad de masa del subsuelo, lo que altera localmente el valor de 'g'. Pero a escala planetaria, las reglas son estrictas. La gravitación es el lenguaje de programación universal, y los planetas son los objetos de una clase superior que ejecutan sus métodos orbitales sin error desde hace miles de millones de años. Entender la deducción de Newton es obtener privilegios de administrador sobre la física clásica.",
+  "preguntas_deductivas_pagina": [
+    "¿Qué variables determinan la magnitud de la fuerza gravitacional entre dos cuerpos?",
+    "¿Cómo afecta el cuadrado de la distancia a la fuerza de atracción según la ley de Newton?",
+    "¿Por qué un planeta no sale disparado en línea recta si tiene inercia?",
+    "¿Qué pasaría con la fuerza de gravedad si la masa de uno de los planetas se duplicara?",
+    "¿Cómo se relaciona la inercia con la formación de una órbita cerrada?"
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Realiza un diagrama detallado que muestre los vectores de fuerza gravitatoria y velocidad tangencial en cuatro puntos diferentes de una órbita.",
+    "Elabora un mapa mental que conecte las Leyes de Kepler con la Ley de Gravitación Universal de Newton.",
+    "Dibuja una infografía que explique la 'Ley de la Inversa del Cuadrado' usando la metáfora de la señal de una antena Wi-Fi en la selva.",
+    "Diseña una infografía artesanal que explique paso a paso cómo se calcula la fuerza de atracción entre la Tierra y la Luna usando la fórmula de Newton."
+  ],
+  "juegos_ordenar_letras_2": [
+    "NEWTON",
+    "INERCIA",
+    "SISTEMA"
+  ],
+  "juego_ordenar_frase_2": "LA FUERZA DEPENDE DEL PRODUCTO DE LAS MASAS Y LA DISTANCIA",
+  "sopa_letras": [
+    "KEPLER",
+    "NEWTON",
+    "ORBITA",
+    "ELIPSE",
+    "GRAVEDAD",
+    "MASA",
+    "DISTANCIA",
+    "FOCO",
+    "PERIODO",
+    "INERCIA"
+  ],
+  "crucigrama": [
+    {
+      "palabra": "AFELIO",
+      "pista": "Punto de la órbita más alejado del Sol."
+    },
+    {
+      "palabra": "INERCIA",
+      "pista": "Tendencia de los cuerpos a mantener su estado de movimiento."
+    },
+    {
+      "palabra": "ELIPSE",
+      "pista": "Curva cerrada que describe la trayectoria de los planetas."
+    },
+    {
+      "palabra": "GRAVITACION",
+      "pista": "Fuerza de atracción universal entre masas."
+    },
+    {
+      "palabra": "PERIHELIO",
+      "pista": "Punto de la órbita donde el planeta se mueve más rápido."
+    },
+    {
+      "palabra": "MASA",
+      "pista": "Cantidad de materia que posee un cuerpo, clave en la fuerza gravitatoria."
+    },
+    {
+      "palabra": "KEPLER",
+      "pista": "Astrónomo que formuló las tres leyes del movimiento planetario."
+    },
+    {
+      "palabra": "FOCO",
+      "pista": "Punto interno de la elipse donde se ubica el Sol."
+    },
+    {
+      "palabra": "RADIAL",
+      "pista": "Tipo de vector que une al planeta con el centro del Sol."
+    },
+    {
+      "palabra": "CUADRADO",
+      "pista": "Potencia a la que se eleva la distancia en la ley de Newton."
+    }
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "En la expedición, se observa que un satélite artificial en la selva pierde velocidad gradualmente debido al rozamiento con la atmósfera residual. Según las leyes de Kepler y Newton, si la velocidad disminuye drásticamente, su órbita debe cambiar.",
+      "tabla_o_grafica_markdown": "| Estado | Velocidad | Radio Orbital |\n|---|---|---|\n| Inicial | Alta | Estable |\n| Final | Baja | ? |",
+      "pregunta": "¿Qué fenómeno explica mejor lo que le sucederá al radio de la órbita del satélite?",
+      "opciones": [
+        "El radio aumentará para compensar la pérdida de energía.",
+        "El radio disminuirá, haciendo que el satélite describa una espiral hacia la Tierra.",
+        "El radio se mantendrá igual pero el tiempo del periodo disminuirá.",
+        "La fuerza de gravedad desaparecerá al no haber suficiente velocidad."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. Si pierde velocidad, la gravedad domina y el radio no puede aumentar.",
+        "1": "Correcto. Al perder velocidad, la fuerza centrípeta necesaria disminuye y la gravedad atrae al cuerpo hacia el centro.",
+        "2": "Incorrecto. El periodo y el radio están vinculados; si uno cambia, el otro también.",
+        "3": "Incorrecto. La gravedad depende de la masa y la distancia, no de la velocidad."
+      }
+    },
+    {
+      "competencia": "Uso Comprensivo del Conocimiento Científico",
+      "texto_introductorio": "Un grupo de científicos en el Zigurat de Kepler descubre un nuevo exoplaneta que está a una distancia del Sol 4 veces mayor que la de la Tierra (4 UA).",
+      "tabla_o_grafica_markdown": "| Planeta | Distancia (UA) | Periodo (Años) |\n|---|---|---|\n| Tierra | 1 | 1 |\n| Exoplaneta | 4 | ? |",
+      "pregunta": "Usando la tercera ley de Kepler (T^2 = a^3), ¿cuál es el periodo orbital aproximado de este exoplaneta?",
+      "opciones": [
+        "4 años",
+        "16 años",
+        "8 años",
+        "64 años"
+      ],
+      "correcta": 2,
+      "retroalimentacion": {
+        "0": "Incorrecto. No es una relación lineal simple.",
+        "1": "Incorrecto. Esto sería solo T^2 = a^2.",
+        "2": "Correcto. 4 al cubo es 64, y la raíz cuadrada de 64 es 8.",
+        "3": "Incorrecto. 64 es el cubo de la distancia, falta aplicar la raíz para hallar T."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "Durante la expedición, se nota que los objetos caen con una aceleración ligeramente diferente en la cima del Zigurat que en la base de la selva.",
+      "tabla_o_grafica_markdown": "| Ubicación | Altitud (m) | Aceleración g (m/s^2) |\n|---|---|---|\n| Base | 0 | 9.806 |\n| Cima | 500 | 9.804 |",
+      "pregunta": "¿Qué hipótesis científica explica mejor esta diferencia de aceleración?",
+      "opciones": [
+        "El aire en la cima es más delgado y ofrece menos resistencia.",
+        "La distancia al centro de la Tierra ha aumentado, disminuyendo la fuerza gravitatoria según Newton.",
+        "La masa de la montaña empuja los objetos hacia arriba.",
+        "El magnetismo de la selva interfiere con la caída de los cuerpos."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. La resistencia del aire no cambia el valor de la aceleración de la gravedad g.",
+        "1": "Correcto. g = G*M/r^2. Al aumentar r (distancia al centro), g disminuye.",
+        "2": "Incorrecto. La masa de la montaña sumaría gravedad, no la restaría.",
+        "3": "Incorrecto. El magnetismo no afecta la aceleración gravitacional de objetos no magnéticos."
+      }
+    }
+  ]
+}

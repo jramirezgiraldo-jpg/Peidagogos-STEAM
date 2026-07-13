@@ -1,0 +1,168 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¡Atención, especímenes! Si la Estación Espacial Internacional dejara de moverse instantáneamente en su órbita, ¿qué le sucedería según su rudimentario entendimiento de la gravedad?",
+      "opciones": [
+        "Saldría disparada hacia el espacio profundo por la inercia.",
+        "Se quedaría flotando estática en el mismo punto para siempre.",
+        "Caería en una trayectoria vertical hacia el centro de la Tierra.",
+        "Orbitaría más rápido para compensar la falta de combustible."
+      ],
+      "correcta": 2
+    }
+  ],
+  "texto_inductivo": "¡Silencio en el laboratorio orbital! Soy el Dr. Phobous, y si están leyendo esto, es porque el sistema de navegación de la Estación Espacial Internacional (EEI) ha colapsado y estamos a merced de las leyes de la mecánica celeste. ¡No entren en pánico, o háganlo, no me importa, siempre y cuando terminen sus cálculos! Para sobrevivir, debemos entender **cómo** se mueven las cosas allá afuera. Antes de que Isaac Newton viniera a decirnos 'por qué', un genio obsesivo llamado Johannes Kepler pasó años analizando los datos robados (bueno, 'heredados') de Tycho Brahe. Kepler no tenía computadoras cuánticas, solo tenía su cerebro y una montaña de observaciones de Marte. \n\nPrimero, rompan esa estúpida idea de que los planetas se mueven en círculos perfectos. ¡El círculo es para los filósofos griegos que temían a la imperfección! La realidad es más elegante y perturbadora: **las órbitas son elipses**. En la **Primera Ley de Kepler**, aprendemos que el Sol no está en el centro, sino en uno de los focos. ¿Qué significa esto para nosotros en la EEI? Que nuestra distancia a la Tierra varía constantemente. No somos un anillo estático; somos una danza geométrica que se estira y encoge. \n\nLuego viene la **Segunda Ley**, la ley de las áreas iguales. ¡Observen sus cronómetros! Kepler descubrió que una línea imaginaria que conecta a un planeta con el Sol barre áreas iguales en tiempos iguales. Esto es vital para nuestra supervivencia: cuando estamos más cerca de la masa que nos atrae (perihelio o perigeo), ¡nos movemos como un rayo! Cuando nos alejamos (afelio o apogeo), nos movemos con la parsimonia de un perezoso espacial. Si no entienden esta fluctuación de velocidad, chocaremos contra la atmósfera o nos perderemos en el vacío antes de que puedan decir 'entropía'. \n\nFinalmente, la **Tercera Ley** o Ley Armónica. ¡Esta es mi favorita! Kepler descubrió que el cuadrado del periodo orbital (el tiempo que tardamos en dar una vuelta) es proporcional al cubo de nuestra distancia media. $T^2 ∝ a^3$. ¡Es una armonía matemática absoluta! Si queremos cambiar nuestra órbita para interceptar una cápsula de suministros, no podemos simplemente 'acelerar' como en un estúpido videojuego; debemos alterar nuestro radio para que el tiempo se ajuste a la voluntad de las matemáticas. \n\nImaginen que estamos observando a Júpiter desde nuestra cúpula. Sus lunas siguen estas mismas reglas. No es una coincidencia, es la estructura misma del tejido espacial. Estamos atrapados en una red de elipses, velocidades variables y proporciones cúbicas. Si no logran internalizar que la naturaleza prefiere la elipse sobre el círculo, y que la velocidad es un esclavo de la posición, entonces prepárense para ser parte del polvo cósmico. ¡La ciencia no perdona la ignorancia, y el vacío del espacio es un juez muy severo! Revisen los datos, miren los diagramas y entiendan que el movimiento planetario no es una sugerencia, es una orden dictada por la geometría del universo que Brahe observó y Kepler decodificó para nosotros.",
+  "recurso_visual": "graph TD\n    A[Movimiento Planetario] --> B[Leyes de Kepler]\n    B --> C[1ra Ley: Elipses]\n    C --> C1[Sol/Masa en un Foco]\n    B --> D[2da Ley: Áreas Iguales]\n    D --> D1[Más rápido cerca del foco]\n    D --> D2[Más lento lejos del foco]\n    B --> E[3ra Ley: Armónica]\n    E --> E1[T^2 proporcional a a^3]\n    E --> E2[Relaciona Periodo y Distancia]",
+  "preguntas_inductivas_pagina": [
+    "¿Por qué Kepler descartó el movimiento circular a pesar de la tradición científica de su época?",
+    "Si la EEI está en su punto más cercano a la Tierra, ¿su velocidad orbital aumenta o disminuye?",
+    "¿Qué propiedad geométrica define que el Sol no ocupe el centro exacto de la órbita?",
+    "¿Cómo cambia el área barrida por el radio vector si comparamos un intervalo de 10 días en el afelio vs 10 días en el perihelio?",
+    "¿Qué sucede con el periodo orbital de un planeta si su distancia media al Sol se cuadruplica?"
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuje una elipse exagerada que represente una órbita planetaria, ubicando los focos, el semieje mayor y sombreando dos sectores de áreas iguales pero diferentes longitudes de arco.",
+    "Realice un cuadro comparativo entre el modelo de órbitas circulares y el modelo elíptico de Kepler, destacando las implicaciones en la velocidad.",
+    "Escriba una reflexión de 15 líneas sobre cómo la precisión de los datos de Tycho Brahe fue fundamental para que Kepler pudiera 'ver' la verdad oculta tras las apariencias.",
+    "Represente gráficamente la relación entre el cubo del radio medio y el cuadrado del periodo para tres planetas diferentes del sistema solar."
+  ],
+  "juegos_ordenar_letras_1": [
+    "ELIPSE",
+    "PERIODO",
+    "KEPLER"
+  ],
+  "juego_ordenar_frase_1": "LAS ORBITAS PLANETARIAS SON ELIPSES DONDE EL SOL OCUPA UNO DE LOS FOCOS SEGUN LA PRIMERA LEY",
+  "texto_deductivo": "¡Escuchen bien, sobrevivientes! Ya sabemos *cómo* se mueven los astros gracias a Kepler, pero si queremos recuperar el control manual de la Estación Espacial, debemos entender la fuerza bruta que mueve los hilos: la **Gravedad**. Isaac Newton, ese genio que probablemente era tan huraño como yo, se dio cuenta de que la misma fuerza que hace que una manzana golpee tu cabeza es la que mantiene a la Luna en su sitio y a nosotros en esta lata de metal. La **Ley de Gravitación Universal** es la deducción definitiva: toda partícula de materia en el universo atrae a otra con una fuerza que es directamente proporcional al producto de sus masas e inversamente proporcional al cuadrado de la distancia que las separa. \n\n$F = G * (m1 * m2) / r^2$. ¡Miren esa ecuación! Es la sentencia de muerte para el caos. Si duplicamos la masa de la Tierra, la fuerza sobre nosotros se duplica. Pero si nos alejamos al doble de la distancia del centro de la Tierra, ¡la fuerza no se reduce a la mitad, se reduce a la cuarta parte! Esta relación del inverso del cuadrado es lo que da forma a las elipses de Kepler. Sin Newton, las leyes de Kepler son solo observaciones curiosas; con Newton, son consecuencias inevitables de la física. \n\nAhora, hablemos de la 'caída libre'. Muchos de ustedes, ignorantes cadetes, creen que en la EEI no hay gravedad porque 'flotamos'. ¡Error garrafal! La gravedad a nuestra altura es aproximadamente el 90% de la que hay en la superficie. Estamos 'cayendo' constantemente hacia la Tierra, pero tenemos tanta velocidad lateral (tangencial) que, mientras caemos, el suelo se curva debajo de nosotros. Estamos fallando el tiro contra el suelo perpetuamente. Eso es una órbita: un equilibrio perfecto entre la inercia que nos quiere lanzar al vacío y la gravedad que nos quiere aplastar contra la corteza terrestre. \n\nPara que la EEI mantenga su órbita, la fuerza centrípeta necesaria debe ser provista exactamente por la fuerza gravitacional. Al igualar estas ecuaciones ($m*v^2/r = G*M*m/r^2$), deducimos que nuestra velocidad depende únicamente de la masa de la Tierra y de nuestra distancia al centro. ¡No depende de nuestra masa! Si yo lanzara mi colección de cerebros conservados fuera de la escotilla, orbitarían a nuestro lado exactamente a la misma velocidad. \n\nEntender esto nos permite calcular la **Velocidad de Escape**. Si queremos abandonar este sector, necesitamos una energía cinética que supere nuestra energía potencial gravitatoria. El universo es un pozo gravitatorio, y estamos en el fondo de uno. Cada vez que lanzamos un cohete o ajustamos nuestra posición, estamos luchando contra la curvatura del espacio-tiempo definida por la masa. La deducción es clara: el movimiento planetario es el resultado de una guerra constante entre el movimiento rectilíneo uniforme y la atracción gravitatoria. Si perdemos velocidad, la gravedad gana y nos convertimos en un meteorito artificial. Si ganamos demasiada, la inercia vence y nos convertimos en náufragos interestelares. ¡Calculen con precisión o prepárense para la desintegración!",
+  "preguntas_deductivas_pagina": [
+    "¿Por qué la fuerza de gravedad se denomina 'universal' en la teoría de Newton?",
+    "Si la distancia entre dos cuerpos se triplica, ¿en qué factor cambia la fuerza de atracción entre ellos?",
+    "¿Cuál es la condición necesaria en términos de fuerzas para que un objeto mantenga una órbita circular estable?",
+    "¿Por qué los astronautas en la EEI experimentan ingravidez aparente a pesar de que la gravedad allí es alta?",
+    "¿Cómo dedujo Newton la Tercera Ley de Kepler a partir de su Ley de Gravitación Universal?"
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Realice un diagrama de cuerpo libre de la EEI en órbita, mostrando los vectores de velocidad tangencial y fuerza centrípeta.",
+    "Elabore un mapa mental que conecte los conceptos de Masa, Distancia, Constante G y Fuerza Gravitatoria.",
+    "Dibuje un esquema explicativo del experimento mental del 'Cañón de Newton' para explicar cómo un objeto entra en órbita.",
+    "Diseñe una infografía artesanal que explique la diferencia entre masa y peso en diferentes planetas usando la Ley de Gravitación."
+  ],
+  "juegos_ordenar_letras_2": [
+    "GRAVEDAD",
+    "INERCIA",
+    "CENTRIPETA"
+  ],
+  "juego_ordenar_frase_2": "LA FUERZA GRAVITATORIA ES INVERSAMENTE PROPORCIONAL AL CUADRADO DE LA DISTANCIA ENTRE LAS MASAS",
+  "sopa_letras": [
+    "GRAVEDAD",
+    "NEWTON",
+    "KEPLER",
+    "ORBITA",
+    "ELIPSE",
+    "MASA",
+    "FOCO",
+    "RADIO",
+    "INERCIA",
+    "FUERZA"
+  ],
+  "crucigrama": [
+    {
+      "palabra": "AFELIO",
+      "pista": "Punto de la órbita más alejado del Sol."
+    },
+    {
+      "palabra": "PERIHELIO",
+      "pista": "Punto de la órbita más cercano al Sol."
+    },
+    {
+      "palabra": "EXCENTRICIDAD",
+      "pista": "Medida de cuánto se desvía una órbita de un círculo perfecto."
+    },
+    {
+      "palabra": "MASA",
+      "pista": "Cantidad de materia que determina la fuerza gravitatoria."
+    },
+    {
+      "palabra": "PERIODO",
+      "pista": "Tiempo que tarda un planeta en completar una vuelta al Sol."
+    },
+    {
+      "palabra": "INERCIA",
+      "pista": "Tendencia de los cuerpos a mantener su estado de movimiento."
+    },
+    {
+      "palabra": "GIGANTE",
+      "pista": "Tipo de planeta con gran masa y fuerte atracción gravitatoria."
+    },
+    {
+      "palabra": "VECTOR",
+      "pista": "Representación de la fuerza que tiene magnitud y dirección."
+    },
+    {
+      "palabra": "ELIPTICA",
+      "pista": "Forma geométrica de las trayectorias planetarias."
+    },
+    {
+      "palabra": "CENTRIPETA",
+      "pista": "Fuerza dirigida hacia el centro que mantiene el movimiento circular."
+    }
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "En la EEI, los suministros llegan mediante naves automáticas. Para que una nave se acople, debe igualar la órbita de la estación. Se observa que cuando la nave está en una órbita más baja (más cerca de la Tierra), su velocidad es mayor que la de la EEI.",
+      "tabla_o_grafica_markdown": "| Objeto | Radio Orbital (km) | Velocidad (km/s) |\n|---|---|---|\n| Nave A | 6500 | 7.82 |\n| EEI | 6800 | 7.66 |\n| Nave B | 7100 | 7.50 |",
+      "pregunta": "¿Cuál es la razón física por la cual la Nave A debe moverse más rápido que la EEI?",
+      "opciones": [
+        "Porque al estar más cerca de la Tierra, requiere más velocidad para que la fuerza centrípeta equilibre la mayor atracción gravitatoria.",
+        "Porque la fricción atmosférica es mayor y necesita compensar la pérdida de energía.",
+        "Porque los motores de las naves pequeñas son más potentes que los de la estación espacial.",
+        "Porque la Tercera Ley de Kepler indica que a menor radio, el periodo debe ser mayor y por ende más lenta."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. A menor radio, la fuerza de gravedad es mayor, por lo que se requiere una velocidad tangencial más alta para generar la fuerza centrípeta necesaria.",
+        "1": "Incorrecto. A esa altura la fricción es despreciable y no explica la velocidad orbital necesaria.",
+        "2": "Incorrecto. La potencia de los motores no determina la velocidad orbital de equilibrio.",
+        "3": "Incorrecto. La 3ra Ley dice que a menor radio, menor periodo (vuela más rápido)."
+      }
+    },
+    {
+      "competencia": "Uso comprensivo del conocimiento científico",
+      "texto_introductorio": "El Dr. Phobous desea enviar una sonda a un planeta recién descubierto que orbita a una distancia media de 4 Unidades Astronómicas (UA) de su estrella (similar al Sol).",
+      "tabla_o_grafica_markdown": "| Planeta | Distancia (UA) | Periodo (Años) |\n|---|---|---|\n| Tierra | 1 | 1 |\n| X | 4 | ? |",
+      "pregunta": "Usando la Tercera Ley de Kepler ($T^2 = R^3$), ¿cuál será el periodo orbital del planeta X?",
+      "opciones": [
+        "4 años",
+        "8 años",
+        "16 años",
+        "64 años"
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. Has olvidado elevar al cubo o sacar la raíz.",
+        "1": "Correcto. 4 al cubo es 64, y la raíz cuadrada de 64 es 8.",
+        "2": "Incorrecto. Ese sería el valor de R^2, no el periodo final.",
+        "3": "Incorrecto. Ese es el valor de T al cuadrado, falta la raíz cuadrada."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "Usted está realizando un experimento en el simulador de la EEI. Decide duplicar la masa de la estación (añadiendo módulos) pero manteniendo la misma altura orbital.",
+      "tabla_o_grafica_markdown": "| Variable | Estado Inicial | Estado Final |\n|---|---|---|\n| Masa EEI | M | 2M |\n| Radio | R | R |\n| Velocidad | V | ? |",
+      "pregunta": "¿Qué ajuste debe hacer en la velocidad orbital para que la estación no caiga ni escape de su órbita tras duplicar su masa?",
+      "opciones": [
+        "Debe duplicar la velocidad.",
+        "Debe reducir la velocidad a la mitad.",
+        "No debe realizar ningún ajuste, la velocidad orbital es independiente de la masa del objeto que orbita.",
+        "Debe aumentar la velocidad en un factor de raíz de dos."
+      ],
+      "correcta": 2,
+      "retroalimentacion": {
+        "0": "Incorrecto. La masa del objeto orbitante se cancela en la ecuación de equilibrio orbital.",
+        "1": "Incorrecto. La velocidad no depende de la masa de la estación.",
+        "2": "Correcto. En la igualdad $m*v^2/r = G*M*m/r^2$, la masa 'm' de la estación aparece en ambos lados y se simplifica.",
+        "3": "Incorrecto. No hay dependencia matemática entre la masa de la estación y su velocidad orbital necesaria."
+      }
+    }
+  ]
+}

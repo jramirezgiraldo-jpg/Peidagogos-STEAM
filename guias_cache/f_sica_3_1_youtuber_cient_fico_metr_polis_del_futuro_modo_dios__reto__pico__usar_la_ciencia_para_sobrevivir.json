@@ -1,0 +1,178 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "En Neo-Antares, los ingenieros deben mantener la ciudad en órbita estable. Si la distancia entre la ciudad y el centro del planeta se duplica, ¿qué sucede con la fuerza de atracción gravitacional?",
+      "opciones": [
+        "Se duplica",
+        "Se reduce a la mitad",
+        "Se reduce a la cuarta parte",
+        "Permanece igual"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "¿Qué forma geométrica describen los planetas al girar alrededor de su estrella según la primera ley de Kepler?",
+      "opciones": [
+        "Círculo perfecto",
+        "Elipse",
+        "Parábola",
+        "Línea recta"
+      ],
+      "correcta": 1
+    }
+  ],
+  "texto_inductivo": "¡Hola, habitantes de Neo-Antares! Soy su guía científico en esta travesía por el vacío estelar. Hoy no solo vamos a estudiar física; hoy vamos a aprender las leyes que mantienen nuestra metrópoli flotando y no estrellándose contra el gigante gaseoso que nos da energía. Para sobrevivir en el Modo Dios, debemos entender que el cosmos no es un caos, sino una coreografía perfecta regida por el **movimiento planetario**. \n\nImagina que hace siglos, antes de que existieran los motores de curvatura, la humanidad vivía atrapada en un solo planeta pensando que eran el centro del universo. El modelo **geocéntrico** de Ptolomeo era la ley absoluta: todo giraba en torno a la Tierra. Pero la ciencia es evolución. Copérnico desafió el status quo con el modelo **heliocéntrico**, situando al Sol en el centro. Sin embargo, algo no encajaba. Las órbitas no eran círculos perfectos como dictaba la estética divina de la época. Fue entonces cuando apareció Johannes Kepler, el primer gran cartógrafo del cielo, quien utilizando los datos recopilados por Tycho Brahe, formuló tres leyes que cambiaron nuestra forma de ver el movimiento. \n\nLa **Primera Ley de Kepler**, o Ley de las Órbitas, nos dice que todos los planetas se desplazan alrededor del Sol siguiendo órbitas elípticas, con el Sol en uno de sus focos. En Neo-Antares, esto significa que nuestra distancia al planeta nodriza varía constantemente. No estamos siempre a la misma distancia, y eso afecta nuestro clima y nuestra energía. La **Segunda Ley**, o Ley de las Áreas, establece que una línea imaginaria que conecte al planeta con el Sol barre áreas iguales en tiempos iguales. ¿Qué significa esto para tu supervivencia? Que cuando estamos más cerca del planeta (perihelio), nuestra ciudad debe moverse mucho más rápido para no ser succionada por la gravedad, y cuando estamos lejos (afelio), la velocidad disminuye. Es un baile de aceleración y desaceleración constante. \n\nFinalmente, la **Tercera Ley**, o Ley de los Periodos, nos da la herramienta matemática definitiva: el cuadrado del periodo orbital de cualquier planeta es proporcional al cubo del semieje mayor de su órbita. Esta fórmula ($T^2 / a^3 = k$) es la que permite a nuestros navegantes espaciales calcular exactamente cuánto tardará una nave de suministros en llegar desde las lunas exteriores. Sin estas leyes, Neo-Antares sería un barco a la deriva en un océano de oscuridad. Comprender que el movimiento planetario es una consecuencia de la geometría y el tiempo es el primer paso para dominar el entorno. En esta metrópoli del futuro, el conocimiento de Kepler es el escudo que nos protege de la incertidumbre orbital. Si ignoramos la elipse, ignoramos nuestro destino. La ciencia no es solo teoría en libros digitales; es el motor que mantiene nuestras luces encendidas mientras orbitamos en el abismo. Prepárense, ciudadanos, porque entender cómo se mueven los mundos es la única forma de asegurar que el nuestro siga girando por un milenio más. ¡Bienvenidos al nivel evolutivo donde la física es su mejor aliada para no caer al vacío!",
+  "recurso_visual": "graph TD\n    A[Leyes de Kepler] --> B(1. Ley de las Órbitas)\n    A --> C(2. Ley de las Áreas)\n    A --> D(3. Ley de los Periodos)\n    B --> B1[Trayectorias Elípticas - El Sol está en un foco]\n    C --> C1[Velocidad variable - Más rápido en el Perihelio]\n    D --> D1[Relación Matemática - T^2 proporcional a r^3]",
+  "preguntas_inductivas_pagina": [
+    "¿Cuál es la diferencia fundamental entre el modelo geocéntrico y el heliocéntrico?",
+    "¿Por qué es importante para la ciudad Neo-Antares que las órbitas sean elípticas y no circulares?",
+    "Según la segunda ley de Kepler, ¿en qué punto de la órbita la ciudad alcanza su máxima velocidad?",
+    "¿Qué pasaría con el suministro de energía si no se calculara correctamente la tercera ley de Kepler?",
+    "¿Qué papel jugaron las observaciones de Tycho Brahe en los descubrimientos de Kepler?"
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema de la órbita elíptica de Neo-Antares alrededor de su planeta, ubicando el perihelio, el afelio y los focos.",
+    "Realiza un cuadro comparativo entre las tres leyes de Kepler, indicando su nombre, qué describe y su importancia para la navegación espacial.",
+    "Escribe una reflexión de 15 líneas sobre cómo el cambio del modelo geocéntrico al heliocéntrico representó un desafío al pensamiento de la época.",
+    "Representa gráficamente la Segunda Ley de Kepler (Ley de las Áreas) usando colores para diferenciar las áreas barridas en distintos tiempos."
+  ],
+  "juegos_ordenar_letras_1": [
+    "ELIPSE",
+    "PERIHELIO",
+    "AFELIO"
+  ],
+  "juego_ordenar_frase_1": "LAS ORBITAS PLANETARIAS SON ELIPSES CON EL SOL EN UNO DE SUS FOCOS",
+  "texto_deductivo": "Ciudadanos de Neo-Antares, hemos comprendido el 'cómo' se mueven los astros gracias a Kepler, pero ahora debemos enfrentarnos al 'por qué'. Para alcanzar el Modo Dios, necesitamos la fuerza que une al universo: la **Gravitación Universal de Isaac Newton**. Mientras Kepler era un observador de patrones, Newton fue el arquitecto que descubrió los cimientos. En 1687, Newton postuló que la misma fuerza que hace caer una fruta de un árbol en la Tierra es la que mantiene a la Luna en su órbita y a nuestra metrópoli flotando alrededor del gigante gaseoso. \n\nLa **Ley de Gravitación Universal** establece que cada partícula del universo atrae a todas las demás partículas con una fuerza que es directamente proporcional al producto de sus masas e inversamente proporcional al cuadrado de la distancia que las separa. La fórmula maestra es $F = G * (m1 * m2) / r^2$. Aquí, 'G' es la constante de gravitación universal, un valor que no cambia en todo el cosmos conocido. En el contexto de nuestra supervivencia, esta ecuación es vital. Si la masa de Neo-Antares aumentara debido a un exceso de carga, la fuerza de atracción del planeta nodriza también aumentaría, obligándonos a gastar más combustible para mantener la altura. Si nos alejamos demasiado (aumentando 'r'), la fuerza disminuye drásticamente debido al cuadrado de la distancia, y podríamos escapar de la órbita hacia el frío espacio profundo. \n\nNewton no solo explicó la gravedad como una fuerza de atracción, sino que unificó la mecánica terrestre con la mecánica celeste. Introdujo el concepto de **fuerza centrípeta**, que en nuestro caso es suministrada por la gravedad. Es esta fuerza la que 'tira' constantemente de la ciudad hacia el centro del planeta, pero como tenemos una velocidad tangencial suficiente, nunca caemos; estamos en una caída libre perpetua. Esto es lo que define una órbita estable. Para sobrevivir a un evento de colisión orbital, nuestros ingenieros deben recalcular esta fuerza en milisegundos. Además, debemos considerar la **velocidad de escape**, que es la velocidad mínima necesaria para que un objeto venza la atracción gravitatoria de un cuerpo masivo. Si Neo-Antares necesitara abandonar este sistema ante una supernova, necesitaríamos alcanzar esa velocidad crítica.\n\nEl movimiento planetario, visto desde la física de Newton, es un equilibrio de fuerzas. La inercia quiere que sigamos en línea recta hacia el vacío, mientras que la gravedad quiere aplastarnos contra la superficie del planeta inferior. La órbita es el compromiso perfecto entre la destrucción y la deriva. En la Metrópoli del Futuro, entender esta deducción matemática es la diferencia entre la prosperidad tecnológica y la extinción catastrófica. La masa de los objetos y la distancia entre ellos dictan las reglas del juego galáctico. Por lo tanto, cada gramo de material que traemos a la ciudad y cada kilómetro de altitud que ajustamos están gobernados por la mano invisible de Newton. Dominen estas ecuaciones y dominarán el sistema solar.",
+  "preguntas_deductivas_pagina": [
+    "¿Cómo cambia la fuerza gravitacional si la masa de uno de los cuerpos se triplica?",
+    "¿Por qué Newton afirmó que el movimiento de los planetas y la caída de los objetos en la Tierra eran el mismo fenómeno?",
+    "¿Qué sucede con la fuerza de atracción si la distancia entre dos planetas se reduce a la mitad?",
+    "¿Qué es la fuerza centrípeta en el contexto de una órbita planetaria?",
+    "¿Cuál es la función de la constante 'G' en la ecuación de la Gravitación Universal?"
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Realiza un diagrama detallado que muestre las fuerzas actuando sobre la ciudad Neo-Antares (Fuerza Gravitacional y Velocidad Tangencial).",
+    "Elabora un mapa mental sobre la Ley de Gravitación Universal, incluyendo sus variables (masa, distancia, fuerza) y constantes.",
+    "Dibuja una infografía que explique el concepto de 'Caída Libre Perpetua' y cómo se relaciona con las órbitas espaciales.",
+    "Diseña un dibujo explicativo que compare cómo sería la órbita de Neo-Antares si el planeta nodriza tuviera el doble de masa."
+  ],
+  "juegos_ordenar_letras_2": [
+    "GRAVEDAD",
+    "INERCIA",
+    "MASA"
+  ],
+  "juego_ordenar_frase_2": "LA FUERZA ES INVERSAMENTE PROPORCIONAL AL CUADRADO DE LA DISTANCIA",
+  "sopa_letras": [
+    "GRAVEDAD",
+    "ORBITA",
+    "PERIHELIO",
+    "AFELIO",
+    "NEWTON",
+    "MASA",
+    "FUERZA",
+    "RADIO",
+    "SATELITE",
+    "INERCIA"
+  ],
+  "crucigrama": [
+    {
+      "palabra": "KEPLER",
+      "pista": "Científico que propuso las órbitas elípticas."
+    },
+    {
+      "palabra": "ELIPSE",
+      "pista": "Forma geométrica de una órbita planetaria."
+    },
+    {
+      "palabra": "GRAVITACION",
+      "pista": "Ley universal formulada por Isaac Newton."
+    },
+    {
+      "palabra": "FOCO",
+      "pista": "Punto donde se ubica el Sol en una elipse."
+    },
+    {
+      "palabra": "PERIODO",
+      "pista": "Tiempo que tarda un planeta en dar una vuelta completa."
+    },
+    {
+      "palabra": "MASA",
+      "pista": "Cantidad de materia que posee un cuerpo."
+    },
+    {
+      "palabra": "DISTANCIA",
+      "pista": "Variable que reduce la gravedad al aumentar."
+    },
+    {
+      "palabra": "AFELIO",
+      "pista": "Punto más alejado de un planeta respecto al Sol."
+    },
+    {
+      "palabra": "INERCIA",
+      "pista": "Tendencia de los cuerpos a mantener su estado de movimiento."
+    },
+    {
+      "palabra": "CENTRÍPETA",
+      "pista": "Fuerza dirigida hacia el centro de la trayectoria."
+    }
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "En la estación orbital Neo-Antares, los científicos observan que un asteroide se acerca al planeta central. Al analizar su trayectoria, notan que la fuerza de atracción aumenta a medida que el asteroide se aproxima.",
+      "tabla_o_grafica_markdown": "| Distancia (r) | Fuerza (F) |\n|---|---|\n| 2d | F |\n| d | 4F |\n| d/2 | 16F |",
+      "pregunta": "De acuerdo con la tabla y la Ley de Gravitación Universal, ¿qué relación existe entre la fuerza y la distancia?",
+      "opciones": [
+        "La fuerza es inversamente proporcional al cuadrado de la distancia.",
+        "La fuerza es directamente proporcional a la distancia.",
+        "La fuerza no depende de la distancia, sino solo de la masa.",
+        "La fuerza disminuye a medida que el objeto se acerca al centro."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. Según Newton, si la distancia se reduce a la mitad, la fuerza aumenta por un factor de cuatro (2 al cuadrado).",
+        "1": "Incorrecto. Si fuera directamente proporcional, la fuerza disminuiría al acercarse.",
+        "2": "Incorrecto. La distancia es un factor crítico en la ecuación de gravitación.",
+        "3": "Incorrecto. La fuerza aumenta al disminuir la distancia (atracción más fuerte)."
+      }
+    },
+    {
+      "competencia": "Uso Comprensivo del Conocimiento Científico",
+      "texto_introductorio": "Dos lunas, A y B, orbitan el planeta de Neo-Antares. La luna B está a una distancia cuatro veces mayor del centro del planeta que la luna A.",
+      "tabla_o_grafica_markdown": "| Luna | Radio Orbital (r) | Periodo (T) |\n|---|---|---|\n| A | R | T_a |\n| B | 4R | T_b |",
+      "pregunta": "Aplicando la Tercera Ley de Kepler ($T^2 \\propto r^3$), ¿cómo es el periodo orbital de la luna B en comparación con la luna A?",
+      "opciones": [
+        "El periodo de B es 4 veces el de A.",
+        "El periodo de B es 8 veces el de A.",
+        "El periodo de B es 16 veces el de A.",
+        "El periodo de B es 64 veces el de A."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. No se considera la relación cúbica y cuadrada.",
+        "1": "Correcto. Si r aumenta 4 veces, r al cubo es 64. La raíz cuadrada de 64 es 8. Por tanto, T es 8 veces mayor.",
+        "2": "Incorrecto. Ese sería el resultado si la relación fuera simplemente cuadrática.",
+        "3": "Incorrecto. 64 es el cubo del radio, pero falta extraer la raíz cuadrada para hallar el periodo."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "Un grupo de estudiantes de la Academia de Neo-Antares realiza un experimento soltando dos esferas de diferente masa en una cámara de vacío. Observan que ambas caen al mismo tiempo.",
+      "tabla_o_grafica_markdown": "| Objeto | Masa (kg) | Tiempo de caída (s) |\n|---|---|---|\n| Esfera 1 | 10 | 2.5 |\n| Esfera 2 | 100 | 2.5 |",
+      "pregunta": "¿Qué conclusión científica se puede extraer de este experimento sobre el movimiento en un campo gravitatorio?",
+      "opciones": [
+        "La aceleración de la gravedad depende de la masa del objeto que cae.",
+        "Los objetos más pesados siempre caen más rápido en cualquier condición.",
+        "En ausencia de aire, todos los objetos caen con la misma aceleración independientemente de su masa.",
+        "La fuerza de fricción es lo que hace que los objetos caigan al mismo tiempo."
+      ],
+      "correcta": 2,
+      "retroalimentacion": {
+        "0": "Incorrecto. La aceleración (g) es constante para todos los objetos en el mismo punto del campo gravitatorio.",
+        "1": "Incorrecto. El experimento demuestra justamente lo contrario en condiciones de vacío.",
+        "2": "Correcto. Este es el principio de equivalencia; la masa inercial y la gravitatoria se cancelan en la ecuación de movimiento.",
+        "3": "Incorrecto. En una cámara de vacío no hay fricción significativa de aire."
+      }
+    }
+  ]
+}

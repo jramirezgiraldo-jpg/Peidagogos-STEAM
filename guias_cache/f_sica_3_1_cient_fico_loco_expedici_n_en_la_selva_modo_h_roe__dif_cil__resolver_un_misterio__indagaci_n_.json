@@ -1,0 +1,198 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Qué forma crees que tiene la trayectoria de un planeta alrededor del Sol según lo que has escuchado?",
+      "opciones": [
+        "Circular perfecta",
+        "Elíptica",
+        "Zigzag",
+        "Espiral descendente"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "Si un objeto está más lejos del Sol, ¿su 'año' (periodo orbital) será más largo o más corto?",
+      "opciones": [
+        "Más corto",
+        "Igual",
+        "Más largo",
+        "Depende de su color"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "¿Quién es el científico loco (bueno, no tan loco como yo) que propuso que la Tierra gira alrededor del Sol?",
+      "opciones": [
+        "Ptolomeo",
+        "Aristóteles",
+        "Copérnico",
+        "Newton"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "¿Qué fuerza evita que los planetas salgan volando al espacio profundo como un mono en una liana rota?",
+      "opciones": [
+        "Magnetismo",
+        "Gravedad",
+        "Fricción",
+        "Presión atmosférica"
+      ],
+      "correcta": 1
+    }
+  ],
+  "texto_inductivo": "¡BIENVENIDOS, MIS VALIENTES E IMPRUDENTES EXPLORADORES DEL CONOCIMIENTO! Soy el Doctor Heisenbug, y los he traído a lo más profundo de esta selva impenetrable porque aquí, entre los restos del Templo del Astromante Perdido, se oculta el secreto mejor guardado del universo: el mecanismo del reloj celestial. **¡BWA-HA-HA!** Miren a su alrededor, estas lianas no son simples plantas, son vectores de fuerza que mantienen el equilibrio en este ecosistema, tal como las fuerzas invisibles mantienen a los planetas en su lugar. Durante siglos, los humanos —esos seres de mentes tan cuadradas— creyeron que vivían en el centro de todo. Imaginaban que la Tierra era el ombligo del cosmos y que el Sol, la Luna y las estrellas bailaban a nuestro alrededor en círculos perfectos. ¡Qué arrogancia! ¡Qué falta de imaginación! El modelo geocéntrico era como tratar de navegar en esta selva usando un mapa de la Luna. No funcionaba, las cuentas no daban, los planetas hacían movimientos extraños llamados 'retrogradaciones', como si se arrepintieran de su camino y volvieran atrás. Pero luego, un grupo de 'rebeldes' empezó a mirar más allá. Nicolás Copérnico, un hombre valiente, se atrevió a decir que el Sol era el centro (Heliocentrismo). Sin embargo, seguía obsesionado con los círculos perfectos. ¡Los círculos son aburridos, exploradores! La naturaleza es salvaje y caprichosa. Fue entonces cuando apareció Tycho Brahe, un observador obsesivo con una nariz de metal que recopiló datos tan precisos que me harían llorar de alegría en mi laboratorio. Pero Brahe no sabía qué hacer con ellos. Fue su asistente, Johannes Kepler, quien finalmente resolvió el misterio en medio de una guerra de datos y matemáticas. Kepler se dio cuenta de que los planetas no son perfectos seguidores de círculos, sino que trazan **ELIPSES**. Imaginen un círculo que ha sido aplastado por la pata de un elefante galáctico. Eso cambió todo. En esta expedición, nuestra misión es redescubrir cómo el movimiento planetario no es un caos, sino una sinfonía de leyes físicas. Aquí en la selva, observamos que las aves vuelan siguiendo rutas óptimas; los planetas hacen lo mismo. Estamos aquí para entender que el cielo no es una cúpula estática, sino un laboratorio dinámico que sigue reglas que podemos descifrar si somos lo suficientemente astutos (y un poco locos). ¿Sienten esa vibración bajo sus pies? No es un terremoto, es la inercia de la Tierra rotando a mil kilómetros por hora mientras orbita a treinta kilómetros por segundo. ¡Es asombroso que no salgamos disparados hacia las fauces de un jaguar cósmico! Prepárense, porque para resolver el misterio del Templo del Astromante, primero debemos entender que el orden del cielo es el mismo orden que rige esta maleza. La observación es nuestra brújula, la lógica nuestro machete para abrir camino entre la ignorancia.",
+  "recurso_visual": "graph TD\n    A[Modelos del Universo] --> B(Geocentrismo)\n    B --> B1[Tierra en el centro]\n    B --> B2[Círculos perfectos]\n    A --> C(Heliocentrismo)\n    C --> C1[Sol en el centro]\n    C1 --> C2[Copérnico: Órbitas circulares]\n    C1 --> C3[Kepler: Órbitas ELÍPTICAS]\n    C3 --> D[Leyes de Kepler]\n    D --> D1[1ra: Elipses]\n    D --> D2[2da: Áreas iguales]\n    D --> D3[3ra: Armónica - T^2/a^3]",
+  "preguntas_inductivas_pagina": [
+    "¿Por qué el modelo geocéntrico fallaba al explicar el movimiento de los planetas?",
+    "¿Qué diferencia fundamental introdujo Kepler respecto a la forma de las órbitas propuesta por Copérnico?",
+    "¿Cuál fue la importancia de los datos recopilados por Tycho Brahe para el descubrimiento de Kepler?",
+    "En la analogía de la selva, ¿qué representarían las lianas en relación con los planetas?",
+    "¿Qué significa que un planeta tenga un movimiento 'retrógrado' según la observación desde la Tierra?"
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema comparativo entre el modelo Geocéntrico y el Heliocéntrico, resaltando la posición del Sol y la Tierra.",
+    "Realiza un cuadro comparativo entre las ideas de Copérnico y las de Kepler sobre las órbitas planetarias.",
+    "Escribe una reflexión de una página sobre cómo cambiaría nuestra visión del mundo si aún creyéramos que somos el centro del universo.",
+    "Representa gráficamente una elipse, identificando sus focos y explicando en cuál de ellos se ubica el Sol."
+  ],
+  "juegos_ordenar_letras_1": [
+    "ELIPSE",
+    "HELIOCENTRISMO",
+    "ORBITA"
+  ],
+  "juego_ordenar_frase_1": "EL SOL OCUPA UNO DE LOS FOCOS DE LA ELIPSE PLANETARIA",
+  "texto_deductivo": "¡ESCUCHEN CON ATENCIÓN, MIS PEQUEÑOS GENIOS EN POTENCIA! Hemos penetrado en la Cámara de las Ecuaciones Prohibidas. Aquí, las paredes hablan en el lenguaje de la geometría y el cálculo. El misterio que estamos resolviendo no se trata solo de hacia dónde se mueven los planetas, sino de **POR QUÉ** lo hacen. Kepler nos dejó tres leyes sagradas, grabadas en el tejido mismo del espacio-tiempo. La Primera Ley, o Ley de las Órbitas, nos dice que los planetas no son prisioneros de círculos perfectos, sino que recorren elipses con el Sol en uno de sus focos. ¿Qué hay en el otro foco? ¡Nada! ¡Vacío absoluto! ¡Espacio para mi colección de matraces! La Segunda Ley, la Ley de las Áreas, es aún más fascinante. Nos dice que una línea imaginaria que conecte al planeta con el Sol barre áreas iguales en tiempos iguales. Esto significa que el planeta no se mueve a una velocidad constante. ¡Se acelera cuando está cerca del Sol (perihelio) como si tuviera miedo de quemarse, y se frena cuando está lejos (afelio) como si estuviera disfrutando de la brisa cósmica! ¡Es pura adrenalina orbital! Y luego, la Tercera Ley, la Joya de la Corona: la Ley Armónica. Establece que el cuadrado del periodo orbital de un planeta es proporcional al cubo de su distancia media al Sol ($T^2 = k \\cdot r^3$). ¡La matemática nunca miente! Pero faltaba algo... un puente entre la geometría de Kepler y la realidad física. Fue ahí donde Isaac Newton —un tipo casi tan brillante como yo, pero con mejor peluca— entró en escena. Newton se dio cuenta de que la misma fuerza que hace que una manzana me golpee la cabeza mientras duermo bajo un árbol de caucho es la que mantiene a la Luna en su sitio. La **Ley de Gravitación Universal** establece que cada partícula en el universo atrae a cualquier otra partícula con una fuerza que es directamente proporcional al producto de sus masas e inversamente proporcional al cuadrado de la distancia que las separa. ¡BAM! La síntesis perfecta. Los planetas caen hacia el Sol, pero debido a su velocidad tangencial, ¡nunca lo alcanzan! Están en una caída libre perpetua, un equilibrio perfecto entre la inercia y la gravedad. Si la gravedad desapareciera de repente, la Tierra saldría disparada en línea recta hacia la oscuridad profunda, como un proyectil lanzado por una catapulta selvática. Sin estas leyes, no podríamos enviar satélites para rastrear la deforestación ni telescopios para buscar vida en otros mundos. El movimiento planetario no es solo astronomía; es la base de toda la física moderna. Entenderlo es poseer la llave de los cielos. ¡Ahora, tomen sus herramientas y demuestren que han comprendido la mecánica del Gran Diseño!",
+  "preguntas_deductivas_pagina": [
+    "¿Qué ocurre con la velocidad de un planeta cuando se acerca al perihelio?",
+    "¿Cuál es la relación matemática que propone la Tercera Ley de Kepler?",
+    "¿Cómo explica la Ley de Gravitación Universal de Newton la causa de las órbitas elípticas?",
+    "¿Qué sucedería con la fuerza de atracción si la distancia entre dos planetas se duplicara?",
+    "¿Por qué se dice que un planeta en órbita está en una 'caída libre perpetua'?"
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Realiza un diagrama detallado que explique la Segunda Ley de Kepler, sombreando áreas iguales en diferentes puntos de la órbita.",
+    "Elabora un mapa mental que conecte las Tres Leyes de Kepler con la Ley de Gravitación Universal de Newton.",
+    "Dibuja un esquema explicativo del concepto de gravedad, mostrando cómo la masa de los objetos influye en la fuerza de atracción.",
+    "Crea una infografía artesanal que explique por qué los planetas no chocan contra el Sol a pesar de la atracción gravitatoria."
+  ],
+  "juegos_ordenar_letras_2": [
+    "GRAVEDAD",
+    "PERIHELIO",
+    "AFELIO"
+  ],
+  "juego_ordenar_frase_2": "LA FUERZA DE GRAVEDAD MANTIENE EL ORDEN EN EL COSMOS",
+  "sopa_letras": [
+    "KEPLER",
+    "NEWTON",
+    "ELIPSE",
+    "FOCO",
+    "ORBITA",
+    "MASA",
+    "INERCIA",
+    "PERIODO",
+    "RADIO",
+    "FUERZA"
+  ],
+  "crucigrama": [
+    {
+      "palabra": "KEPLER",
+      "pista": "Astrofísico que determinó que las órbitas son elípticas."
+    },
+    {
+      "palabra": "ELIPSE",
+      "pista": "Forma geométrica de la trayectoria planetaria."
+    },
+    {
+      "palabra": "NEWTON",
+      "pista": "Formuló la Ley de Gravitación Universal."
+    },
+    {
+      "palabra": "PERIHELIO",
+      "pista": "Punto de la órbita más cercano al Sol."
+    },
+    {
+      "palabra": "AFELIO",
+      "pista": "Punto de la órbita más alejado del Sol."
+    },
+    {
+      "palabra": "GRAVEDAD",
+      "pista": "Fuerza de atracción entre dos cuerpos con masa."
+    },
+    {
+      "palabra": "PERIODO",
+      "pista": "Tiempo que tarda un planeta en dar una vuelta completa al Sol."
+    },
+    {
+      "palabra": "FOCO",
+      "pista": "Punto interior de una elipse donde se ubica el Sol."
+    },
+    {
+      "palabra": "INERCIA",
+      "pista": "Tendencia de un cuerpo a mantener su estado de movimiento."
+    },
+    {
+      "palabra": "SOL",
+      "pista": "Centro de masa de nuestro sistema planetario."
+    }
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "En el Templo del Astromante, los exploradores encuentran una inscripción que describe cómo el planeta 'Xylos' se mueve más rápido cuando está cerca de su estrella de fuego.",
+      "tabla_o_grafica_markdown": "| Posición | Distancia a la Estrella (UA) | Velocidad Orbital (km/s) |\n|---|---|---|\n| Punto A | 0.5 | 50 |\n| Punto B | 1.5 | 20 |",
+      "pregunta": "¿Qué ley de la física explica este cambio en la velocidad de Xylos?",
+      "opciones": [
+        "La Primera Ley de Newton",
+        "La Segunda Ley de Kepler",
+        "La Tercera Ley de Kepler",
+        "La Ley de Boyle"
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. La primera ley de Newton habla de la inercia, no de cambios de velocidad en órbitas.",
+        "1": "Correcto. La ley de las áreas implica que el planeta debe ir más rápido en el perihelio para barrer la misma área.",
+        "2": "Incorrecto. La tercera ley relaciona periodos y distancias, no velocidades instantáneas.",
+        "3": "Incorrecto. La ley de Boyle trata sobre gases, ¡no sobre planetas!"
+      }
+    },
+    {
+      "competencia": "Uso comprensivo del conocimiento científico",
+      "texto_introductorio": "Si descubrimos un nuevo planeta en la selva cósmica cuya distancia media al Sol es 4 veces mayor que la de la Tierra (4 UA).",
+      "tabla_o_grafica_markdown": "| Planeta | Distancia Media (a) | Periodo (T) |\n|---|---|---|\n| Tierra | 1 UA | 1 año |\n| Nuevo Planeta | 4 UA | ? |",
+      "pregunta": "Usando la Tercera Ley de Kepler ($T^2 = a^3$), ¿cuál sería el periodo orbital aproximado de este nuevo planeta?",
+      "opciones": [
+        "4 años",
+        "8 años",
+        "16 años",
+        "64 años"
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. No es una relación lineal simple.",
+        "1": "Correcto. T^2 = 4^3 = 64. La raíz cuadrada de 64 es 8.",
+        "2": "Incorrecto. Olvidaste sacar la raíz cuadrada del resultado.",
+        "3": "Incorrecto. Eso sería T^2, no T."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "Un grupo de científicos locos observa que una luna de Júpiter parece desviarse de su órbita predicha. Se sospecha que un objeto invisible está ejerciendo una fuerza extra.",
+      "tabla_o_grafica_markdown": "| Hipótesis | Predicción | Observación |\n|---|---|---|\n| H1: Gravedad extra | Órbita se encoge | Se encoge |\n| H2: Sin gravedad | Órbita se expande | Se encoge |",
+      "pregunta": "¿Qué paso del método científico deben seguir los investigadores para confirmar que hay un objeto invisible?",
+      "opciones": [
+        "Ignorar los datos que no coinciden",
+        "Publicar los resultados de inmediato sin revisar",
+        "Realizar mediciones de masa en la zona afectada para buscar anomalías gravitatorias",
+        "Cambiar las leyes de Kepler porque parecen viejas"
+      ],
+      "correcta": 2,
+      "retroalimentacion": {
+        "0": "Incorrecto. Un científico nunca ignora datos.",
+        "1": "Incorrecto. La ciencia requiere validación.",
+        "2": "Correcto. La indagación requiere buscar evidencia física que respalde la anomalía observada.",
+        "3": "Incorrecto. Las leyes no se cambian por capricho, se ajustan con evidencia sólida."
+      }
+    }
+  ]
+}

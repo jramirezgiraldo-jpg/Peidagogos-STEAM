@@ -1,0 +1,188 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Cuál es la forma geométrica principal que describen los planetas en su traslación alrededor del Sol?",
+      "opciones": [
+        "Círculo perfecto",
+        "Elipse",
+        "Línea recta",
+        "Espiral"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Qué fuerza es la responsable de mantener a los planetas en su órbita?",
+      "opciones": [
+        "Magnetismo",
+        "Fricción",
+        "Gravedad",
+        "Energía Solar"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "Según la observación común, ¿dónde se mueve más rápido un planeta?",
+      "opciones": [
+        "Cuando está más lejos del Sol",
+        "Cuando está más cerca del Sol",
+        "Siempre se mueve a la misma velocidad",
+        "Depende de su tamaño únicamente"
+      ],
+      "correcta": 1
+    }
+  ],
+  "texto_inductivo": "**EXPEDIENTE 001: EL OBSERVATORIO PERDIDO DE LOS JAGUARES ESTELARES.**\n\nSaludos, jóvenes investigadores. Soy el Detective Orion, y me encuentro en lo profundo de la selva amazónica, en una zona que no aparece en los mapas satelitales modernos. Frente a mí se alza el 'Templo del Equilibrio Celeste', una estructura colosal construida por una civilización desconocida que parecía obsesionada con el movimiento de las luces en el cielo. La humedad es sofocante y el sonido de los guacamayos resuena entre las lianas, pero lo que realmente me quita el aliento es el mecanismo que acabo de descubrir en el centro de la plaza principal. \n\nSe trata de un orrery gigante, un modelo mecánico del sistema solar tallado en piedra y obsidiana. Al activar una palanca de bronce cubierta de musgo, el mecanismo ha cobrado vida. He observado algo fascinante: las esferas que representan los planetas no se mueven en círculos perfectos, como creían los antiguos filósofos griegos en sus cómodas academias. Aquí, en la selva, los constructores sabían algo más. Cada esfera traza una curva ligeramente alargada, una **elipse**. El 'Sol' central no está en el medio exacto, sino desplazado hacia un lado, en un punto que mi manual de detective llama **foco**. \n\nMientras tomo notas en mi diario, noto un patrón extraño en el movimiento de la esfera que representa a la Tierra. Cuando la esfera se acerca al gran rubí central que simboliza el Sol, parece acelerar de forma frenética, como si fuera atraída por un hambre invisible. Sin embargo, al alejarse hacia los bordes exteriores de la plaza, su paso se vuelve lento, majestuoso, casi perezoso. Los nativos que me guían llaman a esto 'El Baile de los Espíritus Veloces'. Yo, como detective de la ciencia, sospecho que estamos ante una evidencia empírica de las leyes que rigen el universo.\n\nHe pasado tres noches observando el mecanismo. He medido las áreas que las varas de bronce 'barren' mientras los planetas se mueven. Para mi sorpresa, aunque un planeta vaya más lento cuando está lejos, el área del triángulo curvo que recorre en un mes es exactamente la misma que el área que barre cuando está cerca y se mueve rápido. Es una armonía matemática perfecta oculta en medio del caos de la selva. ¿Cómo pudieron estos antiguos arquitectos predecir esto sin telescopios modernos? La respuesta debe estar en la observación meticulosa de las sombras y las estaciones. \n\nPero hay un tercer misterio. He cronometrado el tiempo que tarda cada esfera en dar una vuelta completa. La esfera más cercana al Sol completa su ciclo en lo que dura un suspiro, mientras que la más lejana, una mole de piedra volcánica pesada, tarda semanas en volver a su punto de origen. Existe una relación proporcional, una danza numérica entre la distancia y el tiempo. Mientras la lluvia comienza a caer sobre el follaje esmeralda, me doy cuenta de que este templo no es un sitio de sacrificios, sino un laboratorio de física planetaria a escala monumental. Debemos investigar por qué la naturaleza prefiere las elipses a los círculos y qué fuerza invisible tira de estas cuerdas cósmicas para que la velocidad cambie de manera tan precisa. El misterio de los cielos está escrito en el suelo de esta selva, y nosotros somos los encargados de descifrar el código.",
+  "recurso_visual": "graph TD\n    A[Movimiento Planetario] --> B[Leyes de Kepler]\n    B --> C[1ra Ley: Órbitas Elípticas]\n    B --> D[2da Ley: Áreas Iguales]\n    B --> E[3ra Ley: Periodos y Distancias]\n    C --> F[El Sol ocupa un foco]\n    D --> G[Velocidad variable: Perihelio vs Afelio]\n    E --> H[T^2 proporcional a R^3]",
+  "preguntas_inductivas_pagina": [
+    "¿Qué forma geométrica observó el Detective Orion en el movimiento de las esferas del templo?",
+    "¿En qué posición del recorrido el planeta de piedra se mueve con mayor velocidad?",
+    "¿Qué descubrió el detective al comparar las áreas 'barridas' por los planetas en tiempos iguales?",
+    "¿Cómo cambia el tiempo que tarda un planeta en dar una vuelta completa según su distancia al Sol?",
+    "¿Qué elemento del templo representa el punto donde se encuentra el Sol dentro de la órbita?"
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema del mecanismo del templo mostrando una órbita elíptica, señalando los dos focos y la posición del Sol en uno de ellos.",
+    "Realiza un cuadro comparativo entre el movimiento de un planeta en el 'Perihelio' (punto más cercano) y el 'Afelio' (punto más lejano), mencionando velocidad y distancia.",
+    "Escribe una reflexión de 10 líneas: ¿Por qué crees que el detective considera que el templo es un 'laboratorio' y no solo un monumento decorativo?",
+    "Representa gráficamente, mediante sectores sombreados en una elipse, la idea de que un planeta barre áreas iguales en tiempos iguales."
+  ],
+  "juegos_ordenar_letras_1": [
+    "ELIPSE",
+    "KEPLER",
+    "ORBITA"
+  ],
+  "juego_ordenar_frase_1": "LOS PLANETAS DESCRIBEN ORBITAS ELIPTICAS ALREDEDOR DEL SOL EL CUAL SE UBICA EN UNO DE LOS FOCOS",
+  "texto_deductivo": "**EL INFORME FINAL: LA MECÁNICA DETRÁS DEL MISTERIO.**\n\nTras días de análisis bajo la luz de las antorchas, he logrado conectar los hallazgos del templo con el conocimiento científico acumulado por la humanidad. Lo que observamos en la selva son las manifestaciones físicas de las Leyes de Kepler, pero para resolver el misterio del 'por qué' sucede esto, debemos recurrir a la mente maestra de Isaac Newton. La razón por la cual los planetas no salen disparados hacia el vacío del espacio ni caen directamente al Sol es un delicado equilibrio de fuerzas que llamamos **Gravitación Universal**. \n\nLa ciencia nos enseña que todo cuerpo con masa atrae a otro con una fuerza que depende de qué tan grandes son y qué tan cerca están. En nuestro templo, el 'Sol' de rubí ejerce una atracción constante sobre las esferas de piedra. Esta fuerza es inversamente proporcional al cuadrado de la distancia; es decir, si duplicamos la distancia, la fuerza de atracción se reduce a la cuarta parte. Esta es la clave del por qué los planetas aceleran al acercarse al Sol: la gravedad se vuelve mucho más intensa, obligando al planeta a moverse más rápido para 'escapar' de ser succionado, transformando esa energía potencial en energía cinética. \n\nLa Primera Ley de Kepler, que observamos en la forma de las órbitas, rompió con siglos de creencia en el 'círculo perfecto'. Newton demostró matemáticamente que una fuerza de gravedad que disminuye con la distancia produce naturalmente trayectorias que son secciones cónicas, siendo la elipse la más común para cuerpos atrapados en un sistema solar. El Sol no está en el centro porque la elipse es una figura con dos focos, y la masa dominante del sistema siempre debe ocupar uno de ellos para mantener la estabilidad del sistema.\n\nEn cuanto a la armonía de la Tercera Ley, que relaciona el tiempo (periodo orbital) con la distancia media al Sol, la física nos dice que el cuadrado del periodo orbital (T²) es proporcional al cubo de la distancia media (R³). Esto no es una coincidencia mágica de los constructores del templo; es una consecuencia directa de cómo la fuerza centrípeta (necesaria para mantener el giro) es provista exactamente por la fuerza de gravedad. Si un planeta está más lejos, la gravedad es más débil y, por lo tanto, necesita menos velocidad para mantenerse en órbita, lo que resulta en un 'año' mucho más largo.\n\nFinalmente, investigadores, el misterio se resuelve entendiendo que el universo sigue reglas matemáticas precisas. La conservación del momento angular es lo que garantiza que las áreas barridas sean iguales: como un patinador que encoge sus brazos para girar más rápido, un planeta 'se encoge' hacia el Sol y acelera para compensar la disminución del radio de su giro. La selva nos ha entregado sus secretos, no a través de la magia, sino a través de la observación de la dinámica celeste. Ahora, la misión de ustedes es aplicar estas leyes para predecir el movimiento de cualquier cuerpo en el cosmos, desde un pequeño asteroide hasta la galaxia más lejana.",
+  "preguntas_deductivas_pagina": [
+    "¿Qué ley física explica por qué los planetas son atraídos hacia el Sol?",
+    "¿Qué sucede con la fuerza de gravedad si la distancia entre un planeta y el Sol se duplica?",
+    "¿Cuál es la relación matemática exacta que propone la Tercera Ley de Kepler entre el periodo y la distancia?",
+    "¿Qué principio físico explica que el planeta acelere al acercarse al Sol?",
+    "¿Por qué Newton fue fundamental para validar lo que Kepler había observado anteriormente?"
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Realiza un diagrama detallado que muestre los vectores de fuerza gravitacional y velocidad tangencial en dos puntos diferentes de una órbita elíptica.",
+    "Elabora un mapa mental que conecte la Ley de Gravitación Universal con las tres Leyes de Kepler.",
+    "Dibuja un esquema explicativo que demuestre por qué la fuerza de gravedad es 'inversamente proporcional al cuadrado de la distancia'.",
+    "Crea una infografía artesanal sobre Isaac Newton y Johannes Kepler, destacando cómo sus descubrimientos se complementan para explicar el movimiento planetario."
+  ],
+  "juegos_ordenar_letras_2": [
+    "GRAVEDAD",
+    "NEWTON",
+    "FOCOS"
+  ],
+  "juego_ordenar_frase_2": "LA FUERZA DE GRAVEDAD MANTIENE A LOS PLANETAS UNIDOS AL SISTEMA SOLAR",
+  "sopa_letras": [
+    "GRAVEDAD",
+    "ELIPSE",
+    "KEPLER",
+    "NEWTON",
+    "ORBITA",
+    "AFELIO",
+    "PERIHELIO",
+    "FOCO",
+    "INERCIA",
+    "ATRACCION"
+  ],
+  "crucigrama": [
+    {
+      "palabra": "KEPLER",
+      "pista": "Astrónomo que formuló las tres leyes del movimiento planetario."
+    },
+    {
+      "palabra": "ELIPSE",
+      "pista": "Forma geométrica de la órbita de los planetas."
+    },
+    {
+      "palabra": "GRAVEDAD",
+      "pista": "Fuerza de atracción entre dos masas."
+    },
+    {
+      "palabra": "PERIHELIO",
+      "pista": "Punto de la órbita más cercano al Sol."
+    },
+    {
+      "palabra": "AFELIO",
+      "pista": "Punto de la órbita más alejado del Sol."
+    },
+    {
+      "palabra": "FOCO",
+      "pista": "Uno de los dos puntos internos de una elipse."
+    },
+    {
+      "palabra": "PERIODO",
+      "pista": "Tiempo que tarda un planeta en completar una vuelta al Sol."
+    },
+    {
+      "palabra": "MASA",
+      "pista": "Cantidad de materia de un cuerpo celeste."
+    },
+    {
+      "palabra": "NEWTON",
+      "pista": "Científico que explicó la causa física de las leyes de Kepler."
+    },
+    {
+      "palabra": "RADIO",
+      "pista": "Distancia desde el Sol hasta el planeta."
+    }
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "En el templo de la selva, se observa que el planeta de piedra 'X' tarda mucho más tiempo en completar una vuelta que el planeta 'Y', el cual está más cerca del rubí central.",
+      "tabla_o_grafica_markdown": "| Planeta | Distancia Media (UA) | Periodo (Años) |\n|---|---|---|\n| Y | 1.0 | 1.0 |\n| X | 4.0 | ? |",
+      "pregunta": "Utilizando la Tercera Ley de Kepler (T² ∝ R³), si el planeta X está a una distancia 4 veces mayor que el planeta Y, ¿cuál será su periodo aproximado?",
+      "opciones": [
+        "4 años",
+        "8 años",
+        "16 años",
+        "64 años"
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. 4 años sería si la relación fuera lineal, pero es T² = R³.",
+        "1": "Correcto. Si R=4, R³=64. La raíz cuadrada de 64 es 8. Por lo tanto, T=8.",
+        "2": "Incorrecto. 16 años es el cuadrado de 4, pero la ley requiere R³.",
+        "3": "Incorrecto. 64 es R³, pero falta extraer la raíz cuadrada para hallar T."
+      }
+    },
+    {
+      "competencia": "Uso comprensivo del conocimiento científico",
+      "texto_introductorio": "Un detective observa que la velocidad de un planeta cambia según su posición en la elipse. Se sabe que esto se debe a la conservación del momento angular.",
+      "tabla_o_grafica_markdown": "| Posición | Distancia al Sol | Velocidad |\n|---|---|---|\n| Perihelio | Mínima | Máxima |\n| Afelio | Máxima | Mínima |",
+      "pregunta": "¿Cuál es la razón física primordial por la cual la velocidad es máxima en el perihelio?",
+      "opciones": [
+        "Porque el Sol empuja al planeta con su luz.",
+        "Porque la energía potencial gravitatoria se transforma en energía cinética debido a la mayor fuerza de atracción.",
+        "Porque el planeta pierde masa al acercarse al calor del Sol.",
+        "Porque en el perihelio no existe fuerza de fricción."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. La presión de radiación solar existe pero no es la causa de la velocidad orbital.",
+        "1": "Correcto. Al estar más cerca, la fuerza gravitatoria es mayor y la energía potencial se convierte en cinética.",
+        "2": "Incorrecto. La masa del planeta se considera constante en estas leyes.",
+        "3": "Incorrecto. En el vacío del espacio no hay fricción significativa en ninguna parte de la órbita."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "El Detective Orion encuentra una inscripción que dice: 'Si el Sol fuera el doble de pesado, nuestro año sería más corto'. Él decide investigar si esto es científicamente válido basándose en la Ley de Gravitación Universal.",
+      "tabla_o_grafica_markdown": "| Variable | Efecto de duplicar masa del Sol |\n|---|---|\n| Fuerza Gravitacional | Se duplica |\n| Velocidad necesaria | Aumenta |\n| Periodo (Año) | ? |",
+      "pregunta": "Si la masa del objeto central (Sol) aumentara significativamente, ¿qué pasaría con el periodo orbital de un planeta a la misma distancia original?",
+      "opciones": [
+        "El periodo aumentaría, haciendo el año más largo.",
+        "El periodo disminuiría, haciendo el año más corto.",
+        "El periodo permanecería igual porque no depende de la masa del Sol.",
+        "El planeta saldría de la órbita inmediatamente hacia el espacio exterior."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. A mayor masa, mayor atracción, lo que requiere más velocidad y menos tiempo de recorrido.",
+        "1": "Correcto. Una mayor masa solar ejerce más gravedad, requiriendo una velocidad orbital mayor para mantener el equilibrio, lo que acorta el tiempo de una vuelta.",
+        "2": "Incorrecto. El periodo depende inversamente de la raíz cuadrada de la masa del Sol.",
+        "3": "Incorrecto. Si la gravedad aumenta, el planeta tendería a caer hacia el Sol, no a escapar, a menos que aumente su velocidad drásticamente."
+      }
+    }
+  ]
+}

@@ -1,0 +1,178 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Cuál es la fuerza principal que mantiene a los planetas en su trayectoria alrededor del Sol?",
+      "opciones": [
+        "Fuerza Electromagnética",
+        "Fuerza de Fricción Espacial",
+        "Fuerza Gravitacional",
+        "Inercia centrífuga pura"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "Según el modelo heliocéntrico, ¿qué cuerpo celeste se encuentra en el centro del sistema solar?",
+      "opciones": [
+        "La Tierra",
+        "La Luna",
+        "Júpiter",
+        "El Sol"
+      ],
+      "correcta": 3
+    }
+  ],
+  "texto_inductivo": "**TRANSMISIÓN DESDE EL MÓDULO CUPOLA – ESTACIÓN ESPACIAL INTERNACIONAL**\n\n¡Atención, cadetes de la Academia Espacial! Les habla el Comandante de la EEI. Estamos enfrentando un misterio orbital que requiere de sus mentes más brillantes. Una sonda de suministros, la 'Odisea-7', ha perdido su curso programado mientras se dirigía a Marte. Los instrumentos muestran una trayectoria que no coincide con las órbitas circulares perfectas que los antiguos astrónomos imaginaban. Para rescatarla, debemos realizar una revisión profunda del movimiento planetario desde el rigor científico. \n\nDurante milenios, la humanidad miró al cielo con una mezcla de reverencia y confusión. Claudio Ptolomeo, en el siglo II, propuso un sistema geocéntrico donde la Tierra era el centro inmóvil de todo. Para explicar por qué algunos planetas parecían retroceder en el cielo (movimiento retrógrado), inventó los 'epiciclos': círculos dentro de círculos. Era una solución elegante pero incorrecta, un parche matemático para salvar una teoría que ponía nuestro ego en el centro del universo. Durante más de mil años, esta fue la verdad absoluta, hasta que un clérigo polaco llamado Nicolás Copérnico se atrevió a decir lo impensable: la Tierra no es el centro; nosotros orbitamos al Sol. Sin embargo, Copérnico seguía atrapado en la idea de la 'perfección divina' de las órbitas circulares, lo que hacía que sus predicciones fueran casi tan imprecisas como las de Ptolomeo.\n\nEl verdadero cambio de paradigma comenzó en una isla de Dinamarca, donde Tycho Brahe, el observador más meticuloso de la era pre-telescopio, dedicó décadas a registrar la posición de los astros con una precisión sin precedentes. Brahe era un gigante de los datos, pero le faltaba la visión matemática para interpretarlos. Al morir, sus registros pasaron a manos de su asistente, Johannes Kepler. Kepler, un místico y matemático brillante, pasó años intentando ajustar los datos de Brahe sobre Marte a una órbita circular. Pero había una discrepancia de 8 minutos de arco. Muchos habrían ignorado ese pequeño error, pero para Kepler, esos 8 minutos eran la clave de la verdad. Fue así como descubrió que el círculo no era la forma del cielo, sino la elipse. \n\nEste descubrimiento no fue solo un cambio geométrico; fue una revolución en el pensamiento humano. Kepler rompió las esferas de cristal de la antigüedad y nos dejó en un universo regido por leyes matemáticas que podíamos descubrir. Pero quedaba una pregunta en el aire, un misterio que ni siquiera Kepler pudo resolver: ¿Por qué los planetas se mueven así? ¿Qué 'hilo invisible' los ata al Sol? Aquí es donde entra nuestro papel como investigadores espaciales. Para encontrar la 'Odisea-7', debemos entender no solo cómo se mueve, sino qué fuerzas dictan su danza cósmica. La historia del movimiento planetario es la historia de cómo aprendimos a observar el error, a valorar el dato preciso por encima de la creencia cómoda y a entender que el universo tiene un lenguaje propio: las matemáticas. Prepárense, cadetes. El misterio de la órbita anómala nos espera, y la ciencia es nuestra única brújula en este vacío infinito.",
+  "recurso_visual": "graph TD\n    A[Modelos del Universo] --> B[Geocentrismo - Ptolomeo]\n    A --> C[Heliocentrismo - Copérnico]\n    B --> D[Tierra en el Centro / Epiciclos]\n    C --> E[Sol en el Centro / Órbitas Circulares]\n    E --> F[Revolución de Kepler]\n    F --> G[Leyes de Kepler / Órbitas Elípticas]\n    G --> H[Gravitación Universal - Newton]",
+  "preguntas_inductivas_pagina": [
+    "¿Por qué Ptolomeo necesitó introducir el concepto de 'epiciclos' en su modelo?",
+    "¿Cuál fue la diferencia fundamental entre el modelo de Copérnico y el de Kepler?",
+    "¿Qué importancia tuvo la precisión de los datos de Tycho Brahe para el descubrimiento de las leyes del movimiento planetario?",
+    "¿A qué se refiere el texto con 'la discrepancia de los 8 minutos de arco'?",
+    "¿Por qué el paso del modelo geocéntrico al heliocéntrico se considera una revolución científica y no solo un cambio de mapa?"
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema que compare el modelo geocéntrico (con epiciclos) y el modelo heliocéntrico de Copérnico.",
+    "Realiza un cuadro comparativo entre los aportes de Ptolomeo, Copérnico, Tycho Brahe y Kepler.",
+    "Escribe una reflexión de 15 líneas sobre por qué es importante prestar atención a los pequeños errores o anomalías en la investigación científica, basándote en el caso de Kepler.",
+    "Representa gráficamente, mediante una ilustración creativa, la transición de la 'perfección circular' a la 'realidad elíptica' mencionada en el texto."
+  ],
+  "juegos_ordenar_letras_1": [
+    "EPICICLO",
+    "ELIPTICA",
+    "HELIOSTÁTICO"
+  ],
+  "juego_ordenar_frase_1": "LA PRECISION DE LOS DATOS DE BRAHE PERMITIO A KEPLER ROMPER LAS ESFERAS DE CRISTAL",
+  "texto_deductivo": "**INFORME TÉCNICO DE DINÁMICA ORBITAL – NIVEL EXPERTO**\n\nCadetes, una vez comprendido el contexto histórico, debemos pasar a la fase de cálculo y deducción física para localizar la sonda 'Odisea-7'. El movimiento planetario no es una sugerencia, es el resultado de leyes físicas inquebrantables. Johannes Kepler sintetizó sus observaciones en tres leyes fundamentales. La Primera Ley, o Ley de las Elipses, establece que todos los planetas se mueven en órbitas elípticas con el Sol en uno de sus focos. Esto significa que la distancia entre el planeta y el Sol cambia constantemente. La Segunda Ley, o Ley de las Áreas, dicta que una línea imaginaria que conecte al Sol con un planeta barre áreas iguales en tiempos iguales. Esto implica algo crucial: la velocidad del planeta no es constante. Cuando la sonda está más cerca del Sol (perihelio), debe moverse más rápido para 'barrer' la misma área que cuando está lejos (afelio). \n\nSin embargo, la Tercera Ley de Kepler, la Ley de la Armonía, es la que nos permite predecir posiciones exactas: el cuadrado del periodo orbital (T) de un planeta es proporcional al cubo de su distancia promedio al Sol (radio de la órbita, r). Matemáticamente: T² ∝ r³. Esto nos dice que los planetas más lejanos no solo tienen caminos más largos, sino que se mueven más lentamente en términos absolutos que los planetas interiores. Pero Kepler solo describió el 'cómo'. Fue Isaac Newton quien, décadas después, descubrió el 'por qué'. \n\nNewton postuló la Ley de la Gravitación Universal, estableciendo que cada partícula de materia en el universo atrae a toda otra partícula con una fuerza que es directamente proporcional al producto de sus masas e inversamente proporcional al cuadrado de la distancia que las separa (F = G * m1 * m2 / r²). Al combinar esta ley con su Segunda Ley del Movimiento (F = m*a), Newton pudo demostrar matemáticamente las tres leyes de Kepler. Descubrió que la gravedad es la fuerza centrípeta que obliga a los planetas a caer continuamente hacia el Sol, pero debido a su gran velocidad tangencial, nunca llegan a chocar, manteniendo así una caída libre perpetua llamada órbita. \n\nPara resolver el misterio de la 'Odisea-7', debemos considerar que cualquier alteración en la masa o la distancia afectará drásticamente la fuerza gravitatoria y, por ende, la trayectoria. Si la sonda pasó cerca de un asteroide masivo, su órbita pudo haber sido perturbada por una fuerza externa imprevista. La gravitación universal de Newton nos enseña que nada en el espacio ocurre de forma aislada; todo cuerpo con masa ejerce una influencia, un tirón invisible que altera el tejido del movimiento. La 'Odisea-7' está siguiendo las leyes de la física, pero quizás no las leyes que nosotros simplificamos en nuestros modelos iniciales. Debemos calcular la perturbación orbital usando la relación entre la fuerza centrípeta y la gravitación para predecir su punto de intercepción actual antes de que se pierda en el espacio profundo.",
+  "preguntas_deductivas_pagina": [
+    "¿Qué sucede con la velocidad de la sonda 'Odisea-7' a medida que se acerca al punto de su órbita más próximo al Sol?",
+    "Si un planeta duplicara su distancia promedio al Sol, ¿cómo cambiaría su periodo orbital según la tercera ley de Kepler?",
+    "¿De qué manera la Ley de Gravitación Universal de Newton explica la Segunda Ley de Kepler?",
+    "¿Qué diferencia hay entre la velocidad tangencial y la aceleración centrípeta en el contexto de una órbita estable?",
+    "Si la masa de la sonda aumentara al doble sin cambiar su velocidad o distancia, ¿cómo cambiaría la fuerza gravitacional que el Sol ejerce sobre ella?"
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Elabora un diagrama detallado de una órbita elíptica, señalando el perihelio, el afelio, los focos y vector de velocidad en diferentes puntos.",
+    "Crea un mapa mental que conecte las Tres Leyes de Kepler con la Ley de Gravitación Universal de Newton.",
+    "Realiza un dibujo explicativo que muestre por qué un satélite en órbita se considera que está en 'caída libre perpetua'.",
+    "Diseña una infografía artesanal que explique la fórmula de la Gravitación Universal y el significado de cada una de sus variables."
+  ],
+  "juegos_ordenar_letras_2": [
+    "GRAVITACIÓN",
+    "PERIHELIO",
+    "CENTRIPETA"
+  ],
+  "juego_ordenar_frase_2": "LA FUERZA GRAVITATORIA MANTIENE A LOS PLANETAS EN UNA CAIDA LIBRE PERPETUA ALREDEDOR DEL SOL",
+  "sopa_letras": [
+    "KEPLER",
+    "NEWTON",
+    "ELIPSE",
+    "GRAVEDAD",
+    "ORBITA",
+    "FOCO",
+    "AFELIO",
+    "INERCIA",
+    "MASA",
+    "PERIODO"
+  ],
+  "crucigrama": [
+    {
+      "palabra": "PERIHELIO",
+      "pista": "Punto de la órbita donde el planeta está más cerca del Sol."
+    },
+    {
+      "palabra": "AFELIO",
+      "pista": "Punto de la órbita donde el planeta está más lejos del Sol."
+    },
+    {
+      "palabra": "ELIPSE",
+      "pista": "Forma geométrica de las órbitas planetarias según la primera ley de Kepler."
+    },
+    {
+      "palabra": "FOCO",
+      "pista": "Lugar que ocupa el Sol dentro de la elipse orbital."
+    },
+    {
+      "palabra": "PERIODO",
+      "pista": "Tiempo que tarda un planeta en dar una vuelta completa al Sol."
+    },
+    {
+      "palabra": "GRAVEDAD",
+      "pista": "Fuerza de atracción entre dos cuerpos debido a su masa."
+    },
+    {
+      "palabra": "INERCIA",
+      "pista": "Tendencia de un cuerpo a mantener su estado de movimiento."
+    },
+    {
+      "palabra": "TYCHO",
+      "pista": "Nombre del astrónomo cuyos datos permitieron a Kepler formular sus leyes."
+    },
+    {
+      "palabra": "SOL",
+      "pista": "Centro de masa principal de nuestro sistema planetario."
+    },
+    {
+      "palabra": "VELOCIDAD",
+      "pista": "Magnitud que aumenta cuando un planeta se acerca al perihelio."
+    }
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "En la Estación Espacial Internacional, observamos que los satélites en órbitas más bajas se mueven mucho más rápido que la Luna en su órbita alrededor de la Tierra.",
+      "tabla_o_grafica_markdown": "| Cuerpo Celeste | Distancia Media (km) | Velocidad Orbital (km/s) |\n|----------------|----------------------|--------------------------|\n| Satélite LEO   | 6,700                | 7.8                      |\n| Luna           | 384,400              | 1.02                     |",
+      "pregunta": "¿A qué se debe que la velocidad orbital disminuya al aumentar la distancia al centro de la Tierra?",
+      "opciones": [
+        "A que la fuerza gravitacional disminuye con el cuadrado de la distancia, requiriendo menos velocidad para mantener el equilibrio.",
+        "A que el aire en el espacio es más denso cerca de la Tierra y empuja a los satélites.",
+        "A que la masa de la Luna es mayor que la de un satélite artificial.",
+        "A que el tiempo se mueve más lento lejos de la Tierra según la relatividad."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. Según Newton, la fuerza necesaria para mantener la órbita baja con la distancia r.",
+        "1": "Incorrecto. En el vacío del espacio no hay aire que ejerza ese tipo de empuje.",
+        "2": "Incorrecto. La velocidad orbital de un cuerpo no depende de su propia masa (si es pequeña comparada con el planeta), sino de la masa del planeta y la distancia.",
+        "3": "Incorrecto. Aunque es cierto en relatividad general, el efecto es despreciable para explicar las velocidades orbitales clásicas."
+      }
+    },
+    {
+      "competencia": "Uso Comprensivo del Conocimiento Científico",
+      "texto_introductorio": "Un nuevo exoplaneta 'Z-8' ha sido detectado. Se observa que su radio orbital promedio es 4 veces mayor que el de la Tierra.",
+      "tabla_o_grafica_markdown": "| Planeta | Radio (UA) | Periodo (Años) |\n|---------|------------|----------------|\n| Tierra  | 1          | 1              |\n| Z-8     | 4          | ?              |",
+      "pregunta": "Usando la Tercera Ley de Kepler (T² = k * r³), ¿cuál será el periodo orbital del planeta Z-8 en años terrestres?",
+      "opciones": [
+        "4 años",
+        "8 años",
+        "16 años",
+        "64 años"
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. Olvidaste elevar al cubo el radio antes de sacar la raíz cuadrada.",
+        "1": "Correcto. 4 al cubo es 64, y la raíz cuadrada de 64 es 8.",
+        "2": "Incorrecto. Este valor no corresponde a la relación cuadrático-cúbica de Kepler.",
+        "3": "Incorrecto. 64 es r al cubo, pero falta aplicar la raíz cuadrada para hallar T."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "Un grupo de astronautas nota que la sonda 'Odisea-7' está acelerando de forma imprevista mientras se aleja del Sol, lo cual contradice la Segunda Ley de Kepler.",
+      "tabla_o_grafica_markdown": "| Tiempo (h) | Distancia al Sol (km) | Velocidad (km/s) |\n|------------|-----------------------|------------------|\n| 10:00      | 200 millones          | 24               |\n| 11:00      | 210 millones          | 26               |",
+      "pregunta": "¿Qué hipótesis científica es más coherente para explicar esta anomalía observada en los datos?",
+      "opciones": [
+        "Las leyes de Kepler han dejado de funcionar en esa región del espacio.",
+        "La sonda está bajo la influencia gravitacional de un objeto masivo no detectado (como un asteroide).",
+        "El Sol ha aumentado su masa repentinamente durante esa hora.",
+        "La sonda ha entrado en una zona donde la gravedad es repulsiva."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. Las leyes físicas son universales; una anomalía suele indicar una variable no considerada.",
+        "1": "Correcto. Una fuerza externa adicional explicaría la aceleración no debida al Sol.",
+        "2": "Incorrecto. El Sol no cambia su masa de forma tan drástica y repentina.",
+        "3": "Incorrecto. No existe evidencia científica de gravedad repulsiva en escalas de sistemas planetarios."
+      }
+    }
+  ]
+}

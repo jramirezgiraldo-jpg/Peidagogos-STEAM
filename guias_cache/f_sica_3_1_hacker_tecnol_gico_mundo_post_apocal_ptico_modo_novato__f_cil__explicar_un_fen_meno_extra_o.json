@@ -1,0 +1,188 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Qué cuerpo celeste se encuentra en el centro de nuestro sistema según la ciencia actual?",
+      "opciones": [
+        "La Tierra",
+        "Marte",
+        "El Sol",
+        "La Luna"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "¿Cómo describirías la forma del camino que recorre un planeta alrededor del Sol?",
+      "opciones": [
+        "Círculo perfecto",
+        "Línea recta",
+        "Óvalo o Elipse",
+        "Triángulo"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "¿Qué fuerza crees que mantiene a los planetas 'atados' a su órbita?",
+      "opciones": [
+        "Magnetismo",
+        "Gravedad",
+        "Electricidad",
+        "Viento solar"
+      ],
+      "correcta": 1
+    }
+  ],
+  "texto_inductivo": "Saludos, sobrevivientes del Sector 7. Soy 'Zero-Day', su Hacker de confianza en este mundo donde los satélites han caído y el cielo es nuestro único mapa confiable. Antes del Gran Colapso, la humanidad daba por sentado que los planetas se movían siguiendo reglas precisas, pero para nosotros, entender este 'movimiento planetario' es una cuestión de supervivencia pura. Imaginen que están en medio del Páramo, mirando hacia arriba. Durante siglos, nuestros ancestros, los 'scavengers' de la antigüedad, creyeron que la Tierra era el disco duro central de todo el universo. A este error de sistema lo llamaron **Geocentrismo**. Pensaban que todo, desde el Sol hasta las estrellas lejanas, giraba alrededor de nosotros. Era una interfaz de usuario muy intuitiva, pero llena de bugs. El problema principal era que algunos planetas, como Marte, a veces parecían retroceder en el cielo, un fenómeno extraño llamado 'movimiento retrógrado'. Para explicar este fallo en el código, los antiguos crearon 'epiciclos', círculos dentro de círculos, complicando el sistema hasta que se volvió ineficiente. \n\nFue entonces cuando un hacker polaco llamado Nicolás Copérnico decidió hacer un 'rebranding' total del sistema. Él propuso el **Heliocentrismo**: el Sol es el procesador central, y la Tierra es solo otro periférico que gira a su alrededor. Este cambio de paradigma no fue solo un capricho; fue la optimización de datos más grande de la historia. Sin embargo, Copérnico todavía creía que las órbitas eran círculos perfectos, un error de redondeo que no permitía predecir con exactitud la posición de los astros. Más tarde, un recolector de datos masivos llamado Tycho Brahe dedicó su vida a observar el cielo con una precisión nunca antes vista, acumulando terabytes de información en papel. Tras su muerte, su asistente, Johannes Kepler, realizó un 'jailbreak' a esos datos. Kepler descubrió que el movimiento planetario no seguía círculos, sino elipses. Esta es la base de nuestra navegación actual: entender que los planetas no son estáticos ni erráticos, sino que siguen un protocolo físico inalterable. Si queremos predecir cuándo pasará el próximo cometa de recursos o cuándo las tormentas solares afectarán nuestras comunicaciones de radiofrecuencia, debemos entender cómo se mueven estos gigantes en el vacío. Estamos reconstruyendo la ciencia desde los escombros, y el primer paso es aceptar que no somos el centro de nada, sino parte de un engranaje cósmico mucho más vasto y elegante. Entender el movimiento planetario es, en esencia, entender el código fuente de nuestra realidad física, una que no depende de servidores externos ni de redes eléctricas, sino de la constante danza de la gravedad y la inercia.",
+  "recurso_visual": "graph LR\n  A[Observador en el Páramo] --> B{¿Qué ve?}\n  B --> C[Geocentrismo: Tierra al Centro]\n  B --> D[Heliocentrismo: Sol al Centro]\n  C --> E[Error: Movimiento Retrógrado]\n  D --> F[Corrección: Órbitas Elípticas]\n  F --> G[Kepler: Las 3 Leyes]",
+  "preguntas_inductivas_pagina": [
+    "¿Qué significa que un sistema sea Geocéntrico según el texto?",
+    "¿Cuál era el 'bug' o error que presentaba el modelo de círculos perfectos?",
+    "¿Quién fue el 'hacker' que propuso que el Sol era el centro del sistema?",
+    "¿Qué forma tienen realmente las órbitas planetarias según Kepler?",
+    "¿Por qué es importante para un sobreviviente entender el movimiento de los planetas?"
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema comparativo entre el modelo Geocéntrico y el Heliocéntrico, resaltando el 'procesador central' en cada uno.",
+    "Realiza un cuadro comparativo entre las ideas de Copérnico y los descubrimientos finales de Kepler.",
+    "Escribe una reflexión de 15 líneas sobre cómo cambiaría tu visión del mundo si de repente descubrieras que la Tierra no se mueve.",
+    "Representa gráficamente el 'movimiento retrógrado' de un planeta tal como se vería desde el suelo del Páramo."
+  ],
+  "juegos_ordenar_letras_1": [
+    "ELIPSE",
+    "ORBITA",
+    "HACKER"
+  ],
+  "juego_ordenar_frase_1": "EL SOL ES EL CENTRO DE NUESTRO SISTEMA PLANETARIO",
+  "texto_deductivo": "Ahora que hemos cargado el sistema operativo básico, es hora de profundizar en el kernel: las **Leyes de Kepler**. Estas no son simples sugerencias; son las reglas de firewall que la naturaleza impone a cualquier cuerpo que se mueva por el espacio. Kepler, usando los datos 'minados' por Brahe, sintetizó tres leyes fundamentales que explican por qué los planetas no salen disparados al vacío ni se estrellan contra el Sol. La **Primera Ley** o Ley de las Órbitas rompe con la estética de la perfección circular. Establece que los planetas se mueven en elipses, donde el Sol no está en el centro exacto, sino en uno de los puntos llamados 'focos'. Imaginen una cuerda atada a dos estacas; el camino que trazas alrededor de ellas es una elipse. Esto significa que la distancia entre un planeta y el Sol cambia constantemente, afectando la energía que recibimos. \n\nLa **Segunda Ley** o Ley de las Áreas es el protocolo de velocidad. Kepler notó que los planetas no se mueven a una velocidad constante. Cuando un planeta está más cerca del Sol (perihelio), acelera como si tuviera un 'overclocking' gravitacional. Cuando está lejos (afelio), se ralentiza. Lo fascinante es que, si dibujamos una línea imaginaria entre el Sol y el planeta, esta línea barre áreas iguales en tiempos iguales. Es una optimización perfecta de la energía cinética y potencial. Finalmente, tenemos la **Tercera Ley** o Ley de los Periodos. Esta es la fórmula matemática que conecta a todos los planetas del sistema. Dice que el cuadrado del periodo orbital (el tiempo que tarda en dar una vuelta) es proporcional al cubo de su distancia promedio al Sol. En términos de hacker: entre más lejos esté un planeta de la unidad central (Sol), mucho más tiempo tardará en completar su ciclo de actualización (año). \n\nPero, ¿por qué sucede esto? Kepler tenía las reglas, pero no el motor gráfico. Fue Isaac Newton quien, años después, descubrió el código detrás del código: la **Ley de Gravitación Universal**. Newton explicó que la misma fuerza que hace caer una manzana de un árbol mutado en el Páramo es la que mantiene a la Luna en órbita. La gravedad depende de la masa de los cuerpos y de la distancia que los separa. Si duplicas la masa, la fuerza se duplica; si duplicas la distancia, la fuerza se reduce a la cuarta parte. Es una relación de 'inversamente proporcional al cuadrado'. Como hackers tecnológicos del nuevo mundo, entender estas leyes nos permite calcular trayectorias, entender las estaciones y, lo más importante, predecir el futuro en un mundo donde el pasado digital ha sido borrado. La física no es solo teoría; es la herramienta que nos permite 'crackear' el funcionamiento del universo para que no nos tome por sorpresa.",
+  "preguntas_deductivas_pagina": [
+    "¿Qué nombre recibe el punto de la órbita donde el planeta está más cerca del Sol?",
+    "Según la Segunda Ley de Kepler, ¿dónde se mueve más rápido un planeta?",
+    "¿Qué establece la Primera Ley de Kepler sobre la forma de las órbitas?",
+    "¿Qué relación matemática plantea la Tercera Ley de Kepler?",
+    "¿Quién descubrió la fuerza de gravedad que explica las leyes de Kepler?"
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Diseña un diagrama detallado de una órbita elíptica señalando los focos, el Sol, el perihelio y el afelio.",
+    "Elabora un mapa mental que conecte las tres leyes de Kepler con la Ley de Gravitación de Newton.",
+    "Dibuja una secuencia explicativa (tipo cómic) que muestre cómo un planeta barre áreas iguales en tiempos iguales.",
+    "Crea una infografía artesanal donde expliques cómo la gravedad varía según la masa y la distancia entre dos cuerpos."
+  ],
+  "juegos_ordenar_letras_2": [
+    "GRAVEDAD",
+    "PERIHELIO",
+    "NEWTON"
+  ],
+  "juego_ordenar_frase_2": "LA GRAVEDAD MANTIENE A LOS PLANETAS EN SUS ORBITAS ELIPTICAS",
+  "sopa_letras": [
+    "KEPLER",
+    "NEWTON",
+    "ELIPSE",
+    "FOCO",
+    "AFELIO",
+    "MASA",
+    "ORBITA",
+    "SISTEMA",
+    "FUERZA",
+    "CIENCIA"
+  ],
+  "crucigrama": [
+    {
+      "palabra": "KEPLER",
+      "pista": "Científico que descubrió las leyes del movimiento planetario."
+    },
+    {
+      "palabra": "ELIPSE",
+      "pista": "Forma geométrica de las órbitas de los planetas."
+    },
+    {
+      "palabra": "GRAVEDAD",
+      "pista": "Fuerza de atracción entre dos masas."
+    },
+    {
+      "palabra": "SOL",
+      "pista": "Cuerpo celeste situado en uno de los focos de la elipse orbital."
+    },
+    {
+      "palabra": "PERIHELIO",
+      "pista": "Punto más cercano de un planeta al Sol."
+    },
+    {
+      "palabra": "AFELIO",
+      "pista": "Punto más lejano de un planeta al Sol."
+    },
+    {
+      "palabra": "PERIODO",
+      "pista": "Tiempo que tarda un planeta en dar una vuelta completa al Sol."
+    },
+    {
+      "palabra": "NEWTON",
+      "pista": "Formuló la Ley de Gravitación Universal."
+    },
+    {
+      "palabra": "AREAS",
+      "pista": "La segunda ley dice que el radio vector barre... iguales."
+    },
+    {
+      "palabra": "MASA",
+      "pista": "Cantidad de materia que influye en la fuerza de gravedad."
+    }
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "En el año 20X4, un grupo de sobrevivientes nota que durante una época del año el Sol parece ser un poco más grande en el cielo y el clima se vuelve más extremo, aunque no es verano en su hemisferio.",
+      "tabla_o_grafica_markdown": "| Posición | Distancia al Sol (UA) | Velocidad Orbital |\n|---|---|---|\n| Punto A | 0.98 | Alta |\n| Punto B | 1.02 | Baja |",
+      "pregunta": "¿A qué fenómeno astronómico corresponde el 'Punto A' y por qué el Sol se ve ligeramente más grande?",
+      "opciones": [
+        "Al afelio, porque el planeta está más lejos y la luz se dispersa.",
+        "Al perihelio, porque el planeta está en su punto más cercano al Sol en su órbita elíptica.",
+        "A un eclipse, porque la Luna se interpone entre la Tierra y el Sol.",
+        "Al equinoccio, porque el día y la noche duran lo mismo."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. En el afelio el planeta está más lejos, por lo que el Sol se vería más pequeño.",
+        "1": "Correcto. El perihelio es el punto más cercano al Sol en una elipse, lo que explica el aumento aparente de tamaño.",
+        "2": "Incorrecto. Un eclipse oculta el Sol, no lo hace ver más grande.",
+        "3": "Incorrecto. Los equinoccios se refieren a la inclinación del eje terrestre, no a la distancia orbital."
+      }
+    },
+    {
+      "competencia": "Uso Comprensivo del Conocimiento Científico",
+      "texto_introductorio": "Un hacker intenta calcular el tiempo que tardará un nuevo planeta descubierto en el borde del sistema (Sector X) en completar una órbita.",
+      "tabla_o_grafica_markdown": "| Planeta | Distancia Media (R) | Periodo (T) |\n|---|---|---|\n| Tierra | 1 UA | 1 Año |\n| Sector X | 4 UA | ? |",
+      "pregunta": "Usando la Tercera Ley de Kepler (T² proporcional a R³), si el Sector X está a 4 unidades astronómicas, su periodo orbital será:",
+      "opciones": [
+        "2 años",
+        "4 años",
+        "8 años",
+        "16 años"
+      ],
+      "correcta": 2,
+      "retroalimentacion": {
+        "0": "Incorrecto. Debes elevar 4 al cubo (64) y luego sacar la raíz cuadrada.",
+        "1": "Incorrecto. Estás asumiendo una relación lineal, no la de Kepler.",
+        "2": "Correcto. 4 al cubo es 64, y la raíz cuadrada de 64 es 8.",
+        "3": "Incorrecto. 16 es el cuadrado de 4, no sigue la ley de los periodos."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "Un grupo de estudiantes observa que Marte parece moverse 'hacia atrás' en el cielo durante unas semanas. Deciden investigar si esto se debe a que Marte realmente cambia su dirección de giro.",
+      "tabla_o_grafica_markdown": "| Fecha | Posición Observada | Dirección Real |\n|---|---|---|\n| Semana 1 | Este | Progrado |\n| Semana 3 | Oeste (Aparente) | Progrado |\n| Semana 5 | Este | Progrado |",
+      "pregunta": "¿Cuál es la conclusión más científica para este fenómeno extraño?",
+      "opciones": [
+        "Marte tiene un motor que le permite retroceder para evitar colisiones.",
+        "Es una ilusión óptica causada por la diferencia de velocidades orbitales entre la Tierra y Marte.",
+        "La gravedad del Sol se invierte temporalmente cada dos años.",
+        "Los planetas vecinos chocan entre sí y rebotan hacia atrás."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. Los planetas no tienen motores, siguen leyes físicas inerciales.",
+        "1": "Correcto. El movimiento retrógrado ocurre cuando la Tierra, al ir más rápido, 'adelanta' a Marte en su órbita.",
+        "2": "Incorrecto. La gravedad es siempre atractiva y no se invierte.",
+        "3": "Incorrecto. Si los planetas chocaran, el sistema solar se destruiría."
+      }
+    }
+  ]
+}

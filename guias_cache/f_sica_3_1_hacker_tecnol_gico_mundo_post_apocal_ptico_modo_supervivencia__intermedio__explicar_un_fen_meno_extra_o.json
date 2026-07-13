@@ -1,0 +1,188 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Cuál era la principal diferencia entre el modelo de Ptolomeo y el de Copérnico?",
+      "opciones": [
+        "Ptolomeo decía que el Sol era el centro y Copérnico que era la Tierra.",
+        "Ptolomeo situaba a la Tierra en el centro y Copérnico al Sol.",
+        "Ambos creían que las órbitas eran elípticas.",
+        "Ninguno creía en el movimiento planetario."
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Qué forma tienen las órbitas planetarias según las leyes de Kepler?",
+      "opciones": [
+        "Círculos perfectos",
+        "Triángulos equiláteros",
+        "Elipses",
+        "Líneas rectas"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "¿Qué fuerza mantiene a los planetas en su órbita según la física clásica?",
+      "opciones": [
+        "Fuerza electromagnética",
+        "Fuerza nuclear fuerte",
+        "Fuerza de gravedad",
+        "Presión atmosférica"
+      ],
+      "correcta": 2
+    }
+  ],
+  "texto_inductivo": "Saludos, supervivientes del Sector 7. Soy Zero-One, vuestro guía en esta red de datos fragmentada. Antes del Gran Colapso, la humanidad no solo miraba las estrellas, sino que entendía su danza matemática. Hoy, mientras los cielos parecen extraños tras la alteración atmosférica, nuestra supervivencia depende de recuperar ese conocimiento. ¿Por qué los restos de la estación orbital ISS-Omega siguen pasando sobre nosotros cada 92 minutos? ¿Por qué la Luna parece más grande en ciertas noches de ceniza? Para explicar estos **fenómenos extraños**, debemos hackear la historia de la astronomía. \n\nEn los archivos recuperados del Búnker de Alejandría, encontramos que nuestros ancestros estaban obsesionados con el orden del cosmos. Al principio, el dogma geocéntrico de Claudio Ptolomeo dominó la mente humana durante más de mil años. Su modelo era complejo, lleno de 'epiciclos' y 'deferentes', círculos dentro de círculos para explicar por qué los planetas a veces parecían retroceder en el cielo (movimiento retrógrado). Era un sistema elegante pero erróneo, diseñado para mantener a la Tierra en el centro de un universo estático. Sin embargo, un hacker de la realidad llamado Nicolás Copérnico se atrevió a cambiar el 'root' del sistema: propuso el modelo heliocéntrico, situando al Sol en el centro. Aunque simplificó muchas cosas, Copérnico seguía aferrado a la idea de las órbitas circulares perfectas, lo que impedía que sus cálculos fueran exactos frente a las observaciones de los recolectores de datos de la época. \n\nFue entonces cuando apareció Johannes Kepler, un analista de datos prodigioso que heredó los registros de Tycho Brahe, el observador más meticuloso antes de la invención de los sensores ópticos avanzados. Kepler pasó años intentando ajustar los datos de Marte a círculos, pero el sistema siempre arrojaba un error de 8 minutos de arco. En lugar de ignorar este error, Kepler hizo lo que cualquier buen hacker tecnológico haría: cuestionó la base del código. Comprendió que las órbitas no eran círculos, sino **elipses**. Sus tres leyes fundamentales (la ley de las órbitas, la ley de las áreas y la ley de los periodos) permitieron predecir el movimiento planetario con una precisión nunca vista. Kepler descubrió que un planeta se mueve más rápido cuando está cerca del Sol (perihelio) y más lento cuando está lejos (afelio), barriendo áreas iguales en tiempos iguales. Este es el 'algoritmo maestro' que rige el cielo. Si queremos entender por qué los satélites de vigilancia del Antiguo Mundo se comportan de forma errática tras el pulso electromagnético, debemos dominar estas leyes elípticas. Entender que el movimiento no es uniforme, sino que depende de la posición en la curva, es vital para calcular las ventanas de lanzamiento de nuestras sondas de exploración en este mundo post-apocalíptico. Sin la precisión de Kepler, nuestras señales de radio se perderían en el vacío, incapaces de interceptar las estaciones repetidoras que aún flotan en la negrura superior. La observación constante y la validación de datos son nuestras únicas herramientas contra la superstición que crece en las tierras baldías.",
+  "recurso_visual": "graph TD\n    A[Modelos Planetarios] --> B[Geocentrismo]\n    A --> C[Heliocentrismo]\n    B --> D[Tierra en el Centro - Ptolomeo]\n    C --> E[Sol en el Centro - Copérnico]\n    E --> F[Leyes de Kepler]\n    F --> G[1. Órbitas Elípticas]\n    F --> H[2. Áreas Iguales en Tiempos Iguales]\n    F --> I[3. Relación Periodo-Distancia]",
+  "preguntas_inductivas_pagina": [
+    "¿Por qué el modelo de Ptolomeo necesitaba epiciclos para explicar el movimiento de los planetas?",
+    "¿Cuál fue el 'error' de 8 minutos de arco que llevó a Kepler a rechazar las órbitas circulares?",
+    "¿Qué sucede con la velocidad de un planeta cuando se acerca al foco de su elipse?",
+    "¿Cómo cambió el modelo de Copérnico nuestra percepción del lugar de la Tierra en el universo?",
+    "¿En qué se diferencia una elipse de un círculo perfecto en términos de focos?"
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema de una órbita elíptica, señalando los focos, el Sol, el perihelio y el afelio.",
+    "Realiza un cuadro comparativo entre el modelo Geocéntrico y el Heliocéntrico, destacando autores, centro del sistema y fallos principales.",
+    "Escribe una reflexión de 15 líneas sobre cómo la persistencia de Kepler ante un error de datos cambió la historia de la ciencia.",
+    "Representa gráficamente la Segunda Ley de Kepler, mostrando cómo se barren áreas iguales en tiempos iguales en diferentes puntos de la órbita."
+  ],
+  "juegos_ordenar_letras_1": [
+    "ELIPSE",
+    "HELIOCENTRISMO",
+    "EPICICLO"
+  ],
+  "juego_ordenar_frase_1": "LAS ORBITAS PLANETARIAS SON ELIPSES CON EL SOL EN UNO DE SUS FOCOS",
+  "texto_deductivo": "Atención, unidades de reconocimiento. Tras entender la geometría de Kepler, debemos profundizar en el 'motor' que impulsa este sistema: la Gravitación Universal. Si Kepler describió *cómo* se mueven los planetas, Isaac Newton fue el hacker que descubrió *por qué* lo hacen. En este desierto de silicio y óxido, entender la gravedad es la diferencia entre que un proyectil balístico alcance su objetivo o se pierda en la atmósfera. Newton unificó el cielo y la tierra bajo una misma línea de código: la Ley de Gravitación Universal. Esta ley establece que cada partícula de materia en el universo atrae a toda otra partícula con una fuerza que es directamente proporcional al producto de sus masas e inversamente proporcional al cuadrado de la distancia entre sus centros. \n\nImaginaos las implicaciones en nuestro mundo actual. La anomalía gravitatoria detectada en la Zona Zero no es magia; es una alteración de la densidad de masa o de la distancia efectiva. La fórmula F = G * (m1 * m2) / r^2 es el firewall que protege nuestra comprensión de la realidad. Si duplicamos la distancia entre dos cuerpos celestes, la fuerza de atracción no se reduce a la mitad, sino a la cuarta parte. Este principio de 'inversa del cuadrado' es fundamental para entender por qué la atmósfera se está escapando en los puntos donde la corteza terrestre se ha fracturado y ha perdido densidad de masa. \n\nPero Newton no se detuvo ahí. Al combinar su ley de gravitación con sus leyes del movimiento, pudo deducir las leyes de Kepler, demostrando que la mecánica celeste es una extensión de la mecánica terrestre. Esto nos permite predecir el movimiento de cualquier objeto, desde una pequeña piedra lanzada por una catapulta de los Saqueadores hasta la trayectoria de un asteroide que amenaza con terminar lo que el Gran Colapso empezó. La gravedad es la fuerza centrípeta que obliga a los planetas a 'caer' perpetuamente hacia el Sol, pero debido a su velocidad tangencial, nunca chocan, manteniéndose en una caída libre constante que llamamos órbita. \n\nEn el contexto de la revisión científica del movimiento planetario, debemos considerar que este equilibrio es delicado. Un cambio en la masa de un planeta (por ejemplo, si una luna se fragmenta y sus restos se dispersan) o una alteración en la velocidad orbital debido a un impacto masivo, reconfiguraría la elipse orbital por completo. En nuestra misión de reconstrucción, utilizamos estos cálculos para calibrar los GPS artesanales que fabricamos con chatarra. Si no tenemos en cuenta la curvatura del espacio-tiempo (que Einstein refinaría siglos después de Newton, pero que para nuestras necesidades actuales de supervivencia media, la mecánica newtoniana basta), nuestras comunicaciones fallarán. El movimiento planetario es, en última instancia, una coreografía de fuerzas en equilibrio. La inercia quiere que los planetas sigan una línea recta hacia el vacío, mientras que la gravedad los atrae hacia el fuego solar. El resultado es el bucle infinito en el que vivimos. Dominar esta deducción matemática es recuperar el control sobre el caos que nos rodea. El universo no es un lugar de misterios inexplicables, sino un sistema complejo que ha sido hackeado por la física.",
+  "preguntas_deductivas_pagina": [
+    "¿Qué sucede con la fuerza de gravedad si la distancia entre dos objetos se triplica?",
+    "¿Cuál es la relación entre la masa de los objetos y la fuerza de atracción gravitacional?",
+    "¿Por qué se dice que un planeta en órbita está en una 'caída libre' constante?",
+    "¿Qué papel juega la constante G en la ecuación de Newton?",
+    "¿Cómo dedujo Newton la forma de las órbitas a partir de su ley de gravitación?"
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Realiza un diagrama detallado que muestre las fuerzas (gravedad y velocidad tangencial) actuando sobre un planeta en diferentes puntos de su órbita.",
+    "Elabora un mapa mental que conecte las leyes de Kepler con la Ley de Gravitación Universal de Newton.",
+    "Dibuja una escena explicativa que compare el lanzamiento de un proyectil en la Tierra con la puesta en órbita de un satélite, según la idea del 'cañón de Newton'.",
+    "Crea una infografía artesanal sobre la importancia de la gravedad en la formación y estabilidad del Sistema Solar."
+  ],
+  "juegos_ordenar_letras_2": [
+    "GRAVEDAD",
+    "INERCIA",
+    "MASA"
+  ],
+  "juego_ordenar_frase_2": "LA FUERZA ES INVERSAMENTE PROPORCIONAL AL CUADRADO DE LA DISTANCIA",
+  "sopa_letras": [
+    "KEPLER",
+    "NEWTON",
+    "ORBITA",
+    "ELIPSE",
+    "GRAVEDAD",
+    "SOL",
+    "PLANETA",
+    "MASA",
+    "FOCO",
+    "INERCIA"
+  ],
+  "crucigrama": [
+    {
+      "palabra": "PERIHELIO",
+      "pista": "Punto de la órbita más cercano al Sol."
+    },
+    {
+      "palabra": "AFELIO",
+      "pista": "Punto de la órbita más lejano al Sol."
+    },
+    {
+      "palabra": "CENTRÍPETA",
+      "pista": "Fuerza que busca el centro del movimiento circular."
+    },
+    {
+      "palabra": "TANGENCIAL",
+      "pista": "Velocidad que es perpendicular al radio de la órbita."
+    },
+    {
+      "palabra": "ELÍPTICA",
+      "pista": "Forma real de las órbitas según Kepler."
+    },
+    {
+      "palabra": "PROPORCIONAL",
+      "pista": "Relación directa entre la fuerza y el producto de las masas."
+    },
+    {
+      "palabra": "INVERSA",
+      "pista": "Relación entre la fuerza y el cuadrado de la distancia."
+    },
+    {
+      "palabra": "EPICICLO",
+      "pista": "Pequeño círculo usado en el modelo geocéntrico."
+    },
+    {
+      "palabra": "CONSTANTE",
+      "pista": "Valor G que no cambia en todo el universo."
+    },
+    {
+      "palabra": "PERIODOS",
+      "pista": "La tercera ley de Kepler habla de los cuadrados de estos."
+    }
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "Tras el colapso, se ha observado que un satélite de comunicaciones antiguo ha perdido altura. Los datos recuperados muestran que su velocidad ha aumentado a medida que su órbita se hace más pequeña y elíptica.",
+      "tabla_o_grafica_markdown": "| Posición | Distancia al Centro (km) | Velocidad (km/s) |\n|---|---|---|\n| Punto A | 12.000 | 5.8 |\n| Punto B | 7.000 | 8.2 |",
+      "pregunta": "¿Cuál es la explicación física más coherente para el aumento de velocidad en el Punto B basándose en las leyes de Kepler?",
+      "opciones": [
+        "En el punto más cercano (perihelio), el objeto debe moverse más rápido para barrer áreas iguales en tiempos iguales.",
+        "La gravedad desaparece en el Punto B, permitiendo que el objeto flote más rápido.",
+        "El satélite está consumiendo combustible fósil antiguo para acelerar.",
+        "La atmósfera en el Punto B es más densa y lo empuja hacia adelante."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. Según la segunda ley de Kepler, los objetos en órbita aumentan su velocidad lineal al acercarse al centro de masa para mantener la constancia de la velocidad de área.",
+        "1": "Incorrecto. La gravedad es más fuerte en el Punto B debido a la menor distancia.",
+        "2": "Incorrecto. El fenómeno se explica por mecánica orbital, no por propulsión externa.",
+        "3": "Incorrecto. La fricción atmosférica generalmente reduciría la velocidad total y causaría la caída del satélite, no un aumento controlado de velocidad orbital."
+      }
+    },
+    {
+      "competencia": "Uso Comprensivo del Conocimiento Científico",
+      "texto_introductorio": "En la colonia 'Nueva Esperanza', los ingenieros intentan determinar la fuerza de atracción entre dos restos de asteroides que podrían chocar contra el domo protector.",
+      "tabla_o_grafica_markdown": "| Variable | Símbolo | Valor |\n|---|---|---|\n| Masa Asteroide 1 | m1 | M |\n| Masa Asteroide 2 | m2 | 2M |\n| Distancia Inicial | r | R |",
+      "pregunta": "Si la distancia entre los asteroides se reduce a la mitad (R/2), ¿cómo cambia la fuerza de atracción gravitacional entre ellos?",
+      "opciones": [
+        "La fuerza se duplica.",
+        "La fuerza se reduce a la cuarta parte.",
+        "La fuerza aumenta cuatro veces.",
+        "La fuerza se mantiene igual."
+      ],
+      "correcta": 2,
+      "retroalimentacion": {
+        "0": "Incorrecto. Al ser una relación inversa al cuadrado, reducir la distancia tiene un efecto mayor que el doble.",
+        "1": "Incorrecto. Esto sucedería si la distancia se duplicara, no si se redujera.",
+        "2": "Correcto. Según la ley de Newton, F es proporcional a 1/r^2. Si r se vuelve r/2, (r/2)^2 es r^2/4, y el 4 pasa a multiplicar arriba.",
+        "3": "Incorrecto. La fuerza gravitatoria depende críticamente de la distancia."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "Un grupo de supervivientes encuentra un telescopio y anota la posición de un planeta extraño durante varios meses. Notan que su trayectoria no es un círculo perfecto, sino que parece 'alargada'.",
+      "tabla_o_grafica_markdown": "| Mes | Distancia al Sol (UA) | Ángulo observado |\n|---|---|---|\n| 1 | 1.1 | 10° |\n| 3 | 1.5 | 45° |\n| 6 | 1.1 | 180° |\n| 9 | 0.9 | 270° |",
+      "pregunta": "A partir de los datos, ¿qué conclusión es válida sobre la naturaleza de la órbita de este planeta?",
+      "opciones": [
+        "El planeta tiene una órbita circular centrada exactamente en el Sol.",
+        "Los datos son erróneos porque la distancia al Sol nunca debería cambiar.",
+        "El planeta sigue una órbita elíptica, cumpliendo la primera ley de Kepler.",
+        "El planeta se está alejando del sistema solar en línea recta."
+      ],
+      "correcta": 2,
+      "retroalimentacion": {
+        "0": "Incorrecto. En un círculo, la distancia al centro es constante.",
+        "1": "Incorrecto. La variación de distancia es la prueba de la elipticidad de la órbita.",
+        "2": "Correcto. La variación en la distancia al Sol (UA) demuestra que el planeta se encuentra en diferentes puntos de una elipse (perihelio y afelio).",
+        "3": "Incorrecto. Los ángulos muestran un movimiento cíclico u orbital, no un escape rectilíneo."
+      }
+    }
+  ]
+}

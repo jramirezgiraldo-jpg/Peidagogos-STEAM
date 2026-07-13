@@ -1,0 +1,188 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "Si lanzas una bengala de auxilio en el aire, ¿qué rama de la ciencia explica su trayectoria y caída?",
+      "opciones": [
+        "Biología",
+        "Química",
+        "Física",
+        "Geología"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "¿Cuál de estos conceptos es fundamental para medir la distancia entre tu refugio y un pozo de agua?",
+      "opciones": [
+        "Masa",
+        "Longitud",
+        "Temperatura",
+        "Densidad"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Por qué un puente colapsado es un objeto de estudio para un físico?",
+      "opciones": [
+        "Por su color",
+        "Por las fuerzas y tensiones que actuaron en él",
+        "Por el valor del metal",
+        "Por los fantasmas que lo habitan"
+      ],
+      "correcta": 1
+    }
+  ],
+  "texto_inductivo": "Saludos, recluta. Me presento: soy el Detective Elias Thorne, investigador de las 'Leyes Perdidas'. Te encuentras en el Sector Eco, un páramo donde las ciudades son esqueletos de acero y el conocimiento es la moneda más valiosa. Aquí, sobrevivir no depende de tu fuerza bruta, sino de tu capacidad para descifrar cómo funciona la realidad. El mundo que conocieron nuestros ancestros se derrumbó, pero las reglas que rigen el universo siguen intactas. A eso le llamamos **Física**. \n\nImagina que estás explorando las ruinas de una antigua metrópolis. Encuentras un elevador manual atascado. ¿Cómo puedes moverlo sin agotarte? O supongamos que debes cruzar un río ácido usando una polea oxidada. ¿Soportará tu peso? La Física es la ciencia que estudia la **materia**, la **energía**, el **espacio** y el **tiempo**, y las interacciones entre ellos. En este contexto post-apocalíptico, la Física no es una materia de un libro polvoriento; es el manual de instrucciones del universo que nos permite reconstruir la civilización. \n\nHistóricamente, el ser humano ha intentado resolver misterios observando la naturaleza. Los antiguos veían el rayo como la furia de un dios; los físicos lo ven como una descarga eléctrica masiva. Esa transición del mito a la evidencia es lo que llamamos el **Método Científico**. Como detectives del entorno, observamos un fenómeno (el misterio), formulamos una hipótesis (nuestra sospecha), experimentamos (la investigación) y llegamos a una conclusión (la resolución del caso). \n\nLa Física se divide en varias ramas que son vitales para nosotros. La **Mecánica Clásica** nos ayuda a entender el movimiento de los proyectiles y la construcción de máquinas simples. La **Termodinámica** nos enseña a purificar agua mediante la destilación y a conservar el calor en las noches gélidas del páramo. La **Óptica** nos permite crear binoculares con restos de botellas para vigilar a los saqueadores desde la distancia. \n\nSin la Física, estaríamos ciegos ante los peligros del mundo. Cada vez que calculas cuánta leña necesitas para una fogata o con qué ángulo disparar una flecha para cazar, estás haciendo Física aplicada. El gran misterio que debemos resolver en este Periodo 1 es cómo los objetos se mueven en este mundo hostil. Antes de correr, debemos entender la **Posición** (¿dónde estás?), la **Velocidad** (¿qué tan rápido huyen las amenazas?) y la **Aceleración** (¿qué tan rápido puedes cambiar tu estado para ponerte a salvo?). \n\nRecuerda, recluta: en el Modo Supervivencia, la ignorancia es una sentencia de muerte. La ciencia es la linterna que ilumina este túnel oscuro en el que vive la humanidad. La Física no solo explica por qué caen las manzanas; explica por qué el mundo se mantiene unido. Tu misión esta semana es familiarizarte con las herramientas de medición y los conceptos básicos que nos permitirán, algún día, encender las luces de la ciudad de nuevo. ¿Estás listo para ser un detective de la realidad?",
+  "recurso_visual": "graph TD\n    A[Física: La Ciencia del Mundo] --> B[Mecánica]\n    A --> C[Termodinámica]\n    A --> D[Óptica]\n    A --> E[Electromagnetismo]\n    B --> B1[Cinemática: Movimiento]\n    B --> B2[Dinámica: Fuerzas]\n    B --> B3[Estática: Equilibrio]\n    C --> C1[Calor y Temperatura]\n    D --> D1[Lentes y Espejos]\n    E --> E1[Energía Eléctrica]",
+  "preguntas_inductivas_pagina": [
+    "¿Cuál es el objetivo principal de la Física según el texto?",
+    "¿Cómo define el Detective Thorne el Método Científico en el contexto de un misterio?",
+    "Nombra tres ramas de la Física mencionadas y su utilidad en el post-apocalipsis.",
+    "¿Por qué se afirma que la Física es el 'manual de instrucciones' del universo?",
+    "¿Qué conceptos básicos de movimiento menciona el detective al final del texto?"
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema del 'Laboratorio del Detective' donde identifiques al menos 5 objetos y qué rama de la Física los estudia.",
+    "Realiza un cuadro comparativo entre el pensamiento mítico (ej. 'el rayo es un dios') y el pensamiento físico (ej. 'el rayo es electricidad').",
+    "Escribe una reflexión de media página sobre cómo la Física podría ayudarte a conseguir agua potable en un desierto.",
+    "Representa gráficamente, mediante una historieta de 4 viñetas, los pasos del Método Científico aplicados a un problema de supervivencia (ej. arreglar una radio)."
+  ],
+  "juegos_ordenar_letras_1": [
+    "MATERIA",
+    "ENERGIA",
+    "METODO"
+  ],
+  "juego_ordenar_frase_1": "LA FISICA ES LA CIENCIA QUE ESTUDIA LAS REGLAS FUNDAMENTALES DEL UNIVERSO PARA SOBREVIVIR",
+  "texto_deductivo": "Para entender el presente de este mundo en ruinas, debemos analizar cómo llegamos aquí a través de la evolución del pensamiento científico. La Física no siempre fue como la conocemos hoy. En la antigüedad, pensadores como Aristóteles creían que los objetos caían porque buscaban su 'lugar natural'. Si algo era pesado, su lugar era el suelo; si era ligero, como el humo, su lugar era el cielo. Fue un misterio que duró siglos hasta que detectives de la ciencia como Galileo Galilei y Sir Isaac Newton cambiaron las reglas del juego. \n\nGalileo utilizó la experimentación para demostrar que, en ausencia de aire, todos los objetos caen con la misma aceleración. Este descubrimiento es vital para nosotros: si arrojas una granada casera y una piedra desde una torre, ambas caerán al mismo tiempo si ignoramos la resistencia del aire. Luego llegó Newton, quien con sus leyes del movimiento y la gravitación universal, nos dio la clave para entender por qué los restos de los satélites antiguos siguen orbitando la Tierra o por qué caen sobre nosotros como meteoros de chatarra. \n\nLa importancia de la Física en el desarrollo humano es innegable. Durante la Revolución Industrial, la comprensión de la Termodinámica permitió crear máquinas de vapor que transportaban recursos a través de continentes. En la era de la información (antes del Colapso), el electromagnetismo y la física cuántica permitieron la creación de computadoras y redes de comunicación globales. Cada avance tecnológico fue la resolución de un misterio físico previo. \n\nEn nuestro nivel de **Modo Supervivencia (Intermedio)**, debemos enfocarnos en la **Cinemática**. La cinemática es la parte de la mecánica que describe el movimiento de los objetos sin considerar las causas que lo producen. Para un detective del Sector Eco, esto significa ser capaz de predecir la trayectoria de una patrulla enemiga o calcular el tiempo que tardará en llegar un suministro desde una zona vecina. \n\nLos pilares de la cinemática son la **Posición** (el lugar exacto en el mapa respecto a un punto de origen), la **Velocidad** (el cambio de posición en el tiempo) y la **Aceleración** (qué tan rápido cambia esa velocidad). Por ejemplo, si un vehículo de reconocimiento parte del origen y se mueve a una velocidad constante de 40 km/h hacia el norte, podemos predecir con exactitud dónde estará en dos horas. Pero si el terreno es difícil y el vehículo debe frenar o acelerar, necesitamos las ecuaciones de movimiento para no perderle el rastro. \n\nLa gravitación también juega un papel crucial. Es la fuerza invisible que mantiene nuestros pies en la tierra y que hace que las estructuras mal construidas colapsen bajo su propio peso. Entender la gravedad nos permite construir refugios más altos y seguros, usando vigas que soporten la atracción constante hacia el centro de la Tierra. El desarrollo humano se detuvo cuando olvidamos aplicar estas leyes; nuestra labor es redescubrirlas para que el mañana sea posible. La ciencia no es solo una herramienta, es el legado que nos permitirá reconstruir el mañana sobre las bases sólidas de la verdad física.",
+  "preguntas_deductivas_pagina": [
+    "¿En qué se diferenciaba la visión de Aristóteles sobre la caída de los cuerpos de la de Galileo?",
+    "¿Cuál fue el aporte principal de Isaac Newton mencionado en el texto?",
+    "¿Cómo ayudó la Termodinámica al desarrollo humano en el pasado?",
+    "¿Qué diferencia hay entre la Cinemática y otras ramas de la mecánica?",
+    "¿Por qué es importante entender la gravitación para construir refugios?"
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Realiza un diagrama detallado que muestre la relación entre Posición, Velocidad y Aceleración, usando ejemplos del páramo.",
+    "Elabora un mapa mental sobre la evolución histórica de la Física desde la antigüedad hasta la era del Colapso.",
+    "Dibuja un esquema explicativo sobre cómo se aplica la Física en la construcción de un puente levadizo para un refugio.",
+    "Crea una infografía artesanal que explique por qué un sobreviviente debe saber Física para navegar por las ruinas de una ciudad."
+  ],
+  "juegos_ordenar_letras_2": [
+    "CINEMATICA",
+    "GRAVEDAD",
+    "MOVIMIENTO"
+  ],
+  "juego_ordenar_frase_2": "EL CONOCIMIENTO DE LAS LEYES FISICAS ES LA DIFERENCIA ENTRE EL CAOS Y EL ORDEN",
+  "sopa_letras": [
+    "FISICA",
+    "MATERIA",
+    "ENERGIA",
+    "FUERZA",
+    "TIEMPO",
+    "ESPACIO",
+    "MOVIMIENTO",
+    "NEWTON",
+    "GALILEO",
+    "CIENCIA"
+  ],
+  "crucigrama": [
+    {
+      "palabra": "CINEMATICA",
+      "pista": "Rama de la física que describe el movimiento sin atender a sus causas."
+    },
+    {
+      "palabra": "VELOCIDAD",
+      "pista": "Magnitud física que expresa el espacio recorrido por unidad de tiempo."
+    },
+    {
+      "palabra": "GRAVEDAD",
+      "pista": "Fuerza que atrae los objetos hacia el centro de la Tierra."
+    },
+    {
+      "palabra": "HIPOTESIS",
+      "pista": "Una suposición educada que se debe probar mediante experimentos."
+    },
+    {
+      "palabra": "ACELERACION",
+      "pista": "Cambio de la velocidad en un intervalo de tiempo."
+    },
+    {
+      "palabra": "MATERIA",
+      "pista": "Todo aquello que tiene masa y ocupa un lugar en el espacio."
+    },
+    {
+      "palabra": "OBSERVACION",
+      "pista": "Primer paso del método científico para detectar un misterio natural."
+    },
+    {
+      "palabra": "POSICION",
+      "pista": "Lugar que ocupa un cuerpo en el espacio respecto a un sistema de referencia."
+    },
+    {
+      "palabra": "DINAMICA",
+      "pista": "Parte de la física que estudia las causas del movimiento."
+    },
+    {
+      "palabra": "MECANICA",
+      "pista": "Rama principal de la física que estudia el movimiento y el equilibrio."
+    }
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "En el Sector Eco, un grupo de sobrevivientes observa que al soltar una barra de hierro y una pluma de ave desde lo alto de una torre de vigilancia de 20 metros, la barra llega primero al suelo. Un detective físico afirma que esto no se debe a que la gravedad sea distinta para ambos objetos.",
+      "tabla_o_grafica_markdown": "| Objeto | Masa | Tiempo de caída |\n|---|---|---|\n| Barra de hierro | 5.0 kg | 2.02 s |\n| Pluma de ave | 0.001 kg | 8.50 s |",
+      "pregunta": "¿Cuál es la causa física por la cual la pluma tarda más tiempo en caer que la barra de hierro?",
+      "opciones": [
+        "La fuerza de fricción o resistencia del aire actúa más significativamente sobre la pluma debido a su forma.",
+        "La gravedad de la Tierra solo atrae a los objetos pesados con gran velocidad.",
+        "La pluma tiene una propiedad llamada 'levitación natural' que contrarresta la gravedad.",
+        "El tiempo de caída depende únicamente de la masa, y la masa de la pluma es despreciable."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. El aire ejerce una fuerza opuesta al movimiento que afecta más a objetos ligeros y con mayor superficie relativa como la pluma.",
+        "1": "Incorrecto. La aceleración de la gravedad es constante para todos los objetos, independientemente de su masa.",
+        "2": "Incorrecto. No existe tal propiedad; todas las masas son atraídas por la gravedad.",
+        "3": "Incorrecto. En el vacío, ambos caerían al mismo tiempo; la masa no determina la velocidad de caída libre."
+      }
+    },
+    {
+      "competencia": "Uso Comprensivo del Conocimiento Científico",
+      "texto_introductorio": "Para reconstruir un sistema de poleas que permita subir agua de un pozo profundo, se requiere entender cómo la fuerza aplicada se distribuye. El sistema actual utiliza una cuerda que pasa por una rueda fija.",
+      "tabla_o_grafica_markdown": "| Tipo de Máquina | Ventaja Mecánica | Esfuerzo Requerido |\n|---|---|---|\n| Polea Fija | 1 | Igual al peso |\n| Polea Móvil | 2 | Mitad del peso |",
+      "pregunta": "Si el balde lleno de agua pesa 100 Newtons, ¿qué ventaja tendría el detective al instalar una polea móvil en lugar de una fija?",
+      "opciones": [
+        "Aumentaría la distancia del pozo.",
+        "Reduciría el esfuerzo necesario a 50 Newtons.",
+        "Haría que el agua subiera más rápido sin aplicar más fuerza.",
+        "Eliminaría por completo la gravedad sobre el balde."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. La profundidad del pozo es constante.",
+        "1": "Correcto. Una polea móvil duplica la ventaja mecánica, reduciendo la fuerza necesaria a la mitad.",
+        "2": "Incorrecto. Para subir más rápido se requeriría más potencia o velocidad, no solo el cambio de polea.",
+        "3": "Incorrecto. La gravedad sigue actuando; la máquina solo facilita el trabajo mecánico."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "Un detective quiere saber si la velocidad de un río contaminado ha cambiado después de una tormenta. Para ello, mide el tiempo que tarda un flotador en recorrer 30 metros en tres puntos diferentes del río.",
+      "tabla_o_grafica_markdown": "| Intento | Distancia (m) | Tiempo (s) |\n|---|---|---|\n| 1 | 30 | 10 |\n| 2 | 30 | 15 |\n| 3 | 30 | 12 |",
+      "pregunta": "Teniendo en cuenta que la velocidad se calcula como distancia sobre tiempo (v = d/t), ¿cuál es la velocidad promedio detectada por el investigador?",
+      "opciones": [
+        "3.0 m/s",
+        "2.43 m/s",
+        "12.3 m/s",
+        "2.5 m/s"
+      ],
+      "correcta": 3,
+      "retroalimentacion": {
+        "0": "Incorrecto. Ese es solo el resultado del primer intento (30/10).",
+        "1": "Incorrecto. Resultado de un cálculo erróneo de los promedios.",
+        "2": "Incorrecto. Valor fuera de rango para los datos proporcionados.",
+        "3": "Correcto. El tiempo promedio es (10+15+12)/3 = 12.33s. Luego 30m / 12.33s ≈ 2.43 m/s (o el promedio de las velocidades: 3+2+2.5 / 3 = 2.5 m/s). Nota: En física se prefiere promediar los tiempos para una distancia fija."
+      }
+    }
+  ]
+}

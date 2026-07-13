@@ -1,0 +1,168 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "En medio de las ruinas de la Antigua Civilización, encontramos un telescopio que aún funciona. Si observamos un planeta moviéndose alrededor de una estrella, ¿cuál es la forma geométrica más probable de su trayectoria según los registros antiguos?",
+      "opciones": [
+        "Un círculo perfecto e inmutable",
+        "Una elipse con la estrella en uno de sus focos",
+        "Una línea recta que se curva por el viento espacial",
+        "Un cuadrado de bordes redondeados por la gravedad"
+      ],
+      "correcta": 1
+    }
+  ],
+  "texto_inductivo": "**BITÁCORA DEL EXPLORADOR ESPACIAL - REGISTRO 001: EL DESPERTAR DE LAS SOMBRAS ESTELARES**\n\nSaludos, reclutas del Yermo. Soy el Capitán Kaelen, último rastreador de la Flota de Observación Terrestre. Escribo esto desde la cabina de mi nave 'Ícaro-7', mientras sobrevuelo las ruinas de lo que alguna vez fue un gran centro de estudios astronómicos. El aire allá afuera es irrespirable, cargado de ceniza radiactiva, pero el cielo... el cielo sigue siendo el mismo que estudiaron los antiguos sabios antes del Gran Colapso. Hoy nuestra supervivencia depende de entender cómo se mueven las esferas celestes, pues los satélites de suministros están perdiendo sus trayectorias y si no calculamos sus órbitas, la última colonia morirá de hambre.\n\nDurante siglos, la humanidad creyó que la Tierra era el centro de todo, un dogma que nos costó caro. Pero luego llegaron visionarios como Copérnico y, más tarde, Johannes Kepler. Imaginen a Kepler, trabajando sin computadoras, solo con los datos observacionales de Tycho Brahe, tratando de entender por qué Marte no se movía como un círculo perfecto. En este mundo post-apocalíptico, donde nuestras herramientas son limitadas, la genialidad de Kepler nos enseña que la observación meticulosa es nuestra mejor arma. Su **Primera Ley** rompió el cristal de la perfección circular: los planetas describen elipses. No son círculos. Una elipse tiene dos focos, y en uno de ellos reside nuestra fuente de vida y muerte, el Sol. Cuando nuestra nave se aleja hacia el afelio, el frío del espacio profundo amenaza nuestros sistemas; cuando nos acercamos al perihelio, el calor es tan intenso que los escudos de radiación chirrían.\n\nPero hay algo más extraño aún, lo que llamamos la **Segunda Ley o Ley de las Áreas**. He notado que cuando la 'Ícaro-7' se acerca al Sol, la velocidad aumenta drásticamente. Los antiguos decían que el radio vector que une al planeta con el Sol barre áreas iguales en tiempos iguales. Esto significa que el universo tiene un ritmo, un compás constante. No importa cuán caótico parezca el mundo aquí abajo, allá arriba la geometría manda. Si una línea imaginaria barre una rebanada de la elipse en un mes, esa área será idéntica a la que barra en otro mes, sin importar si estamos cerca o lejos del foco solar. Esto explica por qué el invierno en el hemisferio norte de la Antigua Tierra era ligeramente más corto; el planeta se movía más rápido al estar cerca del Sol.\n\nFinalmente, la **Tercera Ley**, la Ley Armónica, es la que nos permite mapear el sistema solar completo. El cuadrado del periodo orbital es proporcional al cubo de la distancia media. Es una danza matemática perfecta. Si conocemos cuánto tarda un satélite de suministros en dar una vuelta, podemos saber exactamente a qué distancia de la Tierra se encuentra. En este entorno hostil, donde los radares fallan por las tormentas electromagnéticas, la Ley de Kepler es nuestro único GPS confiable. Reclutas, si no comprenden el movimiento planetario, están condenados a vagar por el vacío. El extraño fenómeno de la 'Deriva Planetaria' que observamos hoy no es más que la física recordándonos que ignorar las leyes del movimiento tiene consecuencias catastróficas. Prepárense para el análisis, porque la próxima ventana de lanzamiento no esperará a que terminen de limpiar sus máscaras de gas.",
+  "recurso_visual": "| Ley de Kepler | Descripción Narrativa | Consecuencia en el Yermo |\n| :--- | :--- | :--- |\n| **1ra: Órbitas** | Trayectorias elípticas con el Sol en un foco. | Las estaciones son extremas debido a la distancia variable. |\n| **2da: Áreas** | Áreas iguales en tiempos iguales. | Los satélites aceleran al acercarse a la Tierra (perihelio). |\n| **3ra: Armónica** | $T^2$ es proporcional a $r^3$. | Permite localizar estaciones ocultas conociendo su periodo. |",
+  "preguntas_inductivas_pagina": [
+    "¿Por qué el Capitán Kaelen afirma que la geometría es más confiable que los radares en el mundo post-apocalíptico?",
+    "¿Qué diferencia fundamental existe entre una trayectoria circular y la elíptica propuesta por Kepler?",
+    "Según el texto, ¿en qué punto de la órbita (afelio o perihelio) la nave experimenta mayor riesgo de sobrecalentamiento?",
+    "¿Cómo describirías la relación entre la velocidad de un planeta y su distancia al Sol según la Segunda Ley?",
+    "Si un satélite tarda más tiempo en orbitar que otro, ¿qué podemos deducir sobre su distancia a la Tierra usando la Tercera Ley?"
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema de una órbita elíptica marcando los focos, el perihelio, el afelio y sombreando dos sectores de 'áreas iguales' según la Segunda Ley de Kepler.",
+    "Realiza un cuadro comparativo entre el modelo Geocéntrico (antiguo dogma) y el modelo de Kepler (realidad científica), destacando forma de órbita y posición del sol.",
+    "Escribe una reflexión de 15 líneas sobre cómo la ciencia del movimiento planetario podría ayudar a una civilización a reconstruirse tras un apocalipsis.",
+    "Representa gráficamente mediante un diagrama de barras la relación cualitativa entre la distancia al sol (eje X) y el tiempo orbital (eje Y) basado en la Tercera Ley."
+  ],
+  "juegos_ordenar_letras_1": [
+    "ELIPSE",
+    "AFELIO",
+    "KEPLER"
+  ],
+  "juego_ordenar_frase_1": "LAS AREAS BARRIDAS POR EL RADIO VECTOR SON SIEMPRE IGUALES EN TIEMPOS IGUALES",
+  "texto_deductivo": "**EL CÓDIGO GRAVITATORIO: DEDUCCIONES DESDE EL BUNKER DE NEWTON**\n\nAtención, ingenieros de la resistencia. Ya hemos visto *cómo* se mueven los cuerpos celestes gracias a Kepler, pero para sobrevivir en este entorno de baja gravedad y escombros espaciales, debemos entender el *porqué*. Aquí es donde entra Isaac Newton, el arquitecto de la gravitación universal. En este mundo post-apocalíptico, la gravedad es a la vez nuestra cadena y nuestro motor. El 'Fenómeno Extraño' que reportaron los exploradores del Sector 7 —donde un asteroide de gran masa desvió la trayectoria de una sonda de agua sin tocarla— no es magia negra, es la manifestación pura de la **Ley de Gravitación Universal**.\n\nNewton dedujo que la fuerza que hace caer una manzana en las pocas huertas que nos quedan es la misma que mantiene a la Luna atada a la Tierra. Esta fuerza es directamente proporcional al producto de las masas e inversamente proporcional al cuadrado de la distancia que las separa. Matemáticamente: $F = G \\cdot (m1 \\cdot m2) / r^2$. Esta fórmula es el 'Santo Grial' de la física espacial. Si duplicamos la masa de un objeto, la atracción se duplica; pero si duplicamos la distancia, la fuerza no se reduce a la mitad, ¡se reduce a la cuarta parte! Esto es vital cuando operamos grúas magnéticas en las estaciones espaciales en ruinas: un pequeño error en el cálculo de la distancia puede significar que perdamos un cargamento en el vacío infinito.\n\nAhora, conectemos los puntos con Kepler. Newton demostró que las leyes de Kepler son una consecuencia directa de su ley de gravitación. La elipse no es caprichosa; es el resultado de una fuerza que varía con el inverso del cuadrado de la distancia. ¿Y qué hay de ese 'Fenómeno Extraño' del Sector 7? Al analizar los datos, descubrimos que el asteroide no estaba solo; había una masa invisible, quizás materia oscura o un agujero negro primordial de baja masa, que ejercía una fuerza gravitatoria. Al explicar este fenómeno, aplicamos el método deductivo: si la trayectoria cambió, *debe* existir una masa presente, pues la gravedad es una propiedad intrínseca de la materia. No hay movimiento sin fuerza, y no hay fuerza gravitatoria sin masa.\n\nPara nosotros, los herederos de la Tierra, entender la gravitación es entender el peso de nuestro pasado y la posibilidad de nuestro futuro. La Tercera Ley de Kepler, por ejemplo, puede derivarse igualando la fuerza gravitatoria con la fuerza centrípeta de una órbita circular aproximada. Esto nos permite calcular la 'Masa de la Tierra' incluso si nuestros sensores están dañados, simplemente observando el movimiento de los restos de la Luna que aún orbitan sobre nuestras cabezas. La física no es solo teoría en el pizarrón de un refugio; es la diferencia entre la órbita estable de nuestra salvación o el reingreso ardiente en una atmósfera hostil. Cada vez que lanzamos una bengala de señales al espacio, estamos desafiando la constante de gravitación $G$, esa minúscula cifra que dicta el destino de las galaxias. La deducción es clara: la gravedad es el tejido que mantiene unido lo que queda de nuestro universo.",
+  "preguntas_deductivas_pagina": [
+    "¿Qué sucede con la fuerza de atracción entre dos estaciones espaciales si la distancia entre ellas se triplica?",
+    "¿Cómo explica la Ley de Newton que los planetas más lejanos se muevan más lento (Tercera Ley de Kepler)?",
+    "Si un explorador encuentra un planeta con el doble de la masa de la Tierra pero del mismo tamaño, ¿cuánto pesaría allí en comparación con su peso actual?",
+    "¿Por qué se dice que la gravedad de Newton 'unificó' la física terrestre con la física celeste?",
+    "En el contexto del 'Fenómeno Extraño', ¿cómo se usa la desviación de una trayectoria para 'ver' objetos invisibles?"
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Realiza un diagrama detallado que muestre las fuerzas vectoriales actuando sobre un satélite en órbita, incluyendo la fuerza gravitatoria y la velocidad tangencial.",
+    "Elabora un mapa mental que conecte los conceptos de: Masa, Distancia, Constante G, Elipse y Periodo Orbital.",
+    "Dibuja una infografía artesanal que explique paso a paso cómo Newton utilizó la manzana y la Luna para formular su Ley de Gravitación Universal.",
+    "Crea un dibujo explicativo del 'Fenómeno Extraño' del Sector 7, mostrando cómo una masa invisible curva el espacio-tiempo y altera la trayectoria de una sonda."
+  ],
+  "juegos_ordenar_letras_2": [
+    "GRAVEDAD",
+    "NEWTON",
+    "INVERSA"
+  ],
+  "juego_ordenar_frase_2": "LA FUERZA ES INVERSAMENTE PROPORCIONAL AL CUADRADO DE LA DISTANCIA",
+  "sopa_letras": [
+    "KEPLER",
+    "NEWTON",
+    "ORBITA",
+    "ELIPSE",
+    "MASA",
+    "FUERZA",
+    "GRAVEDAD",
+    "FOCO",
+    "PERIODO",
+    "INERCIA"
+  ],
+  "crucigrama": [
+    {
+      "palabra": "AFELIO",
+      "pista": "Punto de la órbita más alejado del Sol."
+    },
+    {
+      "palabra": "ELIPSE",
+      "pista": "Forma geométrica de las trayectorias planetarias."
+    },
+    {
+      "palabra": "GRAVEDAD",
+      "pista": "Fuerza de atracción universal entre masas."
+    },
+    {
+      "palabra": "PERIHELIO",
+      "pista": "Punto donde el planeta se mueve a máxima velocidad."
+    },
+    {
+      "palabra": "CONSTANTE",
+      "pista": "La letra G en la fórmula de Newton representa una..."
+    },
+    {
+      "palabra": "FOCO",
+      "pista": "Lugar que ocupa el Sol dentro de la elipse."
+    },
+    {
+      "palabra": "MASA",
+      "pista": "Cantidad de materia que determina la fuerza gravitatoria."
+    },
+    {
+      "palabra": "KEPLER",
+      "pista": "Astrónomo que formuló las tres leyes del movimiento planetario."
+    },
+    {
+      "palabra": "CUADRADO",
+      "pista": "La fuerza disminuye según el ______ de la distancia."
+    },
+    {
+      "palabra": "SATELLITE",
+      "pista": "Objeto que orbita alrededor de un planeta."
+    }
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "En el Sector Gamma, los recolectores observan que un cometa acelera bruscamente al acercarse al Sol de este sistema, describiendo una curva cerrada y luego alejándose lentamente. Este comportamiento parece 'extraño' para quienes no conocen la física clásica.",
+      "tabla_o_grafica_markdown": "| Posición | Distancia (UA) | Velocidad (km/s) |\n| :--- | :--- | :--- |\n| A (Lejos) | 10.5 | 12 |\n| B (Cerca) | 0.8 | 85 |",
+      "pregunta": "¿Cuál es la explicación científica más coherente para el aumento de velocidad en la posición B?",
+      "opciones": [
+        "El viento solar empuja al cometa con más fuerza en las zonas cercanas.",
+        "Según la Segunda Ley de Kepler, el radio vector debe barrer áreas iguales en tiempos iguales, lo que exige mayor velocidad cerca del foco.",
+        "La fricción con la atmósfera solar calienta los gases del cometa provocando una propulsión tipo cohete.",
+        "El cometa pierde masa al evaporarse, y por conservación de la energía, debe ir más rápido."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. Aunque el viento solar existe, no es la causa del cambio de velocidad orbital según las leyes de movimiento planetario.",
+        "1": "Correcto. La conservación del momento angular expresada en la Segunda Ley de Kepler dicta que a menor radio, mayor velocidad para mantener el área constante.",
+        "2": "Incorrecto. Los cometas se mueven en el vacío, no hay atmósfera que genere propulsión por fricción de esa manera.",
+        "3": "Incorrecto. La pérdida de masa no aumenta la velocidad orbital de forma significativa en este contexto; es un efecto puramente geométrico-gravitatorio."
+      }
+    },
+    {
+      "competencia": "Uso comprensivo del conocimiento científico",
+      "texto_introductorio": "Un grupo de supervivientes intenta poner en órbita una estación de radio. Saben que para que la estación sea estable, la fuerza centrípeta debe ser provista por la fuerza gravitatoria de la Tierra.",
+      "tabla_o_grafica_markdown": "| Variable | Símbolo | Relación con la Fuerza |\n| :--- | :--- | :--- |\n| Masa Tierra | M | Proporcional |\n| Distancia | r | Inversa al cuadrado |",
+      "pregunta": "Si los ingenieros deciden mover la estación a una órbita que está al doble de distancia del centro de la Tierra, ¿qué ajuste debe ocurrir con la fuerza gravitatoria?",
+      "opciones": [
+        "La fuerza se duplicará para mantener la estación en su lugar.",
+        "La fuerza se reducirá a la mitad.",
+        "La fuerza se reducirá a la cuarta parte de su valor original.",
+        "La fuerza no cambiará, solo cambiará la velocidad."
+      ],
+      "correcta": 2,
+      "retroalimentacion": {
+        "0": "Incorrecto. La gravedad disminuye con la distancia, no aumenta.",
+        "1": "Incorrecto. La relación no es lineal, sino inversa al cuadrado.",
+        "2": "Correcto. Según Newton, si la distancia r se duplica (2r), el denominador de la fórmula se convierte en (2r)^2 = 4r^2, dividiendo la fuerza por 4.",
+        "3": "Incorrecto. La fuerza gravitatoria depende intrínsecamente de la distancia; un cambio en r altera necesariamente a F."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "Un sensor automático en una sonda espacial registró los periodos orbitales (T) y las distancias medias (R) de tres lunas que orbitan un planeta gigante gaseoso. Los datos se muestran a continuación:",
+      "tabla_o_grafica_markdown": "| Luna | R (unidades) | T (unidades) | T²/R³ |\n| :--- | :--- | :--- | :--- |\n| Alfa | 1 | 1 | 1 |\n| Beta | 4 | 8 | 1 |\n| Gamma | 9 | 27 | 1 |",
+      "pregunta": "Basándose en la tabla de datos recolectados, ¿qué conclusión general pueden extraer los científicos sobre el movimiento de estas lunas?",
+      "opciones": [
+        "Las lunas más lejanas viajan a velocidades lineales mayores.",
+        "Existe una relación de proporcionalidad constante entre el cuadrado del periodo y el cubo de la distancia (T² ∝ R³).",
+        "El tiempo que tarda una luna en dar una vuelta depende únicamente de su tamaño y masa propia.",
+        "Las órbitas son circulares perfectas ya que el valor de T²/R³ no cambia."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. La tabla no muestra velocidades, y según Kepler, las más lejanas son más lentas.",
+        "1": "Correcto. Los datos confirman la Tercera Ley de Kepler, ya que el cociente T²/R³ es constante para todos los cuerpos que orbitan el mismo centro.",
+        "2": "Incorrecto. La masa de la luna es despreciable frente a la del planeta y no afecta el periodo según la Tercera Ley.",
+        "3": "Incorrecto. La constante de Kepler se aplica tanto a órbitas circulares como elípticas; el valor constante no define la excentricidad."
+      }
+    }
+  ]
+}

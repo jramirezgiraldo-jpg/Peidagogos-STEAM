@@ -1,0 +1,188 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Qué forma geométrica describe mejor la trayectoria de un planeta alrededor del Sol según las observaciones clásicas?",
+      "opciones": [
+        "Círculo perfecto",
+        "Elipse",
+        "Línea recta",
+        "Espiral ascendente"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Cuál es la fuerza fundamental que mantiene a los astros en su lugar dentro del vacío espacial?",
+      "opciones": [
+        "Electromagnetismo",
+        "Fuerza Nuclear Fuerte",
+        "Gravedad",
+        "Presión Atmosférica"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "Si un planeta se aleja del Sol en su órbita, ¿qué sucede con su velocidad orbital?",
+      "opciones": [
+        "Aumenta",
+        "Disminuye",
+        "Se mantiene constante",
+        "Se detiene"
+      ],
+      "correcta": 1
+    }
+  ],
+  "texto_inductivo": "Saludos, reclutas del Sector 7. Soy su Operador de Enlace en la Red Central de Neo-Elysium. Si están escuchando esto, significa que el firewall de la realidad se ha debilitado y la estabilidad orbital de nuestra metrópolis está en riesgo crítico. En este futuro distópico, donde la Tierra es solo un recuerdo borroso y vivimos en estaciones espaciales masivas, entender el movimiento planetario no es una opción académica; es el protocolo de supervivencia nivel Dios. El movimiento de los cuerpos celestes ha fascinado a la humanidad desde que los primeros ancestros miraron al cielo, pero fue en el siglo XVII cuando Johannes Kepler, un 'hacker' de datos astronómicos de su época, descifró el código fuente del universo utilizando las observaciones de Tycho Brahe. Brahe era el recolector de datos, el hombre con los sensores más precisos antes de la invención del telescopio, y Kepler fue el analista que encontró el patrón en el caos.\n\nLa Primera Ley de Kepler, o la Ley de las Órbitas, rompió el paradigma del círculo perfecto. En Neo-Elysium, nuestras plataformas no giran en círculos; se desplazan en elipses donde el centro de masa (el Sol o nuestro reactor central) ocupa uno de los focos. Si no comprendemos la excentricidad de nuestra órbita, los escudos térmicos fallarán al acercarnos al perihelio. La Segunda Ley, o Ley de las Áreas, es nuestro regulador de velocidad. Imaginen que una línea invisible conecta nuestra estación con el sol; esta línea barre áreas iguales en tiempos iguales. Esto implica que cuando estamos más cerca del Sol, nuestra velocidad aumenta drásticamente (perihelio), y cuando estamos más lejos, nos movemos con una parsimonia casi estática (afelio). Esta danza asimétrica es lo que mantiene la inercia necesaria para no ser succionados por el pozo gravitatorio.\n\nFinalmente, la Tercera Ley, la Ley de los Periodos, es la fórmula maestra que conecta a todos los objetos del sistema. Establece que el cuadrado del periodo orbital es proporcional al cubo de la distancia media al Sol. En términos de hacking técnico: si conocemos a qué distancia estamos del núcleo, podemos predecir exactamente cuánto tardará un ciclo completo de nuestra metrópolis. Esta armonía matemática permitió a los antiguos navegantes espaciales trazar rutas entre planetas. Sin embargo, Kepler solo nos dijo 'cómo' se movían los planetas, pero no 'por qué'. Ese fue el siguiente nivel de la infiltración científica. En nuestra metrópolis, los sensores de telemetría muestran que el movimiento planetario es una coreografía perfecta de fuerzas invisibles. Si un solo parámetro de estas leyes se altera, la estructura estructural de Neo-Elysium colapsaría bajo las fuerzas de marea. Como hackers tecnológicos, su misión es auditar estos movimientos, verificar que las trayectorias sigan las ecuaciones de Kepler y asegurar que el suministro de energía solar, que depende de nuestra posición orbital, sea constante. La ciencia es la única herramienta que nos separa de la deriva eterna en el vacío. Prepárense para ejecutar el script de análisis planetario.",
+  "recurso_visual": "graph LR\n    A[Sol/Foco] -- Distancia R1 --> B(Planeta en Perihelio: Alta Velocidad)\n    A -- Distancia R2 --> C(Planeta en Afelio: Baja Velocidad)\n    B -- Segunda Ley --> D{Áreas Iguales en Tiempos Iguales}\n    C -- Segunda Ley --> D\n    D -- Estabilidad --> E[Supervivencia de Neo-Elysium]\n    style E fill:#00ff00,stroke:#333,stroke-width:4px",
+  "preguntas_inductivas_pagina": [
+    "¿Por qué el modelo de órbitas circulares fue insuficiente para explicar el movimiento planetario?",
+    "¿En qué punto de la elipse un planeta experimenta su máxima aceleración según la Segunda Ley de Kepler?",
+    "Si una estación espacial duplica su distancia media al Sol, ¿cómo afectaría esto a la duración de su 'año' según la Tercera Ley?",
+    "¿Cuál es la diferencia fundamental entre el perihelio y el afelio en términos de energía cinética?",
+    "¿Cómo ayuda la comprensión de las elipses a la navegación de naves de carga en la metrópolis?"
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema detallado de una órbita elíptica, señalando los focos, el semieje mayor, el perihelio y el afelio, simulando una interfaz de radar hacker.",
+    "Realiza un cuadro comparativo entre las tres leyes de Kepler, indicando su nombre, qué describe cada una y su aplicación práctica en una colonia espacial.",
+    "Escribe un informe de 15 líneas sobre cómo cambiaría la vida en Neo-Elysium si la órbita de nuestra estación fuera una elipse extremadamente excéntrica.",
+    "Representa gráficamente, mediante un diagrama de barras, la relación entre la velocidad orbital y la distancia al centro de masa en cuatro puntos diferentes de la órbita."
+  ],
+  "juegos_ordenar_letras_1": [
+    "ELIPSE",
+    "PERIHELIO",
+    "EXCENTRICIDAD"
+  ],
+  "juego_ordenar_frase_1": "LAS ORBITAS DE LOS PLANETAS SON ELIPSES CON EL SOL EN UN FOCO",
+  "texto_deductivo": "Atención, unidades de procesamiento biológico. Hemos superado la fase de observación superficial; ahora debemos infiltrarnos en el núcleo del sistema: la Ley de Gravitación Universal de Isaac Newton. Si Kepler fue el hacker que descubrió el patrón, Newton fue el arquitecto que escribió el motor físico del universo. En el contexto de Neo-Elysium, la gravedad no es solo una caída; es la curvatura misma del entramado de datos que llamamos espacio-tiempo. Newton dedujo que la fuerza que hace caer una manzana en la Tierra es la misma que mantiene a la Luna en su órbita y a nuestra metrópolis anclada al sol. Esta revelación unificó la física terrestre y la celeste en un solo conjunto de instrucciones ejecutables. La fórmula F = G * (m1 * m2) / r² es el comando root de la existencia. Nos dice que la fuerza de atracción es directamente proporcional al producto de las masas e inversamente proporcional al cuadrado de la distancia.\n\nPara nosotros, en la Metrópolis del Futuro, esta ecuación es vital para el control de altitud. Si los motores de posicionamiento fallan y nuestra distancia (r) disminuye, la fuerza de atracción aumenta de forma exponencial (al cuadrado), lo que nos llevaría a una reentrada atmosférica letal. Newton utilizó su cálculo infinitesimal para demostrar que las leyes de Kepler eran una consecuencia lógica de su ley de gravitación. Por ejemplo, la Tercera Ley de Kepler se deriva directamente al igualar la fuerza centrípeta necesaria para mantener un cuerpo en órbita con la fuerza gravitatoria. Esto significa que la constante de proporcionalidad que Kepler solo pudo observar, Newton pudo calcularla a partir de la masa del Sol y la constante de gravitación universal (G).\n\nEn la escala macroscópica de nuestra metrópolis, debemos considerar que la gravedad no solo actúa entre el Sol y nosotros, sino entre cada módulo de la estación. Esta microgravedad debe ser compensada para evitar colisiones internas. Además, el concepto de 'caída libre' es lo que define nuestra órbita: Neo-Elysium está constantemente cayendo hacia el Sol, pero debido a su alta velocidad tangencial, la curvatura de su caída coincide exactamente con la curvatura de la órbita, manteniéndonos en un estado de equilibrio dinámico perpetuo. El hacking científico avanzado requiere que entendamos que la gravedad es una fuerza de largo alcance, que nunca llega a cero, extendiendo sus hilos invisibles a través de todo el sector galáctico. Si logramos manipular la densidad de masa de nuestros sectores industriales, podríamos, en teoría, realizar ajustes orbitales sin gastar combustible, simplemente alterando nuestro centro de gravedad. La física es el código; el universo es el hardware; y nosotros somos los programadores que deben evitar el 'System Crash'.",
+  "preguntas_deductivas_pagina": [
+    "¿Qué sucede con la fuerza de atracción entre dos cuerpos si la distancia entre ellos se triplica?",
+    "¿Cómo demostró Newton que la gravedad es una fuerza universal y no solo terrestre?",
+    "¿Por qué es necesario que una estación espacial mantenga una velocidad tangencial alta para no caer al Sol?",
+    "¿Cuál es el papel de la Constante de Gravitación Universal (G) en el cálculo de las órbitas?",
+    "Si Neo-Elysium aumentara su masa al doble sin cambiar de posición, ¿cómo variaría la fuerza gravitatoria ejercida por el Sol?"
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Realiza un diagrama detallado de vectores que muestre la fuerza gravitatoria y la velocidad tangencial de Neo-Elysium en su órbita.",
+    "Elabora un mapa mental que conecte la Ley de Gravitación Universal con las tres leyes de Kepler, usando términos técnicos de redes.",
+    "Dibuja una infografía artesanal que explique el concepto de 'caída libre orbital' usando la metáfora del cañón de Newton.",
+    "Diseña un dibujo explicativo que muestre cómo se deforma el 'espacio-tiempo' alrededor de un cuerpo masivo como el Sol y cómo esto dicta el movimiento de la metrópolis."
+  ],
+  "juegos_ordenar_letras_2": [
+    "GRAVEDAD",
+    "NEWTON",
+    "TANGENCIAL"
+  ],
+  "juego_ordenar_frase_2": "LA FUERZA ES INVERSAMENTE PROPORCIONAL AL CUADRADO DE LA DISTANCIA",
+  "sopa_letras": [
+    "KEPLER",
+    "NEWTON",
+    "ORBITA",
+    "ELIPSE",
+    "FOCO",
+    "GRAVEDAD",
+    "MASA",
+    "RADIO",
+    "PERIODO",
+    "INERCIA"
+  ],
+  "crucigrama": [
+    {
+      "palabra": "AFELIO",
+      "pista": "Punto de la órbita más alejado del Sol."
+    },
+    {
+      "palabra": "PERIHELIO",
+      "pista": "Punto de la órbita más cercano al Sol."
+    },
+    {
+      "palabra": "GRAVEDAD",
+      "pista": "Fuerza de atracción universal entre masas."
+    },
+    {
+      "palabra": "ELIPSE",
+      "pista": "Forma geométrica de las órbitas planetarias."
+    },
+    {
+      "palabra": "KEPLER",
+      "pista": "Astrónomo que formuló las tres leyes del movimiento planetario."
+    },
+    {
+      "palabra": "INERCIA",
+      "pista": "Tendencia de los cuerpos a mantener su estado de movimiento."
+    },
+    {
+      "palabra": "FOCO",
+      "pista": "Uno de los dos puntos internos fijos de una elipse."
+    },
+    {
+      "palabra": "MASA",
+      "pista": "Cantidad de materia que posee un cuerpo."
+    },
+    {
+      "palabra": "CENTRIPETA",
+      "pista": "Fuerza que actúa hacia el centro de una trayectoria curva."
+    },
+    {
+      "palabra": "PERIODO",
+      "pista": "Tiempo que tarda un planeta en dar una vuelta completa."
+    }
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "En la estación Neo-Elysium, los ingenieros observan que cuando la estación se acerca al punto más cercano al Sol en su órbita elíptica, los sistemas de generación eléctrica por fricción iónica reportan un pico de energía debido al incremento de la velocidad.",
+      "tabla_o_grafica_markdown": "| Posición | Distancia (UA) | Velocidad (km/s) |\n|---|---|---|\n| A (Perihelio) | 0.98 | 30.3 |\n| B (Afelio) | 1.02 | 29.3 |",
+      "pregunta": "¿Cuál de las leyes de Kepler explica correctamente por qué la velocidad es mayor en la posición A que en la posición B?",
+      "opciones": [
+        "La Segunda Ley, porque el radio vector barre áreas iguales en tiempos iguales.",
+        "La Primera Ley, porque establece que las órbitas son elípticas.",
+        "La Tercera Ley, porque el periodo depende de la distancia media.",
+        "La Ley de Gravitación, porque la masa de la estación no cambia."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. La Segunda Ley de Kepler implica que para barrer áreas iguales, el planeta debe moverse más rápido cuando está cerca del foco.",
+        "1": "Incorrecto. La primera ley solo describe la forma de la órbita, no la variación de velocidad.",
+        "2": "Incorrecto. La tercera ley relaciona periodos y distancias medias de diferentes planetas, no la velocidad instantánea.",
+        "3": "Incorrecto. Aunque la ley de gravitación explica la causa, la ley de Kepler que describe este comportamiento específico es la de las áreas."
+      }
+    },
+    {
+      "competencia": "Uso Comprensivo del Conocimiento Científico",
+      "texto_introductorio": "Si la masa del sol de un sistema lejano se duplicara instantáneamente sin cambiar la distancia de los planetas que lo rodean, se produciría un cambio en la fuerza de atracción.",
+      "tabla_o_grafica_markdown": "| Variable | Antes | Después |\n|---|---|---|\n| Masa Sol | M | 2M |\n| Distancia | r | r |\n| Fuerza | F | ? |",
+      "pregunta": "De acuerdo con la Ley de Gravitación Universal, ¿qué ocurriría con la fuerza gravitatoria sobre los planetas?",
+      "opciones": [
+        "Se reduciría a la mitad.",
+        "Se mantendría igual.",
+        "Se duplicaría.",
+        "Se cuadruplicaría."
+      ],
+      "correcta": 2,
+      "retroalimentacion": {
+        "0": "Incorrecto. La fuerza es directamente proporcional a la masa.",
+        "1": "Incorrecto. Al cambiar una de las masas, la fuerza debe cambiar.",
+        "2": "Correcto. Al ser F proporcional a m1*m2, si una masa se duplica, la fuerza resultante también se duplica.",
+        "3": "Incorrecto. Solo se cuadruplica si la distancia se reduce a la mitad."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "Un grupo de hackers de Neo-Elysium investiga la relación entre el tiempo que tarda un satélite en orbitar (T) y su distancia al centro (R). Encuentran los siguientes datos:",
+      "tabla_o_grafica_markdown": "| Satélite | R (unidades) | T (unidades) | R³ / T² |\n|---|---|---|---|\n| S1 | 4 | 8 | 1 |\n| S2 | 9 | 27 | 1 |\n| S3 | 16 | 64 | 1 |",
+      "pregunta": "¿Qué conclusión científica pueden extraer los investigadores a partir de la constante observada en la última columna?",
+      "opciones": [
+        "Que la velocidad es constante en todos los satélites.",
+        "Que se cumple la Tercera Ley de Kepler para este sistema.",
+        "Que la masa del satélite es igual a su distancia.",
+        "Que los satélites tienen órbitas circulares perfectas."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. Los datos muestran que a mayor R, mayor T, lo que implica diferentes velocidades.",
+        "1": "Correcto. La relación R³/T² constante es la esencia de la Tercera Ley de Kepler.",
+        "2": "Incorrecto. La masa del satélite no se deduce de esta relación de periodos y distancias.",
+        "3": "Incorrecto. La ley de los periodos se aplica tanto a círculos como a elipses."
+      }
+    }
+  ]
+}

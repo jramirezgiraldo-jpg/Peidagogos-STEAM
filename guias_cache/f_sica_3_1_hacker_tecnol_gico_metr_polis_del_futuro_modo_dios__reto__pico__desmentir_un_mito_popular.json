@@ -1,0 +1,188 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Qué trayectoria creían los antiguos astrónomos que seguían los planetas y por qué se consideraba 'perfecta'?",
+      "opciones": [
+        "Líneas rectas, porque representan el camino más corto entre dos puntos del cosmos.",
+        "Círculos perfectos, porque la filosofía clásica consideraba el círculo como la forma geométrica divina e incorruptible.",
+        "Espirales infinitas, porque reflejaban el crecimiento caótico pero ordenado del universo.",
+        "Parábolas simétricas, debido a que imitaban la caída de los proyectiles en la Tierra."
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "Si un planeta en órbita elíptica se acerca a su estrella central, ¿qué ocurre con su velocidad orbital de acuerdo con la física clásica?",
+      "opciones": [
+        "Se mantiene constante, ya que la inercia espacial anula cualquier cambio de velocidad.",
+        "Disminuye exponencialmente para evitar colisionar directamente con la estrella central.",
+        "Aumenta, debido a la conservación del momento angular al reducirse la distancia al centro de masa.",
+        "Se detiene momentáneamente en el punto de máxima proximidad antes de acelerar en sentido opuesto."
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "¿Cuál es la principal diferencia entre el modelo heliocéntrico de Copérnico y el modelo propuesto posteriormente por Kepler?",
+      "opciones": [
+        "Copérnico propuso que la Tierra era el centro, mientras que Kepler situó al Sol en el centro absoluto.",
+        "Copérnico asumía órbitas perfectamente circulares, mientras que Kepler descubrió que las órbitas son elípticas.",
+        "Copérnico utilizaba la gravedad cuántica para sus cálculos, mientras que Kepler se limitó a la geometría fractal.",
+        "Copérnico descartó la existencia de otros planetas, mientras que Kepler catalogó todo el cinturón de asteroides."
+      ],
+      "correcta": 1
+    }
+  ],
+  "texto_inductivo": "¡Atención, rebeldes de la red! Aquí Zero-Day transmitiendo desde los servidores subterráneos de Neo-Veridia. Las pantallas holográficas del Ministerio de Orden y Progreso Corp. les han mentido desde el día en que nacieron. Nos repiten una y otra vez que la metrópolis flota bajo un domo de estabilidad perfecta gracias a que el sistema solar es un engranaje perfectamente simétrico de círculos concéntricos inmutables. Nos venden el 'Mito de la Simetría Divina': la mentira corporativa de que los astros giran en círculos perfectos controlados por sus generadores de gravedad artificial. ¿Por qué lo hacen? Porque un ciudadano que cree en círculos perfectos es un ciudadano predecible, dócil y fácil de programar. Pero hoy vamos a ejecutar un exploit en su base de datos doctrinal. Vamos a desenterrar la verdad física utilizando el hackeo de datos más grande de la historia de la humanidad: el realizado por Johannes Kepler a principios del siglo XVII.\n\nPara hackear un sistema, primero necesitas los datos de acceso (logs). En nuestra historia de la física, el hacker de hardware que recolectó los datos más precisos de la época sin telescopios fue Tycho Brahe. Brahe pasó décadas registrando la posición exacta de los planetas en el cielo nocturno con un nivel de precisión de un minuto de arco. Cuando Tycho murió, Kepler cometió un acto de piratería intelectual supremo: se apoderó de los registros de Brahe sobre el movimiento de Marte. El sistema corporativo de la época (la Iglesia y la academia tradicional) exigía que las órbitas fueran círculos perfectos. Kepler intentó encajar los datos de Marte en un modelo circular durante años. El sistema arrojaba un error persistente de apenas 8 minutos de arco. Cualquier programador descuidado habría ignorado ese pequeño 'glitch' de redondeo. Pero Kepler sabía que un verdadero hacker de la realidad no ignora las anomalías: las investiga. Esos 8 minutos de arco fueron la vulnerabilidad que colapsó el dogma milenario.\n\nKepler comprendió que el círculo era una ilusión de control. Al liberar su mente de la geometría sagrada impuesta, descubrió su **Primera Ley (Ley de las Órbitas)**: *Todos los planetas se mueven en órbitas elípticas, con el Sol en uno de los focos*. Una elipse no es un círculo imperfecto; es una estructura matemática de una belleza superior, definida por dos puntos focales donde la distancia sumada desde cualquier punto de la curva a ambos focos es siempre constante. El círculo es simplemente una elipse con excentricidad cero, un caso especial y extremadamente raro en el caos dinámico del cosmos.\n\nPero el hackeo no se detuvo ahí. Al analizar cómo cambiaba la velocidad de los planetas, Kepler formuló la **Segunda Ley (Ley de las Áreas)**: *La línea que une a un planeta con el Sol barre áreas iguales en tiempos iguales*. Esto destruyó la noción de velocidad uniforme. Cuando el planeta pasa por el perihelio (el punto más cercano al Sol), se desplaza a una velocidad vertiginosa; cuando transita por el afelio (el punto más lejano), su velocidad se ralentiza de forma perezosa. Es el baile cósmico de la energía cinética y potencial.\n\nFinalmente, tras años de compilación matemática, Kepler halló el algoritmo conector del sistema solar, su **Tercera Ley (Ley Armónica)**: *El cuadrado del período orbital de un planeta es directamente proporcional al cubo de la distancia media al Sol* ($T^2 = k \\cdot a^3$). Esta ecuación nos demuestra que el tejido cósmico está interconectado de manera lógica y predecible. Los planetas exteriores tardan eones en completar un ciclo porque su distancia al núcleo gravitacional ralentiza su período orbital de forma matemática. Hoy hemos descargado el código fuente del cielo. Hemos desmentido el mito de la perfección estática corporativa. La naturaleza no es un círculo perfecto de producción en masa; es una elipse dinámica y elegante en constante cambio. Prepárense para compilar este conocimiento y usarlo como nuestra arma de liberación intelectual.",
+  "recurso_visual": "mermaid\ngraph TD\n    A[Datos Puros de Tycho Brahe] -->|Filtrado de Ruido / 8 Minutos de Arco| B(Kepler: El Hacker de Órbitas)\n    B --> C{Las Tres Leyes del Movimiento Planetario}\n    C -->|1ra Ley: Órbitas Elípticas| D[Elipse: Focos y Excentricidad / Adiós al Círculo Divino]\n    C -->|2da Ley: Áreas Iguales| E[Velocidad Variable: Perihelio Rápido / Afelio Lento]\n    C -->|3ra Ley: Armónica| F[T² proporcional a a³ / Sincronización Matemática del Cosmos]\n    D & E & F --> G[Mito Corporativo de Simetría Circular: DESTRUIDO]\n",
+  "preguntas_inductivas_pagina": [
+    "¿Qué anomalía numérica o 'glitch' en los datos de Tycho Brahe llevó a Kepler a rechazar el dogma de las órbitas perfectamente circulares?",
+    "¿Cómo define matemáticamente la Primera Ley de Kepler la trayectoria de un planeta y qué rol juegan los focos en esta figura?",
+    "De acuerdo con la Segunda Ley de Kepler, ¿en qué punto de la órbita de un planeta su velocidad de traslación es máxima y por qué ocurre esto?",
+    "Si un exoplaneta en los bordes del sistema de Neo-Veridia tiene un semieje mayor enorme, ¿cómo afectará esto a su período orbital según la Tercera Ley?",
+    "¿Por qué crees que el sistema corporativo de Neo-Veridia prefiere enseñar el mito de las órbitas circulares en lugar de las elípticas de Kepler?"
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja en tu cuaderno una elipse detallada que represente la órbita de un planeta. Señala con precisión los dos focos (ubicando el Sol en uno de ellos), el perihelio, el afelio, el semieje mayor, y sombrea dos sectores que ilustren la Segunda Ley de Kepler (áreas iguales barridas en tiempos iguales).",
+    "Elabora un cuadro comparativo entre el 'Modelo de Simetría Circular Corporativa' de Neo-Veridia y el 'Modelo Kepleriano de Órbitas Elípticas'. Clasifica las columnas por: Trayectoria, Velocidad del planeta, Ubicación del centro de fuerza y Consecuencias en la navegación espacial.",
+    "Escribe un ensayo reflexivo de tres párrafos donde analices cómo un pequeño error de medición (como los 8 minutos de arco de Kepler) puede derrumbar una teoría científica milenaria. Relaciónalo con la importancia de la honestidad de datos en la era de la desinformación digital.",
+    "Representa gráficamente en un plano cartesiano conceptual cómo varía la velocidad orbital de un planeta (eje Y) en función de su distancia al Sol (eje X), identificando claramente los puntos límite de la órbita (perihelio y afelio)."
+  ],
+  "juegos_ordenar_letras_1": [
+    "ELIPSE",
+    "AFELIO",
+    "EXCENTRICIDAD"
+  ],
+  "juego_ordenar_frase_1": "LAS ORBITAS DE LOS PLANETAS SON ELIPTICAS Y EL SOL OCUPA UNO DE LOS FOCOS",
+  "texto_deductivo": "¡Excelente depuración del sistema, equipo! Hemos vulnerado la primera capa del cortafuegos de Neo-Veridia desmintiendo el mito de la perfección geométrica circular de las órbitas. Pero ahora nos enfrentamos al núcleo duro de la propaganda corporativa. El Ministerio de Orden y Progreso afirma en sus transmisiones estatales que la gravedad es una 'red instantánea de sincronización cuántica' instalada por ellos para evitar que los planetas salgan despedidos hacia el vacío del espacio interestelar. Nos venden el mito de la 'Gravedad Instantánea e Inalámbrica'. Sostienen que si el Sol sufriera un colapso repentino, la Tierra sentiría el efecto de inmediato y saldría de su órbita en el microsegundo cero. Este mito busca convencernos de que el poder centralizado puede controlar el espacio de forma inmediata y sin retardos.\n\nHoy vamos a desacoplar esa mentira utilizando física de nivel Dios. Para entender el *porqué* del movimiento planetario que Kepler describió de forma geométrica, debemos recurrir a Sir Isaac Newton y su Ley de Gravitación Universal. Newton dedujo matemáticamente que todos los cuerpos en el universo se atraen con una fuerza directamente proporcional al producto de sus masas e inversamente proporcional al cuadrado de la distancia que los separa ($F = G \\cdot \\frac{m_1 \\cdot m_2}{r^2}$). Esta elegante ecuación demuestra que la gravedad es el motor invisible detrás de las elipses de Kepler. La atracción gravitatoria actúa como una fuerza centrípeta, desviando continuamente a los planetas de su trayectoria rectilínea inercial y obligándolos a caer perpetuamente alrededor del Sol en una caída libre infinita llamada órbita.\n\nSin embargo, la física clásica de Newton tenía un exploit de seguridad no resuelto: asumía que la gravedad actuaba de forma instantánea a través del espacio vacío (acción a distancia). Aquí es donde entra el parche de seguridad definitivo del sistema: Albert Einstein y su Teoría de la Relatividad General de 1915. Einstein demostró que el espacio y el tiempo no son un escenario rígido y pasivo, sino una estructura unificada y flexible llamada espaciotiempo. La presencia de masa y energía (como nuestro Sol) curva este tejido espaciotiempo, de la misma manera que una bola de bolos curva una lona elástica. Lo que percibimos como 'fuerza de gravedad' es en realidad la trayectoria geométrica natural (geodésica) que siguen los planetas a través de un espacio curvo.\n\nEste descubrimiento destruye por completo el mito corporativo de la gravedad instantánea. De acuerdo con la Relatividad General, ninguna información, masa o perturbación física puede viajar más rápido que la velocidad de la luz en el vacío ($c \\approx 300,000\\text{ km/s}$). La gravedad no es una excepción: viaja exactamente a la velocidad de la luz a través de ondas gravitacionales. Si el Sol desapareciera de repente en este instante, el tejido del espaciotiempo no se aplanaría inmediatamente de forma mágica. Se generaría una perturbación, una ola gravitacional que viajaría por el sistema solar a la velocidad de la luz. Dado que la Tierra se encuentra a unos 150 millones de kilómetros del Sol, esta perturbación tardaría aproximadamente 8 minutos y 20 segundos en alcanzarnos. Durante ese lapso, la Tierra continuaría orbitando tranquilamente un Sol inexistente en la completa oscuridad espacial. No hay un control central instantáneo. El universo físico tiene un límite de velocidad de procesamiento de datos inviolable. La propaganda corporativa de la transmisión inmediata del poder gravitatorio ha sido desmentida por las leyes inmutables de la causalidad relativista.",
+  "preguntas_deductivas_pagina": [
+    "¿Qué limitación conceptual de la teoría gravitatoria de Newton fue resuelta por la Teoría de la Relatividad General de Einstein?",
+    "¿Cómo explica la teoría de Einstein el fenómeno que Newton describía simplemente como una 'fuerza de atracción a distancia'?",
+    "Si la masa del Sol se duplicara repentinamente, ¿cuánto tiempo tardaría la Tierra en experimentar el cambio en su atracción gravitatoria y por qué?",
+    "¿Cómo impide la inercia que la Tierra colapse directamente hacia el Sol debido a la inmensa fuerza gravitatoria ejercida sobre ella?",
+    "¿Por qué la velocidad de la luz actúa como un límite de velocidad absoluto para la propagación de las fuerzas físicas en el cosmos?"
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Dibuja un diagrama tridimensional detallado que represente el tejido del espaciotiempo curvado por la presencia del Sol y cómo la Tierra sigue una trayectoria geodésica a su alrededor. Asegúrate de ilustrar la deformación de la cuadrícula de coordenadas del espaciotiempo.",
+    "Elabora un mapa mental que conecte conceptualmente los siguientes términos clave: Masa planetaria, Curvatura del espaciotiempo, Velocidad de la luz, Ondas gravitacionales, Ley de la inversa del cuadrado de la distancia e Inercia orbital.",
+    "Realiza un dibujo explicativo secuencial (tipo cómic de 3 viñetas) que desmienta el mito de la gravedad instantánea: Viñeta 1 (El Sol desaparece), Viñeta 2 (La onda de deformación del espaciotiempo viaja por el espacio durante 8 minutos mientras la Tierra orbita normal), Viñeta 3 (La onda llega a la Tierra y esta sale despedida tangencialmente).",
+    "Diseña una infografía artesanal en tu cuaderno titulada 'Hackeando el Control Cósmico: El Límite de Velocidad de la Gravedad'. Incluye datos numéricos clave, la ecuación de gravitación de Newton y esquemas que muestren la diferencia entre transmisión instantánea (falsa) y transmisión relativista (real)."
+  ],
+  "juegos_ordenar_letras_2": [
+    "GRAVEDAD",
+    "GEODESICA",
+    "RELATIVIDAD"
+  ],
+  "juego_ordenar_frase_2": "LA FUERZA DE GRAVEDAD DECRECE CON EL CUADRADO DE LA DISTANCIA",
+  "sopa_letras": [
+    "KEPLER",
+    "NEWTON",
+    "ELIPSE",
+    "GRAVEDAD",
+    "ORBITA",
+    "AFELIO",
+    "PERIHELIO",
+    "PLANETA",
+    "SATELITE",
+    "ESPACIOTIEMPO"
+  ],
+  "crucigrama": [
+    {
+      "palabra": "ELIPSE",
+      "pista": "Trayectoria geométrica real que describe un planeta alrededor de su estrella central."
+    },
+    {
+      "palabra": "PERIHELIO",
+      "pista": "Punto de la órbita de un planeta donde se encuentra más cerca del Sol y viaja a máxima velocidad."
+    },
+    {
+      "palabra": "AFELIO",
+      "pista": "Punto de la órbita planetaria de máxima distancia al Sol donde la velocidad es mínima."
+    },
+    {
+      "palabra": "GRAVEDAD",
+      "pista": "En física clásica, la fuerza de atracción entre masas; en relatividad, la curvatura del espaciotiempo."
+    },
+    {
+      "palabra": "EINSTEIN",
+      "pista": "Científico que descubrió que la gravedad viaja a la velocidad de la luz y deforma el espaciotiempo."
+    },
+    {
+      "palabra": "KEPLER",
+      "pista": "Astrónomo que descifró el código del movimiento orbital rompiendo el dogma de las órbitas circulares."
+    },
+    {
+      "palabra": "EXCENTRICIDAD",
+      "pista": "Parámetro que determina el grado de desviación de una elipse con respecto a un círculo perfecto."
+    },
+    {
+      "palabra": "NEWTON",
+      "pista": "Formuló la ley que establece que la atracción gravitatoria disminuye con el cuadrado de la distancia."
+    },
+    {
+      "palabra": "ONDA",
+      "pista": "Perturbación del tejido espaciotemporal que transporta la fuerza de gravedad a través del vacío cósmico."
+    },
+    {
+      "palabra": "GEODESICA",
+      "pista": "Trayectoria de menor distancia o camino más recto que sigue un objeto a través de un espacio curvo."
+    }
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "En la metrópolis de Neo-Veridia, un equipo de ingenieros aeroespaciales analiza los datos de telemetría de un satélite artificial que orbita en una trayectoria elíptica muy pronunciada alrededor del planeta Tierra. Los datos de velocidad y distancia se tabulan a continuación en tres puntos críticos de su órbita:",
+      "tabla_o_grafica_markdown": "| Punto de Medición | Distancia al centro de la Tierra (km) | Velocidad orbital registrada (km/s) |\n|---|---|---|\n| Punto Alpha | 7,200 | 8.1 |\n| Punto Beta | 12,500 | 5.2 |\n| Punto Gamma | 19,800 | 3.5 |",
+      "pregunta": "Con base en la información tabulada y aplicando las leyes del movimiento planetario de Kepler, se puede afirmar correctamente que:",
+      "opciones": [
+        "El Punto Alpha representa el perihelio de la órbita del satélite, ya que allí experimenta la menor distancia y por ende la mayor velocidad de traslación para conservar el momento angular.",
+        "El Punto Gamma representa el perihelio del satélite, debido a que a mayor distancia se requiere mayor inercia térmica para mantener la estabilidad del sistema orbital.",
+        "La velocidad del satélite disminuye en el Punto Gamma porque la constante de gravitación universal G se reduce proporcionalmente a la altitud del objeto.",
+        "El satélite mantiene un movimiento circular uniforme encubierto, ya que la variación de velocidades es una distorsión producida por la atmósfera de la metrópolis."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. De acuerdo con la Segunda Ley de Kepler, a menor distancia al centro de fuerza (perihelio), el cuerpo celeste debe aumentar su velocidad orbital para barrer áreas iguales en tiempos iguales, conservando así su momento angular.",
+        "1": "Incorrecto. El Punto Gamma tiene la mayor distancia y la menor velocidad, por lo que corresponde al afelio, no al perihelio.",
+        "2": "Incorrecto. La constante de gravitación universal G es, como su nombre lo indica, constante en todo el universo y no disminuye con la altitud.",
+        "3": "Incorrecto. Las variaciones de velocidad en una órbita elíptica son reales y naturales según las leyes de Kepler, no un efecto o distorsión atmosférica."
+      }
+    },
+    {
+      "competencia": "Uso Comprensivo del Conocimiento Científico",
+      "texto_introductorio": "Un grupo de científicos rebeldes busca desmentir el mito de la 'gravedad instantánea' corporativa. Para ello, diseñan un experimento mental: si una estrella central del sistema binario de la metrópolis explotara repentinamente perdiendo toda su masa de forma inmediata, quieren predecir la trayectoria del planeta habitable que orbita a una distancia de 1.2 unidades astronómicas de la estrella (tiempo de viaje de la luz de la estrella al planeta = 10 minutos).",
+      "tabla_o_grafica_markdown": "| Variable del Sistema | Valor Inicial | Estado Post-Explosión (t = 0 a 9 min) | Estado Post-Explosión (t > 10 min) |\n|---|---|---|---|\n| Curvatura del espaciotiempo | Pronunciada | Pronunciada (Sin cambios locales) | Plana (Espacio Euclidiano libre) |\n| Trayectoria orbital del planeta | Elíptica regular | Elíptica regular | Rectilínea uniforme (Tangencial) |",
+      "pregunta": "¿Por qué el planeta continúa su trayectoria elíptica normal durante los primeros 10 minutos después de que la estrella central desapareció?",
+      "opciones": [
+        "Porque la inercia química de la corteza del planeta genera una gravedad fantasma temporal que reemplaza la fuerza de la estrella.",
+        "Porque la perturbación en la curvatura del espaciotiempo no se transmite de forma instantánea, sino que viaja como una onda a la velocidad de la luz, tardando 10 minutos en alcanzar la órbita del planeta.",
+        "Porque la gravedad es una fuerza de acción a distancia instantánea que requiere un tiempo de desconexión biológica en el núcleo terrestre.",
+        "Porque el satélite de Neo-Veridia emite un haz de gravedad de emergencia para sostener el planeta simulando la presencia de la estrella."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. La inercia es una propiedad de la materia ante el cambio de movimiento, pero no genera campos de gravedad fantasma independientes.",
+        "1": "Correcto. Según la Relatividad General, los cambios gravitacionales viajan exactamente a la velocidad de la luz en forma de ondas gravitacionales. Por ende, la información física tarda 10 minutos en recorrer la distancia al planeta.",
+        "2": "Incorrecto. La acción a distancia instantánea fue una limitación de la física newtoniana superada por la relatividad; el universo prohíbe la transmisión instantánea de información.",
+        "3": "Incorrecto. Esta opción recurre a la narrativa ficcional corporativa que precisamente se busca desmentir mediante el análisis de física real."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "Para validar la Tercera Ley de Kepler en el sistema solar exterior de Neo-Veridia, un astrónomo aficionado mide el período orbital (T) y la distancia media (a) de cuatro lunas artificiales instaladas para vigilar los sectores industriales de la metrópolis, obteniendo la siguiente relación de datos experimentales:",
+      "tabla_o_grafica_markdown": "| Luna de Monitoreo | Distancia Media 'a' (unidades normalizadas) | Período Orbital 'T' (ciclos normalizados) | Relación T² / a³ |\n|---|---|---|---|\n| Monitor-1 | 2.0 | 2.83 | 1.00 |\n| Monitor-2 | 4.0 | 8.00 | 1.00 |\n| Monitor-3 | 8.0 | 22.62 | 1.00 |\n| Monitor-4 | 16.0 | 64.00 | 1.00 |",
+      "pregunta": "Si los ingenieros del Ministerio de Orden deciden colocar una quinta luna espía (Monitor-5) a una distancia media de 9.0 unidades normalizadas, ¿cuál debería ser su período orbital aproximado de traslación para cumplir con el código físico de Kepler?",
+      "opciones": [
+        "27.0 ciclos normalizados.",
+        "81.0 ciclos normalizados.",
+        "18.0 ciclos normalizados.",
+        "3.0 ciclos normalizados."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. De acuerdo con la Tercera Ley de Kepler, la relación T² / a³ debe ser constante (en este caso, igual a 1.00). Si a = 9.0, entonces a³ = 9³ = 729. Para que T²/a³ = 1, T² debe ser igual a 729. Al extraer la raíz cuadrada de 729 obtenemos T = 27.0.",
+        "1": "Incorrecto. 81.0 es el resultado de calcular a² en lugar de utilizar la relación de potencias cúbica-cuadrática correcta de la Tercera Ley de Kepler.",
+        "2": "Incorrecto. 18.0 representaría una relación puramente lineal de proporcionalidad (duplicar la distancia), lo cual viola la ley de Kepler.",
+        "3": "Incorrecto. 3.0 corresponde a la raíz cuadrada del radio medio, pero no satisface la proporción armónica T² = a³."
+      }
+    }
+  ]
+}

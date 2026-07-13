@@ -1,0 +1,188 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Qué forma crees que tiene el camino que recorre la Tierra alrededor del Sol?",
+      "opciones": [
+        "Un círculo perfecto",
+        "Un cuadrado con bordes curvos",
+        "Una elipse (como un óvalo)",
+        "Una línea recta"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "Si un planeta está más lejos del Sol, su velocidad es...",
+      "opciones": [
+        "Más rápida",
+        "Más lenta",
+        "Igual a la de la Tierra",
+        "Cero"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Quién fue el científico que propuso las tres leyes del movimiento planetario?",
+      "opciones": [
+        "Isaac Newton",
+        "Johannes Kepler",
+        "Albert Einstein",
+        "Galileo Galilei"
+      ],
+      "correcta": 1
+    }
+  ],
+  "texto_inductivo": "¡Saludos, reclutas del código estelar! Aquí su **Hacker Tecnológico** reportándose desde el corazón de la Selva Esmeralda. Hemos interceptado una señal anómala en nuestro radar de posicionamiento global. Mientras abrimos camino entre la maleza digital y los helechos gigantes, hemos notado algo extraño en el cielo nocturno sobre el dosel arbóreo. Los antiguos habitantes de esta selva dejaron grabados en piedra que hablaban de 'luces que retroceden'. Para un usuario común, esto es un error del sistema, pero para nosotros, es un **fenómeno extraño** que requiere un bypass de conocimiento para ser explicado. \n\nImaginen que están sentados frente a una consola de comandos en medio de la humedad tropical. Miran hacia arriba y ven a Marte. Según el sentido común, debería moverse siempre en una dirección, ¿verdad? Pero a veces, parece detenerse y retroceder. Este es el famoso **movimiento retrógrado**. Durante siglos, los 'arquitectos del sistema' antiguo pensaban que la Tierra era el centro de todo y que los planetas hacían bucles complejos llamados epiciclos. ¡Qué código tan desordenado! Era un parche sobre otro parche. \n\nEn esta fase de nuestra **Expedición en la Selva**, nuestro objetivo es observar. Observar cómo los planetas no se mueven en círculos perfectos, una idea que estuvo 'hardcodeada' en la mente humana por milenios. Cuando observamos un fenómeno extraño, nuestro primer instinto de hacker debe ser recolectar datos de entrada (inputs). ¿Por qué un planeta parece brillar más en ciertos momentos? ¿Por qué parece cambiar su velocidad de desplazamiento en el cielo? \n\nEn el nivel **Modo Novato**, no necesitamos algoritmos de alta complejidad, sino una visión clara. La selva nos enseña que todo sigue un patrón. Al igual que las hormigas siguen un rastro de feromonas, los planetas siguen rastros invisibles dictados por la gravedad. El fenómeno extraño de que un planeta no siga un camino circular se explica porque la naturaleza prefiere la eficiencia de las **elipses**. Al estar en una selva, si quieres rodear un árbol gigante, raramente trazas un círculo perfecto; te adaptas al terreno. Los planetas hacen lo mismo en el tejido del espacio-tiempo. \n\nEste periodo 3, semana 1, es nuestro 'boot sector'. Estamos reiniciando nuestra comprensión del cosmos. El movimiento planetario no es un capricho de los dioses de la selva, sino un programa ejecutándose bajo leyes físicas precisas. Al observar el cielo desde nuestra hamaca tecnológica, nos damos cuenta de que el desorden aparente es en realidad un orden superior que aún no hemos terminado de compilar. Preparen sus bitácoras de campo, porque vamos a descifrar el script de los cielos. ¿Están listos para encontrar el 'bug' en la teoría geocéntrica y actualizarse al parche de Kepler? La expedición apenas comienza y los datos están fluyendo como un río caudaloso tras la tormenta tropical. No dejen que las lianas de la ignorancia los detengan; usen su machete lógico y abran paso a la verdad científica.",
+  "recurso_visual": "| Fenómeno Observado | Explicación del 'Hacker' Científico |\n| :--- | :--- |\n| Trayectoria no circular | Las órbitas son Elipses (1ª Ley de Kepler) |\n| Cambio de velocidad | A mayor cercanía al Sol, mayor velocidad (2ª Ley) |\n| Planetas lejanos lentos | El periodo aumenta con la distancia (3ª Ley) |\n| Movimiento retrógrado | Efecto de perspectiva al rebasar a otro planeta |",
+  "preguntas_inductivas_pagina": [
+    "¿Qué nombre recibe el fenómeno donde un planeta parece retroceder en el cielo?",
+    "¿Por qué los antiguos creían que los planetas hacían bucles o círculos pequeños?",
+    "En la analogía de la selva, ¿qué figura geométrica reemplaza al círculo perfecto?",
+    "¿Cuál es el 'input' principal que necesitamos para explicar un fenómeno extraño?",
+    "¿Qué fuerza invisible actúa como el 'rastro de feromonas' para los planetas?"
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema de la selva donde se vea el cielo y representa el movimiento 'extraño' (retrógrado) de un planeta frente a las estrellas fijas.",
+    "Realiza un cuadro comparativo entre la 'Teoría de los Círculos Perfectos' y la 'Realidad de las Elipses'.",
+    "Escribe una reflexión de 10 líneas sobre por qué es importante para un hacker (o científico) dudar de lo que parece 'obvio' a simple vista.",
+    "Representa gráficamente, mediante un dibujo, cómo crees que se ve la gravedad conectando al Sol con un planeta en medio de la vegetación."
+  ],
+  "juegos_ordenar_letras_1": [
+    "ELIPSE",
+    "ORBITA",
+    "PLANETA"
+  ],
+  "juego_ordenar_frase_1": "LOS PLANETAS SIGUEN RUTAS ELIPTICAS ALREDEDOR DEL SOL",
+  "texto_deductivo": "¡Atención, equipo de expedición! Hemos desbloqueado el acceso root al núcleo del sistema solar. Ahora que hemos observado las anomalías desde la base de la selva, es hora de analizar el código fuente: las **Leyes de Kepler**. Estas no son sugerencias, son funciones críticas del sistema que se ejecutan sin errores desde hace miles de millones de años. \n\n**Protocolo 1: La Primera Ley (Ley de las Órbitas).** El código base indica que 'Todos los planetas se desplazan alrededor del Sol siguiendo órbitas elípticas. El Sol está en uno de los focos'. Olviden el círculo. En una elipse, hay dos puntos internos llamados focos. Imaginen que el Sol es una antena de gran potencia situada en un extremo de la selva; el planeta no gira a su alrededor de forma equidistante, sino que se acerca y se aleja. Este es el primer parche de seguridad que debemos instalar en nuestro cerebro para entender el universo. \n\n**Protocolo 2: La Segunda Ley (Ley de las Áreas).** Esta función optimiza la velocidad. Dice que 'la línea que une al planeta con el Sol barre áreas iguales en tiempos iguales'. Traducido al lenguaje de nuestra expedición: cuando el planeta está cerca de la antena (el Sol), el sistema le da un 'boost' de velocidad. Cuando está lejos, en la zona más densa y fría de la selva espacial, se mueve más lento. ¿Por qué ocurre esto? Para que el 'área' del triángulo imaginario que forma en el espacio sea siempre la misma. Es una forma elegante de conservar el momento angular, un comando de sistema que no se puede saltar. \n\n**Protocolo 3: La Tercera Ley (Ley de los Periodos).** Aquí entramos en la matemática del script. 'El cuadrado del periodo orbital es proporcional al cubo de la distancia media al Sol'. No se asusten, novatos. Esto solo significa que existe una sincronización perfecta. Si conocemos a qué distancia está un planeta de su estrella, podemos predecir exactamente cuánto tardará en dar una vuelta completa (su año). Es como saber cuánta batería consume un dron de exploración dependiendo de qué tan lejos lo enviemos desde nuestra base central en la selva. \n\nAl aplicar estas tres leyes, el **fenómeno extraño** que vimos al principio deja de ser un misterio. El movimiento retrógrado ya no es un 'bug', sino una consecuencia lógica de que la Tierra (en una órbita interna y más rápida) rebasa a otros planetas como Marte (en una órbita externa y más lenta). Es como cuando vas en un jeep por la trocha y adelantas a un camión; por un momento, parece que el camión se mueve hacia atrás, aunque ambos van hacia adelante. ¡Hemos hackeado la realidad! La física nos da la llave para entender que lo que vemos no siempre es lo que parece, y que bajo la superficie de la selva cósmica, el código de Kepler corre de manera impecable.",
+  "preguntas_deductivas_pagina": [
+    "¿En qué parte de la elipse se encuentra el Sol según la Primera Ley?",
+    "¿Qué sucede con la velocidad de un planeta cuando se acerca al Sol?",
+    "¿Qué dice la Segunda Ley sobre las áreas barridas por el planeta?",
+    "¿Cómo se relaciona el tiempo de órbita con la distancia al Sol en la Tercera Ley?",
+    "¿Por qué el movimiento retrógrado es una ilusión óptica de perspectiva?"
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Realiza un diagrama detallado de una elipse, señalando los focos, el eje mayor y la posición del Sol.",
+    "Elabora un mapa mental que conecte las tres leyes de Kepler con conceptos de velocidad, distancia y tiempo.",
+    "Dibuja una secuencia de tres pasos que explique por qué un planeta parece retroceder cuando la Tierra lo adelanta.",
+    "Crea una infografía artesanal titulada 'El Código de Kepler' donde expliques la 2da ley usando el concepto de 'barrer áreas'."
+  ],
+  "juegos_ordenar_letras_2": [
+    "GRAVEDAD",
+    "KEPLER",
+    "PERIODO"
+  ],
+  "juego_ordenar_frase_2": "EL SOL OCUPA UNO DE LOS FOCOS DE LA ELIPSE",
+  "sopa_letras": [
+    "ELIPSE",
+    "FOCO",
+    "SOL",
+    "PLANETA",
+    "ORBITA",
+    "KEPLER",
+    "AREA",
+    "TIEMPO",
+    "INERCIA",
+    "ASTRO"
+  ],
+  "crucigrama": [
+    {
+      "palabra": "ELIPSE",
+      "pista": "Forma geométrica de la órbita planetaria."
+    },
+    {
+      "palabra": "KEPLER",
+      "pista": "Apellido del científico que hackeó el movimiento planetario."
+    },
+    {
+      "palabra": "SOL",
+      "pista": "Está ubicado en uno de los focos de la órbita."
+    },
+    {
+      "palabra": "FOCO",
+      "pista": "Punto interno de una elipse."
+    },
+    {
+      "palabra": "PERIODO",
+      "pista": "Tiempo que tarda un planeta en dar una vuelta."
+    },
+    {
+      "palabra": "RAPIDO",
+      "pista": "Cómo se mueve un planeta cuando está cerca del Sol."
+    },
+    {
+      "palabra": "LENTO",
+      "pista": "Cómo se mueve un planeta cuando está lejos del Sol."
+    },
+    {
+      "palabra": "AREA",
+      "pista": "Lo que barren los planetas en tiempos iguales (2da ley)."
+    },
+    {
+      "palabra": "DISTANCIA",
+      "pista": "Factor que determina qué tan largo es el año de un planeta."
+    },
+    {
+      "palabra": "RETRÓGRADO",
+      "pista": "Movimiento aparente hacia atrás de un planeta."
+    }
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "Un grupo de exploradores en la selva nota que Marte parece moverse en dirección contraria a las estrellas de fondo durante unas semanas. Este fenómeno se conoce como movimiento retrógrado.",
+      "tabla_o_grafica_markdown": "| Planeta | Distancia al Sol (UA) | Velocidad Orbital Media (km/s) |\n| :--- | :--- | :--- |\n| Tierra | 1.0 | 29.8 |\n| Marte | 1.5 | 24.1 |",
+      "pregunta": "¿Cuál es la causa científica que explica este fenómeno extraño?",
+      "opciones": [
+        "Marte realmente cambia su dirección de motor físico en el espacio.",
+        "La Tierra, al tener una órbita más interna y rápida, adelanta a Marte.",
+        "La gravedad del Sol empuja a Marte hacia atrás temporalmente.",
+        "El campo magnético de la selva distorsiona la luz que llega de Marte."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. Los planetas nunca invierten su dirección física en su órbita.",
+        "1": "Correcto. Es un efecto de perspectiva similar a cuando un auto rápido adelanta a uno lento.",
+        "2": "Incorrecto. La gravedad siempre atrae, no empuja hacia atrás en la órbita.",
+        "3": "Incorrecto. Es un fenómeno astronómico, no una distorsión atmosférica local."
+      }
+    },
+    {
+      "competencia": "Uso comprensivo del conocimiento científico",
+      "texto_introductorio": "La segunda ley de Kepler indica que los planetas no mantienen una velocidad constante durante todo su recorrido.",
+      "tabla_o_grafica_markdown": "| Posición | Distancia al Sol | Velocidad |\n| :--- | :--- | :--- |\n| Perihelio | Mínima | Máxima |\n| Afelio | Máxima | Mínima |",
+      "pregunta": "Si un planeta se encuentra en su punto más alejado del Sol (Afelio), ¿qué se puede afirmar sobre su movimiento?",
+      "opciones": [
+        "Su velocidad es la más baja de toda su órbita.",
+        "Su velocidad es la más alta para compensar la distancia.",
+        "El planeta se detiene por completo antes de regresar.",
+        "La velocidad no depende de la distancia según Kepler."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. A mayor distancia, el planeta se mueve más lento para barrer áreas iguales.",
+        "1": "Incorrecto. La velocidad máxima ocurre en el Perihelio (más cerca).",
+        "2": "Incorrecto. Un planeta en órbita nunca se detiene.",
+        "3": "Incorrecto. La 2da ley de Kepler establece precisamente esa dependencia."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "Un estudiante hacker quiere predecir cuánto tardará un nuevo planeta descubierto ('X-Selva') en dar una vuelta al Sol, sabiendo que está 4 veces más lejos que la Tierra.",
+      "tabla_o_grafica_markdown": "| Ley | Relación Matemática |\n| :--- | :--- |\n| 3ra Ley | T² ∝ a³ |",
+      "pregunta": "¿Qué proceso debería seguir el estudiante para hallar la respuesta?",
+      "opciones": [
+        "Sumar la distancia de la Tierra más la de Marte.",
+        "Multiplicar la distancia por la velocidad de la luz.",
+        "Aplicar la relación de la 3ra Ley de Kepler usando la distancia del nuevo planeta.",
+        "Dividir el área de la órbita por el tiempo transcurrido."
+      ],
+      "correcta": 2,
+      "retroalimentacion": {
+        "0": "Incorrecto. La suma de distancias no determina el periodo orbital.",
+        "1": "Incorrecto. La velocidad de la luz no es una variable en las leyes de Kepler.",
+        "2": "Correcto. La 3ra ley relaciona directamente el periodo (tiempo) con la distancia media.",
+        "3": "Incorrecto. Esa es una interpretación errónea de la 2da ley."
+      }
+    }
+  ]
+}

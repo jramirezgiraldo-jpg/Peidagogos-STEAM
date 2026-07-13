@@ -1,0 +1,188 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Cuál es la forma geométrica que describen los planetas en su traslación según los registros rescatados del Antiguo Mundo?",
+      "opciones": [
+        "Círculo perfecto",
+        "Espiral descendente",
+        "Elipse",
+        "Línea recta"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "Si un planeta se acerca al Sol (Perihelio), ¿qué ocurre con su velocidad orbital en este páramo desolado?",
+      "opciones": [
+        "Disminuye drásticamente",
+        "Aumenta",
+        "Se mantiene constante",
+        "Se detiene"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Qué fuerza invisible mantiene a los restos de los satélites en órbita según la teoría de Newton?",
+      "opciones": [
+        "Magnetismo cuántico",
+        "Inercia pura",
+        "Fuerza de Gravedad",
+        "Presión atmosférica"
+      ],
+      "correcta": 2
+    }
+  ],
+  "texto_inductivo": "¡Atención, reclutas del búnker! Escuchen con atención mientras el chirrido de los engranajes de mi observatorio improvisado ahoga los lamentos de las tormentas ácidas del exterior. Soy el Doctor Malignus, y si queremos que la humanidad recupere su lugar entre las estrellas, primero debemos entender por qué no nos hemos caído al abismo solar todavía. Los cielos ya no son claros; el polvo radiactivo nubla la vista, pero las leyes de la física son inmutables, incluso en este maldito apocalipsis. El misterio que nos convoca hoy es el 'Baile de las Sombras': el movimiento planetario. En la antigüedad, antes de que las ciudades ardieran, los hombres pensaban que la Tierra era el centro de todo. ¡Qué arrogancia! Fue Nicolás Copérnico quien primero susurró la verdad, pero fueron Johannes Kepler y Tycho Brahe quienes, con datos precisos y mentes febriles, descifraron el código. Imaginen a Brahe, un hombre con una nariz de metal y una sed insaciable de datos, observando el cielo noche tras noche sin telescopio, registrando la posición de Marte con una precisión que hoy, con nuestros sensores oxidados, envidiaríamos. Tras su muerte, Kepler heredó esos tesoros y, tras años de cálculos manuales que lo volvieron casi tan loco como yo, descubrió que los planetas no se mueven en círculos perfectos, la figura de la 'perfección divina'. ¡No! Se mueven en elipses. Una elipse, para aquellos que han olvidado la geometría básica entre tanto saqueo, tiene dos focos. El Sol ocupa uno de esos focos. ¿Qué hay en el otro? Nada, el vacío absoluto, como el estómago de un mutante hambriento. Esta es la Primera Ley de Kepler. Pero la indagación no se detiene ahí. Observamos que los planetas no se mueven a una velocidad constante. Cuando un cuerpo celeste se acerca al Sol, en el perihelio, parece que el mismo espacio-tiempo lo succionara, acelerándolo violentamente. Cuando se aleja, hacia el afelio, se arrastra con la pesadez de un caminante cansado. Kepler descubrió que una línea imaginaria que conecta al planeta con el Sol barre áreas iguales en tiempos iguales. Esto significa que la velocidad es una variable dependiente de la distancia. ¿Por qué ocurre esto? Kepler no lo sabía, él solo veía el patrón. Nosotros, los supervivientes, debemos indagar en ese patrón para predecir cuándo el 'Asteroide Némesis' pasará sobre nuestras cabezas. El misterio no es solo matemático, es nuestra brújula de supervivencia. Si el área barrida es la misma, la conservación del momento angular está gritando en nuestros oídos, aunque Kepler aún no tenía ese concepto en su arsenal. Deben observar los cielos, recolectar los pocos datos que nos quedan de los antiguos satélites y reconstruir el mapa del sistema solar. La indagación es nuestra única arma contra la oscuridad. Si fallamos en entender el movimiento planetario, estamos condenados a ser polvo en una roca errante sin rumbo. ¡Ahora, a trabajar antes de que la radiación interfiera con sus neuronas!",
+  "recurso_visual": "| Fase de la Órbita | Distancia al Sol | Velocidad Orbital | Área Barrida (t=1 mes) |\n|-------------------|-------------------|-------------------|-------------------------|\n| Perihelio         | Mínima            | Máxima            | Constante (A)           |\n| Afelio            | Máxima            | Mínima            | Constante (A)           |\n| Punto Intermedio  | Media             | Media             | Constante (A)           |",
+  "preguntas_inductivas_pagina": [
+    "¿Por qué Kepler rechazó la idea de las órbitas circulares perfectas?",
+    "¿Qué función cumple el Sol en la geometría de la elipse planetaria?",
+    "¿Cómo cambia la velocidad de un planeta según su distancia al foco ocupado?",
+    "¿Qué significa que un planeta 'barra áreas iguales en tiempos iguales'?",
+    "¿Cuál es la diferencia fundamental entre el modelo de Copérnico y los descubrimientos de Kepler?"
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema de una órbita elíptica exagerada, señalando los focos, el perihelio, el afelio y sombreando dos sectores de 'áreas iguales' con diferentes anchos de arco.",
+    "Realiza un cuadro comparativo entre el modelo Geocéntrico, el Heliocéntrico (circular) y el modelo de Kepler (elíptico).",
+    "Escribe una reflexión de media página sobre cómo la precisión de los datos de Tycho Brahe fue esencial para que Kepler pudiera 'indagar' y resolver el misterio del movimiento de Marte.",
+    "Representa gráficamente mediante un vector la velocidad orbital en cuatro puntos diferentes de la elipse, asegurándote de que la longitud del vector represente la magnitud de la velocidad."
+  ],
+  "juegos_ordenar_letras_1": [
+    "KEPLER",
+    "ELIPSE",
+    "PERIHELIO"
+  ],
+  "juego_ordenar_frase_1": "LAS ORBITAS PLANETARIAS SON ELIPSES CON EL SOL EN UN FOCO",
+  "texto_deductivo": "¡Silencio! La parte inductiva ha terminado, ahora entraremos en el rigor de la deducción matemática antes de que el reactor falle. Si Kepler fue el cartógrafo del cielo, Isaac Newton fue el arquitecto que explicó por qué los ladrillos no salen volando. La Tercera Ley de Kepler, la 'Ley de los Periodos', nos dice que el cuadrado del periodo orbital (el tiempo que tarda en dar una vuelta) es proporcional al cubo de la distancia media al Sol. Matemáticamente: T² ∝ a³. Pero, ¿por qué? Aquí es donde la deducción nos lleva a la Ley de Gravitación Universal. Newton dedujo que cualquier par de masas en el universo se atraen con una fuerza que es directamente proporcional al producto de sus masas e inversamente proporcional al cuadrado de la distancia que las separa. ¡F = G * (m1 * m2) / r²! Esta es la fórmula que rige nuestro destino. Si el Sol es masivo, curva el espacio-tiempo de tal manera que la Tierra no tiene más remedio que caer hacia él, pero nuestra velocidad tangencial —esa herencia del caos original— nos mantiene en una caída libre perpetua llamada órbita. Deduzcamos las consecuencias: si duplicamos la distancia entre dos cuerpos, la fuerza de atracción no se reduce a la mitad, ¡se reduce a la cuarta parte! Es una relación cuadrática inversa. Esto explica por qué los planetas exteriores como Júpiter se mueven con una lentitud exasperante en comparación con Mercurio, que es un demonio de la velocidad atrapado en el pozo gravitatorio profundo del Sol. En nuestro contexto post-apocalíptico, entender esto es vital. Los satélites de comunicaciones que aún funcionan están en órbitas específicas; si su velocidad disminuye por la fricción con la atmósfera residual, el radio de su órbita debe disminuir para compensar, o caerán como bolas de fuego sobre nuestras cabezas. La gravitación no es solo una teoría, es la cadena que mantiene unido al sistema solar. Kepler dio las reglas del juego, pero Newton nos dio el motor. Al combinar la fuerza centrípeta necesaria para mantener el movimiento circular (o elíptico) con la fuerza de gravitación, podemos deducir la masa del Sol, la masa de la Tierra y la trayectoria de cualquier proyectil interplanetario. La indagación nos llevó a observar el patrón, pero la deducción nos permite predecir el futuro. Sin predicción, estamos ciegos. Si un objeto masivo entrara en nuestro sistema solar hoy, alteraría todas las órbitas mediante perturbaciones gravitatorias. Cada planeta 'tira' de los demás. Marte no se mueve exactamente en una elipse perfecta debido a la influencia de Júpiter. Estas pequeñas desviaciones fueron el misterio final que confirmó que la gravedad es universal. No importa si estás en las ruinas de Nueva York o en la superficie de Titán, la constante G es la misma. ¡Es la única constante en la que pueden confiar cuando todo lo demás se desmorona!",
+  "preguntas_deductivas_pagina": [
+    "¿Cuál es la relación matemática exacta descrita en la Tercera Ley de Kepler?",
+    "¿Qué sucede con la fuerza de gravedad si la distancia entre dos planetas se triplica?",
+    "¿Cómo define Newton la fuerza que mantiene a los planetas en órbita?",
+    "¿Por qué los planetas más lejanos al Sol tienen periodos orbitales más largos?",
+    "¿Qué papel juega la constante G en la ecuación de la gravitación universal?"
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Realiza un diagrama detallado de las fuerzas que actúan sobre un planeta en un punto de su órbita, incluyendo el vector de fuerza gravitatoria y el vector de velocidad tangencial.",
+    "Elabora un mapa mental que conecte las tres leyes de Kepler con la Ley de Gravitación Universal de Newton.",
+    "Dibuja una infografía artesanal que explique la 'Ley del Cuadrado Inverso' usando velas o linternas como analogía de la dispersión de la gravedad.",
+    "Crea un dibujo explicativo que muestre la diferencia entre la velocidad orbital necesaria para una órbita baja y una órbita geoestacionaria."
+  ],
+  "juegos_ordenar_letras_2": [
+    "GRAVEDAD",
+    "NEWTON",
+    "AFELIO"
+  ],
+  "juego_ordenar_frase_2": "LA FUERZA ES INVERSAMENTE PROPORCIONAL AL CUADRADO DE LA DISTANCIA",
+  "sopa_letras": [
+    "KEPLER",
+    "NEWTON",
+    "ELIPSE",
+    "ORBITA",
+    "GRAVEDAD",
+    "PERIHELIO",
+    "AFELIO",
+    "MASA",
+    "FOCO",
+    "PERIODO"
+  ],
+  "crucigrama": [
+    {
+      "palabra": "KEPLER",
+      "pista": "Científico que determinó que las órbitas son elípticas."
+    },
+    {
+      "palabra": "GRAVEDAD",
+      "pista": "Fuerza de atracción entre dos masas."
+    },
+    {
+      "palabra": "ELIPSE",
+      "pista": "Curva cerrada con dos focos."
+    },
+    {
+      "palabra": "AFELIO",
+      "pista": "Punto más alejado del Sol en una órbita."
+    },
+    {
+      "palabra": "PERIHELIO",
+      "pista": "Punto más cercano al Sol en una órbita."
+    },
+    {
+      "palabra": "NEWTON",
+      "pista": "Formuló la Ley de Gravitación Universal."
+    },
+    {
+      "palabra": "PERIODO",
+      "pista": "Tiempo que tarda un planeta en completar una vuelta."
+    },
+    {
+      "palabra": "INERCIA",
+      "pista": "Resistencia de un cuerpo a cambiar su estado de movimiento."
+    },
+    {
+      "palabra": "GIGANTE",
+      "pista": "Tipo de planeta como Júpiter (Gaseoso...)."
+    },
+    {
+      "palabra": "CENTRIPETA",
+      "pista": "Fuerza dirigida hacia el centro de la trayectoria circular."
+    }
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "En el año 2150, los restos de la Luna han formado un anillo de escombros. Un satélite de vigilancia se encuentra en una órbita estable alrededor de la Tierra. De repente, su motor se apaga y pierde parte de su velocidad tangencial debido a un choque con basura espacial.",
+      "tabla_o_grafica_markdown": "| Parámetro | Estado Inicial | Estado Post-Choque |\n|---|---|---|\n| Velocidad | 7.5 km/s | 5.2 km/s |\n| Altura | 300 km | Disminuyendo |",
+      "pregunta": "¿Qué ocurrirá con la trayectoria del satélite según las leyes de Newton y Kepler?",
+      "opciones": [
+        "El satélite mantendrá su órbita pero más lento.",
+        "La fuerza gravitatoria superará el equilibrio inercial, haciendo que el satélite caiga en espiral hacia la Tierra.",
+        "El satélite saldrá disparado hacia el espacio exterior por la pérdida de control.",
+        "El satélite subirá a una órbita más alta para compensar la pérdida de velocidad."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. Sin la velocidad suficiente, la órbita no se mantiene estable.",
+        "1": "Correcto. La velocidad tangencial es necesaria para contrarrestar la atracción gravitatoria.",
+        "2": "Incorrecto. Para escapar de la gravedad se necesita aumentar la velocidad, no disminuirla.",
+        "3": "Incorrecto. Una órbita más alta requiere más energía o una velocidad específica menor, pero no se alcanza perdiendo velocidad bruscamente."
+      }
+    },
+    {
+      "competencia": "Uso Comprensivo del Conocimiento Científico",
+      "texto_introductorio": "Un grupo de supervivientes encuentra un antiguo telescopio y observa dos planetas, A y B. El planeta A está a 1 Unidad Astronómica (UA) del Sol, mientras que el planeta B está a 4 UA.",
+      "tabla_o_grafica_markdown": "| Planeta | Distancia al Sol (UA) | Periodo (Años) |\n|---|---|---|\n| A | 1 | 1 |\n| B | 4 | ? |",
+      "pregunta": "Según la Tercera Ley de Kepler (T² = a³), ¿cuál es el periodo orbital del planeta B?",
+      "opciones": [
+        "4 años",
+        "16 años",
+        "8 años",
+        "64 años"
+      ],
+      "correcta": 2,
+      "retroalimentacion": {
+        "0": "Incorrecto. T² debe ser igual a 4³ (64), por lo que T es la raíz de 64.",
+        "1": "Incorrecto. Has olvidado sacar la raíz cuadrada al final.",
+        "2": "Correcto. 4 al cubo es 64, y la raíz cuadrada de 64 es 8.",
+        "3": "Incorrecto. 64 es T al cuadrado, falta extraer la raíz."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "Usted está analizando los datos de una sonda que orbita un planeta desconocido. Nota que el área barrida por el radio vector de la sonda en el punto X de la órbita es de 500 km² en 10 minutos. En el punto Y, que está mucho más lejos del planeta, la sonda también tarda 10 minutos en recorrer su arco orbital.",
+      "tabla_o_grafica_markdown": "| Punto | Tiempo | Área Barrida |\n|---|---|---|\n| X (Cerca) | 10 min | 500 km² |\n| Y (Lejos) | 10 min | ? |",
+      "pregunta": "Para que se cumpla la Segunda Ley de Kepler, ¿qué debe ser cierto sobre el área barrida en el punto Y?",
+      "opciones": [
+        "Debe ser mayor a 500 km² porque está más lejos.",
+        "Debe ser menor a 500 km² porque la sonda va más lento.",
+        "Debe ser exactamente 500 km².",
+        "No se puede determinar sin la masa del planeta."
+      ],
+      "correcta": 2,
+      "retroalimentacion": {
+        "0": "Incorrecto. La ley establece áreas iguales para tiempos iguales.",
+        "1": "Incorrecto. Aunque la sonda va más lento, el radio es más largo, compensando el área.",
+        "2": "Correcto. La Segunda Ley de Kepler establece la constancia de las áreas barridas en tiempos iguales.",
+        "3": "Incorrecto. La ley de las áreas es independiente de la masa para un sistema dado."
+      }
+    }
+  ]
+}

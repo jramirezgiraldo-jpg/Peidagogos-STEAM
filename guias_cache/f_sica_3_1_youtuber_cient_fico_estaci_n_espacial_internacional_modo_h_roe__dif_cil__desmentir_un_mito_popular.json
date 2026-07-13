@@ -1,0 +1,208 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Cuál es la fuerza responsable de mantener a los planetas en su órbita según la mecánica clásica?",
+      "opciones": [
+        "Fuerza Electromagnética",
+        "Fuerza Gravitacional",
+        "Fuerza Nuclear Fuerte",
+        "Presión de Radiación"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "Si la Tierra dejara de moverse instantáneamente, ¿qué le ocurriría respecto al Sol?",
+      "opciones": [
+        "Saldría disparada en línea recta",
+        "Se mantendría estática",
+        "Caería directamente hacia el Sol",
+        "Empezaría a orbitar más rápido"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "¿Qué forma geométrica describen las órbitas planetarias según la primera ley de Kepler?",
+      "opciones": [
+        "Círculo perfecto",
+        "Parábola",
+        "Hipérbola",
+        "Elipse"
+      ],
+      "correcta": 3
+    },
+    {
+      "pregunta": "¿Qué ocurre con la velocidad de un planeta cuando se acerca al perihelio?",
+      "opciones": [
+        "Aumenta",
+        "Disminuye",
+        "Se mantiene constante",
+        "Se vuelve cero"
+      ],
+      "correcta": 0
+    },
+    {
+      "pregunta": "¿A qué distancia aproximada de la superficie terrestre orbita la Estación Espacial Internacional (ISS)?",
+      "opciones": [
+        "100 km",
+        "400 km",
+        "36,000 km",
+        "384,000 km"
+      ],
+      "correcta": 1
+    }
+  ],
+  "texto_inductivo": "¡Qué onda, mentes curiosas! Bienvenidos a bordo de la Estación Espacial Internacional (ISS). Soy su YouTuber científico de confianza y hoy vamos a hacer algo radical: vamos a destruir uno de los mitos más grandes de la historia de la ciencia escolar. Seguramente has visto videos de astronautas flotando aquí arriba, haciendo piruetas con burbujas de agua y comiendo chocolates suspendidos en el aire. La explicación rápida que nos dan siempre es: 'Es que en el espacio no hay gravedad'. ¡ERROR! Si no hubiera gravedad a la altura de la ISS, nosotros saldríamos disparados hacia el vacío profundo de la galaxia en línea recta. **La gravedad aquí arriba es casi tan fuerte como en tu sala de estar.**\n\n¿No me creen? Hagamos números rápidos de modo héroe. La ISS orbita a unos 400 km de la superficie. El radio de la Tierra es de unos 6,371 km. Si aplicas la Ley de Gravitación Universal de Newton, descubrirás que la gravedad en la ISS es aproximadamente el **90% de la gravedad en la superficie**. Entonces, ¿por qué flotamos? La respuesta no es la falta de fuerza, sino el **movimiento**. Imaginen que lanzan una pelota de béisbol. Cae al suelo por la gravedad, ¿verdad? Ahora, imaginen que la lanzan tan, pero tan fuerte (a unos 28,000 km/h) que, mientras la pelota cae hacia el suelo, la curvatura de la Tierra se 'aleja' de ella a la misma velocidad. La pelota está cayendo permanentemente, pero nunca toca el suelo. Eso es una órbita.\n\nEste estado se llama **caída libre perpetua**. Los astronautas no flotan porque no pesen; flotan porque la estación y ellos están cayendo juntos. Es como estar en un ascensor al que se le cortan los cables (¡no lo intenten en casa!). Durante esa caída, sentirías que no tienes peso, pero la gravedad sigue ahí, acelerándote hacia el centro de la Tierra. Este concepto es fundamental para entender el movimiento planetario. Los planetas no están 'colgados' de la nada, están en un equilibrio dinámico entre su inercia (que los quiere llevar hacia adelante) y la atracción gravitatoria (que los quiere jalar hacia el centro). Si este equilibrio se rompe, o chocamos con el Sol o nos perdemos en la oscuridad interestelar. Así que, la próxima vez que alguien te diga que en el espacio no hay gravedad, muéstrale este video y dile: 'No, amigo, lo que pasa es que estamos cayendo con estilo'. ¡Acompáñenme a profundizar en las leyes que gobiernan este caos ordenado!",
+  "recurso_visual": "graph TD\n    A[Cuerpo en el Espacio] --> B{¿Tiene Velocidad Tangencial?}\n    B -- No --> C[Caída Vertical Directa / Impacto]\n    B -- Sí --> D{¿Es la velocidad suficiente?}\n    D -- Muy Baja --> E[Regreso a la Atmósfera / Reentrada]\n    D -- Exacta --> F[Órbita Circular/Elíptica - Caída Libre Perpetua]\n    D -- Muy Alta --> G[Velocidad de Escape / Abandono del Sistema]\n    F --> H[Mito Desmentido: La Gravedad existe, pero se compensa con el movimiento]",
+  "preguntas_inductivas_pagina": [
+    "¿Por qué la frase 'en el espacio no hay gravedad' es físicamente incorrecta según el texto?",
+    "¿Cuál es el porcentaje aproximado de gravedad que experimenta la ISS en comparación con la superficie terrestre?",
+    "¿Qué papel juega la 'curvatura de la Tierra' en el concepto de órbita mencionado por el YouTuber?",
+    "Si la ISS se detuviera por completo en su posición actual, ¿qué sucedería con ella?",
+    "¿Cómo define el texto el estado de 'caída libre perpetua'?"
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema de la 'Bala de Cañón de Newton', mostrando tres trayectorias: una que cae a la Tierra, una que entra en órbita y otra que escapa al espacio.",
+    "Realiza un cuadro comparativo entre 'Gravedad Cero' (término popular) y 'Microgravedad' (término científico), explicando por qué uno es un mito.",
+    "Escribe una reflexión de 10 renglones: Si la gravedad es una fuerza de atracción, ¿por qué la Luna no ha chocado contra la Tierra en miles de millones de años?",
+    "Representa gráficamente los vectores de Fuerza Gravitacional y Velocidad Tangencial para un satélite en órbita circular."
+  ],
+  "juegos_ordenar_letras_1": [
+    "ORBITA",
+    "INERCIA",
+    "GRAVEDAD"
+  ],
+  "juego_ordenar_frase_1": "UNA ORBITA ES UNA CAIDA LIBRE QUE NUNCA TOCA EL SUELO",
+  "texto_deductivo": "Para entender realmente el movimiento planetario en Modo Héroe, debemos pasar de la intuición de Newton a la precisión de Johannes Kepler. Antes de que Newton explicara el *por qué* (la gravedad), Kepler descubrió el *cómo* a través de la observación de Marte. Su primera gran revelación fue que el círculo, la figura geométrica 'perfecta' de los antiguos, no encajaba con la realidad. Las órbitas son **elipses**. Una elipse no tiene un centro, tiene dos focos. El Sol siempre ocupa uno de esos focos, dejando el otro vacío. Esto desmiente el mito de que los planetas mantienen una distancia constante con el Sol.\n\nLa Segunda Ley de Kepler, o la Ley de las Áreas, es donde la física se pone interesante. Nos dice que el radio vector que une a un planeta con el Sol barre áreas iguales en tiempos iguales. En términos simples: los planetas no se mueven a una velocidad constante. Cuando un planeta está en el **perihelio** (punto más cercano al Sol), se mueve mucho más rápido que cuando está en el **afelio** (punto más lejano). Esto se debe a que la fuerza gravitatoria es inversamente proporcional al cuadrado de la distancia. A menor distancia, mayor fuerza y, por ende, mayor aceleración centrípeta.\n\nFinalmente, la Tercera Ley de Kepler conecta a todo el sistema solar en una armonía matemática asombrosa: el cuadrado del periodo orbital (T) es proporcional al cubo de la distancia media (r) al Sol (T² ∝ r³). Esto significa que mientras más lejos está un planeta, no solo tiene que recorrer un camino más largo, sino que lo hace más lentamente. Mercurio completa su 'año' en 88 días terrestres, mientras que Neptuno tarda 165 años. Newton luego tomó estas leyes y demostró que derivan de su Ley de Gravitación Universal, unificando la física terrestre con la celeste. Desmentimos aquí otro mito: el movimiento planetario no es causado por 'vórtices' o magnetismo solar, sino por la curvatura del espacio-tiempo (según Einstein) o la fuerza de atracción entre masas (según Newton) actuando sobre cuerpos con una inercia colosal. En la ISS, aplicamos estos principios para realizar maniobras de acoplamiento: si queremos subir de órbita, debemos acelerar, lo cual suena contraintuitivo, pero cambia nuestra elipse orbital. ¡La física planetaria es el ajedrez de las estrellas!",
+  "preguntas_deductivas_pagina": [
+    "¿Cuál es la diferencia fundamental entre un círculo y una elipse respecto a sus puntos centrales?",
+    "¿En qué punto de la órbita un planeta alcanza su máxima velocidad orbital?",
+    "¿Qué establece la Tercera Ley de Kepler sobre la relación entre distancia y tiempo de órbita?",
+    "¿Cómo explicó Newton las leyes de Kepler de manera más amplia?",
+    "¿Por qué un planeta se mueve más lento en el afelio que en el perihelio?"
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Realiza un diagrama detallado de una órbita elíptica marcando: Focos, Sol, Perihelio, Afelio, Semieje Mayor y vectores de velocidad.",
+    "Elabora un mapa mental que conecte la Ley de Gravitación Universal de Newton con las tres leyes de Kepler.",
+    "Dibuja una infografía que explique por qué un año en Neptuno dura mucho más que un año en la Tierra, usando la 3ra Ley de Kepler.",
+    "Crea un dibujo explicativo del concepto 'Barrer áreas iguales en tiempos iguales' usando dos sectores de una elipse (uno ancho y corto, otro largo y delgado)."
+  ],
+  "juegos_ordenar_letras_2": [
+    "ELIPSE",
+    "PERIHELIO",
+    "AFELIO"
+  ],
+  "juego_ordenar_frase_2": "EL CUADRADO DEL PERIODO ES PROPORCIONAL AL CUBO DE LA DISTANCIA",
+  "sopa_letras": [
+    "KEPLER",
+    "NEWTON",
+    "ELIPSE",
+    "FOCO",
+    "ORBITA",
+    "MASA",
+    "FUERZA",
+    "INERCIA",
+    "SOL",
+    "PLANETA"
+  ],
+  "crucigrama": [
+    {
+      "palabra": "ELIPSE",
+      "pista": "Forma geométrica de las órbitas planetarias."
+    },
+    {
+      "palabra": "PERIHELIO",
+      "pista": "Punto de la órbita más cercano al Sol."
+    },
+    {
+      "palabra": "AFELIO",
+      "pista": "Punto de la órbita más alejado del Sol."
+    },
+    {
+      "palabra": "GRAVEDAD",
+      "pista": "Fuerza de atracción entre dos masas."
+    },
+    {
+      "palabra": "KEPLER",
+      "pista": "Astrónomo que formuló las tres leyes del movimiento planetario."
+    },
+    {
+      "palabra": "NEWTON",
+      "pista": "Científico que formuló la Ley de Gravitación Universal."
+    },
+    {
+      "palabra": "INERCIA",
+      "pista": "Tendencia de los cuerpos a mantener su estado de movimiento."
+    },
+    {
+      "palabra": "CENTRIPETA",
+      "pista": "Fuerza que actúa hacia el centro de una trayectoria curva."
+    },
+    {
+      "palabra": "PERIODO",
+      "pista": "Tiempo que tarda un planeta en completar una vuelta al Sol."
+    },
+    {
+      "palabra": "FOCO",
+      "pista": "Uno de los dos puntos internos de una elipse."
+    }
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "En la ISS, a 400 km de altura, un astronauta deja caer una manzana dentro de la cabina. La manzana se queda 'flotando' frente a él en lugar de caer al suelo de la estación.",
+      "tabla_o_grafica_markdown": "| Objeto | Masa (kg) | Distancia al centro de la Tierra (km) |\n|---|---|---|\n| ISS | 450,000 | 6,771 |\n| Astronauta | 80 | 6,771 |\n| Manzana | 0.2 | 6,771 |",
+      "pregunta": "¿Cuál es la razón científica por la cual la manzana no cae al suelo de la estación?",
+      "opciones": [
+        "La fuerza de gravedad es nula a esa altitud.",
+        "La manzana, el astronauta y la ISS caen hacia la Tierra con la misma aceleración.",
+        "El vacío del espacio anula la masa de los objetos.",
+        "La fuerza centrífuga de la rotación terrestre empuja la manzana hacia arriba."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. La gravedad a 400 km es el 90% de la terrestre.",
+        "1": "Correcto. Todos están en caída libre simultánea, lo que elimina el movimiento relativo entre ellos.",
+        "2": "Incorrecto. La masa es una propiedad intrínseca y no cambia por el vacío.",
+        "3": "Incorrecto. La fuerza centrífuga es una fuerza ficticia y no explica la flotabilidad en este contexto."
+      }
+    },
+    {
+      "competencia": "Uso Comprensivo del Conocimiento Científico",
+      "texto_introductorio": "La Tercera Ley de Kepler establece una relación constante para todos los planetas que orbitan una misma estrella.",
+      "tabla_o_grafica_markdown": "| Planeta | Distancia Media (UA) | Periodo (Años) | T²/r³ |\n|---|---|---|---|\n| Tierra | 1.0 | 1.0 | 1.0 |\n| Marte | 1.52 | 1.88 | 1.0 |\n| Júpiter | 5.20 | 11.86 | 1.0 |",
+      "pregunta": "Si se descubriera un nuevo planeta 'X' a una distancia de 4 UA del Sol, ¿cuál sería su periodo orbital aproximado?",
+      "opciones": [
+        "2 años",
+        "4 años",
+        "8 años",
+        "16 años"
+      ],
+      "correcta": 2,
+      "retroalimentacion": {
+        "0": "Incorrecto. T² = 4³ = 64, por lo tanto T = 8.",
+        "1": "Incorrecto. No sigue la relación lineal.",
+        "2": "Correcto. Siguiendo T² = r³, si r=4, r³=64, y la raíz cuadrada de 64 es 8.",
+        "3": "Incorrecto. Esto sería si la relación fuera T = r²."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "Un estudiante observa que un satélite artificial en órbita elíptica aumenta su velocidad drásticamente al pasar por un punto específico de su trayectoria.",
+      "tabla_o_grafica_markdown": "| Posición | Distancia al Foco (km) | Velocidad (km/s) |\n|---|---|---|\n| A | 10,000 | 7.5 |\n| B | 15,000 | 5.0 |\n| C | 8,000 | 9.4 |",
+      "pregunta": "De acuerdo con los datos y las Leyes de Kepler, ¿en qué posición se encuentra el satélite respecto al cuerpo celeste que orbita?",
+      "opciones": [
+        "La posición B representa el perihelio.",
+        "La posición C representa el perihelio.",
+        "La posición A representa el afelio.",
+        "La velocidad es independiente de la distancia."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. En B está más lejos y su velocidad es la mínima.",
+        "1": "Correcto. El perihelio es la distancia más corta y donde la velocidad es máxima.",
+        "2": "Incorrecto. El afelio sería la posición B (mayor distancia).",
+        "3": "Incorrecto. La 2da Ley de Kepler demuestra que la velocidad cambia con la distancia."
+      }
+    }
+  ]
+}

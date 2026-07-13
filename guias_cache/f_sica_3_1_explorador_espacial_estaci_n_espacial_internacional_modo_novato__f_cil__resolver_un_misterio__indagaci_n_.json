@@ -1,0 +1,188 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Qué fuerza mantiene a los planetas girando alrededor del Sol?",
+      "opciones": [
+        "Magnetismo",
+        "Gravedad",
+        "Fricción",
+        "Electricidad"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Cuál es el centro de nuestro sistema planetario según el modelo heliocéntrico?",
+      "opciones": [
+        "La Tierra",
+        "La Luna",
+        "Marte",
+        "El Sol"
+      ],
+      "correcta": 3
+    },
+    {
+      "pregunta": "¿Qué forma tiene el camino que recorre un planeta alrededor del Sol?",
+      "opciones": [
+        "Círculo perfecto",
+        "Triángulo",
+        "Elipse",
+        "Línea recta"
+      ],
+      "correcta": 2
+    }
+  ],
+  "texto_inductivo": "¡Saludos, cadetes de la Estación Espacial Internacional (EEI)! Les habla su Comandante de Misión. Hoy nos enfrentamos a un reto fascinante desde nuestra cúpula de observación. Mientras orbitamos la Tierra a 28,000 km/h, hemos detectado una anomalía en los registros históricos de nuestra computadora central. Parece que los archivos sobre cómo entendemos el movimiento de los astros han sido bloqueados por un 'glitch' de datos. Para recuperarlos, debemos actuar como detectives espaciales e investigar el **Misterio de las Luces Errantes**. \n\nDesde que el ser humano levantó la vista al cielo, notó que la mayoría de las estrellas mantienen posiciones fijas unas respecto a otras, formando constelaciones. Sin embargo, había unas 'estrellas' rebeldes que parecían caminar por el cielo de forma caprichosa. Los antiguos griegos las llamaron *planētai*, que significa 'vagabundos'. El gran misterio era: ¿por qué estos vagabundos a veces parecen detenerse e incluso retroceder en el cielo? Este fenómeno se conoce como movimiento retrógrado. \n\nDurante siglos, la humanidad vivió bajo el **Modelo Geocéntrico**, defendido por Ptolomeo. Este modelo ponía a nuestra querida Tierra en el centro de todo. Imaginen la arrogancia: ¡todo el universo girando a nuestro alrededor! Para explicar por qué los planetas retrocedían, los científicos de la época inventaron círculos dentro de círculos llamados epiciclos. Era un sistema extremadamente complejo y, para ser honestos, un poco forzado. Sin embargo, funcionó durante más de mil años porque era lo que los ojos veían: el Sol sale por el este y se pone por el oeste, ¿verdad? \n\nPero aquí en la EEI, sabemos que las apariencias engañan. El misterio comenzó a resolverse cuando Nicolás Copérnico, en el siglo XVI, se atrevió a sugerir algo revolucionario: el **Modelo Heliocéntrico**. Él propuso que el Sol era el centro y que la Tierra era simplemente un planeta más moviéndose a su alrededor. El movimiento de retroceso de los planetas era solo una ilusión óptica, como cuando vas en un tren rápido y adelantas a uno más lento; parece que el otro tren se mueve hacia atrás. \n\nSin embargo, el misterio no terminó ahí. Copérnico todavía creía que las órbitas eran círculos perfectos, y sus cálculos no siempre coincidían con lo que se observaba en el cielo. Faltaba una pieza del rompecabezas. Fue entonces cuando entró en escena Johannes Kepler, quien heredó los datos precisos del astrónomo Tycho Brahe. Kepler pasó años intentando ajustar los movimientos de Marte a un círculo, pero siempre fallaba por una pequeña diferencia de 8 minutos de arco. En lugar de ignorar ese error, Kepler confió en los datos y descubrió la verdad: ¡los planetas no se mueven en círculos, sino en elipses! \n\nEste descubrimiento cambió la física para siempre. Al entender que el Sol ocupa uno de los focos de la elipse, pudimos comprender que los planetas se mueven más rápido cuando están cerca del Sol y más lento cuando están lejos. Este es el corazón de nuestra investigación hoy. Como exploradores, debemos entender que la ciencia no se trata de tener la razón desde el principio, sino de observar, medir y estar dispuestos a cambiar nuestras ideas cuando la evidencia nos muestra un camino diferente. ¡Prepárense para restaurar la base de datos de la estación!",
+  "recurso_visual": "graph TD\n    A[Misterio: Movimiento Planetario] --> B[Modelo Geocéntrico]\n    B --> C[Tierra en el centro]\n    B --> D[Epiciclos complejos]\n    A --> E[Modelo Heliocéntrico]\n    E --> F[Sol en el centro]\n    E --> G[Órbitas Elípticas - Kepler]\n    G --> H[Leyes del Movimiento Planetario]",
+  "preguntas_inductivas_pagina": [
+    "¿Qué significa la palabra 'planeta' y por qué se les llamó así?",
+    "¿Por qué el modelo geocéntrico fue aceptado durante tantos siglos?",
+    "¿Cuál fue la diferencia clave entre la propuesta de Copérnico y la de Kepler?",
+    "¿Qué fenómeno visual intentaban explicar los científicos con los 'epiciclos'?",
+    "¿Por qué fue importante para Kepler no ignorar el pequeño error de 8 minutos de arco?"
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema comparativo entre el sistema geocéntrico (Ptolomeo) y el heliocéntrico (Copérnico), señalando la posición del Sol y la Tierra.",
+    "Realiza un cuadro comparativo donde menciones las ventajas y desventajas de creer que la Tierra es el centro del universo frente a creer que es el Sol.",
+    "Escribe una reflexión de 10 renglones sobre cómo el cambio de visión (de la Tierra al Sol como centro) afectó la forma en que el ser humano se ve a sí mismo en el cosmos.",
+    "Representa gráficamente el concepto de 'Movimiento Retrógrado' usando dos órbitas circulares de diferentes velocidades."
+  ],
+  "juegos_ordenar_letras_1": [
+    "ORBITA",
+    "ELIPSE",
+    "CENTRO"
+  ],
+  "juego_ordenar_frase_1": "EL SOL ES EL CORAZON DE NUESTRO SISTEMA PLANETARIO",
+  "texto_deductivo": "¡Excelente trabajo recuperando los datos históricos, cadetes! Ahora que sabemos quiénes fueron los protagonistas, es momento de analizar las leyes físicas que rigen estos movimientos. Para operar los sistemas de navegación de la EEI, no basta con saber que los planetas se mueven en elipses; debemos entender las leyes de Kepler y cómo la gravedad de Newton explica la mecánica celeste. \n\nLa **Primera Ley de Kepler**, o Ley de las Órbitas, nos dice que todos los planetas se desplazan alrededor del Sol siguiendo órbitas elípticas, donde el Sol no está en el centro exacto, sino en un punto llamado 'foco'. Una elipse es como un círculo estirado. En la EEI, nosotros también seguimos una trayectoria similar alrededor de la Tierra. Si no entendiéramos esta forma, nuestros motores no podrían corregir la trayectoria y caeríamos a la atmósfera o nos perderíamos en el espacio profundo. \n\nLa **Segunda Ley de Kepler**, o Ley de las Áreas, es vital para nuestra supervivencia. Esta ley establece que una línea imaginaria que conecta a un planeta con el Sol barre áreas iguales en tiempos iguales. ¿Qué significa esto para nosotros? Significa que los planetas no viajan a una velocidad constante. Cuando un planeta está más cerca del Sol (perihelio), viaja mucho más rápido que cuando está más lejos (afelio). Es como un patinador sobre hielo que gira más rápido cuando encoge sus brazos. Esta ley nos permite predecir exactamente dónde estará un planeta en cualquier momento del futuro, algo fundamental para calcular las trayectorias de nuestras sondas espaciales. \n\nFinalmente, la **Tercera Ley de Kepler**, o Ley de los Periodos, establece una relación matemática entre la distancia de un planeta al Sol y el tiempo que tarda en dar una vuelta completa. Dice que el cuadrado del periodo orbital es proporcional al cubo de la distancia media al Sol. En términos sencillos: entre más lejos está un planeta del Sol, más lento es su 'año'. Por eso, mientras que la Tierra tarda 365 días en dar una vuelta, el lejano Neptuno tarda unos 165 años terrestres. \n\nPero, ¿por qué ocurre esto? Aquí es donde entra Sir Isaac Newton. Él resolvió el misterio final al proponer la **Ley de Gravitación Universal**. Newton se dio cuenta de que la misma fuerza que hace caer una manzana de un árbol es la que mantiene a la Luna en órbita y a los planetas girando alrededor del Sol. La gravedad es el 'pegamento' invisible del universo. La fuerza de atracción depende de dos cosas: la masa de los objetos (cuánta materia tienen) y la distancia entre ellos. Si el Sol fuera menos masivo, los planetas saldrían volando. Si estuvieran más cerca, serían succionados hacia su superficie incandescente. \n\nEntender estas leyes nos permite hoy en día vivir aquí, en la Estación Espacial Internacional. Al equilibrar nuestra velocidad con la fuerza de gravedad de la Tierra, logramos 'caer' perpetuamente alrededor del planeta sin chocar nunca. Estamos en un estado de caída libre constante, lo que ustedes conocen como microgravedad. ¡La física no es solo teoría, es lo que nos mantiene vivos aquí arriba!",
+  "preguntas_deductivas_pagina": [
+    "¿Qué es un 'foco' en el contexto de una órbita elíptica?",
+    "¿En qué punto de su órbita se mueve más rápido un planeta?",
+    "¿Cómo cambia el tiempo que tarda un planeta en dar la vuelta al Sol según su distancia?",
+    "¿Qué dos factores determinan la fuerza de gravedad según Newton?",
+    "¿Por qué la EEI no cae hacia la Tierra si la gravedad la está atrayendo?"
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Realiza un diagrama detallado de una elipse, ubicando el Sol en uno de los focos, el perihelio y el afelio.",
+    "Elabora un mapa mental que conecte las 3 leyes de Kepler con la Ley de Gravitación de Newton.",
+    "Dibuja una escena donde expliques la analogía del patinador sobre hielo para ilustrar la Segunda Ley de Kepler.",
+    "Crea una infografía artesanal que explique por qué los astronautas en la EEI sienten 'gravedad cero' aunque la gravedad terrestre sea fuerte allí."
+  ],
+  "juegos_ordenar_letras_2": [
+    "GRAVEDAD",
+    "NEWTON",
+    "PERIODO"
+  ],
+  "juego_ordenar_frase_2": "LA GRAVEDAD MANTIENE EL ORDEN EN EL COSMOS",
+  "sopa_letras": [
+    "KEPLER",
+    "NEWTON",
+    "ELIPSE",
+    "SOL",
+    "GRAVEDAD",
+    "ORBITA",
+    "FOCO",
+    "MASA",
+    "AFELIO",
+    "PERIODO"
+  ],
+  "crucigrama": [
+    {
+      "palabra": "ELIPSE",
+      "pista": "Forma geométrica de la trayectoria planetaria."
+    },
+    {
+      "palabra": "GRAVEDAD",
+      "pista": "Fuerza de atracción entre dos masas."
+    },
+    {
+      "palabra": "PERIHELIO",
+      "pista": "Punto de la órbita más cercano al Sol."
+    },
+    {
+      "palabra": "AFELIO",
+      "pista": "Punto de la órbita más alejado del Sol."
+    },
+    {
+      "palabra": "KEPLER",
+      "pista": "Científico que formuló las tres leyes del movimiento planetario."
+    },
+    {
+      "palabra": "NEWTON",
+      "pista": "Explicó por qué los planetas se mantienen en órbita gracias a una fuerza."
+    },
+    {
+      "palabra": "FOCO",
+      "pista": "Lugar que ocupa el Sol dentro de la elipse orbital."
+    },
+    {
+      "palabra": "RETROGRADO",
+      "pista": "Movimiento aparente de un planeta hacia atrás en el cielo."
+    },
+    {
+      "palabra": "COPERNICO",
+      "pista": "Propuso que el Sol era el centro del sistema."
+    },
+    {
+      "palabra": "GEOCENTRICO",
+      "pista": "Modelo que sitúa a la Tierra en el centro del universo."
+    }
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "En la EEI observamos que los planetas no se mueven a la misma velocidad durante todo su año orbital. Se registra que un planeta aumenta su velocidad al acercarse al Sol.",
+      "tabla_o_grafica_markdown": "| Posición | Distancia al Sol (UA) | Velocidad (km/s) |\n|---|---|---|\n| A | 0.98 | 30.3 |\n| B | 1.02 | 29.3 |",
+      "pregunta": "¿A qué ley física corresponde este comportamiento observado en la tabla?",
+      "opciones": [
+        "Primera Ley de Kepler",
+        "Segunda Ley de Kepler",
+        "Tercera Ley de Newton",
+        "Ley de la Inercia"
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. La primera ley solo habla de la forma de la órbita.",
+        "1": "Correcto. La Segunda Ley (áreas iguales en tiempos iguales) implica que a menor distancia la velocidad debe ser mayor.",
+        "2": "Incorrecto. La tercera ley de Newton trata sobre acción y reacción.",
+        "3": "Incorrecto. La inercia mantendría la velocidad constante si no hubiera fuerzas."
+      }
+    },
+    {
+      "competencia": "Uso comprensivo del conocimiento científico",
+      "texto_introductorio": "Un astronauta nota que Júpiter tarda mucho más tiempo en dar una vuelta al Sol que la Tierra. El sistema de navegación muestra los siguientes periodos orbitales.",
+      "tabla_o_grafica_markdown": "| Planeta | Distancia Media (UA) | Periodo (Años) |\n|---|---|---|\n| Tierra | 1 | 1 |\n| Júpiter | 5.2 | 11.8 |",
+      "pregunta": "Si un nuevo planeta se descubriera a una distancia de 10 UA, su periodo orbital sería:",
+      "opciones": [
+        "Menor a 1 año",
+        "Igual a 11.8 años",
+        "Mayor a 11.8 años",
+        "Exactamente 5 años"
+      ],
+      "correcta": 2,
+      "retroalimentacion": {
+        "0": "Incorrecto. A mayor distancia, mayor es el periodo.",
+        "1": "Incorrecto. Estaría más lejos que Júpiter, por lo que tardaría más.",
+        "2": "Correcto. Según la Tercera Ley de Kepler, a mayor distancia media, mayor es el periodo orbital.",
+        "3": "Incorrecto. No es una relación de división simple, sino proporcional al cubo de la distancia."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "Un grupo de estudiantes de la academia espacial quiere demostrar que la masa influye en la atracción gravitacional. Utilizan un simulador para variar las masas del Sol y la Tierra.",
+      "tabla_o_grafica_markdown": "| Experimento | Masa Sol (Relativa) | Masa Tierra (Relativa) | Fuerza Observada |\n|---|---|---|---|\n| 1 | 1 | 1 | F |\n| 2 | 2 | 1 | 2F |\n| 3 | 1 | 2 | 2F |",
+      "pregunta": "A partir de los datos, ¿qué conclusión es válida sobre la fuerza de gravedad?",
+      "opciones": [
+        "Solo depende de la masa del Sol",
+        "Solo depende de la masa de la Tierra",
+        "Es proporcional al producto de ambas masas",
+        "No depende de las masas"
+      ],
+      "correcta": 2,
+      "retroalimentacion": {
+        "0": "Incorrecto. Al duplicar la masa de la Tierra también aumentó la fuerza.",
+        "1": "Incorrecto. Al duplicar la masa del Sol también aumentó la fuerza.",
+        "2": "Correcto. Los experimentos 2 y 3 muestran que el aumento en cualquiera de las masas aumenta la fuerza gravitacional.",
+        "3": "Incorrecto. Los datos muestran claramente que la fuerza cambia con la masa."
+      }
+    }
+  ]
+}

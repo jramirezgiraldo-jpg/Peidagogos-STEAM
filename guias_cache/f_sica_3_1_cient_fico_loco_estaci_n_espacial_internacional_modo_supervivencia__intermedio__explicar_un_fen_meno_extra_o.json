@@ -1,0 +1,188 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Qué forma tiene la trayectoria de los planetas alrededor del Sol según el conocimiento general?",
+      "opciones": [
+        "Círculo perfecto",
+        "Línea recta",
+        "Elipse",
+        "Cuadrado con bordes romos"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "¿Quién es el científico loco original que propuso que la Tierra gira alrededor del Sol antes que fuera popular?",
+      "opciones": [
+        "Isaac Newton",
+        "Nicolás Copérnico",
+        "Albert Einstein",
+        "Mi abuela"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Qué fuerza mantiene a la Estación Espacial Internacional en su lugar sin que salga disparada al vacío?",
+      "opciones": [
+        "Magnetismo",
+        "Pegamento espacial",
+        "Gravedad",
+        "Fricción del aire"
+      ],
+      "correcta": 2
+    }
+  ],
+  "texto_inductivo": "¡Saludos, miserables sacos de protoplasma y curiosidad! Me presento: soy el Doctor Heisenbug, y están atrapados conmigo en la **Estación Espacial Internacional (EEI)** mientras reparamos los propulsores que un becario descuidado rompió. ¡JAJAJA! Pero no se preocupen, mientras flotamos en esta caja de metal a 400 kilómetros de altura, vamos a resolver un misterio que atormentó a la humanidad por milenios. Miren por la escotilla. ¿Ven eso? El universo parece un reloj perfecto, pero si observan con cuidado, hay algo **extraño**. Hace siglos, los astrónomos miraban al cielo y veían que Marte, a veces, ¡decidía caminar hacia atrás! Lo llamaron **movimiento retrógrado**. ¡Un fenómeno absurdo! ¿Acaso los planetas se arrepienten de su camino? ¡Claro que no! La explicación de este fenómeno extraño no radica en la magia, sino en nuestra perspectiva. Imaginen que estamos en una pista de carreras circular. Si yo voy en el carril interno y los adelanto, por un momento parecerá que ustedes retroceden respecto a las gradas. ¡Esa es la clave! El modelo **Geocéntrico** de Ptolomeo intentó explicar esto con círculos sobre círculos (epiciclos), una aberración matemática que solo un cerebro frito aceptaría. Luego llegó **Tycho Brahe**, un noble con nariz de metal que recolectó datos tan precisos que me dan escalofríos de placer. Él no sabía qué hacer con ellos, pero su asistente, el brillante y algo obsesivo **Johannes Kepler**, se dio cuenta de la verdad. Kepler no buscaba la perfección divina de los círculos, él buscaba la verdad en los números. Notó que si usaba elipses, ese 'fenómeno extraño' de Marte moviéndose hacia atrás y cambiando de velocidad cobraba sentido total. Aquí en la EEI, nosotros también estamos en una elipse, aunque casi circular. Si nuestra velocidad disminuye un solo milímetro por segundo por debajo de lo necesario, la gravedad de la Tierra nos devorará en una bola de fuego atmosférico. ¡QUÉ EMOCIÓN! El movimiento planetario no es solo dar vueltas; es una caída libre perpetua, un equilibrio delicado entre la inercia que nos lanza hacia las estrellas y la masa terrestre que nos reclama como suyos. Para entender por qué los planetas no se salen de su curso, debemos observar cómo cambia su brillo y su posición aparente. ¿Cómo es posible que algo tan pesado como Júpiter se mueva sin motores? ¿Qué combustible usa el sistema solar? ¡Ninguno! Es pura **mecánica celeste**. Los antiguos pensaban que los planetas eran dioses. Yo les digo que son solo rocas obedeciendo leyes que ustedes, si sobreviven a mi clase, aprenderán a dominar. Observen el mapa estelar que parpadea en la consola de navegación. Cada punto de luz sigue una trayectoria dictada por la masa del Sol. Si el Sol desapareciera ahora mismo (¡ojalá no pase hasta que termine mi café!), todos saldríamos disparados en línea recta. El movimiento circular es una ilusión; lo que vemos es una lucha constante. ¡Presten atención a los datos, especímenes! La ciencia no es solo leer libros, es observar el caos y encontrar el patrón oculto tras el velo de la locura.",
+  "recurso_visual": "graph TD\n    A[Observación de Marte] --> B{¿Movimiento Extraño?}\n    B -->|Sí: Retroceso| C[Modelo Geocéntrico: Epiciclos complejos]\n    B -->|Sí: Cambio Velocidad| D[Modelo Heliocéntrico: Elipses de Kepler]\n    C --> E[Error: La Tierra no es el centro]\n    D --> F[Éxito: Leyes de Movimiento Planetario]\n    F --> G[1ra Ley: Órbitas Elípticas]\n    F --> H[2da Ley: Áreas Iguales en Tiempos Iguales]\n    F --> I[3ra Ley: Armonía de los Periodos]",
+  "preguntas_inductivas_pagina": [
+    "¿Por qué los antiguos creían que los planetas hacían 'trucos' como moverse hacia atrás?",
+    "¿Qué diferencia fundamental hay entre un círculo y una elipse según el texto?",
+    "¿Quién recolectó los datos que permitieron a Kepler hacer sus descubrimientos?",
+    "¿Qué pasaría con la EEI si su velocidad orbital se redujera drásticamente?",
+    "¿Cuál es la 'lucha constante' que menciona el Dr. Heisenbug sobre el movimiento de los planetas?"
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema del movimiento retrógrado de Marte visto desde la Tierra, incluyendo las órbitas de ambos planetas alrededor del Sol.",
+    "Realiza un cuadro comparativo entre el Modelo Geocéntrico (Ptolomeo) y el Modelo Heliocéntrico (Copérnico/Kepler) basándote en cómo explican el movimiento planetario.",
+    "Escribe una reflexión de 15 líneas: ¿Por qué crees que a la humanidad le tomó tantos siglos aceptar que no somos el centro del universo?",
+    "Representa gráficamente la idea de 'Caída Libre Perpetua' aplicada a la Estación Espacial Internacional."
+  ],
+  "juegos_ordenar_letras_1": [
+    "EPICICLO",
+    "ELIPSE",
+    "INERCIA"
+  ],
+  "juego_ordenar_frase_1": "EL MOVIMIENTO DE LOS PLANETAS ES UNA ELIPSE CON EL SOL EN UNO DE SUS FOCOS",
+  "texto_deductivo": "¡Silencio! Mis sensores detectan un aumento en su actividad cerebral... o tal vez es solo la radiación cósmica. Ahora que han visto el 'caos', vamos a codificarlo en **leyes matemáticas puras**. ¡La deducción es el arma del científico loco! Empecemos con la **Primera Ley de Kepler**: La Ley de las Órbitas. ¡Olviden los círculos! Un círculo es solo una elipse aburrida donde los dos focos están en el mismo lugar. En el sistema solar, los planetas describen elipses donde el Sol ocupa uno de los focos. ¿Qué hay en el otro foco? ¡NADA! Solo el vacío existencial de mis fracasos amorosos. Esto explica por qué la distancia entre la Tierra y el Sol cambia a lo largo del año. Pero esperen, hay más. La **Segunda Ley de Kepler**, o Ley de las Áreas, nos dice algo fascinante sobre la velocidad. Un planeta no se mueve siempre a la misma rapidez. Cuando está más cerca del Sol (**perihelio**), ¡corre como si lo persiguiera un agujero negro! Cuando está lejos (**afelio**), se mueve con la pereza de un estudiante un lunes por la mañana. Kepler descubrió que el radio vector que une al planeta con el Sol barre áreas iguales en tiempos iguales. ¡Es pura geometría aplicada al tiempo! Ahora, mi favorita, la **Tercera Ley de Kepler**: La Ley Armónica. Esta ley conecta a todos los planetas en una gran sinfonía matemática. Dice que el cuadrado del periodo orbital (el tiempo que tarda en dar una vuelta) es proporcional al cubo de su distancia media al Sol. Matemáticamente: T² / a³ = K. ¡Es constante para todo lo que orbite el Sol! Si conoces a qué distancia está un planeta, ¡puedo decirte cuánto tarda su año sin siquiera mirar un reloj! Pero faltaba el genio despeinado: **Isaac Newton**. Él dedujo que esto no pasaba por 'amor a la geometría', sino por una fuerza invisible: la **Gravitación Universal**. Newton demostró que la misma fuerza que hace que mi manzana caiga sobre mi cabeza (o sobre la de un becario) es la que mantiene a la Luna en órbita. La fuerza es directamente proporcional al producto de las masas e inversamente proporcional al cuadrado de la distancia. ¡F = G * (m1 * m2) / r²! Esta fórmula es la receta del universo. Si duplicamos la distancia entre dos planetas, la fuerza de atracción no se reduce a la mitad, ¡se reduce a la cuarta parte! ¡Es una ley de cuadrados inversos, bebés! Por eso, aquí en la EEI, aunque parezca que no hay gravedad (microgravedad), la realidad es que la gravedad terrestre es casi tan fuerte como en el suelo (90%), pero estamos cayendo de lado tan rápido que fallamos en golpear la Tierra. ¡Estamos fallando constantemente al suelo! Eso es orbitar. Si entienden esto, entenderán por qué las galaxias no se desintegran y por qué puedo predecir dónde estará Marte en el año 20550 con un margen de error de milímetros. La ciencia no adivina, la ciencia deduce a partir de leyes inquebrantables.",
+  "preguntas_deductivas_pagina": [
+    "¿Qué establece la Primera Ley de Kepler sobre la posición del Sol?",
+    "¿En qué punto de la órbita (perihelio o afelio) un planeta se mueve más rápido?",
+    "¿Cuál es la relación matemática exacta que propone la Tercera Ley de Kepler?",
+    "¿Qué sucede con la fuerza de atracción gravitatoria si la distancia entre dos cuerpos se triplica?",
+    "¿Por qué se dice que los astronautas en la EEI están en una 'caída libre constante'?"
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Realiza un diagrama detallado de una elipse planetaria, señalando los focos, el perihelio, el afelio y el radio vector.",
+    "Elabora un mapa mental que conecte las Tres Leyes de Kepler con la Ley de Gravitación Universal de Newton.",
+    "Dibuja una explicación visual de la Segunda Ley de Kepler, sombreando las 'áreas iguales' en diferentes puntos de la órbita.",
+    "Diseña una infografía artesanal que explique por qué la Luna no choca contra la Tierra a pesar de la atracción gravitatoria."
+  ],
+  "juegos_ordenar_letras_2": [
+    "PERIHELIO",
+    "GRAVITACION",
+    "AFELIO"
+  ],
+  "juego_ordenar_frase_2": "LA FUERZA DE GRAVEDAD DISMINUYE CON EL CUADRADO DE LA DISTANCIA ENTRE LOS CUERPOS",
+  "sopa_letras": [
+    "KEPLER",
+    "NEWTON",
+    "ELIPSE",
+    "ORBITA",
+    "FOCO",
+    "MASA",
+    "RADIO",
+    "TIEMPO",
+    "SOL",
+    "FUERZA"
+  ],
+  "crucigrama": [
+    {
+      "palabra": "ELIPSE",
+      "pista": "Forma geométrica de las órbitas planetarias."
+    },
+    {
+      "palabra": "PERIHELIO",
+      "pista": "Punto de la órbita más cercano al Sol."
+    },
+    {
+      "palabra": "AFELIO",
+      "pista": "Punto de la órbita más alejado del Sol."
+    },
+    {
+      "palabra": "NEWTON",
+      "pista": "Científico que formuló la Ley de Gravitación Universal."
+    },
+    {
+      "palabra": "KEPLER",
+      "pista": "Astrónomo que descubrió las tres leyes del movimiento planetario."
+    },
+    {
+      "palabra": "GRAVEDAD",
+      "pista": "Fuerza de atracción entre dos masas."
+    },
+    {
+      "palabra": "PERIODO",
+      "pista": "Tiempo que tarda un planeta en completar una vuelta al Sol."
+    },
+    {
+      "palabra": "FOCO",
+      "pista": "Uno de los dos puntos internos de una elipse."
+    },
+    {
+      "palabra": "INERCIA",
+      "pista": "Tendencia de un objeto a mantener su estado de movimiento."
+    },
+    {
+      "palabra": "ASTRONOMIA",
+      "pista": "Ciencia que estudia los cuerpos celestes."
+    }
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "En la EEI, los científicos observan que un satélite artificial en una órbita muy elíptica cambia su velocidad dependiendo de su posición respecto a la Tierra.",
+      "tabla_o_grafica_markdown": "| Posición | Distancia a la Tierra (km) | Velocidad (km/s) |\n|---|---|---|\n| Punto A | 400 | 8.2 |\n| Punto B | 1200 | 4.5 |",
+      "pregunta": "¿Cuál de las leyes de Kepler explica mejor por qué la velocidad en el Punto A es mayor que en el Punto B?",
+      "opciones": [
+        "La Segunda Ley: Áreas iguales en tiempos iguales implica mayor velocidad al estar más cerca.",
+        "La Primera Ley: Las órbitas deben ser circulares para mantener velocidad constante.",
+        "La Tercera Ley: El periodo es independiente de la distancia orbital.",
+        "La Ley de Inercia: Los objetos en el espacio no cambian de velocidad."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. Al estar más cerca (Punto A), el radio vector es corto, por lo que el objeto debe moverse más rápido para barrer la misma área que en el Punto B.",
+        "1": "Incorrecto. La primera ley habla de la forma elíptica, no explica directamente el cambio de velocidad.",
+        "2": "Incorrecto. La tercera ley relaciona periodos y distancias medias, no velocidades instantáneas.",
+        "3": "Incorrecto. La inercia se ve afectada por la fuerza gravitatoria presente."
+      }
+    },
+    {
+      "competencia": "Uso Comprensivo del Conocimiento Científico",
+      "texto_introductorio": "Se descubre un nuevo exoplaneta 'X' que orbita una estrella similar al Sol. Se sabe que su distancia media es 4 veces la distancia de la Tierra al Sol (4 UA).",
+      "tabla_o_grafica_markdown": "| Planeta | Distancia Media (UA) | Periodo (Años) |\n|---|---|---|\n| Tierra | 1 | 1 |\n| Planeta X | 4 | ? |",
+      "pregunta": "Según la Tercera Ley de Kepler (T² ∝ a³), ¿cuál será el periodo orbital aproximado del Planeta X?",
+      "opciones": [
+        "4 años",
+        "8 años",
+        "16 años",
+        "64 años"
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. Has olvidado elevar al cubo o sacar la raíz cuadrada.",
+        "1": "Correcto. 4 al cubo es 64. La raíz cuadrada de 64 es 8. T = 8 años.",
+        "2": "Incorrecto. Revisar la relación T² = a³.",
+        "3": "Incorrecto. 64 es el valor de T², falta sacar la raíz cuadrada."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "Un grupo de estudiantes de la EEI quiere investigar cómo varía la fuerza de atracción entre dos esferas de plomo si se modifica la distancia entre sus centros.",
+      "tabla_o_grafica_markdown": "| Experimento | Masa 1 | Masa 2 | Distancia | Fuerza |\n|---|---|---|---|---|\n| 1 | 10kg | 10kg | R | F |\n| 2 | 10kg | 10kg | 2R | ? |",
+      "pregunta": "Si en el experimento 2 se duplica la distancia entre las esferas, ¿qué resultado deberían esperar los estudiantes para la nueva fuerza?",
+      "opciones": [
+        "La fuerza se duplicará (2F).",
+        "La fuerza se reducirá a la mitad (F/2).",
+        "La fuerza se reducirá a la cuarta parte (F/4).",
+        "La fuerza permanecerá igual (F)."
+      ],
+      "correcta": 2,
+      "retroalimentacion": {
+        "0": "Incorrecto. La gravedad es inversamente proporcional a la distancia.",
+        "1": "Incorrecto. La relación es con el cuadrado de la distancia, no lineal.",
+        "2": "Correcto. Según la Ley de Gravitación Universal, al duplicar la distancia (2²), la fuerza disminuye por un factor de 4.",
+        "3": "Incorrecto. La distancia es una variable crítica en la magnitud de la fuerza."
+      }
+    }
+  ]
+}

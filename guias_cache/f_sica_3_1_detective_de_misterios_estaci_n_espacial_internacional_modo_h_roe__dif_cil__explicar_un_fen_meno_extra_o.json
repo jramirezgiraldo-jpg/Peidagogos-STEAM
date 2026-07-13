@@ -1,0 +1,168 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Cuál es la causa principal por la que un planeta mantiene una órbita cerrada alrededor de una estrella en lugar de salir disparado en línea recta?",
+      "opciones": [
+        "La presión de radiación estelar que empuja al planeta hacia afuera.",
+        "El equilibrio entre la inercia del planeta y la fuerza gravitacional del Sol.",
+        "La ausencia de fricción en el vacío del espacio interestelar.",
+        "El magnetismo intrínseco de los núcleos planetarios ferrosos."
+      ],
+      "correcta": 1
+    }
+  ],
+  "texto_inductivo": "Saludos, aspirantes a detectives de la Estación Espacial Internacional (ISS). Soy el Detective Cuántico y hoy nos enfrentamos a un 'Caso Frío' que ha desconcertado a la humanidad por milenios, hasta que un tal Johannes Kepler decidió mirar los datos con lupa. Imaginen que estamos en la cúpula de observación de la ISS. Miramos hacia abajo y vemos la Tierra, pero si miramos más allá, hacia Marte, notamos algo perturbador. El planeta rojo no se mueve en un círculo perfecto. De hecho, parece que a veces se apresura y otras veces se toma su tiempo, como si estuviera huyendo de algo o dudando de su camino. **Este es el Misterio del Movimiento Retrógrado y las Elipses Escondidas.**\n\nEn el siglo XVII, Tycho Brahe, el 'informante' más meticuloso de la historia, recopiló datos precisos sobre la posición de los planetas sin usar un solo telescopio. Al morir, dejó estos archivos a Kepler. El misterio que debemos resolver hoy es: ¿Por qué los planetas no siguen la 'perfección' del círculo que Aristóteles y Ptolomeo juraron que existía? Al analizar los datos de Marte, Kepler descubrió que el planeta trazaba una **elipse**, una figura con dos focos donde el Sol ocupa uno de ellos. Pero el misterio se profundiza. Observamos que cuando Marte está más cerca del Sol (perihelio), su velocidad aumenta drásticamente, como si un motor invisible lo impulsara. Cuando está lejos (afelio), se mueve con una parsimonia sospechosa. ¿Qué fuerza está dictando este cambio de ritmo?\n\nSi trazamos una línea imaginaria entre el Sol y el planeta, esta línea barre áreas iguales en tiempos iguales. Esto significa que la 'escena del crimen' planetaria está perfectamente orquestada por una ley de conservación. No es un caos, es una coreografía matemática. Pero, ¿cómo se relaciona el tiempo que tarda un planeta en dar la vuelta (periodo) con su distancia media al Sol? Aquí es donde el nivel 'Modo Héroe' se activa. Si tomamos el cuadrado del tiempo y lo dividimos por el cubo de la distancia, obtenemos una constante universal para todos los planetas de nuestro sistema. Es como una huella dactilar que todos comparten. Nuestra misión en la ISS es verificar si estas leyes, formuladas para planetas, se aplican también a nuestra estación y a los satélites que 'vigilan' la Tierra desde el silencio del vacío. El espacio no es un lugar de reposo; es una caída libre perpetua, una danza elíptica donde la geometría es la ley y la gravedad es el detective invisible que mantiene todo en su lugar. Preparen sus herramientas de análisis, porque vamos a desglosar el cosmos pieza por pieza.",
+  "recurso_visual": "graph TD\n    A[Leyes de Kepler] --> B[1ra Ley: Órbitas Elípticas]\n    A --> C[2da Ley: Áreas Iguales]\n    A --> D[3ra Ley: Ley Armónica]\n    B --> B1[El Sol ocupa un foco]\n    C --> C1[Velocidad variable: Más rápido en Perihelio]\n    D --> D1[T^2 proporcional a R^3]\n    D1 --> D2[Constante K igual para todo el sistema]",
+  "preguntas_inductivas_pagina": [
+    "¿Qué figura geométrica reemplazó al círculo en la descripción del movimiento planetario según Kepler?",
+    "¿En qué posición de la órbita (perihelio o afelio) un planeta alcanza su velocidad máxima?",
+    "¿Qué científico proporcionó los datos experimentales que Kepler utilizó para sus hallazgos?",
+    "¿Qué sucede con el área barrida por el radio vector de un planeta si el intervalo de tiempo es el mismo en diferentes partes de la órbita?",
+    "¿Cómo se define la relación matemática de la Tercera Ley de Kepler?"
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema detallado de una órbita elíptica, identificando los focos, el perihelio, el afelio y el radio vector.",
+    "Realiza un cuadro comparativo entre el modelo geocéntrico de Ptolomeo y el modelo heliocéntrico de Kepler, destacando las diferencias en la forma de las órbitas.",
+    "Escribe una reflexión de 15 líneas sobre cómo el cambio de círculos a elipses representó una ruptura con el pensamiento filosófico de la época.",
+    "Representa gráficamente, mediante dos sectores circulares de una elipse, la Segunda Ley de Kepler (áreas iguales en tiempos iguales)."
+  ],
+  "juegos_ordenar_letras_1": [
+    "PERIHELIO",
+    "ELIPTICA",
+    "GRAVEDAD"
+  ],
+  "juego_ordenar_frase_1": "LOS PLANETAS DESCRIBEN ORBITAS ELIPTICAS ALREDEDOR DEL SOL EL CUAL OCUPA UNO DE LOS FOCOS",
+  "texto_deductivo": "Bienvenidos a la fase de análisis avanzado, agentes. Una vez que Kepler describió **cómo** se movían los planetas, el mundo científico quedó en un silencio expectante. Faltaba el **porqué**. Fue Isaac Newton, operando desde su 'cuartel general' durante la plaga de 1665, quien conectó los puntos. La deducción de Newton es la piedra angular de nuestra física en la ISS. Él postuló que la fuerza que hace caer una manzana es la misma que mantiene a la Luna en su órbita y a la Tierra girando alrededor del Sol. Esta es la **Ley de Gravitación Universal**.\n\nPara explicar el fenómeno extraño de las órbitas elípticas, debemos deducir que la fuerza de atracción gravitatoria es directamente proporcional al producto de las masas e inversamente proporcional al cuadrado de la distancia que las separa ($F = G \\cdot m_1 \\cdot m_2 / r^2$). En el 'Modo Héroe', debemos comprender que esta relación no es arbitraria. Si la fuerza fuera inversamente proporcional al cubo de la distancia, las órbitas serían inestables y los planetas colapsarían hacia el Sol o escaparían al espacio profundo. La estabilidad del sistema solar es un delicado equilibrio matemático.\n\nAl combinar la Segunda Ley de Newton ($F = m \\cdot a$) con su Ley de Gravitación, podemos deducir la Tercera Ley de Kepler. Para una órbita circular (un caso especial de elipse), la fuerza centrípeta es proporcionada por la gravedad: $m \\cdot v^2 / r = G \\cdot M \\cdot m / r^2$. Al sustituir la velocidad orbital ($v = 2 \\cdot \\pi \\cdot r / T$), llegamos a la famosa relación $T^2 / r^3 = 4 \\cdot \\pi^2 / (G \\cdot M)$. Observen que la masa del planeta (m) desaparece de la ecuación; esto explica por qué tanto un grano de polvo como la ISS orbitan a la misma velocidad si están a la misma altura. \n\nSin embargo, el misterio persiste en las perturbaciones. En la ISS, no solo nos afecta la gravedad de la Tierra. La Luna, el Sol y la forma no perfectamente esférica de nuestro planeta (el achatamiento polar) introducen pequeñas desviaciones en nuestra trayectoria. Como detectives, debemos usar el cálculo diferencial para predecir estas variaciones. La física planetaria no es estática; es un sistema dinámico donde cada masa influye en todas las demás. Comprender estas leyes nos permite no solo explicar el pasado, sino navegar el futuro de la exploración espacial, calculando con precisión de milisegundos las ventanas de lanzamiento hacia Marte o Júpiter. La gravedad es el hilo invisible que teje la estructura del cosmos, y las leyes de Kepler son el mapa para no perdernos en su inmensidad.",
+  "preguntas_deductivas_pagina": [
+    "¿Qué ley física explica la causa del movimiento descrito por las leyes de Kepler?",
+    "Si la distancia entre dos cuerpos se triplica, ¿qué sucede con la fuerza de atracción gravitatoria?",
+    "¿Por qué la masa de un satélite no afecta su periodo orbital según la deducción de la Tercera Ley?",
+    "¿Qué fórmula representa la Ley de Gravitación Universal de Newton?",
+    "¿Qué papel juega la constante G en la ecuación de la fuerza gravitatoria?"
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Realiza un diagrama de cuerpo libre para un satélite en órbita, mostrando los vectores de fuerza, velocidad y aceleración centrípeta.",
+    "Elabora un mapa mental que conecte las Leyes de Kepler con la Ley de Gravitación Universal de Newton.",
+    "Dibuja una infografía que explique cómo se dedujo la Tercera Ley de Kepler a partir de las leyes de Newton.",
+    "Diseña un dibujo explicativo que muestre la diferencia entre una órbita circular y una elíptica de alta excentricidad, marcando los cambios de velocidad."
+  ],
+  "juegos_ordenar_letras_2": [
+    "CONSTANTE",
+    "CENTRIPETA",
+    "INVERSA"
+  ],
+  "juego_ordenar_frase_2": "LA FUERZA GRAVITATORIA ES INVERSAMENTE PROPORCIONAL AL CUADRADO DE LA DISTANCIA ENTRE LAS MASAS",
+  "sopa_letras": [
+    "KEPLER",
+    "NEWTON",
+    "ELIPSE",
+    "ORBITA",
+    "MASA",
+    "FUERZA",
+    "RADIO",
+    "PERIODO",
+    "AFELIO",
+    "FOCO"
+  ],
+  "crucigrama": [
+    {
+      "palabra": "GRAVEDAD",
+      "pista": "Fuerza de atracción entre dos cuerpos con masa."
+    },
+    {
+      "palabra": "ELIPSE",
+      "pista": "Forma geométrica de las órbitas planetarias."
+    },
+    {
+      "palabra": "PERIHELIO",
+      "pista": "Punto de la órbita más cercano al Sol."
+    },
+    {
+      "palabra": "AFELIO",
+      "pista": "Punto de la órbita más alejado del Sol."
+    },
+    {
+      "palabra": "KEPLER",
+      "pista": "Astrónomo que formuló las tres leyes del movimiento planetario."
+    },
+    {
+      "palabra": "INERCIA",
+      "pista": "Tendencia de los cuerpos a mantener su estado de movimiento."
+    },
+    {
+      "palabra": "FOCO",
+      "pista": "Uno de los dos puntos internos que definen una elipse."
+    },
+    {
+      "palabra": "CENTRIPETA",
+      "pista": "Fuerza dirigida hacia el centro que mantiene un cuerpo en rotación."
+    },
+    {
+      "palabra": "EXCENTRICIDAD",
+      "pista": "Medida de qué tan estirada está una elipse."
+    },
+    {
+      "palabra": "UNIVERSAL",
+      "pista": "Término que indica que la ley de gravedad aplica en todo el cosmos."
+    }
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "En la ISS, un astronauta observa que un satélite de comunicaciones parece moverse más lento cuando se aleja de la Tierra en una órbita elíptica. Este fenómeno se debe a la conservación del momento angular y a la Segunda Ley de Kepler.",
+      "tabla_o_grafica_markdown": "| Posición | Distancia al Centro (km) | Velocidad (km/s) |\n|---|---|---|\n| Punto A | 7,000 | 7.5 |\n| Punto B | 10,000 | 5.2 |",
+      "pregunta": "¿Cuál es la explicación física de por qué la velocidad disminuye al aumentar la distancia?",
+      "opciones": [
+        "Porque a mayor distancia, el radio vector barre un área menor en el mismo tiempo.",
+        "Para mantener el área barrida constante por unidad de tiempo, la velocidad debe disminuir si el radio aumenta.",
+        "Debido a que la energía potencial gravitatoria se pierde por la fricción espacial.",
+        "Porque la masa del satélite disminuye al alejarse de la Tierra."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. La segunda ley de Kepler afirma que el área barrida es constante.",
+        "1": "Correcto. Según la ley de las áreas, para que el área sea igual en tiempos iguales, a mayor radio la velocidad debe ser menor.",
+        "2": "Incorrecto. En el vacío no hay fricción significativa y la energía mecánica se conserva.",
+        "3": "Incorrecto. La masa del satélite es una propiedad intrínseca y no cambia con la distancia."
+      }
+    },
+    {
+      "competencia": "Uso Comprensivo del Conocimiento Científico",
+      "texto_introductorio": "Un nuevo exoplaneta es descubierto orbitando una estrella similar al Sol. Los astrónomos notan que su distancia media es 4 veces la distancia de la Tierra al Sol (4 UA).",
+      "tabla_o_grafica_markdown": "| Planeta | Distancia Media (UA) | Periodo (Años) |\n|---|---|---|\n| Tierra | 1 | 1 |\n| Exoplaneta | 4 | ? |",
+      "pregunta": "Usando la Tercera Ley de Kepler ($T^2 = k \\cdot R^3$), ¿cuál sería el periodo orbital aproximado de este exoplaneta?",
+      "opciones": [
+        "4 años",
+        "16 años",
+        "8 años",
+        "64 años"
+      ],
+      "correcta": 2,
+      "retroalimentacion": {
+        "0": "Incorrecto. No es una relación lineal simple.",
+        "1": "Incorrecto. Esto sería si fuera proporcional al cuadrado, pero es $R^3$.",
+        "2": "Correcto. $4^3 = 64$. La raíz cuadrada de 64 es 8. Por tanto, $T = 8$ años.",
+        "3": "Incorrecto. 64 es el cubo de la distancia, falta aplicar la raíz cuadrada para hallar T."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "Un grupo de estudiantes analiza los datos de los satélites de Júpiter. Observan que los satélites más lejanos tardan mucho más tiempo en completar una órbita que los cercanos.",
+      "tabla_o_grafica_markdown": "| Satélite | Radio Orbital (km) | Periodo (días) |\n|---|---|---|\n| Io | 421,700 | 1.76 |\n| Europa | 671,100 | 3.55 |\n| Ganímedes | 1,070,400 | 7.15 |",
+      "pregunta": "¿Qué conclusión se puede extraer sobre la relación entre la fuerza de gravedad y la velocidad orbital a partir de estos datos?",
+      "opciones": [
+        "A mayor distancia, la fuerza de gravedad de Júpiter es mayor, frenando a los satélites.",
+        "La velocidad orbital no depende de la distancia, sino del tamaño del satélite.",
+        "A mayor distancia, la fuerza de gravedad disminuye, requiriendo una menor velocidad para mantener la órbita.",
+        "Los datos son insuficientes porque no incluyen la masa de los satélites."
+      ],
+      "correcta": 2,
+      "retroalimentacion": {
+        "0": "Incorrecto. La fuerza de gravedad disminuye con la distancia.",
+        "1": "Incorrecto. La velocidad orbital depende inversamente de la raíz cuadrada de la distancia.",
+        "2": "Correcto. Al disminuir la atracción gravitatoria con la distancia, la velocidad necesaria para el equilibrio orbital es menor.",
+        "3": "Incorrecto. Como se dedujo, la masa del satélite se cancela en la ecuación orbital."
+      }
+    }
+  ]
+}

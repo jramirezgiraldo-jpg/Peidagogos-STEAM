@@ -1,0 +1,188 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Cuál es la fuerza principal que mantiene a los planetas girando alrededor del Sol?",
+      "opciones": [
+        "Magnetismo",
+        "Gravedad",
+        "Fricción",
+        "Electricidad"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Qué forma tiene la trayectoria de un planeta según lo que has escuchado?",
+      "opciones": [
+        "Círculo perfecto",
+        "Cuadrado",
+        "Elipse",
+        "Línea recta"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "¿Quién es el científico famoso por la ley de la gravitación universal?",
+      "opciones": [
+        "Isaac Newton",
+        "Charles Darwin",
+        "Nikola Tesla",
+        "Albert Einstein"
+      ],
+      "correcta": 0
+    }
+  ],
+  "texto_inductivo": "¡Qué onda, mis futuros astrofísicos! Bienvenidos a un nuevo 'vlog' desde el lugar con la mejor vista de toda la galaxia: la cúpula de la Estación Espacial Internacional (ISS). Soy su YouTuber científico de confianza y hoy vamos a resolver un misterio que ha dejado a la humanidad rascándose la cabeza por milenios. Imaginen que están aquí conmigo, flotando en microgravedad, mirando por la ventana hacia el vacío oscuro salpicado de estrellas. ¿Alguna vez se han preguntado por qué la Tierra no sale disparada hacia el infinito o por qué la Luna no se nos cae encima de una vez por todas? \n\nPara entender esto, primero debemos pensar en lo que vemos. Desde aquí arriba, todo parece estar en una calma perfecta, pero en realidad, estamos moviéndonos a unos 28,000 kilómetros por hora. ¡Eso es ridículamente rápido! Lo que experimentamos aquí es un fenómeno extraño: estamos en una 'caída libre' perpetua. Los antiguos, como Ptolomeo, pensaban que la Tierra era el centro de todo y que los planetas se movían en círculos perfectos porque el cielo era 'divino'. Pero cuando los astrónomos empezaron a mirar con más detalle, notaron cosas raras. Por ejemplo, a veces Marte parecía detenerse y retroceder en el cielo. ¡Un fenómeno súper loco llamado movimiento retrógrado! \n\nEsto nos lleva a pensar en la inercia. Si yo lanzo mi cámara aquí en la ISS, seguirá moviéndose en línea recta hasta que golpee una pared. En el espacio profundo, si lanzas una piedra, viajaría por siempre. Entonces, ¿qué está 'curvando' el camino de los planetas? Aquí entra nuestro protagonista: la Gravedad. Imaginen que el Sol es una bola de boliche pesada sobre una cama elástica. La cama se hunde, ¿cierto? Si lanzas una canica a los lados, no irá en línea recta, sino que girará alrededor de la bola de boliche. ¡Eso es una órbita! El fenómeno extraño que queremos explicar es precisamente ese equilibrio: la velocidad del planeta quiere mandarlo lejos (inercia), pero la gravedad del Sol lo jala hacia adentro. Es como un juego de 'tira y afloja' cósmico que nunca termina. \n\nEn esta semana 1 de nuestro tercer periodo, vamos a revisar cómo pasamos de creer que éramos el centro del universo a entender que somos parte de un sistema coreografiado por leyes físicas invisibles. No es solo magia espacial; es pura ciencia que podemos medir. Observar el movimiento planetario es como ser un detective galáctico. Tenemos que mirar las pistas: ¿qué tan rápido se mueven?, ¿qué tan lejos están?, ¿por qué su brillo cambia? Acompañenme en este viaje de exploración donde la curiosidad es nuestro combustible principal. Preparen sus bitácoras, ajusten sus cascos y prepárense para ver el sistema solar como nunca antes lo habían visto. ¡Suscríbanse al conocimiento y denle click a esa campana de la sabiduría científica!",
+  "recurso_visual": "graph TD\n    A[Movimiento Planetario] --> B(Inercia)\n    A --> C(Gravedad)\n    B --> D[Tiende a ir en línea recta]\n    C --> E[Jala hacia el centro del Sol]\n    D & E --> F{Órbita Elíptica}\n    F --> G[Leyes de Kepler]",
+  "preguntas_inductivas_pagina": [
+    "¿Qué sensación experimentan los astronautas en la ISS respecto a la gravedad?",
+    "¿Cómo explicaban los antiguos el movimiento de los planetas antes de la ciencia moderna?",
+    "¿Qué sucede con un objeto en el espacio si no hay fuerzas que actúen sobre él?",
+    "¿Cuál es la analogía de la 'cama elástica' para explicar la gravedad?",
+    "¿Qué es el movimiento retrógrado mencionado en el video?"
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema del Sol y la Tierra donde representes con flechas la fuerza de gravedad y la dirección de la inercia.",
+    "Realiza un cuadro comparativo entre el modelo Geocéntrico (Ptolomeo) y el modelo Heliocéntrico (Copérnico).",
+    "Escribe una reflexión de 10 renglones: ¿Cómo cambiaría nuestra vida si la gravedad del Sol desapareciera de repente?",
+    "Representa gráficamente mediante un dibujo cómo te imaginas el 'hunde' que provoca el Sol en el espacio-tiempo según el texto."
+  ],
+  "juegos_ordenar_letras_1": [
+    "GRAVEDAD",
+    "INERCIA",
+    "ORBITA"
+  ],
+  "juego_ordenar_frase_1": "LA GRAVEDAD CURVA EL ESPACIO MANTENIENDO A LOS PLANETAS EN SU SITIO",
+  "texto_deductivo": "¡Hola de nuevo, tripulación! Ahora que ya nos emocionamos con la vista, es momento de sacar nuestras computadoras de vuelo y ponernos serios con los datos. Para explicar el fenómeno extraño de por qué los planetas se mueven como lo hacen, no podemos ignorar a un genio que trabajó con datos antes de que existieran las calculadoras: Johannes Kepler. Él no solo miró las estrellas; él analizó las anotaciones de Tycho Brahe y descubrió tres reglas de oro, conocidas como las Leyes de Kepler. \n\nLa Primera Ley nos dice que los planetas no se mueven en círculos perfectos, sino en elipses. Una elipse es como un círculo aplastado. El Sol no está en el centro, sino en uno de los 'focos'. Esto explica por qué a veces la Tierra está más cerca del Sol (perihelio) y otras veces más lejos (afelio). ¡Boom! Rompiendo mitos desde 1609. \n\nLa Segunda Ley es la que explica nuestro fenómeno extraño de la semana: la variación de la velocidad. Kepler notó que una línea imaginaria que conecta al planeta con el Sol barre 'áreas iguales en tiempos iguales'. ¿Qué significa esto en lenguaje humano? Que cuando un planeta está más cerca del Sol, se mueve mucho más rápido que cuando está lejos. Es como si el planeta tuviera prisa por salir de la zona caliente y luego se relajara en las zonas frías. Esto ocurre para conservar algo llamado 'momento angular'. Es el mismo efecto que ves cuando un patinador sobre hielo encoge los brazos y gira más rápido. \n\nFinalmente, la Tercera Ley conecta a todos los planetas. Nos dice que el cuadrado del periodo orbital (el tiempo que tarda en dar una vuelta) es proporcional al cubo de su distancia promedio al Sol. Básicamente, mientras más lejos está un planeta, no solo tiene un camino más largo que recorrer, sino que además viaja más lento. Por eso Mercurio es un bólido que completa su año en 88 días, mientras que Neptuno se toma unos relajados 165 años terrestres. \n\nIsaac Newton llegó después para ponerle la cereza al pastel. Él explicó el 'por qué' con su Ley de Gravitación Universal: la fuerza de atracción depende de la masa de los objetos y de la distancia que los separa. A más masa, más atracción; a más distancia, mucha menos atracción. Esta fuerza es la que mantiene el equilibrio perfecto. Si la Tierra fuera más lenta, la gravedad nos absorbería hacia el Sol. Si fuera más rápida, saldríamos volando hacia el espacio interestelar. Estamos en el punto dulce de la velocidad y la distancia. Entender esto nos permite hoy enviar sondas a Marte o telescopios como el James Webb con una precisión milimétrica. La física no es solo fórmulas, es el manual de instrucciones del universo que estamos leyendo juntos aquí en la ISS. ¡Sigan analizando, sigan preguntando y nunca dejen de mirar hacia arriba!",
+  "preguntas_deductivas_pagina": [
+    "¿Qué forma tienen realmente las órbitas planetarias según Kepler?",
+    "¿En qué punto de la órbita un planeta se mueve a su máxima velocidad?",
+    "¿Qué establece la Segunda Ley de Kepler sobre las áreas barridas?",
+    "¿Cómo influye la distancia al Sol en el tiempo que tarda un planeta en dar una vuelta completa?",
+    "¿Cuáles son los dos factores de los que depende la fuerza de gravedad según Newton?"
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Realiza un diagrama detallado de una órbita elíptica, señalando los focos, el Sol, el perihelio y el afelio.",
+    "Elabora un mapa mental que conecte las tres Leyes de Kepler con la Ley de Gravitación de Newton.",
+    "Dibuja una escena donde un planeta barre áreas iguales en tiempos iguales, usando colores para diferenciar las secciones.",
+    "Crea una infografía artesanal que explique por qué los planetas exteriores tardan más años en orbitar que los interiores."
+  ],
+  "juegos_ordenar_letras_2": [
+    "ELIPSE",
+    "PERIHELIO",
+    "AFELIO"
+  ],
+  "juego_ordenar_frase_2": "LAS LEYES DE KEPLER DESCRIBEN LA MATEMATICA DEL MOVIMIENTO CELESTE",
+  "sopa_letras": [
+    "KEPLER",
+    "NEWTON",
+    "ELIPSE",
+    "SOL",
+    "FOCO",
+    "MASA",
+    "RADIO",
+    "ORBITA",
+    "PLANETA",
+    "FUERZA"
+  ],
+  "crucigrama": [
+    {
+      "palabra": "ELIPSE",
+      "pista": "Forma geométrica de la órbita de un planeta."
+    },
+    {
+      "palabra": "PERIHELIO",
+      "pista": "Punto de la órbita donde el planeta está más cerca del Sol."
+    },
+    {
+      "palabra": "GRAVEDAD",
+      "pista": "Fuerza invisible que atrae a los cuerpos con masa."
+    },
+    {
+      "palabra": "NEWTON",
+      "pista": "Científico que formuló la ley de gravitación universal."
+    },
+    {
+      "palabra": "AFELIO",
+      "pista": "Punto de la órbita más alejado del Sol."
+    },
+    {
+      "palabra": "INERCIA",
+      "pista": "Resistencia de un cuerpo a cambiar su estado de movimiento."
+    },
+    {
+      "palabra": "FOCO",
+      "pista": "Lugar donde se sitúa el Sol dentro de la elipse."
+    },
+    {
+      "palabra": "PERIODO",
+      "pista": "Tiempo que tarda un planeta en completar una órbita."
+    },
+    {
+      "palabra": "MARTE",
+      "pista": "Planeta que mostraba un movimiento retrógrado confuso para los antiguos."
+    },
+    {
+      "palabra": "ACELERACION",
+      "pista": "Lo que experimenta un planeta al acercarse al Sol."
+    }
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "En el sistema solar, se observa que los planetas no mantienen una velocidad constante durante todo su recorrido alrededor del Sol. La siguiente tabla muestra la velocidad orbital de un planeta ficticio en dos puntos de su trayectoria.",
+      "tabla_o_grafica_markdown": "| Posición | Distancia al Sol (UA) | Velocidad (km/s) |\n|---|---|---|\n| Punto A | 0.5 | 50 |\n| Punto B | 1.5 | 20 |",
+      "pregunta": "¿Por qué el planeta aumenta su velocidad al pasar del punto B al punto A?",
+      "opciones": [
+        "Porque al estar más cerca del Sol, la fuerza gravitacional aumenta provocando una mayor aceleración.",
+        "Porque en el punto A el planeta tiene menos masa y se mueve más ligero.",
+        "Porque el espacio en el punto A es más denso y lo empuja con más fuerza.",
+        "Porque el Sol repele al planeta cuando está muy cerca."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. Según la segunda ley de Kepler y la gravitación de Newton, a menor distancia la fuerza de atracción es mayor, aumentando la velocidad.",
+        "1": "Incorrecto. La masa del planeta no cambia según su posición en la órbita.",
+        "2": "Incorrecto. El espacio exterior es prácticamente vacío, no hay densidad que empuje al planeta.",
+        "3": "Incorrecto. El Sol siempre ejerce una fuerza de atracción, nunca de repulsión gravitatoria."
+      }
+    },
+    {
+      "competencia": "Uso comprensivo del conocimiento científico",
+      "texto_introductorio": "La tercera ley de Kepler establece una relación matemática entre el tiempo que tarda un planeta en orbitar (T) y su distancia media al Sol (R).",
+      "tabla_o_grafica_markdown": "| Planeta | Distancia Media (UA) | Periodo (Años) |\n|---|---|---|\n| Tierra | 1.0 | 1.0 |\n| Marte | 1.5 | 1.8 |",
+      "pregunta": "Si descubriéramos un planeta X con una distancia media de 4 UA, ¿qué se podría afirmar sobre su periodo orbital?",
+      "opciones": [
+        "Su periodo será de 1 año igual que la Tierra.",
+        "Su periodo será menor a 1 año.",
+        "Su periodo será mayor a 1.8 años.",
+        "El planeta no puede tener periodo orbital."
+      ],
+      "correcta": 2,
+      "retroalimentacion": {
+        "0": "Incorrecto. A mayor distancia, el periodo necesariamente aumenta.",
+        "1": "Incorrecto. Solo los planetas más cercanos que la Tierra tienen periodos menores a un año.",
+        "2": "Correcto. Al estar más lejos que Marte (1.5 UA), su periodo debe ser significativamente mayor según la tercera ley de Kepler.",
+        "3": "Incorrecto. Todo cuerpo orbitando una estrella tiene un periodo definido."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "Un estudiante observa que Júpiter tarda mucho más tiempo en dar la vuelta al Sol que la Tierra. Él diseña un experimento con pesas y cuerdas para simular órbitas.",
+      "tabla_o_grafica_markdown": "| Longitud de Cuerda (cm) | Tiempo de 10 vueltas (s) |\n|---|---|\n| 20 | 5 |\n| 40 | 8 |\n| 60 | 12 |",
+      "pregunta": "¿Qué conclusión puede sacar el estudiante de sus datos experimentales en relación con los planetas?",
+      "opciones": [
+        "La longitud de la cuerda no afecta la velocidad del giro.",
+        "A mayor radio de giro, el tiempo necesario para completar una vuelta aumenta.",
+        "A menor radio de giro, el objeto se mueve más lento.",
+        "El tiempo de giro es independiente de la distancia al centro."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. Los datos muestran que el tiempo cambia de 5 a 12 segundos.",
+        "1": "Correcto. Los datos muestran una tendencia clara: al aumentar la longitud (radio), aumenta el tiempo (periodo).",
+        "2": "Incorrecto. Los datos muestran que a 20 cm el tiempo es menor, lo que implica mayor rapidez.",
+        "3": "Incorrecto. La tabla demuestra que hay una dependencia directa entre distancia y tiempo."
+      }
+    }
+  ]
+}

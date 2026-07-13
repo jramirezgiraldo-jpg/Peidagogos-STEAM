@@ -1,0 +1,168 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Cuál es la fuerza principal que mantiene a la Estación Espacial Internacional (EEI) atrapada en su órbita alrededor de la Tierra sin salir disparada al espacio profundo?",
+      "opciones": [
+        "La fuerza electromagnética del núcleo terrestre",
+        "La fuerza de gravedad",
+        "La presión del viento solar",
+        "La inercia generada por sus motores de plasma"
+      ],
+      "correcta": 1
+    }
+  ],
+  "texto_inductivo": "Saludos, reclutas del sector orbital. Soy su Tech Hacker de confianza, y si están leyendo esto es porque han sobrevivido a la fase de inducción básica. Bienvenidos a la Estación Espacial Internacional (EEI), un entorno donde la física no es una teoría en un tablero, sino la diferencia entre respirar y convertirse en polvo cósmico. En este Modo Supervivencia, nuestra prioridad es entender el **movimiento planetario**. Muchos creen que aquí arriba no hay gravedad, pero eso es un error de novato. Si no hubiera gravedad, saldríamos disparados tangencialmente hacia el vacío. Estamos en una caída libre perpetua, pero con la velocidad suficiente para 'fallarle' al suelo. Para dominar este entorno, debemos revisar el legado de Johannes Kepler. **Primera Ley de Kepler (Ley de las Órbitas):** Los planetas (y nosotros, en esta lata de metal) nos movemos en elipses, no en círculos perfectos, con el cuerpo masivo en uno de los focos. Nuestra órbita es casi circular, pero esa pequeña excentricidad determina nuestras ventanas de reabastecimiento. **Segunda Ley de Kepler (Ley de las Áreas):** Una línea imaginaria que conecte a la Tierra con la EEI barre áreas iguales en tiempos iguales. ¿Qué significa esto para su supervivencia? Que cuando estamos más cerca de la Tierra (perigeo), nos movemos más rápido que cuando estamos más lejos (apogeo). Hackear estos cambios de velocidad es vital para interceptar cápsulas de suministros. **Tercera Ley de Kepler (Ley de los Periodos):** El cuadrado del periodo orbital es proporcional al cubo de la distancia media. Si queremos orbitar a una altitud mayor para evitar el rozamiento atmosférico, *obligatoriamente* tardaremos más en completar una vuelta. No es una elección, es una ley del hardware cósmico. Antes de Kepler, el modelo de Ptolomeo nos tenía atrapados en círculos perfectos y epiciclos absurdos. Copérnico puso el Sol en el centro, pero fue Kepler quien, usando los datos precisos de Tycho Brahe, descifró el código del movimiento real. Aquí en la EEI, entender estas leyes es lo que nos permite predecir dónde estaremos en 90 minutos, el tiempo que tardamos en dar una vuelta completa al planeta a 28,000 km/h. Si fallamos en el cálculo de nuestra posición orbital, el sistema de navegación fallará, las antenas de comunicación no apuntarán a las bases terrestres y quedaremos en silencio de radio. La física orbital es nuestro sistema operativo base; si no conoces el código, no controlas la máquina. Estamos en una danza constante de energías. La energía cinética de nuestra velocidad lucha contra el pozo gravitatorio de la Tierra. Este equilibrio delicado es lo que llamamos órbita. En esta semana, vamos a desglosar cómo estos principios que rigen a los gigantes gaseosos y a los planetas rocosos son exactamente los mismos que rigen nuestra frágil supervivencia en el espacio cercano. Prepárense para recalibrar sus cerebros, porque en el vacío, la intuición terrestre es su peor enemiga.",
+  "recurso_visual": "graph TD\n    A[Movimiento Planetario] --> B[Leyes de Kepler]\n    B --> C[1ra Ley: Elipses]\n    B --> D[2da Ley: Áreas Iguales]\n    B --> E[3ra Ley: Periodos T^2/a^3]\n    C --> F[Foco: El Sol o la Tierra]\n    D --> G[Velocidad variable: Más rápido en Perigeo]\n    E --> H[Relación Distancia-Tiempo]\n    H --> I[A mayor radio, mayor periodo]",
+  "preguntas_inductivas_pagina": [
+    "¿Por qué se dice que la EEI está en 'caída libre perpetua'?",
+    "¿Cuál es la diferencia fundamental entre una órbita circular y una elíptica según Kepler?",
+    "¿En qué punto de la órbita la EEI alcanza su velocidad máxima?",
+    "Si la EEI subiera a una órbita más alta, ¿tardaría más o menos tiempo en dar una vuelta a la Tierra?",
+    "¿Qué papel jugaron los datos de Tycho Brahe en el descubrimiento de Kepler?"
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema de una órbita elíptica exagerada, señalando los focos, el perigeo, el apogeo y sombreando dos áreas iguales según la Segunda Ley de Kepler.",
+    "Realiza un cuadro comparativo entre el modelo Geocéntrico de Ptolomeo y el modelo Heliocéntrico de Kepler, destacando la forma de las órbitas y el centro del sistema.",
+    "Redacta una reflexión de 15 líneas sobre cómo la Tercera Ley de Kepler afectaría la logística de una misión a Marte en comparación con la permanencia en la EEI.",
+    "Representa gráficamente mediante un diagrama de vectores la relación entre la velocidad tangencial de la EEI y la fuerza de atracción gravitatoria."
+  ],
+  "juegos_ordenar_letras_1": [
+    "KEPLER",
+    "ELIPSE",
+    "GRAVEDAD"
+  ],
+  "juego_ordenar_frase_1": "EL CUADRADO DEL PERIODO ES PROPORCIONAL AL CUBO DEL RADIO DE LA ORBITA",
+  "texto_deductivo": "Escuchen bien, el análisis inductivo nos dio el 'qué', ahora vamos por el 'cómo' y el 'por qué' matemático: el **Hackeo de Newton**. Si Kepler fue el que observó el patrón, Isaac Newton fue quien escribió el compilador para que ese patrón tuviera sentido universal. La **Ley de Gravitación Universal** es el script definitivo: F = G * (m1 * m2) / r². Esta ecuación nos dice que la fuerza de atracción depende directamente de las masas e inversamente del cuadrado de la distancia. Pero aquí está el truco de supervivencia: al igualar la fuerza gravitatoria con la fuerza centrípeta (m * v² / r), podemos deducir la velocidad necesaria para mantenernos en órbita. ¡Bingo! La masa de la EEI desaparece de la ecuación. No importa si la estación pesa 450 toneladas o si es un pequeño tornillo suelto; a la misma altura, todos deben viajar a la misma velocidad para no caer. Esto explica por qué cuando un astronauta sale a realizar una caminata espacial (EVA), no sale disparado ni se queda atrás, sino que flota junto a la estación: ambos comparten el mismo vector de velocidad orbital. Sin embargo, la EEI enfrenta un enemigo silencioso: la **exosfera**. Aunque estamos en el espacio, todavía hay rastros de moléculas de aire que generan una resistencia mínima pero constante. Este 'drag' atmosférico reduce nuestra energía cinética, lo que según la física orbital, nos hace caer a una órbita más baja donde la densidad del aire es mayor, aumentando el efecto. Es un bucle de retroalimentación positiva mortal. Por eso, periódicamente, debemos ejecutar un 're-boost', encendiendo los motores de las naves acopladas para recuperar velocidad. El movimiento planetario no es estático. Newton demostró que las leyes de Kepler son consecuencias naturales de la gravedad. La elipse no es un capricho de la naturaleza, es la solución matemática a un cuerpo moviéndose bajo una fuerza que disminuye con el cuadrado de la distancia. Para sobrevivir aquí, deben entender que el espacio-tiempo está curvado por la masa de la Tierra, y nosotros simplemente estamos siguiendo la línea de menor resistencia en esa curvatura. Si la velocidad de la estación disminuye apenas un 5%, nuestra trayectoria elíptica se intersectaría con la atmósfera densa y nos convertiríamos en una estrella fugaz antes de poder decir 'Houston'. El dominio de la mecánica celeste nos permite también realizar maniobras de asistencia gravitatoria, aunque aquí en órbita terrestre baja (LEO), nuestro enfoque es el mantenimiento de la estabilidad. Recuerden: la física es el único lenguaje que el universo no puede fingir. Si ignoran una variable en su cálculo de órbita, la realidad ejecutará un comando de terminación sobre sus vidas. La precisión es nuestra mejor herramienta de hackeo contra la entropía del vacío.",
+  "preguntas_deductivas_pagina": [
+    "¿Por qué la masa de la EEI no influye en la velocidad necesaria para mantener su órbita?",
+    "¿Qué sucede con la fuerza de gravedad si duplicamos la distancia entre dos objetos?",
+    "¿Cuál es la función de los 're-boosts' en la Estación Espacial Internacional?",
+    "¿Cómo dedujo Newton la Tercera Ley de Kepler a partir de su Ley de Gravitación Universal?",
+    "¿Por qué un astronauta en una caminata espacial no cae hacia la Tierra de forma inmediata?"
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Realiza un diagrama detallado que muestre las fuerzas actuando sobre la EEI (Fuerza gravitatoria y velocidad tangencial) y explica el concepto de equilibrio dinámico.",
+    "Elabora un mapa mental que conecte la Ley de Gravitación Universal de Newton con las tres leyes de Kepler, usando conectores lógicos.",
+    "Dibuja un gráfico explicativo de 'Altitud vs. Velocidad Orbital', demostrando por qué los satélites más bajos deben ir más rápido.",
+    "Diseña una infografía artesanal que explique el proceso de caída de órbita por rozamiento atmosférico y cómo se corrige mediante propulsión."
+  ],
+  "juegos_ordenar_letras_2": [
+    "NEWTON",
+    "ORBITA",
+    "INERCIA"
+  ],
+  "juego_ordenar_frase_2": "LA FUERZA DE GRAVEDAD DISMINUYE CON EL CUADRADO DE LA DISTANCIA ENTRE LOS CUERPOS",
+  "sopa_letras": [
+    "KEPLER",
+    "NEWTON",
+    "ORBITA",
+    "FOCO",
+    "ELIPSE",
+    "PERIODO",
+    "RADIO",
+    "MASA",
+    "INERCIA",
+    "APOGEO"
+  ],
+  "crucigrama": [
+    {
+      "palabra": "PERIGEO",
+      "pista": "Punto de la órbita más cercano a la Tierra."
+    },
+    {
+      "palabra": "EXCENTRICIDAD",
+      "pista": "Medida de qué tan estirada está una elipse."
+    },
+    {
+      "palabra": "UNIVERSAL",
+      "pista": "Tipo de constante 'G' en la ley de Newton."
+    },
+    {
+      "palabra": "CENTRIPETA",
+      "pista": "Fuerza que busca el centro del giro."
+    },
+    {
+      "palabra": "TRAYECTORIA",
+      "pista": "Camino que sigue un cuerpo en el espacio."
+    },
+    {
+      "palabra": "PERIODO",
+      "pista": "Tiempo necesario para completar una órbita."
+    },
+    {
+      "palabra": "FOCO",
+      "pista": "Uno de los dos puntos internos de una elipse."
+    },
+    {
+      "palabra": "GRAVITACION",
+      "pista": "Fenómeno de atracción entre masas."
+    },
+    {
+      "palabra": "INERCIA",
+      "pista": "Resistencia al cambio de movimiento."
+    },
+    {
+      "palabra": "ESCUDO",
+      "pista": "Lo que la atmósfera es para los meteoritos (metafóricamente)."
+    }
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "La Segunda Ley de Kepler establece que el radio vector que une al sol con un planeta barre áreas iguales en tiempos iguales. En la EEI, esto se aplica a su giro alrededor de la Tierra.",
+      "tabla_o_grafica_markdown": "| Posición | Distancia al Centro (km) | Velocidad (km/s) |\n|---|---|---|\n| Perigeo | 6771 | 7.71 |\n| Apogeo | 6800 | 7.67 |",
+      "pregunta": "De acuerdo con la tabla y la segunda ley de Kepler, ¿por qué la velocidad es mayor en el perigeo?",
+      "opciones": [
+        "Porque para barrer la misma área en el mismo tiempo estando más cerca, debe recorrer un arco de trayectoria mayor.",
+        "Porque la gravedad es menor en el perigeo y permite más velocidad.",
+        "Porque el motor de la estación se enciende automáticamente al detectar cercanía.",
+        "Porque la inercia disminuye al estar cerca de la masa mayor."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. A menor radio, se requiere una mayor velocidad lineal para cubrir un área equivalente en el mismo intervalo de tiempo.",
+        "1": "Incorrecto. La gravedad es mayor en el perigeo, no menor.",
+        "2": "Incorrecto. El cambio de velocidad es un efecto natural de la órbita elíptica, no requiere motores.",
+        "3": "Incorrecto. La inercia es una propiedad de la masa y no disminuye por la posición."
+      }
+    },
+    {
+      "competencia": "Uso comprensivo del conocimiento científico",
+      "texto_introductorio": "La Ley de Gravitación Universal indica que F = G * M * m / r². Un satélite de comunicaciones se encuentra a una distancia R de la Tierra.",
+      "tabla_o_grafica_markdown": "| Variable | Cambio aplicado |\n|---|---|\n| Distancia (r) | Se duplica (2R) |\n| Masa Tierra (M) | Se mantiene constante |",
+      "pregunta": "¿Qué sucede con la fuerza de atracción gravitatoria sobre el satélite si su distancia al centro de la Tierra se duplica?",
+      "opciones": [
+        "La fuerza se reduce a la mitad.",
+        "La fuerza se reduce a la cuarta parte.",
+        "La fuerza se duplica.",
+        "La fuerza se cuadruplica."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. La relación es con el cuadrado de la distancia, no lineal.",
+        "1": "Correcto. Al estar en el denominador y elevada al cuadrado, (2)² = 4, la fuerza disminuye por un factor de 4.",
+        "2": "Incorrecto. La fuerza disminuye al aumentar la distancia.",
+        "3": "Incorrecto. Esto sucedería si la distancia se redujera a la mitad."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "Un grupo de astronautas observa que la EEI pierde altitud gradualmente. Ellos registran la altitud durante 4 semanas sin realizar maniobras de empuje.",
+      "tabla_o_grafica_markdown": "| Semana | Altitud promedio (km) |\n|---|---|\n| 1 | 418.5 |\n| 2 | 418.2 |\n| 3 | 417.9 |\n| 4 | 417.6 |",
+      "pregunta": "¿Cuál es la hipótesis más probable que explica esta pérdida constante de altitud según los principios de la física orbital?",
+      "opciones": [
+        "La gravedad de la Tierra está aumentando cada semana.",
+        "La EEI está perdiendo masa debido a las caminatas espaciales.",
+        "El rozamiento con las capas tenues de la atmósfera superior disipa energía cinética.",
+        "La Luna está empujando la estación hacia abajo con su gravedad."
+      ],
+      "correcta": 2,
+      "retroalimentacion": {
+        "0": "Incorrecto. La masa de la Tierra y la constante G no cambian significativamente.",
+        "1": "Incorrecto. La pérdida de masa no causa una caída de órbita (la masa se cancela en la ecuación de velocidad orbital).",
+        "2": "Correcto. El arrastre atmosférico reduce la velocidad, lo que resulta en una pérdida de altitud.",
+        "3": "Incorrecto. La influencia lunar es despreciable para este efecto de caída orbital baja comparado con la fricción."
+      }
+    }
+  ]
+}

@@ -1,0 +1,188 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Cuál es la forma geométrica que mejor describe la trayectoria de un planeta alrededor del Sol según las leyes de Kepler?",
+      "opciones": [
+        "Círculo perfecto",
+        "Elipse",
+        "Línea recta",
+        "Espiral"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Qué fuerza es la principal responsable de mantener a los planetas en su órbita?",
+      "opciones": [
+        "Magnetismo",
+        "Energía solar",
+        "Gravedad",
+        "Presión atmosférica"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "¿Qué sucede con la velocidad de un planeta cuando se acerca al Sol (perihelio)?",
+      "opciones": [
+        "Aumenta",
+        "Disminuye",
+        "Se mantiene constante",
+        "Se detiene"
+      ],
+      "correcta": 0
+    }
+  ],
+  "texto_inductivo": "Bitácora del Explorador Espacial, Día 1: Aterrizaje en el Sector Silvano-9. He cruzado la atmósfera de este planeta cubierto por una selva bioluminiscente tan densa que el dosel arbóreo oculta casi por completo el firmamento. Sin embargo, mi misión no es botánica, sino astrofísica. Al mirar a través de los claros entre las hojas gigantes, observo que los tres soles de este sistema no se mueven como dictarían los mapas estelares antiguos de la Tierra. Existe un mito persistente entre los cadetes novatos de la Flota Estelar: creen que el universo es un mecanismo de relojería perfecto donde los planetas trazan círculos exactos. Dicen que la perfección divina o estética exige que el cielo sea una serie de esferas perfectas. Pero aquí, en la espesura de Silvano-9, los instrumentos de mi traje de explorador cuentan una historia diferente. El mito del movimiento circular uniforme ha sido la trampa intelectual más longeva de nuestra especie. Durante siglos, desde Aristóteles hasta Copérnico, la humanidad se aferró a la idea de que los cielos eran inmutables y circulares. Pero la realidad es mucho más salvaje, como esta selva. Los planetas no 'quieren' ser perfectos; obedecen a la física de la caída libre y la inercia. Al observar el movimiento de la luna de este planeta, noto que no mantiene una distancia constante. Hay momentos donde parece precipitarse hacia nosotros y otros donde se aleja perezosamente. Este comportamiento no es un error de mis sensores, es la manifestación de la primera ley de un antiguo sabio terrestre llamado Johannes Kepler. Él descubrió que el círculo es solo un caso especial, casi inexistente, de una familia de curvas llamadas elipses. En esta expedición, debemos entender que la naturaleza no prefiere la simetría visual sobre la eficiencia física. El mito de las órbitas circulares se desmorona cuando intentamos predecir con exactitud dónde estará un astro en el futuro. Si las órbitas fueran círculos, las estaciones tendrían duraciones idénticas y el sol nunca cambiaría su tamaño aparente en el cielo. Pero aquí, mientras los helechos eléctricos crujen bajo mis botas, mis cálculos muestran que la excentricidad de la órbita de Silvano-9 es lo que genera sus violentos cambios climáticos. La selva misma es un subproducto de este movimiento elíptico. Para sobrevivir a esta expedición, debemos abandonar la comodidad del círculo y abrazar la complejidad de la elipse. No estamos en un sistema estático; estamos en un baile dinámico donde la velocidad cambia según la proximidad al centro de masa. El desafío épico de esta semana no es solo cartografiar esta selva, sino desterrar para siempre la idea de que el cielo es un conjunto de círculos perfectos. La física no es estética pura; es la descripción de la energía y la masa interactuando en el espacio-tiempo. Prepárense, reclutas, porque para entender el cosmos, primero debemos aprender a leer las irregularidades que la selva nos susurra.",
+  "recurso_visual": "graph TD\n    A[Mito: Órbitas Circulares] -->|Evidencia| B[Observaciones de Marte/Tycho Brahe]\n    B --> C[Realidad: Órbitas Elípticas]\n    C --> D[Consecuencia 1: Velocidad Variable - Ley de Áreas]\n    C --> E[Consecuencia 2: Distancia Variable - Perihelio/Afelio]\n    C --> F[Consecuencia 3: Relación Periodo-Distancia - Ley Armónica]\n    D --> G[Debunkeo: El movimiento no es uniforme]\n    E --> H[Debunkeo: El Sol no es el centro geométrico, es un foco]",
+  "preguntas_inductivas_pagina": [
+    "¿Por qué el explorador afirma que el círculo es una 'trampa intelectual'?",
+    "¿Qué evidencia observa el explorador en la luna de Silvano-9 que contradice el mito circular?",
+    "¿Cómo influye la excentricidad de la órbita en el clima de la selva según el texto?",
+    "¿Qué diferencia hay entre la visión de Copérnico y la de Kepler mencionada en la bitácora?",
+    "¿Por qué es necesario abandonar la 'comodidad del círculo' para sobrevivir en la expedición?"
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema del sistema de Silvano-9 mostrando la diferencia entre una órbita circular mítica y la órbita elíptica real, señalando los focos.",
+    "Realiza un cuadro comparativo entre el Modelo Geocéntrico (círculos) y el Modelo de Kepler (elipses) basado en la lectura.",
+    "Escribe una reflexión de 15 líneas sobre cómo los prejuicios estéticos (buscar la perfección) pueden retrasar el avance de la ciencia.",
+    "Representa gráficamente mediante un diagrama de barras cómo cambiaría la velocidad de un planeta en cuatro puntos diferentes de su trayectoria elíptica."
+  ],
+  "juegos_ordenar_letras_1": [
+    "ELIPSE",
+    "EXCENTRICIDAD",
+    "KEPLER"
+  ],
+  "juego_ordenar_frase_1": "LA NATURALEZA NO BUSCA LA PERFECCION DEL CIRCULO SINO LA EFICIENCIA DE LA ELIPSE",
+  "texto_deductivo": "Adentrándonos en el corazón de la selva, donde la gravedad parece fluctuar con el susurro del viento, es hora de aplicar el rigor matemático que sustenta nuestra supervivencia. El mito que hemos venido a desmentir —que los planetas se mueven en círculos perfectos a velocidades constantes— no solo es falso, sino que viola las leyes fundamentales de la energía. Para entender el movimiento planetario desde un punto de vista científico, debemos analizar la Ley de la Gravitación Universal de Newton en conjunto con las Leyes de Kepler. Newton demostró que la fuerza gravitatoria entre dos cuerpos es inversamente proporcional al cuadrado de la distancia que los separa. Si un planeta se moviera en un círculo perfecto con el Sol en el centro, la fuerza sería constante, pero en el universo real, las condiciones iniciales de formación de los sistemas estelares y las perturbaciones de otros cuerpos celestes hacen que las órbitas adopten formas cónicas, siendo la elipse la más común para sistemas estables. Al analizar la 'Segunda Ley de Kepler' o Ley de las Áreas, deducimos algo asombroso: el radio vector que une al planeta con el Sol barre áreas iguales en tiempos iguales. Esto significa que la velocidad orbital no es una constante. En la selva de Silvano-9, cuando estamos en el perihelio (el punto más cercano a nuestra estrella), el planeta debe moverse mucho más rápido para que la fuerza centrífuga equilibre la intensa atracción gravitatoria. Por el contrario, en el afelio, el movimiento se vuelve letárgico. Este cambio de velocidad es lo que desmiente el mito del 'Movimiento Circular Uniforme' en el cielo. Además, debemos considerar la 'Tercera Ley' o Ley Armónica, que establece que el cuadrado del periodo orbital es proporcional al cubo de la distancia media al Sol. Esta relación matemática (T² ∝ a³) es la que permite a nuestros navegantes espaciales calcular con precisión milimétrica las ventanas de lanzamiento. Si asumiéramos el mito de los círculos, nuestros cálculos de combustible y tiempo fallarían, dejándonos a la deriva en el vacío interestelar. La física deductiva nos enseña que el movimiento planetario es una lucha constante entre la inercia, que empuja al planeta a seguir de largo en línea recta, y la gravedad, que intenta arrastrarlo hacia el fuego de la estrella. El resultado no es la figura más simple (el círculo), sino la más equilibrada dinámicamente (la elipse). Al desmentir el mito popular, no solo corregimos un dato histórico; reclamamos una comprensión profunda de cómo la energía potencial gravitatoria se transforma continuamente en energía cinética y viceversa. En esta expedición, la precisión es nuestra única brújula. Si ignoramos la excentricidad de las órbitas, ignoramos la verdadera naturaleza del universo, una que es asimétrica, cambiante y regida por proporciones matemáticas que no siempre son evidentes a simple vista.",
+  "preguntas_deductivas_pagina": [
+    "¿Qué relación matemática existe entre la fuerza de gravedad y la distancia según Newton?",
+    "¿Qué ocurriría con la velocidad de un planeta si su órbita fuera un círculo perfecto?",
+    "Define perihelio y afelio en términos de energía cinética.",
+    "¿Por qué el círculo es considerado un 'caso especial' de la elipse en la física orbital?",
+    "¿Cómo ayuda la Tercera Ley de Kepler a los navegantes espaciales en el texto?"
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Diseña un diagrama detallado que ilustre la Segunda Ley de Kepler, sombreando las áreas 'barridas' en diferentes puntos de la órbita.",
+    "Elabora un mapa mental que conecte la Ley de Gravitación Universal con las tres leyes de Kepler.",
+    "Realiza un dibujo explicativo que muestre las fuerzas (vectores) actuando sobre un planeta en el perihelio y en el afelio.",
+    "Crea una infografía artesanal titulada 'El fin del mito circular', donde expliques por qué las órbitas son elípticas usando términos como inercia y gravedad."
+  ],
+  "juegos_ordenar_letras_2": [
+    "PERIHELIO",
+    "AFELIO",
+    "GRAVITACION"
+  ],
+  "juego_ordenar_frase_2": "EL CUADRADO DEL PERIODO ES PROPORCIONAL AL CUBO DE LA DISTANCIA MEDIA",
+  "sopa_letras": [
+    "KEPLER",
+    "ELIPSE",
+    "NEWTON",
+    "GRAVEDAD",
+    "ORBITA",
+    "FOCO",
+    "INERCIA",
+    "PERIODO",
+    "RADIO",
+    "AREA"
+  ],
+  "crucigrama": [
+    {
+      "palabra": "ELIPSE",
+      "pista": "Forma real de las órbitas planetarias."
+    },
+    {
+      "palabra": "PERIHELIO",
+      "pista": "Punto de la órbita más cercano al Sol."
+    },
+    {
+      "palabra": "AFELIO",
+      "pista": "Punto de la órbita más alejado del Sol."
+    },
+    {
+      "palabra": "KEPLER",
+      "pista": "Astrónomo que formuló las tres leyes del movimiento planetario."
+    },
+    {
+      "palabra": "EXCENTRICIDAD",
+      "pista": "Parámetro que mide qué tan 'achatada' es una elipse."
+    },
+    {
+      "palabra": "GRAVEDAD",
+      "pista": "Fuerza de atracción entre dos masas."
+    },
+    {
+      "palabra": "INERCIA",
+      "pista": "Tendencia de los cuerpos a mantener su estado de movimiento."
+    },
+    {
+      "palabra": "FOCO",
+      "pista": "Lugar que ocupa el Sol dentro de una elipse orbital."
+    },
+    {
+      "palabra": "NEWTON",
+      "pista": "Científico que explicó 'por qué' se mueven los planetas."
+    },
+    {
+      "palabra": "PERIODO",
+      "pista": "Tiempo que tarda un planeta en dar una vuelta completa."
+    }
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "Un satélite de investigación en la selva de Silvano-9 detecta que la velocidad del planeta aumenta significativamente en un tramo de su recorrido. El equipo de exploradores analiza los datos obtenidos en la siguiente tabla:",
+      "tabla_o_grafica_markdown": "| Posición | Distancia al Sol (UA) | Velocidad (km/s) |\n|---|---|---|\n| A | 0.95 | 32.5 |\n| B | 1.05 | 28.2 |",
+      "pregunta": "¿Cuál es la explicación física más coherente para el aumento de velocidad en la posición A?",
+      "opciones": [
+        "En la posición A, el planeta está en el perihelio y la fuerza gravitacional es mayor.",
+        "En la posición A, el planeta recibe más presión del viento solar, empujándolo.",
+        "El planeta es atraído por la gravedad de otros planetas cercanos en ese punto.",
+        "La selva genera un campo magnético que acelera el núcleo del planeta."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. Según la segunda ley de Kepler y la ley de gravitación de Newton, a menor distancia, mayor fuerza y mayor velocidad orbital.",
+        "1": "Incorrecto. El viento solar no tiene la magnitud necesaria para cambiar la velocidad orbital de esa manera.",
+        "2": "Incorrecto. Aunque ocurre (perturbaciones), la causa principal de la variación de velocidad en una órbita es la distancia al Sol.",
+        "3": "Incorrecto. Los campos magnéticos no rigen las velocidades orbitales de los planetas."
+      }
+    },
+    {
+      "competencia": "Uso Comprensivo del Conocimiento Científico",
+      "texto_introductorio": "Si un nuevo planeta descubierto en la periferia de la selva tiene una distancia media al Sol que es 4 veces mayor que la de Silvano-9...",
+      "tabla_o_grafica_markdown": "| Planeta | Distancia Media (a) | Periodo (T) |\n|---|---|---|\n| Silvano-9 | 1 u.a. | 1 año |\n| Nuevo Planeta | 4 u.a. | ? |",
+      "pregunta": "Aplicando la Tercera Ley de Kepler (T² = a³), ¿cuál sería el periodo orbital del nuevo planeta?",
+      "opciones": [
+        "4 años",
+        "8 años",
+        "16 años",
+        "64 años"
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. No es una relación lineal.",
+        "1": "Correcto. T² = 4³ = 64. Por lo tanto, T = raíz cuadrada de 64 = 8 años.",
+        "2": "Incorrecto. Error en el cálculo de la potencia o la raíz.",
+        "3": "Incorrecto. 64 es el cubo de la distancia, falta aplicar la raíz cuadrada para hallar T."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "Un grupo de estudiantes sostiene el mito de que 'las estaciones ocurren porque la Tierra está más cerca del Sol en verano y más lejos en invierno'. El explorador espacial les muestra que, de hecho, la Tierra está en el perihelio en enero (invierno del hemisferio norte).",
+      "tabla_o_grafica_markdown": "| Mes | Distancia Tierra-Sol (km) | Hemisferio Norte |\n|---|---|---|\n| Enero | 147 millones | Invierno |\n| Julio | 152 millones | Verano |",
+      "pregunta": "Basado en la evidencia presentada por el explorador, ¿qué se puede concluir sobre el mito de las estaciones?",
+      "opciones": [
+        "El mito es cierto, pero solo para el hemisferio sur.",
+        "La distancia al Sol no es la causa principal de las estaciones; la inclinación del eje terrestre lo es.",
+        "Las órbitas son en realidad círculos, por lo que la distancia nunca cambia.",
+        "El Sol se enfría en enero, por eso hace frío a pesar de estar más cerca."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. Aunque el sur coincide con el perihelio en su verano, la causa sigue siendo la inclinación.",
+        "1": "Correcto. La tabla demuestra que estamos más cerca en enero, lo que contradice que la cercanía cause el calor del verano (en el norte).",
+        "2": "Incorrecto. La tabla muestra claramente que la distancia varía, confirmando que las órbitas no son círculos.",
+        "3": "Incorrecto. La temperatura del Sol no fluctúa de esa manera estacionalmente."
+      }
+    }
+  ]
+}

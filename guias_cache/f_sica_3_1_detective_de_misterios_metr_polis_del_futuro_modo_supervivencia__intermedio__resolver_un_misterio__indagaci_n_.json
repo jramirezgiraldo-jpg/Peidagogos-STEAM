@@ -1,0 +1,188 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Cuál es la forma de las órbitas planetarias según las leyes de Kepler?",
+      "opciones": [
+        "Circular perfecta",
+        "Elíptica",
+        "Parabólica",
+        "Irregular"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Qué fuerza mantiene a los planetas en su órbita alrededor del Sol?",
+      "opciones": [
+        "Fuerza Magnética",
+        "Fuerza Nuclear",
+        "Fuerza Gravitacional",
+        "Fuerza de Fricción"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "¿Qué sucede con la velocidad de un planeta cuando está más cerca del Sol (perihelio)?",
+      "opciones": [
+        "Aumenta",
+        "Disminuye",
+        "Se detiene",
+        "Permanece constante"
+      ],
+      "correcta": 0
+    }
+  ],
+  "texto_inductivo": "Saludos, cadetes de la División de Vigilancia Estelar de Neo-Aethelgard. Soy el Detective Vance, y hoy nos enfrentamos a un caso que desafía la estabilidad de nuestra metrópolis flotante. El año es 2145. La red de satélites 'Argos', encargada de suministrar energía solar desde el cinturón orbital, ha comenzado a emitir alertas de desincronización. Si un solo satélite se sale de su ruta, la red colapsará y la ciudad quedará a oscuras bajo el invierno eterno de la estratosfera superior. Pero para entender hacia dónde van estos satélites, debemos entender primero cómo se han movido los mundos desde el inicio de los tiempos.\n\nEn la antigüedad de la Tierra Vieja, los hombres creían que eran el centro del universo. Ptolomeo diseñó un sistema de círculos dentro de círculos, una maquinaria compleja para mantener nuestro ego en el centro. Sin embargo, el misterio comenzó a resolverse cuando Nicolás Copérnico se atrevió a sugerir que el Sol era el verdadero eje de este baile. Pero los datos no cuadraban del todo... las órbitas circulares eran demasiado perfectas para un universo real y caótico. Fue aquí donde entró el gran Tycho Brahe, un detective de los cielos que recopiló los datos más precisos de su época sin usar siquiera un telescopio. Tras su muerte, su asistente, Johannes Kepler, heredó estos registros. Kepler no era un observador, era un analista de patrones, un descifrador de códigos celestes.\n\nKepler rompió la primera regla del diseño clásico: la perfección del círculo. Su **Primera Ley (Ley de las Órbitas)** establece que los planetas se mueven en elipses, con el Sol ocupando uno de los focos. En nuestro caso de Neo-Aethelgard, los satélites Argos siguen este mismo principio. No giran en círculos; se acercan y se alejan. Luego, Kepler notó algo extraño en la velocidad: los planetas no mantienen un ritmo constante. Su **Segunda Ley (Ley de las Áreas)** nos dice que una línea imaginaria que conecte al planeta con el Sol barre áreas iguales en tiempos iguales. Esto significa que cuando el satélite Argos-7 se acerca a la Tierra (perigeo), su velocidad debe aumentar drásticamente para cumplir con la ley física. Si no lo hace, simplemente caería hacia la atmósfera. Finalmente, Kepler descubrió la armonía matemática definitiva: su **Tercera Ley (Ley de los Periodos)**. El cuadrado del periodo orbital de cualquier planeta es proporcional al cubo del semieje mayor de su órbita ($T^2 \\propto r^3$). Esta es la llave del misterio. Si conocemos a qué distancia está un satélite, podemos predecir exactamente cuánto tardará en dar una vuelta completa.\n\nAhora, cadetes, el reporte indica que el Argos-7 ha tardado 15 minutos más de lo habitual en completar su órbita. ¿Es un fallo en los motores o es que su distancia media respecto al centro ha cambiado? Para resolver este misterio en el 'Modo Supervivencia', debemos aplicar estas leyes no como simples fórmulas, sino como las reglas del juego que rigen el cosmos. Si el tiempo de orbita cambió, la geometría de su elipse debe haber sufrido una alteración. ¿Qué causó este estiramiento orbital? ¿Fue la gravedad de un asteroide errante o una manipulación externa? Investiguen, analicen los focos y midan las áreas. La luz de Neo-Aethelgard depende de su capacidad para ver más allá de lo evidente y aplicar la cinemática planetaria a este rompecabezas sideral.",
+  "recurso_visual": "| Ley de Kepler | Descripción Visual | Implicación en el Movimiento |\n| :--- | :--- | :--- |\n| **1ª Ley: Órbitas** | Elipse con el Sol en un foco. | El planeta no mantiene una distancia fija al Sol. |\n| **2ª Ley: Áreas** | Triángulos curvos de igual área. | El planeta viaja más rápido cerca del Sol (Perihelio). |\n| **3ª Ley: Periodos** | Relación matemática $T^2 / a^3 = K$. | A mayor distancia del Sol, mayor es el tiempo del año planetario. |",
+  "preguntas_inductivas_pagina": [
+    "¿Por qué Kepler tuvo que abandonar la idea de las órbitas circulares?",
+    "¿En qué punto de la elipse un satélite alcanza su velocidad máxima?",
+    "¿Qué representan los 'focos' en la primera ley de Kepler?",
+    "¿Cómo ayuda la tercera ley a predecir el movimiento de nuevos cuerpos celestes?",
+    "¿Qué sucedería con el área barrida si el tiempo de observación se duplica?"
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja una elipse detallada identificando: focos, eje mayor, eje menor y la posición del Sol en uno de los focos.",
+    "Realiza un cuadro comparativo entre el modelo Geocéntrico (Ptolomeo) y el modelo Heliocéntrico (Copérnico/Kepler).",
+    "Escribe una reflexión de 15 líneas sobre cómo el cambio de círculos a elipses transformó nuestra visión de la perfección en la naturaleza.",
+    "Representa gráficamente la Segunda Ley de Kepler, sombreando dos áreas iguales pero con bases de diferente longitud para mostrar la diferencia de velocidad."
+  ],
+  "juegos_ordenar_letras_1": [
+    "ELIPSE",
+    "PERIODO",
+    "PLANETA"
+  ],
+  "juego_ordenar_frase_1": "LAS ORBITAS SON ELIPSES CON EL SOL EN UN FOCO",
+  "texto_deductivo": "Cadetes, han demostrado gran habilidad analizando el 'cómo' se mueven los cuerpos celestes a través de Kepler. Pero un detective de Neo-Aethelgard no se detiene ante la descripción; un detective exige saber el 'porqué'. Entramos en la fase de deducción profunda. Casi un siglo después de Kepler, Sir Isaac Newton tomó las piezas del rompecabezas y reveló el motor oculto del universo: la Gravedad. Mientras Kepler nos dio el mapa, Newton nos dio la fuerza. La **Ley de Gravitación Universal** establece que cada partícula de materia en el universo atrae a cualquier otra partícula con una fuerza que es directamente proporcional al producto de sus masas e inversamente proporcional al cuadrado de la distancia que las separa ($F = G \\cdot m_1 \\cdot m_2 / r^2$).\n\nAnalicemos el caso del Argos-7 bajo esta nueva luz. Si la masa de la Tierra es colosal y la del satélite es pequeña, la atracción es mutua, pero la aceleración la sufre el satélite. Sin embargo, ¿por qué el satélite no cae directamente hacia nosotros? Aquí entra la inercia. El satélite está en una caída libre perpetua. Tiene una velocidad tangencial tan alta que, mientras la gravedad lo tira hacia abajo, la curvatura de su trayectoria coincide exactamente con la curvatura de la Tierra. Si la velocidad del Argos-7 disminuye debido a la fricción con restos de basura espacial (un problema común en nuestra metrópolis futura), la gravedad gana la partida, la órbita se encoge y el satélite se estrella. \n\nPero hay más. La masa no solo atrae, define el espacio-tiempo. Aunque en este nivel intermedio nos enfocamos en la mecánica clásica, debemos entender que la gravedad es la razón detrás de la Tercera Ley de Kepler. Newton demostró matemáticamente que la constante de proporcionalidad que Kepler observó depende de la masa del cuerpo central (el Sol o la Tierra). Por lo tanto, si el Argos-7 se ha desviado, debemos investigar si su masa ha cambiado por una fuga de combustible criogénico o si hay una masa invisible (materia oscura o un drone saboteador) ejerciendo una fuerza adicional. \n\nEn la Metrópolis del Futuro, la navegación espacial no es solo geometría; es un balance de fuerzas dinámicas. La fuerza gravitatoria actúa como una cuerda invisible que mantiene a los mundos unidos. Si cortas la cuerda, el planeta sale disparado en línea recta debido a la primera ley de Newton (Inercia). Si la cuerda es demasiado fuerte, el planeta es devorado por su estrella. El misterio de la desincronización de la red Argos se reduce a una ecuación de equilibrio. Ustedes deben calcular la fuerza necesaria para mantener la estabilidad y deducir si la anomalía es natural o provocada por la mano humana. La física es la única ley que nadie puede romper en esta ciudad, ni siquiera los criminales más astutos del submundo tecnológico.",
+  "preguntas_deductivas_pagina": [
+    "¿Qué sucede con la fuerza de gravedad si la distancia entre dos cuerpos se triplica?",
+    "¿Por qué se dice que un satélite está en 'caída libre' permanente?",
+    "¿Cómo se relaciona la masa de un planeta con la fuerza que ejerce sobre sus lunas?",
+    "¿Qué función cumple la Constante de Gravitación Universal (G) en la ecuación de Newton?",
+    "¿Qué pasaría con la órbita de la Tierra si el Sol desapareciera instantáneamente?"
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Diseña un diagrama detallado de fuerzas (vectores) para un satélite en órbita circular, mostrando la fuerza gravitatoria y la velocidad tangencial.",
+    "Elabora un mapa mental que conecte las Tres Leyes de Kepler con la Ley de Gravitación Universal de Newton.",
+    "Realiza un dibujo explicativo que demuestre el experimento mental del 'Cañón de Newton' y cómo un proyectil se convierte en satélite.",
+    "Crea una infografía artesanal sobre la biografía de Newton y sus aportes fundamentales a la física del movimiento planetario."
+  ],
+  "juegos_ordenar_letras_2": [
+    "GRAVEDAD",
+    "INERCIA",
+    "ATRACCION"
+  ],
+  "juego_ordenar_frase_2": "LA FUERZA DEPENDE DE LA MASA Y LA DISTANCIA",
+  "sopa_letras": [
+    "KEPLER",
+    "NEWTON",
+    "ELIPSE",
+    "GRAVEDAD",
+    "ORBITA",
+    "FOCO",
+    "PERIODO",
+    "MASA",
+    "INERCIA",
+    "ASTRO"
+  ],
+  "crucigrama": [
+    {
+      "palabra": "ELIPSE",
+      "pista": "Forma geométrica de la trayectoria de un planeta."
+    },
+    {
+      "palabra": "PERIHELIO",
+      "pista": "Punto de la órbita más cercano al Sol."
+    },
+    {
+      "palabra": "GRAVEDAD",
+      "pista": "Fuerza de atracción entre dos masas."
+    },
+    {
+      "palabra": "INERCIA",
+      "pista": "Tendencia de un cuerpo a mantener su estado de movimiento."
+    },
+    {
+      "palabra": "AFELIO",
+      "pista": "Punto de la órbita más alejado del Sol."
+    },
+    {
+      "palabra": "FOCO",
+      "pista": "Lugar que ocupa el Sol dentro de la elipse orbital."
+    },
+    {
+      "palabra": "MASA",
+      "pista": "Cantidad de materia que determina la fuerza gravitatoria."
+    },
+    {
+      "palabra": "PERIODO",
+      "pista": "Tiempo que tarda un planeta en completar una vuelta al Sol."
+    },
+    {
+      "palabra": "NEWTON",
+      "pista": "Científico que formuló la Ley de Gravitación Universal."
+    },
+    {
+      "palabra": "RADIAL",
+      "pista": "Línea que une al planeta con el Sol en la segunda ley."
+    }
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "En la Metrópolis de Neo-Aethelgard, se observa que un satélite de vigilancia se mueve más rápido cuando pasa por el punto A que cuando pasa por el punto B de su órbita elíptica.",
+      "tabla_o_grafica_markdown": "| Punto | Distancia al Centro (km) | Velocidad (km/s) |\n|---|---|---|\n| A | 7.000 | 10.2 |\n| B | 12.000 | 5.9 |",
+      "pregunta": "¿Cuál es la razón física que explica esta diferencia de velocidades según las leyes de Kepler?",
+      "opciones": [
+        "La segunda ley establece que para barrer áreas iguales en tiempos iguales, el satélite debe ir más rápido al estar más cerca.",
+        "La primera ley indica que los focos de la elipse empujan al satélite con más fuerza en el punto A.",
+        "La tercera ley dice que el periodo depende del cubo del radio, lo que acelera al satélite.",
+        "La fricción atmosférica es menor en el punto A, permitiendo mayor velocidad."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. La Ley de las Áreas implica que a menor radio, mayor velocidad tangencial.",
+        "1": "Incorrecto. Los focos son puntos geométricos, no ejercen fuerzas por sí mismos.",
+        "2": "Incorrecto. La tercera ley relaciona periodos y distancias medias, no velocidades instantáneas.",
+        "3": "Incorrecto. A menor distancia (Punto A), suele haber mayor densidad atmosférica, no menor."
+      }
+    },
+    {
+      "competencia": "Uso comprensivo del conocimiento científico",
+      "texto_introductorio": "Un ingeniero espacial nota que si se duplicara la distancia entre un satélite y la Tierra, la fuerza de atracción cambiaría drásticamente.",
+      "tabla_o_grafica_markdown": "| Escenario | Masa 1 | Masa 2 | Distancia | Fuerza |\n|---|---|---|---|---|\n| Original | M | m | r | F |\n| Nuevo | M | m | 2r | ? |",
+      "pregunta": "De acuerdo con la Ley de Gravitación Universal, ¿cuál sería la nueva fuerza de atracción?",
+      "opciones": [
+        "La fuerza se reduce a la mitad (F/2).",
+        "La fuerza se reduce a la cuarta parte (F/4).",
+        "La fuerza se duplica (2F).",
+        "La fuerza se mantiene igual (F)."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. La relación con la distancia no es lineal, sino cuadrática inversa.",
+        "1": "Correcto. Como la distancia está al cuadrado en el denominador ($1/2^2$), la fuerza disminuye por un factor de 4.",
+        "2": "Incorrecto. Al aumentar la distancia, la fuerza debe disminuir, no aumentar.",
+        "3": "Incorrecto. La gravedad depende críticamente de la distancia entre los centros de masa."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "El Detective Vance necesita demostrar si un nuevo planeta descubierto en el sistema exterior sigue las leyes de Kepler. Para ello, cuenta con los datos de periodo (T) y distancia media (R) de otros planetas del mismo sistema.",
+      "tabla_o_grafica_markdown": "| Planeta | T (años) | R (UA) | T²/R³ |\n|---|---|---|---|\n| Alfa | 1 | 1 | 1 |\n| Beta | 8 | 4 | 1 |\n| Gamma | 27 | 9 | 1 |",
+      "pregunta": "Si un nuevo planeta 'Delta' tiene una distancia media R = 16 UA, ¿qué procedimiento debería seguir el detective para predecir su periodo orbital T usando la indagación científica?",
+      "opciones": [
+        "Multiplicar la distancia por el periodo de Alfa.",
+        "Aplicar la constante hallada (T²/R³ = 1) y despejar T = √R³.",
+        "Asumir que el periodo es igual a la distancia porque el sistema es armónico.",
+        "Sumar los periodos de los planetas anteriores y dividir por la distancia de Delta."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. No existe una relación de proporcionalidad simple directa entre T y R.",
+        "1": "Correcto. Al verificar que la constante de Kepler es la misma para todos, puede usarla para predecir el valor de Delta.",
+        "2": "Incorrecto. Esto ignora la relación matemática cuadrática-cúbica de la tercera ley.",
+        "3": "Incorrecto. Los periodos orbitales no se promedian de esa manera en la mecánica celeste."
+      }
+    }
+  ]
+}

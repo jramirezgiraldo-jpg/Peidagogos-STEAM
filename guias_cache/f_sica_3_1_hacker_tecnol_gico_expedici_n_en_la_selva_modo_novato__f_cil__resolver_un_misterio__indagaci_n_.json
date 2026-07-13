@@ -1,0 +1,188 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Cuál es el cuerpo celeste que se encuentra en el centro de nuestro sistema solar?",
+      "opciones": [
+        "La Tierra",
+        "Marte",
+        "El Sol",
+        "La Luna"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "¿Qué forma crees que tienen las órbitas de los planetas alrededor del Sol?",
+      "opciones": [
+        "Cuadrada",
+        "Circular perfecta",
+        "Elíptica (u óvalo)",
+        "Triangular"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "¿Qué fuerza crees que mantiene a los planetas 'atados' al Sol sin que salgan volando?",
+      "opciones": [
+        "Magnetismo",
+        "Gravedad",
+        "Electricidad",
+        "Presión del aire"
+      ],
+      "correcta": 1
+    }
+  ],
+  "texto_inductivo": "¡Sincronizando biosensores! Saludos, reclutas del código. Aquí su Hacker Tecnológico informando desde lo más profundo de la **Selva de los Ancestros Estelares**. Hemos aterrizado nuestra nave invisible entre la densa vegetación del Amazonas para resolver un misterio que ha permanecido oculto por milenios. Los radares de mi terminal han detectado una estructura masiva: un 'Templo de Engranajes'. Al entrar, no encontramos oro, sino algo mucho más valioso: un simulador mecánico del cielo. Los antiguos habitantes de esta selva no solo sobrevivían entre jaguares y anacondas, sino que hackearon el código del universo para entender cómo se mueven las luces que vemos en la noche. Imaginen que la selva es un gran procesador y los planetas son paquetes de datos viajando por buses de información. Durante siglos, la humanidad pensó que nosotros, la Tierra, éramos el núcleo del servidor central (el modelo geocéntrico). Pero al observar el 'Templo de Engranajes', nos damos cuenta de que el sistema funciona bajo un protocolo diferente. La gran pregunta que debemos resolver en esta expedición es: ¿por qué los planetas no se mueven en círculos perfectos y por qué parecen ir más rápido en ciertos puntos de su recorrido? Al explorar este mapa estelar tallado en piedra, notamos que hay un patrón. Nicolás Copérnico fue uno de los primeros hackers en sugerir que el Sol era el nodo central (heliocentrismo), pero fueron las misiones de observación de Tycho Brahe y el análisis de datos de Johannes Kepler lo que realmente rompió el firewall de la ignorancia. En esta primera fase de nuestra expedición, vamos a recolectar pistas sobre el movimiento de estos cuerpos celestes. Observen cómo las sombras se proyectan en el suelo de la selva; cada sombra cuenta una historia sobre la posición de un astro. No se trata solo de mirar hacia arriba, sino de entender la arquitectura del sistema operativo en el que vivimos. Como hackers, nuestra misión es desglosar la 'interfaz' del cielo. ¿Es posible que la naturaleza tenga leyes matemáticas tan precisas como un script de Python? Al investigar los glifos en las paredes, vemos diagramas que muestran que los planetas trazan caminos que parecen huevos estirados. Esto desafía la lógica de la perfección circular que los filósofos antiguos defendían. Estamos ante el primer gran bug del sistema: el misterio de la órbita no circular. Para avanzar en la selva, debemos recolectar muestras de datos sobre el tiempo que tarda un planeta en dar una vuelta completa y compararlo con su distancia al Sol. Es como medir el ping de una conexión: cuanto más lejos está el servidor, más tarda en responder la señal. Prepárense, porque estamos a punto de ejecutar el comando 'RUN' para desvelar el secreto del movimiento planetario. La selva nos observa, y las estrellas nos guían.",
+  "recurso_visual": "graph TD\n    A[Sol: Nodo Central] --> B(Mercurio: Órbita Rápida)\n    A --> C(Tierra: Órbita Estable)\n    A --> D(Marte: El Misterio del Retroceso)\n    C -.-> E{Fuerza de Gravedad}\n    D -.-> E\n    E --> F[Mantiene el Sistema Operativo Solar]",
+  "preguntas_inductivas_pagina": [
+    "¿Quiénes fueron los 'hackers' históricos mencionados que cambiaron el modelo del universo?",
+    "¿Qué diferencia hay entre el modelo geocéntrico y el heliocéntrico según el texto?",
+    "¿Por qué se dice que las órbitas no son círculos perfectos?",
+    "¿Qué relación propone el texto entre la distancia al Sol y el tiempo de órbita?",
+    "¿Qué representa el 'Templo de Engranajes' en nuestra analogía de la selva?"
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema del Templo de Engranajes que muestre al Sol en el centro y las órbitas elípticas de los planetas.",
+    "Realiza un cuadro comparativo entre la 'visión antigua' (Geocentrismo) y la 'visión hacker' (Heliocentrismo).",
+    "Escribe una reflexión de 10 líneas sobre cómo crees que los antiguos habitantes de la selva podían observar los planetas sin tecnología moderna.",
+    "Representa gráficamente, usando colores, la idea de que un planeta se mueve más rápido cuando está cerca del Sol."
+  ],
+  "juegos_ordenar_letras_1": [
+    "ELIPSE",
+    "ORBITA",
+    "PLANETA"
+  ],
+  "juego_ordenar_frase_1": "EL SOL ES EL NODO CENTRAL DE NUESTRO SISTEMA",
+  "texto_deductivo": "¡Protocolo de análisis activado! Ahora que hemos recolectado los datos en el templo, es hora de descifrar el código fuente detrás del movimiento planetario. En física, no basta con observar; necesitamos leyes que funcionen en cualquier parte del universo, desde esta selva hasta la galaxia de Andrómeda. Johannes Kepler, el arquitecto de datos del siglo XVII, nos dejó tres leyes que son los 'scripts' fundamentales de la mecánica celeste. La Primera Ley de Kepler, o Ley de las Órbitas, nos dice que los planetas se mueven en elipses, con el Sol en uno de sus focos. Imaginen una liga estirada entre dos chinchetas; eso es una elipse. No hay un centro único, sino dos puntos clave. La Segunda Ley, o Ley de las Áreas, es fascinante: un planeta barre áreas iguales en tiempos iguales. Esto significa que cuando el planeta está cerca del Sol (perihelio), su procesador gráfico aumenta la velocidad, ¡va más rápido! Cuando está lejos (afelio), se toma su tiempo y se mueve más lento. Es una optimización de energía perfecta. Finalmente, la Tercera Ley nos da la fórmula del 'lag' planetario: el cuadrado del periodo orbital es proporcional al cubo de su distancia media al Sol. Pero, ¿qué software mantiene todo esto unido? Aquí entra el gran administrador del sistema: Isaac Newton. Él descubrió que la Gravedad es el hilo invisible, el código que atrae a las masas entre sí. Newton postuló que la fuerza de atracción depende de cuánta materia tengan los cuerpos y qué tan lejos estén. Si duplicamos la distancia, la fuerza no se divide por dos, ¡se divide por cuatro! Es la ley del inverso del cuadrado. En nuestra selva, esto explica por qué la Luna no sale disparada hacia el vacío: la Tierra la tiene 'atrapada' en su red gravitacional. El movimiento planetario es, entonces, un equilibrio delicado entre la tendencia del planeta a seguir derecho (inercia) y la fuerza que lo jala hacia el centro (gravedad). Si la gravedad fuera un poco más débil, el sistema colapsaría y los planetas se perderían en el espacio profundo. Si fuera más fuerte, todos chocaríamos contra el Sol en un 'crash' total del sistema. Como hackers tecnológicos, entendemos que este equilibrio es lo que permite que la vida exista en la Tierra. El movimiento planetario es una danza de fuerzas, una coreografía matemática que podemos predecir con una precisión asombrosa. Al estudiar estas leyes, no solo estamos aprendiendo física, estamos aprendiendo a leer el lenguaje de programación de la realidad. El misterio de la selva está resuelto: los engranajes son las leyes físicas, y el motor es la gravedad. Hemos hackeado el sistema solar.",
+  "preguntas_deductivas_pagina": [
+    "¿Qué dice la Primera Ley de Kepler sobre la forma de las órbitas?",
+    "¿En qué punto de la órbita un planeta se mueve con mayor velocidad?",
+    "¿Cómo se llama el punto más alejado de un planeta respecto al Sol?",
+    "¿Qué fuerza descubierta por Newton mantiene unidos a los planetas?",
+    "¿Qué sucede con la fuerza de gravedad si la distancia entre dos cuerpos aumenta?"
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Realiza un diagrama detallado que muestre la diferencia entre el perihelio y el afelio, señalando dónde hay más velocidad.",
+    "Elabora un mapa mental que conecte las 3 Leyes de Kepler con la Ley de Gravitación de Newton.",
+    "Dibuja un esquema explicativo sobre cómo la gravedad y la inercia mantienen a un planeta en órbita (como un juego de tirar de la cuerda).",
+    "Crea una infografía artesanal que explique la Tercera Ley de Kepler usando dibujos de relojes y distancias."
+  ],
+  "juegos_ordenar_letras_2": [
+    "GRAVEDAD",
+    "NEWTON",
+    "KEPLER"
+  ],
+  "juego_ordenar_frase_2": "LA GRAVEDAD ES EL CODIGO QUE MANTIENE EL ORDEN",
+  "sopa_letras": [
+    "GRAVEDAD",
+    "KEPLER",
+    "NEWTON",
+    "ELIPSE",
+    "ORBITA",
+    "FOCO",
+    "AFELIO",
+    "SOL",
+    "INERCIA",
+    "FUERZA"
+  ],
+  "crucigrama": [
+    {
+      "palabra": "ELIPSE",
+      "pista": "Forma geométrica de la órbita planetaria."
+    },
+    {
+      "palabra": "GRAVEDAD",
+      "pista": "Fuerza de atracción entre dos masas."
+    },
+    {
+      "palabra": "PERIHELIO",
+      "pista": "Punto de la órbita más cercano al Sol."
+    },
+    {
+      "palabra": "NEWTON",
+      "pista": "Científico que explicó la gravitación universal."
+    },
+    {
+      "palabra": "KEPLER",
+      "pista": "Astrofísico que propuso las tres leyes del movimiento."
+    },
+    {
+      "palabra": "AFELIO",
+      "pista": "Punto de la órbita más alejado del Sol."
+    },
+    {
+      "palabra": "FOCO",
+      "pista": "Uno de los dos puntos internos de una elipse."
+    },
+    {
+      "palabra": "INERCIA",
+      "pista": "Tendencia de un cuerpo a mantener su movimiento."
+    },
+    {
+      "palabra": "PERIODO",
+      "pista": "Tiempo que tarda un planeta en dar una vuelta al Sol."
+    },
+    {
+      "palabra": "MASA",
+      "pista": "Cantidad de materia de un cuerpo celeste."
+    }
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "En la selva, observamos que un sensor de velocidad detecta que un satélite natural aumenta su rapidez a medida que se acerca a un planeta denso.",
+      "tabla_o_grafica_markdown": "| Posición | Distancia (km) | Velocidad (km/s) |\n|---|---|---|\n| A | 10.000 | 50 |\n| B | 5.000 | 100 |",
+      "pregunta": "¿A qué ley física corresponde este comportamiento del satélite?",
+      "opciones": [
+        "Primera Ley de Kepler",
+        "Segunda Ley de Kepler",
+        "Tercera Ley de Kepler",
+        "Ley de la Selva"
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. La primera ley solo habla de la forma elíptica.",
+        "1": "Correcto. La segunda ley establece que a menor distancia (perihelio), mayor es la velocidad orbital.",
+        "2": "Incorrecto. La tercera ley relaciona periodos y distancias medias.",
+        "3": "Incorrecto. Eso no es un concepto de física planetaria."
+      }
+    },
+    {
+      "competencia": "Uso comprensivo del conocimiento científico",
+      "texto_introductorio": "Si la masa del Sol se duplicara de repente por un error en el código del universo, la fuerza de atracción sobre la Tierra cambiaría drásticamente.",
+      "tabla_o_grafica_markdown": "| Variable | Cambio |\n|---|---|\n| Masa Sol | x2 |\n| Distancia | Constante |",
+      "pregunta": "Según la Ley de Gravitación Universal, ¿qué le ocurriría a la fuerza de gravedad entre el Sol y la Tierra?",
+      "opciones": [
+        "Se reduce a la mitad",
+        "Se mantiene igual",
+        "Se duplica",
+        "Se cuadruplica"
+      ],
+      "correcta": 2,
+      "retroalimentacion": {
+        "0": "Incorrecto. Si la masa aumenta, la fuerza aumenta.",
+        "1": "Incorrecto. La fuerza depende directamente de las masas.",
+        "2": "Correcto. La fuerza es directamente proporcional al producto de las masas.",
+        "3": "Incorrecto. Solo se cuadruplica si ambas masas se duplican o si la distancia se reduce a la mitad."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "Un grupo de exploradores encuentra un registro de un planeta lejano llamado 'X-Selva' que tarda mucho más que la Tierra en dar una vuelta a su propia estrella.",
+      "tabla_o_grafica_markdown": "| Planeta | Distancia Media al Sol (UA) | Periodo (Años) |\n|---|---|---|\n| Tierra | 1.0 | 1.0 |\n| X-Selva | 4.0 | 8.0 |",
+      "pregunta": "¿Qué se puede concluir sobre la ubicación de X-Selva en comparación con la Tierra?",
+      "opciones": [
+        "Está más cerca de su estrella",
+        "Está a la misma distancia",
+        "Está más lejos de su estrella",
+        "No se puede determinar"
+      ],
+      "correcta": 2,
+      "retroalimentacion": {
+        "0": "Incorrecto. Si estuviera más cerca, su periodo sería menor.",
+        "1": "Incorrecto. Los datos muestran distancias y periodos diferentes.",
+        "2": "Correcto. Según la tercera ley de Kepler, a mayor distancia media, mayor es el periodo orbital.",
+        "3": "Incorrecto. Los datos en la tabla permiten aplicar la Tercera Ley de Kepler."
+      }
+    }
+  ]
+}

@@ -1,0 +1,188 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Cuál es la forma principal de las órbitas planetarias según las observaciones astronómicas modernas?",
+      "opciones": [
+        "Circular perfecta",
+        "Elíptica con el Sol en un foco",
+        "Espiral ascendente",
+        "Parabólica"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Qué fuerza es la responsable de mantener a la Luna en órbita alrededor de la Tierra?",
+      "opciones": [
+        "Fuerza Magnética",
+        "Fuerza de Fricción Espacial",
+        "Fuerza Gravitacional",
+        "Inercia Lineal"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "Si un planeta se aleja del Sol en su órbita, ¿qué sucede con su velocidad orbital?",
+      "opciones": [
+        "Aumenta",
+        "Disminuye",
+        "Se mantiene constante",
+        "Se detiene"
+      ],
+      "correcta": 1
+    }
+  ],
+  "texto_inductivo": "¡Qué onda, futuros comandantes de misión! Bienvenidos a bordo de la **Estación Espacial Internacional (ISS)**. Soy su Host Científico y hoy estamos a 400 kilómetros sobre la superficie terrestre, viajando a la increíble velocidad de 27,000 km/h. Pero no estamos aquí solo para ver la vista (que es asombrosa, por cierto), estamos aquí porque entender el movimiento planetario es la diferencia entre una misión exitosa y quedar a la deriva en el vacío infinito. Para sobrevivir aquí arriba, debemos dominar las reglas del juego que dictan cómo se mueven los cuerpos en el cosmos. Históricamente, la humanidad pensaba que éramos el centro de todo (el modelo geocéntrico), pero gracias a mentes brillantes como Copérnico y el meticuloso registro de datos de Tycho Brahe, las cosas empezaron a cambiar. Brahe pasó décadas observando el cielo sin telescopio, registrando la posición de Marte con una precisión que hoy nos parece imposible. Sin embargo, Brahe no sabía qué hacer con esos datos. Fue su asistente, **Johannes Kepler**, quien heredó este 'tesoro de números' y descubrió que los planetas no se movían en círculos perfectos como dictaba la estética griega, sino en **elipses**. Este fue el primer gran 'hack' de la astronomía. Kepler formuló tres leyes fundamentales: la Ley de las Órbitas, la Ley de las Áreas y la Ley de los Períodos. En nuestra estación, esto es vital. Si queremos enviar un suministro a Marte o simplemente entender por qué la ISS no se desploma sobre la Tierra, necesitamos entender que el área que barre el radio vector de un planeta es constante en tiempos iguales. Esto significa que cuando estamos en el *perihelio* (más cerca del Sol o de la Tierra en nuestro caso), vamos 'volando', mientras que en el *afelio* (más lejos), nos movemos más despacio. La observación científica no es solo mirar por la ventana; es recolectar datos para predecir el futuro. Imaginen que perdemos el control de los motores. Conocer nuestra trayectoria elíptica es lo único que nos permitiría calcular una maniobra de rescate. El movimiento planetario no es un concepto abstracto de libros viejos; es la partitura matemática bajo la cual danza todo el universo, desde esta pequeña lata de metal en la que vivo hasta las galaxias más lejanas. En este primer nivel de Modo Dios, vamos a dejar de ser simples observadores para convertirnos en navegantes celestes. ¡Ajusten sus cinturones de seguridad!",
+  "recurso_visual": "graph TD\n    A[Leyes de Kepler] --> B(1ra Ley: Órbitas)\n    B --> B1[Los planetas describen elipses con el Sol en un foco]\n    A --> C(2da Ley: Áreas)\n    C --> C1[El radio vector barre áreas iguales en tiempos iguales]\n    C --> C2[Velocidad variable: Más rápido cerca del foco]\n    A --> D(3ra Ley: Periodos)\n    D --> D1[T^2 / r^3 = Constante]\n    D --> D2[Relaciona distancia al Sol con tiempo de traslación]",
+  "preguntas_inductivas_pagina": [
+    "¿Por qué el modelo de órbitas elípticas fue más preciso que el de órbitas circulares?",
+    "¿Qué papel jugaron los datos de Tycho Brahe en el descubrimiento de Kepler?",
+    "Según la segunda ley de Kepler, ¿en qué punto de la órbita un planeta se mueve con mayor rapidez?",
+    "¿Cómo definirías el concepto de 'foco' en una elipse orbital?",
+    "¿Por qué es crucial la tercera ley de Kepler para comparar diferentes planetas del sistema solar?"
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema de una órbita elíptica exagerada, señalando el perihelio, el afelio, los focos y sombreando dos áreas iguales barridas en tiempos iguales.",
+    "Realiza un cuadro comparativo entre el modelo Geocéntrico y el modelo Heliocéntrico, destacando sus principales defensores y fallos.",
+    "Escribe una reflexión de 15 líneas sobre cómo la precisión en la toma de datos de Tycho Brahe cambió nuestra comprensión del universo.",
+    "Representa gráficamente la relación entre la distancia al Sol (eje X) y el periodo orbital (eje Y) basándote en la tercera ley de Kepler."
+  ],
+  "juegos_ordenar_letras_1": [
+    "ELIPSE",
+    "KEPLER",
+    "PERIHELIO"
+  ],
+  "juego_ordenar_frase_1": "LAS ORBITAS DE LOS PLANETAS SON ELIPTICAS CON EL SOL EN UN FOCO",
+  "texto_deductivo": "¡Atención tripulación! Ahora que hemos observado el comportamiento de los planetas, es hora de aplicar la 'física pesada' para asegurar nuestra supervivencia. Si Kepler nos dijo el 'cómo', **Isaac Newton** llegó para decirnos el 'porqué'. En la ISS, nos enfrentamos a una pregunta constante de los novatos: '¿Por qué si hay gravedad no nos caemos?'. La respuesta reside en la Ley de Gravitación Universal. Newton dedujo que la misma fuerza que hace caer una manzana en la Tierra es la que mantiene a la Luna en su sitio y a nosotros en esta estación. La fuerza gravitacional es directamente proporcional al producto de las masas e inversamente proporcional al cuadrado de la distancia que las separa. Esto es el Reto Épico: entender que estamos en una **caída libre perpetua**. La ISS se está cayendo hacia la Tierra, pero se mueve lateralmente tan rápido (velocidad tangencial) que la curvatura de su caída coincide exactamente con la curvatura de la Tierra. Si redujéramos nuestra velocidad solo un poco, la gravedad ganaría y nos convertiríamos en una estrella fugaz (y muy cara) en la atmósfera. En el contexto de la supervivencia espacial, la mecánica celeste es nuestra biblia. Para cambiar de órbita o interceptar un módulo de carga, usamos las ecuaciones de Newton que sintetizan las leyes de Kepler. Newton demostró que la tercera ley de Kepler (T²/r³ = K) es una consecuencia directa de su ley de gravitación. Esto significa que la constante 'K' depende de la masa del cuerpo central (en nuestro caso, la Tierra). Entender esto nos permite calcular la 'Velocidad de Escape'. Si quisiéramos abandonar la órbita terrestre para ir a Marte, necesitaríamos alcanzar una velocidad tal que nuestra energía cinética supere la energía potencial gravitatoria del 'pozo' en el que estamos. La física aquí no es opcional; si fallas en un decimal al calcular tu vector de empuje, terminarás en una órbita de transferencia cementerio. La gravedad no es solo una fuerza, es una deformación del espacio-tiempo que nos obliga a movernos siguiendo caminos específicos. En este nivel de Modo Dios, tu mente debe ser capaz de visualizar estos campos de fuerza invisibles. No vemos la gravedad, pero sentimos sus reglas en cada maniobra de acoplamiento. La ciencia no es solo conocimiento; en el espacio, la ciencia es el único oxígeno que realmente importa.",
+  "preguntas_deductivas_pagina": [
+    "¿Cuál es la relación matemática exacta que propuso Newton para la gravitación universal?",
+    "¿Qué significa que la fuerza gravitacional sea una ley del 'cuadrado inverso'?",
+    "¿Cómo explicó Newton la tercera ley de Kepler mediante su teoría de la gravedad?",
+    "¿Qué condiciones se requieren para que un objeto entre en una órbita estable y no caiga a la superficie?",
+    "¿Por qué la masa del objeto pequeño no afecta su velocidad orbital según las ecuaciones de Newton?"
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Realiza un diagrama detallado de las fuerzas que actúan sobre la ISS, diferenciando entre la fuerza centrípeta (gravitatoria) y la velocidad tangencial.",
+    "Elabora un mapa mental que conecte los conceptos de Masa, Distancia, Fuerza Gravitacional y Leyes de Kepler.",
+    "Dibuja una infografía que explique el experimento mental del 'Cañón de Newton' y cómo este explica la puesta en órbita de satélites.",
+    "Diseña una infografía artesanal donde expliques paso a paso cómo se calcula la velocidad orbital necesaria para mantenerse a 400 km de altura."
+  ],
+  "juegos_ordenar_letras_2": [
+    "GRAVEDAD",
+    "NEWTON",
+    "INERCIA"
+  ],
+  "juego_ordenar_frase_2": "LA FUERZA DE GRAVEDAD DEPENDE DE LA MASA Y LA DISTANCIA",
+  "sopa_letras": [
+    "GRAVEDAD",
+    "ELIPSE",
+    "KEPLER",
+    "NEWTON",
+    "ORBITA",
+    "FOCO",
+    "MASA",
+    "AFELIO",
+    "PERIODO",
+    "INERCIA"
+  ],
+  "crucigrama": [
+    {
+      "palabra": "GRAVEDAD",
+      "pista": "Fuerza de atracción entre dos cuerpos con masa"
+    },
+    {
+      "palabra": "ELIPSE",
+      "pista": "Forma geométrica de las órbitas planetarias"
+    },
+    {
+      "palabra": "KEPLER",
+      "pista": "Astrónomo que formuló las tres leyes del movimiento planetario"
+    },
+    {
+      "palabra": "NEWTON",
+      "pista": "Científico que unificó la física terrestre y celeste"
+    },
+    {
+      "palabra": "AFELIO",
+      "pista": "Punto de la órbita más alejado del Sol"
+    },
+    {
+      "palabra": "PERIHELIO",
+      "pista": "Punto de la órbita más cercano al Sol"
+    },
+    {
+      "palabra": "ORBITA",
+      "pista": "Trayectoria que sigue un cuerpo alrededor de otro"
+    },
+    {
+      "palabra": "FOCO",
+      "pista": "Uno de los dos puntos fijos que definen una elipse"
+    },
+    {
+      "palabra": "INERCIA",
+      "pista": "Tendencia de un cuerpo a mantener su estado de movimiento"
+    },
+    {
+      "palabra": "SATELITE",
+      "pista": "Objeto que orbita alrededor de un planeta"
+    }
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "En la Estación Espacial Internacional, los astronautas experimentan una sensación de ingravidez. Sin embargo, la fuerza gravitatoria de la Tierra a esa altura es aproximadamente el 90% de la que existe en la superficie.",
+      "tabla_o_grafica_markdown": "| Ubicación | Gravedad (m/s²) |\n|---|---|\n| Superficie Tierra | 9.8 |\n| Órbita ISS (400km) | 8.7 |",
+      "pregunta": "¿Por qué los astronautas flotan si la gravedad en la ISS es casi tan fuerte como en la Tierra?",
+      "opciones": [
+        "Porque están en un estado de caída libre constante junto con la estación.",
+        "Porque a esa altura la atmósfera desaparece y no hay presión.",
+        "Porque la fuerza centrífuga anula completamente la masa de los astronautas.",
+        "Porque los trajes espaciales tienen tecnología antigravedad."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. La flotación es el resultado de que tanto el habitáculo como el astronauta caen hacia la Tierra a la misma tasa.",
+        "1": "Incorrecto. La falta de atmósfera no elimina la gravedad.",
+        "2": "Incorrecto. La masa es una propiedad intrínseca y no se anula.",
+        "3": "Incorrecto. La tecnología antigravedad no existe."
+      }
+    },
+    {
+      "competencia": "Uso comprensivo del conocimiento científico",
+      "texto_introductorio": "La tercera ley de Kepler establece que el cuadrado del periodo orbital (T) es proporcional al cubo de la distancia media (r) al Sol. Si descubrimos un nuevo exoplaneta que está a una distancia de 4 unidades astronómicas (UA) de su estrella (similar al Sol).",
+      "tabla_o_grafica_markdown": "| Planeta | Distancia (UA) | Periodo (Años) |\n|---|---|---|\n| Tierra | 1 | 1 |\n| X | 4 | ? |",
+      "pregunta": "¿Cuál sería el periodo orbital aproximado de este exoplaneta?",
+      "opciones": [
+        "4 años",
+        "8 años",
+        "16 años",
+        "64 años"
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. No es una relación lineal simple.",
+        "1": "Correcto. T^2 = r^3. Si r=4, r^3=64. La raíz cuadrada de 64 es 8.",
+        "2": "Incorrecto. Se olvidó aplicar la raíz cuadrada al periodo.",
+        "3": "Incorrecto. Ese es el valor de r al cubo, no del periodo T."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "Un grupo de científicos observa que un satélite artificial empieza a perder altura gradualmente debido a la fricción con las capas ultra-delgadas de la atmósfera superior.",
+      "tabla_o_grafica_markdown": "| Tiempo (Días) | Altitud (km) | Velocidad (km/s) |\n|---|---|---|\n| 0 | 400 | 7.67 |\n| 100 | 350 | 7.73 |",
+      "pregunta": "Al observar que la velocidad aumenta mientras la altitud disminuye, ¿qué se puede concluir sobre la energía del sistema?",
+      "opciones": [
+        "La energía mecánica total aumenta por el calor de la fricción.",
+        "La energía potencial gravitatoria se transforma en energía cinética, pero la energía total disminuye por la fricción.",
+        "El satélite gana energía porque se mueve más rápido.",
+        "La gravedad terrestre aumenta a medida que el satélite baja."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. La fricción disipa energía, no la añade al sistema mecánico.",
+        "1": "Correcto. Al bajar de altura pierde energía potencial, y parte de ella va a cinética, pero la fricción reduce la energía mecánica total.",
+        "2": "Incorrecto. Aunque gane velocidad, la pérdida de altura y la fricción restan energía total.",
+        "3": "Incorrecto. La gravedad cambia muy poco en ese rango de distancia y no es la conclusión sobre la energía."
+      }
+    }
+  ]
+}

@@ -1,0 +1,188 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Cuál es la principal diferencia entre una magnitud escalar y una magnitud vectorial en el contexto de la navegación espacial?",
+      "opciones": [
+        "Las escalares tienen dirección y las vectoriales no.",
+        "Las vectoriales requieren magnitud, dirección y sentido; las escalares solo magnitud.",
+        "En el espacio no existen magnitudes escalares debido a la falta de gravedad.",
+        "Ambas son idénticas cuando el objeto está en órbita."
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "Si la Estación Espacial Internacional se mueve a una velocidad constante en una órbita circular, ¿existe alguna aceleración?",
+      "opciones": [
+        "No, porque la rapidez no cambia.",
+        "Sí, existe una aceleración centrípeta que cambia la dirección del movimiento.",
+        "No, en el vacío no hay aceleración sin motores encendidos.",
+        "Solo existe aceleración si la estación decide regresar a la Tierra."
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Qué rama de la física se encarga del estudio del movimiento sin considerar las causas que lo producen?",
+      "opciones": [
+        "Dinámica",
+        "Termodinámica",
+        "Cinemática",
+        "Estática"
+      ],
+      "correcta": 2
+    }
+  ],
+  "texto_inductivo": "Bienvenidos, Agentes del Cuerpo de Investigación Científica Orbital. Soy su Detective Jefe en esta misión crítica. Nos encontramos a 400 kilómetros sobre la superficie terrestre, a bordo de la Estación Espacial Internacional (EEI). Pero no estamos aquí para admirar la vista del continente azul; estamos aquí porque los registros de telemetría muestran una anomalía inexplicable. Algo o alguien ha alterado la trayectoria de un satélite de suministros que debía acoplarse hoy. Para resolver este misterio, debemos sumergirnos en la esencia misma de la realidad: la Física. **La Física no es solo una materia escolar; es el lenguaje fundamental del universo.** Desde que el primer ser humano miró las estrellas y trató de predecir el cambio de las estaciones, la física ha sido el motor del desarrollo humano. Sin ella, no tendríamos puentes, medicina moderna, ni mucho menos la capacidad de sostener una estructura de 450 toneladas flotando en el vacío. **La importancia de la física en el desarrollo humano radica en su capacidad de transformar la curiosidad en leyes universales.** Durante siglos, pasamos de la observación mística de los cielos a la comprensión matemática de Copérnico, Kepler y Galileo. Galileo Galilei, a menudo llamado el padre de la física moderna, nos enseñó que la naturaleza habla en lenguaje matemático. Él rompió con la idea aristotélica de que los objetos pesados caen más rápido que los ligeros, sentando las bases para lo que hoy llamamos el Método Científico. En esta primera fase de nuestra investigación, debemos entender que la Física se divide en ramas fascinantes, pero hoy nos enfocaremos en la mecánica clásica, específicamente en la cinemática. El misterio que enfrentamos requiere precisión. Un error de un milímetro en la medición de la **posición** inicial del satélite puede resultar en una colisión catastrófica kilómetros adelante. Aquí, en Modo Héroe, no aceptamos aproximaciones vagas. Debemos comprender que la física es una ciencia experimental que depende de la medición. ¿Qué es medir? Es comparar una magnitud con un patrón establecido (el Sistema Internacional de Unidades). En el espacio, donde no hay arriba ni abajo de forma absoluta, establecer un sistema de referencia es nuestro primer paso detectivesco. Si no sabemos desde dónde estamos mirando, no podemos determinar hacia dónde se dirige el sospechoso. La historia de la física es la historia de la humanidad superando sus límites sensoriales. Gracias a la física, hemos pasado de usar antorchas a controlar la energía del átomo y a enviar señales a través del vacío casi instantáneamente. Al resolver este misterio orbital, no solo estarán salvando la estación, sino que estarán validando miles de años de intelecto humano que nos permitieron llegar hasta aquí. Prepárense, porque la verdad está oculta en los datos de posición y tiempo, y solo aquellos con el rigor de un físico podrán descifrarla.",
+  "recurso_visual": "graph TD\n    A[La Física y el Desarrollo Humano] --> B[Ramas de la Física]\n    B --> C[Mecánica Clásica]\n    B --> D[Electromagnetismo]\n    B --> E[Termodinámica]\n    B --> F[Relatividad y Cuántica]\n    C --> G[Cinemática: El estudio del movimiento]\n    C --> H[Dinámica: Las causas del movimiento]\n    A --> I[Método Científico]\n    I --> J[Observación]\n    I --> K[Medición]\n    I --> L[Experimentación]\n    I --> M[Ley/Teoría]",
+  "preguntas_inductivas_pagina": [
+    "¿Por qué se afirma que la física es el lenguaje fundamental del universo en el contexto de la EEI?",
+    "¿Cuál fue el aporte crítico de Galileo Galilei que cambió la forma en que entendemos el movimiento?",
+    "¿De qué manera un error de medición podría afectar una misión de acoplamiento espacial?",
+    "¿Qué importancia tiene establecer un sistema de referencia antes de iniciar cualquier cálculo cinemático?",
+    "¿Cómo ha transformado la física nuestra capacidad de interactuar con el entorno a lo largo de la historia?"
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Diseña un esquema visual que conecte los hitos históricos de la física mencionados con un avance tecnológico actual derivado de ellos.",
+    "Elabora un cuadro comparativo entre la visión aristotélica del movimiento y la visión galileana, destacando por qué la segunda es fundamental para la ciencia moderna.",
+    "Escribe una reflexión de una página sobre cómo sería un día en la Tierra si las leyes de la física, como la gravedad o la inercia, dejaran de funcionar de repente.",
+    "Representa gráficamente, mediante un dibujo técnico, la diferencia entre una medición precisa y una medición exacta en el contexto de la trayectoria de un satélite."
+  ],
+  "juegos_ordenar_letras_1": [
+    "CINEMATICA",
+    "GALILEO",
+    "MAGNITUD"
+  ],
+  "juego_ordenar_frase_1": "LA FISICA ES EL ESTUDIO DE LA MATERIA LA ENERGIA Y SUS INTERACCIONES EN EL ESPACIO TIEMPO",
+  "texto_deductivo": "Atención, equipo. Hemos recuperado los fragmentos de la 'Caja Negra' del satélite de suministros. Ahora debemos aplicar el rigor deductivo para entender el fenómeno. En cinemática, para describir el movimiento de un objeto en la Estación Espacial, necesitamos tres conceptos pilares: **Posición, Velocidad y Aceleración.** La posición no es solo 'dónde está'; es un vector que apunta desde el origen de nuestro sistema de coordenadas (en este caso, el centro de masa de la EEI) hasta el objeto. El desvío que detectamos comenzó en el tiempo T+200 segundos. Para entender qué pasó, debemos analizar el vector desplazamiento, que es el cambio de posición. Si el satélite se movía en línea recta y de repente su vector posición cambió de dirección, algo lo perturbó. Aquí entra la **Velocidad**. No confundan rapidez con velocidad. La rapidez es qué tan rápido se mueve (un escalar); la velocidad es un vector que nos dice hacia dónde va. El satélite mantenía una velocidad constante de 7,66 km/s respecto a la Tierra, pero su velocidad relativa respecto a la EEI debería haber sido casi cero durante el acoplamiento. La telemetría muestra un incremento súbito en la magnitud de la velocidad: una **Aceleración**. La aceleración es la tasa de cambio de la velocidad respecto al tiempo. En el vacío, un objeto no acelera a menos que una fuerza actúe sobre él (Segunda Ley de Newton). Si hubo aceleración sin que se encendieran los motores del satélite, ¿qué causó el cambio? ¿Fue un micro-meteorito? ¿O una fuga de gas a alta presión que actuó como un propulsor imprevisto? Al analizar la aceleración, podemos deducir la magnitud de la fuerza y la dirección del impacto. Observen que el movimiento en el espacio es relativo. Para un observador en la Tierra, la EEI se mueve a 28,000 km/h. Para un astronauta dentro, la estación está en 'reposo'. Este concepto de Marco de Referencia Inercial es vital para resolver nuestro misterio. Si no definimos bien nuestro marco, las leyes de la física parecerán no cumplirse. La cinemática nos permite reconstruir el pasado. Si conocemos la aceleración y el tiempo que duró, podemos calcular la velocidad final. Si conocemos la velocidad, podemos predecir la posición futura. En Modo Héroe, debemos ser capaces de derivar estas relaciones. El misterio se profundiza: los sensores de presión de la escotilla C-4 reportaron una caída de 0.05 pascales justo en el momento de la anomalía. ¿Es esta la 'fuerza invisible' que provocó la aceleración? Como detectives de la física, su trabajo es usar las ecuaciones de movimiento rectilíneo y circular para verificar si esa fuga de gas pudo haber generado la aceleración observada en los gráficos. Recuerden: en la ciencia, las evidencias no mienten, solo las interpretaciones pueden ser erróneas si no se aplican los conceptos correctamente. El destino de la misión depende de su capacidad para conectar estos conceptos abstractos con la realidad física del desastre inminente.",
+  "preguntas_deductivas_pagina": [
+    "¿Cuál es la diferencia técnica entre desplazamiento y distancia recorrida en una órbita circular?",
+    "Si la aceleración de un objeto es constante y distinta de cero, ¿qué sucede con su velocidad?",
+    "¿Por qué es fundamental definir un 'sistema de referencia' antes de analizar el movimiento del satélite?",
+    "En el vacío del espacio, ¿qué fenómenos podrían causar una aceleración no deseada en un objeto pasivo?",
+    "¿Cómo se relaciona el concepto de 'velocidad relativa' con el proceso de acoplamiento de dos naves espaciales?"
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Dibuja un diagrama de vectores detallado que represente la posición, la velocidad y la aceleración centrípeta de la EEI en su órbita alrededor de la Tierra.",
+    "Elabora un mapa mental que conecte los conceptos de magnitud escalar, magnitud vectorial, cinemática y las tres variables principales del movimiento.",
+    "Realiza un dibujo explicativo que muestre cómo una fuga de gas en una dirección específica produce una aceleración en la dirección opuesta (acción y reacción).",
+    "Crea una infografía artesanal que explique el 'Efecto de la Relatividad del Movimiento' usando a un astronauta en la EEI y a un científico en la Tierra como observadores."
+  ],
+  "juegos_ordenar_letras_2": [
+    "ACELERACION",
+    "TRAYECTORIA",
+    "VECTOR"
+  ],
+  "juego_ordenar_frase_2": "EL MOVIMIENTO ES EL CAMBIO DE POSICION DE UN CUERPO RESPECTO A UN PUNTO DE REFERENCIA",
+  "sopa_letras": [
+    "FISICA",
+    "INERCIA",
+    "ORBITA",
+    "VELOCIDAD",
+    "TIEMPO",
+    "ESPACIO",
+    "MASA",
+    "FUERZA",
+    "SISTEMA",
+    "METRO"
+  ],
+  "crucigrama": [
+    {
+      "palabra": "CINEMATICA",
+      "pista": "Rama de la mecánica que describe el movimiento sin atender a sus causas."
+    },
+    {
+      "palabra": "VECTOR",
+      "pista": "Segmento de recta orientado que representa magnitudes con dirección."
+    },
+    {
+      "palabra": "ACELERACION",
+      "pista": "Variación de la velocidad por unidad de tiempo."
+    },
+    {
+      "palabra": "POSICION",
+      "pista": "Lugar que ocupa un objeto en un sistema de referencia."
+    },
+    {
+      "palabra": "GALILEO",
+      "pista": "Científico que utilizó el plano inclinado para estudiar la caída de los cuerpos."
+    },
+    {
+      "palabra": "NEWTON",
+      "pista": "Físico que formuló las leyes del movimiento y la gravitación universal."
+    },
+    {
+      "palabra": "KILOMETRO",
+      "pista": "Unidad de longitud equivalente a mil metros, muy usada en distancias espaciales."
+    },
+    {
+      "palabra": "RAPIDEZ",
+      "pista": "Magnitud escalar que representa la distancia recorrida en un tiempo dado."
+    },
+    {
+      "palabra": "SISTEMA",
+      "pista": "Conjunto de convenciones para medir la posición (Marco de Referencia)."
+    },
+    {
+      "palabra": "INERCIA",
+      "pista": "Propiedad de los cuerpos de mantener su estado de reposo o movimiento."
+    }
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "Un astronauta en la EEI observa que una herramienta que dejó 'flotando' se aleja lentamente hacia una de las paredes de la estación. Al revisar los datos, nota que la estación ha realizado una maniobra de corrección orbital encendiendo sus motores en dirección opuesta.",
+      "tabla_o_grafica_markdown": "| Estado | Motores | Observación Herramienta |\n|---|---|---|\n| Inicial | Apagados | Reposo respecto al astronauta |\n| Maniobra | Encendidos | Se mueve hacia la pared C-1 |",
+      "pregunta": "De acuerdo con los principios de la física, ¿cuál es la explicación más acertada para el movimiento de la herramienta?",
+      "opciones": [
+        "La herramienta experimenta una fuerza de atracción magnética por la pared.",
+        "Debido a la inercia, la herramienta tiende a mantener su estado de movimiento previo mientras la estación acelera.",
+        "La gravedad de la Tierra aumentó repentinamente solo sobre la herramienta.",
+        "La herramienta ganó energía cinética de forma espontánea debido al vacío."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. No se menciona ninguna propiedad magnética en el sistema.",
+        "1": "Correcto. Por la primera ley de Newton, el objeto mantiene su estado mientras la estación (marco de referencia) acelera.",
+        "2": "Incorrecto. La gravedad actúa sobre todo el sistema de manera uniforme en esa escala.",
+        "3": "Incorrecto. La energía no se crea espontáneamente; el movimiento es relativo a la aceleración de la estación."
+      }
+    },
+    {
+      "competencia": "Uso Comprensivo del Conocimiento Científico",
+      "texto_introductorio": "Para evitar una colisión con basura espacial, la EEI debe cambiar su posición. Los ingenieros calculan que deben desplazarse 500 metros en 10 segundos partiendo del reposo relativo con una aceleración constante.",
+      "tabla_o_grafica_markdown": "| Variable | Valor | Unidad |\n|---|---|---|\n| Distancia (d) | 500 | m |\n| Tiempo (t) | 10 | s |\n| Velocidad inicial (vi) | 0 | m/s |",
+      "pregunta": "¿Qué aceleración constante deben aplicar los motores para lograr este desplazamiento exacto?",
+      "opciones": [
+        "5 m/s²",
+        "10 m/s²",
+        "50 m/s²",
+        "100 m/s²"
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. Revisa la fórmula d = (1/2)at².",
+        "1": "Correcto. 500 = (1/2) * a * (10)². 500 = 50a. a = 10 m/s².",
+        "2": "Incorrecto. Error de cálculo en la elevación al cuadrado del tiempo.",
+        "3": "Incorrecto. No se aplicó el factor 1/2 de la ecuación de movimiento rectilíneo uniformemente acelerado."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "El detective analiza una gráfica de Velocidad vs. Tiempo del satélite sospechoso. La gráfica muestra una línea horizontal con un valor de 5 m/s durante los primeros 5 segundos, y luego una pendiente positiva pronunciada.",
+      "tabla_o_grafica_markdown": "| Tiempo (s) | Velocidad (m/s) |\n|---|---|\n| 0-5 | 5 (Constante) |\n| 5-10 | Aumenta de 5 a 25 |",
+      "pregunta": "¿Qué conclusión puede obtener el detective sobre lo que le ocurrió al satélite en el segundo 5?",
+      "opciones": [
+        "El satélite se detuvo por completo.",
+        "Una fuerza externa comenzó a actuar sobre el satélite, provocando una aceleración constante.",
+        "El satélite entró en una zona sin gravedad.",
+        "El satélite cambió su dirección de movimiento pero mantuvo su rapidez."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. Si se detuviera, la velocidad caería a cero.",
+        "1": "Correcto. El cambio de una pendiente cero a una pendiente constante positiva indica la aparición de aceleración.",
+        "2": "Incorrecto. La falta de gravedad no causaría un aumento lineal de la velocidad en esta forma.",
+        "3": "Incorrecto. Una gráfica de velocidad (escalar en este caso de rapidez) que sube indica cambio en magnitud, no solo dirección."
+      }
+    }
+  ]
+}

@@ -1,0 +1,168 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Cuál de las siguientes afirmaciones describe mejor el modelo heliocéntrico antes de las correcciones de Kepler?",
+      "opciones": [
+        "La Tierra es el centro del universo y los planetas se mueven en círculos perfectos.",
+        "El Sol es el centro y los planetas se mueven en órbitas elípticas con velocidad constante.",
+        "El Sol es el centro y los planetas se mueven en órbitas circulares perfectas.",
+        "Los planetas flotan en el espacio sin ninguna fuerza que los mantenga unidos."
+      ],
+      "correcta": 2
+    }
+  ],
+  "texto_inductivo": "Saludos, reclutas de la **Operación Kepler-Deep**. Soy su Tech-Hacker asignado para esta misión en la densa selva del Amazonas Cuántico. Hemos interceptado una señal proveniente de un antiguo zigurat oculto bajo el follaje, una estructura que parece ser un gigantesco computador analógico astronómico construido por una civilización desconocida. Nuestro objetivo no es solo saquear tesoros, sino **hackear el código del cosmos** que estos antiguos grabaron en piedra. La selva es hostil, la humedad afecta nuestros sensores, pero la física es universal. Al entrar al primer nivel del templo, encontramos inscripciones que desafían la lógica de los círculos perfectos que nos enseñaron en la academia. Aquí, la naturaleza susurra que el cielo no es una esfera perfecta, sino un sistema de **geometrías variables**.\n\nObserven los grabados en las paredes de obsidiana. Describen el movimiento de los 'Vigilantes Errantes' (los planetas). Durante siglos, los hackers del pasado intentaron forzar estos movimientos en círculos perfectos, pero los datos no cuadraban; había un error en el sistema. Fue Johannes Kepler quien, tras años de procesar los datos 'crudos' de Tycho Brahe (el mejor recolector de logs de la época), logró romper el cifrado. La **Primera Ley de Kepler** es nuestro primer 'exploit': los planetas no giran en círculos, sino en **elipses**, con el Sol ocupando uno de los focos. Esto cambia todo. En la selva, si caminas en círculos te pierdes, pero si entiendes la elipse, entiendes la trayectoria del escape.\n\nAl avanzar hacia el corazón del zigurat, el suelo se vuelve inestable. Notamos que los péndulos del techo se mueven más rápido cuando se acercan a un cristal central de gran masa. Esta es la representación física de la **Segunda Ley de Kepler**. Un planeta no corre a la misma velocidad en toda su órbita. Cuando está más cerca del Sol (perihelio), su velocidad aumenta, 'barriendo' áreas iguales en tiempos iguales. Es como si el sistema operativo del universo optimizara los recursos dependiendo de la proximidad a la fuente de energía. En términos de hacking, es un ajuste dinámico del ancho de banda. Si intentas predecir la posición de un objetivo usando una velocidad constante, tu ataque fallará. Debes entender la aceleración orbital.\n\nFinalmente, en la cámara más profunda, hallamos una tabla de correspondencias entre el tiempo que tarda un planeta en dar una vuelta completa y su distancia promedio al Sol. Aquí reside la **Tercera Ley**, la joya de la corona. El cuadrado del periodo orbital es proporcional al cubo del semieje mayor de su órbita. Es una constante matemática, un 'checksum' que valida que todo el sistema solar opera bajo el mismo kernel. Esta armonía matemática permitió a los antiguos predecir eclipses con la precisión de un reloj atómico. Estamos ante un sistema perfectamente balanceado, un misterio que solo aquellos con la capacidad de indagar en los patrones ocultos pueden resolver. Preparados, porque para salir de esta selva, debemos usar estas leyes para triangular nuestra posición estelar y activar el portal de salida. La indagación no es una opción, es nuestra única herramienta de supervivencia en este entorno de datos corruptos y misterios ancestrales.",
+  "recurso_visual": "graph TD\n    A[Leyes de Kepler] --> B[1ra Ley: Elipses]\n    A --> C[2da Ley: Áreas Iguales]\n    A --> D[3ra Ley: Armonía/Periodos]\n    B --> B1(El Sol está en un foco)\n    C --> C1(Más velocidad en el Perihelio)\n    D --> D1(P^2 proporcional a a^3)",
+  "preguntas_inductivas_pagina": [
+    "¿Qué error fundamental en el 'sistema operativo' astronómico corrigió Kepler al proponer elipses?",
+    "¿Cómo cambia la velocidad de un planeta según su posición en la elipse según el texto?",
+    "¿Qué papel jugaron los 'logs' de Tycho Brahe en el descubrimiento de estas leyes?",
+    "¿Por qué la Tercera Ley se considera un 'checksum' o validador del sistema solar?",
+    "¿En qué parte de la órbita un planeta se mueve con menor velocidad según la narrativa?"
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema del zigurat donde se represente una órbita elíptica, señalando los focos, el perihelio y el afelio como si fueran nodos de una red.",
+    "Realiza un cuadro comparativo entre el modelo de órbitas circulares y el modelo de Kepler (órbitas elípticas), destacando ventajas en la precisión de datos.",
+    "Escribe una reflexión de 15 líneas sobre cómo la 'indagación' de Kepler sobre los errores de los datos antiguos permitió un cambio de paradigma científico.",
+    "Representa gráficamente mediante un diagrama de sectores la Segunda Ley de Kepler, sombreando las áreas barridas por el planeta en diferentes puntos."
+  ],
+  "juegos_ordenar_letras_1": [
+    "ELIPSE",
+    "PERIHELIO",
+    "FOCO"
+  ],
+  "juego_ordenar_frase_1": "LAS ORBITAS SON ELIPSES CON EL SOL EN UN FOCO",
+  "texto_deductivo": "Atención, equipo. Hemos descifrado la interfaz de usuario de las leyes de Kepler, pero para hackear el núcleo del sistema, necesitamos entender el 'back-end': la **Ley de Gravitación Universal de Newton**. Si Kepler describió *cómo* se mueven los planetas, Newton descubrió *por qué*. En nuestra expedición, hemos llegado a la zona de 'Gravedad Cero-G', donde los restos de la civilización flotan en un vacío artificial. Aquí, las ecuaciones dejan de ser simples observaciones y se convierten en leyes de fuerza.\n\nNewton postuló que existe una fuerza de atracción invisible, un hilo de datos que conecta cada bit de materia en el universo. La fuerza es directamente proporcional al producto de las masas e inversamente proporcional al cuadrado de la distancia que las separa. En el lenguaje de un Hacker Tecnológico, esto significa que la intensidad de la señal (gravedad) decae rápidamente a medida que nos alejamos del servidor central (el Sol). Esta es la razón de las órbitas elípticas. La gravedad actúa como una fuerza centrípeta que mantiene a los planetas 'atrapados' en su ejecución, evitando que salgan disparados hacia el espacio infinito en una línea recta de inercia.\n\nEntender esto es crucial para resolver el misterio de la selva. Los antiguos no solo conocían las formas, conocían las fuerzas. El zigurat no es solo un mapa; es un simulador de masas. Si alteramos la masa de un objeto en este simulador, la órbita colapsa. Newton unificó la física terrestre con la celeste. La misma manzana que cae en la selva es atraída por la Tierra con la misma lógica con la que la Luna es atraída por nuestro planeta. Es un sistema de archivos único para todo el cosmos. La Tercera Ley de Kepler, que antes parecía una curiosidad matemática, se deduce lógicamente de las leyes de Newton cuando igualamos la fuerza gravitacional con la fuerza centrípeta. \n\nAl aplicar el análisis deductivo, vemos que si la distancia entre dos cuerpos se duplica, la fuerza de atracción no se reduce a la mitad, sino a la cuarta parte (2 al cuadrado). Este es un error crítico que muchos novatos cometen al intentar calcular trayectorias de escape. En Modo Héroe, no podemos permitirnos errores de cálculo en la potencia de transmisión. El misterio que estamos resolviendo requiere que integremos la geometría de Kepler con la dinámica de Newton. Cada ruina, cada trampa de la selva que hemos superado, estaba diseñada bajo estos principios. La masa del Sol es el 'root' de este sistema, y nosotros somos paquetes de datos intentando encontrar la ruta óptima. Para finalizar el hackeo, debemos aplicar estas fórmulas para abrir la bóveda principal, donde se encuentra la clave para entender la expansión del universo mismo. Prepárense para la última fase del despliegue de código.",
+  "preguntas_deductivas_pagina": [
+    "¿Cuál es la relación matemática entre la fuerza de gravedad y la distancia entre dos cuerpos?",
+    "¿Qué diferencia hay entre lo que descubrió Kepler y lo que descubrió Newton?",
+    "¿Cómo explica la gravedad la Segunda Ley de Kepler sobre la velocidad variable?",
+    "¿Qué sucede con la fuerza de atracción si la masa de uno de los cuerpos se triplica?",
+    "¿Por qué se dice que Newton unificó la física terrestre y la celeste?"
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Realiza un diagrama detallado que muestre los vectores de fuerza gravitacional y velocidad tangencial en diferentes puntos de una órbita elíptica.",
+    "Elabora un mapa mental que conecte la Ley de Gravitación Universal con las tres Leyes de Kepler.",
+    "Dibuja una representación explicativa de cómo la Luna 'cae' hacia la Tierra pero nunca choca gracias a su velocidad lateral.",
+    "Crea una infografía artesanal que explique la fórmula F = G * (m1 * m2) / r^2, detallando qué significa cada variable en el contexto de nuestra expedición."
+  ],
+  "juegos_ordenar_letras_2": [
+    "GRAVEDAD",
+    "MASA",
+    "INERCIA"
+  ],
+  "juego_ordenar_frase_2": "LA FUERZA DEPENDE DE LA DISTANCIA AL CUADRADO",
+  "sopa_letras": [
+    "KEPLER",
+    "NEWTON",
+    "ORBITA",
+    "ELIPSE",
+    "GRAVEDAD",
+    "MASA",
+    "FOCO",
+    "PERIODO",
+    "INERCIA",
+    "FUERZA"
+  ],
+  "crucigrama": [
+    {
+      "palabra": "AFELIO",
+      "pista": "Punto de la órbita más alejado del Sol."
+    },
+    {
+      "palabra": "CENTRIPETA",
+      "pista": "Fuerza dirigida hacia el centro que mantiene el movimiento circular."
+    },
+    {
+      "palabra": "CONSTANTE",
+      "pista": "Valor G en la ecuación de gravitación universal."
+    },
+    {
+      "palabra": "ELIPTICA",
+      "pista": "Forma geométrica de las órbitas planetarias."
+    },
+    {
+      "palabra": "SATELLITE",
+      "pista": "Objeto que orbita alrededor de un planeta."
+    },
+    {
+      "palabra": "DINAMICA",
+      "pista": "Rama de la física que estudia las causas del movimiento."
+    },
+    {
+      "palabra": "CUADRADO",
+      "pista": "Relación de la distancia en la ley de gravitación (inversa al...)."
+    },
+    {
+      "palabra": "CUANTICO",
+      "pista": "Sector de la selva donde se desarrolla la expedición."
+    },
+    {
+      "palabra": "ZIGURAT",
+      "pista": "Estructura antigua que contiene el código astronómico."
+    },
+    {
+      "palabra": "UNIVERSAL",
+      "pista": "La gravedad es una ley de este tipo según Newton."
+    }
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "Un equipo de expedición observa que un planeta X en un sistema lejano tarda menos tiempo en recorrer el arco de su órbita cuando está cerca de su estrella que cuando está lejos.",
+      "tabla_o_grafica_markdown": "| Posición | Distancia (UA) | Velocidad (km/s) |\n|---|---|---|\n| Punto A | 0.5 | 50 |\n| Punto B | 1.5 | 15 |",
+      "pregunta": "¿Cuál de las leyes de Kepler explica este cambio de velocidad para asegurar que se barren áreas iguales en tiempos iguales?",
+      "opciones": [
+        "La Segunda Ley (Ley de las Áreas)",
+        "La Primera Ley (Ley de las Órbitas)",
+        "La Tercera Ley (Ley de los Periodos)",
+        "La Ley de la Inercia"
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. La segunda ley establece que el radio vector barre áreas iguales en tiempos iguales, lo que implica mayor velocidad cerca de la masa central.",
+        "1": "Incorrecto. La primera ley solo define la forma elíptica de la órbita.",
+        "2": "Incorrecto. La tercera ley relaciona periodos con distancias medias, no velocidades instantáneas.",
+        "3": "Incorrecto. La inercia es la tendencia a mantener el movimiento, pero no explica la variación de velocidad orbital."
+      }
+    },
+    {
+      "competencia": "Uso Comprensivo del Conocimiento Científico",
+      "texto_introductorio": "Si la fuerza gravitacional entre dos objetos en la selva cuántica depende de sus masas y la distancia entre ellos...",
+      "tabla_o_grafica_markdown": "| Caso | Masa 1 | Masa 2 | Distancia |\n|---|---|---|---|\n| Original | M | m | R |\n| Modificado | M | m | 2R |",
+      "pregunta": "¿Cómo cambia la fuerza gravitacional si la distancia se duplica?",
+      "opciones": [
+        "Se reduce a la mitad",
+        "Se reduce a la cuarta parte",
+        "Se duplica",
+        "Se mantiene igual"
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. La relación no es lineal inversa, sino cuadrática inversa.",
+        "1": "Correcto. Según la ley de Newton, la fuerza es inversamente proporcional al cuadrado de la distancia (1/2^2 = 1/4).",
+        "2": "Incorrecto. La fuerza disminuye con la distancia, no aumenta.",
+        "3": "Incorrecto. La fuerza gravitacional es extremadamente sensible a la distancia."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "Al analizar los datos de dos satélites que orbitan un templo antiguo, se registran sus periodos (T) y sus distancias medias (R).",
+      "tabla_o_grafica_markdown": "| Satélite | Radio (R) | Periodo (T) |\n|---|---|---|\n| S1 | 1 unidad | 1 año |\n| S2 | 4 unidades | ? |",
+      "pregunta": "Usando la Tercera Ley de Kepler (T^2 / R^3 = constante), ¿cuál sería el periodo del Satélite 2?",
+      "opciones": [
+        "2 años",
+        "4 años",
+        "8 años",
+        "16 años"
+      ],
+      "correcta": 2,
+      "retroalimentacion": {
+        "0": "Incorrecto. Verifica la relación T^2 proporcional a R^3.",
+        "1": "Incorrecto. No es una relación proporcional simple.",
+        "2": "Correcto. (T2)^2 / 4^3 = 1^2 / 1^3 -> (T2)^2 / 64 = 1 -> (T2)^2 = 64 -> T2 = 8.",
+        "3": "Incorrecto. Has olvidado sacar la raíz cuadrada del resultado del cubo."
+      }
+    }
+  ]
+}

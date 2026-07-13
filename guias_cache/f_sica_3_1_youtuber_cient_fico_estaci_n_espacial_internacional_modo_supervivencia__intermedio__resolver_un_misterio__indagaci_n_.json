@@ -1,0 +1,168 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Cuál era la creencia principal del modelo geocéntrico que dominó la astronomía antes del siglo XVI?",
+      "opciones": [
+        "La Tierra gira alrededor del Sol en órbitas elípticas.",
+        "La Tierra es el centro inmóvil del universo y todo gira a su alrededor.",
+        "El Sol es el centro y los planetas se mueven en círculos perfectos.",
+        "Los planetas flotan sin rumbo fijo en el vacío espacial."
+      ],
+      "correcta": 1
+    }
+  ],
+  "texto_inductivo": "¡Hola, qué tal, futuros comandantes y científicos de la Tierra! Bienvenidos a una transmisión de emergencia desde la **Estación Espacial Internacional (EEI)**. Soy su Youtuber científico favorito y hoy nos encontramos en el 'Modo Supervivencia'. Tenemos un problema técnico: el sistema de navegación automático de nuestra cápsula de suministros se ha desconfigurado y, para recuperarla, debemos entender las leyes fundamentales que rigen el movimiento de los astros. Si no logramos predecir dónde estará la cápsula basándonos en la mecánica celeste, nos quedaremos sin raciones de comida liofilizada para el próximo mes. ¡Así que a trabajar!\n\nPara resolver este misterio, debemos viajar en el tiempo, mucho antes de que existieran los cohetes. Imaginen que están en el siglo XVI. En ese entonces, la humanidad estaba obsesionada con el orden del cosmos. Durante siglos, el modelo de Ptolomeo nos dijo que la Tierra era el centro de todo, pero las cuentas no cuadraban. Los planetas hacían movimientos extraños llamados 'retrogradaciones', donde parecía que retrocedían en el cielo. Fue entonces cuando Nicolás Copérnico se atrevió a proponer el modelo heliocéntrico, poniendo al Sol en el centro. Sin embargo, Copérnico seguía aferrado a la idea de que los planetas se movían en círculos perfectos. Y aquí es donde entra nuestro primer gran detective de la historia: **Tycho Brahe**.\n\nBrahe fue un noble danés que, sin telescopios (porque aún no se inventaban), construyó los instrumentos de medición más precisos de su época. Observó el cielo noche tras noche, acumulando una montaña de datos sobre la posición de Marte. Pero Brahe era mejor observando que analizando. Al morir, sus datos pasaron a manos de su asistente, **Johannes Kepler**. Kepler era un matemático brillante y un poco místico que pasó años tratando de encajar los datos de Brahe en órbitas circulares. ¡Pero no funcionaba! Había una diferencia de apenas 8 minutos de arco que no permitía que el círculo fuera la respuesta.\n\nEn un momento de genialidad pura (y mucha frustración), Kepler decidió abandonar el círculo y probar con otra figura geométrica: la **elipse**. Al hacerlo, todo encajó mágicamente. Así nacieron sus dos primeras leyes. La **Primera Ley de Kepler** establece que los planetas se mueven en órbitas elípticas con el Sol en uno de sus focos. Esto significa que no siempre estamos a la misma distancia del Sol. La **Segunda Ley**, o ley de las áreas, nos dice que una línea imaginaria que conecta al Sol con un planeta barre áreas iguales en tiempos iguales. En lenguaje sencillo: los planetas corren más rápido cuando están cerca del Sol (perihelio) y más lento cuando están lejos (afelio). \n\nComprender esto es vital para nuestra supervivencia en la EEI. Nosotros no estamos en una órbita circular perfecta; nuestra trayectoria es una elipse muy cercana a un círculo, y nuestra velocidad varía sutilmente. Si queremos interceptar esa cápsula de suministros, debemos aplicar la lógica de Kepler: observar la posición, entender la forma de la trayectoria y predecir la velocidad según la distancia. El misterio de los planetas no era un caos, era una danza geométrica perfectamente organizada que Kepler logró descifrar usando solo papel, pluma y los datos de un observador incansable. ¡Estamos a un paso de recuperar nuestros suministros si logramos dominar estas elipses!",
+  "recurso_visual": "| Concepto | Modelo Geocéntrico | Modelo Heliocéntrico (Kepler) |\n|---|---|---|\n| Centro del Movimiento | La Tierra | El Sol |\n| Forma de la Órbita | Círculos Perfectos (Epiciclos) | Elipses |\n| Velocidad Planetaria | Constante | Variable (Más rápido cerca del Sol) |\n| Base de Evidencia | Dogma y observación simple | Datos matemáticos de Tycho Brahe |",
+  "preguntas_inductivas_pagina": [
+    "¿Por qué los datos de Tycho Brahe fueron fundamentales para el descubrimiento de Kepler?",
+    "¿Qué figura geométrica reemplazó al círculo en la descripción de las órbitas planetarias?",
+    "Según la Segunda Ley de Kepler, ¿en qué punto de su órbita un planeta se mueve a mayor velocidad?",
+    "¿Qué fenómeno visual intentaba explicar el modelo heliocéntrico que el geocéntrico no lograba hacer de forma sencilla?",
+    "¿Cuál es la diferencia principal entre un foco y el centro de una circunferencia en el contexto de una elipse?"
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema de una órbita elíptica exagerada, ubicando el Sol en uno de los focos y señalando los puntos de Perihelio y Afelio.",
+    "Realiza un cuadro comparativo entre las ideas de Copérnico y los descubrimientos finales de Kepler sobre el movimiento planetario.",
+    "Escribe una reflexión de 10 renglones sobre cómo el error de 8 minutos de arco en los datos de Brahe cambió la historia de la ciencia.",
+    "Representa gráficamente la Segunda Ley de Kepler, sombreando dos sectores de la elipse que representen áreas iguales recorridas en tiempos iguales."
+  ],
+  "juegos_ordenar_letras_1": [
+    "ELIPSE",
+    "AFELIO",
+    "KEPLER"
+  ],
+  "juego_ordenar_frase_1": "LOS PLANETAS DESCRIBEN ORBITAS ELIPTICAS ALREDEDOR DEL SOL EL CUAL SE UBICA EN UNO DE LOS FOCOS",
+  "texto_deductivo": "¡Atención, tripulación! Hemos avanzado en la investigación, pero todavía nos falta la pieza clave del rompecabezas. Ya sabemos *cómo* se mueven los planetas gracias a Kepler, pero ahora necesitamos saber *por qué* se mueven así. En nuestra situación actual en la Estación Espacial Internacional, no basta con saber que estamos en una elipse; necesitamos calcular la fuerza exacta que nos mantiene atados a la Tierra sin caer en picada ni salir disparados hacia el vacío profundo. Para esto, debemos invocar al titán de la física: **Isaac Newton**.\n\nCuenta la leyenda que Newton estaba sentado bajo un manzano cuando vio caer una fruta. En ese instante, tuvo una epifanía: ¿será que la misma fuerza que atrae la manzana hacia el suelo es la que mantiene a la Luna en su órbita? Newton dedujo que la gravedad no es algo que solo ocurre en la Tierra, sino que es una propiedad universal de la materia. Así formuló la **Ley de Gravitación Universal**, que establece que todos los objetos con masa se atraen entre sí con una fuerza que depende directamente del producto de sus masas e inversamente del cuadrado de la distancia que los separa. \n\nEsta fórmula cambió todo. Al combinar su ley de gravitación con sus leyes del movimiento, Newton pudo demostrar matemáticamente las leyes que Kepler había descubierto de forma empírica. Por ejemplo, la **Tercera Ley de Kepler** (el cuadrado del periodo orbital es proporcional al cubo de la distancia media al Sol) no era solo una curiosidad numérica; era una consecuencia directa de cómo la fuerza de gravedad disminuye con la distancia. En la EEI, esto es nuestra biblia. Estamos a unos 400 kilómetros de altura. A esa distancia, la gravedad terrestre es todavía el 90% de lo que es en la superficie. ¿Por qué no nos estrellamos? Porque nos movemos lateralmente a una velocidad increíble de 28,000 km/h. Estamos, literalmente, en una caída libre perpetua donde la curvatura de nuestra caída coincide con la curvatura de la Tierra.\n\nPara resolver el misterio de la cápsula perdida, debemos aplicar la deducción newtoniana. Si la cápsula está en una órbita más baja que la nuestra, la gravedad de la Tierra actúa con más fuerza sobre ella. Según la Tercera Ley de Kepler (explicada por Newton), un objeto en una órbita más baja debe moverse más rápido y tener un periodo orbital más corto. Si queremos que la cápsula se acople a nosotros, debemos realizar maniobras de cambio de órbita (Transferencia de Hohmann), que consisten en encender los motores para cambiar nuestra energía cinética y, por ende, nuestra distancia focal respecto al centro de la Tierra.\n\nEntender la gravitación nos permite deducir que la masa de la Tierra es la que dicta el ritmo de nuestra danza espacial. Sin la gravedad de Newton, las leyes de Kepler serían como una partitura sin instrumentos. Ahora que comprendemos que la masa y la distancia son las variables que controlan el destino de nuestra cápsula de suministros, podemos proceder con los cálculos finales. La física no es solo teoría; es lo que nos mantiene vivos aquí arriba, en la frontera final. ¡Vamos a traer esa cápsula a casa!",
+  "preguntas_deductivas_pagina": [
+    "¿Cómo explica la Ley de Gravitación Universal la Tercera Ley de Kepler?",
+    "Si la distancia entre dos cuerpos se duplica, ¿qué sucede con la fuerza de atracción gravitatoria entre ellos?",
+    "¿Por qué los astronautas en la EEI flotan si la gravedad allí es casi igual a la de la superficie terrestre?",
+    "¿Qué relación existe entre la masa de un planeta y la velocidad necesaria para mantener un satélite en órbita?",
+    "¿Qué pasaría con la órbita de la Tierra si, hipotéticamente, el Sol desapareciera instantáneamente?"
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Realiza un diagrama detallado que explique el experimento mental del 'Cañón de Newton' y cómo se relaciona con la puesta en órbita de la EEI.",
+    "Elabora un mapa mental que conecte los conceptos de: Masa, Distancia, Fuerza Gravitacional, Elipse y Periodo Orbital.",
+    "Dibuja una explicación visual de por qué un planeta se mueve más rápido en el perihelio usando el concepto de energía y atracción gravitatoria.",
+    "Diseña una infografía artesanal donde expliques las tres Leyes de Kepler y cómo Newton les dio un sustento físico con su Ley de Gravitación."
+  ],
+  "juegos_ordenar_letras_2": [
+    "GRAVEDAD",
+    "PERIODO",
+    "NEWTON"
+  ],
+  "juego_ordenar_frase_2": "LA FUERZA DE GRAVEDAD DISMINUYE CON EL CUADRADO DE LA DISTANCIA ENTRE LOS CUERPOS",
+  "sopa_letras": [
+    "GRAVEDAD",
+    "ORBITA",
+    "ELIPSE",
+    "KEPLER",
+    "NEWTON",
+    "MASA",
+    "FOCO",
+    "PERIHELIO",
+    "AFELIO",
+    "PLANETA"
+  ],
+  "crucigrama": [
+    {
+      "palabra": "ELIPSE",
+      "pista": "Forma geométrica de las órbitas planetarias."
+    },
+    {
+      "palabra": "NEWTON",
+      "pista": "Científico que formuló la Ley de Gravitación Universal."
+    },
+    {
+      "palabra": "PERIHELIO",
+      "pista": "Punto de la órbita más cercano al Sol."
+    },
+    {
+      "palabra": "AFELIO",
+      "pista": "Punto de la órbita más alejado del Sol."
+    },
+    {
+      "palabra": "KEPLER",
+      "pista": "Astrónomo que describió las tres leyes del movimiento planetario."
+    },
+    {
+      "palabra": "MASA",
+      "pista": "Cantidad de materia que influye en la fuerza gravitatoria."
+    },
+    {
+      "palabra": "GRAVEDAD",
+      "pista": "Fuerza de atracción invisible entre dos cuerpos con masa."
+    },
+    {
+      "palabra": "PERIODO",
+      "pista": "Tiempo que tarda un planeta en dar una vuelta completa al Sol."
+    },
+    {
+      "palabra": "FOCO",
+      "pista": "Uno de los dos puntos internos que definen una elipse."
+    },
+    {
+      "palabra": "TYCHO",
+      "pista": "Nombre del astrónomo cuyos datos permitieron descubrir las leyes de Kepler."
+    }
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "Un satélite de comunicaciones se encuentra en una órbita circular alrededor de la Tierra. Los ingenieros deciden moverlo a una órbita con el doble de radio para mejorar su cobertura.",
+      "tabla_o_grafica_markdown": "| Parámetro | Órbita Inicial (R) | Órbita Final (2R) |\n|---|---|---|\n| Radio | R | 2R |\n| Fuerza Gravitacional | F | ? |",
+      "pregunta": "Según la Ley de Gravitación Universal de Newton, ¿cuál será la nueva fuerza gravitacional sobre el satélite?",
+      "opciones": [
+        "La fuerza será la cuarta parte (F/4).",
+        "La fuerza se reducirá a la mitad (F/2).",
+        "La fuerza se duplicará (2F).",
+        "La fuerza se mantendrá igual (F)."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. La fuerza de gravedad es inversamente proporcional al cuadrado de la distancia. Si el radio se duplica (2^2 = 4), la fuerza disminuye 4 veces.",
+        "1": "Incorrecto. La relación no es lineal, sino inversamente proporcional al cuadrado de la distancia.",
+        "2": "Incorrecto. Al aumentar la distancia, la fuerza de atracción debe disminuir, no aumentar.",
+        "3": "Incorrecto. La fuerza gravitatoria depende críticamente de la distancia entre los centros de los cuerpos."
+      }
+    },
+    {
+      "competencia": "Uso Comprensivo del Conocimiento Científico",
+      "texto_introductorio": "Considera dos planetas, A y B, que orbitan la misma estrella. El planeta A está a una distancia media de 1 UA (Unidad Astronómica) y el planeta B está a 4 UA.",
+      "tabla_o_grafica_markdown": "| Planeta | Distancia al Sol (a) | Periodo Orbital (T) |\n|---|---|---|\n| Planeta A | 1 UA | 1 año |\n| Planeta B | 4 UA | ? |",
+      "pregunta": "Aplicando la Tercera Ley de Kepler (T² ∝ a³), ¿cuál es el periodo orbital del planeta B?",
+      "opciones": [
+        "2 años",
+        "4 años",
+        "8 años",
+        "16 años"
+      ],
+      "correcta": 2,
+      "retroalimentacion": {
+        "0": "Incorrecto. Revisa el cálculo de T² = 4³.",
+        "1": "Incorrecto. 4 al cubo es 64, y la raíz cuadrada de 64 no es 4.",
+        "2": "Correcto. Según la ley, T² = a³. Entonces T² = 4³ = 64. La raíz cuadrada de 64 es 8 años.",
+        "3": "Incorrecto. Has elevado al cuadrado en lugar de calcular la raíz tras elevar al cubo."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "Un grupo de científicos observa que un cometa se acelera significativamente a medida que se acerca a un punto específico cerca del Sol en su trayectoria elíptica.",
+      "tabla_o_grafica_markdown": "| Posición | Distancia al Sol | Velocidad |\n|---|---|---|\n| A (Lejos) | 50 UA | 10 km/s |\n| B (Cerca) | 1 UA | 150 km/s |",
+      "pregunta": "¿Qué conclusión científica explica mejor este aumento de velocidad según las leyes del movimiento planetario?",
+      "opciones": [
+        "El cometa gana masa al acercarse al Sol.",
+        "La Segunda Ley de Kepler establece que el radio vector barre áreas iguales en tiempos iguales, lo que implica mayor velocidad en el perihelio.",
+        "El cometa se acelera debido al viento solar que lo empuja hacia afuera.",
+        "La órbita del cometa es un círculo perfecto y la velocidad es constante."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. La masa del cometa suele disminuir por sublimación al acercarse al Sol, pero esto no explica la aceleración orbital.",
+        "1": "Correcto. La conservación del momento angular (descrita por la 2da Ley de Kepler) exige que al disminuir la distancia, la velocidad aumente para barrer la misma área.",
+        "2": "Incorrecto. El viento solar genera presión, pero la aceleración principal en la órbita se debe a la gravedad y la geometría de la elipse.",
+        "3": "Incorrecto. Si la velocidad varía (de 10 a 150 km/s), la órbita no puede ser un círculo con velocidad constante."
+      }
+    }
+  ]
+}

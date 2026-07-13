@@ -1,0 +1,188 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Qué forma tiene la órbita de los planetas según el modelo heliocéntrico de Kepler?",
+      "opciones": [
+        "Círculo perfecto",
+        "Elipse",
+        "Línea recta",
+        "Espiral ascendente"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Cuál es la fuerza que mantiene a los planetas 'atados' al Sol en el vacío del espacio?",
+      "opciones": [
+        "Magnetismo cuántico",
+        "Fricción atmosférica",
+        "Gravedad",
+        "Presión de radiación"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "Si un planeta está más lejos del Sol, ¿cómo es su periodo orbital?",
+      "opciones": [
+        "Más corto",
+        "Igual a todos los demás",
+        "Más largo",
+        "No tiene periodo"
+      ],
+      "correcta": 2
+    }
+  ],
+  "texto_inductivo": "¡Escuchen bien, ratas de búnker! Acerquen sus rostros mugrientos a la luz de los tubos de neón antes de que la batería se agote. ¿Alguna vez han mirado hacia arriba, a través de la densa capa de ceniza radiactiva que cubre nuestro cielo, y se han preguntado por qué las luces errantes —esos que los antiguos llamaban 'planetas'— siguen una danza tan precisa? En este **Modo Supervivencia**, entender el movimiento planetario no es un lujo de académicos barbudos; es la diferencia entre predecir el regreso de las lluvias ácidas estacionales o morir calcinados por el sol sin aviso. El cosmos es un mecanismo de relojería gigante, y aunque la Tierra haya sido devastada, las leyes de Johannes Kepler siguen dictando el ritmo del baile. **Kepler**, ese genio obsesivo que trabajaba con los datos robados (o heredados, si quieren ser amables) de Tycho Brahe, descubrió que los cielos no eran perfectos círculos divinos, sino elipses imperfectas y elegantes.\n\nImaginen que el Sol es el corazón de un reactor nuclear en el centro de nuestra sala de máquinas. La **Primera Ley de Kepler** nos dice que los planetas se mueven en elipses, con el Sol en uno de los focos. No hay nada en el otro foco, ¡solo el vacío y el eco de mis propios gritos! Esto significa que la distancia entre nosotros y esa bola de fuego cambia constantemente. Luego está la **Segunda Ley**, la ley de las áreas iguales en tiempos iguales. ¡Es fascinante! Cuando un planeta se acerca al Sol (perihelio), corre como si el mismísimo diablo lo persiguiera, barriendo una gran área. Cuando se aleja (afelio), se vuelve perezoso, lento, como un mutante después de una gran comida. ¿Por qué importa esto? Porque la velocidad orbital dicta la energía del sistema. Finalmente, la **Tercera Ley** vincula el tiempo que tarda un planeta en dar una vuelta completa con su distancia promedio al Sol. El cuadrado del periodo es proporcional al cubo de la distancia. ¡Matemáticas puras, hermosas y aterradoras! Si logramos lanzar un satélite de chatarra para contactar con las colonias de Marte, debemos entender estas proporciones o nuestro preciado equipo se perderá en el abismo interplanetario. La física no ha muerto con la civilización; simplemente se ha vuelto más urgente. Si no comprenden el movimiento planetario, están condenados a vivir en la ignorancia de las sombras, esperando un amanecer que no saben predecir. El cielo no es un caos caprichoso; es una ecuación que espera ser resuelta por mentes que aún no han sido corroídas por el óxido del olvido. ¡Miren las órbitas, midan los tiempos, y quizás, solo quizás, recuperemos nuestro lugar entre las estrellas antes de que el último generador se apague para siempre!",
+  "recurso_visual": "| Ley de Kepler | Nombre | Concepto Clave | Efecto Observado |\n| :--- | :--- | :--- | :--- |\n| 1ra Ley | Ley de las Órbitas | Elipses con el Sol en un foco | La distancia planeta-sol varía constantemente. |\n| 2da Ley | Ley de las Áreas | Áreas iguales en tiempos iguales | El planeta se mueve más rápido cerca del Sol (Perihelio). |\n| 3ra Ley | Ley de los Periodos | $T^2 / a^3 = K$ | Los planetas lejanos tardan mucho más en orbitar. |",
+  "preguntas_inductivas_pagina": [
+    "¿Por qué Kepler descartó el modelo de órbitas circulares perfectas?",
+    "¿Qué sucede con la velocidad de un planeta cuando alcanza su punto más cercano al Sol?",
+    "Si un planeta tuviera una órbita circular, ¿cómo cambiaría su velocidad a lo largo del año?",
+    "¿Qué datos necesitaba Kepler para formular su tercera ley?",
+    "¿Cómo afecta la excentricidad de una órbita a la habitabilidad de un planeta en nuestro contexto post-apocalíptico?"
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja una órbita elíptica exagerada, marca los dos focos, el Sol en uno de ellos, y sombrea dos sectores de áreas iguales para ilustrar la Segunda Ley de Kepler.",
+    "Realiza un cuadro comparativo entre el modelo Geocéntrico (donde la Tierra era el centro) y el modelo Heliocéntrico de Kepler, destacando las ventajas del segundo para explicar el movimiento retrógrado.",
+    "Escribe una reflexión de media página sobre cómo la precisión en las leyes de Kepler ayudó a los antiguos a navegar y cómo nos ayudaría hoy a reubicar satélites de comunicaciones.",
+    "Representa gráficamente la relación entre el cubo de la distancia (eje X) y el cuadrado del periodo orbital (eje Y) para tres planetas imaginarios del sistema solar."
+  ],
+  "juegos_ordenar_letras_1": [
+    "ELIPSE",
+    "PERIHELIO",
+    "AFELIO"
+  ],
+  "juego_ordenar_frase_1": "EL CUADRADO DEL PERIODO ES PROPORCIONAL AL CUBO DE LA DISTANCIA MEDIA AL SOL",
+  "texto_deductivo": "¡Silencio! La inducción ha terminado, ahora entraremos en las tripas de la bestia. Para entender realmente por qué los planetas se mueven así, debemos invocar a Sir Isaac Newton, el hombre que unificó el cielo y la Tierra con una sola ecuación. ¿Por qué una elipse? ¿Por qué no un cuadrado o un hexágono? La respuesta reside en la **Ley de Gravitación Universal**. Newton dedujo que la fuerza que atrae a una manzana hacia el suelo radiactivo es la misma fuerza que mantiene a la Luna en su lugar: $F = G * (m1 * m2) / r^2$. Esta relación de 'inverso del cuadrado' es la clave de todo. Si la gravedad fuera solo un poco diferente, las órbitas se espiralizarían hacia el sol o saldrían disparadas hacia el frío eterno. \n\nEn este nivel de supervivencia, deben comprender que la **Dinámica Orbital** es un equilibrio precario entre la inercia y la gravedad. La inercia quiere que el planeta siga en línea recta hacia la oscuridad del espacio, mientras que la gravedad del Sol lo tira hacia el centro. El resultado de este forcejeo eterno es la órbita. Kepler describió el *cómo*, pero Newton explicó el *por qué*. Cuando aplicamos la segunda ley de Newton ($F=ma$) a la gravitación, podemos derivar matemáticamente la Tercera Ley de Kepler. Esto nos permite calcular la masa de estrellas lejanas simplemente observando el tiempo que tardan sus planetas en orbitar. \n\n¡Piensen en las implicaciones! Si un asteroide se acerca a nuestra Tierra devastada, podemos predecir su trayectoria exacta usando estas fórmulas. No es magia, es mecánica celeste. La excentricidad de la órbita nos dice qué tan 'estirada' está la elipse. Una excentricidad de 0 es un círculo perfecto; cerca de 1 es una parábola de escape. La mayoría de los planetas tienen excentricidades bajas, lo que mantiene el clima relativamente estable... o lo que queda de él. Pero los cometas tienen excentricidades altas, cruzando el sistema solar como mensajeros del caos. Para explicar un fenómeno extraño, como el cambio repentino en la posición de una estrella o la anomalía de una órbita, debemos recurrir a las perturbaciones gravitatorias. Otros cuerpos masivos pueden 'tirar' de un planeta, alterando su danza perfecta. Este nivel de análisis es lo que nos permitirá, algún día, limpiar la atmósfera usando estaciones espaciales posicionadas en puntos de Lagrange, donde las fuerzas de gravedad de dos cuerpos grandes se cancelan. Pero antes, deben dominar el cálculo de estas fuerzas en sus cuadernos de cuero de rata. ¡A trabajar!",
+  "preguntas_deductivas_pagina": [
+    "¿Qué pasaría con la fuerza de gravedad si la distancia entre dos cuerpos se triplicara?",
+    "¿Cómo demostró Newton que sus leyes de movimiento explicaban las leyes de Kepler?",
+    "¿Cuál es el papel de la masa del planeta en su periodo orbital según la fórmula de gravitación?",
+    "¿Qué es la velocidad de escape y cómo se relaciona con la órbita de un cuerpo?",
+    "¿Por qué los planetas no caen directamente hacia el Sol a pesar de la enorme fuerza de atracción?"
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Dibuja un diagrama detallado de vectores que muestre la fuerza gravitatoria y la velocidad tangencial de un planeta en cuatro puntos diferentes de su órbita elíptica.",
+    "Elabora un mapa mental que conecte los conceptos de: Gravitación Universal, Inercia, Órbita Elíptica, Periodo y Leyes de Kepler.",
+    "Realiza un dibujo explicativo que compare una órbita circular (excentricidad 0) con una órbita de cometa altamente elíptica, señalando dónde la aceleración es mayor.",
+    "Diseña una infografía artesanal que explique paso a paso cómo se usaría la Tercera Ley de Kepler para determinar la distancia de un nuevo exoplaneta descubierto por un telescopio de salvamento."
+  ],
+  "juegos_ordenar_letras_2": [
+    "GRAVEDAD",
+    "INERCIA",
+    "EXCENTRICIDAD"
+  ],
+  "juego_ordenar_frase_2": "LA FUERZA DE GRAVEDAD DISMINUYE CON EL CUADRADO DE LA DISTANCIA",
+  "sopa_letras": [
+    "KEPLER",
+    "NEWTON",
+    "ORBITA",
+    "ELIPSE",
+    "FOCO",
+    "GRAVEDAD",
+    "PERIODO",
+    "INERCIA",
+    "MASA",
+    "SOL"
+  ],
+  "crucigrama": [
+    {
+      "palabra": "ELIPSE",
+      "pista": "Forma geométrica de la trayectoria planetaria."
+    },
+    {
+      "palabra": "GRAVEDAD",
+      "pista": "Fuerza de atracción universal entre masas."
+    },
+    {
+      "palabra": "PERIHELIO",
+      "pista": "Punto de la órbita más cercano al Sol."
+    },
+    {
+      "palabra": "AFELIO",
+      "pista": "Punto de la órbita más alejado del Sol."
+    },
+    {
+      "palabra": "KEPLER",
+      "pista": "Astrónomo que definió las tres leyes del movimiento planetario."
+    },
+    {
+      "palabra": "NEWTON",
+      "pista": "Científico que formuló la Ley de Gravitación Universal."
+    },
+    {
+      "palabra": "PERIODO",
+      "pista": "Tiempo que tarda un planeta en completar una vuelta."
+    },
+    {
+      "palabra": "FOCO",
+      "pista": "Uno de los dos puntos fijos dentro de una elipse."
+    },
+    {
+      "palabra": "EXCENTRICIDAD",
+      "pista": "Medida de qué tan estirada está una elipse."
+    },
+    {
+      "palabra": "INERCIA",
+      "pista": "Tendencia de un cuerpo a mantener su estado de movimiento."
+    }
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "En el sector 4 del páramo, los supervivientes observan que un cometa se mueve mucho más rápido cuando brilla intensamente cerca del sol que cuando se pierde en la oscuridad exterior. Según las leyes de la física orbital:",
+      "tabla_o_grafica_markdown": "| Posición | Distancia al Sol (UA) | Velocidad (km/s) |\n|---|---|---|\n| A | 0.5 | 60 |\n| B | 5.0 | 15 |",
+      "pregunta": "¿Cuál es la causa física de que la velocidad aumente en la posición A?",
+      "opciones": [
+        "La conservación del momento angular exige que a menor radio, mayor velocidad.",
+        "El calor del sol empuja al cometa con más fuerza en la posición A.",
+        "La masa del cometa aumenta al absorber radiación solar cerca del foco.",
+        "En el espacio no hay fricción, por lo que el cometa siempre acelera."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "¡Exacto! Según la segunda ley de Kepler, para barrer áreas iguales, la velocidad debe ser mayor en el perihelio.",
+        "1": "Error. El viento solar ejerce presión, pero es despreciable frente a la cinética orbital.",
+        "2": "¡Imposible! La masa no cambia por la radiación en esas proporciones.",
+        "3": "Incorrecto. Sin fricción se mantiene la velocidad, pero la gravedad es la que causa la aceleración."
+      }
+    },
+    {
+      "competencia": "Uso Comprensivo del Conocimiento Científico",
+      "texto_introductorio": "Se descubre un planeta enano 'X-7' en los restos del sistema solar exterior. Se sabe que su distancia media al Sol es 4 veces la distancia de la Tierra al Sol (4 UA).",
+      "tabla_o_grafica_markdown": "| Planeta | Distancia Media (UA) | Periodo (Años) |\n|---|---|---|\n| Tierra | 1 | 1 |\n| X-7 | 4 | ? |",
+      "pregunta": "Usando la tercera ley de Kepler ($T^2 = a^3$), ¿cuál es el periodo orbital de X-7?",
+      "opciones": [
+        "4 años",
+        "16 años",
+        "8 años",
+        "64 años"
+      ],
+      "correcta": 2,
+      "retroalimentacion": {
+        "0": "Cálculo erróneo. No es una relación lineal simple.",
+        "1": "Casi, pero olvidaste sacar la raíz cuadrada del resultado del cubo.",
+        "2": "¡Brillante! $4^3 = 64$, y la raíz cuadrada de 64 es 8. Sobrevivirás otro día.",
+        "3": "Ese es el cubo de la distancia, pero olvidaste que el periodo está al cuadrado."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "Un grupo de chatarreros espaciales encuentra un antiguo registro de un sistema planetario lejano con dos planetas orbitando una enana blanca.",
+      "tabla_o_grafica_markdown": "| Objeto | Semieje mayor (a) | Periodo (T) | $T^2 / a^3$ |\n|---|---|---|---|\n| Planeta 1 | 2 | 2.82 | 1.0 |\n| Planeta 2 | 4 | 8.00 | 1.0 |",
+      "pregunta": "¿Qué conclusión científica se puede extraer de la última columna de la tabla?",
+      "opciones": [
+        "Que la constante de Kepler es universal para todos los cuerpos que orbitan la misma estrella.",
+        "Que el Planeta 2 es más grande en masa que el Planeta 1.",
+        "Que el sistema está colapsando debido a la falta de energía.",
+        "Que los planetas tienen órbitas circulares perfectas."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. La razón constante demuestra que ambos están bajo la influencia gravitatoria del mismo cuerpo central.",
+        "1": "La masa del planeta no se deduce directamente de esta constante.",
+        "2": "No hay evidencia de colapso, los datos muestran una órbita estable.",
+        "3": "La constante se cumple para elipses también, no solo para círculos."
+      }
+    }
+  ]
+}

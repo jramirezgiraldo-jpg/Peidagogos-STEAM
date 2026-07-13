@@ -1,0 +1,188 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Cuál es la forma geométrica precisa de las órbitas planetarias según las observaciones modernas?",
+      "opciones": [
+        "Círculos perfectos",
+        "Elipses con el Sol en uno de los focos",
+        "Espirales descendentes",
+        "Trayectorias erráticas sin patrón"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Qué magnitud física se mantiene constante cuando un planeta recorre áreas iguales en tiempos iguales?",
+      "opciones": [
+        "Velocidad lineal",
+        "Energía cinética",
+        "Momento angular",
+        "Aceleración tangencial"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "Si un planeta se aleja del Sol en su órbita (afelio), ¿qué sucede con su velocidad orbital?",
+      "opciones": [
+        "Aumenta significativamente",
+        "Se mantiene constante",
+        "Disminuye",
+        "Se vuelve cero"
+      ],
+      "correcta": 2
+    }
+  ],
+  "texto_inductivo": "¡Saludos, cadetes de la Neo-Metrópolis! Soy el Comandante de la Flota de Exploración Espacial. Nos encontramos en el año 2450. Nuestra ciudad flotante, 'Aethelgard', depende de la estabilidad de su órbita alrededor de la Enana Blanca Kepler-186f. Para sobrevivir en esta metrópolis del futuro, no basta con presionar botones; debemos comprender la danza mecánica del cosmos. El movimiento planetario no es una casualidad estética; es una coreografía regida por leyes matemáticas inquebrantables que fueron descifradas mucho antes de que nuestras ciudades despegaran de la Tierra.\n\nHistóricamente, la humanidad creyó que el centro de todo era su propio hogar. El modelo geocéntrico situaba a la Tierra en el núcleo del universo, una idea reconfortante pero errónea que complicaba las trayectorias de los astros con 'epiciclos' innecesarios. Fue Johannes Kepler, utilizando los datos precisos de Tycho Brahe, quien rompió las esferas de cristal. La **Primera Ley de Kepler**, o Ley de las Órbitas, nos dice que los planetas se mueven en elipses. En Aethelgard, esto es vital: nuestra distancia al sol varía, y con ella, la radiación que reciben nuestros escudos térmicos. Una elipse tiene dos focos, y nuestra estrella ocupa uno de ellos. La 'excentricidad' de esta elipse determina qué tan estirada está la trayectoria; una excentricidad de cero sería un círculo perfecto, pero en el espacio real, la perfección es una anomalía.\n\nLa **Segunda Ley**, la Ley de las Áreas, es nuestra guía para la navegación temporal. Establece que el radio vector que une a un planeta con el Sol barre áreas iguales en tiempos iguales. ¿Qué significa esto para la supervivencia en la metrópolis? Significa que cuando estamos en el perihelio (el punto más cercano al sol), Aethelgard debe moverse a su máxima velocidad para no ser succionada por la gravedad estelar. Por el contrario, en el afelio (punto más lejano), la ciudad se desplaza con una parsimonia majestuosa. Comprender este cambio de velocidad es lo que permite a nuestros ingenieros sincronizar los saltos hiperespaciales de las naves de suministro.\n\nFinalmente, la **Tercera Ley** o Ley Armónica, vincula el periodo orbital con la distancia media al Sol. El cuadrado del periodo es proporcional al cubo del semieje mayor. Esta ley es la que nos permitió catalogar todos los exoplanetas del sector. Si conocemos cuánto tarda un planeta en dar una vuelta, sabemos exactamente a qué distancia se encuentra. En la Metrópolis del Futuro, la ciencia no es un libro de texto; es el oxígeno que respiramos y el motor que nos mantiene en el vacío. Si fallamos en el cálculo de estas trayectorias, la ciudad entera podría derivar hacia el frío absoluto del espacio intergaláctico. Como héroes de esta era, su misión es dominar la cinemática celeste para garantizar que las luces de Neo-Terra nunca se apaguen.",
+  "recurso_visual": "graph TD\n    A[Leyes de Kepler] --> B[1ra Ley: Órbitas]\n    A --> C[2da Ley: Áreas]\n    A --> D[3ra Ley: Armónica]\n    B --> B1(Trayectoria Elíptica)\n    B --> B2(Sol en un Foco)\n    C --> C1(Velocidad variable)\n    C --> C2(Perihelio: Rápido / Afelio: Lento)\n    D --> D1(T^2 proporcional a r^3)\n    D --> D2(Relación Periodo-Distancia)",
+  "preguntas_inductivas_pagina": [
+    "¿Por qué el modelo heliocéntrico de Kepler fue más eficiente que el modelo geocéntrico antiguo?",
+    "¿Qué sucedería con la forma de la órbita de Aethelgard si su excentricidad fuera exactamente 0?",
+    "¿En qué punto de la órbita terrestre la velocidad orbital es mínima y por qué?",
+    "Explica con tus palabras la relación entre el periodo orbital y la distancia al sol según la Tercera Ley.",
+    "¿Cómo influye la Segunda Ley de Kepler en el diseño de las rutas de suministros para la metrópolis?"
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema detallado de una órbita elíptica, señalando los focos, el semieje mayor, el perihelio y el afelio.",
+    "Realiza un cuadro comparativo entre las tres leyes de Kepler, indicando el nombre de la ley, su definición física y su aplicación en la navegación espacial.",
+    "Escribe una reflexión de 15 líneas sobre cómo el cambio de un paradigma geocéntrico a uno heliocéntrico cambió la forma en que la humanidad entiende su lugar en el universo.",
+    "Representa gráficamente la Segunda Ley de Kepler (barrido de áreas) usando colores para diferenciar el movimiento en el perihelio y el afelio."
+  ],
+  "juegos_ordenar_letras_1": [
+    "ELIPSE",
+    "PERIHELIO",
+    "EXCENTRICIDAD"
+  ],
+  "juego_ordenar_frase_1": "LOS PLANETAS DESCRIBEN ORBITAS ELIPTICAS ALREDEDOR DEL SOL",
+  "texto_deductivo": "Cadetes, si Kepler nos dio el 'cómo' se mueven los mundos, Isaac Newton nos entregó el 'porqué'. En la Metrópolis del Futuro, la **Ley de Gravitación Universal** es la ecuación de la supervivencia. Newton comprendió que la fuerza que hace caer una manzana en la antigua Tierra es la misma que mantiene a nuestra ciudad, Aethelgard, atada a su estrella. Esta fuerza es directamente proporcional al producto de las masas e inversamente proporcional al cuadrado de la distancia que las separa. En el Modo Héroe, debemos entender que cada kilogramo de masa en nuestra metrópolis ejerce una atracción sobre el resto del universo. La gravedad es la arquitectura invisible de nuestro hogar.\n\nPara que una metrópolis espacial no colapse, debe mantener una **velocidad orbital** crítica. Esta velocidad se deduce al igualar la fuerza gravitatoria con la fuerza centrípeta necesaria para mantener el movimiento circular (o elíptico). Si Aethelgard frenara su marcha, la gravedad de la Enana Blanca nos atraería hacia un destino ígneo. Si aceleráramos sin control, alcanzaríamos la 'velocidad de escape' y abandonaríamos el sistema solar, perdiéndonos en el vacío. La precisión es absoluta: un error del 0.01% en el cálculo de la masa de la ciudad podría alterar nuestra órbita en miles de kilómetros a largo plazo.\n\nAdemás, debemos considerar el concepto de **Campo Gravitatorio**. No es solo una fuerza entre dos objetos, sino una perturbación en el tejido del espacio-tiempo. En la metrópolis, utilizamos sensores de gravedad para detectar asteroides errantes. Un objeto masivo que se acerque deformará el campo, y nuestras computadoras cuánticas deben recalcular las órbitas de los satélites de defensa en milisegundos. La síntesis newtoniana no solo unificó la física terrestre y la celeste, sino que nos dio las herramientas para convertirnos en ingenieros del sistema solar.\n\nLa Tercera Ley de Kepler, que antes era una observación empírica, adquiere una base sólida con Newton. Al derivarla usando la ley de gravitación, descubrimos que la constante de proporcionalidad depende de la masa de la estrella central. Esto significa que, si quisiéramos trasladar la Metrópolis a otro sistema estelar con una estrella más masiva, tendríamos que orbitar a una distancia mucho mayor o a una velocidad mucho más alta para mantener la estabilidad. La física es la ley suprema de la metrópolis; ignorarla es invitar a la extinción. Como exploradores, su deber es usar estas herramientas deductivas para predecir el futuro de nuestra trayectoria y asegurar que las generaciones venideras hereden un cielo estable y seguro.",
+  "preguntas_deductivas_pagina": [
+    "¿Cómo cambia la fuerza de atracción entre la metrópolis y su estrella si la distancia entre ambas se triplica?",
+    "¿Qué variables determinan la velocidad de escape de un planeta según la mecánica de Newton?",
+    "Si la masa de la estrella central aumentara al doble, ¿qué ajustes debería hacer la metrópolis en su órbita para no caer?",
+    "¿Cuál es la diferencia fundamental entre la constante de gravitación universal (G) y la aceleración de la gravedad (g)?",
+    "¿Por qué se dice que Newton 'unificó' los cielos y la tierra con su ley de gravitación?"
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Realiza un diagrama detallado de las fuerzas que actúan sobre un satélite en órbita circular, incluyendo los vectores de velocidad y fuerza centrípeta.",
+    "Elabora un mapa mental sobre la Ley de Gravitación Universal, conectando conceptos como masa, distancia, constante G y peso.",
+    "Dibuja una infografía artesanal que explique por qué los astronautas (o ciudadanos de la metrópolis en caída libre) experimentan 'ingravidez' aparente.",
+    "Crea un dibujo explicativo que compare la deformación del espacio-tiempo causada por una estrella frente a la causada por un planeta pequeño."
+  ],
+  "juegos_ordenar_letras_2": [
+    "GRAVITACION",
+    "CENTRIPETA",
+    "UNIVERSAL"
+  ],
+  "juego_ordenar_frase_2": "LA FUERZA DE GRAVEDAD DEPENDE DE LA MASA Y LA DISTANCIA",
+  "sopa_letras": [
+    "KEPLER",
+    "NEWTON",
+    "ORBITA",
+    "GRAVEDAD",
+    "FOCO",
+    "ELIPSE",
+    "MASA",
+    "INERCIA",
+    "PERIODO",
+    "AFELIO"
+  ],
+  "crucigrama": [
+    {
+      "palabra": "GRAVEDAD",
+      "pista": "Fuerza de atracción universal entre dos cuerpos con masa."
+    },
+    {
+      "palabra": "ELIPSE",
+      "pista": "Forma geométrica de la trayectoria de los planetas."
+    },
+    {
+      "palabra": "KEPLER",
+      "pista": "Astrónomo que formuló las tres leyes del movimiento planetario."
+    },
+    {
+      "palabra": "PERIHELIO",
+      "pista": "Punto de la órbita más cercano al Sol."
+    },
+    {
+      "palabra": "AFELIO",
+      "pista": "Punto de la órbita más alejado del Sol."
+    },
+    {
+      "palabra": "MASA",
+      "pista": "Cantidad de materia de un cuerpo, fundamental para la gravedad."
+    },
+    {
+      "palabra": "INERCIA",
+      "pista": "Tendencia de los cuerpos a mantener su estado de movimiento."
+    },
+    {
+      "palabra": "ORBITA",
+      "pista": "Camino curvo que sigue un planeta alrededor de una estrella."
+    },
+    {
+      "palabra": "CENTRIPETA",
+      "pista": "Fuerza que apunta hacia el centro de una trayectoria curva."
+    },
+    {
+      "palabra": "PERIODO",
+      "pista": "Tiempo que tarda un planeta en completar una vuelta al Sol."
+    }
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "En la metrópolis Neo-Terra, un sensor detecta que la ciudad está aumentando su velocidad tangencial sin haber encendido sus motores. Los astrónomos confirman que la ciudad se dirige hacia el punto más cercano a su estrella.",
+      "tabla_o_grafica_markdown": "| Posición | Distancia al Sol (UA) | Velocidad (km/s) |\n|---|---|---|\n| A | 1.2 | 25 |\n| B | 0.8 | 35 |",
+      "pregunta": "De acuerdo con la Segunda Ley de Kepler, ¿cuál es la razón científica de este aumento de velocidad?",
+      "opciones": [
+        "La gravedad desaparece en el punto más cercano.",
+        "El radio vector barre áreas iguales en tiempos iguales, exigiendo más velocidad al reducirse la distancia.",
+        "Los motores de la ciudad se activan automáticamente por el calor solar.",
+        "La masa de la ciudad aumenta al acercarse al sol."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. La gravedad es más fuerte cerca de la estrella.",
+        "1": "Correcto. Para mantener el área constante en el mismo tiempo, al ser el radio menor, el arco recorrido debe ser mayor.",
+        "2": "Incorrecto. El fenómeno es orbital, no mecánico de motores.",
+        "3": "Incorrecto. La masa es una propiedad intrínseca y no cambia por la posición orbital."
+      }
+    },
+    {
+      "competencia": "Uso comprensivo del conocimiento científico",
+      "texto_introductorio": "Un ingeniero espacial debe calcular la fuerza gravitacional entre Aethelgard y una luna cercana para evitar una colisión. Si la distancia entre la metrópolis y la luna se reduce a la mitad debido a un error de navegación.",
+      "tabla_o_grafica_markdown": "| Variable | Cambio |\n|---|---|\n| Masa Metrópolis | M |\n| Masa Luna | m |\n| Distancia | d / 2 |",
+      "pregunta": "¿Qué ocurre con la fuerza de atracción gravitacional entre ellos?",
+      "opciones": [
+        "Se reduce a la mitad.",
+        "Se duplica.",
+        "Se cuadruplica.",
+        "Se mantiene igual."
+      ],
+      "correcta": 2,
+      "retroalimentacion": {
+        "0": "Incorrecto. La relación con la distancia es inversa al cuadrado.",
+        "1": "Incorrecto. Al reducirse la distancia, la fuerza aumenta más que el doble.",
+        "2": "Correcto. Según la ley de Newton, si d disminuye a la mitad, (1/2)^2 en el denominador se convierte en 4 veces la fuerza original.",
+        "3": "Incorrecto. La fuerza gravitacional depende críticamente de la distancia."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "Se desea investigar si un exoplaneta recién descubierto podría albergar una metrópolis similar a la nuestra. Solo se conoce que su periodo orbital es de 8 años terrestres.",
+      "tabla_o_grafica_markdown": "| Planeta | Periodo (T) | Distancia Media (r) |\n|---|---|---|\n| Tierra | 1 año | 1 UA |\n| Exoplaneta | 8 años | ? |",
+      "pregunta": "Usando la Tercera Ley de Kepler (T² ∝ r³), ¿cuál sería la distancia media de este planeta al Sol en Unidades Astronómicas (UA)?",
+      "opciones": [
+        "2 UA",
+        "4 UA",
+        "8 UA",
+        "64 UA"
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. 2 al cubo es 8, pero 8 al cuadrado es 64.",
+        "1": "Correcto. T^2 = 8^2 = 64. Buscamos r tal que r^3 = 64. La raíz cúbica de 64 es 4.",
+        "2": "Incorrecto. Si fuera 8 UA, el periodo sería de 22.6 años aproximadamente.",
+        "3": "Incorrecto. Esta sería la distancia si el periodo fuera mucho mayor."
+      }
+    }
+  ]
+}

@@ -1,0 +1,188 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "En la periferia de la metrópolis, ¿qué fuerza mantiene a los recolectores de basura orbital en su trayectoria?",
+      "opciones": [
+        "Magnetismo cuántico",
+        "Fricción del aire",
+        "Fuerza gravitacional",
+        "Inercia pura"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "¿Qué forma creían los antiguos tecnócratas que tenían las órbitas antes de los sensores de alta precisión?",
+      "opciones": [
+        "Espirales",
+        "Círculos perfectos",
+        "Líneas rectas",
+        "Triángulos"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Cuál es la fuente de energía que atrae a los planetas hacia el centro del sistema solar en el Modelo Heliocéntrico?",
+      "opciones": [
+        "La Tierra",
+        "El Sol",
+        "El Vacío",
+        "Júpiter"
+      ],
+      "correcta": 1
+    }
+  ],
+  "texto_inductivo": "¡Atención, operarios del sector 7! Aquí su Hacker Tecnológico reportándose desde el núcleo de datos de la Metrópolis del Futuro. Hoy no vamos a limpiar circuitos; vamos a hackear el mayor error de software de la historia antigua: la percepción del movimiento planetario. Imaginen que la Metrópolis no es solo una ciudad de acero y neón, sino una pequeña pieza en un engranaje cósmico masivo. Durante siglos, los 'arquitectos' del pasado vivieron bajo un firewall mental. Claudio Ptolomeo, un hacker de baja frecuencia de la antigüedad, instaló un parche llamado 'Geocentrismo'. Decía que la Tierra era el servidor central y todo lo demás orbitaba a su alrededor en círculos perfectos. ¿Pueden creerlo? Era un sistema lento, lleno de errores y 'epiciclos' para explicar por qué los planetas a veces parecían retroceder. Fue el primer gran 'bug' de la astronomía. \n\nLuego llegó Nicolás Copérnico, quien se atrevió a rootear el sistema. Propuso el 'Heliocentrismo': el Sol es el servidor raíz. Pero incluso él estaba atrapado en la estética de la perfección circular. El verdadero cambio de código vino con Johannes Kepler, quien trabajó con los logs de datos (observaciones) de Tycho Brahe. Kepler descubrió que el sistema operativo del universo no usa círculos, sino elipses. En nuestra Metrópolis, si un dron de entrega intentara orbitar un rascacielos en un círculo perfecto sin ajustar su velocidad, se estrellaría por falta de cálculo en los focos de la trayectoria. Kepler formuló tres leyes que son los comandos básicos de nuestro script orbital. La primera ley nos dice que las órbitas son elípticas, con el Sol en uno de los focos. La segunda ley, la ley de las áreas, explica que los planetas se mueven más rápido cuando están cerca del Sol (perihelio) y más lento cuando están lejos (afelio). Es como el ancho de banda de nuestra red: más flujo cerca del router. La tercera ley es pura matemática de hackers: el cuadrado del periodo orbital es proporcional al cubo de la distancia media al Sol. \n\nEste conocimiento no es solo teoría; es supervivencia. En esta Metrópolis, dependemos de satélites que siguen estas mismas reglas. Si ignoramos la naturaleza elíptica del movimiento, nuestras comunicaciones colapsarían. El mito de la 'perfección circular' fue el primer velo que tuvimos que rasgar. Los antiguos temían al caos de la elipse porque no era 'divina', pero nosotros, los hackers tecnológicos, sabemos que la elipse es la optimización máxima de la energía gravitatoria. Estamos revisando el movimiento planetario no para admirar las estrellas, sino para entender el hardware sobre el cual corre nuestro software de vida. Entender que el Sol no es solo una luz en el techo de la ciudad, sino la masa crítica que curva el espacio-tiempo para mantenernos en curso, es el primer paso para dominar la física orbital en este Modo Supervivencia. Prepárense, porque vamos a desglosar cada línea de este código cósmico.",
+  "recurso_visual": "graph TD\n    A[Movimiento Planetario] --> B[Leyes de Kepler]\n    B --> C[1ra Ley: Elipses]\n    C --> C1[Sol en un Foco]\n    B --> D[2da Ley: Áreas Iguales]\n    D --> D1[Velocidad Variable]\n    B --> E[3ra Ley: Periodos]\n    E --> E1[T^2 proporcional a R^3]\n    A --> F[Mito: Círculos Perfectos]\n    F --> G[Realidad: Trayectorias Elípticas]",
+  "preguntas_inductivas_pagina": [
+    "¿Cuál era el principal error en el parche de Ptolomeo?",
+    "¿Por qué Kepler necesitó los datos de Tycho Brahe para su hackeo?",
+    "¿Qué sucede con la velocidad de un planeta en el perihelio?",
+    "¿Cómo describe la primera ley de Kepler la forma de la órbita?",
+    "¿Qué relación matemática establece la tercera ley de Kepler?"
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema de una órbita elíptica marcando los focos, el perihelio y el afelio, simulando una interfaz de radar de la Metrópolis.",
+    "Realiza un cuadro comparativo entre el modelo Geocéntrico y el Heliocéntrico, destacando sus fallos y aciertos.",
+    "Escribe una reflexión de 15 líneas sobre cómo el mito de la perfección circular retrasó el progreso tecnológico de la navegación.",
+    "Representa gráficamente la segunda ley de Kepler (Ley de las Áreas) usando colores para diferenciar las velocidades en distintos puntos."
+  ],
+  "juegos_ordenar_letras_1": [
+    "ELIPSE",
+    "AFELIO",
+    "KEPLER"
+  ],
+  "juego_ordenar_frase_1": "LAS ORBITAS PLANETARIAS SON ELIPSES CON EL SOL EN UN FOCO",
+  "texto_deductivo": "Bienvenidos al nivel profundo del sistema, hackers. Una vez entendido que los planetas se mueven en elipses, debemos desmentir el mito más persistente que todavía infecta los procesadores de muchos estudiantes: 'Los planetas flotan en el espacio porque no hay gravedad'. ¡Error de sintaxis catastrófico! La realidad es que los planetas están en una caída libre perpetua. Para entender esto, debemos invocar el código de Isaac Newton. Newton no solo observó el movimiento, sino que escribió la Ley de Gravitación Universal, el algoritmo que explica POR QUÉ ocurre el movimiento que Kepler describió. El mito dice que en el espacio no hay gravedad, pero sin ella, la Metrópolis saldría disparada hacia el vacío interestelar en una línea recta infinita debido a la inercia. \n\nLa gravedad es el tether (anclaje) invisible. Newton dedujo que la fuerza de atracción entre dos cuerpos es directamente proporcional al producto de sus masas e inversamente proporcional al cuadrado de la distancia que los separa. Matemáticamente: F = G * (m1 * m2) / r². Este es el firewall que mantiene el sistema solar unido. Ahora, desmintamos el mito del movimiento circular uniforme. Muchos creen que la velocidad es constante. Sin embargo, gracias a la deducción de Newton a partir de las leyes de Kepler, sabemos que para que un objeto mantenga una órbita elíptica, debe haber una aceleración constante hacia el centro de masa (el Sol). Esta aceleración cambia la dirección y la magnitud de la velocidad. Si la velocidad fuera constante y la trayectoria circular, el sistema sería estático y eventualmente colapsaría ante cualquier perturbación externa. \n\nEn nuestra Metrópolis del Futuro, calculamos las trayectorias de los cruceros espaciales usando estas deducciones. Si un piloto cree en el mito de que 'la gravedad desaparece al salir de la atmósfera', apagará sus motores de corrección y se perderá en el cinturón de Kuiper. El movimiento planetario es un equilibrio delicado entre la inercia (la tendencia a seguir de largo) y la gravedad (la tendencia a caer hacia el Sol). Cuando este equilibrio se da con la velocidad tangencial exacta, obtenemos una órbita. Si es demasiado lento, el planeta se estrella contra el Sol; si es demasiado rápido, escapa del sistema. Por lo tanto, el movimiento planetario no es un baile místico, es una ejecución precisa de vectores de fuerza y aceleración centripeta. Al desmentir que el movimiento es 'natural' o 'circular por diseño divino', aceptamos que es el resultado de interacciones físicas cuantificables. Hemos pasado de ser observadores pasivos a ser programadores de nuestra propia realidad física. La revisión científica del movimiento planetario nos enseña que el universo es una máquina lógica, y como hackers, nuestro deber es entender su código fuente para navegar por las estrellas de la misma forma que navegamos por los subniveles de la Metrópolis.",
+  "preguntas_deductivas_pagina": [
+    "¿Qué fórmula define la Ley de Gravitación Universal de Newton?",
+    "¿Por qué es falso que no hay gravedad en el espacio?",
+    "¿Qué papel juega la inercia en el movimiento planetario?",
+    "¿Cómo afecta la distancia a la fuerza de atracción entre dos cuerpos?",
+    "¿Qué sucedería si la velocidad tangencial de un planeta fuera cero?"
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Realiza un diagrama detallado de vectores de fuerza y velocidad para un planeta en dos puntos diferentes de su órbita elíptica.",
+    "Elabora un mapa mental que conecte las Leyes de Kepler con la Ley de Gravitación de Newton.",
+    "Dibuja un esquema explicativo del experimento mental del cañón de Newton para explicar la órbita como caída libre.",
+    "Crea una infografía artesanal que desmienta el mito 'En el espacio no hay gravedad', usando ejemplos de la Metrópolis."
+  ],
+  "juegos_ordenar_letras_2": [
+    "INERCIA",
+    "GRAVEDAD",
+    "VECTOR"
+  ],
+  "juego_ordenar_frase_2": "LA FUERZA DE GRAVEDAD MANTIENE A LOS PLANETAS EN CAIDA LIBRE PERPETUA",
+  "sopa_letras": [
+    "NEWTON",
+    "MASA",
+    "ORBITA",
+    "FOCO",
+    "ELIPSE",
+    "INERCIA",
+    "FUERZA",
+    "SOL",
+    "PLANETA",
+    "RADIAL"
+  ],
+  "crucigrama": [
+    {
+      "palabra": "KEPLER",
+      "pista": "Hacker que descubrió las órbitas elípticas."
+    },
+    {
+      "palabra": "ELIPSE",
+      "pista": "La forma real del camino planetario."
+    },
+    {
+      "palabra": "GRAVEDAD",
+      "pista": "Fuerza de atracción universal entre masas."
+    },
+    {
+      "palabra": "AFELIO",
+      "pista": "Punto más alejado del Sol en una órbita."
+    },
+    {
+      "palabra": "PERIHELIO",
+      "pista": "Punto más cercano al Sol donde el planeta vuela."
+    },
+    {
+      "palabra": "INERCIA",
+      "pista": "Resistencia al cambio de movimiento."
+    },
+    {
+      "palabra": "NEWTON",
+      "pista": "Autor de la ley de gravitación universal."
+    },
+    {
+      "palabra": "FOCO",
+      "pista": "Punto interno de la elipse donde se ubica el Sol."
+    },
+    {
+      "palabra": "PERIODO",
+      "pista": "Tiempo que tarda un planeta en dar una vuelta completa."
+    },
+    {
+      "palabra": "MASA",
+      "pista": "Cantidad de materia que determina la fuerza gravitatoria."
+    }
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "Un sensor en la Metrópolis detecta que un cometa aumenta su velocidad a medida que se acerca al centro del sistema solar.",
+      "tabla_o_grafica_markdown": "| Posición | Distancia al Sol (UA) | Velocidad (km/s) |\n|---|---|---|\n| A | 2.5 | 25 |\n| B | 0.5 | 60 |",
+      "pregunta": "¿Cuál de las leyes de Kepler explica mejor este cambio en la velocidad del cometa?",
+      "opciones": [
+        "La segunda ley: Los planetas barren áreas iguales en tiempos iguales.",
+        "La primera ley: Las órbitas son círculos perfectos.",
+        "La tercera ley: El periodo depende de la masa del cometa.",
+        "La ley de inercia: El objeto quiere mantener su velocidad constante."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. La segunda ley implica que al reducirse el radio vector, la velocidad debe aumentar para barrer la misma área.",
+        "1": "Incorrecto. La primera ley habla de elipses, no de velocidad ni de círculos.",
+        "2": "Incorrecto. La tercera ley relaciona periodos y distancias, no velocidades instantáneas.",
+        "3": "Incorrecto. La inercia no explica el cambio de velocidad, sino la tendencia a mantenerla."
+      }
+    },
+    {
+      "competencia": "Uso comprensivo del conocimiento científico",
+      "texto_introductorio": "Si la distancia entre la Tierra y un satélite de comunicaciones de la Metrópolis se duplicara repentinamente...",
+      "tabla_o_grafica_markdown": "| Variable | Relación Gravitatoria |\n|---|---|\n| Fuerza (F) | 1 / r^2 |",
+      "pregunta": "¿Qué sucedería con la fuerza de atracción gravitacional entre ellos?",
+      "opciones": [
+        "Se reduciría a la mitad.",
+        "Se duplicaría.",
+        "Se reduciría a la cuarta parte.",
+        "Se mantendría igual."
+      ],
+      "correcta": 2,
+      "retroalimentacion": {
+        "0": "Incorrecto. La relación es con el cuadrado de la distancia.",
+        "1": "Incorrecto. Al aumentar la distancia, la fuerza disminuye.",
+        "2": "Correcto. Según Newton, si la distancia (r) se duplica (2r), la fuerza se divide por (2)^2 = 4.",
+        "3": "Incorrecto. La fuerza gravitatoria depende críticamente de la distancia."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "Un estudiante de la academia de hackers propone que los planetas más alejados del Sol tardan menos tiempo en completar su órbita porque tienen 'más espacio para correr'.",
+      "tabla_o_grafica_markdown": "| Planeta | Distancia Media (R) | Periodo (T) |\n|---|---|---|\n| Mercurio | 0.39 UA | 88 días |\n| Marte | 1.52 UA | 687 días |",
+      "pregunta": "Basándose en la tabla, ¿qué puede concluirse sobre la hipótesis del estudiante?",
+      "opciones": [
+        "Es correcta, Marte se mueve más rápido.",
+        "Es falsa, a mayor distancia del Sol, mayor es el periodo orbital.",
+        "Es falsa, todos los planetas tienen el mismo periodo.",
+        "Es correcta, la distancia no influye en el tiempo."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. Los datos muestran que Marte tarda mucho más que Mercurio.",
+        "1": "Correcto. La tercera ley de Kepler y los datos demuestran que el periodo aumenta con la distancia.",
+        "2": "Incorrecto. Los datos muestran periodos claramente diferentes.",
+        "3": "Incorrecto. La distancia es el factor determinante del periodo según la tercera ley."
+      }
+    }
+  ]
+}

@@ -1,0 +1,168 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Cuál es la principal diferencia entre el modelo geocéntrico y el modelo heliocéntrico en la historia de la astronomía?",
+      "opciones": [
+        "El modelo geocéntrico sitúa a la Luna en el centro, mientras que el heliocéntrico sitúa a la Tierra.",
+        "El modelo geocéntrico afirma que la Tierra es el centro del universo, mientras que el heliocéntrico sitúa al Sol en el centro.",
+        "El modelo heliocéntrico propone órbitas cuadradas y el geocéntrico órbitas circulares.",
+        "No hay diferencia, ambos modelos consideran que los planetas no se mueven."
+      ],
+      "correcta": 1
+    }
+  ],
+  "texto_inductivo": "¡Saludos, cadetes espaciales! Habla el Comandante Nova desde el módulo Cupola de la Estación Espacial Internacional (EEI). Mientras floto aquí, observando el azul profundo de la Tierra y la negrura infinita salpicada de estrellas, me doy cuenta de que nuestra supervivencia en este 'Modo Supervivencia' depende enteramente de nuestra capacidad para comprender cómo se mueven los cuerpos celestes. Imaginen que nuestra nave se queda sin propulsión principal; entender la mecánica orbital no sería solo un ejercicio académico, sino la diferencia entre regresar a casa o perdernos en el vacío. Durante siglos, la humanidad observó las luces en el cielo con desconcierto. Notaron algo 'extraño': algunos planetas, como Marte, parecían avanzar en el cielo nocturno, detenerse, retroceder y luego continuar su camino. A este fenómeno lo llamaron 'movimiento retrógrado'. Para los antiguos, esto era un misterio inexplicable que desafiaba la lógica de un universo perfecto y circular. \n\nDesde la EEI, este fenómeno se ve con otros ojos. En nuestro nivel de supervivencia intermedio, debemos analizar por qué ocurrió este cambio de paradigma. Claudio Ptolomeo intentó explicarlo con complejos círculos sobre círculos llamados epiciclos, pero era como tratar de arreglar una fuga de oxígeno con cinta adhesiva: funcionaba temporalmente pero no resolvía el problema de fondo. No fue hasta que Nicolás Copérnico, en un acto de valentía científica, sugirió que no éramos el centro de todo. Al colocar al Sol en el centro, el movimiento retrógrado se reveló no como un cambio de dirección real del planeta, sino como un efecto óptico de 'adelantamiento', similar a cuando pasas a un auto más lento en la autopista y parece que este retrocede respecto a tu posición. \n\nSin embargo, la verdadera revolución llegó con Johannes Kepler. Kepler no solo era un matemático brillante, sino un detective cósmico que heredó los datos precisos de Tycho Brahe. Al intentar ajustar las órbitas circulares perfectas a las observaciones de Marte, se encontró con un error de apenas 8 minutos de arco. Para muchos, ese pequeño error habría sido ignorado, pero para un científico en busca de la verdad, fue la señal de que algo estaba mal. Fue así como descubrió que los planetas no se mueven en círculos, sino en elipses. En este entorno de microgravedad, donde cada gramo de combustible cuenta, entender que la velocidad de un planeta cambia según su distancia al Sol es vital. Cuando estamos en el punto más cercano al Sol (perihelio), el planeta acelera; cuando estamos más lejos (afelio), se ralentiza. Este baile cósmico no es aleatorio, sigue leyes estrictas que hoy nos permiten calcular trayectorias de reentrada y suministros vitales para nuestra estación. ¿Cómo explicarían ustedes a un civil que la Tierra se mueve más rápido en enero que en julio? Ese es el reto de explicar fenómenos extraños a partir de la evidencia física y no de la simple intuición sensorial.",
+  "recurso_visual": "| Característica | Modelo Geocéntrico | Modelo Heliocéntrico | Leyes de Kepler |\n| :--- | :--- | :--- | :--- |\n| **Centro del Sistema** | La Tierra | El Sol | El Sol (en uno de los focos) |\n| **Forma de la Órbita** | Círculos (Epiciclos) | Círculos Perfectos | Elipses |\n| **Velocidad Orbital** | Constante | Constante | Variable (Ley de Áreas) |\n| **Explicación del Retroceso** | Movimiento real en epiciclos | Efecto óptico de adelantamiento | Geometría orbital elíptica |",
+  "preguntas_inductivas_pagina": [
+    "¿Qué fenómeno 'extraño' observaban los antiguos astrónomos en planetas como Marte?",
+    "¿Cuál fue la propuesta de Copérnico para simplificar el modelo del universo?",
+    "¿Por qué Kepler rechazó la idea de las órbitas circulares perfectas?",
+    "¿En qué punto de la órbita un planeta se desplaza a su máxima velocidad?",
+    "¿Cómo cambia nuestra percepción del movimiento planetario al vivir en la EEI en comparación con la antigua Grecia?"
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema que compare el modelo de epiciclos de Ptolomeo con el modelo de adelantamiento de Copérnico para explicar el movimiento retrógrado.",
+    "Realiza un cuadro comparativo entre el concepto de 'Círculo Perfecto' de la antigüedad y la 'Elipse' de Kepler, mencionando sus elementos geométricos.",
+    "Escribe una reflexión de 15 líneas sobre por qué un error de medición de solo 8 minutos de arco fue suficiente para que Kepler cambiara toda la astronomía.",
+    "Representa gráficamente una órbita elíptica marcando el Perihelio, el Afelio, los Focos y sombreando dos áreas iguales recorridas en tiempos iguales."
+  ],
+  "juegos_ordenar_letras_1": [
+    "ELIPSE",
+    "AFELIO",
+    "RETROGRADO"
+  ],
+  "juego_ordenar_frase_1": "EL SOL OCUPA UNO DE LOS FOCOS EN LA ORBITA ELIPTICA DE LOS PLANETAS",
+  "texto_deductivo": "Cadetes, una vez comprendido el contexto histórico, es hora de entrar en la física dura que sostiene nuestra Estación Espacial Internacional en órbita. En el Modo Supervivencia, no podemos permitirnos errores de cálculo. El movimiento planetario se rige por la interacción entre la inercia y la gravedad. Newton, basándose en los descubrimientos de Kepler, formuló la Ley de Gravitación Universal, la cual nos dice que todos los cuerpos con masa se atraen. Pero, ¿por qué los planetas no caen hacia el Sol o la EEI no cae hacia la Tierra de forma inmediata? La respuesta reside en un fenómeno extraño pero fascinante: estamos en una caída libre perpetua. \n\nPara explicar científicamente el movimiento de los planetas, debemos dominar las tres leyes de Kepler desde un enfoque físico-matemático. La Primera Ley (Ley de las Órbitas) nos dice que la trayectoria es una elipse. La excentricidad de esta elipse determina qué tan 'estirada' está. En nuestro sistema solar, la mayoría de los planetas tienen órbitas casi circulares, pero cometas como el Halley tienen excentricidades extremas. La Segunda Ley (Ley de las Áreas) es fundamental para la conservación del momento angular. Establece que el radio vector que une al Sol con el planeta barre áreas iguales en tiempos iguales. Esto implica una relación inversa entre la distancia y la velocidad tangencial: a menor distancia, mayor velocidad. Si la EEI bajara su altitud, tendría que aumentar su velocidad para mantener su órbita y no desintegrarse en la atmósfera. \n\nFinalmente, la Tercera Ley (Ley de los Periodos) nos entrega una herramienta de predicción asombrosa. Establece que el cuadrado del periodo orbital (el tiempo que tarda en dar una vuelta completa) es proporcional al cubo de la distancia media al Sol. Matemáticamente, T² ∝ a³. Esto significa que si conocemos la distancia de un exoplaneta a su estrella, podemos predecir cuánto durará su año sin necesidad de observarlo durante un ciclo completo. Desde la física clásica, esto se explica porque la fuerza centrípeta necesaria para mantener el planeta en órbita es suministrada exactamente por la fuerza de gravedad. \n\nAhora, enfrentemos el fenómeno extraño de esta semana: la anomalía de las sondas Voyager. Al salir del sistema solar, se observaron ligeras variaciones en su velocidad que desafiaban los modelos simples. Para explicar esto, los científicos deben recurrir a la revisión de la masa total del sistema y a efectos relativistas o de materia oscura en escalas mayores. En nuestro nivel, explicar el movimiento planetario requiere entender que el equilibrio es dinámico. No hay pilares sosteniendo a la Tierra; hay una danza de fuerzas donde la masa del Sol curva el espacio-tiempo (según Einstein) o ejerce una fuerza a distancia (según Newton), obligando a los planetas a seguir el camino de menor resistencia en una geometría elíptica. Como exploradores espaciales, su misión es utilizar estas leyes para explicar por qué, a pesar de que el espacio parece vacío y caótico, es el lugar más ordenado y predecible si se conocen las leyes de la física.",
+  "preguntas_deductivas_pagina": [
+    "¿Qué relación matemática existe entre el periodo orbital y la distancia media al Sol según la tercera ley de Kepler?",
+    "¿Qué fuerza física actúa como fuerza centrípeta para mantener a los planetas en órbita?",
+    "Si un planeta tiene una órbita muy excéntrica, ¿cómo varía su energía cinética entre el afelio y el perihelio?",
+    "¿Qué significa físicamente que un radio vector 'barre áreas iguales en tiempos iguales'?",
+    "¿Por qué es necesario considerar la masa del Sol como el objeto dominante en el cálculo de órbitas del sistema solar?"
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Realiza un diagrama de vectores de fuerza y velocidad para un planeta en tres puntos diferentes de su órbita elíptica.",
+    "Elabora un mapa mental que conecte las leyes de Kepler con la Ley de Gravitación Universal de Newton.",
+    "Dibuja una infografía que explique el concepto de 'caída libre perpetua' usando el cañón de Newton como ejemplo.",
+    "Crea un gráfico que represente la relación entre T² (eje Y) y a³ (eje X) para los ocho planetas del sistema solar, explicando por qué da una línea recta."
+  ],
+  "juegos_ordenar_letras_2": [
+    "GRAVEDAD",
+    "PERIODO",
+    "INERCIA"
+  ],
+  "juego_ordenar_frase_2": "LA FUERZA DE GRAVEDAD DISMINUYE CON EL CUADRADO DE LA DISTANCIA",
+  "sopa_letras": [
+    "KEPLER",
+    "NEWTON",
+    "ELIPSE",
+    "FOCO",
+    "ORBITA",
+    "MASA",
+    "RADIO",
+    "TIEMPO",
+    "SOL",
+    "PLANETA"
+  ],
+  "crucigrama": [
+    {
+      "palabra": "PERIHELIO",
+      "pista": "Punto de la órbita más cercano al Sol."
+    },
+    {
+      "palabra": "AFELIO",
+      "pista": "Punto de la órbita más alejado del Sol."
+    },
+    {
+      "palabra": "EXCENTRICIDAD",
+      "pista": "Medida de cuánto se desvía una órbita de ser un círculo perfecto."
+    },
+    {
+      "palabra": "SIDEREO",
+      "pista": "Periodo de tiempo que tarda un planeta en dar una vuelta completa al Sol."
+    },
+    {
+      "palabra": "CENTRIPETA",
+      "pista": "Fuerza que busca el centro y mantiene un cuerpo en rotación."
+    },
+    {
+      "palabra": "GRAVITACION",
+      "pista": "Ley que explica la atracción entre dos masas."
+    },
+    {
+      "palabra": "EPICICLO",
+      "pista": "Círculo imaginario que usaba Ptolomeo para explicar el retroceso planetario."
+    },
+    {
+      "palabra": "INERCIA",
+      "pista": "Tendencia de un cuerpo a mantener su estado de movimiento."
+    },
+    {
+      "palabra": "COPERNICO",
+      "pista": "Astrónomo que popularizó el modelo heliocéntrico."
+    },
+    {
+      "palabra": "ELIPTICA",
+      "pista": "Forma geométrica de la trayectoria de los planetas."
+    }
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "Un astrónomo observa que el planeta 'Z-4' parece moverse hacia atrás en el cielo nocturno durante un periodo de 3 meses. Este fenómeno ha sido documentado históricamente como movimiento retrógrado.",
+      "tabla_o_grafica_markdown": "| Planeta | Distancia al Sol (UA) | Periodo Orbital (Años) |\n|---|---|---|\n| Tierra | 1.0 | 1.0 |\n| Z-4 | 1.5 | 1.8 |",
+      "pregunta": "¿Cuál es la explicación científica correcta para el fenómeno observado en el planeta Z-4?",
+      "opciones": [
+        "Z-4 cambia físicamente su dirección de rotación debido a fuerzas magnéticas externas.",
+        "Es un efecto óptico producido cuando la Tierra, al tener una órbita más interna y veloz, rebasa a Z-4.",
+        "La órbita de Z-4 es en realidad una espiral que lo acerca y aleja de la Tierra constantemente.",
+        "El Sol ejerce una fuerza repulsiva temporal sobre Z-4 en ciertos puntos de su elipse."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. Los planetas no cambian su dirección de traslación espontáneamente.",
+        "1": "Correcto. El movimiento retrógrado es una consecuencia de la diferencia de velocidades orbitales entre planetas internos y externos.",
+        "2": "Incorrecto. Las órbitas son elipses cerradas, no espirales.",
+        "3": "Incorrecto. La gravedad siempre es atractiva en la mecánica clásica."
+      }
+    },
+    {
+      "competencia": "Uso comprensivo del conocimiento científico",
+      "texto_introductorio": "La tercera ley de Kepler establece una relación constante para todos los planetas que orbitan una misma estrella.",
+      "tabla_o_grafica_markdown": "| Planeta | T (años) | a (UA) | T²/a³ |\n|---|---|---|---|\n| Venus | 0.61 | 0.72 | ~1.0 |\n| Marte | 1.88 | 1.52 | ~1.0 |",
+      "pregunta": "Si se descubre un nuevo planeta 'X' a una distancia de 4 UA del Sol, ¿cuál sería aproximadamente su periodo orbital en años?",
+      "opciones": [
+        "2 años",
+        "4 años",
+        "8 años",
+        "16 años"
+      ],
+      "correcta": 2,
+      "retroalimentacion": {
+        "0": "Incorrecto. No cumple la relación T² = a³.",
+        "1": "Incorrecto. 4² (16) no es igual a 4³ (64).",
+        "2": "Correcto. Según T² = a³, T² = 4³ = 64. Por lo tanto, T = √64 = 8 años.",
+        "3": "Incorrecto. El periodo sería demasiado largo para esa distancia."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "Un grupo de estudiantes analiza la velocidad de un cometa en diferentes puntos de su órbita altamente elíptica alrededor del Sol.",
+      "tabla_o_grafica_markdown": "![Velocidad vs Distancia](https://example.com/grafica_orbital.png)\n(Imagina una curva donde la velocidad aumenta drásticamente al disminuir la distancia)",
+      "pregunta": "¿Qué conclusión pueden sacar los estudiantes al observar que el cometa barre áreas iguales en tiempos iguales?",
+      "opciones": [
+        "El cometa se mueve con velocidad constante en toda su trayectoria.",
+        "El cometa se mueve más lento cuando está cerca del Sol para no chocar con él.",
+        "El cometa aumenta su velocidad lineal a medida que su distancia al Sol disminuye.",
+        "La fuerza de gravedad desaparece en el afelio, permitiendo que el cometa flote."
+      ],
+      "correcta": 2,
+      "retroalimentacion": {
+        "0": "Incorrecto. La velocidad es variable en una órbita elíptica.",
+        "1": "Incorrecto. Es al revés; la velocidad es máxima en el perihelio.",
+        "2": "Correcto. Para barrer la misma área cerca del foco, el arco recorrido debe ser mayor, por lo tanto, la velocidad aumenta.",
+        "3": "Incorrecto. La gravedad disminuye pero nunca desaparece."
+      }
+    }
+  ]
+}

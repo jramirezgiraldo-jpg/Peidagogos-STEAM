@@ -1,0 +1,188 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Cuál es la forma geométrica que mejor describe las órbitas planetarias según Johannes Kepler?",
+      "opciones": [
+        "Círculo perfecto",
+        "Elipse con el Sol en un foco",
+        "Parábola abierta",
+        "Espiral descendente"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "Si un planeta se aleja del Sol en su órbita, ¿qué sucede con su velocidad orbital?",
+      "opciones": [
+        "Aumenta exponencialmente",
+        "Permanece constante",
+        "Disminuye",
+        "Se detiene en el afelio"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "¿Qué fuerza es la responsable de mantener a la Estación Espacial Internacional (ISS) en su trayectoria?",
+      "opciones": [
+        "Magnetismo terrestre",
+        "Presión del viento solar",
+        "Fuerza Gravitacional",
+        "Propulsión nuclear"
+      ],
+      "correcta": 2
+    }
+  ],
+  "texto_inductivo": "Saludos, cadetes de la Red Neuronal Estudiantil. Habla el Operador de Sistemas de la Estación Espacial Internacional (ISS). Nos encontramos a 400 kilómetros sobre la superficie terrestre, viajando a la increíble velocidad de 28,000 km/h. Desde esta cúpula de observación, el movimiento de los cuerpos celestes no es una simple teoría en un libro de texto; es nuestra realidad operativa diaria. Para un hacker tecnológico, el universo no es más que un sistema complejo regido por algoritmos físicos que llamamos 'Leyes de la Naturaleza'. Hoy, nuestro objetivo es decodificar el **Movimiento Planetario**. Imaginen que la ISS es un pequeño planeta. ¿Por qué no nos caemos? ¿Por qué no salimos disparados hacia el vacío profundo? La respuesta reside en un equilibrio delicado entre la inercia y la gravedad. Históricamente, la humanidad estaba ciega ante este código. Pensábamos que la Tierra era el centro estático del sistema (Geocentrismo), un error de sintaxis que retrasó nuestro progreso siglos. Fue gracias a 'hackers' del pasado como Nicolás Copérnico, quien se atrevió a cambiar el 'root' del sistema al Sol (Heliocentrismo), y Johannes Kepler, quien tras analizar los datos masivos (Big Data) recolectados por Tycho Brahe, descubrió que los planetas no se mueven en círculos perfectos, sino en elipses. Este fenómeno es extraño si se piensa desde la intuición cotidiana: ¿por qué una curva cerrada y no una línea recta? La respuesta está en la constante interacción de fuerzas. Al observar Marte desde aquí, vemos cómo su brillo y posición cambian, siguiendo un patrón que Kepler resumió en tres leyes fundamentales. La primera ley rompió la estética del círculo; la segunda ley reveló que los planetas 'barren' áreas iguales en tiempos iguales, lo que significa que corren más rápido cuando están cerca del Sol (perihelio) y más lento cuando están lejos (afelio). Es como un protocolo de optimización de energía orbital. Sin embargo, Kepler no sabía el 'porqué' físico, solo el 'cómo' geométrico. Fue Isaac Newton quien, años después, hackeó el núcleo del problema al introducir la Gravedad Universal. Él entendió que la misma fuerza que hace caer una manzana aquí en la Tierra es la que mantiene a la Luna y a esta Estación Espacial en su sitio. En la ISS, experimentamos lo que llamamos 'caída libre perpetua'. Estamos cayendo hacia la Tierra, pero nuestra velocidad horizontal es tan alta que la curvatura de la Tierra desaparece bajo nosotros a la misma velocidad que caemos. Es un glitch perfecto en la matriz de la física. Para entender el movimiento planetario, debemos ver el espacio no como un vacío, sino como una estructura geométrica que se deforma. Cada planeta sigue la 'línea de menor resistencia' en este tejido espacio-temporal. Entender esto es el nivel Modo Dios del conocimiento físico, porque nos permite predecir dónde estará un objeto a millones de kilómetros con una precisión de milisegundos. Prepárense para compilar este conocimiento, porque la navegación interplanetaria depende de su capacidad para explicar estos fenómenos aparentemente extraños.",
+  "recurso_visual": "graph TD\n    A[Movimiento Planetario] --> B[Leyes de Kepler]\n    A --> C[Ley de Gravitación de Newton]\n    B --> B1(1ra: Órbitas Elípticas)\n    B --> B2(2da: Áreas Iguales/Velocidad Variable)\n    B --> B3(3ra: Armonía de Periodos y Distancias)\n    C --> C1(Fuerza proporcional a las Masas)\n    C --> C2(Fuerza inversamente proporcional al cuadrado de la Distancia)\n    C1 & C2 --> D[Predicción de Trayectorias]\n    D --> E{ISS en Órbita}\n    E --> F[Caída Libre Perpetua]",
+  "preguntas_inductivas_pagina": [
+    "¿Cuál fue el cambio de paradigma principal entre el modelo geocéntrico y el heliocéntrico?",
+    "¿Qué descubrió Kepler sobre la velocidad de los planetas al acercarse al Sol?",
+    "¿Cómo define el texto la situación de la ISS respecto a la Tierra?",
+    "¿Qué diferencia existe entre el trabajo de Kepler y el de Newton según la lectura?",
+    "¿Por qué se menciona que la ISS está en una 'caída libre perpetua'?"
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema de una órbita elíptica marcando el perihelio, el afelio y la posición del Sol en uno de los focos.",
+    "Realiza un cuadro comparativo entre el movimiento circular uniforme y el movimiento planetario elíptico, destacando las variaciones de velocidad.",
+    "Escribe una reflexión de media página sobre cómo cambiaría nuestra vida si la gravedad fuera una fuerza de repulsión en lugar de atracción.",
+    "Representa gráficamente la Segunda Ley de Kepler, sombreando las áreas que recorre un planeta en diferentes puntos de su órbita para demostrar que son iguales en tiempos iguales."
+  ],
+  "juegos_ordenar_letras_1": [
+    "GRAVEDAD",
+    "ELIPSES",
+    "ORBITAL"
+  ],
+  "juego_ordenar_frase_1": "LOS PLANETAS DESCRIBEN ORBITAS ELIPTICAS ALREDEDOR DEL SOL",
+  "texto_deductivo": "Bienvenidos al núcleo del procesador físico, cadetes. Si el texto inductivo fue la interfaz de usuario, este es el código fuente en C++. Para explicar fenómenos extraños en el cosmos, como la anomalía de la órbita de Mercurio o la estabilidad de los anillos de Saturno, debemos profundizar en la mecánica analítica del movimiento planetario. La síntesis Newtoniana es nuestro compilador. La Ley de Gravitación Universal establece que F = G * (m1 * m2) / r². Esta ecuación es la clave de todo acceso denegado en el espacio. Observen el denominador: r². Esto significa que si duplicamos la distancia entre dos planetas, la fuerza de atracción no se reduce a la mitad, sino a la cuarta parte. Es una ley de cuadrados inversos, un firewall casi imposible de romper que dicta la estructura de las galaxias. Ahora, combinemos esto con la Segunda Ley de Newton (F = m * a). Para un cuerpo en órbita circular (simplificando la elipse), la aceleración es centrípeta: a = v² / r. Al igualar ambas ecuaciones, descubrimos que la velocidad necesaria para mantener una órbita depende exclusivamente de la masa del cuerpo central y de la distancia, ¡no de la masa del objeto que orbita! Esto explica por qué un astronauta flota al lado de la ISS sin quedarse atrás; ambos son paquetes de datos viajando a la misma velocidad en el mismo sector de memoria gravitacional. La Tercera Ley de Kepler, T² / a³ = K, es la elegancia matemática absoluta. Nos dice que el cuadrado del periodo orbital (el tiempo que tarda en dar una vuelta) es proporcional al cubo de su distancia media al Sol. Esto no es solo una coincidencia; es la prueba de que el sistema solar está sincronizado. En la ISS, aplicamos esto para 'hackear' trayectorias. Si queremos subir a una órbita más alta, debemos aumentar nuestra energía cinética, lo que irónicamente, tras estabilizarnos, nos hará viajar a una velocidad lineal más lenta que en la órbita baja. Parece contraintuitivo (un extraño fenómeno), pero es la lógica del pozo gravitatorio. Además, debemos considerar las perturbaciones. Ningún planeta está solo. La gravedad de Júpiter afecta a la Tierra, y la de la Luna afecta a nuestros satélites. Estos 'bugs' en las órbitas perfectas fueron los que permitieron a los astrónomos descubrir Neptuno sin siquiera verlo, simplemente calculando dónde debía estar algo que causara un 'lag' en la órbita de Urano. Explicar un fenómeno extraño en física requiere, por tanto, no solo observar el objeto, sino analizar todas las variables del entorno sistémico. Como hackers, nuestra misión es encontrar el patrón oculto tras la irregularidad aparente.",
+  "preguntas_deductivas_pagina": [
+    "¿Qué relación matemática existe entre la fuerza de gravedad y la distancia entre dos cuerpos?",
+    "¿Por qué la masa de un satélite no influye en la velocidad necesaria para orbitar?",
+    "¿Cómo se puede predecir la existencia de un planeta sin observarlo directamente?",
+    "¿Qué sucede con la velocidad lineal de un objeto al pasar de una órbita baja a una más alta?",
+    "¿Cuál es la expresión matemática de la Tercera Ley de Kepler mencionada en el texto?"
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Realiza un diagrama detallado de fuerzas para un satélite en órbita, identificando la fuerza gravitatoria y el vector de velocidad tangencial.",
+    "Elabora un mapa mental que conecte las Leyes de Kepler con la Ley de Gravitación Universal de Newton.",
+    "Dibuja un esquema que explique el 'Pozo Gravitatorio' y cómo la masa de un planeta deforma el espacio a su alrededor.",
+    "Crea una infografía artesanal que explique por qué los astronautas en la ISS experimentan ingravidez a pesar de estar cerca de la Tierra."
+  ],
+  "juegos_ordenar_letras_2": [
+    "PERIODO",
+    "AFELIO",
+    "INERCIA"
+  ],
+  "juego_ordenar_frase_2": "LA FUERZA DE GRAVEDAD DISMINUYE CON EL CUADRADO DE LA DISTANCIA",
+  "sopa_letras": [
+    "KEPLER",
+    "NEWTON",
+    "ORBITA",
+    "ELIPSE",
+    "FOCO",
+    "MASA",
+    "RADIO",
+    "TIEMPO",
+    "SOL",
+    "FUERZA"
+  ],
+  "crucigrama": [
+    {
+      "palabra": "ELIPSE",
+      "pista": "Forma de la trayectoria de un planeta."
+    },
+    {
+      "palabra": "AFELIO",
+      "pista": "Punto más alejado de un planeta respecto al Sol."
+    },
+    {
+      "palabra": "PERIHELIO",
+      "pista": "Punto más cercano de un planeta respecto al Sol."
+    },
+    {
+      "palabra": "GRAVEDAD",
+      "pista": "Fuerza de atracción universal entre masas."
+    },
+    {
+      "palabra": "PERIODO",
+      "pista": "Tiempo que tarda un planeta en completar una órbita."
+    },
+    {
+      "palabra": "INERCIA",
+      "pista": "Tendencia de un cuerpo a mantener su estado de movimiento."
+    },
+    {
+      "palabra": "CENTRIPETA",
+      "pista": "Aceleración dirigida hacia el centro de la órbita."
+    },
+    {
+      "palabra": "KEPLER",
+      "pista": "Científico que formuló las tres leyes del movimiento planetario."
+    },
+    {
+      "palabra": "NEWTON",
+      "pista": "Postuló que la gravedad es la misma en la Tierra y en el espacio."
+    },
+    {
+      "palabra": "UNIVERSAL",
+      "pista": "Carácter de la ley de gravitación que aplica a todo el cosmos."
+    }
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "En el sistema solar, se observa que los planetas interiores como Mercurio tienen periodos orbitales muy cortos en comparación con los planetas exteriores como Neptuno. Esto se debe a la relación entre la distancia al Sol y la fuerza gravitacional ejercida.",
+      "tabla_o_grafica_markdown": "| Planeta | Distancia Media (UA) | Periodo (Años) |\n|---|---|---|\n| Mercurio | 0.39 | 0.24 |\n| Tierra | 1.00 | 1.00 |\n| Júpiter | 5.20 | 11.86 |",
+      "pregunta": "¿Por qué un planeta que se encuentra a una mayor distancia del Sol requiere una menor velocidad orbital para mantenerse en equilibrio?",
+      "opciones": [
+        "Porque la fuerza gravitacional disminuye con la distancia, requiriendo menos velocidad para compensarla.",
+        "Porque en el espacio exterior no hay fricción, permitiendo que el planeta se mueva más lento.",
+        "Porque la masa de los planetas exteriores es siempre mayor y compensa la falta de velocidad.",
+        "Porque el Sol ejerce una fuerza de repulsión que aumenta con la distancia."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. A mayor distancia, la fuerza de atracción solar es menor (Ley del cuadrado inverso), por lo tanto, la aceleración centrípeta necesaria es menor, lo que resulta en una velocidad orbital más baja.",
+        "1": "Incorrecto. La falta de fricción es igual para todos los planetas en el vacío, no explica la diferencia de velocidades.",
+        "2": "Incorrecto. La masa del planeta que orbita no influye en la velocidad necesaria para mantener la órbita.",
+        "3": "Incorrecto. La gravedad es exclusivamente atractiva en la mecánica clásica."
+      }
+    },
+    {
+      "competencia": "Uso comprensivo del conocimiento científico",
+      "texto_introductorio": "La Tercera Ley de Kepler establece que para cualquier planeta, el cociente entre el cubo de su distancia media al Sol (r³) y el cuadrado de su periodo orbital (T²) es una constante (K).",
+      "tabla_o_grafica_markdown": "| Cuerpo | r (unidades) | T (unidades) | r³/T² |\n|---|---|---|---|\n| Planeta X | 4 | 8 | 1 |\n| Planeta Y | 16 | ? | 1 |",
+      "pregunta": "Si un nuevo planeta Y se descubre a una distancia de 16 unidades del Sol, ¿cuál será su periodo orbital basándose en la constante K=1?",
+      "opciones": [
+        "32 unidades de tiempo",
+        "64 unidades de tiempo",
+        "128 unidades de tiempo",
+        "256 unidades de tiempo"
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. 32 al cuadrado es 1024, mientras que 16 al cubo es 4096.",
+        "1": "Correcto. 16³ = 4096. Para que el cociente sea 1, T² debe ser 4096. La raíz cuadrada de 4096 es 64.",
+        "2": "Incorrecto. El cálculo no corresponde a la raíz cuadrada de 16 al cubo.",
+        "3": "Incorrecto. Este valor excedería la proporción establecida por la ley de Kepler."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "Un grupo de astronautas en la ISS observa que un satélite pequeño parece 'retrasarse' en su órbita cada vez que pasa cerca de una zona con alta densidad de atmósfera residual. Deciden investigar si la altura de la órbita afecta la velocidad de degradación de la trayectoria.",
+      "tabla_o_grafica_markdown": "| Altitud (km) | Pérdida de Altura (m/día) |\n|---|---|\n| 300 | 500 |\n| 400 | 50 |\n| 500 | 5 |",
+      "pregunta": "A partir de los datos, ¿qué conclusión es válida sobre el fenómeno de degradación orbital?",
+      "opciones": [
+        "La degradación es independiente de la altitud del satélite.",
+        "A mayor altitud, la densidad atmosférica es menor, reduciendo la fuerza de fricción.",
+        "El satélite aumenta su velocidad a medida que sube para evitar caer.",
+        "La gravedad terrestre es más fuerte a 500 km que a 300 km."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. Los datos muestran una clara dependencia entre altitud y pérdida de altura.",
+        "1": "Correcto. La pérdida de altura se debe a la fricción con la atmósfera residual, que disminuye exponencialmente con la altura.",
+        "2": "Incorrecto. Los satélites a mayor altura se mueven más lento según las leyes de Kepler.",
+        "3": "Incorrecto. La gravedad disminuye con la distancia (altura), no aumenta."
+      }
+    }
+  ]
+}

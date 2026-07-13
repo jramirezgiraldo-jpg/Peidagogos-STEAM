@@ -1,0 +1,168 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Qué crees que mantiene a los planetas girando alrededor del Sol sin salir disparados hacia el vacío?",
+      "opciones": [
+        "Cables invisibles de energía",
+        "La fuerza de gravedad",
+        "El viento solar que los empuja",
+        "Magnetismo puramente galáctico"
+      ],
+      "correcta": 1
+    }
+  ],
+  "texto_inductivo": "¡Atención, cadete! Soy el Hacker Principal de la Estación Espacial Internacional (ISS) y hoy vamos a infiltrarnos en el sistema más complejo que existe: la mecánica del cosmos. Si quieres sobrevivir aquí arriba, no puedes ver los planetas como simples luces en el cielo; debes verlos como nodos en una red masiva que obedece a un código fuente específico. Antes de que existieran las supercomputadoras, un grupo de 'hackers' del Renacimiento descifró este código sin usar una sola línea de Python. Todo comenzó con una anomalía en los datos. Durante siglos, la humanidad pensó que el universo era una serie de círculos perfectos, una arquitectura elegante pero errónea. Pero entonces apareció Tycho Brahe, el mayor recolector de datos de su tiempo. Sin telescopios, solo con instrumentos de madera y metal, Brahe registró las posiciones de los planetas con una precisión de un minuto de arco. Era como tener el 'log' de eventos de un servidor masivo antes de que alguien supiera cómo funcionaba el kernel. \n\nSin embargo, Brahe no sabía cómo interpretar sus propios datos. Fue Johannes Kepler quien, actuando como un analista de datos forense, intentó ajustar la órbita de Marte a un círculo perfecto. ¿El resultado? Un error de 8 minutos de arco. Para cualquier otro, eso sería un margen despreciable, pero para un hacker de la verdad, era la prueba de que el sistema estaba mal configurado. Kepler rompió el paradigma del círculo y propuso algo revolucionario: la **elipse**. Al cambiar el código de 'círculo' a 'elipse', todo el Sistema Solar comenzó a funcionar perfectamente en sus modelos. Esta es la **Primera Ley de Kepler**. Pero el hack no terminó ahí. Kepler notó que los planetas no se movían a una velocidad constante. Cuando estaban más cerca del Sol (perihelio), el sistema 'aceleraba' los procesos; cuando estaban lejos (afelio), se ralentizaba. Logró medir que, en tiempos iguales, el planeta barre áreas iguales de su órbita elíptica. Esta **Segunda Ley de Kepler** nos permite hoy calcular con precisión quirúrgica dónde estará un satélite en cualquier momento. \n\nFinalmente, tras años de 'minería de datos', Kepler encontró la armonía matemática definitiva: la **Tercera Ley**. Descubrió que el cuadrado del tiempo que tarda un planeta en dar la vuelta al Sol es proporcional al cubo de su distancia promedio. Esto significa que el código del sistema es universal: cuanto más lejos estás del servidor central (el Sol), más lento es tu ciclo de procesamiento (tu año). Aquí en la ISS, usamos estas reglas para mantener nuestra órbita. No estamos flotando por arte de magia; estamos en una caída libre perpetua, 'hackeando' la gravedad para caer alrededor de la Tierra en lugar de estrellarnos contra ella. Entender este movimiento es la diferencia entre ser un astronauta exitoso o convertirte en basura espacial. La física no son solo fórmulas; es el manual de instrucciones para no morir en el vacío. Cada vez que observamos el movimiento planetario, estamos leyendo el código fuente del universo, entendiendo que el orden no proviene de la perfección circular, sino de la precisión matemática de la elipse y la constancia de las leyes físicas. Prepárate, porque entender cómo se mueven las esferas celestes es tu primer paso para dominar la navegación espacial y asegurar la integridad de nuestra estación.",
+  "recurso_visual": "| Ley de Kepler | Nombre Clave | Descripción del 'Hack' | Consecuencia en el Sistema |\n|---|---|---|---|\n| Primera Ley | La Ruta Elíptica | Los planetas no giran en círculos, sino en elipses con el Sol en un foco. | Las órbitas tienen puntos de cercanía y lejanía. |\n| Segunda Ley | Velocidad de Barrido | El planeta barre áreas iguales en tiempos iguales. | El planeta se mueve más rápido cerca del Sol. |\n| Tercera Ley | La Armonía | El periodo al cuadrado es proporcional al radio al cubo (T² ∝ r³). | Planetas lejanos tardan mucho más en orbitar. |",
+  "preguntas_inductivas_pagina": [
+    "¿Qué figura geométrica reemplazó al círculo en las órbitas de Kepler?",
+    "¿Quién fue el recolector de datos cuyos registros usó Kepler?",
+    "¿Qué sucede con la velocidad de un planeta cuando está en el perihelio?",
+    "¿En qué consiste la Tercera Ley de Kepler según el texto?",
+    "¿Por qué es importante para un astronauta entender estas leyes?"
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja una órbita elíptica, ubica el Sol en uno de los focos y sombrea dos áreas iguales que representen diferentes velocidades según la 2da Ley.",
+    "Crea un cuadro comparativo entre el modelo de órbitas circulares y el modelo de órbitas elípticas.",
+    "Escribe un ensayo corto sobre por qué el error de 8 minutos de arco de Kepler fue crucial para la ciencia.",
+    "Representa gráficamente cómo varía la velocidad de un planeta desde el punto más lejano al Sol hasta el más cercano."
+  ],
+  "juegos_ordenar_letras_1": [
+    "ELIPSE",
+    "KEPLER",
+    "ORBITA"
+  ],
+  "juego_ordenar_frase_1": "LOS PLANETAS DESCRIBEN ORBITAS ELIPTICAS CON EL SOL EN UN FOCO",
+  "texto_deductivo": "Ahora que hemos analizado los 'logs' de Kepler y sabemos 'cómo' se mueven los planetas, es hora de entrar en el núcleo del procesador y entender el 'porqué'. Entra en escena Sir Isaac Newton, el hacker más influyente de la historia. Newton no se conformó con observar el movimiento; él quería encontrar el algoritmo maestro que lo regía todo. Imagina que estás en la ISS y lanzas una pelota. Si no hubiera fuerzas, seguiría en línea recta para siempre. Pero los planetas no van en línea recta; están atrapados en una curva eterna. Newton dedujo que debía existir una fuerza invisible actuando como un hilo de datos constante. Esta es la **Ley de Gravitación Universal**. El código de Newton nos dice que cada partícula de materia en el universo atrae a todas las demás partículas con una fuerza que es directamente proporcional al producto de sus masas e inversamente proporcional al cuadrado de la distancia entre ellas. \n\nEn términos de supervivencia en la ISS, esto significa que la gravedad de la Tierra no desaparece aquí arriba. De hecho, la gravedad en la ISS es aproximadamente el 90% de la que sientes en el suelo. Entonces, ¿por qué flotamos? Aquí es donde el 'hack' se vuelve interesante. Estamos en órbita porque nos movemos lateralmente tan rápido (unos 28,000 km/h) que, mientras la gravedad nos tira hacia abajo, la curvatura de la Tierra 'se aleja' de nosotros a la misma velocidad. Estamos cayendo constantemente, pero nunca golpeamos el suelo. Si redujéramos nuestra velocidad, la gravedad ganaría y nos convertiríamos en un meteorito artificial. Si aumentáramos demasiado la velocidad, romperíamos el enlace gravitacional y saldríamos disparados hacia el espacio profundo. Este equilibrio es el 'punto dulce' del sistema operativo orbital. \n\nLa fuerza de gravedad es el pegamento que mantiene unida a la galaxia. Newton unificó la física de la Tierra con la física del cielo. La misma manzana que cae de un árbol obedece al mismo código que la Luna orbitando nuestro planeta. Esta visión deductiva nos permite hoy lanzar sondas a Marte y saber exactamente dónde aterrizarán años después. El movimiento planetario no es un evento aislado; es la manifestación de una fuerza que depende de la masa. Cuanto más masivo es un objeto, más fuerte es su 'pull'. Por eso el Sol, que contiene el 99.8% de la masa del Sistema Solar, es el administrador del sistema que dicta las reglas a todos los planetas. Al comprender la gravedad, podemos calcular órbitas de transferencia, ahorrar combustible y, lo más importante, predecir colisiones de asteroides que podrían comprometer la seguridad de la Tierra o de nuestra estación espacial. La física deductiva es nuestra herramienta de diagnóstico para entender la infraestructura del universo. Sin el código de Newton, estaríamos ciegos en la oscuridad, incapaces de navegar por el mar de estrellas que nos rodea. Ahora, cadete, tienes las claves del reino: las leyes de Kepler para describir el baile y la ley de Newton para entender quién toca la música.",
+  "preguntas_deductivas_pagina": [
+    "¿Qué variable de la Ley de Newton hace que la fuerza disminuya rápidamente al alejarse?",
+    "¿Por qué los astronautas en la ISS parecen no tener peso si hay un 90% de gravedad?",
+    "¿Qué sucede con la fuerza de gravedad si duplicamos la masa de uno de los cuerpos?",
+    "¿Cuál es la velocidad aproximada necesaria para que la ISS mantenga su órbita?",
+    "¿Cómo unificó Newton la física terrestre con la celeste?"
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Realiza un diagrama de fuerzas detallado para un satélite en órbita circular, mostrando la fuerza gravitatoria y el vector de velocidad.",
+    "Elabora un mapa mental que conecte la masa, la distancia y la fuerza gravitatoria con las leyes de movimiento de Newton.",
+    "Dibuja una infografía que explique el experimento mental del cañón de Newton y cómo se logra una órbita.",
+    "Diseña una infografía artesanal que explique la fórmula de la Gravitación Universal usando iconos espaciales."
+  ],
+  "juegos_ordenar_letras_2": [
+    "GRAVEDAD",
+    "NEWTON",
+    "MASA"
+  ],
+  "juego_ordenar_frase_2": "LA FUERZA ES INVERSAMENTE PROPORCIONAL AL CUADRADO DE LA DISTANCIA",
+  "sopa_letras": [
+    "GRAVEDAD",
+    "KEPLER",
+    "NEWTON",
+    "ELIPSE",
+    "ORBITA",
+    "FOCO",
+    "MASA",
+    "PERIODO",
+    "DISTANCIA",
+    "SOL"
+  ],
+  "crucigrama": [
+    {
+      "palabra": "GRAVEDAD",
+      "pista": "Fuerza de atracción entre dos cuerpos con masa."
+    },
+    {
+      "palabra": "ELIPSE",
+      "pista": "Forma geométrica de las órbitas planetarias."
+    },
+    {
+      "palabra": "PERIHELIO",
+      "pista": "Punto de la órbita más cercano al Sol."
+    },
+    {
+      "palabra": "AFELIO",
+      "pista": "Punto de la órbita más alejado del Sol."
+    },
+    {
+      "palabra": "KEPLER",
+      "pista": "Científico que propuso las tres leyes del movimiento planetario."
+    },
+    {
+      "palabra": "NEWTON",
+      "pista": "Formuló la Ley de Gravitación Universal."
+    },
+    {
+      "palabra": "FOCO",
+      "pista": "Lugar que ocupa el Sol dentro de una órbita elíptica."
+    },
+    {
+      "palabra": "MASA",
+      "pista": "Cantidad de materia de un cuerpo, fundamental para la gravedad."
+    },
+    {
+      "palabra": "PERIODO",
+      "pista": "Tiempo que tarda un planeta en completar una vuelta al Sol."
+    },
+    {
+      "palabra": "VELOCIDAD",
+      "pista": "Magnitud que aumenta cuando un planeta se acerca al Sol."
+    }
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "Un satélite de comunicaciones se encuentra en una órbita elíptica alrededor de la Tierra. Según la Segunda Ley de Kepler, su velocidad no es constante durante su recorrido.",
+      "tabla_o_grafica_markdown": "| Posición | Distancia a la Tierra (km) |\n|---|---|\n| Perigeo | 350 |\n| Apogeo | 42,000 |",
+      "pregunta": "¿En qué posición el satélite se mueve con mayor velocidad lineal y por qué?",
+      "opciones": [
+        "En el perigeo, porque debe barrer la misma área en menos tiempo al estar más cerca.",
+        "En el apogeo, porque la distancia recorrida es mayor y requiere más impulso.",
+        "En el perigeo, porque la fuerza de gravedad es más débil y le permite correr más.",
+        "En el apogeo, porque la energía potencial se transforma en energía cinética."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. Según la 2da ley de Kepler, al estar más cerca (perigeo), el planeta/satélite debe ir más rápido para barrer áreas iguales en tiempos iguales.",
+        "1": "Incorrecto. En el apogeo el satélite se mueve a su velocidad mínima.",
+        "2": "Incorrecto. En el perigeo la fuerza de gravedad es más fuerte, no más débil.",
+        "3": "Incorrecto. En el apogeo la energía cinética es mínima, no máxima."
+      }
+    },
+    {
+      "competencia": "Uso Comprensivo del Conocimiento Científico",
+      "texto_introductorio": "La Ley de Gravitación Universal establece que la fuerza (F) depende de las masas (m1, m2) y la distancia (r) entre los centros de los cuerpos.",
+      "tabla_o_grafica_markdown": "| Variable | Cambio efectuado |\n|---|---|\n| Distancia (r) | Se duplica (2r) |",
+      "pregunta": "Si la distancia entre dos planetas se duplica, ¿qué sucede con la fuerza de atracción gravitatoria entre ellos?",
+      "opciones": [
+        "La fuerza se reduce a la mitad (F/2).",
+        "La fuerza se reduce a la cuarta parte (F/4).",
+        "La fuerza se duplica (2F).",
+        "La fuerza permanece igual porque la masa no cambió."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. La relación es con el cuadrado de la distancia, no lineal.",
+        "1": "Correcto. Al estar en el denominador y elevada al cuadrado, si la distancia aumenta al doble (2²), la fuerza disminuye 4 veces.",
+        "2": "Incorrecto. A mayor distancia, la fuerza siempre disminuye.",
+        "3": "Incorrecto. La fuerza depende críticamente de la distancia."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "Un astrónomo observa dos planetas, Alfa y Beta, orbitando la misma estrella. Nota que Alfa está mucho más cerca de la estrella que Beta.",
+      "tabla_o_grafica_markdown": "| Planeta | Distancia Media (UA) | Periodo Orbital (Años) |\n|---|---|---|\n| Alfa | 1 | 1 |\n| Beta | 4 | ? |",
+      "pregunta": "Usando la Tercera Ley de Kepler (T² ∝ r³), ¿cuál sería el periodo orbital aproximado del planeta Beta?",
+      "opciones": [
+        "4 años",
+        "8 años",
+        "16 años",
+        "64 años"
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. No es una relación proporcional simple.",
+        "1": "Correcto. Si r=4, r³=64. Como T²=64, entonces T= raíz cuadrada de 64, que es 8.",
+        "2": "Incorrecto. 16² sería 256, lo cual no coincide con 4³.",
+        "3": "Incorrecto. 64 es el cubo de la distancia, pero falta sacar la raíz cuadrada para hallar el periodo."
+      }
+    }
+  ]
+}

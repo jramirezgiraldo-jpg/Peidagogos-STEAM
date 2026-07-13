@@ -1,0 +1,188 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Qué fuerza mantiene a los planetas orbitando alrededor del Sol en lugar de salir disparados al espacio profundo?",
+      "opciones": [
+        "La fricción espacial",
+        "La fuerza electromagnética",
+        "La fuerza de gravedad",
+        "La presión atmosférica"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "Si observas el cielo desde la selva durante varias noches, ¿qué modelo explicaría mejor que el Sol siempre sale por el este?",
+      "opciones": [
+        "Modelo Geocéntrico",
+        "Modelo Heliocéntrico",
+        "Modelo Estacionario",
+        "Modelo Plano"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Cuál es la forma real de la trayectoria que siguen los planetas alrededor del Sol?",
+      "opciones": [
+        "Circular perfecta",
+        "Cuadrada con bordes romos",
+        "Elíptica",
+        "Zigzag"
+      ],
+      "correcta": 2
+    }
+  ],
+  "texto_inductivo": "¡Atención, supervivientes del Sector Selva! Aquí su Hacker Tecnológico reportando desde el núcleo del sistema. Imaginen que nuestro equipo de expedición ha perdido sus brújulas digitales y los GPS están fuera de línea debido a la densa interferencia del dosel arbóreo. Para sobrevivir en este entorno hostil, no basta con saber encender fuego; necesitamos entender el 'código fuente' del cielo. Desde la antigüedad, los seres humanos han sido náufragos en una selva cósmica, tratando de descifrar por qué las luces en el firmamento se mueven de forma errática. Los primeros 'exploradores' como Ptolomeo creían que nosotros éramos el centro del servidor (el Modelo Geocéntrico). Para ellos, la Tierra era un disco estático y todo lo demás giraba a nuestro alrededor en círculos perfectos. Era un software lleno de bugs, con planetas haciendo movimientos retrógrados extraños que requerían 'parches' matemáticos llamados epiciclos. **La supervivencia de la especie dependía de predecir las estaciones para la agricultura, y el modelo geocéntrico empezaba a fallar en sus predicciones.**\n\nEntonces llegó Nicolás Copérnico, el primer gran hacker de la astronomía. Él se atrevió a editar el archivo de configuración del universo: puso al Sol en el centro (Heliocentrismo). Aunque su modelo era más elegante, seguía usando círculos perfectos, lo que causaba desajustes en el cronograma de observación. Fue como intentar correr un sistema operativo moderno en un procesador de hace 20 años. Pero el cambio de paradigma fue vital. En nuestra expedición por la selva, si creemos que somos el centro de todo, seremos devorados por la realidad. Entender que nos movemos en relación con un sistema mayor es la primera regla del Modo Supervivencia. Johannes Kepler y Tycho Brahe llevaron esto al siguiente nivel. Brahe recolectó gigabytes de datos analógicos observando las estrellas con una precisión increíble para su época. Kepler, al heredar esos datos, descubrió que la 'interfaz' del cielo no usaba círculos, sino elipses. Este descubrimiento no fue solo académico; permitió a los navegantes y exploradores antiguos orientarse con una precisión quirúrgica. **Sin la comprensión del movimiento planetario, los ciclos de luz y oscuridad en esta selva serían un misterio absoluto, y no podríamos calcular el tiempo restante antes de que las sombras nos alcancen.** Cada planeta en nuestro sistema solar hackea el espacio-tiempo de una manera específica, siguiendo patrones que hoy revisaremos para que ustedes, como estudiantes de nivel intermedio, puedan usarlos para orientar su propio conocimiento hacia el éxito académico.",
+  "recurso_visual": "graph TD\n    A[Observación del Cielo] --> B{¿Quién es el centro?}\n    B -->|Tierra| C[Geocentrismo - Ptolomeo]\n    B -->|Sol| D[Heliocentrismo - Copérnico]\n    C --> E[Error en predicciones de órbita]\n    D --> F[Mejora en la navegación]\n    F --> G[Kepler: Órbitas Elípticas]\n    G --> H[Supervivencia en la Selva: Orientación Estelar]",
+  "preguntas_inductivas_pagina": [
+    "¿Por qué el modelo geocéntrico necesitaba 'epiciclos' para explicar el movimiento de los planetas?",
+    "¿Qué ventaja táctica ofrecía el modelo heliocéntrico sobre el geocéntrico en términos de simplicidad?",
+    "¿Cómo influyó el acceso a datos precisos (Tycho Brahe) en el descubrimiento de Kepler?",
+    "¿Qué significa para un sistema de supervivencia que un modelo de predicción sea 'elegante'?",
+    "¿Por qué es importante para un explorador entender que la Tierra no es estática?"
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema comparativo entre el Modelo Geocéntrico y el Heliocéntrico, señalando dónde se ubica el observador en cada uno.",
+    "Realiza un cuadro comparativo entre los aportes de Ptolomeo, Copérnico y Kepler al entendimiento del movimiento planetario.",
+    "Escribe una reflexión de 15 líneas sobre cómo la terquedad humana de ser 'el centro del universo' retrasó el avance científico.",
+    "Representa gráficamente el concepto de 'movimiento retrógrado' tal como lo vería un explorador desde el suelo de la selva."
+  ],
+  "juegos_ordenar_letras_1": [
+    "COPERNICO",
+    "HELIOCENTRISMO",
+    "ELIPTICA"
+  ],
+  "juego_ordenar_frase_1": "EL SOL OCUPA EL CENTRO DEL SISTEMA MIENTRAS LOS PLANETAS ORBITAN A SU ALREDEDOR",
+  "texto_deductivo": "Ahora que hemos hackeado la historia, entremos en el Modo Supervivencia avanzado: la física detrás de los datos. Para sobrevivir en la selva, necesitas saber exactamente cuándo caerá la noche o cuándo cambiarán las mareas, y eso depende de las leyes que gobiernan el movimiento de los cuerpos celestes. Johannes Kepler formuló tres leyes fundamentales que son el 'kernel' de la mecánica celeste. **La Primera Ley de Kepler (Ley de las Órbitas)** establece que todos los planetas se desplazan alrededor del Sol siguiendo órbitas elípticas. El Sol no está en el centro de la elipse, sino en uno de sus focos. En nuestro contexto de selva, piensa en una elipse como un círculo estirado; esto significa que a veces estamos más cerca del Sol (perihelio) y otras más lejos (afelio). Esta variación afecta sutilmente la radiación que recibimos, un dato crítico para el equilibrio térmico de nuestro ecosistema.\n\n**La Segunda Ley de Kepler (Ley de las Áreas)** es el motor de optimización de la naturaleza. Dicta que el radio vector que une a un planeta con el Sol barre áreas iguales en tiempos iguales. En términos de supervivencia: cuando un planeta está en el perihelio (cerca del Sol), se mueve mucho más rápido que cuando está en el afelio. Es como si el planeta acelerara para escapar de la zona de alta temperatura. Si aplicamos esta lógica a nuestra expedición, debemos ser más rápidos y eficientes cuando los recursos son escasos o el peligro es mayor. **La Tercera Ley de Kepler (Ley de los Periodos)** nos da la fórmula matemática: el cuadrado del periodo orbital de cualquier planeta es proporcional al cubo del semieje mayor de su órbita (T² ∝ r³). Esta ley nos permite calcular la distancia de un planeta al Sol solo conociendo cuánto tiempo tarda en completar una vuelta. Es la herramienta definitiva de telemetría.\n\nPero, ¿por qué sucede esto? Isaac Newton entró al sistema y añadió la capa de 'hardware' con su Ley de Gravitación Universal. Él demostró que la misma fuerza que hace caer una fruta de un árbol en nuestra selva es la que mantiene a la Luna en órbita. La fuerza es directamente proporcional al producto de las masas e inversamente proporcional al cuadrado de la distancia. Si la distancia entre dos cuerpos se duplica, la fuerza de atracción se reduce a la cuarta parte. Este 'firmware' gravitatorio es universal. Entender que el universo sigue reglas matemáticas precisas nos da el poder de predecir el futuro. Como hackers de la selva, usamos la ciencia no solo para entender el entorno, sino para dominarlo. Si conoces la masa de un objeto y su distancia, conoces su destino. La física no es solo teoría; es el manual de instrucciones para no perderse en la inmensidad del tiempo y el espacio.",
+  "preguntas_deductivas_pagina": [
+    "¿Qué diferencia fundamental hay entre un círculo y una elipse respecto a sus centros?",
+    "¿En qué punto de la órbita un planeta se mueve a su máxima velocidad según la Segunda Ley de Kepler?",
+    "¿Cómo afecta la Ley de Gravitación Universal a la fuerza de atracción si la masa de uno de los cuerpos se triplica?",
+    "Si un planeta está muy lejos del Sol, ¿su periodo orbital será mayor o menor que el de la Tierra?",
+    "¿Por qué la manzana de Newton y la Luna siguen la misma ley física?"
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Realiza un diagrama detallado de una órbita elíptica señalando los focos, el perihelio, el afelio y el semieje mayor.",
+    "Elabora un mapa mental que conecte las tres Leyes de Kepler con la Ley de Gravitación Universal de Newton.",
+    "Dibuja un esquema explicativo de la Segunda Ley de Kepler, sombreando dos áreas iguales barridas en tiempos diferentes por un planeta.",
+    "Diseña una infografía artesanal que explique cómo un astronauta perdido en la selva podría usar la Tercera Ley de Kepler para identificar en qué planeta se encuentra basándose en la duración del año."
+  ],
+  "juegos_ordenar_letras_2": [
+    "GRAVITACION",
+    "PERIHELIO",
+    "KEPLER"
+  ],
+  "juego_ordenar_frase_2": "LA FUERZA DE GRAVEDAD DISMINUYE CON EL CUADRADO DE LA DISTANCIA ENTRE LOS CUERPOS",
+  "sopa_letras": [
+    "GRAVEDAD",
+    "ELIPSE",
+    "ORBITA",
+    "NEWTON",
+    "KEPLER",
+    "FOCO",
+    "MASA",
+    "RADIO",
+    "PERIODO",
+    "AFELIO"
+  ],
+  "crucigrama": [
+    {
+      "palabra": "ELIPSE",
+      "pista": "Forma geométrica de las órbitas planetarias."
+    },
+    {
+      "palabra": "PERIHELIO",
+      "pista": "Punto de la órbita más cercano al Sol."
+    },
+    {
+      "palabra": "AFELIO",
+      "pista": "Punto de la órbita más alejado del Sol."
+    },
+    {
+      "palabra": "NEWTON",
+      "pista": "Científico que formuló la ley de gravitación universal."
+    },
+    {
+      "palabra": "FOCO",
+      "pista": "Lugar que ocupa el Sol dentro de la elipse orbital."
+    },
+    {
+      "palabra": "INERCIA",
+      "pista": "Tendencia de un cuerpo a mantener su estado de movimiento."
+    },
+    {
+      "palabra": "PERIODO",
+      "pista": "Tiempo que tarda un planeta en dar una vuelta completa al Sol."
+    },
+    {
+      "palabra": "GRAVEDAD",
+      "pista": "Fuerza de atracción entre dos cuerpos con masa."
+    },
+    {
+      "palabra": "KEPLER",
+      "pista": "Autor de las tres leyes del movimiento planetario."
+    },
+    {
+      "palabra": "UNIVERSAL",
+      "pista": "Que se aplica en todo el cosmos, no solo en la Tierra."
+    }
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "En la selva, un grupo de exploradores nota que durante ciertos meses el Sol parece estar un poco más cerca y el clima es más cálido. Saben que la órbita de la Tierra es elíptica.",
+      "tabla_o_grafica_markdown": "| Posición | Distancia al Sol (millones km) | Velocidad Orbital (km/s) |\n|---|---|---|\n| Perihelio | 147 | 30.3 |\n| Afelio | 152 | 29.3 |",
+      "pregunta": "De acuerdo con la tabla y la Segunda Ley de Kepler, ¿cuál es la razón por la que la velocidad es mayor en el perihelio?",
+      "opciones": [
+        "Porque el planeta debe barrer áreas iguales en tiempos iguales, y al estar más cerca, debe recorrer un arco mayor.",
+        "Porque la gravedad del Sol desaparece en el afelio.",
+        "Porque el aire en el espacio es más denso cerca del Sol.",
+        "Porque la Tierra se vuelve más pesada en el perihelio."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. La ley de las áreas exige mayor velocidad cuando el radio vector es menor.",
+        "1": "Incorrecto. La gravedad nunca desaparece, solo disminuye.",
+        "2": "Incorrecto. El espacio es prácticamente vacío, no hay aire que frene el planeta significativamente.",
+        "3": "Incorrecto. La masa de la Tierra es constante en su órbita."
+      }
+    },
+    {
+      "competencia": "Uso comprensivo del conocimiento científico",
+      "texto_introductorio": "Un hacker de la expedición encuentra un antiguo satélite abandonado. Sabe que si duplica la distancia del satélite respecto al centro de la Tierra, la fuerza de atracción cambiará.",
+      "tabla_o_grafica_markdown": "| Distancia (r) | Fuerza (F) |\n|---|---|\n| R | 1000 N |\n| 2R | ? |",
+      "pregunta": "¿Cuál será la nueva fuerza de atracción gravitacional sobre el satélite si se mueve a una distancia 2R?",
+      "opciones": [
+        "500 N",
+        "250 N",
+        "2000 N",
+        "100 N"
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. No es una relación lineal inversa.",
+        "1": "Correcto. Según la ley de Newton, la fuerza es inversamente proporcional al cuadrado de la distancia (1/2² = 1/4).",
+        "2": "Incorrecto. La fuerza disminuye con la distancia, no aumenta.",
+        "3": "Incorrecto. La reducción es a la cuarta parte, no a la décima."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "Un estudiante observa que los planetas más lejanos al Sol tardan muchos más años en completar su órbita que la Tierra. Decide investigar la relación entre la distancia y el tiempo.",
+      "tabla_o_grafica_markdown": "| Planeta | Distancia Media (UA) | Periodo (Años) |\n|---|---|---|\n| Tierra | 1.0 | 1.0 |\n| Marte | 1.52 | 1.88 |\n| Júpiter | 5.20 | 11.86 |",
+      "pregunta": "¿Qué hipótesis es coherente con los datos de la tabla y la Tercera Ley de Kepler?",
+      "opciones": [
+        "El periodo orbital no depende de la distancia al Sol.",
+        "A mayor distancia del Sol, el periodo orbital aumenta de forma proporcional al cubo de la distancia.",
+        "El cuadrado del periodo es directamente proporcional al cubo de la distancia media al Sol.",
+        "Los planetas más lejanos se mueven más rápido para no caer al Sol."
+      ],
+      "correcta": 2,
+      "retroalimentacion": {
+        "0": "Incorrecto. Los datos muestran una clara dependencia.",
+        "1": "Incorrecto. La relación no es directamente proporcional al cubo, sino que el cuadrado de uno es proporcional al cubo del otro.",
+        "2": "Correcto. Es la definición exacta de la Tercera Ley de Kepler.",
+        "3": "Incorrecto. Los planetas más lejanos se mueven más lento."
+      }
+    }
+  ]
+}

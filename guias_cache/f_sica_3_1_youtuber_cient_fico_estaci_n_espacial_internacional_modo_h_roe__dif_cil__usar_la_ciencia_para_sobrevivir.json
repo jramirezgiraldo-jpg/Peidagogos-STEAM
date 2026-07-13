@@ -1,0 +1,168 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Cuál es la razón principal por la que la Estación Espacial Internacional no cae hacia la Tierra a pesar de la atracción gravitatoria?",
+      "opciones": [
+        "Porque a esa altura la gravedad es cero.",
+        "Debido a que sus motores están encendidos constantemente para empujarla hacia arriba.",
+        "Porque tiene una velocidad tangencial suficiente para que su caída 'se pierda' con la curvatura de la Tierra.",
+        "Gracias a un escudo magnético que repele la fuerza gravitacional."
+      ],
+      "correcta": 2
+    }
+  ],
+  "texto_inductivo": "¡Hola, futuros comandantes de misión y leyendas del conocimiento! Aquí su Youtuber científico favorito transmitiendo desde el módulo Cupola de la Estación Espacial Internacional (ISS). Hoy no estamos aquí solo para ver las luces de las ciudades abajo; estamos aquí porque nuestra supervivencia depende de entender el baile cósmico de los planetas. Imaginen que perdemos el control de nuestros propulsores y necesitamos calcular una trayectoria de retorno usando solo la mecánica celeste. Para sobrevivir en el espacio, debemos dominar el movimiento planetario, un conocimiento que transformó a la humanidad de observadores asustados a navegantes espaciales.\n\nTodo comenzó con la ruptura de un dogma. Durante siglos, creímos que éramos el centro del universo (geocentrismo). Pero mentes brillantes como Copérnico se atrevieron a decir: '¡Oigan, quizá es el Sol el que manda aquí!'. Sin embargo, fue Johannes Kepler, usando los datos ultra precisos del gruñón pero talentoso Tycho Brahe, quien descifró el código. Kepler no solo dijo que nos movíamos alrededor del Sol, sino que nos dio las reglas del juego: sus famosas tres leyes. La Primera Ley de Kepler rompió el mito de los círculos perfectos; nos enseñó que los planetas se mueven en elipses con el Sol en uno de sus focos. Esto es vital para nosotros en la ISS: nuestra órbita no es un círculo perfecto, y entender esa excentricidad es la diferencia entre un acoplamiento exitoso y chocar contra un panel solar.\n\nLa Segunda Ley, o Ley de las Áreas, es pura magia de supervivencia. Nos dice que los planetas barren áreas iguales en tiempos iguales. En términos prácticos: cuando un planeta (o nuestra estación) está más cerca de su centro de atracción (perihelio), se mueve mucho más rápido que cuando está lejos (afelio). Si estás calculando el combustible para una maniobra, ignorar este cambio de velocidad te dejaría varado en el vacío. Finalmente, la Tercera Ley conecta el tiempo que tardas en dar una vuelta (periodo) con tu distancia promedio al Sol. Es una armonía matemática donde el cuadrado del periodo es proporcional al cubo del semieje mayor de la órbita. Aquí en el Modo Héroe, no vemos estas leyes como simples fórmulas en un libro, sino como el GPS del universo. Entender el movimiento planetario fue el primer paso para que los humanos dejáramos de mirar las estrellas con miedo y empezáramos a verlas como destinos. Si queremos sobrevivir a una deriva orbital, debemos pensar como Kepler: observar, medir y encontrar el patrón matemático que rige el caos aparente. ¿Están listos para calcular su propia salvación?",
+  "recurso_visual": "graph TD\n    A[Movimiento Planetario] --> B[Leyes de Kepler]\n    B --> C[1ra Ley: Órbitas Elípticas]\n    B --> D[2da Ley: Áreas Iguales - Velocidad Variable]\n    B --> E[3ra Ley: T^2 proporcional a R^3]\n    C --> F[El Sol ocupa un foco]\n    D --> G[Más rápido en Perihelio / Lento en Afelio]\n    E --> H[Relaciona Distancia y Tiempo Orbital]",
+  "preguntas_inductivas_pagina": [
+    "¿Por qué el modelo heliocéntrico fue fundamental para el desarrollo de la física moderna?",
+    "¿Qué diferencia física existe entre una órbita circular y una elíptica en términos de energía?",
+    "Si la ISS estuviera en una órbita más lejana, ¿su periodo orbital sería mayor o menor según la 3ra ley?",
+    "¿Cómo cambia la velocidad de un planeta a medida que se aleja del Sol?",
+    "¿Qué papel jugaron las observaciones de Tycho Brahe en el descubrimiento de Kepler?"
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja una elipse exagerada representando la órbita de un cometa, ubicando el Sol en un foco y señalando las posiciones de máxima y mínima velocidad.",
+    "Realiza un cuadro comparativo entre el modelo Geocéntrico de Ptolomeo y el modelo Heliocéntrico de Copérnico, resaltando sus fallos y aciertos.",
+    "Escribe una reflexión de 15 líneas sobre cómo la transición del pensamiento dogmático al pensamiento científico basado en datos (Kepler) salvó el progreso de la astronomía.",
+    "Representa gráficamente la Segunda Ley de Kepler, sombreando dos sectores de la órbita que representen el mismo tiempo pero diferentes distancias recorridas."
+  ],
+  "juegos_ordenar_letras_1": [
+    "ELIPSE",
+    "PERIHELIO",
+    "AFELIO"
+  ],
+  "juego_ordenar_frase_1": "LAS ORBITAS DE LOS PLANETAS SON ELIPSES CON EL SOL EN UNO DE SUS FOCOS",
+  "texto_deductivo": "¡Atención, equipo de respuesta rápida! Hemos pasado de la observación a la acción. Si Kepler nos dio el 'cómo', Isaac Newton nos dio el 'por qué'. Para sobrevivir a una falla total de sistemas en la ISS, no basta con saber que nos movemos en elipses; necesitamos calcular la fuerza invisible que nos mantiene atados a la Tierra para no salir disparados hacia el olvido interestelar. La Ley de Gravitación Universal de Newton es nuestra herramienta definitiva de supervivencia. Esta ley establece que cada partícula de materia en el universo atrae a todas las demás partículas con una fuerza que es directamente proporcional al producto de sus masas e inversamente proporcional al cuadrado de la distancia que las separa. Matemáticamente: F = G * (m1 * m2) / r^2.\n\nEn este nivel de Modo Héroe, debemos entender que la gravedad no es solo algo que nos empuja hacia abajo, sino que es la fuerza centrípeta que mantiene a cualquier objeto en órbita. Imaginen que la ISS es una piedra atada a una cuerda invisible. Si cortamos la cuerda (la gravedad), saldríamos volando en línea recta debido a la inercia. Por lo tanto, para mantener una órbita estable a 400 km sobre la superficie terrestre, debemos mantener una velocidad orbital de aproximadamente 28,000 km/h. Si vamos más lento, la gravedad gana y nos convertimos en un meteorito ardiendo en la atmósfera. Si vamos más rápido, la inercia gana y nos alejamos hacia el espacio profundo. \n\nNewton demostró que las leyes de Kepler eran una consecuencia directa de su ley de gravitación. Por ejemplo, la Tercera Ley de Kepler se puede derivar igualando la fuerza gravitatoria con la fuerza centrípeta (m*v^2/r). Esto nos permite calcular la masa de planetas enteros simplemente observando el movimiento de sus lunas. En una situación de emergencia, si tuviéramos que desplegar un satélite de comunicaciones improvisado, tendríamos que usar estas ecuaciones para asegurar que se quede en el lugar correcto. La gravedad es una fuerza de largo alcance, nunca llega a cero, aunque disminuye rápidamente con la distancia. Dominar esta matemática es dominar el destino de nuestra estación. Recuerden, en el espacio, la física es el único lenguaje que la realidad respeta. Si no calculas bien tu r^2, el universo no tendrá piedad.",
+  "preguntas_deductivas_pagina": [
+    "¿Qué sucede con la fuerza de atracción si la distancia entre dos cuerpos se triplica?",
+    "¿Por qué se dice que la Luna está 'cayendo' constantemente hacia la Tierra?",
+    "¿Cuál es la relación matemática exacta entre la ley de Newton y la tercera ley de Kepler?",
+    "¿Cómo afectaría a la órbita de la ISS si su masa se duplicara repentinamente?",
+    "¿Por qué la constante de gravitación universal G tiene un valor tan pequeño?"
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Realiza un diagrama de cuerpo libre de la ISS en órbita, representando los vectores de velocidad tangencial y fuerza gravitatoria.",
+    "Elabora un mapa mental que conecte los conceptos de Masa, Distancia, Fuerza Gravitatoria y Aceleración Centrípeta.",
+    "Dibuja un esquema explicativo que muestre cómo la curvatura de la Tierra se compensa con la velocidad de caída de un objeto en órbita.",
+    "Diseña una infografía artesanal que explique paso a paso cómo Newton usó la manzana y la Luna para unificar la física terrestre y la celeste."
+  ],
+  "juegos_ordenar_letras_2": [
+    "GRAVEDAD",
+    "INERCIA",
+    "CENTRIPETA"
+  ],
+  "juego_ordenar_frase_2": "LA FUERZA DE GRAVEDAD DISMINUYE CON EL CUADRADO DE LA DISTANCIA",
+  "sopa_letras": [
+    "KEPLER",
+    "NEWTON",
+    "ORBITA",
+    "MASA",
+    "FOCO",
+    "RADIO",
+    "TIEMPO",
+    "FUERZA",
+    "ELIPSE",
+    "PLANETA"
+  ],
+  "crucigrama": [
+    {
+      "palabra": "GRAVEDAD",
+      "pista": "Fuerza de atracción universal entre masas."
+    },
+    {
+      "palabra": "PERIODO",
+      "pista": "Tiempo que tarda un cuerpo en completar una órbita."
+    },
+    {
+      "palabra": "AFELIO",
+      "pista": "Punto más lejano de un planeta respecto al Sol."
+    },
+    {
+      "palabra": "EXCENTRICIDAD",
+      "pista": "Medida de qué tan estirada es una elipse."
+    },
+    {
+      "palabra": "CENTRIPETA",
+      "pista": "Fuerza dirigida hacia el centro de una trayectoria curva."
+    },
+    {
+      "palabra": "KEPLER",
+      "pista": "Astrónomo que formuló las leyes del movimiento planetario."
+    },
+    {
+      "palabra": "INERCIA",
+      "pista": "Tendencia de los cuerpos a mantener su estado de movimiento."
+    },
+    {
+      "palabra": "ELIPSE",
+      "pista": "Forma geométrica de las órbitas planetarias."
+    },
+    {
+      "palabra": "UNIVERAL",
+      "pista": "Adjetivo de la ley de Newton que indica que aplica en todo el cosmos."
+    },
+    {
+      "palabra": "VELOCIDAD",
+      "pista": "Magnitud que aumenta cuando el planeta se acerca al Sol."
+    }
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "Un satélite de reconocimiento en la ISS detecta que un pequeño asteroide se acerca al Sol en una órbita altamente elíptica. Los científicos observan que el asteroide acelera significativamente al pasar cerca del Sol.",
+      "tabla_o_grafica_markdown": "| Posición | Distancia al Sol (UA) | Velocidad (km/s) |\n|---|---|---|\n| Punto A | 2.5 | 15 |\n| Punto B | 0.5 | 75 |",
+      "pregunta": "¿Qué ley física explica mejor el incremento de velocidad observado en el Punto B?",
+      "opciones": [
+        "La Segunda Ley de Kepler, ya que el radio vector debe barrer áreas iguales en tiempos iguales.",
+        "La Primera Ley de Kepler, porque el foco atrae magnéticamente al objeto.",
+        "La Tercera Ley de Newton, por cada acción hay una reacción de empuje.",
+        "La Ley de la Inercia, ya que el objeto tiende a mantener su velocidad constante."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. Al estar más cerca del foco (Sol), el radio es menor, por lo que la velocidad debe aumentar para cubrir la misma área en el mismo tiempo.",
+        "1": "Incorrecto. La primera ley describe la forma de la órbita, no el cambio de velocidad.",
+        "2": "Incorrecto. La tercera ley de Newton habla de fuerzas de contacto o interacción, no describe el movimiento orbital per se.",
+        "3": "Incorrecto. La inercia mantendría la velocidad constante en ausencia de fuerzas, pero aquí actúa la gravedad."
+      }
+    },
+    {
+      "competencia": "Uso comprensivo del conocimiento científico",
+      "texto_introductorio": "Si la ISS decidiera cambiar su órbita a una altura donde la distancia al centro de la Tierra fuera el doble de la actual (2R), se requiere predecir el cambio en la fuerza de atracción gravitacional.",
+      "tabla_o_grafica_markdown": "| Variable | Valor Inicial | Valor Final |\n|---|---|---|\n| Distancia | R | 2R |\n| Fuerza | F | ? |",
+      "pregunta": "De acuerdo con la Ley de Gravitación Universal, ¿cuál sería la nueva fuerza de atracción?",
+      "opciones": [
+        "La mitad de la fuerza original (F/2).",
+        "La cuarta parte de la fuerza original (F/4).",
+        "El doble de la fuerza original (2F).",
+        "Cuatro veces la fuerza original (4F)."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. La relación no es lineal, es inversamente proporcional al cuadrado.",
+        "1": "Correcto. Al duplicar la distancia (2^2), la fuerza disminuye por un factor de 4.",
+        "2": "Incorrecto. La fuerza disminuye con la distancia, no aumenta.",
+        "3": "Incorrecto. Esto sucedería si la distancia se redujera a la mitad."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "Un grupo de astronautas analiza los periodos orbitales de dos lunas de Júpiter para calibrar sus instrumentos. Observan que la Luna X está a una distancia 'd' y la Luna Y está a una distancia '4d'.",
+      "tabla_o_grafica_markdown": "| Luna | Distancia (Relativa) | Periodo (Relativo) |\n|---|---|---|\n| Luna X | 1 | 1 |\n| Luna Y | 4 | ? |",
+      "pregunta": "Usando la Tercera Ley de Kepler (T^2 proporcional a R^3), ¿cuál sería el periodo de la Luna Y en relación al de la Luna X?",
+      "opciones": [
+        "4 veces el periodo de X.",
+        "64 veces el periodo de X.",
+        "8 veces el periodo de X.",
+        "16 veces el periodo de X."
+      ],
+      "correcta": 2,
+      "retroalimentacion": {
+        "0": "Incorrecto. No es una relación proporcional simple.",
+        "1": "Incorrecto. Ese es el valor de R^3, falta calcular la raíz cuadrada para hallar T.",
+        "2": "Correcto. T^2 = R^3 -> T^2 = (4)^3 = 64. La raíz cuadrada de 64 es 8.",
+        "3": "Incorrecto. No sigue la proporción cuadrática simple."
+      }
+    }
+  ]
+}

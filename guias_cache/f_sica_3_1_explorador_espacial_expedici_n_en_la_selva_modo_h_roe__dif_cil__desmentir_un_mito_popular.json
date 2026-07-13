@@ -1,0 +1,178 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Cuál es la forma geométrica precisa de las órbitas planetarias según la primera ley de Kepler?",
+      "opciones": [
+        "Círculo perfecto",
+        "Elipse con el Sol en el centro",
+        "Elipse con el Sol en uno de sus focos",
+        "Espiral descendente"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "¿Qué magnitud física se mantiene constante cuando un planeta se mueve en su órbita, permitiendo que barra áreas iguales en tiempos iguales?",
+      "opciones": [
+        "Velocidad lineal",
+        "Momento angular",
+        "Distancia al Sol",
+        "Energía cinética"
+      ],
+      "correcta": 1
+    }
+  ],
+  "texto_inductivo": "Saludos, cadetes de la Federación Intergaláctica. Me encuentro transmitiendo desde las profundidades de la **Selva de Proxima Centauri b**, un entorno donde la vegetación es tan densa que el cielo apenas se vislumbra entre las hojas de color púrpura. Aquí, la supervivencia depende de entender los ritmos del cielo. Durante años, los colonos de esta selva creyeron en un mito peligroso: que las estaciones extremas de este planeta se debían únicamente a que el planeta se acercaba o se alejaba de su estrella. 'Estamos ardiendo porque estamos más cerca', decían mientras las lianas de fuego brotaban. Sin embargo, mi equipo de exploradores y yo hemos desplegado los **sensores de telemetría orbital** para desmentir esta falsa creencia y entender la verdadera mecánica del movimiento planetario.\n\nAl observar el comportamiento de los cuerpos celestes desde el suelo de la selva, uno podría caer en la trampa de los sentidos. El Sol parece más grande en ciertos días, pero ¿es eso suficiente para cambiar el clima de todo un bioma? Johannes Kepler, un explorador del pensamiento antiguo en la Tierra, ya nos advertía sobre esto. En nuestra expedición, hemos notado que aunque Proxima b sigue una trayectoria elíptica, su **excentricidad** es mínima. Si el mito de la cercanía fuera cierto, el hemisferio norte y el sur tendrían verano al mismo tiempo, algo que no ocurre. En la selva, cuando los musgos del norte florecen por el calor, los del sur entran en una latencia gélida. Esto nos induce a pensar que hay otro factor en juego: la inclinación del eje, no solo la distancia.\n\nLa observación detallada nos muestra que los planetas no son simples esferas rodando en un vacío, sino bailarines en un ballet geométrico preciso. Al medir la velocidad de traslación con nuestros cronómetros cuánticos, notamos que el planeta acelera cuando se acerca al **perihelio**. Pero, ¡atención exploradores!, este incremento de velocidad y cercanía no es el motor principal de las estaciones. La selva nos enseña que la física inductiva parte de la observación de estos patrones. Si la distancia fuera la clave, la Tierra (nuestro hogar ancestral) estaría más caliente en enero, que es cuando está en su perihelio. Pero en enero, el hemisferio norte tiembla de frío. ¿Cómo es posible? Este misterio es el que debemos resolver antes de que la próxima tormenta iónica golpee nuestro campamento. Debemos dejar de lado la intuición superficial y abrazar la medición rigurosa de los vectores de posición y las áreas barridas por el radio vector. En esta selva, la ignorancia de las leyes de Kepler no solo es un error académico, es una sentencia de quedar atrapado en el ciclo equivocado de la cosecha de cristales energéticos. La mecánica celeste es la brújula que nos permitirá encontrar la salida de este laberinto vegetal.",
+  "recurso_visual": "| Planeta | Excentricidad (e) | Distancia Perihelio (UA) | Distancia Afelio (UA) | ¿Causa las estaciones? |\n| :--- | :--- | :--- | :--- | :--- |\n| Tierra | 0.0167 | 0.983 | 1.017 | No (Inclinación del eje) |\n| Marte | 0.0934 | 1.381 | 1.666 | Parcialmente |\n| Proxima b | 0.0350 | 0.046 | 0.050 | No (Inclinación/Atmósfera) |\n| Venus | 0.0067 | 0.718 | 0.728 | No (Efecto invernadero) |",
+  "preguntas_inductivas_pagina": [
+    "¿Por qué el mito de la cercanía al Sol es insuficiente para explicar las estaciones según el texto?",
+    "¿Qué fenómeno observado en los hemisferios de Proxima Centauri b contradice la teoría de la distancia?",
+    "¿En qué punto de la órbita un planeta alcanza su máxima velocidad orbital?",
+    "¿Qué papel juega la excentricidad en la forma de la órbita de un planeta?",
+    "¿Qué sucedería con las estaciones si la órbita de un planeta fuera un círculo perfecto (e=0)?"
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema de la órbita elíptica de un planeta en la selva, marcando el Sol en un foco, el perihelio, el afelio y sombreando dos sectores de áreas iguales según la segunda ley de Kepler.",
+    "Realiza un cuadro comparativo entre el 'Mito de la Distancia' y la 'Realidad de la Inclinación Axial' como causas de los cambios climáticos planetarios.",
+    "Escribe una reflexión de 15 líneas sobre cómo la observación errónea del tamaño del sol puede llevar a conclusiones científicas falsas en una expedición espacial.",
+    "Representa gráficamente, mediante un diagrama de vectores, la velocidad orbital de un planeta en cuatro puntos diferentes de su elipse."
+  ],
+  "juegos_ordenar_letras_1": [
+    "ELIPSE",
+    "FOCO",
+    "PERIHELIO"
+  ],
+  "juego_ordenar_frase_1": "LAS AREAS BARRIDAS POR EL RADIO VECTOR SON PROPORCIONALES AL TIEMPO EMPLEADO",
+  "texto_deductivo": "Para desmantelar definitivamente el mito de que las estaciones dependen de la distancia orbital, debemos descender al núcleo de la **Mecánica Newtoniana y las Leyes de Kepler**. Desde el centro de mando de nuestra expedición en la selva, analizamos la Ley de Gravitación Universal: F = G * (m1 * m2) / r². Si bien es cierto que la fuerza de atracción aumenta cuando la distancia (r) disminuye, el efecto térmico directo de esta variación de distancia en órbitas con baja excentricidad (como la de la Tierra o la mayoría de los exoplanetas habitables) es despreciable en comparación con el efecto de la **oblicuidad de la eclíptica**.\n\nLa deducción lógica es la siguiente: la energía que recibe una superficie depende del ángulo de incidencia de los rayos de luz. En nuestra selva de Proxima b, hemos medido que durante el solsticio, los rayos inciden a 90 grados en el trópico norte, concentrando la energía en un área pequeña, lo que eleva la temperatura drásticamente. Al mismo tiempo, en el afelio (punto más lejano), el planeta podría estar recibiendo un 7% menos de radiación total, pero si el hemisferio está inclinado hacia la estrella, ese 7% de pérdida es superado por la eficiencia del ángulo de incidencia. Por lo tanto, deducimos que el movimiento planetario se rige por la conservación del momento angular (L = r x p). Cuando el planeta está en el afelio, su velocidad disminuye, y cuando está en el perihelio, aumenta, manteniendo el momento angular constante. Esta variación de velocidad es fundamental para calcular el periodo orbital mediante la **Tercera Ley de Kepler**: T² ∝ a³. \n\nSi aplicamos la deducción matemática, vemos que la distancia media (semieje mayor) define el año del planeta, pero la inclinación del eje define la intensidad de las estaciones. Un planeta sin inclinación axial, aunque tuviera una órbita muy elíptica, no experimentaría estaciones tal como las conocemos, sino cambios globales de temperatura uniformes en todo el globo. En la selva, hemos comprobado que la resistencia de las plantas a la radiación ultravioleta varía según la posición del planeta en su órbita debido a que la atmósfera filtra de manera distinta según el ángulo. Desmentir el mito no es solo un ejercicio teórico; permite a nuestros ingenieros espaciales predecir las ventanas de lanzamiento y el consumo de energía de los escudos térmicos. La física no miente: la geometría de la elipse dicta el 'cuándo' (periodo), pero la inclinación del eje dicta el 'cómo' (clima). Así, la exploración espacial se convierte en una danza entre la gravedad y la geometría, donde cada grado de inclinación cuenta más que millones de kilómetros de distancia.",
+  "preguntas_deductivas_pagina": [
+    "¿Cuál es la fórmula de la Ley de Gravitación Universal y qué significa cada variable en el contexto de una órbita?",
+    "¿Cómo afecta el ángulo de incidencia de la luz solar a la temperatura de una región específica de la selva?",
+    "Explique la relación matemática que establece la Tercera Ley de Kepler entre el periodo y la distancia media.",
+    "¿Qué es el momento angular y por qué se mantiene constante en una órbita planetaria?",
+    "Si un planeta tiene una excentricidad de 0.8, ¿crees que el mito de la distancia podría empezar a ser cierto? Justifica."
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Realiza un diagrama detallado que muestre la Tierra en los cuatro puntos clave de su órbita (solsticios y equinoccios), indicando la inclinación del eje y la distancia al Sol en cada uno.",
+    "Elabora un mapa mental que conecte la Ley de Gravitación Universal con las tres leyes de Kepler.",
+    "Dibuja un esquema explicativo que compare cómo cae la luz solar en un hemisferio inclinado hacia el Sol frente a uno inclinado en sentido opuesto.",
+    "Diseña una infografía artesanal titulada 'El Mito del Verano' donde expliques visualmente por qué la cercanía al Sol no causa el calor estival."
+  ],
+  "juegos_ordenar_letras_2": [
+    "GRAVEDAD",
+    "EXCENTRICIDAD",
+    "AFELIO"
+  ],
+  "juego_ordenar_frase_2": "EL CUADRADO DEL PERIODO ORBITAL ES PROPORCIONAL AL CUBO DE LA DISTANCIA MEDIA",
+  "sopa_letras": [
+    "KEPLER",
+    "NEWTON",
+    "ORBITA",
+    "ELIPSE",
+    "INCLINACION",
+    "PERIODO",
+    "RADIO",
+    "FUERZA",
+    "SOLSTICIO",
+    "ECLIPTICA"
+  ],
+  "crucigrama": [
+    {
+      "palabra": "EXCENTRICIDAD",
+      "pista": "Parámetro que determina cuánto se desvía una órbita de ser un círculo perfecto."
+    },
+    {
+      "palabra": "AFELIO",
+      "pista": "Punto de la órbita de un planeta más alejado del Sol."
+    },
+    {
+      "palabra": "GRAVEDAD",
+      "pista": "Fuerza de atracción invisible que mantiene a los planetas en órbita."
+    },
+    {
+      "palabra": "PERIHELIO",
+      "pista": "Punto de la órbita más cercano a la estrella central."
+    },
+    {
+      "palabra": "FOCUS",
+      "pista": "Uno de los dos puntos internos que definen una elipse; el Sol ocupa uno."
+    },
+    {
+      "palabra": "ANGULAR",
+      "pista": "Tipo de momento que se conserva durante el movimiento orbital."
+    },
+    {
+      "palabra": "INCLINACION",
+      "pista": "Ángulo del eje del planeta que realmente causa las estaciones."
+    },
+    {
+      "palabra": "TRASLACION",
+      "pista": "Movimiento de un planeta alrededor de su estrella."
+    },
+    {
+      "palabra": "UA",
+      "pista": "Unidad Astronómica; distancia promedio Tierra-Sol."
+    },
+    {
+      "palabra": "KEPLER",
+      "pista": "Apellido del astrónomo que formuló las tres leyes del movimiento planetario."
+    }
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "En la Selva Proxiniana, los exploradores notan que el planeta se mueve más rápido cuando está en el punto A de su órbita que cuando está en el punto B. Al medir las distancias, descubren que el punto A está a 0.046 UA de la estrella y el punto B a 0.050 UA.",
+      "tabla_o_grafica_markdown": "| Punto | Distancia (UA) | Velocidad (km/s) |\n|---|---|---|\n| A | 0.046 | 50.2 |\n| B | 0.050 | 46.1 |",
+      "pregunta": "¿Qué ley física explica directamente por qué la velocidad es mayor en el punto A?",
+      "opciones": [
+        "La Segunda Ley de Kepler, que implica la conservación del momento angular.",
+        "La Primera Ley de Newton, porque no hay fuerzas externas.",
+        "La Ley de la Termodinámica, debido al calor de la estrella.",
+        "La Tercera Ley de Kepler, que relaciona el periodo con la masa."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. La segunda ley establece que el radio vector barre áreas iguales en tiempos iguales, lo que obliga al planeta a ir más rápido cuando está más cerca (perihelio).",
+        "1": "Incorrecto. Hay una fuerza central (gravedad) actuando constantemente.",
+        "2": "Incorrecto. La termodinámica no rige la velocidad orbital de esta manera.",
+        "3": "Incorrecto. La tercera ley relaciona periodos y distancias, no velocidades instantáneas."
+      }
+    },
+    {
+      "competencia": "Uso comprensivo del conocimiento científico",
+      "texto_introductorio": "Un grupo de colonos afirma que para que un planeta tenga estaciones muy marcadas, su órbita debe ser una elipse muy alargada (alta excentricidad). Sin embargo, un explorador espacial les muestra que la Tierra tiene una excentricidad casi nula (0.017) y aun así tiene estaciones.",
+      "tabla_o_grafica_markdown": "| Factor | Influencia en la Tierra | Influencia en el Mito |\n|---|---|---|\n| Distancia | Variable (3%) | Principal (100%) |\n| Inclinación Eje | 23.5 grados | No considerada |",
+      "pregunta": "¿Cuál es la razón científica por la cual el mito de los colonos es falso para la Tierra?",
+      "opciones": [
+        "Porque la Tierra está más lejos del Sol durante el verano del hemisferio norte.",
+        "Porque la atmósfera terrestre bloquea el calor del perihelio.",
+        "Porque la gravedad se vuelve más débil en verano.",
+        "Porque el Sol emite más energía en invierno."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. En julio (verano del norte), la Tierra está en el afelio (más lejos), lo que demuestra que la distancia no es la causa del calor.",
+        "1": "Incorrecto. La atmósfera no varía su filtración basándose solo en el perihelio.",
+        "2": "Incorrecto. La gravedad no tiene una variación estacional que afecte el clima de esa forma.",
+        "3": "Incorrecto. La luminosidad solar es constante; lo que cambia es la distancia y el ángulo."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "Se desea investigar si la velocidad orbital de un nuevo exoplaneta descubierto en la selva depende de su masa. Los exploradores registran los siguientes datos de diferentes lunas orbitando el mismo planeta.",
+      "tabla_o_grafica_markdown": "| Luna | Masa (kg) | Distancia Media (km) | Periodo (días) |\n|---|---|---|---|\n| L1 | 1x10^20 | 200,000 | 2.5 |\n| L2 | 5x10^22 | 200,000 | 2.5 |",
+      "pregunta": "A partir de los datos, ¿qué puede concluirse sobre la relación entre la masa del cuerpo orbitante y su movimiento?",
+      "opciones": [
+        "El periodo orbital no depende de la masa de la luna, sino de la distancia.",
+        "A mayor masa de la luna, menor es el tiempo que tarda en dar la vuelta.",
+        "La masa de la luna es proporcional al cubo de la distancia.",
+        "La velocidad orbital aumenta si la masa del cuerpo orbitante se duplica."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. Los datos muestran que a igual distancia, el periodo es el mismo aunque las masas sean muy diferentes.",
+        "1": "Incorrecto. Los periodos en la tabla son iguales para masas distintas.",
+        "2": "Incorrecto. Esa no es la relación de la tercera ley de Kepler.",
+        "3": "Incorrecto. La velocidad orbital depende de la masa de la estrella/planeta central, no de la masa del objeto que orbita."
+      }
+    }
+  ]
+}

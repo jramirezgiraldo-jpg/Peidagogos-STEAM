@@ -1,0 +1,188 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Qué forma geométrica describen los planetas en su recorrido alrededor del Sol según las leyes clásicas?",
+      "opciones": [
+        "Círculo perfecto",
+        "Óvalo irregular",
+        "Elipse",
+        "Parábola"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "¿Cuál es la fuerza fundamental que mantiene a los astros en su órbita?",
+      "opciones": [
+        "Electromagnetismo",
+        "Fuerza Nuclear Fuerte",
+        "Gravedad",
+        "Fricción Espacial"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "Si un planeta se aleja del Sol en su órbita, ¿qué sucede con su velocidad orbital?",
+      "opciones": [
+        "Aumenta",
+        "Disminuye",
+        "Se mantiene constante",
+        "Se detiene"
+      ],
+      "correcta": 1
+    }
+  ],
+  "texto_inductivo": "¡Saludos, supervivientes del Gran Colapso! Aquí su Profe-Rastreador transmitiendo desde el búnker 'Alfa-Física'. Si están escuchando esto, es porque han logrado descifrar la frecuencia de radio y están listos para el Reto Épico: Modo Dios. Hoy no venimos a leer libros empolvados, venimos a **sobrevivir**. El misterio que nos convoca es el 'Evento Sombra'. Hace tres lunas, nuestro satélite de suministros, el *Ícaro-7*, dejó de seguir su trayectoria habitual. Si no calculamos dónde interceptarlo, nos quedaremos sin raciones de algas proteicas para el invierno nuclear. Para resolver este misterio, debemos mirar al cielo, pero no con miedo, sino con la precisión de **Johannes Kepler**.\n\nImaginen que el cielo es un gran tablero de juego. Antes del colapso, los antiguos creían que los planetas se movían en círculos perfectos porque consideraban al cielo como algo divino. Pero Kepler, trabajando con los datos de Tycho Brahe (quien era como el radar humano de su época), descubrió una verdad más 'sucia' y real: las órbitas son **elipses**. Una elipse no tiene un centro, tiene dos focos. En uno de ellos está nuestro Sol (o lo que queda de él tras la nube de ceniza). Esta es la **Primera Ley de Kepler**. Para el *Ícaro-7*, esto significa que no siempre está a la misma distancia de la base terrestre. Hay un punto de máxima cercanía llamado **perihelio** y uno de máxima lejanía llamado **afelio**.\n\nPero aquí viene lo extraño, supervivientes. El *Ícaro-7* parece acelerar y frenar sin motores. ¿Magia? No, es la **Segunda Ley de Kepler** o Ley de las Áreas. Kepler notó que una línea imaginaria que conecta al sol con el planeta barre **áreas iguales en tiempos iguales**. Esto implica que, cuando el objeto está cerca del foco (perihelio), debe moverse mucho más rápido para cubrir esa gran área de la porción 'ancha' de la elipse, y cuando está lejos (afelio), se mueve con una parsimonia casi agónica. Si queremos interceptar el satélite, debemos saber en qué fase de su 'barrido' se encuentra. Si está en el afelio, tenemos tiempo de preparar los ganchos de anclaje; si está en el perihelio, ¡más vale que sus cálculos sean instantáneos!\n\nFinalmente, está la **Tercera Ley**, la más poderosa para nosotros, los buscadores de suministros. Esta ley establece una relación matemática entre el tiempo que tarda un planeta en dar una vuelta (periodo) y su distancia promedio al sol (semieje mayor). Dice que el cuadrado del periodo es proporcional al cubo de la distancia. ¿Por qué nos importa esto en el páramo? Porque si detectamos un nuevo cuerpo celeste o un fragmento de la antigua estación espacial, solo con medir cuánto tarda en pasar sobre nuestras cabezas, podemos saber exactamente a qué distancia se encuentra de nosotros. El movimiento planetario no es azaroso; es una coreografía mecánica perfecta que ha sobrevivido incluso al fin de nuestra civilización. Para resolver el misterio del *Ícaro-7*, debemos preguntarnos: ¿ha cambiado su periodo? Si es así, su distancia ha cambiado, lo que significa que algo, tal vez un asteroide o un residuo de la vieja guerra, lo ha golpeado y alterado su 'danza' orbital. ¡Saquen sus brújulas y prepárense para la indagación!",
+  "recurso_visual": "graph TD\n    A[Leyes de Kepler] --> B[1ra Ley: Elipses]\n    A --> C[2da Ley: Áreas]\n    A --> D[3ra Ley: Armónica]\n    B --> B1[El Sol ocupa un foco]\n    C --> C1[Áreas iguales en tiempos iguales]\n    C --> C2[Velocidad variable: Rápido en Perihelio / Lento en Afelio]\n    D --> D1[T^2 proporcional a a^3]\n    D --> D2[Relaciona Periodo y Distancia]",
+  "preguntas_inductivas_pagina": [
+    "¿Por qué es fundamental conocer la ubicación de los focos en una órbita elíptica para un rescatista espacial?",
+    "Si el satélite Ícaro-7 se encuentra en su afelio, ¿deberíamos esperar que pase rápido o lento sobre el búnker?",
+    "¿Qué significa físicamente que una línea imaginaria 'barra áreas iguales'?",
+    "¿Cómo ayuda la Tercera Ley de Kepler a identificar la distancia de un objeto desconocido si solo conocemos su tiempo de traslación?",
+    "¿Qué fenómeno podría causar que un objeto en órbita cambie repentinamente su trayectoria elíptica?"
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja una órbita elíptica exagerada, marca los dos focos, el perihelio, el afelio y sombrea dos sectores que representen la Segunda Ley de Kepler.",
+    "Realiza un cuadro comparativo entre el modelo de órbitas circulares (antiguo) y el modelo elíptico de Kepler, destacando ventajas para la navegación.",
+    "Escribe un informe de 15 líneas explicando cómo la ruptura de la Tercera Ley de Kepler en un objeto observado indicaría la presencia de fuerzas no gravitatorias (como motores o colisiones).",
+    "Representa gráficamente mediante un diagrama de flujo los pasos que seguiría un científico del búnker para predecir la posición del satélite usando las tres leyes."
+  ],
+  "juegos_ordenar_letras_1": [
+    "ELIPSE",
+    "PERIHELIO",
+    "AFELIO"
+  ],
+  "juego_ordenar_frase_1": "LAS AREAS BARRE IGUALES TIEMPOS EN IGUALES",
+  "texto_deductivo": "Ahora que hemos observado el comportamiento del *Ícaro-7* como meros rastreadores, es momento de ascender al Modo Dios y entender el **PORQUÉ** detrás de la danza. Kepler describió el 'cómo', pero fue **Isaac Newton** quien, en medio de una peste (un apocalipsis menor comparado con el nuestro), descifró la fuerza invisible que mueve los hilos del cosmos: la **Ley de Gravitación Universal**. Newton dedujo que la fuerza que hace caer una manzana podrida en el páramo es la misma que mantiene a la Luna amarrada a la Tierra. Esta fuerza es directamente proporcional al producto de las masas e inversamente proporcional al cuadrado de la distancia.\n\n¿Qué significa esto para nuestra misión de interceptación? Significa que la gravedad es una 'comba' invisible. Si la masa de un planeta aumenta (digamos, por la acumulación de desechos espaciales), su atracción aumenta. Pero lo más crítico es la distancia. Si la distancia se reduce a la mitad, ¡la fuerza de atracción se cuadruplica! Esto explica por qué los planetas deben moverse más rápido en el perihelio: necesitan más velocidad (energía cinética) para generar una 'fuerza centrífuga' (en términos simples de supervivencia) que contrarreste la intensa atracción gravitatoria del Sol a corta distancia y así no caer hacia él.\n\nPara resolver el misterio del satélite, debemos aplicar la síntesis de Newton sobre Kepler. La Tercera Ley de Kepler no es solo una observación empírica; se deriva matemáticamente de igualar la fuerza gravitatoria con la fuerza centrípeta necesaria para mantener el movimiento circular (o elíptico). La constante de proporcionalidad en $T^2 / a^3$ depende exclusivamente de la masa del cuerpo central (el Sol o la Tierra). Por lo tanto, si el periodo del *Ícaro-7* ha cambiado sin que su distancia promedio cambie, significa que la masa del satélite o la fuerza neta sobre él ha sido alterada por algo externo.\n\nAdemás, debemos considerar la **Conservación del Momento Angular**. En una órbita, no hay torques externos significativos, por lo que el producto de la masa, la velocidad y la distancia al centro debe permanecer constante ($L = mvr$). Esto es la prueba definitiva de la Segunda Ley: si la distancia ($r$) disminuye, la velocidad ($v$) DEBE aumentar para que $L$ se mantenga igual. Supervivientes, la física no es solo una teoría; es la ley que gobierna los restos de nuestro mundo. Al entender la gravedad como una curvatura o una fuerza de atracción constante, dejamos de ser víctimas del azar y nos convertimos en arquitectos de nuestro destino. El misterio del 'Evento Sombra' se resuelve cuando aplicamos estas ecuaciones para predecir no solo dónde está el satélite ahora, sino dónde estará en el momento exacto en que nuestra última bengala cruce su camino.",
+  "preguntas_deductivas_pagina": [
+    "¿Qué sucede con la fuerza gravitatoria entre dos objetos si la distancia entre ellos se triplica?",
+    "¿Cómo justifica la Ley de Gravitación Universal que la velocidad aumente en el perihelio?",
+    "¿De qué factores depende la constante de la Tercera Ley de Kepler según la deducción de Newton?",
+    "¿Por qué es necesario el concepto de momento angular para entender el movimiento planetario?",
+    "Si un satélite pierde masa pero mantiene su velocidad y distancia, ¿se alteraría su órbita según Newton?"
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Dibuja un diagrama de vectores de fuerza y velocidad para un satélite en cuatro puntos diferentes de su órbita elíptica.",
+    "Elabora un mapa mental que conecte la Ley de Gravitación Universal con cada una de las tres leyes de Kepler.",
+    "Realiza un dibujo explicativo que muestre la analogía de la 'lona elástica' para explicar cómo la masa de la Tierra curva el espacio para el satélite.",
+    "Crea una infografía artesanal que resuma los datos necesarios para calcular la masa de un planeta desconocido usando la órbita de una de sus lunas."
+  ],
+  "juegos_ordenar_letras_2": [
+    "GRAVEDAD",
+    "NEWTON",
+    "ORBITA"
+  ],
+  "juego_ordenar_frase_2": "LA FUERZA ES INVERSAMENTE PROPORCIONAL AL CUADRADO DE LA DISTANCIA",
+  "sopa_letras": [
+    "KEPLER",
+    "NEWTON",
+    "ELIPSE",
+    "FOCO",
+    "MASA",
+    "PERIODO",
+    "RADIO",
+    "FUERZA",
+    "INERCIA",
+    "ASTRO"
+  ],
+  "crucigrama": [
+    {
+      "palabra": "GRAVEDAD",
+      "pista": "Fuerza de atracción universal entre masas."
+    },
+    {
+      "palabra": "AFELIO",
+      "pista": "Punto más lejano de un planeta al Sol."
+    },
+    {
+      "palabra": "PERIHELIO",
+      "pista": "Punto más cercano de un planeta al Sol."
+    },
+    {
+      "palabra": "ELIPSE",
+      "pista": "Forma geométrica de las órbitas planetarias."
+    },
+    {
+      "palabra": "PERIODO",
+      "pista": "Tiempo que tarda un astro en completar una órbita."
+    },
+    {
+      "palabra": "KEPLER",
+      "pista": "Astrónomo que formuló las tres leyes del movimiento planetario."
+    },
+    {
+      "palabra": "FOCO",
+      "pista": "Uno de los dos puntos internos de una elipse."
+    },
+    {
+      "palabra": "CONSTANTE",
+      "pista": "Valor que no cambia en la relación T^2 / R^3."
+    },
+    {
+      "palabra": "UNIVERSAL",
+      "pista": "Carácter de la ley de gravitación de Newton."
+    },
+    {
+      "palabra": "AREA",
+      "pista": "Lo que barre el radio vector en tiempos iguales."
+    }
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "En el búnker se observa que el satélite de suministros Ícaro-7 ha reducido su distancia promedio a la Tierra debido a la fricción con restos de ceniza atmosférica.",
+      "tabla_o_grafica_markdown": "| Estado | Distancia Promedio (r) | Periodo (T) |\n|---|---|---|\n| Antes | 4 Unidades | 8 Meses |\n| Después | 1 Unidad | ? |",
+      "pregunta": "De acuerdo con la Tercera Ley de Kepler ($T^2$ es proporcional a $r^3$), ¿cuál será el nuevo periodo del satélite?",
+      "opciones": [
+        "1 Mes",
+        "2 Meses",
+        "4 Meses",
+        "0.5 Meses"
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. Si la distancia r disminuye de 4 a 1 (un cuarto), $r^3$ disminuye de 64 a 1. Como $T^2$ es proporcional a $r^3$, $T^2$ debe pasar de 64 a 1, por lo tanto T pasa de 8 a 1.",
+        "1": "Incorrecto. Este valor no corresponde a la relación cuadrática-cúbica de la ley.",
+        "2": "Incorrecto. Se ha ignorado que la relación es con el cuadrado del periodo.",
+        "3": "Incorrecto. La reducción es mayor a la calculada."
+      }
+    },
+    {
+      "competencia": "Uso Comprensivo del Conocimiento Científico",
+      "texto_introductorio": "Un grupo de supervivientes encuentra un antiguo registro que describe un planeta cuya órbita es casi circular alrededor de una estrella similar al Sol.",
+      "tabla_o_grafica_markdown": "| Planeta | Distancia al Sol (UA) | Velocidad Orbital |\n|---|---|---|\n| X | 1 | V |\n| Y | 4 | ? |",
+      "pregunta": "Si el planeta Y está 4 veces más lejos que el planeta X, la fuerza gravitacional que siente Y por parte de la estrella es:",
+      "opciones": [
+        "4 veces menor que la de X",
+        "16 veces menor que la de X",
+        "Igual a la de X",
+        "4 veces mayor que la de X"
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. La ley de Newton dice que es inversamente proporcional al CUADRADO de la distancia.",
+        "1": "Correcto. Al ser 4 veces la distancia, el cuadrado es 16, y al ser inversa, la fuerza es 1/16 parte.",
+        "2": "Incorrecto. La distancia afecta drásticamente la fuerza gravitatoria.",
+        "3": "Incorrecto. A mayor distancia, la fuerza debe ser menor, no mayor."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "Para resolver el misterio de por qué el Ícaro-7 cambió su trayectoria, los científicos del búnker analizan la velocidad del satélite en diferentes puntos.",
+      "tabla_o_grafica_markdown": "| Punto de la Órbita | Distancia al Foco (km) | Velocidad (km/s) |\n|---|---|---|\n| A | 10.000 | 20 |\n| B | 20.000 | 10 |\n| C | 5.000 | 40 |",
+      "pregunta": "¿Qué conclusión se puede obtener sobre la validez de la Segunda Ley de Kepler a partir de estos datos?",
+      "opciones": [
+        "Los datos contradicen a Kepler porque la velocidad cambia.",
+        "Los datos confirman a Kepler ya que el producto de distancia y velocidad se mantiene constante.",
+        "La ley de Kepler solo se cumple si la velocidad fuera constante.",
+        "No se puede concluir nada sin conocer la masa del satélite."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. Kepler predijo precisamente que la velocidad debe cambiar.",
+        "1": "Correcto. En una órbita, el momento angular se conserva (mvr = cte). Aquí r*v en todos los casos da 200,000, validando la ley de áreas.",
+        "2": "Incorrecto. Kepler demostró que la velocidad no es constante en órbitas elípticas.",
+        "3": "Incorrecto. La cinemática orbital explicada por Kepler es independiente de la masa del objeto menor."
+      }
+    }
+  ]
+}

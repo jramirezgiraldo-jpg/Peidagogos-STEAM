@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salón de la Fama - Peidagogos STEAM</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background: #F3F4F6; /* Fondo claro */
+            color: #111827; /* Texto oscuro */
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        .header {
+            background: white;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            z-index: 10;
+        }
+        .title-container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #1D4ED8;
+            letter-spacing: -1px;
+        }
+        .logo span {
+            color: #10B981;
+        }
+        .trophy {
+            font-size: 3rem;
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+        h1 { margin: 0; font-weight: 900; font-size: 2rem; color: #1F2937; }
+        h2 { margin: 5px 0 0 0; color: #6B7280; font-weight: 600; font-size: 1.2rem; }
+        
+        .table-container {
+            flex: 1;
+            padding: 40px;
+            overflow-y: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 10px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        th {
+            padding: 15px 25px;
+            text-align: left;
+            color: #6B7280;
+            font-weight: 800;
+            font-size: 1.1rem;
+            border-bottom: 2px solid #E5E7EB;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        th.center { text-align: center; }
+        th.right { text-align: right; }
+        
+        td {
+            padding: 20px 25px;
+            background: white;
+            font-size: 1.3rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        td.rank { text-align: center; font-weight: 900; border-radius: 12px 0 0 12px; font-size: 1.8rem; color: #9CA3AF; }
+        td.name { font-weight: bold; color: #374151; }
+        td.group { text-align: center; }
+        td.xp { text-align: right; font-weight: 900; color: #10B981; font-size: 1.6rem; border-radius: 0 12px 12px 0; }
+        
+        tr { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+        tr:hover { transform: translateY(-2px); box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        
+        .gold td { background: linear-gradient(90deg, #FFFBEB, white); border-top: 1px solid #FDE68A; border-bottom: 1px solid #FDE68A; }
+        .gold td.rank { border-left: 6px solid #F59E0B; }
+        .gold td.name { color: #D97706; }
+        
+        .silver td { background: linear-gradient(90deg, #F3F4F6, white); border-top: 1px solid #E5E7EB; border-bottom: 1px solid #E5E7EB; }
+        .silver td.rank { border-left: 6px solid #9CA3AF; }
+        
+        .bronze td { background: linear-gradient(90deg, #FEF3C7, white); border-top: 1px solid #FDE68A; border-bottom: 1px solid #FDE68A; }
+        .bronze td.rank { border-left: 6px solid #B45309; }
+        .bronze td.name { color: #B45309; }
+        
+        .badge {
+            background: #E0E7FF;
+            color: #4338CA;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div style="display: flex; height: 100vh;">
+        <!-- SIDEBAR IZQUIERDO -->
+        <div style="width: 320px; min-width: 320px; background: white; border-right: 4px solid #3B82F6; display: flex; flex-direction: column; padding: 25px 20px; box-shadow: 4px 0 15px rgba(0,0,0,0.05); z-index: 20; overflow: hidden;">
+            <!-- Logo ajustado -->
+            <div style="text-align: center; margin-bottom: 30px;">
+                <img src="logo-peidagogos.png" alt="Peidagogos STEAM" style="width: 100%; max-width: 200px; height: auto; object-fit: contain;">
+            </div>
+            
+            <!-- Controles de Ruido -->
+            <div style="display: flex; flex-direction: column; gap: 20px;">
+                <h3 style="margin: 0; color: #1F2937; font-size: 1.3rem; text-align: center; border-bottom: 2px solid #E5E7EB; padding-bottom: 15px;">Control de Clima de Aula</h3>
+                
+                <button id="btn-mic" onclick="toggleMic()" style="background: #10B981; color: white; border: none; padding: 18px; border-radius: 12px; font-weight: 900; font-size: 1.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; transition: 0.2s; box-shadow: 0 4px 6px rgba(16,185,129,0.3);">
+                    🎙️ Activar Micrófono
+                </button>
+                
+                <div style="background: #F9FAFB; padding: 20px; border-radius: 12px; border: 1px solid #E5E7EB; display: flex; flex-direction: column; gap: 12px; margin-top: 10px;">
+                    <div style="display: flex; justify-content: space-between; font-size: 1rem; font-weight: bold; color: #6B7280;">
+                        <span>Ruido: <span id="noise-value" style="color: #374151;">0</span>%</span>
+                        <span>Límite: <span id="threshold-value" style="color: #EF4444;">70</span>%</span>
+                    </div>
+                    <div style="height: 25px; background: #E5E7EB; border-radius: 12px; overflow: hidden; position: relative; box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);">
+                        <div id="noise-bar" style="height: 100%; width: 0%; background: #10B981; transition: width 0.1s, background-color 0.2s;"></div>
+                        <div id="threshold-marker" style="position: absolute; top: 0; bottom: 0; left: 70%; width: 4px; background: #EF4444; z-index: 10;"></div>
+                    </div>
+                </div>
+                
+                <div style="display: flex; flex-direction: column; align-items: center; background: #F9FAFB; padding: 20px; border-radius: 12px; border: 1px solid #E5E7EB;">
+                    <label for="threshold-slider" style="font-size: 1rem; font-weight: bold; color: #6B7280; margin-bottom: 15px;">Ajustar Límite de Tolerancia</label>
+                    <input type="range" id="threshold-slider" min="10" max="100" value="70" oninput="updateThreshold(this.value)" style="width: 100%; cursor: pointer;">
+                </div>
+                
+                <div id="penalty-alert" style="color: #EF4444; font-weight: 900; font-size: 1.2rem; opacity: 0; transition: opacity 0.3s; background: #FEE2E2; padding: 15px; border-radius: 12px; border: 2px solid #EF4444; text-align: center; margin-top: 20px;">
+                    🚨 ¡RUIDO EXCEDIDO!<br>-10 XP (TODO EL GRUPO)
+                </div>
+            </div>
+        </div>
+
+        <!-- CONTENIDO PRINCIPAL (DERECHA) -->
+        <div style="flex: 1; display: flex; flex-direction: column; background: #F3F4F6;">
+            <div class="header">
+                <div class="title-container">
+                    <span class="trophy">🏆</span>
+                    <div>
+                        <h1>SALÓN DE LA FAMA</h1>
+                        <h2 id="subtitle">Clasificación Global - Periodo 3</h2>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="center" style="width: 80px;">Pos</th>
+                            <th>Estudiante</th>
+                            <th class="center">Grupo</th>
+                            <th class="right">Puntos XP (P3)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="ranking-body">
+                        <tr><td colspan="4" style="text-align: center; padding: 50px;">Cargando clasificaciones... ⏳</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // --- CONTROL DE RUIDO AUTOMÁTICO (FILTRO DE CONTINUIDAD) ---
+        let audioContext;
+        let analyser;
+        let microphone;
+        let isListening = false;
+        let noiseThreshold = 70;
+        let lastPenaltyTime = 0;
+        let reqAnimFrame;
+        let lastFrameTime = 0;
+        let sustainedNoiseTime = 0;
+        const REQUIRED_SUSTAINED_TIME = 3500; // 3.5 segundos continuos requeridos para penalizar
+        const PENALTY_COOLDOWN = 8000; // 8 segundos de gracia tras penalidad
+        const PENALTY_AMOUNT = 10;
+        
+        function updateThreshold(val) {
+            noiseThreshold = val;
+            document.getElementById('threshold-value').innerText = val;
+            document.getElementById('threshold-marker').style.left = val + '%';
+        }
+        
+        async function toggleMic() {
+            const btn = document.getElementById('btn-mic');
+            if (isListening) {
+                if (audioContext) audioContext.close();
+                isListening = false;
+                cancelAnimationFrame(reqAnimFrame);
+                btn.innerHTML = '🎙️ Activar Micrófono';
+                btn.style.background = '#10B981';
+                document.getElementById('noise-bar').style.width = '0%';
+                document.getElementById('noise-value').innerText = '0';
+                lastFrameTime = 0;
+                sustainedNoiseTime = 0;
+            } else {
+                try {
+                    const stream = await navigator.mediaDevices.getUserMedia({ audio: true, video: false });
+                    audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                    analyser = audioContext.createAnalyser();
+                    microphone = audioContext.createMediaStreamSource(stream);
+                    
+                    analyser.smoothingTimeConstant = 0.8;
+                    analyser.fftSize = 1024;
+                    microphone.connect(analyser);
+                    
+                    isListening = true;
+                    lastFrameTime = performance.now();
+                    btn.innerHTML = '🛑 Detener Medidor';
+                    btn.style.background = '#EF4444';
+                    
+                    requestAnimationFrame(checkAudioLevel);
+                } catch (err) {
+                    alert('Error al acceder al micrófono. Por favor, otorga los permisos en tu navegador.');
+                    console.error(err);
+                }
+            }
+        }
+        
+        function checkAudioLevel(timestamp) {
+            if (!isListening) return;
+            
+            if (!lastFrameTime) lastFrameTime = timestamp;
+            const deltaTime = timestamp - lastFrameTime;
+            lastFrameTime = timestamp;
+            
+            const array = new Uint8Array(analyser.frequencyBinCount);
+            analyser.getByteFrequencyData(array);
+            let values = 0;
+            const length = array.length;
+            for (let i = 0; i < length; i++) {
+                values += (array[i]);
+            }
+            const average = values / length;
+            // Amplificar ligeramente
+            let percent = Math.round((average / 128) * 100 * 1.5); 
+            if (percent > 100) percent = 100;
+            
+            document.getElementById('noise-value').innerText = percent;
+            const bar = document.getElementById('noise-bar');
+            bar.style.width = percent + '%';
+            
+            if (percent < 50) bar.style.background = '#10B981';
+            else if (percent < noiseThreshold) bar.style.background = '#F59E0B';
+            else bar.style.background = '#EF4444';
+            
+            // Lógica de Continuidad (Teacher vs Classroom Filter)
+            if (percent >= noiseThreshold) {
+                sustainedNoiseTime += deltaTime;
+                
+                // Si el ruido ha sido continuo por más de 3.5 segundos
+                if (sustainedNoiseTime >= REQUIRED_SUSTAINED_TIME) {
+                    const now = Date.now();
+                    if (now - lastPenaltyTime > PENALTY_COOLDOWN) {
+                        triggerPenalty();
+                        lastPenaltyTime = now;
+                    }
+                    // Resetear el temporizador después de penalizar para requerir otros 3.5s si el ruido sigue
+                    sustainedNoiseTime = 0; 
+                }
+            } else {
+                // Si el ruido cae por debajo del límite (ej. pausa de respiración del profesor),
+                // el temporizador de penalidad se reinicia a cero al instante.
+                sustainedNoiseTime = 0;
+            }
+            
+            reqAnimFrame = requestAnimationFrame(checkAudioLevel);
+        }
+        
+        function triggerPenalty() {
+            if (!grupoActual) return;
+            
+            // Visual Alert
+            const alertElem = document.getElementById('penalty-alert');
+            alertElem.style.opacity = '1';
+            document.body.style.transition = 'box-shadow 0.2s';
+            document.body.style.boxShadow = 'inset 0 0 100px rgba(239, 68, 68, 0.4)';
+            
+            setTimeout(() => {
+                alertElem.style.opacity = '0';
+                document.body.style.boxShadow = 'none';
+            }, 3000);
+            
+            // Registrar penalidad localmente por asignatura
+            let key = `penalty_${grupoActual}_p3`;
+            if (asignaturaActual) {
+                key = `penalty_${grupoActual}_${asignaturaActual}_p3`;
+            }
+            let currentPenalty = parseInt(localStorage.getItem(key)) || 0;
+            localStorage.setItem(key, currentPenalty + PENALTY_AMOUNT);
+            
+            // Recargar ranking con penalidad
+            cargarRanking();
+        }
+
+        // --- FIN CONTROL DE RUIDO ---
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const grupoActual = urlParams.get('grupo');
+        const asignaturaActual = urlParams.get('asignatura');
+
+        if (grupoActual && asignaturaActual) {
+            const asigName = asignaturaActual.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+            document.getElementById('subtitle').innerText = `Clasificación del Grupo: ${grupoActual} - ${asigName} (Periodo 3)`;
+        } else if (grupoActual) {
+            document.getElementById('subtitle').innerText = "Clasificación del Grupo: " + grupoActual + " (Periodo 3)";
+        }
+
+        async function cargarRanking() {
+            try {
+                const res = await fetch('/api/estudiantes');
+                if (!res.ok) return;
+                let estudiantes = await res.json();
+                
+                if (grupoActual) {
+                    estudiantes = estudiantes.filter(e => e.grupo === grupoActual);
+                }
+                
+                // Obtener penalidad grupal total por asignatura
+                let penaltyKey = `penalty_${grupoActual}_p3`;
+                if (asignaturaActual) {
+                    penaltyKey = `penalty_${grupoActual}_${asignaturaActual}_p3`;
+                }
+                const globalPenalty = parseInt(localStorage.getItem(penaltyKey)) || 0;
+                
+                const estudiantesConXP = estudiantes.map(est => {
+                    let xpTotal = 0;
+                    // Calculamos por asignatura y periodo 3
+                    let prefix = `prog_${est.documento}_`;
+                    if (asignaturaActual) {
+                        prefix = `prog_${est.documento}_${asignaturaActual}_`;
+                    }
+                    const suffix = `_p3`;
+                    for (let i = 0; i < localStorage.length; i++) {
+                        const k = localStorage.key(i);
+                        if (k.startsWith(prefix) && k.endsWith(suffix)) {
+                            let maxSemanaUnlocked = parseInt(localStorage.getItem(k));
+                            if (!isNaN(maxSemanaUnlocked) && maxSemanaUnlocked > 1) {
+                                xpTotal += (maxSemanaUnlocked - 1) * 100;
+                            }
+                        }
+                    }
+                    
+                    // Restar penalidad a todos por igual (no menor a 0 si prefieres, pero permitimos negativos)
+                    xpTotal = xpTotal - globalPenalty;
+                    
+                    return { ...est, xp: xpTotal };
+                });
+                
+                estudiantesConXP.sort((a, b) => b.xp - a.xp);
+                
+                const tbody = document.getElementById('ranking-body');
+                tbody.innerHTML = '';
+                
+                if (estudiantesConXP.length === 0) {
+                    tbody.innerHTML = '<tr><td colspan="4" style="text-align: center; padding: 50px; color: #9CA3AF; background: white;">No hay estudiantes registrados en este grupo.</td></tr>';
+                    return;
+                }
+                
+                estudiantesConXP.forEach((est, index) => {
+                    let medalla = '';
+                    let rowClass = '';
+                    
+                    if (index === 0) { medalla = '🥇'; rowClass = 'gold'; }
+                    else if (index === 1) { medalla = '🥈'; rowClass = 'silver'; }
+                    else if (index === 2) { medalla = '🥉'; rowClass = 'bronze'; }
+                    else { medalla = `${index + 1}`; }
+                    
+                    const tr = document.createElement('tr');
+                    if(rowClass) tr.className = rowClass;
+                    
+                    tr.innerHTML = `
+                        <td class="rank">${medalla}</td>
+                        <td class="name">
+                            ${est.nombre} ${est.apellidos}
+                            <div style="font-size: 0.9rem; color: #9CA3AF; font-weight: normal; margin-top: 4px;">ID: ${est.documento}</div>
+                        </td>
+                        <td class="group"><span class="badge">${est.grupo || 'N/A'}</span></td>
+                        <td class="xp">${est.xp} <span style="font-size: 0.9rem; color: #6B7280;">XP</span></td>
+                    `;
+                    tbody.appendChild(tr);
+                });
+            } catch (e) {
+                console.error(e);
+            }
+        }
+
+        // Cargar inmediatamente
+        cargarRanking();
+        
+        // Magia en Tiempo Real pura: se dispara al instante si otra pestaña modifica localStorage
+        window.addEventListener('storage', (e) => {
+            if (e.key && e.key.startsWith('prog_')) {
+                cargarRanking();
+            }
+        });
+    </script>
+</body>
+</html>

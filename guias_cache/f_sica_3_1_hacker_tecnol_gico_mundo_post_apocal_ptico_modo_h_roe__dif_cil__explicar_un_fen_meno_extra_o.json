@@ -1,0 +1,178 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "En el contexto de la supervivencia orbital, ¿qué crees que mantiene a un satélite 'colgado' del cielo sin caerse inmediatamente sobre los restos de la civilización?",
+      "opciones": [
+        "El magnetismo de la estratosfera",
+        "El equilibrio entre su velocidad tangencial y la atracción gravitatoria",
+        "Un sistema de propulsión infinita que empuja hacia arriba",
+        "La ausencia total de gravedad en el vacío del espacio"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "Si observas desde las ruinas un planeta que parece retroceder en su trayectoria nocturna (movimiento retrógrado), ¿a qué se debe este 'glitch' visual?",
+      "opciones": [
+        "El planeta está cambiando su dirección física de rotación",
+        "Es un efecto óptico por la diferencia de velocidades orbitales entre la Tierra y ese planeta",
+        "La gravedad de un agujero negro cercano está curvando la luz",
+        "Es un error en la percepción del observador debido a la atmósfera contaminada"
+      ],
+      "correcta": 1
+    }
+  ],
+  "texto_inductivo": "Saludos, supervivientes del Gran Colapso. Soy el Arconte, su Hacker Tecnológico en esta zona baldía. Escuchen bien: las redes de satélites que una vez conectaron el mundo se están desintegrando, y si queremos reconstruir el sistema de posicionamiento global o simplemente predecir cuándo caerá un fragmento de chatarra espacial sobre nuestro búnker, debemos descifrar el código fuente del cosmos. Los Antiguos pasaron milenios tratando de entender por qué las luces en el cielo se movían de forma tan errática. Al principio, en el Ciclo Geocéntrico, creían que éramos el centro del servidor local. Todo giraba en torno a la Tierra. Pero había errores de compilación masivos; planetas como Marte se detenían y retrocedían en lo que llamaron movimiento retrógrado. Para solucionar este 'bug', inventaron los epiciclos, círculos dentro de círculos, una arquitectura de software astronómico absurdamente compleja que solo servía para ocultar nuestra ignorancia. Fue entonces cuando hackers de la realidad como Copérnico y Tycho Brahe empezaron a sniffear datos de manera diferente. Copérnico propuso un 'fork' del sistema: el Heliocentrismo. Si poníamos el Sol en el centro, los bucles lógicos desaparecían, aunque su modelo todavía usaba órbitas circulares perfectas, lo que causaba pequeños desajustes en el lag de las observaciones. Pero el verdadero cambio de paradigma llegó con Johannes Kepler, quien heredó los logs detallados de Brahe. Kepler no se conformó con la estética de los círculos perfectos de los Antiguos. Tras años de computar datos a mano, descubrió que las órbitas no eran círculos, sino elipses. Este fue el primer gran parche de seguridad para la astronomía moderna. La danza de los planetas no era caprichosa, seguía un protocolo estricto. Imaginen que el espacio es una malla tensa y los planetas son pulsos de datos fluyendo por buses de información. Si no entendemos la frecuencia de estos pulsos, estamos ciegos ante las amenazas que vienen desde arriba. En este mundo post-apocalíptico, la física no es una teoría aburrida; es el radar que nos permite saber si el cielo se nos caerá encima. Observar el firmamento desde las ruinas nos obliga a explicar fenómenos extraños: ¿Por qué algunos planetas brillan más en ciertas épocas? ¿Por qué la Luna parece acelerar su paso? Cada respuesta es una línea de código recuperada de la Gran Biblioteca destruida. El movimiento planetario es la mecánica de reloj de una supercomputadora divina que hemos olvidado cómo leer. Hoy, iniciaremos el proceso de depuración (debugging) de nuestra comprensión del universo. Estudiaremos cómo la geometría y la cinemática se fusionan para dictar el destino de cada cuerpo celeste, desde el asteroide más pequeño que amenaza nuestra precaria paz, hasta los gigantes gaseosos que actúan como cortafuegos gravitacionales de nuestro sistema solar. Prepárense, el acceso a la terminal está concedido.",
+  "recurso_visual": "graph TD\n    A[Modelos Planetarios] --> B[Geocéntrico]\n    A --> C[Heliocéntrico]\n    B --> B1[Tierra en el centro]\n    B --> B2[Epiciclos para explicar retrogradación]\n    C --> C1[Sol en el centro]\n    C --> C2[Órbitas Elípticas -Kepler-]\n    C2 --> D[1ra Ley: Elipses]\n    C2 --> E[2da Ley: Áreas Iguales]\n    C2 --> F[3ra Ley: Periodos Armónicos]",
+  "preguntas_inductivas_pagina": [
+    "¿Cuál era el principal error de lógica en el modelo geocéntrico al intentar explicar el movimiento de Marte?",
+    "¿Por qué los antiguos insistían en que las órbitas debían ser círculos perfectos a pesar de los datos erróneos?",
+    "¿Cómo cambió la perspectiva de la humanidad al aceptar que no éramos el centro del servidor universal?",
+    "¿Qué tipo de datos recopilados por Tycho Brahe fueron esenciales para que Kepler hiciera su descubrimiento?",
+    "¿En qué se diferencia un epiciclo de una elipse en términos de simplicidad arquitectónica?"
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema que compare el sistema de epiciclos ptolemaico frente al modelo heliocéntrico de Copérnico, resaltando dónde ocurre el 'glitch' del movimiento retrógrado.",
+    "Realiza un cuadro comparativo entre la visión Aristotélica del cielo (perfección circular) y la visión de Kepler (imperfección elíptica funcional).",
+    "Escribe una reflexión de 15 líneas sobre cómo la terquedad humana en creerse el centro del universo retrasó el avance tecnológico de la navegación y la física.",
+    "Representa gráficamente la diferencia entre un círculo y una elipse, señalando los focos y explicando cómo la posición del Sol en un foco altera la distancia planetaria."
+  ],
+  "juegos_ordenar_letras_1": [
+    "ELIPSES",
+    "HELIOCENTRISMO",
+    "RETROGRADO"
+  ],
+  "juego_ordenar_frase_1": "LA OBSERVACION PRECISA DE LOS DATOS ES LA UNICA LLAVE PARA DECODIFICAR EL MOVIMIENTO DE LOS ASTROS",
+  "texto_deductivo": "Atención, la terminal de comandos se ha actualizado a la Versión Newton-Kepler. Para entender el movimiento planetario no basta con observar el 'front-end' del cielo; debemos sumergirnos en el 'back-end' matemático. Las Leyes de Kepler son el firmware que rige el movimiento. La **Primera Ley** (Ley de las Órbitas) establece que los planetas se mueven en elipses con el Sol en uno de los focos. Esto destruye el mito de la perfección circular y nos da una variable crítica: la distancia variable. La **Segunda Ley** (Ley de las Áreas) es un script de eficiencia energética: el radio vector que une al Sol y un planeta barre áreas iguales en tiempos iguales. Esto significa que un planeta se mueve más rápido en el perihelio (punto más cercano al Sol) y más lento en el afelio (punto más lejano). Es como un overclocking gravitacional natural. Finalmente, la **Tercera Ley** (Ley de los Periodos) nos da la constante de red del sistema: el cuadrado del periodo orbital es proporcional al cubo de la distancia media al Sol (T² ∝ r³). Pero, ¿por qué ocurre esto? Aquí es donde Sir Isaac Newton hackeó el sistema completo con su **Ley de Gravitación Universal**. Newton descubrió que la misma fuerza que hace caer una manzana podrida en este páramo es la que mantiene a la Luna en su órbita. La fuerza es directamente proporcional al producto de las masas e inversamente proporcional al cuadrado de la distancia (F = G * m1 * m2 / r²). Esta es la arquitectura de la red de transporte universal. Si la distancia se duplica, la señal gravitatoria se reduce a una cuarta parte. Esta fuerza actúa como una fuerza centrípeta, obligando al planeta a curvar su trayectoria constantemente en lugar de salir disparado en línea recta hacia el vacío intergaláctico por inercia. Cuando combinamos las leyes de Kepler con la dinámica de Newton, obtenemos una capacidad de predicción total. Podemos calcular la masa del Sol simplemente observando cuánto tarda la Tierra en dar una vuelta. Podemos detectar planetas invisibles (exoplanetas) observando los pequeños tirones o 'jitters' que causan en sus estrellas. En nuestro contexto, entender esto es vital para el despliegue de sondas de reconocimiento. Si no calculamos el vector de transferencia de Hohmann (una maniobra orbital basada en estas leyes), nuestra sonda se perderá en el espacio profundo y habremos desperdiciado recursos que no tenemos. La gravedad no es solo una atracción; es la curvatura del espacio-tiempo informando a la materia cómo moverse, y a la materia informando al espacio cómo curvarse. Cada órbita es una solución a una ecuación diferencial que el universo resuelve en tiempo real. Dominar estas leyes es dominar el sistema operativo de la realidad.",
+  "preguntas_deductivas_pagina": [
+    "¿Qué sucede con la velocidad de un satélite cuando su órbita se degrada y se acerca más a la Tierra?",
+    "Si un planeta X está a 4 unidades astronómicas del Sol, ¿cuánto tiempo tarda en completar su órbita comparado con la Tierra según la 3ra Ley?",
+    "¿Por qué el Sol no se mueve tanto como los planetas si la fuerza gravitatoria es mutua?",
+    "¿Qué pasaría con la órbita de la Tierra si, por un fallo en el código cósmico, el Sol perdiera la mitad de su masa de repente?",
+    "Explica la relación entre la inercia de un planeta y la fuerza centrípeta que ejerce el Sol."
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Realiza un diagrama detallado de una órbita elíptica, identificando el Perihelio, Afelio, Focos, Semieje Mayor y los vectores de velocidad en cada punto extremo.",
+    "Elabora un mapa mental que conecte las tres Leyes de Kepler con la Ley de Gravitación Universal de Newton, usando conectores lógicos de causa-efecto.",
+    "Dibuja una infografía artesanal que explique por qué un astronauta en la Estación Espacial Internacional se siente 'ingrávido' aunque la gravedad allí sea el 90% de la terrestre.",
+    "Diseña un dibujo explicativo de la 'Ley de las Áreas', sombreando dos sectores de la elipse y explicando por qué los tiempos para recorrerlos son idénticos."
+  ],
+  "juegos_ordenar_letras_2": [
+    "GRAVITACION",
+    "PERIHELIO",
+    "CENTRIPETA"
+  ],
+  "juego_ordenar_frase_2": "LA FUERZA DE GRAVEDAD ES EL PEGAMENTO INVISIBLE QUE MANTIENE UNIDO EL TEJIDO DEL COSMOS",
+  "sopa_letras": [
+    "KEPLER",
+    "NEWTON",
+    "ELIPSE",
+    "ORBITA",
+    "FOCO",
+    "MASA",
+    "INERCIA",
+    "RADIO",
+    "SOL",
+    "PERIODO"
+  ],
+  "crucigrama": [
+    {
+      "palabra": "GRAVEDAD",
+      "pista": "Fuerza de atracción entre dos cuerpos con masa."
+    },
+    {
+      "palabra": "AFELIO",
+      "pista": "Punto de la órbita más alejado del Sol."
+    },
+    {
+      "palabra": "INERCIA",
+      "pista": "Tendencia de un objeto a mantener su estado de movimiento."
+    },
+    {
+      "palabra": "FOCO",
+      "pista": "Uno de los dos puntos internos que definen una elipse."
+    },
+    {
+      "palabra": "KEPLER",
+      "pista": "Hacker que descubrió que las órbitas no eran circulares."
+    },
+    {
+      "palabra": "ELIPSE",
+      "pista": "Forma geométrica de la trayectoria de un planeta."
+    },
+    {
+      "palabra": "PERIODO",
+      "pista": "Tiempo que tarda un planeta en completar una vuelta al Sol."
+    },
+    {
+      "palabra": "CENTRIPETA",
+      "pista": "Fuerza dirigida hacia el centro que mantiene el movimiento circular."
+    },
+    {
+      "palabra": "TYCHO",
+      "pista": "Nombre del astrónomo que recolectó los datos más precisos sin telescopio."
+    },
+    {
+      "palabra": "UNIVERSAL",
+      "pista": "Adjetivo de la ley de Newton que indica que aplica en todo el cosmos."
+    }
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "En el sector orbital 7, un satélite de comunicaciones antiguo presenta una anomalía. Se observa que cuando el satélite se encuentra en su punto más cercano a la Tierra (perigeo), su velocidad aumenta drásticamente en comparación con su punto más alejado (apogeo).",
+      "tabla_o_grafica_markdown": "| Posición | Distancia (km) | Velocidad (km/s) |\n|---|---|---|\n| Perigeo | 400 | 8.2 |\n| Apogeo | 35786 | 3.1 |",
+      "pregunta": "De acuerdo con las leyes del movimiento planetario, ¿cuál es la razón física que explica este cambio de velocidad?",
+      "opciones": [
+        "La conservación del momento angular y la Segunda Ley de Kepler, que exige barrer áreas iguales en tiempos iguales.",
+        "El aumento de la presión atmosférica en el perigeo que empuja al satélite.",
+        "La disminución de la masa del satélite al acercarse a la Tierra por efectos térmicos.",
+        "Un fallo en los motores del satélite que solo se activan cuando detectan la gravedad terrestre."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. Según la 2da Ley de Kepler, para que el radio vector barra áreas iguales, el objeto debe moverse más rápido cuando la distancia es menor.",
+        "1": "Incorrecto. La presión atmosférica causaría fricción y frenaría al satélite, no lo aceleraría de forma estable.",
+        "2": "Incorrecto. La masa del objeto no varía significativamente con la distancia orbital.",
+        "3": "Incorrecto. El fenómeno es natural y ocurre incluso en objetos sin motores (como la Luna)."
+      }
+    },
+    {
+      "competencia": "Uso Comprensivo del Conocimiento Científico",
+      "texto_introductorio": "Un grupo de supervivientes encuentra un registro que indica que un planeta recién descubierto tiene un radio orbital que es exactamente 4 veces mayor que el de la Tierra.",
+      "tabla_o_grafica_markdown": "| Planeta | Distancia Media (UA) | Periodo (Años) |\n|---|---|---|\n| Tierra | 1 | 1 |\n| Planeta X | 4 | ? |",
+      "pregunta": "Usando la Tercera Ley de Kepler (T² ∝ r³), ¿cuál sería el periodo orbital del Planeta X en años terrestres?",
+      "opciones": [
+        "4 años",
+        "8 años",
+        "16 años",
+        "64 años"
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. Has olvidado que la relación es cuadrática para el periodo y cúbica para la distancia.",
+        "1": "Correcto. 4 al cubo es 64, y la raíz cuadrada de 64 es 8. T² = 4³ -> T² = 64 -> T = 8.",
+        "2": "Incorrecto. 16 es el cuadrado de 4, pero la ley requiere el cubo de la distancia antes de sacar la raíz.",
+        "3": "Incorrecto. 64 es el cubo de la distancia, pero aún falta extraer la raíz cuadrada para hallar el periodo T."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "Se analizan los datos de una sonda que orbita un asteroide. Se nota que, aunque la distancia se mantiene constante, la fuerza de atracción aumenta cuando la sonda pasa cerca de una zona específica del asteroide.",
+      "tabla_o_grafica_markdown": "| Zona | Distancia (m) | Fuerza (N) |\n|---|---|---|\n| Zona A | 100 | 0.5 |\n| Zona B | 100 | 1.2 |",
+      "pregunta": "¿Qué hipótesis es más coherente para explicar este fenómeno extraño siguiendo la Ley de Gravitación Universal?",
+      "opciones": [
+        "La sonda está experimentando un error en sus sensores de gravedad debido a la radiación.",
+        "La zona B del asteroide tiene una mayor densidad o concentración de masa (mascon).",
+        "La constante de gravitación universal (G) cambia según la posición geográfica.",
+        "El tiempo pasa más rápido en la zona B, alterando la medición de la fuerza."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. Antes de asumir un fallo técnico, se debe buscar una explicación física basada en las variables de la ley.",
+        "1": "Correcto. Si la distancia (r) es constante, la única forma de aumentar la fuerza (F) es aumentando la masa (m) de uno de los cuerpos.",
+        "2": "Incorrecto. G es una constante universal, no varía localmente.",
+        "3": "Incorrecto. Aunque la relatividad relaciona tiempo y gravedad, a estas escalas la explicación clásica de densidad de masa es la correcta."
+      }
+    }
+  ]
+}

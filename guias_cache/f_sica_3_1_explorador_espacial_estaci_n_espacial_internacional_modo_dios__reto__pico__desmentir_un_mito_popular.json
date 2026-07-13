@@ -1,0 +1,208 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Cuál es la fuerza principal que mantiene a los planetas en su órbita?",
+      "opciones": [
+        "Inercia galáctica",
+        "Magnetismo solar",
+        "Gravedad",
+        "Presión de radiación"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "¿Qué forma tienen las órbitas planetarias según Kepler?",
+      "opciones": [
+        "Círculos perfectos",
+        "Elipses",
+        "Parábolas",
+        "Líneas rectas"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Qué sucede con la velocidad de un planeta cuando está más cerca del Sol?",
+      "opciones": [
+        "Disminuye",
+        "Se mantiene constante",
+        "Aumenta",
+        "Se detiene"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "¿Quién propuso la Ley de Gravitación Universal?",
+      "opciones": [
+        "Galileo Galilei",
+        "Isaac Newton",
+        "Albert Einstein",
+        "Johannes Kepler"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "En la ISS, ¿por qué flotan los astronautas?",
+      "opciones": [
+        "Porque no hay gravedad",
+        "Porque están muy lejos de la Tierra",
+        "Porque están en caída libre perpetua",
+        "Porque usan trajes especiales"
+      ],
+      "correcta": 2
+    }
+  ],
+  "texto_inductivo": "¡Saludos, cadetes de la Tierra! Les habla el Comandante de Misión desde la Cúpula de la Estación Espacial Internacional (ISS). Mientras observo el amanecer orbital número dieciséis del día, me preparo para guiarlos en este **Reto Épico: Modo Dios**. Estamos a 400 kilómetros de altura, viajando a la vertiginosa velocidad de 28,000 km/h. Desde aquí, la física no es solo una serie de ecuaciones en un tablero; es la fuerza invisible que dicta cada uno de nuestros movimientos y la razón por la cual no salimos disparados hacia el vacío infinito ni nos estrellamos contra el Amazonas. Hoy, nuestra misión es desentrañar los misterios del movimiento planetario, pero antes, debemos enfrentarnos a un enemigo invisible: la desinformación.\n\nDurante siglos, la humanidad observó el cielo con una mezcla de temor y asombro. Los antiguos griegos creían que los planetas eran transportados por esferas cristalinas perfectas. No fue sino hasta la llegada de mentes brillantes como Kepler y Newton que empezamos a entender la verdadera danza del cosmos. Johannes Kepler, analizando los datos de Tycho Brahe, rompió el mito de la perfección circular al proponer que los planetas se mueven en elipses. Pero, ¿qué impulsa este movimiento? Aquí es donde entra en juego la Gravitación Universal de Newton. Imaginen que la Tierra es una gran bola de bolos sobre una sábana elástica; su masa curva el espacio a su alrededor, obligando a objetos más pequeños, como la Luna o esta misma estación espacial, a seguir esa curvatura.\n\nSin embargo, existe un mito persistente que incluso muchos estudiantes de secundaria llevan consigo: la idea de que en el espacio **'no hay gravedad'**. Es común escuchar que los astronautas flotamos porque hemos escapado de la atracción terrestre. Nada más lejos de la realidad. Si la gravedad desapareciera de repente en esta ubicación, la ISS no seguiría orbitando, sino que saldría disparada en línea recta hacia el espacio profundo debido a su inercia. La gravedad a esta altura es todavía un 90% de la que sienten ustedes en la superficie. Entonces, ¿por qué parecemos no tener peso? La respuesta es la **caída libre**. Estamos cayendo constantemente hacia la Tierra, pero nuestra velocidad horizontal es tan alta que la superficie de la Tierra se curva debajo de nosotros a la misma velocidad que caemos. Es una caída perpetua donde nunca tocamos el suelo. Este fenómeno se conoce como microgravedad.\n\nPara dominar este nivel, deben comprender que el movimiento planetario es un equilibrio delicado entre la inercia (la tendencia de un cuerpo a seguir en línea recta) y la fuerza gravitacional (que tira del cuerpo hacia el centro de masa). Las leyes de Kepler no son meras sugerencias; son descripciones precisas de cómo la energía se conserva en un sistema orbital. La Segunda Ley de Kepler, por ejemplo, nos dice que un planeta barre áreas iguales en tiempos iguales, lo que implica que la velocidad orbital no es constante. Este principio es vital para nosotros en la ISS cuando realizamos maniobras de acoplamiento con naves de suministro. Un error en el cálculo de la velocidad orbital y terminaríamos en una trayectoria de colisión o perdidos en el espacio. Prepárense, cadetes, porque vamos a diseccionar la mecánica del universo y desmentir las falacias que nublan el entendimiento científico.",
+  "recurso_visual": "| Concepto | Descripción | Aplicación en la ISS |\n| :--- | :--- | :--- |\n| **Primera Ley de Kepler** | Órbitas elípticas con el Sol en un foco. | Nuestra órbita es casi circular, pero técnicamente elíptica. |\n| **Gravedad a 400km** | Aproximadamente 8.7 m/s² (90% de la terrestre). | Mantiene la estación anclada a la Tierra. |\n| **Velocidad Orbital** | 7.66 km/s (aprox. 28,000 km/h). | Evita que caigamos directamente a la atmósfera. |\n| **Inercia** | Tendencia a mantener el movimiento rectilíneo. | Combina con la gravedad para generar la curva orbital. |\n| **Caída Libre** | Estado de movimiento bajo la única influencia de la gravedad. | Razón por la cual experimentamos ingravidez aparente. |",
+  "preguntas_inductivas_pagina": [
+    "¿Qué porcentaje de la gravedad terrestre existe aproximadamente a la altura de la ISS?",
+    "¿Quién propuso que las órbitas planetarias son elípticas y no circulares?",
+    "¿Por qué la ISS no cae directamente a la Tierra a pesar de la gravedad?",
+    "¿Cuál es el término correcto para describir la sensación de falta de peso en órbita?",
+    "¿Qué sucedería con la ISS si la gravedad terrestre desapareciera súbitamente?"
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema que represente la Tierra y la ISS, ilustrando los vectores de velocidad tangencial y fuerza gravitatoria que producen la órbita.",
+    "Realiza un cuadro comparativo entre el concepto de 'Gravedad Cero' (Mito) y 'Microgravedad/Caída Libre' (Realidad Científica).",
+    "Escribe una reflexión de dos párrafos sobre cómo la comprensión de las leyes de Kepler permitió a la humanidad pasar de la observación visual a la exploración espacial real.",
+    "Representa gráficamente una órbita elíptica marcando los focos, el perihelio y el afelio, indicando en qué puntos el planeta se mueve más rápido."
+  ],
+  "juegos_ordenar_letras_1": [
+    "ELIPSE",
+    "INERCIA",
+    "GRAVEDAD"
+  ],
+  "juego_ordenar_frase_1": "LAS ORBITAS SON EL RESULTADO DE UNA CAIDA LIBRE PERPETUA HACIA EL CENTRO DE MASA",
+  "texto_deductivo": "Bienvenidos a la fase de análisis avanzado, cadetes. Para alcanzar el **Modo Dios**, debemos profundizar en la matemática y la lógica que desmienten el mito de la ausencia de gravedad. La Ley de Gravitación Universal de Newton establece que la fuerza (F) entre dos cuerpos es proporcional al producto de sus masas (m1, m2) e inversamente proporcional al cuadrado de la distancia (r) que los separa: F = G * (m1 * m2) / r². Si aplicamos esta fórmula para un astronauta en la ISS, considerando que el radio de la Tierra es de unos 6,371 km y la estación está a 400 km, la distancia total 'r' es de 6,771 km. Al hacer el cálculo, descubrimos que la aceleración debida a la gravedad solo disminuye de 9.8 m/s² a unos 8.7 m/s². \n\n¿Por qué entonces el mito de la gravedad cero es tan popular? La confusión nace de la experiencia sensorial. En la Tierra, sentimos nuestro 'peso' porque el suelo ejerce una fuerza normal hacia arriba que contrarresta la gravedad. En la ISS, tanto la estación como los astronautas y sus herramientas están cayendo hacia la Tierra con la misma aceleración. Al no haber un 'suelo' que empuje de vuelta (porque el suelo también está cayendo), la fuerza normal desaparece. Es el mismo efecto que sentirías en un ascensor si el cable se rompiera: durante la caída, flotarías dentro de la cabina, pero eso no significaría que la gravedad ha desaparecido, sino que estás en un sistema de referencia en caída libre.\n\nPasemos ahora a la dinámica planetaria a gran escala. Las Leyes de Kepler no son solo descriptivas; son consecuencias directas de la conservación del momento angular y la energía mecánica. La Tercera Ley, o Ley de los Periodos, establece que el cuadrado del periodo orbital (T) es proporcional al cubo de la distancia media (a) al Sol (T² ∝ a³). Esta relación es fundamental para entender por qué los planetas exteriores como Neptuno tardan casi 165 años terrestres en completar una vuelta al Sol, mientras que Mercurio lo hace en apenas 88 días. No es que la gravedad sea 'opcional' en el sistema solar exterior; es que a mayores distancias, la fuerza gravitatoria es más débil y, por lo tanto, la velocidad necesaria para mantener una órbita estable es mucho menor.\n\nDesmentir el mito de la 'falta de gravedad' es crucial para entender la astrofísica moderna. Si no hubiera gravedad en el espacio, no existirían las galaxias, las estrellas no podrían nacer de nubes de gas comprimidas y los planetas simplemente se dispersarían. El movimiento planetario es la prueba máxima de que la gravedad es de largo alcance. Incluso entre galaxias situadas a millones de años luz, la gravedad actúa, aunque sea de forma sutil. En el Reto Épico de hoy, su capacidad para discernir entre la 'sensación de ingravidez' y la 'ausencia de fuerza gravitatoria' determinará su éxito. El universo no es un lugar sin leyes; es una sinfonía perfectamente orquestada por la gravedad, donde cada planeta y cada luna sigue una partitura escrita en el lenguaje de la geometría del espacio-tiempo.",
+  "preguntas_deductivas_pagina": [
+    "¿Qué fórmula matemática define la fuerza de atracción entre dos masas?",
+    "¿Qué sucede con la fuerza gravitatoria si la distancia entre dos planetas se duplica?",
+    "¿Cuál es la diferencia principal entre masa y peso en el contexto orbital?",
+    "Según la Tercera Ley de Kepler, ¿qué relación hay entre el periodo y la distancia?",
+    "¿Por qué un astronauta siente que flota si la gravedad a su altura es del 90%?"
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Realiza un diagrama detallado que muestre la diferencia entre un objeto en reposo sobre la Tierra y un objeto en órbita, señalando todas las fuerzas presentes.",
+    "Elabora un mapa mental que conecte las Leyes de Kepler con la Ley de Gravitación Universal de Newton.",
+    "Dibuja una infografía artesanal que explique paso a paso por qué es incorrecto decir 'Gravedad Cero' y cuál es el término científico adecuado.",
+    "Crea un dibujo explicativo de la curvatura del espacio-tiempo (modelo de Einstein) y compáralo con el modelo de fuerzas de Newton."
+  ],
+  "juegos_ordenar_letras_2": [
+    "ORBITAL",
+    "DISTANCIA",
+    "ACELERACION"
+  ],
+  "juego_ordenar_frase_2": "EL PESO ES UNA FUERZA QUE DEPENDE DE LA GRAVEDAD Y LA NORMAL",
+  "sopa_letras": [
+    "GRAVEDAD",
+    "KEPLER",
+    "NEWTON",
+    "ORBITA",
+    "ELIPSE",
+    "INERCIA",
+    "MASA",
+    "PLANETA",
+    "FUERZA",
+    "CAIDA"
+  ],
+  "crucigrama": [
+    {
+      "palabra": "MICROGRAVEDAD",
+      "pista": "Estado en el que los objetos parecen no tener peso."
+    },
+    {
+      "palabra": "PERIHELIO",
+      "pista": "Punto de la órbita más cercano al Sol."
+    },
+    {
+      "palabra": "AFELIO",
+      "pista": "Punto de la órbita más alejado del Sol."
+    },
+    {
+      "palabra": "ELIPTICA",
+      "pista": "Forma geométrica de las órbitas según Kepler."
+    },
+    {
+      "palabra": "INERCIA",
+      "pista": "Propiedad de los cuerpos de mantener su estado de movimiento."
+    },
+    {
+      "palabra": "CENTRIPETA",
+      "pista": "Fuerza que apunta hacia el centro de la trayectoria circular."
+    },
+    {
+      "palabra": "PERIODO",
+      "pista": "Tiempo que tarda un planeta en dar una vuelta completa."
+    },
+    {
+      "palabra": "NEWTON",
+      "pista": "Científico que unificó la física terrestre y celeste."
+    },
+    {
+      "palabra": "UNIVERSAL",
+      "pista": "Carácter de la ley de gravitación que aplica a todo el cosmos."
+    },
+    {
+      "palabra": "CUPOLA",
+      "pista": "Módulo de la ISS desde donde se observa la Tierra."
+    }
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "Un estudiante afirma que si se soltara una manzana dentro de la ISS, esta se quedaría quieta frente a él porque no hay gravedad. Sin embargo, sabemos que tanto la ISS como la manzana están sometidas a la gravedad terrestre.",
+      "tabla_o_grafica_markdown": "| Objeto | Altura (km) | Gravedad (m/s²) |\n|---|---|---|\n| ISS | 400 | 8.7 |\n| Superficie | 0 | 9.8 |",
+      "pregunta": "¿Por qué la manzana parece flotar respecto al astronauta?",
+      "opciones": [
+        "Porque la aceleración de caída es igual para ambos",
+        "Porque la masa de la manzana es despreciable",
+        "Porque el vacío del espacio anula el peso",
+        "Porque la ISS genera su propia gravedad artificial"
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. Ambos están en caída libre con la misma aceleración, por lo que su posición relativa no cambia.",
+        "1": "Incorrecto. La masa no afecta la aceleración de caída en el vacío.",
+        "2": "Incorrecto. El vacío no afecta la fuerza de gravedad.",
+        "3": "Incorrecto. La ISS no posee sistemas de gravedad artificial por rotación."
+      }
+    },
+    {
+      "competencia": "Uso Comprensivo del Conocimiento Científico",
+      "texto_introductorio": "La Tercera Ley de Kepler establece una relación constante para todos los planetas que orbitan el Sol.",
+      "tabla_o_grafica_markdown": "| Planeta | Distancia Media (UA) | Periodo (Años) |\n|---|---|---|\n| Tierra | 1.0 | 1.0 |\n| Marte | 1.52 | 1.88 |\n| Júpiter | 5.20 | 11.86 |",
+      "pregunta": "Si se descubriera un nuevo asteroide a una distancia de 4 UA del Sol, su periodo orbital debería ser:",
+      "opciones": [
+        "Exactamente 4 años",
+        "Menor a 1.88 años",
+        "Entre 1.88 y 11.86 años",
+        "Mayor a 11.86 años"
+      ],
+      "correcta": 2,
+      "retroalimentacion": {
+        "0": "Incorrecto. La relación no es lineal sino T²=a³.",
+        "1": "Incorrecto. A mayor distancia, mayor es el periodo.",
+        "2": "Correcto. Al estar a 4 UA (entre 1.52 y 5.20), su periodo debe estar entre los de Marte y Júpiter.",
+        "3": "Incorrecto. 4 UA es menor que la distancia de Júpiter."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "Para investigar el efecto de la gravedad en diferentes planetas, un explorador lanza una esfera de 1kg con la misma fuerza horizontal en la Luna y en la Tierra.",
+      "tabla_o_grafica_markdown": "| Lugar | Gravedad (m/s²) | Atmósfera |\n|---|---|---|\n| Tierra | 9.8 | Densa |\n| Luna | 1.6 | Ausente |",
+      "pregunta": "¿Qué se esperaría observar sobre la trayectoria de la esfera en la Luna en comparación con la Tierra?",
+      "opciones": [
+        "Caería más rápido debido a la falta de aire",
+        "Recorrería una distancia horizontal mucho mayor antes de tocar el suelo",
+        "Seguiría una línea recta infinita por la baja gravedad",
+        "Se detendría inmediatamente por la fricción del suelo lunar"
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. La menor gravedad lunar hace que caiga más lento.",
+        "1": "Correcto. La menor aceleración vertical permite que la velocidad horizontal actúe durante más tiempo.",
+        "2": "Incorrecto. Sigue habiendo gravedad, por lo que la trayectoria es parabólica, no recta.",
+        "3": "Incorrecto. No hay fricción de aire y la inercia mantendría el movimiento."
+      }
+    }
+  ]
+}

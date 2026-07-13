@@ -1,0 +1,188 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Qué forma geométrica describe mejor la trayectoria de los planetas alrededor del Sol según el modelo heliocéntrico?",
+      "opciones": [
+        "Círculo perfecto",
+        "Triángulo equilátero",
+        "Elipse",
+        "Espiral infinita"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "¿Cuál es la fuerza responsable de mantener a los planetas en su órbita?",
+      "opciones": [
+        "Fuerza Magnética",
+        "Fuerza de Fricción",
+        "Fuerza Gravitacional",
+        "Fuerza Nuclear"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "¿Qué sucede con la velocidad de un planeta cuando se acerca más al Sol en su órbita?",
+      "opciones": [
+        "Disminuye",
+        "Aumenta",
+        "Se mantiene constante",
+        "Se detiene"
+      ],
+      "correcta": 1
+    }
+  ],
+  "texto_inductivo": "¡Bienvenidos, insensatos exploradores! ¡JAJAJA! Se adentran en las profundidades de la Selva del Olvido, donde la vegetación es tan espesa que oculta los secretos del mismísimo cosmos. Soy el Dr. Gravitón, y si quieren sobrevivir a los jaguares cibernéticos y a las lianas de plasma, deben entender cómo se mueven las esferas celestes. ¡Miren hacia arriba! No, no a los mosquitos gigantes, ¡al cielo! Los antiguos habitantes de esta selva construyeron el 'Templo del Sol Danzante', una estructura que replica exactamente el movimiento planetario. Lo primero que descubrieron, mucho antes que ese tal Johannes Kepler, es que los planetas no se mueven en círculos perfectos. ¡Qué aburrido sería eso! No, se mueven en **Elipses**. Imaginen que estiran un círculo como si fuera chicle de clorofila. El Sol no está en el centro, ¡está en un foco! Mientras exploramos estas ruinas, observamos que las baldosas del suelo se iluminan. Hay una regla extraña: una línea imaginaria que conecta nuestro sol central con un planeta barre áreas iguales en tiempos iguales. ¡Es la Segunda Ley de Kepler! Esto significa que cuando el planeta (o nuestra vagoneta de expedición espacial) pasa cerca del sol, en el perihelio, ¡debe ir a una velocidad de locura para cubrir la misma área que cuando está lejos y lento en el afelio! ¿Lo ven? El movimiento no es uniforme, es una danza frenética y calculada. Pero hay más, mis pequeños aprendices de genio. Existe una armonía matemática en esta selva. El cuadrado del periodo orbital de cada planeta es proporcional al cubo de su distancia media al Sol. ¡T^2 es proporcional a a^3! Esto nos permite predecir dónde estará un planeta incluso si se oculta tras las nubes de gas tóxico de la selva profunda. Los antiguos usaban esta 'Armonía de los Mundos' para calibrar sus calendarios de cosecha de cristales de energía. Si un planeta está cuatro veces más lejos que otro, su año durará ocho veces más. ¡Matemática pura, nada de magia de pantano! Estamos aquí para explicar por qué el cielo se mueve como un reloj mecánico gigante, y para ello, debemos mapear cada elipse, cada foco y cada cambio de velocidad. Si no logran explicar por qué la órbita de Marte se ve tan extraña desde nuestra posición en la Tierra (el famoso movimiento retrógrado que volvía locos a los antiguos), terminarán siendo alimento para las hormigas cuánticas. ¡Preparen sus brújulas y sus cerebros, porque la astronomía de campo es un deporte de contacto! Estudiar las leyes de Kepler en este entorno hostil es la única forma de encontrar la salida. La selva no perdona a quienes ignoran las leyes de la cinemática celeste. ¿Están listos para calcular o se quedarán atrás en el barro del desconocimiento?",
+  "recurso_visual": "graph TD\n    A[Leyes de Kepler] --> B(1. Ley de las Orbitas)\n    A --> C(2. Ley de las Areas)\n    A --> D(3. Ley de los Periodos)\n    B --> B1[Trayectorias Elípticas]\n    C --> C1[Velocidad variable: Más rápido en Perihelio]\n    D --> D1[T^2 / a^3 = Constante]\n    style A fill:#f96,stroke:#333,stroke-width:4px\n    style B fill:#bbf,stroke:#333\n    style C fill:#bbf,stroke:#333\n    style D fill:#bbf,stroke:#333",
+  "preguntas_inductivas_pagina": [
+    "¿Por qué los planetas aumentan su velocidad al acercarse al Sol?",
+    "¿Qué diferencia fundamental hay entre un círculo y una elipse en términos de sus focos?",
+    "¿Cómo explicarías el concepto de 'barrer áreas iguales en tiempos iguales' a un nativo de la selva?",
+    "Si un planeta está en el punto más alejado del Sol (afelio), ¿su energía cinética es máxima o mínima?",
+    "¿Qué importancia tiene la Tercera Ley de Kepler para comparar los años de diferentes planetas?"
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema detallado de una órbita elíptica, identificando el Sol en uno de los focos, el perihelio, el afelio y el semieje mayor.",
+    "Realiza un cuadro comparativo entre el modelo de órbitas circulares de Ptolomeo y el modelo elíptico de Kepler.",
+    "Escribe una reflexión de 15 líneas sobre cómo cambiaría nuestra percepción del tiempo si la Tierra tuviera una órbita mucho más excéntrica (alargada).",
+    "Representa gráficamente la Segunda Ley de Kepler, sombreando dos sectores de la elipse que representen áreas iguales recorridas en el mismo intervalo de tiempo."
+  ],
+  "juegos_ordenar_letras_1": [
+    "AFELIO",
+    "PERIHELIO",
+    "EXCENTRICIDAD"
+  ],
+  "juego_ordenar_frase_1": "LOS PLANETAS DESCRIBEN ORBITAS ELIPTICAS ALREDEDOR DEL SOL EL CUAL SE UBICA EN UNO DE LOS FOCOS",
+  "texto_deductivo": "¡INCREÍBLE! Han sobrevivido a la primera fase, pero ahora entramos al corazón del 'Gran Tótem Ecuatorial'. Aquí es donde la cinemática se convierte en dinámica. ¿Por qué se mueven así los planetas? ¡No es por voluntad divina ni por el empuje de ángeles invisibles, mis torpes amigos! Es la **Ley de Gravitación Universal** de mi colega (aunque un poco amargado) Sir Isaac Newton. Imaginen que cada masa en el universo tiene 'brazos invisibles' que tiran de todo lo demás. Newton descubrió que la fuerza de atracción entre dos cuerpos, como el Sol y un planeta de esta selva, depende directamente del producto de sus masas e inversamente del cuadrado de la distancia que los separa. ¡F = G * (m1 * m2) / r^2! ¡Esa es la fórmula del poder universal! En este Modo Héroe, deben comprender que la gravedad es la que 'curva' el camino de los planetas, obligándolos a caer perpetuamente hacia el Sol, pero con tanta velocidad tangencial que siempre 'fallan' y terminan dando vueltas. Es como lanzar un coco tan fuerte que da la vuelta a la selva y te golpea en la nuca. Al combinar esta ley con las leyes de Kepler, podemos deducir cosas asombrosas. Por ejemplo, que la constante de la Tercera Ley de Kepler depende en realidad de la masa del Sol. ¡Newton explicó el porqué de lo que Kepler solo observó! Si la masa del Sol fuera el doble, nuestros años serían mucho más cortos porque la atracción sería más intensa. Pero cuidado, la distancia es la reina aquí: si te alejas al doble de distancia, la gravedad no baja a la mitad, ¡baja a la cuarta parte! ¡Es el inverso del cuadrado, no lo olviden o la gravedad de un agujero negro los convertirá en espagueti! En esta expedición, estamos observando una anomalía: un pequeño satélite natural de la selva parece estar acelerando sin explicación. ¿Será una variación en la masa local o una perturbación de un planeta invisible? Para explicar este fenómeno extraño, debemos aplicar el principio de superposición de fuerzas gravitatorias. Cada planeta, cada luna, incluso cada explorador, ejerce una atracción. La órbita final es el resultado de este tira y afloja cósmico. ¡Analicen los datos, calculen las masas y no dejen que la constante G los confunda, es pequeña pero poderosa! Estamos a punto de desentrañar el mecanismo del Gran Tótem, y solo los que dominen la deducción matemática de la gravedad podrán activar el portal de salida. ¡A trabajar, que el tiempo es relativo pero mi paciencia es finita!",
+  "preguntas_deductivas_pagina": [
+    "¿Qué sucede con la fuerza gravitacional si la distancia entre dos cuerpos se triplica?",
+    "¿Por qué se dice que los planetas están en una 'caída libre' perpetua?",
+    "¿Cómo demostró Newton que sus leyes explicaban las de Kepler?",
+    "¿Cuál es el valor y el significado de la Constante de Gravitación Universal (G)?",
+    "¿Depende la aceleración de la gravedad en un planeta de la masa del objeto que cae?"
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Realiza un diagrama de vectores de fuerza que muestre la atracción entre la Tierra, la Luna y el Sol durante un eclipse.",
+    "Elabora un mapa mental que conecte los conceptos de Masa, Distancia, Fuerza Gravitacional y Órbita.",
+    "Dibuja una infografía que explique por qué un astronauta flota en la Estación Espacial Internacional (pista: no es falta de gravedad).",
+    "Crea una infografía artesanal que compare la fuerza de gravedad en la Tierra vs. Júpiter, usando datos de masa y radio."
+  ],
+  "juegos_ordenar_letras_2": [
+    "GRAVITACION",
+    "DINAMICA",
+    "INVERSO"
+  ],
+  "juego_ordenar_frase_2": "LA FUERZA DE ATRACCION GRAVITATORIA ENTRE DOS CUERPOS ES DIRECTAMENTE PROPORCIONAL AL PRODUCTO DE SUS MASAS",
+  "sopa_letras": [
+    "KEPLER",
+    "NEWTON",
+    "ELIPSE",
+    "FOCO",
+    "GRAVEDAD",
+    "ORBITA",
+    "MASA",
+    "RADIO",
+    "PERIODO",
+    "INERCIA"
+  ],
+  "crucigrama": [
+    {
+      "palabra": "AFELIO",
+      "pista": "Punto de la órbita más alejado del Sol."
+    },
+    {
+      "palabra": "ELIPSE",
+      "pista": "Curva cerrada que describen los planetas."
+    },
+    {
+      "palabra": "MASA",
+      "pista": "Cantidad de materia que atrae a otra."
+    },
+    {
+      "palabra": "KEPLER",
+      "pista": "Apellido del astrónomo de las tres leyes."
+    },
+    {
+      "palabra": "NEWTON",
+      "pista": "Formuló la ley de gravitación universal."
+    },
+    {
+      "palabra": "FOCO",
+      "pista": "Lugar que ocupa el Sol en la elipse."
+    },
+    {
+      "palabra": "DISTANCIA",
+      "pista": "Factor que divide al cuadrado en la ley de gravedad."
+    },
+    {
+      "palabra": "PERIODO",
+      "pista": "Tiempo que tarda un planeta en dar una vuelta."
+    },
+    {
+      "palabra": "CUADRADO",
+      "pista": "Potencia a la que se eleva la distancia en la fórmula."
+    },
+    {
+      "palabra": "UNIVERSAL",
+      "pista": "Nombre de la ley porque aplica en todo el cosmos."
+    }
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "Durante la expedición, se observa que un cometa se mueve mucho más rápido cuando pasa cerca del 'Gran Tótem' (que actúa como masa central) que cuando está en los límites de la selva.",
+      "tabla_o_grafica_markdown": "| Posición | Distancia al Centro (UA) | Velocidad (km/s) |\n|---|---|---|\n| A (Cerca) | 0.5 | 60 |\n| B (Lejos) | 5.0 | 6 |",
+      "pregunta": "¿Cuál es la explicación científica para este cambio de velocidad según la Segunda Ley de Kepler?",
+      "opciones": [
+        "El cometa pierde masa al alejarse del sol.",
+        "Para barrer áreas iguales en tiempos iguales, la velocidad debe ser mayor en el punto más cercano.",
+        "La fricción con el polvo estelar frena al cometa en las zonas lejanas.",
+        "El magnetismo del sol solo atrae objetos rápidos."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. La masa del cometa se considera constante para este análisis cinemático.",
+        "1": "Correcto. Es la consecuencia directa de la conservación del momento angular descrita por Kepler.",
+        "2": "Incorrecto. En el vacío del espacio la fricción es despreciable para cambios orbitales.",
+        "3": "Incorrecto. La gravedad es la fuerza dominante, no el magnetismo."
+      }
+    },
+    {
+      "competencia": "Uso comprensivo del conocimiento científico",
+      "texto_introductorio": "Si descubrimos un nuevo planeta en la selva que está exactamente a 4 unidades astronómicas (UA) del Sol central.",
+      "tabla_o_grafica_markdown": "| Planeta | Distancia (UA) | Periodo (Años) |\n|---|---|---|\n| Tierra | 1 | 1 |\n| X | 4 | ? |",
+      "pregunta": "Usando la Tercera Ley de Kepler (T^2 = k * a^3), ¿cuál sería el periodo orbital del planeta X?",
+      "opciones": [
+        "4 años",
+        "16 años",
+        "8 años",
+        "64 años"
+      ],
+      "correcta": 2,
+      "retroalimentacion": {
+        "0": "Incorrecto. Olvidaste elevar al cubo la distancia y sacar raíz cuadrada.",
+        "1": "Incorrecto. Eso sería si el periodo fuera proporcional al cuadrado de la distancia.",
+        "2": "Correcto. 4 al cubo es 64, y la raíz cuadrada de 64 es 8.",
+        "3": "Incorrecto. Eso es 4 al cubo, pero falta sacar la raíz para hallar T."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "Un grupo de estudiantes mide la fuerza de atracción entre dos esferas de piedra del templo y registra los datos variando la distancia.",
+      "tabla_o_grafica_markdown": "| Distancia (m) | Fuerza (N) |\n|---|---|\n| 1 | 100 |\n| 2 | 25 |\n| 3 | 11.1 |",
+      "pregunta": "¿Qué relación matemática se puede inferir entre la distancia y la fuerza gravitatoria a partir de los datos?",
+      "opciones": [
+        "La fuerza es directamente proporcional a la distancia.",
+        "La fuerza no depende de la distancia.",
+        "La fuerza disminuye con el inverso del cuadrado de la distancia.",
+        "La fuerza disminuye linealmente con la distancia."
+      ],
+      "correcta": 2,
+      "retroalimentacion": {
+        "0": "Incorrecto. Si fuera directa, al aumentar la distancia aumentaría la fuerza.",
+        "1": "Incorrecto. Los datos muestran un cambio claro en la fuerza.",
+        "2": "Correcto. Al duplicar la distancia (1 a 2), la fuerza se reduce a la cuarta parte (100/4 = 25).",
+        "3": "Incorrecto. Si fuera lineal, a 2m la fuerza debería ser 50N."
+      }
+    }
+  ]
+}

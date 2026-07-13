@@ -1,0 +1,168 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "Desde nuestra posición en la Estación Espacial Internacional (ISS), observamos que los planetas no se mueven en círculos perfectos. ¿Cuál fue el astrónomo que, desafiando milenios de tradición, propuso que las órbitas eran elipses?",
+      "opciones": [
+        "Claudio Ptolomeo",
+        "Nicolás Copérnico",
+        "Johannes Kepler",
+        "Isaac Newton"
+      ],
+      "correcta": 2
+    }
+  ],
+  "texto_inductivo": "Saludos, cadetes espaciales. Les habla el Comandante de la Misión desde el módulo Cupola de la **Estación Espacial Internacional (ISS)**. Mientras floto aquí a 400 kilómetros sobre la superficie terrestre, observo el horizonte donde la curvatura de la Tierra se encuentra con la negrura infinita del cosmos. Hoy nos enfrentamos a un reto de nivel **Modo Héroe**: comprender el extraño baile de los mundos. Durante siglos, la humanidad miró al cielo y vio algo inexplicable: los planetas, en lugar de avanzar de forma constante, a veces parecían detenerse y retroceder en el cielo nocturno. Este fenómeno, conocido como **movimiento retrógrado**, fue el primer gran 'fenómeno extraño' que la ciencia moderna tuvo que explicar. Imaginen a Tycho Brahe, un observador meticuloso que, sin telescopios, registró décadas de datos precisos sobre la posición de Marte. Estos datos eran 'ruido' puro hasta que llegaron a manos de Johannes Kepler. Kepler no buscaba simplemente una descripción bella; buscaba la verdad física. Al intentar ajustar los datos de Marte a una órbita circular, siempre encontraba un error de 8 minutos de arco. Para un observador común, eso no es nada, pero para un científico en busca de la excelencia, era la prueba de que el modelo circular era erróneo. El movimiento planetario no es una danza de esferas perfectas, sino una consecuencia de la geometría y la fuerza. Kepler rompió el cristal de las esferas celestiales y propuso sus tres leyes fundamentales. La primera ley nos dice que las órbitas son **elipses**, con el Sol en uno de los focos. Esto significa que la distancia entre un planeta y el Sol cambia constantemente. La segunda ley, la ley de las áreas, nos revela un secreto de velocidad: los planetas se mueven más rápido cuando están cerca del Sol (perhelio) y más lento cuando están lejos (afelio). Es como si el espacio-tiempo dictara un ritmo acelerado al acercarse a la hoguera solar. Finalmente, su tercera ley conectó a todos los planetas en una armonía matemática, relacionando el tiempo que tardan en dar una vuelta con su distancia promedio al Sol. Aquí en la ISS, sentimos estas leyes cada 90 minutos mientras orbitamos la Tierra. No estamos simplemente 'cayendo', estamos en un equilibrio dinámico donde nuestra velocidad tangencial compensa la atracción gravitatoria. Sin embargo, explicar el porqué de estas formas elípticas requería algo más que geometría; requería entender la fuerza invisible que mantiene unido al universo. ¿Por qué un planeta 'sabe' que debe acelerar al acercarse al Sol? ¿Es una propiedad del espacio o una cuerda invisible? A medida que avancemos en esta guía, dejaremos de ser simples observadores para convertirnos en explicadores de fenómenos. Prepárense para analizar datos, graficar trayectorias y desafiar la intuición clásica, porque en el espacio, nada es lo que parece a simple vista.",
+  "recurso_visual": "graph TD\n    A[Movimiento Planetario] --> B[Leyes de Kepler]\n    B --> C[1ra Ley: Elipses]\n    B --> D[2da Ley: Áreas Iguales]\n    B --> E[3ra Ley: Armonía]\n    C --> F[Sol en un Foco]\n    D --> G[Velocidad Variable: Perihelio vs Afelio]\n    E --> H[Relación Periodo^2 / Distancia^3]",
+  "preguntas_inductivas_pagina": [
+    "¿Qué discrepancia angular llevó a Kepler a rechazar las órbitas circulares?",
+    "¿En qué punto de su órbita se mueve Marte con mayor velocidad orbital?",
+    "¿Cómo explica el modelo heliocéntrico el movimiento retrógrado de los planetas exteriores?",
+    "¿Qué función cumplen los focos en una órbita elíptica planetaria?",
+    "¿Por qué la tercera ley de Kepler se considera una ley de unificación para el sistema solar?"
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema detallado de una órbita elíptica, señalando el Sol en uno de los focos, el perihelio, el afelio y los vectores de velocidad en cada punto.",
+    "Realiza un cuadro comparativo entre el modelo Geocéntrico de Ptolomeo y el modelo Heliocéntrico de Kepler, enfatizando cómo cada uno explica el movimiento retrógrado.",
+    "Escribe una reflexión de 15 líneas sobre la importancia de la precisión en los datos de Tycho Brahe para el posterior descubrimiento de las leyes de la física.",
+    "Representa gráficamente la Segunda Ley de Kepler, sombreando dos sectores de la elipse que representen tiempos iguales y explica la diferencia en la longitud de los arcos recorridos."
+  ],
+  "juegos_ordenar_letras_1": [
+    "ELIPSE",
+    "PERIHELIO",
+    "RETRÓGRADO"
+  ],
+  "juego_ordenar_frase_1": "LOS PLANETAS DESCRIBEN ORBITAS ELIPTICAS ALREDEDOR DEL SOL EL CUAL SE UBICA EN UNO DE LOS FOCOS",
+  "texto_deductivo": "Bienvenidos a la fase de análisis profundo, cadetes. Una vez que Kepler describió *cómo* se mueven los planetas, el mundo científico quedó en vilo: ¿cuál es la causa subyacente? La respuesta llegó con Isaac Newton y su **Ley de Gravitación Universal**. Newton dedujo que la fuerza que hace caer una manzana en la Tierra es la misma fuerza que mantiene a la Luna en su órbita y a los planetas girando alrededor del Sol. Esta es la gran unificación de la física: las leyes terrestres son las mismas leyes celestiales. La fuerza de gravedad es directamente proporcional al producto de las masas e inversamente proporcional al cuadrado de la distancia que las separa. En términos físicos, si duplicamos la distancia entre la ISS y el centro de la Tierra, la fuerza de gravedad no se reduce a la mitad, sino a la cuarta parte. Esta relación del 'cuadrado inverso' es fundamental para explicar por qué las órbitas son secciones cónicas (elipses, parábolas o hipérbolas). Cuando un planeta se acerca al Sol, el pozo gravitatorio se vuelve más profundo y la energía potencial gravitatoria se convierte en energía cinética, haciendo que el planeta se acelere, cumpliendo así la segunda ley de Kepler por necesidad física, no por capricho geométrico. En la ISS, experimentamos lo que llamamos 'microgravedad'. No es que no haya gravedad (de hecho, hay un 90% de la gravedad terrestre aquí arriba), sino que estamos en una **caída libre perpetua**. Tenemos tanta velocidad horizontal que, mientras caemos hacia la Tierra, la superficie de la Tierra se curva por debajo de nosotros a la misma velocidad. Para explicar un fenómeno extraño como el hecho de que los astronautas 'floten', debemos recurrir a la Tercera Ley de Newton (Acción y Reacción) y a la dinámica del movimiento circular uniforme. La aceleración centrípeta es provista enteramente por la fuerza gravitacional. Si la gravedad desapareciera de repente, la ISS saldría disparada en línea recta siguiendo una trayectoria tangencial a su órbita previa. El movimiento planetario es, por tanto, una lucha constante entre la inercia, que empuja al planeta a seguir recto, y la gravedad, que intenta tirarlo hacia el centro. De esta batalla surge la órbita estable. Al estudiar sistemas solares distantes, los astrónomos usan estas mismas leyes para predecir la masa de exoplanetas lejanos. Si vemos un planeta que orbita su estrella muy rápido, deducimos o que la estrella es muy masiva o que el planeta está muy cerca. La física es el lenguaje universal que nos permite leer el mapa del cosmos desde nuestro pequeño laboratorio presurizado.",
+  "preguntas_deductivas_pagina": [
+    "¿Cuál es la relación matemática entre la fuerza de gravedad y la distancia según Newton?",
+    "¿Por qué los astronautas en la ISS parecen no tener peso si la gravedad allí es casi igual a la de la superficie?",
+    "¿Qué sucedería con la órbita de la Tierra si la masa del Sol se duplicara repentinamente?",
+    "¿Cómo conecta la Ley de Gravitación Universal con la Tercera Ley de Kepler?",
+    "¿Qué papel juega la inercia en la estabilidad de una órbita planetaria?"
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Diseña un diagrama de fuerzas (vectores) para un satélite en órbita circular, identificando la fuerza centrípeta y la velocidad tangencial.",
+    "Elabora un mapa mental que conecte los conceptos de: Gravedad, Masa, Distancia, Energía Cinética y Leyes de Kepler.",
+    "Realiza un dibujo explicativo del experimento mental del 'Cañón de Newton' para demostrar cómo un objeto se convierte en satélite.",
+    "Crea una infografía artesanal que explique la diferencia entre masa y peso, utilizando ejemplos de la Luna, la Tierra y la ISS."
+  ],
+  "juegos_ordenar_letras_2": [
+    "GRAVEDAD",
+    "INERCIA",
+    "CENTRIPETA"
+  ],
+  "juego_ordenar_frase_2": "LA FUERZA DE GRAVEDAD DISMINUYE CON EL CUADRADO DE LA DISTANCIA ENTRE LOS CENTROS DE MASA",
+  "sopa_letras": [
+    "KEPLER",
+    "NEWTON",
+    "ORBITA",
+    "FOCO",
+    "ELIPSE",
+    "MASA",
+    "FUERZA",
+    "RADIO",
+    "INERCIA",
+    "ASTRO"
+  ],
+  "crucigrama": [
+    {
+      "palabra": "GRAVEDAD",
+      "pista": "Fuerza de atracción universal entre dos cuerpos con masa."
+    },
+    {
+      "palabra": "AFELIO",
+      "pista": "Punto de la órbita más alejado del Sol."
+    },
+    {
+      "palabra": "PERIHELIO",
+      "pista": "Punto de la órbita más cercano al Sol."
+    },
+    {
+      "palabra": "KEPLER",
+      "pista": "Astrónomo que formuló las tres leyes del movimiento planetario."
+    },
+    {
+      "palabra": "ELIPSE",
+      "pista": "Forma geométrica de las órbitas según la primera ley."
+    },
+    {
+      "palabra": "INERCIA",
+      "pista": "Tendencia de un cuerpo a mantener su estado de movimiento."
+    },
+    {
+      "palabra": "PERIODO",
+      "pista": "Tiempo que tarda un planeta en completar una órbita."
+    },
+    {
+      "palabra": "CUADRADO",
+      "pista": "La fuerza gravitatoria es inversamente proporcional a la distancia al..."
+    },
+    {
+      "palabra": "FOCO",
+      "pista": "Uno de los dos puntos internos que definen una elipse."
+    },
+    {
+      "palabra": "UNIFICACION",
+      "pista": "Logro de Newton al unir la física terrestre y la celeste."
+    }
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "Durante la observación de Marte desde la Tierra, se nota que el planeta parece retroceder en el cielo en ciertos periodos. Este fenómeno es una ilusión óptica causada por las diferentes velocidades orbitales de la Tierra y Marte.",
+      "tabla_o_grafica_markdown": "| Planeta | Radio Orbital Medio (UA) | Velocidad Orbital (km/s) |\n|---|---|---|\n| Tierra | 1.0 | 29.8 |\n| Marte | 1.52 | 24.1 |",
+      "pregunta": "¿Por qué ocurre el movimiento retrógrado de Marte desde la perspectiva terrestre?",
+      "opciones": [
+        "Porque Marte cambia físicamente el sentido de su giro alrededor del Sol.",
+        "Porque la Tierra, al tener una órbita interna y más rápida, 'adelanta' a Marte.",
+        "Porque la gravedad de Júpiter frena a Marte en ciertos puntos de su elipse.",
+        "Porque Marte se aleja tanto de la Tierra que la luz llega con retraso y efecto Doppler."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. Los planetas nunca cambian su sentido de traslación; es un efecto relativo.",
+        "1": "Correcto. Al igual que un auto rápido rebasa a uno lento, el de atrás ve cómo el otro parece ir hacia atrás relativamente.",
+        "2": "Incorrecto. Júpiter influye, pero no causa el movimiento retrógrado observado históricamente.",
+        "3": "Incorrecto. El retraso de la luz es real pero no explica el cambio de posición aparente en las constelaciones."
+      }
+    },
+    {
+      "competencia": "Uso Comprensivo del Conocimiento Científico",
+      "texto_introductorio": "La Tercera Ley de Kepler establece que el cuadrado del periodo orbital (T) es proporcional al cubo de la distancia media (r) al Sol (T² ∝ r³). Un satélite artificial se coloca en una órbita que está a una distancia r del centro de la Tierra.",
+      "tabla_o_grafica_markdown": "| Satélite | Distancia (R) | Periodo (Horas) |\n|---|---|---|\n| A | 1R | 2 |\n| B | 4R | ? |",
+      "pregunta": "Si un satélite B se coloca a una distancia 4 veces mayor al centro de la Tierra que el satélite A, ¿cuál será su nuevo periodo orbital?",
+      "opciones": [
+        "8 horas",
+        "16 horas",
+        "32 horas",
+        "64 horas"
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. No es una relación lineal simple.",
+        "1": "Correcto. Usando T² ∝ r³, si r aumenta 4 veces, r³ aumenta 64 veces. La raíz cuadrada de 64 es 8. 2 horas * 8 = 16 horas.",
+        "2": "Incorrecto. Se aplicó mal la potencia o la raíz.",
+        "3": "Incorrecto. Esto sería si el periodo fuera proporcional al cubo directamente."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "Un grupo de astronautas en la ISS analiza la órbita de un asteroide recién descubierto que tiene una excentricidad muy alta (una elipse muy alargada). Notan que el asteroide pasa muy cerca del Sol y luego se aleja hasta las fronteras del sistema solar.",
+      "tabla_o_grafica_markdown": "| Posición | Distancia al Sol (millones km) | Velocidad (km/s) |\n|---|---|---|\n| Punto X | 50 | 80 |\n| Punto Y | 500 | 8 |",
+      "pregunta": "De acuerdo con los datos y las leyes de la física, ¿qué se puede concluir sobre el movimiento del asteroide?",
+      "opciones": [
+        "El asteroide viola la ley de conservación de la energía.",
+        "El asteroide barre áreas mayores cuando está en el Punto Y.",
+        "El momento angular se conserva, por lo que la velocidad disminuye al aumentar la distancia.",
+        "La fuerza de gravedad es la misma en el Punto X y en el Punto Y."
+      ],
+      "correcta": 2,
+      "retroalimentacion": {
+        "0": "Incorrecto. La energía mecánica total se conserva (cinética + potencial).",
+        "1": "Incorrecto. Según la segunda ley de Kepler, barre áreas iguales en tiempos iguales.",
+        "2": "Correcto. La disminución de velocidad compensa el aumento de radio para mantener constante el momento angular.",
+        "3": "Incorrecto. La fuerza depende de la distancia al cuadrado; es mucho menor en Y."
+      }
+    }
+  ]
+}

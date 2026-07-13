@@ -1,0 +1,168 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¡Atención, sujetos de prueba! Si un satélite en la ISS decidiera dejar de moverse lateralmente pero mantuviera su altura, ¿cuál sería su destino final según la mecánica clásica?",
+      "opciones": [
+        "Orbitaría eternamente en un círculo perfecto.",
+        "Saldría disparado hacia el espacio profundo en línea recta.",
+        "Caería verticalmente hacia el centro de la Tierra debido a la aceleración gravitacional.",
+        "Se quedaría flotando estáticamente en el mismo punto del espacio."
+      ],
+      "correcta": 2
+    }
+  ],
+  "texto_inductivo": "¡JA! ¡JA! ¡JA! ¡Bienvenidos a mi santuario de metal y radiación, la Estación Espacial Internacional! Soy el Dr. Gravitón, y si están leyendo esto, es porque han sobrevivido al proceso de selección de 'Modo Héroe'. No estamos aquí para jugar con imanes de refrigerador; estamos aquí para desentrañar el **MISTERIO DEL INTRUSO X-99**. Verán, mis sensores de neutrinos han detectado una anomalía en la órbita de Marte, un objeto que desafía lo que ustedes, simples terrícolas, llaman 'sentido común'. Para entender este misterio, debemos regresar a los cimientos: las **Leyes de Kepler**. Antes de que Newton apareciera con su peluca y su manzana, Johannes Kepler pasó años analizando los datos robados (¡sí, robados, como un genio!) de Tycho Brahe. La **Primera Ley** rompió el corazón de los perfeccionistas: los planetas no se mueven en círculos divinos, sino en **elipses**. ¡La imperfección es la clave del universo! El Sol no está en el centro, está en uno de los focos. ¿Sienten el vacío? Pero no se detuvo ahí. La **Segunda Ley**, o la Ley de las Áreas, nos dice que una línea imaginaria que conecta al Sol con un planeta barre áreas iguales en tiempos iguales. Esto significa que cuando el planeta está cerca del perihelio, ¡ZAS!, acelera como un maníaco, y cuando está en el afelio, se arrastra con pereza. Es una danza de velocidad variable que mantiene el equilibrio cósmico. Finalmente, la **Tercera Ley** es pura armonía matemática: el cuadrado del periodo orbital es proporcional al cubo de la distancia media al Sol. Esta relación (T² ∝ a³) es la que me permite calcular dónde debería estar el Intruso X-99. Sin embargo, los datos no cuadran. El objeto X-99 parece estar acelerando en puntos donde debería frenar. ¡Esto es una blasfemia científica! Estamos ante un fenómeno de indagación pura. ¿Es una masa oculta? ¿Es propulsión no gravitatoria? ¿O es que el espacio-tiempo se está doblando bajo mi propia genialidad? Para resolver este misterio, deben dominar la geometría de las órbitas. Imaginen la elipse no como un círculo aplastado, sino como la sección de un cono que representa la voluntad de la gravedad. Si no comprenden la excentricidad, jamás entenderán por qué la ISS no cae sobre sus cabezas... todavía. La indagación científica requiere que miren los datos de Brahe con mis ojos: ojos que ven patrones en el caos. Cada dato es una pieza de un rompecabezas que abarca millones de kilómetros. ¡A trabajar, antes de que la descompresión explosiva se encargue de sus dudas!",
+  "recurso_visual": "| Ley de Kepler | Nombre | Descripción Matemática/Física | Implicación en el Movimiento |\n| :--- | :--- | :--- | :--- |\n| **Primera** | Ley de las Órbitas | Órbitas Elípticas (Sol en un foco) | La distancia planeta-Sol varía constantemente. |\n| **Segunda** | Ley de las Áreas | dA/dt = Constante | El planeta viaja más rápido cerca del Sol (Perihelio). |\n| **Tercera** | Ley de los Periodos | $T^2 = k \\cdot r^3$ | Planetas lejanos tardan mucho más en completar su órbita. |",
+  "preguntas_inductivas_pagina": [
+    "¿Por qué la forma elíptica de las órbitas invalida la idea de una velocidad orbital constante?",
+    "Si el Intruso X-99 barre áreas mayores en el mismo tiempo que Marte, ¿qué podemos inferir sobre su velocidad relativa?",
+    "¿Qué sucede con la energía cinética de un planeta cuando se desplaza del afelio al perihelio?",
+    "¿Cómo cambiaría el periodo orbital de la ISS si duplicáramos su distancia al centro de la Tierra?",
+    "¿En qué punto de una órbita elíptica es máxima la fuerza de atracción gravitacional según la geometría de Kepler?"
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja una elipse orbital exagerada, marca los focos (uno con el Sol), el perihelio, el afelio y sombrea dos sectores de 'áreas iguales' que representen tiempos iguales de viaje.",
+    "Elabora un cuadro comparativo entre el modelo geocéntrico de Ptolomeo y el modelo heliocéntrico de Kepler, destacando por qué el de Kepler es más 'científico'.",
+    "Escribe un informe de 15 líneas analizando cómo la Segunda Ley de Kepler es, en realidad, una manifestación de la conservación del momento angular.",
+    "Representa gráficamente la relación entre el cubo del radio medio y el cuadrado del periodo para los ocho planetas del sistema solar (Gráfica Lineal)."
+  ],
+  "juegos_ordenar_letras_1": [
+    "ELIPSES",
+    "PERIHELIO",
+    "EXCENTRICIDAD"
+  ],
+  "juego_ordenar_frase_1": "LAS ORBITAS PLANETARIAS SON ELIPSES DONDE EL SOL OCUPA UNO DE LOS FOCOS SEGUN EL MAESTRO KEPLER",
+  "texto_deductivo": "¡Impresionante! Han sobrevivido a la inducción, pero ahora entramos en el terreno de la **LEY DE GRAVITACIÓN UNIVERSAL**. Si Kepler nos dijo 'cómo' se mueven, Isaac Newton —ese genio con el que suelo tomar té en mis alucinaciones por falta de oxígeno— nos dijo 'por qué'. El misterio del Intruso X-99 se profundiza: mis cálculos demuestran que su masa es insignificante, pero su interacción con el campo gravitatorio terrestre es... anómala. La deducción científica nos dicta que existe una fuerza atractiva entre dos cuerpos cualesquiera con masa. Esta fuerza es directamente proporcional al producto de sus masas e inversamente proporcional al cuadrado de la distancia que los separa. ¡La famosa ley del inverso del cuadrado! Si duplicas la distancia, la fuerza no se divide por dos, ¡se divide por cuatro, ignorantes! Esta fuerza es la que actúa como la fuerza centrípeta necesaria para mantener a un cuerpo en órbita. Sin la gravedad, la ISS saldría disparada tangencialmente en una línea recta infinita hacia la nada. Pero aquí está el giro: la gravedad no es solo una fuerza, es una curvatura, pero para sus mentes de nivel medio, la trataremos como la cadena invisible que mantiene al universo unido. Al igualar la fuerza centrípeta (mv²/r) con la fuerza gravitatoria (GmM/r²), podemos deducir la velocidad orbital necesaria para que cualquier objeto, sea la Luna o una tuerca perdida por un cosmonauta descuidado, permanezca en su lugar. El Intruso X-99 está violando esta igualdad. Mis instrumentos indican que su velocidad es superior a la velocidad de escape calculada para su posición. ¿Saben lo que eso significa? ¡Que no debería estar en órbita! Debería estar describiendo una trayectoria hiperbólica, escapando hacia el sistema solar exterior. Sin embargo, se queda allí, mirándonos. Esto sugiere que hay una variable que no estamos considerando: ¿Acaso la constante de gravitación G no es tan 'constante' en esa región del espacio? ¿O hay una masa invisible, materia oscura quizás, ejerciendo una influencia? La deducción requiere rigor: si la fuerza cae con el cuadrado de la distancia, cualquier pequeña variación en la posición del X-99 debería producir cambios predecibles en su aceleración. Si los datos no coinciden con la predicción, la teoría debe ser cuestionada o el fenómeno debe ser investigado bajo la lupa de la nueva física. Ustedes deben calcular la masa de la Tierra usando solo el periodo de la Luna y su distancia. Si fallan en ese cálculo básico, X-99 ganará y mi estación será su primer objetivo. ¡Calculen o desaparezcan en el vacío!",
+  "preguntas_deductivas_pagina": [
+    "¿Qué le ocurriría a la fuerza de atracción entre la Tierra y la Luna si la distancia entre ellas se redujera a la mitad?",
+    "¿Por qué la masa del satélite (m) se cancela al calcular la velocidad orbital requerida para mantener una altura determinada?",
+    "Si un objeto supera la velocidad de escape, ¿cuál es la forma geométrica de su trayectoria resultante?",
+    "¿Cómo explica la Ley de Gravitación Universal la Tercera Ley de Kepler de forma matemática?",
+    "¿Qué papel juega la Constante de Gravitación Universal (G) en la escala de fuerzas del universo comparada con la fuerza electromagnética?"
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Dibuja un diagrama de cuerpo libre para un astronauta dentro de la ISS, explicando por qué siente 'ingravidez' aunque la gravedad en esa altura es el 90% de la terrestre.",
+    "Elabora un mapa mental que conecte los conceptos de: Masa, Distancia, Fuerza Gravitacional, Aceleración Centrípeta y Velocidad Orbital.",
+    "Realiza un dibujo explicativo que muestre cómo una trayectoria de caída libre puede convertirse en una órbita si la velocidad tangencial es suficiente (El cañón de Newton).",
+    "Diseña una infografía artesanal que explique paso a paso cómo se calcula la masa de un planeta a partir de la órbita de uno de sus satélites."
+  ],
+  "juegos_ordenar_letras_2": [
+    "GRAVEDAD",
+    "CENTRIPETA",
+    "TRAYECTORIA"
+  ],
+  "juego_ordenar_frase_2": "LA FUERZA DE GRAVEDAD DISMINUYE CON EL CUADRADO DE LA DISTANCIA ENTRE LOS CENTROS DE MASA",
+  "sopa_letras": [
+    "KEPLER",
+    "NEWTON",
+    "ORBITA",
+    "ELIPSE",
+    "MASA",
+    "FOCO",
+    "AFELIO",
+    "INERCIA",
+    "SATELITE",
+    "RADIO"
+  ],
+  "crucigrama": [
+    {
+      "palabra": "GRAVITACION",
+      "pista": "Fuerza de atracción mutua entre todos los objetos con masa."
+    },
+    {
+      "palabra": "ELIPSE",
+      "pista": "Forma geométrica de las órbitas planetarias."
+    },
+    {
+      "palabra": "PERIHELIO",
+      "pista": "Punto de la órbita más cercano al Sol."
+    },
+    {
+      "palabra": "AFELIO",
+      "pista": "Punto de la órbita más alejado del Sol."
+    },
+    {
+      "palabra": "CENTRIPETA",
+      "pista": "Fuerza dirigida hacia el centro que mantiene un cuerpo en rotación."
+    },
+    {
+      "palabra": "EXCENTRICIDAD",
+      "pista": "Medida de qué tan estirada o achatada es una elipse."
+    },
+    {
+      "palabra": "PERIODO",
+      "pista": "Tiempo que tarda un planeta en dar una vuelta completa al Sol."
+    },
+    {
+      "palabra": "FOCO",
+      "pista": "Uno de los dos puntos internos fijos en una elipse."
+    },
+    {
+      "palabra": "UNIVERSAL",
+      "pista": "Adjetivo de la constante G que indica que aplica en todo el cosmos."
+    },
+    {
+      "palabra": "ESCAPE",
+      "pista": "Velocidad mínima necesaria para salir de la influencia gravitatoria."
+    }
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "En la ISS, los científicos observan que la velocidad orbital depende de la altura sobre la superficie terrestre. Se presenta la siguiente tabla de datos para tres satélites en órbitas circulares:",
+      "tabla_o_grafica_markdown": "| Satélite | Altura (km) | Velocidad Orbital (km/s) |\n| :--- | :--- | :--- |\n| A | 400 | 7.67 |\n| B | 2000 | 6.90 |\n| C | 35786 | 3.07 |",
+      "pregunta": "Basándose en la Ley de Gravitación Universal, ¿cuál es la razón por la que el satélite C tiene una velocidad mucho menor que el satélite A?",
+      "opciones": [
+        "Porque a mayor distancia, la fuerza gravitacional es menor y se requiere menos velocidad para equilibrarla.",
+        "Porque la masa del satélite C es probablemente mucho mayor que la del satélite A.",
+        "Porque en órbitas altas no existe atmósfera que frene el movimiento del satélite.",
+        "Porque la constante G disminuye a medida que nos alejamos del centro de la Tierra."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. A mayor distancia (r), la fuerza centrípeta necesaria (proporcionada por la gravedad) es menor, lo que resulta en una velocidad orbital menor.",
+        "1": "Incorrecto. La velocidad orbital no depende de la masa del satélite, se cancela en la ecuación.",
+        "2": "Incorrecto. La ausencia de atmósfera evita el frenado, pero no explica la diferencia de velocidad orbital necesaria por equilibrio gravitatorio.",
+        "3": "Incorrecto. G es una constante universal y no cambia con la distancia."
+      }
+    },
+    {
+      "competencia": "Uso Comprensivo del Conocimiento Científico",
+      "texto_introductorio": "Si la Tierra duplicara su masa de forma repentina sin cambiar su radio, el Dr. Gravitón tendría que ajustar todos los parámetros de la ISS inmediatamente.",
+      "tabla_o_grafica_markdown": "| Parámetro | Valor Original | Nuevo Valor (2M) |\n| :--- | :--- | :--- |\n| Fuerza Gravitacional | F | 2F |\n| Aceleración g | 9.8 m/s² | 19.6 m/s² |",
+      "pregunta": "¿Qué ajuste debería hacerse a la velocidad orbital (v) de la ISS para que mantenga la misma altura de órbita?",
+      "opciones": [
+        "La velocidad debe permanecer igual.",
+        "La velocidad debe aumentar por un factor de raíz de 2.",
+        "La velocidad debe duplicarse.",
+        "La velocidad debe reducirse a la mitad."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. Si la fuerza aumenta, la velocidad actual no sería suficiente y la ISS caería.",
+        "1": "Correcto. Dado que v = √(GM/r), si M se duplica, v aumenta en un factor de √2.",
+        "2": "Incorrecto. Para que la velocidad se duplicara, la masa tendría que aumentar 4 veces.",
+        "3": "Incorrecto. Un aumento de masa planetaria requiere un aumento, no una disminución, de la velocidad orbital."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "Un estudiante observa que los planetas interiores (Mercurio, Venus) se mueven mucho más rápido que los exteriores (Júpiter, Saturno). Decide investigar la relación entre el radio de la órbita (R) y el periodo (T).",
+      "tabla_o_grafica_markdown": "| Planeta | R (UA) | T (años) | R³/T² |\n| :--- | :--- | :--- | :--- |\n| Tierra | 1.0 | 1.0 | 1.0 |\n| Marte | 1.52 | 1.88 | ~1.0 |\n| Júpiter | 5.20 | 11.86 | ~1.0 |",
+      "pregunta": "¿Qué conclusión científica puede derivar el estudiante sobre un nuevo asteroide descubierto cuyo R³/T² sea igual a 1.0?",
+      "opciones": [
+        "El asteroide es en realidad un planeta.",
+        "El asteroide sigue las mismas leyes de movimiento que los planetas conocidos en este sistema.",
+        "El asteroide tiene la misma masa que la Tierra.",
+        "El asteroide se encuentra a la misma distancia del Sol que la Tierra."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. La forma de la órbita no define si un objeto es planeta o asteroide.",
+        "1": "Correcto. Si cumple la constante de la Tercera Ley de Kepler, significa que su movimiento está regido por la misma interacción gravitatoria central.",
+        "2": "Incorrecto. La Tercera Ley no depende de la masa del objeto menor (el asteroide).",
+        "3": "Incorrecto. R³/T² es una constante para todos los objetos que orbitan el Sol, independientemente de su distancia específica."
+      }
+    }
+  ]
+}

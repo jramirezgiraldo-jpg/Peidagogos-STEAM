@@ -1,0 +1,168 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Qué forma geométrica describe la trayectoria de los planetas alrededor del Sol según el modelo actual?",
+      "opciones": [
+        "Un círculo perfecto",
+        "Una espiral descendente",
+        "Una elipse con el Sol en uno de sus focos",
+        "Una línea recta con oscilaciones"
+      ],
+      "correcta": 2
+    }
+  ],
+  "texto_inductivo": "¡Hola, sobrevivientes del Gran Colapso! Aquí su YouTuber científico favorito transmitiendo desde el búnker 'Alfa-7'. Hoy, mientras el polvo radioactivo cubre los restos de lo que solía ser la NASA, vamos a rescatar el conocimiento que nos permitirá, algún día, salir de este agujero de roca y ceniza: el **Movimiento Planetario**. ¿Por qué importa esto ahora que estamos buscando latas de atún? Porque si no entendemos cómo se mueven las esferas celestes, jamás podremos predecir la trayectoria de los satélites de comunicación que aún orbitan y que podrían darnos la señal de rescate definitiva. \n\nPara entender esto, debemos viajar al pasado, a una época donde los humanos no necesitaban máscaras de gas. Imaginen a Johannes Kepler, un hombre que no tenía computadoras cuánticas, solo los datos de observación de su mentor, Tycho Brahe. Kepler heredó años de registros sobre la posición de Marte y notó algo que rompería la cabeza de los antiguos: los planetas no se mueven en círculos perfectos. Esta fue la primera gran crisis de la astronomía 'clásica'. En nuestro contexto, es como descubrir que el filtro de agua que creías eterno en realidad tiene una fuga invisible. Kepler formuló tres leyes fundamentales. La **Primera Ley o Ley de las Órbitas** establece que los planetas giran alrededor del Sol en trayectorias elípticas. No busquen la perfección circular en un universo que tiende al caos; la elipse es la forma de la supervivencia. \n\nPero hay más. La **Segunda Ley o Ley de las Áreas** nos dice que el radio vector que une al planeta con el Sol barre áreas iguales en tiempos iguales. ¿Qué significa esto para nosotros en el Modo Supervivencia? Que el planeta no se mueve a la misma velocidad siempre. Cuando está más cerca del Sol (perihelio), el planeta corre como si estuviera huyendo de una horda de mutantes; cuando está lejos (afelio), se mueve lento, ahorrando energía. Esta relación entre velocidad y distancia es la clave de la dinámica orbital. \n\nFinalmente, la **Tercera Ley o Ley de los Periodos** es pura matemática de supervivencia. El cuadrado del periodo orbital (el tiempo que tarda en dar una vuelta) es proporcional al cubo de su distancia media al Sol. Esto nos permitió, por primera vez, medir el sistema solar sin necesidad de cintas métricas espaciales. En la actualidad post-apocalíptica, si detectamos un objeto extraño en el cielo, midiendo cuánto tarda en volver a pasar sobre nuestro búnker, podemos calcular exactamente a qué distancia se encuentra de la Tierra. La ciencia no es solo teoría, es nuestra brújula en la oscuridad. Durante este periodo, vamos a diseccionar estos conceptos, no porque queramos ser astrónomos de salón, sino porque el conocimiento de las leyes naturales es lo único que nos separa de la extinción total. ¡Ajusten sus trajes de presión, que el viaje apenas comienza!",
+  "recurso_visual": "graph TD\n    A[Leyes de Kepler] --> B(1ra Ley: Órbitas Elípticas)\n    A --> C(2da Ley: Áreas Iguales)\n    A --> D(3rd Ley: Periodos T^2 / a^3 = K)\n    B --> B1[El Sol ocupa un foco]\n    C --> C1[Velocidad variable: Más rápido en Perihelio]\n    D --> D1[Permite calcular distancias relativas]",
+  "preguntas_inductivas_pagina": [
+    "¿Cuál fue el cambio fundamental que propuso Kepler respecto a la forma de las órbitas?",
+    "¿En qué punto de la órbita un planeta se desplaza con mayor velocidad?",
+    "¿Qué relación matemática establece la Tercera Ley de Kepler?",
+    "¿Por qué es importante el trabajo previo de Tycho Brahe para los descubrimientos de Kepler?",
+    "¿Qué diferencia hay entre un círculo y una elipse en términos de sus focos?"
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja una elipse marcando claramente sus dos focos, el semieje mayor y la posición del Sol según la Primera Ley de Kepler.",
+    "Realiza un cuadro comparativo entre el modelo geocéntrico (antiguo) y el modelo heliocéntrico de Kepler, resaltando las diferencias en la forma de las órbitas.",
+    "Escribe una reflexión de media página sobre cómo el cambio de círculos a elipses demuestra que la ciencia debe adaptarse a los datos y no al revés.",
+    "Representa gráficamente la Segunda Ley de Kepler, sombreando dos 'rebanadas de pastel' orbital que tengan la misma área pero diferentes longitudes de arco."
+  ],
+  "juegos_ordenar_letras_1": [
+    "ELIPSE",
+    "KEPLER",
+    "AFELIO"
+  ],
+  "juego_ordenar_frase_1": "LAS ORBITAS DE LOS PLANETAS SON ELIPTICAS CON EL SOL EN UN FOCO",
+  "texto_deductivo": "Sobrevivientes, si la inducción nos mostró *cómo* se mueven los planetas, la deducción nos dirá *por qué* lo hacen. Bienvenidos a la física de la fuerza bruta: la **Ley de Gravitación Universal de Isaac Newton**. Imaginen que están en la superficie de la Tierra intentando lanzar una granada de señales. Si la lanzan suave, cae cerca. Si la lanzan con más fuerza, llega más lejos. Pero, ¿qué pasaría si la lanzaran con tanta fuerza que la curvatura de la Tierra cayera 'debajo' de la granada mientras esta cae? ¡Felicidades, han puesto un objeto en órbita! \n\nNewton dedujo que la misma fuerza que hace caer una manzana podrida en el yermo es la que mantiene a la Luna atada a la Tierra y a la Tierra atada al Sol. Esta fuerza es directamente proporcional al producto de las masas e inversamente proporcional al cuadrado de la distancia que las separa. En términos de supervivencia, esto significa que la gravedad es una fuerza de largo alcance pero que se debilita rápidamente conforme te alejas. La fórmula F = G * (m1 * m2) / r^2 es la ecuación más sagrada de nuestra era. Aquí, G es la Constante de Gravitación Universal, una cifra minúscula que mantiene unido el cosmos. \n\nLo fascinante es que a partir de esta ley de gravitación, podemos deducir matemáticamente las tres leyes de Kepler. Newton demostró que la fuerza centrípeta necesaria para mantener un planeta en órbita es provista precisamente por la gravedad. Si la gravedad desapareciera de repente, los planetas saldrían disparados en línea recta hacia el vacío infinito, perdiéndose como el humo de una fogata en la noche. \n\nEn nuestro nivel de **Modo Supervivencia**, entender la deducción de Newton nos permite calcular la 'Velocidad de Escape'. Si queremos enviar un mensaje al espacio exterior, nuestro proyectil debe alcanzar aproximadamente 11.2 km/s para vencer la atracción gravitatoria terrestre. Si no alcanzamos esa velocidad, la gravedad ganará y nuestro mensaje regresará a la tierra en forma de chatarra ardiente. Además, la gravitación explica las mareas y las perturbaciones orbitales. Si un asteroide masivo se acercara a la Tierra, su gravedad alteraría nuestra órbita mucho antes del impacto. La física deductiva no solo nos permite entender el orden del sistema solar, sino prever los desastres antes de que ocurran. El universo no es un lugar de caos arbitrario, es un sistema de masas interactuando mediante fuerzas predecibles. Estudiar la gravitación es estudiar las cuerdas invisibles que mueven el teatro de las estrellas. Si dominamos estas cuerdas, dejaremos de ser simples espectadores de nuestra tragedia y nos convertiremos en los ingenieros de nuestro futuro.",
+  "preguntas_deductivas_pagina": [
+    "¿Qué sucede con la fuerza de gravedad si la distancia entre dos cuerpos se duplica?",
+    "¿Cómo define Newton la relación entre la masa de los objetos y la fuerza de atracción?",
+    "¿Qué es la Constante de Gravitación Universal (G) y por qué es importante?",
+    "¿Qué relación existe entre la fuerza centrípeta y la gravedad en una órbita circular?",
+    "¿Por qué se dice que la Ley de Gravitación de Newton es 'Universal'?"
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Realiza un diagrama detallado de las fuerzas que actúan sobre un satélite en órbita, incluyendo vectores de velocidad y fuerza gravitacional.",
+    "Elabora un mapa mental que conecte la Ley de Gravitación Universal con cada una de las tres leyes de Kepler.",
+    "Dibuja un esquema explicativo que muestre por qué un objeto en órbita está técnicamente 'cayendo perpetuamente' hacia la Tierra.",
+    "Diseña una infografía artesanal que explique los pasos necesarios para que un cohete alcance la velocidad de escape desde un planeta con el doble de masa que la Tierra."
+  ],
+  "juegos_ordenar_letras_2": [
+    "GRAVEDAD",
+    "NEWTON",
+    "MASA"
+  ],
+  "juego_ordenar_frase_2": "LA FUERZA DE GRAVEDAD DEPENDE DE LA DISTANCIA Y LA MASA",
+  "sopa_letras": [
+    "GRAVEDAD",
+    "ORBITA",
+    "KEPLER",
+    "NEWTON",
+    "ELIPSE",
+    "FOCO",
+    "MASA",
+    "PERIODO",
+    "FUERZA",
+    "ASTRO"
+  ],
+  "crucigrama": [
+    {
+      "palabra": "PERIHELIO",
+      "pista": "Punto de la órbita donde el planeta está más cerca del Sol."
+    },
+    {
+      "palabra": "AFELIO",
+      "pista": "Punto de la órbita donde el planeta está más lejos del Sol."
+    },
+    {
+      "palabra": "ELIPSE",
+      "pista": "Forma geométrica de las órbitas planetarias."
+    },
+    {
+      "palabra": "GRAVITACION",
+      "pista": "Fuerza de atracción entre dos cuerpos con masa."
+    },
+    {
+      "palabra": "KEPLER",
+      "pista": "Astrónomo que formuló las tres leyes del movimiento planetario."
+    },
+    {
+      "palabra": "NEWTON",
+      "pista": "Científico que explicó la causa física de las órbitas."
+    },
+    {
+      "palabra": "FOCO",
+      "pista": "Uno de los dos puntos fijos dentro de una elipse."
+    },
+    {
+      "palabra": "SATELLITE",
+      "pista": "Objeto que orbita alrededor de un planeta."
+    },
+    {
+      "palabra": "MASA",
+      "pista": "Cantidad de materia que posee un cuerpo."
+    },
+    {
+      "palabra": "UNIVERSAL",
+      "pista": "Propiedad de la ley de gravedad que indica que aplica en todo el cosmos."
+    }
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "En el refugio científico se observa que un satélite artificial ha perdido velocidad debido al rozamiento con remanentes de la atmósfera alta (basura espacial post-guerra). Según la Segunda Ley de Kepler, para que el satélite mantenga su órbita estable sin caer:",
+      "tabla_o_grafica_markdown": "| Posición | Velocidad (km/s) | Distancia al Centro (km) |\n|---|---|---|\n| A | 7.5 | 6800 |\n| B | 7.2 | 7100 |",
+      "pregunta": "¿Qué sucede con la velocidad orbital del satélite a medida que su distancia al centro del planeta disminuye?",
+      "opciones": [
+        "La velocidad debe aumentar para compensar la menor distancia.",
+        "La velocidad debe disminuir para evitar sobrecalentamiento.",
+        "La velocidad se mantiene constante independientemente de la distancia.",
+        "La velocidad se vuelve cero al llegar al perihelio."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. Según la Ley de las Áreas, a menor distancia (radio), la velocidad debe ser mayor para barrer áreas iguales.",
+        "1": "Incorrecto. Si disminuye la velocidad al acercarse, la fuerza centrípeta no compensaría la gravedad y caería.",
+        "2": "Incorrecto. Las órbitas elípticas implican velocidades variables según la distancia al foco.",
+        "3": "Incorrecto. Una velocidad cero implicaría una caída libre vertical hacia el planeta."
+      }
+    },
+    {
+      "competencia": "Uso Comprensivo del Conocimiento Científico",
+      "texto_introductorio": "Un grupo de supervivientes encuentra un antiguo telescopio y detecta un nuevo exoplaneta. Observan que el planeta tarda 8 años terrestres en dar una vuelta completa a su estrella. Quieren saber qué tan lejos está de su sol comparado con la Tierra.",
+      "tabla_o_grafica_markdown": "| Planeta | Periodo (T) en años | Distancia (a) en UA |\n|---|---|---|\n| Tierra | 1 | 1 |\n| Exoplaneta | 8 | ? |",
+      "pregunta": "Usando la Tercera Ley de Kepler (T² / a³ = K), si el periodo es 8 años, ¿cuál es su distancia media (a) en Unidades Astronómicas (UA)?",
+      "opciones": [
+        "2 UA",
+        "4 UA",
+        "8 UA",
+        "64 UA"
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. 2 al cubo es 8, pero el periodo al cuadrado (8²) es 64.",
+        "1": "Correcto. T² = 8² = 64. Para que T²/a³ = 1, a³ debe ser 64. La raíz cúbica de 64 es 4.",
+        "2": "Incorrecto. Esto implicaría una relación lineal, la cual no existe en la 3ra ley.",
+        "3": "Incorrecto. 64 al cubo sería un número mucho mayor que 64."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "Se desea investigar cómo varía la fuerza de atracción gravitacional entre dos escombros espaciales de masa constante si se logra alejarlos progresivamente mediante pulsos de aire comprimido.",
+      "tabla_o_grafica_markdown": "| Distancia (r) | Fuerza (F) |\n|---|---|\n| 1 m | 100 N |\n| 2 m | 25 N |\n| 3 m | 11.1 N |\n| 4 m | 6.25 N |",
+      "pregunta": "De acuerdo con los datos de la tabla, ¿cuál es la relación matemática que mejor describe el comportamiento de la fuerza gravitacional respecto a la distancia?",
+      "opciones": [
+        "La fuerza es directamente proporcional a la distancia.",
+        "La fuerza es inversamente proporcional a la distancia.",
+        "La fuerza es inversamente proporcional al cuadrado de la distancia.",
+        "La fuerza no depende de la distancia, solo de la masa."
+      ],
+      "correcta": 2,
+      "retroalimentacion": {
+        "0": "Incorrecto. Si fuera directa, la fuerza aumentaría al aumentar la distancia.",
+        "1": "Incorrecto. Si fuera solo inversa, a distancia 2 la fuerza sería 50 N, no 25 N.",
+        "2": "Correcto. Al duplicar la distancia (2m), la fuerza disminuye a la cuarta parte (100/4 = 25). Esto confirma el factor 1/r².",
+        "3": "Incorrecto. Los datos muestran claramente un cambio en la fuerza al variar la distancia."
+      }
+    }
+  ]
+}

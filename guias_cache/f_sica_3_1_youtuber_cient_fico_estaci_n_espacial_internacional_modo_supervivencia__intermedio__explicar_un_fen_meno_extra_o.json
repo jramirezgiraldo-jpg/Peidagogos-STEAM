@@ -1,0 +1,188 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Cuál es la forma geométrica que mejor describe la trayectoria de los planetas alrededor del Sol?",
+      "opciones": [
+        "Círculo perfecto",
+        "Triángulo equilátero",
+        "Elipse",
+        "Línea recta"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "¿Qué fuerza es la principal responsable de mantener a los planetas en su órbita?",
+      "opciones": [
+        "Magnetismo",
+        "Gravedad",
+        "Fricción espacial",
+        "Energía solar"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Qué sucede con la velocidad de un planeta cuando se acerca al Sol?",
+      "opciones": [
+        "Aumenta",
+        "Disminuye",
+        "Se detiene",
+        "Se mantiene constante"
+      ],
+      "correcta": 0
+    }
+  ],
+  "texto_inductivo": "¡Hola, futuros astrofísicos y tripulantes de la Estación Espacial Internacional (EEI)! Aquí su YouTuber científico favorito transmitiendo desde el módulo Cupola. Hoy no vamos a hablar de cómo ir al baño en microgravedad, sino de algo mucho más extraño que observamos desde estas ventanas: el **movimiento planetario**. Imaginen que están aquí conmigo, flotando a 400 kilómetros de altura, viendo la curvatura de la Tierra. Desde esta posición privilegiada, uno pensaría que todo en el cosmos se mueve como un reloj perfecto, pero la historia de cómo entendimos esto es un verdadero **thriller de supervivencia intelectual**.\n\nDurante milenios, los humanos miraron al cielo y notaron algo muy raro: el **movimiento retrógrado**. Imaginen que están siguiendo a Marte noche tras noche. El planeta avanza normal, pero de repente, ¡pum!, parece detenerse y empezar a caminar hacia atrás para luego retomar su camino. Para los antiguos, esto era un fenómeno inexplicable, un 'error' en la matriz del universo. Los griegos, como Ptolomeo, inventaron sistemas complejos llamados epiciclos (círculos dentro de círculos) para intentar explicar este comportamiento extraño bajo la premisa de que la Tierra era el centro de todo. Era como tratar de arreglar una fuga en la EEI usando solo cinta adhesiva; funcionaba un poco, pero no era la verdad.\n\nNo fue hasta que valientes como **Copérnico** se atrevieron a decir: 'Oigan, ¿y si nosotros no somos el centro?'. Al poner al Sol en el medio, ese movimiento 'hacia atrás' de Marte se explica simplemente como la Tierra rebasando a Marte en una pista de carreras circular. Sin embargo, todavía había un problema: los planetas no se movían en círculos perfectos. Las observaciones de Tycho Brahe, el hombre con la nariz de metal y los mejores datos astronómicos de la época, no encajaban con los círculos. Fue **Johannes Kepler**, trabajando en lo que hoy llamaríamos 'Modo Supervivencia' (sin computadoras, solo con matemáticas puras y papel), quien rompió el paradigma. Kepler se dio cuenta de que si abandonaba la idea del círculo y probaba con la **elipse**, todas las piezas del rompecabezas encajaban.\n\nEntender el movimiento planetario no fue solo un ejercicio académico; fue la clave para que hoy podamos estar aquí en la EEI. Si no supiéramos exactamente cómo se mueven los cuerpos celestes, no podríamos lanzar suministros desde la Tierra y esperar que lleguen a nosotros. Estaríamos perdidos en el vacío. Los planetas siguen reglas que parecen extrañas al principio, como el hecho de que barren áreas iguales en tiempos iguales, lo que significa que 'corren' más cuando están cerca de su estrella. ¿No es fascinante? Estamos montados en una roca que viaja a 107,000 km/h alrededor de una bola de fuego gigante, siguiendo una ruta ovalada. Así que, la próxima vez que miren las estrellas, recuerden que lo que ven no es un caos, sino una danza matemática perfectamente coreografiada por las leyes de la física que hoy vamos a desglosar.",
+  "recurso_visual": "graph TD\n    A[Modelos del Universo] --> B[Geocéntrico - Ptolomeo]\n    A --> C[Heliocéntrico - Copérnico]\n    B --> D[Tierra en el centro]\n    C --> E[Sol en el centro]\n    E --> F[Órbitas Circulares - Error de ajuste]\n    E --> G[Órbitas Elípticas - Kepler]\n    G --> H[1ra Ley: Elipses]\n    G --> I[2da Ley: Áreas iguales]\n    G --> J[3ra Ley: Periodos]",
+  "preguntas_inductivas_pagina": [
+    "¿Qué fenómeno visual hacía que los antiguos pensaran que los planetas se movían hacia atrás?",
+    "¿Por qué el modelo de Ptolomeo se considera hoy en día incorrecto pero ingenioso para su época?",
+    "¿Cuál fue el cambio fundamental que propuso Copérnico en la estructura del sistema solar?",
+    "¿Qué tipo de datos proporcionó Tycho Brahe que fueron esenciales para el trabajo de Kepler?",
+    "¿Por qué es vital el conocimiento del movimiento planetario para la existencia de la EEI?"
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema que compare el modelo Geocéntrico y el Heliocéntrico, resaltando la posición del Sol y la Tierra.",
+    "Realiza un cuadro comparativo entre las órbitas circulares propuestas inicialmente y las órbitas elípticas de Kepler.",
+    "Escribe una reflexión de 10 líneas sobre cómo el cambio de perspectiva (de la Tierra como centro al Sol como centro) afectó nuestra comprensión del universo.",
+    "Representa gráficamente el concepto de movimiento retrógrado de un planeta visto desde la Tierra."
+  ],
+  "juegos_ordenar_letras_1": [
+    "ELIPSE",
+    "RETRÓGRADO",
+    "HELIOCENTRISMO"
+  ],
+  "juego_ordenar_frase_1": "KEPLER DESCUBRIO QUE LOS PLANETAS SE MUEVEN EN ORBITAS ELIPTICAS",
+  "texto_deductivo": "¡Atención tripulación! Entramos en la fase técnica de nuestra misión. Para sobrevivir en el espacio, no basta con observar; hay que calcular. Las **Leyes de Kepler** son las reglas de tránsito del sistema solar, y la **Ley de Gravitación Universal** de Newton es el motor que las impulsa. Vamos a diseccionar estas leyes como si estuviéramos reparando un panel solar averiado.\n\n**La Primera Ley (Ley de las Órbitas):** Nos dice que todos los planetas se desplazan alrededor del Sol siguiendo órbitas elípticas, y el Sol se encuentra en uno de los focos de esa elipse. Una elipse no es más que un círculo estirado. La distancia entre el planeta y el Sol cambia constantemente. El punto más cercano se llama **periehlio** y el más lejano **afelio**. Esto rompió la idea de la 'perfección circular' divina que dominó la ciencia por 2000 años.\n\n**La Segunda Ley (Ley de las Áreas):** Esta es la que explica el fenómeno extraño de la velocidad variable. Establece que el radio vector que une a un planeta con el Sol barre áreas iguales en tiempos iguales. En términos sencillos: cuando el planeta está en el perihelio (cerca del Sol), tiene que moverse mucho más rápido para cubrir la misma área que cuando está en el afelio (lejos del Sol), donde se mueve más lento. Es como un patinador sobre hielo que gira más rápido cuando encoge sus brazos.\n\n**La Tercera Ley (Ley de los Periodos):** Kepler encontró una relación matemática asombrosa. El cuadrado del periodo orbital (el tiempo que tarda en dar una vuelta al Sol, T) es proporcional al cubo de la distancia media al Sol (el semieje mayor de la elipse, a). La fórmula es T² ∝ a³. Esto significa que si conoces a qué distancia está un planeta, puedes predecir exactamente cuánto tardará en completar su año. Los planetas más lejanos, como Neptuno, tienen 'años' larguísimos no solo porque su camino es más largo, sino porque se mueven más lento debido a que la gravedad del Sol es más débil allá afuera.\n\nFinalmente, **Isaac Newton** llegó para ponerle la cereza al pastel. Él explicó el *por qué* de estas leyes. La fuerza de gravedad es la que mantiene a los planetas 'cayendo' perpetuamente hacia el Sol, pero debido a su velocidad lateral, nunca chocan contra él, sino que orbitan. La fuerza es directamente proporcional al producto de las masas e inversamente proporcional al cuadrado de la distancia entre ellas. Si duplicas la distancia, la fuerza de gravedad se reduce a la cuarta parte. Esta precisión es la que nos permite a nosotros, en la EEI, mantener una órbita estable. Si perdiéramos velocidad, la gravedad de la Tierra nos jalaría hacia una reentrada ardiente. Si aceleráramos demasiado, escaparíamos hacia el espacio profundo. ¡La física es literalmente lo que nos mantiene con vida aquí arriba!",
+  "preguntas_deductivas_pagina": [
+    "¿En qué parte de la elipse se encuentra el Sol según la primera ley de Kepler?",
+    "¿Cómo se llama el punto de la órbita donde un planeta se mueve a su máxima velocidad?",
+    "Si un planeta está en el afelio, ¿cómo es su velocidad comparada con la que tiene en el perihelio?",
+    "¿Qué relación matemática establece la tercera ley de Kepler entre el tiempo y la distancia?",
+    "¿Qué sucede con la fuerza de gravedad si la distancia entre dos cuerpos se triplica?"
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Dibuja una elipse detallada marcando los focos, el semieje mayor, el perihelio y el afelio.",
+    "Elabora un mapa mental que conecte las tres leyes de Kepler con la Ley de Gravitación Universal de Newton.",
+    "Realiza un dibujo explicativo de la Segunda Ley de Kepler, sombreando dos sectores de la órbita que representen 'áreas iguales' en diferentes posiciones.",
+    "Diseña una infografía artesanal que explique por qué un año en Mercurio es mucho más corto que un año en Neptuno usando la Tercera Ley."
+  ],
+  "juegos_ordenar_letras_2": [
+    "PERIHELIO",
+    "GRAVITACIÓN",
+    "NEWTON"
+  ],
+  "juego_ordenar_frase_2": "LA GRAVEDAD DISMINUYE CON EL CUADRADO DE LA DISTANCIA",
+  "sopa_letras": [
+    "KEPLER",
+    "NEWTON",
+    "ELIPSE",
+    "FOCO",
+    "ORBITA",
+    "PERIODO",
+    "MASA",
+    "AFELIO",
+    "RADIO",
+    "SOL"
+  ],
+  "crucigrama": [
+    {
+      "palabra": "ELIPSE",
+      "pista": "Forma geométrica de la órbita planetaria."
+    },
+    {
+      "palabra": "PERIHELIO",
+      "pista": "Punto más cercano al Sol en una órbita."
+    },
+    {
+      "palabra": "AFELIO",
+      "pista": "Punto más alejado del Sol en una órbita."
+    },
+    {
+      "palabra": "GRAVEDAD",
+      "pista": "Fuerza de atracción entre dos masas."
+    },
+    {
+      "palabra": "NEWTON",
+      "pista": "Científico que formuló la Ley de Gravitación Universal."
+    },
+    {
+      "palabra": "KEPLER",
+      "pista": "Astrónomo que definió las tres leyes del movimiento planetario."
+    },
+    {
+      "palabra": "PERIODO",
+      "pista": "Tiempo que tarda un planeta en dar una vuelta completa al Sol."
+    },
+    {
+      "palabra": "FOCO",
+      "pista": "Lugar que ocupa el Sol dentro de la elipse orbital."
+    },
+    {
+      "palabra": "ASTRONOMIA",
+      "pista": "Ciencia que estudia los astros."
+    },
+    {
+      "palabra": "RETROGADO",
+      "pista": "Movimiento aparente de un planeta hacia atrás."
+    }
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "Un astrónomo observa que el Planeta X aumenta su velocidad orbital a medida que se desplaza de la posición A a la posición B en su trayectoria elíptica alrededor de una estrella.",
+      "tabla_o_grafica_markdown": "| Posición | Distancia a la Estrella (UA) | Velocidad (km/s) |\n|---|---|---|\n| A | 2.5 | 20 |\n| B | 1.2 | 35 |",
+      "pregunta": "¿Cuál es la causa física que explica este cambio en la velocidad del Planeta X?",
+      "opciones": [
+        "La segunda ley de Kepler, ya que al estar más cerca del foco, debe recorrer más distancia en el mismo tiempo para barrer áreas iguales.",
+        "Un aumento en la masa del planeta al acercarse a la estrella.",
+        "La fricción con el polvo estelar que empuja al planeta hacia adelante.",
+        "El cambio de estación en el hemisferio norte del planeta."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. Según la segunda ley de Kepler, los planetas aceleran cerca del perihelio para cumplir con la ley de las áreas.",
+        "1": "Incorrecto. La masa del planeta se mantiene constante en su órbita.",
+        "2": "Incorrecto. En el espacio el vacío impide que la fricción sea un factor de aceleración orbital.",
+        "3": "Incorrecto. Las estaciones son consecuencia de la inclinación del eje, no causa del cambio de velocidad orbital."
+      }
+    },
+    {
+      "competencia": "Uso comprensivo del conocimiento científico",
+      "texto_introductorio": "La tercera ley de Kepler establece una relación entre el periodo orbital (T) y el semieje mayor (a) de la órbita (T² / a³ = K). Si tenemos dos planetas, Júpiter y Saturno, orbitando la misma estrella:",
+      "tabla_o_grafica_markdown": "| Planeta | Distancia Media (a) | Periodo (T) |\n|---|---|---|\n| Júpiter | 5.2 UA | 11.8 años |\n| Saturno | 9.5 UA | ? |",
+      "pregunta": "Sin realizar cálculos exactos, ¿qué se puede afirmar sobre el periodo orbital de Saturno?",
+      "opciones": [
+        "Es menor que el de Júpiter porque está más lejos.",
+        "Es igual al de Júpiter porque orbitan la misma estrella.",
+        "Es mayor que el de Júpiter porque a mayor distancia, mayor es el periodo orbital.",
+        "Es la mitad del de Júpiter debido a la curvatura del espacio."
+      ],
+      "correcta": 2,
+      "retroalimentacion": {
+        "0": "Incorrecto. A mayor distancia, el periodo siempre es mayor.",
+        "1": "Incorrecto. El periodo depende de la distancia a la estrella.",
+        "2": "Correcto. La tercera ley indica que el periodo aumenta conforme aumenta la distancia media al Sol.",
+        "3": "Incorrecto. No hay una relación de mitad, sino una relación de potencia cuadrada y cúbica."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "Un grupo de estudiantes en la Tierra quiere simular la primera ley de Kepler usando una cuerda, dos chinches (fijos en un tablero) y un lápiz.",
+      "tabla_o_grafica_markdown": "| Elemento del experimento | Representación en el Sistema Solar |\n|---|---|\n| Chinches | Focos (uno es el Sol) |\n| Cuerda tensa | Suma de distancias constante |\n| Trazo del lápiz | Órbita del planeta |",
+      "pregunta": "¿Qué sucedería con la forma de la órbita dibujada si los estudiantes acercan los dos chinches hasta que queden en el mismo punto?",
+      "opciones": [
+        "La elipse se volvería más alargada (excéntrica).",
+        "La elipse se transformaría en un círculo perfecto.",
+        "No se podría dibujar ninguna figura.",
+        "La cuerda se rompería por la tensión."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. Al alejar los focos se vuelve más excéntrica.",
+        "1": "Correcto. Un círculo es una elipse donde ambos focos coinciden en el mismo punto (centro).",
+        "2": "Incorrecto. Se formaría un círculo.",
+        "3": "Incorrecto. La tensión de la cuerda permitiría el giro circular sin problemas."
+      }
+    }
+  ]
+}

@@ -1,0 +1,188 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Cuál es la forma real de la órbita de los planetas según las observaciones históricas de la mecánica celeste?",
+      "opciones": [
+        "Círculos perfectos con el Sol en el centro exacto",
+        "Elipses con el Sol en uno de los focos",
+        "Espirales continuas que se acercan al Sol",
+        "Trayectorias parabólicas sin retorno"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "Si un satélite se mueve alrededor de la Tierra, ¿en qué punto de su órbita elíptica experimenta su velocidad máxima?",
+      "opciones": [
+        "En el apogeo (punto más lejano)",
+        "En los puntos de intersección del eje menor",
+        "En el perigeo (punto más cercano)",
+        "La velocidad es constante en toda la trayectoria"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "¿Qué ocurre con la fuerza de atracción gravitacional entre dos cuerpos si la distancia entre ellos se reduce a la mitad?",
+      "opciones": [
+        "Se reduce a la mitad",
+        "Se duplica",
+        "Se reduce a la cuarta parte",
+        "Se cuadruplica"
+      ],
+      "correcta": 3
+    }
+  ],
+  "texto_inductivo": "¡Atención, tripulación hacker! Aquí su comandante de sistemas de la Estación Espacial Internacional (EEI). Hemos sido víctimas de un ataque de 'ransomware' cibernético por parte de un grupo de piratas espaciales que ha bloqueado nuestra computadora de navegación primaria. Si no restauramos las coordenadas y las ecuaciones de órbita manualmente en las próximas horas, la resistencia atmosférica residual nos arrastrará hacia una reentrada destructiva. Para sobrevivir, debemos hackear nuestra propia base de datos y reprogramar el piloto automático usando los principios fundamentales de la mecánica celeste. Nuestro primer objetivo es descifrar las leyes empíricas del movimiento planetario recopiladas por Johannes Kepler. Kepler no tenía computadoras cuánticas, pero usando los datos observacionales de Tycho Brahe, descifró el código del cosmos. La Primera Ley de Kepler rompe con el dogma de los círculos perfectos. Descubrió que los planetas, y nuestra propia estación espacial, se mueven en órbitas elípticas, donde el cuerpo central (en nuestro caso, la Tierra; en el caso de los planetas, el Sol) ocupa uno de los dos puntos llamados focos. La excentricidad de la elipse determina qué tan 'estirada' está la órbita. Si la excentricidad es cercana a cero, es casi un círculo, que es lo que mantiene a nuestra estación a salvo, pero un pequeño error de cálculo puede estirar la elipse, llevándonos a un peligroso perigeo (el punto más cercano a la Tierra) donde la atmósfera nos frenará. La Segunda Ley de Kepler, o ley de las áreas, describe cómo cambia la velocidad de un objeto en órbita. Un vector de radio dibujado desde el Sol (o la Tierra) al planeta barre áreas iguales en intervalos de tiempo iguales. Esto se traduce en un principio de supervivencia clave: cuando la estación se acerca al perigeo, se mueve mucho más rápido que cuando está en el apogeo (el punto más lejano). Si nuestros motores fallan en el apogeo, no tendremos la velocidad necesaria para superar la gravedad de caída. Finalmente, la Tercera Ley de Kepler, la ley armónica, establece que el cuadrado del período orbital de cualquier planeta es proporcional al cubo del semieje mayor de su órbita. En términos de hackeo orbital, esto significa que si queremos cambiar nuestro período de rotación para sincronizarnos con una nave de rescate, debemos alterar de manera muy precisa nuestra altitud promedio. No podemos simplemente acelerar sin cambiar nuestra distancia; la física del universo no permite trampear las reglas sin pagar el precio de una órbita completamente diferente. Para hackear el sistema de navegación, debemos mapear estas tres leyes en variables de código fuente que el mainframe de la EEI pueda interpretar. Prepárense para ingresar al núcleo del sistema. Su vida depende de comprender que el movimiento espacial no es intuitivo: para ir más rápido, a veces debemos descender; para subir, debemos acelerar en el momento exacto. Iniciando secuencia de hackeo...",
+  "recurso_visual": "graph TD\n    A[Leyes de Kepler] --> B[1a Ley: Órbitas Elípticas]\n    A --> C[2a Ley: Áreas Iguales]\n    A --> D[3a Ley: Ley Armónica]\n    B --> B1[Focos: El cuerpo masivo ocupa uno]\n    C --> C1[Perihelio/Perigeo: Mayor velocidad]\n    C --> C2[Afelio/Apogeo: Menor velocidad]\n    D --> D1[Relación: T² es proporcional a a³]",
+  "preguntas_inductivas_pagina": [
+    "¿Qué forma geométrica tienen las órbitas según la primera ley de Kepler y dónde se ubica el cuerpo central?",
+    "¿Cómo varía la velocidad de la EEI según se encuentre en el apogeo o en el perigeo?",
+    "¿Qué establece la tercera ley de Kepler sobre la relación entre el tiempo que tarda una órbita y su distancia?",
+    "¿Por qué un aumento de excentricidad en la órbita de la EEI representa un peligro mortal de reentrada?",
+    "¿Cómo se relaciona el barrido de áreas iguales con la conservación del momento angular en el espacio?"
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema detallado de una órbita elíptica señalando los focos, el semieje mayor, el perigeo, el apogeo y sombreando las áreas barridas según la Segunda Ley.",
+    "Realiza un cuadro comparativo entre el movimiento circular uniforme y el movimiento orbital elíptico basándote en la velocidad y aceleración.",
+    "Escribe un ensayo reflexivo de una página analizando por qué los navegantes espaciales de la EEI deben comprender las leyes de Kepler antes de encender sus motores de maniobra.",
+    "Representa gráficamente en un plano cartesiano la relación entre el cuadrado del período orbital (T²) y el cubo del semieje mayor (a³) para tres satélites hipotéticos."
+  ],
+  "juegos_ordenar_letras_1": [
+    "KEPLER",
+    "ELIPSE",
+    "AFELIO"
+  ],
+  "juego_ordenar_frase_1": "LAS ORBITAS PLANETARIAS SON ELIPSES CON EL SOL EN UNO DE LOS FOCOS",
+  "texto_deductivo": "Código de acceso aceptado. Hemos superado el primer cortafuegos, pero ahora nos enfrentamos al motor de física del universo: la gravedad de Isaac Newton. Las leyes de Kepler describían cómo se mueven los cuerpos celestes, pero fue Newton quien hackeó el por qué. Para salvar la EEI, necesitamos reprogramar el vector de empuje de los propulsores usando la Ley de Gravitación Universal. Newton unificó la física terrestre y la celeste al demostrar que la misma manzana que cae de un árbol es atraída por la misma fuerza que mantiene a la Luna en órbita alrededor de la Tierra. La ecuación fundamental de este hackeo establece que la fuerza gravitatoria es directamente proporcional al producto de las masas e inversamente proporcional al cuadrado de la distancia que las separa. Si analizamos esta ecuación como hackers de sistemas, vemos que la gravedad es implacable: si duplicamos nuestra distancia al centro de la Tierra, la atracción se reduce a la cuarta parte. Esta es nuestra clave para escapar si los motores se descontrolan. Para que la estación permanezca en una órbita circular estable, la fuerza gravitatoria debe actuar exactamente como la fuerza centrípeta necesaria para mantener el movimiento circular. Al igualar ambas ecuaciones, podemos despejar la velocidad orbital requerida. Noten algo crítico, cadetes espaciales: la masa de nuestra estación se cancela en la deducción matemática. Esto significa que no importa si la estación pesa cien toneladas o si eres solo tú flotando en una caminata espacial; a la misma altura orbital, todos debemos viajar exactamente a la misma velocidad para no caer ni salir despedidos al vacío. Esta velocidad orbital es de aproximadamente 7.66 kilómetros por segundo para nuestra altitud estándar. Si el virus informático altera este valor en el sistema de guía por tan solo un uno por ciento, entraremos en una espiral de muerte. Además, si quisiéramos escapar por completo de la gravedad terrestre en un vector de escape de emergencia, tendríamos que alcanzar la velocidad de escape, que se deduce directamente de la conservación de la energía mecánica total (cinética más potencial gravitatoria). Entender estas deducciones matemáticas nos permite reescribir los controladores de bajo nivel de la EEI. Estamos traduciendo la gravedad en líneas de comandos. Cada línea de código que escribamos debe equilibrar perfectamente la atracción masiva de nuestro planeta con la inercia de nuestro movimiento hacia adelante. Si fallamos en esta sincronización de fuerzas, la fuerza neta nos arrastrará al pozo gravitatorio o nos perderemos en el espacio profundo. Mantengan la calma, apliquen las ecuaciones y compilemos el parche de rescate.",
+  "preguntas_deductivas_pagina": [
+    "¿Cuál es la fórmula matemática de la Ley de Gravitación Universal de Newton?",
+    "¿Por qué la masa de la EEI no afecta la velocidad orbital necesaria para mantener su trayectoria?",
+    "¿Qué relación matemática existe entre la fuerza de gravedad y la distancia entre los centros de masa?",
+    "¿Cómo se deduce la velocidad orbital de un cuerpo a partir de la fuerza centrípeta y la gravitatoria?",
+    "¿Cuál es la diferencia fundamental entre la velocidad orbital estable y la velocidad de escape de un planeta?"
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Elabora un diagrama de cuerpo libre de la EEI en órbita, vectorizando la fuerza de gravedad, la velocidad tangencial y explicando cómo actúan como un sistema en caída libre perpetua.",
+    "Construye un mapa mental que conecte la manzana de Newton, las leyes del movimiento, la gravitación universal y las tres leyes empíricas de Kepler.",
+    "Realiza un dibujo explicativo que compare visualmente una órbita circular cerrada, una elíptica cerrada, una parabólica de escape y una hiperbólica de eyección.",
+    "Diseña una infografía artesanal digitalizada que muestre los pasos algebraicos para derivar la Tercera Ley de Kepler a partir de las leyes de Newton."
+  ],
+  "juegos_ordenar_letras_2": [
+    "GRAVEDAD",
+    "NEWTON",
+    "ORBITA"
+  ],
+  "juego_ordenar_frase_2": "LA FUERZA GRAVITATORIA MANTIENE A LA ESTACION ESPACIAL EN SU CURSO",
+  "sopa_letras": [
+    "KEPLER",
+    "NEWTON",
+    "GRAVEDAD",
+    "ORBITA",
+    "ELIPSE",
+    "APOGEO",
+    "PERIGEO",
+    "MASA",
+    "PERIODO",
+    "FUERZA"
+  ],
+  "crucigrama": [
+    {
+      "palabra": "ELIPSE",
+      "pista": "Forma geométrica de las órbitas planetarias."
+    },
+    {
+      "palabra": "PERIGEO",
+      "pista": "Punto de la órbita de un satélite terrestre más cercano a la Tierra."
+    },
+    {
+      "palabra": "APOGEO",
+      "pista": "Punto de la órbita de un satélite terrestre más lejano de la Tierra."
+    },
+    {
+      "palabra": "GRAVEDAD",
+      "pista": "Fuerza de atracción mutua entre masas."
+    },
+    {
+      "palabra": "NEWTON",
+      "pista": "Científico que unificó la física terrestre y celeste con su ley de gravitación."
+    },
+    {
+      "palabra": "KEPLER",
+      "pista": "Astrónomo que formuló las tres leyes del movimiento planetario."
+    },
+    {
+      "palabra": "PERIODO",
+      "pista": "Tiempo que tarda un cuerpo en completar una órbita."
+    },
+    {
+      "palabra": "CENTRIPETA",
+      "pista": "Fuerza dirigida hacia el centro de la trayectoria que mantiene el giro."
+    },
+    {
+      "palabra": "EXCENTRICIDAD",
+      "pista": "Medida de la desviación de una órbita respecto a un círculo perfecto."
+    },
+    {
+      "palabra": "ESCAPE",
+      "pista": "Mínima velocidad necesaria para salir de la influencia gravitatoria."
+    }
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "La tripulación de la EEI debe reubicar la estación para evitar basura espacial. Se evalúa el efecto de cambiar la distancia respecto al centro de la Tierra en relación con la fuerza de atracción gravitacional de la siguiente forma:",
+      "tabla_o_grafica_markdown": "| Posición | Distancia de la EEI al centro de la Tierra (r) | Fuerza Gravitacional Relativa (F) |\n|---|---|---|\n| Inicial | R | F_0 |\n| Nueva | 3R | ? |",
+      "pregunta": "Si los propulsores de la EEI la ubican a una distancia tres veces mayor con respecto al centro de la Tierra (3R), ¿cómo se modifica la fuerza de atracción gravitacional ejercida sobre ella?",
+      "opciones": [
+        "Se reduce a la novena parte (F_0 / 9)",
+        "Se reduce a la tercera parte (F_0 / 3)",
+        "Se triplica (3 * F_0)",
+        "Se multiplica por nueve (9 * F_0)"
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. Según la Ley de Gravitación de Newton, la fuerza es inversamente proporcional al cuadrado de la distancia. Al triplicar la distancia, la fuerza disminuye por un factor de 3 al cuadrado, es decir, 9.",
+        "1": "Incorrecto. Este resultado asumiría una relación lineal simple, pero la gravedad disminuye con el cuadrado de la distancia.",
+        "2": "Incorrecto. La gravedad disminuye con la distancia, no aumenta.",
+        "3": "Incorrecto. Esto implicaría que a mayor distancia hay mayor atracción, lo cual viola la ley del inverso del cuadrado."
+      }
+    },
+    {
+      "competencia": "Uso Comprensivo del Conocimiento Científico",
+      "texto_introductorio": "La tercera ley de Kepler relaciona los períodos orbitales (T) y las distancias medias (a) de los cuerpos celestes. Se registran los datos de dos satélites artificiales de investigación climática:",
+      "tabla_o_grafica_markdown": "| Satélite | Período Orbital (T) | Semieje Mayor (a) |\n|---|---|---|\n| Satélite A | T_A | a_A |\n| Satélite B | 8 * T_A | a_B |",
+      "pregunta": "Usando la relación fundamental de la Tercera Ley de Kepler (T² / a³ = constante), ¿cuál es la relación entre el semieje mayor del Satélite B (a_B) respecto al del Satélite A (a_A)?",
+      "opciones": [
+        "a_B = 4 * a_A",
+        "a_B = 2 * a_A",
+        "a_B = 8 * a_A",
+        "a_B = 64 * a_A"
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. (T_B / T_A)^2 = (a_B / a_A)^3. Al ser T_B = 8 * T_A, la relación de períodos al cuadrado es 8^2 = 64. Por tanto, (a_B / a_A)^3 = 64, lo que implica que a_B / a_A = raíz cúbica de 64 = 4.",
+        "1": "Incorrecto. Si la distancia fuera el doble, el período solo aumentaría en un factor de raíz de 8, no de 8.",
+        "2": "Incorrecto. Esto asume una relación lineal uno a uno entre el período y la distancia.",
+        "3": "Incorrecto. Esto confunde la potenciación de la ley armónica, aplicando el cuadrado al semieje directamente."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "Un grupo de estudiantes de la EEI quiere diseñar un experimento virtual para demostrar que la velocidad orbital depende únicamente de la masa del planeta central y de la distancia, pero no de la masa del objeto que orbita.",
+      "tabla_o_grafica_markdown": "| Ensayo | Masa del planeta (M) | Masa del satélite (m) | Distancia orbital (r) |\n|---|---|---|---|\n| Grupo 1 | Variable | Constante | Constante |\n| Grupo 2 | Constante | Variable | Constante |\n| Grupo 3 | Constante | Constante | Variable |",
+      "pregunta": "¿Qué combinación de ensayos de los grupos de estudiantes permitirá demostrar experimentalmente que la masa del satélite NO interviene en su velocidad orbital?",
+      "opciones": [
+        "Mantener la masa del planeta y la distancia constantes, variando únicamente la masa del satélite (Grupo 2), y medir sus velocidades correspondientes.",
+        "Variar de forma simultánea todas las variables para observar el cambio aleatorio de velocidades.",
+        "Utilizar únicamente los ensayos del Grupo 1, ya que el planeta central es el que genera la gravedad.",
+        "Analizar el Grupo 3 exclusivamente, puesto que la distancia es el único factor físico real que frena a los satélites."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. Para aislar el efecto de la masa del satélite, se debe aplicar el método científico de control de variables: mantener constantes la masa del planeta central y la distancia (Grupo 2). Si la velocidad medida permanece igual, se comprueba la hipótesis.",
+        "1": "Incorrecto. Modificar todas las variables al tiempo impide identificar cuál de ellas causa la variación de la velocidad.",
+        "2": "Incorrecto. Variar la masa del planeta demostraría la influencia del planeta central, pero no probaría la independencia respecto a la masa del satélite.",
+        "3": "Incorrecto. Esto solo estudiaría la influencia de la distancia, no comprobaría la hipótesis sobre la masa del satélite."
+      }
+    }
+  ]
+}

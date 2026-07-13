@@ -1,0 +1,188 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Qué fuerza mantiene a los planetas en su trayectoria alrededor del Sol según la síntesis Newtoniana?",
+      "opciones": [
+        "Fuerza magnética",
+        "Fuerza de fricción espacial",
+        "Gravitación Universal",
+        "Presión de radiación"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "Si un objeto se aleja del Sol en una órbita elíptica, ¿qué sucede con su velocidad orbital?",
+      "opciones": [
+        "Aumenta constantemente",
+        "Disminuye",
+        "Permanece idéntica",
+        "Se vuelve errática"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Cuál es la forma real de las órbitas planetarias descrita por Kepler?",
+      "opciones": [
+        "Círculos perfectos",
+        "Espirales",
+        "Elipses",
+        "Líneas rectas"
+      ],
+      "correcta": 2
+    }
+  ],
+  "texto_inductivo": "Saludos, Cadetes de la Agencia de Detectives Estelares. Soy el Investigador Principal y nos encontramos a bordo de la Estación Espacial Internacional (EEI), a unos 400 kilómetros sobre la superficie terrestre. Tenemos un caso urgente que resolver: **El Misterio de la Ausencia de Peso**. Durante décadas, los civiles en la Tierra han creído un mito peligroso: que en el espacio 'no hay gravedad'. Si esto fuera cierto, la Luna saldría disparada en línea recta hacia el vacío y la EEI no podría mantener su curso. Como detectives de nivel **Modo Héroe**, nuestra misión es recolectar evidencia científica para desmentir esta falacia y entender el movimiento planetario real.\n\nAl observar a los astronautas flotar, la intuición nos engaña. Pensamos que la fuerza de gravedad ha desaparecido. Sin embargo, los cálculos indican que a la altura de la EEI, la gravedad terrestre es todavía aproximadamente el 90% de la que sentimos en la superficie. Entonces, ¿por qué no caen estrepitosamente? Aquí es donde entra nuestra primera pista: la **caída libre perpetua**. Imaginen que lanzan una piedra horizontalmente. Esta describe una parábola y cae. Si la lanzan con más fuerza, llega más lejos. Ahora, imaginen que la lanzan con tanta velocidad (unos 28,000 km/h) que la curvatura de su caída coincide exactamente con la curvatura de la Tierra. La piedra 'cae' constantemente, pero el suelo se 'aleja' a la misma velocidad bajo ella. Eso es orbitar.\n\nEste fenómeno nos lleva a cuestionar la percepción del movimiento. Los planetas no flotan a la deriva; están atrapados en un baile geométrico riguroso. Aristóteles creía en esferas cristalinas perfectas, pero las observaciones de Tycho Brahe y el genio matemático de Johannes Kepler revelaron una verdad más compleja. Las órbitas no son círculos, sino elipses donde el Sol ocupa uno de los focos. Este cambio de paradigma fue el primer paso para entender que el movimiento planetario es una lucha constante entre la inercia (la tendencia a seguir de largo) y la gravedad (la tendencia a caer hacia la masa mayor). \n\nEn este escenario de investigación, debemos analizar cómo la velocidad de un planeta cambia según su distancia al Sol. En el perihelio (punto más cercano), el planeta acelera como un detective persiguiendo a un sospechoso en una curva cerrada. En el afelio (punto más lejano), se toma un respiro, moviéndose más lentamente. Este ritmo no es aleatorio; sigue la Segunda Ley de Kepler, barriendo áreas iguales en tiempos iguales. El mito de la 'ingravidez' es en realidad un estado de **microgravedad**, donde la aceleración de la nave y la de los tripulantes es idéntica, eliminando la fuerza normal que nos hace sentir el peso. Como detectives, su labor es usar estos hechos para reconstruir la escena del crimen del movimiento planetario y demostrar que la gravedad es el hilo invisible que teje la estructura del cosmos, incluso cuando parece estar ausente.",
+  "recurso_visual": "graph TD\n    A[Movimiento Orbital] --> B(Gravedad Terrestre)\n    A --> C(Velocidad Tangencial)\n    B --> D{¿Hay equilibrio?}\n    C --> D\n    D -- SÍ --> E[Órbita Estable / Caída Libre]\n    D -- NO (Poca V) --> F[Reentrada Atmosférica]\n    D -- NO (Mucha V) --> G[Escape al Espacio Exterior]\n    E --> H[Sensación de Ingravidez]\n    H --> I[Mito: No hay gravedad]\n    I --> J[Realidad: Caída libre perpetua]",
+  "preguntas_inductivas_pagina": [
+    "¿Por qué es incorrecto decir que 'no hay gravedad' en la Estación Espacial Internacional?",
+    "¿Qué relación existe entre la velocidad tangencial y la caída libre en una órbita?",
+    "¿Cómo cambia la percepción de un detective científico sobre la 'ingravidez' tras leer el texto?",
+    "¿Cuál es la diferencia fundamental entre el movimiento propuesto por Aristóteles y el de Kepler?",
+    "¿Qué sucede con la velocidad de un objeto en órbita cuando alcanza el perihelio?"
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema detallado de la Tierra y la EEI, representando los vectores de velocidad tangencial y fuerza gravitatoria que permiten la órbita.",
+    "Realiza un cuadro comparativo entre el Mito de la Ingravidez y la Realidad Científica de la Microgravedad, incluyendo datos de aceleración.",
+    "Escribe una reflexión de 15 líneas sobre cómo la falta de comprensión de la física puede generar mitos populares en la sociedad actual.",
+    "Representa gráficamente una elipse orbital, señalando los focos, el perihelio, el afelio y sombreando las áreas para explicar la segunda ley de Kepler."
+  ],
+  "juegos_ordenar_letras_1": [
+    "GRAVEDAD",
+    "INERCIA",
+    "ELIPSE"
+  ],
+  "juego_ordenar_frase_1": "LA ORBITA ES UNA CAIDA LIBRE DONDE EL OBJETO NUNCA LLEGA A TOCAR EL SUELO",
+  "texto_deductivo": "Tras haber recolectado las pistas iniciales, es hora de aplicar el rigor deductivo de un detective de alto nivel. Para desmentir el mito de que los planetas se mueven por 'magia celestial' o falta de fuerzas, debemos recurrir a la Ley de Gravitación Universal de Newton y las Leyes de Kepler. Newton dedujo que la fuerza que hace caer una manzana es la misma que mantiene a la Luna en su lugar. La fórmula F = G * (m1 * m2) / r² nos dice algo crucial: la gravedad nunca llega a ser cero, solo se debilita con la distancia. Para que la gravedad fuera nula en la EEI, tendríamos que estar a una distancia infinita de toda masa en el universo, lo cual es físicamente imposible.\n\nAnalicemos ahora la Tercera Ley de Kepler, conocida como la Ley Armónica. Esta ley establece una relación matemática precisa: el cuadrado del periodo orbital (T²) es proporcional al cubo de la distancia media al Sol (a³). Esto significa que la arquitectura del sistema solar no es azarosa. Si conocemos la distancia de un planeta al Sol, podemos deducir exactamente cuánto tardará en dar una vuelta. Un detective puede predecir el futuro de un cuerpo celeste simplemente conociendo su posición y masa. Esta precisión matemática es la prueba final contra cualquier mito de desorden o falta de fuerzas en el espacio.\n\nEl movimiento planetario se rige por la conservación del momento angular. Imaginen a un patinador sobre hielo: cuando cierra sus brazos, gira más rápido. De igual forma, cuando un planeta se acerca al Sol en su órbita elíptica, su 'brazo' (la distancia) se reduce, obligándolo a aumentar su velocidad para conservar su momento. Esto explica por qué el movimiento no es uniforme. La física detrás de esto es tan sólida que permite a los ingenieros de la NASA calcular trayectorias de sondas espaciales que viajan durante años para encontrarse con un pequeño asteroide. Si la gravedad no actuara como predecimos, estas misiones serían fracasos absolutos.\n\nFinalmente, debemos abordar la curvatura del espacio-tiempo propuesta por Einstein, que aunque es un concepto más avanzado, complementa nuestra deducción. La masa del Sol deforma el espacio a su alrededor, creando una 'vaguada' por la que los planetas se deslizan. No es que el planeta sea 'jalado' por una cuerda invisible, sino que sigue el camino más corto en un espacio que está curvo. Esta perspectiva moderna refuerza que el movimiento planetario es una consecuencia directa de la presencia de masa y energía. Por tanto, el mito de que los objetos flotan porque 'no hay fuerzas' queda totalmente desmantelado ante la evidencia de que el espacio es un tejido dinámico y gobernado por leyes inquebrantables.",
+  "preguntas_deductivas_pagina": [
+    "¿Qué establece la Ley de Gravitación Universal sobre la relación entre fuerza y distancia?",
+    "¿Cómo explica la Tercera Ley de Kepler que los planetas más lejanos tarden más en orbitar?",
+    "¿Qué papel juega la conservación del momento angular en la velocidad de los planetas?",
+    "¿Por qué es imposible encontrar un punto en el universo donde la gravedad sea exactamente cero?",
+    "¿Cómo cambia la visión de Newton sobre la gravedad comparada con la deformación del espacio-tiempo de Einstein?"
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Realiza un diagrama detallado de la fórmula de Gravitación Universal, explicando qué sucede con la fuerza si la distancia se duplica o si una de las masas aumenta.",
+    "Elabora un mapa mental que conecte las tres Leyes de Kepler con la síntesis de Newton, usando conectores lógicos de causa y efecto.",
+    "Dibuja una analogía visual (como el patinador sobre hielo) para explicar la conservación del momento angular en una órbita planetaria.",
+    "Crea una infografía artesanal que resuma las pruebas científicas utilizadas en esta guía para desmentir el mito de la 'ingravidez total' en el espacio."
+  ],
+  "juegos_ordenar_letras_2": [
+    "PERIHELIO",
+    "AFELIO",
+    "SINTESIS"
+  ],
+  "juego_ordenar_frase_2": "EL CUADRADO DEL PERIODO ES PROPORCIONAL AL CUBO DE LA DISTANCIA MEDIA",
+  "sopa_letras": [
+    "KEPLER",
+    "NEWTON",
+    "ORBITA",
+    "ELIPSE",
+    "FUERZA",
+    "MASA",
+    "INERCIA",
+    "RADIO",
+    "FOCO",
+    "PERIODO"
+  ],
+  "crucigrama": [
+    {
+      "palabra": "GRAVEDAD",
+      "pista": "Fuerza de atracción entre dos cuerpos con masa."
+    },
+    {
+      "palabra": "ELIPSE",
+      "pista": "Forma geométrica de las órbitas planetarias."
+    },
+    {
+      "palabra": "AFELIO",
+      "pista": "Punto de la órbita más alejado del Sol."
+    },
+    {
+      "palabra": "PERIHELIO",
+      "pista": "Punto de la órbita más cercano al Sol."
+    },
+    {
+      "palabra": "INERCIA",
+      "pista": "Tendencia de los cuerpos a mantener su estado de movimiento."
+    },
+    {
+      "palabra": "CENTRIPETA",
+      "pista": "Fuerza que actúa hacia el centro en un movimiento circular."
+    },
+    {
+      "palabra": "MICROGRAVEDAD",
+      "pista": "Estado aparente de ingravidez por caída libre."
+    },
+    {
+      "palabra": "KEPLER",
+      "pista": "Astrónomo que formuló las tres leyes del movimiento planetario."
+    },
+    {
+      "palabra": "NEWTON",
+      "pista": "Científico que unificó la física terrestre y celeste."
+    },
+    {
+      "palabra": "UNIVERSAL",
+      "pista": "Carácter de la ley de gravedad que aplica en todo el cosmos."
+    }
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "En la Estación Espacial Internacional, los objetos parecen no tener peso y flotan libremente. Un estudiante afirma que esto se debe a que la EEI está fuera del alcance de la gravedad terrestre.",
+      "tabla_o_grafica_markdown": "| Ubicación | Distancia al centro de la Tierra (km) | Valor de 'g' (m/s²) |\n|---|---|---|\n| Superficie | 6,371 | 9.8 |\n| EEI | 6,771 | 8.7 |",
+      "pregunta": "Basándose en la tabla y los conceptos de movimiento circular, ¿cuál es la razón real por la que los astronautas flotan?",
+      "opciones": [
+        "La fuerza de gravedad es nula a esa altura según la tabla.",
+        "La EEI y los astronautas caen hacia la Tierra con la misma aceleración, pero su velocidad lateral evita el choque.",
+        "La atmósfera a esa altura ejerce una presión hacia arriba que compensa el peso.",
+        "Los materiales de la estación están magnetizados para repeler la gravedad terrestre."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. La tabla muestra que 'g' es 8.7 m/s², no cero.",
+        "1": "Correcto. Es el concepto de caída libre en órbita donde no hay fuerza normal.",
+        "2": "Incorrecto. A 400km casi no hay atmósfera y la presión no genera flotabilidad.",
+        "3": "Incorrecto. El magnetismo no tiene relación con la anulación de la masa gravitatoria."
+      }
+    },
+    {
+      "competencia": "Uso comprensivo del conocimiento científico",
+      "texto_introductorio": "La Tercera Ley de Kepler permite calcular la distancia de un planeta al Sol si conocemos su periodo orbital.",
+      "tabla_o_grafica_markdown": "| Planeta | Periodo (T en años) | Distancia media (a en UA) |\n|---|---|---|\n| Tierra | 1 | 1 |\n| Marte | 1.88 | 1.52 |",
+      "pregunta": "Si se descubriera un asteroide con un periodo orbital de 8 años, ¿cuál sería su distancia aproximada al Sol en Unidades Astronómicas (UA)?",
+      "opciones": [
+        "2 UA",
+        "4 UA",
+        "8 UA",
+        "16 UA"
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. 2 al cubo es 8, pero 8 al cuadrado es 64.",
+        "1": "Correcto. Según T² = a³, 8² = 64 y 4³ = 64. La distancia es 4 UA.",
+        "2": "Incorrecto. 8 al cubo no es igual a 8 al cuadrado.",
+        "3": "Incorrecto. 16 al cubo es un valor mucho más alto que 64."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "Un detective espacial observa que un cometa aumenta su velocidad a medida que se acerca al Sol en una órbita muy elíptica.",
+      "tabla_o_grafica_markdown": "| Posición | Distancia al Sol (r) | Velocidad (v) |\n|---|---|---|\n| Punto A | Grande | Baja |\n| Punto B | Pequeña | Alta |",
+      "pregunta": "¿Qué ley o principio físico permite predecir este cambio de velocidad de manera sistemática?",
+      "opciones": [
+        "La Primera Ley de Newton (Inercia).",
+        "La Segunda Ley de Kepler sobre la igualdad de áreas en tiempos iguales.",
+        "La Ley de la Conservación de la Carga Eléctrica.",
+        "El Principio de Arquímedes."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. La inercia por sí sola no explica el cambio de velocidad en una órbita.",
+        "1": "Correcto. La ley de las áreas explica que el radio vector barre áreas iguales, lo que implica mayor velocidad al reducirse el radio.",
+        "2": "Incorrecto. No hay evidencia de que las cargas eléctricas gobiernen las velocidades orbitales a gran escala.",
+        "3": "Incorrecto. Este principio aplica a fluidos y flotación, no a órbitas en el vacío."
+      }
+    }
+  ]
+}

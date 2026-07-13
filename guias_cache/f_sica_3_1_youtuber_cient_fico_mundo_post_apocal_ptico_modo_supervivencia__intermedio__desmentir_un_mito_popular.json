@@ -1,0 +1,208 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Qué forma creían los antiguos que tenían las órbitas planetarias debido a la 'perfección divina'?",
+      "opciones": [
+        "Elíptica",
+        "Cuadrada",
+        "Circular",
+        "Irregular"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "¿Quién propuso inicialmente el modelo heliocéntrico donde el Sol es el centro?",
+      "opciones": [
+        "Ptolomeo",
+        "Copérnico",
+        "Newton",
+        "Einstein"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Qué fuerza mantiene a los planetas 'atados' a su estrella?",
+      "opciones": [
+        "Magnetismo",
+        "Fuerza Nuclear",
+        "Gravedad",
+        "Presión Atmosférica"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "¿Cuál es el nombre del movimiento aparente de un planeta hacia atrás en el cielo?",
+      "opciones": [
+        "Traslación",
+        "Rotación",
+        "Precesión",
+        "Retrogradación"
+      ],
+      "correcta": 3
+    },
+    {
+      "pregunta": "Si un planeta está más lejos del Sol, su velocidad orbital es...",
+      "opciones": [
+        "Mayor",
+        "Menor",
+        "Igual",
+        "Cero"
+      ],
+      "correcta": 1
+    }
+  ],
+  "texto_inductivo": "¡Qué tal, supervivientes del Yermo! Aquí su 'Profesor de las Ruinas' transmitiendo desde el búnker 402. Espero que sus contadores Geiger estén en verde y sus reservas de agua destilada aguanten una semana más. Hoy no vamos a hablar de cómo filtrar radiación, sino de algo mucho más profundo que nos ayudará a entender por qué nuestro viejo mundo se movía como lo hacía. Antes del 'Gran Colapso', la gente caminaba por las calles ignorando el cielo, pero nosotros, los que quedamos, sabemos que las estrellas son nuestro único mapa. Existe un mito que todavía escucho en los asentamientos de chatarreros: 'Los planetas se mueven en círculos perfectos porque el universo busca el equilibrio'. ¡Error! Ese mito es tan peligroso como beber agua de un charco fluorescente. Si intentas calcular la trayectoria de un satélite de comunicaciones antiguo usando círculos, terminarás enviando tu chatarra al vacío profundo o estrellándola contra la Luna. \n\nHistóricamente, civilizaciones enteras se perdieron en este error. Pensaban que, como el cielo era el reino de lo divino, solo las figuras geométricas perfectas —los círculos— tenían lugar allí. Pero la realidad es más 'sucia' y fascinante. Imaginen a Johannes Kepler, un hombre que no tenía computadoras, solo montañas de datos de observación de Tycho Brahe (un tipo que, por cierto, tenía una nariz de metal, muy estilo post-apocalíptico). Kepler intentó durante años encajar los movimientos de Marte en un círculo. No pudo. Los números no mentían, aunque el ego humano sí. Fue entonces cuando descubrió que los planetas bailan en 'Elipses'. Una elipse es como un círculo que alguien aplastó un poco. Tiene dos centros llamados focos. El Sol no está en medio, está en uno de esos focos. \n\n¿Por qué importa esto en Modo Supervivencia? Porque entender que el movimiento planetario es elíptico nos enseña que el universo no es una máquina rígida de perfección estética, sino un sistema dinámico regido por leyes físicas crudas. Cuando la Tierra (o lo que queda de ella) está en su punto más cercano al Sol (perihelio), se mueve más rápido. Cuando está lejos (afelio), se frena. Si crees en el mito del círculo, nunca entenderás por qué las estaciones tienen duraciones ligeramente distintas o por qué el cielo cambia de ritmo. Desmentir este mito es el primer paso para recuperar la ciencia de la navegación. No somos el centro de nada, y nada en el cielo es 'perfecto' en el sentido antiguo; es simplemente funcional y matemáticamente exacto. Preparen sus cuadernos de hojas recicladas, porque vamos a desglosar cómo este baile elíptico mantiene a los planetas en su lugar sin que salgan disparados hacia la oscuridad del espacio interestelar. ¡La ciencia es la mejor herramienta de supervivencia que tenemos!",
+  "recurso_visual": "graph TD\n    A[Mito: Órbitas Circulares] -->|Evidencia: Marte no encaja| B(Observaciones de Tycho Brahe)\n    B --> C{Kepler analiza los datos}\n    C -->|Primera Ley| D[Órbitas Elípticas]\n    C -->|Segunda Ley| E[Áreas iguales en tiempos iguales]\n    C -->|Tercera Ley| F[Relación Periodo y Distancia]\n    D --> G[Realidad Científica: El Sol está en un foco]\n    E --> H[Velocidad variable del planeta]",
+  "preguntas_inductivas_pagina": [
+    "¿Por qué el mito de las órbitas circulares era aceptado por tanto tiempo?",
+    "¿Quién fue el científico que usó los datos de Tycho Brahe para cambiar la historia?",
+    "¿Qué figura geométrica describe realmente la trayectoria de un planeta?",
+    "¿En qué posición de la elipse se encuentra el Sol?",
+    "¿Cómo cambia la velocidad de un planeta según su distancia al Sol?"
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja una elipse exagerada y ubica los dos focos, colocando al Sol en uno de ellos y etiquetando el Perihelio y el Afelio.",
+    "Realiza un cuadro comparativo entre el Modelo Geocéntrico (Ptolomeo) y el Modelo Heliocéntrico (Copérnico/Kepler).",
+    "Escribe una reflexión de 10 líneas sobre cómo el prejuicio de la 'perfección divina' retrasó el avance de la astronomía por siglos.",
+    "Representa gráficamente la Segunda Ley de Kepler, sombreando dos sectores de la elipse que representen 'áreas iguales' recorridas en el mismo tiempo."
+  ],
+  "juegos_ordenar_letras_1": [
+    "ELIPSE",
+    "KEPLER",
+    "ENERGIA"
+  ],
+  "juego_ordenar_frase_1": "EL SOL OCUPA UNO DE LOS FOCOS DE LA ELIPSE PLANETARIA",
+  "texto_deductivo": "Ahora que hemos destruido el mito de la perfección circular, es hora de entrar en la mecánica pesada, supervivientes. Saquen sus llaves inglesas mentales. Para entender el movimiento planetario, no basta con saber que es una elipse; hay que entender POR QUÉ es una elipse. Aquí es donde entra en juego el titán de la preguerra: Isaac Newton. Si Kepler nos dijo 'cómo' se mueven los planetas, Newton nos dijo 'por qué'. Todo se resume a la Ley de Gravitación Universal. Imaginen que la gravedad es un cable invisible que une a cada planeta con el Sol. Pero no es un cable rígido, es elástico y su fuerza depende de la masa y la distancia.\n\nLa gran revelación es que el movimiento planetario es un equilibrio constante entre dos tendencias: la inercia del planeta (que quiere seguir derecho hacia el vacío oscuro) y la atracción gravitatoria del Sol (que quiere absorber al planeta en su núcleo ardiente). Esta lucha eterna crea la órbita. Si la gravedad fuera un poco más fuerte, acabaríamos fritos. Si la velocidad fuera mayor, saldríamos disparados al frío eterno. El mito popular dice que 'no nos caemos al Sol porque el espacio no tiene gravedad'. ¡Falso! La gravedad está en todas partes. Los planetas están, técnicamente, en una 'caída libre' perpetua, pero tienen tanta velocidad lateral que 'fallan' al intentar golpear el Sol, pasando de largo y dando la vuelta.\n\nAnalicemos las Leyes de Kepler desde la física de Newton. La Primera Ley (Elipses) es consecuencia de una fuerza que varía con el inverso del cuadrado de la distancia ($1/r^2$). La Segunda Ley (Áreas Iguales) es en realidad la conservación del Momento Angular. Piensen en un patinador sobre hielo (si es que alguno de ustedes ha visto hielo que no sea radiactivo): cuando cierra los brazos, gira más rápido. Cuando el planeta se acerca al Sol, es como si cerrara sus brazos gravitacionales y ¡pum!, aumenta su velocidad para no ser succionado. Finalmente, la Tercera Ley nos da la fórmula maestra: el cuadrado del periodo orbital es proporcional al cubo de la distancia media. Esto significa que si conocemos a qué distancia está un planeta, podemos saber exactamente cuánto dura su año. En este mundo post-apocalíptico, esta matemática es vital. Si logramos poner un satélite de vigilancia en órbita para detectar hordas de saqueadores, necesitamos estas ecuaciones. El universo no es un caos; es un reloj de precisión mecánica que obedece a la gravedad. Desmentir mitos no es solo un ejercicio intelectual, es la diferencia entre dominar tu entorno o ser víctima de él. La próxima vez que alguien te diga que el cielo es estático o perfecto, recuérdale que todo está en una caída controlada hacia el centro de masa del sistema.",
+  "preguntas_deductivas_pagina": [
+    "¿Qué dos factores determinan la fuerza de gravedad entre dos cuerpos?",
+    "¿Por qué un planeta no se cae directamente hacia el Sol?",
+    "¿Qué principio físico explica la Segunda Ley de Kepler?",
+    "¿Qué sucede con el periodo orbital si aumentamos la distancia de un planeta al Sol?",
+    "¿Cómo define Newton la órbita de un planeta en relación con la gravedad?"
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Realiza un diagrama detallado de fuerzas (vectores) de un planeta en un punto de su órbita, mostrando la fuerza gravitatoria y el vector de velocidad tangencial.",
+    "Elabora un mapa mental que conecte las 3 Leyes de Kepler con la Ley de Gravitación Universal de Newton.",
+    "Dibuja un esquema que explique el concepto de 'caída libre perpetua' aplicado a un satélite o planeta.",
+    "Diseña una infografía artesanal que explique por qué el mito de las 'órbitas circulares' fallaría al intentar predecir un eclipse."
+  ],
+  "juegos_ordenar_letras_2": [
+    "GRAVEDAD",
+    "INERCIA",
+    "PERIODO"
+  ],
+  "juego_ordenar_frase_2": "LA FUERZA DE GRAVEDAD DISMINUYE CON EL CUADRADO DE LA DISTANCIA",
+  "sopa_letras": [
+    "KEPLER",
+    "NEWTON",
+    "ELIPSE",
+    "GRAVEDAD",
+    "FOCO",
+    "AFELIO",
+    "ORBITA",
+    "INERCIA",
+    "PERIODO",
+    "MASA"
+  ],
+  "crucigrama": [
+    {
+      "palabra": "ELIPSE",
+      "pista": "Forma geométrica de la órbita planetaria."
+    },
+    {
+      "palabra": "SOL",
+      "pista": "Cuerpo que ocupa uno de los focos en nuestro sistema."
+    },
+    {
+      "palabra": "AFELIO",
+      "pista": "Punto de la órbita más alejado del Sol."
+    },
+    {
+      "palabra": "PERIHELIO",
+      "pista": "Punto de la órbita más cercano al Sol."
+    },
+    {
+      "palabra": "GRAVEDAD",
+      "pista": "Fuerza de atracción entre masas."
+    },
+    {
+      "palabra": "INERCIA",
+      "pista": "Tendencia de un cuerpo a mantener su movimiento recto."
+    },
+    {
+      "palabra": "TYCHO",
+      "pista": "Nombre del observador cuyos datos usó Kepler."
+    },
+    {
+      "palabra": "SEGUNDA",
+      "pista": "Ley de Kepler que habla de áreas iguales en tiempos iguales."
+    },
+    {
+      "palabra": "AÑO",
+      "pista": "Tiempo que tarda un planeta en completar una órbita."
+    },
+    {
+      "palabra": "CUADRADO",
+      "pista": "Relación del tiempo en la tercera ley de Kepler (T al...)."
+    }
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "En el Yermo, un grupo de supervivientes observa que Marte brilla más en ciertas épocas del año y parece moverse más rápido en el firmamento comparado con otras estaciones.",
+      "tabla_o_grafica_markdown": "| Posición | Distancia al Sol (UA) | Velocidad Orbital (km/s) |\n|---|---|---|\n| Perihelio | 1.38 | 26.5 |\n| Afelio | 1.67 | 22.0 |",
+      "pregunta": "¿Cuál es la razón científica que explica por qué Marte se mueve más rápido en el perihelio?",
+      "opciones": [
+        "Porque la fuerza gravitacional es mayor al estar más cerca del Sol, aumentando su aceleración.",
+        "Porque en el espacio no hay fricción y el planeta acumula energía solar.",
+        "Porque el Sol empuja al planeta con más calor cuando está cerca.",
+        "Porque las órbitas circulares requieren una velocidad constante en todo punto."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. Según Newton, a menor distancia, mayor fuerza gravitatoria, lo que incrementa la velocidad orbital.",
+        "1": "Incorrecto. La falta de fricción es constante, no explica el cambio de velocidad.",
+        "2": "Incorrecto. El calor no ejerce una fuerza de empuje mecánica sobre la órbita.",
+        "3": "Incorrecto. El mito de las órbitas circulares es falso; las órbitas son elípticas y la velocidad varía."
+      }
+    },
+    {
+      "competencia": "Uso comprensivo del conocimiento científico",
+      "texto_introductorio": "Un chatarrero espacial intenta poner un satélite en órbita. Él cree que si el satélite deja de encender sus motores, la gravedad lo succionará inmediatamente hacia la Tierra.",
+      "tabla_o_grafica_markdown": "| Objeto | Masa | Estado |\n|---|---|---|\n| Satélite | 500 kg | Órbita estable |\n| Tierra | 5.97e24 kg | Centro de masa |",
+      "pregunta": "¿Qué concepto físico desmiente la creencia del chatarrero?",
+      "opciones": [
+        "La ley de la inercia permite que el satélite mantenga su velocidad lateral, cayendo perpetuamente sin chocar.",
+        "La atmósfera superior empuja el satélite hacia afuera constantemente.",
+        "El satélite no tiene masa suficiente para ser atraído por la gravedad terrestre.",
+        "La gravedad solo funciona dentro de la atmósfera, fuera de ella no hay atracción."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. Una órbita es un equilibrio entre la caída libre y la velocidad tangencial (inercia).",
+        "1": "Incorrecto. La atmósfera, aunque mínima, genera resistencia que eventualmente haría caer el satélite.",
+        "2": "Incorrecto. Todo cuerpo con masa es atraído por la gravedad.",
+        "3": "Incorrecto. Es un mito común; la gravedad tiene alcance infinito según la ley de Newton."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "Kepler observó que el tiempo que los planetas tardan en dar una vuelta al Sol (T) aumenta de forma predecible con su distancia media (R).",
+      "tabla_o_grafica_markdown": "| Planeta | R (UA) | T (años) | R³/T² |\n|---|---|---|---|\n| Tierra | 1.0 | 1.0 | 1.0 |\n| Júpiter | 5.2 | 11.8 | ~1.0 |\n| Saturno | 9.5 | 29.4 | ~1.0 |",
+      "pregunta": "Si descubrimos un nuevo planeta en el sistema a una distancia de 4 UA, ¿qué se puede concluir sobre su periodo orbital basándose en la tabla?",
+      "opciones": [
+        "Su periodo será de exactamente 4 años.",
+        "Su periodo será mayor a 1 año pero menor a 11.8 años.",
+        "Su periodo será menor a 1 año porque está más lejos.",
+        "El periodo no depende de la distancia, sino del tamaño del planeta."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. La relación no es lineal (R=T), es R³/T²=K.",
+        "1": "Correcto. Al estar a una distancia intermedia entre la Tierra (1 UA) y Júpiter (5.2 UA), su periodo debe estar entre 1 y 11.8 años.",
+        "2": "Incorrecto. A mayor distancia, mayor es el periodo orbital según la 3ra ley de Kepler.",
+        "3": "Incorrecto. La tercera ley de Kepler demuestra que el periodo depende exclusivamente de la distancia al sol."
+      }
+    }
+  ]
+}

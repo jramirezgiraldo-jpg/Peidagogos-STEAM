@@ -1,0 +1,188 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "En medio de esta jungla espesa, si miras al cielo de noche, ¿qué forma crees que tienen los caminos que siguen los planetas alrededor del Sol?",
+      "opciones": [
+        "Círculos perfectos",
+        "Cuadrados deformes",
+        "Óvalos llamados elipses",
+        "Líneas rectas"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "¿Cuál es el nombre del gigante brillante que mantiene a todos los planetas 'atrapados' en su lugar mediante una fuerza invisible?",
+      "opciones": [
+        "La Luna",
+        "Júpiter",
+        "El Sol",
+        "La Estrella Polar"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "Si un planeta está más lejos del Sol, ¿cuánto tiempo crees que tarda en dar una vuelta completa?",
+      "opciones": [
+        "Menos tiempo que la Tierra",
+        "Exactamente el mismo tiempo",
+        "Más tiempo que la Tierra",
+        "No se mueve"
+      ],
+      "correcta": 2
+    }
+  ],
+  "texto_inductivo": "¡MUAHAHAHA! ¡Bienvenidos a mi laboratorio verde, insignificantes pero curiosos exploradores! Soy el Doctor Gravitón, y si quieren salir vivos de esta selva de ignorancia, más les vale prestar atención a los cielos. ¿Ven esas luces que se mueven allá arriba mientras los jaguares acechan? No son luciérnagas gigantes, ¡son planetas! Y entender cómo se mueven no es solo para astrónomos aburridos en torres de piedra; es la clave para nuestra supervivencia. Durante milenios, los humanos pensaron que eran el centro del universo. ¡Qué arrogancia! Creían que la Tierra estaba quieta en medio de la jungla cósmica y que todo lo demás giraba en círculos perfectos a su alrededor. A esto lo llamaban el modelo **Geocéntrico**. Pero, ¡oh, sorpresa!, los planetas hacían cosas raras, como retroceder en el cielo (movimiento retrógrado), lo cual volvía locos a los antiguos sabios. \n\nImaginen que estamos tratando de rastrear a un depredador en esta selva: si pensamos que el depredador gira en círculos alrededor de nuestro campamento, pero en realidad se mueve en una trayectoria diferente, ¡acabaremos siendo su cena! Fue Nicolás Copérnico quien, con la valentía de un explorador que se interna en lo desconocido, propuso el modelo **Heliocéntrico**: el Sol está en el centro, y nosotros somos los que damos vueltas. Sin embargo, Copérnico aún estaba obsesionado con los círculos perfectos. ¡Error! Los círculos son para aficionados. Fue gracias a las observaciones precisas de Tycho Brahe (un tipo rudo con una nariz de metal) y al genio matemático de Johannes Kepler que descubrimos la verdad. Kepler no tenía telescopios potentes, pero tenía algo mejor: ¡datos y paciencia! Él se dio cuenta de que si queríamos predecir dónde estaría Marte para no perdernos en la navegación estelar, debíamos aceptar que los planetas se mueven en **elipses**. \n\nEn esta fase de nuestra expedición, debemos comprender que el movimiento planetario no es caprichoso. Sigue patrones que podemos observar desde nuestra pequeña posición en la selva. Observar el cielo es como leer las huellas en el barro; nos dice de dónde venimos y hacia dónde vamos. Si aprendemos a ver el cielo como un reloj gigante, nunca perderemos el norte, incluso si la brújula se rompe por la humedad tropical. Los planetas se mueven más rápido cuando están cerca del Sol y más lento cuando se alejan, igual que ustedes cuando ven una serpiente y luego cuando están descansando en una hamaca. ¡La ciencia es observación, y la observación es vida! Prepárense, porque antes de que la Luna alcance su cenit, ustedes dominarán la danza de los astros o se quedarán aquí para siempre alimentando a los mosquitos.",
+  "recurso_visual": "graph TD\n    A[Modelos del Universo] --> B(Geocéntrico)\n    A --> C(Heliocéntrico)\n    B --> B1[Tierra en el centro]\n    B --> B2[Círculos perfectos]\n    C --> C1[Sol en el centro]\n    C --> C2[Órbitas Elípticas - Kepler]\n    C2 --> D{Supervivencia}\n    D --> E[Navegación Estelar]\n    D --> F[Predicción de Estaciones]",
+  "preguntas_inductivas_pagina": [
+    "¿Quién propuso que el Sol era el centro del sistema antes de Kepler?",
+    "¿Qué forma geométrica reemplazó al círculo en las órbitas planetarias?",
+    "¿Cómo llamaban los antiguos al modelo donde la Tierra era el centro?",
+    "¿Qué fenómeno extraño hacían los planetas que confundía a los defensores del geocentrismo?",
+    "¿Por qué es importante observar el cielo según el Doctor Gravitón?"
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema comparativo entre el modelo Geocéntrico y el Heliocéntrico, resaltando la posición del Sol y la Tierra.",
+    "Realiza un cuadro comparativo entre las ideas de Copérnico y los descubrimientos de Kepler sobre las órbitas.",
+    "Escribe una reflexión de 10 renglones: ¿Cómo cambiaría nuestra vida en la selva si no supiéramos que la Tierra se mueve alrededor del Sol?",
+    "Representa gráficamente una elipse y señala sus focos, explicando por qué no es un círculo perfecto."
+  ],
+  "juegos_ordenar_letras_1": [
+    "ELIPSE",
+    "CENTRO",
+    "ORBITA"
+  ],
+  "juego_ordenar_frase_1": "EL SOL ES EL CORAZON DE NUESTRO SISTEMA PLANETARIO",
+  "texto_deductivo": "¡Escuchen bien, sobrevivientes! Ya vimos las huellas, ahora vamos a entender las leyes físicas que rigen este caos ordenado. No es magia lo que mantiene a los planetas en su lugar mientras nosotros esquivamos lianas venenosas; es la **Mecánica Celeste**. Johannes Kepler formuló tres leyes fundamentales, pero para nuestro nivel de 'Novatos en la Jungla', nos enfocaremos en lo esencial para no morir en el intento. La Primera Ley dice que todos los planetas se desplazan en órbitas elípticas con el Sol en uno de sus focos. ¿Qué significa esto? Que no siempre estamos a la misma distancia de nuestra estrella. Cuando estamos cerca, ¡hace un calor de mil demonios! \n\nLuego viene la Segunda Ley, la ley de las áreas. Imaginen que un planeta está unido al Sol por una cuerda invisible. Mientras el planeta se mueve, esa cuerda barre áreas iguales en tiempos iguales. En términos de selva: cuando el planeta está cerca del Sol (perihelio), ¡corre como si lo persiguiera un tigre! Cuando está lejos (afelio), se mueve más despacio, como un perezoso en una tarde de lluvia. Esto es crucial para calcular el tiempo y las estaciones. Si no sabemos en qué parte de la elipse estamos, no sabremos cuándo vendrá la temporada de inundaciones y nuestro campamento terminará bajo el agua. \n\nPero, ¿por qué los planetas no salen disparados al espacio profundo como una piedra lanzada por una honda? ¡Aquí entra mi ídolo, Sir Isaac Newton! Él se dio cuenta de que existe una fuerza de atracción llamada **Gravedad**. Todo objeto con masa atrae a otros objetos. El Sol es tan masivo que tira de nosotros con una fuerza increíble. Es un equilibrio delicado: la velocidad de la Tierra quiere lanzarnos hacia afuera, pero la gravedad del Sol nos mantiene 'atrapados' en la órbita. Es como balancear un balde de agua sobre tu cabeza sin derramarlo; si dejas de girar, el agua te moja (o en este caso, ¡caemos al Sol!).\n\nLa Tercera Ley de Kepler nos dice que hay una relación matemática entre la distancia al Sol y el tiempo que tarda un planeta en orbitar. Mientras más lejos está un planeta, más largo es su 'año'. Por eso, si estuviéramos en Neptuno, ¡tu cumpleaños sería cada 165 años terrestres! En esta expedición, entender estas leyes nos permite predecir los ciclos de luz y oscuridad con precisión milimétrica. La física no son solo ecuaciones en un tablero sucio; es el mapa invisible que nos permite navegar por el cosmos y por esta densa selva. La gravedad no solo hace que las frutas caigan de los árboles para alimentarnos; mantiene a la Luna en su lugar para que las mareas no destruyan nuestras balsas. ¡Todo está conectado por hilos invisibles de fuerza y geometría! Si dominan estas leyes, dominarán la naturaleza misma. Ahora, ¡a trabajar antes de que la gravedad atraiga más lluvia sobre nuestras cabezas!",
+  "preguntas_deductivas_pagina": [
+    "¿Qué dice la Primera Ley de Kepler sobre la forma de las órbitas?",
+    "¿Cómo se llama el punto donde un planeta está más cerca del Sol?",
+    "¿Qué fuerza descubierta por Newton mantiene a los planetas en órbita?",
+    "Según la Segunda Ley de Kepler, ¿dónde se mueve más rápido un planeta?",
+    "¿Qué planeta tarda más en dar una vuelta al Sol: uno cercano o uno lejano?"
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Realiza un diagrama detallado de un planeta en órbita elíptica, marcando el perihelio, el afelio y la posición del Sol.",
+    "Elabora un mapa mental que conecte las 3 leyes de Kepler con la Ley de Gravitación de Newton.",
+    "Dibuja un esquema explicativo que muestre qué pasaría con la Tierra si la gravedad del Sol desapareciera de repente.",
+    "Crea una infografía artesanal que explique por qué los años duran diferente tiempo en distintos planetas."
+  ],
+  "juegos_ordenar_letras_2": [
+    "GRAVEDAD",
+    "PERIHELIO",
+    "NEWTON"
+  ],
+  "juego_ordenar_frase_2": "LA FUERZA DE GRAVEDAD ATRAE TODOS LOS CUERPOS CON MASA",
+  "sopa_letras": [
+    "KEPLER",
+    "NEWTON",
+    "ELIPSE",
+    "SOL",
+    "PLANETA",
+    "GRAVEDAD",
+    "ORBITA",
+    "FOCO",
+    "AFELIO",
+    "MASA"
+  ],
+  "crucigrama": [
+    {
+      "palabra": "ELIPSE",
+      "pista": "Forma geométrica de la órbita planetaria."
+    },
+    {
+      "palabra": "GRAVEDAD",
+      "pista": "Fuerza que atrae a los planetas hacia el Sol."
+    },
+    {
+      "palabra": "PERIHELIO",
+      "pista": "Punto de la órbita más cercano al Sol."
+    },
+    {
+      "palabra": "AFELIO",
+      "pista": "Punto de la órbita más alejado del Sol."
+    },
+    {
+      "palabra": "KEPLER",
+      "pista": "Científico que formuló las tres leyes del movimiento planetario."
+    },
+    {
+      "palabra": "SOL",
+      "pista": "Centro de nuestro sistema planetario según el modelo heliocéntrico."
+    },
+    {
+      "palabra": "NEWTON",
+      "pista": "Físico que explicó POR QUÉ se mueven los planetas mediante la gravedad."
+    },
+    {
+      "palabra": "FOCO",
+      "pista": "Lugar que ocupa el Sol dentro de la elipse."
+    },
+    {
+      "palabra": "ANIO",
+      "pista": "Tiempo que tarda un planeta en dar una vuelta completa al Sol."
+    },
+    {
+      "palabra": "MASA",
+      "pista": "Cantidad de materia de un cuerpo que determina su fuerza gravitatoria."
+    }
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "Durante la expedición, observas que Marte parece moverse más lento en ciertas épocas del año. Al revisar tus notas del Dr. Gravitón, recuerdas la Segunda Ley de Kepler sobre las áreas barridas por el radio vector.",
+      "tabla_o_grafica_markdown": "| Posición | Distancia al Sol (UA) | Velocidad Orbital |\n|---|---|---|\n| Punto A | 1.38 | Alta |\n| Punto B | 1.66 | Baja |",
+      "pregunta": "¿En qué punto se encuentra el planeta Marte cuando está en su afelio?",
+      "opciones": [
+        "En el Punto B, porque está más lejos y su velocidad es menor.",
+        "En el Punto A, porque está más cerca y corre más rápido.",
+        "En el centro de la elipse, donde la velocidad es constante.",
+        "Fuera de la órbita, debido a la falta de gravedad."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. El afelio es el punto más alejado y, según Kepler, es donde el planeta se mueve más lento.",
+        "1": "Incorrecto. El punto A corresponde al perihelio, donde la velocidad es mayor.",
+        "2": "Incorrecto. Los planetas no están en el centro de la elipse y su velocidad no es constante.",
+        "3": "Incorrecto. Un planeta no puede estar fuera de su órbita y seguir las leyes de Kepler."
+      }
+    },
+    {
+      "competencia": "Uso Comprensivo del Conocimiento Científico",
+      "texto_introductorio": "Si quisiéramos enviar una señal de auxilio desde la jungla a una estación espacial, debemos saber que la fuerza de atracción entre dos cuerpos depende de sus masas y la distancia que los separa.",
+      "tabla_o_grafica_markdown": "| Objeto | Masa (Relativa) | Distancia |\n|---|---|---|\n| Tierra | 1 | - |\n| Luna | 0.012 | 384,400 km |\n| Sol | 333,000 | 150,000,000 km |",
+      "pregunta": "¿Por qué la Tierra orbita alrededor del Sol y no alrededor de la Luna, si la Luna está mucho más cerca?",
+      "opciones": [
+        "Porque la Luna no tiene gravedad.",
+        "Porque la masa del Sol es tan gigantesca que su fuerza gravitatoria domina a pesar de la distancia.",
+        "Porque el Sol es de fuego y la Luna es de roca.",
+        "Porque la Luna se mueve más rápido que el Sol."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. Todo objeto con masa tiene gravedad.",
+        "1": "Correcto. La gravedad depende directamente de la masa; la enorme masa del Sol genera una atracción superior.",
+        "2": "Incorrecto. La composición química no determina la órbita, sino la masa y la distancia.",
+        "3": "Incorrecto. La velocidad orbital es una consecuencia de la gravedad, no la causa de la órbita principal."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "Un estudiante de la expedición nota que los planetas exteriores tardan mucho más en completar su órbita que la Tierra. Decide investigar la relación entre el periodo (T) y el radio de la órbita (R).",
+      "tabla_o_grafica_markdown": "| Planeta | Radio Orbital (R) | Periodo (T en años) |\n|---|---|---|\n| Mercurio | 0.39 | 0.24 |\n| Tierra | 1.00 | 1.00 |\n| Júpiter | 5.20 | 11.86 |",
+      "pregunta": "¿Qué conclusión se puede obtener al observar la tabla sobre el movimiento de los planetas?",
+      "opciones": [
+        "A mayor distancia del Sol, menor es el tiempo que tarda el planeta en dar la vuelta.",
+        "La distancia al Sol no influye en el tiempo que tarda un planeta en completar su órbita.",
+        "A mayor distancia del Sol, mayor es el periodo orbital del planeta.",
+        "Todos los planetas tardan lo mismo porque el Sol los atrae por igual."
+      ],
+      "correcta": 2,
+      "retroalimentacion": {
+        "0": "Incorrecto. Los datos muestran que a mayor R, mayor T.",
+        "1": "Incorrecto. La tabla muestra una clara dependencia entre la distancia y el tiempo.",
+        "2": "Correcto. Esta es la esencia de la Tercera Ley de Kepler: órbitas más grandes requieren más tiempo.",
+        "3": "Incorrecto. Los datos de la tabla contradicen esta afirmación; los periodos son muy diferentes."
+      }
+    }
+  ]
+}

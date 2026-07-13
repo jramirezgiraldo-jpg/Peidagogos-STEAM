@@ -153,6 +153,38 @@ class GestorAPI(http.server.SimpleHTTPRequestHandler):
                 self.end_headers()
                 self.wfile.write(json.dumps({"error": str(e)}).encode('utf-8'))
 
+        elif self.path == '/api/eliminar-estudiante':
+            try:
+                content_length = int(self.headers.get('Content-Length', 0))
+                post_data = self.rfile.read(content_length)
+                datos = json.loads(post_data.decode('utf-8'))
+                doc_a_borrar = str(datos.get('documento', '')).strip()
+                
+                archivo_db = 'usuarios.json'
+                if os.path.exists(archivo_db):
+                    with open(archivo_db, 'r', encoding='utf-8') as f:
+                        usuarios = json.load(f)
+                    
+                    # Filtrar eliminando al estudiante con ese documento
+                    usuarios_restantes = [u for u in usuarios if str(u.get('documento', '')).strip() != doc_a_borrar]
+                    
+                    with open(archivo_db, 'w', encoding='utf-8') as f:
+                        json.dump(usuarios_restantes, f, indent=4, ensure_ascii=False)
+                        
+                    self.send_response(200)
+                    self.send_header('Content-Type', 'application/json')
+                    self.send_header('Access-Control-Allow-Origin', '*')
+                    self.end_headers()
+                    self.wfile.write(json.dumps({"status": "success", "message": "Estudiante eliminado"}).encode('utf-8'))
+                else:
+                    self.send_response(404)
+                    self.end_headers()
+                    self.wfile.write(json.dumps({"status": "error", "message": "Base de datos no encontrada"}).encode('utf-8'))
+            except Exception as e:
+                self.send_response(500)
+                self.end_headers()
+                self.wfile.write(json.dumps({"error": str(e)}).encode('utf-8'))
+
         elif self.path == '/api/asignaturas':
             try:
                 content_length = int(self.headers.get('Content-Length', 0))
@@ -193,6 +225,8 @@ class GestorAPI(http.server.SimpleHTTPRequestHandler):
                 encontrado = False
                 nombre = ""
                 grado = ""
+                grupo = ""
+                asignatura = ""
                 rol_asignado = ""
 
                 if rol_esperado == "admin":
@@ -225,6 +259,8 @@ class GestorAPI(http.server.SimpleHTTPRequestHandler):
                                         encontrado = True
                                         nombre = f"{u.get('nombre', '')} {u.get('apellidos', '')}"
                                         grado = str(u.get('grado', ''))
+                                        grupo = str(u.get('grupo', ''))
+                                        asignatura = str(u.get('asignatura', ''))
                                         rol_asignado = "estudiante"
                                         break
                             except: pass
@@ -235,7 +271,7 @@ class GestorAPI(http.server.SimpleHTTPRequestHandler):
                 self.end_headers()
 
                 if encontrado:
-                    self.wfile.write(json.dumps({"status": "success", "nombre": nombre, "grado": grado, "rol": rol_asignado, "usuario": usuario_input}).encode('utf-8'))
+                    self.wfile.write(json.dumps({"status": "success", "nombre": nombre, "grado": grado, "grupo": grupo, "asignatura": asignatura, "rol": rol_asignado, "usuario": usuario_input}).encode('utf-8'))
                 else:
                     self.wfile.write(json.dumps({"status": "error", "message": "Inválido"}).encode('utf-8'))
             except Exception as e:

@@ -1,0 +1,168 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Cuál de las siguientes afirmaciones describe mejor lo que creían los antiguos sobre el movimiento de los planetas antes de la Revolución Científica?",
+      "opciones": [
+        "Que los planetas se movían en elipses perfectas debido a la gravedad.",
+        "Que los planetas estaban fijos en una cúpula de cristal sin movimiento.",
+        "Que los planetas se movían en círculos perfectos alrededor de la Tierra (Geocentrismo).",
+        "Que el Sol se movía de forma errática dependiendo de las estaciones."
+      ],
+      "correcta": 2
+    }
+  ],
+  "texto_inductivo": "Saludos, aspirantes a supervivientes. Soy el Detective de Archivos Perdidos. Estamos en el año 120 después del Gran Colapso. El cielo siempre está cubierto por una bruma grisácea, pero ayer, una tormenta de arena despejó la atmósfera por unos instantes y pudimos ver las luces errantes que los Antiguos llamaban 'planetas'. En los restos de una antigua biblioteca técnica, encontré un mito peligroso que ha estado circulando en los asentamientos: muchos creen que los astros se mueven en **círculos perfectos** por el cielo, guiados por fuerzas místicas. Si queremos reactivar los satélites de comunicación que aún orbitan allá arriba para restaurar la red de supervivencia, debemos desmentir este mito con la precisión de la Física. \n\nEl mito del círculo perfecto no es nuevo; dominó la mente humana por milenios. Los filósofos de la antigüedad, como Aristóteles y Ptolomeo, estaban convencidos de que el cielo era el reino de la perfección, y qué forma es más perfecta que el círculo. Sin embargo, cuando los primeros 'detectives del cielo' como Tycho Brahe empezaron a recolectar datos reales —evidencia pura y dura de los restos del mundo antiguo—, las piezas del rompecabezas no encajaban. Brahe pasó años midiendo la posición de Marte con una precisión asombrosa para su época, sin telescopios, solo con sextantes gigantes y paciencia de cazador. Cuando su aprendiz, Johannes Kepler, heredó esos datos, se enfrentó a una anomalía: si Marte se movía en un círculo, su posición real fallaba por ocho minutos de arco respecto a la teoría. Para un detective, ocho minutos es una huella dactilar que no puedes ignorar. \n\nKepler intentó ajustar círculos sobre círculos (epiciclos), pero la naturaleza se resistía. Fue entonces cuando tomó la decisión más audaz de la historia de la ciencia: abandonó la idea de la 'perfección circular' y probó con una curva que los matemáticos griegos conocían pero despreciaban para el cielo: la **elipse**. Al hacerlo, todo cobró sentido. Los planetas no giran en círculos; se desplazan en trayectorias ovaladas donde el Sol ocupa uno de los focos. Este descubrimiento no fue solo un cambio de forma; fue el nacimiento de la astronomía moderna. En nuestro mundo post-apocalíptico, entender que la distancia entre un planeta y su estrella varía constantemente es vital. Si planeamos un viaje de exploración a las colonias lunares o intentamos predecir el regreso de un cometa que traiga agua congelada, no podemos confiar en mitos circulares. La elipse es la clave de nuestra trayectoria de escape. El mito ha sido desmentido por la observación: la realidad es elíptica, variable y matemáticamente exacta. No hay perfección estética en el vacío, solo leyes físicas que rigen el movimiento de los restos de nuestro sistema solar.",
+  "recurso_visual": "graph LR\n    A[Mito: Círculos Perfectos] --> B{Evidencia de Tycho Brahe}\n    B --> C[Anomalía de 8 minutos de arco]\n    C --> D[Kepler: Primera Ley]\n    D --> E[Realidad: Órbitas Elípticas]\n    E --> F[Foco 1: El Sol]\n    E --> G[Foco 2: Espacio Vacío]\n    style A fill:#f96,stroke:#333\n    style E fill:#6f9,stroke:#333",
+  "preguntas_inductivas_pagina": [
+    "¿Por qué los antiguos consideraban que el círculo era la única forma posible para las órbitas?",
+    "¿Qué error de medición encontró Kepler que lo llevó a dudar del modelo circular?",
+    "¿Cuál es la principal diferencia geométrica entre un círculo y una elipse según el texto?",
+    "¿Por qué es peligroso para un superviviente creer en el mito de las órbitas circulares?",
+    "¿Qué papel jugó la recolección de datos de Tycho Brahe en el proceso de investigación de Kepler?"
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema comparativo donde muestres un planeta en órbita circular vs. un planeta en órbita elíptica, señalando los focos.",
+    "Realiza un cuadro comparativo entre el Modelo Geocéntrico (Ptolomeo) y el Modelo Heliocéntrico (Kepler), destacando sus fallos y aciertos.",
+    "Escribe una reflexión de media página sobre cómo el 'dogma de la perfección' impidió el avance de la ciencia durante siglos.",
+    "Representa gráficamente el concepto de '8 minutos de arco' como la prueba mínima que cambió la historia de la física."
+  ],
+  "juegos_ordenar_letras_1": [
+    "ELIPSE",
+    "KEPLER",
+    "ORBITA"
+  ],
+  "juego_ordenar_frase_1": "LA OBSERVACION PRECISA DESMIENTE EL MITO DE LA PERFECCION CIRCULAR",
+  "texto_deductivo": "Escuchen bien, cadetes del nuevo mundo. Para sobrevivir en el vacío o simplemente para entender por qué las estaciones son tan erráticas desde que la Tierra perdió parte de su inclinación original, debemos dominar las leyes que dedujo Kepler a partir de su descubrimiento de la elipse. La **Primera Ley de Kepler**, o Ley de las Órbitas, nos dice que todos los planetas se desplazan alrededor del Sol siguiendo órbitas elípticas. Esto significa que hay un punto de máxima cercanía llamado perihelio y un punto de máxima lejanía llamado afelio. En nuestro contexto, esto explica por qué la radiación solar que llega a nuestros paneles es más intensa en ciertos periodos del ciclo anual.\n\nPero el misterio se profundiza con la **Segunda Ley de Kepler**, o Ley de las Áreas. Kepler notó que los planetas no se mueven a una velocidad constante. ¡El mito de la velocidad uniforme también es falso! Un planeta se mueve más rápido cuando está cerca del Sol y más lento cuando está lejos. Matemáticamente, el radio vector que une al Sol con el planeta barre áreas iguales en tiempos iguales. Para un detective de física, esto es una ley de conservación encubierta. Si estamos rastreando una sonda de suministros, debemos calcular su aceleración en el perihelio para no perderla de vista. La velocidad no es un capricho de los dioses, es una respuesta a la proximidad gravitatoria.\n\nFinalmente, llegamos a la **Tercera Ley de Kepler**, la Ley de los Periodos. Esta es la herramienta definitiva para los cartógrafos del cielo. Establece que el cuadrado del periodo orbital (el tiempo que tarda en dar una vuelta completa) es proporcional al cubo de la distancia media al Sol. En términos simples: cuanto más lejos está un planeta o satélite, mucho más lento es su 'año'. Esta ley permitió a los antiguos calcular las distancias relativas de todos los planetas conocidos sin usar una cinta métrica espacial. \n\nAños más tarde, otro gigante llamado Isaac Newton conectó estos puntos. Él se preguntó: ¿por qué siguen una elipse? La respuesta fue la **Ley de Gravitación Universal**. La fuerza que hace caer una manzana de un árbol mutante en nuestra zona de cultivo es la misma fuerza que mantiene a la Luna en su lugar. La gravedad es una fuerza de atracción que depende de las masas y es inversamente proporcional al cuadrado de la distancia. Si la Tierra fuera el doble de masiva, nuestras órbitas colapsarían. Si estuviéramos al doble de distancia, saldríamos disparados al frío interestelar. El movimiento planetario no es una danza mágica; es un equilibrio precario entre la inercia de los planetas y el tirón invisible de la gravedad solar. Comprender esto es la diferencia entre ser un recolector de chatarra y ser un ingeniero del renacimiento humano. Desmentir el mito de la perfección divina nos dio las leyes de la mecánica celeste, la única brújula que funciona cuando las estrellas son lo único que nos queda.",
+  "preguntas_deductivas_pagina": [
+    "¿Qué sucede con la velocidad de un planeta cuando se acerca al perihelio?",
+    "¿Cómo define la Tercera Ley de Kepler la relación entre tiempo y distancia?",
+    "¿Cuál es el nombre de los dos puntos específicos de una órbita elíptica respecto a su distancia al Sol?",
+    "¿Qué fuerza física descubierta por Newton explica el origen de las leyes de Kepler?",
+    "Si un satélite está en una órbita muy alta (lejos de la Tierra), ¿su periodo orbital será mayor o menor que uno en órbita baja?"
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Realiza un diagrama detallado de la Segunda Ley de Kepler, sombreando las áreas barridas y explicando la diferencia de velocidades.",
+    "Elabora un mapa mental que conecte las tres Leyes de Kepler con la Ley de Gravitación Universal de Newton.",
+    "Dibuja un esquema explicativo del Perihelio y el Afelio, indicando dónde hay mayor y menor fuerza de atracción gravitatoria.",
+    "Diseña una infografía artesanal para los habitantes del asentamiento que explique por qué no caemos hacia el Sol a pesar de su gravedad."
+  ],
+  "juegos_ordenar_letras_2": [
+    "GRAVEDAD",
+    "PERIHELIO",
+    "AFELIO"
+  ],
+  "juego_ordenar_frase_2": "LA FUERZA DE GRAVEDAD DETERMINA LA TRAYECTORIA DE LOS CUERPOS CELESTES",
+  "sopa_letras": [
+    "KEPLER",
+    "NEWTON",
+    "ELIPSE",
+    "FOCO",
+    "GRAVEDAD",
+    "ORBITA",
+    "PERIODO",
+    "PLANETA",
+    "INERCIA",
+    "SOL"
+  ],
+  "crucigrama": [
+    {
+      "palabra": "ELIPSE",
+      "pista": "Forma geométrica real de las órbitas planetarias."
+    },
+    {
+      "palabra": "AFELIO",
+      "pista": "Punto de la órbita más alejado del Sol."
+    },
+    {
+      "palabra": "PERIHELIO",
+      "pista": "Punto de la órbita más cercano al Sol."
+    },
+    {
+      "palabra": "GRAVEDAD",
+      "pista": "Fuerza de atracción entre dos masas."
+    },
+    {
+      "palabra": "NEWTON",
+      "pista": "Científico que explicó POR QUÉ se mueven los planetas."
+    },
+    {
+      "palabra": "KEPLER",
+      "pista": "Científico que explicó CÓMO se mueven los planetas."
+    },
+    {
+      "palabra": "FOCO",
+      "pista": "Uno de los dos puntos internos de una elipse."
+    },
+    {
+      "palabra": "PERIODO",
+      "pista": "Tiempo que tarda un planeta en completar una órbita."
+    },
+    {
+      "palabra": "MARTE",
+      "pista": "Planeta cuyos datos permitieron descubrir las órbitas elípticas."
+    },
+    {
+      "palabra": "AREA",
+      "pista": "Lo que barren los planetas en tiempos iguales según la segunda ley."
+    }
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "En el puesto de avanzada 'Esperanza', los sensores detectan que un asteroide se acerca al Sol. Se observa que a medida que disminuye su distancia al centro solar, su velocidad aumenta significativamente.",
+      "tabla_o_grafica_markdown": "| Posición | Distancia al Sol (UA) | Velocidad (km/s) |\n|---|---|---|\n| A (Afelio) | 2.5 | 15 |\n| B (Intermedio) | 1.5 | 25 |\n| C (Perihelio) | 0.5 | 45 |",
+      "pregunta": "¿Qué ley física explica mejor el cambio de velocidad observado en el asteroide?",
+      "opciones": [
+        "La Segunda Ley de Kepler, que establece que se barren áreas iguales en tiempos iguales.",
+        "La Primera Ley de Kepler, que dice que el asteroide debe moverse en círculos.",
+        "La Ley de la Inercia, que mantiene la velocidad constante en todo momento.",
+        "El mito de la perfección circular, que exige una velocidad uniforme."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. Al barrer áreas iguales en tiempos iguales, el objeto debe ir más rápido cuando el radio es menor.",
+        "1": "Incorrecto. La primera ley habla de la forma elíptica, no directamente de la variación de velocidad.",
+        "2": "Incorrecto. La inercia por sí sola no explica la aceleración debida a la proximidad gravitatoria.",
+        "3": "Incorrecto. Este es precisamente el mito que la evidencia física desmiente."
+      }
+    },
+    {
+      "competencia": "Uso comprensivo del conocimiento científico",
+      "texto_introductorio": "Un grupo de supervivientes encuentra dos satélites antiguos. El Satélite A está a una distancia R de la Tierra y el Satélite B está a una distancia 4R.",
+      "tabla_o_grafica_markdown": "| Satélite | Distancia Orbital | Periodo |\n|---|---|---|\n| A | R | T |\n| B | 4R | ? |",
+      "pregunta": "Según la Tercera Ley de Kepler (T² ∝ r³), ¿cómo será el periodo del Satélite B comparado con el A?",
+      "opciones": [
+        "El periodo de B será igual al de A.",
+        "El periodo de B será exactamente el doble que el de A.",
+        "El periodo de B será mayor que el de A, tardando más tiempo en orbitar.",
+        "El periodo de B será menor porque tiene más espacio para correr."
+      ],
+      "correcta": 2,
+      "retroalimentacion": {
+        "0": "Incorrecto. A mayor distancia, el periodo siempre cambia.",
+        "1": "Incorrecto. La relación es con el cuadrado del periodo y el cubo de la distancia, no es lineal simple.",
+        "2": "Correcto. Según la ley de los periodos, a mayor distancia media, el tiempo para completar la órbita aumenta drásticamente.",
+        "3": "Incorrecto. La física indica que a mayor distancia, la velocidad orbital es menor y el camino es más largo."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "Un detective analiza un antiguo mapa estelar que muestra la órbita de un cometa. El mapa tiene dos puntos marcados como F1 (donde está el Sol) y F2 (un punto vacío). La trayectoria dibujada es un óvalo.",
+      "tabla_o_grafica_markdown": "| Elemento | Descripción |\n|---|---|\n| Trayectoria | Ovalada (Elipse) |\n| Centro de masa | Sol en un Foco |\n| Variación | Distancia variable |",
+      "pregunta": "¿Qué conclusión científica puede extraer el detective para desmentir el mito de las órbitas circulares?",
+      "opciones": [
+        "Que el Sol está en el centro geométrico de la órbita.",
+        "Que la existencia de dos focos y una distancia variable confirma que la órbita no es circular.",
+        "Que el cometa se mueve en círculos porque el mapa es antiguo.",
+        "Que el cometa no sigue ninguna ley y su movimiento es azaroso."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. En una elipse, el Sol está en un foco, no en el centro.",
+        "1": "Correcto. La definición de elipse con focos descentrados es la prueba geométrica contra el círculo perfecto.",
+        "2": "Incorrecto. La antigüedad del mapa no valida un mito desmentido por la observación.",
+        "3": "Incorrecto. El movimiento es altamente predecible mediante las leyes de Kepler y Newton."
+      }
+    }
+  ]
+}

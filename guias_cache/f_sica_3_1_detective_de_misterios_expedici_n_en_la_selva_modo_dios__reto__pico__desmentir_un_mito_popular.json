@@ -1,0 +1,188 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Cuál es la forma geométrica exacta de las órbitas planetarias según las leyes de Kepler?",
+      "opciones": [
+        "Círculo perfecto",
+        "Elipse",
+        "Parábola",
+        "Línea recta"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Qué fuerza es la principal responsable de mantener a los planetas en su órbita alrededor del Sol?",
+      "opciones": [
+        "Magnetismo",
+        "Inercia pura",
+        "Gravedad",
+        "Presión de radiación"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "¿Quién propuso matemáticamente que el Sol está en uno de los focos de la órbita terrestre?",
+      "opciones": [
+        "Galileo Galilei",
+        "Isaac Newton",
+        "Johannes Kepler",
+        "Nicolás Copérnico"
+      ],
+      "correcta": 2
+    }
+  ],
+  "texto_inductivo": "Saludos, jóvenes investigadores de lo desconocido. Me presento ante ustedes no solo como su guía, sino como el Detective Jefe de esta **Expedición en la Selva del Conocimiento**. Nos encontramos en las profundidades de la cuenca del Amazonas, frente a las imponentes ruinas del 'Templo de la Elipse Dorada'. Los lugareños cuentan una leyenda que ha persistido por siglos, un mito que debemos desmantelar con la precisión de un bisturí científico: se dice que el calor sofocante de esta selva y las estaciones del año ocurren porque la Tierra se acerca y se aleja del Sol en su danza orbital. ¡Un crimen contra la lógica física que hoy resolveremos! Al observar los muros del templo, vemos grabados que muestran a la Tierra en una trayectoria ovalada. Para un detective, la primera pista es la observación. Johannes Kepler, nuestro informante estrella del siglo XVII, descubrió que los planetas no se mueven en círculos perfectos, como creían los antiguos griegos, sino en **elipses**. Una elipse es una curva cerrada donde la suma de las distancias a dos puntos fijos (focos) es constante. En nuestro sistema solar, el Sol ocupa uno de esos focos. Pero aquí es donde el misterio se complica. Si la órbita es una elipse, la Tierra tiene un punto más cercano al Sol (**perihelio**) y uno más lejano (**afelio**). Muchos sospechosos —estudiantes y aficionados por igual— asumen erróneamente que cuando estamos en el perihelio (más cerca), es verano, y en el afelio (más lejos), es invierno. Sin embargo, las pruebas no encajan. Si eso fuera cierto, ¿por qué cuando es verano en el hemisferio norte, es invierno en el sur? La distancia al Sol es la misma para todo el planeta en un momento dado. Como detectives, debemos examinar la **excentricidad** de la órbita terrestre. La excentricidad de la Tierra es de apenas 0.0167, lo que significa que su órbita es casi un círculo perfecto a simple vista. La diferencia de distancia entre el punto más cercano y el más lejano es de solo unos 5 millones de kilómetros, una insignificancia en la escala astronómica de 150 millones de kilómetros. El verdadero culpable del cambio estacional no es la distancia, sino la inclinación del eje terrestre. Pero antes de llegar a esa conclusión deductiva, debemos entender la **Primera Ley de Kepler**. Esta ley rompió con la estética de la perfección circular y nos obligó a aceptar que el universo prefiere la eficiencia geométrica de la elipse. Al caminar por esta selva, notamos que las sombras cambian de ángulo. Esa es nuestra pista principal. Los antiguos constructores de este templo no entendían la gravedad de Newton, pero sí registraban la posición de los astros con una precisión aterradora. Observaban cómo la velocidad de los planetas variaba. ¿Por qué un planeta iría más rápido al acercarse al Sol? Esa es la **Segunda Ley de Kepler**, o la Ley de las Áreas. El radio vector que une al Sol con el planeta barre áreas iguales en tiempos iguales. Esto implica que en el perihelio, la Tierra corre como si escapara de un depredador selvático, mientras que en el afelio, se mueve con la parsimonia de una pereza. Este rompecabezas nos lleva a cuestionar todo: si la distancia no causa las estaciones, ¿qué papel juega realmente el movimiento planetario en nuestra supervivencia? Preparen sus lupas y cuadernos, porque la selva no perdona la ignorancia.",
+  "recurso_visual": "graph TD\n    A[Movimiento Planetario] --> B(Primera Ley: Órbitas Elípticas)\n    A --> C(Segunda Ley: Áreas Iguales)\n    A --> D(Tercera Ley: Armonía de los Mundos)\n    B --> B1[El Sol ocupa un foco]\n    C --> C1[Velocidad variable: Perihelio vs Afelio]\n    D --> D1[Relación Periodo y Distancia T^2/a^3]\n    B1 --> E{Mito de las Estaciones}\n    E -->|Falso| F[La distancia causa el clima]\n    E -->|Verdadero| G[La inclinación del eje causa el clima]",
+  "preguntas_inductivas_pagina": [
+    "¿Qué forma geométrica describe la Primera Ley de Kepler para las órbitas?",
+    "¿En qué punto de la órbita terrestre se mueve el planeta a su máxima velocidad?",
+    "¿Por qué el mito de la distancia al Sol como causa de las estaciones es inconsistente con los hemisferios?",
+    "¿Qué es la excentricidad y cómo afecta la forma de una órbita?",
+    "¿Dónde se ubica el Sol en relación con la elipse orbital de la Tierra?"
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema detallado de una órbita elíptica, marcando los focos, el semieje mayor, el perihelio y el afelio.",
+    "Realiza un cuadro comparativo entre el modelo geocéntrico de círculos perfectos y el modelo heliocéntrico de Kepler.",
+    "¿Cómo crees que cambiaría la vida en la Tierra si la excentricidad de nuestra órbita fuera mucho mayor (como la de un cometa)? Justifica tu respuesta basándote en el texto.",
+    "Representa gráficamente la Segunda Ley de Kepler, sombreando las áreas barridas por el planeta en diferentes tramos de su órbita."
+  ],
+  "juegos_ordenar_letras_1": [
+    "ELIPSE",
+    "PERIHELIO",
+    "AFELIO"
+  ],
+  "juego_ordenar_frase_1": "EL SOL SE ENCUENTRA EN UNO DE LOS FOCOS DE LA ORBITA",
+  "texto_deductivo": "Ahora que hemos recolectado las pistas superficiales en la entrada del templo, es hora de descender a las catacumbas del pensamiento lógico y matemático: el **Modo Dios** de nuestra investigación. Para desmentir el mito de las estaciones con rigor científico, debemos invocar la Tercera Ley de Kepler y la Ley de Gravitación Universal de Isaac Newton. Newton, el detective que resolvió el 'por qué' del movimiento, nos dejó un legado de ecuaciones que son las huellas dactilares de la realidad. La fuerza de gravedad es directamente proporcional al producto de las masas e inversamente proporcional al cuadrado de la distancia. Esta ley explica por qué los planetas se mantienen en órbita: es una caída libre perpetua. El mito de que las estaciones dependen de la distancia se desmorona cuando analizamos los datos térmicos. La Tierra está más cerca del Sol en enero (perihelio), justo cuando el hemisferio norte experimenta su invierno más crudo. ¿Cómo es posible? La respuesta yace en la **oblicuidad de la eclíptica**, es decir, la inclinación de 23.5 grados del eje de rotación de la Tierra. Esta inclinación hace que, durante una parte del año, un hemisferio reciba los rayos solares de forma más directa (perpendicular), concentrando la energía térmica en un área menor, mientras que el otro los recibe de forma inclinada, dispersando el calor. La distancia orbital varía apenas un 3%, lo cual es insuficiente para generar los cambios de temperatura que vemos. Sin embargo, la **Tercera Ley de Kepler** (P² ∝ a³) nos da una herramienta de predicción masiva. Establece que el cuadrado del periodo orbital de un planeta es proporcional al cubo de su distancia promedio al Sol. Esto significa que si conocemos qué tan lejos está un planeta, sabemos exactamente cuánto tarda en dar una vuelta. En nuestra expedición, esto nos permite calcular la 'danza' de cualquier cuerpo celeste en la selva cósmica. Un detective científico no se queda con la apariencia; analiza las fuerzas. La gravedad no solo mantiene la órbita, sino que dicta la velocidad. Cuando la Tierra está en el perihelio, la fuerza gravitatoria es ligeramente mayor, lo que acelera al planeta. Esta aceleración compensa la cercanía, evitando que caigamos hacia el Sol. Por otro lado, la **conservación del momento angular** es la ley de hierro que rige este movimiento. Es el mismo principio que utiliza una patinadora sobre hielo para girar más rápido al cerrar sus brazos. Al acercarse al Sol (punto de giro), el planeta debe aumentar su velocidad para mantener su momento angular constante. Por lo tanto, el movimiento planetario es un equilibrio exquisito entre la inercia que empuja hacia afuera y la gravedad que tira hacia adentro. Al desmentir el mito de las estaciones basadas en la distancia, no solo corregimos un error común, sino que abrimos la puerta a la comprensión de fenómenos más complejos como las eras glaciares, causadas por variaciones sutiles en estos parámetros orbitales (Ciclos de Milankovitch). Hemos resuelto el caso: el culpable no es la distancia, sino el ángulo de ataque de la luz solar dictado por la inclinación axial.",
+  "preguntas_deductivas_pagina": [
+    "¿Qué establece la Tercera Ley de Kepler sobre la relación entre tiempo y distancia?",
+    "¿Por qué la Tierra acelera cuando se acerca al Sol en el perihelio?",
+    "¿Qué pasaría con el periodo orbital de la Tierra si se alejara al doble de su distancia actual?",
+    "¿Cómo influye la Ley de la Gravitación Universal en la forma elíptica de las órbitas?",
+    "¿Cuál es el factor determinante que causa las estaciones, según la deducción final?"
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Realiza un diagrama vectorial que muestre la fuerza de gravedad y la velocidad tangencial de la Tierra en dos puntos distintos de la elipse.",
+    "Elabora un mapa mental que conecte las Tres Leyes de Kepler con la Ley de Gravitación Universal de Newton.",
+    "Dibuja un esquema explicativo que demuestre por qué la inclinación del eje terrestre causa variaciones de temperatura más drásticas que la distancia al Sol.",
+    "Crea una infografía artesanal que resuma el 'Caso de las Estaciones Perdidas', detallando el mito, la evidencia y la conclusión científica."
+  ],
+  "juegos_ordenar_letras_2": [
+    "GRAVEDAD",
+    "INERCIA",
+    "EXCENTRICIDAD"
+  ],
+  "juego_ordenar_frase_2": "EL CUADRADO DEL PERIODO ES PROPORCIONAL AL CUBO DEL SEMIEJE MAYOR",
+  "sopa_letras": [
+    "KEPLER",
+    "NEWTON",
+    "ORBITA",
+    "ELIPSE",
+    "FOCO",
+    "GRAVEDAD",
+    "PERIODO",
+    "MASA",
+    "SOL",
+    "PLANETA"
+  ],
+  "crucigrama": [
+    {
+      "palabra": "ELIPSE",
+      "pista": "Forma geométrica de la trayectoria planetaria."
+    },
+    {
+      "palabra": "PERIHELIO",
+      "pista": "Punto más cercano de un planeta al Sol."
+    },
+    {
+      "palabra": "AFELIO",
+      "pista": "Punto más alejado de un planeta al Sol."
+    },
+    {
+      "palabra": "GRAVEDAD",
+      "pista": "Fuerza de atracción entre dos masas."
+    },
+    {
+      "palabra": "NEWTON",
+      "pista": "Científico que formuló la ley de gravitación universal."
+    },
+    {
+      "palabra": "KEPLER",
+      "pista": "Astrónomo que describió las tres leyes del movimiento planetario."
+    },
+    {
+      "palabra": "EXCENTRICIDAD",
+      "pista": "Medida de qué tan estirada está una elipse."
+    },
+    {
+      "palabra": "FOCO",
+      "pista": "Uno de los dos puntos internos de una elipse."
+    },
+    {
+      "palabra": "ASTRONOMIA",
+      "pista": "Ciencia que estudia los astros."
+    },
+    {
+      "palabra": "INERCIA",
+      "pista": "Resistencia de un cuerpo a cambiar su estado de movimiento."
+    }
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "En el hemisferio norte, el invierno ocurre durante el mes de enero, momento en el cual la Tierra se encuentra en el perihelio (su punto más cercano al Sol).",
+      "tabla_o_grafica_markdown": "| Posición | Distancia al Sol (km) | Mes | Hemisferio Norte |\n|---|---|---|---|\n| Perihelio | 147 millones | Enero | Invierno |\n| Afelio | 152 millones | Julio | Verano |",
+      "pregunta": "¿Cuál es la razón científica que explica por qué hace frío en el hemisferio norte a pesar de estar más cerca del Sol?",
+      "opciones": [
+        "La distancia de 5 millones de km es despreciable y el factor determinante es la inclinación del eje terrestre.",
+        "En el perihelio, la velocidad de la Tierra es tan alta que el calor no alcanza a absorberse.",
+        "El Sol emite menos radiación durante el mes de enero debido a ciclos solares internos.",
+        "La atmósfera terrestre es más gruesa en el perihelio, bloqueando los rayos solares."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. La inclinación de 23.5° hace que los rayos lleguen con mayor ángulo (más oblicuos), distribuyendo la energía en un área mayor.",
+        "1": "Incorrecto. La velocidad orbital no afecta la absorción de calor térmico de la radiación.",
+        "2": "Incorrecto. El ciclo solar no coincide con la órbita anual terrestre.",
+        "3": "Incorrecto. El espesor de la atmósfera no cambia significativamente por la posición orbital."
+      }
+    },
+    {
+      "competencia": "Uso comprensivo del conocimiento científico",
+      "texto_introductorio": "Un nuevo exoplaneta descubierto en la selva de datos de la NASA tiene una órbita cuya excentricidad es cercana a 0.8. Esto significa que su elipse es muy alargada.",
+      "tabla_o_grafica_markdown": "| Planeta | Excentricidad | Velocidad en Perihelio | Velocidad en Afelio |\n|---|---|---|---|\n| Tierra | 0.017 | 30.3 km/s | 29.3 km/s |\n| Exoplaneta X | 0.800 | Alta | Muy Baja |",
+      "pregunta": "Según la Segunda Ley de Kepler, ¿cómo será el movimiento de este exoplaneta en comparación con la Tierra?",
+      "opciones": [
+        "Tendrá una velocidad constante durante toda su órbita.",
+        "Pasará la mayor parte de su tiempo cerca del perihelio a baja velocidad.",
+        "Experimentará cambios de velocidad mucho más extremos que la Tierra entre el perihelio y el afelio.",
+        "Se moverá más rápido en el afelio para compensar la falta de gravedad."
+      ],
+      "correcta": 2,
+      "retroalimentacion": {
+        "0": "Incorrecto. Solo las órbitas circulares perfectas tienen velocidad constante.",
+        "1": "Incorrecto. Según la Ley de las Áreas, cerca del perihelio siempre se mueve más rápido.",
+        "2": "Correcto. A mayor excentricidad, mayor es la diferencia de distancias y, por ende, mayor la diferencia de velocidades para conservar el momento angular.",
+        "3": "Incorrecto. En el afelio la velocidad es mínima."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "Un grupo de exploradores observa que en un planeta ficticio, los años duran mucho más que en la Tierra, a pesar de que el planeta tiene la misma masa que la Tierra.",
+      "tabla_o_grafica_markdown": "| Planeta | Radio de la órbita (UA) | Periodo (Años) |\n|---|---|---|\n| Tierra | 1 | 1 |\n| Ficticio | 4 | ? |",
+      "pregunta": "Utilizando la Tercera Ley de Kepler (T² = a³), ¿cuánto duraría aproximadamente un año en este planeta ficticio?",
+      "opciones": [
+        "2 años",
+        "4 años",
+        "8 años",
+        "16 años"
+      ],
+      "correcta": 2,
+      "retroalimentacion": {
+        "0": "Incorrecto. 2 al cuadrado es 4, pero 4 al cubo es 64.",
+        "1": "Incorrecto. No es una relación lineal simple.",
+        "2": "Correcto. 4 al cubo (a³) es 64. La raíz cuadrada de 64 (T) es 8.",
+        "3": "Incorrecto. 16 al cuadrado es 256, no 64."
+      }
+    }
+  ]
+}

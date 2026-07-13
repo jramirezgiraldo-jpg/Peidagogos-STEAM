@@ -1,0 +1,188 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Cuál de estos modelos propone que el Sol es el centro del sistema solar?",
+      "opciones": [
+        "Modelo Geocéntrico",
+        "Modelo Heliocéntrico",
+        "Modelo Estacionario",
+        "Modelo Newtoniano"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Qué forma geométrica tienen las órbitas de los planetas según Johannes Kepler?",
+      "opciones": [
+        "Círculos perfectos",
+        "Parábolas",
+        "Elipses",
+        "Espirales"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "¿Qué fuerza es responsable de mantener a los planetas en su órbita?",
+      "opciones": [
+        "Magnetismo",
+        "Inercia",
+        "Gravedad",
+        "Presión de radiación"
+      ],
+      "correcta": 2
+    }
+  ],
+  "texto_inductivo": "¡Saludos, cadetes! Aquí el Comandante Nova desde el módulo Cupola de la Estación Espacial Internacional (ISS). Hoy nos enfrentamos a un desafío crítico: nuestros sistemas de navegación han detectado una pequeña discrepancia en la trayectoria de Marte, y para resolverla, debemos entender cómo la humanidad descifró el 'Misterio del Movimiento Planetario'. Imaginen que están flotando aquí conmigo, observando la Tierra girar bajo sus pies a 28.000 km/h. Durante milenios, los seres humanos miraron al cielo y vieron puntos de luz moviéndose de forma extraña. A veces, planetas como Marte parecían detenerse y retroceder en el cielo (movimiento retrógrado). Este era el gran misterio: ¿por qué los dioses jugaban con las trayectorias? El modelo geocéntrico de Ptolomeo, que ponía a la Tierra en el centro, intentó explicarlo con círculos dentro de círculos llamados epiciclos. Fue un caos matemático que duró más de mil años. Pero en el siglo XVI, Nicolás Copérnico se atrevió a sugerir algo radical: no somos el centro. Si el Sol es el eje, el movimiento retrógrado es solo una ilusión óptica cuando la Tierra rebasa a otros planetas en su carrera orbital. Sin embargo, Copérnico seguía obsesionado con los círculos perfectos. El verdadero salto vino con Tycho Brahe, un astrónomo danés que, sin telescopio, recolectó los datos más precisos de la época. Tras su muerte, su asistente Johannes Kepler heredó esos datos y pasó años intentando ajustar el movimiento de Marte a un círculo. No funcionaba. Había un error de apenas 8 minutos de arco. Kepler, en lugar de ignorar ese pequeño error, decidió que la teoría estaba mal y no los datos. Así descubrió que los planetas se mueven en **elipses**. Este cambio de paradigma fue la llave para abrir el universo. Aquí en la ISS, sentimos ese legado. Cada vez que corregimos nuestra órbita, estamos aplicando la lógica que Kepler dedujo de un misterio antiguo. La ciencia no se trata de tener todas las respuestas, sino de perseguir las anomalías. Kepler descubrió que el Sol no solo estaba ahí, sino que influía en la velocidad de los planetas: cuanto más cerca están, más rápido se mueven. Esto es supervivencia pura en el espacio; si no calculamos bien estas velocidades, nuestra estación se quemaría en la atmósfera o se perdería en el vacío. Estamos navegando sobre los hombros de gigantes que se atrevieron a dudar de lo evidente. El misterio de Marte no era un error de los dioses, era una invitación a descubrir las leyes matemáticas que rigen el cosmos. ¿Están listos para analizar los datos de la misión y resolver nuestra discrepancia orbital? La física no es solo fórmulas; es el mapa para volver a casa.",
+  "recurso_visual": "graph TD\n    A[Misterio: Movimiento Retrógrado] --> B{¿Tierra en el centro?}\n    B -->|Sí: Ptolomeo| C[Epiciclos Complejos]\n    B -->|No: Copérnico| D[Modelo Heliocéntrico]\n    D --> E[Problema: Órbitas Circulares]\n    E --> F[Datos de Tycho Brahe]\n    F --> G[Kepler: Órbitas Elípticas]\n    G --> H[Leyes del Movimiento Planetario]",
+  "preguntas_inductivas_pagina": [
+    "¿Por qué el movimiento retrógrado de Marte era un misterio para los antiguos?",
+    "¿Qué diferencia fundamental introdujo Copérnico en la visión del universo?",
+    "¿Cuál fue el papel de Tycho Brahe en el descubrimiento de las leyes de Kepler?",
+    "¿Qué importancia tuvo el 'error de 8 minutos de arco' para Johannes Kepler?",
+    "¿Cómo cambia la velocidad de un planeta según su distancia al Sol?"
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema que compare el modelo geocéntrico (Ptolomeo) y el heliocéntrico (Copérnico), señalando la posición del Sol y la Tierra.",
+    "Realiza un cuadro comparativo entre las creencias sobre las órbitas antes de Kepler (Círculos) y el descubrimiento de Kepler (Elipses).",
+    "Escribe una reflexión de media página: ¿Cómo crees que el cambio del geocentrismo al heliocentrismo afectó la forma en que los humanos se ven a sí mismos?",
+    "Representa gráficamente un planeta en diferentes puntos de su elipse y sombrea áreas iguales para ilustrar la Segunda Ley de Kepler."
+  ],
+  "juegos_ordenar_letras_1": [
+    "ELIPSE",
+    "ORBITA",
+    "KEPLER"
+  ],
+  "juego_ordenar_frase_1": "LOS PLANETAS DESCRIBEN ORBITAS ELIPTICAS CON EL SOL EN UNO DE SUS FOCOS",
+  "texto_deductivo": "Atención tripulación, ahora que hemos comprendido la historia, debemos aplicar el rigor físico-matemático para estabilizar nuestra posición. Mientras Kepler nos dijo *cómo* se movían los planetas, tuvo que llegar Isaac Newton para explicarnos *por qué*. En el año 1687, Newton publicó sus 'Principia', donde formuló la Ley de Gravitación Universal. Imaginen la gravedad no como algo que te tira hacia abajo, sino como un hilo invisible que une a cada átomo de la ISS con cada átomo de la Tierra. Newton dedujo que la fuerza de atracción es directamente proporcional al producto de las masas e inversamente proporcional al cuadrado de la distancia que las separa. Esto significa que si nos alejamos al doble de distancia de la Tierra, la gravedad no se reduce a la mitad, ¡se reduce a la cuarta parte! Esta es la razón por la que los planetas exteriores, como Neptuno, se mueven tan lentamente en comparación con Mercurio. La Tercera Ley de Kepler, que relaciona el periodo orbital con la distancia media al Sol (T² ∝ a³), fue finalmente demostrada matemáticamente por Newton. Aquí en 'Modo Supervivencia', esto es vital: para mantener la ISS en una órbita circular estable a 400 km de altura, debemos viajar exactamente a 7.66 km/s. Si fuéramos más lento, la gravedad de la Tierra ganaría y caeríamos. Si fuéramos más rápido, la inercia nos lanzaría hacia el espacio profundo. El movimiento planetario es, por tanto, un equilibrio perfecto entre la caída libre y el movimiento lateral. El misterio que estamos resolviendo requiere que analicemos la constante gravitacional (G) y cómo esta gobierna desde la caída de una manzana hasta la danza de las galaxias. Newton unificó la física terrestre y la celeste; nos enseñó que las mismas reglas que aplican en un laboratorio en Bogotá aplican en los anillos de Saturno. Al revisar el movimiento planetario científicamente, vemos que no hay magia, solo una geometría dictada por la masa. Si detectamos una perturbación en la órbita de un planeta, según Newton, debe haber otra masa cerca ejerciendo influencia, como sucedió con el descubrimiento de Neptuno. Para resolver nuestra anomalía actual, debemos calcular las fuerzas vectoriales presentes. Recuerden: en el espacio, la precisión es la diferencia entre el éxito de la misión y el silencio eterno.",
+  "preguntas_deductivas_pagina": [
+    "¿Qué establece la Ley de Gravitación Universal de Newton?",
+    "¿Por qué la fuerza de gravedad disminuye rápidamente al aumentar la distancia?",
+    "¿Cómo demostró Newton la Tercera Ley de Kepler?",
+    "¿Qué sucede con la velocidad orbital si un satélite aumenta su altitud?",
+    "¿Qué significa que la ISS esté en 'caída libre constante'?"
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Realiza un diagrama detallado que muestre los vectores de fuerza gravitatoria y velocidad tangencial en un satélite en órbita.",
+    "Elabora un mapa mental que conecte a Newton, Kepler y las leyes del movimiento planetario.",
+    "Dibuja un esquema explicativo que ilustre la Ley del Cuadrado Inverso aplicada a la gravedad.",
+    "Crea una infografía artesanal sobre 'Cómo mantenerse en órbita' usando los conceptos de masa, distancia y velocidad."
+  ],
+  "juegos_ordenar_letras_2": [
+    "GRAVEDAD",
+    "NEWTON",
+    "PERIODO"
+  ],
+  "juego_ordenar_frase_2": "LA FUERZA DE GRAVEDAD MANTIENE A LOS PLANETAS ATADOS AL SOL",
+  "sopa_letras": [
+    "GRAVEDAD",
+    "KEPLER",
+    "NEWTON",
+    "ELIPSE",
+    "FOCO",
+    "ORBITA",
+    "MASA",
+    "PERIODO",
+    "INERCIA",
+    "SOL"
+  ],
+  "crucigrama": [
+    {
+      "palabra": "ELIPSE",
+      "pista": "Forma geométrica de las órbitas planetarias."
+    },
+    {
+      "palabra": "GRAVEDAD",
+      "pista": "Fuerza de atracción entre dos cuerpos con masa."
+    },
+    {
+      "palabra": "PERIODO",
+      "pista": "Tiempo que tarda un planeta en dar una vuelta completa al Sol."
+    },
+    {
+      "palabra": "AFELIO",
+      "pista": "Punto de la órbita más alejado del Sol."
+    },
+    {
+      "palabra": "PERIHELIO",
+      "pista": "Punto de la órbita más cercano al Sol."
+    },
+    {
+      "palabra": "KEPLER",
+      "pista": "Científico que enunció las tres leyes del movimiento planetario."
+    },
+    {
+      "palabra": "NEWTON",
+      "pista": "Formuló la Ley de Gravitación Universal."
+    },
+    {
+      "palabra": "COPERNICO",
+      "pista": "Propuso formalmente el modelo heliocéntrico."
+    },
+    {
+      "palabra": "FOCO",
+      "pista": "Lugar que ocupa el Sol dentro de la elipse orbital."
+    },
+    {
+      "palabra": "INERCIA",
+      "pista": "Tendencia de un cuerpo a mantener su estado de movimiento."
+    }
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "La ISS orbita la Tierra a una altura donde la aceleración de la gravedad es aproximadamente el 90% de la que sentimos en la superficie. Sin embargo, los astronautas flotan.",
+      "tabla_o_grafica_markdown": "| Ubicación | Gravedad (m/s²) | Estado del objeto |\n|---|---|---|\n| Superficie | 9.8 | En reposo/movimiento |\n| Órbita ISS | 8.7 | Caída libre constante |",
+      "pregunta": "¿Por qué los astronautas experimentan ingravidez aparente en la ISS?",
+      "opciones": [
+        "Porque a esa altura ya no existe fuerza de gravedad.",
+        "Porque la estación y los astronautas caen hacia la Tierra con la misma aceleración lateral.",
+        "Porque el vacío del espacio anula el peso de los objetos.",
+        "Porque la fuerza centrífuga es mayor que la fuerza gravitacional."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. La gravedad en la ISS es casi tan fuerte como en la superficie.",
+        "1": "Correcto. La ingravidez es el resultado de estar en caída libre perpetua mientras se tiene velocidad tangencial.",
+        "2": "Incorrecto. El peso depende de la masa y la gravedad, el vacío no lo anula.",
+        "3": "Incorrecto. En una órbita estable, la fuerza centrípeta (gravedad) es la que permite el giro."
+      }
+    },
+    {
+      "competencia": "Uso Comprensivo del Conocimiento Científico",
+      "texto_introductorio": "La Tercera Ley de Kepler establece una relación constante entre el cubo del semieje mayor (r) y el cuadrado del periodo orbital (T).",
+      "tabla_o_grafica_markdown": "| Planeta | Distancia Media (UA) | Periodo (Años) |\n|---|---|---|\n| Tierra | 1.0 | 1.0 |\n| Marte | 1.52 | 1.88 |\n| Júpiter | 5.20 | 11.86 |",
+      "pregunta": "Si se descubriera un asteroide situado a 4 unidades astronómicas (UA) del Sol, ¿cuál sería su periodo orbital aproximado?",
+      "opciones": [
+        "2 años",
+        "4 años",
+        "8 años",
+        "16 años"
+      ],
+      "correcta": 2,
+      "retroalimentacion": {
+        "0": "Incorrecto. Según T²=r³, si r=4, r³=64. Entonces T=√64.",
+        "1": "Incorrecto. El periodo no es igual a la distancia.",
+        "2": "Correcto. T² = 4³ = 64, por lo tanto T = 8 años.",
+        "3": "Incorrecto. Has elevado al cuadrado en lugar de sacar raíz cuadrada."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "Un grupo de exploradores espaciales observa que un satélite en órbita alrededor de un planeta desconocido aumenta su velocidad a medida que se acerca a un punto específico de su trayectoria.",
+      "tabla_o_grafica_markdown": "| Punto | Distancia al Centro (km) | Velocidad (km/s) |\n|---|---|---|\n| A | 12.000 | 5.5 |\n| B | 8.000 | 7.2 |\n| C | 15.000 | 4.8 |",
+      "pregunta": "Basándose en las Leyes de Kepler, ¿qué se puede concluir sobre el punto B?",
+      "opciones": [
+        "Es el afelio de la órbita.",
+        "Es el perihelio de la órbita.",
+        "Es el centro de la elipse.",
+        "Es un punto donde la gravedad es mínima."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. El afelio es el punto más alejado y lento.",
+        "1": "Correcto. El perihelio es el punto más cercano y donde el cuerpo se mueve más rápido.",
+        "2": "Incorrecto. Los planetas no orbitan el centro de la elipse, sino un foco.",
+        "3": "Incorrecto. En el punto más cercano (B), la gravedad es máxima."
+      }
+    }
+  ]
+}

@@ -1,0 +1,188 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Qué forma crees que tiene el camino que recorre la Tierra alrededor del Sol?",
+      "opciones": [
+        "Un círculo perfecto",
+        "Un cuadrado con esquinas redondeadas",
+        "Una elipse o forma ovalada",
+        "Una línea recta"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "En el mundo antiguo, ¿quién creían que era el centro del universo?",
+      "opciones": [
+        "El Sol",
+        "La Tierra",
+        "La Luna",
+        "Marte"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Qué fuerza invisible mantiene a los planetas 'atados' al Sol sin que salgan volando al espacio?",
+      "opciones": [
+        "El magnetismo",
+        "El viento solar",
+        "La gravedad",
+        "La fricción"
+      ],
+      "correcta": 2
+    }
+  ],
+  "texto_inductivo": "Saludos, recluta del páramo. Me presento: soy el Detective de Misterios Celestiales. En este mundo post-apocalíptico, donde las cenizas a veces nublan nuestra vista, entender lo que ocurre allá arriba no es un lujo, es una estrategia de supervivencia. ¿Por qué? Porque si sabes cómo se mueven los astros, sabes cuándo sembrar en los invernaderos subterráneos, cómo orientarte sin brújulas electrónicas y cómo predecir las mareas que inundan las ruinas costeras. El **Misterio del Firmamento** comenzó hace siglos, mucho antes de que las ciudades cayeran. Los antiguos observadores miraban al cielo y se hacían una pregunta fundamental: ¿Somos el centro de todo o simplemente somos pasajeros en un carrusel cósmico? \n\nDurante milenios, la humanidad vivió bajo el engaño de la teoría **Geocéntrica**. Pensaban que la Tierra era el corazón inmóvil del universo y que todo lo demás giraba a nuestro alrededor. Era una idea reconfortante para el ego, pero un desastre para los cálculos. Fue un detective de la ciencia, Nicolás Copérnico, quien se atrevió a proponer lo impensable: el Sol es el centro (**Heliocentrismo**). Sin embargo, incluso él cometió un error; creía que las órbitas eran círculos perfectos. Pero la naturaleza, al igual que nuestro mundo actual, es un poco más caótica y elegante. Entra en escena Johannes Kepler, un matemático que heredó los datos del observador Tycho Brahe. Brahe pasó décadas anotando la posición de los planetas con una precisión asombrosa, sin telescopios, solo con su vista y herramientas de medición rudimentarias. \n\nKepler, analizando estos datos como quien analiza huellas dactilares en una escena del crimen, descubrió algo asombroso: los planetas no se mueven en círculos. Se mueven en **Elipses**. Una elipse es como un círculo que ha sido ligeramente estirado. En una elipse, el Sol no está en el centro, sino en un punto llamado **foco**. Este descubrimiento es nuestra primera pista para sobrevivir: la distancia entre la Tierra y el Sol cambia a lo largo del año. Cuando estamos más cerca (perihelio), las sombras se proyectan de una forma; cuando estamos lejos (afelio), de otra. Para nosotros, los habitantes de las ruinas, esto significa que la intensidad de la luz solar que llega a nuestros paneles recuperados varía. \n\nPero hay más en este expediente. Kepler notó que los planetas no mantienen una velocidad constante. Cuando un planeta se acerca al Sol, acelera como un carro bajando por una colina de escombros. Cuando se aleja, frena. Esta es su segunda ley. ¿Cómo nos sirve esto? Nos permite predecir con exactitud milimétrica la posición de cualquier cuerpo celeste en el futuro. Si logramos interceptar una señal de satélite antiguo, necesitamos saber exactamente dónde estará esa chatarra espacial en relación con la órbita terrestre. El movimiento planetario no es un baile azaroso; es un mecanismo de relojería que sigue reglas matemáticas estrictas. \n\nFinalmente, la tercera ley de Kepler conecta el tiempo que tarda un planeta en dar una vuelta (periodo) con su distancia media al Sol. Cuanto más lejos está un planeta, más lento y largo es su viaje. En este desierto de hierro, entender que el tiempo y el espacio están conectados por estas leyes nos permite reconstruir calendarios. Los antiguos perdieron su tecnología, pero no pudieron cambiar las leyes de la física. Aprender sobre el movimiento planetario es, en esencia, aprender a leer el reloj más grande y antiguo que existe: el sistema solar. Prepárate, porque descifrar estas órbitas es la clave para que la humanidad deje de caminar a ciegas entre las sombras del viejo mundo.",
+  "recurso_visual": "graph TD\n    A[Movimiento Planetario] --> B[Teoría Heliocéntrica]\n    B --> C[Sol como Centro]\n    A --> D[Leyes de Kepler]\n    D --> E[1. Órbitas Elípticas]\n    D --> F[2. Áreas Iguales/Velocidad Variable]\n    D --> G[3. Relación Radio-Periodo]\n    E --> H[El Sol está en un Foco]\n    F --> I[Cerca del Sol: Más Rápido]\n    G --> J[Más Lejos: Más Tiempo en Orbitar]",
+  "preguntas_inductivas_pagina": [
+    "¿Cuál es la diferencia principal entre el modelo geocéntrico y el heliocéntrico?",
+    "¿Quién fue el científico que propuso que las órbitas eran elípticas y no circulares?",
+    "¿Cómo se llama el punto de la elipse donde se ubica el Sol?",
+    "Según el texto, ¿qué sucede con la velocidad de un planeta cuando se acerca al Sol?",
+    "¿Por qué es útil conocer el movimiento planetario en un contexto de supervivencia post-apocalíptica?"
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja una elipse en tu cuaderno marcando los dos focos y la posición del Sol en uno de ellos. Representa a la Tierra en dos puntos: el más cercano y el más lejano.",
+    "Realiza un cuadro comparativo entre el modelo de Copérnico y el modelo de Kepler, destacando qué forma tenían las órbitas para cada uno.",
+    "Escribe una reflexión de media página sobre cómo cambiaría nuestra vida si la Tierra de repente dejara de moverse en una elipse y se alejara del Sol en línea recta.",
+    "Representa gráficamente la Segunda Ley de Kepler (Ley de las Áreas) usando colores para mostrar que el planeta recorre áreas iguales en tiempos iguales, aunque su velocidad cambie."
+  ],
+  "juegos_ordenar_letras_1": [
+    "ELIPSE",
+    "KEPLER",
+    "ORBITA"
+  ],
+  "juego_ordenar_frase_1": "LOS PLANETAS GIRAN ALREDEDOR DEL SOL EN TRAYECTORIAS ELIPTICAS",
+  "texto_deductivo": "Atención, equipo de reconocimiento. Una vez que hemos identificado las 'huellas' de los planetas en el cielo, debemos entender la fuerza motriz detrás de ellas. Si Kepler fue el detective que describió el 'cómo', Isaac Newton fue quien descubrió el 'por qué'. En este mundo devastado, donde la gravedad es lo único que nos mantiene pegados al suelo mientras buscamos chatarra, entender la **Ley de Gravitación Universal** es vital. Imaginen que la gravedad es un cable invisible que conecta a todos los objetos con masa en el universo. Cuanta más masa tiene un objeto, más fuerte tira de los demás. Pero hay un truco: la distancia es el enemigo de la gravedad. Si duplicas la distancia entre dos objetos, la fuerza no se reduce a la mitad, se reduce a la cuarta parte. Es la famosa ley del inverso del cuadrado. \n\nEn nuestro sistema solar, el Sol es el 'jefe' porque posee casi toda la masa. Su tirón gravitacional es tan inmenso que mantiene a planetas gigantes como Júpiter y pequeños mundos como la Tierra en un estado de caída perpetua. ¿Qué es una órbita sino una caída que nunca toca el suelo? Un planeta se mueve hacia adelante con tanta velocidad que, mientras la gravedad lo jala hacia abajo, la curvatura de su caída coincide perfectamente con la curvatura del espacio. Si la Tierra se detuviera de repente, caeríamos directo hacia el Sol. Si la gravedad desapareciera, saldríamos disparados hacia el vacío interestelar en línea recta. En el Modo Novato de supervivencia, debes entender que el equilibrio entre la **inercia** (las ganas de seguir en línea recta) y la **gravedad** (el tirón hacia el centro) es lo que mantiene la estabilidad de nuestro hogar. \n\nEste conocimiento científico nos permite deducir cosas fascinantes. Por ejemplo, si encontramos un antiguo mapa estelar de otro sistema solar, y sabemos la masa de su estrella, podemos calcular exactamente a qué distancia debe estar un planeta para tener agua líquida y ser habitable. En la física del movimiento planetario, nada es arbitrario. La gravedad actúa como una red que conecta lo infinitamente grande con lo pequeño. Incluso las mareas, que ahora azotan nuestras costas con más furia debido a los cambios climáticos, son el resultado del tirón gravitacional de la Luna y el Sol sobre nuestros océanos. \n\nAl analizar el movimiento planetario desde el punto de vista científico, nos damos cuenta de que el universo sigue leyes que no dependen de la política, la economía o la guerra. Son leyes universales. Si lanzamos un proyectil o intentamos poner en órbita un globo meteorológico para espiar a las facciones rivales, estamos usando las mismas ecuaciones que rigen a Marte o Saturno. La física es la herramienta definitiva del detective: nos permite ver lo invisible y predecir lo inevitable. La revisión de estos conceptos nos enseña que el orden existe incluso en el caos de un mundo post-apocalíptico. Al dominar la mecánica celeste, pasamos de ser víctimas del entorno a ser navegantes del cosmos. El Sol no es solo una bola de fuego que nos quema la piel durante el día; es el ancla que sostiene nuestra existencia y el motor que define nuestros años. Estudiar su relación con los planetas es estudiar nuestra propia arquitectura de supervivencia.",
+  "preguntas_deductivas_pagina": [
+    "¿Qué sucede con la fuerza de gravedad si la distancia entre dos cuerpos aumenta?",
+    "¿Cómo define el texto una órbita de manera sencilla?",
+    "¿Cuáles son las dos fuerzas que deben estar en equilibrio para mantener a un planeta en órbita?",
+    "¿Por qué el Sol es el cuerpo que domina el movimiento en el sistema solar?",
+    "¿Qué pasaría con la Tierra si su velocidad de avance se detuviera por completo?"
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Realiza un diagrama detallado que muestre la fuerza de gravedad y la velocidad tangencial (inercia) actuando sobre la Tierra en su órbita.",
+    "Elabora un mapa mental que conecte a Isaac Newton, la masa, la distancia y la fuerza de gravedad con el movimiento de los planetas.",
+    "Dibuja una escena post-apocalíptica donde un sobreviviente usa la sombra de un edificio para determinar la posición del Sol y explicar en qué estación del año se encuentra.",
+    "Crea una infografía artesanal que explique la Ley del Inverso del Cuadrado usando dibujos de imanes o cuerdas para que sea fácil de entender para otros sobrevivientes."
+  ],
+  "juegos_ordenar_letras_2": [
+    "GRAVEDAD",
+    "NEWTON",
+    "INERCIA"
+  ],
+  "juego_ordenar_frase_2": "LA MASA ATRAE A LA MASA CON UNA FUERZA LLAMADA GRAVEDAD",
+  "sopa_letras": [
+    "KEPLER",
+    "NEWTON",
+    "ELIPSE",
+    "ORBITA",
+    "FOCO",
+    "MASA",
+    "SOL",
+    "TIERRA",
+    "GRAVEDAD",
+    "PERIODO"
+  ],
+  "crucigrama": [
+    {
+      "palabra": "HELIOCENTRISMO",
+      "pista": "Teoría que pone al Sol en el centro del sistema solar."
+    },
+    {
+      "palabra": "AFELIO",
+      "pista": "Punto de la órbita más alejado del Sol."
+    },
+    {
+      "palabra": "PERIHELIO",
+      "pista": "Punto de la órbita más cercano al Sol."
+    },
+    {
+      "palabra": "INERCIA",
+      "pista": "Tendencia de los objetos a mantener su estado de movimiento."
+    },
+    {
+      "palabra": "ELIPTICA",
+      "pista": "Forma geométrica de la trayectoria de un planeta."
+    },
+    {
+      "palabra": "GRAVITACION",
+      "pista": "Ley universal descubierta por Newton."
+    },
+    {
+      "palabra": "FOCO",
+      "pista": "Uno de los dos puntos internos que definen una elipse."
+    },
+    {
+      "palabra": "TYCHO",
+      "pista": "Nombre del astrónomo que recolectó los datos que usó Kepler."
+    },
+    {
+      "palabra": "VELOCIDAD",
+      "pista": "Magnitud que aumenta cuando un planeta se acerca al Sol."
+    },
+    {
+      "palabra": "SISTEMA",
+      "pista": "Conjunto de planetas que orbitan una estrella."
+    }
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "Un grupo de sobrevivientes nota que en el mes de Enero el Sol parece un poco más grande en el cielo y hace más calor en el hemisferio sur, mientras que en Julio el Sol se ve ligeramente más pequeño. Esto se debe a la forma de la órbita terrestre.",
+      "tabla_o_grafica_markdown": "| Posición | Distancia al Sol (millones km) | Velocidad Orbital (km/s) |\n|---|---|---|\n| Punto A | 147 | 30.3 |\n| Punto B | 152 | 29.3 |",
+      "pregunta": "¿Qué ley de Kepler explica mejor por qué en el Punto A la velocidad es mayor que en el Punto B?",
+      "opciones": [
+        "La Segunda Ley: El radio vector barre áreas iguales en tiempos iguales.",
+        "La Primera Ley: Las órbitas son circulares.",
+        "La Tercera Ley: Los planetas más lejanos tardan más tiempo.",
+        "La Ley de Inercia: Los cuerpos no cambian su velocidad."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. Al estar más cerca (menor distancia), el planeta debe ir más rápido para barrer la misma área.",
+        "1": "Incorrecto. La primera ley dice que son elipses, no círculos.",
+        "2": "Incorrecto. La tercera ley compara diferentes planetas, no puntos de la misma órbita.",
+        "3": "Incorrecto. La inercia no explica el cambio de velocidad por la gravedad."
+      }
+    },
+    {
+      "competencia": "Uso comprensivo del conocimiento científico",
+      "texto_introductorio": "En la superficie de la Luna, un detective encuentra una caja de suministros. Aunque la caja tiene la misma cantidad de objetos que en la Tierra (masa), nota que es mucho más fácil levantarla.",
+      "tabla_o_grafica_markdown": "| Cuerpo Celeste | Gravedad (m/s²) |\n|---|---|\n| Tierra | 9.8 |\n| Luna | 1.6 |\n| Marte | 3.7 |",
+      "pregunta": "Si un sobreviviente necesita trasladar una maquinaria pesada, ¿en qué lugar el peso de la maquinaria sería menor según la tabla?",
+      "opciones": [
+        "En la Tierra",
+        "En la Luna",
+        "En Marte",
+        "El peso es igual en todos lados"
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. La Tierra tiene la gravedad más alta de la tabla.",
+        "1": "Correcto. La Luna tiene la menor aceleración de la gravedad, por lo tanto el peso es menor.",
+        "2": "Incorrecto. Marte tiene más gravedad que la Luna.",
+        "3": "Incorrecto. La masa es igual, pero el peso depende de la gravedad del lugar."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "Se han descubierto tres nuevos planetas orbitando una estrella lejana llamada 'Esperanza'. Un científico registra los siguientes datos para intentar entender su movimiento.",
+      "tabla_o_grafica_markdown": "| Planeta | Distancia Media (UA) | Periodo Orbital (Años) |\n|---|---|---|\n| Alfa | 1 | 1 |\n| Beta | 4 | 8 |\n| Gamma | 9 | 27 |",
+      "pregunta": "Al observar la tabla, ¿qué relación se puede inferir entre la distancia media y el periodo orbital?",
+      "opciones": [
+        "A mayor distancia, el planeta tarda menos tiempo en dar una vuelta.",
+        "La distancia no afecta el tiempo que tarda el planeta.",
+        "A mayor distancia, el planeta tarda más tiempo en completar su órbita.",
+        "Todos los planetas tardan lo mismo sin importar la distancia."
+      ],
+      "correcta": 2,
+      "retroalimentacion": {
+        "0": "Incorrecto. Los datos muestran que a mayor distancia (9 UA), el tiempo es mayor (27 años).",
+        "1": "Incorrecto. La tabla muestra una clara dependencia.",
+        "2": "Correcto. Es una evidencia directa de la Tercera Ley de Kepler.",
+        "3": "Incorrecto. Los periodos en la tabla son claramente diferentes (1, 8 y 27)."
+      }
+    }
+  ]
+}

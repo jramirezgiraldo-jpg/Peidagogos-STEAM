@@ -1,0 +1,168 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "Desde la cúpula de la ISS, observas que un objeto en órbita no cae directamente hacia la Tierra. ¿Cuál es la razón principal según la física clásica?",
+      "opciones": [
+        "La gravedad desaparece en el espacio exterior.",
+        "El objeto tiene una velocidad tangencial lo suficientemente alta como para 'caer' alrededor de la curvatura terrestre.",
+        "El vacío del espacio empuja los objetos hacia arriba contrarrestando el peso.",
+        "Los imanes de la estación mantienen la posición orbital constante."
+      ],
+      "correcta": 1
+    }
+  ],
+  "texto_inductivo": "Saludos, cadetes espaciales. Les habla el Comandante de la Misión desde la Estación Espacial Internacional (ISS). Hoy, mientras observo el amanecer terrestre que ocurre cada 90 minutos desde nuestro observatorio, me propongo guiarlos por el intrincado camino que nos permitió entender cómo se mueven los mundos. Esta no es solo una lección de física; es el manual de navegación que ha permitido que la humanidad deje de ser una especie ligada únicamente al suelo para convertirse en una civilización capaz de tocar las estrellas. Durante milenios, nuestra especie miró al cielo con una mezcla de temor y adoración. Para los antiguos, los planetas eran dioses caprichosos que se movían contra el fondo de 'estrellas fijas'. El modelo geocéntrico de Ptolomeo, que situaba a la Tierra en el centro del universo, reinó durante casi 1500 años no porque fuera correcto, sino porque era intuitivo para nuestros sentidos. Sin embargo, había anomalías: el movimiento retrógrado de Marte, donde el planeta parece retroceder en el cielo, obligó a los astrónomos a inventar complejos sistemas de círculos sobre círculos llamados epiciclos. La verdad, sin embargo, era mucho más elegante y aterradora.\n\nLa revolución comenzó con Nicolás Copérnico, quien se atrevió a desplazar a la humanidad del centro para colocar al Sol en su lugar (Heliocentrismo). Pero el verdadero cambio de paradigma llegó con el dúo más dinámico de la historia de la astronomía: Tycho Brahe y Johannes Kepler. Brahe fue el observador más meticuloso de su era; sin telescopios, solo con instrumentos de medición gigantescos, registró la posición de los planetas con una precisión sin precedentes. Tras su muerte, Kepler heredó estos datos, especialmente los de Marte. Kepler era un místico y un matemático que buscaba la armonía geométrica. Pasó años tratando de encajar los datos de Brahe en órbitas circulares perfectas, pero siempre había un error de 8 minutos de arco que no podía explicar. En un acto de valentía intelectual sin precedentes, Kepler abandonó la 'perfección del círculo' y abrazó la elipse. Así nacieron sus tres leyes.\n\nLa Primera Ley de Kepler, la Ley de las Órbitas, nos dice que los planetas se mueven en elipses con el Sol en uno de los focos. Esto destruyó la cosmología antigua. La Segunda Ley, o Ley de las Áreas, describe cómo un planeta barre áreas iguales en tiempos iguales; esto significa que el planeta se mueve más rápido cuando está cerca del Sol (perihelio) y más lento cuando está lejos (afelio). Finalmente, la Tercera Ley, la Ley de los Periodos, estableció una relación matemática exacta entre la distancia de un planeta al Sol y el tiempo que tarda en completar una órbita ($T^2 \\propto r^3$). Estos descubrimientos no fueron solo teóricos; son la base de cómo calculamos nuestras trayectorias aquí en la ISS. Entender que el movimiento planetario no es una serie de círculos divinos, sino el resultado de leyes físicas que podemos medir y predecir, fue el primer paso para dominar nuestro entorno espacial. Sobrevivir en el vacío requiere que abandonemos nuestras intuiciones terrestres y aceptemos la geometría del cosmos. Si no comprendiéramos estas leyes, la ISS no sería más que un trozo de chatarra cayendo sin control. Al estudiar el movimiento planetario, estamos estudiando la mecánica del reloj universal que nos permite, hoy, planear nuestro próximo gran salto hacia Marte.",
+  "recurso_visual": "| Ley de Kepler | Nombre | Descripción Física | Implicación en el Espacio |\n| :--- | :--- | :--- | :--- |\n| **1ª Ley** | Órbitas | Los planetas describen elipses con el Sol en un foco. | No hay círculos perfectos; la distancia varía constantemente. |\n| **2ª Ley** | Áreas | El radio vector barre áreas iguales en tiempos iguales. | La velocidad orbital no es constante (aceleración en el perihelio). |\n| **3ª Ley** | Periodos | El cuadrado del periodo es proporcional al cubo de la distancia media. | A mayor distancia del centro de masa, más lento es el año planetario. |",
+  "preguntas_inductivas_pagina": [
+    "¿Por qué el modelo geocéntrico persistió tanto tiempo a pesar de sus errores?",
+    "¿Cuál fue el error de medición de Brahe que llevó a Kepler a descubrir las elipses?",
+    "¿Qué sucede con la velocidad de un planeta cuando se acerca al afelio?",
+    "¿Cómo cambia la percepción de la perfección geométrica entre Copérnico y Kepler?",
+    "¿Por qué es vital la Tercera Ley para los exploradores espaciales modernos?"
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema de una órbita elíptica marcando el perihelio, el afelio y los focos, señalando dónde la velocidad es máxima.",
+    "Realiza un cuadro comparativo entre el modelo de Ptolomeo y el modelo de Kepler destacando tres diferencias fundamentales.",
+    "Escribe una reflexión de dos párrafos sobre cómo la persistencia de Kepler ante un error de 8 minutos de arco cambió la historia de la ciencia.",
+    "Representa gráficamente la Segunda Ley de Kepler mediante un diagrama de 'sectores de pizza' temporales."
+  ],
+  "juegos_ordenar_letras_1": [
+    "ELIPSE",
+    "PERIHELIO",
+    "KEPLER"
+  ],
+  "juego_ordenar_frase_1": "EL SOL OCUPA UNO DE LOS FOCOS EN LA ORBITA PLANETARIA",
+  "texto_deductivo": "Cadetes, si Kepler nos dio el 'cómo' se mueven los planetas, Isaac Newton nos dio el 'porqué'. Imaginen que estamos aquí en la ISS, a unos 400 kilómetros sobre la superficie terrestre. Para sobrevivir aquí, debemos entender que la gravedad no se detiene mágicamente donde empieza la atmósfera. De hecho, la gravedad de la Tierra aquí arriba es aproximadamente el 90% de la que sienten ustedes en el suelo. Entonces, ¿por qué no nos estrellamos contra el suelo? La respuesta reside en la Ley de Gravitación Universal y el concepto de caída libre perpetua. Newton dedujo que todos los cuerpos con masa se atraen entre sí con una fuerza que es directamente proporcional al producto de sus masas e inversamente proporcional al cuadrado de la distancia que los separa. Esta es la famosa ecuación $F = G \\cdot (m_1 \\cdot m_2) / r^2$. Esta fuerza es la que mantiene a la Luna atada a la Tierra y a la Tierra atada al Sol.\n\nPara un explorador espacial, la supervivencia depende de equilibrar esta fuerza. Cuando lanzamos un cohete, buscamos alcanzar una 'velocidad orbital'. Si lanzas una piedra horizontalmente, cae al suelo. Si la lanzas más fuerte, llega más lejos antes de caer. Si la lanzas a unos 7.6 kilómetros por segundo (en la altura de la ISS), la piedra caerá, pero la curvatura de la Tierra se 'quitará del camino' a la misma velocidad que la piedra cae. La ISS está, literalmente, cayendo perpetuamente alrededor del planeta. Esto es lo que crea la sensación de microgravedad: no es la falta de gravedad, sino el hecho de que tanto la estación como nosotros estamos cayendo a la misma aceleración. Newton unificó la física terrestre y la celeste al demostrar que la manzana que cae de un árbol y la Luna que orbita la Tierra están regidas por la misma fuerza exacta. \n\nEste conocimiento nos permite deducir constantes fundamentales. Por ejemplo, al igualar la fuerza gravitatoria con la fuerza centrípeta necesaria para mantener un movimiento circular, podemos derivar la velocidad necesaria para mantener cualquier órbita: $v = \\sqrt{G \\cdot M / r}$. Aquí, $M$ es la masa del planeta y $r$ el radio desde el centro de dicho planeta. Si quisiéramos escapar de la gravedad de la Tierra para ir a Marte, necesitaríamos alcanzar la 'velocidad de escape', que es $\\sqrt{2}$ veces la velocidad orbital. Dominar estas ecuaciones es la diferencia entre ser un navegante estelar o convertirse en polvo cósmico. En el modo de supervivencia 'Dios', ustedes no solo deben memorizar fórmulas, sino entender que la geometría del espacio-tiempo está dictada por la masa. La gravitación es el pegamento del universo, y el movimiento planetario es su danza coreografiada por las leyes de la inercia y la atracción. Cada vez que ajustamos los propulsores de la ISS para elevar nuestra órbita (debido al ligero frenado por las trazas de atmósfera), estamos aplicando directamente las deducciones de Newton para no convertirnos en un meteoro ardiente reingresando sin control.",
+  "preguntas_deductivas_pagina": [
+    "¿Qué sucedería con la fuerza de atracción si duplicamos la distancia entre dos planetas?",
+    "¿Por qué los astronautas en la ISS sienten falta de peso si hay gravedad en su ubicación?",
+    "¿Cuál es la relación matemática entre la velocidad orbital y la masa del objeto que orbita?",
+    "¿Cómo dedujo Newton su ley a partir de las observaciones de Kepler?",
+    "¿Qué diferencia fundamental hay entre la velocidad orbital y la velocidad de escape?"
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Dibuja un diagrama detallado de un 'Cañón de Newton' explicando cómo un objeto se convierte en satélite.",
+    "Elabora un mapa mental que conecte la constante G, las masas, la distancia y la fuerza gravitatoria.",
+    "Realiza un dibujo explicativo que muestre la diferencia entre masa y peso en la Tierra versus en la Luna.",
+    "Crea una infografía artesanal sobre 'Cómo orbitar un planeta sin morir en el intento' usando fórmulas físicas."
+  ],
+  "juegos_ordenar_letras_2": [
+    "GRAVEDAD",
+    "INERCIA",
+    "NEWTON"
+  ],
+  "juego_ordenar_frase_2": "LA FUERZA ES INVERSAMENTE PROPORCIONAL AL CUADRADO DE LA DISTANCIA",
+  "sopa_letras": [
+    "GRAVEDAD",
+    "ORBITA",
+    "KEPLER",
+    "ELIPSE",
+    "AFELIO",
+    "MASA",
+    "FUERZA",
+    "INERCIA",
+    "SATELLITE",
+    "PLANETA"
+  ],
+  "crucigrama": [
+    {
+      "palabra": "PERIHELIO",
+      "pista": "Punto de la órbita más cercano al Sol."
+    },
+    {
+      "palabra": "ELIPSE",
+      "pista": "Forma geométrica de las órbitas planetarias."
+    },
+    {
+      "palabra": "NEWTON",
+      "pista": "Científico que formuló la Ley de Gravitación Universal."
+    },
+    {
+      "palabra": "FOCO",
+      "pista": "Lugar que ocupa el Sol dentro de la elipse orbital."
+    },
+    {
+      "palabra": "AFELIO",
+      "pista": "Punto de la órbita más alejado del Sol."
+    },
+    {
+      "palabra": "PERIODO",
+      "pista": "Tiempo que tarda un planeta en dar una vuelta completa."
+    },
+    {
+      "palabra": "INERCIA",
+      "pista": "Resistencia de un cuerpo a cambiar su estado de movimiento."
+    },
+    {
+      "palabra": "GIGANTE",
+      "pista": "Tipo de planeta como Júpiter o Saturno con gran masa."
+    },
+    {
+      "palabra": "CENTRIPETA",
+      "pista": "Fuerza que busca el centro y mantiene al objeto en curva."
+    },
+    {
+      "palabra": "UNIVERSAL",
+      "pista": "Característica de la gravedad que indica que actúa en todo el cosmos."
+    }
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "En la Estación Espacial Internacional, los objetos parecen flotar. Sin embargo, la ISS se encuentra a una altitud donde la fuerza gravitacional de la Tierra aún es muy fuerte (aprox. 8.9 m/s²). El siguiente gráfico muestra la relación entre la velocidad tangencial y la estabilidad orbital.",
+      "tabla_o_grafica_markdown": "| Situación | Velocidad (km/s) | Resultado |\n|---|---|---|\n| A | 2.0 | Cae a la Tierra |\n| B | 7.6 | Órbita Estable |\n| C | 11.2 | Escapa de la Tierra |",
+      "pregunta": "¿Por qué en la situación B los astronautas experimentan 'ingravidez'?",
+      "opciones": [
+        "Porque la fuerza centrífuga anula exactamente a la gravedad.",
+        "Porque están en un estado de caída libre constante donde la estación y ellos caen a la misma tasa.",
+        "Porque a 7.6 km/s la gravedad terrestre deja de actuar sobre los cuerpos.",
+        "Porque el aire dentro de la estación los empuja hacia arriba."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. La fuerza centrífuga es una fuerza ficticia vista desde un marco no inercial; la explicación física real es la caída libre.",
+        "1": "Correcto. La ingravidez aparente es el resultado de que el sistema de referencia (ISS) y los objetos dentro de él tienen la misma aceleración gravitatoria.",
+        "2": "Incorrecto. La gravedad sigue actuando; es lo que mantiene la órbita curva.",
+        "3": "Incorrecto. El aire no tiene la densidad necesaria para generar tal empuje, y el efecto ocurre también en el vacío."
+      }
+    },
+    {
+      "competencia": "Uso Comprensivo del Conocimiento Científico",
+      "texto_introductorio": "La Tercera Ley de Kepler establece que $T^2 / R^3 = K$. Se tienen dos planetas, X e Y, orbitando la misma estrella. El planeta Y está a una distancia 4 veces mayor de la estrella que el planeta X ($Ry = 4Rx$).",
+      "tabla_o_grafica_markdown": "| Planeta | Distancia (u.a.) | Periodo (años) |\n|---|---|---|\n| X | 1 | 1 |\n| Y | 4 | ? |",
+      "pregunta": "¿Cuál será el periodo orbital del planeta Y en comparación con el planeta X?",
+      "opciones": [
+        "4 veces mayor",
+        "16 veces mayor",
+        "8 veces mayor",
+        "64 veces mayor"
+      ],
+      "correcta": 2,
+      "retroalimentacion": {
+        "0": "Incorrecto. No es una relación lineal simple.",
+        "1": "Incorrecto. Has olvidado aplicar la raíz cuadrada al resultado de elevar la distancia al cubo.",
+        "2": "Correcto. Si la distancia es 4, $4^3 = 64$. Como $T^2 = 64$, entonces $T = 8$.",
+        "3": "Incorrecto. 64 es el cubo de la distancia, pero falta extraer la raíz para hallar el periodo."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "Un grupo de astrónomos detecta un nuevo sistema solar y registra los siguientes datos de tres planetas encontrados. Quieren determinar cuál de ellos se mueve más rápido en su órbita basándose en las leyes de Kepler.",
+      "tabla_o_grafica_markdown": "| Planeta | Radio Orbital Medio (millones km) | Masa del Planeta (kg) |\n|---|---|---|\n| Alpha | 50 | 5e24 |\n| Beta | 150 | 1e26 |\n| Gamma | 300 | 2e27 |",
+      "pregunta": "Según las leyes de Kepler y la gravitación, ¿cuál de los planetas tiene la mayor velocidad orbital media?",
+      "opciones": [
+        "Alpha, porque está más cerca de la estrella.",
+        "Gamma, porque es el más masivo y la masa aumenta la velocidad.",
+        "Beta, porque tiene una relación masa-distancia equilibrada.",
+        "Todos tienen la misma velocidad porque orbitan la misma estrella."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. Según la 3ra ley de Kepler y la mecánica de Newton, a menor radio orbital, mayor debe ser la velocidad para mantener el equilibrio orbital.",
+        "1": "Incorrecto. La velocidad orbital de un planeta no depende de su propia masa (siempre que sea mucho menor que la de la estrella), sino de la distancia.",
+        "2": "Incorrecto. La masa del planeta no es el factor determinante para su velocidad orbital en este contexto.",
+        "3": "Incorrecto. Los periodos y velocidades varían drásticamente con la distancia al centro de masa."
+      }
+    }
+  ]
+}

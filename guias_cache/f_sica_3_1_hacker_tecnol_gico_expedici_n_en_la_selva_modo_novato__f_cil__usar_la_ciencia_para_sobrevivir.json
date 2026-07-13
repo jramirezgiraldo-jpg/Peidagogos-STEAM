@@ -1,0 +1,178 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Cuál es el cuerpo celeste que se encuentra en el centro de nuestro sistema según el modelo heliocéntrico?",
+      "opciones": [
+        "La Tierra",
+        "La Luna",
+        "El Sol",
+        "Marte"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "¿Qué forma creían los antiguos que tenían las órbitas planetarias antes de Kepler?",
+      "opciones": [
+        "Cuadradas",
+        "Círculos perfectos",
+        "Triangulares",
+        "Líneas rectas"
+      ],
+      "correcta": 1
+    }
+  ],
+  "texto_inductivo": "¡Saludos, Reclutas del Silicio! Soy su Guía Hacker de Sistemas Naturales. Bienvenidos a la **Expedición en la Selva**. Imaginen que nuestra selva no termina en la copa de los árboles más altos, sino que se extiende hacia el vacío infinito del espacio. Como hackers, no vemos el cielo simplemente como un decorado nocturno; lo vemos como un sistema operativo gigante ejecutando un código llamado **Física**. Para sobrevivir en este entorno hostil, donde el GPS de sus dispositivos ha fallado tras la caída del rayo electromagnético, deben aprender a leer el 'firmware' del universo: el movimiento planetario.\n\nDesde que el primer humano miró hacia arriba en esta densa vegetación, notó que algunos puntos de luz no se quedaban quietos. Los llamaron 'planetas', que en griego significa 'vagabundos'. Pero nosotros sabemos que no vagan sin rumbo; siguen un protocolo de ejecución preciso. Durante siglos, los 'programadores' antiguos como Ptolomeo intentaron explicar esto con el modelo geocéntrico, poniendo a la Tierra en el centro del servidor. Era un código lleno de errores (llamados epiciclos) que hacían el sistema lento e inexacto. Fue como intentar correr un juego moderno en una consola de los años 80; simplemente no encajaba con la realidad observada.\n\nLuego llegó Nicolás Copérnico, el primer gran 'hacker' de la astronomía, quien propuso un 'refactorizado' total del código: el modelo heliocéntrico. Dijo que el Sol era el nodo central. Sin embargo, seguía usando círculos perfectos, lo que causaba pequeños 'bugs' en las predicciones. No fue hasta que Johannes Kepler analizó los datos masivos (el Big Data de la época) recolectados por Tycho Brahe, que descubrimos la verdad. Kepler hackeó la idea de la perfección circular y descubrió que los planetas se mueven en **elipses**. \n\nEn esta selva, entender esto es vital. Si logramos predecir dónde estará un planeta o un satélite en el cielo, podremos orientarnos y buscar una salida. El movimiento planetario no es solo ciencia ficción; es la brújula definitiva cuando el hardware falla. Observen las estrellas a través de los huecos entre las hojas: cada movimiento es una línea de código que nos dice nuestra posición en el tiempo y el espacio. La gravedad es el bus de datos que mantiene todo conectado, y las leyes de Kepler son las funciones que definen la velocidad y la trayectoria. Si dominan esto, la selva dejará de ser un laberinto para convertirse en un mapa legible. Prepárense, porque vamos a descompilar el cielo para sobrevivir.",
+  "recurso_visual": "graph TD\n    A[Modelos del Universo] --> B(Geocéntrico)\n    A --> C(Heliocéntrico)\n    B --> B1[Tierra en el centro]\n    B --> B2[Círculos perfectos / Errores]\n    C --> C1[Sol en el centro]\n    C1 --> D[Kepler: Órbitas Elípticas]\n    D --> E[Leyes de Movimiento]\n    E --> E1[1. Elipses]\n    E --> E2[2. Áreas iguales]\n    E --> E3[3. Armónica]",
+  "preguntas_inductivas_pagina": [
+    "¿Por qué el modelo de Ptolomeo se considera un código con 'bugs'?",
+    "¿Qué significa la palabra 'planeta' y cómo se relaciona con la observación inicial?",
+    "¿Cuál fue el cambio principal que propuso Copérnico en el sistema?",
+    "¿Qué tipo de datos utilizó Kepler para mejorar el modelo heliocéntrico?",
+    "¿Cómo puede ayudarnos el movimiento planetario a sobrevivir en una selva?"
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema que compare el modelo geocéntrico (con la Tierra en el centro) y el heliocéntrico (con el Sol en el centro).",
+    "Realiza un cuadro comparativo entre las ideas de círculos perfectos de Copérnico y las elipses de Kepler.",
+    "Escribe una reflexión de 10 líneas sobre cómo la ciencia actúa como una herramienta de supervivencia frente a lo desconocido.",
+    "Representa gráficamente una órbita elíptica, señalando la posición del Sol en uno de los focos."
+  ],
+  "juegos_ordenar_letras_1": [
+    "ELIPSE",
+    "ORBITA",
+    "KEPLER"
+  ],
+  "juego_ordenar_frase_1": "EL SOL OCUPA UNO DE LOS FOCOS EN LA ORBITA ELIPTICA",
+  "texto_deductivo": "Ahora que hemos identificado la estructura del sistema, es hora de analizar el código fuente detallado: las **Leyes de Kepler**. En nuestro Modo Novato de supervivencia, debemos ver estas leyes como reglas de optimización de recursos. \n\nLa **Primera Ley de Kepler** (Ley de las Órbitas) nos dice que los planetas no giran en círculos, sino en elipses. Imaginen que estiran un círculo desde dos puntos llamados focos. El Sol no está en el centro exacto, sino en uno de esos focos. Esto significa que a veces estamos más cerca del Sol (perihelio) y otras más lejos (afelio). En la selva, esto es como conocer los límites de nuestro territorio; saber que el camino no es una curva perfecta nos ayuda a calcular distancias reales.\n\nLa **Segunda Ley de Kepler** (Ley de las Áreas) es el regulador de velocidad del sistema. Dice que una línea imaginaria que conecta al planeta con el Sol barre áreas iguales en tiempos iguales. En términos de hacking: el planeta 'acelera' su procesador cuando está cerca del Sol y se vuelve más 'lento' cuando está lejos. ¿Por qué importa esto? Porque si estamos rastreando un satélite de rescate, su velocidad cambiará dependiendo de su posición en la órbita. No podemos esperarlo siempre a la misma velocidad; debemos ajustar nuestro reloj interno al ritmo del universo.\n\nLa **Tercera Ley de Kepler** (Ley de los Periodos) es la más matemática, pero piénsenla como una relación de escala. Dice que el cuadrado del periodo orbital (el tiempo que tarda en dar una vuelta) es proporcional al cubo de la distancia promedio al Sol. Básicamente, entre más lejos esté un planeta del nodo central (Sol), mucho más tiempo tardará en completar su ciclo. Es como los niveles de acceso en un sistema: los niveles externos tardan más en cargar que los internos. \n\nFinalmente, Isaac Newton llegó para parchear el sistema con la **Ley de Gravitación Universal**. Él explicó el 'porqué' del código de Kepler. La gravedad es la fuerza invisible que actúa como el cable de red que mantiene a los planetas unidos al Sol. Sin esta fuerza de atracción, los planetas saldrían disparados hacia el vacío de la memoria RAM del espacio. En la selva, la gravedad también es la que nos mantiene pegados al suelo y la que hace que el agua de los ríos fluya. Comprender que la misma fuerza que mueve a Marte es la que hace caer un coco de una palmera es el hack definitivo para entender la unidad de la naturaleza. Usar la ciencia para sobrevivir implica reconocer estos patrones y usarlos a nuestro favor para no perder la orientación ni la esperanza.",
+  "preguntas_deductivas_pagina": [
+    "¿Qué diferencia hay entre el perihelio y el afelio en una órbita?",
+    "¿Cuándo se mueve más rápido un planeta según la Segunda Ley de Kepler?",
+    "¿Qué relación establece la Tercera Ley entre la distancia y el tiempo de órbita?",
+    "¿Quién explicó la causa física (fuerza) detrás de las leyes de Kepler?",
+    "¿Por qué es importante la gravedad para mantener la estabilidad del sistema solar?"
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Realiza un diagrama detallado de la Segunda Ley de Kepler mostrando las áreas barridas por un planeta.",
+    "Elabora un mapa mental que conecte las tres leyes de Kepler con la Ley de Gravitación de Newton.",
+    "Dibuja una infografía artesanal que explique por qué los planetas más lejanos tardan más años en dar la vuelta al Sol.",
+    "Realiza un dibujo explicativo de cómo se vería la órbita de la Tierra si el Sol no estuviera en un foco."
+  ],
+  "juegos_ordenar_letras_2": [
+    "GRAVEDAD",
+    "PERIODO",
+    "NEWTON"
+  ],
+  "juego_ordenar_frase_2": "LA GRAVEDAD MANTIENE A LOS PLANETAS EN SUS ORBITAS",
+  "sopa_letras": [
+    "SOL",
+    "FOCO",
+    "ELIPSE",
+    "PLANETA",
+    "ORBITA",
+    "MASA",
+    "TIEMPO",
+    "FUERZA",
+    "KEPLER",
+    "CIENCIA"
+  ],
+  "crucigrama": [
+    {
+      "palabra": "ELIPSE",
+      "pista": "Forma de la órbita de los planetas"
+    },
+    {
+      "palabra": "GRAVEDAD",
+      "pista": "Fuerza de atracción entre dos masas"
+    },
+    {
+      "palabra": "PERIODO",
+      "pista": "Tiempo que tarda un planeta en dar una vuelta completa"
+    },
+    {
+      "palabra": "KEPLER",
+      "pista": "Astrónomo que propuso las tres leyes del movimiento planetario"
+    },
+    {
+      "palabra": "NEWTON",
+      "pista": "Científico que formuló la ley de gravitación universal"
+    },
+    {
+      "palabra": "SOL",
+      "pista": "Cuerpo que ocupa uno de los focos de la elipse"
+    },
+    {
+      "palabra": "AFELIO",
+      "pista": "Punto de la órbita más alejado del Sol"
+    },
+    {
+      "palabra": "PERIHELIO",
+      "pista": "Punto de la órbita más cercano al Sol"
+    },
+    {
+      "palabra": "ACELERA",
+      "pista": "Lo que hace un planeta al acercarse al Sol"
+    },
+    {
+      "palabra": "INERCIA",
+      "pista": "Tendencia de los cuerpos a mantener su estado de movimiento"
+    }
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "En la selva, un estudiante observa que Mercurio tarda mucho menos tiempo en dar la vuelta al Sol que Júpiter. Para entender esto, consulta la siguiente tabla de datos:",
+      "tabla_o_grafica_markdown": "| Planeta | Distancia Media al Sol (UA) | Periodo Orbital (Años) |\n|---|---|---|\n| Mercurio | 0.39 | 0.24 |\n| Tierra | 1.00 | 1.00 |\n| Júpiter | 5.20 | 11.86 |",
+      "pregunta": "¿Cuál de las leyes de Kepler explica mejor por qué Júpiter tarda más tiempo en completar su órbita?",
+      "opciones": [
+        "La Tercera Ley (Ley de los Periodos)",
+        "La Primera Ley (Ley de las Elipses)",
+        "La Segunda Ley (Ley de las Áreas)",
+        "La Ley de la Inercia"
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. La Tercera Ley establece una relación directa entre el cubo de la distancia y el cuadrado del periodo.",
+        "1": "Incorrecto. La primera ley solo habla de la forma de la órbita (elipse).",
+        "2": "Incorrecto. La segunda ley se refiere a la velocidad del planeta en diferentes puntos de su propia órbita.",
+        "3": "Incorrecto. Esta ley es de Newton y habla de la resistencia al cambio de movimiento, no de la relación distancia-tiempo orbital."
+      }
+    },
+    {
+      "competencia": "Uso comprensivo del conocimiento científico",
+      "texto_introductorio": "Un grupo de expedicionarios nota que la Tierra se mueve más rápido en su órbita durante el mes de enero que en julio. Saben que en enero la Tierra está más cerca del Sol.",
+      "tabla_o_grafica_markdown": "| Posición | Distancia (Millones km) | Velocidad Orbital (km/s) |\n|---|---|---|\n| Cerca del Sol | 147 | 30.3 |\n| Lejos del Sol | 152 | 29.3 |",
+      "pregunta": "Según la Segunda Ley de Kepler, ¿por qué aumenta la velocidad cuando el planeta está más cerca del Sol?",
+      "opciones": [
+        "Porque debe barrer áreas iguales en tiempos iguales",
+        "Porque la gravedad desaparece en ese punto",
+        "Porque el Sol empuja al planeta hacia afuera",
+        "Porque las elipses son círculos disfrazados"
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. Para que el área barrida sea igual en el mismo tiempo, al estar más cerca (radio menor), el arco recorrido (distancia) debe ser mayor, por lo tanto la velocidad aumenta.",
+        "1": "Incorrecto. La gravedad es más fuerte cuando están más cerca.",
+        "2": "Incorrecto. El Sol atrae al planeta, no lo empuja hacia afuera.",
+        "3": "Incorrecto. Las elipses y los círculos son figuras geométricas distintas."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "Un hacker de la expedición encuentra un antiguo registro que dice: 'Si un planeta X estuviera a 4 unidades astronómicas (UA) del Sol, su periodo orbital sería de 8 años'.",
+      "tabla_o_grafica_markdown": "| Distancia (R) | Periodo (T) | R³ | T² |\n|---|---|---|---|\n| 4 UA | 8 años | 64 | 64 |",
+      "pregunta": "Al observar que R³ = T², ¿qué puede concluir el hacker sobre la relación matemática en este sistema planetario?",
+      "opciones": [
+        "Que existe una proporción constante entre la distancia y el tiempo",
+        "Que el planeta se detendrá pronto",
+        "Que la distancia no afecta el tiempo de órbita",
+        "Que todos los planetas tardan 8 años en girar"
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. La igualdad R³ = T² confirma la constante de la Tercera Ley de Kepler para este sistema.",
+        "1": "Incorrecto. El movimiento orbital es continuo mientras exista la fuerza gravitacional.",
+        "2": "Incorrecto. Los datos muestran claramente que la distancia (R) define el periodo (T).",
+        "3": "Incorrecto. Cada planeta tiene su propio periodo dependiendo de su distancia específica."
+      }
+    }
+  ]
+}

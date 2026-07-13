@@ -1,0 +1,188 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Cuál es la forma geométrica de las órbitas planetarias según el modelo heliocéntrico actual?",
+      "opciones": [
+        "Círculo perfecto",
+        "Elipse",
+        "Parábola",
+        "Línea recta"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Qué fuerza mantiene a los planetas girando alrededor del Sol?",
+      "opciones": [
+        "Fuerza Magnética",
+        "Fuerza de Fricción",
+        "Fuerza Gravitacional",
+        "Fuerza Eléctrica"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "¿Quién propuso las tres leyes fundamentales del movimiento planetario?",
+      "opciones": [
+        "Isaac Newton",
+        "Galileo Galilei",
+        "Johannes Kepler",
+        "Nicolás Copérnico"
+      ],
+      "correcta": 2
+    }
+  ],
+  "texto_inductivo": "Saludos, Cadete Espacial de Nivel Dios. Te habla el Detective Principal de la Estación Espacial Internacional (ISS). Nos enfrentamos a un enigma que desafía la estabilidad de nuestra misión. Hace 48 horas, los sensores de navegación de la ISS detectaron una fluctuación inexplicable en la trayectoria de la sonda 'Vagabundo II', que se encuentra orbitando Marte. Según los cálculos estándar, la sonda debería seguir una trayectoria elíptica predecible, pero hay una desviación de 0.003 grados que no podemos explicar. Para resolver este misterio, debemos retroceder en el tiempo y reexaminar los cimientos de la mecánica celeste. Imagina que estamos en el siglo XVII. El astrónomo Johannes Kepler heredó los datos meticulosos de Tycho Brahe, quien pasó décadas observando los cielos sin telescopio, solo con su ojo desnudo y sextantes gigantes. Brahe era el recolector de pistas; Kepler fue el detective que encontró el patrón. Antes de ellos, el mundo creía en la perfección del círculo. Se pensaba que los cielos, al ser obra divina, debían moverse en trayectorias circulares perfectas. Pero Kepler descubrió algo perturbador: los datos de Marte no encajaban en un círculo. Si los datos no encajan con la teoría, es la teoría la que debe morir. Así nació la **Primera Ley de Kepler**: todos los planetas se desplazan alrededor del Sol describiendo órbitas elípticas, estando el Sol situado en uno de los focos. Una elipse no es un círculo deformado, es una figura geométrica con dos puntos críticos llamados focos. En la ISS, sentimos esto cada segundo; no caemos hacia la Tierra porque nuestra velocidad tangencial equilibra la atracción elíptica. Pero el misterio de la 'Vagabundo II' se complica con la **Segunda Ley de Kepler**, o Ley de las Áreas. Kepler observó que los planetas no se mueven a una velocidad constante. Cuando están más cerca del Sol (perihelio), corren como si tuvieran prisa; cuando están lejos (afelio), se mueven con una calma majestuosa. La ley dice que el radio vector que une a un planeta con el Sol barre áreas iguales en tiempos iguales. Esto significa que la velocidad orbital es variable. Si nuestra sonda está fallando, ¿será porque ha entrado en una zona donde la densidad de masa del planeta ha cambiado, afectando su velocidad según esta ley? ¿O hay un objeto invisible ejerciendo una fuerza adicional? Para ser un detective de élite, debes entender que la física no son solo fórmulas, sino la búsqueda de la armonía en el aparente caos del cosmos. La ISS es nuestro laboratorio flotante, un testamento a la precisión de estas leyes. Si cometemos un error de un decimal en el cálculo de la excentricidad de la elipse, la estación podría reentrar en la atmósfera o perderse en el vacío. Estamos aquí para revisar el movimiento planetario no como un tema de libro, sino como el código de seguridad de nuestra supervivencia. Investiga los datos, analiza las elipses y prepárate para el siguiente nivel de deducción, donde las matemáticas de Newton revelarán el culpable de la anomalía de la sonda.",
+  "recurso_visual": "graph TD\n    A[Movimiento Planetario] --> B[1ra Ley: Órbitas Elípticas]\n    A --> C[2da Ley: Áreas Iguales en Tiempos Iguales]\n    A --> D[3ra Ley: Armonía de los Periodos]\n    B --> B1[El Sol en un foco]\n    C --> C1[Velocidad variable: Perihelio vs Afelio]\n    D --> D1[Relación entre distancia y tiempo orbital]",
+  "preguntas_inductivas_pagina": [
+    "¿Por qué Kepler decidió abandonar la idea del círculo perfecto para las órbitas?",
+    "¿Qué sucede con la velocidad de un planeta cuando se acerca al foco donde está el Sol?",
+    "En el contexto del misterio, ¿qué es la 'Vagabundo II' y qué anomalía presenta?",
+    "¿Cuál es la diferencia geométrica fundamental entre un círculo y una elipse según el texto?",
+    "¿Qué implicación tiene la Segunda Ley de Kepler para la velocidad de un objeto en órbita?"
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema detallado de una órbita elíptica, señalando los focos, el perihelio, el afelio y el radio vector, aplicando el concepto de la primera ley.",
+    "Realiza un cuadro comparativo entre el modelo geocéntrico (círculos) y el modelo de Kepler (elipses), destacando las ventajas científicas de este último.",
+    "Redacta una reflexión de 15 líneas sobre cómo la precisión de los datos de Tycho Brahe fue crucial para que Kepler resolviera el 'misterio' del movimiento de Marte.",
+    "Representa gráficamente la Segunda Ley de Kepler dividiendo una elipse en 'rebanadas' de igual área y explica por qué los arcos de trayectoria son de distinta longitud."
+  ],
+  "juegos_ordenar_letras_1": [
+    "ELIPSE",
+    "AFELIO",
+    "FOCO"
+  ],
+  "juego_ordenar_frase_1": "LAS ORBITAS DE LOS PLANETAS SON ELIPTICAS Y NO CIRCULARES",
+  "texto_deductivo": "Cadete, has superado la fase de observación. Ahora entramos en la cámara de análisis cuántico de la ISS para aplicar la **Tercera Ley de Kepler** y la **Ley de Gravitación Universal de Newton**. Si las dos primeras leyes de Kepler nos dicen 'cómo' se mueven los planetas, la tercera ley y el trabajo de Newton nos dicen 'por qué' y bajo qué proporción. La Tercera Ley, o Ley Armónica, establece que el cuadrado del periodo orbital (el tiempo que tarda en dar una vuelta completa) es directamente proporcional al cubo de la distancia media al Sol. Matemáticamente: T² = k * r³. Esta constante 'k' es la misma para todos los planetas que orbitan el mismo cuerpo central. Aquí es donde el misterio de la sonda 'Vagabundo II' se vuelve crítico. Si su periodo orbital ha cambiado sin que hayamos modificado su distancia media, entonces la masa del cuerpo que orbita o la constante de gravitación parecen estar bajo sospecha de una interferencia externa. Entra en escena Sir Isaac Newton. Casi 80 años después de Kepler, Newton se dio cuenta de que la fuerza que hace caer una manzana en la Tierra es la misma que mantiene a la Luna en su órbita y a la ISS unida a nuestro planeta. Esta es la Ley de Gravitación Universal: F = G * (m1 * m2) / r². Newton demostró que las leyes de Kepler son una consecuencia directa de esta fuerza gravitatoria. La gravedad es la 'mano invisible' que dibuja las elipses. En la ISS, la microgravedad que experimentamos no es ausencia de gravedad, sino una caída libre perpetua. Estamos cayendo hacia la Tierra, pero nos movemos tan rápido hacia adelante que 'fallamos' el suelo constantemente. Para resolver la anomalía de la sonda, debemos considerar que la gravedad no es solo una atracción entre dos puntos, sino una curvatura del espacio-tiempo (según Einstein, pero mantengámonos en Newton por ahora para estabilizar los sistemas de la estación). Si la sonda detecta una variación, podría ser un 'Mascon' (una concentración de masa oculta bajo la superficie de Marte) que altera localmente el valor de 'r' o añade una fuerza extra. La mecánica planetaria es un reloj de precisión absoluta. Al revisar el movimiento planetario, vemos que la Tercera Ley nos permite calcular distancias astronómicas simplemente midiendo tiempos. Si sabemos cuánto tarda Júpiter en rodear al Sol, sabemos a qué distancia está. Es el GPS del universo. El reto épico para ti, Detective, es usar estas proporciones para verificar si la 'Vagabundo II' está atrapada en un pozo gravitatorio desconocido. Recuerda: en el espacio, no hay fricción que oculte los errores; la física es pura, elegante y despiadada. La anomalía orbital es nuestra pista final. ¿Es un error de los motores o es física nueva? Solo el análisis riguroso de la relación entre el periodo y el radio nos dará la respuesta final antes de que la sonda se pierda para siempre en el abismo interplanetario.",
+  "preguntas_deductivas_pagina": [
+    "¿Qué relación matemática establece la Tercera Ley de Kepler entre el tiempo y la distancia?",
+    "¿Qué significa la constante 'k' en la fórmula de la Tercera Ley?",
+    "¿Cómo unificó Newton la física terrestre con la física celeste?",
+    "¿Por qué los astronautas en la ISS sienten que no hay gravedad si la Tierra los atrae?",
+    "¿Qué es un 'Mascon' y cómo podría afectar la trayectoria de una sonda según la ley de gravitación?"
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Realiza un diagrama detallado de fuerzas para la ISS, mostrando el vector de velocidad tangencial y el vector de fuerza gravitatoria que generan la órbita.",
+    "Elabora un mapa mental que conecte las 3 Leyes de Kepler con la Ley de Gravitación Universal de Newton, usando conectores lógicos.",
+    "Dibuja un gráfico explicativo de la Tercera Ley de Kepler (T² vs r³) y explica qué representa la pendiente de la línea resultante.",
+    "Diseña una infografía artesanal que explique paso a paso cómo se calcula la distancia de un planeta al Sol usando solo su periodo orbital."
+  ],
+  "juegos_ordenar_letras_2": [
+    "GRAVEDAD",
+    "PERIODO",
+    "NEWTON"
+  ],
+  "juego_ordenar_frase_2": "EL CUADRADO DEL PERIODO ES PROPORCIONAL AL CUBO DE LA DISTANCIA",
+  "sopa_letras": [
+    "ORBITA",
+    "KEPLER",
+    "MASA",
+    "RADIO",
+    "FOCO",
+    "FUERZA",
+    "PLANETA",
+    "ELIPSE",
+    "TIEMPO",
+    "ASTRO"
+  ],
+  "crucigrama": [
+    {
+      "palabra": "PERIHELIO",
+      "pista": "Punto de la órbita más cercano al Sol."
+    },
+    {
+      "palabra": "AFELIO",
+      "pista": "Punto de la órbita más alejado del Sol."
+    },
+    {
+      "palabra": "GRAVITACION",
+      "pista": "Fuerza de atracción entre dos cuerpos con masa."
+    },
+    {
+      "palabra": "ELIPSE",
+      "pista": "Forma geométrica de la órbita planetaria."
+    },
+    {
+      "palabra": "NEWTON",
+      "pista": "Científico que formuló la ley de gravitación universal."
+    },
+    {
+      "palabra": "KEPLER",
+      "pista": "Formuló las tres leyes del movimiento planetario."
+    },
+    {
+      "palabra": "PERIODO",
+      "pista": "Tiempo que tarda un planeta en completar una órbita."
+    },
+    {
+      "palabra": "EXCENTRICIDAD",
+      "pista": "Medida de qué tan estirada es una elipse."
+    },
+    {
+      "palabra": "FOCO",
+      "pista": "Uno de los dos puntos internos de una elipse."
+    },
+    {
+      "palabra": "CONSTANTE",
+      "pista": "Valor que no cambia en la tercera ley para un mismo sistema."
+    }
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "En la ISS, los investigadores observan que si se duplica la distancia entre dos satélites en órbita, la fuerza de atracción entre ellos cambia drásticamente debido a la ley de gravitación universal.",
+      "tabla_o_grafica_markdown": "| Variable | Caso Inicial | Caso Final |\n|---|---|---|\n| Distancia | r | 2r |\n| Masa 1 | m | m |\n| Masa 2 | m | m |",
+      "pregunta": "¿Cómo cambia la fuerza gravitatoria entre los satélites al duplicar la distancia?",
+      "opciones": [
+        "Se reduce a la cuarta parte (1/4 F)",
+        "Se reduce a la mitad (1/2 F)",
+        "Se duplica (2F)",
+        "Se mantiene igual"
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. Según la ley de Newton, la fuerza es inversamente proporcional al cuadrado de la distancia (1/2² = 1/4).",
+        "1": "Incorrecto. La relación no es lineal, es cuadrática inversa.",
+        "2": "Incorrecto. Al aumentar la distancia, la fuerza debe disminuir, no aumentar.",
+        "3": "Incorrecto. La distancia es un factor crítico en la magnitud de la fuerza gravitatoria."
+      }
+    },
+    {
+      "competencia": "Uso comprensivo del conocimiento científico",
+      "texto_introductorio": "Un nuevo exoplaneta es descubierto orbitando una estrella similar al Sol. Los astrónomos notan que su periodo orbital (T) es de 8 años terrestres.",
+      "tabla_o_grafica_markdown": "| Planeta | Periodo (T) | Distancia (r) |\n|---|---|---|\n| Tierra | 1 año | 1 UA |\n| Exoplaneta | 8 años | ? |",
+      "pregunta": "Usando la Tercera Ley de Kepler (T² = r³), ¿cuál es la distancia media del exoplaneta a su estrella en Unidades Astronómicas (UA)?",
+      "opciones": [
+        "2 UA",
+        "4 UA",
+        "8 UA",
+        "64 UA"
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. 2 al cubo es 8, pero necesitamos que r³ sea igual a T² (8² = 64).",
+        "1": "Correcto. T² = 8² = 64. Entonces r³ = 64, lo que significa que r = 4 (porque 4x4x4=64).",
+        "2": "Incorrecto. Si r fuera 8, T² debería ser 8³ = 512.",
+        "3": "Incorrecto. 64 es el valor de T², no de r."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "Durante la investigación de la sonda 'Vagabundo II', el detective nota que la sonda acelera al acercarse a una región específica de su órbita alrededor de Marte, aunque no hay motores encendidos.",
+      "tabla_o_grafica_markdown": "| Punto Orbital | Distancia al Centro | Velocidad Detectada |\n|---|---|---|\n| A | 5000 km | 3.5 km/s |\n| B (Anomalía) | 3000 km | 5.8 km/s |\n| C | 5000 km | 3.5 km/s |",
+      "pregunta": "¿Qué conclusión científica es más coherente con la Segunda Ley de Kepler y los datos observados?",
+      "opciones": [
+        "La sonda está fallando y su velocímetro da lecturas erróneas.",
+        "La sonda está pasando por el perihelio, donde la velocidad debe ser mayor por la ley de las áreas.",
+        "Hay una fuerza de fricción espacial que está empujando la sonda.",
+        "La masa de la sonda aumentó repentinamente en el punto B."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. Los datos son coherentes con la mecánica orbital, no necesariamente un error.",
+        "1": "Correcto. En el punto B la distancia es menor (perihelio), por lo tanto, la velocidad debe aumentar para barrer áreas iguales.",
+        "2": "Incorrecto. La fricción en el vacío es despreciable y generalmente frenaría el objeto.",
+        "3": "Incorrecto. La masa del objeto no cambia su velocidad orbital según las leyes de Kepler."
+      }
+    }
+  ]
+}

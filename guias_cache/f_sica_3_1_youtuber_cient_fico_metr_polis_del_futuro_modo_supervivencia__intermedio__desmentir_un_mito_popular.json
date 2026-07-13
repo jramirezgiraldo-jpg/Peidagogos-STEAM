@@ -1,0 +1,188 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Cuál es la forma real de la trayectoria que siguen los planetas alrededor del Sol?",
+      "opciones": [
+        "Círculo perfecto",
+        "Línea recta",
+        "Elipse",
+        "Triángulo equilátero"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "¿Qué fuerza mantiene a los satélites de Neo-Metrópolis en su lugar?",
+      "opciones": [
+        "Electromagnetismo",
+        "Fuerza Nuclear Fuerte",
+        "Gravedad",
+        "Presión atmosférica"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "En el vacío del espacio, ¿qué sucede con la velocidad de un objeto si no hay fuerzas actuando?",
+      "opciones": [
+        "Se detiene",
+        "Aumenta",
+        "Se mantiene constante",
+        "Disminuye"
+      ],
+      "correcta": 2
+    }
+  ],
+  "texto_inductivo": "¡Hola, Tecno-Exploradores de Neo-Metrópolis! Aquí su YouTuber científico favorito transmitiendo desde el núcleo de la Ciudad Espejo. Hoy vamos a hackear un error de sistema en sus cerebros. ¿Alguna vez han visto esos hologramas de la vieja era donde los planetas giran en círculos perfectos como si fueran engranajes de un reloj antiguo? ¡Pura ciencia ficción barata! En nuestra supervivencia diaria en esta metrópolis espacial, entender el movimiento planetario no es solo cultura general, es lo que evita que nuestras estaciones de recarga colisionen. \n\nEmpecemos con **Johannes Kepler**, el primer gran 'hacker' del cielo. Antes de él, incluso los genios pensaban que el cielo era 'perfecto' y lo perfecto debía ser circular. Pero Kepler, analizando los datos robados (bueno, heredados) de Tycho Brahe, descubrió la **Primera Ley**: los planetas describen elipses. Imaginen una banda elástica estirada entre dos clavos; esos clavos son los 'focos'. El Sol está en uno de ellos, y el otro... bueno, el otro está vacío, como los sectores abandonados del Sub-Nivel 9. Esto significa que la distancia entre el Sol y el planeta cambia constantemente. No es un baile monótono; es una coreografía dinámica. \n\nLuego viene la **Segunda Ley**, o la Ley de las Áreas. Aquí es donde desmentimos el mito de la velocidad constante. Un planeta no va siempre a la misma velocidad. Cuando está cerca del Sol (**Perihelio**), ¡acelera como un deslizador de plasma en una autopista de luz! Cuando está lejos (**Afelio**), se mueve con la calma de un monje digital. Kepler notó que una línea imaginaria que une al Sol con el planeta barre áreas iguales en tiempos iguales. Esto implica que la velocidad es inversamente proporcional a la distancia. \n\nFinalmente, su **Tercera Ley** nos da la armonía del sistema. Relaciona el tiempo que tarda un planeta en dar la vuelta (periodo) con su distancia promedio al Sol. Cuanto más lejos está el planeta, más lento es su 'año'. En Neo-Metrópolis, si queremos lanzar una sonda al borde exterior, debemos calcular esto con precisión de nanosegundos. Si ignoramos estas leyes, nuestras naves terminarían perdidas en el vacío intergaláctico. El universo no es un reloj de cuerda; es un motor elíptico optimizado por la geometría. ¡Entender esto es el primer paso para dominar la física de nuestra era!",
+  "recurso_visual": "graph TD\n    A[Movimiento Planetario] --> B[1ra Ley: Elipses]\n    A --> C[2da Ley: Áreas Iguales]\n    A --> D[3ra Ley: Armonía/Periodos]\n    B --> B1[Trayectoria no es circular]\n    C --> C1[Velocidad variable: Perihelio vs Afelio]\n    D --> D1[Relación Distancia y Tiempo]",
+  "preguntas_inductivas_pagina": [
+    "¿Por qué se dice que el círculo es una forma 'demasiado perfecta' para las órbitas?",
+    "¿Qué sucede con la velocidad de un planeta cuando se acerca al Sol?",
+    "¿Cuál es el nombre del punto en la órbita donde el planeta está más lejos del Sol?",
+    "¿Cómo cambia el periodo orbital de un planeta si su distancia al Sol aumenta?",
+    "¿Qué papel jugaron los datos de Tycho Brahe en los descubrimientos de Kepler?"
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema de una órbita elíptica señalando el perihelio, el afelio y los dos focos (indicando dónde está el Sol).",
+    "Realiza un cuadro comparativo entre el movimiento circular uniforme y el movimiento planetario según la Segunda Ley de Kepler.",
+    "Escribe una reflexión de 15 líneas sobre cómo cambió la visión del universo al pasar de órbitas circulares a elípticas.",
+    "Representa gráficamente la Tercera Ley de Kepler usando una escala imaginaria para tres planetas diferentes."
+  ],
+  "juegos_ordenar_letras_1": [
+    "ELIPSE",
+    "PERIHELIO",
+    "KEPLER"
+  ],
+  "juego_ordenar_frase_1": "LOS PLANETAS DESCRIBEN ORBITAS ELIPTICAS CON EL SOL EN UNO DE LOS FOCOS",
+  "texto_deductivo": "¡Atención, ciudadanos del futuro! Ya vimos el 'cómo' con Kepler, pero ahora vamos a desmentir el mito más grande de la historia: 'En el espacio no hay gravedad'. ¡Falso! Si no hubiera gravedad, los planetas saldrían disparados en línea recta hacia el olvido. Aquí entra **Isaac Newton**, el arquitecto de la física moderna. Newton se dio cuenta de que la misma fuerza que hace que una manzana caiga en la Tierra (o que un dron averiado caiga en los suburbios de Neo-Metrópolis) es la que mantiene a la Luna en órbita. \n\nLa **Ley de Gravitación Universal** establece que todos los objetos con masa se atraen. La fuerza depende de dos cosas: cuánta masa tienen y qué tan lejos están. Pero aquí está el secreto para desmentir el mito: los planetas están en una 'caída libre perpetua'. Imaginen que disparan un cañón desde la torre más alta de la ciudad. Si la bala va lento, cae al suelo. Si va muy rápido, escapa al espacio. Pero si tiene la **velocidad orbital** justa, la curvatura de su caída coincide exactamente con la curvatura de la superficie planetaria. ¡El planeta está cayendo hacia el Sol, pero se mueve tan rápido hacia un lado que nunca lo golpea! \n\nEsto nos lleva a la conclusión deductiva: la gravedad es el pegamento cósmico. Sin ella, la inercia (la tendencia de un objeto a seguir en línea recta) dominaría. El equilibrio perfecto entre la inercia del planeta y la atracción gravitatoria del Sol da como resultado las órbitas elípticas que describió Kepler. Si la gravedad desapareciera por un milisegundo, Neo-Metrópolis y todo el sistema solar se desintegrarían. \n\nAdemás, Newton explicó por qué las leyes de Kepler funcionan. La velocidad cambia en el perihelio y el afelio debido a la conservación del **momento angular**. Es como una patinadora sobre hielo que gira más rápido cuando encoge sus brazos. Cuando el planeta está cerca del Sol, la 'palanca' gravitatoria es más corta, y para conservar su energía, debe moverse más rápido. Así que, la próxima vez que alguien les diga que en el espacio flota todo porque 'no hay gravedad', muéstrenles sus cálculos. No flotamos por falta de gravedad, caemos con estilo a velocidades increíbles. ¡Esa es la verdadera ciencia de la supervivencia en el vacío!",
+  "preguntas_deductivas_pagina": [
+    "¿Qué sucedería con la órbita de un planeta si su velocidad tangencial aumentara repentinamente?",
+    "¿De qué factores depende la fuerza de atracción gravitacional entre dos cuerpos?",
+    "¿Por qué se dice que un satélite está en 'caída libre'?",
+    "¿Cómo explica la gravedad de Newton la Segunda Ley de Kepler?",
+    "¿Qué es la inercia y cómo afecta el movimiento planetario?"
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Realiza un diagrama detallado de las fuerzas (vectores) que actúan sobre un planeta en diferentes puntos de su órbita.",
+    "Elabora un mapa mental que conecte los conceptos de Masa, Distancia, Gravedad e Inercia.",
+    "Dibuja una explicación del experimento mental del 'Cañón de Newton' para explicar la velocidad orbital.",
+    "Diseña una infografía artesanal que desmienta el mito de la 'Gravedad Cero' en el espacio exterior."
+  ],
+  "juegos_ordenar_letras_2": [
+    "GRAVEDAD",
+    "INERCIA",
+    "NEWTON"
+  ],
+  "juego_ordenar_frase_2": "LA FUERZA DE GRAVEDAD DISMINUYE CON EL CUADRADO DE LA DISTANCIA",
+  "sopa_letras": [
+    "GRAVEDAD",
+    "ELIPSE",
+    "ORBITA",
+    "MASA",
+    "FOCO",
+    "INERCIA",
+    "KEPLER",
+    "NEWTON",
+    "PERIODO",
+    "AFELIO"
+  ],
+  "crucigrama": [
+    {
+      "palabra": "KEPLER",
+      "pista": "Científico que propuso que las órbitas son elípticas."
+    },
+    {
+      "palabra": "ELIPSE",
+      "pista": "Forma geométrica de la trayectoria planetaria."
+    },
+    {
+      "palabra": "NEWTON",
+      "pista": "Formuló la Ley de Gravitación Universal."
+    },
+    {
+      "palabra": "PERIHELIO",
+      "pista": "Punto de la órbita más cercano al Sol."
+    },
+    {
+      "palabra": "AFELIO",
+      "pista": "Punto de la órbita más alejado del Sol."
+    },
+    {
+      "palabra": "GRAVEDAD",
+      "pista": "Fuerza de atracción entre dos masas."
+    },
+    {
+      "palabra": "INERCIA",
+      "pista": "Tendencia de un cuerpo a mantener su estado de movimiento."
+    },
+    {
+      "palabra": "FOCO",
+      "pista": "Uno de los dos puntos internos de una elipse."
+    },
+    {
+      "palabra": "MASA",
+      "pista": "Cantidad de materia de un cuerpo, clave en la gravedad."
+    },
+    {
+      "palabra": "PERIODO",
+      "pista": "Tiempo que tarda un planeta en completar una órbita."
+    }
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "En la estación espacial de Neo-Metrópolis, los científicos observan que un cometa se mueve mucho más rápido cuando pasa cerca del Sol que cuando está en los límites del sistema solar.",
+      "tabla_o_grafica_markdown": "| Posición | Distancia (UA) | Velocidad (km/s) |\n|---|---|---|\n| Cerca del Sol | 0.5 | 60 |\n| Lejos del Sol | 30.0 | 5 |",
+      "pregunta": "¿Cuál de las leyes de Kepler explica mejor este cambio en la velocidad del cometa?",
+      "opciones": [
+        "La Primera Ley, porque el cometa sigue una elipse.",
+        "La Segunda Ley, porque el radio vector barre áreas iguales en tiempos iguales.",
+        "La Tercera Ley, porque el periodo depende de la distancia.",
+        "La Ley de Inercia, porque el cometa no quiere detenerse."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. La primera ley describe la forma, no la velocidad.",
+        "1": "Correcto. La segunda ley implica que a menor distancia debe haber mayor velocidad para barrer la misma área.",
+        "2": "Incorrecto. La tercera ley relaciona periodos totales, no cambios de velocidad en una sola órbita.",
+        "3": "Incorrecto. La inercia por sí sola no explica el cambio de magnitud en la velocidad."
+      }
+    },
+    {
+      "competencia": "Uso comprensivo del conocimiento científico",
+      "texto_introductorio": "Si la distancia entre la Tierra y la Luna se duplicara repentinamente debido a un fallo en un experimento de energía en Neo-Metrópolis...",
+      "tabla_o_grafica_markdown": "| Variable | Cambio |\n|---|---|\n| Masa 1 | Constante |\n| Masa 2 | Constante |\n| Distancia | x 2 |",
+      "pregunta": "¿Qué ocurriría con la fuerza de atracción gravitacional entre ellas según la ley de Newton?",
+      "opciones": [
+        "Se reduce a la mitad.",
+        "Se duplica.",
+        "Se reduce a la cuarta parte.",
+        "Se mantiene igual."
+      ],
+      "correcta": 2,
+      "retroalimentacion": {
+        "0": "Incorrecto. La fuerza es inversamente proporcional al cuadrado de la distancia, no solo a la distancia.",
+        "1": "Incorrecto. Al aumentar la distancia, la fuerza debe disminuir.",
+        "2": "Correcto. Al ser 1/r^2, si r aumenta al doble, la fuerza disminuye a (1/2)^2 = 1/4.",
+        "3": "Incorrecto. La distancia es un factor crítico en la fuerza gravitatoria."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "Un estudiante de la Academia de Neo-Metrópolis afirma que 'los astronautas en la Estación Espacial flotan porque allí la gravedad es cero'.",
+      "tabla_o_grafica_markdown": "| Altura (km) | Gravedad (m/s²) |\n|---|---|\n| 0 (Tierra) | 9.8 |\n| 400 (ISS) | 8.7 |\n| 35000 (Sincrónico) | 0.22 |",
+      "pregunta": "Basándose en los datos de la tabla, ¿qué conclusión desmiente el mito del estudiante?",
+      "opciones": [
+        "A 400 km de altura la gravedad es casi tan fuerte como en la superficie.",
+        "La gravedad solo existe si hay atmósfera.",
+        "Los astronautas flotan porque la gravedad es mayor a 400 km.",
+        "La gravedad desaparece a los 100 km de altura."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. La tabla muestra que a 400 km la gravedad sigue siendo 8.7 m/s², lo que prueba que sí hay gravedad.",
+        "1": "Incorrecto. La gravedad depende de la masa, no de la atmósfera.",
+        "2": "Incorrecto. La gravedad disminuye con la altura, no aumenta.",
+        "3": "Incorrecto. Los datos muestran que a 400 km aún hay un valor significativo de gravedad."
+      }
+    }
+  ]
+}

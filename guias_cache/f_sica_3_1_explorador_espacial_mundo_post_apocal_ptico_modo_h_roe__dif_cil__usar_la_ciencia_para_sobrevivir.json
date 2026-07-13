@@ -1,0 +1,188 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "En un sistema solar devastado, ¿cuál es la forma geométrica que siguen los restos de la Luna al orbitar la Tierra?",
+      "opciones": [
+        "Círculo perfecto",
+        "Línea recta",
+        "Elipse",
+        "Parábola"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "¿Qué fuerza evita que nuestra estación espacial salga disparada al vacío profundo?",
+      "opciones": [
+        "Inercia térmica",
+        "Gravitación",
+        "Fricción atmosférica",
+        "Magnetismo"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "Si un planeta se aleja del Sol en su órbita, ¿qué sucede con su velocidad según los antiguos registros de Kepler?",
+      "opciones": [
+        "Aumenta",
+        "Disminuye",
+        "Se mantiene constante",
+        "Se detiene"
+      ],
+      "correcta": 1
+    }
+  ],
+  "texto_inductivo": "Saludos, Cadetes del Sector de Rescate. Soy el Comandante de la Flota de Exploración 7. El aire en la superficie de la Tierra se ha vuelto irrespirable y los cielos están perpetuamente cubiertos por nubes de ceniza. Nuestra única esperanza radica en las estrellas, pero para alcanzarlas, debemos redescubrir las leyes que rigen el cosmos, conocimientos que la humanidad perdió tras el Gran Colapso. El movimiento planetario no es un capricho de los dioses antiguos, sino una danza mecánica precisa que puede ser calculada para asegurar nuestra supervivencia. Históricamente, nuestros ancestros creían que la Tierra era el centro estático del universo. Esta visión geocéntrica, aunque reconfortante para el ego humano, era inútil para la navegación interestelar. Fue solo mediante la observación rigurosa de figuras como Copérnico y Tycho Brahe que empezamos a entender la verdad. Brahe, operando desde observatorios que hoy consideraríamos primitivos, recolectó datos de una precisión asombrosa sobre la posición de los planetas, especialmente de Marte. Tras su muerte, Johannes Kepler heredó este tesoro de datos. Kepler no buscaba solo describir el movimiento, sino entender la geometría sagrada del espacio. En su lucha por ajustar los datos circulares a las posiciones reales de Marte, descubrió que los planetas no se mueven en círculos perfectos, sino en elipses. Este fue el primer gran quiebre con la cosmología antigua. Imaginen el impacto: la perfección circular fue reemplazada por la imperfección funcional de la elipse. La Primera Ley de Kepler nos dice que el Sol ocupa uno de los focos de esta elipse. Esto significa que nuestra distancia al Sol cambia constantemente. En nuestro mundo post-apocalíptico, entender el perihelio (punto más cercano) y el afelio (punto más lejano) es vital para gestionar los paneles solares de la estación espacial. La Segunda Ley, o Ley de las Áreas, establece que el radio vector que une a un planeta con el Sol barre áreas iguales en tiempos iguales. Esto implica algo crucial para nuestras maniobras de escape: los planetas se mueven más rápido cuando están cerca del Sol. Si fallamos en este cálculo al intentar un 'honda gravitacional', seremos devorados por la gravedad solar o lanzados eternamente al frío interestelar. Finalmente, la Tercera Ley relaciona el tiempo que tarda un planeta en dar una vuelta completa con su distancia media al Sol. Esta armonía matemática permitió a los antiguos predecir con exactitud la posición de los cuerpos celestes. Hoy, usamos estas mismas ecuaciones para localizar exoplanetas habitables en sistemas lejanos. No es solo física; es nuestra hoja de ruta hacia la salvación. En este modo héroe, no hay margen de error. Un error en el cálculo de la excentricidad orbital significa la extinción de la colonia. Deben observar los cielos no con miedo, sino con la mirada analítica de quien busca patrones en el caos. La ciencia es la única herramienta que no se oxida en este páramo. Estudien el movimiento planetario como si sus vidas dependieran de ello, porque, en efecto, así es.",
+  "recurso_visual": "graph TD\n    A[Movimiento Planetario] --> B[Leyes de Kepler]\n    B --> C[1ra Ley: Órbitas Elípticas]\n    B --> D[2da Ley: Áreas Iguales]\n    B --> E[3ra Ley: Ley Armónica]\n    C --> C1[El Sol en un Foco]\n    D --> D1[Velocidad Variable: Rápido en Perihelio]\n    E --> E1[Relación Período-Distancia: T^2 proporcional a a^3]",
+  "preguntas_inductivas_pagina": [
+    "¿Por qué el modelo geocéntrico falló en la navegación espacial?",
+    "¿Qué papel jugaron los datos de Tycho Brahe en los descubrimientos de Kepler?",
+    "¿Cuál es la diferencia fundamental entre una órbita circular y una elíptica?",
+    "¿En qué punto de la órbita un planeta alcanza su velocidad máxima?",
+    "¿Cómo ayuda la Tercera Ley de Kepler a identificar planetas en otros sistemas?"
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema de una órbita elíptica marcando los focos, el eje mayor, el perihelio y el afelio.",
+    "Realiza un cuadro comparativo entre el modelo Geocéntrico y el Heliocéntrico, resaltando sus diferencias científicas.",
+    "Escribe una reflexión de 15 líneas sobre cómo la precisión en los datos de Brahe salvó la física moderna.",
+    "Representa gráficamente la Segunda Ley de Kepler mediante un diagrama de sectores sombreados que representen tiempos iguales."
+  ],
+  "juegos_ordenar_letras_1": [
+    "ELIPSE",
+    "AFELIO",
+    "FOCO"
+  ],
+  "juego_ordenar_frase_1": "LAS ORBITAS DE LOS PLANETAS SON ELIPSES CON EL SOL EN UN FOCO",
+  "texto_deductivo": "Atención, sobrevivientes. Hemos superado la fase de observación; ahora debemos entrar en el terreno de la mecánica pura y la deducción matemática. Si Kepler nos dio el 'cómo' se mueven los planetas, Isaac Newton nos dio el 'porqué'. En este desierto de recursos, la lógica deductiva es su armadura. La Ley de Gravitación Universal es la piedra angular de nuestra física de supervivencia. Newton dedujo que la fuerza que hace caer una manzana de un árbol quemado es la misma que mantiene a la Luna en su órbita alrededor de la Tierra herida. La fórmula F = G * (m1 * m2) / r^2 no es solo una ecuación; es el vínculo invisible que une toda la materia del universo. Aquí, 'G' es la constante de gravitación universal, una cifra pequeña pero poderosa que rige la caída de los imperios. Al analizar esta ley, deducimos que la fuerza de gravedad es inversamente proporcional al cuadrado de la distancia. Si duplicamos nuestra distancia a un planeta, la atracción gravitatoria no se reduce a la mitad, sino a la cuarta parte. Este principio es crítico para nuestras cápsulas de evacuación: un pequeño error en la altitud de la órbita puede resultar en una pérdida catastrófica de energía. Además, al combinar la Segunda Ley de Newton (F=ma) con su ley de gravitación, podemos deducir la Tercera Ley de Kepler matemáticamente. Esto nos permite calcular la masa de estrellas distantes observando solo el periodo orbital de sus planetas. En un contexto de escasez, poder pesar un sol sin tocarlo es el máximo triunfo de la razón sobre la precariedad. Consideren también la conservación del momento angular. Cuando un planeta se acerca al Sol en su elipse (perihelio), su velocidad aumenta para conservar este momento. Es como un patinador que encoge sus brazos para girar más rápido. En nuestra misión de exploración, aprovechamos este fenómeno para realizar maniobras de asistencia gravitatoria, ganando velocidad sin gastar una sola gota de combustible nuclear. La deducción científica nos permite predecir el futuro del sistema solar: sabemos cuándo ocurrirán los eclipses que bloquean nuestra energía solar y cuándo las órbitas de los asteroides amenazan con impactar nuestros refugios. La física no es un ejercicio académico; es un sistema de alerta temprana. Para dominar el Modo Héroe, deben ser capaces de derivar estas leyes partiendo de los principios básicos. Si la comunicación con la base central se corta, su capacidad para calcular una trayectoria de reentrada usando solo lápiz y papel determinará si ven el amanecer o si se convierten en polvo estelar. La gravedad es una ley estricta, pero una vez que la comprendes, puedes usarla para volar. La deducción es el motor que nos sacará de este mundo en ruinas.",
+  "preguntas_deductivas_pagina": [
+    "¿Qué significa que la gravedad sea una ley de inverso del cuadrado?",
+    "¿Cómo dedujo Newton la fuerza necesaria para mantener un planeta en órbita?",
+    "¿Por qué es necesario aumentar la velocidad al acercarse al centro de masa?",
+    "¿Qué constantes físicas son invariables en todo el universo según Newton?",
+    "¿Cómo se relaciona la masa de un cuerpo con su capacidad de atracción?"
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Realiza un diagrama detallado que muestre la relación vectorial entre la velocidad tangencial y la fuerza centrípeta en una órbita.",
+    "Elabora un mapa mental sobre la Ley de Gravitación Universal, incluyendo variables, unidades y aplicaciones.",
+    "Dibuja una infografía que explique cómo se usa la gravedad de un planeta para acelerar una sonda espacial (Efecto Honda).",
+    "Realiza un dibujo explicativo de por qué un astronauta flota en la estación espacial (caída libre perpetua vs ausencia de gravedad)."
+  ],
+  "juegos_ordenar_letras_2": [
+    "GRAVEDAD",
+    "INERCIA",
+    "ORBITA"
+  ],
+  "juego_ordenar_frase_2": "LA FUERZA DE GRAVEDAD DEPENDE DE LA MASA Y LA DISTANCIA",
+  "sopa_letras": [
+    "KEPLER",
+    "NEWTON",
+    "ELIPSE",
+    "GRAVEDAD",
+    "MASA",
+    "PERIODO",
+    "RADIO",
+    "ORBITA",
+    "AFELIO",
+    "FOCO"
+  ],
+  "crucigrama": [
+    {
+      "palabra": "KEPLER",
+      "pista": "Astrónomo que descubrió las leyes del movimiento planetario."
+    },
+    {
+      "palabra": "ELIPSE",
+      "pista": "Forma geométrica de las órbitas planetarias."
+    },
+    {
+      "palabra": "GRAVEDAD",
+      "pista": "Fuerza de atracción entre dos masas."
+    },
+    {
+      "palabra": "PERIHELIO",
+      "pista": "Punto más cercano de un planeta al Sol."
+    },
+    {
+      "palabra": "AFELIO",
+      "pista": "Punto más alejado de un planeta al Sol."
+    },
+    {
+      "palabra": "NEWTON",
+      "pista": "Científico que formuló la Ley de Gravitación Universal."
+    },
+    {
+      "palabra": "CENTRIPETA",
+      "pista": "Fuerza dirigida hacia el centro que mantiene un cuerpo en rotación."
+    },
+    {
+      "palabra": "EXCENTRICIDAD",
+      "pista": "Medida de qué tanto se desvía una órbita de un círculo perfecto."
+    },
+    {
+      "palabra": "PERIODO",
+      "pista": "Tiempo que tarda un planeta en completar una órbita."
+    },
+    {
+      "palabra": "UNIVERSAL",
+      "pista": "Tipo de constante 'G' que aplica en todo el cosmos."
+    }
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "En la estación espacial 'Esperanza', los sensores detectan que un asteroide se mueve más rápido a medida que se acerca al Sol de nuestro sistema.",
+      "tabla_o_grafica_markdown": "| Posición | Distancia al Sol (UA) | Velocidad (km/s) |\n|---|---|---|\n| A | 2.5 | 20 |\n| B | 1.2 | 35 |\n| C | 0.8 | 50 |",
+      "pregunta": "De acuerdo con la Segunda Ley de Kepler, ¿cuál es la razón científica de este aumento en la velocidad?",
+      "opciones": [
+        "El asteroide quema combustible al acercarse al calor solar.",
+        "El radio vector debe barrer áreas iguales en tiempos iguales, exigiendo mayor velocidad cerca del foco.",
+        "La presión del viento solar empuja al asteroide con más fuerza.",
+        "El asteroide pierde masa al evaporarse el hielo, lo que lo hace más ligero."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. Kepler describe el movimiento natural sin necesidad de propulsión.",
+        "1": "Correcto. Es la definición directa de la Ley de las Áreas.",
+        "2": "Incorrecto. Aunque existe el viento solar, no explica el modelo de Kepler.",
+        "3": "Incorrecto. La velocidad orbital no depende de la pérdida de masa pequeña del objeto."
+      }
+    },
+    {
+      "competencia": "Uso comprensivo del conocimiento científico",
+      "texto_introductorio": "Nuestros ingenieros necesitan calcular la fuerza de atracción entre la Tierra y una nueva Luna artificial de masa 'M' situada a una distancia 'R'.",
+      "tabla_o_grafica_markdown": "| Caso | Masa Luna | Distancia | Fuerza |\n|---|---|---|---|\n| Original | M | R | F |\n| Nuevo | M | 2R | ? |",
+      "pregunta": "Si la Luna artificial se mueve a una órbita que está al doble de la distancia original (2R), ¿qué pasará con la fuerza de atracción gravitacional?",
+      "opciones": [
+        "La fuerza se reduce a la mitad (F/2).",
+        "La fuerza se mantiene igual.",
+        "La fuerza se reduce a la cuarta parte (F/4).",
+        "La fuerza se duplica (2F)."
+      ],
+      "correcta": 2,
+      "retroalimentacion": {
+        "0": "Incorrecto. La relación no es lineal, sino inversamente proporcional al cuadrado.",
+        "1": "Incorrecto. La distancia afecta drásticamente la fuerza.",
+        "2": "Correcto. Al ser 1/r^2, (1/2)^2 resulta en 1/4.",
+        "3": "Incorrecto. A mayor distancia, menor fuerza."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "Se han descubierto tres nuevos planetas orbitando la estrella 'Alpha-Centauri Post'. Los datos recolectados se muestran en la siguiente tabla:",
+      "tabla_o_grafica_markdown": "| Planeta | Período (T en años) | Distancia Media (a en UA) | T^2 / a^3 |\n|---|---|---|---|\n| P1 | 1 | 1 | 1 |\n| P2 | 2.83 | 2 | 1.001 |\n| P3 | 8 | 4 | 1 |",
+      "pregunta": "¿Qué conclusión se puede obtener sobre el sistema Alpha-Centauri a partir de estos datos?",
+      "opciones": [
+        "La Tercera Ley de Kepler no se cumple en este sistema.",
+        "Los planetas tienen órbitas perfectamente circulares.",
+        "El valor constante de T^2/a^3 confirma que todos los planetas orbitan el mismo cuerpo central.",
+        "El planeta P3 se mueve más rápido que el planeta P1."
+      ],
+      "correcta": 2,
+      "retroalimentacion": {
+        "0": "Incorrecto. Los datos muestran una relación constante de aproximadamente 1.",
+        "1": "Incorrecto. La tabla no da información sobre la excentricidad.",
+        "2": "Correcto. La constante de la 3ra Ley de Kepler depende de la masa del objeto central.",
+        "3": "Incorrecto. A mayor distancia (P3), menor es la velocidad orbital."
+      }
+    }
+  ]
+}

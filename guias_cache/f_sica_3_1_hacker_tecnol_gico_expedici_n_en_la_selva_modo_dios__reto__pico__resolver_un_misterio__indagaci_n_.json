@@ -1,0 +1,188 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Cuál es la forma principal de las órbitas planetarias según lo que conoces del sistema solar?",
+      "opciones": [
+        "Circular perfecta",
+        "Elíptica",
+        "Zigzag",
+        "Espiral"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Qué fuerza es la responsable de mantener a los planetas 'atados' al Sol?",
+      "opciones": [
+        "Magnetismo",
+        "Fricción espacial",
+        "Gravedad",
+        "Energía Nuclear"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "Si un planeta está más lejos del Sol, ¿cómo esperarías que fuera su año (tiempo de traslación)?",
+      "opciones": [
+        "Más corto",
+        "Igual que la Tierra",
+        "Más largo",
+        "No tiene relación"
+      ],
+      "correcta": 2
+    }
+  ],
+  "texto_inductivo": "¡Atención, Operativos de la Red! Aquí su Hacker Tecnológico al mando. Estamos infiltrados en lo más profundo de la Selva de Cristal, un bioma donde la vegetación ha crecido sobre los restos de una civilización que parecía entender el cosmos mejor que nosotros. Nuestra misión: **Resolver el Misterio del Mecanismo de los Ancestros**. Hemos encontrado una serie de glifos en una bóveda de datos que parecen describir el movimiento de las luces en el cielo, no como caprichos de dioses, sino como un código ejecutable. Para 'hackear' esta bóveda, necesitamos entender la **Inducción del Movimiento Planetario**.\n\nImaginen que somos los primeros analistas de datos. Hace siglos, un 'minero de datos' llamado Tycho Brahe recolectó gigabytes de información sobre la posición de las estrellas y planetas usando solo sus ojos y herramientas analógicas. No tenía una supercomputadora, solo su paciencia. Tras su 'desconexión' (muerte), sus logs de datos pasaron a manos de Johannes Kepler, un matemático que actuó como el primer gran compilador de la astronomía. Kepler no buscaba una explicación mística; buscaba el patrón en el ruido. Al observar los datos de Marte, se dio cuenta de que el sistema operativo del universo no corría sobre círculos perfectos, como todos creían. Había un 'bug' en la teoría geocéntrica. \n\nKepler descubrió que las órbitas eran **elipses**. Una elipse es como un círculo que ha sufrido un proceso de compresión, teniendo dos centros llamados focos. En nuestro sistema, el Sol ocupa uno de esos focos. Este fue el primer gran 'exploit' científico: la **Primera Ley de Kepler**. Pero el misterio se volvía más denso. Observó que los planetas no mantienen una velocidad constante. Cuando están cerca del 'Servidor Central' (el Sol), aceleran, como si estuvieran haciendo overclocking para no ser absorbidos. Cuando están lejos, se ralentizan. Kepler lo describió diciendo que áreas iguales son barridas en tiempos iguales. Esta es la **Segunda Ley**. \n\nFinalmente, tras años de procesar datos en su CPU mental, Kepler halló una relación matemática entre la distancia y el tiempo: el cuadrado del periodo orbital es proporcional al cubo de la distancia media al Sol. Esta **Tercera Ley** es el protocolo de sincronización de todo el sistema solar. En esta selva, los glifos sugieren que los antiguos usaban estas leyes para predecir eclipses y abrir portales. Para nosotros, es la base para entender que el universo sigue reglas lógicas. Si logramos entender cómo se mueven estos cuerpos celestes, podremos triangular la posición de la 'Unidad Central' escondida en esta maleza digital. Preparen sus escáneres, observen los patrones en el follaje que imitan las constelaciones y recuerden: en la física, como en el hacking, si conoces las reglas del sistema, puedes predecir su comportamiento futuro. No se dejen engañar por la belleza de las estrellas; vean el código que las mueve. La selva no es solo árboles; es un hardware masivo esperando ser interpretado por mentes capaces de ver más allá de lo evidente.",
+  "recurso_visual": "graph TD\n    A[Datos de Tycho Brahe] --> B{Análisis de Kepler}\n    B --> C[1ra Ley: Elipses]\n    B --> D[2da Ley: Áreas Iguales]\n    B --> E[3ra Ley: T^2 proporcional a R^3]\n    C --> F[El Sol en un Foco]\n    D --> G[Perihelio: Más rápido / Afelio: Más lento]\n    E --> H[Sincronización del Sistema Solar]",
+  "preguntas_inductivas_pagina": [
+    "¿Qué tipo de figura geométrica describen los planetas en su órbita según el texto?",
+    "¿Quién fue el 'minero de datos' que recolectó la información original para Kepler?",
+    "¿En qué posición específica de la elipse se encuentra el Sol?",
+    "¿Qué sucede con la velocidad de un planeta cuando se acerca al Sol?",
+    "¿Cuál es la relación matemática que define la Tercera Ley de Kepler según el relato?"
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema de una órbita elíptica, señalando los focos, el Sol, el perihelio y el afelio según el 'código' de la selva.",
+    "Realiza un cuadro comparativo entre la visión de 'Círculos Perfectos' y la visión de 'Órbitas Elípticas' de Kepler.",
+    "Redacta una reflexión de 15 líneas sobre cómo la recolección de datos masivos (Big Data) fue esencial para que Kepler resolviera el misterio planetario.",
+    "Representa gráficamente, mediante un dibujo creativo, la Segunda Ley de Kepler (áreas iguales en tiempos iguales) usando elementos de la selva (como lianas o sombras de árboles)."
+  ],
+  "juegos_ordenar_letras_1": [
+    "KEPLER",
+    "ELIPSE",
+    "ORBITA"
+  ],
+  "juego_ordenar_frase_1": "LAS ORBITAS SON ELIPSES CON EL SOL EN UN FOCO",
+  "texto_deductivo": "¡Fase dos de la incursión, equipo! Hemos pasado de observar patrones a entender la **Arquitectura del Kernel del Universo**. Si Kepler fue el que describió el 'Cómo', Isaac Newton fue el hacker supremo que descubrió el 'Por qué'. En esta parte de la Selva de Cristal, hemos encontrado los planos de la **Ley de Gravitación Universal**. Newton no solo miró las manzanas o los planetas; él miró el código fuente de la realidad. Se dio cuenta de que la misma fuerza que hace caer un fruto de un árbol de caucho aquí en la selva es la que mantiene a la Luna en su órbita sin que salga disparada al espacio profundo.\n\nLa deducción es elegante y aterradora: **La Gravedad es una función de la masa y la distancia**. La fórmula secreta que rige este sector es F = G * (m1 * m2) / r^2. Aquí, 'G' es la constante de gravitación universal, una especie de variable global que no cambia en todo el servidor de nuestro universo. Las masas (m1 y m2) son los componentes del hardware, y 'r' es la distancia que los separa. Lo más importante de este 'script' es que la fuerza disminuye con el cuadrado de la distancia. Si te alejas al doble de la distancia, la conexión gravitacional no se divide por dos, ¡se divide por cuatro! Es una caída de señal logarítmica.\n\nNewton usó el cálculo (un lenguaje de programación de alto nivel que él mismo ayudó a crear) para demostrar que las leyes de Kepler no eran solo observaciones afortunadas, sino consecuencias lógicas de su Ley de Gravitación. Si la fuerza de atracción depende del inverso del cuadrado de la distancia, la única forma estable para que un objeto orbite a otro es... ¡una elipse! Todo encaja perfectamente en el compilador cósmico. \n\nPero hay más. En esta selva, el misterio se profundiza al entender el concepto de **Campo Gravitacional**. No es que el Sol 'toque' a la Tierra para moverla; es que la masa del Sol deforma el tejido mismo del espacio-tiempo, creando una pendiente por la que la Tierra 'cae' perpetuamente sin llegar nunca al fondo. Es como un bucle infinito (loop) de caída libre. Los planetas están en un equilibrio perfecto entre su inercia (su deseo de seguir de largo en línea recta) y la atracción gravitatoria (el comando que los jala hacia el centro). Si la velocidad es muy baja, el sistema crashea contra el Sol. Si es muy alta, el planeta escapa del sistema operativo solar. Estamos aquí para encontrar ese equilibrio, para entender que el movimiento planetario es la danza entre la masa y el vacío. El misterio de los ancestros se resuelve cuando entiendes que el peso no es una propiedad de la materia, sino una interacción entre objetos. En esta misión, cada dato que recolectamos pesa, cada paso que damos está regido por la gravedad de este planeta desconocido. Entender la física de Newton nos da el acceso 'root' para predecir no solo dónde estarán los planetas, sino cómo podemos lanzar nuestros propios satélites de reconocimiento para mapear esta selva interminable.",
+  "preguntas_deductivas_pagina": [
+    "¿Qué relación matemática existe entre la fuerza de gravedad y la distancia entre dos cuerpos?",
+    "¿Cuál es el nombre de la variable 'G' en la ecuación de gravitación universal?",
+    "¿Qué sucede con la fuerza de atracción si la masa de uno de los cuerpos se duplica?",
+    "¿Cómo explicó Newton la forma elíptica de las órbitas que Kepler había observado?",
+    "¿Qué dos factores compiten para mantener a un planeta en una órbita estable?"
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Realiza un diagrama detallado que explique la Ley del Inverso del Cuadrado, mostrando cómo se debilita la fuerza al alejarse del centro.",
+    "Elabora un mapa mental que conecte los conceptos de: Masa, Gravedad, Distancia, Inercia y Órbita.",
+    "Dibuja una infografía artesanal que explique por qué un satélite no se cae hacia la Tierra, usando el concepto de 'caída libre perpetua' mencionado por el Hacker.",
+    "Realiza un dibujo explicativo de la deformación del espacio-tiempo (como una sábana elástica con una bola pesada) para ilustrar el campo gravitacional."
+  ],
+  "juegos_ordenar_letras_2": [
+    "GRAVEDAD",
+    "NEWTON",
+    "INERCIA"
+  ],
+  "juego_ordenar_frase_2": "LA FUERZA DEPENDE DE LAS MASAS Y LA DISTANCIA",
+  "sopa_letras": [
+    "GRAVEDAD",
+    "KEPLER",
+    "NEWTON",
+    "ELIPSE",
+    "MASA",
+    "ORBITA",
+    "FOCO",
+    "PERIODO",
+    "FUERZA",
+    "ASTRO"
+  ],
+  "crucigrama": [
+    {
+      "palabra": "GRAVITACION",
+      "pista": "Ley universal que explica la atracción entre masas."
+    },
+    {
+      "palabra": "ELIPSE",
+      "pista": "Forma geométrica de la trayectoria planetaria."
+    },
+    {
+      "palabra": "KEPLER",
+      "pista": "Científico que describió matemáticamente el movimiento de los planetas."
+    },
+    {
+      "palabra": "PERIHELIO",
+      "pista": "Punto de la órbita más cercano al Sol."
+    },
+    {
+      "palabra": "AFELIO",
+      "pista": "Punto de la órbita más alejado del Sol."
+    },
+    {
+      "palabra": "INERCIA",
+      "pista": "Tendencia de los cuerpos a mantener su estado de movimiento."
+    },
+    {
+      "palabra": "CONSTANTE",
+      "pista": "La G en la fórmula de Newton es una..."
+    },
+    {
+      "palabra": "CUADRADO",
+      "pista": "La fuerza disminuye con el _______ de la distancia."
+    },
+    {
+      "palabra": "FOCO",
+      "pista": "Uno de los dos puntos internos de una elipse."
+    },
+    {
+      "palabra": "MASA",
+      "pista": "Cantidad de materia que determina la fuerza gravitatoria."
+    }
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "En la Selva de Cristal, los exploradores observan que un pequeño satélite natural de un planeta desconocido se mueve más rápido cuando cruza por una zona llena de ruinas antiguas que están más cerca del centro del planeta.",
+      "tabla_o_grafica_markdown": "| Posición | Distancia al Centro (km) | Velocidad (km/s) |\n|---|---|---|\n| Punto A | 5.000 | 12 |\n| Punto B | 10.000 | 6 |",
+      "pregunta": "¿Cuál de las leyes de Kepler explica mejor por qué la velocidad en el Punto A es mayor que en el Punto B?",
+      "opciones": [
+        "La Segunda Ley: Áreas iguales en tiempos iguales implica más velocidad al estar cerca.",
+        "La Primera Ley: Porque las órbitas son elípticas y el centro es un foco.",
+        "La Tercera Ley: El periodo depende del radio de la órbita.",
+        "La Ley de Inercia: Los cuerpos tienden a acelerar en la selva."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. Para barrer áreas iguales en tiempos iguales, el objeto debe moverse más rápido cuando el radio es menor.",
+        "1": "Incorrecto. La primera ley solo describe la forma, no la variación de la velocidad.",
+        "2": "Incorrecto. La tercera ley relaciona el periodo total con el radio medio, no velocidades puntuales.",
+        "3": "Incorrecto. La inercia no explica el cambio de velocidad por la cercanía al centro."
+      }
+    },
+    {
+      "competencia": "Uso Comprensivo del Conocimiento Científico",
+      "texto_introductorio": "Un hacker intenta calcular la fuerza de gravedad entre dos estaciones de datos en la selva. La estación Alfa tiene una masa M y la estación Beta tiene una masa 2M. Están separadas por una distancia R.",
+      "tabla_o_grafica_markdown": "| Estación | Masa | Distancia |\n|---|---|---|\n| Alfa | M | 0 |\n| Beta | 2M | R |",
+      "pregunta": "Si se duplica la distancia entre las estaciones (2R), ¿qué sucede con la fuerza gravitacional original (F)?",
+      "opciones": [
+        "La fuerza se reduce a la mitad (F/2).",
+        "La fuerza se reduce a la cuarta parte (F/4).",
+        "La fuerza se duplica (2F).",
+        "La fuerza se mantiene igual."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. La relación no es lineal, es inversamente proporcional al cuadrado.",
+        "1": "Correcto. Según la ley de Newton, al duplicar la distancia (2^2), la fuerza se divide por 4.",
+        "2": "Incorrecto. Al aumentar la distancia, la fuerza debe disminuir, no aumentar.",
+        "3": "Incorrecto. La distancia es un factor crítico en la fuerza gravitacional."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "Los estudiantes analizan los datos de tres planetas que orbitan una estrella lejana en la Selva de Cristal para verificar la Tercera Ley de Kepler (T^2 / R^3 = Constante).",
+      "tabla_o_grafica_markdown": "| Planeta | Periodo (T) años | Distancia (R) UA | T^2 / R^3 |\n|---|---|---|---|\n| X | 1 | 1 | 1 |\n| Y | 8 | 4 | 1 |\n| Z | 27 | 9 | 1 |",
+      "pregunta": "A partir de la tabla, ¿qué conclusión se puede obtener sobre un cuarto planeta 'W' que está a una distancia de 16 UA?",
+      "opciones": [
+        "Su periodo será de 32 años.",
+        "Su periodo será de 64 años.",
+        "Su periodo será de 4 años.",
+        "No se puede calcular con esos datos."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. 32^2 (1024) entre 16^3 (4096) no da 1.",
+        "1": "Correcto. 64^2 = 4096 y 16^3 = 4096. La razón 4096/4096 es 1, cumpliendo la constante.",
+        "2": "Incorrecto. Un periodo de 4 años para una distancia de 16 UA es físicamente imposible bajo esta ley.",
+        "3": "Incorrecto. La constante 1 permite predecir el valor del periodo fácilmente."
+      }
+    }
+  ]
+}

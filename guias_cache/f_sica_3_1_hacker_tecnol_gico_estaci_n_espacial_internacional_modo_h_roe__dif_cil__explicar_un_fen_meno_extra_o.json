@@ -1,0 +1,178 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Cuál es la forma geométrica que describe la órbita de los planetas según las leyes de Kepler?",
+      "opciones": [
+        "Círculo perfecto",
+        "Elipse con el Sol en uno de sus focos",
+        "Parábola abierta",
+        "Línea recta infinita"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Qué ocurre con la velocidad de un planeta cuando se acerca al perihelio (punto más cercano al Sol)?",
+      "opciones": [
+        "La velocidad disminuye",
+        "La velocidad se mantiene constante",
+        "La velocidad aumenta",
+        "El planeta se detiene por un momento"
+      ],
+      "correcta": 2
+    }
+  ],
+  "texto_inductivo": "Saludos, cadetes del espacio. Aquí su Hacker Tecnológico reportándose desde el nodo principal de la **Estación Espacial Internacional (ISS)**. He interceptado un flujo de datos anómalo proveniente de los sensores de navegación externa. Parece que nuestra comprensión del movimiento planetario no es solo una cuestión de libros de texto; es el código fuente que mantiene esta estación en órbita y evita que nos convirtamos en basura espacial. Para entender cómo se mueven los planetas, debemos 'hackear' la realidad histórica y científica.\n\nDurante siglos, la humanidad estuvo atrapada en un **Firewall Geocéntrico**, creyendo que la Tierra era el centro de todo. Fue necesario un ataque de fuerza bruta intelectual por parte de figuras como Copérnico y Tycho Brahe para recolectar los datos necesarios. Sin embargo, el verdadero 'cracker' del sistema fue **Johannes Kepler**. Kepler no tenía telescopios potentes, pero tenía la base de datos de observaciones de Marte más precisa de su tiempo. Al intentar ajustar esos datos a círculos perfectos, el sistema lanzaba un 'Error 404: Orbit Not Found'. Kepler comprendió que el universo no corre sobre círculos, sino sobre **elipses**. Su **Primera Ley** rompió el paradigma: los planetas describen órbitas elípticas alrededor del Sol, el cual ocupa uno de los focos. Esto significa que la distancia entre el planeta y su estrella cambia constantemente, desafiando la estética de la perfección antigua.\n\nPero Kepler no se detuvo ahí. Al analizar la velocidad de los planetas, notó algo extraño: no era constante. Implementó lo que conocemos como la **Segunda Ley o Ley de las Áreas**. Imaginen un vector que une al Sol con el planeta. Kepler demostró que este vector barre áreas iguales en tiempos iguales. En términos de nuestra terminal de comando: cuando estamos más cerca del Sol (perihelio), el planeta acelera para cubrir esa área; cuando estamos lejos (afelio), desacelera. Es un sistema de optimización de recursos gravitacionales. Finalmente, su **Tercera Ley** estableció una conexión matemática profunda entre el tiempo que tarda un planeta en dar una vuelta (periodo) y su distancia media al Sol. El cuadrado del periodo es proporcional al cubo del semieje mayor de la órbita ($T^2 \\propto a^3$). Este es el protocolo maestro que nos permite predecir dónde estará Marte en diez años o cómo interceptar un asteroide. Sin estas leyes, los cálculos de trayectoria de la ISS fallarían y quedaríamos a la deriva en el vacío. Estamos observando un fenómeno extraño: la armonía matemática en el aparente caos del vacío. Para explicarlo, debemos observar no solo el objeto, sino la geometría invisible que lo guía. Prepárense para compilar este conocimiento en sus redes neuronales, porque el Modo Héroe exige que no solo memoricen, sino que descodifiquen el movimiento del cosmos.",
+  "recurso_visual": "graph TD\n    A[Movimiento Planetario] --> B[Leyes de Kepler]\n    B --> C[1ra Ley: Elipses]\n    B --> D[2da Ley: Áreas Iguales]\n    B --> E[3ra Ley: Armonía T^2/a^3]\n    C --> F[Sol en un Foco]\n    D --> G[Velocidad Variable]\n    E --> H[Relación Periodo-Distancia]",
+  "preguntas_inductivas_pagina": [
+    "¿Por qué el modelo geocéntrico fallaba al predecir la posición exacta de Marte?",
+    "¿Qué diferencia fundamental existe entre una órbita circular y una elíptica según la terminal de Kepler?",
+    "¿Cómo afecta la posición en el perihelio a los sistemas de navegación de una sonda?",
+    "¿Qué significa matemáticamente que un planeta 'barra áreas iguales'?",
+    "¿Por qué la Tercera Ley de Kepler es considerada una ley universal de armonía?"
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema de una órbita elíptica marcando los focos, el perihelio, el afelio y el vector de radio en dos puntos diferentes.",
+    "Realiza un cuadro comparativo entre el modelo de órbitas circulares y el modelo de órbitas elípticas de Kepler.",
+    "¿Cómo explicarías el hecho de que la Tierra se mueva más rápido en enero (perihelio) que en julio (afelio) basándote en el texto?",
+    "Representa gráficamente la relación entre el cuadrado del periodo (T^2) y el cubo de la distancia (a^3) para tres planetas imaginarios."
+  ],
+  "juegos_ordenar_letras_1": [
+    "ELIPSE",
+    "PERIHELIO",
+    "KEPLER"
+  ],
+  "juego_ordenar_frase_1": "LAS ORBITAS DE LOS PLANETAS SON ELIPSES CON EL SOL EN UN FOCO",
+  "texto_deductivo": "Cadetes, hemos analizado el 'cómo' se mueven los planetas con Kepler, pero ahora debemos infiltrarnos en el 'por qué'. Para un Hacker Tecnológico, esto significa analizar el **Kernel de la Física**: la Gravedad. Si Kepler fue quien describió el patrón, **Isaac Newton** fue quien escribió el código fuente de la **Ley de Gravitación Universal**. Newton se dio cuenta de que la misma fuerza que hace caer una manzana en la Tierra es la que mantiene a la Luna 'cayendo' perpetuamente alrededor de nuestro planeta sin impactar. Este es el concepto de caída libre orbital.\n\nLa ecuación maestra que debemos descifrar es $F = G \\frac{m_1 m_2}{r^2}$. Aquí, la fuerza de atracción entre dos cuerpos es directamente proporcional al producto de sus masas e inversamente proporcional al cuadrado de la distancia que los separa. Si duplicamos la distancia, la fuerza no se reduce a la mitad, se reduce a una cuarta parte. Este es un sistema de seguridad inverso: a medida que nos alejamos del centro de datos (el Sol), la conexión gravitacional se debilita exponencialmente. Newton dedujo las leyes de Kepler a partir de esta única fórmula, demostrando que el movimiento planetario es una consecuencia directa de la interacción de masas en el espacio-tiempo. \n\nEn la **Estación Espacial Internacional**, vivimos este fenómeno en tiempo real. Estamos en una constante lucha entre la **Inercia** (nuestra tendencia a seguir en línea recta hacia el espacio profundo) y la **Gravedad** (que intenta jalarnos hacia el centro de la Tierra). El resultado es un equilibrio perfecto: una órbita. Si nuestra velocidad tangencial fuera menor, el firewall atmosférico nos desintegraría. Si fuera mayor, escaparíamos del campo de datos terrestre. Newton también nos enseñó sobre la **Conservación del Momento Angular**, lo que explica por qué los planetas no se detienen. En el vacío del espacio, no hay fricción que actúe como un antivirus para frenar el movimiento. \n\nExplicar un fenómeno extraño, como por qué los planetas no caen hacia el Sol a pesar de la inmensa gravedad, requiere entender este equilibrio dinámico. La gravedad actúa como la fuerza centrípeta que curva la trayectoria rectilínea de la inercia en una elipse cerrada. Newton unificó el cielo y la tierra bajo un mismo conjunto de comandos físicos. Al entender la gravitación, podemos calcular la **Velocidad de Escape** necesaria para enviar sondas a los confines del sistema solar o para colocar satélites de comunicaciones en órbitas geoestacionarias. El universo no es un caos; es un sistema operativo perfectamente programado por las leyes de la física, y nosotros estamos aquí para realizar la ingeniería inversa de su funcionamiento.",
+  "preguntas_deductivas_pagina": [
+    "¿Cómo cambia la fuerza gravitacional si la distancia entre dos planetas se triplica?",
+    "¿Qué papel juega la inercia en la formación de una órbita estable?",
+    "¿Por qué se dice que la ISS está en una 'caída libre' perpetua?",
+    "¿Qué ocurriría con la órbita de la Tierra si el Sol perdiera la mitad de su masa instantáneamente?",
+    "¿Cómo dedujo Newton la Tercera Ley de Kepler a partir de su ley de gravitación?"
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Realiza un diagrama detallado que muestre las fuerzas (vectores) que actúan sobre un satélite en órbita.",
+    "Elabora un mapa mental que conecte los conceptos de Masa, Distancia, Fuerza Gravitacional e Inercia.",
+    "Dibuja una infografía que explique por qué un astronauta flota en la ISS (pista: no es falta de gravedad, es caída libre).",
+    "Realiza un dibujo explicativo del experimento mental del cañón de Newton para explicar la velocidad orbital."
+  ],
+  "juegos_ordenar_letras_2": [
+    "GRAVEDAD",
+    "INERCIA",
+    "NEWTON"
+  ],
+  "juego_ordenar_frase_2": "LA FUERZA DE GRAVEDAD DISMINUYE CON EL CUADRADO DE LA DISTANCIA",
+  "sopa_letras": [
+    "ORBITA",
+    "FOCO",
+    "MASA",
+    "FUERZA",
+    "PLANETA",
+    "ELIPSE",
+    "SOL",
+    "RADIO",
+    "TIEMPO",
+    "VACIO"
+  ],
+  "crucigrama": [
+    {
+      "palabra": "GRAVITACION",
+      "pista": "Fuerza de atracción universal entre masas."
+    },
+    {
+      "palabra": "AFELIO",
+      "pista": "Punto de la órbita más alejado del Sol."
+    },
+    {
+      "palabra": "PERIODO",
+      "pista": "Tiempo que tarda un planeta en completar una órbita."
+    },
+    {
+      "palabra": "INERCIA",
+      "pista": "Tendencia de los cuerpos a mantener su estado de movimiento."
+    },
+    {
+      "palabra": "KEPLER",
+      "pista": "Científico que propuso las tres leyes del movimiento planetario."
+    },
+    {
+      "palabra": "ELIPTICA",
+      "pista": "Forma geométrica de la trayectoria de los planetas."
+    },
+    {
+      "palabra": "CENTRIPETA",
+      "pista": "Fuerza dirigida hacia el centro que mantiene el movimiento circular."
+    },
+    {
+      "palabra": "NEWTON",
+      "pista": "Autor de la Ley de Gravitación Universal."
+    },
+    {
+      "palabra": "FOCO",
+      "pista": "Punto interior de la elipse donde se sitúa el Sol."
+    },
+    {
+      "palabra": "MASA",
+      "pista": "Cantidad de materia que determina la intensidad gravitatoria."
+    }
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "En una misión de reconocimiento, la ISS detecta un exoplaneta que orbita una estrella similar al Sol. Los datos muestran que el planeta se mueve mucho más rápido en un tramo de su órbita que en otro.",
+      "tabla_o_grafica_markdown": "| Posición | Distancia a la Estrella (UA) | Velocidad Orbital (km/s) |\n|---|---|---|\n| Punto A | 0.8 | 45 |\n| Punto B | 1.5 | 22 |",
+      "pregunta": "¿Cuál es la explicación científica más coherente para la diferencia de velocidades observada entre el Punto A y el Punto B?",
+      "opciones": [
+        "En el Punto A hay más fricción espacial que acelera el planeta.",
+        "Según la Segunda Ley de Kepler, el planeta debe moverse más rápido cerca de la estrella para barrer áreas iguales en tiempos iguales.",
+        "La estrella emite un viento solar que empuja al planeta con más fuerza en el Punto B.",
+        "El planeta tiene más masa en el Punto A que en el Punto B debido a la compresión térmica."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. En el vacío no hay fricción significativa que cause aceleración.",
+        "1": "Correcto. La Ley de las Áreas explica que la velocidad aumenta al disminuir el radio vector.",
+        "2": "Incorrecto. El viento solar no determina la velocidad orbital planetaria de esa forma.",
+        "3": "Incorrecto. La masa de un planeta es constante independientemente de su posición orbital."
+      }
+    },
+    {
+      "competencia": "Uso Comprensivo del Conocimiento Científico",
+      "texto_introductorio": "Un ingeniero en la ISS analiza la relación entre dos planetas, X e Y, que orbitan la misma estrella.",
+      "tabla_o_grafica_markdown": "| Planeta | Distancia Media (UA) | Periodo Orbital (Años) |\n|---|---|---|\n| Planeta X | 1 | 1 |\n| Planeta Y | 4 | ? |",
+      "pregunta": "Utilizando la Tercera Ley de Kepler ($T^2 = k \\cdot a^3$), ¿cuál es el periodo orbital del Planeta Y?",
+      "opciones": [
+        "2 años",
+        "4 años",
+        "8 años",
+        "16 años"
+      ],
+      "correcta": 2,
+      "retroalimentacion": {
+        "0": "Incorrecto. Revisa el cálculo de 4 al cubo y su raíz cuadrada.",
+        "1": "Incorrecto. No es una relación lineal simple.",
+        "2": "Correcto. 4 al cubo es 64, y la raíz cuadrada de 64 es 8.",
+        "3": "Incorrecto. El periodo no es el cuadrado de la distancia."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "Se desea investigar cómo varía la fuerza de atracción entre la Tierra y un satélite si se modifica la altitud de este último.",
+      "tabla_o_grafica_markdown": "| Altura (km) | Fuerza (N) |\n|---|---|\n| 500 | 8500 |\n| 1000 | 7200 |\n| 2000 | 5400 |",
+      "pregunta": "A partir de los datos, ¿qué diseño experimental permitiría validar la Ley de Gravitación de Newton de forma más precisa?",
+      "opciones": [
+        "Medir la fuerza a distancias medidas desde el centro de la Tierra, no desde la superficie.",
+        "Ignorar la masa del satélite para simplificar los cálculos.",
+        "Aumentar la masa de la Tierra durante el experimento.",
+        "Realizar las mediciones solo en el vacío absoluto sin considerar la inercia."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. La ley de Newton especifica que 'r' es la distancia entre centros de masa.",
+        "1": "Incorrecto. La masa del satélite es fundamental para calcular la fuerza F.",
+        "2": "Incorrecto. La masa de la Tierra es una constante que no podemos modificar experimentalmente.",
+        "3": "Incorrecto. La inercia no afecta el valor de la fuerza gravitatoria estática, solo la trayectoria."
+      }
+    }
+  ]
+}

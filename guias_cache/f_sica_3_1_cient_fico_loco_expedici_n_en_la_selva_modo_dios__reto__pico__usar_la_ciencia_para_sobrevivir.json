@@ -1,0 +1,188 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Qué forma geométrica describen los planetas en su recorrido alrededor del Sol según el modelo moderno?",
+      "opciones": [
+        "Círculo perfecto",
+        "Elipse",
+        "Línea recta",
+        "Espiral"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Qué fuerza es la responsable de mantener a los planetas en su órbita?",
+      "opciones": [
+        "Magnetismo",
+        "Fricción",
+        "Gravedad",
+        "Presión atmosférica"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "Si un planeta está más cerca del Sol en su órbita, ¿su velocidad es?",
+      "opciones": [
+        "Menor",
+        "Igual",
+        "Mayor",
+        "Cero"
+      ],
+      "correcta": 2
+    }
+  ],
+  "texto_inductivo": "¡Escuchen bien, mis pequeños especímenes de laboratorio! Han quedado atrapados en la Selva del Perihelio, un lugar donde las brújulas no apuntan al norte, sino a la masa más cercana con una distorsión gravitacional significativa. ¡Bwahaha! Para escapar de esta maraña de lianas y jaguares cuánticos, no necesitan fuerza bruta, necesitan entender la danza de los astros. Durante siglos, los humanos —esos seres tan lentos de pensamiento— creyeron que la Tierra era el centro de todo. ¡Qué egocentrismo tan absurdo! Ptolomeo montó un sistema de círculos dentro de círculos, llamados epiciclos, que eran más complicados que tratar de desenredar los intestinos de una anaconda. Pero luego llegó Copérnico y dijo: '¡Oigan, tal vez es el Sol!'. Sin embargo, seguía obsesionado con los círculos perfectos, porque claro, ¡el cielo debe ser perfecto! **¡ERROR!** La perfección es una ilusión de los que no han observado suficiente. \n\nEntra en escena Tycho Brahe, un tipo con una nariz de metal y una sed de datos astronómicos más grande que mi hambre de conocimiento prohibido. Pasó años mirando las estrellas desde su isla, registrando la posición de Marte con una precisión que haría llorar a un relojero suizo. Pero Tycho no era un genio matemático, era un coleccionista. El verdadero genio —y un poco loco como yo— fue Johannes Kepler. Kepler heredó (o robó, según a quién le preguntes) los datos de Tycho. Intentó ajustar la órbita de Marte a un círculo, pero siempre le sobraban 8 minutos de arco. ¿Ocho minutos? Cualquier otro científico mediocre los habría ignorado como si fueran ruido de fondo en la selva. Pero Kepler no. Esos 8 minutos fueron la grieta que rompió el modelo antiguo. \n\nKepler descubrió su **Primera Ley**: los planetas no se mueven en círculos, ¡se mueven en **ELIPSES**! El Sol no está en el centro, sino en uno de los focos. Imaginen que la selva es la elipse y el Sol es la única fuente de agua en un rincón. Ustedes están obligados a orbitar ese recurso. Luego, observó algo aún más extraño: cuando el planeta está más cerca del Sol (el perihelio), se mueve como si lo persiguiera un caimán hambriento. Cuando está lejos (el afelio), parece que estuviera tomando una siesta bajo una ceiba. Esta es la **Segunda Ley de Kepler** o la Ley de las Áreas: una línea imaginaria que conecta al Sol con el planeta barre áreas iguales en tiempos iguales. ¡Es pura eficiencia energética! En nuestra expedición, entender esto es vital. Si calculamos mal nuestra posición orbital respecto a los puntos de referencia estelares que se ven a través del dosel selvático, terminaremos dando vueltas en círculos (o elipses) hasta convertirnos en abono orgánico. \n\nKepler no sabía POR QUÉ pasaba esto, solo sabía CÓMO pasaba. Es como ver una planta carnívora cerrarse: sabemos que lo hace, pero el mecanismo interno requiere una locura más profunda. Estamos aquí, en el nivel 'Modo Dios', porque no solo vamos a observar, vamos a predecir. En la selva, la supervivencia depende de saber dónde estará la luz de la Luna para orientarnos, y esa luz sigue las mismas leyes que el gigante Júpiter. Las elipses son la firma del universo, una geometría que se burla de nuestra simplicidad. ¡Miren hacia arriba! No vean estrellas, vean trayectorias. No vean noche, vean mecánica orbital pura. Si no dominan la elipse, la selva se los tragará. ¡La observación es su único machete!",
+  "recurso_visual": "graph TD\n    A[Modelos Planetarios] --> B(Geocéntrico: Tierra al centro)\n    A --> C(Heliocéntrico: Sol al centro)\n    C --> D{Leyes de Kepler}\n    D --> E[1ra Ley: Órbitas Elípticas]\n    D --> F[2da Ley: Áreas Iguales / Tiempos Iguales]\n    D --> G[3ra Ley: Armonía de los Periodos]\n    E --> H[Sol en un Foco]\n    F --> I[Perihelio: Más rápido]\n    F --> J[Afelio: Más lento]",
+  "preguntas_inductivas_pagina": [
+    "¿Por qué Kepler rechazó el modelo de órbitas circulares perfectas?",
+    "¿En qué punto de la elipse un planeta alcanza su velocidad máxima?",
+    "¿Qué papel jugaron los datos de Tycho Brahe en el descubrimiento de Kepler?",
+    "¿Qué significa que un planeta 'barra áreas iguales en tiempos iguales'?",
+    "¿Dónde se ubica el Sol exactamente dentro de la trayectoria elíptica de un planeta?"
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema detallado de una órbita elíptica, marcando el Sol en un foco, el perihelio, el afelio y los ejes mayor y menor.",
+    "Realiza un cuadro comparativo entre el modelo Geocéntrico de Ptolomeo y el modelo Heliocéntrico de Kepler.",
+    "Escribe un ensayo de tres párrafos explicando por qué los '8 minutos de arco' de Kepler cambiaron la historia de la ciencia y cómo se aplica esa rigurosidad en la supervivencia en la selva.",
+    "Representa gráficamente, mediante sectores sombreados, la Segunda Ley de Kepler en dos posiciones distintas de la órbita (cerca y lejos del Sol)."
+  ],
+  "juegos_ordenar_letras_1": [
+    "PERIHELIO",
+    "ELIPTICA",
+    "KEPLER"
+  ],
+  "juego_ordenar_frase_1": "LOS PLANETAS DESCRIBEN ELIPSES CON EL SOL EN UNO DE SUS FOCOS",
+  "texto_deductivo": "¡Atención, supervivientes de la lógica! Ya hemos visto la danza, ahora vamos a diseccionar al bailarín. Si Kepler nos dio el 'cómo', el gran Sir Isaac Newton nos dio el 'porqué'. Imaginen que estamos en lo profundo de la selva y lanzamos un coco. El coco cae. ¿Por qué cae? '¡Gravedad!', gritarían ustedes con sus voces infantiles. ¡Pero es mucho más que eso! La misma fuerza que atrae ese coco al suelo es la que mantiene a la Luna amarrada a la Tierra y a la Tierra prisionera del Sol. ¡Es la **Ley de Gravitación Universal**! Newton se dio cuenta de que la fuerza (F) es igual a una constante universal (G) multiplicada por las masas de los dos cuerpos (m1 y m2) y dividida por el cuadrado de la distancia que los separa (r²). ¡Bwahaha! ¡Si duplicas la distancia, la fuerza se divide por cuatro! ¡Es una relación de amor-odio inversa y cuadrática! \n\nAhora, unamos los cables de mi laboratorio cerebral. Kepler tenía una **Tercera Ley**, la ley más matemática de todas: el cuadrado del periodo orbital (el tiempo que tarda en dar una vuelta) es proporcional al cubo de la distancia media al Sol (T² ∝ r³). ¿De dónde sale esta magia? ¡De la gravedad de Newton! Al igualar la fuerza gravitatoria con la fuerza centrípeta (la que mantiene a un cuerpo en rotación), podemos deducir la velocidad exacta necesaria para que un satélite —o un rescate espacial— no caiga ni salga disparado al vacío. Si queremos que un dron de reconocimiento sobrevuele nuestra posición en la selva, debemos calcular su altitud y velocidad basándonos en estas ecuaciones. Si va muy lento, ¡CRASH!, comida para termitas. Si va muy rápido, ¡ZUM!, se pierde en el cinturón de asteroides. \n\nLa gravedad es la red invisible que conecta cada átomo de esta selva con las estrellas más lejanas. Pero esperen, hay más. La masa de los planetas deforma el espacio-tiempo, pero para nuestros propósitos de supervivencia en este nivel evolutivo, nos basta con Newton. Entender la Tercera Ley nos permite medir el universo. Si conocemos cuánto tarda un planeta en orbitar, ¡podemos saber a qué distancia está sin usar una cinta métrica gigante! En la selva, esto se traduce en la navegación astronómica avanzada. Al observar los satélites de Júpiter (los cuales Galileo descubrió con su pequeño catalejo), podemos usar sus periodos para determinar nuestra longitud terrestre. \n\nMis queridos sujetos de prueba, la física planetaria no es algo que ocurre 'allá arriba'. Es la ley fundamental de la masa. La selva es densa porque la gravedad mantiene el aire y el agua pegados a la roca. Si la constante G cambiara aunque sea un poco, sus huesos se desintegrarían o la atmósfera se escaparía al espacio como un globo pinchado. La supervivencia científica exige que vean las ecuaciones detrás de los árboles. Cuando calculamos la velocidad de escape, estamos calculando cuánta energía necesitamos para vencer el abrazo de un planeta. Para salir de esta expedición, deben vencer la inercia de su propia ignorancia. El universo no es un caos; es una maquinaria de precisión matemática, y yo soy el único que tiene el manual de instrucciones... ¡que ahora comparto con ustedes bajo riesgo de explosión espontánea! ¡Estudien las masas, midan las distancias y dominen el tiempo!",
+  "preguntas_deductivas_pagina": [
+    "¿Qué sucede con la fuerza gravitatoria si la distancia entre dos cuerpos se triplica?",
+    "¿Cuál es la relación matemática exacta que propone la Tercera Ley de Kepler?",
+    "¿Cómo permite la Ley de Newton explicar el movimiento elíptico descubierto por Kepler?",
+    "¿Qué es la constante 'G' y por qué es fundamental para la gravitación universal?",
+    "¿Por qué un planeta más alejado del Sol tarda mucho más tiempo en completar su órbita?"
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Realiza un diagrama de fuerzas detallado que muestre la interacción gravitatoria entre la Tierra y la Luna, incluyendo los vectores de fuerza.",
+    "Elabora un mapa mental que conecte las tres leyes de Kepler con la Ley de Gravitación Universal de Newton.",
+    "Dibuja una infografía que explique el concepto de velocidad de escape y qué factores influyen en ella para salir de la atmósfera terrestre.",
+    "Crea un dibujo explicativo que demuestre cómo la Tercera Ley de Kepler se aplica al sistema de lunas de Júpiter."
+  ],
+  "juegos_ordenar_letras_2": [
+    "GRAVITACION",
+    "CUADRADO",
+    "PERIODO"
+  ],
+  "juego_ordenar_frase_2": "LA FUERZA GRAVITATORIA DEPENDE DE LAS MASAS Y LA DISTANCIA",
+  "sopa_letras": [
+    "GRAVEDAD",
+    "NEWTON",
+    "KEPLER",
+    "ORBITA",
+    "ELIPSE",
+    "MASA",
+    "DISTANCIA",
+    "PERIODO",
+    "FOCO",
+    "PLANETA"
+  ],
+  "crucigrama": [
+    {
+      "palabra": "GRAVEDAD",
+      "pista": "Fuerza de atracción universal entre masas."
+    },
+    {
+      "palabra": "ELIPSE",
+      "pista": "Trayectoria que no es un círculo perfecto."
+    },
+    {
+      "palabra": "AFELIO",
+      "pista": "Punto más lejano de un planeta al Sol."
+    },
+    {
+      "palabra": "PERIODO",
+      "pista": "Tiempo necesario para una revolución completa."
+    },
+    {
+      "palabra": "MASA",
+      "pista": "Cantidad de materia de un cuerpo."
+    },
+    {
+      "palabra": "INERCIA",
+      "pista": "Resistencia de un cuerpo a cambiar su estado de movimiento."
+    },
+    {
+      "palabra": "CONSTANTE",
+      "pista": "Valor que no cambia, como G en la fórmula de Newton."
+    },
+    {
+      "palabra": "CENTRIPETA",
+      "pista": "Fuerza que busca el centro en un movimiento circular."
+    },
+    {
+      "palabra": "FOCO",
+      "pista": "Uno de los dos puntos internos de una elipse."
+    },
+    {
+      "palabra": "GALILEO",
+      "pista": "Científico que observó las lunas de Júpiter."
+    }
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "En la Selva del Perihelio, un grupo de exploradores nota que un satélite artificial parece moverse más rápido cuando cruza cierta región del cielo nocturno.",
+      "tabla_o_grafica_markdown": "| Posición | Distancia al centro (km) | Velocidad (km/s) |\n|---|---|---|\n| A | 7000 | 7.5 |\n| B | 10000 | 5.2 |",
+      "pregunta": "¿A qué ley física se debe este cambio de velocidad en el satélite?",
+      "opciones": [
+        "A la Segunda Ley de Kepler, pues al estar más cerca debe barrer la misma área en igual tiempo.",
+        "A la Primera Ley de Newton, porque el satélite quiere mantener su estado de reposo.",
+        "A la Tercera Ley de Kepler, que dice que el periodo depende del cubo del radio.",
+        "A la Ley de Pascal, debido a la presión de la atmósfera selvática."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. La ley de las áreas implica que a menor distancia, mayor velocidad orbital.",
+        "1": "Incorrecto. La inercia no explica el cambio de velocidad en una órbita cerrada.",
+        "2": "Incorrecto. La tercera ley relaciona periodos y distancias medias, no velocidades instantáneas.",
+        "3": "Incorrecto. La ley de Pascal se refiere a fluidos, no a mecánica celeste."
+      }
+    },
+    {
+      "competencia": "Uso comprensivo del conocimiento científico",
+      "texto_introductorio": "Si un nuevo planeta fuera descubierto en la selva estelar a una distancia del Sol que es 4 veces la distancia de la Tierra al Sol (4 UA).",
+      "tabla_o_grafica_markdown": "| Planeta | Distancia (UA) | Periodo (Años) |\n|---|---|---|\n| Tierra | 1 | 1 |\n| Nuevo | 4 | ? |",
+      "pregunta": "¿Cuál sería el periodo orbital aproximado de este nuevo planeta según la Tercera Ley de Kepler (T² = R³)?",
+      "opciones": [
+        "4 años",
+        "8 años",
+        "16 años",
+        "64 años"
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. Olvidaste elevar al cubo y sacar raíz cuadrada.",
+        "1": "Correcto. 4 al cubo es 64, y la raíz cuadrada de 64 es 8.",
+        "2": "Incorrecto. Ese sería el cuadrado del periodo, no el periodo.",
+        "3": "Incorrecto. Ese es el cubo de la distancia, falta la raíz."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "Un científico loco (¡yo!) afirma que si duplicamos la masa de la Tierra sin cambiar su tamaño, la Luna se acercaría y eventualmente chocaría con nosotros.",
+      "tabla_o_grafica_markdown": "| Variable | Cambio | Efecto en Fuerza |\n|---|---|---|\n| Masa Tierra | x2 | x2 |\n| Distancia | Constante | - |",
+      "pregunta": "¿Qué experimento o dato apoyaría mejor la idea de que la fuerza gravitatoria aumentaría?",
+      "opciones": [
+        "Medir el tiempo de caída de una manzana en la nueva Tierra.",
+        "Observar si el periodo orbital de la Luna disminuye para compensar el aumento de atracción.",
+        "Verificar si la constante G aumenta su valor numérico.",
+        "Comprobar si la Luna se vuelve más brillante por el aumento de masa."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. Esto mide la gravedad local, no necesariamente la dinámica orbital completa.",
+        "1": "Correcto. Un aumento en la masa central requiere una mayor velocidad orbital (y menor periodo) para mantener el equilibrio.",
+        "2": "Incorrecto. La constante G es universal, no cambia con la masa de los objetos.",
+        "3": "Incorrecto. El brillo depende de la reflexión de la luz solar, no de la gravedad."
+      }
+    }
+  ]
+}

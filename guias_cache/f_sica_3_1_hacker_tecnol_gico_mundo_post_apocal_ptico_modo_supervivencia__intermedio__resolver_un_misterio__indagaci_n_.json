@@ -1,0 +1,188 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Cuál era el modelo que situaba a la Tierra como el centro estático del universo conocido antes del Gran Apagón?",
+      "opciones": [
+        "Modelo Heliocéntrico",
+        "Modelo Geocéntrico",
+        "Modelo Galáctico",
+        "Modelo Cuántico"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "En la física de los Antiguos, ¿qué fuerza mantiene a los satélites (ahora chatarra espacial) en órbita?",
+      "opciones": [
+        "Magnetismo",
+        "Fricción atmosférica",
+        "Gravedad",
+        "Presión de radiación"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "¿Qué forma geométrica describen los planetas en su viaje alrededor del Sol, según los registros recuperados?",
+      "opciones": [
+        "Círculo perfecto",
+        "Cuadrado",
+        "Elipse",
+        "Triángulo"
+      ],
+      "correcta": 2
+    }
+  ],
+  "texto_inductivo": "Escuchen bien, Reclutas del Páramo. Soy el Hacker Jefe de la Ciudad de Silicio y hoy vamos a desencriptar el mayor misterio que nos dejaron los Antiguos: el movimiento de las esferas celestes. Antes de que el cielo se llenara de ceniza y los satélites cayeran como lágrimas de fuego, la humanidad pasó siglos tratando de entender por qué las luces en el cielo se movían de forma errática. Los 'Vagabundos' o planetas eran un bug en el sistema geocéntrico de Ptolomeo. Imaginen esto: durante más de mil años, el firewall mental de la humanidad estuvo bloqueado con la idea de que la Tierra era el centro de todo. Pero había un error de compilación. A veces, Marte parecía retroceder en el cielo, un fenómeno que llamaron 'movimiento retrógrado'. Para arreglar esto, inventaron los 'epiciclos', círculos dentro de círculos, una solución de código espantosa y poco eficiente.\n\nFue entonces cuando los primeros Hackers Astrónomos, como Copérnico, se atrevieron a hacer un 'root' al sistema. Propuso que el Sol era el nodo central. Sin embargo, su código todavía corría sobre círculos perfectos y no era preciso. El verdadero quiebre llegó con Tycho Brahe, un recolector de datos masivo que, sin telescopios, logró el dataset más preciso de la historia pre-apocalíptica. Pero Brahe no tenía la capacidad de procesamiento para entender sus propios datos. Esa tarea recayó en Johannes Kepler, un matemático que heredó (o robó, según la versión del log) los registros de Brahe. Kepler pasó años intentando ajustar los datos de Marte a una órbita circular, pero el error de 8 minutos de arco lo perseguía. En el mundo de la programación física, 8 minutos de arco es una vulnerabilidad crítica. Kepler tomó una decisión radical: desechó el círculo y probó con la elipse. ¡BUM! El sistema se sincronizó perfectamente. El misterio del movimiento planetario no era una cuestión de magia divina, sino de geometría elíptica y leyes físicas universales. Hoy, en este refugio subterráneo, necesitamos entender estas leyes no por curiosidad, sino para calcular cuándo las tormentas solares dejarán de freír nuestros circuitos y si algún día podremos enviar una señal de auxilio a las colonias de Marte. Si no entendemos cómo se mueven los mundos, estamos condenados a vivir en la oscuridad de este búnker para siempre. El movimiento planetario es la arquitectura de nuestro vecindario cósmico, y Kepler fue el primer Hacker en leer su código fuente.",
+  "recurso_visual": "graph TD\n    A[Observación del Cielo] --> B{¿Movimiento Retrógrado?}\n    B -->|Sí| C[Modelo Geocéntrico: Epiciclos complejos]\n    B -->|No/Análisis| D[Modelo Heliocéntrico: Sol en el centro]\n    D --> E[Kepler: Órbitas Elípticas]\n    E --> F[Leyes de Movimiento Planetario]\n    F --> G[Comprensión del Sistema Solar]",
+  "preguntas_inductivas_pagina": [
+    "¿Por qué el modelo de círculos perfectos fallaba al explicar el movimiento de Marte?",
+    "¿Cuál fue el 'dataset' fundamental que usó Kepler para sus cálculos?",
+    "¿Qué significa que un planeta tenga un 'movimiento retrógrado' en el cielo nocturno?",
+    "¿Cómo cambió la percepción del centro del universo del modelo de Ptolomeo al de Copérnico?",
+    "¿Por qué es vital para un superviviente del páramo entender la mecánica celeste?"
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema comparativo entre el modelo geocéntrico (con epiciclos) y el modelo heliocéntrico de Kepler.",
+    "Realiza un cuadro comparativo entre las contribuciones de Tycho Brahe y Johannes Kepler a la astronomía.",
+    "Escribe una reflexión de 15 líneas sobre cómo el 'error de 8 minutos de arco' demuestra la importancia de la precisión científica.",
+    "Representa gráficamente una elipse, señalando sus focos y explicando por qué el Sol no está en el centro exacto."
+  ],
+  "juegos_ordenar_letras_1": [
+    "ELIPSE",
+    "RETRÓGRADO",
+    "HELIOCENTRISMO"
+  ],
+  "juego_ordenar_frase_1": "EL SOL OCUPA UNO DE LOS FOCOS EN LA ORBITA ELIPTICA",
+  "texto_deductivo": "Atención, unidades de reconocimiento. Una vez que Kepler descifró el 'cómo' se mueven los planetas, el siguiente nivel de este hackeo universal fue entender el 'por qué'. Entramos en la fase de la Gravitación Universal. Kepler nos dejó tres leyes fundamentales que son el firmware de nuestro sistema solar. La Primera Ley, o Ley de las Órbitas, establece que todos los planetas se desplazan en órbitas elípticas con el Sol en uno de sus focos. Esto destruyó la estética de la perfección circular de los Antiguos. La Segunda Ley, la Ley de las Áreas, es fascinante: una línea imaginaria que conecte un planeta con el Sol barre áreas iguales en tiempos iguales. ¿Qué significa esto en términos de rendimiento? Que los planetas no mantienen una velocidad constante; cuando están cerca del Sol (perihelio), aceleran como un procesador con overclocking, y cuando están lejos (afelio), se ralentizan.\n\nFinalmente, la Tercera Ley o Ley de los Periodos, nos da la fórmula matemática: el cuadrado del periodo orbital es proporcional al cubo de la distancia media al Sol (T² ∝ r³). Esta ley nos permite calcular la distancia de cualquier objeto si conocemos cuánto tarda en dar una vuelta completa. Pero el código estaba incompleto. Faltaba el motor. Fue Isaac Newton quien, años después, realizó la ingeniería inversa de las leyes de Kepler y descubrió la Fuerza de Gravedad. Newton postuló que la misma fuerza que hace caer una manzana podrida en el páramo es la que mantiene a la Luna amarrada a la Tierra. Su Ley de Gravitación Universal (F = G * m1 * m2 / r²) nos dice que la atracción depende de las masas y es inversamente proporcional al cuadrado de la distancia. Si duplicamos la distancia entre dos naves espaciales, la atracción no cae a la mitad, ¡cae a la cuarta parte! Este es un dato crítico para nuestras maniobras de recuperación de chatarra orbital. Sin Newton, las leyes de Kepler serían solo observaciones interesantes; con Newton, tenemos las herramientas para hackear la gravedad misma. En este entorno post-apocalíptico, aplicar estas ecuaciones es la diferencia entre poner un satélite de comunicaciones en órbita o verlo arder en la reentrada atmosférica. La física no es solo teoría; es el manual de reparación del universo que heredamos en ruinas.",
+  "preguntas_deductivas_pagina": [
+    "¿Qué sucede con la velocidad de un planeta cuando se acerca al perihelio?",
+    "¿Cuál es la relación matemática exacta que propone la Tercera Ley de Kepler?",
+    "¿Cómo define Newton la fuerza que mantiene a los planetas en órbita?",
+    "Si la distancia entre dos cuerpos aumenta al triple, ¿cuántas veces disminuye la fuerza gravitacional?",
+    "¿Por qué la Segunda Ley de Kepler implica que el movimiento planetario no es uniforme?"
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Realiza un diagrama detallado que explique la Segunda Ley de Kepler (áreas iguales en tiempos iguales).",
+    "Elabora un mapa mental que conecte las tres leyes de Kepler con la Ley de Gravitación Universal de Newton.",
+    "Dibuja una infografía artesanal que explique la diferencia entre Perihelio y Afelio, incluyendo vectores de velocidad.",
+    "Diseña una 'infografía de supervivencia' sobre cómo calcular la fuerza gravitatoria entre la Tierra y un satélite caído."
+  ],
+  "juegos_ordenar_letras_2": [
+    "GRAVEDAD",
+    "PERIHELIO",
+    "AFELIO"
+  ],
+  "juego_ordenar_frase_2": "LA FUERZA DE GRAVEDAD MANTIENE LOS MUNDOS EN SU LUGAR",
+  "sopa_letras": [
+    "KEPLER",
+    "NEWTON",
+    "ORBITA",
+    "ELIPSE",
+    "FOCO",
+    "MASA",
+    "RADIO",
+    "PERIODO",
+    "FUERZA",
+    "SOL"
+  ],
+  "crucigrama": [
+    {
+      "palabra": "ELIPSE",
+      "pista": "Forma geométrica de las órbitas planetarias."
+    },
+    {
+      "palabra": "NEWTON",
+      "pista": "Hacker antiguo que formuló la Ley de Gravitación Universal."
+    },
+    {
+      "palabra": "PERIHELIO",
+      "pista": "Punto de la órbita más cercano al Sol."
+    },
+    {
+      "palabra": "AFELIO",
+      "pista": "Punto de la órbita más alejado del Sol."
+    },
+    {
+      "palabra": "INVERSO",
+      "pista": "Relación de la gravedad con el cuadrado de la distancia."
+    },
+    {
+      "palabra": "MASA",
+      "pista": "Propiedad de los cuerpos que determina la magnitud de la atracción gravitatoria."
+    },
+    {
+      "palabra": "KEPLER",
+      "pista": "Autor de las tres leyes del movimiento planetario."
+    },
+    {
+      "palabra": "FOCO",
+      "pista": "Uno de los dos puntos internos de una elipse."
+    },
+    {
+      "palabra": "GRAVEDAD",
+      "pista": "La fuerza que 'hackea' el espacio para atraer los cuerpos."
+    },
+    {
+      "palabra": "PERIODO",
+      "pista": "Tiempo que tarda un planeta en completar una órbita."
+    }
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "En el año 2145, un grupo de exploradores detecta que un antiguo satélite de defensa se está moviendo más rápido en un punto A de su órbita que en un punto B.",
+      "tabla_o_grafica_markdown": "| Punto | Distancia al Centro (km) | Velocidad (km/s) |\n|---|---|---|\n| A | 7.000 | 7.5 |\n| B | 10.000 | 5.2 |",
+      "pregunta": "¿A qué ley del movimiento planetario corresponde este comportamiento?",
+      "opciones": [
+        "A la Segunda Ley de Kepler sobre la velocidad en áreas iguales.",
+        "A la Primera Ley de Kepler sobre órbitas circulares.",
+        "A la Tercera Ley de Kepler sobre el cubo de la distancia.",
+        "A la Ley de Inercia de Newton."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. La segunda ley indica que a menor distancia (punto A), mayor es la velocidad orbital.",
+        "1": "Incorrecto. La primera ley habla de la forma elíptica, no de la velocidad.",
+        "2": "Incorrecto. La tercera ley relaciona el periodo total con el radio medio.",
+        "3": "Incorrecto. La inercia no explica el cambio de velocidad en una órbita cerrada."
+      }
+    },
+    {
+      "competencia": "Uso comprensivo del conocimiento científico",
+      "texto_introductorio": "Si la masa de la Tierra se redujera a la mitad por un experimento fallido de los Antiguos, pero la distancia a la Luna se mantuviera igual:",
+      "tabla_o_grafica_markdown": "| Variable | Estado Original | Estado Final |\n|---|---|---|\n| Masa Tierra | M | M/2 |\n| Distancia | R | R |",
+      "pregunta": "¿Qué sucedería con la fuerza de atracción gravitacional entre ellas?",
+      "opciones": [
+        "Se duplicaría.",
+        "Se reduciría a la mitad.",
+        "Se reduciría a la cuarta parte.",
+        "Se mantendría constante."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. La fuerza es directamente proporcional a las masas.",
+        "1": "Correcto. Según F=G*m1*m2/r2, si una masa se reduce a la mitad, la fuerza también.",
+        "2": "Incorrecto. Eso pasaría si la distancia se duplicara.",
+        "3": "Incorrecto. Un cambio en la masa afecta obligatoriamente la fuerza."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "Un hacker astronómico observa que un nuevo exoplaneta 'X' tarda 8 años terrestres en dar una vuelta al sol, mientras que el planeta 'Y' tarda solo 1 año.",
+      "tabla_o_grafica_markdown": "| Planeta | Periodo (T) | Distancia Media (r) |\n|---|---|---|\n| Y | 1 año | 1 UA |\n| X | 8 años | ? |",
+      "pregunta": "Usando la Tercera Ley de Kepler (T² = r³), ¿cuál es la distancia media del planeta X al Sol?",
+      "opciones": [
+        "2 Unidades Astronómicas",
+        "4 Unidades Astronómicas",
+        "8 Unidades Astronómicas",
+        "64 Unidades Astronómicas"
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. 2 al cubo es 8, pero el periodo al cuadrado (8 al cuadrado) es 64.",
+        "1": "Correcto. T² = 8² = 64. Entonces r³ = 64, lo que significa que r = 4 (porque 4x4x4=64).",
+        "2": "Incorrecto. Si r fuera 8, r³ sería 512.",
+        "3": "Incorrecto. Eso sería r si T² fuera r."
+      }
+    }
+  ]
+}

@@ -1,0 +1,188 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Cuál es la forma geométrica que describe la trayectoria de un planeta alrededor del Sol según las observaciones clásicas?",
+      "opciones": [
+        "Círculo perfecto",
+        "Línea recta",
+        "Elipse",
+        "Triángulo"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "¿Qué fuerza es la principal responsable de mantener a los planetas en su órbita?",
+      "opciones": [
+        "Magnetismo",
+        "Fuerza Nuclear",
+        "Gravedad",
+        "Electricidad"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "En una órbita, ¿cuándo se mueve un planeta más rápido?",
+      "opciones": [
+        "Cuando está lejos del sol",
+        "Cuando está cerca del sol",
+        "Siempre va a la misma velocidad",
+        "Cuando sale de la órbita"
+      ],
+      "correcta": 1
+    }
+  ],
+  "texto_inductivo": "Saludos, recluta del Sector 7. Soy tu guía en este hackeo al sistema operativo del universo. Nos encontramos en **Neo-Cyberia**, el año 2144. Nuestra metrópolis está rodeada por un domo de energía, pero hoy hemos detectado una anomalía en los sensores de largo alcance. La luna artificial **Ícaro-9** está actuando de forma extraña. No sigue un círculo perfecto sobre nuestras cabezas; parece que se aleja y se acerca rítmicamente, como si la ciudad fuera el corazón de un sistema que late. Al observar el mapa estelar holográfico, notamos que Ícaro-9 no mantiene una velocidad constante. En ciertos puntos de su trayectoria, los motores de plasma detectan un incremento masivo de aceleración sin que hayamos activado los propulsores. Es como si el espacio mismo la estuviera succionando hacia el centro y luego lanzándola de vuelta a la oscuridad del vacío. Este fenómeno ha dejado perplejos a los ingenieros de la vieja escuela, quienes juraban que las órbitas eran círculos divinos y perfectos. \n\nPara entender este misterio, debemos desconectarnos de los prejuicios y observar los datos crudos. Al graficar la posición de Ícaro-9, vemos que dibuja una curva suave, un óvalo estirado que los antiguos llamaban **elipse**. En esta metrópolis del futuro, donde todo es digital, la física sigue siendo el código fuente que no podemos editar a nuestro antojo. Notamos que hay un punto de máxima aproximación al que llamaremos **perigeo** (o perihelio si habláramos del sol), donde la velocidad de la luna se dispara, y un punto de máximo alejamiento o **apogeo**, donde parece casi detenerse en una danza lenta y melancólica. ¿Por qué el universo desperdicia energía acelerando y frenando objetos masivos? Los antiguos astrónomos, que hackearon el cielo con telescopios de cristal y papel, descubrieron que el área que barre el vector posición de un cuerpo en tiempos iguales es siempre la misma. Esto significa que la naturaleza tiene una contabilidad perfecta: si la luna está lejos, recorre menos camino en el arco orbital, pero compensa la 'lentitud' con la distancia. Si está cerca, debe correr para cubrir la misma superficie en el mismo tiempo. \n\nEste fenómeno extraño no es un error del sistema, es una característica del motor físico planetario. Imagina que el espacio es una malla elástica tensada por la masa de nuestra metrópolis. Ícaro-9 está simplemente cayendo perpetuamente en el pozo gravitatorio, pero su velocidad lateral es tan alta que nunca llega a chocar contra nosotros. Es un equilibrio precario, un hackeo gravitacional que mantiene a los satélites, lunas y planetas en su lugar. Si logramos descifrar por qué ocurre este cambio de velocidad y por qué la forma no es circular, podremos optimizar nuestras rutas de naves de carga y ahorrar millones de créditos de energía. Estamos ante la primera ley del movimiento planetario: la ley de las órbitas. No hay círculos en el cielo real, solo elipses donde el centro de masa ocupa uno de los focos. Nuestra ciudad no está en el centro exacto de la órbita de Ícaro-9, está ligeramente desplazada. Esta asimetría es la clave para explicar por qué el cielo parece comportarse de manera tan errática cuando lo miramos con ojos de navegante espacial. Prepárate, porque vamos a profundizar en las líneas de código que Johannes Kepler escribió hace siglos y que hoy siguen gobernando nuestra Metrópolis del Futuro.",
+  "recurso_visual": "graph LR\n    A[Metrópolis/Foco 1] -- Distancia Corta --> B(Perihelio: Alta Velocidad)\n    A -- Distancia Larga --> C(Afelio: Baja Velocidad)\n    B -- Curva Elíptica --> D[Trayectoria Planetaria]\n    C -- Curva Elíptica --> D\n    D -- Ley 1 --> E{Forma Elipse}\n    D -- Ley 2 --> F{Áreas Iguales en Tiempos Iguales}",
+  "preguntas_inductivas_pagina": [
+    "¿Qué forma geométrica describe la luna Ícaro-9 en su movimiento?",
+    "¿En qué punto de la trayectoria la luna alcanza su máxima velocidad?",
+    "¿Cómo llamaban los antiguos al punto de máximo alejamiento en una órbita?",
+    "¿Qué sucede con el área barrida por el satélite en intervalos de tiempo iguales?",
+    "¿Por qué la metrópolis no está en el centro exacto de la órbita?"
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema del sistema Neo-Cyberia e Ícaro-9, marcando los focos de la elipse y el vector de velocidad en el perihelio.",
+    "Realiza un cuadro comparativo entre una órbita circular teórica y la órbita elíptica real observada en el texto.",
+    "Escribe una reflexión de 10 líneas sobre cómo cambiaría la vida en la metrópolis si las órbitas fueran círculos perfectos y la velocidad fuera constante.",
+    "Representa gráficamente la 'Malla Elástica' del espacio-tiempo mencionada en el texto, mostrando cómo la masa de la ciudad deforma el entorno."
+  ],
+  "juegos_ordenar_letras_1": [
+    "ELIPSE",
+    "GRAVEDAD",
+    "ORBITA"
+  ],
+  "juego_ordenar_frase_1": "LOS PLANETAS DESCRIBEN ORBITAS ELIPTICAS ALREDEDOR DEL SOL QUE OCUPA UNO DE LOS FOCOS",
+  "texto_deductivo": "Para decodificar totalmente el movimiento de los cuerpos celestes en nuestra Metrópolis del Futuro, debemos aplicar la ingeniería inversa a las leyes que rigen el cosmos. El gran arquitecto de este código fue Johannes Kepler, quien, basándose en los logs de datos de Tycho Brahe, formuló tres protocolos fundamentales. El **Protocolo I (Ley de las Órbitas)** establece que todos los planetas se desplazan alrededor del Sol describiendo órbitas elípticas. En este esquema, el Sol no es el centro, sino que ocupa uno de los dos puntos estratégicos llamados focos. Esto explica por qué nuestra luna artificial Ícaro-9 varía su distancia respecto a Neo-Cyberia. La excentricidad de la elipse determina qué tan 'estirada' está la órbita; una excentricidad de cero sería un círculo perfecto, pero en el hardware del universo, la mayoría de los objetos tienen una excentricidad mayor a cero. \n\nEl **Protocolo II (Ley de las Áreas)** es la clave para entender la velocidad variable. Dicta que la línea que une a un planeta con el Sol barre áreas iguales en tiempos iguales. Imagina que el espacio entre la metrópolis y el satélite es un sector de un disco virtual. Cuando el satélite está cerca (perihelio), el 'triángulo' de área es corto pero muy ancho (gran arco de trayectoria). Cuando está lejos (afelio), el 'triángulo' es muy largo pero muy delgado (pequeño arco de trayectoria). Para que ambas áreas sean idénticas, el objeto DEBE moverse más rápido cuando está cerca y más lento cuando está lejos. Esta es la conservación del momento angular en acción, un firewall natural que impide que los planetas se salgan de su ruta programada. \n\nFinalmente, el **Protocolo III (Ley Armónica)** nos da la fórmula matemática para predecir el tiempo que tarda un planeta en dar una vuelta completa (periodo T) basándonos en su distancia media al Sol (radio medio R). La relación es constante: el cuadrado del periodo es proporcional al cubo de la distancia media (T² / R³ = K). Esto significa que si sabemos qué tan lejos está un satélite de comunicación de nuestra metrópolis, podemos calcular exactamente cuánto tardará en completar su órbita sin necesidad de observarlo todo el tiempo. Isaac Newton, siglos después, hackeó este protocolo y descubrió que la causa de todo esto es la **Ley de Gravitación Universal**. La fuerza de atracción depende de las masas y disminuye con el cuadrado de la distancia. Si duplicamos la distancia entre un satélite y la ciudad, la fuerza de atracción no se reduce a la mitad, sino a la cuarta parte. Este conocimiento es vital para nuestra supervivencia: si los motores de compensación de gravedad de Neo-Cyberia fallaran, tendríamos que conocer estas leyes a la perfección para recalcular la trayectoria de evacuación antes de que la inercia nos lance al espacio profundo o la gravedad nos atraiga hacia el núcleo incandescente del planeta madre.",
+  "preguntas_deductivas_pagina": [
+    "¿Qué establece el Protocolo I de Kepler sobre la posición del Sol?",
+    "¿Qué relación matemática define la Tercera Ley de Kepler?",
+    "¿Cómo afecta la distancia a la fuerza de gravedad según Newton?",
+    "¿Qué es la excentricidad en una órbita elíptica?",
+    "¿Por qué es necesario que un planeta aumente su velocidad en el perihelio?"
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Realiza un diagrama detallado que muestre la Ley de las Áreas, coloreando dos sectores de igual área pero diferente arco.",
+    "Elabora un mapa mental que conecte las tres leyes de Kepler con la Ley de Gravitación Universal de Newton.",
+    "Dibuja un esquema explicativo que muestre qué sucedería con la fuerza de gravedad si la masa de la metrópolis se duplicara.",
+    "Crea una infografía artesanal sobre Johannes Kepler, presentándolo como el primer 'Hacker del Cielo'."
+  ],
+  "juegos_ordenar_letras_2": [
+    "PERIODO",
+    "FOCO",
+    "AFELIO"
+  ],
+  "juego_ordenar_frase_2": "EL CUADRADO DEL PERIODO ORBITAL ES PROPORCIONAL AL CUBO DE LA DISTANCIA MEDIA",
+  "sopa_letras": [
+    "KEPLER",
+    "NEWTON",
+    "ELIPSE",
+    "FOCO",
+    "ORBITA",
+    "GRAVEDAD",
+    "RADIO",
+    "PERIODO",
+    "MASA",
+    "INERCIA"
+  ],
+  "crucigrama": [
+    {
+      "palabra": "ELIPSE",
+      "pista": "Forma de la órbita planetaria."
+    },
+    {
+      "palabra": "PERIHELIO",
+      "pista": "Punto más cercano al Sol."
+    },
+    {
+      "palabra": "AFELIO",
+      "pista": "Punto más alejado del Sol."
+    },
+    {
+      "palabra": "FOCO",
+      "pista": "Lugar que ocupa el Sol en la elipse."
+    },
+    {
+      "palabra": "GRAVEDAD",
+      "pista": "Fuerza de atracción entre masas."
+    },
+    {
+      "palabra": "PERIODO",
+      "pista": "Tiempo que tarda una órbita completa."
+    },
+    {
+      "palabra": "KEPLER",
+      "pista": "Apellido del programador de las leyes orbitales."
+    },
+    {
+      "palabra": "NEWTON",
+      "pista": "Científico que explicó la causa de las órbitas."
+    },
+    {
+      "palabra": "AREA",
+      "pista": "Lo que barren los planetas en tiempos iguales."
+    },
+    {
+      "palabra": "EXCENTRICIDAD",
+      "pista": "Medida de qué tan estirada es una elipse."
+    }
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "En la Metrópolis de Neo-Cyberia, un grupo de estudiantes observa que un cometa se desplaza mucho más rápido cuando pasa cerca de los anillos de la ciudad que cuando está en los confines del sistema solar.",
+      "tabla_o_grafica_markdown": "| Posición | Distancia (UA) | Velocidad (km/s) |\n|---|---|---|\n| Punto A | 0.5 | 60 |\n| Punto B | 5.0 | 10 |",
+      "pregunta": "¿Cuál es la razón física que explica este cambio en la velocidad del cometa?",
+      "opciones": [
+        "La segunda ley de Kepler, ya que debe barrer áreas iguales en tiempos iguales.",
+        "El cometa enciende sus motores químicos al acercarse al calor de la ciudad.",
+        "La fricción con la atmósfera del espacio profundo lo frena en el Punto B.",
+        "La primera ley de Kepler dice que los círculos tienen velocidad variable."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. La Ley de las Áreas implica que a menor radio, mayor debe ser la velocidad para mantener constante el área barrida.",
+        "1": "Incorrecto. Los cometas no tienen motores; su movimiento es puramente gravitacional.",
+        "2": "Incorrecto. En el vacío del espacio no hay fricción atmosférica que cause este efecto proporcional.",
+        "3": "Incorrecto. La primera ley habla de elipses, no de círculos, y la velocidad variable se explica con la segunda ley."
+      }
+    },
+    {
+      "competencia": "Uso comprensivo del conocimiento científico",
+      "texto_introductorio": "El sistema de navegación de una nave de carga reporta que un nuevo planetoide ha sido descubierto. Su distancia media al sol es de 4 unidades astronómicas (UA).",
+      "tabla_o_grafica_markdown": "| Planeta | Distancia Media (R) | Periodo (T) |\n|---|---|---|\n| Tierra | 1 UA | 1 año |\n| Nuevo | 4 UA | ? |",
+      "pregunta": "Aplicando la tercera ley de Kepler (T² = R³), ¿cuánto tiempo tardará este planetoide en completar una órbita?",
+      "opciones": [
+        "4 años",
+        "8 años",
+        "16 años",
+        "64 años"
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. No es una relación lineal simple.",
+        "1": "Correcto. R³ = 4³ = 64. Como T² = 64, entonces T = √64 = 8 años.",
+        "2": "Incorrecto. Has olvidado sacar la raíz cuadrada del resultado de R³.",
+        "3": "Incorrecto. 64 es el valor de T², no de T."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "Un hacker científico analiza los datos de dos satélites idénticos, S1 y S2, que orbitan Neo-Cyberia. S1 está a una altitud de 500 km y S2 a 1000 km.",
+      "tabla_o_grafica_markdown": "| Satélite | Altitud | Fuerza Gravitacional Observada |\n|---|---|---|\n| S1 | 500 km | F |\n| S2 | 1000 km | Menor que F |",
+      "pregunta": "Si el hacker quiere demostrar la Ley de Gravitación Universal, ¿qué debería observar respecto a la fuerza sobre S2 comparada con S1?",
+      "opciones": [
+        "Que la fuerza es exactamente la mitad porque la distancia es el doble.",
+        "Que la fuerza es igual porque son satélites idénticos.",
+        "Que la fuerza disminuye con el cuadrado de la distancia.",
+        "Que la fuerza aumenta porque hay menos aire que la detenga."
+      ],
+      "correcta": 2,
+      "retroalimentacion": {
+        "0": "Incorrecto. La relación no es inversamente proporcional, sino inversamente proporcional al cuadrado.",
+        "1": "Incorrecto. La masa es igual, pero la distancia cambia la fuerza.",
+        "2": "Correcto. La ley de Newton establece que la fuerza es inversamente proporcional al cuadrado de la distancia entre centros.",
+        "3": "Incorrecto. La gravedad no depende de la presencia o ausencia de aire."
+      }
+    }
+  ]
+}

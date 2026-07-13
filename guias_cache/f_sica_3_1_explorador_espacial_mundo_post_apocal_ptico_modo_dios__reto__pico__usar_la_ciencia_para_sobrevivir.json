@@ -1,0 +1,178 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "Si un motor de impulsión en el vacío se apaga, ¿qué mantiene a una nave en órbita alrededor de un planeta?",
+      "opciones": [
+        "La presión atmosférica remanente",
+        "El equilibrio entre la inercia y la fuerza gravitacional",
+        "La energía solar acumulada en los paneles",
+        "El magnetismo de los polos planetarios"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Qué forma geométrica describen los planetas en su viaje alrededor del Sol según las observaciones antiguas recuperadas?",
+      "opciones": [
+        "Círculos perfectos",
+        "Líneas rectas infinitas",
+        "Elipses con el Sol en uno de sus focos",
+        "Espirales descendentes"
+      ],
+      "correcta": 2
+    }
+  ],
+  "texto_inductivo": "Saludos, cadetes de la Resistencia Estelar. Soy el Comandante Kaelen, y si están escuchando esta transmisión holográfica, es porque han sobrevivido al Gran Colapso Atmosférico. Nuestra supervivencia ya no depende de la tierra que pisamos, que ahora es solo ceniza y radiación, sino de nuestra capacidad para comprender el ballet mecánico que ocurre sobre nuestras cabezas. El movimiento planetario no es un misterio místico; es la clave para la navegación de nuestra estación orbital 'La Vanguardia'. \n\nImaginen el siglo XVII en la Antigua Tierra. Los humanos creían que eran el centro del universo. El modelo geocéntrico de Ptolomeo era la ley. Pero la ciencia es una llama que no se apaga con dogmas. Nicolás Copérnico se atrevió a sugerir que el Sol era el centro (Heliocentrismo), pero aún estaba atrapado en la idea de que los cielos debían ser 'perfectos', por lo tanto, circulares. Aquí es donde entra nuestro héroe en las sombras: Tycho Brahe. Brahe no tenía telescopios avanzados, pero era un observador obsesivo. Durante décadas, registró la posición de Marte con una precisión que nadie creía posible. Sus datos eran un tesoro de supervivencia, tal como lo son nuestros escaneos de radionucleidos hoy. \n\nCuando Brahe murió, su discípulo Johannes Kepler heredó esos datos. Kepler era un matemático brillante pero con una visión del mundo que se desmoronaba. Él intentó durante años encajar los datos de Marte en órbitas circulares, pero siempre había un error de 8 minutos de arco. Para muchos, eso no sería nada, pero para un científico de la supervivencia, 8 minutos es la diferencia entre una órbita estable y chocar contra la atmósfera. Kepler tuvo el valor de abandonar la idea del círculo y abrazar la **Elipse**. \n\nEsta revelación cambió todo. Descubrió que los planetas no se mueven a velocidad constante. Cuando están más cerca del sol (Perihelio), vuelan como si el mismo fuego solar los impulsara; cuando están lejos (Afelio), parecen perezosos y lentos. ¿Por qué es esto vital para nosotros? Porque 'La Vanguardia' obedece las mismas leyes. Si no entendemos que el área barrida por el radio vector en tiempos iguales es constante (Segunda Ley de Kepler), no podremos calcular nuestras reservas de oxígeno cuando la estación acelere en su punto más cercano a la Tierra. \n\nLa ciencia en este mundo post-apocalíptico no es para ganar premios, es para no morir. Entender que el cuadrado del periodo orbital es proporcional al cubo de la distancia media al sol (Tercera Ley de Kepler) nos permitió enviar las sondas de búsqueda a los satélites de Júpiter con el combustible exacto. Estamos redescubriendo lo que Kepler supo: el universo está escrito en un lenguaje geométrico y armónico. Los antiguos lo llamaban 'La Música de las Esferas'. Para nosotros, es la ruta de escape de un planeta que se apaga. Estudien estos datos, analicen el movimiento de Marte tal como lo hizo Kepler, porque en esos cálculos reside la esperanza de encontrar un nuevo hogar.",
+  "recurso_visual": "| Ley de Kepler | Nombre | Descripción Física | Implicación para la Navegación |\n|--- |--- |--- |--- |\n| **Primera** | Ley de las Órbitas | Los planetas se mueven en elipses con el Sol en un foco. | El radio de nuestra órbita cambia constantemente. |\n| **Segunda** | Ley de las Áreas | El radio vector barre áreas iguales en tiempos iguales. | La velocidad orbital aumenta cerca del centro de masa. |\n| **Tercera** | Ley de los Periodos | T² / r³ = K (Constante). | Permite calcular la distancia de exoplanetas lejanos. |",
+  "preguntas_inductivas_pagina": [
+    "¿Por qué los datos de Tycho Brahe fueron fundamentales para el descubrimiento de Kepler?",
+    "¿Qué error de medición llevó a Kepler a rechazar el modelo de órbitas circulares?",
+    "¿Cómo cambia la velocidad de un cuerpo en órbita cuando se acerca al perihelio?",
+    "¿Qué significa físicamente que el Sol esté en uno de los 'focos' de la elipse?",
+    "En el contexto de la supervivencia, ¿por qué es peligroso asumir que una órbita es un círculo perfecto?"
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema de una órbita elíptica exagerada, señalando el Sol en un foco, el perihelio, el afelio y el radio vector.",
+    "Realiza un cuadro comparativo entre el modelo Geocéntrico de Ptolomeo y el modelo Heliocéntrico de Kepler/Copérnico.",
+    "Escribe una reflexión de 15 líneas sobre cómo la precisión en las mediciones científicas puede salvar vidas en un entorno post-apocalíptico.",
+    "Representa gráficamente la Segunda Ley de Kepler mediante un diagrama que muestre dos 'sectores' de área igual pero con diferentes longitudes de arco."
+  ],
+  "juegos_ordenar_letras_1": [
+    "ELIPSE",
+    "AFELIO",
+    "KEPLER"
+  ],
+  "juego_ordenar_frase_1": "EL SOL OCUPA UNO DE LOS FOCOS EN LA ORBITA PLANETARIA",
+  "texto_deductivo": "Atención, cadetes. Hemos pasado de la observación histórica a la ingeniería de supervivencia. Para mantener 'La Vanguardia' en el cielo y no convertirnos en meteoritos sobre las ruinas de las antiguas ciudades, debemos profundizar en la mecánica detrás del movimiento planetario. Isaac Newton, siglos después de Kepler, unificó los cielos y la tierra bajo una sola ley: la Ley de Gravitación Universal. \n\nLa fuerza de gravedad no es un capricho; es una fuerza atractiva que actúa entre dos masas cualquiera. Su magnitud es directamente proporcional al producto de sus masas e inversamente proporcional al cuadrado de la distancia que las separa. Matemáticamente: F = G * (m1 * m2) / r². Esta fórmula es nuestra biblia de navegación. Si nuestra estación se aleja al doble de la distancia del centro de la Tierra, la fuerza de gravedad que nos sostiene no se reduce a la mitad, ¡se reduce a la cuarta parte! Un error en el cálculo de la distancia 'r' nos enviaría a la deriva al espacio profundo. \n\nAhora, hablemos de la síntesis de Newton. Él demostró que las Leyes de Kepler son una consecuencia directa de la gravitación. Por ejemplo, la Tercera Ley (T² ∝ r³) puede derivarse igualando la fuerza centrípeta necesaria para mantener un cuerpo en órbita con la fuerza gravitacional. Para una órbita circular simplificada: m * v² / r = G * M * m / r². Al despejar la velocidad orbital (v = √(GM/r)) y recordar que v = 2πr/T, llegamos a la constante de Kepler: T²/r³ = 4π²/GM. \n\nEsto es crucial. La constante 'K' de Kepler depende únicamente de la masa del cuerpo central (en nuestro caso, la Tierra o el Sol). Esto significa que cualquier objeto, sea una pequeña sonda de suministros o la gigantesca estación 'La Vanguardia', seguirá la misma relación de periodo y distancia. No importa la masa del satélite, solo la masa del planeta que orbita. \n\nEn este mundo post-apocalíptico, usamos estos principios para el 'Slingshot Gravitacional' o asistencia gravitatoria. Al pasar cerca de un planeta, una nave puede 'robar' un poco de su energía orbital para acelerar sin gastar combustible precioso. Pero cuidado: si el ángulo de entrada es incorrecto según los cálculos de la hipérbola (una órbita abierta), la nave terminará incinerada en la atmósfera o perdida para siempre. \n\nEl movimiento planetario también nos enseña sobre la conservación del momento angular. L = m * v * r * sen(θ). Debido a que la fuerza de gravedad es una fuerza central (siempre apunta hacia el Sol), no ejerce torque. Por lo tanto, el momento angular se conserva. Esto explica por qué cuando el radio 'r' disminuye en el perihelio, la velocidad 'v' debe aumentar obligatoriamente para que 'L' permanezca constante. La física es una balanza perfecta. Si comprenden la Ley de Gravitación Universal y la conservación de la energía, tendrán el mapa de las estrellas en sus manos. No dejen que la oscuridad del mundo nuble su razonamiento matemático; los números son los únicos que no mienten entre las ruinas.",
+  "preguntas_deductivas_pagina": [
+    "¿Qué sucede con la fuerza gravitacional si la distancia entre dos cuerpos se triplica?",
+    "¿De qué factor depende la constante K en la Tercera Ley de Kepler según la derivación de Newton?",
+    "¿Por qué la velocidad de una nave aumenta al acercarse a un planeta si no está usando sus motores?",
+    "¿Qué ley de conservación explica el cambio de velocidad en diferentes puntos de la órbita?",
+    "¿Cómo se define la velocidad orbital en función de la masa del planeta y el radio de la órbita?"
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Realiza un diagrama de cuerpo libre que muestre las fuerzas actuando sobre un satélite en órbita circular.",
+    "Elabora un mapa mental que conecte la Ley de Gravitación Universal con las tres leyes de Kepler.",
+    "Dibuja una gráfica de Fuerza Gravitacional vs. Distancia (F vs r) y explica su comportamiento asintótico.",
+    "Crea una infografía artesanal que explique el concepto de 'Asistencia Gravitatoria' para ahorrar combustible en viajes interplanetarios."
+  ],
+  "juegos_ordenar_letras_2": [
+    "GRAVEDAD",
+    "INERCIA",
+    "PERIODO"
+  ],
+  "juego_ordenar_frase_2": "LA FUERZA ES INVERSAMENTE PROPORCIONAL AL CUADRADO DE LA DISTANCIA",
+  "sopa_letras": [
+    "NEWTON",
+    "KEPLER",
+    "ORBITA",
+    "ELIPSE",
+    "GRAVEDAD",
+    "FOCO",
+    "MASA",
+    "RADIO",
+    "INERCIA",
+    "AFELIO"
+  ],
+  "crucigrama": [
+    {
+      "palabra": "AFELIO",
+      "pista": "Punto de la órbita más alejado del Sol."
+    },
+    {
+      "palabra": "PERIHELIO",
+      "pista": "Punto de la órbita más cercano al Sol."
+    },
+    {
+      "palabra": "ELIPSE",
+      "pista": "Forma geométrica de las órbitas planetarias."
+    },
+    {
+      "palabra": "KEPLER",
+      "pista": "Astrónomo que formuló las tres leyes del movimiento planetario."
+    },
+    {
+      "palabra": "NEWTON",
+      "pista": "Científico que formuló la Ley de Gravitación Universal."
+    },
+    {
+      "palabra": "GRAVEDAD",
+      "pista": "Fuerza de atracción entre dos masas."
+    },
+    {
+      "palabra": "ORBITA",
+      "pista": "Trayectoria que sigue un cuerpo alrededor de otro en el espacio."
+    },
+    {
+      "palabra": "FOCO",
+      "pista": "Uno de los dos puntos fijos que definen una elipse."
+    },
+    {
+      "palabra": "PERIODO",
+      "pista": "Tiempo que tarda un planeta en dar una vuelta completa al Sol."
+    },
+    {
+      "palabra": "MASA",
+      "pista": "Cantidad de materia que determina la fuerza gravitatoria de un cuerpo."
+    }
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "En la estación orbital 'La Vanguardia', los sensores detectan que un asteroide se aproxima al Sol siguiendo una órbita elíptica. Se registran las velocidades en dos puntos: Punto A (cerca del Sol) y Punto B (lejos del Sol).",
+      "tabla_o_grafica_markdown": "| Punto | Distancia al Sol | Velocidad Detectada |\n|--- |--- |--- |\n| A (Perihelio) | 0.5 UA | 40 km/s |\n| B (Afelio) | 2.5 UA | 8 km/s |",
+      "pregunta": "¿Cuál es la razón física por la cual la velocidad en el punto A es mayor que en el punto B?",
+      "opciones": [
+        "Debido a la conservación del momento angular, al disminuir el radio debe aumentar la velocidad.",
+        "Porque el Sol ejerce una presión de radiación que empuja al asteroide en el perihelio.",
+        "Porque en el vacío el rozamiento es nulo y la inercia aumenta con la temperatura.",
+        "Debido a que la masa del asteroide aumenta cuando se acerca a una fuente de calor."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. Según la segunda ley de Kepler y la conservación del momento angular, a menor radio, mayor velocidad.",
+        "1": "Incorrecto. La presión de radiación existe pero no es la causa del cambio de velocidad orbital.",
+        "2": "Incorrecto. La inercia no depende de la temperatura sino de la masa.",
+        "3": "Incorrecto. La masa es una propiedad intrínseca y no cambia por la cercanía al Sol."
+      }
+    },
+    {
+      "competencia": "Uso comprensivo del conocimiento científico",
+      "texto_introductorio": "Un grupo de exploradores planea colocar un satélite de comunicaciones alrededor de un exoplaneta cuya masa es 4 veces la masa de la Tierra (M = 4Mt). Quieren que el satélite mantenga el mismo radio orbital que la Luna tiene con la Tierra.",
+      "tabla_o_grafica_markdown": "| Variable | Tierra | Exoplaneta |\n|--- |--- |--- |\n| Masa Central | Mt | 4Mt |\n| Radio Orbital | R | R |\n| Constante G | G | G |",
+      "pregunta": "¿Cómo será el periodo orbital (T) del satélite en el exoplaneta comparado con el periodo de la Luna (Tl)?",
+      "opciones": [
+        "El periodo será el doble (2Tl).",
+        "El periodo será el mismo (Tl).",
+        "El periodo será la mitad (Tl / 2).",
+        "El periodo será la cuarta parte (Tl / 4)."
+      ],
+      "correcta": 2,
+      "retroalimentacion": {
+        "0": "Incorrecto. Al aumentar la masa central, la fuerza es mayor y el periodo debe ser menor.",
+        "1": "Incorrecto. La masa central afecta directamente el tiempo que tarda la órbita.",
+        "2": "Correcto. Según la relación T² = (4π²/GM) * R³, si M aumenta 4 veces, T² disminuye 4 veces, por lo que T disminuye 2 veces (la mitad).",
+        "3": "Incorrecto. La relación es con la raíz cuadrada de la masa, no lineal."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "Un cadete observa que dos lunas de un planeta gigante, la Luna X y la Luna Y, tienen diferentes periodos de traslación. Él sospecha que hay una relación constante entre sus distancias y sus tiempos.",
+      "tabla_o_grafica_markdown": "| Luna | Radio (r) en km | Periodo (T) en días |\n|--- |--- |--- |\n| Luna X | 100,000 | 10 |\n| Luna Y | 400,000 | ? |",
+      "pregunta": "Si se cumple la Tercera Ley de Kepler, ¿cuál debería ser el periodo de la Luna Y?",
+      "opciones": [
+        "40 días",
+        "80 días",
+        "160 días",
+        "20 días"
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. Estás asumiendo una relación lineal, pero la ley es T² ∝ r³.",
+        "1": "Correcto. (Ty/Tx)² = (ry/rx)³. Si ry/rx = 4, entonces (Ty/10)² = 4³ = 64. Ty²/100 = 64 -> Ty² = 6400 -> Ty = 80.",
+        "2": "Incorrecto. Este valor excede la relación de la potencia cúbica/cuadrada.",
+        "3": "Incorrecto. Un radio mayor implica necesariamente un periodo mucho más largo."
+      }
+    }
+  ]
+}

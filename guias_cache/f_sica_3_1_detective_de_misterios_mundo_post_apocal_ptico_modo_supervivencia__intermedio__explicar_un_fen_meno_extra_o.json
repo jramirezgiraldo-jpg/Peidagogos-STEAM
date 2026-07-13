@@ -1,0 +1,188 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "En medio del páramo, notas que los planetas no se mueven en círculos perfectos. ¿Qué forma tiene realmente la órbita de un planeta según los registros de los Antiguos?",
+      "opciones": [
+        "Círculo perfecto",
+        "Elipse",
+        "Triángulo equilátero",
+        "Línea recta"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Qué fuerza invisible, similar a la que mantiene los restos de los edificios pegados al suelo, es la responsable de mantener a los mundos en su lugar?",
+      "opciones": [
+        "Magnetismo",
+        "Electricidad estática",
+        "Gravedad",
+        "Presión atmosférica"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "Si observas un objeto celeste que parece retroceder en el cielo nocturno, ¿cómo llamaban los antiguos detectives estelares a este fenómeno?",
+      "opciones": [
+        "Movimiento acelerado",
+        "Salto cuántico",
+        "Movimiento retrógrado",
+        "Efecto Doppler"
+      ],
+      "correcta": 2
+    }
+  ],
+  "texto_inductivo": "Bitácora del Detective Aris - Día 428 del Gran Silencio. Me encuentro en las ruinas del Observatorio de la Montaña Quebrada. El polvo radiactivo se ha asentado lo suficiente para permitir una visión clara del firmamento, esa cúpula que los Antiguos llamaban 'Espacio'. Mi misión como Detective de Misterios no es solo sobrevivir, sino entender por qué el 'Reloj Celestial' sigue funcionando mientras nuestras máquinas se oxidan. El gran misterio que nos ocupa hoy es el Movimiento Planetario. Imaginen por un momento que el cielo es la escena de un crimen a gran escala. Los planetas son los sospechosos, moviéndose sigilosamente entre las sombras de las estrellas fijas. Durante milenios, los investigadores de la vieja era estuvieron perplejos. ¿Por qué algunos sospechosos, como Marte, parecen detenerse y caminar hacia atrás en medio de su ruta de escape? A esto lo llamaron Movimiento Retrógrado. Los primeros detectives, como Ptolomeo, intentaron explicarlo con 'Epiciclos', círculos dentro de círculos, una explicación complicada que hoy nos parece un intento desesperado por encubrir la verdad. Era como tratar de explicar una huella dactilar diciendo que el sospechoso bailaba ballet mientras huía. No fue hasta que un detective polaco llamado Copérnico sugirió que el Sol, y no nuestra maltrecha Tierra, era el centro del escenario, que las piezas empezaron a encajar. Pero incluso él estaba atrapado en la idea de la perfección circular. El verdadero avance vino de un dúo dinámico de la investigación: Tycho Brahe, quien recolectó las pruebas (datos observacionales precisos), y Johannes Kepler, el analista que finalmente descifró el código. Kepler se dio cuenta de que los planetas no eran perfectos ni seguían rutas circulares; eran seguidores de la elipse. En este mundo post-apocalíptico, entender este orden es vital. Si queremos algún día lanzar un satélite de comunicaciones que nos reconecte con otros búnkeres, debemos entender que el sospechoso (el planeta o satélite) se mueve más rápido cuando está cerca de su centro de atracción y más lento cuando se aleja. Es la Ley de las Áreas. El cielo no es un caos; es una maquinaria de precisión matemática que ha sobrevivido incluso a nuestra propia autodestrucción. Observar el cielo es leer el expediente de un caso que lleva millones de años abierto. Cada planeta sigue una trayectoria dictada por la geometría, no por el capricho de los dioses o el azar de la radiación. Al estudiar estos movimientos, no solo aprendemos física, aprendemos a predecir el futuro en un mundo donde el mañana es siempre una incertidumbre. La física planetaria es nuestra brújula en la oscuridad eterna de la post-civilización.",
+  "recurso_visual": "graph TD\n    A[Modelos del Movimiento Planetario] --> B[Geocéntrico -Ptolomeo-]\n    A --> C[Heliocéntrico -Copérnico-]\n    B --> D[La Tierra es el centro]\n    C --> E[El Sol es el centro]\n    E --> F[Leyes de Kepler]\n    F --> G[1. Órbitas Elípticas]\n    F --> H[2. Áreas Iguales -Velocidad Variable-]\n    F --> I[3. Ley Armónica -Periodos y Distancias-]",
+  "preguntas_inductivas_pagina": [
+    "¿Por qué el modelo de Copérnico fue un cambio de paradigma para los detectives de la época?",
+    "¿Qué fenómeno visual intentaban explicar los antiguos con los complicados epiciclos?",
+    "¿Cuál es la diferencia fundamental entre una órbita circular y una elíptica según el texto?",
+    "¿Qué papel jugaron los datos de Tycho Brahe en la resolución del misterio planetario?",
+    "¿Por qué es importante para un sobreviviente entender que la velocidad de un planeta cambia en su órbita?"
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema que compare el modelo geocéntrico (con epiciclos) y el modelo heliocéntrico de Copérnico.",
+    "Realiza un cuadro comparativo entre las creencias del 'Viejo Mundo' sobre el movimiento circular perfecto y los hallazgos de Kepler sobre las elipses.",
+    "Escribe una reflexión de 15 líneas sobre cómo la observación del cielo puede ayudar a un detective en un mundo sin tecnología moderna.",
+    "Representa gráficamente la Segunda Ley de Kepler, sombreando las áreas barridas por un planeta en diferentes puntos de su órbita."
+  ],
+  "juegos_ordenar_letras_1": [
+    "ELIPSE",
+    "RETRÓGRADO",
+    "EPICICLO"
+  ],
+  "juego_ordenar_frase_1": "EL SOL OCUPA UNO DE LOS FOCOS EN LA TRAYECTORIA ELIPTICA DE LOS PLANETAS",
+  "texto_deductivo": "Informe de Análisis Forense - El Caso de la Mecánica Celeste. Tras haber revisado las pistas inductivas sobre cómo se mueven los astros, es momento de aplicar las leyes universales que rigen este comportamiento. No basta con saber 'qué' pasa, un detective de supervivencia debe entender el 'porqué' deductivo. La piedra angular de nuestra investigación son las Tres Leyes de Kepler, refinadas posteriormente por la Ley de Gravitación Universal de Isaac Newton. La Primera Ley, o Ley de las Órbitas, nos dicta que los planetas se mueven en elipses donde el Sol no está en el centro, sino en uno de los focos. Esto significa que hay un punto de máxima cercanía (perihelio) y uno de máxima lejanía (afelio). En nuestro búnker, esto nos explica por qué las estaciones y la intensidad de la radiación solar pueden variar sutilmente a lo largo del ciclo anual. La Segunda Ley, o Ley de las Áreas, es el principio de conservación del momento angular disfrazado de geometría. Un planeta barre áreas iguales en tiempos iguales. Deducción: el sospechoso acelera cuando se acerca al Sol para 'limpiar' la misma superficie que cuando está lejos y se mueve lentamente. Es una danza de compensación constante. La Tercera Ley es la más matemática y poderosa para un detective: el cuadrado del periodo orbital (el tiempo que tarda en dar una vuelta) es proporcional al cubo de su distancia media al Sol. Si descubrimos un nuevo cuerpo celeste en el cinturón de escombros de la antigua Luna, midiendo su distancia podemos deducir exactamente cuánto durará su 'año'. Finalmente, debemos invocar el veredicto de Newton. ¿Qué mantiene estos cuerpos en su ruta? La Gravedad. Newton dedujo que la fuerza de atracción depende directamente de las masas de los cuerpos e inversamente del cuadrado de la distancia que los separa. Es la 'cadena invisible' que evita que la Tierra salga disparada hacia el vacío interestelar. Si la masa de un sol aumentara súbitamente por una anomalía cuántica (como las que causaron el Gran Colapso), la órbita de los planetas se cerraría, arrastrándolos hacia un abrazo ardiente. Por el contrario, si la distancia aumenta, la fuerza flaquea rápidamente. Como detectives, aplicamos estas fórmulas para entender que el universo no es un lugar de caos absoluto, sino un sistema regido por leyes inquebrantables que sobrevivirán incluso cuando el último de nosotros deje de observar las estrellas. El movimiento planetario es el testimonio supremo de que la lógica prevalece sobre el olvido.",
+  "preguntas_deductivas_pagina": [
+    "¿Qué sucede con la velocidad de un planeta cuando se encuentra en el afelio?",
+    "Si un planeta está a 4 unidades astronómicas del Sol, ¿cómo calcularías su periodo orbital según la tercera ley?",
+    "¿Cómo cambia la fuerza de gravedad si duplicamos la distancia entre dos objetos celestes?",
+    "¿En qué punto de la elipse se encuentra el Sol según la primera ley de Kepler?",
+    "¿Qué concepto físico moderno explica por qué se cumple la segunda ley de Kepler?"
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Realiza un diagrama detallado de una órbita elíptica señalando: focos, semieje mayor, perihelio, afelio y el vector velocidad en dos puntos distintos.",
+    "Elabora un mapa mental que conecte las tres leyes de Kepler con la Ley de Gravitación Universal de Newton.",
+    "Dibuja un esquema explicativo que muestre qué le ocurriría a la órbita de la Tierra si el Sol perdiera la mitad de su masa instantáneamente.",
+    "Crea una infografía artesanal que explique la Tercera Ley de Kepler usando ejemplos de diferentes planetas (Mercurio vs. Júpiter)."
+  ],
+  "juegos_ordenar_letras_2": [
+    "GRAVEDAD",
+    "PERIHELIO",
+    "AFELIO"
+  ],
+  "juego_ordenar_frase_2": "LA FUERZA DE GRAVEDAD DISMINUYE CON EL CUADRADO DE LA DISTANCIA ENTRE LAS MASAS",
+  "sopa_letras": [
+    "KEPLER",
+    "NEWTON",
+    "ORBITA",
+    "ELIPSE",
+    "FOCO",
+    "MASA",
+    "PERIODO",
+    "RADIO",
+    "FUERZA",
+    "ASTRO"
+  ],
+  "crucigrama": [
+    {
+      "palabra": "ELIPSE",
+      "pista": "Forma geométrica de la trayectoria planetaria."
+    },
+    {
+      "palabra": "GRAVEDAD",
+      "pista": "Fuerza de atracción entre dos masas."
+    },
+    {
+      "palabra": "PERIHELIO",
+      "pista": "Punto de la órbita más cercano al Sol."
+    },
+    {
+      "palabra": "AFELIO",
+      "pista": "Punto de la órbita más alejado del Sol."
+    },
+    {
+      "palabra": "KEPLER",
+      "pista": "Apellido del detective que formuló las tres leyes del movimiento."
+    },
+    {
+      "palabra": "NEWTON",
+      "pista": "Científico que explicó la causa física de las órbitas."
+    },
+    {
+      "palabra": "FOCO",
+      "pista": "Lugar que ocupa el Sol dentro de la elipse."
+    },
+    {
+      "palabra": "PERIODO",
+      "pista": "Tiempo que tarda un planeta en completar una vuelta."
+    },
+    {
+      "palabra": "RADIAL",
+      "pista": "Línea imaginaria que une el Sol con un planeta."
+    },
+    {
+      "palabra": "UNIVERSAL",
+      "pista": "Carácter de la ley de gravitación de Newton."
+    }
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "Un grupo de buscadores de chatarra espacial observa que un satélite antiguo se mueve más rápido cuando pasa por una zona baja de su órbita y más lento cuando está en la zona alta.",
+      "tabla_o_grafica_markdown": "| Posición | Distancia al Centro (km) | Velocidad (km/s) |\n|---|---|---|\n| A | 7.000 | 7.5 |\n| B | 10.000 | 5.2 |",
+      "pregunta": "¿Cuál de las leyes de Kepler explica mejor este comportamiento observado por los buscadores?",
+      "opciones": [
+        "La Primera Ley, porque el satélite sigue una trayectoria circular perfecta.",
+        "La Segunda Ley, porque el radio vector barre áreas iguales en tiempos iguales, lo que implica mayor velocidad al estar cerca del centro.",
+        "La Tercera Ley, porque el periodo depende de la masa del satélite.",
+        "La Ley de Inercia, porque el satélite tiende a mantener su movimiento rectilíneo."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. La primera ley habla de la forma elíptica, no de la velocidad.",
+        "1": "Correcto. La ley de las áreas explica la variación de la velocidad orbital.",
+        "2": "Incorrecto. La tercera ley relaciona periodos y distancias de diferentes cuerpos.",
+        "3": "Incorrecto. La inercia no explica por qué la velocidad cambia en una órbita cerrada."
+      }
+    },
+    {
+      "competencia": "Uso Comprensivo del Conocimiento Científico",
+      "texto_introductorio": "Si un cataclismo cósmico alejara la Tierra al doble de su distancia actual respecto al Sol, la fuerza de atracción gravitacional entre ambos cuerpos sufriría un cambio drástico.",
+      "tabla_o_grafica_markdown": "| Distancia Original (R) | Nueva Distancia (2R) |\n|---|---|\n| Fuerza F | Fuerza ? |",
+      "pregunta": "De acuerdo con la Ley de Gravitación Universal, ¿cuál sería la nueva fuerza de atracción?",
+      "opciones": [
+        "La fuerza se duplicaría (2F).",
+        "La fuerza se reduciría a la mitad (F/2).",
+        "La fuerza se reduciría a la cuarta parte (F/4).",
+        "La fuerza permanecería igual (F)."
+      ],
+      "correcta": 2,
+      "retroalimentacion": {
+        "0": "Incorrecto. La fuerza es inversamente proporcional, no directa.",
+        "1": "Incorrecto. Olvidas que la distancia está elevada al cuadrado.",
+        "2": "Correcto. Al duplicar la distancia (2), el cuadrado es 4, por lo que la fuerza disminuye 4 veces.",
+        "3": "Incorrecto. La distancia es una variable crítica en la magnitud de la fuerza."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "Un detective desea comprobar si la Tercera Ley de Kepler se aplica a un sistema de lunas que orbitan un planeta gigante gaseoso recién descubierto tras la Gran Niebla.",
+      "tabla_o_grafica_markdown": "| Luna | Radio Orbital (u.a) | Periodo (años) |\n|---|---|---|\n| L1 | 1 | 1 |\n| L2 | 4 | 8 |",
+      "pregunta": "¿Qué procedimiento matemático debería realizar el detective para verificar la constante de Kepler (T²/R³)?",
+      "opciones": [
+        "Sumar el radio y el periodo de cada luna y comparar los resultados.",
+        "Dividir el cuadrado del periodo entre el cubo del radio para ambas lunas y ver si el valor es el mismo.",
+        "Multiplicar el radio por el periodo y graficarlo contra el tiempo.",
+        "Dividir el radio entre el periodo y verificar que sea una constante lineal."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. La suma no tiene significado físico en las leyes de Kepler.",
+        "1": "Correcto. La relación T²/R³ debe ser constante para todos los cuerpos que orbitan el mismo centro.",
+        "2": "Incorrecto. Esa operación no corresponde a la ley armónica de Kepler.",
+        "3": "Incorrecto. La relación entre radio y periodo no es lineal."
+      }
+    }
+  ]
+}

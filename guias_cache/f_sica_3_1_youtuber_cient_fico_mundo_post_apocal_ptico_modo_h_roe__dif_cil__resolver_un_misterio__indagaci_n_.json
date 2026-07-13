@@ -1,0 +1,188 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Qué fuerza mantiene a los planetas orbitando alrededor del Sol?",
+      "opciones": [
+        "Inercia",
+        "Magnetismo",
+        "Gravedad",
+        "Fricción"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "En el modelo heliocéntrico, ¿qué cuerpo ocupa el centro del sistema?",
+      "opciones": [
+        "La Tierra",
+        "La Luna",
+        "Marte",
+        "El Sol"
+      ],
+      "correcta": 3
+    },
+    {
+      "pregunta": "¿Qué forma geométrica describen las órbitas planetarias según Kepler?",
+      "opciones": [
+        "Círculos perfectos",
+        "Elipses",
+        "Parábolas",
+        "Líneas rectas"
+      ],
+      "correcta": 1
+    }
+  ],
+  "texto_inductivo": "¡Saludos, supervivientes del Gran Colapso! Aquí su YouTuber científico favorito transmitiendo desde el búnker 'Alfa-7'. Hoy no vamos a hablar de cómo purificar agua con calcetines, sino de algo mucho más vital para nuestra supervivencia a largo plazo: recuperar el conocimiento de los cielos. Antes de que los satélites cayeran y la red eléctrica se fundiera, la humanidad creía dominar el espacio, pero ¿realmente entendemos por qué los planetas se mueven como lo hacen? Si queremos recalibrar nuestra única antena de comunicación de largo alcance 'Horizonte', necesitamos descifrar el misterio del movimiento planetario. Imaginen a los antiguos observadores: para ellos, el cielo era un mapa perfecto. Sin embargo, observaban algo extraño: el movimiento retrógrado. A veces, Marte parecía retroceder en el cielo. ¿Era un error de los dioses? No, era un problema de perspectiva. **Claudio Ptolomeo** intentó explicar esto con epiciclos (círculos dentro de círculos) en un modelo geocéntrico, donde la Tierra era el centro de todo. Era complejo, elegante y totalmente erróneo. Durante siglos, este error nos mantuvo ciegos. Fue **Nicolás Copérnico** quien, en medio de un caos social no muy distinto al nuestro, se atrevió a decir que el Sol era el centro (heliocentrismo). Pero Copérnico aún estaba obsesionado con los círculos perfectos, y sus predicciones fallaban por poco. El misterio se profundizó con **Tycho Brahe**, el hombre de la nariz de oro, quien recolectó los datos más precisos de la historia sin usar un solo telescopio. Brahe era un genio de la observación, pero le faltaba la chispa matemática para unir los puntos. Aquí es donde entra nuestro héroe en las sombras: **Johannes Kepler**. Kepler recibió los datos de Brahe y pasó años intentando ajustar la órbita de Marte a un círculo. No encajaba. Había un error de 8 minutos de arco. Muchos habrían ignorado esa pequeña diferencia, pero en Modo Héroe, los detalles lo son todo. Kepler se dio cuenta de que la naturaleza no es perfecta en el sentido humano: es eficiente. Al abandonar el círculo y usar la **Elipse**, todo encajó. Sus tres leyes son las reglas del juego de este sistema solar. La primera ley nos dice que el Sol ocupa uno de los focos de la elipse. La segunda, la ley de las áreas, nos revela que los planetas corren más rápido cuando están cerca del Sol (perihelio) y se relajan cuando están lejos (afelio). Esto no es solo teoría; si nuestro satélite 'Horizonte' está en una órbita elíptica muy excéntrica, su velocidad variará drásticamente, y si no lo prevemos, perderemos la señal para siempre. Estamos en una carrera contra el tiempo para recuperar esta sabiduría y entender que el universo se mueve bajo leyes inquebrantables, incluso si nuestro mundo parece desmoronarse.",
+  "recurso_visual": "graph TD\n    A[Modelos Planetarios] --> B(Geocéntrico)\n    A --> C(Heliocéntrico)\n    B --> D[Ptolomeo: Tierra al centro / Epiciclos]\n    C --> E[Copérnico: Sol al centro / Círculos]\n    C --> F[Kepler: Sol en un foco / Elipses]\n    F --> G[1ra Ley: Órbitas Elípticas]\n    F --> H[2da Ley: Áreas iguales en tiempos iguales]\n    F --> I[3ra Ley: Relación Período-Distancia]",
+  "preguntas_inductivas_pagina": [
+    "¿Por qué el modelo de Ptolomeo necesitaba epiciclos para explicar el movimiento de los planetas?",
+    "¿Cuál fue la diferencia fundamental entre el modelo de Copérnico y el de Kepler?",
+    "En términos de supervivencia, ¿por qué es importante conocer el perihelio de un cuerpo en órbita?",
+    "¿Qué habría pasado con la ciencia si Kepler hubiera ignorado los 8 minutos de arco de error en los datos de Brahe?",
+    "Si un planeta se mueve más lento en el afelio, ¿cómo afecta esto al tiempo que tarda en recorrer ese arco de su órbita?"
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema del modelo geocéntrico frente al heliocéntrico, señalando dónde se ubicaría un observador en cada uno.",
+    "Realiza un cuadro comparativo entre las visiones de Ptolomeo, Copérnico y Kepler sobre la forma de las órbitas.",
+    "Escribe un informe de 10 líneas sobre cómo la precisión de los datos de Tycho Brahe fue el combustible para la revolución de Kepler.",
+    "Representa gráficamente una elipse, marcando los focos, el eje mayor y la posición del Sol según la Primera Ley de Kepler."
+  ],
+  "juegos_ordenar_letras_1": [
+    "ELIPSE",
+    "FOCO",
+    "AFELIO"
+  ],
+  "juego_ordenar_frase_1": "LOS PLANETAS DESCRIBEN ORBITAS ELIPTICAS ALREDEDOR DEL SOL QUE SE UBICA EN UNO DE SUS FOCOS",
+  "texto_deductivo": "¡Atención, supervivientes! Si han llegado hasta aquí es porque su cerebro todavía funciona mejor que un generador de vapor oxidado. Ya entendimos que los planetas se mueven en elipses, pero ¿por qué? ¿Qué fuerza invisible está tirando de los hilos de este teatro cósmico? Para resolver este misterio de 'Modo Héroe', debemos invocar al gigante sobre cuyos hombros se pararon todos los demás: **Isaac Newton**. Kepler descubrió el 'cómo', pero Newton descubrió el 'por qué'. La Tercera Ley de Kepler, también conocida como la ley armónica, establece que el cuadrado del período orbital (T) de un planeta es proporcional al cubo de su distancia media al Sol (r). Matemáticamente: **T² / r³ = K**. Esto significa que si sabemos a qué distancia está un planeta, sabemos exactamente cuánto tarda en dar una vuelta. Pero Newton fue más allá. En su 'Principia Mathematica', formuló la **Ley de Gravitación Universal**. Nos dijo que cada partícula de materia en el universo atrae a toda otra partícula con una fuerza que es directamente proporcional al producto de sus masas e inversamente proporcional al cuadrado de la distancia que las separa. ¡Boom! Ahí está la clave de nuestra supervivencia. Si el satélite 'Horizonte' está perdiendo altura, es porque la gravedad de la Tierra lo está atrayendo más de lo que su velocidad tangencial puede compensar. La gravedad es la 'mano invisible' que mantiene el equilibrio. Newton demostró que las leyes que rigen la caída de una manzana podrida en nuestro búnker son las mismas que rigen el movimiento de la Luna. Esta unificación es el mayor logro del pensamiento humano. Para nosotros, esto significa que podemos predecir con exactitud cuándo un asteroide pasará cerca de nuestra atmósfera o cuándo será el mejor momento para lanzar un cohete de señales. La gravedad no es solo una palabra, es una aceleración constante que depende de la masa del cuerpo central. Si la Tierra tuviera el doble de masa, nuestro satélite tendría que moverse mucho más rápido para no estrellarse. La interacción entre la inercia (la tendencia del objeto a seguir de largo) y la gravedad (la tendencia a caer) crea la órbita perfecta. En este mundo post-apocalíptico, entender esta danza matemática es la diferencia entre quedarnos a oscuras para siempre o volver a alcanzar las estrellas. El misterio está resuelto: el universo no es un caos, es una maquinaria de precisión regida por la masa y la distancia. ¡Ahora, a aplicar estos cálculos antes de que la batería del búnker se agote!",
+  "preguntas_deductivas_pagina": [
+    "¿Qué sucede con la fuerza de gravedad si duplicamos la distancia entre dos cuerpos?",
+    "Según la Tercera Ley de Kepler, ¿qué planeta tarda más en orbitar el Sol: uno cercano o uno lejano?",
+    "¿Cómo unificó Newton la física terrestre con la física celeste?",
+    "Si un satélite aumenta su masa al doble, ¿cambia la fuerza de atracción gravitatoria que siente por parte de la Tierra?",
+    "¿Por qué los planetas no salen disparados al espacio exterior si se mueven a grandes velocidades?"
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Realiza un diagrama detallado que muestre la relación entre la fuerza centrípeta y la fuerza gravitatoria en una órbita circular.",
+    "Elabora un mapa mental que conecte las Tres Leyes de Kepler con la Ley de Gravitación Universal de Newton.",
+    "Dibuja una infografía donde expliques por qué un astronauta en la Estación Espacial parece flotar, usando conceptos de caída libre y velocidad orbital.",
+    "Diseña una infografía artesanal que resuma la fórmula de Newton y explique qué significa cada una de sus variables (G, m1, m2, r)."
+  ],
+  "juegos_ordenar_letras_2": [
+    "GRAVEDAD",
+    "PERIODO",
+    "INERCIA"
+  ],
+  "juego_ordenar_frase_2": "LA FUERZA DE GRAVEDAD ES INVERSAMENTE PROPORCIONAL AL CUADRADO DE LA DISTANCIA ENTRE LOS CUERPOS",
+  "sopa_letras": [
+    "KEPLER",
+    "NEWTON",
+    "ORBITA",
+    "ELIPSE",
+    "GRAVEDAD",
+    "MASA",
+    "SOL",
+    "FOCO",
+    "PLANETA",
+    "FUERZA"
+  ],
+  "crucigrama": [
+    {
+      "palabra": "PERIHELIO",
+      "pista": "Punto de la órbita más cercano al Sol."
+    },
+    {
+      "palabra": "AFELIO",
+      "pista": "Punto de la órbita más alejado del Sol."
+    },
+    {
+      "palabra": "ELIPSE",
+      "pista": "Forma geométrica de las órbitas planetarias."
+    },
+    {
+      "palabra": "INERCIA",
+      "pista": "Tendencia de un cuerpo a mantener su estado de movimiento."
+    },
+    {
+      "palabra": "NEWTON",
+      "pista": "Científico que formuló la Ley de Gravitación Universal."
+    },
+    {
+      "palabra": "KEPLER",
+      "pista": "Científico que descubrió que las órbitas no eran círculos."
+    },
+    {
+      "palabra": "MASA",
+      "pista": "Cantidad de materia de un cuerpo, fundamental para la gravedad."
+    },
+    {
+      "palabra": "RADIO",
+      "pista": "Distancia desde el centro de un planeta hasta su órbita."
+    },
+    {
+      "palabra": "PERIODO",
+      "pista": "Tiempo que tarda un planeta en dar una vuelta completa al Sol."
+    },
+    {
+      "palabra": "GRAVEDAD",
+      "pista": "Fuerza de atracción entre dos cuerpos con masa."
+    }
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "Un grupo de supervivientes observa que un cometa se mueve mucho más rápido cuando pasa cerca de las ruinas de la antigua estación espacial en comparación a cuando está en las profundidades del sistema solar.",
+      "tabla_o_grafica_markdown": "| Posición | Distancia al Sol (UA) | Velocidad Orbital |\n|---|---|---|\n| A (Perihelio) | 0.5 | Máxima |\n| B (Afelio) | 35.0 | Mínima |",
+      "pregunta": "¿Qué ley física explica este cambio de velocidad?",
+      "opciones": [
+        "La Primera Ley de Newton (Inercia)",
+        "La Segunda Ley de Kepler (Ley de las Áreas)",
+        "La Tercera Ley de Kepler (Ley Armónica)",
+        "La Ley de Conservación de la Carga"
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. La inercia explica por qué sigue moviéndose, no por qué cambia su velocidad en función de la posición orbital.",
+        "1": "Correcto. Esta ley establece que el radio vector barre áreas iguales en tiempos iguales, lo que implica mayor velocidad al estar más cerca del centro de masa.",
+        "2": "Incorrecto. La tercera ley relaciona el período total con la distancia media, no la velocidad instantánea en diferentes puntos.",
+        "3": "Incorrecto. No tiene relación con el movimiento planetario."
+      }
+    },
+    {
+      "competencia": "Uso comprensivo del conocimiento científico",
+      "texto_introductorio": "Para restablecer la red de satélites, los ingenieros del búnker necesitan calcular la fuerza de atracción entre la Tierra y un nuevo satélite de comunicaciones.",
+      "tabla_o_grafica_markdown": "| Variable | Valor |\n|---|---|\n| Masa Tierra (M) | 5.97 x 10^24 kg |\n| Masa Satélite (m) | 500 kg |\n| Distancia (r) | 42,000 km |",
+      "pregunta": "Si se decide mover el satélite a una órbita que está al doble de la distancia original (2r), ¿qué ocurrirá con la fuerza de gravedad entre la Tierra y el satélite?",
+      "opciones": [
+        "La fuerza se reduce a la mitad",
+        "La fuerza se duplica",
+        "La fuerza se reduce a la cuarta parte",
+        "La fuerza se mantiene igual"
+      ],
+      "correcta": 2,
+      "retroalimentacion": {
+        "0": "Incorrecto. La gravedad depende del inverso del cuadrado de la distancia, no es una relación lineal simple.",
+        "1": "Incorrecto. Al aumentar la distancia, la fuerza siempre disminuye.",
+        "2": "Correcto. Según la ley de Newton (1/r²), si r se duplica (2²), la fuerza se divide por 4.",
+        "3": "Incorrecto. La gravedad cambia siempre que la distancia varíe."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "Se han descubierto tres nuevos exoplanetas que podrían ser habitables. Se registran sus períodos orbitales (T) y sus distancias medias al sol de su sistema (R). Los datos se muestran en la siguiente tabla:",
+      "tabla_o_grafica_markdown": "| Planeta | T (Años) | R (UA) | T²/R³ |\n|---|---|---|---|\n| X | 1 | 1 | 1 |\n| Y | 8 | 4 | 1 |\n| Z | 27 | 9 | 1 |",
+      "pregunta": "¿Qué conclusión científica se puede extraer al observar la última columna de la tabla?",
+      "opciones": [
+        "Los planetas más grandes orbitan más rápido",
+        "Se cumple la Tercera Ley de Kepler para este sistema",
+        "La gravedad es más fuerte en el planeta Z",
+        "El planeta X es el único habitable por tener valor 1"
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. La tabla no muestra el tamaño de los planetas, sino su período y distancia.",
+        "1": "Correcto. La constante T²/R³ igual para todos confirma la proporcionalidad predicha por Kepler.",
+        "2": "Incorrecto. No se puede determinar la gravedad superficial sin conocer la masa del planeta.",
+        "3": "Incorrecto. El valor 1 es una constante matemática de la órbita, no un indicador de habitabilidad."
+      }
+    }
+  ]
+}

@@ -1,0 +1,168 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¡Atención, reclutas de la Megalópolis! Si un satélite de suministros en Neo-Kyoto duplica su distancia al centro planetario, ¿qué sucede con la fuerza de atracción gravitatoria que experimenta?",
+      "opciones": [
+        "Se mantiene constante por los estabilizadores cuánticos.",
+        "Se reduce a la mitad siguiendo una progresión lineal.",
+        "Se reduce a la cuarta parte según la ley del inverso del cuadrado.",
+        "Aumenta al doble para compensar la pérdida de inercia."
+      ],
+      "correcta": 2
+    }
+  ],
+  "texto_inductivo": "¡Escuchen bien, habitantes de los niveles inferiores! Soy el Doctor Arcanus, y si están leyendo esto, es porque la estabilidad orbital de nuestra gloriosa Metrópolis del Futuro, **Neo-Sión**, depende de su capacidad para procesar datos cinemáticos a una velocidad vertiginosa. Estamos suspendidos en el vacío, girando alrededor de una enana blanca moribunda, y lo único que nos separa de una vaporización instantánea es nuestra comprensión del **movimiento planetario**. No es solo teoría; ¡es supervivencia pura! \n\nPara entender hacia dónde vamos, debemos mirar hacia atrás, a las ruinas de la Antigua Tierra, donde observadores como Tycho Brahe pasaron décadas midiendo la posición de los astros con una precisión maníaca sin siquiera tener un telescopio. Brahe era un genio colérico, ¡como yo!, que acumuló montañas de datos sobre Marte. Pero fue Johannes Kepler, un matemático místico, quien robó... digo, 'heredó' esos datos para formular las leyes que hoy mantienen a nuestros reactores de flujo gravitatorio en línea. Antes de ellos, la humanidad estaba atrapada en el delirio de los círculos perfectos y las esferas celestiales de Aristóteles y Ptolomeo. ¡Qué ingenuidad! Creían que el universo era estético y simétrico. La realidad es mucho más caótica y elegante: las órbitas son **elipses**. \n\nEn nuestra metrópolis, cada vez que un transportador de plasma se mueve entre las estaciones de la cúpula, está siguiendo la lógica de la **Primera Ley de Kepler**. No hay círculos perfectos aquí; el sol (o nuestra enana blanca) ocupa uno de los focos de la elipse. Si ignoran esto, sus cálculos de trayectoria fallarán y terminarán estrellándose contra los anillos de basura espacial. Además, debemos considerar la **Segunda Ley**, o la Ley de las Áreas. ¿Han notado que cuando el recolector de energía se acerca al perihelio —el punto más cercano a la estrella— su velocidad aumenta drásticamente? No es un error del motor; es la conservación del momento angular en acción. El radio vector barre áreas iguales en tiempos iguales. Si no ajustamos los escudos de calor para ese incremento de velocidad, la fricción con los residuos atmosféricos nos convertirá en una supernova artificial. \n\nFinalmente, la **Tercera Ley** es nuestra brújula para la expansión. Establece una relación sagrada entre el periodo orbital y la distancia media al sol. El cuadrado del periodo es proporcional al cubo de la distancia. Si queremos enviar una sonda minera a los asteroides exteriores para salvar nuestra economía colapsada, necesitamos esta ley para calcular cuánto tiempo tardará en volver. No podemos permitirnos perder ni un nanosegundo. En este entorno hostil, la física no es una asignatura; es el código fuente de nuestra existencia. Si no dominan estas leyes, el vacío se los tragará sin masticar. ¡Ahora, a trabajar antes de que el siguiente ciclo de eclipse desestabilice el núcleo!",
+  "recurso_visual": "graph TD\n    A[Observaciones de Tycho Brahe] --> B{Análisis de Kepler}\n    B --> C[1ra Ley: Órbitas Elípticas]\n    B --> D[2da Ley: Áreas Iguales en Tiempos Iguales]\n    B --> E[3ra Ley: T^2 proporcional a r^3]\n    C --> F[Uso en Navegación de Neo-Sión]\n    D --> G[Cálculo de Velocidad Orbital Variable]\n    E --> H[Sincronización de Estaciones Espaciales]",
+  "preguntas_inductivas_pagina": [
+    "¿Por qué el modelo de círculos perfectos de Ptolomeo falló al explicar el movimiento de Marte según el texto?",
+    "En el contexto de supervivencia de Neo-Sión, ¿qué ocurre con la velocidad de una nave al alejarse hacia el afelio?",
+    "¿Qué importancia histórica tuvieron los datos de Tycho Brahe para el desarrollo de la física orbital?",
+    "¿Cómo define la Primera Ley de Kepler la posición del sol en un sistema planetario?",
+    "Según la Tercera Ley de Kepler, ¿qué relación matemática existe entre el tiempo de órbita y la distancia al astro central?"
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja una elipse detallada que represente la órbita de Neo-Sión, ubicando el foco, el perihelio, el afelio y sombreando dos sectores de 'áreas iguales' para explicar la 2da ley.",
+    "Realiza un cuadro comparativo entre el modelo Geocéntrico (Ptolomeo) y el modelo Heliocéntrico/Kepleriano, destacando sus diferencias en trayectorias y velocidad.",
+    "Escribe un ensayo de tres párrafos donde argumentes por qué la precisión en los datos de Brahe fue fundamental para que Kepler pudiera romper con el paradigma de los círculos perfectos.",
+    "Representa gráficamente la relación entre el cuadrado del periodo (T²) y el cubo de la distancia (r³) mediante un diagrama de dispersión conceptual."
+  ],
+  "juegos_ordenar_letras_1": [
+    "PERIHELIO",
+    "ELIPTICA",
+    "GRAVITACION"
+  ],
+  "juego_ordenar_frase_1": "EL RADIO VECTOR QUE UNE AL PLANETA CON EL SOL BARRE AREAS IGUALES EN TIEMPOS IGUALES",
+  "texto_deductivo": "¡Silencio! El caos se aproxima y solo la deducción lógica nos salvará. Ya hemos visto la 'forma' del movimiento, pero ahora debemos entender la 'causa'. Isaac Newton, ese genio que probablemente era un antepasado mío en términos de obsesión, nos entregó la **Ley de Gravitación Universal**. En Neo-Sión, cada tornillo de nuestras torres de un kilómetro de altura está sujeto por esta ley. Newton dedujo que la fuerza que hace caer una manzana (o un dron de vigilancia averiado) es la misma que mantiene a los planetas en sus órbitas. ¡Es una fuerza universal, invisible y letal! \n\nLa fórmula es absoluta: F = G * (m1 * m2) / r². La fuerza de atracción es directamente proporcional al producto de las masas e inversamente proporcional al cuadrado de la distancia que las separa. En nuestro contexto de metrópolis futura, esto significa que si la masa de nuestra estrella colapsara repentinamente aumentando su densidad, o si la órbita de nuestra ciudad se desviara apenas un 2% hacia el núcleo, la fuerza gravitatoria aumentaría tan violentamente que nuestras estructuras colapsarían por su propio peso. ¡Seríamos aplastados como latas de refresco en una prensa hidráulica! \n\nPero la genialidad de Newton no se detiene ahí. Él utilizó su cálculo diferencial para demostrar que las leyes de Kepler no eran simples curiosidades empíricas, sino consecuencias directas de su ley de gravedad. La **Primera Ley de Kepler** surge porque la fuerza gravitatoria varía con el inverso del cuadrado de la distancia, lo que matemáticamente obliga a las trayectorias cerradas a ser secciones cónicas, específicamente elipses. La **Segunda Ley** es una manifestación de la conservación del momento angular: como la fuerza de gravedad es central (siempre apunta al sol), no genera torque, y por lo tanto, la velocidad de barrido de área debe ser constante. ¡Es pura poesía matemática aplicada al metal de nuestra ciudad! \n\nPara sobrevivir en el Modo Héroe, debemos comprender que la gravedad también dicta la **velocidad orbital**. Para que una estación espacial en Neo-Sión no caiga, su velocidad tangencial debe ser tal que la 'caída' debida a la gravedad sea compensada exactamente por la curvatura de su trayectoria. Si la velocidad es insuficiente, la ciudad espira hacia la muerte térmica; si es excesiva, saldremos disparados hacia el vacío interestelar, convirtiéndonos en un cubo de hielo errante. La síntesis newtoniana unificó el cielo y la tierra, eliminando la distinción entre lo divino y lo mundano. Ahora, el universo es una máquina, y nosotros somos sus mecánicos. Si un motor de curvatura falla, debemos recalcular instantáneamente usando la relación entre la fuerza centrípeta y la fuerza gravitatoria. El conocimiento de la física planetaria es el único escudo que nos queda contra la entropía que devora los restos de la civilización. ¡Calculen o mueran!",
+  "preguntas_deductivas_pagina": [
+    "¿Cómo cambia la fuerza gravitatoria si la masa de uno de los cuerpos se triplica?",
+    "¿Qué tipo de trayectoria resulta de una fuerza que sigue la ley del inverso del cuadrado según la deducción de Newton?",
+    "¿Por qué se dice que la gravedad es una 'fuerza central' y qué ley de Kepler justifica esto?",
+    "Si Neo-Sión se mueve a una órbita con el doble de radio, ¿cuánto debería cambiar la velocidad orbital para mantener el equilibrio?",
+    "¿Cuál fue la gran unificación que logró Newton con su Ley de Gravitación Universal?"
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Elabora un diagrama de cuerpo libre detallado de la ciudad flotante de Neo-Sión en órbita, mostrando los vectores de fuerza gravitatoria, velocidad tangencial y aceleración centrípeta.",
+    "Crea un mapa mental que conecte la Ley de Gravitación Universal con cada una de las tres leyes de Kepler, indicando los puentes matemáticos entre ellas.",
+    "Realiza un dibujo explicativo que demuestre el fenómeno de la 'caída libre perpetua' de un satélite alrededor de un planeta.",
+    "Diseña una infografía artesanal que explique la fórmula de Newton aplicada al rescate de una nave varada entre dos lunas de masa diferente."
+  ],
+  "juegos_ordenar_letras_2": [
+    "CENTRIPETA",
+    "CUADRADO",
+    "MOMENTO"
+  ],
+  "juego_ordenar_frase_2": "LA FUERZA DE GRAVEDAD ES INVERSAMENTE PROPORCIONAL AL CUADRADO DE LA DISTANCIA",
+  "sopa_letras": [
+    "KEPLER",
+    "NEWTON",
+    "ELIPSE",
+    "ORBITA",
+    "FOCO",
+    "INERCIA",
+    "MASA",
+    "RADIO",
+    "PERIODO",
+    "FUERZA"
+  ],
+  "crucigrama": [
+    {
+      "palabra": "AFELIO",
+      "pista": "Punto de la órbita donde el planeta está más lejos del sol."
+    },
+    {
+      "palabra": "ELIPSE",
+      "pista": "Forma geométrica de las órbitas planetarias."
+    },
+    {
+      "palabra": "GRAVEDAD",
+      "pista": "Fuerza de atracción entre dos masas."
+    },
+    {
+      "palabra": "TYCHO",
+      "pista": "Primer nombre del astrónomo danés que recopiló los datos de Marte."
+    },
+    {
+      "palabra": "PLANETA",
+      "pista": "Cuerpo celeste que orbita una estrella."
+    },
+    {
+      "palabra": "FOCO",
+      "pista": "Uno de los dos puntos fijos dentro de una elipse."
+    },
+    {
+      "palabra": "TORQUE",
+      "pista": "Lo que no existe en una fuerza central, permitiendo la 2da ley."
+    },
+    {
+      "palabra": "SOL",
+      "pista": "Astro que ocupa un foco en las leyes de Kepler."
+    },
+    {
+      "palabra": "MASA",
+      "pista": "Cantidad de materia que determina la fuerza gravitatoria."
+    },
+    {
+      "palabra": "INVERSO",
+      "pista": "Tipo de relación entre la fuerza y el cuadrado de la distancia."
+    }
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "En la Metrópolis, los ingenieros observan que un cometa se acerca al sol. Al pasar del punto A al punto B, su distancia al sol se reduce a la mitad.",
+      "tabla_o_grafica_markdown": "| Posición | Distancia (UA) | Velocidad (km/s) |\n|---|---|---|\n| A | 2.0 | 20 |\n| B | 1.0 | ? |",
+      "pregunta": "¿Qué sucede con la velocidad del cometa al llegar al punto B según las leyes del movimiento planetario?",
+      "opciones": [
+        "Aumenta, porque el radio vector debe barrer áreas iguales en tiempos iguales.",
+        "Disminuye, porque la fuerza gravitatoria es menor al estar más cerca.",
+        "Se mantiene igual, ya que el espacio en el futuro es un vacío perfecto.",
+        "Se vuelve cero momentáneamente antes de cambiar de dirección."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "¡Exacto! Según la 2da Ley de Kepler, a menor radio, mayor velocidad para mantener la constante del área.",
+        "1": "¡Error fatal! La fuerza gravitatoria aumenta al disminuir la distancia, no disminuye.",
+        "2": "¡Absurdo! Ignoras la conservación del momento angular.",
+        "3": "¡Imposible! Si la velocidad fuera cero, el cometa caería directamente al sol."
+      }
+    },
+    {
+      "competencia": "Uso comprensivo del conocimiento científico",
+      "texto_introductorio": "Para estabilizar el Sector 7 de la ciudad, se requiere que un satélite mantenga un periodo orbital constante. Se sabe que T² / r³ = k.",
+      "tabla_o_grafica_markdown": "| Cuerpo | Radio Medio (r) | Periodo (T) |\n|---|---|---|\n| Satélite Alfa | 4 unidades | 8 años |\n| Satélite Beta | 16 unidades | ? |",
+      "pregunta": "Utilizando la Tercera Ley de Kepler, ¿cuál será el periodo orbital del Satélite Beta?",
+      "opciones": [
+        "16 años",
+        "32 años",
+        "64 años",
+        "128 años"
+      ],
+      "correcta": 2,
+      "retroalimentacion": {
+        "0": "Incorrecto. No has aplicado la relación de potencias cuadradas y cúbicas.",
+        "1": "Cerca, pero revisa tus cálculos de raíces y potencias.",
+        "2": "¡Brillante! (16^3 / 4^3) = 64. La raíz cuadrada de (8^2 * 64) da 64 años.",
+        "3": "Demasiado alto. El cálculo de la proporción falló."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "Un científico loco (¡yo!) realiza un experimento lanzando sondas a diferentes distancias del centro de la metrópolis para medir la fuerza gravitatoria.",
+      "tabla_o_grafica_markdown": "| Distancia (r) | Fuerza (F) |\n|---|---|\n| 100 m | 400 N |\n| 200 m | 100 N |\n| 400 m | 25 N |",
+      "pregunta": "¿Qué conclusión se puede derivar de los datos obtenidos sobre la relación entre la fuerza y la distancia?",
+      "opciones": [
+        "La fuerza es inversamente proporcional a la distancia.",
+        "La fuerza es directamente proporcional al cuadrado de la distancia.",
+        "La fuerza disminuye con el cuadrado de la distancia.",
+        "No existe una relación clara entre las variables."
+      ],
+      "correcta": 2,
+      "retroalimentacion": {
+        "0": "Incorrecto. Si fuera lineal, a 200m la fuerza sería 200N, no 100N.",
+        "1": "¡Al revés! La fuerza disminuye, no aumenta con la distancia.",
+        "2": "¡Correcto! Al duplicar la distancia (100 a 200), la fuerza se reduce a la cuarta parte (400 a 100).",
+        "3": "¡Falso! Los datos siguen perfectamente la Ley de Newton."
+      }
+    }
+  ]
+}

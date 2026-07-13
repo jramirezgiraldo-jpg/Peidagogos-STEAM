@@ -1,0 +1,188 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Cuál de los siguientes modelos afirmaba que la Tierra era el centro del universo?",
+      "opciones": [
+        "Modelo Heliocéntrico",
+        "Modelo Geocéntrico",
+        "Modelo Galáctico",
+        "Modelo Kepleriano"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Qué forma geométrica describen los planetas en sus órbitas según las leyes de Kepler?",
+      "opciones": [
+        "Círculo perfecto",
+        "Parábola",
+        "Elipse",
+        "Hipérbola"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "¿Qué fuerza es responsable de mantener a los planetas en órbita alrededor del sol?",
+      "opciones": [
+        "Fuerza Magnética",
+        "Fuerza Nuclear Fuerte",
+        "Fuerza de Gravitación Universal",
+        "Fuerza de Fricción Espacial"
+      ],
+      "correcta": 2
+    }
+  ],
+  "texto_inductivo": "Saludos, cadetes de la División de Inteligencia Científica de Neo-Newtonia. Soy el Detective de Misterios Gravitacionales y hoy nos enfrentamos al 'Caso de la Órbita Errante'. En el año 2345, nuestra metrópolis flota gracias a estabilizadores de masa que deben estar en sintonía perfecta con la rotación planetaria. Sin embargo, los sensores han detectado una anomalía: los cálculos antiguos no coinciden con la trayectoria actual del satélite artificial 'Aether'. Para resolver esto, debemos sumergirnos en los archivos prohibidos de la historia de la astronomía, analizando cómo el hombre pasó de la ceguera geocéntrica a la claridad del movimiento elíptico.\n\nDurante milenios, la humanidad vivió bajo el engaño del modelo de Claudio Ptolomeo. En la Metrópolis del Pasado, se creía que la Tierra era un punto fijo, un trono inamovible alrededor del cual el Sol, la Luna y los planetas danzaban en círculos perfectos llamados epiciclos. Este modelo geocéntrico no era solo una teoría física; era una ley absoluta protegida por el dogma. Sin embargo, las observaciones no encajaban. Los planetas realizaban movimientos retrógrados —parecían retroceder en el cielo—, lo que obligaba a los antiguos a inventar complicados mecanismos matemáticos para salvar las apariencias. Como detectives, sabemos que cuando una explicación se vuelve demasiado compleja para cubrir un error, la base suele estar equivocada.\n\nEl primer gran avance en esta investigación ocurrió cuando Nicolás Copérnico tuvo la audacia de proponer el modelo heliocéntrico. Al situar al Sol en el centro, el movimiento de los planetas se simplificaba drásticamente. Pero Copérnico aún estaba atrapado en la estética de la perfección circular. Fue Johannes Kepler, el gran analista de datos de la antigüedad, quien utilizó las precisas observaciones de Tycho Brahe para romper el último eslabón de la cadena: el círculo. Kepler descubrió que los planetas se mueven en elipses, con el Sol en uno de sus focos. Este descubrimiento fue el primer 'Reto Épico' de la física planetaria.\n\nAl analizar el movimiento de 'Aether', debemos recordar la Segunda Ley de Kepler, o la Ley de las Áreas. Kepler observó que los planetas no se mueven a una velocidad constante. Cuando están más cerca del Sol (perihelio), se mueven más rápido; cuando están más lejos (afelio), se mueven más lento. Sin embargo, una línea imaginaria que conecte al planeta con el Sol barre áreas iguales en tiempos iguales. Esto significa que el momento angular se conserva. Si Neo-Newtonia pierde estabilidad, ¿podría ser que un objeto invisible esté alterando estas áreas de barrido? La indagación científica exige que observemos las evidencias antes de saltar a conclusiones. La transición del pensamiento geocéntrico al heliocéntrico no fue solo un cambio de mapas, fue una revolución mental que permitió a la humanidad entender que no somos el centro, sino parte de un mecanismo de relojería cósmica regido por leyes universales y predecibles. En esta semana de revisión, su misión es reconstruir estos pilares del conocimiento para encontrar la falla en nuestros estabilizadores antes de que la gravedad de la metrópolis colapse.",
+  "recurso_visual": "graph TD\n    A[Modelos Planetarios] --> B[Geocentrismo]\n    A --> C[Heliocentrismo]\n    B --> B1[Ptolomeo: Tierra en el centro]\n    B --> B2[Órbitas circulares y Epiciclos]\n    C --> C1[Copérnico: Sol en el centro]\n    C --> C2[Kepler: Órbitas Elípticas]\n    C2 --> C3[Leyes de Kepler: Velocidad variable y Armonía de los Mundos]",
+  "preguntas_inductivas_pagina": [
+    "¿Por qué el modelo geocéntrico requería el uso de 'epiciclos' para explicar el movimiento de los planetas?",
+    "¿Cuál fue el cambio fundamental que introdujo Kepler respecto a la forma de las órbitas de Copérnico?",
+    "En términos de velocidad, ¿qué ocurre con un planeta cuando se encuentra en su punto más alejado del Sol (afelio)?",
+    "¿Cómo influyó el trabajo de observación de Tycho Brahe en los descubrimientos de Kepler?",
+    "¿Qué significa, desde el punto de vista físico, que un planeta 'barra áreas iguales en tiempos iguales'?"
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema que compare el modelo Geocéntrico de Ptolomeo con el Heliocéntrico de Copérnico, resaltando la posición del Sol y la Tierra.",
+    "Realiza un cuadro comparativo entre la Primera y la Segunda Ley de Kepler, indicando qué describe cada una y su importancia.",
+    "Escribe una reflexión de 15 líneas sobre cómo el paso del geocentrismo al heliocéntrismo cambió la percepción del ser humano sobre su lugar en el universo.",
+    "Representa gráficamente una órbita elíptica señalando los focos, el perihelio, el afelio y el vector velocidad en ambos puntos."
+  ],
+  "juegos_ordenar_letras_1": [
+    "ELIPSE",
+    "PERIHELIO",
+    "AFELIO"
+  ],
+  "juego_ordenar_frase_1": "EL SOL OCUPA UNO DE LOS FOCOS EN LA ORBITA ELIPTICA DE CUALQUIER PLANETA",
+  "texto_deductivo": "Atención, equipo forense de Neo-Newtonia. Hemos superado la fase de inducción y ahora entramos en la deducción pura bajo el Modo Dios. Si las leyes de Kepler describen 'cómo' se mueven los planetas, nos falta el 'por qué'. Ese es el secreto que Sir Isaac Newton desveló con su Ley de Gravitación Universal. Para resolver el misterio de la metrópolis, debemos entender que el movimiento planetario no es una danza aislada, sino una consecuencia directa de la interacción entre la masa y la distancia. Newton dedujo que todos los cuerpos en el universo se atraen con una fuerza que es directamente proporcional al producto de sus masas e inversamente proporcional al cuadrado de la distancia que los separa.\n\nEn Neo-Newtonia, nuestros sensores indican que la Tercera Ley de Kepler es la clave para identificar la perturbación. Esta ley, conocida como la Ley Armónica, establece que el cuadrado del periodo orbital (el tiempo que tarda en dar una vuelta completa) es proporcional al cubo de la distancia media al Sol. Matemáticamente, T² ∝ a³. Newton llevó esto más allá al demostrar que esta constante de proporcionalidad depende de la masa del cuerpo central. Si el satélite 'Aether' ha cambiado su periodo sin variar su distancia media aparente, la única conclusión deductiva es que hay una masa invisible, una 'Materia Oscura' o un 'Planeta Sombra', interfiriendo en el campo gravitatorio local.\n\nAnalicemos la mecánica celeste desde la perspectiva de las fuerzas. Un planeta se mantiene en órbita porque existe un equilibrio dinámico. La fuerza de gravedad actúa como una fuerza centrípeta, tirando del planeta hacia el centro. Si la velocidad tangencial del planeta fuera cero, caería directamente al Sol. Si la gravedad desapareciera, el planeta saldría disparado en línea recta debido a la inercia. La órbita elíptica es, por tanto, una caída libre perpetua donde el planeta 'falla' constantemente al intentar golpear el centro. En nuestra metrópolis futurista, esta comprensión es vital: si la velocidad de 'Aether' disminuye por fricción con polvo estelar no detectado, su órbita se degradará, y el periodo cambiará según la tercera ley.\n\nAdemás, debemos considerar las perturbaciones gravitacionales. En un sistema de múltiples cuerpos, cada planeta tira de los demás. Estas pequeñas desviaciones permitieron el descubrimiento de Neptuno sin necesidad de telescopios, solo con matemáticas. Del mismo modo, ustedes, como detectives del futuro, deben usar las ecuaciones de la gravitación universal para predecir la ubicación del objeto que está haciendo vibrar los cimientos de nuestra ciudad. El universo no es un caos; es un sistema de ecuaciones interconectadas. La revisión científica del movimiento planetario nos enseña que la precisión en la observación y la rigurosidad en el cálculo son nuestras únicas herramientas contra el colapso. Procedan a los cálculos finales; el destino de Neo-Newtonia depende de su capacidad para deducir la masa del intruso basándose en las desviaciones de la Tercera Ley de Kepler.",
+  "preguntas_deductivas_pagina": [
+    "¿Qué sucede con la fuerza de gravedad si la distancia entre dos cuerpos se duplica?",
+    "¿Cómo define la Ley de Gravitación Universal la relación entre la masa y la fuerza de atracción?",
+    "Si un planeta tiene un periodo orbital T y una distancia media R, ¿qué sucede con T si R aumenta?",
+    "¿Por qué se dice que una órbita es una 'caída libre perpetua'?",
+    "¿Qué papel juega la constante de gravitación universal (G) en las ecuaciones de Newton?"
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Realiza un diagrama detallado de las fuerzas que actúan sobre un satélite en órbita circular, identificando la fuerza centrípeta y la velocidad tangencial.",
+    "Elabora un mapa mental que conecte las tres Leyes de Kepler con la Ley de Gravitación Universal de Newton.",
+    "Dibuja un esquema explicativo del experimento mental de la 'Bala de Cañón de Newton' para explicar cómo se logra una órbita.",
+    "Diseña una infografía artesanal donde expliques matemáticamente la Tercera Ley de Kepler y su aplicación para calcular la masa de una estrella."
+  ],
+  "juegos_ordenar_letras_2": [
+    "GRAVEDAD",
+    "CENTRIPETA",
+    "INERCIA"
+  ],
+  "juego_ordenar_frase_2": "LA FUERZA DE GRAVEDAD ES INVERSAMENTE PROPORCIONAL AL CUADRADO DE LA DISTANCIA",
+  "sopa_letras": [
+    "KEPLER",
+    "NEWTON",
+    "ORBITA",
+    "ELIPSE",
+    "GRAVEDAD",
+    "MASA",
+    "PERIODO",
+    "FOCO",
+    "AFELIO",
+    "INERCIA"
+  ],
+  "crucigrama": [
+    {
+      "palabra": "GEOCENTRISMO",
+      "pista": "Modelo donde la Tierra es el centro del universo."
+    },
+    {
+      "palabra": "HELIOCENTRISMO",
+      "pista": "Modelo donde el Sol es el centro del sistema."
+    },
+    {
+      "palabra": "ELIPSE",
+      "pista": "Forma de la trayectoria planetaria según Kepler."
+    },
+    {
+      "palabra": "PERIHELIO",
+      "pista": "Punto de la órbita más cercano al Sol."
+    },
+    {
+      "palabra": "AFELIO",
+      "pista": "Punto de la órbita más lejano al Sol."
+    },
+    {
+      "palabra": "GRAVEDAD",
+      "pista": "Fuerza de atracción entre dos masas."
+    },
+    {
+      "palabra": "NEWTON",
+      "pista": "Científico que formuló la Ley de Gravitación Universal."
+    },
+    {
+      "palabra": "KEPLER",
+      "pista": "Científico que formuló las tres leyes del movimiento planetario."
+    },
+    {
+      "palabra": "CENTRIPETA",
+      "pista": "Fuerza que busca el centro en un movimiento circular o curvo."
+    },
+    {
+      "palabra": "PERIODO",
+      "pista": "Tiempo que tarda un planeta en dar una vuelta completa al Sol."
+    }
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "En la Metrópolis del Futuro, un equipo de astrónomos observa que el satélite 'Aether' aumenta su velocidad de traslación de manera repentina sin que se haya activado ningún motor propulsor.",
+      "tabla_o_grafica_markdown": "| Posición | Distancia al Centro (km) | Velocidad (km/s) |\n|---|---|---|\n| A | 12.000 | 7.5 |\n| B | 8.000 | 11.2 |",
+      "pregunta": "De acuerdo con la Segunda Ley de Kepler, ¿cuál es la razón científica que explica este aumento de velocidad?",
+      "opciones": [
+        "El satélite está pasando por su perihelio, donde la cercanía al centro aumenta la velocidad.",
+        "El satélite ha entrado en una zona de vacío absoluto donde no hay fricción.",
+        "La masa del satélite aumentó repentinamente debido a la captura de basura espacial.",
+        "El satélite está pasando por su afelio y necesita compensar la falta de gravedad."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. Según la Ley de las Áreas, un cuerpo en órbita se mueve más rápido cuanto más cerca está del centro de masa.",
+        "1": "Incorrecto. La falta de fricción mantiene la velocidad, pero no explica el aumento por posición orbital.",
+        "2": "Incorrecto. Un aumento de masa no explica el cambio de velocidad en una órbita establecida de esa manera.",
+        "3": "Incorrecto. En el afelio la velocidad es mínima, no máxima."
+      }
+    },
+    {
+      "competencia": "Uso Comprensivo del Conocimiento Científico",
+      "texto_introductorio": "Se desea comparar dos planetas de un sistema solar lejano detectado por los radares de Neo-Newtonia. El planeta X está a 1 UA de su estrella y el planeta Y está a 4 UA.",
+      "tabla_o_grafica_markdown": "| Planeta | Distancia Media (UA) | Periodo (Años) |\n|---|---|---|\n| X | 1 | 1 |\n| Y | 4 | ? |",
+      "pregunta": "Utilizando la Tercera Ley de Kepler (T² = k * a³), ¿cuál sería el periodo orbital del planeta Y?",
+      "opciones": [
+        "4 años",
+        "8 años",
+        "16 años",
+        "64 años"
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. No es una relación lineal simple.",
+        "1": "Correcto. Si a=4, entonces a³=64. Como T²=64, entonces T=8.",
+        "2": "Incorrecto. Ese valor no corresponde a la raíz cuadrada del cubo de la distancia.",
+        "3": "Incorrecto. 64 es el cubo de la distancia, pero falta extraer la raíz cuadrada para hallar el periodo."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "Un detective nota que los objetos en Neo-Newtonia pesan un 1% menos que hace un siglo. Sospecha que la órbita de la ciudad se ha alejado ligeramente de su planeta base.",
+      "tabla_o_grafica_markdown": "| Variable | Relación con la Fuerza Gravitacional |\n|---|---|\n| Masa 1 * Masa 2 | Directamente Proporcional |\n| Distancia² | Inversamente Proporcional |",
+      "pregunta": "¿Qué procedimiento científico es el más adecuado para comprobar si la distancia es la causa de la pérdida de peso?",
+      "opciones": [
+        "Medir la masa de la ciudad diariamente para ver si se está evaporando.",
+        "Calcular la fuerza de atracción usando la ley de gravitación universal variando la distancia y compararla con el peso actual.",
+        "Aumentar la velocidad de la ciudad para ver si recupera el peso perdido.",
+        "Cambiar los sensores de peso, ya que deben estar descalibrados por el tiempo."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. La masa es constante, el peso es el que varía por la gravedad.",
+        "1": "Correcto. Analizar la relación matemática entre distancia y fuerza permite confirmar la causa del cambio en el peso percibido.",
+        "2": "Incorrecto. La velocidad afecta la órbita, pero no es el método de indagación sobre la causa de la gravedad.",
+        "3": "Incorrecto. No es un procedimiento científico de indagación sobre el fenómeno físico, sino una evasión técnica."
+      }
+    }
+  ]
+}

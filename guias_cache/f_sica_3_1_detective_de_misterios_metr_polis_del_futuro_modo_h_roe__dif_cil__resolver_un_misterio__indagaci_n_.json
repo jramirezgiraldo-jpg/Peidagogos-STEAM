@@ -1,0 +1,188 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "Si un vehículo autónomo se desplaza por las calles de Metrópolis a velocidad constante en línea recta, ¿cuál es el valor de su aceleración?",
+      "opciones": [
+        "Es igual a cero, ya que no hay cambio en la magnitud ni en la dirección de la velocidad.",
+        "Es un valor constante diferente de cero, debido a la fricción magnética de la autopista.",
+        "Aumenta exponencialmente con la distancia recorrida por el vehículo.",
+        "Depende de la masa del vehículo y de la energía acumulada en sus baterías de fusión."
+      ],
+      "correcta": 0
+    },
+    {
+      "pregunta": "¿Qué es un vector en el contexto de la navegación aérea de nuestros patrulleros metropolitanos?",
+      "opciones": [
+        "Un sensor de proximidad electromagnética.",
+        "Una herramienta matemática que posee magnitud, dirección y sentido.",
+        "Una línea recta que solo indica la distancia entre dos puntos cardinales.",
+        "El dispositivo que controla la altitud de los drones de vigilancia."
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "Si dejamos caer un dron de espionaje desactivado desde la azotea de un rascacielos, ¿qué tipo de movimiento describe verticalmente antes de impactar?",
+      "opciones": [
+        "Movimiento Rectilíneo Uniforme con velocidad constante.",
+        "Movimiento Circular Uniformemente Acelerado.",
+        "Movimiento Rectilíneo Uniformemente Variado bajo la acción de la aceleración gravitacional.",
+        "Movimiento Parabólico Simétrico amortiguado por campos de fuerza."
+      ],
+      "correcta": 2
+    }
+  ],
+  "texto_inductivo": "Saludos, cadetes de la Academia de Detectives de Metrópolis. Soy el Inspector Vector, jefe de la Unidad de Reconstrucción Cinemática Forense. Hoy nos enfrentamos a uno de los casos más complejos y fascinantes de nuestra carrera criminalística: el robo del prototipo de Deslizador de Taquiones en los laboratorios de Industrias Nova, situados en el Sector 7. El perpetrador, un escurridizo criminal conocido como 'El Parábola', logró burlar los anillos de seguridad perimetral y escapar lanzándose al vacío desde una plataforma de carga a una altura de 120 metros sobre el nivel del suelo de la megaciudad. Para dar con su paradero actual y recuperar el prototipo, debemos dominar el arte de la indagación y comprender las características físicas y cinemáticas de un cuerpo que se mueve en dos dimensiones simultáneamente.\n\nCuando un cuerpo se desplaza libremente en el espacio bajo la influencia de la gravedad planetaria, describimos su trayectoria como un movimiento bidimensional o de proyectiles. Al observar la grabación holográfica del escape de 'El Parábola', notamos que su deslizador no cayó verticalmente, ni se desplazó en una línea horizontal infinita; en su lugar, dibujó una curva suave, perfecta y simétrica en el aire: una parábola. ¿Cómo es posible que un solo cuerpo realice este trayecto tan característico? La clave del misterio reside en el extraordinario principio de independencia de los movimientos, formulado originalmente por el antiguo sabio Galileo Galilei. Este principio establece que un movimiento bidimensional puede descomponerse en dos movimientos unidimensionales independientes que ocurren al mismo tiempo.\n\nAnalicemos el escape con nuestra lupa forense. Por un lado, tenemos el eje horizontal (eje X). Una vez que el deslizador abandona la rampa de lanzamiento, no existe ninguna fuerza propulsora ni resistencia del aire en esa dirección (gracias a los domos de vacío de Metrópolis). Al no haber fuerzas aplicadas en la horizontal, la aceleración en este eje es exactamente cero. Esto significa que el sospechoso se desplaza horizontalmente con un Movimiento Rectilíneo Uniforme (MRU), donde su velocidad horizontal se mantiene constante durante todo el vuelo. Por otro lado, enfoquemos nuestra atención en el eje vertical (eje Y). Desde el instante en que pierde el contacto con la plataforma, la ineludible fuerza de gravedad de Metrópolis tira del deslizador hacia abajo con una aceleración constante. Esto genera un Movimiento Rectilíneo Uniformemente Variado (MRUV) en el eje Y, idéntico a una caída libre o a un lanzamiento vertical. La velocidad vertical del sospechoso cambia a cada milisegundo: disminuye si va subiendo, se anula por un instante en el punto más alto, y aumenta continuamente a medida que se precipita hacia el pavimento.\n\nNuestra misión como detectives consiste en fusionar estas dos realidades independientes para descifrar la posición exacta del impacto. Comprender que el tiempo de vuelo está dictado exclusivamente por la altura de la caída y la gravedad, y que la distancia de escape horizontal depende de la velocidad inicial y de ese mismo tiempo, nos permitirá triangular la zona de aterrizaje del sospechoso. Prepárense, preparen sus libretas holográficas y ajusten sus visores cuánticos. Es hora de descomponer la realidad física para resolver el misterio.",
+  "recurso_visual": "graph TD\n    A[Movimiento en Dos Dimensiones del Deslizador] --> B(Componente Horizontal Eje X)\n    A --> C(Componente Vertical Eje Y)\n    B --> D[Movimiento Rectilíneo Uniforme MRU]\n    B --> E[Aceleración Horizontal = 0]\n    B --> F[Velocidad Horizontal Constante]\n    C --> G[Movimiento Rectilíneo Uniformemente Variado MRUV]\n    C --> H[Aceleración Vertical = Gravedad Constantemente Negativa]\n    C --> I[Velocidad Vertical Variable en el Tiempo]",
+  "preguntas_inductivas_pagina": [
+    "¿Qué principio de la física permite analizar el escape de 'El Parábola' dividiendo su movimiento en dos componentes independientes?",
+    "¿Por qué se asume que la velocidad en el eje horizontal del deslizador se mantiene constante durante el escape?",
+    "¿Qué tipo de trayectoria describe un cuerpo que experimenta simultáneamente un MRU horizontal y un MRUV vertical?",
+    "¿Cuál es el valor de la aceleración horizontal del deslizador de escape una vez que se encuentra suspendido en el aire?",
+    "¿Qué parámetro físico conecta directamente el movimiento en el eje horizontal con el movimiento en el eje vertical en un tiro de proyectil?"
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema del escape del sospechoso desde el rascacielos. Utiliza flechas de colores para representar los vectores de velocidad horizontal y velocidad vertical en al menos cuatro puntos diferentes de la trayectoria parabólica.",
+    "Realiza un cuadro comparativo detallado entre el movimiento en el eje X y el movimiento en el eje Y del deslizador, especificando para cada uno: tipo de movimiento, aceleración, comportamiento de la velocidad y ecuaciones asociadas.",
+    "Redacta una reflexión de dos párrafos explicando por qué el conocimiento de la gravedad y de los vectores de velocidad es crucial para un detective forense en una Metrópolis del futuro.",
+    "Representa gráficamente en tu cuaderno cómo varía la velocidad horizontal a lo largo del tiempo, y al lado, cómo varía la velocidad vertical en función del tiempo para un proyectil lanzado horizontalmente."
+  ],
+  "juegos_ordenar_letras_1": [
+    "PARABOLA",
+    "INDEPENDENCIA",
+    "COMPONENTE"
+  ],
+  "juego_ordenar_frase_1": "UN MOVIMIENTO BIDIMENSIONAL SE COMPONE DE DOS MOVIMIENTOS UNIDIMENSIONALES INDEPENDIENTES SIMULTANEOS",
+  "texto_deductivo": "Bienvenidos a la fase analítica de nuestra investigación criminal, cadetes de Metrópolis. Soy el Inspector Vector de nuevo. Hemos recolectado los datos cinemáticos iniciales del escape de 'El Parábola' y ahora es el momento de aplicar el rigor de la deducción matemática y las leyes fundamentales de la energía para predecir con exactitud milimétrica su punto de aterrizaje y verificar si sobrevivió al impacto. Para resolver este misterio en Modo Héroe, debemos traducir nuestras observaciones cualitativas en ecuaciones precisas de movimiento en dos dimensiones y analizar la conservación de la energía mecánica del sistema.\n\nComencemos deduciendo las ecuaciones de posición y velocidad que rigen al deslizador de taquiones. Si definimos el punto de lanzamiento en la azotea como el origen horizontal ($x_0 = 0$) y a una altura inicial ($y_0 = H$), la posición del deslizador en cualquier instante de tiempo ($t$) está dada por las siguientes funciones vectoriales. En el eje horizontal, dado que la aceleración es nula, la posición se calcula simplemente como: $x(t) = v_{0x} \\cdot t$, donde $v_{0x}$ es la componente horizontal de la velocidad inicial. Si el lanzamiento se realiza con un ángulo de elevación $\\theta$ respecto a la horizontal, esta componente se deduce mediante la trigonometría como $v_{0x} = v_0 \\cdot \\cos(\\theta)$. En el eje vertical, bajo la implacable acción de la gravedad ($g$), la posición viene dada por la ecuación cuadrática de la caída libre: $y(t) = H + v_{0y} \\cdot t - \\frac{1}{2}g \\cdot t^2$, donde la velocidad inicial vertical es $v_{0y} = v_0 \\cdot \\sen(\\theta)$. Al analizar estas ecuaciones, deducimos que el tiempo que el deslizador permanece en el aire depende exclusivamente de las condiciones verticales (su altura inicial $H$, su velocidad inicial vertical $v_{0y}$ y la gravedad $g$). Una vez que el cuerpo toca el suelo ($y = 0$), el tiempo de vuelo queda determinado y puede ser sustituido en la ecuación horizontal para hallar el alcance máximo del sospechoso, ayudándonos a acotar el área de búsqueda.\n\nPero un detective de élite no solo analiza el espacio y el tiempo; también analiza la energía cinética y potencial del escape. El principio de conservación de la energía mecánica es nuestra herramienta deductiva más poderosa. En ausencia de fricción no conservativa (gracias a los escudos de vacío urbanos de Metrópolis), la energía mecánica total ($E_m$) del deslizador se conserva constante en cada punto de su trayectoria parabólica. La energía mecánica es la suma de la energía cinética ($E_k = \\frac{1}{2}m \\cdot v^2$), asociada al movimiento del cuerpo, y la energía potencial gravitatoria ($E_p = m \\cdot g \\cdot y$), vinculada a su altura respecto al suelo. En el instante del lanzamiento, el deslizador posee tanto energía cinética (debido a su velocidad de escape $v_0$) como energía potencial máxima (debido a la altura del rascacielos $H$). A medida que desciende, la altura disminuye, lo que significa que la energía potencial gravitatoria se transforma gradualmente en energía cinética adicional. Cuando el deslizador está a punto de colisionar con el suelo ($y = 0$), toda la energía potencial se ha convertido por completo en energía cinética, alcanzando su velocidad y destructividad máximas. Al calcular esta velocidad de impacto final mediante la conservación de la energía, podemos determinar si los sistemas de amortiguación del deslizador pudieron soportar el choque o si debemos buscar los restos del prototipo en un cráter de impacto.",
+  "preguntas_deductivas_pagina": [
+    "¿Cuál es la ecuación cinemática para determinar la posición horizontal de un proyectil en cualquier instante de tiempo?",
+    "¿Cómo varía la energía cinética de un proyectil a medida que asciende hacia el punto más alto de su trayectoria?",
+    "Si un proyectil se lanza horizontalmente, ¿cuál es el valor de la componente inicial de la velocidad en el eje Y?",
+    "¿Qué ocurre con la energía mecánica total del deslizador si la resistencia del aire es completamente despreciable?",
+    "¿Por qué la velocidad del proyectil en el punto más alto de su trayectoria parabólica no es igual a cero?"
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Elabora un diagrama de energía detallado de la trayectoria del deslizador, graficando las curvas de energía cinética, energía potencial y energía mecánica total en función de la altura desde el suelo.",
+    "Diseña un mapa mental interactivo que conecte los conceptos de velocidad vectorial, componentes trigonométricas, ecuaciones de posición cinemática y conservación de la energía mecánica.",
+    "Realiza un dibujo explicativo que muestre las fuerzas que actúan sobre el deslizador en el aire y deduce matemáticamente la ecuación de la trayectoria $y(x)$ eliminando la variable del tiempo.",
+    "Crea una infografía artesanal para la Academia de Detectives donde expliques paso a paso cómo calcular la velocidad de impacto de un proyectil usando únicamente consideraciones de conservación de energía."
+  ],
+  "juegos_ordenar_letras_2": [
+    "CONSERVACION",
+    "GRAVITATORIA",
+    "TANGENCIAL"
+  ],
+  "juego_ordenar_frase_2": "LA ENERGIA MECANICA TOTAL SE MANTIENE CONSTANTE CUANDO SOLO ACTUAN FUERZAS CONSERVATIVAS COMO LA GRAVEDAD",
+  "sopa_letras": [
+    "GRAVEDAD",
+    "PARABOLA",
+    "VECTOR",
+    "ENERGIA",
+    "ALCANCE",
+    "ALTURA",
+    "TIEMPO",
+    "VELOCIDAD",
+    "TRAYECTORIA",
+    "PROYECTIL"
+  ],
+  "crucigrama": [
+    {
+      "palabra": "PARABOLA",
+      "pista": "Curva geométrica que describe la trayectoria de un proyectil en dos dimensiones."
+    },
+    {
+      "palabra": "GRAVEDAD",
+      ":pista": "Aceleración vertical dirigida hacia el centro de la Tierra en Metrópolis."
+    },
+    {
+      "palabra": "CINETICA",
+      "pista": "Energía asociada directamente al estado de movimiento y velocidad de un cuerpo."
+    },
+    {
+      "palabra": "POTENCIAL",
+      "pista": "Energía almacenada en un cuerpo debido a su posición o altura en un campo gravitatorio."
+    },
+    {
+      "palabra": "ALCANCE",
+      "pista": "Distancia horizontal máxima que recorre un proyectil antes de volver a su altura de lanzamiento."
+    },
+    {
+      "palabra": "COSENO",
+      "pista": "Función trigonométrica utilizada para calcular la componente horizontal de la velocidad."
+    },
+    {
+      "palabra": "SENO",
+      "pista": "Función trigonométrica empleada para hallar la componente vertical de la velocidad inicial."
+    },
+    {
+      "palabra": "MECANICA",
+      "pista": "Energía total que resulta de sumar la energía cinética y la energía potencial de un sistema."
+    },
+    {
+      "palabra": "TIEMPO",
+      "pista": "Magnitud física que actúa como enlace y transcurre por igual para ambos ejes coordenados."
+    },
+    {
+      "palabra": "CONSERVATIVA",
+      "pista": "Fuerza que no realiza trabajo neto a lo largo de cualquier trayectoria cerrada, como la gravedad."
+    }
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "En la reconstrucción del robo, la policía de Metrópolis analiza el lanzamiento horizontal del deslizador desde la azotea de una torre a 125 metros de altura con una velocidad horizontal de 40 m/s. Se registran las velocidades horizontal y vertical a medida que desciende, usando un sensor digital de rastreo.",
+      "tabla_o_grafica_markdown": "| Tiempo (s) | Velocidad Horizontal Vx (m/s) | Velocidad Vertical Vy (m/s) |\n|---|---|---|\n| 0 | 40 | 0 |\n| 1 | 40 | -10 |\n| 2 | 40 | -20 |\n| 3 | 40 | -30 |",
+      "pregunta": "De acuerdo con los datos registrados en la tabla y despreciando la resistencia del aire, ¿cuál de las siguientes afirmaciones explica el comportamiento de las velocidades del deslizador?",
+      "opciones": [
+        "La velocidad horizontal se mantiene constante porque no actúa ninguna fuerza neta en el eje X, mientras que la velocidad vertical aumenta en magnitud debido a la aceleración de la gravedad constante.",
+        "La velocidad vertical disminuye a tasa constante porque el deslizador va perdiendo masa a medida que consume su combustible cuántico en el descenso.",
+        "Ambas velocidades deberían aumentar uniformemente en el tiempo puesto que la gravedad ejerce atracción sobre todas las dimensiones del espacio.",
+        "La velocidad horizontal se mantiene constante para compensar la pérdida de velocidad vertical experimentada durante la caída."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "¡Excelente detective! En un tiro parabólico sin fricción, la aceleración horizontal es nula, manteniendo Vx constante. La gravedad actúa únicamente en Y, produciendo un cambio lineal en Vy.",
+        "1": "Incorrecto. La velocidad vertical aumenta en magnitud (se vuelve más negativa hacia abajo), y la masa del deslizador no afecta la aceleración gravitacional según Galileo.",
+        "2": "Incorrecto. La gravedad solo actúa en el eje vertical (Y) hacia el centro de la Tierra; no ejerce aceleración en el eje horizontal (X).",
+        "3": "Incorrecto. La velocidad horizontal no requiere compensación, se mantiene constante de forma independiente debido a la inercia y la ausencia de fuerzas horizontales."
+      }
+    },
+    {
+      "competencia": "Uso Comprensivo del Conocimiento Científico",
+      "texto_introductorio": "El sospechoso ajustó los propulsores del deslizador para realizar un salto parabólico entre dos plataformas elevadas separadas por una distancia horizontal de 80 metros. Para optimizar el salto con la menor cantidad de energía cinética inicial posible, el sistema de navegación evaluó tres ángulos de disparo diferentes.",
+      "tabla_o_grafica_markdown": "| Ángulo de Lanzamiento | Alcance Horizontal Máximo (m) | Altura Máxima Alcanzada (m) |\n|---|---|---|\n| 30 grados | 69.2 | 10.0 |\n| 45 grados | 80.0 | 20.0 |\n| 60 grados | 69.2 | 30.0 |",
+      "pregunta": "Con base en la información de la tabla cinemática, ¿por qué el ángulo de 45 grados es el más eficiente para que el sospechoso logre cruzar la brecha de 80 metros?",
+      "opciones": [
+        "Porque maximiza la distancia horizontal recorrida al equilibrar perfectamente el tiempo de vuelo y la velocidad de avance horizontal.",
+        "Porque al alcanzar una altura de 20 metros la gravedad disminuye su intensidad, permitiendo flotar más distancia.",
+        "Porque el ángulo de 60 grados experimenta demasiada fricción con el viento al subir más alto en la atmósfera de Metrópolis.",
+        "Porque a 30 grados la velocidad horizontal es menor y el deslizador cae de inmediato sin avanzar."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "¡Brillante deducción! El ángulo de 45 grados maximiza el producto del seno y coseno del ángulo de tiro, lo que resulta en el mayor alcance horizontal posible para una misma velocidad inicial.",
+        "1": "Incorrecto. La gravedad se considera constante a esas altitudes dentro de los límites de la megaciudad.",
+        "2": "Incorrecto. El modelo ideal de proyectiles desprecia la fricción del aire, por lo que la altura no introduce variables de viento adicionales.",
+        "3": "Incorrecto. A 30 grados la velocidad horizontal es mayor que a 45 grados, pero el tiempo de vuelo es insuficiente para lograr el máximo alcance."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "En la escena de un segundo crimen atribuido a 'El Parábola', los detectives forenses encontraron marcas de derrape en una plataforma horizontal. Dos sospechosos de diferente contextura física y masa corporal afirman haber saltado desde el mismo punto de la plataforma a la misma velocidad inicial horizontal, aterrizando exactamente en el mismo punto del pavimento inferior.",
+      "tabla_o_grafica_markdown": "| Sospechoso | Masa (kg) | Altura de la Plataforma (m) | Distancia de Aterrizaje Horizontal (m) |\n|---|---|---|---|\n| Sospechoso Alfa | 60 | 45 | 30 |\n| Sospechoso Beta | 120 | 45 | 30 |",
+      "pregunta": "¿Qué conclusión científica puede deducir el detective a partir de los datos recolectados para validar el testimonio de los sospechosos?",
+      "opciones": [
+        "El testimonio es perfectamente coherente debido a que en el movimiento bidimensional la trayectoria, el tiempo de vuelo y el alcance horizontal son independientes de la masa del cuerpo.",
+        "El Sospechoso Beta debe estar mintiendo porque al tener el doble de masa requería el doble de velocidad horizontal para alcanzar la misma distancia.",
+        "El Sospechoso Alfa debió tardar la mitad del tiempo en caer porque la gravedad atrae con menor fuerza a los objetos livianos.",
+        "La masa altera la energía mecánica total de manera que el sospechoso más pesado debió describir una trayectoria hiperbólica en lugar de parabólica."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "¡Excelente trabajo detectivesco! La aceleración de la gravedad actúa por igual sobre todos los cuerpos sin importar su masa. Por tanto, el tiempo de caída y la trayectoria horizontal son idénticos para ambos.",
+        "1": "Incorrecto. La masa de un proyectil no determina la velocidad requerida para mantener una trayectoria cinemática en ausencia de fricción.",
+        "2": "Incorrecto. Según las leyes de caída libre de Galileo, la aceleración gravitacional es independiente de la masa; ambos sospechosos caen en el mismo tiempo.",
+        "3": "Incorrecto. Aunque la energía mecánica depende de la masa, la trayectoria geométrica de caída libre sigue siendo una parábola idéntica para ambos."
+      }
+    }
+  ]
+}

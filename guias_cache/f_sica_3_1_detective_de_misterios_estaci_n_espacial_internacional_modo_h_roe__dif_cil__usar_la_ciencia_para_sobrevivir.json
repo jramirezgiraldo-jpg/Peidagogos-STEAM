@@ -1,0 +1,168 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "En el contexto de la mecánica celeste, ¿cuál fue el cambio fundamental que propuso Johannes Kepler respecto a la forma de las órbitas planetarias?",
+      "opciones": [
+        "Que las órbitas eran círculos perfectos con la Tierra en el centro.",
+        "Que las órbitas eran elipses con el Sol en uno de sus focos.",
+        "Que los planetas se movían en trayectorias espirales debido al éter.",
+        "Que las órbitas eran parábolas que nunca se cerraban."
+      ],
+      "correcta": 1
+    }
+  ],
+  "texto_inductivo": "Saludos, cadetes de la Estación Espacial Internacional (EEI). Soy el Detective de Misterios Orbitales, y hoy nos enfrentamos a un enigma que pone en riesgo nuestra permanencia en el vacío absoluto. Hace apenas unas horas, los sensores de navegación detectaron una anomalía en la trayectoria de un satélite de suministros que debía acoplarse con nosotros. El objeto no sigue la ruta circular que esperábamos; parece 'estirarse' y 'encogerse' en su danza cósmica. Para resolver este caso y asegurar nuestra supervivencia, debemos viajar en el tiempo, no físicamente, sino a través de los datos, hasta el siglo XVII. La historia de la ciencia es nuestra escena del crimen. Imaginen a Tycho Brahe, un observador meticuloso que pasó décadas registrando la posición de Marte con una precisión sin precedentes para su época. Sin telescopio, solo con su ingenio y herramientas de medición rudimentarias, acumuló un tesoro de datos. Tras su muerte, esos datos cayeron en manos de Johannes Kepler. Kepler era un matemático obsesivo, un detective de la armonía del mundo. Él heredó el misterio de por qué Marte no encajaba en los modelos circulares perfectos de Copérnico o Ptolomeo. Intentó durante años ajustar los datos a círculos, pero siempre había un error de 8 minutos de arco. Para muchos, eso era insignificante, pero para un detective de la verdad, esos 8 minutos eran la pista definitiva: el círculo era una mentira. La primera ley que Kepler 'confesó' tras interrogar a los astros fue la Ley de las Elipses. Los planetas no giran en círculos, sino en elipses. Una elipse no es un círculo aplastado por accidente; es una figura geométrica con dos puntos críticos llamados focos. En nuestro sistema, el Sol ocupa uno de esos focos, dejando el otro vacío, como un fantasma en la habitación. Esto explica por qué el satélite de suministros varía su distancia respecto a nosotros. Pero el misterio se profundiza. ¿Por qué el satélite parece acelerar cuando se acerca a la Tierra y frenar cuando se aleja? Aquí entra la Segunda Ley de Kepler, o la Ley de las Áreas. Kepler descubrió que una línea imaginaria que conecta al sol con un planeta barre áreas iguales en tiempos iguales. Esto significa que el universo tiene un ritmo compensatorio: para mantener el equilibrio, la velocidad debe cambiar. Cuando el planeta (o nuestro satélite) está en el perihelio (más cerca del foco), vuela como una flecha; cuando está en el afelio (más lejos), se mueve con una lentitud casi ceremonial. Este fenómeno no es azaroso; es la base de la navegación espacial. Si no comprendemos que el tiempo y el área están intrínsecamente ligados, fallaremos en el cálculo del acoplamiento y quedaremos a la deriva. La ciencia no es solo una colección de fórmulas; es el lenguaje que usa el universo para decirnos dónde estará mañana lo que hoy vemos lejos. Para sobrevivir aquí arriba, en la EEI, debemos ser tan rigurosos como Kepler. Debemos entender que la geometría del espacio no es una sugerencia, sino una ley absoluta que dicta el destino de cada átomo en órbita. El caso del satélite perdido comienza a aclararse: no es un fallo de motor, es el cumplimiento estricto de las leyes de Kepler que hemos ignorado por buscar la perfección del círculo. Ahora, preparen sus herramientas, revisen los vectores y prepárense para aplicar la lógica de un detective a las leyes del cosmos.",
+  "recurso_visual": "graph LR\n    A[Leyes de Kepler] --> B(1. Ley de Elipses)\n    A --> C(2. Ley de Áreas)\n    A --> D(3. Ley de Periodos)\n    B --> B1[Órbita no es circular]\n    B --> B2[Sol en un foco]\n    C --> C1[Velocidad variable]\n    C --> C2[Perihelio: Rápido / Afelio: Lento]\n    D --> D1[Relación Distancia-Tiempo]\n    D --> D2[T² proporcional a R³]",
+  "preguntas_inductivas_pagina": [
+    "¿Cuál fue la 'pista' de 8 minutos de arco que llevó a Kepler a rechazar el modelo circular?",
+    "¿Qué diferencia geométrica fundamental existe entre un círculo y una elipse según el texto?",
+    "¿En qué posición de la órbita un planeta se mueve a su máxima velocidad?",
+    "¿Qué significa que un planeta 'barra áreas iguales en tiempos iguales'?",
+    "¿Por qué es vital para los astronautas de la EEI comprender la Segunda Ley de Kepler?"
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema de una órbita elíptica, señalando los focos, el perihelio, el afelio y el vector de velocidad en ambos puntos.",
+    "Realiza un cuadro comparativo entre el modelo de órbitas circulares de Copérnico y el modelo elíptico de Kepler.",
+    "Escribe una reflexión de 15 líneas sobre por qué la precisión en los datos de Tycho Brahe fue fundamental para el cambio de paradigma científico.",
+    "Representa gráficamente la Segunda Ley de Kepler mediante un diagrama que muestre dos sectores de la elipse con áreas equivalentes pero diferentes longitudes de arco."
+  ],
+  "juegos_ordenar_letras_1": [
+    "ELIPSE",
+    "AFELIO",
+    "PERIHELIO"
+  ],
+  "juego_ordenar_frase_1": "LOS PLANETAS DESCRIBEN ORBITAS ELIPTICAS ALREDEDOR DEL SOL QUE OCUPA UNO DE LOS FOCOS",
+  "texto_deductivo": "Cadetes, hemos identificado el patrón, pero ahora debemos entender la causa. En la EEI, no basta con saber 'cómo' se mueven los astros; necesitamos saber 'por qué' lo hacen para predecir colisiones y ajustar nuestra altitud. Aquí es donde el Detective Newton entra en la escena del crimen. Kepler describió el movimiento, pero Isaac Newton reveló la fuerza invisible que mueve los hilos del teatro cósmico: la Gravitación Universal. Imaginen que la Tierra está intentando escapar en línea recta hacia el vacío, pero algo la sujeta, una cuerda invisible de fuerza que la atrae hacia el Sol. Esa 'cuerda' es la gravedad. Newton dedujo que la fuerza de atracción entre dos cuerpos es directamente proporcional al producto de sus masas e inversamente proporcional al cuadrado de la distancia que los separa. Esta es la ley del inverso del cuadrado, y es la razón por la cual, si duplicamos nuestra distancia a la Tierra, la fuerza de gravedad no se reduce a la mitad, sino a la cuarta parte. Esta deducción fue revolucionaria porque unificó la física terrestre con la celeste. La misma manzana que cae en un jardín sigue la misma ley que la Luna cayendo perpetuamente alrededor de la Tierra. Ahora, conectemos esto con la Tercera Ley de Kepler. Kepler había notado una armonía matemática extraña: el cuadrado del periodo orbital (el tiempo que tarda en dar una vuelta) es proporcional al cubo de su distancia media al Sol (T² ∝ R³). Durante décadas, esto fue solo una observación curiosa. Newton, usando su ley de gravitación y sus leyes del movimiento, demostró que esta relación es una consecuencia directa de la fuerza gravitatoria. Gracias a esto, si conocemos la distancia de un planeta al Sol, podemos predecir con exactitud matemática cuánto durará su año. En la Estación Espacial, aplicamos esta deducción constantemente. Para mantener una órbita estable a 400 kilómetros de altura, debemos viajar a una velocidad específica de aproximadamente 28,000 km/h. Si vamos más lento, la gravedad nos arrastrará hacia la atmósfera, donde nos desintegraremos por la fricción. Si vamos demasiado rápido, superaremos la velocidad de escape y nos lanzaremos al espacio profundo sin retorno. El equilibrio es delicado. La Tercera Ley de Kepler nos permite calcular la masa de los cuerpos celestes: observando cómo orbitan las lunas de Júpiter, pudimos deducir la masa del gigante gaseoso sin poner un pie en él. Como detectives científicos, usamos estas leyes para interrogar al universo. Si un planeta se desvía de su órbita predicha, deducimos que hay 'algo' más allí, una masa invisible, un planeta X o un agujero negro, ejerciendo su influencia. Así fue como se descubrió Neptuno: no mirando por un telescopio, sino usando lápiz y papel para resolver un crimen gravitatorio en la órbita de Urano. La ciencia deductiva nos permite ver lo invisible y sobrevivir en el entorno más hostil conocido por la humanidad. La física no es solo teoría; es el escudo que protege a la EEI de caer al abismo.",
+  "preguntas_deductivas_pagina": [
+    "¿Cómo cambia la fuerza de gravedad si la distancia entre dos objetos se triplica?",
+    "¿Qué relación matemática establece la Tercera Ley de Kepler entre el tiempo y la distancia?",
+    "¿Cuál es la diferencia entre 'describir' un movimiento (Kepler) y 'explicar su causa' (Newton)?",
+    "¿Por qué la EEI necesita mantener una velocidad constante de 28,000 km/h?",
+    "¿Cómo ayudó la matemática de Newton a descubrir planetas que aún no se habían visto?"
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Realiza un diagrama detallado que ilustre la Ley de la Gravitación Universal, mostrando los vectores de fuerza entre dos masas.",
+    "Elabora un mapa mental que conecte las Leyes de Kepler con la Ley de Gravitación de Newton.",
+    "Dibuja un esquema explicativo del concepto de 'caída libre perpetua' que experimenta la EEI alrededor de la Tierra.",
+    "Crea una infografía artesanal que explique la Tercera Ley de Kepler (T² = kR³) usando ejemplos de diferentes planetas."
+  ],
+  "juegos_ordenar_letras_2": [
+    "GRAVEDAD",
+    "PERIODO",
+    "MASA"
+  ],
+  "juego_ordenar_frase_2": "LA FUERZA DE GRAVEDAD ES INVERSAMENTE PROPORCIONAL AL CUADRADO DE LA DISTANCIA",
+  "sopa_letras": [
+    "KEPLER",
+    "NEWTON",
+    "ORBITA",
+    "ELIPSE",
+    "FOCO",
+    "MASA",
+    "FUERZA",
+    "RADIO",
+    "TIEMPO",
+    "ASTRO"
+  ],
+  "crucigrama": [
+    {
+      "palabra": "AFELIO",
+      "pista": "Punto de la órbita más alejado del Sol."
+    },
+    {
+      "palabra": "PERIHELIO",
+      "pista": "Punto de la órbita más cercano al Sol."
+    },
+    {
+      "palabra": "ELIPSE",
+      "pista": "Forma geométrica de las órbitas planetarias."
+    },
+    {
+      "palabra": "FOCO",
+      "pista": "Punto interno de la elipse donde se ubica el Sol."
+    },
+    {
+      "palabra": "KEPLER",
+      "pista": "Científico que enunció las tres leyes del movimiento planetario."
+    },
+    {
+      "palabra": "NEWTON",
+      "pista": "Formuló la Ley de la Gravitación Universal."
+    },
+    {
+      "palabra": "GRAVEDAD",
+      "pista": "Fuerza de atracción entre dos cuerpos con masa."
+    },
+    {
+      "palabra": "ORBITA",
+      "pista": "Trayectoria que sigue un cuerpo alrededor de otro."
+    },
+    {
+      "palabra": "PERIODO",
+      "pista": "Tiempo que tarda un planeta en dar una vuelta completa."
+    },
+    {
+      "palabra": "EXCENTRICIDAD",
+      "pista": "Medida de qué tan estirada está una elipse."
+    }
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "Un satélite de investigación se encuentra en una órbita elíptica alrededor de la Tierra. Los ingenieros observan que en ciertos puntos de su trayectoria el satélite parece aumentar su velocidad de forma sistemática sin activar sus motores.",
+      "tabla_o_grafica_markdown": "| Posición | Distancia al Centro (km) | Velocidad (km/s) |\n|---|---|---|\n| A | 7,000 | 7.8 |\n| B | 10,000 | 5.5 |\n| C | 15,000 | 3.6 |",
+      "pregunta": "Basándose en la Segunda Ley de Kepler y los datos de la tabla, ¿en qué punto se encuentra el satélite en su perihelio?",
+      "opciones": [
+        "En el punto A, porque es la distancia menor y la velocidad es mayor.",
+        "En el punto C, porque a mayor distancia mayor es la energía acumulada.",
+        "En el punto B, por ser el punto medio de la trayectoria elíptica.",
+        "En ninguno, porque la velocidad debería ser constante en toda la órbita."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. Según la 2da ley de Kepler, a menor distancia (perihelio), el objeto debe moverse más rápido para barrer áreas iguales.",
+        "1": "Incorrecto. El punto C es el afelio, donde la velocidad es mínima.",
+        "2": "Incorrecto. El punto B no representa un extremo orbital que defina el perihelio en este contexto.",
+        "3": "Incorrecto. La velocidad orbital solo es constante en órbitas perfectamente circulares."
+      }
+    },
+    {
+      "competencia": "Uso comprensivo del conocimiento científico",
+      "texto_introductorio": "La Ley de Gravitación Universal indica que la fuerza entre dos cuerpos depende de sus masas y la distancia entre ellos. Si la Luna se alejara al doble de la distancia actual de la Tierra...",
+      "tabla_o_grafica_markdown": "| Variable | Cambio |\n|---|---|\n| Masa Tierra | Constante |\n| Masa Luna | Constante |\n| Distancia | x2 |",
+      "pregunta": "¿Qué sucedería con la fuerza de atracción gravitacional entre ambos cuerpos?",
+      "opciones": [
+        "La fuerza se reduciría a la mitad.",
+        "La fuerza se reduciría a la cuarta parte.",
+        "La fuerza se duplicaría debido a la expansión del campo.",
+        "La fuerza se mantendría igual porque las masas no cambian."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. La relación es inversamente proporcional al cuadrado de la distancia, no lineal.",
+        "1": "Correcto. Según F = G(m1*m2)/d², si d se duplica (2²), la fuerza se divide por 4.",
+        "2": "Incorrecto. Al aumentar la distancia, la fuerza siempre disminuye.",
+        "3": "Incorrecto. La distancia es un factor determinante en la magnitud de la fuerza gravitatoria."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "Un astrónomo detecta un nuevo exoplaneta y nota que su periodo orbital (T) es de 8 años terrestres. Quiere determinar su distancia media (R) al sol de su sistema usando la Tercera Ley de Kepler (T² = kR³), asumiendo que k=1.",
+      "tabla_o_grafica_markdown": "| Planeta | T (años) | R (UA) |\n|---|---|---|\n| Tierra | 1 | 1 |\n| X | 8 | ? |",
+      "pregunta": "¿Cuál es la distancia media (R) de este nuevo exoplaneta en Unidades Astronómicas (UA)?",
+      "options": [
+        "2 UA",
+        "4 UA",
+        "16 UA",
+        "64 UA"
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. 2 al cubo es 8, pero 8 al cuadrado es 64. No coinciden.",
+        "1": "Correcto. T² = 8² = 64. R³ = 4³ = 64. Se cumple la proporción T² = R³.",
+        "2": "Incorrecto. 16 al cubo daría un valor mucho mayor a 64.",
+        "3": "Incorrecto. Este valor corresponde a T² pero no a la raíz cúbica necesaria para hallar R."
+      }
+    }
+  ]
+}

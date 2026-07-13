@@ -1,0 +1,180 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Cuál es la forma geométrica que mejor describe la trayectoria de los planetas alrededor del Sol?",
+      "opciones": [
+        "Círculo perfecto",
+        "Línea recta",
+        "Elipse",
+        "Triángulo"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "¿Qué fuerza es la responsable de que los cuerpos celestes no salgan disparados al espacio profundo?",
+      "opciones": [
+        "Magnetismo",
+        "Gravedad",
+        "Fricción",
+        "Presión atmosférica"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Quién es conocido por formular las tres leyes que describen matemáticamente el movimiento planetario?",
+      "opciones": [
+        "Albert Einstein",
+        "Isaac Newton",
+        "Johannes Kepler",
+        "Galileo Galilei"
+      ],
+      "correcta": 2
+    }
+  ],
+  "texto_inductivo": "**EXPEDIENTE #301: EL CASO DE LA ÓRBITA ERRANTE**\n\nDetective, bienvenido a la Unidad de Vigilancia Estelar de Metrópolis 2099. Nuestra ciudad sobrevive gracias a los escudos de plasma alimentados por paneles solares orbitales. Sin embargo, hemos detectado una anomalía: los generadores están perdiendo eficiencia porque no logran seguir la posición exacta de los cuerpos celestes. Para resolver este misterio y asegurar nuestra supervivencia, debemos revisar los archivos antiguos de la astronomía. Imagine que el cielo es la escena de un crimen y los planetas son los sospechosos en constante movimiento. Durante siglos, la humanidad creyó que el universo era perfecto y que los planetas se movían en círculos perfectos. Pero los datos no encajaban. Fue Johannes Kepler, un detective de los astros del siglo XVII, quien revisó las notas de su mentor, Tycho Brahe, y descubrió que la realidad era mucho más compleja y fascinante.\n\nKepler analizó durante años la posición de Marte. Sus observaciones le llevaron a formular lo que hoy conocemos como la **Primera Ley de Kepler o Ley de las Órbitas**. Él descubrió que los planetas no giran en círculos, sino en **elipses**, con el Sol situado en uno de los focos. En Metrópolis, esto significa que nuestra distancia al Sol cambia constantemente. No somos una ciudad estática; somos viajeros en una pista ovalada. Si no entendemos esta excentricidad, nuestros escudos fallarán cuando estemos en el *afelio* (el punto más lejano) o se sobrecargarán en el *perihelio* (el punto más cercano).\n\nPero el misterio se profundiza. Kepler notó que los planetas no se mueven a una velocidad constante. Esto nos lleva a la **Segunda Ley de Kepler o Ley de las Áreas**. Él observó que una línea imaginaria que conecte al planeta con el Sol barre áreas iguales en tiempos iguales. En términos de detective: el planeta corre más rápido cuando está cerca del Sol y se toma su tiempo cuando está lejos. Para Metrópolis, esto es crucial. Debemos calibrar nuestros sistemas de recolección de energía para que actúen con mayor rapidez cuando la Tierra acelera en su órbita. Si ignoramos este cambio de velocidad, la red eléctrica colapsará por falta de sincronización.\n\nFinalmente, Kepler encontró el patrón definitivo que une a todos los planetas del sistema: la **Tercera Ley de Kepler o Ley de los Periodos**. Descubrió una relación matemática exacta: el cuadrado del periodo orbital (el tiempo que tarda en dar una vuelta) es proporcional al cubo de su distancia promedio al Sol. Es como un reloj cósmico donde cada engranaje está perfectamente ajustado. Si conocemos a qué distancia está un satélite o un planeta, podemos predecir con precisión de milisegundos dónde estará en el futuro. En este Modo Supervivencia, usar esta ley nos permite prever las tormentas solares y los eclipses que podrían dejar a Metrópolis a oscuras. La ciencia no es solo teoría; es el manual de instrucciones para que nuestra civilización no se pierda en el vacío eterno. Detective, los datos están sobre la mesa. Analice las elipses, calcule las velocidades y asegure que el reloj de Kepler siga marcando el ritmo de nuestra supervivencia en esta Metrópolis del Futuro.",
+  "recurso_visual": "graph TD\n    A[Leyes de Kepler] --> B[1ra Ley: Órbitas]\n    B --> B1(Trayectoria Elíptica)\n    B --> B2(Sol en un Foco)\n    A --> C[2da Ley: Áreas]\n    C --> C1(Velocidad Variable)\n    C --> C2(Áreas iguales en tiempos iguales)\n    A --> D[3ra Ley: Periodos]\n    D --> D1(Relación Matemática: T^2 / r^3)\n    D --> D2(Sincronización del Sistema Solar)",
+  "preguntas_inductivas_pagina": [
+    "¿Por qué Kepler descartó la idea de que las órbitas eran círculos perfectos?",
+    "¿Qué nombre recibe el punto de la órbita donde un planeta está más cerca del Sol?",
+    "Según la Segunda Ley, ¿en qué parte de su órbita se mueve un planeta con mayor rapidez?",
+    "¿Qué relación matemática establece la Tercera Ley de Kepler entre el tiempo y la distancia?",
+    "¿Cómo ayuda la comprensión de estas leyes a la supervivencia de Metrópolis 2099?"
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Diseña un esquema detallado de una órbita elíptica señalando los focos, el eje mayor, el perihelio y el afelio.",
+    "Realiza un cuadro comparativo entre el movimiento de un planeta cuando está cerca del sol (perihelio) y cuando está lejos (afelio), mencionando velocidad y fuerza.",
+    "Escribe un informe de detective de 15 líneas explicando por qué la Segunda Ley de Kepler es vital para la gestión de energía en la Metrópolis.",
+    "Representa gráficamente la Segunda Ley de Kepler usando el concepto de 'barrido de áreas' en un diagrama a color."
+  ],
+  "juegos_ordenar_letras_1": [
+    "ELIPSE",
+    "AFELIO",
+    "PERIODO"
+  ],
+  "juego_ordenar_frase_1": "LOS PLANETAS DESCRIBEN ORBITAS ELIPTICAS ALREDEDOR DEL SOL",
+  "texto_deductivo": "**PROTOCOLO DE FUERZA: EL MOTOR DE LA METRÓPOLIS**\n\nAgente, ha comprendido cómo se mueven los planetas, pero un detective de misterios no se detiene en el 'cómo'; necesita saber el 'por qué'. Kepler describió el movimiento, pero fue Sir Isaac Newton quien descubrió el 'motor' invisible que impulsa esta maquinaria cósmica. En la Metrópolis del Futuro, entender la **Ley de Gravitación Universal** es la diferencia entre mantener nuestros satélites en órbita o verlos caer como meteoritos sobre los rascacielos de neón. Newton dedujo que la misma fuerza que hace caer una manzana en la Tierra es la que mantiene a la Luna encadenada a nuestro planeta y a la Tierra prisionera del Sol.\n\nLa gravedad es una fuerza de atracción que actúa entre todos los objetos con masa. Newton formuló que esta fuerza es directamente proporcional al producto de las masas de los cuerpos e inversamente proporcional al cuadrado de la distancia que los separa. Matemáticamente: F = G * (m1 * m2) / r². Esta fórmula es el código fuente del universo. Si la masa de un planeta aumenta, la atracción es más fuerte. Pero si la distancia aumenta, la fuerza disminuye drásticamente. En nuestra misión de supervivencia, debemos calcular estas fuerzas con precisión extrema. Si movemos una estación espacial al doble de la distancia actual de la Tierra, la fuerza de gravedad que sentirá no será la mitad, sino ¡una cuarta parte! Este es el peligro del 'cuadrado inverso'.\n\n¿Pero por qué los planetas no caen directamente hacia el Sol si existe esta atracción? Aquí es donde entra en juego la **Inercia**. Un planeta en movimiento tiende a seguir en línea recta hacia el espacio profundo, pero la gravedad del Sol lo 'jala' constantemente hacia el centro. El resultado de este forcejeo eterno entre la inercia (querer irse) y la gravedad (querer caer) es la órbita. Es como un detective persiguiendo a un sospechoso en una esquina: la velocidad te lleva hacia adelante, pero el giro te mantiene en la ruta. En Metrópolis, nuestros ingenieros usan este equilibrio para posicionar los espejos orbitales. Si la velocidad es muy baja, el espejo se quema en la atmósfera; si es muy alta, se pierde en el vacío.\n\nAdemás, Newton demostró que las leyes de Kepler no eran simples curiosidades, sino consecuencias lógicas de la gravedad. La elipse se forma porque la fuerza de gravedad varía según la distancia. La aceleración en el perihelio ocurre porque la atracción solar es máxima allí, 'robando' energía potencial y convirtiéndola en energía cinética. Por el contrario, al alejarse hacia el afelio, el planeta debe 'luchar' contra la gravedad, perdiendo velocidad. Este baile de energías es lo que mantiene el equilibrio del sistema solar. Para sobrevivir en el Modo Supervivencia, usted debe ver la gravedad no como una carga, sino como la cuerda invisible que mantiene unido nuestro hogar. Sin Newton, las leyes de Kepler serían solo observaciones; con él, son herramientas de ingeniería para dominar el espacio y asegurar que Metrópolis nunca deje de girar.",
+  "preguntas_deductivas_pagina": [
+    "¿Qué factores determinan la intensidad de la fuerza gravitatoria entre dos objetos?",
+    "Si la distancia entre dos cuerpos se triplica, ¿qué ocurre con la fuerza de atracción?",
+    "¿Cuál es la función de la Inercia en el mantenimiento de una órbita estable?",
+    "¿Cómo explicó Newton la aceleración de los planetas que Kepler observó en su Segunda Ley?",
+    "¿Qué sucedería con la órbita de la Tierra si el Sol desapareciera instantáneamente?"
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Realiza un diagrama detallado que muestre las fuerzas de Gravedad e Inercia actuando sobre un satélite de Metrópolis.",
+    "Elabora un mapa mental que conecte los conceptos de Masa, Distancia, Fuerza Gravitacional y Órbita.",
+    "Dibuja una escena explicativa donde se compare la caída de un objeto en la Metrópolis con el movimiento de la Luna.",
+    "Crea una infografía artesanal que explique la fórmula de la Gravitación Universal usando iconos y ejemplos futuristas."
+  ],
+  "juegos_ordenar_letras_2": [
+    "GRAVEDAD",
+    "NEWTON",
+    "INERCIA"
+  ],
+  "juego_ordenar_frase_2": "LA GRAVEDAD ES UNA FUERZA QUE ATRAE A TODOS LOS CUERPOS CON MASA",
+  "sopa_letras": [
+    "GRAVEDAD",
+    "KEPLER",
+    "ELIPSE",
+    "FOCO",
+    "PERIODO",
+    "RADIO",
+    "MASA",
+    "NEWTON",
+    "ORBITA",
+    "INERCIA"
+  ],
+  "crucigrama": [
+    {
+      "palabra": "ELIPSE",
+      "pista": "Forma geométrica de la órbita planetaria."
+    },
+    {
+      "palabra": "PERIHELIO",
+      "pista": "Punto más cercano al Sol."
+    },
+    {
+      "palabra": "AFELIO",
+      "pista": "Punto más alejado del Sol."
+    },
+    {
+      "palabra": "GRAVEDAD",
+      "pista": "Fuerza de atracción universal."
+    },
+    {
+      "palabra": "INERCIA",
+      "pista": "Tendencia de los cuerpos a mantener su movimiento."
+    },
+    {
+      "palabra": "FOCO",
+      "pista": "Punto donde se sitúa el Sol en la elipse."
+    },
+    {
+      "palabra": "KEPLER",
+      "pista": "Astrónomo que formuló las leyes del movimiento orbital."
+    },
+    {
+      "palabra": "NEWTON",
+      "pista": "Científico que explicó la causa física de las órbitas."
+    }
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "En la Metrópolis del Futuro, se observa que un satélite de comunicaciones se mueve más rápido cuando pasa por un punto específico de su órbita elíptica alrededor de la Tierra.",
+      "tabla_o_grafica_markdown": "| Punto en la Órbita | Distancia a la Tierra (km) | Velocidad (km/s) |\n|---|---|---|\n| A | 40,000 | 3.1 |\n| B | 20,000 | 6.2 |",
+      "pregunta": "De acuerdo con las leyes de Kepler, ¿cuál es la razón de este cambio en la velocidad?",
+      "opciones": [
+        "En el punto B, el satélite barre áreas iguales en tiempos iguales, por lo que debe ir más rápido al estar más cerca.",
+        "La gravedad desaparece en el punto A, permitiendo que el satélite flote más lento.",
+        "El satélite consume más combustible en el punto B para no caer.",
+        "La fricción con el espacio es menor en el punto B."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. Según la Segunda Ley de Kepler, al disminuir el radio vector, la velocidad debe aumentar para barrer la misma área.",
+        "1": "Incorrecto. La gravedad no desaparece; disminuye con la distancia pero sigue actuando.",
+        "2": "Incorrecto. El cambio de velocidad es un fenómeno natural de la mecánica orbital, no depende del combustible.",
+        "3": "Incorrecto. En el vacío del espacio exterior no hay fricción significativa que cause este efecto."
+      }
+    },
+    {
+      "competencia": "Uso comprensivo del conocimiento científico",
+      "texto_introductorio": "Un ingeniero de Metrópolis quiere duplicar la distancia de un satélite respecto al centro de la Tierra para evitar una interferencia.",
+      "tabla_o_grafica_markdown": "| Situación | Distancia (r) | Fuerza (F) |\n|---|---|---|\n| Actual | R | F |\n| Nueva | 2R | ? |",
+      "pregunta": "¿Qué ocurrirá con la fuerza de atracción gravitacional sobre el satélite?",
+      "opciones": [
+        "La fuerza se reducirá a la mitad (F/2).",
+        "La fuerza se reducirá a la cuarta parte (F/4).",
+        "La fuerza se duplicará (2F).",
+        "La fuerza se mantendrá igual."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. La relación no es lineal, sino inversamente proporcional al cuadrado de la distancia.",
+        "1": "Correcto. Al ser inversamente proporcional al cuadrado (2^2 = 4), la fuerza disminuye 4 veces.",
+        "2": "Incorrecto. Al aumentar la distancia, la fuerza siempre disminuye.",
+        "3": "Incorrecto. La gravedad depende críticamente de la distancia entre los centros de masa."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "Un grupo de estudiantes de la Metrópolis analiza la relación entre el tiempo que tardan varios planetas en dar la vuelta al Sol y su distancia promedio.",
+      "tabla_o_grafica_markdown": "| Planeta | Distancia Media (UA) | Periodo (Años) | T²/R³ |\n|---|---|---|---|\n| Tierra | 1 | 1 | 1 |\n| Marte | 1.52 | 1.88 | ~1 |\n| Júpiter | 5.20 | 11.86 | ~1 |",
+      "pregunta": "¿Qué conclusión científica se puede extraer al observar que el valor T²/R³ es constante para todos los planetas?",
+      "opciones": [
+        "Que los planetas más lejanos se mueven más rápido.",
+        "Que no existe ninguna relación entre la distancia y el tiempo de órbita.",
+        "Que todos los planetas del sistema están regidos por la misma ley armónica de proporcionalidad.",
+        "Que la masa de los planetas es igual en todos los casos."
+      ],
+      "correcta": 2,
+      "retroalimentacion": {
+        "0": "Incorrecto. Los planetas más lejanos tienen periodos más largos y velocidades orbitales menores.",
+        "1": "Incorrecto. La tabla muestra claramente una relación matemática constante.",
+        "2": "Correcto. Es la base de la Tercera Ley de Kepler, que demuestra la armonía y unidad del sistema solar.",
+        "3": "Incorrecto. La tercera ley de Kepler es independiente de la masa del planeta (siempre que sea mucho menor que la del Sol)."
+      }
+    }
+  ]
+}

@@ -1,0 +1,188 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Cuál es la forma que crees que tienen las órbitas de los planetas alrededor del Sol?",
+      "opciones": [
+        "Círculo perfecto",
+        "Óvalo o Elipse",
+        "Línea recta",
+        "Cuadrado"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Qué fuerza mantiene a los planetas 'atados' al Sol?",
+      "opciones": [
+        "Magnetismo",
+        "Electricidad",
+        "Gravedad",
+        "Viento solar"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "¿Quién es el científico más famoso por proponer que la Tierra gira alrededor del Sol?",
+      "opciones": [
+        "Aristóteles",
+        "Copérnico",
+        "Newton",
+        "Einstein"
+      ],
+      "correcta": 1
+    }
+  ],
+  "texto_inductivo": "¡Hola, hola, exploradores del cosmos! Bienvenidos a un nuevo video de nuestra serie **Expedición en la Selva de la Ciencia**. Yo soy su guía, y hoy estamos abriendo camino con machete en mano a través de la densa maleza de la ignorancia para llegar a un claro del bosque donde la verdad brilla como el sol de mediodía. Hoy vamos a desmentir uno de los mitos más antiguos y persistentes de la historia: **'Los planetas se mueven en círculos perfectos alrededor del Sol'**. \n\nImaginen que estamos caminando por esta selva y encontramos un antiguo templo. En las paredes, los antiguos exploradores dibujaron el sistema solar. Durante miles de años, personas muy inteligentes como Platón y Aristóteles pensaron que el cielo era el reino de la perfección. Y para ellos, ¿qué hay más perfecto que un círculo? Pensaban que, si Dios o la naturaleza habían creado el universo, los planetas debían moverse en trayectorias circulares impecables. Esta idea era tan fuerte que, incluso cuando los datos no coincidían, los científicos inventaban 'círculos dentro de círculos' (llamados epiciclos) para que todo encajara. ¡Era como tratar de caminar por la selva siguiendo una línea recta perfecta! Es imposible, ¿verdad? Siempre hay un árbol o una roca en el camino.\n\nPero entonces, apareció un explorador rebelde llamado Johannes Kepler. Kepler no estaba en un laboratorio cómodo; él estaba analizando los datos recolectados por Tycho Brahe, un astrónomo que pasó años mirando las estrellas. Kepler se dio cuenta de algo que rompió el corazón de los amantes de la perfección: Marte no se movía en un círculo. Por más que intentaba ajustar los círculos, siempre sobraba un pequeño margen de error. Kepler tuvo el valor de decir: 'Oigan, tal vez no son círculos'. \n\nLo que descubrió Kepler es que los planetas se mueven en **elipses**. Una elipse es básicamente un círculo que alguien se sentó encima y lo aplastó un poquito. Tiene dos puntos especiales llamados 'focos'. El Sol no está en el centro exacto de la órbita, sino en uno de esos focos. ¡Boom! Mito destruido. En nuestra expedición, esto es como descubrir que los senderos de los animales no son rectos, sino que siguen curvas naturales dictadas por el terreno. \n\nEntender esto cambió todo. Si los planetas se mueven en elipses, significa que a veces están más cerca del Sol y a veces más lejos. Cuando están más cerca (perihelio), el planeta va más rápido, como si estuviera bajando una colina en la selva. Cuando está más lejos (afelio), va más lento, como si estuviera subiendo una cuesta empinada. Esta es la **Primera Ley de Kepler**. No es la 'perfección geométrica' lo que manda, sino las leyes de la física que se adaptan a la realidad. Así que, la próxima vez que veas un dibujo del sistema solar con círculos perfectos, recuerda: la naturaleza prefiere la elipse, una forma mucho más dinámica y real. ¡Sigamos explorando, porque esta selva apenas comienza a revelarnos sus secretos!",
+  "recurso_visual": "graph TD\n    A[Mito: Órbitas Circulares] -->|Evidencia: Datos de Marte| B(Johannes Kepler)\n    B --> C{Descubrimiento}\n    C --> D[Órbitas Elípticas]\n    D --> E[El Sol está en un Foco]\n    D --> F[Velocidad Variable]\n    F --> G[Cerca del Sol: Rápido]\n    F --> H[Lejos del Sol: Lento]",
+  "preguntas_inductivas_pagina": [
+    "¿Por qué los antiguos griegos creían que las órbitas debían ser circulares?",
+    "¿Qué nombre recibe la figura geométrica que realmente describen los planetas?",
+    "¿Quién fue el astrónomo que proporcionó los datos que Kepler analizó?",
+    "¿En qué posición exacta se encuentra el Sol dentro de la elipse planetaria?",
+    "¿Qué sucede con la velocidad de un planeta cuando se acerca al Sol?"
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema del Sol y la órbita de un planeta, señalando los focos, el perihelio y el afelio.",
+    "Realiza un cuadro comparativo entre el modelo de órbitas circulares (mito) y el modelo de órbitas elípticas (realidad).",
+    "Escribe una reflexión de 10 renglones sobre por qué crees que a los humanos nos cuesta tanto abandonar ideas que parecen 'perfectas' aunque los hechos digan lo contrario.",
+    "Representa gráficamente mediante un dibujo cómo te imaginas a Kepler analizando los datos de las estrellas en medio de la selva del conocimiento."
+  ],
+  "juegos_ordenar_letras_1": [
+    "ELIPSE",
+    "KEPLER",
+    "ORBITA"
+  ],
+  "juego_ordenar_frase_1": "LAS ORBITAS DE LOS PLANETAS SON ELIPTICAS Y NO CIRCULARES",
+  "texto_deductivo": "¡Increíble trabajo, equipo de expedición! Ya hemos derribado el mito de los círculos perfectos, pero ahora nos enfrentamos a un desafío mayor en esta selva de conceptos: ¿Por qué diablos se mueven así? Para entender esto, debemos encontrar el 'Mecanismo Oculto', y para eso necesitamos a otro gigante de la ciencia: Sir Isaac Newton. \n\nSi Kepler nos dijo 'cómo' se mueven los planetas (en elipses), Newton nos explicó el 'porqué'. Imaginen que estamos en el dosel de la selva y lanzamos una fruta hacia adelante. La fruta no sigue una línea recta infinita por el espacio; cae al suelo. ¿Por qué? Por la gravedad. Ahora, imaginen que lanzamos esa fruta con una fuerza descomunal, tan fuerte que mientras cae, la curvatura de la Tierra se aleja de ella. ¡La fruta nunca tocaría el suelo! Estaría 'cayendo' perpetuamente alrededor de la Tierra. Eso es, en esencia, una órbita.\n\nNewton unió los puntos. Se dio cuenta de que la misma fuerza que hace caer una manzana en su jardín es la que mantiene a la Luna dando vueltas a la Tierra y a la Tierra dando vueltas al Sol. Esta es la **Ley de Gravitación Universal**. El mito popular aquí es pensar que 'en el espacio no hay gravedad'. ¡Falso! Si no hubiera gravedad, los planetas saldrían disparados en línea recta hacia lo profundo de la selva galáctica, perdiéndose para siempre. La gravedad es el hilo invisible que actúa como un lazo, manteniendo a los planetas en su lugar.\n\nPero aquí viene lo interesante: la fuerza de gravedad depende de dos cosas: la masa de los objetos y la distancia entre ellos. Entre más masa, más atracción (como un imán gigante). Entre más distancia, menos atracción. Esto explica perfectamente por qué las órbitas son elípticas y no círculos estáticos. Cuando un planeta está en su punto más cercano al Sol (foco de atracción), la gravedad es más fuerte, lo que lo acelera. Esa velocidad extra le da el impulso para alejarse de nuevo, pero no lo suficiente para escapar del todo.\n\nEs un baile cósmico de equilibrio. Por un lado, el planeta tiene 'inercia' (quiere seguir de largo en línea recta). Por otro lado, el Sol lo jala hacia adentro con la 'gravedad'. La órbita elíptica es el resultado de esa lucha constante. Si la gravedad ganara por mucho, el planeta se estrellaría contra el Sol. Si la inercia ganara, el planeta se fugaría de la selva solar. El movimiento planetario es una revisión constante de fuerzas. Newton usó las matemáticas para demostrar que la elipse de Kepler no era un capricho de la naturaleza, sino una consecuencia lógica de una fuerza que disminuye con el cuadrado de la distancia. Así que, exploradores, la próxima vez que miren las estrellas, no vean solo puntos brillantes; vean una red invisible de fuerzas jalando y empujando en un equilibrio perfecto que ha durado miles de millones de años.",
+  "preguntas_deductivas_pagina": [
+    "¿Qué fuerza es la responsable de mantener a los planetas en órbita?",
+    "¿De qué dos factores depende la fuerza de gravedad según Newton?",
+    "¿Qué pasaría con un planeta si la gravedad del Sol desapareciera de repente?",
+    "¿Por qué se dice que un planeta en órbita está 'cayendo' constantemente?",
+    "¿Cómo afecta la distancia a la fuerza de atracción gravitacional?"
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Realiza un diagrama detallado que muestre la relación entre la fuerza de inercia y la fuerza de gravedad en un planeta en órbita.",
+    "Elabora un mapa mental que conecte los descubrimientos de Kepler con las leyes de Newton.",
+    "Dibuja una infografía donde expliques por qué los astronautas en la estación espacial parecen flotar si la gravedad sí existe en el espacio.",
+    "Realiza un dibujo explicativo de la 'manzana de Newton' comparada con el movimiento de la Luna."
+  ],
+  "juegos_ordenar_letras_2": [
+    "GRAVEDAD",
+    "INERCIA",
+    "NEWTON"
+  ],
+  "juego_ordenar_frase_2": "LA GRAVEDAD ES LA FUERZA QUE MANTIENE EL EQUILIBRIO COSMICO",
+  "sopa_letras": [
+    "ELIPSE",
+    "SOL",
+    "PLANETA",
+    "FOCO",
+    "KEPLER",
+    "NEWTON",
+    "ORBITA",
+    "FUERZA",
+    "MASA",
+    "INERCIA"
+  ],
+  "crucigrama": [
+    {
+      "palabra": "ELIPSE",
+      "pista": "Forma geométrica de la órbita de los planetas."
+    },
+    {
+      "palabra": "GRAVEDAD",
+      "pista": "Fuerza de atracción entre dos cuerpos con masa."
+    },
+    {
+      "palabra": "KEPLER",
+      "pista": "Científico que descubrió las tres leyes del movimiento planetario."
+    },
+    {
+      "palabra": "NEWTON",
+      "pista": "Formuló la ley de gravitación universal."
+    },
+    {
+      "palabra": "PERIHELIO",
+      "pista": "Punto de la órbita más cercano al Sol."
+    },
+    {
+      "palabra": "AFELIO",
+      "pista": "Punto de la órbita más alejado del Sol."
+    },
+    {
+      "palabra": "INERCIA",
+      "pista": "Tendencia de los objetos a mantener su estado de movimiento."
+    },
+    {
+      "palabra": "FOCO",
+      "pista": "Uno de los dos puntos internos de una elipse."
+    },
+    {
+      "palabra": "MASA",
+      "pista": "Cantidad de materia de un cuerpo, clave para la gravedad."
+    },
+    {
+      "palabra": "ASTROS",
+      "pista": "Cuerpos celestes que pueblan el universo."
+    }
+  ],
+  "icfes": [
+    {
+      "competencia": "Uso comprensivo del conocimiento científico",
+      "texto_introductorio": "Un estudiante observa un diagrama del sistema solar donde los planetas están a distancias iguales y se mueven en círculos perfectos. Al recordar las leyes de Kepler, nota que el diagrama es incorrecto.",
+      "tabla_o_grafica_markdown": "| Modelo | Trayectoria | Velocidad |\n|---|---|---|\n| A | Círculo | Constante |\n| B | Elipse | Variable |",
+      "pregunta": "De acuerdo con lo aprendido en la expedición, ¿cuál es el modelo correcto y por qué?",
+      "opciones": [
+        "El Modelo B, porque la distancia al Sol varía y esto cambia la velocidad.",
+        "El Modelo A, porque la perfección del universo exige círculos.",
+        "El Modelo B, porque los planetas siempre se mueven a la misma velocidad.",
+        "El Modelo A, porque la gravedad solo funciona en círculos."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "¡Exacto! Las órbitas elípticas implican cambios en la distancia y la velocidad.",
+        "1": "Incorrecto. Este era el mito de los antiguos griegos que ya desmentimos.",
+        "2": "Incorrecto. En una elipse, la velocidad aumenta al acercarse al Sol.",
+        "3": "Incorrecto. La gravedad genera trayectorias cónicas, siendo la elipse la más común para órbitas cerradas."
+      }
+    },
+    {
+      "competencia": "Explicación de fenómenos",
+      "texto_introductorio": "Imagina que un satélite está orbitando la Tierra. Si de repente la masa de la Tierra se duplicara mágicamente sin cambiar su tamaño...",
+      "tabla_o_grafica_markdown": "| Variable | Efecto de duplicar masa |\n|---|---|\n| Gravedad | Aumenta |\n| Inercia | Se mantiene |",
+      "pregunta": "¿Qué le sucedería a la órbita del satélite?",
+      "opciones": [
+        "El satélite saldría volando al espacio exterior.",
+        "El satélite sería atraído con más fuerza hacia la Tierra y podría caer.",
+        "El satélite seguiría en la misma órbita sin cambios.",
+        "El satélite se detendría en seco."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. Eso pasaría si la gravedad disminuyera.",
+        "1": "¡Correcto! A mayor masa, mayor fuerza de gravedad, lo que jalaría al satélite hacia el centro.",
+        "2": "Incorrecto. La gravedad depende directamente de la masa.",
+        "3": "Incorrecto. Las fuerzas en el espacio no detienen los objetos así, cambian su trayectoria."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "En la selva, Kepler observó los siguientes datos sobre dos planetas hipotéticos que orbitan la misma estrella:",
+      "tabla_o_grafica_markdown": "| Planeta | Distancia Media (UA) | Tiempo de órbita (Años) |\n|---|---|---|\n| X | 1 | 1 |\n| Y | 4 | 8 |",
+      "pregunta": "¿Qué conclusión se puede sacar sobre la relación entre la distancia y el tiempo de órbita?",
+      "opciones": [
+        "A menor distancia, más tiempo tarda en dar la vuelta.",
+        "La distancia no afecta el tiempo de la órbita.",
+        "A mayor distancia de la estrella, más tiempo le toma completar su órbita.",
+        "Todos los planetas tardan lo mismo sin importar la distancia."
+      ],
+      "correcta": 2,
+      "retroalimentacion": {
+        "0": "Incorrecto. Los datos muestran que el planeta más cercano (X) tarda menos.",
+        "1": "Incorrecto. Claramente, los tiempos son diferentes en la tabla.",
+        "2": "¡Correcto! Es una observación de la tercera ley de Kepler: órbitas más grandes toman más tiempo.",
+        "3": "Incorrecto. Los planetas exteriores tienen 'años' mucho más largos que los interiores."
+      }
+    }
+  ]
+}

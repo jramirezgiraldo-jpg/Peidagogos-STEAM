@@ -1,0 +1,188 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "En medio del desierto de ceniza, observas que los planetas no caen sobre nosotros. ¿Cuál es la razón principal según los antiguos textos?",
+      "opciones": [
+        "Están sostenidos por hilos invisibles de éter",
+        "La inercia y la fuerza gravitacional están en equilibrio",
+        "La atmósfera tóxica genera una presión hacia arriba",
+        "Los dioses de la chatarra así lo decretaron"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Qué forma tiene la órbita de los restos del satélite lunar que vemos cada noche?",
+      "opciones": [
+        "Círculo perfecto",
+        "Línea recta",
+        "Elipse",
+        "Parábola descendente"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "Si un planeta se aleja del sol en su punto más lejano (afelio), ¿qué sucede con su velocidad orbital?",
+      "opciones": [
+        "Aumenta drásticamente",
+        "Se mantiene constante",
+        "Disminuye",
+        "Se detiene por completo"
+      ],
+      "correcta": 2
+    }
+  ],
+  "texto_inductivo": "¡Escuchen bien, ratas de laboratorio y carroñeros del baldío! Soy el Dr. Vólkov, y si quieren sobrevivir a la próxima alineación de los 'Errantes de Fuego', más vale que limpien sus oídos de radiación. El cielo que ven hoy no es el mismo que veían los Ancestros antes del Gran Colapso, pero las leyes que lo gobiernan son tan inmutables como mi odio por los mutantes de la superficie. Durante siglos, la humanidad vivió bajo un cielo azul, ignorando la danza mecánica que ocurría sobre sus cabezas. Pero nosotros, los que habitamos las ruinas de la civilización, sabemos que entender el movimiento planetario es la diferencia entre predecir una lluvia de meteoritos de iridio o morir aplastado por la ignorancia.\n\nTodo comenzó con un hombre llamado Johannes Kepler, un visionario que trabajó con los datos del excéntrico Tycho Brahe. Brahe era un loco maravilloso que medía el cielo con instrumentos de metal antes de que los telescopios fueran comunes. Kepler, usando esos datos, destruyó la idea de que los planetas se movían en círculos perfectos. ¡Círculos! ¡Qué arrogancia divina! La realidad es más sucia, más elíptica. Su **Primera Ley** nos dice que los planetas orbitan el Sol en elipses, con el Sol en uno de los focos. ¿Saben lo que eso significa para nuestras estaciones ácidas? Significa que la distancia varía, y con ella, nuestra esperanza de vida.\n\nLuego vino su **Segunda Ley**, la Ley de las Áreas. Kepler descubrió que una línea imaginaria que conecta a un planeta con el Sol barre áreas iguales en tiempos iguales. ¡Es pura magia matemática! Cuando el planeta está cerca del Sol (perihelio), vuela como un proyectil de cañón electromagnético; cuando está lejos (afelio), se arrastra como un explorador herido en el fango. Esta variación de velocidad es lo que mantiene la estabilidad del sistema. Si el planeta no acelerara al acercarse, la gravedad del Sol lo devoraría. Si no frenara al alejarse, se perdería en el vacío gélido del espacio profundo.\n\nFinalmente, la **Tercera Ley**, o Ley Armónica, relaciona el tiempo que tarda un planeta en dar una vuelta completa con su distancia media al Sol. El cuadrado del periodo orbital es proporcional al cubo del semieje mayor. ¡Pum! Una fórmula que conecta a todos los mundos bajo una misma regla. No importa si es un planetoide de chatarra o un gigante gaseoso, todos bailan al mismo ritmo dictado por la geometría. Entender esto no es solo ciencia, es nuestro mapa de navegación en un universo que parece haber olvidado nuestro nombre. En este mundo post-apocalíptico, la observación del cielo es nuestra única brújula. Si logramos explicar por qué Marte parece retroceder en el cielo (el movimiento retrógrado), podremos entender que no es un mal augurio, sino una simple cuestión de perspectivas y velocidades relativas entre órbitas. ¡Estudien las elipses o prepárense para el colapso total!",
+  "recurso_visual": "graph TD\n    A[Sol en un Foco] --> B(Órbita Elíptica)\n    B --> C{Leyes de Kepler}\n    C --> D[1ra: Ley de las Órbitas - Elipses]\n    C --> E[2da: Ley de las Áreas - Velocidad Variable]\n    C --> F[3ra: Ley Armónica - T^2 proporcional a R^3]\n    D --> G[Perihelio: Más cerca/Rápido]\n    D --> H[Afelio: Más lejos/Lento]",
+  "preguntas_inductivas_pagina": [
+    "¿Por qué Kepler rechazó la idea de las órbitas circulares perfectas?",
+    "¿Qué sucede con la velocidad de un planeta cuando se acerca al foco donde está el Sol?",
+    "¿Cómo definirías una elipse en términos de sus focos?",
+    "¿Qué relación matemática establece la Tercera Ley de Kepler?",
+    "¿Por qué es vital conocer el perihelio en nuestro contexto de supervivencia?"
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema detallado de una órbita elíptica, marcando el Sol, los focos, el perihelio, el afelio y el vector de velocidad en ambos puntos.",
+    "Realiza un cuadro comparativo entre el modelo geocéntrico (antiguo) y el modelo heliocéntrico de Kepler, destacando la forma de las órbitas.",
+    "Escribe una reflexión de 15 líneas sobre cómo cambiaría nuestra percepción del tiempo si la Tierra tuviera una órbita mucho más excéntrica (alargada).",
+    "Representa gráficamente la Segunda Ley de Kepler, sombreando dos sectores de la elipse que representen 'áreas iguales' recorridas en diferentes tiempos."
+  ],
+  "juegos_ordenar_letras_1": [
+    "ELIPSE",
+    "AFELIO",
+    "GRAVEDAD"
+  ],
+  "juego_ordenar_frase_1": "EL CUADRADO DEL PERIODO ORBITAL ES SIEMPRE PROPORCIONAL AL CUBO DE LA DISTANCIA MEDIA AL SOL",
+  "texto_deductivo": "¡Atención, reclutas del fin del mundo! Ya hemos visto cómo se mueven los planetas, pero ahora vamos a destripar el *por qué*. ¿Qué fuerza invisible mantiene a estos colosos en su lugar mientras nosotros luchamos por un bidón de agua potable? La respuesta la tiene el gran alquimista del pasado, Isaac Newton. Newton no solo miró las manzanas caer de los árboles mutados, él entendió que la misma fuerza que atrae una piedra al suelo es la que mantiene a la Luna encadenada a la Tierra. La **Ley de Gravitación Universal** es el pilar de nuestra comprensión del fenómeno extraño de la estabilidad orbital.\n\nEsta ley establece que cada partícula de materia en el universo atrae a toda otra partícula con una fuerza que es directamente proporcional al producto de sus masas e inversamente proporcional al cuadrado de la distancia que las separa. ¡Es una danza de masas y distancias! Si duplicas la masa de un planeta, la atracción se duplica. Pero si duplicas la distancia, la atracción cae a una cuarta parte. Esto explica por qué el Sol, a pesar de estar tan lejos, domina el sistema: su masa es monstruosa, un titán de fuego que curva el espacio-tiempo a su alrededor.\n\nAhora, expliquemos el 'fenómeno extraño': ¿Por qué los planetas no caen hacia el Sol si existe esta atracción masiva? Aquí entra el concepto de **fuerza centrípeta** y velocidad orbital. Imaginen que lanzan una granada de fragmentación. Cae al suelo por la gravedad. Si la lanzan más fuerte, llega más lejos. Si la lanzaran con una velocidad tal que la curva de su caída coincidiera exactamente con la curvatura de la Tierra, la granada nunca tocaría el suelo. ¡Estaría en órbita! Los planetas están, literalmente, cayendo perpetuamente hacia el Sol, pero se mueven tan rápido de forma lateral que 'fallan' el golpe y terminan dando vueltas. \n\nEl movimiento planetario es un equilibrio precario. La inercia del planeta quiere llevarlo en línea recta hacia el vacío oscuro, mientras que la gravedad solar lo jala hacia el centro ardiente. El resultado es la órbita. Si la Tierra se detuviera por un solo segundo, seríamos incinerados en el núcleo solar. Si la gravedad desapareciera, saldríamos disparados hacia las estrellas fijas a velocidades suicidas. Este mecanismo explica también las mareas en nuestros océanos de mercurio y las perturbaciones en las órbitas de los cometas que cruzan nuestro cielo radioactivo. La gravedad es la cadena invisible que mantiene el orden en este caos post-apocalíptico. Entender la constante de gravitación (G) es entender el código fuente de la realidad física. ¡No se dejen engañar por charlatanes que hablan de fuerzas místicas; todo es masa, distancia y aceleración!",
+  "preguntas_deductivas_pagina": [
+    "¿Qué variables determinan la magnitud de la fuerza gravitacional entre dos cuerpos?",
+    "¿Por qué la fuerza de gravedad disminuye tan rápidamente al aumentar la distancia?",
+    "¿Qué pasaría con la fuerza gravitacional si la masa de la Tierra se redujera a la mitad súbitamente?",
+    "¿Cuál es el papel de la inercia en el mantenimiento de una órbita estable?",
+    "¿Cómo explica la Ley de Newton la forma elíptica que descubrió Kepler?"
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Diseña un diagrama de vectores de fuerza para un planeta en órbita, mostrando la fuerza gravitacional y la velocidad tangencial.",
+    "Elabora un mapa mental que conecte la Ley de Gravitación Universal con las tres leyes de Kepler.",
+    "Realiza un dibujo explicativo de la 'caída perpetua' de la Luna alrededor de la Tierra, usando el experimento mental del cañón de Newton.",
+    "Crea una infografía artesanal que explique por qué los astronautas (o los restos de la estación espacial que vemos) parecen no tener peso aunque la gravedad actúe sobre ellos."
+  ],
+  "juegos_ordenar_letras_2": [
+    "NEWTON",
+    "INERCIA",
+    "MASA"
+  ],
+  "juego_ordenar_frase_2": "LA FUERZA DE GRAVEDAD DISMINUYE CON EL CUADRADO DE LA DISTANCIA ENTRE LOS CENTROS DE LOS CUERPOS",
+  "sopa_letras": [
+    "KEPLER",
+    "ORBITA",
+    "GRAVEDAD",
+    "ELIPSE",
+    "PERIODO",
+    "INERCIA",
+    "NEWTON",
+    "MASA",
+    "FOCO",
+    "RADIO"
+  ],
+  "crucigrama": [
+    {
+      "palabra": "PERIHELIO",
+      "pista": "Punto de la órbita más cercano al sol donde el planeta corre como alma que lleva el diablo."
+    },
+    {
+      "palabra": "AFELIO",
+      "pista": "Punto más alejado del sol en una órbita elíptica."
+    },
+    {
+      "palabra": "INERCIA",
+      "pista": "Tendencia de los cuerpos a mantener su estado de movimiento, ignorada por los que mueren en colisiones."
+    },
+    {
+      "palabra": "ELIPSE",
+      "pista": "Figura geométrica de las órbitas, no es un círculo, supérenlo."
+    },
+    {
+      "palabra": "NEWTON",
+      "pista": "Científico que explicó la causa física del movimiento de los astros."
+    },
+    {
+      "palabra": "MASA",
+      "pista": "Cantidad de materia que determina qué tan fuerte te jala un planeta."
+    },
+    {
+      "palabra": "GRAVEDAD",
+      "pista": "La fuerza invisible que evita que salgamos flotando al vacío radiactivo."
+    },
+    {
+      "palabra": "KEPLER",
+      "pista": "Alemán que descubrió las tres leyes del movimiento planetario."
+    },
+    {
+      "palabra": "DISTANCIA",
+      "pista": "Variable que al aumentar reduce drásticamente la atracción gravitatoria."
+    },
+    {
+      "palabra": "ORBITAL",
+      "pista": "Tipo de velocidad necesaria para no caer al sol."
+    }
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "En el sector 7 del baldío, se observa que un satélite artificial antiguo parece moverse más rápido cuando su órbita lo acerca a la densa capa de nubes de la Tierra y más lento cuando se aleja hacia el espacio exterior.",
+      "tabla_o_grafica_markdown": "| Posición | Distancia al Centro (km) | Velocidad (km/s) |\n|---|---|---|\n| A (Cerca) | 6.500 | 7.8 |\n| B (Lejos) | 10.000 | 5.5 |",
+      "pregunta": "¿Cuál es la explicación científica para este fenómeno observado por los carroñeros?",
+      "opciones": [
+        "El satélite usa combustible extra para no caer al entrar en la atmósfera",
+        "Según la Segunda Ley de Kepler, el radio vector debe barrer áreas iguales en tiempos iguales, aumentando la velocidad al disminuir la distancia",
+        "La fricción con el aire radiactivo impulsa al satélite hacia adelante aumentando su energía",
+        "La gravedad terrestre deja de funcionar a grandes distancias"
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. Los satélites en órbita pasiva no consumen combustible para variar su velocidad de esa forma.",
+        "1": "Correcto. La conservación del momento angular implica que a menor radio, mayor velocidad tangencial.",
+        "2": "Incorrecto. La fricción genera pérdida de energía y eventualmente la caída, no un aumento de velocidad orbital estable.",
+        "3": "Incorrecto. La gravedad tiene alcance infinito, aunque su intensidad disminuya."
+      }
+    },
+    {
+      "competencia": "Uso Comprensivo del Conocimiento Científico",
+      "texto_introductorio": "Si lográramos encontrar un nuevo planeta habitable con el doble de la masa de la Tierra pero con el mismo radio, nuestro peso se vería afectado drásticamente.",
+      "tabla_o_grafica_markdown": "| Planeta | Masa (M) | Radio (R) | Gravedad (g) |\n|---|---|---|---|\n| Tierra | 1 M | 1 R | 9.8 m/s² |\n| Nuevo Mundo | 2 M | 1 R | ? |",
+      "pregunta": "¿Cuál sería la aceleración de la gravedad en la superficie de ese nuevo planeta?",
+      "opciones": [
+        "4.9 m/s²",
+        "9.8 m/s²",
+        "19.6 m/s²",
+        "39.2 m/s²"
+      ],
+      "correcta": 2,
+      "retroalimentacion": {
+        "0": "Incorrecto. Eso pasaría si la masa fuera la mitad.",
+        "1": "Incorrecto. Eso pasaría si la masa fuera igual.",
+        "2": "Correcto. Según la ley de gravitación, la gravedad es directamente proporcional a la masa. Si la masa se duplica, la gravedad se duplica.",
+        "3": "Incorrecto. Eso pasaría si el radio se redujera a la mitad."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "Un grupo de supervivientes nota que los años en el planeta rojo (Marte) son casi el doble de largos que en la Tierra. Deciden investigar la relación entre el tiempo que tarda un planeta en orbitar y su distancia al sol.",
+      "tabla_o_grafica_markdown": "| Planeta | Distancia Media (UA) | Periodo Orbital (Años) |\n|---|---|---|\n| Tierra | 1.0 | 1.0 |\n| Marte | 1.52 | 1.88 |\n| Júpiter | 5.20 | 11.86 |",
+      "pregunta": "¿Qué conclusión pueden sacar de los datos para predecir el comportamiento de un planeta aún más lejano?",
+      "opciones": [
+        "A mayor distancia, el periodo orbital aumenta de forma no lineal",
+        "La distancia no influye en el tiempo que tarda un planeta en dar la vuelta",
+        "Todos los planetas tardan lo mismo si tienen la misma masa",
+        "El periodo disminuye a medida que nos alejamos del Sol"
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. La tercera ley de Kepler (T² ∝ R³) muestra una relación creciente y no lineal.",
+        "1": "Incorrecto. Los datos muestran claramente que a mayor distancia (5.20 vs 1.0) el tiempo cambia.",
+        "2": "Incorrecto. La masa del planeta no afecta su periodo orbital según las leyes de Kepler.",
+        "3": "Incorrecto. Los datos muestran que el periodo aumenta, no disminuye."
+      }
+    }
+  ]
+}

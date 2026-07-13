@@ -1,0 +1,188 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Cuál de estos personajes propuso por primera vez de forma matemática que los planetas se mueven en elipses y no en círculos perfectos?",
+      "opciones": [
+        "Isaac Newton",
+        "Johannes Kepler",
+        "Claudio Ptolomeo",
+        "Galileo Galilei"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Qué fuerza es la responsable de mantener a los planetas en su órbita alrededor del Sol en el vacío del espacio?",
+      "opciones": [
+        "Electromagnetismo",
+        "Fuerza Nuclear Fuerte",
+        "Gravedad",
+        "Presión Atmosférica"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "En el modelo heliocéntrico, ¿qué cuerpo celeste se encuentra en el centro del sistema?",
+      "opciones": [
+        "La Tierra",
+        "La Luna",
+        "Marte",
+        "El Sol"
+      ],
+      "correcta": 3
+    }
+  ],
+  "texto_inductivo": "¡Qué tal, supervivientes de la Gran Ceniza! Aquí su YouTuber científico favorito, transmitiendo desde el Búnker 42. Si están viendo esto, es porque la antena de chatarra que armamos la semana pasada sigue funcionando. Hoy el cielo está despejado de nubes tóxicas, y eso es una señal: es hora de mirar hacia arriba. ¿Alguna vez se han preguntado por qué, a pesar de que el mundo se caiga a pedazos aquí abajo, los planetas allá arriba parecen seguir una danza perfecta y eterna? En nuestro Reto Épico de hoy, vamos a desentrañar el misterio del movimiento planetario. Imaginen que somos los últimos astrónomos de la humanidad. No tenemos telescopios de alta resolución, pero tenemos algo mejor: las leyes de la física que sobrevivieron al colapso.\n\nAntes del fin del viejo mundo, la gente creía que la Tierra era el centro de todo. Era una idea cómoda, ¿verdad? Sentir que todo gira a tu alrededor. Pero había un problema que volvía locos a los antiguos: el movimiento retrógrado. A veces, Marte parecía detenerse en el cielo y retroceder. ¡Un fallo en la Matrix! Para explicarlo, inventaron círculos dentro de círculos llamados epiciclos. Era un desastre matemático. Fue entonces cuando valientes como Copérnico dijeron: 'Oigan, ¿y si nosotros no somos el centro?'. Pero incluso él falló al pensar que las órbitas eran círculos perfectos. La perfección es una trampa, amigos. El verdadero avance llegó cuando Johannes Kepler, analizando los datos robados (o heredados, según a quién le pregunten) de Tycho Brahe, se dio cuenta de que el cielo no es perfecto, es eficiente. \n\nKepler descubrió que los planetas se mueven en elipses. Imaginen un círculo que alguien aplastó un poquito. Esto cambió todo. En nuestro contexto post-apocalíptico, entender esto es vital. Si queremos lanzar un satélite de comunicaciones para buscar otros asentamientos, o si ese 'Meteorito X' que detectamos el mes pasado viene hacia nosotros, necesitamos saber exactamente cómo se mueven los cuerpos celestes. No es solo astronomía, es supervivencia. Kepler nos dio tres herramientas, tres llaves maestras que abren las puertas del cosmos. La primera nos dice la forma del camino; la segunda, que los planetas corren más cuando están cerca del Sol (el perihelio) y se relajan cuando están lejos (el afelio); y la tercera vincula el tiempo que tardan en dar una vuelta con su distancia al Sol. \n\nPero, ¿qué mantiene a esos planetas en su carril? ¿Por qué no salen disparados como una piedra en una honda? Ahí entra Newton. Imaginen la gravedad como un hilo invisible, una cuerda que el Sol usa para balancear a la Tierra sobre el abismo. Si la cuerda es demasiado corta o la velocidad muy alta, algo sale mal. En este modo Dios, no solo vamos a observar; vamos a explicar por qué el cielo no se desploma sobre nuestras cabezas. Preparen sus cuadernos de bitácora, afilen sus lápices de grafito recuperado y prepárense para entender la mecánica de los dioses. La ciencia es la única luz que nos queda en esta oscuridad, y hoy, esa luz apunta a las estrellas.",
+  "recurso_visual": "graph TD\n    A[Movimiento Planetario] --> B[Leyes de Kepler]\n    A --> C[Ley de Gravitación de Newton]\n    B --> B1[1ra Ley: Órbitas Elípticas]\n    B --> B2[2da Ley: Áreas Iguales en Tiempos Iguales]\n    B --> B3[3ra Ley: Relación Periodo-Distancia]\n    C --> C1[Fuerza centrípeta]\n    C --> C2[Masa y Distancia]\n    B1 --> D[Sol en un foco]\n    B2 --> E[Velocidad variable]\n    B3 --> F[P^2 es proporcional a a^3]",
+  "preguntas_inductivas_pagina": [
+    "¿Por qué el modelo de epiciclos de Ptolomeo era tan complicado de mantener?",
+    "¿Qué diferencia fundamental hay entre una órbita circular y una elíptica según el texto?",
+    "¿Cómo cambia la velocidad de un planeta cuando se acerca al Sol?",
+    "¿Por qué es importante para un superviviente entender el movimiento de los astros?",
+    "¿Qué papel jugó Tycho Brahe en los descubrimientos de Kepler?"
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema de una órbita elíptica marcando los focos, el Sol, el perihelio y el afelio.",
+    "Realiza un cuadro comparativo entre el modelo Geocéntrico y el modelo Heliocéntrico, resaltando sus fallos y aciertos.",
+    "¿Crees que el descubrimiento de Kepler fue un acto de rebeldía contra las creencias de su época? Justifica tu respuesta basándote en el texto.",
+    "Representa gráficamente (mediante un dibujo artístico) la idea de Newton de la gravedad como un 'hilo invisible' que sostiene a los planetas."
+  ],
+  "juegos_ordenar_letras_1": [
+    "ELIPSE",
+    "GRAVEDAD",
+    "KEPLER"
+  ],
+  "juego_ordenar_frase_1": "LOS PLANETAS DESCRIBEN ORBITAS ELIPTICAS ALREDEDOR DEL SOL",
+  "texto_deductivo": "Bienvenidos al nivel avanzado de nuestra transmisión, supervivientes. Ya pasamos la fase de asombro, ahora vamos a los números, a la lógica pura que sostiene el tejido del espacio-tiempo. Para explicar el fenómeno extraño de por qué los planetas no se desvían de su curso, debemos zambullirnos en la deducción matemática de la mecánica celeste. El universo no es un caos caprichoso; es una máquina de precisión suiza, y nosotros somos los mecánicos tratando de entender el manual.\n\nEmpecemos con la Primera Ley de Kepler o Ley de las Órbitas. La deducción aquí es brutal: el círculo es solo un caso especial de elipse donde la excentricidad es cero. Pero la mayoría de los planetas, como nuestro hogar, tienen una excentricidad pequeña pero real. El Sol no está en el centro, está en uno de los focos. Esto significa que hay momentos del año donde estamos físicamente más cerca de la hoguera solar. ¿Por qué esto es crucial? Porque nos lleva a la Segunda Ley o Ley de las Áreas. Si trazamos una línea imaginaria entre el Sol y la Tierra, esa línea barre áreas iguales en tiempos iguales. Deduzcan esto conmigo: para que el área sea la misma cuando estamos cerca (donde el radio es corto), el planeta debe recorrer una distancia mayor en su arco orbital. Ergo, ¡el planeta acelera! Es como un patinador que encoge los brazos para girar más rápido. En el afelio, la velocidad disminuye. Si el 'Meteorito X' que mencioné antes sigue esta ley, podemos predecir cuándo pasará más rápido cerca de nosotros.\n\nAhora, la Tercera Ley o Ley Armónica es la joya de la corona. Establece que el cuadrado del periodo orbital (el tiempo que tarda en dar una vuelta) es proporcional al cubo de la distancia media al Sol (T² ∝ a³). Esta relación es una constante para todos los planetas que orbitan el mismo sol. ¿Qué significa esto en términos de deducción física? Que hay una armonía matemática que vincula a Mercurio con Neptuno. Si conocemos la distancia de un planeta, conocemos su año. Newton tomó estas leyes cinemáticas de Kepler y les dio una causa dinámica: la Gravitación Universal. Él dedujo que la fuerza que hace caer una manzana podrida en el yermo es la misma que mantiene a la Luna en su sitio. La fuerza es directamente proporcional al producto de las masas e inversamente proporcional al cuadrado de la distancia.\n\nAquí está el truco para el 'Modo Dios': si la distancia se duplica, la fuerza no se reduce a la mitad, ¡se reduce a la cuarta parte! Esta ley del inverso del cuadrado es la razón por la cual el sistema solar no se desintegra. Si la gravedad fuera un poco más débil, los planetas vagarían por el espacio interestelar; si fuera más fuerte, todos habríamos sido devorados por el Sol hace eones. En nuestro mundo post-apocalíptico, entender estas constantes nos permite calcular órbitas de transferencia para posibles misiones de rescate espacial o simplemente para saber por qué las estaciones siguen ocurriendo a pesar del desastre climático terrestre. La física es la narrativa del orden frente al caos.",
+  "preguntas_deductivas_pagina": [
+    "¿Qué sucede con la fuerza de gravedad si la distancia entre dos cuerpos se triplica?",
+    "¿En qué punto de la elipse un planeta alcanza su velocidad máxima?",
+    "Si un planeta está a 4 unidades astronómicas del Sol, ¿cuál sería su periodo orbital aproximadamente?",
+    "¿Cuál es la diferencia entre una ley cinemática (Kepler) y una ley dinámica (Newton)?",
+    "¿Por qué se dice que el círculo es un caso especial de la elipse?"
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Realiza un diagrama detallado que muestre la Segunda Ley de Kepler, sombreando las áreas barridas por el radio vector en diferentes puntos de la órbita.",
+    "Elabora un mapa mental que conecte las 3 Leyes de Kepler con la Ley de Gravitación Universal de Newton.",
+    "Dibuja un esquema explicativo del fenómeno de las mareas como consecuencia de la gravedad planetaria/lunar.",
+    "Diseña una infografía artesanal que explique paso a paso cómo calcular la masa del Sol usando la Tercera Ley de Kepler."
+  ],
+  "juegos_ordenar_letras_2": [
+    "PERIHELIO",
+    "AFELIO",
+    "EXCENTRICIDAD"
+  ],
+  "juego_ordenar_frase_2": "LA FUERZA DE GRAVEDAD DISMINUYE CON EL CUADRADO DE LA DISTANCIA",
+  "sopa_letras": [
+    "ELIPSE",
+    "FOCO",
+    "ORBITA",
+    "GRAVEDAD",
+    "PERIODO",
+    "MASA",
+    "INERCIA",
+    "SOL",
+    "PLANETA",
+    "KEPLER"
+  ],
+  "crucigrama": [
+    {
+      "palabra": "ELIPSE",
+      "pista": "Forma geométrica de la órbita de un planeta."
+    },
+    {
+      "palabra": "PERIHELIO",
+      "pista": "Punto de la órbita más cercano al Sol."
+    },
+    {
+      "palabra": "AFELIO",
+      "pista": "Punto de la órbita más alejado del Sol."
+    },
+    {
+      "palabra": "NEWTON",
+      "pista": "Científico que formuló la Ley de Gravitación Universal."
+    },
+    {
+      "palabra": "FOCO",
+      "pista": "Uno de los dos puntos internos de una elipse."
+    },
+    {
+      "palabra": "ANUAL",
+      "pista": "Tipo de movimiento que dura 365 días en la Tierra."
+    },
+    {
+      "palabra": "ASTRONOMIA",
+      "pista": "Ciencia que estudia los cuerpos celestes."
+    },
+    {
+      "palabra": "FUERZA",
+      "pista": "Magnitud física que causa la aceleración de los planetas."
+    },
+    {
+      "palabra": "METEORITO",
+      "pista": "Cuerpo rocoso que puede entrar en la órbita terrestre."
+    },
+    {
+      "palabra": "TELESCOPIO",
+      "pista": "Instrumento óptico para observar los planetas (escasos hoy)."
+    }
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "En un sistema solar lejano, se observa que un planeta X tarda mucho más tiempo en completar su órbita que el planeta Y. Ambos orbitan la misma estrella.",
+      "tabla_o_grafica_markdown": "| Planeta | Distancia Media al Sol (UA) | Periodo (Años) |\n|---|---|---|\n| Y | 1 | 1 |\n| X | 4 | ? |",
+      "pregunta": "De acuerdo con la Tercera Ley de Kepler, ¿cuál es la razón por la cual el planeta X tarda más tiempo?",
+      "opciones": [
+        "Porque al estar más lejos, su trayectoria es más larga y su velocidad es menor.",
+        "Porque su masa es mayor y requiere más energía para moverse.",
+        "Porque la gravedad de la estrella es más fuerte a mayor distancia.",
+        "Porque el planeta X gira sobre su propio eje más lentamente."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. La 3ra ley establece que a mayor distancia, el periodo orbital aumenta significativamente.",
+        "1": "Incorrecto. El periodo no depende de la masa del planeta según las leyes de Kepler.",
+        "2": "Incorrecto. La gravedad disminuye con la distancia.",
+        "3": "Incorrecto. El movimiento de rotación no afecta el periodo de traslación."
+      }
+    },
+    {
+      "competencia": "Uso Comprensivo del Conocimiento Científico",
+      "texto_introductorio": "Un satélite de reconocimiento post-apocalíptico se encuentra en una órbita elíptica alrededor de la Tierra.",
+      "tabla_o_grafica_markdown": "| Posición | Distancia a la Tierra (km) | Velocidad (km/s) |\n|---|---|---|\n| Punto A | 500 | V1 |\n| Punto B | 2000 | V2 |",
+      "pregunta": "Comparando las velocidades en el punto A (más cercano) y el punto B (más lejano), se puede afirmar que:",
+      "opciones": [
+        "V1 es igual a V2 porque la energía se conserva.",
+        "V1 es mayor que V2 según la Segunda Ley de Kepler.",
+        "V1 es menor que V2 debido a la fricción atmosférica.",
+        "La velocidad no cambia en una órbita elíptica."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. Aunque la energía se conserva, se transforma de potencial a cinética.",
+        "1": "Correcto. A menor distancia (perihelio/perigeo), la velocidad debe ser mayor para barrer áreas iguales.",
+        "2": "Incorrecto. A 500km la velocidad es mayor, no menor.",
+        "3": "Incorrecto. La velocidad es variable en órbitas elípticas."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "Un grupo de supervivientes nota que durante una época del año el Sol parece un poco más grande en el cielo que en otra época.",
+      "tabla_o_grafica_markdown": "| Mes | Diámetro Aparente del Sol |\n|---|---|\n| Enero | Máximo |\n| Julio | Mínimo |",
+      "pregunta": "¿Qué hipótesis científica explica mejor esta observación?",
+      "opciones": [
+        "El Sol crece y se encoge físicamente cada seis meses.",
+        "La Tierra se mueve en una órbita elíptica y en enero está en el perihelio.",
+        "La atmósfera tóxica actúa como una lupa en los meses de invierno.",
+        "La Tierra está escapando lentamente de la atracción solar."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. El Sol tiene un tamaño constante a escala humana.",
+        "1": "Correcto. El diámetro aparente aumenta cuando estamos más cerca (perihelio).",
+        "2": "Incorrecto. Es un fenómeno astronómico, no puramente atmosférico.",
+        "3": "Incorrecto. Si escapara, el diámetro aparente disminuiría constantemente cada año."
+      }
+    }
+  ]
+}

@@ -1,0 +1,188 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Cuál es la forma geométrica de las órbitas planetarias según el modelo heliocéntrico tradicional?",
+      "opciones": [
+        "Circular perfecta",
+        "Elíptica con el Sol en el centro",
+        "Elíptica con el Sol en uno de sus focos",
+        "Espiral convergente"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "Si un planeta se aleja del Sol en su órbita, ¿qué sucede con su velocidad orbital?",
+      "opciones": [
+        "Aumenta gradualmente",
+        "Disminuye gradualmente",
+        "Se mantiene constante",
+        "Depende de la masa del planeta únicamente"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Qué fuerza es la principal responsable de mantener a los planetas en su trayectoria alrededor del Sol?",
+      "opciones": [
+        "Fuerza Electromagnética",
+        "Fuerza Nuclear Fuerte",
+        "Fuerza de Gravedad",
+        "Inercia pura sin fuerzas externas"
+      ],
+      "correcta": 2
+    }
+  ],
+  "texto_inductivo": "Saludos, supervivientes del Gran Colapso. Soy el Detective Orion, y hoy nos enfrentamos al caso más grande de nuestra existencia: el misterio de los 'Errantes del Firmamento'. En este mundo post-apocalíptico, donde los satélites de posicionamiento global han caído y las brújulas digitales son solo chatarra, nuestra única guía para la navegación de largo alcance y la predicción de las estaciones de cosecha son las estrellas y los planetas. Sin embargo, algo parece haber cambiado en la percepción de los cielos. Para sobrevivir, debemos entender cómo se mueven realmente esos puntos de luz allá arriba. Históricamente, la humanidad creía que el cielo era un mecanismo de relojería perfecto de círculos divinos. Pero la realidad es mucho más compleja y fascinante. **Johannes Kepler**, un detective de los cielos del siglo XVII, resolvió un misterio similar utilizando los datos de Tycho Brahe. Él descubrió que los planetas no se mueven en círculos, sino en elipses. Imaginen una cuerda atada a dos estacas (los focos); la curva que describe un lápiz al tensar la cuerda es una elipse. En nuestro sistema solar, el Sol ocupa uno de esos focos, dejando el otro vacío como un fantasma del pasado. Este es el primer indicio de nuestro caso: la **Primera Ley de Kepler**. Pero el misterio se profundiza cuando observamos el ritmo de estos mundos. No son constantes. Cuando un planeta se acerca al Sol, en el punto llamado perihelio, parece acelerar desesperadamente, como si huyera de un incendio forestal. Cuando se aleja, hacia el afelio, su marcha se vuelve lenta y perezosa. Kepler notó que, a pesar de este cambio de velocidad, el radio vector que une al Sol con el planeta barre áreas iguales en tiempos iguales. Esta es la **Segunda Ley**, la Ley de las Áreas. Para nosotros, esto significa que el tiempo que tarda la Tierra en cruzar una sección de su órbita es predecible, permitiéndonos calcular cuándo terminará el invierno nuclear y cuándo regresarán las lluvias ácidas menos letales. El tercer indicio es la conexión entre todos los errantes. Existe una armonía matemática oculta: el cuadrado del periodo orbital (el tiempo que tarda en dar una vuelta completa) es directamente proporcional al cubo de su distancia media al Sol. Esta **Tercera Ley** nos permite, con simples observaciones telescópicas caseras, determinar a qué distancia se encuentran otros mundos y si alguno de ellos podría ser un refugio viable con temperaturas habitables. En este Modo Dios, su misión no es solo memorizar fórmulas, sino reconstruir el mapa del cosmos desde las cenizas. Si no logramos predecir con exactitud el paso de los planetas, perderemos nuestra capacidad de orientarnos en los páramos y de entender los ciclos de energía solar que alimentan nuestras rudimentarias baterías. El conocimiento del movimiento planetario no es una curiosidad académica; es la diferencia entre encontrar un oasis o morir de sed en el desierto de ceniza. Deben observar los patrones, medir los ángulos y aplicar la lógica deductiva para descifrar el mensaje que el universo dejó escrito en el vacío. La ciencia es nuestra última linterna en la oscuridad de este apocalipsis.",
+  "recurso_visual": "graph TD\n    A[Movimiento Planetario] --> B[1ra Ley: Ley de las Elipses]\n    B --> B1[Órbitas Elípticas]\n    B --> B2[Sol en un Foco]\n    A --> C[2da Ley: Ley de las Áreas]\n    C --> C1[Velocidad variable]\n    C --> C2[Áreas iguales en tiempos iguales]\n    A --> D[3ra Ley: Ley de los Periodos]\n    D --> D1[Relación P^2 / d^3]\n    D --> D2[Constante para todos los planetas]",
+  "preguntas_inductivas_pagina": [
+    "¿Por qué es vital para un superviviente entender las Leyes de Kepler hoy en día?",
+    "¿Qué diferencia fundamental existe entre una órbita circular y una elíptica en términos de distancia al Sol?",
+    "¿En qué punto de la órbita un planeta se mueve con mayor rapidez y por qué crees que ocurre esto?",
+    "¿Cómo ayuda la Tercera Ley de Kepler a comparar dos planetas diferentes sin viajar a ellos?",
+    "Si el Sol está en uno de los focos de la elipse, ¿qué hay en el otro foco?"
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema detallado de una órbita elíptica, señalando los focos, el Sol, el perihelio, el afelio y el radio vector.",
+    "Realiza un cuadro comparativo entre el comportamiento de un planeta en el perihelio vs. el afelio (velocidad, distancia, fuerza gravitatoria percibida).",
+    "Escribe una reflexión de media página sobre cómo el cambio de órbitas circulares a elípticas cambió la forma en que la humanidad entendía su lugar en el universo.",
+    "Representa gráficamente la Segunda Ley de Kepler mediante un diagrama que muestre dos sectores de área igual barridos en el mismo intervalo de tiempo."
+  ],
+  "juegos_ordenar_letras_1": [
+    "KEPLER",
+    "ELIPSE",
+    "AFELIO"
+  ],
+  "juego_ordenar_frase_1": "LAS AREAS BARRIDAS POR EL RADIO VECTOR SON PROPORCIONALES AL TIEMPO EMPLEADO EN RECORRERLAS",
+  "texto_deductivo": "Para los detectives que han sobrevivido a la inducción, es hora de entrar en el análisis profundo del 'Mecanismo Maestro'. Si Kepler nos dio el 'cómo', **Isaac Newton** nos dio el 'por qué'. En este nivel de Modo Dios, debemos entender que el movimiento planetario no es un evento aislado, sino la manifestación de la Ley de Gravitación Universal. Esta ley dicta que cada partícula de materia en el universo atrae a todas las demás partículas con una fuerza que es directamente proporcional al producto de sus masas e inversamente proporcional al cuadrado de la distancia que las separa. En el contexto de nuestro refugio post-apocalíptico, esto significa que la masa colosal del Sol dobla el espacio-tiempo (según nos susurran los antiguos textos de Einstein), obligando a los planetas a caer perpetuamente hacia él, pero su velocidad tangencial es tan alta que 'fallan' y terminan orbitando. Esta caída libre eterna es lo que llamamos órbita. La deducción matemática nos lleva a comprender que la fuerza centrípeta necesaria para mantener el movimiento circular (o elíptico) es provista exclusivamente por la gravedad. Al igualar la fuerza de gravedad con la fuerza centrípeta, podemos deducir la Tercera Ley de Kepler desde cero. Esto es crucial: si descubrimos que la masa del Sol está cambiando debido a la inestabilidad cuántica post-colapso, nuestras órbitas cambiarán, y con ellas, nuestro destino. La constante de gravitación universal (G) es el eslabón perdido en nuestras mediciones. Al dominar estas ecuaciones, un detective puede predecir no solo dónde estará Marte la próxima semana, sino también calcular la masa de un asteroide que se aproxima hacia nuestra colonia simplemente observando cómo altera el movimiento de otros cuerpos cercanos. El movimiento planetario es, en esencia, una danza entre la inercia del planeta que quiere seguir una línea recta hacia el vacío y la atracción gravitatoria que intenta arrastrarlo hacia el horno solar. Si la velocidad disminuye un ápice más de lo debido, la espiral hacia la muerte es inevitable. Si aumenta demasiado, el planeta se perdería en el frío eterno del espacio interestelar. Como supervivientes científicos, usamos estas leyes para calibrar nuestros telescopios de rastreo y para entender las mareas que ahora azotan las costas radiactivas. No hay margen de error. La precisión es nuestra única moneda de cambio en este nuevo mundo. La ciencia deductiva nos permite tomar los principios universales y aplicarlos a problemas locales: desde la órbita de un satélite artesanal que queremos lanzar para restaurar las comunicaciones, hasta la comprensión de por qué los días parecen estar acortándose. Ustedes son los arquitectos de la nueva realidad, y el cosmos es su plano maestro.",
+  "preguntas_deductivas_pagina": [
+    "¿Cómo explica la Ley de Gravitación Universal de Newton la causa de las órbitas elípticas de Kepler?",
+    "¿Qué sucedería con el periodo de traslación de la Tierra si la distancia al Sol se duplicara?",
+    "¿Por qué es necesario que la fuerza gravitatoria sea inversamente proporcional al CUADRADO de la distancia y no solo a la distancia?",
+    "Define la constante G y explica por qué es fundamental para los cálculos orbitales.",
+    "¿Cuál es la relación entre la masa de un planeta y su velocidad orbital según la deducción de Newton?"
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Diseña un diagrama de vectores de fuerza que actúan sobre un planeta en un punto cualquiera de su elipse, diferenciando la fuerza gravitatoria y la velocidad tangencial.",
+    "Elabora un mapa mental que conecte la Gravitación Universal con las tres Leyes de Kepler y la conservación del momento angular.",
+    "Realiza un dibujo explicativo que compare una órbita cerrada (elipse) con una trayectoria abierta (parábola o hipérbola), indicando qué condiciones de velocidad producen cada una.",
+    "Crea una infografía artesanal sobre 'Cómo calcular la masa del Sol usando solo la distancia de la Tierra y el tiempo de un año'."
+  ],
+  "juegos_ordenar_letras_2": [
+    "GRAVEDAD",
+    "NEWTON",
+    "PERIODO"
+  ],
+  "juego_ordenar_frase_2": "LA FUERZA DE ATRACCION ES INVERSAMENTE PROPORCIONAL AL CUADRADO DE LA DISTANCIA ENTRE LOS CENTROS",
+  "sopa_letras": [
+    "GRAVEDAD",
+    "ORBITA",
+    "KEPLER",
+    "NEWTON",
+    "ELIPSE",
+    "AFELIO",
+    "PERIHELIO",
+    "MASA",
+    "PERIODO",
+    "INERCIA"
+  ],
+  "crucigrama": [
+    {
+      "palabra": "ELIPSE",
+      "pista": "Forma geométrica de la trayectoria de un planeta."
+    },
+    {
+      "palabra": "FOCO",
+      "pista": "Uno de los dos puntos especiales dentro de una elipse donde se ubica el Sol."
+    },
+    {
+      "palabra": "PERIHELIO",
+      "pista": "Punto de la órbita más cercano al Sol."
+    },
+    {
+      "palabra": "AFELIO",
+      "pista": "Punto de la órbita más lejano al Sol."
+    },
+    {
+      "palabra": "NEWTON",
+      "pista": "Científico que explicó la causa física del movimiento planetario."
+    },
+    {
+      "palabra": "GRAVEDAD",
+      "pista": "Fuerza de atracción entre dos masas."
+    },
+    {
+      "palabra": "PERIODO",
+      "pista": "Tiempo que tarda un planeta en completar una órbita."
+    },
+    {
+      "palabra": "RADIO",
+      "pista": "Línea imaginaria que une el Sol con un planeta."
+    },
+    {
+      "palabra": "TERCERA",
+      "pista": "Ley de Kepler que relaciona el tiempo y la distancia media."
+    },
+    {
+      "palabra": "INERCIA",
+      "pista": "Tendencia de un cuerpo a mantener su estado de movimiento."
+    }
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "En el año 2150, tras el colapso, se descubre un nuevo exoplaneta 'X' que orbita una estrella similar al Sol. Los datos recolectados por un viejo telescopio muestran los siguientes valores comparados con la Tierra:",
+      "tabla_o_grafica_markdown": "| Planeta | Distancia Media (UA) | Periodo (Años) |\n|---|---|---|\n| Tierra | 1 | 1 |\n| Planeta X | 4 | ? |",
+      "pregunta": "Basándose en la Tercera Ley de Kepler (P^2 = d^3), ¿cuál es el periodo orbital del Planeta X en años terrestres?",
+      "opciones": [
+        "4 años",
+        "8 años",
+        "16 años",
+        "64 años"
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. 4 años sería si la relación fuera lineal, pero es P^2 = d^3.",
+        "1": "Correcto. 4 al cubo es 64, y la raíz cuadrada de 64 es 8.",
+        "2": "Incorrecto. Has confundido el cuadrado del periodo con el resultado final.",
+        "3": "Incorrecto. 64 es el cubo de la distancia, aún falta extraer la raíz cuadrada para hallar el periodo."
+      }
+    },
+    {
+      "competencia": "Uso Comprensivo del Conocimiento Científico",
+      "texto_introductorio": "Un grupo de supervivientes nota que durante el verano del hemisferio norte, la Tierra se mueve más lentamente en su órbita en comparación con el invierno.",
+      "tabla_o_grafica_markdown": "| Estación | Distancia al Sol | Velocidad Orbital |\n|---|---|---|\n| Verano (N) | Mayor (Afelio) | Menor |\n| Invierno (N) | Menor (Perihelio) | Mayor |",
+      "pregunta": "¿Qué principio físico explica por qué la Tierra disminuye su velocidad al alejarse del Sol?",
+      "opciones": [
+        "La Ley de la Inercia de Newton",
+        "La Segunda Ley de Kepler (Ley de las Áreas)",
+        "El aumento de la masa solar en verano",
+        "La fricción con el polvo cósmico"
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. La inercia por sí sola no explica el cambio de velocidad en una órbita.",
+        "1": "Correcto. Para barrer áreas iguales en tiempos iguales, el planeta debe ir más lento cuando está más lejos.",
+        "2": "Incorrecto. La masa del Sol es constante independientemente de la posición de la Tierra.",
+        "3": "Incorrecto. El espacio es prácticamente vacío y la fricción es despreciable para este fenómeno."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "Para restaurar una red de satélites, un detective mide la fuerza de atracción entre dos módulos espaciales. Si los módulos se separan al triple de su distancia original:",
+      "tabla_o_grafica_markdown": "| Distancia Original | Fuerza Original |\n|---|---|\n| r | F |\n| 3r | ? |",
+      "pregunta": "¿Cómo cambiará la magnitud de la fuerza gravitatoria entre los módulos?",
+      "opciones": [
+        "Se reduce a la tercera parte (F/3)",
+        "Se reduce a la novena parte (F/9)",
+        "Se triplica (3F)",
+        "Se mantiene igual"
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. Olvidas que la ley de gravitación depende del cuadrado de la distancia.",
+        "1": "Correcto. Según F = G(m1*m2)/r^2, si r aumenta por 3, r^2 aumenta por 9, por lo que F disminuye 9 veces.",
+        "2": "Incorrecto. Al aumentar la distancia, la fuerza debe disminuir, no aumentar.",
+        "3": "Incorrecto. La fuerza gravitatoria es altamente sensible a los cambios de distancia."
+      }
+    }
+  ]
+}

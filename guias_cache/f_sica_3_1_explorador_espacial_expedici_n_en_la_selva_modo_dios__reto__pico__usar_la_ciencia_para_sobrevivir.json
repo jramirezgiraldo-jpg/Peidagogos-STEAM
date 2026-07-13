@@ -1,0 +1,188 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Cuál es la forma principal de las órbitas planetarias según las observaciones históricas de Copérnico y Kepler?",
+      "opciones": [
+        "Círculos perfectos",
+        "Líneas rectas",
+        "Elipses",
+        "Espirales"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "¿Qué fuerza es la responsable de mantener a los planetas en su trayectoria alrededor del Sol?",
+      "opciones": [
+        "Fuerza Magnética",
+        "Fuerza de Fricción",
+        "Fuerza Gravitacional",
+        "Fuerza Eléctrica"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "Si un planeta se acerca al Sol en su órbita, ¿qué sucede con su velocidad orbital?",
+      "opciones": [
+        "Aumenta",
+        "Disminuye",
+        "Se mantiene constante",
+        "Se detiene"
+      ],
+      "correcta": 0
+    }
+  ],
+  "texto_inductivo": "¡Saludos, cadetes de la Flota Estelar! Soy el Comandante Nova. Mi nave, la *Stellar Voyager*, ha realizado un aterrizaje de emergencia en el sector 7-G, un mundo conocido como Xylos-4. Imaginen una selva tan densa que el dosel arbóreo oculta el cielo durante el día, pero cuyas plantas emiten una bioluminiscencia rítmica que parece imitar el pulso del cosmos. Para sobrevivir aquí y lograr que nuestro faro de rescate se sincronice con la estación orbital, debemos entender el movimiento de los cuerpos celestes que nos rodean desde una perspectiva puramente observacional, tal como lo hicieron los antiguos exploradores de la Tierra.\n\nAl despertar tras el impacto, mi primera tarea fue observar los dos satélites naturales de este planeta: la Luna Esmeralda y la Luna de Sangre. En la selva, la supervivencia depende de predecir las mareas de los ríos de savia y los ciclos de luz. Noté algo fascinante que Johannes Kepler descubrió hace siglos: las lunas no trazan círculos perfectos sobre la selva. Sus trayectorias son **elipses**. En una elipse, el planeta no está en el centro, sino en uno de los puntos llamados 'focos'. Esto significa que hay momentos en que la Luna de Sangre parece gigante y acechante (perigeo) y momentos en que se ve pequeña y distante (apogeo). Esta es la **Primera Ley de Kepler**, y entenderla es vital: cuando la luna está más cerca, la gravedad tira con más fuerza de los árboles gigantes, haciendo que sus ramas se inclinen peligrosamente.\n\nMientras cronometraba el paso de la Luna Esmeralda con mi reloj de pulso, observé un segundo fenómeno. Cuando la luna está en su punto más cercano al suelo de Xylos-4, parece cruzar el cielo como un rayo. Sin embargo, cuando está lejos, parece perezosa, moviéndose lentamente sobre las copas de los árboles de helechos. Kepler explicó esto con su **Segunda Ley (Ley de las Áreas)**: una línea imaginaria que conecta al planeta con su luna barre áreas iguales en tiempos iguales. Para nosotros en la selva, esto significa que el 'tiempo de peligro' (cuando la luna afecta las mareas de fango) pasa mucho más rápido de lo que esperamos. No podemos confiar en nuestra percepción visual del movimiento; debemos confiar en la geometría del espacio.\n\nFinalmente, está la armonía del sistema. Si comparo el tiempo que tarda la Luna Esmeralda en dar una vuelta completa con el tiempo de la Luna de Sangre, noto una relación matemática constante. Esta es la **Tercera Ley de Kepler**. El cuadrado del período orbital es proporcional al cubo de la distancia media al centro del sistema. En nuestra expedición por la selva, esto nos permite calcular a qué distancia se encuentra nuestra estación de rescate simplemente observando cuánto tarda en pasar sobre nuestro campamento. La ciencia no es solo teoría en libros de texto; aquí, en la maleza de Xylos-4, es la diferencia entre quedar atrapado en una inundación gravitacional o llegar a terreno elevado a tiempo. Cada movimiento planetario es un engranaje en un reloj cósmico, y nosotros debemos aprender a leer sus manecillas para sobrevivir. La selva es caótica, pero el cielo es ordenado, y ese orden es nuestra brújula.",
+  "recurso_visual": "graph LR\n    A[Planeta en Foco] -- Distancia variable --- B(Luna en Órbita Elíptica)\n    B -- Cerca/Periapsis --- C[Velocidad Máxima]\n    B -- Lejos/Apoapsis --- D[Velocidad Mínima]\n    C --> E{Segunda Ley: Áreas Iguales}\n    D --> E\n    E --> F[Supervivencia: Predicción de Mareas]",
+  "preguntas_inductivas_pagina": [
+    "¿Por qué el Comandante Nova dice que las órbitas no son círculos perfectos?",
+    "¿Qué sucede con la apariencia de la Luna de Sangre cuando está en el perigeo?",
+    "Según la Segunda Ley de Kepler, ¿en qué punto de la órbita una luna se mueve más lento?",
+    "¿Para qué le sirve al explorador conocer la Tercera Ley de Kepler en la selva?",
+    "¿Cuál es la relación entre la distancia de la luna y la seguridad de los exploradores en la selva?"
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja una elipse que represente la órbita de la Luna de Sangre, ubicando al planeta Xylos-4 en uno de sus focos y señalando el apogeo y el perigeo.",
+    "Realiza un cuadro comparativo entre la percepción visual del movimiento lunar (lo que vemos) y la realidad física explicada por la Segunda Ley de Kepler.",
+    "Escribe una reflexión de dos párrafos sobre cómo la observación del cielo ayudó a los antiguos navegantes y cómo ayudaría a un náufrago espacial en una selva desconocida.",
+    "Representa gráficamente, mediante un dibujo a color, el concepto de 'Áreas Iguales en Tiempos Iguales' usando sectores de una órbita elíptica."
+  ],
+  "juegos_ordenar_letras_1": [
+    "ELIPSE",
+    "GRAVEDAD",
+    "KEPLER"
+  ],
+  "juego_ordenar_frase_1": "LAS ORBITAS PLANETARIAS SON ELIPSES CON EL SOL EN UN FOCO",
+  "texto_deductivo": "Tras días de observación en la selva de Xylos-4, debemos pasar de la observación a la formalización matemática. Como exploradores espaciales, no basta con saber 'que' las cosas se mueven; debemos entender 'por qué' y 'cuánto'. Aquí es donde entra en juego la figura de Isaac Newton. Mientras Kepler describió el movimiento, Newton descubrió la causa: la **Ley de Gravitación Universal**. Esta ley establece que cada partícula de materia en el universo atrae a toda otra partícula con una fuerza que es directamente proporcional al producto de sus masas e inversamente proporcional al cuadrado de la distancia entre sus centros. En la selva, esto se traduce en que la masa gigantesca de Xylos-4 tira de nosotros constantemente, creando lo que llamamos peso.\n\nLa fórmula fundamental $F = G * (m1 * m2) / r^2$ es nuestra herramienta de supervivencia más poderosa. Donde $G$ es la constante de gravitación universal. Si intentamos lanzar un garfio hacia una plataforma de rescate en órbita baja, debemos calcular la fuerza de atracción para determinar la potencia necesaria. Si duplicamos nuestra distancia al centro del planeta, la fuerza gravitacional no se reduce a la mitad, sino a la cuarta parte. Este conocimiento es crítico: si escalamos las montañas más altas de la selva, la gravedad disminuye sutilmente, lo que afecta el funcionamiento de nuestros sensores atmosféricos y la presión de nuestros trajes espaciales.\n\nNewton demostró que las Leyes de Kepler son una consecuencia directa de su Ley de Gravitación. Por ejemplo, la elipse de la órbita ocurre porque la fuerza de gravedad varía precisamente con el cuadrado inverso de la distancia. Si la fuerza fuera diferente, las órbitas podrían ser espirales y colapsaríamos contra el planeta o saldríamos disparados al vacío interestelar. Además, la **Tercera Ley de Kepler** ($T^2$ proporcional a $R^3$) puede derivarse matemáticamente al igualar la fuerza gravitatoria con la fuerza centrípeta necesaria para mantener un cuerpo en órbita circular (como una aproximación). Esto nos permite determinar la masa del planeta Xylos-4 simplemente observando el periodo de sus lunas.\n\nUn concepto vital para nuestro escape es la **Velocidad de Escape**. Es la velocidad mínima que un objeto necesita para 'romper' las cadenas gravitatorias de un planeta y no volver a caer. En la densa atmósfera de la selva, esto requiere motores de plasma de alto rendimiento. Calculamos esta velocidad como $V_e = \\sqrt{2GM/R}$. Sin este cálculo deductivo, cualquier intento de despegue terminaría en un desastroso choque contra los árboles de cristal. La física deductiva nos permite predecir el futuro del sistema solar de Xylos-4 con una precisión asombrosa. Sabemos dónde estará cada luna dentro de mil años, y sabemos exactamente cuánta energía necesitamos para abandonar este hermoso pero peligroso mundo verde. La ciencia es el lenguaje con el que el universo nos dice cómo movernos sin tropezar.",
+  "preguntas_deductivas_pagina": [
+    "¿Qué relación existe entre la masa de dos objetos y la fuerza gravitacional entre ellos?",
+    "Si la distancia entre el explorador y el centro del planeta se triplica, ¿cómo cambia la fuerza de gravedad?",
+    "¿Cuál es la fórmula para calcular la velocidad de escape de un planeta?",
+    "¿Quién unificó la física terrestre con la física celeste mediante una sola ley de fuerza?",
+    "¿Por qué es necesario conocer la masa de Xylos-4 para planear el rescate?"
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Diseña un diagrama detallado que muestre las fuerzas que actúan sobre un satélite en órbita, incluyendo los vectores de fuerza gravitacional y velocidad tangencial.",
+    "Elabora un mapa mental que conecte la Ley de Gravitación Universal con las tres Leyes de Kepler.",
+    "Realiza un dibujo explicativo que muestre por qué un astronauta pesa menos en la cima de una montaña gigante de la selva que al nivel del mar.",
+    "Crea una infografía artesanal que explique paso a paso cómo calcular la masa de un planeta desconocido usando el periodo orbital de una de sus lunas."
+  ],
+  "juegos_ordenar_letras_2": [
+    "NEWTON",
+    "ORBITA",
+    "MASA"
+  ],
+  "juego_ordenar_frase_2": "LA FUERZA DE GRAVEDAD DEPENDE DE LA DISTANCIA Y LA MASA",
+  "sopa_letras": [
+    "GRAVEDAD",
+    "KEPLER",
+    "NEWTON",
+    "ELIPSE",
+    "FOCO",
+    "ORBITA",
+    "PERIODO",
+    "MASA",
+    "UNIVERSO",
+    "INERCIA"
+  ],
+  "crucigrama": [
+    {
+      "palabra": "ELIPSE",
+      "pista": "Forma geométrica de las órbitas según Kepler."
+    },
+    {
+      "palabra": "GRAVEDAD",
+      "pista": "Fuerza de atracción entre dos masas."
+    },
+    {
+      "palabra": "NEWTON",
+      "pista": "Científico que formuló la Ley de Gravitación Universal."
+    },
+    {
+      "palabra": "FOCO",
+      "pista": "Punto donde se sitúa el Sol en una órbita elíptica."
+    },
+    {
+      "palabra": "PERIODO",
+      "pista": "Tiempo que tarda un planeta en dar una vuelta al Sol."
+    },
+    {
+      "palabra": "APOGEO",
+      "pista": "Punto de la órbita más alejado de la Tierra."
+    },
+    {
+      "palabra": "PERIGEO",
+      "pista": "Punto de la órbita más cercano a la Tierra."
+    },
+    {
+      "palabra": "MASA",
+      "pista": "Cantidad de materia de un cuerpo."
+    },
+    {
+      "palabra": "RADIO",
+      "pista": "Distancia desde el centro del planeta a la órbita."
+    },
+    {
+      "palabra": "LEYES",
+      "pista": "Nombre que reciben los tres principios de Kepler."
+    }
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "En la selva de Xylos-4, se observa que la Luna Esmeralda tarda 10 días en completar una órbita. Si una sonda de rescate se coloca en una órbita cuyo radio es 4 veces mayor que el de la Luna Esmeralda...",
+      "tabla_o_grafica_markdown": "| Cuerpo | Radio Orbital (R) | Periodo (T) |\n|---|---|---|\n| Luna Esmeralda | 1 R | 10 días |\n| Sonda Rescate | 4 R | ? |",
+      "pregunta": "¿Cuál será el nuevo periodo orbital de la sonda de rescate según la tercera ley de Kepler?",
+      "opciones": [
+        "20 días",
+        "40 días",
+        "80 días",
+        "160 días"
+      ],
+      "correcta": 2,
+      "retroalimentacion": {
+        "0": "Incorrecto. No sigue la relación lineal.",
+        "1": "Incorrecto. No se ha aplicado el cuadrado del periodo y el cubo del radio.",
+        "2": "Correcto. Según T^2 proporcional a R^3, si R aumenta 4 veces, R^3 es 64. La raíz cuadrada de 64 es 8. 8 * 10 días = 80 días.",
+        "3": "Incorrecto. Es un cálculo excesivo de la relación de potencias."
+      }
+    },
+    {
+      "competencia": "Uso comprensivo del conocimiento científico",
+      "texto_introductorio": "Un explorador nota que al lanzar una fruta en la selva, esta cae al suelo. Al observar la Luna de Sangre, nota que esta no cae, a pesar de que la gravedad también actúa sobre ella.",
+      "tabla_o_grafica_markdown": "| Objeto | Velocidad Inicial | Trayectoria |\n|---|---|---|\n| Fruta | Baja | Parabólica hacia el suelo |\n| Luna | Alta (Tangencial) | Elíptica cerrada |",
+      "pregunta": "¿Por qué la luna no choca contra el planeta como lo hace la fruta?",
+      "opciones": [
+        "Porque en el espacio no hay gravedad.",
+        "Porque la velocidad tangencial de la luna compensa la caída libre, manteniéndola en órbita.",
+        "Porque la luna tiene una masa mucho mayor que la fruta.",
+        "Porque la atmósfera de la selva empuja la fruta hacia abajo."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. La gravedad actúa en todo el universo.",
+        "1": "Correcto. La órbita es esencialmente una caída libre perpetua donde la curvatura de la caída coincide con la curvatura del planeta.",
+        "2": "Incorrecto. La masa no evita la caída, la velocidad sí.",
+        "3": "Incorrecto. La atmósfera genera fricción, pero no es la causa de la gravedad."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "Se desea investigar cómo varía la fuerza de atracción entre un astronauta y el planeta Xylos-4 a medida que este asciende en su nave de escape. Se obtienen los siguientes datos:",
+      "tabla_o_grafica_markdown": "| Altura (km) | Fuerza (N) |\n|---|---|\n| 0 | 800 |\n| 1000 | 600 |\n| 2000 | 450 |\n| 3000 | 340 |",
+      "pregunta": "¿Qué conclusión se puede sacar sobre la relación entre la fuerza y la distancia a partir de los datos?",
+      "opciones": [
+        "La fuerza es constante sin importar la altura.",
+        "La fuerza aumenta a medida que la nave se aleja.",
+        "La fuerza disminuye de forma no lineal al aumentar la distancia.",
+        "La fuerza se vuelve cero al salir de la atmósfera."
+      ],
+      "correcta": 2,
+      "retroalimentacion": {
+        "0": "Incorrecto. Los datos muestran un cambio claro.",
+        "1": "Incorrecto. Los valores de Newton en la tabla están bajando.",
+        "2": "Correcto. La disminución sigue una curva de inverso del cuadrado de la distancia, característica de la gravitación.",
+        "3": "Incorrecto. La gravedad tiene alcance infinito, aunque se debilite."
+      }
+    }
+  ]
+}

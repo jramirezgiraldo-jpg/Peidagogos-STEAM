@@ -1,0 +1,188 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Cuál es la forma real de las órbitas planetarias según las observaciones modernas?",
+      "opciones": [
+        "Circular perfecta",
+        "Elíptica",
+        "Zigzagueante",
+        "Parabólica"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Qué fuerza es la responsable de mantener a los planetas en su curso?",
+      "opciones": [
+        "Magnetismo",
+        "Fricción espacial",
+        "Gravedad",
+        "Presión lumínica"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "¿Quién propuso que el Sol era el centro del sistema antes de las leyes de Kepler?",
+      "opciones": [
+        "Aristóteles",
+        "Copérnico",
+        "Ptolomeo",
+        "Newton"
+      ],
+      "correcta": 1
+    }
+  ],
+  "texto_inductivo": "¡Silencio, renacuajos de laboratorio! ¡Bienvenidos a la espesura del Caos! Si han sobrevivido hasta aquí en esta **Expedición en la Selva**, es por pura suerte, pero la suerte se acaba cuando las estrellas dejan de guiarte. Soy el Dr. Vórtice, y hoy no estamos mirando el suelo buscando serpientes; estamos mirando al cielo para entender por qué este maldito pedazo de roca llamado Tierra no sale disparado hacia el vacío infinito. \n\nImaginen que estamos perdidos en la selva del Mato Grosso. No hay GPS, solo el movimiento de los astros. Durante milenios, los tontos creyeron que todo giraba en círculos perfectos alrededor de sus cabezas huecas. ¡Error! ¡Error fatal! Johannes Kepler, un hombre que tenía más paciencia que yo con sus preguntas absurdas, pasó años analizando los datos de Tycho Brahe. Brahe era un noble con una nariz de plata y una montaña de datos sobre Marte. Kepler se dio cuenta de algo que les volará la tapa de los sesos: **los planetas no son perfectos**. Se mueven en elipses. ¡Sí, como un huevo aplastado por un elefante! Esta es su **Primera Ley**. El Sol no está en el centro, está en uno de los 'focos'. Si no entienden esto, nunca sabrán por qué las estaciones cambian en esta selva húmeda.\n\nPero esperen, hay más locura en este método. La **Segunda Ley de Kepler** dice que los planetas son como exploradores hambrientos: cuando están cerca del Sol (el perihelio), corren como si los persiguiera un jaguar. Cuando están lejos (afelio), se mueven lentos como un perezoso con sueño. Pero, ¡ajá!, el área que barren en el espacio en tiempos iguales es la misma. ¡Es pura simetría oculta! Si no calculas bien la velocidad de traslación, tu calendario de supervivencia será basura.\n\nFinalmente, la **Tercera Ley** es la joya de la corona del orden cósmico. Existe una relación matemática exacta entre el tiempo que tarda un planeta en dar la vuelta al Sol y su distancia promedio. El cuadrado del periodo es proporcional al cubo de la distancia. ¡PUM! Matemáticas puras para predecir dónde estará Marte mientras ustedes intentan encender una fogata con dos palos húmedos. Kepler no sabía *por qué* pasaba esto, solo sabía que *pasaba*. Era como observar que las hormigas siempre caminan en fila antes de la lluvia sin saber qué es la presión atmosférica. Entender el movimiento planetario es entender el ritmo del motor del universo. Si no dominan estas leyes, se perderán en la selva del tiempo, y créanme, no querrán estar aquí cuando la noche eterna caiga sobre sus mentes no preparadas. ¡Ahora, a trabajar antes de que los mosquitos de la ignorancia los devoren!",
+  "recurso_visual": "graph TD\n    A[Leyes de Kepler] --> B[1ra Ley: Elipses]\n    A --> C[2da Ley: Áreas Iguales]\n    A --> D[3ra Ley: Armónica]\n    B --> B1[El Sol ocupa un foco]\n    C --> C1[Velocidad variable: Perihelio vs Afelio]\n    D --> D1[T^2 proporcional a R^3]",
+  "preguntas_inductivas_pagina": [
+    "¿Por qué Kepler necesitó los datos de Tycho Brahe para sus descubrimientos?",
+    "¿Qué diferencia fundamental hay entre una órbita circular y una elíptica?",
+    "¿En qué punto de la órbita un planeta se desplaza con mayor rapidez?",
+    "¿Qué significa que un planeta 'barra áreas iguales en tiempos iguales'?",
+    "¿Cómo ayuda la tercera ley a comparar los años de diferentes planetas?"
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja una elipse marcando los focos, el perihelio y el afelio, representando el Sol en uno de los focos.",
+    "Realiza un cuadro comparativo entre el modelo geocéntrico y las leyes de Kepler.",
+    "Escribe una reflexión de 15 líneas sobre cómo la precisión de los datos de Brahe cambió nuestra visión del universo.",
+    "Representa gráficamente la 2da Ley de Kepler usando sectores sombreados para demostrar la igualdad de áreas."
+  ],
+  "juegos_ordenar_letras_1": [
+    "ELIPSE",
+    "PERIHELIO",
+    "AFELIO"
+  ],
+  "juego_ordenar_frase_1": "EL CUADRADO DEL PERIODO ORBITAL ES PROPORCIONAL AL CUBO DE LA DISTANCIA MEDIA AL SOL",
+  "texto_deductivo": "¡Atención, especímenes! Ya hemos observado *cómo* se mueven los planetas, pero un verdadero científico loco no se conforma con el 'cómo'. ¡Queremos el 'POR QUÉ'! ¡La causa mecánica! ¡El motor invisible! Entra en escena Sir Isaac Newton, el hombre que vio una manzana caer y se dio cuenta de que la misma fuerza que aplasta esa fruta contra el suelo de la selva es la que mantiene a la Luna amarrada a la Tierra. ¡Es la **Ley de Gravitación Universal**! \n\nEscuchen bien, porque si no entienden la gravedad, se caerán de este árbol de conocimiento. Newton dedujo que todos los objetos con masa se atraen. Ustedes atraen a esa hormiga, y esa hormiga los atrae a ustedes, pero sus masas son tan insignificantes que no se nota. Pero el Sol... ¡Ah, el Sol es una bestia de masa! Su fuerza de atracción es colosal. La fórmula es una belleza aterradora: la fuerza es igual a la constante de gravitación (G) multiplicada por las dos masas y dividida por el cuadrado de la distancia que las separa. ¿Qué significa esto en nuestra **Expedición en la Selva**? Significa que si duplicas la distancia entre dos cuerpos, la fuerza no se reduce a la mitad, ¡se reduce a la cuarta parte! ¡Es una relación inversa del cuadrado! \n\nEsta fuerza centrípeta es la que obliga a los planetas a seguir las leyes que Kepler observó. Kepler encontró las reglas del juego, pero Newton encontró la física que las creó. ¿Por qué elipses? Porque la gravedad varía con la distancia de una forma específica que permite órbitas cerradas y estables. Si la gravedad fuera un poco más débil, saldríamos volando hacia el vacío. Si fuera más fuerte, el Sol nos tragaría como un caimán a una garza distraída. \n\nAdemás, la gravedad explica por qué los planetas más lejanos se mueven más lento. Al estar más lejos del Sol, la fuerza gravitatoria es menor, por lo que la aceleración necesaria para mantener la órbita es menor. Es un equilibrio perfecto, un ballet cósmico de fuerzas en tensión. En esta selva, la gravedad es la que determina la caída de los frutos, la presión del agua y la órbita de nuestros satélites. Sin Newton, estaríamos ciegos ante la fuerza más importante del universo. ¡No olviden la G mayúscula! 6.674 x 10^-11... ¡un número pequeño para una fuerza que domina galaxias enteras! ¡Si fallan en sus cálculos de masa y distancia, sus puentes de lianas se caerán y sus órbitas mentales colapsarán!",
+  "preguntas_deductivas_pagina": [
+    "¿Cuál es la relación entre la fuerza de gravedad y la distancia entre dos cuerpos?",
+    "¿Qué sucedería con la fuerza de atracción si la masa de uno de los planetas se duplicara?",
+    "¿Por qué la gravedad se considera una fuerza de largo alcance?",
+    "¿Cómo explica la ley de Newton la velocidad variable de los planetas descubierta por Kepler?",
+    "¿Qué representa la constante 'G' en la ecuación de gravitación universal?"
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Realiza un diagrama detallado que muestre los vectores de fuerza gravitatoria y velocidad orbital en un planeta.",
+    "Elabora un mapa mental que conecte la manzana de Newton con las leyes de Kepler.",
+    "Dibuja una explicación visual de la ley del inverso del cuadrado (cómo la fuerza se debilita con la distancia).",
+    "Diseña una infografía artesanal que explique por qué los astronautas 'flotan' basándote en la caída libre y la gravedad."
+  ],
+  "juegos_ordenar_letras_2": [
+    "GRAVEDAD",
+    "MASA",
+    "DISTANCIA"
+  ],
+  "juego_ordenar_frase_2": "LA FUERZA DE GRAVEDAD DEPENDE DIRECTAMENTE DE LAS MASAS E INVERSAMENTE DEL CUADRADO DE LA DISTANCIA",
+  "sopa_letras": [
+    "KEPLER",
+    "NEWTON",
+    "ORBITA",
+    "GRAVEDAD",
+    "ELIPSE",
+    "FOCO",
+    "PERIODO",
+    "MASA",
+    "INVERSO",
+    "ASTRO"
+  ],
+  "crucigrama": [
+    {
+      "palabra": "ELIPSE",
+      "pista": "Forma geométrica de las órbitas planetarias."
+    },
+    {
+      "palabra": "PERIHELIO",
+      "pista": "Punto de la órbita más cercano al Sol."
+    },
+    {
+      "palabra": "AFELIO",
+      "pista": "Punto de la órbita más alejado del Sol."
+    },
+    {
+      "palabra": "NEWTON",
+      "pista": "Científico que formuló la Ley de Gravitación Universal."
+    },
+    {
+      "palabra": "FOCO",
+      "pista": "Lugar que ocupa el Sol dentro de la órbita elíptica."
+    },
+    {
+      "palabra": "GRAVEDAD",
+      "pista": "Fuerza de atracción entre dos cuerpos con masa."
+    },
+    {
+      "palabra": "KEPLER",
+      "pista": "Autor de las tres leyes del movimiento planetario."
+    },
+    {
+      "palabra": "PERIODO",
+      "pista": "Tiempo que tarda un planeta en dar una vuelta completa al Sol."
+    },
+    {
+      "palabra": "CONSTANTE",
+      "pista": "El valor 'G' en la fórmula de Newton es una..."
+    },
+    {
+      "palabra": "MASA",
+      "pista": "Cantidad de materia que determina la fuerza gravitatoria."
+    }
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "En la selva, observamos que los satélites de comunicaciones parecen estar fijos en el cielo. Esto se debe a que su periodo orbital coincide con el de la rotación terrestre. Según la tercera ley de Kepler, existe una relación fija entre el radio de la órbita y el tiempo que tarda en completarla.",
+      "tabla_o_grafica_markdown": "| Planeta | Radio Medio (UA) | Periodo (Años) |\n|---|---|---|\n| Tierra | 1.0 | 1.0 |\n| Marte | 1.52 | 1.88 |\n| Júpiter | 5.20 | 11.86 |",
+      "pregunta": "Si un nuevo planeta se descubriera a una distancia de 4 UA del Sol, ¿cuál sería aproximadamente su periodo orbital?",
+      "opciones": [
+        "2 años",
+        "4 años",
+        "8 años",
+        "16 años"
+      ],
+      "correcta": 2,
+      "retroalimentacion": {
+        "0": "Incorrecto. Por la tercera ley, T^2 = R^3. Si R=4, R^3=64, entonces T debe ser 8.",
+        "1": "Incorrecto. El periodo debe aumentar de forma no lineal con la distancia.",
+        "2": "Correcto. Aplicando T^2 = R^3, si R=4, R^3=64, y la raíz cuadrada de 64 es 8.",
+        "3": "Incorrecto. Has confundido la potencia del radio con el resultado final del periodo."
+      }
+    },
+    {
+      "competencia": "Uso Comprensivo del Conocimiento Científico",
+      "texto_introductorio": "Dos cuerpos celestes en el cinturón de asteroides se atraen con una fuerza gravitacional F. Si debido a una colisión, la distancia entre ellos se reduce a la mitad, la nueva fuerza de atracción cambiará drásticamente.",
+      "tabla_o_grafica_markdown": "| Situación | Distancia | Masa 1 | Masa 2 |\n|---|---|---|---|\n| Inicial | d | m | m |\n| Final | d/2 | m | m |",
+      "pregunta": "¿Cuál será la nueva fuerza de atracción entre los asteroides?",
+      "opciones": [
+        "F / 2",
+        "2F",
+        "4F",
+        "F / 4"
+      ],
+      "correcta": 2,
+      "retroalimentacion": {
+        "0": "Incorrecto. Según la ley de Newton, la fuerza es inversamente proporcional al CUADRADO de la distancia.",
+        "1": "Incorrecto. Al reducirse la distancia, la fuerza debe aumentar, pero el factor es cuadrático.",
+        "2": "Correcto. Al ser inversamente proporcional al cuadrado (1 / (1/2)^2), la fuerza se multiplica por 4.",
+        "3": "Incorrecto. La fuerza aumenta al acercarse los cuerpos, no disminuye."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "Un grupo de exploradores nota que en un planeta con una órbita muy excéntrica (muy alargada), los veranos son extremadamente cortos y calurosos cuando el planeta está cerca de su estrella, mientras que los inviernos son largos y gélidos.",
+      "tabla_o_grafica_markdown": "| Posición | Distancia a la estrella | Velocidad Orbital |\n|---|---|---|\n| Punto A | Mínima (Perihelio) | Máxima |\n| Punto B | Máxima (Afelio) | Mínima |",
+      "pregunta": "¿Qué ley de Kepler explica por qué el planeta pasa menos tiempo cerca de la estrella (verano corto)?",
+      "opciones": [
+        "La primera ley (órbitas elípticas)",
+        "La segunda ley (ley de las áreas)",
+        "La tercera ley (ley armónica)",
+        "La ley de la inercia"
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. La primera ley solo describe la forma, no la velocidad en el tiempo.",
+        "1": "Correcto. La segunda ley indica que al estar cerca del Sol (perihelio), el planeta se mueve más rápido para barrer áreas iguales.",
+        "2": "Incorrecto. La tercera ley relaciona periodos y distancias medias, no cambios de velocidad en una sola órbita.",
+        "3": "Incorrecto. La inercia es una propiedad de la materia, no explica el cambio de velocidad orbital."
+      }
+    }
+  ]
+}

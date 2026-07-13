@@ -1,0 +1,188 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Qué forma crees que tiene el camino que sigue la Tierra alrededor del Sol?",
+      "opciones": [
+        "Un círculo perfecto",
+        "Un cuadrado con esquinas redondeadas",
+        "Una curva llamada elipse",
+        "Una línea recta"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "¿Cuál es la fuerza principal que mantiene a los planetas en su sitio?",
+      "opciones": [
+        "Magnetismo",
+        "Gravedad",
+        "Presión del aire",
+        "Fricción"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "Según lo que has escuchado, ¿el Sol se mueve o está quieto?",
+      "opciones": [
+        "Está totalmente quieto",
+        "Gira alrededor de la Tierra",
+        "Se mueve a través de la galaxia",
+        "No tiene masa"
+      ],
+      "correcta": 2
+    }
+  ],
+  "texto_inductivo": "¡Qué onda, ciudadanos de Neo-Terra! Bienvenidos a un nuevo holocast de 'Física Extrema'. Soy su anfitrión, el Ciber-Científico, transmitiendo desde el núcleo energético de nuestra Metrópolis del Futuro. Hoy vamos a hackear un error que ha estado circulando en los archivos de la vieja red durante siglos. ¿Alguna vez han visto esos hologramas educativos antiguos donde los planetas giran alrededor del Sol en círculos perfectos, como si fueran engranajes de un reloj gigante? Pues prepárense para que les explote la cabeza: ¡Eso es un mito total! En esta era de naves de propulsión iónica y ciudades flotantes, no podemos permitirnos creer en cuentos de hadas geométricos. \n\nHistóricamente, los antiguos habitantes de la Tierra, como Aristóteles o Ptolomeo, estaban obsesionados con la perfección. Para ellos, el cielo era el reino de los dioses y, por lo tanto, todo debía ser perfecto. ¿Y qué es más perfecto que un círculo? Pensaban que la Tierra era el centro del universo y que todo lo demás daba vueltas a su alrededor en esferas cristalinas. Pero cuando los astrónomos empezaron a observar los planetas con más detalle, notaron algo raro: a veces los planetas parecían retroceder en el cielo (un fenómeno llamado movimiento retrógrado). Para explicar esto sin renunciar a sus círculos, inventaron los 'epiciclos', que eran círculos dentro de círculos. ¡Era un caos matemático total solo para mantener viva una mentira! \n\nFue hasta que un genio llamado Johannes Kepler, analizando los datos del observador Tycho Brahe, se dio cuenta de que los números simplemente no cuadraban con círculos. Kepler descubrió que los planetas se mueven en **elipses**. Una elipse es básicamente un círculo estirado. Imaginen que nuestra Metrópolis no fuera redonda, sino ovalada. En una elipse, no hay un solo centro, sino dos puntos llamados focos. El Sol no está en el medio, está en uno de esos focos. Esto cambia todo, porque significa que hay momentos en los que la Tierra está más cerca del Sol y momentos en los que está más lejos. \n\n¿Por qué es importante desmentir el mito del círculo perfecto? Porque si diseñáramos nuestras rutas de suministros para los satélites de Neo-Terra pensando en círculos, ¡chocarían contra la atmósfera o saldrían disparados al espacio profundo! La física no se trata de lo que nos parece 'bonito' o 'perfecto', sino de cómo funcionan realmente las fuerzas del universo. El mito del movimiento circular surgió del deseo humano de orden, pero la realidad es mucho más dinámica y emocionante. En las elipses, la velocidad de los planetas cambia; no es constante. Cuando están cerca del Sol, van súper rápido, ¡como una moto de luz en las autopistas de Neo-Terra! Cuando están lejos, se ralentizan. Este baile cósmico es lo que realmente mantiene el equilibrio del sistema solar. Así que, la próxima vez que vean un diagrama con círculos perfectos, ¡digan que es un 'fake' histórico! Estamos aquí para entender la ciencia real, la que nos permite construir ciudades en el cielo y viajar a las estrellas.",
+  "recurso_visual": "graph LR\n    A[Mito: Círculos Perfectos] --> B[Realidad: Órbitas Elípticas]\n    B --> C[Leyes de Kepler]\n    C --> D[Foco 1: El Sol]\n    C --> E[Foco 2: Espacio Vacío]\n    D --> F[Perihelio: Más Cerca y Rápido]\n    D --> G[Afelio: Más Lejos y Lento]\n    H[Inercia] --- B\n    I[Gravedad] --- B",
+  "preguntas_inductivas_pagina": [
+    "¿Por qué los antiguos creían que las órbitas debían ser circulares?",
+    "¿Quién fue el científico que descubrió que las órbitas son elipses?",
+    "¿Qué sucede con la velocidad de un planeta cuando se acerca al Sol?",
+    "¿Cuál es el nombre de los dos puntos especiales dentro de una elipse?",
+    "¿Qué problema causaba el modelo de círculos perfectos al observar los planetas?"
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema de una órbita elíptica marcando los focos, el Sol y la posición de la Tierra en el perihelio y afelio.",
+    "Realiza un cuadro comparativo entre el 'Mito del Círculo Perfecto' y la 'Realidad de la Elipse', incluyendo quiénes defendían cada idea.",
+    "Escribe una reflexión de 10 renglones sobre por qué crees que a los humanos nos cuesta tanto aceptar que la naturaleza no siempre sigue formas 'perfectas'.",
+    "Representa gráficamente mediante un dibujo cómo sería el movimiento de un satélite de Neo-Terra si su órbita fuera elíptica frente a una circular."
+  ],
+  "juegos_ordenar_letras_1": [
+    "ELIPSE",
+    "KEPLER",
+    "ORBITA"
+  ],
+  "juego_ordenar_frase_1": "LOS PLANETAS NO GIRAN EN CIRCULOS PERFECTOS SINO EN ELIPSES",
+  "texto_deductivo": "¡Impresionante nivel de energía, equipo! Ahora que hemos derribado el mito de los círculos celestiales, es hora de ponernos la armadura de ingenieros y entender el 'porqué' técnico de este fenómeno. En Neo-Terra, no solo observamos, ¡calculamos! Para entender el movimiento planetario, debemos invocar a los dos titanes de la física: Johannes Kepler e Isaac Newton. \n\nKepler nos dio las 'reglas del juego' con sus tres leyes. La primera, como ya vimos, dice que las órbitas son elípticas. Pero la segunda ley es la que realmente explica el movimiento: dice que los planetas barren áreas iguales en tiempos iguales. Traducido al lenguaje de nuestra Metrópolis: si un dron de carga está orbitando el sector residencial, irá mucho más rápido cuando pase cerca de la estación central (el Sol) para compensar la fuerte atracción gravitatoria, y más lento cuando esté en las afueras. Esto desmiente otro mito: que el espacio es un lugar estático. ¡Es una pista de carreras gravitacional! \n\nAquí es donde entra Sir Isaac Newton. Él se preguntó: ¿por qué diablos siguen una elipse y no se van volando en línea recta? La respuesta es la Ley de Gravitación Universal. Newton descubrió que todos los objetos con masa se atraen entre sí. La gravedad del Sol está constantemente tirando de la Tierra. Pero la Tierra también tiene algo llamado 'inercia', que es su tendencia a seguir moviéndose en línea recta hacia el vacío. \n\nImaginen que están lanzando un disco de luz en los juegos de la Metrópolis. Si lo lanzan con poca fuerza, cae al suelo. Si lo lanzan con muchísima fuerza, escapa de la ciudad. Pero si lo lanzan con la velocidad justa, la curva de su caída coincide exactamente con la curvatura de la Tierra. ¡Eso es una órbita! Un planeta está, literalmente, cayendo perpetuamente hacia el Sol, pero tiene tanta velocidad lateral que siempre 'falla' y nunca choca. Es una caída infinita. \n\nLa elipse ocurre porque el equilibrio entre la inercia (velocidad) y la gravedad no es perfecto en cada punto. Si la velocidad fuera exactamente la necesaria para un círculo en todo momento, la órbita sería circular. Pero en el caos de la formación del sistema solar, los planetas adquirieron velocidades ligeramente diferentes. Cuando la gravedad gana un poco de terreno, el planeta se acelera y se acerca al Sol; cuando la inercia gana, el planeta se aleja y se frena. Este estira y afloja constante es lo que crea la forma elíptica. \n\nDesmentir el mito de la velocidad constante también es crucial. Si la Tierra siempre se moviera a la misma velocidad en un círculo, nuestras estaciones y el calendario astronómico serían totalmente diferentes. La física de Newton y Kepler nos permite hoy en día predecir con precisión de milisegundos dónde estará un asteroide dentro de cien años. Sin estas leyes, los sistemas de navegación de Neo-Terra serían chatarra. La ciencia no solo desmiente mitos, ¡construye realidades! Así que, cada vez que miren al cielo nocturno de la ciudad, recuerden que están viendo un sistema de fuerzas masivas en un equilibrio dinámico y perfectamente imperfecto.",
+  "preguntas_deductivas_pagina": [
+    "¿Qué dos fuerzas mantienen a un planeta en órbita?",
+    "¿Qué dice la segunda ley de Kepler sobre el movimiento de los planetas?",
+    "¿Por qué un planeta no sale disparado en línea recta hacia el espacio?",
+    "¿Qué es la inercia en el contexto del movimiento planetario?",
+    "¿Cómo describe Newton el concepto de estar en órbita?"
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Dibuja un diagrama de vectores donde se muestre la fuerza de gravedad y la inercia actuando sobre un planeta en un punto de su órbita.",
+    "Elabora un mapa mental que conecte a Kepler, Newton, Gravedad, Elipse e Inercia.",
+    "Dibuja una historieta de 4 viñetas donde expliques por qué un planeta está 'cayendo' pero nunca choca contra el Sol.",
+    "Crea una infografía artesanal que explique por qué las órbitas no son círculos perfectos usando el ejemplo del 'lanzamiento del disco de luz'."
+  ],
+  "juegos_ordenar_letras_2": [
+    "GRAVEDAD",
+    "INERCIA",
+    "NEWTON"
+  ],
+  "juego_ordenar_frase_2": "LA GRAVEDAD MANTIENE A LOS PLANETAS CAYENDO SIN CHOCAR",
+  "sopa_letras": [
+    "GRAVEDAD",
+    "ELIPSE",
+    "KEPLER",
+    "NEWTON",
+    "ORBITA",
+    "INERCIA",
+    "FOCO",
+    "SOL",
+    "PLANETA",
+    "FUERZA"
+  ],
+  "crucigrama": [
+    {
+      "palabra": "ELIPSE",
+      "pista": "Forma geométrica de la órbita planetaria."
+    },
+    {
+      "palabra": "GRAVEDAD",
+      "pista": "Fuerza de atracción entre dos masas."
+    },
+    {
+      "palabra": "KEPLER",
+      "pista": "Astrónomo que formuló las tres leyes del movimiento planetario."
+    },
+    {
+      "palabra": "NEWTON",
+      "pista": "Científico que explicó la gravedad universal."
+    },
+    {
+      "palabra": "INERCIA",
+      "pista": "Tendencia de un cuerpo a mantener su estado de movimiento."
+    },
+    {
+      "palabra": "PERIHELIO",
+      "pista": "Punto de la órbita más cercano al Sol."
+    },
+    {
+      "palabra": "AFELIO",
+      "pista": "Punto de la órbita más alejado del Sol."
+    },
+    {
+      "palabra": "FOCO",
+      "pista": "Uno de los dos puntos internos de una elipse."
+    },
+    {
+      "palabra": "ORBITA",
+      "pista": "Trayectoria que sigue un cuerpo alrededor de otro."
+    },
+    {
+      "palabra": "MASA",
+      "pista": "Cantidad de materia que determina la fuerza gravitatoria."
+    }
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "En la Metrópolis del Futuro, se observa que los satélites de comunicación no mantienen una velocidad constante durante su recorrido alrededor del planeta.",
+      "tabla_o_grafica_markdown": "| Posición | Distancia al Centro (km) | Velocidad (km/s) |\n|---|---|---|\n| A | 500 | 10.2 |\n| B | 1200 | 7.5 |",
+      "pregunta": "¿Por qué el satélite viaja más rápido en la Posición A que en la Posición B?",
+      "opciones": [
+        "Porque en la posición A hay menos fricción con el aire.",
+        "Porque la fuerza de gravedad es mayor al estar más cerca del centro, exigiendo más velocidad para no caer.",
+        "Porque los motores del satélite se activan automáticamente en la posición A.",
+        "Porque la posición B está fuera del campo gravitatorio."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. En el espacio el vacío es casi total y la fricción no es el factor principal aquí.",
+        "1": "¡Correcto! A menor distancia, mayor atracción gravitatoria, por lo que el objeto debe moverse más rápido para mantener su órbita.",
+        "2": "Incorrecto. Las órbitas se mantienen por equilibrio de fuerzas naturales, no necesariamente por motores constantes.",
+        "3": "Incorrecto. Si estuviera fuera del campo gravitatorio, el satélite no estaría en órbita sino moviéndose en línea recta."
+      }
+    },
+    {
+      "competencia": "Uso comprensivo del conocimiento científico",
+      "texto_introductorio": "Un estudiante de Neo-Terra afirma que si el Sol desapareciera de repente, la Tierra seguiría girando en círculos en el mismo lugar.",
+      "tabla_o_grafica_markdown": "| Objeto | Masa (Relativa) | Estado |\n|---|---|---|\n| Sol | 333,000 | Presente |\n| Tierra | 1 | En Órbita |",
+      "pregunta": "De acuerdo con la Primera Ley de Newton (Inercia), ¿qué le sucedería realmente a la Tierra?",
+      "opciones": [
+        "Se detendría instantáneamente.",
+        "Saldría disparada en línea recta, siguiendo la dirección de su velocidad en ese momento.",
+        "Explotaría debido a la falta de luz solar.",
+        "Empezaría a girar en sentido contrario."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. La inercia impide que un objeto en movimiento se detenga sin una fuerza externa.",
+        "1": "¡Correcto! Al desaparecer la fuerza centrípeta (gravedad), la inercia hace que el cuerpo siga su camino recto tangente a la órbita.",
+        "2": "Incorrecto. La falta de luz afectaría la temperatura, pero no causaría una explosión mecánica del planeta.",
+        "3": "Incorrecto. No hay ninguna fuerza que genere un giro inverso repentino."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "Un grupo de científicos en Neo-Terra está comparando dos planetas recién descubiertos en un sistema vecino para ver cuál sigue mejor las leyes de Kepler.",
+      "tabla_o_grafica_markdown": "| Planeta | Tiempo de Órbita (años) | Distancia Media (UA) |\n|---|---|---|\n| Kepler-X | 1 | 1 |\n| Kepler-Y | 8 | 4 |",
+      "pregunta": "Si los científicos encuentran que el cuadrado del tiempo (T²) dividido por el cubo de la distancia (R³) es igual para ambos, ¿qué pueden concluir?",
+      "opciones": [
+        "Que los planetas tienen diferentes leyes físicas.",
+        "Que el mito de los círculos perfectos es cierto en ese sistema.",
+        "Que ambos planetas siguen la Tercera Ley de Kepler y están gobernados por la misma estrella.",
+        "Que los planetas van a chocar pronto."
+      ],
+      "correcta": 2,
+      "retroalimentacion": {
+        "0": "Incorrecto. El hecho de que la proporción se mantenga indica que las leyes son las mismas.",
+        "1": "Incorrecto. La proporción T²/R³ es constante para elipses, no valida el mito del círculo.",
+        "2": "¡Correcto! La constante de Kepler demuestra que el sistema sigue un orden gravitatorio consistente.",
+        "3": "Incorrecto. La estabilidad de las órbitas según Kepler sugiere justamente lo contrario: un sistema en equilibrio."
+      }
+    }
+  ]
+}

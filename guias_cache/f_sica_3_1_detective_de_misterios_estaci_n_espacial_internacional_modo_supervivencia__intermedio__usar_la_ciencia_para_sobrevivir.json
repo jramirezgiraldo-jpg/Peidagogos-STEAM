@@ -1,0 +1,188 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Cuál es la forma real de las órbitas de los planetas alrededor del Sol según Johannes Kepler?",
+      "opciones": [
+        "Circular perfecta",
+        "Elíptica con el Sol en el centro",
+        "Elíptica con el Sol en uno de los focos",
+        "Espiral infinita"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "Si un astronauta en la ISS suelta una herramienta, ¿qué sucede con ella?",
+      "opciones": [
+        "Cae inmediatamente a la Tierra",
+        "Sale disparada hacia el espacio exterior",
+        "Se queda flotando junto a él en la misma órbita",
+        "Se detiene por la falta de gravedad"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "¿Qué fuerza mantiene a los planetas en su órbita?",
+      "opciones": [
+        "Fuerza Magnética",
+        "Fuerza de Fricción",
+        "Fuerza Gravitacional",
+        "Fuerza Nuclear"
+      ],
+      "correcta": 2
+    }
+  ],
+  "texto_inductivo": "Saludos, reclutas. Soy el Detective Orion, asignado a la Sección de Navegación de la **Estación Espacial Internacional (ISS)**. Nuestra situación es crítica. Los sensores de posicionamiento global han sufrido una avería tras una tormenta solar y, para no terminar convertidos en una estrella fugaz desintegrándose en la atmósfera, debemos entender exactamente cómo nos movemos aquí arriba. No es magia, es **Mecánica Celeste**. Estamos en 'Modo Supervivencia' y vuestra primera misión como detectives científicos es desentrañar el misterio de las huellas que dejan los astros en el vacío.\n\nHistóricamente, la humanidad pensó que el cielo era un lugar de perfección circular. Pero los datos no mentían, solo los hombres lo hacían. Johannes Kepler, un detective de datos del siglo XVII, analizó las observaciones de Tycho Brahe y descubrió que el universo no sigue círculos, sino **elipses**. Esta es nuestra primera pista de supervivencia: la ISS no dibuja un círculo perfecto sobre la Tierra. Al igual que los planetas alrededor del Sol, nos movemos en una trayectoria ligeramente alargada. ¿Por qué es vital saber esto? Porque la velocidad de un objeto en órbita no es constante. Según la **Segunda Ley de Kepler**, cuando estamos más cerca de la Tierra (perigeo), nos movemos más rápido que cuando estamos más lejos (apogeo). Si nuestros motores fallan en el punto de menor velocidad, la gravedad podría arrastrarnos hacia un destino ardiente.\n\nEl misterio se profundiza cuando observamos la relación entre nuestra distancia y el tiempo que tardamos en dar una vuelta completa. Kepler descubrió que el cuadrado del periodo orbital es proporcional al cubo de la distancia media al Sol. En nuestro caso, la Tierra es nuestro centro de atracción. Para sobrevivir aquí arriba, debemos calcular con precisión estos tiempos. Si la ISS estuviera más alta, tardaríamos más en completar una órbita. Actualmente, damos una vuelta al mundo cada 90 minutos aproximadamente, viajando a unos 28,000 km/h. Como detectives, debemos observar las estrellas no como puntos de luz, sino como marcadores de un mapa dinámico regido por leyes matemáticas inquebrantables. La supervivencia en la ISS depende de nuestra capacidad para predecir dónde estaremos en el próximo minuto basándonos en la geometría del espacio. Si ignoramos la naturaleza elíptica de nuestro hogar temporal, perderemos la batalla contra la caída libre controlada en la que vivimos. Preparen sus cuadernos de bitácora; el análisis de las órbitas es la única huella que nos permitirá volver a casa o, al menos, seguir un día más viendo el amanecer cada hora y media.",
+  "recurso_visual": "graph TD\n    A[Leyes de Kepler] --> B[1ra Ley: Elipses]\n    A --> C[2da Ley: Áreas Iguales]\n    A --> D[3ra Ley: Armónica]\n    B --> B1(El Sol ocupa un foco de la elipse)\n    C --> C1(Más velocidad cerca del Sol/Centro)\n    D --> D1(T^2 es proporcional a a^3)\n    C1 --> E{Efecto en la ISS}\n    E --> E1[Aceleración en Perigeo]\n    E --> E2[Desaceleración en Apogeo]",
+  "preguntas_inductivas_pagina": [
+    "¿Quién fue el científico que propuso que las órbitas eran elípticas?",
+    "¿En qué punto de la órbita un cuerpo celeste se mueve con mayor velocidad?",
+    "¿Qué forma geométrica describen realmente los planetas al girar?",
+    "¿Aproximadamente cuánto tiempo tarda la ISS en dar una vuelta a la Tierra?",
+    "¿Qué sucede con el periodo orbital si aumentamos la distancia al centro de masa?"
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja una elipse indicando sus focos y señala dónde debería estar el Sol según la Primera Ley de Kepler.",
+    "Realiza un cuadro comparativo entre las creencias del modelo Geocéntrico y los hallazgos de Kepler sobre el movimiento planetario.",
+    "Escribe una reflexión de media página sobre cómo la precisión en los datos de Tycho Brahe permitió a Kepler cambiar la historia de la física.",
+    "Representa gráficamente la Segunda Ley de Kepler (Ley de las Áreas) usando colores para diferenciar las áreas barridas en tiempos iguales."
+  ],
+  "juegos_ordenar_letras_1": [
+    "ELIPSE",
+    "PERIODO",
+    "AFELIO"
+  ],
+  "juego_ordenar_frase_1": "EL CUADRADO DEL PERIODO ES PROPORCIONAL AL CUBO DEL RADIO",
+  "texto_deductivo": "Atención, equipo. Hemos identificado las huellas (Kepler), pero ahora debemos entender la **fuerza** que mueve al sospechoso. Como detectives de la física, no nos basta con saber 'cómo' se mueven los planetas, necesitamos saber 'por qué'. Aquí entra en escena Sir Isaac Newton. Imaginen que la ISS es una bala de cañón disparada con tanta fuerza que, aunque cae constantemente hacia la Tierra, la curvatura del planeta se aleja de ella a la misma velocidad. Eso es una órbita: una caída libre infinita donde la velocidad tangencial compensa la atracción gravitatoria.\n\nLa **Ley de Gravitación Universal** es nuestra herramienta forense definitiva. Newton dedujo que cada masa en el universo atrae a cualquier otra masa con una fuerza que es directamente proporcional al producto de sus masas e inversamente proporcional al cuadrado de la distancia que las separa. Matemáticamente: F = G * (m1 * m2) / r². En la ISS, sentimos la microgravedad no porque la gravedad de la Tierra no exista (de hecho, es aproximadamente el 90% de la que hay en la superficie), sino porque estamos en un estado de caída libre constante junto con la estación. Para sobrevivir, debemos mantener una velocidad específica. Si nuestra velocidad disminuye debido a la fricción con las trazas de la atmósfera superior, el radio de nuestra órbita decaerá. Esto se conoce como **decaimiento orbital**, un misterio que todo detective espacial debe vigilar.\n\nPara que la ISS se mantenga en una órbita circular estable (o casi circular), la fuerza gravitatoria debe actuar como una **fuerza centrípeta**. Al igualar la fuerza de gravedad con la expresión de la fuerza centrípeta (F = m * v² / r), los científicos pueden calcular la velocidad orbital necesaria para cualquier altura. Esto explica por qué los satélites geoestacionarios deben estar a una distancia específica (unos 35,786 km) para tardar exactamente 24 horas en dar una vuelta, permaneciendo fijos sobre un punto de la Tierra. En la ISS, a unos 400 km de altura, las reglas son más estrictas. Cualquier error en el cálculo de la masa de la Tierra o de nuestra distancia al centro del planeta resultaría en un error de trayectoria fatal. Entender la gravedad es entender el hilo invisible que mantiene unido al sistema solar. Desde las lunas de Júpiter hasta la caída de una manzana, la misma ley gobierna el cosmos. Como detectives en modo supervivencia, nuestra vida depende de que estos cálculos sean exactos. Si la gravedad ganara de repente la partida a nuestra inercia, el misterio terminaría en un impacto. Afortunadamente, la física nos da las pistas para predecir y ajustar nuestro rumbo.",
+  "preguntas_deductivas_pagina": [
+    "¿Qué ocurre con la fuerza de gravedad si la distancia entre dos cuerpos se duplica?",
+    "¿Por qué los astronautas en la ISS flotan si aún hay gravedad terrestre?",
+    "¿Qué función cumple la fuerza gravitatoria en un movimiento orbital?",
+    "¿Cómo se llama el fenómeno donde una órbita pierde altura gradualmente?",
+    "¿Cuál es la variable que determina cuánto tiempo tarda un satélite en completar una órbita?"
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Dibuja un diagrama detallado de la ISS orbitando la Tierra, representando los vectores de velocidad tangencial y fuerza centrípeta.",
+    "Elabora un mapa mental que conecte la Ley de Gravitación Universal con las tres leyes de Kepler.",
+    "Realiza un dibujo explicativo del 'Experimento del Cañón de Newton' para demostrar cómo se logra una órbita.",
+    "Crea una infografía artesanal que explique por qué un satélite a mayor altura se mueve más lento que uno a menor altura."
+  ],
+  "juegos_ordenar_letras_2": [
+    "GRAVEDAD",
+    "INERCIA",
+    "ORBITA"
+  ],
+  "juego_ordenar_frase_2": "LA FUERZA DE GRAVEDAD DEPENDE DE LA DISTANCIA AL CUADRADO",
+  "sopa_letras": [
+    "KEPLER",
+    "NEWTON",
+    "ELIPSE",
+    "FOCO",
+    "GRAVEDAD",
+    "ORBITA",
+    "MASA",
+    "RADIO",
+    "FUERZA",
+    "SOPORTE"
+  ],
+  "crucigrama": [
+    {
+      "palabra": "PERIGEO",
+      "pista": "Punto de la órbita más cercano a la Tierra."
+    },
+    {
+      "palabra": "AFELIO",
+      "pista": "Punto de la órbita de un planeta más lejano al Sol."
+    },
+    {
+      "palabra": "CENTRIPETA",
+      "pista": "Fuerza que busca el centro y mantiene el movimiento circular."
+    },
+    {
+      "palabra": "INERCIA",
+      "pista": "Tendencia de los cuerpos a mantener su estado de movimiento."
+    },
+    {
+      "palabra": "TANGENCIAL",
+      "pista": "Velocidad que es perpendicular al radio de la órbita."
+    },
+    {
+      "palabra": "UNIVERSAL",
+      "pista": "Carácter de la ley de Newton que aplica a todo el cosmos."
+    },
+    {
+      "palabra": "PERIODO",
+      "pista": "Tiempo que tarda un objeto en completar una revolución."
+    },
+    {
+      "palabra": "ELIPTICA",
+      "pista": "Forma real de las órbitas según la primera ley de Kepler."
+    },
+    {
+      "palabra": "CONSTANTE",
+      "pista": "La G en la fórmula de Newton representa una..."
+    },
+    {
+      "palabra": "GRAVITACION",
+      "pista": "Fenómeno de atracción mutua entre masas."
+    }
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "En la ISS, los astronautas realizan experimentos en microgravedad. Muchos creen que la gravedad allí es cero, pero la física demuestra que la ISS se mantiene en órbita gracias a la atracción terrestre.",
+      "tabla_o_grafica_markdown": "| Altitud (km) | Gravedad (m/s²) |\n|---|---|\n| 0 (Superficie) | 9.8 |\n| 400 (ISS) | 8.7 |\n| 35786 (Geoestacionario) | 0.22 |",
+      "pregunta": "Teniendo en cuenta los datos de la tabla, ¿por qué los astronautas en la ISS sienten que no tienen peso si la gravedad es de 8.7 m/s²?",
+      "opciones": [
+        "Porque la fuerza centrífuga anula completamente la gravedad.",
+        "Porque están en un estado de caída libre constante donde la estación y ellos caen a la misma tasa.",
+        "Porque a esa altura el aire es tan delgado que no hay presión.",
+        "Porque los trajes espaciales están diseñados para repeler la gravedad."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. La fuerza centrífuga es una fuerza ficticia vista desde un marco no inercial; la explicación física real es la caída libre.",
+        "1": "Correcto. Al caer ambos (estación y astronauta) a la misma aceleración hacia el centro de la Tierra, no hay fuerza normal de soporte, generando la sensación de ingravidez.",
+        "2": "Incorrecto. La presión atmosférica no determina la sensación de peso, sino la fuerza de soporte.",
+        "3": "Incorrecto. No existe tecnología que 'repela' la gravedad."
+      }
+    },
+    {
+      "competencia": "Uso comprensivo del conocimiento científico",
+      "texto_introductorio": "Un detective espacial observa dos satélites, A y B, que orbitan el mismo planeta. El satélite A tiene un radio orbital de 10,000 km y el satélite B tiene un radio orbital de 40,000 km.",
+      "tabla_o_grafica_markdown": "| Satélite | Radio (r) | Periodo (T) |\n|---|---|---|\n| A | r | T_A |\n| B | 4r | T_B |",
+      "pregunta": "Según la Tercera Ley de Kepler (T² ∝ r³), ¿cuál es la relación entre el periodo del satélite B respecto al satélite A?",
+      "opciones": [
+        "El periodo de B es 4 veces el de A.",
+        "El periodo de B es 8 veces el de A.",
+        "El periodo de B es 16 veces el de A.",
+        "El periodo de B es 64 veces el de A."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. No es una relación lineal simple.",
+        "1": "Correcto. Si el radio es 4 veces mayor (4r), entonces T² es proporcional a (4)³ = 64. La raíz cuadrada de 64 es 8.",
+        "2": "Incorrecto. Ese valor resultaría de elevar al cuadrado el radio sin aplicar la ley correctamente.",
+        "3": "Incorrecto. Ese es el valor del cubo del radio, pero falta extraer la raíz para hallar el periodo."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "Un grupo de investigadores nota que un planeta extrasolar se mueve más rápido en un punto de su órbita que en otro. Deciden registrar la distancia al sol de ese sistema en dos momentos diferentes.",
+      "tabla_o_grafica_markdown": "| Momento | Distancia (UA) | Velocidad (km/s) |\n|---|---|---|\n| 1 | 0.5 | 60 |\n| 2 | 2.0 | 15 |",
+      "pregunta": "¿Qué conclusión científica es consistente con estos datos y las leyes del movimiento planetario?",
+      "opciones": [
+        "La velocidad aumenta al alejarse del sol por la inercia.",
+        "La órbita es un círculo perfecto porque la masa no cambia.",
+        "El momento 1 corresponde al perihelio, donde la fuerza gravitacional es mayor.",
+        "La energía cinética es menor cuando el planeta está más cerca del sol."
+      ],
+      "correcta": 2,
+      "retroalimentacion": {
+        "0": "Incorrecto. La velocidad disminuye al alejarse debido a la Segunda Ley de Kepler.",
+        "1": "Incorrecto. En una órbita circular la velocidad sería constante; la variación indica una elipse.",
+        "2": "Correcto. A menor distancia (0.5 UA), la fuerza de atracción es mayor y la velocidad orbital aumenta para conservar el momento angular.",
+        "3": "Incorrecto. Al ser la velocidad mayor en el momento 1, la energía cinética es máxima allí."
+      }
+    }
+  ]
+}

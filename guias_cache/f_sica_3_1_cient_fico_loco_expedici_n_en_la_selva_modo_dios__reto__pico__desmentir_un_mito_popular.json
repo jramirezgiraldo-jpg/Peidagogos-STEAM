@@ -1,0 +1,198 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Cuál es la forma real de las órbitas planetarias según las leyes de Kepler?",
+      "opciones": [
+        "Círculos perfectos",
+        "Elipses con el Sol en uno de los focos",
+        "Espirales descendentes",
+        "Líneas rectas curvas"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Qué fuerza mantiene a los planetas vinculados a su estrella?",
+      "opciones": [
+        "Magnetismo selvático",
+        "Inercia pura",
+        "Gravitación universal",
+        "Presión atmosférica"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "Si un planeta se aleja del Sol en su órbita, ¿qué sucede con su velocidad?",
+      "opciones": [
+        "Aumenta",
+        "Disminuye",
+        "Permanece constante",
+        "Se detiene"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Quién propuso que la fuerza que hace caer una manzana es la misma que mueve la Luna?",
+      "opciones": [
+        "Aristóteles",
+        "Kepler",
+        "Newton",
+        "Galileo"
+      ],
+      "correcta": 2
+    }
+  ],
+  "texto_inductivo": "¡BIENVENIDOS, MIS QUERIDOS E IMPRUDENTES EXPLORADORES! ¡MUAHAHAHA! Han osado entrar en la espesura de la **Selva de Kepler**, un lugar donde la maleza es tan densa como la ignorancia de aquellos que creen que los cielos son estáticos. Soy su guía, el Doctor Gravitón, y estamos aquí para desenterrar los secretos del cosmos ocultos bajo las raíces de la antigua astronomía. Durante siglos, los 'sabios' de las ciudades de piedra afirmaron que los planetas danzaban en círculos perfectos, una armonía divina que solo existía en sus mentes afiebradas. ¡MENTIRAS! ¡Puras patrañas de salón! \n\nImaginen que estamos frente al **Templo de la Elipse Perdida**. Las inscripciones en las paredes no muestran círculos, sino curvas estiradas, óvalos caprichosos que desafiaron la cordura de Johannes Kepler. Él, trabajando con los datos robados (ejem, prestados) de Tycho Brahe, descubrió que los planetas no son prisioneros de la perfección geométrica. La **Primera Ley de Kepler** nos grita en la cara que las órbitas son elípticas. ¿Y el Sol? No está en el centro, ¡está a un lado, en un foco! Es como si el sistema solar tuviera un corazón descentrado. \n\nPero esperen, ¡no se detengan! Miren los monos aulladores moviéndose entre las ramas. Cuando están cerca del tronco principal, se mueven más rápido para no caer. Lo mismo pasa con los mundos. La **Segunda Ley de Kepler** (Ley de las Áreas) dicta que una línea imaginaria que conecta al planeta con el Sol barre áreas iguales en tiempos iguales. Traducción para mentes mundanas: cuando el planeta está cerca del Sol (perihelio), vuela como una saeta; cuando se aleja (afelio), se arrastra como un perezoso con sueño. ¿Por qué ocurre esto? No es magia selvática, es la conservación del momento angular, aunque en ese entonces Kepler no lo sabía. Él solo veía la geometría del movimiento. \n\nFinalmente, la **Tercera Ley** es la joya de la corona: el cuadrado del periodo orbital es proporcional al cubo de la distancia media al Sol. ¡Matemáticas puras destiladas en la selva! Esto significa que cuanto más lejos está un planeta, más tarda en dar la vuelta. Un año en Mercurio es un parpadeo; un año en Neptuno es una eternidad. Estamos aquí para entender que el universo no es un reloj de cuerda perfecto, sino una maquinaria dinámica, compleja y, a veces, caótica. ¡Sigan avanzando, que los mosquitos de la duda no los alcancen!",
+  "recurso_visual": "graph TD\n    A[Movimiento Planetario] --> B[Leyes de Kepler]\n    B --> C[1ra Ley: Elipses]\n    B --> D[2da Ley: Áreas Iguales]\n    B --> E[3ra Ley: Armónica T^2/a^3]\n    C --> F[Sol en un Foco]\n    D --> G[Perihelio: Rápido]\n    D --> H[Afelio: Lento]\n    E --> I[Relación Periodo-Distancia]",
+  "preguntas_inductivas_pagina": [
+    "¿Por qué los antiguos astrónomos estaban obsesionados con los círculos perfectos?",
+    "¿Qué diferencia fundamental hay entre un círculo y una elipse según lo visto en el Templo?",
+    "¿En qué punto de su órbita un planeta experimenta su máxima velocidad?",
+    "¿Cómo cambia el 'año' de un planeta a medida que se aleja del Sol?",
+    "¿Qué pasaría con la forma de la órbita si los dos focos de la elipse se juntaran en un solo punto?"
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema detallado de una órbita elíptica, señalando los focos, el Sol, el perihelio, el afelio y sombreando dos áreas iguales barridas en tiempos diferentes.",
+    "Realiza un cuadro comparativo entre el modelo Geocéntrico (Ptolomeo) y el modelo Heliocéntrico (Copérnico/Kepler) enfocado en la forma de las órbitas.",
+    "Escribe una reflexión de una página sobre cómo el cambio de 'círculos' a 'elipses' representó una revolución no solo científica, sino mental para la humanidad.",
+    "Representa gráficamente la relación entre la distancia al Sol y la velocidad orbital usando una metáfora visual de la selva (ej. animales, ríos o lianas)."
+  ],
+  "juegos_ordenar_letras_1": [
+    "ELIPSE",
+    "PERIHELIO",
+    "KEPLER"
+  ],
+  "juego_ordenar_frase_1": "LAS ORBITAS PLANETARIAS SON ELIPSES CON EL SOL EN UN FOCO",
+  "texto_deductivo": "¡ALTO AHÍ! No den un paso más sin antes purificar sus cerebros del **Gran Mito de la Estacionalidad**. Muchos exploradores novatos creen la mentira que se susurra en las tabernas de la costa: 'La Tierra tiene estaciones porque en verano está más cerca del Sol'. ¡ERROR! ¡HORROR! ¡SACRILEGIO CIENTÍFICO! Si eso fuera cierto, todo el planeta tendría verano al mismo tiempo, y sabemos que cuando en el norte esquían, en el sur se asan de calor. \n\nEl verdadero motor del clima y la prueba de la mecánica celeste es la **Inclinación del Eje Terrestre** (unos 23.5 grados respecto a la eclíptica). Pero volvamos a la gravitación, que es lo que nos mantiene pegados al suelo de esta selva. Isaac Newton, el genio que sobrevivió a la peste (y probablemente a selvas peores que esta), unificó los cielos y la tierra con su **Ley de Gravitación Universal**. Él demostró que la fuerza (F) es igual a la constante G multiplicada por el producto de las masas (m1*m2) y dividida por el cuadrado de la distancia entre ellas (r^2). \n\n¡Escuchen bien! Esta ley es la que desmiente el mito de la 'distancia-estación'. Aunque la órbita es una elipse, es casi circular (excentricidad mínima). La variación de distancia es tan pequeña (aprox. 5 millones de km) que su efecto en la temperatura es despreciable comparado con el ángulo de incidencia de los rayos solares. Newton nos enseñó que la gravedad es una danza de masas. Si el Sol desapareciera, la Tierra no seguiría una curva, ¡saldría disparada en línea recta por la selva cósmica debido a la inercia! \n\nEl movimiento planetario es un equilibrio precario entre la caída libre hacia el Sol y la velocidad tangencial del planeta. Los planetas están 'cayendo' perpetuamente, pero se mueven tan rápido hacia los lados que siempre 'fallan' y nunca chocan contra el Sol. Es una caída infinita. Para desmentir el mito, debemos entender que la física no es intuitiva; es matemática. La gravitación explica por qué las leyes de Kepler funcionan: son el 'cómo', mientras que Newton es el 'por qué'. En esta expedición, hemos pasado de observar sombras en la maleza a calcular la fuerza que sostiene las galaxias. ¡No permitan que un mito popular nuble su visión de la realidad técnica!",
+  "preguntas_deductivas_pagina": [
+    "¿Cuál es el factor real que causa las estaciones en la Tierra?",
+    "¿Qué ocurriría con la fuerza de gravedad si la distancia entre dos planetas se duplicara?",
+    "¿Por qué se dice que un planeta en órbita está en 'caída libre'?",
+    "¿Cómo afecta la masa de un planeta a la fuerza de atracción que el Sol ejerce sobre él?",
+    "Si la excentricidad de la órbita terrestre fuera mucho mayor, ¿cómo afectaría esto al mito de la cercanía solar?"
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Realiza un diagrama detallado que muestre la Tierra en cuatro puntos de su órbita (solsticios y equinoccios), resaltando la inclinación del eje y cómo los rayos solares golpean diferentes hemisferios.",
+    "Elabora un mapa mental que conecte la Ley de Gravitación Universal de Newton con las tres leyes de Kepler.",
+    "Dibuja un esquema explicativo del concepto de 'Velocidad Tangencial vs. Atracción Gravitatoria' usando un cañón disparando desde una montaña (el experimento mental de Newton).",
+    "Crea una infografía artesanal titulada 'Desmontando el Mito: ¿Por qué hace calor?' donde expliques visualmente la irrelevancia de la distancia orbital frente a la inclinación del eje."
+  ],
+  "juegos_ordenar_letras_2": [
+    "GRAVEDAD",
+    "INCLINACION",
+    "INERCIA"
+  ],
+  "juego_ordenar_frase_2": "LA GRAVEDAD ES LA FUERZA QUE MANTIENE EL ORDEN COSMICO",
+  "sopa_letras": [
+    "NEWTON",
+    "KEPLER",
+    "ORBITA",
+    "ELIPSE",
+    "FOCO",
+    "AFELIO",
+    "MASA",
+    "INERCIA",
+    "GRAVEDAD",
+    "SOLSTICIO"
+  ],
+  "crucigrama": [
+    {
+      "palabra": "ELIPSE",
+      "pista": "Forma geométrica de la trayectoria planetaria."
+    },
+    {
+      "palabra": "PERIHELIO",
+      "pista": "Punto de la órbita más cercano al Sol."
+    },
+    {
+      "palabra": "AFELIO",
+      "pista": "Punto de la órbita más alejado del Sol."
+    },
+    {
+      "palabra": "NEWTON",
+      "pista": "Científico que formuló la Ley de Gravitación Universal."
+    },
+    {
+      "palabra": "KEPLER",
+      "pista": "Astrónomo que describió matemáticamente el movimiento planetario."
+    },
+    {
+      "palabra": "FOCO",
+      "pista": "Lugar que ocupa el Sol dentro de la elipse orbital."
+    },
+    {
+      "palabra": "INERCIA",
+      "pista": "Tendencia de los cuerpos a mantener su estado de movimiento."
+    },
+    {
+      "palabra": "GRAVEDAD",
+      "pista": "Fuerza de atracción entre dos masas."
+    },
+    {
+      "palabra": "PERIODO",
+      "pista": "Tiempo que tarda un planeta en completar una vuelta al Sol."
+    },
+    {
+      "palabra": "EJE",
+      "pista": "Línea imaginaria sobre la que gira la Tierra, cuya inclinación causa las estaciones."
+    }
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "Un grupo de exploradores nota que en el punto A de la órbita terrestre la velocidad es de 30.3 km/s y en el punto B es de 29.3 km/s.",
+      "tabla_o_grafica_markdown": "| Punto | Distancia al Sol (km) | Velocidad (km/s) |\n|---|---|---|\n| A | 147 millones | 30.3 |\n| B | 152 millones | 29.3 |",
+      "pregunta": "De acuerdo con las leyes de Kepler, ¿cuál es la explicación correcta para esta diferencia de velocidad?",
+      "opciones": [
+        "En el punto A hay más fricción con el polvo cósmico.",
+        "La Tierra barre áreas iguales en tiempos iguales, por lo que debe ir más rápido al estar más cerca (punto A).",
+        "El Sol empuja con más luz en el punto B.",
+        "La masa de la Tierra aumenta en el punto A."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. El espacio es casi vacío, la fricción es despreciable.",
+        "1": "Correcto. La segunda ley de Kepler establece que a menor radio vector, mayor velocidad para mantener el área constante.",
+        "2": "Incorrecto. La presión de radiación existe pero no causa este efecto orbital.",
+        "3": "Incorrecto. La masa de la Tierra es constante en su órbita."
+      }
+    },
+    {
+      "competencia": "Uso Comprensivo del Conocimiento Científico",
+      "texto_introductorio": "La Ley de Gravitación Universal establece que la fuerza es inversamente proporcional al cuadrado de la distancia.",
+      "tabla_o_grafica_markdown": "| Situación | Masa 1 | Masa 2 | Distancia |\n|---|---|---|---|\n| Inicial | M | m | r |\n| Final | M | m | 3r |",
+      "pregunta": "Si un planeta se aleja hasta triplicar su distancia respecto al Sol, ¿qué sucede con la fuerza de atracción gravitatoria?",
+      "opciones": [
+        "Se reduce a la tercera parte (1/3).",
+        "Se triplica (3x).",
+        "Se reduce a la novena parte (1/9).",
+        "Permanece igual."
+      ],
+      "correcta": 2,
+      "retroalimentacion": {
+        "0": "Incorrecto. Olvidaste elevar la distancia al cuadrado.",
+        "1": "Incorrecto. La relación es inversa, la fuerza debe disminuir.",
+        "2": "Correcto. Al ser inversamente proporcional al cuadrado (3^2 = 9), la fuerza disminuye 9 veces.",
+        "3": "Incorrecto. La gravedad depende críticamente de la distancia."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "Un estudiante afirma que el mito de las estaciones se confirma porque el perihelio ocurre en enero, cuando hace frío en el hemisferio norte.",
+      "tabla_o_grafica_markdown": "| Mes | Evento Orbital | Estación (Norte) | Estación (Sur) |\n|---|---|---|---|\n| Enero | Perihelio | Invierno | Verano |\n| Julio | Afelio | Verano | Invierno |",
+      "pregunta": "Analizando la tabla, ¿qué evidencia científica desmiente que la cercanía al Sol cause el verano?",
+      "opciones": [
+        "Que en enero la Tierra está en el perihelio pero el hemisferio norte experimenta invierno.",
+        "Que el afelio ocurre en julio.",
+        "Que la Tierra siempre está a la misma distancia.",
+        "Que el Sol está más caliente en julio."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. Si la cercanía causara calor, enero sería verano en todo el mundo, pero no lo es.",
+        "1": "Incorrecto. Esto es un hecho, pero no es la prueba principal contra el mito.",
+        "2": "Incorrecto. La distancia varía debido a la elipsidad de la órbita.",
+        "3": "Incorrecto. La temperatura del Sol no cambia por estaciones."
+      }
+    }
+  ]
+}

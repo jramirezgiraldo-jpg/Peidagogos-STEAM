@@ -1,0 +1,168 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "Estás monitoreando la telemetría de la ISS y notas que, a pesar de no usar propulsores, la estación mantiene una trayectoria curva constante alrededor de la Tierra. Según la mecánica clásica, ¿cuál es la razón fundamental por la que un objeto en órbita no 'sale disparado' en línea recta hacia el espacio profundo?",
+      "opciones": [
+        "A. La fricción con la atmósfera residual genera un torque que la mantiene en un círculo perfecto.",
+        "B. La fuerza centrípeta, proporcionada por la gravedad, actúa como un ancla invisible cambiando solo la dirección de la velocidad.",
+        "C. Los motores iónicos compensan automáticamente la inercia galáctica cada microsegundo.",
+        "D. El campo magnético terrestre atrae los componentes metálicos de la estación de forma perpendicular."
+      ],
+      "correcta": 1
+    }
+  ],
+  "texto_inductivo": "LOG DE ACCESO: Nivel Root / Usuario: Hacker_Fis_ISS / Fecha: Stardate 2024.1 / **ALERTA DE SISTEMA: ANOMALÍA EN LOS SENSORES DE POSICIONAMIENTO**. Escuchen bien, cadetes de la red. Algo no cuadra en el Mainframe de Navegación de la Estación Espacial Internacional (ISS). Hemos detectado un 'Glitch' en los datos de las órbitas planetarias que alimentan nuestra IA de navegación. Alguien, o algo, ha alterado las tablas de efemérides. Mi objetivo es guiarlos a través de este misterio: ¿Cómo se mueven realmente los planetas y por qué nuestra supervivencia depende de entenderlo? Históricamente, la humanidad pensaba que éramos el centro del universo (el gran Firewall geocéntrico), pero hackers del pasado como Copérnico y Kepler rompieron ese cifrado. Kepler no tenía supercomputadoras, solo datos de observación de Marte que 'robó' de Tycho Brahe. Al analizar esos logs, descubrió que los planetas no se mueven en círculos perfectos, como dictaba el software dogmático de la época, sino en elipses. Este fue el primer gran 'crack' al sistema. \n\nImaginen que la ISS es un nodo en una red inmensa. Para que un paquete de datos (un planeta) llegue a su destino, debe seguir un protocolo de movimiento. La **Primera Ley de Kepler** nos dice que la órbita de cada planeta es una elipse con el Sol en uno de sus focos. Aquí en la ISS, nosotros también seguimos una trayectoria elíptica alrededor de la Tierra. Si el código de la elipse falla, nos perderíamos en el vacío. La **Segunda Ley** es aún más extraña: 'el radio vector barre áreas iguales en tiempos iguales'. Esto significa que cuando un planeta (o nosotros en la ISS) estamos más cerca del centro de gravedad (perihelio/perigeo), nuestra velocidad de procesamiento —perdón, nuestra velocidad orbital— aumenta drásticamente. Es como un overclocking gravitacional. Pero la anomalía que enfrentamos hoy es en la **Tercera Ley de Kepler**, la ley armónica. Esta ley establece una relación matemática entre el tiempo que tarda un planeta en dar la vuelta al Sol y su distancia promedio. El cuadrado del periodo orbital es proporcional al cubo del semieje mayor. Si alguien altera esta constante en nuestro código de navegación, la ISS calculará mal su posición y chocaremos contra basura espacial o, peor aún, reentraremos en la atmósfera sin permiso. Estamos en una carrera contra el tiempo para validar estos datos. Necesito que observen los patrones, analicen las órbitas y encuentren dónde se introdujo el error en los cálculos de la trayectoria planetaria. El universo no es caótico; sigue un código físico estricto que estamos a punto de descompilar.",
+  "recurso_visual": "graph TD\n    A[Movimiento Planetario] --> B[1ra Ley: Ley de Elipses]\n    A --> C[2da Ley: Ley de Áreas]\n    A --> D[3ra Ley: Ley Armónica]\n    B --> B1[Focos: El Sol ocupa uno]\n    C --> C1[Perihelio: Mayor Velocidad]\n    C --> C2[Afelio: Menor Velocidad]\n    D --> D1[T^2 / a^3 = Constante]\n    D1 --> D2[Relaciona Tiempo y Distancia]",
+  "preguntas_inductivas_pagina": [
+    "¿Cuál es el 'error de software' histórico que Copérnico y Kepler tuvieron que corregir respecto al centro del sistema?",
+    "¿Qué figura geométrica define realmente la trayectoria de un planeta según la Primera Ley de Kepler?",
+    "¿En qué punto de la órbita un planeta alcanza su máxima velocidad de procesamiento (orbital)?",
+    "¿Qué sucede con el área barrida por el radio vector si comparamos dos intervalos de tiempo idénticos en diferentes partes de la órbita?",
+    "¿Cuál es la relación matemática exacta que define la Tercera Ley de Kepler entre el periodo y la distancia?"
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema detallado de una órbita elíptica, señalando los focos, el semieje mayor, el perihelio y el afelio, simulando una interfaz de radar de la ISS.",
+    "Realiza un cuadro comparativo entre el modelo Geocéntrico y el modelo Heliocéntrico, identificando las 'vulnerabilidades' de cada sistema.",
+    "Escribe una reflexión de 15 líneas sobre cómo la precisión en las leyes de Kepler permite que los astronautas en la ISS no se pierdan en el espacio.",
+    "Representa gráficamente la Segunda Ley de Kepler, sombreando las áreas barridas en el perihelio y el afelio para demostrar visualmente que son iguales."
+  ],
+  "juegos_ordenar_letras_1": [
+    "ELIPSE",
+    "FOCO",
+    "PERIODO"
+  ],
+  "juego_ordenar_frase_1": "EL CUADRADO DEL PERIODO ES PROPORCIONAL AL CUBO DE LA DISTANCIA MEDIA",
+  "texto_deductivo": "Atención, equipo de respuesta ante incidentes. Hemos superado la fase de observación, ahora entramos en el núcleo del kernel: la **Mecánica de Newton**. Si Kepler fue quien descubrió el 'cómo' se mueven los planetas, Isaac Newton fue el hacker supremo que descubrió el 'porqué'. Él escribió el código fuente de la **Ley de Gravitación Universal**. El misterio en la ISS se profundiza: los sensores muestran una perturbación que no es explicable solo por Kepler. Newton nos dice que cada partícula de materia en el universo atrae a todas las demás partículas con una fuerza que es directamente proporcional al producto de sus masas e inversamente proporcional al cuadrado de la distancia que las separa. \n\nEsta es la fórmula maestra: **F = G * (m1 * m2) / r²**. Si la masa de la Tierra es el Host y la ISS es el Cliente, la fuerza de atracción depende de nuestras masas combinadas y de qué tan lejos estemos del centro del Host. Pero aquí está el truco: para que un objeto esté en órbita y no caiga, esa fuerza de gravedad debe ser igual a la fuerza centrípeta necesaria para mantenerlo en una trayectoria circular (o elíptica). Esto implica que la velocidad orbital depende de la masa del cuerpo central y del radio de la órbita, pero NO de la masa del objeto que orbita. ¡Por eso una pluma y un satélite a la misma altura orbitan a la misma velocidad! \n\nAl aplicar la síntesis de Newton a las leyes de Kepler, podemos deducir la constante de proporcionalidad de la Tercera Ley. El valor de **K = 4π² / (G * M)**, donde M es la masa del Sol (o de la Tierra si hablamos de nosotros). Si la ISS detecta una variación en 'K', significa que hay una masa invisible interfiriendo o que nuestras mediciones de distancia 'r' han sido hackeadas. El movimiento planetario es una danza de energía potencial y cinética. En el afelio, tenemos máxima energía potencial y mínima cinética; en el perihelio, es al revés. La energía mecánica total permanece constante en el sistema, a menos que una fuerza externa (como un ataque de denegación de servicio gravitacional) actúe. Para resolver el misterio de la ISS, debemos calcular si la fuerza que experimentamos coincide con la masa teórica de la Tierra a nuestra altitud actual de 400 km. Si los números no cierran, hay un objeto masivo no identificado cerca de nuestra órbita filtrando datos erróneos.",
+  "preguntas_deductivas_pagina": [
+    "¿Cómo cambia la fuerza de gravedad si duplicamos la distancia entre dos planetas?",
+    "¿Por qué la masa de la ISS no afecta su velocidad orbital según las ecuaciones de Newton?",
+    "¿Qué variable física se mantiene constante durante toda la órbita de un planeta si no hay fuerzas externas?",
+    "¿Cómo dedujo Newton la Tercera Ley de Kepler usando su Ley de Gravitación?",
+    "¿Qué sucede con la energía cinética de un planeta a medida que se aleja del Sol hacia su afelio?"
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Elabora un diagrama de fuerzas (vectores) para la ISS en órbita, mostrando la fuerza gravitacional y la velocidad tangencial.",
+    "Crea un mapa mental que conecte la constante G, las masas de los cuerpos y las tres leyes de Kepler.",
+    "Realiza un dibujo explicativo que demuestre por qué un astronauta flota en la ISS (caída libre perpetua) usando conceptos de Newton.",
+    "Diseña una infografía artesanal sobre 'La Ley del Inverso del Cuadrado' explicando cómo la gravedad se debilita con la distancia."
+  ],
+  "juegos_ordenar_letras_2": [
+    "GRAVEDAD",
+    "INERCIA",
+    "CENTRIPETA"
+  ],
+  "juego_ordenar_frase_2": "LA FUERZA DE GRAVEDAD MANTIENE A LOS PLANETAS EN SUS ORBITAS",
+  "sopa_letras": [
+    "KEPLER",
+    "NEWTON",
+    "ELIPSE",
+    "ORBITA",
+    "MASA",
+    "DISTANCIA",
+    "GRAVEDAD",
+    "FOCO",
+    "AFELIO",
+    "PERIODO"
+  ],
+  "crucigrama": [
+    {
+      "palabra": "KEPLER",
+      "pista": "Astrofísico que definió las leyes del movimiento planetario."
+    },
+    {
+      "palabra": "ELIPSE",
+      "pista": "Forma geométrica de una órbita planetaria."
+    },
+    {
+      "palabra": "NEWTON",
+      "pista": "Formuló la Ley de Gravitación Universal."
+    },
+    {
+      "palabra": "PERIHELIO",
+      "pista": "Punto de la órbita más cercano al Sol."
+    },
+    {
+      "palabra": "AFELIO",
+      "pista": "Punto de la órbita más alejado del Sol."
+    },
+    {
+      "palabra": "INERCIA",
+      "pista": "Tendencia de un objeto a mantener su estado de movimiento."
+    },
+    {
+      "palabra": "GRAVITACION",
+      "pista": "Fuerza de atracción entre dos masas."
+    },
+    {
+      "palabra": "PERIODO",
+      "pista": "Tiempo necesario para completar una órbita."
+    },
+    {
+      "palabra": "RADIAL",
+      "pista": "Dirección de la fuerza gravitatoria hacia el centro."
+    },
+    {
+      "palabra": "SINTESIS",
+      "pista": "Unión de las leyes de Kepler con la dinámica de Newton."
+    }
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "En la ISS, los ingenieros observan que para mantener una órbita estable a una altitud de 400 km, la estación debe viajar a aproximadamente 28,000 km/h. Si se intentara subir la estación a una órbita más alta (aumentando 'r'):",
+      "tabla_o_grafica_markdown": "| Órbita | Radio (km) | Velocidad (km/h) |\n|---|---|---|\n| ISS Actual | 6,771 | 27,600 |\n| Órbita Alta | 10,000 | ? |",
+      "pregunta": "¿Qué debería suceder con la velocidad orbital para mantener la nueva órbita estable?",
+      "opciones": [
+        "A. La velocidad debe disminuir, ya que a mayor distancia la fuerza gravitatoria es menor.",
+        "B. La velocidad debe aumentar para compensar la falta de aire en el espacio profundo.",
+        "C. La velocidad debe permanecer igual porque la masa de la Tierra no ha cambiado.",
+        "D. La velocidad debe ser cero para que la estación quede anclada en un punto fijo."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. Según la relación v = sqrt(GM/r), a mayor radio, menor es la velocidad necesaria para orbitar.",
+        "1": "Incorrecto. No hay aire en ninguna de las dos órbitas significativas para este cálculo.",
+        "2": "Incorrecto. Aunque la masa de la Tierra es constante, la fuerza centrípeta necesaria cambia con la distancia.",
+        "3": "Incorrecto. Si la velocidad fuera cero, el objeto caería directamente hacia el centro de la Tierra."
+      }
+    },
+    {
+      "competencia": "Uso comprensivo del conocimiento científico",
+      "texto_introductorio": "Un sensor en la ISS reporta que un cometa se acerca al Sol. El equipo de navegación registra los siguientes datos de su trayectoria elíptica:",
+      "tabla_o_grafica_markdown": "| Posición | Distancia al Sol (UA) | Velocidad (km/s) |\n|---|---|---|\n| Punto A | 0.5 | 60 |\n| Punto B | 2.5 | 12 |",
+      "pregunta": "Basándose en la Segunda Ley de Kepler, ¿qué se puede concluir sobre el movimiento del cometa?",
+      "opciones": [
+        "A. El cometa acelera al alejarse del Sol para vencer la gravedad.",
+        "B. El cometa barre áreas mayores cuando está en el Punto B por estar más lejos.",
+        "C. La velocidad es inversamente proporcional a la distancia al foco para mantener el área barrida constante.",
+        "D. El cometa se detendrá en el Punto B debido a la falta de fuerza centrípeta."
+      ],
+      "correcta": 2,
+      "retroalimentacion": {
+        "0": "Incorrecto. Los planetas desaceleran al alejarse del foco gravitatorio.",
+        "1": "Incorrecto. La ley establece que las áreas barridas son iguales en tiempos iguales.",
+        "2": "Correcto. Para que el área barrida sea constante, a mayor radio (distancia), menor debe ser la velocidad.",
+        "3": "Incorrecto. La inercia mantiene al cometa en movimiento incluso en el punto más lejano."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "Un grupo de hackers científicos en la ISS está investigando un nuevo exoplaneta. Han descubierto que este planeta tarda 8 años terrestres en dar una vuelta completa a su estrella (T = 8). Quieren saber a qué distancia media (a) se encuentra de su sol, comparado con la Tierra.",
+      "tabla_o_grafica_markdown": "| Planeta | Periodo (T) | Distancia (a) |\n|---|---|---|\n| Tierra | 1 año | 1 UA |\n| Exoplaneta | 8 años | ? |",
+      "pregunta": "Usando la Tercera Ley de Kepler (T² = a³), ¿cuál es la distancia media del exoplaneta a su estrella?",
+      "opciones": [
+        "A. 2 Unidades Astronómicas (UA)",
+        "B. 4 Unidades Astronómicas (UA)",
+        "C. 8 Unidades Astronómicas (UA)",
+        "D. 64 Unidades Astronómicas (UA)"
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. 2 al cubo es 8, pero el periodo al cuadrado (8²) es 64.",
+        "1": "Correcto. 8² = 64 y 4³ = 64. Según T² = a³, la distancia debe ser 4.",
+        "2": "Incorrecto. Si la distancia fuera 8, el periodo debería ser la raíz cuadrada de 8³.",
+        "3": "Incorrecto. Ese sería el valor de T² o a³."
+      }
+    }
+  ]
+}

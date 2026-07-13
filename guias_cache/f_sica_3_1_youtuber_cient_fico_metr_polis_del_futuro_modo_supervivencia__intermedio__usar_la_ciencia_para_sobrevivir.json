@@ -1,0 +1,188 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Qué fuerza mantiene a los planetas en órbita alrededor del Sol?",
+      "opciones": [
+        "Magnetismo",
+        "Gravedad",
+        "Fricción",
+        "Inercia"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "Según el modelo heliocéntrico, ¿qué cuerpo está en el centro?",
+      "opciones": [
+        "La Tierra",
+        "La Luna",
+        "El Sol",
+        "Marte"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "¿Qué forma tienen las órbitas planetarias según Kepler?",
+      "opciones": [
+        "Circular",
+        "Cuadrada",
+        "Elíptica",
+        "Irregular"
+      ],
+      "correcta": 2
+    }
+  ],
+  "texto_inductivo": "¡Hola, sobrevivientes de Neo-Génesis! Aquí su YouTuber científico favorito, Proton-X, transmitiendo desde el búnker de observación orbital de la Metrópolis del Futuro. Hoy no solo vamos a hablar de libros viejos; vamos a entender cómo el conocimiento del cosmos es la única razón por la que nuestra ciudad flotante no se ha estrellado contra la superficie baldía del planeta. En el año 2145, la navegación espacial no es un lujo, es supervivencia básica. Pero para entender hacia dónde vamos, debemos mirar hacia atrás, a los antiguos archivos de la Vieja Tierra. Durante milenios, la humanidad vivió bajo una ilusión peligrosa: el Geocentrismo. Imaginen creer que somos el centro absoluto de todo, que el universo entero gira a nuestro alrededor. Ptolomeo y sus seguidores defendieron esta idea con 'epiciclos' complicados para explicar por qué los planetas a veces parecían retroceder. En términos de supervivencia, esto es como intentar navegar un desierto con un mapa al revés. No fue sino hasta que valientes pensadores como Copérnico se atrevieron a desafiar el dogma, sugiriendo que la Tierra es solo un pasajero más alrededor del Sol. Este cambio no fue solo filosófico; fue el primer paso para dominar la física del movimiento. Luego llegó Tycho Brahe, el observador más meticuloso de la era pre-telescopio. Sin su obsesión por los datos exactos sobre la posición de Marte, Kepler nunca habría tenido las herramientas para descifrar el código del cielo. Johannes Kepler, un matemático brillante y algo místico, se dio cuenta de que las órbitas no eran círculos perfectos —un concepto que los antiguos consideraban sagrado— sino elipses. Esta es la Primera Ley de Kepler, y es vital para nosotros hoy: nuestras plataformas habitacionales siguen trayectorias elípticas, y si no calculamos bien el foco de esa elipse, la estructura colapsará por las fuerzas de marea. Kepler también notó que los planetas se mueven más rápido cuando están cerca del Sol y más lento cuando están lejos. Esa es la Segunda Ley, la ley de las áreas iguales en tiempos iguales. En Neo-Génesis, usamos este principio para conservar energía en nuestros motores iónicos; aceleramos en el perihelio aprovechando el impulso gravitacional natural. Finalmente, la Tercera Ley nos dio la relación matemática entre la distancia al Sol y el tiempo que tarda un planeta en completar su órbita. Sin esta armonía matemática, no podríamos coordinar las flotas de suministro que viajan entre los domos de Marte y nuestra metrópolis. Entender el movimiento planetario fue la chispa que encendió la Revolución Científica. Nos enseñó que el universo sigue reglas lógicas y predecibles. Hoy, en el Modo Supervivencia de nuestra civilización, estas leyes son los pilares que sostienen nuestro cielo artificial. Si un solo generador de gravedad falla, o si perdemos la trayectoria de una órbita de transferencia, la ciencia es lo único que nos separa de la extinción. Así que, ajusten sus visores, calibren sus sensores y prepárense para redescubrir cómo el orden del cosmos dicta nuestro destino en la Metrópolis del Futuro. ¡La ciencia es poder, y en este mundo, el poder es vida!",
+  "recurso_visual": "graph TD\n    A[Modelos Planetarios] --> B[Geocéntrico]\n    A --> C[Heliocéntrico]\n    B --> D[Tierra al centro]\n    C --> E[Sol al centro]\n    E --> F[Leyes de Kepler]\n    F --> G[1. Elipses]\n    F --> H[2. Áreas Iguales]\n    F --> I[3. Ley Armónica]",
+  "preguntas_inductivas_pagina": [
+    "¿Cuál era la principal falla del modelo geocéntrico para explicar el movimiento planetario?",
+    "¿Por qué el descubrimiento de las órbitas elípticas de Kepler fue tan revolucionario?",
+    "¿Qué papel jugaron los datos de Tycho Brahe en el desarrollo de las leyes de Kepler?",
+    "¿En qué parte de su órbita se mueve más rápido una plataforma espacial según la segunda ley de Kepler?",
+    "¿Cómo ayuda la tercera ley de Kepler a planificar viajes entre diferentes planetas?"
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema que compare el modelo geocéntrico de Ptolomeo con el modelo heliocéntrico de Copérnico, resaltando la posición del Sol y la Tierra.",
+    "Realiza un cuadro comparativo entre la visión de Aristóteles (órbitas circulares perfectas) y la visión de Kepler (órbitas elípticas).",
+    "Escribe una reflexión de 15 líneas sobre cómo el cambio del geocentrismo al heliocentrismo cambió la percepción de la humanidad sobre su lugar en el universo.",
+    "Representa gráficamente una órbita elíptica señalando el Sol en uno de los focos, el perihelio y el afelio."
+  ],
+  "juegos_ordenar_letras_1": [
+    "ELIPSE",
+    "GRAVEDAD",
+    "ORBITA"
+  ],
+  "juego_ordenar_frase_1": "LA TIERRA GIRA ALREDEDOR DEL SOL EN UNA ORBITA ELIPTICA",
+  "texto_deductivo": "Sobrevivientes, una cosa es saber que los planetas se mueven, y otra muy distinta es entender *por qué* lo hacen con una precisión tan aterradora. Para mantener estable la Metrópolis del Futuro en medio del vacío, debemos dominar la mecánica celeste deductiva. Todo se reduce a una danza entre la inercia y la atracción. Isaac Newton, siglos después de Kepler, unificó los cielos y la tierra bajo una sola regla: la Ley de Gravitación Universal. Esta ley nos dice que cada masa en el universo atrae a cualquier otra masa con una fuerza que es directamente proporcional al producto de sus masas e inversamente proporcional al cuadrado de la distancia que las separa. En términos de nuestra Metrópolis, esto significa que si duplicamos nuestra distancia al centro del planeta, la fuerza de gravedad que nos sostiene no se reduce a la mitad, ¡sino a la cuarta parte! Este es el 'peligro del cuadrado inverso'. Si nuestros ingenieros fallan en este cálculo al ajustar la altura de los distritos flotantes, saldríamos disparados hacia el espacio profundo o caeríamos como meteoros. Ahora, combinemos esto con el movimiento elíptico. Una órbita es, en esencia, una caída libre perpetua. El objeto tiene tanta velocidad tangencial que, mientras cae hacia el cuerpo central debido a la gravedad, la curvatura de su caída coincide exactamente con la curvatura del cuerpo central. Es un equilibrio delicado. En Neo-Génesis, monitorizamos constantemente el 'Momento Angular'. Debido a que la gravedad actúa hacia el centro (el Sol o el planeta), no hay un torque neto, lo que significa que el momento angular se conserva. Esto deduce matemáticamente la Segunda Ley de Kepler: para mantener constante el momento angular, un objeto debe moverse más rápido cuando el radio de su órbita disminuye. También debemos considerar la energía mecánica total de un sistema orbital. La suma de la energía cinética (movimiento) y la energía potencial gravitatoria (posición) es constante. Si queremos cambiar de órbita para mover la Metrópolis a un sector más seguro del sistema solar, debemos aplicar la Maniobra de Hohmann: dos impulsos de motor calculados con precisión deductiva para pasar de una órbita circular a otra usando una elipse de transferencia. Errar en el cálculo de la velocidad de escape —la velocidad mínima necesaria para vencer la atracción gravitatoria— significaría quedar atrapados para siempre en un pozo de gravedad sin combustible. Por tanto, el movimiento planetario no es solo observación; es la aplicación rigurosa de leyes físicas que nos permiten predecir el futuro con exactitud matemática. En la Metrópolis, la física no es una materia escolar; es el manual de instrucciones del universo que nos mantiene respirando un día más. Entender la deducción de Newton sobre las leyes de Kepler es entender la gramática con la que está escrito el cosmos.",
+  "preguntas_deductivas_pagina": [
+    "¿Qué sucede con la fuerza de gravedad si la distancia entre dos cuerpos se triplica?",
+    "¿Por qué se dice que un satélite en órbita está en 'caída libre' permanente?",
+    "¿Cómo explica la conservación del momento angular la segunda ley de Kepler?",
+    "¿Qué es la velocidad de escape y por qué es crucial para la exploración espacial?",
+    "¿Qué relación matemática existe entre el periodo orbital y el radio de la órbita según Newton?"
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Dibuja un diagrama detallado de un objeto en órbita elíptica, trazando los vectores de velocidad tangencial y fuerza centrípeta en cuatro puntos diferentes.",
+    "Elabora un mapa mental que conecte la Ley de Gravitación Universal de Newton con las tres Leyes de Kepler.",
+    "Realiza un dibujo explicativo de la Maniobra de Hohmann, mostrando cómo se pasa de una órbita interna a una externa.",
+    "Crea una infografía artesanal sobre 'Cómo sobrevivir a un fallo gravitatorio' usando los conceptos de masa, distancia y aceleración."
+  ],
+  "juegos_ordenar_letras_2": [
+    "NEWTON",
+    "INERCIA",
+    "SISTEMA"
+  ],
+  "juego_ordenar_frase_2": "LA FUERZA GRAVITATORIA DEPENDE DE LA MASA Y LA DISTANCIA",
+  "sopa_letras": [
+    "KEPLER",
+    "NEWTON",
+    "ORBITA",
+    "ELIPSE",
+    "FOCO",
+    "MASA",
+    "RADIO",
+    "PERIODO",
+    "SOL",
+    "INERCIA"
+  ],
+  "crucigrama": [
+    {
+      "palabra": "GRAVEDAD",
+      "pista": "Fuerza de atracción entre dos masas."
+    },
+    {
+      "palabra": "AFELIO",
+      "pista": "Punto más lejano de un planeta al Sol."
+    },
+    {
+      "palabra": "PERIHELIO",
+      "pista": "Punto más cercano de un planeta al Sol."
+    },
+    {
+      "palabra": "INERCIA",
+      "pista": "Tendencia de un cuerpo a mantener su estado de movimiento."
+    },
+    {
+      "palabra": "ELIPSE",
+      "pista": "Forma geométrica de la trayectoria planetaria."
+    },
+    {
+      "palabra": "NEWTON",
+      "pista": "Científico que formuló la ley de gravitación universal."
+    },
+    {
+      "palabra": "KEPLER",
+      "pista": "Científico que descubrió que las órbitas no son circulares."
+    },
+    {
+      "palabra": "PERIODO",
+      "pista": "Tiempo que tarda un planeta en dar una vuelta completa."
+    },
+    {
+      "palabra": "FOCO",
+      "pista": "Lugar que ocupa el Sol dentro de la elipse orbital."
+    },
+    {
+      "palabra": "MASA",
+      "pista": "Cantidad de materia que posee un cuerpo."
+    }
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "En la Metrópolis del Futuro, una sonda de reconocimiento se mueve desde una órbita lejana hacia una más cercana al Sol para recolectar energía solar.",
+      "tabla_o_grafica_markdown": "| Posición | Distancia al Sol (UA) | Velocidad Orbital (km/s) |\n|---|---|---|\n| Afelio | 1.5 | 24 |\n| Perihelio | 0.5 | ? |",
+      "pregunta": "De acuerdo con la Segunda Ley de Kepler, ¿qué se puede esperar de la velocidad de la sonda al llegar al perihelio?",
+      "opciones": [
+        "La velocidad será mayor a 24 km/s.",
+        "La velocidad será menor a 24 km/s.",
+        "La velocidad se mantendrá igual a 24 km/s.",
+        "La velocidad será cero por la atracción gravitacional."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. Según la ley de las áreas, un objeto debe aumentar su velocidad al acercarse al centro de masa para barrer áreas iguales en tiempos iguales.",
+        "1": "Incorrecto. Al disminuir la distancia, la velocidad aumenta.",
+        "2": "Incorrecto. La velocidad orbital no es constante en órbitas elípticas.",
+        "3": "Incorrecto. Si la velocidad fuera cero, la sonda caería directamente al Sol."
+      }
+    },
+    {
+      "competencia": "Uso comprensivo del conocimiento científico",
+      "texto_introductorio": "Un ingeniero en Neo-Génesis necesita calcular la fuerza de atracción entre dos estaciones espaciales que se encuentran a una distancia 'r'.",
+      "tabla_o_grafica_markdown": "| Variable | Cambio efectuado |\n|---|---|\n| Distancia | Se duplica (2r) |\n| Masa de Estación A | Se mantiene igual |\n| Masa de Estación B | Se mantiene igual |",
+      "pregunta": "¿Cómo cambia la fuerza gravitatoria entre las dos estaciones si la distancia entre ellas se duplica?",
+      "opciones": [
+        "La fuerza se reduce a la mitad.",
+        "La fuerza se reduce a la cuarta parte.",
+        "La fuerza se duplica.",
+        "La fuerza se cuadruplica."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. La relación es con el cuadrado de la distancia.",
+        "1": "Correcto. Según la Ley de Gravitación Universal, la fuerza es inversamente proporcional al cuadrado de la distancia (1/2² = 1/4).",
+        "2": "Incorrecto. La fuerza disminuye al aumentar la distancia.",
+        "3": "Incorrecto. Eso ocurriría si la distancia se redujera a la mitad."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "Se registran los periodos orbitales (T) y las distancias medias (R) de tres exoplanetas descubiertos por los telescopios de la Metrópolis.",
+      "tabla_o_grafica_markdown": "| Planeta | R (unidades) | T (años) |\n|---|---|---|\n| Alpha | 1 | 1 |\n| Beta | 4 | 8 |\n| Gamma | 9 | 27 |",
+      "pregunta": "¿Qué relación matemática se observa entre el radio medio (R) y el periodo (T) que confirme la Tercera Ley de Kepler?",
+      "opciones": [
+        "T es proporcional a R.",
+        "T al cuadrado es proporcional a R al cubo.",
+        "T al cubo es proporcional a R al cuadrado.",
+        "R es el doble de T en todos los casos."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. No es una relación lineal simple.",
+        "1": "Correcto. Al verificar los datos: 1²/1³ = 1, 8²/4³ = 64/64 = 1, 27²/9³ = 729/729 = 1. Se cumple T² ∝ R³.",
+        "2": "Incorrecto. La ley establece T² y R³, no al revés.",
+        "3": "Incorrecto. Los datos no muestran una relación de doble."
+      }
+    }
+  ]
+}

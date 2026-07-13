@@ -1,0 +1,168 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Cuál de los siguientes principios explica por qué los planetas mantienen una trayectoria cerrada alrededor del Sol en lugar de salir disparados en línea recta?",
+      "opciones": [
+        "A. La inercia galáctica que empuja los cuerpos hacia el centro.",
+        "B. El equilibrio entre la velocidad tangencial y la fuerza gravitacional.",
+        "C. La presión del viento solar que empuja los planetas hacia adentro.",
+        "D. El magnetismo terrestre interactuando con el núcleo del Sol."
+      ],
+      "correcta": 1
+    }
+  ],
+  "texto_inductivo": "Saludos, aspirantes a detectives de la naturaleza. Soy el Detective de Misterios y nos encontramos en lo profundo de la **Selva de los Ancestros Astronómicos**. Aquí, la densa vegetación oculta las ruinas de una civilización que, hace milenios, predijo cada movimiento del cielo sin telescopios modernos. Para sobrevivir a esta expedición en el 'Modo Héroe', no basta con machetes y brújulas; necesitamos descifrar el código del cosmos. El caso que nos ocupa es el **Movimiento Planetario**. Imaginen que estamos perdidos y la única forma de orientarnos es mediante la observación de los 'Errantes' (los planetas). El primer indicio de nuestra investigación nos lleva a las observaciones de Tycho Brahe y el genio deductivo de Johannes Kepler. Antiguamente, se creía que los cielos eran perfectos y, por ende, las órbitas debían ser círculos perfectos. Pero los datos no mentían: había un desfase. Tras años de cálculos en condiciones extremas, Kepler formuló tres leyes que cambiaron la historia. La **Primera Ley** o Ley de las Órbitas rompió el paradigma: los planetas no se mueven en círculos, sino en **elipses**, con el Sol ocupando uno de los focos. En nuestra selva, esto significa que la distancia entre un planeta y su estrella cambia constantemente. La **Segunda Ley** o Ley de las Áreas nos revela un comportamiento dinámico: una línea imaginaria que conecta al planeta con el Sol barre áreas iguales en tiempos iguales. Esto implica que el planeta no viaja a una velocidad constante; cuando está más cerca del Sol (perihelio), acelera como un depredador persiguiendo a su presa, y cuando está lejos (afelio), se ralentiza. Finalmente, la **Tercera Ley** o Ley de los Periodos establece una relación matemática rigurosa entre el tiempo que tarda un planeta en dar la vuelta al Sol y su distancia promedio. Para un detective, esto es vital: si conocemos el periodo de traslación, podemos deducir a qué distancia se encuentra de su estrella madre. El misterio se profundiza cuando entendemos que estas leyes no son solo caprichos geométricos, sino la respuesta a cómo la materia se organiza en el vacío. Al observar a Júpiter desde un claro en el dosel de la selva, no solo vemos un punto brillante; vemos un cuerpo obedeciendo la coreografía de Kepler. Si no logramos entender que la órbita es elíptica, nuestros cálculos de navegación astronómica fallarán y quedaremos atrapados en este laberinto verde para siempre. La precisión es nuestra única aliada. Cada grado de excentricidad cuenta, cada variación en la velocidad orbital es una pista sobre la masa y la energía en juego. En el nivel difícil, un explorador debe saber que la naturaleza no es perfecta, es óptima, y la elipse es la firma de esa optimización. Prepárense, pues el rastro de Kepler es solo el comienzo de nuestra travesía hacia la comprensión total del universo.",
+  "recurso_visual": "graph TD\n    A[Movimiento Planetario] --> B[Leyes de Kepler]\n    B --> C[1. Órbitas Elípticas]\n    C --> C1[Sol en un Foco]\n    B --> D[2. Áreas Iguales]\n    D --> D1[Perihelio: Más rápido]\n    D --> D2[Afelio: Más lento]\n    B --> E[3. Periodos]\n    E --> E1[T^2 proporcional a R^3]",
+  "preguntas_inductivas_pagina": [
+    "¿Por qué el modelo de órbitas circulares fallaba al predecir la posición exacta de los planetas?",
+    "¿Qué fenómeno físico ocurre con la velocidad de un planeta cuando alcanza su punto más cercano al Sol?",
+    "¿Cómo definirías matemáticamente un foco en el contexto de una órbita elíptica?",
+    "¿Cuál es la importancia de la Segunda Ley de Kepler para un navegante que observa el cambio de posición diario de un planeta?",
+    "¿Si un planeta está a una distancia media mayor que la Tierra, su año será más largo o más corto según la Tercera Ley?"
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema detallado de una órbita elíptica, señalando el perihelio, el afelio, los focos y sombreando dos sectores de 'áreas iguales' para demostrar la Segunda Ley.",
+    "Realiza un cuadro comparativo entre la visión geocéntrica (órbitas circulares) y la visión de Kepler (órbitas elípticas), destacando ventajas y desventajas en la navegación.",
+    "Escribe un informe de detective de 15 líneas explicando cómo la variación de la velocidad orbital afecta la percepción del tiempo astronómico desde la selva.",
+    "Representa gráficamente la relación entre el cubo de la distancia media (R^3) y el cuadrado del periodo (T^2) para tres planetas hipotéticos."
+  ],
+  "juegos_ordenar_letras_1": [
+    "ELIPSES",
+    "PERIHELIO",
+    "EXCENTRICIDAD"
+  ],
+  "juego_ordenar_frase_1": "LAS AREAS BARRE IGUALES EN TIEMPOS IGUALES EL RADIO VECTOR PLANETARIO",
+  "texto_deductivo": "Atención, equipo. Hemos descifrado el 'cómo' se mueven los planetas con Kepler, pero ahora, en el corazón de la selva oscura, debemos enfrentar el 'por qué'. Este es el nivel más exigente de nuestra investigación. Isaac Newton, el detective físico por excelencia, tomó las piezas del rompecabezas de Kepler y las unió mediante la **Ley de Gravitación Universal**. Newton dedujo que la fuerza que hace caer una fruta de un árbol en esta selva es la misma fuerza que mantiene a la Luna atada a la Tierra y a la Tierra atada al Sol. La deducción lógica es asombrosa: la fuerza de gravedad es directamente proporcional al producto de las masas de los cuerpos e inversamente proporcional al cuadrado de la distancia que los separa. Esta relación inversa al cuadrado es la clave de nuestra supervivencia. Si la distancia entre dos cuerpos se duplica, la atracción no se reduce a la mitad, ¡se reduce a la cuarta parte! Esto explica por qué los planetas exteriores, como Neptuno, sienten una atracción tan débil del Sol que sus años duran siglos terrestres. Además, Newton demostró que las leyes de Kepler son consecuencias directas de su ley de gravitación y sus leyes del movimiento. Por ejemplo, la elipse de Kepler surge naturalmente de una fuerza central que disminuye con el cuadrado de la distancia. En nuestra expedición, comprender esto nos permite calcular la 'velocidad de escape' necesaria para lanzar una señal de auxilio satelital o entender por qué las mareas en los ríos de la selva fluctúan con la posición de la Luna. El movimiento planetario es, en esencia, una caída libre perpetua. La Tierra está cayendo hacia el Sol, pero debido a su alta velocidad tangencial, 'falla' el suelo constantemente, creando la órbita. Si la Tierra se detuviera de golpe, la gravedad nos arrastraría hacia un final ardiente en el centro del sistema solar en cuestión de meses. Como detectives de Modo Héroe, debemos ver la gravedad no solo como una fuerza, sino como una curvatura en el tejido del espacio-tiempo, aunque para nuestros cálculos actuales, la mecánica clásica de Newton es más que suficiente. La constante gravitacional 'G' es la llave maestra que abre todas las puertas del cosmos. Sin ella, no podríamos predecir eclipses, tránsitos planetarios o las ventanas de lanzamiento para sondas espaciales. En la supervivencia científica, el conocimiento de estas leyes permite prever cambios climáticos a largo plazo basados en ciclos orbitales complejos (ciclos de Milankovitch). La selva nos enseña que todo está conectado por hilos invisibles de atracción; ignorarlos es nuestra sentencia de muerte.",
+  "preguntas_deductivas_pagina": [
+    "¿Cómo cambia la fuerza gravitacional si la masa de uno de los planetas se triplica repentinamente?",
+    "¿Por qué Newton necesitó inventar una nueva rama de las matemáticas (cálculo) para explicar estas órbitas?",
+    "¿Qué pasaría con la órbita terrestre si la constante gravitacional G aumentara su valor al doble?",
+    "¿Cómo explica la Ley de Gravitación Universal la Tercera Ley de Kepler (la relación entre periodo y distancia)?",
+    "¿En qué punto de la órbita elíptica es mayor la fuerza de atracción gravitacional entre el planeta y el Sol?"
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Diseña un diagrama de fuerzas (vectores) que muestre la descomposición de la aceleración de un planeta en su punto de mayor acercamiento al Sol.",
+    "Elabora un mapa mental que conecte las Leyes de Newton con las Leyes de Kepler, usando la Gravedad como núcleo central.",
+    "Dibuja un esquema explicativo del concepto de 'Caída Libre Orbital', ilustrando por qué el planeta no choca contra el Sol.",
+    "Crea una infografía artesanal que explique la Ley del Inverso del Cuadrado utilizando linternas y sombras en la espesura de la selva."
+  ],
+  "juegos_ordenar_letras_2": [
+    "GRAVITACION",
+    "DISTANCIA",
+    "PROPORCIONAL"
+  ],
+  "juego_ordenar_frase_2": "LA FUERZA ES INVERSAMENTE PROPORCIONAL AL CUADRADO DE LA DISTANCIA ENTRE CENTROS",
+  "sopa_letras": [
+    "KEPLER",
+    "NEWTON",
+    "ORBITA",
+    "GRAVEDAD",
+    "FOCO",
+    "MASA",
+    "AFELIO",
+    "ELIPSE",
+    "INERCIA",
+    "FUERZA"
+  ],
+  "crucigrama": [
+    {
+      "palabra": "KEPLER",
+      "pista": "Astrónomo que determinó que las órbitas son elípticas."
+    },
+    {
+      "palabra": "GRAVEDAD",
+      "pista": "Fuerza de atracción entre dos cuerpos con masa."
+    },
+    {
+      "palabra": "PERIHELIO",
+      "pista": "Punto de la órbita más cercano al Sol."
+    },
+    {
+      "palabra": "AFELIO",
+      "pista": "Punto de la órbita más alejado del Sol."
+    },
+    {
+      "palabra": "ELIPSE",
+      "pista": "Forma geométrica de una órbita planetaria."
+    },
+    {
+      "palabra": "NEWTON",
+      "pista": "Científico que formuló la Ley de Gravitación Universal."
+    },
+    {
+      "palabra": "PERIODO",
+      "pista": "Tiempo que tarda un planeta en dar una vuelta completa al Sol."
+    },
+    {
+      "palabra": "FOCO",
+      "pista": "Uno de los dos puntos internos de una elipse."
+    },
+    {
+      "palabra": "INERCIA",
+      "pista": "Tendencia de un cuerpo a mantener su estado de movimiento."
+    },
+    {
+      "palabra": "CONSTANTE",
+      "pista": "La letra G en la ecuación de Newton representa una..."
+    }
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "En la selva, un grupo de exploradores nota que durante el mes de enero la Tierra se mueve ligeramente más rápido en su órbita que en julio. Este fenómeno está relacionado con la segunda ley de Kepler.",
+      "tabla_o_grafica_markdown": "| Mes | Distancia al Sol (millones km) | Velocidad Orbital (km/s) |\n|---|---|---|\n| Enero (Perihelio) | 147 | 30.3 |\n| Julio (Afelio) | 152 | 29.3 |",
+      "pregunta": "¿A qué se debe el aumento de velocidad orbital en enero?",
+      "opciones": [
+        "A. A que el radio vector barre un área mayor en el mismo tiempo.",
+        "B. A que la fuerza de atracción gravitacional es mayor debido a la menor distancia.",
+        "C. A que el Sol ejerce una presión térmica que empuja la Tierra.",
+        "D. A que la inercia del planeta disminuye al acercarse al Sol."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. Según Kepler, el área barrida es igual, no mayor.",
+        "1": "Correcto. Al estar más cerca, la fuerza gravitacional aumenta (según Newton), lo que requiere una mayor velocidad para mantener la órbita.",
+        "2": "Incorrecto. La presión térmica no influye en la velocidad orbital de esta manera.",
+        "3": "Incorrecto. La masa e inercia de la Tierra permanecen constantes."
+      }
+    },
+    {
+      "competencia": "Uso Comprensivo del Conocimiento Científico",
+      "texto_introductorio": "Si un nuevo planeta 'X' es descubierto en el borde de la selva estelar a una distancia del Sol cuatro veces mayor que la distancia Tierra-Sol (4 UA).",
+      "tabla_o_grafica_markdown": "| Cuerpo | Distancia (UA) | Periodo (Años) |\n|---|---|---|\n| Tierra | 1 | 1 |\n| Planeta X | 4 | ? |",
+      "pregunta": "Según la tercera ley de Kepler (T² ∝ R³), ¿cuál será el periodo orbital aproximado del Planeta X?",
+      "opciones": [
+        "A. 4 años",
+        "B. 16 años",
+        "C. 8 años",
+        "D. 64 años"
+      ],
+      "correcta": 2,
+      "retroalimentacion": {
+        "0": "Incorrecto. No es una relación lineal simple.",
+        "1": "Incorrecto. Olvidaste la raíz cuadrada de la relación cúbica.",
+        "2": "Correcto. T² = 4³ = 64. Por lo tanto, T = √64 = 8 años.",
+        "3": "Incorrecto. Ese es el valor de R al cubo, no el periodo final."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "Un detective analiza la caída de dos objetos en un vacío perfecto dentro de un laboratorio en la selva: una pluma de guacamayo y una roca de cuarzo de 5kg.",
+      "tabla_o_grafica_markdown": "| Objeto | Masa | Tiempo de Caída (10m) |\n|---|---|---|\n| Pluma | 0.001 kg | 1.43 s |\n| Roca | 5.0 kg | 1.43 s |",
+      "pregunta": "¿Qué conclusión científica se puede extraer de que ambos objetos caigan al mismo tiempo a pesar de sus masas tan diferentes?",
+      "opciones": [
+        "A. La gravedad solo actúa sobre objetos pesados.",
+        "B. La aceleración de la gravedad es independiente de la masa del objeto que cae.",
+        "C. La pluma flota debido a la resistencia del aire.",
+        "D. La roca tiene más gravedad propia que la pluma."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. La gravedad actúa sobre todos los cuerpos con masa.",
+        "1": "Correcto. En ausencia de aire, todos los cuerpos aceleran a la misma tasa (g) según Newton.",
+        "2": "Incorrecto. El texto indica que es un vacío perfecto, no hay resistencia.",
+        "3": "Incorrecto. Aunque es cierto, eso no explica por qué caen al mismo tiempo."
+      }
+    }
+  ]
+}

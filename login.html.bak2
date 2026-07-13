@@ -1,0 +1,1090 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peidagogos STEAM</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+    <div id="app-container">
+        <!-- 1. LANDING & AUTH (SPLIT GRID 100vh) -->
+        <div id="login-screen-container" style="display: grid; grid-template-columns: 1fr 1fr; height: 100vh; overflow: hidden; background-color: #f8f9fa;">
+    <div style="padding: 5% 10%; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+        <img src="logo-peidagogos.png" alt="Logo Peidagogos STEAM" style="max-width: 200px; height: auto; object-fit: contain; margin-bottom: 20px;">
+        <h2 style="font-size: 2.2rem; font-weight: 800; color: #111827; margin: 0; line-height: 1.2;">Arquitectura del Aprendizaje</h2>
+        <p style="font-size: 1rem; color: #6B7280; margin: 10px 0 30px 0;">Plataforma dise&ntilde;ada para la era digital.</p>
+    </div>
+    <div style="padding: 5% 15%; display: flex; flex-direction: column; justify-content: center; background-color: #ffffff; border-left: 1px solid #e5e7eb;">
+        <h2 style="font-size: 2rem; font-weight: 800; color: #111827; margin: 0;">Portal de Acceso</h2>
+        <p style="font-size: 1rem; color: #6B7280; margin: 10px 0 30px 0;">Selecciona tu v&iacute;a de ingreso.</p>
+        
+        <div style="display: flex; flex-direction: column; gap: 15px; margin-bottom: 30px;">
+            <div style="display: flex; flex-direction: column; gap: 5px; text-align: left;">
+                <label for="login-role" style="font-weight: 800; color: #111827; font-size: 0.95rem;">Selecciona tu perfil de ingreso:</label>
+                <select id="login-role" style="padding: 12px; border: 2px solid #3B82F6; border-radius: 8px; font-weight: bold; color: #111827; cursor: pointer; background-color: #F0F9FF;">
+                <option value="estudiante">Soy Estudiante</option>
+                <option value="docente">Soy Docente Home School</option>
+                <option value="admin">Soy Administrador</option>
+            </select>
+            </div>
+            <input type="text" id="admin-user" placeholder="Usuario" style="padding: 12px; border: 1px solid #d1d5db; border-radius: 8px;">
+            <input type="password" id="admin-pass" placeholder="Contrase&ntilde;a" style="padding: 12px; border: 1px solid #d1d5db; border-radius: 8px;">
+            <button id="btn-login-core" style="background-color: #2C3E50; color: white; padding: 14px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;">Iniciar Sesi&oacute;n</button>
+            <div id="login-error-msg" style="color: #e74c3c; font-size: 0.85rem; display: none;">Credenciales incorrectas.</div>
+        </div>
+        <button id="btn-show-register" onclick="mostrarVista('register-screen-container')" style="background: transparent; color: #374151; padding: 12px; border: 1px solid #d1d5db; border-radius: 8px; font-weight: 500; cursor: pointer; text-align: left;">Nuevo Usuario</button>
+    </div>
+</div>
+
+<div id="register-screen-container" style="display: none; height: 100vh; background-color: #f3f4f6; justify-content: center; align-items: center; padding: 20px;">
+    <div style="background: white; padding: 40px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); width: 100%; max-width: 500px; display: flex; flex-direction: column; gap: 15px;">
+        <div style="text-align: center; margin-bottom: 10px;">
+            <h2 style="font-size: 1.8rem; font-weight: 800; color: #111827; margin: 0;">Registro de Estudiante</h2>
+        </div>
+        <div style="display: flex; gap: 10px;">
+            <select id="reg-tipo-doc" style="padding: 12px; border: 1px solid #d1d5db; border-radius: 8px; width: 30%;">
+                <option value="TI">TI</option>
+                <option value="RC">RC</option>
+                <option value="CC">CC</option>
+                <option value="CE">CE</option>
+            </select>
+            <input type="text" id="reg-documento" placeholder="Número de documento" style="padding: 12px; border: 1px solid #d1d5db; border-radius: 8px; flex: 1; margin: 0;">
+        </div>
+        <input type="text" id="reg-apellidos" placeholder="Apellidos" style="padding: 12px; border: 1px solid #d1d5db; border-radius: 8px;">
+        <input type="text" id="reg-nombre" placeholder="Nombres" style="padding: 12px; border: 1px solid #d1d5db; border-radius: 8px;">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+            <input type="number" id="reg-edad" placeholder="Edad" style="padding: 12px; border: 1px solid #d1d5db; border-radius: 8px;">
+            <select id="reg-genero" style="padding: 12px; border: 1px solid #d1d5db; border-radius: 8px;">
+                <option value="">G&eacute;nero...</option><option value="F">Femenino</option><option value="M">Masculino</option><option value="otro">Otro</option>
+            </select>
+        </div>
+        <select id="reg-grado" style="padding: 12px; border: 1px solid #d1d5db; border-radius: 8px;">
+            <option value="">Grado a cursar...</option><option value="6">6&deg;</option><option value="7">7&deg;</option><option value="8">8&deg;</option><option value="9">9&deg;</option><option value="10">10&deg;</option><option value="11">11&deg;</option>
+        </select>
+        <select id="registro-grupo" onchange="actualizarMaterias()" style="padding: 12px; border: 1px solid #d1d5db; border-radius: 8px;" required>
+            <option value="">Grupo...</option>
+            <option value="6A">6A</option><option value="6B">6B</option>
+            <option value="7A">7A</option><option value="7B">7B</option><option value="7C">7C</option>
+            <option value="8A">8A</option><option value="8B">8B</option>
+            <option value="9A">9A</option>
+            <option value="10A">10A</option><option value="10D">10D</option>
+            <option value="PENS">PENS</option>
+        </select>
+        <input type="hidden" id="registro-asignatura">
+        <div id="materias-asignadas-view" style="padding: 12px; background: #f9fafb; border: 1px solid #d1d5db; border-radius: 8px; color: #6B7280; font-style: italic; font-size: 0.95rem;">Selecciona un grupo para ver asignaturas</div>
+        <script>
+            function actualizarMaterias() {
+                const grupo = document.getElementById("registro-grupo").value;
+                const input = document.getElementById("registro-asignatura");
+                const view = document.getElementById("materias-asignadas-view");
+                const mapaMaterias = {
+                    "6A": "Física",
+                    "6B": "Física",
+                    "7A": "Física, Turismo",
+                    "7B": "Física, Turismo",
+                    "7C": "Física, Ética, Turismo",
+                    "8A": "Artística",
+                    "8B": "Artística",
+                    "9A": "Artística",
+                    "10A": "Ética",
+                    "10D": "Ética",
+                    "PENS": "Química, Turismo"
+                };
+                const materias = mapaMaterias[grupo];
+                
+                if (materias) {
+                    input.value = materias;
+                    view.innerHTML = "<strong>Materias asignadas:</strong> " + materias;
+                    view.style.color = "#111827";
+                    view.style.fontStyle = "normal";
+                } else {
+                    input.value = "";
+                    view.innerHTML = "Sin asignaturas matriculadas";
+                    view.style.color = "#e74c3c";
+                    view.style.fontStyle = "italic";
+                }
+            }
+        </script>
+        <button id="btn-submit-register" style="background-color: #10B981; color: white; padding: 14px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;">Crear Estudiante</button>
+        <button id="btn-cancel-register" onclick="mostrarVista('login-screen-container')" style="background-color: transparent; color: #6B7280; padding: 10px; border: none; cursor: pointer; text-decoration: underline;">Volver al Acceso Principal</button>
+        <div id="reg-feedback-msg" style="text-align: center; font-size: 0.9rem; display: none; font-weight: bold;"></div>
+    </div>
+</div>
+
+
+
+<!-- DASHBOARD DOCENTE (NUEVO) -->
+<div id="docente-dashboard-container" style="display: none; height: 100vh; overflow-y: auto; background-color: #F8FAFC;">
+    <header style="background: white; border-bottom: 1px solid #E5E7EB; padding: 15px 30px; display: flex; justify-content: space-between; align-items: center;">
+        <div style="font-weight: 900; font-size: 1.4rem; color: #111827;">
+            <img src="logo-peidagogos.png" alt="Peidagogos STEAM" style="height: 55px; width: auto; object-fit: contain;">
+        </div>
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <div style="background: #F3F4F6; padding: 8px 15px; border-radius: 20px; font-size: 0.9rem; font-weight: 700; color: #374151;">
+                Panel Docente: <span id="docente-nombre-header">Docente</span>
+            </div>
+            <button onclick="location.reload()" style="background: #EF4444; color: white; border: none; padding: 8px 20px; border-radius: 8px; font-weight: bold; cursor: pointer;">Cerrar Sesi&oacute;n</button>
+        </div>
+    </header>
+
+    <div style="padding: 40px 30px; max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 2fr; gap: 20px;">
+        <!-- Formulario MatrÃƒÂ­cula Estudiante -->
+        <div style="background: white; padding: 30px; border-radius: 16px; box-shadow: 0 10px 25px rgba(0,0,0,0.05);">
+            <h3 style="font-weight: 800; margin-bottom: 20px;">Matricular Estudiante</h3>
+            <div style="display: flex; flex-direction: column; gap: 15px;">
+                <input type="number" id="docente-reg-doc" placeholder="Documento" style="padding: 10px; border: 1px solid #d1d5db; border-radius: 8px;">
+                <input type="text" id="docente-reg-nom" placeholder="Nombres" style="padding: 10px; border: 1px solid #d1d5db; border-radius: 8px;">
+                <input type="text" id="docente-reg-ape" placeholder="Apellidos" style="padding: 10px; border: 1px solid #d1d5db; border-radius: 8px;">
+                <input type="number" id="docente-reg-edad" placeholder="Edad" style="padding: 10px; border: 1px solid #d1d5db; border-radius: 8px;">
+                <select id="docente-reg-gen" style="padding: 10px; border: 1px solid #d1d5db; border-radius: 8px;">
+                    <option value="">GÃƒÂ©nero...</option><option value="F">Femenino</option><option value="M">Masculino</option>
+                </select>
+                <select id="docente-reg-grado" style="padding: 10px; border: 1px solid #d1d5db; border-radius: 8px;" onchange="cargarAsignaturasDocente(this.value)">
+                    <option value="">Grado...</option><option value="6">6Ã‚Â°</option><option value="7">7Ã‚Â°</option><option value="8">8Ã‚Â°</option>
+                </select>
+                <div>
+                    <strong>Materias a cursar:</strong>
+                    <div id="materias-checkboxes-container" style="display: flex; flex-direction: column; gap: 5px; margin-top: 10px;">
+                        <span style="color: #6B7280; font-size: 0.9rem;">Selecciona un grado primero.</span>
+                    </div>
+                </div>
+                <button id="btn-docente-matricular" style="background-color: #10B981; color: white; padding: 12px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;">Matricular</button>
+            </div>
+        </div>
+
+        <!-- Lista Estudiantes -->
+        <div style="background: white; padding: 30px; border-radius: 16px; box-shadow: 0 10px 25px rgba(0,0,0,0.05);">
+            <h3 style="font-weight: 800; margin-bottom: 20px;">Mis Estudiantes Matriculados</h3>
+            
+            <div style="display: flex; gap: 15px; margin-bottom: 20px;">
+                <select id="filtro-asignatura" style="padding: 10px; border: 1px solid #d1d5db; border-radius: 8px;" onchange="cargarEstudiantesDocente(usuario_actual)">
+                    <option value="Todas las Asignaturas">Todas las Asignaturas</option>
+                    <option value="FÃƒÂ­sica">FÃƒÂ­sica</option>
+                    <option value="ArtÃƒÂ­stica">ArtÃƒÂ­stica</option>
+                    <option value="Ãƒâ€°tica">Ãƒâ€°tica</option>
+                    <option value="Turismo">Turismo</option>
+                    <option value="QuÃƒÂ­mica">QuÃƒÂ­mica</option>
+                </select>
+                <select id="filtro-grupo" style="padding: 10px; border: 1px solid #d1d5db; border-radius: 8px;" onchange="cargarEstudiantesDocente(usuario_actual)">
+                    <option value="Todos los Grupos">Todos los Grupos</option>
+                    <option value="6A">6A</option><option value="6B">6B</option>
+                    <option value="7A">7A</option><option value="7B">7B</option><option value="7C">7C</option>
+                    <option value="8A">8A</option><option value="8B">8B</option>
+                    <option value="9A">9A</option>
+                    <option value="10A">10A</option><option value="10D">10D</option>
+                    <option value="PENS">PENS</option>
+                </select>
+            </div>
+
+            <table style="width: 100%; border-collapse: collapse; text-align: left;">
+                <thead>
+                    <tr style="border-bottom: 2px solid #E5E7EB;">
+                        <th style="padding: 10px;">Doc</th>
+                        <th style="padding: 10px;">Nombre</th>
+                        <th style="padding: 10px;">Grado</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody-docente-estudiantes">
+                    <!-- Se llena con JS -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- DASHBOARD ADMIN RECREADO -->
+        <div id="dashboard-screen-container" style="display: none; height: 100vh; overflow-y: auto; background-color: #F8FAFC;">
+            <!-- Header Superior -->
+            <header style="background: white; border-bottom: 1px solid #E5E7EB; padding: 15px 30px; display: flex; justify-content: space-between; align-items: center;">
+                <div style="font-weight: 900; font-size: 1.4rem; color: #111827;">
+                    <img src="logo-peidagogos.png" alt="Peidagogos STEAM" style="height: 55px; width: auto; object-fit: contain;">
+                </div>
+                <div style="display: flex; align-items: center; gap: 15px;">
+                    <div style="background: #F3F4F6; padding: 8px 15px; border-radius: 20px; font-size: 0.9rem; font-weight: 700; color: #374151;">
+                        Administrador Maestro ADMINISTRADOR
+                    </div>
+                    <button onclick="location.reload()" style="background: #EF4444; color: white; border: none; padding: 8px 20px; border-radius: 8px; font-weight: bold; cursor: pointer; font-family: Inter, sans-serif;">Cerrar Sesi&oacute;n</button>
+                </div>
+            </header>
+
+            <!-- Contenedor Central -->
+            <div style="padding: 40px 30px; max-width: 1200px; margin: 0 auto;">
+                <div style="background: white; border-radius: 16px; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05); overflow: hidden;">
+                    
+                    <!-- Cabecera Oscura -->
+                    <div style="background: #111827; padding: 35px 30px; text-align: center;">
+                        <h1 style="color: white; margin: 0; font-size: 1.6rem; font-weight: 900; letter-spacing: 0.5px;">Peidagogos STEAM - Hub de AdministraciÃƒÂ³n Global</h1>
+                        <p style="color: #22D3EE; margin: 8px 0 0 0; font-weight: 600; font-size: 1.1rem;">Panel de Control Docente - Hub de Administraci&oacute;n</p>
+                    </div>
+
+                    <!-- TABS ADMIN -->
+                    <div style="display: flex; background: #F3F4F6; border-bottom: 1px solid #E5E7EB; flex-wrap: wrap;">
+                        <button class="admin-tab-btn active" data-tab="mallas" style="padding: 15px 30px; border: none; background: white; font-weight: bold; cursor: pointer; border-bottom: 3px solid #3B82F6;">Mallas Curriculares</button>
+                        <button class="admin-tab-btn" data-tab="docentes" style="padding: 15px 30px; border: none; background: transparent; font-weight: bold; cursor: pointer; color: #6B7280;">Lista Docentes</button>
+                        <button class="admin-tab-btn" data-tab="estudiantes" style="padding: 15px 30px; border: none; background: transparent; font-weight: bold; cursor: pointer; color: #6B7280;">Lista Estudiantes</button>
+                        <button class="admin-tab-btn" data-tab="asignaturas" style="padding: 15px 30px; border: none; background: transparent; font-weight: bold; cursor: pointer; color: #6B7280;">Asignaturas</button>
+                    </div>
+                    
+                    <div id="admin-view-mallas" class="admin-view" style="display: block; padding: 20px;">
+                        <!-- Mallas Admin (NUEVO) -->
+<div id="malla-grado-6" class="contenedor-malla" style="display:none;">
+<div class="grade-title">Malla Curricular: Grado Sexto (6Ã‚Â°)</div><table>
+<thead>
+<tr>
+<th style="width: 7%">Periodo / Asignatura</th>
+<th style="width: 15%">Pregunta Problematizadora</th>
+<th style="width: 22%">Me Aproximo al Conocimiento como CientÃƒÂ­fico-a Natural (Entorno Virtual)</th>
+<th style="width: 22%">Manejo Conocimientos Propios (MÃƒÂ³dulos del OVA)</th>
+<th style="width: 17%">Desarrollo Compromisos Personales y Sociales (AutogestiÃƒÂ³n)</th>
+<th style="width: 17%">TransversalizaciÃƒÂ³n con otras ÃƒÂreas Fundamentales (Ejes de Co-DiseÃƒÂ±o Web)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><b>P1: <span class="t-quimica">QuÃƒÂ­mica</span></b></td>
+<td>Ã‚Â¿CÃƒÂ³mo se modelan las propiedades de la materia en simulaciones web?</td>
+<td><span class="badge b-aprox">AproximaciÃƒÂ³n</span><ul><li>Realizo mediciones de masa y volumen empleando balanzas analÃƒÂ­ticas virtuales.</li><li>Diferencio datos de conjeturas.</li></ul></td>
+<td><span class="badge b-fisico">Entorno FÃƒÂ­sico</span><ul><li>Clasifico y verifico propiedades especÃƒÂ­ficas de materiales.</li><li>Diferencio sustancias puras y mezclas.</li></ul></td>
+<td><span class="badge b-comp">Compromisos</span><ul><li>Organizo de manera soberana mis tiempos de navegaciÃƒÂ³n interactiva en la plataforma.</li></ul></td>
+<td><span class="badge b-trans">ConexiÃƒÂ³n</span><ul><li><b>MatemÃƒÂ¡ticas:</b> Operaciones aritmÃƒÂ©ticas y cÃƒÂ¡lculo de densidades.</li><li><b>TecnologÃƒÂ­a e InformÃƒÂ¡tica:</b> Interfaz grÃƒÂ¡fica y parametrizaciÃƒÂ³n digital.</li></ul></td>
+</tr>
+<tr>
+<td><b>P2: <span class="t-biologia">BiologÃƒÂ­a</span></b></td>
+<td>Ã‚Â¿CÃƒÂ³mo la arquitectura celular sostiene las estructuras vivas en animaciones 3D?</td>
+<td><span class="badge b-aprox">AproximaciÃƒÂ³n</span><ul><li>Formulo preguntas especÃƒÂ­ficas en los foros sobre ultraestructura celular.</li><li>Confronto modelos bidimensionales.</li></ul></td>
+<td><span class="badge b-vivo">Entorno Vivo</span><ul><li>Explico la estructura de la cÃƒÂ©lula y las funciones de sus organelos en visores web.</li><li>Identifico niveles tisulares.</li></ul></td>
+<td><span class="badge b-comp">Compromisos</span><ul><li>Valoro de forma reflexiva individual el rigor cientÃƒÂ­fico empleado en el modelado animado.</li></ul></td>
+<td><span class="badge b-trans">ConexiÃƒÂ³n</span><ul><li><b>EducaciÃƒÂ³n ArtÃƒÂ­stica:</b> AnÃƒÂ¡lisis estÃƒÂ©tico de modelos volumÃƒÂ©tricos espaciales.</li><li><b>Lengua Castellana:</b> Glosario etimolÃƒÂ³gico de raÃƒÂ­ces latinas y griegas.</li></ul></td>
+</tr>
+<tr>
+<td><b>P3: <span class="t-biologia">BiologÃƒÂ­a</span></b></td>
+<td>Ã‚Â¿De quÃƒÂ© manera las membranas regulan los gradientes en laboratorios virtuales?</td>
+<td><span class="badge b-aprox">AproximaciÃƒÂ³n</span><ul><li>Modifico variables de soluto y solvente en simuladores de transporte membranal.</li><li>Registro matrices numÃƒÂ©ricas.</li></ul></td>
+<td><span class="badge b-vivo">Entorno Vivo</span><ul><li>Verifico mediante simulaciones interactivas los procesos de ÃƒÂ³smosis y difusiÃƒÂ³n.</li><li>Clasifico permeabilidades.</li></ul></td>
+<td><span class="badge b-comp">Compromisos</span><ul><li>Tomo decisiones autÃƒÂ³nomas sobre hÃƒÂ¡bitos diarios saludables de alimentaciÃƒÂ³n e hidrataciÃƒÂ³n celular.</li></ul></td>
+<td><span class="badge b-trans">ConexiÃƒÂ³n</span><ul><li><b>MatemÃƒÂ¡ticas:</b> RepresentaciÃƒÂ³n grÃƒÂ¡fica estadÃƒÂ­stica de barras y lectura de variables.</li><li><b>EducaciÃƒÂ³n FÃƒÂ­sica:</b> BiomecÃƒÂ¡nica bÃƒÂ¡sica e hidrataciÃƒÂ³n orgÃƒÂ¡nica.</li></ul></td>
+</tr>
+<tr>
+<td><b>P4: <span class="t-fisica">FÃƒÂ­sica</span></b></td>
+<td>Ã‚Â¿CÃƒÂ³mo se representan las transformaciones de la energÃƒÂ­a en sistemas mecÃƒÂ¡nicos web?</td>
+<td><span class="badge b-aprox">AproximaciÃƒÂ³n</span><ul><li>Establezco relaciones numÃƒÂ©ricas entre variables cinemÃƒÂ¡ticas en tableros de control interactivos.</li></ul></td>
+<td><span class="badge b-fisico">Entorno FÃƒÂ­sico</span><ul><li>Identifico tipos de energÃƒÂ­a mecÃƒÂ¡nica, tÃƒÂ©rmica y sus leyes de conservaciÃƒÂ³n bÃƒÂ¡sicas.</li><li>Relaciono fuerzas lineales.</li></ul></td>
+<td><span class="badge b-comp">Compromisos</span><ul><li>Estructuro de manera individual propuestas de eco-eficiencia energÃƒÂ©tica para mi hogar.</li></ul></td>
+<td><span class="badge b-trans">ConexiÃƒÂ³n</span><ul><li><b>TecnologÃƒÂ­a e InformÃƒÂ¡tica:</b> DiseÃƒÂ±o lÃƒÂ³gico de diagramas de flujo energÃƒÂ©ticos.</li><li><b>MatemÃƒÂ¡ticas:</b> ÃƒÂlgebra bÃƒÂ¡sica y ecuaciones lineales de fuerzas.</li></ul></td>
+</tr>
+</tbody>
+</table>
+<div class="grade-title">Grado 6Ã‚Â° - Periodo 1: QuÃƒÂ­mica - Propiedades de la Materia y Mezclas</div><table>
+<thead>
+<tr><th style="width: 8%">Semana</th><th style="width: 12%">Fase DidÃƒÂ¡ctica</th><th style="width: 55%">Estrategias de Aprendizaje Activo en Plataforma (AcciÃƒÂ³n AutÃƒÂ³noma)</th><th style="width: 25%">DimensiÃƒÂ³n Humana y AutogestiÃƒÂ³n</th></tr>
+</thead>
+<tbody>
+<tr class="w-exp"><td>Semana 1</td><td>ExploraciÃƒÂ³n</td><td>Ingreso individual al mÃƒÂ³dulo virtual "El Banco de Materiales". ExploraciÃƒÂ³n interactiva de las animaciones introductorias sobre propiedades organolÃƒÂ©pticas basales de muestras quÃƒÂ­micas.</td><td>ActivaciÃƒÂ³n del asombro reflexivo y valoraciÃƒÂ³n de las nociones intuitivas materiales propias.</td></tr>
+<tr class="w-exp"><td>Semana 2</td><td>ExploraciÃƒÂ³n</td><td>ResoluciÃƒÂ³n individual del rompecabezas lÃƒÂ³gico interactivo de clasificaciÃƒÂ³n de sustancias puras frente a mezclas comerciales cotidianas presentes en el hogar.</td><td>Reconocimiento individual de vacÃƒÂ­os conceptuales previos ante la ordenaciÃƒÂ³n formal de la quÃƒÂ­mica.</td></tr>
+<tr class="w-ind"><td>Semana 3</td><td>IndagaciÃƒÂ³n</td><td>Uso guiado autÃƒÂ³nomo del "Simulador de Balanzas y Probetas Digitales". Mediciones exactas de masas y volÃƒÂºmenes virtuales de cuerpos incÃƒÂ³gnitas para deducir densidades fÃƒÂ­sicas.</td><td>Desarrollo de la paciencia operativa y precisiÃƒÂ³n mÃƒÂ©trica en el uso de instrumentaciÃƒÂ³n web.</td></tr>
+<tr class="w-ind"><td>Semana 4</td><td>IndagaciÃƒÂ³n</td><td>OperaciÃƒÂ³n del software interactivo "Fraccionamiento de Mezclas". ActivaciÃƒÂ³n individual de llaves de decantaciÃƒÂ³n virtuales, niveles tÃƒÂ©rmicos de evaporaciÃƒÂ³n y tamices de retenciÃƒÂ³n porosa.</td><td>Fomento de la honestidad rigurosa al transcribir rendimientos cuantitativos a la bitÃƒÂ¡cora interactiva.</td></tr>
+<tr class="w-ind"><td>Semana 5</td><td>IndagaciÃƒÂ³n</td><td>EstructuraciÃƒÂ³n autÃƒÂ³noma del mapa de conceptos interactivo integrado de la plataforma, conectando sistemas materiales homogÃƒÂ©neos y heterogÃƒÂ©neos con validaciÃƒÂ³n algorÃƒÂ­tmica de enlaces.</td><td>AutogestiÃƒÂ³n y soberanÃƒÂ­a de los ritmos y tiempos de estudio personales al completar retos conceptuales.</td></tr>
+<tr class="w-tra"><td>Semana 6</td><td>Transferencia</td><td>Estudio tÃƒÂ©cnico individualizado: AnÃƒÂ¡lisis detallado de infografÃƒÂ­as dinÃƒÂ¡micas animadas complejas que ilustran el funcionamiento molecular de filtros purificadores de aguas industriales.</td><td>Reconocimiento del impacto de las aplicaciones tÃƒÂ©cnicas de fraccionamiento material en el beneficio social.</td></tr>
+<tr class="w-tra"><td>Semana 7</td><td>Transferencia</td><td>Reto de diseÃƒÂ±o algorÃƒÂ­tmico individual: Configurar secuencialmente de forma correcta la matriz de filtros virtuales de una planta de tratamiento veredal ante diferentes turbideces simuladas.</td><td>SuperaciÃƒÂ³n autÃƒÂ³noma de desafÃƒÂ­os tÃƒÂ©cnicos mediante la aplicaciÃƒÂ³n directa de conceptos quÃƒÂ­micos de aula.</td></tr>
+<tr class="w-met"><td>Semana 8</td><td>MetacogniciÃƒÂ³n</td><td>Carga de la bitÃƒÂ¡cora analÃƒÂ­tica de la materia en formato PDF a la plataforma. SoluciÃƒÂ³n autÃƒÂ³noma del test adaptativo de periodo con visualizaciÃƒÂ³n inmediata de reportes automÃƒÂ¡ticos de logro.</td><td>ConsolidaciÃƒÂ³n de la autoestima intelectual mediante la autoevaluaciÃƒÂ³n guiada automatizada.</td></tr>
+</tbody>
+</table>
+<div class="grade-title">Grado 6Ã‚Â° - Periodo 2: BiologÃƒÂ­a - Ultraestructura Celular y Organelos</div><table>
+<tbody>
+<tr class="w-exp"><td>Semana 1</td><td>ExploraciÃƒÂ³n</td><td>Ingreso al OVA "La Arquitectura de lo Invisible". VisualizaciÃƒÂ³n individualizada de la animaciÃƒÂ³n tridimensional introductoria sobre la constituciÃƒÂ³n celular molecular de los seres vivos.</td><td>Despertar la curiosidad cientÃƒÂ­fica introspectiva ante los fenÃƒÂ³menos micro de la naturaleza viva.</td></tr>
+<tr class="w-exp"><td>Semana 2</td><td>ExploraciÃƒÂ³n</td><td>Diligenciamiento de la matriz interactiva de entrada de ideas previas, esquematizando mediante herramientas de dibujo web la estructura interna celular intuida.</td><td>ValidaciÃƒÂ³n de las representaciones y bosquejos iniciales autÃƒÂ³nomos del estudiante sin juzgamientos.</td></tr>
+<tr class="w-ind"><td>Semana 3</td><td>IndagaciÃƒÂ³n</td><td>Uso guiado autÃƒÂ³nomo del "Simulador de MicroscopÃƒÂ­a Ãƒâ€œptica Virtual 2D". Ajuste individual de enfoques, diafragmas y objetivos para examinar muestras fijadas precargadas de tejidos de cebolla.</td><td>Meticulosidad operativa y disciplina mental ante la manipulaciÃƒÂ³n tÃƒÂ©cnica de herramientas digitales.</td></tr>
+<tr class="w-ind"><td>Semana 4</td><td>IndagaciÃƒÂ³n</td><td>Estudio independiente del mÃƒÂ³dulo dinÃƒÂ¡mico "Atlas de Organelos Eucariotas". RotulaciÃƒÂ³n individual de componentes morfolÃƒÂ³gicos en diagramas dinÃƒÂ¡micos con feedback de error.</td><td>Rigor metodolÃƒÂ³gico en el registro objetivo de los datos morfolÃƒÂ³gicos microscÃƒÂ³picos observados.</td></tr>
+<tr class="w-ind"><td>Semana 5</td><td>IndagaciÃƒÂ³n</td><td>ResoluciÃƒÂ³n secuencial interactiva del mÃƒÂ³dulo de niveles de organizaciÃƒÂ³n celular tisular (cÃƒÂ©lulas especializadas, epitelios) mediante ejercicios drag-and-drop de clasificaciÃƒÂ³n.</td><td>AutorregulaciÃƒÂ³n y constancia operativa al completar de forma libre secuencias lÃƒÂ³gicas del software.</td></tr>
+<tr class="w-tra"><td>Semana 6</td><td>Transferencia</td><td>AnÃƒÂ¡lisis de caso individual en vÃƒÂ­deo interactivo: "Respuestas celulares ante patologÃƒÂ­as y fallas metabÃƒÂ³licas de organelos". Responder preguntas crÃƒÂ­ticas integradas en la lÃƒÂ­nea de tiempo.</td><td>AsociaciÃƒÂ³n de la morfologÃƒÂ­a celular funcional con el cuidado inmediato y protecciÃƒÂ³n sanitaria orgÃƒÂ¡nica.</td></tr>
+<tr class="w-tra"><td>Semana 7</td><td>Transferencia</td><td>SuperaciÃƒÂ³n autÃƒÂ³noma del videojuego educativo individual de misiones "Reparador de CÃƒÂ©lulas", programando combinaciones moleculares de enzimas correctas para salvar tejidos simulados.</td><td>Liderazgo tÃƒÂ©cnico autÃƒÂ³nomo manifestado en la resoluciÃƒÂ³n individual de problemas biolÃƒÂ³gicos programados.</td></tr>
+<tr class="w-met"><td>Semana 8</td><td>MetacogniciÃƒÂ³n</td><td>EnvÃƒÂ­o del portafolio digital de la cÃƒÂ©lula al casillero virtual. SoluciÃƒÂ³n autÃƒÂ³noma de la evaluaciÃƒÂ³n diagnÃƒÂ³stica de periodo en lÃƒÂ­nea con reportes automatizados de desempeÃƒÂ±o analÃƒÂ­tico.</td><td>ApropiaciÃƒÂ³n reflexiva de los hitos cognitivos alcanzados y reconocimiento autÃƒÂ³nomo de brechas conceptuales.</td></tr>
+</tbody>
+</table>
+<div class="grade-title">Grado 6Ã‚Â° - Periodo 3: BiologÃƒÂ­a - Transporte de Membrana y Homeostasis</div><table>
+<tbody>
+<tr class="w-exp"><td>Semana 1</td><td>ExploraciÃƒÂ³n</td><td>VisualizaciÃƒÂ³n individual de la animaciÃƒÂ³n discrepante "CÃƒÂ©lulas Vegetales en Medios HipertÃƒÂ³nicos". Registro individualizado de predicciones explicativas libres en el foro interactivo.</td><td>DisposiciÃƒÂ³n abierta y flexibilidad mental ante fenÃƒÂ³menos biofÃƒÂ­sicos celulares contraintuitivos simulados.</td></tr>
+<tr class="w-exp"><td>Semana 2</td><td>ExploraciÃƒÂ³n</td><td>NavegaciÃƒÂ³n autÃƒÂ³noma por el glosario interactivo del OVA de Homeostasis. Emparejamiento individual de tÃƒÂ©rminos clave (Gradiente de concentraciÃƒÂ³n, Membrana Semipermeable).</td><td>AceptaciÃƒÂ³n del rigor terminolÃƒÂ³gico conceptual formal de la biologÃƒÂ­a como base descriptiva vÃƒÂ¡lida.</td></tr>
+<tr class="w-ind"><td>Semana 3</td><td>IndagaciÃƒÂ³n</td><td>InteracciÃƒÂ³n de precisiÃƒÂ³n con el "Simulador de Transporte de Membrana Pasivo y Activo". ModificaciÃƒÂ³n de variables de masa salina y conteo de flujos moleculares hÃƒÂ­dricos.</td><td>Constancia, disciplina y minuciosidad en la recolecciÃƒÂ³n individual de datos numÃƒÂ©ricos virtuales repetidos.</td></tr>
+<tr class="w-ind"><td>Semana 4</td><td>IndagaciÃƒÂ³n</td><td>ConstrucciÃƒÂ³n automatizada dentro de la plataforma de grÃƒÂ¡ficos lineales de tendencia correlacionando tiempo de exposiciÃƒÂ³n virtual de la muestra con variaciones de volumen hÃƒÂ­drico celular.</td><td>Uso de herramientas analÃƒÂ­ticas lÃƒÂ³gico-matemÃƒÂ¡ticas para dar soporte riguroso a la evidencia biolÃƒÂ³gica.</td></tr>
+<tr class="w-ind"><td>Semana 5</td><td>IndagaciÃƒÂ³n</td><td>ResoluciÃƒÂ³n individual autÃƒÂ³noma del test modular interactivo sobre permeabilidad celular selectiva y canales iÃƒÂ³nicos, superando los retos secuenciales de validaciÃƒÂ³n de compuertas.</td><td>SoberanÃƒÂ­a intelectual y autogestiÃƒÂ³n de ritmos cognitivos en entornos virtuales avanzados de autoaprendizaje.</td></tr>
+<tr class="w-tra"><td>Semana 6</td><td>Transferencia</td><td>ABP AgrÃƒÂ­cola Digital: AnÃƒÂ¡lisis multicausal de un vÃƒÂ­deo explicativo sobre marchitamiento de cultivos andinos veredales quindianos por sobre-fertilizaciÃƒÂ³n quÃƒÂ­mica.</td><td>Desarrollo de la sensibilidad social ÃƒÂ©tica ante problemÃƒÂ¡ticas econÃƒÂ³micas agroecolÃƒÂ³gicas de su ecorregiÃƒÂ³n.</td></tr>
+<tr class="w-tra"><td>Semana 7</td><td>Transferencia</td><td>NavegaciÃƒÂ³n individualizada por el OVA de nutriciÃƒÂ³n: SimulaciÃƒÂ³n interactiva de balances osmÃƒÂ³ticos corporales humanos para el diseÃƒÂ±o autÃƒÂ³nomo de pautas racionales de hidrataciÃƒÂ³n fÃƒÂ­sica.</td><td>Toma de decisiones responsables, autÃƒÂ³nomas e informadas dirigidas a preservar el equilibrio corporal hÃƒÂ­drico.</td></tr>
+<tr class="w-met"><td>Semana 8</td><td>MetacogniciÃƒÂ³n</td><td>EnvÃƒÂ­o final de portafolios de homeostasis membranal. Cuestionario final sumativo en lÃƒÂ­nea de periodo con analÃƒÂ­ticas cualitativas inmediatas provistas por la plataforma.</td><td>ConsolidaciÃƒÂ³n de la autoestima intelectual cimentada en la superaciÃƒÂ³n autÃƒÂ³noma de secuencias de ciencias.</td></tr>
+</tbody>
+</table>
+<div class="grade-title">Grado 6Ã‚Â° - Periodo 4: FÃƒÂ­sica - Manifestaciones de la EnergÃƒÂ­a y Fuerzas MecÃƒÂ¡nicas</div><table>
+<tbody>
+<tr class="w-exp"><td>Semana 1</td><td>ExploraciÃƒÂ³n</td><td>Ingreso al mÃƒÂ³dulo interactivo "Las Transformaciones de la EnergÃƒÂ­a". ObservaciÃƒÂ³n de animaciones dinÃƒÂ¡micas iniciales de la conversiÃƒÂ³n tÃƒÂ©rmica y mecÃƒÂ¡nica en simuladores.</td><td>ValoraciÃƒÂ³n de las ideas errÃƒÂ³neas o aproximaciones intuitivas mecÃƒÂ¡nicas iniciales como andamiajes lÃƒÂ³gicos.</td></tr>
+<tr class="w-exp"><td>Semana 2</td><td>ExploraciÃƒÂ³n</td><td>Diligenciamiento de la matriz individual interactiva de predicciones cinemÃƒÂ¡ticas sobre las fuerzas invisibles que operan al empujar masas virtuales sobre superficies lisas.</td><td>Fomento de la confianza epistÃƒÂ©mica personal para enunciar hipÃƒÂ³tesis independientes sobre el entorno fÃƒÂ­sico.</td></tr>
+<tr class="w-ind"><td>Semana 3</td><td>IndagaciÃƒÂ³n</td><td>OperaciÃƒÂ³n de precisiÃƒÂ³n del "Simulador de ConservaciÃƒÂ³n de la EnergÃƒÂ­a MecÃƒÂ¡nica". ParametrizaciÃƒÂ³n individual de variables de masa corporal, alturas y coeficientes de rozamiento.</td><td>Disciplina mental procedimental profunda y rigor analÃƒÂ­tico en la recolecciÃƒÂ³n individualizada de magnitudes.</td></tr>
+<tr class="w-ind"><td>Semana 4</td><td>IndagaciÃƒÂ³n</td><td>GraficaciÃƒÂ³n automatizada matemÃƒÂ¡tica de curvas cinÃƒÂ©ticas de energÃƒÂ­a potencial frente a energÃƒÂ­a cinÃƒÂ©tica en funciÃƒÂ³n del tiempo de desplazamiento del mÃƒÂ³vil simulado en pantalla.</td><td>Uso de los modelos matemÃƒÂ¡ticos precisos como vehÃƒÂ­culo descriptivo de fenÃƒÂ³menos de la fÃƒÂ­sica.</td></tr>
+<tr class="w-ind"><td>Semana 5</td><td>IndagaciÃƒÂ³n</td><td>Taller conceptual de estructuraciÃƒÂ³n autÃƒÂ³noma: Completar diagramas de bloques interactivos en la plataforma vinculando el principio de conservaciÃƒÂ³n energÃƒÂ©tica con sistemas mecÃƒÂ¡nicos.</td><td>ApropiaciÃƒÂ³n del pensamiento de lÃƒÂ­mites y leyes invariables fÃƒÂ­sicas clÃƒÂ¡sicas a partir de simulaciones.</td></tr>
+<tr class="w-tra"><td>Semana 6</td><td>Transferencia</td><td>Estudio tÃƒÂ©cnico CTS digital autÃƒÂ³nomo: AnÃƒÂ¡lisis detallado de planos interactivos de viviendas bioclimÃƒÂ¡ticas eficientes y sistemas de aislamiento tÃƒÂ©rmico de bajo costo en vÃƒÂ­deo.</td><td>Reconocimiento del papel social directo de las leyes fÃƒÂ­sicas en la optimizaciÃƒÂ³n de recursos comunitarios.</td></tr>
+<tr class="w-tra"><td>Semana 7</td><td>Transferencia</td><td>Reto de optimizaciÃƒÂ³n individual por software: Configurar parÃƒÂ¡metros mecÃƒÂ¡nicos y tÃƒÂ©rmicos de un circuito domÃƒÂ©stico virtual de descarte para maximizar ahorro energÃƒÂ©tico.</td><td>Capacidad tÃƒÂ©cnica autÃƒÂ³noma orientada a proponer soluciones materiales a problemÃƒÂ¡ticas eco-ambientales reales.</td></tr>
+<tr class="w-met"><td>Semana 8</td><td>MetacogniciÃƒÂ³n</td><td>EnvÃƒÂ­o de bitÃƒÂ¡coras anuales integradas de fÃƒÂ­sica en formato digital. Test de periodo de cierre anual con reportes de analÃƒÂ­ticas cualitativas de autogestiÃƒÂ³n.</td><td>ConsolidaciÃƒÂ³n definitiva de la autonomÃƒÂ­a crÃƒÂ­tica y madurez cognitiva del estudiante al cierre del aÃƒÂ±o lectivo.</td></tr>
+</tbody>
+</table>
+</div>
+<div id="malla-grado-7" class="contenedor-malla" style="display:none;">
+<div class="grade-title">Malla Curricular: Grado SÃƒÂ©ptimo (7Ã‚Â°)</div><table>
+<thead>
+<tr>
+<th style="width: 7%">Periodo / Asignatura</th>
+<th style="width: 15%">Pregunta Problematizadora</th>
+<th style="width: 22%">Me Aproximo al Conocimiento como CientÃƒÂ­fico-a Natural (Entorno Virtual)</th>
+<th style="width: 22%">Manejo Conocimientos Propios (MÃƒÂ³dulos del OVA)</th>
+<th style="width: 17%">Desarrollo Compromisos Personales y Sociales (AutogestiÃƒÂ³n)</th>
+<th style="width: 17%">TransversalizaciÃƒÂ³n con otras ÃƒÂreas Fundamentales (Ejes de Co-DiseÃƒÂ±o Web)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><b>P1: <span class="t-quimica">QuÃƒÂ­mica</span></b></td>
+<td>Ã‚Â¿CÃƒÂ³mo se codifican los modelos atÃƒÂ³micos en matrices y tablas digitales?</td>
+<td><span class="badge b-aprox">AproximaciÃƒÂ³n</span><ul><li>Observo espectros simulados e identifico constantes electrostÃƒÂ¡ticas atÃƒÂ³micas.</li><li>Uso lenguaje formal.</li></ul></td>
+<td><span class="badge b-fisico">Entorno FÃƒÂ­sico</span><ul><li>Describo el desarrollo de las teorÃƒÂ­as moleculares atÃƒÂ³micas.</li><li>Explico tendencias periÃƒÂ³dicas de electronegatividad.</li></ul></td>
+<td><span class="badge b-comp">Compromisos</span><ul><li>Ajusto mis explicaciones teÃƒÂ³ricas cuando los algoritmos de simulaciÃƒÂ³n refutan mis respuestas.</li></ul></td>
+<td><span class="badge b-trans">ConexiÃƒÂ³n</span><ul><li><b>Ciencias Sociales:</b> Historia de las revoluciones industriales y evoluciÃƒÂ³n del pensamiento.</li><li><b>TecnologÃƒÂ­a:</b> LÃƒÂ­neas de tiempo interactivas multimedia.</li></ul></td>
+</tr>
+<tr>
+<td><b>P2: <span class="t-biologia">BiologÃƒÂ­a</span></b></td>
+<td>Ã‚Â¿CÃƒÂ³mo se modelan los niveles de capacidad de carga en ecosistemas virtuales?</td>
+<td><span class="badge b-aprox">AproximaciÃƒÂ³n</span><ul><li>Formulo hipÃƒÂ³tesis en plataforma sobre curvas de crecimiento poblacional interrumpidas.</li><li>Fijo metas autÃƒÂ³nomas.</li></ul></td>
+<td><span class="badge b-vivo">Entorno Vivo</span><ul><li>Caracterizo dinÃƒÂ¡micas ecosistÃƒÂ©micas andinas y relaciones de competencia biÃƒÂ³tica.</li><li>Analizo nichos ecolÃƒÂ³gicos.</li></ul></td>
+<td><span class="badge b-comp">Compromisos</span><ul><li>Asumo posturas crÃƒÂ­ticas ÃƒÂ©ticas independientes frente a escenarios virtuales de degradaciÃƒÂ³n.</li></ul></td>
+<td><span class="badge b-trans">ConexiÃƒÂ³n</span><ul><li><b>MatemÃƒÂ¡ticas:</b> ModelaciÃƒÂ³n de funciones logÃƒÂ­sticas y proyecciones de escala.</li><li><b>Ciencias Sociales/GeografÃƒÂ­a:</b> DemografÃƒÂ­a y ordenamiento territorial.</li></ul></td>
+</tr>
+<tr>
+<td><b>P3: <span class="t-biologia">BiologÃƒÂ­a</span></b></td>
+<td>Ã‚Â¿De quÃƒÂ© manera los ciclos biogeoquÃƒÂ­micos conservan el balance del bioma neotropical?</td>
+<td><span class="badge b-aprox">AproximaciÃƒÂ³n</span><ul><li>Comnico balances de materia diseÃƒÂ±ando tablas analÃƒÂ­ticas dinÃƒÂ¡micas individuales.</li><li>Mantengo constancia.</li></ul></td>
+<td><span class="badge b-vivo">Entorno Vivo</span><ul><li>Establezco relaciones moleculares entre los ciclos del agua, carbono, nitrÃƒÂ³geno y flujos energÃƒÂ©ticos.</li></ul></td>
+<td><span class="badge b-comp">Compromisos</span><ul><li>Establezco nexos reflexivos individuales entre pautas de consumo y alteraciÃƒÂ³n de ciclos biogeoquÃƒÂ­micos.</li></ul></td>
+<td><span class="badge b-trans">ConexiÃƒÂ³n</span><ul><li><b>MatemÃƒÂ¡ticas:</b> Ecuaciones de balance y cÃƒÂ¡lculo de porcentajes de retenciÃƒÂ³n orgÃƒÂ¡nica.</li><li><b>Ciencias Sociales:</b> Impacto socioeconÃƒÂ³mico de la degradaciÃƒÂ³n de suelos.</li></ul></td>
+</tr>
+<tr>
+<td><b>P4: <span class="t-fisica">FÃƒÂ­sica</span></b></td>
+<td>Ã‚Â¿QuÃƒÂ© principios mecÃƒÂ¡nicos rigen el funcionamiento de las mÃƒÂ¡quinas simples y poleas?</td>
+<td><span class="badge b-aprox">AproximaciÃƒÂ³n</span><ul><li>EfectÃƒÂºo cÃƒÂ¡lculos vectoriales de torque operando palancas y poleas interactivas en la plataforma.</li></ul></td>
+<td><span class="badge b-fisico">Entorno FÃƒÂ­sico</span><ul><li>Explico el funcionamiento mecÃƒÂ¡nico estÃƒÂ¡tico de mÃƒÂ¡quinas simples y ventaja mecÃƒÂ¡nica ideal.</li><li>Analizo energÃƒÂ­as limpias.</li></ul></td>
+<td><span class="badge b-comp">Compromisos</span><ul><li>Examino de forma autodidacta infografÃƒÂ­as CTS sobre transiciones energÃƒÂ©ticas para argumentar posturas.</li></ul></td>
+<td><span class="badge b-trans">ConexiÃƒÂ³n</span><ul><li><b>MatemÃƒÂ¡ticas:</b> TrigonometrÃƒÂ­a bÃƒÂ¡sica y descomposiciÃƒÂ³n vectorial geomÃƒÂ©trica lineal.</li><li><b>TecnologÃƒÂ­a:</b> SimulaciÃƒÂ³n cinemÃƒÂ¡tica de sistemas mecÃƒÂ¡nicos.</li></ul></td>
+</tr>
+</tbody>
+</table>
+<div class="grade-title">Grado 7Ã‚Â° - Periodo 1: QuÃƒÂ­mica - Modelos AtÃƒÂ³micos y ConfiguraciÃƒÂ³n PeriÃƒÂ³dica</div><table>
+<thead>
+<tr><th style="width: 8%">Semana</th><th style="width: 12%">Fase DidÃƒÂ¡ctica</th><th style="width: 55%">Estrategias de Aprendizaje Activo en Plataforma (AcciÃƒÂ³n AutÃƒÂ³noma)</th><th style="width: 25%">DimensiÃƒÂ³n Humana y AutogestiÃƒÂ³n</th></tr>
+</thead>
+<tbody>
+<tr class="w-exp"><td>Semana 1</td><td>ExploraciÃƒÂ³n</td><td>Ingreso al simulador de campos electrostÃƒÂ¡ticos subatÃƒÂ³micos elementales. ModificaciÃƒÂ³n interactiva individual de cargas elÃƒÂ©ctricas virtuales y registro de atracciones de partÃƒÂ­culas.</td><td>Flexibilidad mental y apertura cognitiva frente a la discusiÃƒÂ³n interna de explicaciones atÃƒÂ³micas abstractas.</td></tr>
+<tr class="w-exp"><td>Semana 2</td><td>ExploraciÃƒÂ³n</td><td>NavegaciÃƒÂ³n individual por la paradoja histÃƒÂ³rica de divisibilidad elemental material (DemÃƒÂ³crito vs AristÃƒÂ³teles) en el OVA introductorio. Registro de conjeturas iniciales en el foro.</td><td>ValoraciÃƒÂ³n de las transformaciones de las explicaciones racionales histÃƒÂ³ricas como motor del conocimiento formal.</td></tr>
+<tr class="w-ind"><td>Semana 3</td><td>IndagaciÃƒÂ³n</td><td>Estudio autÃƒÂ³nomo de lÃƒÂ­neas de tiempo multimedia interactivas detallando los experimentos que sustentaron los modelos de Dalton, Thomson y Rutherford. Cuestionarios de control.</td><td>Reconocimiento explÃƒÂ­cito del carÃƒÂ¡cter histÃƒÂ³rico y transitorio del conocimiento cientÃƒÂ­fico quÃƒÂ­mico.</td></tr>
+<tr class="w-ind"><td>Semana 4</td><td>IndagaciÃƒÂ³n</td><td>InteracciÃƒÂ³n guiada autÃƒÂ³noma con el "Simulador Ãƒâ€œrbitas de Bohr" analizando espectros de emisiÃƒÂ³n moleculares digitales simulados ante saltos cuÃƒÂ¡nticos electrÃƒÂ³nicos de energÃƒÂ­a.</td><td>Constancia disciplinada operativa y minuciosidad analÃƒÂ­tica en el registro de variables espectrales web.</td></tr>
+<tr class="w-ind"><td>Semana 5</td><td>IndagaciÃƒÂ³n</td><td>ModelaciÃƒÂ³n abstracta individual empleando el constructor 3D de nubes probabilÃƒÂ­sticas electrÃƒÂ³nicas mecÃƒÂ¡nicas cuÃƒÂ¡nticas de la plataforma para ÃƒÂ¡tomos elementales estructurados.</td><td>Rigor analÃƒÂ­tico profundo y perseverancia analÃƒÂ­tica matemÃƒÂ¡tica ante el manejo de geometrÃƒÂ­as espaciales.</td></tr>
+<tr class="w-tra"><td>Semana 6</td><td>Transferencia</td><td>Estudio analÃƒÂ­tico de caso CTS indexado: VÃƒÂ­deo interactivo sobre aplicaciones de radioisÃƒÂ³topos cuÃƒÂ¡nticos en tomografÃƒÂ­as mÃƒÂ©dicas contemporÃƒÂ¡neas frente a riesgos bÃƒÂ©licos.</td><td>EstructuraciÃƒÂ³n de un juicio bioÃƒÂ©tico reflexivo superior frente a los alcances industriales tÃƒÂ©cnicos masivos.</td></tr>
+<tr class="w-tra"><td>Semana 7</td><td>Transferencia</td><td>RedacciÃƒÂ³n individual autÃƒÂ³noma de una monografÃƒÂ­a conceptual explicativa detallando cÃƒÂ³mo un nÃƒÂºmero finito de elementos de la tabla periÃƒÂ³dica codifica la inmensa diversidad material.</td><td>ApreciaciÃƒÂ³n de la elegancia y economÃƒÂ­a matemÃƒÂ¡tica organizativa estructural de las leyes naturales moleculares.</td></tr>
+<tr class="w-met"><td>Semana 8</td><td>MetacogniciÃƒÂ³n</td><td>EnvÃƒÂ­o del portafolio virtual de estructura atÃƒÂ³mica molecular. Cuestionario de periodo automatizado sumativo adaptativo con analÃƒÂ­ticas inmediatas de rendimiento cognitivo.</td><td>Aptitud honesta y humilde para reajustar modelos mentales propios ante evidencias formales del software.</td></tr>
+</tbody>
+</table>
+<div class="grade-title">Grado 7Ã‚Â° - Periodo 2: BiologÃƒÂ­a - DinÃƒÂ¡micas Poblacionales y Capacidad de Carga</div><table>
+<tbody>
+<tr class="w-exp"><td>Semana 1</td><td>ExploraciÃƒÂ³n</td><td>Ingreso al simulador de ecosistemas neotropicales virtuales. ConfiguraciÃƒÂ³n individual de variables basales iniciales de poblaciones de productores y consumidores herbÃƒÂ­voros.</td><td>Desarrollo de la paciencia perceptiva, respeto y asombro ÃƒÂ©tico hacia los ciclos vitales no humanos.</td></tr>
+<tr class="w-exp"><td>Semana 2</td><td>ExploraciÃƒÂ³n</td><td>Registro de bosquejos descriptivos predictivos en bitÃƒÂ¡cora interactiva detallando curvas de crecimiento poblacional intuidas ante la ausencia de factores limitantes ambientales.</td><td>ValoraciÃƒÂ³n de las representaciones e hipÃƒÂ³tesis ecobiolÃƒÂ³gicas iniciales del propio estudiante de forma independiente.</td></tr>
+<tr class="w-ind"><td>Semana 3</td><td>IndagaciÃƒÂ³n</td><td>OperaciÃƒÂ³n de modelos analÃƒÂ­ticos algorÃƒÂ­tmicos de competencia interespecÃƒÂ­fica e intraespecÃƒÂ­fica biÃƒÂ³tica corriendo ciclos acelerados de tiempo biolÃƒÂ³gico en pantalla.</td><td>Meticulosidad operativa y rigurosidad metodolÃƒÂ³gica al registrar fluctuaciones poblacionales en el software.</td></tr>
+<tr class="w-ind"><td>Semana 4</td><td>IndagaciÃƒÂ³n</td><td>ModelaciÃƒÂ³n y cÃƒÂ¡lculo matemÃƒÂ¡tico de las ecuaciones de capacidad de carga de un ecosistema andino simulado, alterando de forma voluntaria coeficientes de recursos vitales de nicho.</td><td>Exigencia de honestidad intelectual profunda en el registro transparente de variables de campo virtuales.</td></tr>
+<tr class="w-ind"><td>Semana 5</td><td>IndagaciÃƒÂ³n</td><td>Taller conceptual interactivo: Completar matrices de interdependencia biÃƒÂ³tica (mutualismos, parasitismos fitopatÃƒÂ³genos) con retroalimentaciÃƒÂ³n correctiva inmediata de la plataforma.</td><td>SoberanÃƒÂ­a intelectual y autogestiÃƒÂ³n de ritmos cognitivos en entornos virtuales avanzados de autoaprendizaje.</td></tr>
+<tr class="w-tra"><td>Semana 6</td><td>Transferencia</td><td>Estudio de caso epidemiolÃƒÂ³gico digital: AnÃƒÂ¡lisis en vÃƒÂ­deo de la propagaciÃƒÂ³n de parÃƒÂ¡sitos como <i>Cryptosporidium</i> o <i>Giardia</i> en cuencas hidrogrÃƒÂ¡ficas veredales desprotegidas.</td><td>SensibilizaciÃƒÂ³n ÃƒÂ©tica civil reflexiva y empatÃƒÂ­a frente a las amenazas de salud epidemiolÃƒÂ³gica de las comunidades.</td></tr>
+<tr class="w-tra"><td>Semana 7</td><td>Transferencia</td><td>DiseÃƒÂ±o individual de mapas de control y diagramas de flujo preventivos automatizados para la interceptaciÃƒÂ³n biolÃƒÂ³gica de patÃƒÂ³genos en el suministro hÃƒÂ­drico domÃƒÂ©stico familiar.</td><td>Liderazgo civil tÃƒÂ©cnico autÃƒÂ³nomo manifestado en la proposiciÃƒÂ³n de alternativas viables de preservaciÃƒÂ³n biÃƒÂ³tica.</td></tr>
+<tr class="w-met"><td>Semana 8</td><td>MetacogniciÃƒÂ³n</td><td>Carga de carpetas analÃƒÂ­ticas de dinÃƒÂ¡micas poblacionales ecolÃƒÂ³gicas. Cuestionario final sumativo de periodo adaptativo en lÃƒÂ­nea con reportes automatizados de desempeÃƒÂ±o.</td><td>ApropiaciÃƒÂ³n plena de la responsabilidad individual ciudadana directa en la conservaciÃƒÂ³n de equilibrios biolÃƒÂ³gicos.</td></tr>
+</tbody>
+</table>
+<div class="grade-title">Grado 7Ã‚Â° - Periodo 3: BiologÃƒÂ­a - Ciclos BiogeoquÃƒÂ­micos y Flujos de EnergÃƒÂ­a Andinos</div><table>
+<tbody>
+<tr class="w-exp"><td>Semana 1</td><td>ExploraciÃƒÂ³n</td><td>Ingreso al OVA "Ciclos de la Materia en el TrÃƒÂ³pico". ObservaciÃƒÂ³n de animaciones dinÃƒÂ¡micas que ilustran las transformaciones moleculares invisibles del carbono y nitrÃƒÂ³geno andino.</td><td>ActivaciÃƒÂ³n de la curiosidad cientÃƒÂ­fica introspectiva ante los engranajes quÃƒÂ­micos invisibles de la biosfera.</td></tr>
+<tr class="w-exp"><td>Semana 2</td><td>ExploraciÃƒÂ³n</td><td>Diligenciamiento de la matriz de entrada de ideas previas, esquematizando mediante diagramas de bloques mecÃƒÂ¡nicos la trayectoria supuesta del agua en cuencas veredales.</td><td>Fomento de una postura crÃƒÂ­tica reflexiva independiente sobre las interconexiones materiales biÃƒÂ³ticas globales.</td></tr>
+<tr class="w-ind"><td>Semana 3</td><td>IndagaciÃƒÂ³n</td><td>Uso guiado de simuladores eco-climÃƒÂ¡ticos interactivos. ModificaciÃƒÂ³n de variables tÃƒÂ©rmicas globales y anÃƒÂ¡lisis directo del impacto sobre depÃƒÂ³sitos de nitrÃƒÂ³geno del suelo.</td><td>Rigor, precisiÃƒÂ³n lÃƒÂ³gica y consistencia procedimental en el archivo individualizado de variables quÃƒÂ­micas medidas.</td></tr>
+<tr class="w-ind"><td>Semana 4</td><td>IndagaciÃƒÂ³n</td><td>ModelaciÃƒÂ³n matemÃƒÂ¡tica de pirÃƒÂ¡mides energÃƒÂ©ticas trÃƒÂ³ficas aplicando aritmÃƒÂ©ticamente ecuaciones de disipaciÃƒÂ³n calÃƒÂ³rica celular entrÃƒÂ³pica por nivel de consumo.</td><td>Uso de metodologÃƒÂ­as de cuantificaciÃƒÂ³n matemÃƒÂ¡ticas aplicadas a clarificar balances ecolÃƒÂ³gicos.</td></tr>
+<tr class="w-ind"><td>Semana 5</td><td>IndagaciÃƒÂ³n</td><td>Estudio del mÃƒÂ³dulo independiente "ErosiÃƒÂ³n y Suelo". Completar retos de ordenaciÃƒÂ³n estructural vinculando pÃƒÂ©rdida de follaje forestal con lavado quÃƒÂ­mico de nutrientes andinos.</td><td>AutonomÃƒÂ­a y autorregulaciÃƒÂ³n al completar las secuencias lÃƒÂ³gicas abstractas propuestas por el software.</td></tr>
+<tr class="w-tra"><td>Semana 6</td><td>Transferencia</td><td>AnÃƒÂ¡lisis de vulnerabilidad agronÃƒÂ³mica veredal quindiana: Estudio de caso interactivo multimedia detallando impactos econÃƒÂ³micos del monocultivo sobre el carbono del suelo.</td><td>Solidaridad comunitaria proactiva frente a las amenazas socioeconÃƒÂ³micas que sufren los productores agrÃƒÂ­colas rurales.</td></tr>
+<tr class="w-tra"><td>Semana 7</td><td>Transferencia</td><td>DiseÃƒÂ±o individual autÃƒÂ³nomo en plataforma de planos tÃƒÂ©cnicos de terrazas de retenciÃƒÂ³n de humedad orgÃƒÂ¡nica empleando coberturas biolÃƒÂ³gicas simuladas de lÃƒÂ­quenes andinos.</td><td>Liderazgo civil proactivo ÃƒÂ©tico comprometido con el diseÃƒÂ±o de alternativas tecnolÃƒÂ³gicas de conservaciÃƒÂ³n agraria.</td></tr>
+<tr class="w-met"><td>Semana 8</td><td>MetacogniciÃƒÂ³n</td><td>EnvÃƒÂ­o de portafolios analÃƒÂ­ticos integrales de ciclos materiales biogeoquÃƒÂ­micos. Test automatizado de periodo en lÃƒÂ­nea con analÃƒÂ­ticas de brechas conceptuales de cierre.</td><td>ConsolidaciÃƒÂ³n de la seguridad personal intelectual basada en la validaciÃƒÂ³n acadÃƒÂ©mica de saberes biÃƒÂ³ticos.</td></tr>
+</tbody>
+</table>
+<div class="grade-title">Grado 7Ã‚Â° - Periodo 4: FÃƒÂ­sica - MÃƒÂ¡quinas Simples y Matrices de EnergÃƒÂ­a Limpia</div><table>
+<tbody>
+<tr class="w-exp"><td>Semana 1</td><td>ExploraciÃƒÂ³n</td><td>OperaciÃƒÂ³n individual del simulador mecÃƒÂ¡nico "Palancas y Poleas". ModificaciÃƒÂ³n libre de distancias de brazos de fuerza y registro de masas virtuales equilibradas en pantalla.</td><td>ValoraciÃƒÂ³n de las aproximaciones de nociones mecÃƒÂ¡nicas analÃƒÂ³gicas iniciales como andamiajes lÃƒÂ³gicos del saber.</td></tr>
+<tr class="w-exp"><td>Semana 2</td><td>ExploraciÃƒÂ³n</td><td>FormulaciÃƒÂ³n de hipÃƒÂ³tesis cinemÃƒÂ¡ticas predictivas escritas en bitÃƒÂ¡cora detallando cÃƒÂ³mo se imagina el ahorro de fuerza humana al aplicar ventajas mecÃƒÂ¡nicas poleares.</td><td>Fomento de la confianza epistÃƒÂ©mica individual para enunciar hipÃƒÂ³tesis independientes sobre leyes fÃƒÂ­sicas del medio.</td></tr>
+<tr class="w-ind"><td>Semana 3</td><td>IndagaciÃƒÂ³n</td><td>ParametrizaciÃƒÂ³n matemÃƒÂ¡tica de leyes estÃƒÂ¡ticas mecÃƒÂ¡nicas coplanares (Torque, momento de fuerza) corriendo experimentos virtuales controlados de alta precisiÃƒÂ³n mÃƒÂ©trica.</td><td>Disciplina mental procedimental profunda y rigor analÃƒÂ­tico en la recolecciÃƒÂ³n individual de magnitudes fÃƒÂ­sicas.</td></tr>
+<tr class="w-ind"><td>Semana 4</td><td>IndagaciÃƒÂ³n</td><td>ResoluciÃƒÂ³n de ecuaciones algebraicas de ventaja mecÃƒÂ¡nica ideal frente a eficiencia real de transmisiÃƒÂ³n de potencia en sistemas integrados en el tablero digital.</td><td>Uso e integraciÃƒÂ³n formalizada del lenguaje matemÃƒÂ¡tico preciso como vehÃƒÂ­culo descriptivo de fenÃƒÂ³menos de fuerza.</td></tr>
+<tr class="w-ind"><td>Semana 5</td><td>IndagaciÃƒÂ³n</td><td>Estudio del mÃƒÂ³dulo interactivo de energÃƒÂ­as alternativas: EvaluaciÃƒÂ³n de coeficientes tÃƒÂ©rmicos solares y cinÃƒÂ©ticos eÃƒÂ³licos de turbinas segÃƒÂºn variables geogrÃƒÂ¡ficas web.</td><td>ApropiaciÃƒÂ³n de un pensamiento sistÃƒÂ©mico avanzado de balances y transiciones tecnolÃƒÂ³gicas limpias contemporÃƒÂ¡neas.</td></tr>
+<tr class="w-tra"><td>Semana 6</td><td>Transferencia</td><td>Estudio de caso de ingenierÃƒÂ­a civil CTS digital: Lectura y anÃƒÂ¡lisis crÃƒÂ­tico de infografÃƒÂ­as animadas complejas que ilustran el montaje de sistemas eÃƒÂ³licos de bajo costo en vÃƒÂ­deo.</td><td>Desarrollo de un criterio crÃƒÂ­tico civil frente a las transformaciones tecnolÃƒÂ³gicas orientadas al bien pÃƒÂºblico.</td></tr>
+<tr class="w-tra"><td>Semana 7</td><td>Transferencia</td><td>Reto de diseÃƒÂ±o individual por software: Configurar parÃƒÂ¡metros de captaciÃƒÂ³n fotovoltaica ÃƒÂ³ptima para suplir demandas tÃƒÂ©rmicas simuladas de un hogar veredal.</td><td>Capacidad tÃƒÂ©cnica autÃƒÂ³noma orientada a proponer soluciones de ingenierÃƒÂ­a a problemÃƒÂ¡ticas eco-ambientales.</td></tr>
+<tr class="w-met"><td>Semana 8</td><td>MetacogniciÃƒÂ³n</td><td>EnvÃƒÂ­o final de portafolios anuales de fÃƒÂ­sica mecÃƒÂ¡nica. Cuestionario confidencial automatizado final de autoevaluaciÃƒÂ³n de metas alcanzadas.</td><td>ConsolidaciÃƒÂ³n de la autonomÃƒÂ­a ÃƒÂ©tica y madurez cognitiva del estudiante de sÃƒÂ©ptimo grado al cierre anual.</td></tr>
+</tbody>
+</table>
+</div>
+<div id="malla-grado-8" class="contenedor-malla" style="display:none;">
+<div class="grade-title">Malla Curricular: Grado Octavo (8Ã‚Â°)</div><table>
+<thead>
+<tr>
+<th style="width: 7%">Periodo / Asignatura</th>
+<th style="width: 15%">Pregunta Problematizadora</th>
+<th style="width: 22%">Me Aproximo al Conocimiento como CientÃƒÂ­fico-a Natural (Entorno Virtual)</th>
+<th style="width: 22%">Manejo Conocimientos Propios (MÃƒÂ³dulos del OVA)</th>
+<th style="width: 17%">Desarrollo Compromisos Personales y Sociales (AutogestiÃƒÂ³n)</th>
+<th style="width: 17%">TransversalizaciÃƒÂ³n con otras ÃƒÂreas Fundamentales (Ejes de Co-DiseÃƒÂ±o Web)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><b>P1: <span class="t-quimica">QuÃƒÂ­mica</span></b></td>
+<td>Ã‚Â¿CÃƒÂ³mo determinan las escalas de pH las reacciones de soluciones virtuales?</td>
+<td><span class="badge b-aprox">AproximaciÃƒÂ³n</span><ul><li>Expreso magnitudes de concentraciÃƒÂ³n (molaridad, %m/v) empleando calculadoras de la plataforma.</li></ul></td>
+<td><span class="badge b-fisico">Entorno FÃƒÂ­sico</span><ul><li>Resuelvo balances cuantitativos de solutos en disoluciones.</li><li>Comparo modelos teÃƒÂ³ricos ÃƒÂ¡cido-base en tituladores virtuales.</li></ul></td>
+<td><span class="badge b-comp">Compromisos</span><ul><li>EvalÃƒÂºo reflexivamente mediante bases analÃƒÂ­ticas el impacto ambiental de pasivos quÃƒÂ­micos sobre el pH.</li></ul></td>
+<td><span class="badge b-trans">ConexiÃƒÂ³n</span><ul><li><b>MatemÃƒÂ¡ticas:</b> FunciÃƒÂ³n logarÃƒÂ­tmica y proporciones cuantitativas.</li><li><b>TecnologÃƒÂ­a e InformÃƒÂ¡tica:</b> ProgramaciÃƒÂ³n y lectura de dashboards quÃƒÂ­micos en hojas de cÃƒÂ¡lculo.</li></ul></td>
+</tr>
+<tr>
+<td><b>P2: <span class="t-biologia">BiologÃƒÂ­a</span></b></td>
+<td>Ã‚Â¿CÃƒÂ³mo operan los algoritmos moleculares de transcripciÃƒÂ³n y sÃƒÂ­ntesis de la doble hÃƒÂ©lice?</td>
+<td><span class="badge b-aprox">AproximaciÃƒÂ³n</span><ul><li>Formulo hipÃƒÂ³tesis moleculares utilizando visores macromoleculares 3D de la plataforma.</li></ul></td>
+<td><span class="badge b-vivo">Entorno Vivo</span><ul><li>Explico el almacenamiento en el modelo helicoidal del ADN.</li><li>Relaciono genes, codones, sÃƒÂ­ntesis proteica y funciones celulares.</li></ul></td>
+<td><span class="badge b-comp">Compromisos</span><ul><li>Desarrollo disciplina de investigaciÃƒÂ³n individual al completar mÃƒÂ³dulos de bioinformÃƒÂ¡tica molecular.</li></ul></td>
+<td><span class="badge b-trans">ConexiÃƒÂ³n</span><ul><li><b>Lengua Castellana:</b> ComprensiÃƒÂ³n de lectura crÃƒÂ­tica de textos cientÃƒÂ­ficos indexados.</li><li><b>TecnologÃƒÂ­a e InformÃƒÂ¡tica:</b> Modelado computacional molecular de bases nitrogenadas.</li></ul></td>
+</tr>
+<tr>
+<td><b>P3: <span class="t-biologia">BiologÃƒÂ­a</span></b></td>
+<td>Ã‚Â¿De quÃƒÂ© manera la divisiÃƒÂ³n meiÃƒÂ³tica garantiza la variabilidad adaptativa poblacional?</td>
+<td><span class="badge b-aprox">AproximaciÃƒÂ³n</span><ul><li>Propongo modelos conceptuales predictivos en esquemas lÃƒÂ³gicos interactivos sin sesgos de registro.</li></ul></td>
+<td><span class="badge b-vivo">Entorno Vivo</span><ul><li>Comparo los ciclos cromosÃƒÂ³micos de mitosis y meiosis.</li><li>Justifico la reproducciÃƒÂ³n sexual en el mantenimiento de variabilidad.</li></ul></td>
+<td><span class="badge b-comp">Compromisos</span><ul><li>Analizo de manera crÃƒÂ­tica mediante tutorÃƒÂ­as virtuales los sesgos tradicionales sobre roles genÃƒÂ©ricos.</li></ul></td>
+<td><span class="badge b-trans">ConexiÃƒÂ³n</span><ul><li><b>MatemÃƒÂ¡ticas:</b> Combinatoria estadÃƒÂ­stica y cÃƒÂ¡lculo de probabilidades de distribuciÃƒÂ³n de alelos.</li><li><b>EducaciÃƒÂ³n Ãƒâ€°tica:</b> Derechos sexuales e identidades humanas.</li></ul></td>
+</tr>
+<tr>
+<td><b>P4: <span class="t-fisica">FÃƒÂ­sica</span></b></td>
+<td>Ã‚Â¿QuÃƒÂ© ecuaciones matemÃƒÂ¡ticas gobiernan los cambios tÃƒÂ©rmicos de los gases ideales?</td>
+<td><span class="badge b-aprox">AproximaciÃƒÂ³n</span><ul><li>Establezco relaciones multicausales operando contenedores virtuales de presiÃƒÂ³n-volumen gaseoso acotando errores.</li></ul></td>
+<td><span class="badge b-fisico">Entorno FÃƒÂ­sico</span><ul><li>Modelo algebraicamente las transformaciones tÃƒÂ©rmicas de gases ideales y reales ($PV=nRT$).</li><li>Analizo ciclos Stirling.</li></ul></td>
+<td><span class="badge b-comp">Compromisos</span><ul><li>Me informo autÃƒÂ³nomamente mediante mÃƒÂ³dulos de autoaprendizaje para superar test complejos de fÃƒÂ­sica clÃƒÂ¡sica.</li></ul></td>
+<td><span class="badge b-trans">ConexiÃƒÂ³n</span><ul><li><b>MatemÃƒÂ¡ticas:</b> Conversiones dimensionales multi-unidad y despeje de fÃƒÂ³rmulas algebraicas.</li><li><b>TecnologÃƒÂ­a:</b> AnÃƒÂ¡lisis de la eficiencia de motores mecÃƒÂ¡nicos de vapor.</li></ul></td>
+</tr>
+</tbody>
+</table>
+<div class="grade-title">Grado 8Ã‚Â° - Periodo 1: QuÃƒÂ­mica - Concentraciones de Soluciones y Escalas de pH</div><table>
+<thead>
+<tr><th style="width: 8%">Semana</th><th style="width: 12%">Fase DidÃƒÂ¡ctica</th><th style="width: 55%">Estrategias de Aprendizaje Activo en Plataforma (AcciÃƒÂ³n AutÃƒÂ³noma)</th><th style="width: 25%">DimensiÃƒÂ³n Humana y AutogestiÃƒÂ³n</th></tr>
+</thead>
+<tbody>
+<tr class="w-exp"><td>Semana 1</td><td>ExploraciÃƒÂ³n</td><td>Uso del mÃƒÂ³dulo web de quÃƒÂ­mica analÃƒÂ­tica inicial "Virajes CromÃƒÂ¡ticos". InteracciÃƒÂ³n interactiva individualizada con escalas de color de reactivos expuestos a ÃƒÂ¡cidos comunes.</td><td>Reconocimiento y rescate de la validez operativa de saberes pragmÃƒÂ¡ticos domÃƒÂ©sticos en el entorno cientÃƒÂ­fico.</td></tr>
+<tr class="w-exp"><td>Semana 2</td><td>ExploraciÃƒÂ³n</td><td>ConfiguraciÃƒÂ³n individual autÃƒÂ³noma de escalas de acidez en el tablero digital asociando coloraciones con concentraciones supuestas de reactivos de descarte.</td><td>AceptaciÃƒÂ³n y anÃƒÂ¡lisis reflexivo de ordenaciones e interpretaciones lÃƒÂ³gicas de clasificaciÃƒÂ³n quÃƒÂ­mica diferencial.</td></tr>
+<tr class="w-ind"><td>Semana 3</td><td>IndagaciÃƒÂ³n</td><td>OperaciÃƒÂ³n guiada autÃƒÂ³noma del simulador de alta precisiÃƒÂ³n "Titulador ÃƒÂcido-Base Digital". Control microscÃƒÂ³pico individual de adiciÃƒÂ³n de volumen de soluto y punto de equivalencia.</td><td>Exigencia de honestidad intelectual estricta en el registro preciso de volÃƒÂºmenes medidos virtuales.</td></tr>
+<tr class="w-ind"><td>Semana 4</td><td>IndagaciÃƒÂ³n</td><td>ResoluciÃƒÂ³n algebraica formalizada de ecuaciones de concentraciÃƒÂ³n quÃƒÂ­mica cuantitativa molar y porcentual fÃƒÂ­sica ($m/m, m/v, v/v$) en la calculadora integrada.</td><td>Constancia mental disciplinada profunda y perseverancia ante la traducciÃƒÂ³n formal de fenÃƒÂ³menos moleculares a fÃƒÂ³rmulas.</td></tr>
+<tr class="w-ind"><td>Semana 5</td><td>IndagaciÃƒÂ³n</td><td>AnÃƒÂ¡lisis conceptual comparativo de definiciones estructurales ÃƒÂ¡cido-base teÃƒÂ³ricas clÃƒÂ¡sicas: Modelo de Arrhenius frente al advanced de BrÃƒÂ¸nsted-Lowry.</td><td>Reconocimiento de que los constructos y teorÃƒÂ­as de la ciencia se expanden y refinan transicionalmente con el tiempo.</td></tr>
+<tr class="w-tra"><td>Semana 6</td><td>Transferencia</td><td>ABP Medioambiental Digital: "ModelaciÃƒÂ³n interactiva en dashboards analÃƒÂ­ticos de datos del impacto quÃƒÂ­mico de vertimientos de agroquÃƒÂ­micos sobre el pH de suelos andinos".</td><td>SensibilizaciÃƒÂ³n ÃƒÂ©tica ciudadana superior y co-responsabilidad proactiva ante agresiones antrÃƒÂ³picas quÃƒÂ­micas al entorno.</td></tr>
+<tr class="w-tra"><td>Semana 7</td><td>Transferencia</td><td>EstructuraciÃƒÂ³n individual de propuestas tÃƒÂ©cnicas de remediaciÃƒÂ³n agrÃƒÂ­cola virtual encaminadas a regular e interceptar variaciones crÃƒÂ­ticas de acidez de terrenos degradados.</td><td>Liderazgo civil participativo e independiente enfocado a proponer soluciones de conservaciÃƒÂ³n agraria ambiental local.</td></tr>
+<tr class="w-met"><td>Semana 8</td><td>MetacogniciÃƒÂ³n</td><td>Carga de los informes analÃƒÂ­ticos de titulaciÃƒÂ³n digital en formato PDF. Test automatizado sumativo de periodo con analÃƒÂ­ticas de brechas conceptuales de cierre.</td><td>Aptitud autocrÃƒÂ­tica metodolÃƒÂ³gica rigurosa para reconocer limitaciones de mediciÃƒÂ³n instrumental virtual y reformular planes.</td></tr>
+</tbody>
+</table>
+<div class="grade-title">Grado 8Ã‚Â° - Periodo 2: BiologÃƒÂ­a - Estructura Molecular del ADN y SÃƒÂ­ntesis Proteica</div><table>
+<tbody>
+<tr class="w-exp"><td>Semana 1</td><td>ExploraciÃƒÂ³n</td><td>Ingreso al visor macromolecular interactivo 3D de la plataforma. ManipulaciÃƒÂ³n rotacional individual de los puentes de hidrÃƒÂ³geno helicoidales del cÃƒÂ³digo genÃƒÂ³mico molecular.</td><td>Desarrollo del asombro reflexivo de escala superior ante la universalidad quÃƒÂ­mica ÃƒÂ­ntima que unifica la vida.</td></tr>
+<tr class="w-exp"><td>Semana 2</td><td>ExploraciÃƒÂ³n</td><td>FormulaciÃƒÂ³n de hipÃƒÂ³tesis escritas autÃƒÂ³nomas en la bitÃƒÂ¡cora digital detallando mecanismos intuitivos supuestos de cÃƒÂ³mo un polÃƒÂ­mero comanda el fenotipo morfolÃƒÂ³gico externo.</td><td>ValoraciÃƒÂ³n de la propia capacidad analÃƒÂ­tica abstracta para enunciar explicaciones mecÃƒÂ¡nicas moleculares hereditarias.</td></tr>
+<tr class="w-ind"><td>Semana 3</td><td>IndagaciÃƒÂ³n</td><td>Uso del mÃƒÂ³dulo de bioinformÃƒÂ¡tica elemental "Estructura de NucleÃƒÂ³tidos". Ensamblaje interactivo virtual de cadenas complementarias apareadas purinas/pirimidinas.</td><td>Meticulosidad, disciplina psicomotriz digital coordinada y constancia en el acoplamiento formal de cÃƒÂ³digos de bases.</td></tr>
+<tr class="w-ind"><td>Semana 4</td><td>IndagaciÃƒÂ³n</td><td>SimulaciÃƒÂ³n interactiva algorÃƒÂ­tmica de la transcripciÃƒÂ³n del ARN mensajero y traducciÃƒÂ³n ribosÃƒÂ³mica citoplasmÃƒÂ¡tica de aminoÃƒÂ¡cidos en el OVA estructurado de la plataforma.</td><td>Rigor procedimental profundo y paciencia operativa en la descodificaciÃƒÂ³n secuencial exacta de codones moleculares.</td></tr>
+<tr class="w-ind"><td>Semana 5</td><td>IndagaciÃƒÂ³n</td><td>ResoluciÃƒÂ³n individual de retos lÃƒÂ³nicos provocando mutaciones moleculares inducidas de inserciÃƒÂ³n o deleciÃƒÂ³n genÃƒÂ©tica para verificar alteraciones finales de proteÃƒÂ­nas.</td><td>AutogestiÃƒÂ³n e independencia cognitiva en la superaciÃƒÂ³n de secuencias conceptuales abstractas complejas del software.</td></tr>
+<tr class="w-tra"><td>Semana 6</td><td>Transferencia</td><td>Estudio analÃƒÂ­tico bioÃƒÂ©tico interactivo de casos clÃƒÂ­nicos: Lectura dirigida especializada en bases analÃƒÂ­ticas sobre alcances de la ediciÃƒÂ³n gÃƒÂ©nica por tÃƒÂ©cnica CRISPR-Cas9.</td><td>ConfiguraciÃƒÂ³n de un criterio bioÃƒÂ©tico superior fundamentado frente al alcance de las intervenciones genÃƒÂ©ticas.</td></tr>
+<tr class="w-tra"><td>Semana 7</td><td>Transferencia</td><td>ElaboraciÃƒÂ³n individual de un informe argumentativo formal detallando nexos moleculares directos causales entre variaciones genÃƒÂ³micas nucleotÃƒÂ­dicas y adaptaciones de especies.</td><td>ApreciaciÃƒÂ³n de la divulgaciÃƒÂ³n cientÃƒÂ­fica rigurosa y transparente como herramienta de democratizaciÃƒÂ³n del saber.</td></tr>
+<tr class="w-met"><td>Semana 8</td><td>MetacogniciÃƒÂ³n</td><td>Carga de portafolios virtuales de genÃƒÂ©tica molecular. SoluciÃƒÂ³n del test adaptativo de periodo con reportes automÃƒÂ¡ticos de analÃƒÂ­ticas de rendimiento cognitivo.</td><td>ApreciaciÃƒÂ³n de la retroalimentaciÃƒÂ³n computacional automatizada del software como motor del perfeccionamiento.</td></tr>
+</tbody>
+</table>
+<div class="grade-title">Grado 8Ã‚Â° - Periodo 3: BiologÃƒÂ­a - DivisiÃƒÂ³n MeiÃƒÂ³tica y Variabilidad de Alelos</div><table>
+<tbody>
+<tr class="w-exp"><td>Semana 1</td><td>ExploraciÃƒÂ³n</td><td>Ingreso al mÃƒÂ³dulo interactivo "Invernadero GenÃƒÂ©tico Virtual". ClonaciÃƒÂ³n digital acelerada de fragmentaciones foliares botÃƒÂ¡nicas de suculentas frente a polinizaciÃƒÂ³n cruzada.</td><td>Desarrollo del respeto proactivo y cuidado reflexivo hacia los ciclos reproductivos naturales de la biosfera.</td></tr>
+<tr class="w-exp"><td>Semana 2</td><td>ExploraciÃƒÂ³n</td><td>Registro individual de conjeturas predictivas en bitÃƒÂ¡cora detallando por quÃƒÂ© los clones virtuales carecen de variabilidad adaptativa ante presiones patÃƒÂ³genas simuladas.</td><td>ValoraciÃƒÂ³n de las modelaciones experimentales interactivas iniciales como andamiajes lÃƒÂ³gicos legÃƒÂ­timos de indagaciÃƒÂ³n.</td></tr>
+<tr class="w-ind"><td>Semana 3</td><td>IndagaciÃƒÂ³n</td><td>Estudio de animaciones tridimensionales de alta definiciÃƒÂ³n detallando de forma comparativa sub-fases mitÃƒÂ³ticas ecuacionales frente a meiÃƒÂ³ticas reduccionales.</td><td>Rigor metodolÃƒÂ³gico procedimental analÃƒÂ­tico estructural y ordenaciÃƒÂ³n secuencial de matrices de divisiÃƒÂ³n celular.</td></tr>
+<tr class="w-ind"><td>Semana 4</td><td>IndagaciÃƒÂ³n</td><td>ModelaciÃƒÂ³n matemÃƒÂ¡tica autÃƒÂ³noma del sobrecruzamiento cromosÃƒÂ³mico (crossing-over) meiÃƒÂ³tico cruzado empleando el software lÃƒÂºdico probabilÃƒÂ­stico genÃƒÂ©tico.</td><td>Uso de herramientas de deducciÃƒÂ³n cuantitativas algebraicas para fundamentar explicaciones de balance adaptativo.</td></tr>
+<tr class="w-ind"><td>Semana 5</td><td>IndagaciÃƒÂ³n</td><td>Completar de forma individual las mallas lÃƒÂ³gicas interactivas del OVA comparando costes metabÃƒÂ³licos y ventajas evolutivas de reproducciÃƒÂ³n sexual frente a asexual.</td><td>ApreciaciÃƒÂ³n cientÃƒÂ­fica profunda de la variabilidad biolÃƒÂ³gica concebida como pilar de resiliencia neotropical.</td></tr>
+<tr class="w-tra"><td>Semana 6</td><td>Transferencia</td><td>AnÃƒÂ¡lisis demogrÃƒÂ¡fico multicausal interactivo en plataforma: Consecuencias socioeconÃƒÂ³micas y sanitarias globales del control cientÃƒÂ­fico de tasas de natalidad humanas.</td><td>DeconstrucciÃƒÂ³n crÃƒÂ­tica reflexiva informada de estereotipos tradicionales de gÃƒÂ©nero restrictivos sobre la reproducciÃƒÂ³n.</td></tr>
+<tr class="w-tra"><td>Semana 7</td><td>Transferencia</td><td>Estudio individual del mÃƒÂ³dulo integrado confidencial sobre ciclo menstrual ovÃƒÂ¡rico, planificaciÃƒÂ³n hormonal cientÃƒÂ­fica y derechos de salud civil.</td><td>AsunciÃƒÂ³n de compromisos ÃƒÂ©ticos personales independientes soberanos de autocuidado reproductivo corporal.</td></tr>
+<tr class="w-met"><td>Semana 8</td><td>MetacogniciÃƒÂ³n</td><td>EnvÃƒÂ­o de portafolios de reproducciÃƒÂ³n organÃƒÂ­smica. SoluciÃƒÂ³n de pruebas adaptativas en lÃƒÂ­nea y balance cualitativo de metas conceptuales fijadas.</td><td>ConsolidaciÃƒÂ³n de la autoestima intelectual autÃƒÂ³noma basada en la validaciÃƒÂ³n de saberes biolÃƒÂ³gicos apropiados.</td></tr>
+</tbody>
+</table>
+<div class="grade-title">Grado 8Ã‚Â° - Periodo 4: FÃƒÂ­sica - Leyes Gaseosas Ideales y Ciclos TermodinÃƒÂ¡micos</div><table>
+<tbody>
+<tr class="w-exp"><td>Semana 1</td><td>ExploraciÃƒÂ³n</td><td>OperaciÃƒÂ³n del software "Contenedor NeumÃƒÂ¡tico Simulador". CompresiÃƒÂ³n interactiva de ÃƒÂ©mbolos virtuales moleculares gaseosos bajo variaciones mecÃƒÂ¡nicas.</td><td>ValoraciÃƒÂ³n de las concepciones o errores interpretativos iniciales concebidos como andamiajes lÃƒÂ³gicos necesarios.</td></tr>
+<tr class="w-exp"><td>Semana 2</td><td>ExploraciÃƒÂ³n</td><td>FormulaciÃƒÂ³n de hipÃƒÂ³tesis cinemÃƒÂ¡ticas predictivas libres escritas en bitÃƒÂ¡cora detallando fuerzas elÃƒÂ¡sticas invisibles operadas al modificar temperaturas.</td><td>Fomento de la confianza epistÃƒÂ©mica individual para enunciar hipÃƒÂ³tesis independientes sobre dinÃƒÂ¡micas del medio.</td></tr>
+<tr class="w-ind"><td>Semana 3</td><td>IndagaciÃƒÂ³n</td><td>ParametrizaciÃƒÂ³n matemÃƒÂ¡tica de leyes gaseosas ideales (Boyle, Charles) corriendo experimentos virtuales controlados en el OVA interactivo avanzado de la plataforma.</td><td>Disciplina mental procedimental profunda y rigor analÃƒÂ­tico en la recolecciÃƒÂ³n individual de magnitudes de presiÃƒÂ³n.</td></tr>
+<tr class="w-ind"><td>Semana 4</td><td>IndagaciÃƒÂ³n</td><td>Establecimiento formal de la ecuaciÃƒÂ³n de estado general de gases ideales ($PV=nRT$) y resoluciÃƒÂ³n autÃƒÂ³noma de retos de conversiÃƒÂ³n dimensional mÃƒÂ©trica (Atm, Kelvin).</td><td>Uso e integraciÃƒÂ³n del lenguaje matemÃƒÂ¡tico preciso como vehÃƒÂ­culo descriptivo riguroso de fenÃƒÂ³menos moleculares.</td></tr>
+<tr class="w-ind"><td>Semana 5</td><td>IndagaciÃƒÂ³n</td><td>AnÃƒÂ¡lisis crÃƒÂ­tico comparativo de desviaciones fÃƒÂ­sicas registradas en dashboards analÃƒÂ­ticos entre comportamientos ideales frente a gases reales compresibles.</td><td>ApropiaciÃƒÂ³n de un pensamiento de lÃƒÂ­mites y acotamientos de modelos teÃƒÂ³ricos de la fÃƒÂ­sica termodinÃƒÂ¡mica clÃƒÂ¡sica.</td></tr>
+<tr class="w-tra"><td>Semana 6</td><td>Transferencia</td><td>Estudio de ingenierÃƒÂ­a mecÃƒÂ¡nica interactivo: AnÃƒÂ¡lisis analÃƒÂ­tico guiado de planos tÃƒÂ©cnicos y vÃƒÂ­deos de modelado tridimensional detallando el ciclo Stirling.</td><td>Desarrollo del pensamiento lÃƒÂ³gico estructural avanzado y destreza orientada al desciframiento de soluciones mecÃƒÂ¡nicas.</td></tr>
+<tr class="w-tra"><td>Semana 7</td><td>Transferencia</td><td>Reto de optimizaciÃƒÂ³n individual por software: Configurar parÃƒÂ¡metros algorÃƒÂ­tmicos de conductividad tÃƒÂ©rmica y volumen de un motor Stirling virtual para maximizar vatios.</td><td>Cultivo de la resiliencia operativa pragmÃƒÂ¡tica ante fallas lÃƒÂ³gicas de diseÃƒÂ±o mecÃƒÂ¡nico simulado.</td></tr>
+<tr class="w-met"><td>Semana 8</td><td>MetacogniciÃƒÂ³n</td><td>EnvÃƒÂ­o final de bitÃƒÂ¡coras de termodinÃƒÂ¡mica molecular gaseosa. Test de periodo de cierre anual con reportes de analÃƒÂ­ticas cualitativas de autogestiÃƒÂ³n.</td><td>ConsolidaciÃƒÂ³n definitiva de la autodisciplina y seguridad intelectual basada en la resoluciÃƒÂ³n soberana de retos de fÃƒÂ­sica.</td></tr>
+</tbody>
+</table>
+</div>
+<div id="malla-grado-9" class="contenedor-malla" style="display:none;">
+<div class="grade-title">Malla Curricular: Grado Noveno (9Ã‚Â°)</div><table>
+<thead>
+<tr>
+<th style="width: 7%">Periodo / Asignatura</th>
+<th style="width: 15%">Pregunta Problematizadora</th>
+<th style="width: 22%">Me Aproximo al Conocimiento como CientÃƒÂ­fico-a Natural (Entorno Virtual)</th>
+<th style="width: 22%">Manejo Conocimientos Propios (MÃƒÂ³dulos del OVA)</th>
+<th style="width: 17%">Desarrollo Compromisos Personales y Sociales (AutogestiÃƒÂ³n)</th>
+<th style="width: 17%">TransversalizaciÃƒÂ³n con otras ÃƒÂreas Fundamentales (Ejes de Co-DiseÃƒÂ±o Web)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><b>P1: <span class="t-quimica">QuÃƒÂ­mica</span></b></td>
+<td>Ã‚Â¿CÃƒÂ³mo se decodifican balances estequiomÃƒÂ©tricos en simuladores de ecuaciones?</td>
+<td><span class="badge b-aprox">AproximaciÃƒÂ³n</span><ul><li>Uso nomenclatura formal y balanceo por ÃƒÂ³xido-reducciÃƒÂ³n en matrices digitales de la web.</li></ul></td>
+<td><span class="badge b-fisico">Entorno FÃƒÂ­sico</span><ul><li>Caracterizo reacciones quÃƒÂ­micas cinÃƒÂ©ticas y balances estequiomÃƒÂ©tricos cuantificables de masa.</li></ul></td>
+<td><span class="badge b-comp">Compromisos</span><ul><li>Muestro rigurosidad e independencia intelectual al resolver cuestionarios complejos de estequiometrÃƒÂ­a.</li></ul></td>
+<td><span class="badge b-trans">ConexiÃƒÂ³n</span><ul><li><b>MatemÃƒÂ¡ticas:</b> SoluciÃƒÂ³n de sistemas de ecuaciones algebraicas y matrices de balanceo.</li><li><b>TecnologÃƒÂ­a:</b> AutomatizaciÃƒÂ³n de celdas de cÃƒÂ¡lculo de reactivo lÃƒÂ­mite.</li></ul></td>
+</tr>
+<tr>
+<td><b>P2: <span class="t-biologia">BiologÃƒÂ­a</span></b></td>
+<td>Ã‚Â¿CÃƒÂ³mo se coordinan las respuestas homeostÃƒÂ¡ticas mediante lazos endocrinos web?</td>
+<td><span class="badge b-aprox">AproximaciÃƒÂ³n</span><ul><li>Saco conclusiones autÃƒÂ³nomas interpretando tableros de control fisiolÃƒÂ³gicos hormonales interactivos.</li></ul></td>
+<td><span class="badge b-vivo">Entorno Vivo</span><ul><li>Explico la regulaciÃƒÂ³n endocrina, ejes glandulares y acciÃƒÂ³n de neurotransmisores en animaciones.</li></ul></td>
+<td><span class="badge b-comp">Compromisos</span><ul><li>Examino de forma introspectiva mediante mÃƒÂ³dulos interactivos el impacto neurolÃƒÂ³gico de adicciones quÃƒÂ­micas.</li></ul></td>
+<td><span class="badge b-trans">ConexiÃƒÂ³n</span><ul><li><b>Ciencias Sociales:</b> PolÃƒÂ­ticas de salud pÃƒÂºblica epidemiolÃƒÂ³gica estatal.</li><li><b>EducaciÃƒÂ³n Ãƒâ€°tica:</b> Autocuidado y prevenciÃƒÂ³n racional de conductas de riesgo biolÃƒÂ³gico.</li></ul></td>
+</tr>
+<tr>
+<td><b>P3: <span class="t-biologia">BiologÃƒÂ­a</span></b></td>
+<td>Ã‚Â¿CÃƒÂ³mo operan los algoritmos de selecciÃƒÂ³n natural en la especiaciÃƒÂ³n biolÃƒÂ³gica?</td>
+<td><span class="badge b-aprox">AproximaciÃƒÂ³n</span><ul><li>Sustento explicaciones evolutivas integrando ÃƒÂ¡rboles filogenÃƒÂ©ticos interactivos dinÃƒÂ¡micos de bases de datos.</li></ul></td>
+<td><span class="badge b-vivo">Entorno Vivo</span><ul><li>Formulo hipÃƒÂ³tesis de adaptaciÃƒÂ³n biolÃƒÂ³gica contrastando modelos darwinianos frente a sintÃƒÂ©ticos evolutivos.</li></ul></td>
+<td><span class="badge b-comp">Compromisos</span><ul><li>Asumo posturas ÃƒÂ©ticas frente a dilemas de manipulaciÃƒÂ³n genÃƒÂ©tica analizando lecturas de biotecnologÃƒÂ­a.</li></ul></td>
+<td><span class="badge b-trans">ConexiÃƒÂ³n</span><ul><li><b>FilosofÃƒÂ­a/Ãƒâ€°tica:</b> BioÃƒÂ©tica, patentes comerciales de semillas y soberanÃƒÂ­a alimentaria campesina.</li><li><b>Ciencias Sociales:</b> Eras geolÃƒÂ³gicas e historia planetaria.</li></ul></td>
+</tr>
+<tr>
+<td><b>P4: <span class="t-fisica">FÃƒÂ­sica</span></b></td>
+<td>Ã‚Â¿De quÃƒÂ© manera las perturbaciones ondulatorias modelan la transferencia acÃƒÂºstica?</td>
+<td><span class="badge b-aprox">AproximaciÃƒÂ³n</span><ul><li>Comnico propiedades sinusoidales ondulatorias modelando curvas en el software de geometrÃƒÂ­a analÃƒÂ­tica.</li></ul></td>
+<td><span class="badge b-fisico">Entorno FÃƒÂ­sico</span><ul><li>Relaciono frecuencia, longitud de onda y velocidad de propagaciÃƒÂ³n mecÃƒÂ¡nica/electromagnÃƒÂ©tica.</li></ul></td>
+<td><span class="badge b-comp">Compromisos</span><ul><li>Muestro apertura intelectual reflexiva al verificar de forma individual teorÃƒÂ­as fÃƒÂ­sicas de ÃƒÂ³ptica contraintuitivas.</li></ul></td>
+<td><span class="badge b-trans">ConexiÃƒÂ³n</span><ul><li><b>MatemÃƒÂ¡ticas/TrigonometrÃƒÂ­a:</b> GrÃƒÂ¡ficos de funciones trigonomÃƒÂ©tricas sinusoidales ($seno, coseno$).</li><li><b>EducaciÃƒÂ³n ArtÃƒÂ­stica/MÃƒÂºsica:</b> AcÃƒÂºstica fÃƒÂ­sica del sonido, tonos e intervalos de onda armÃƒÂ³nicos.</li></ul></td>
+</tr>
+</tbody>
+</table>
+<div class="grade-title">Grado 9Ã‚Â° - Periodo 1: QuÃƒÂ­mica - Reacciones QuÃƒÂ­micas, CinÃƒÂ©tica y EstequiometrÃƒÂ­a de Masa</div><table>
+<thead>
+<tr><th style="width: 8%">Semana</th><th style="width: 12%">Fase DidÃƒÂ¡ctica</th><th style="width: 55%">Estrategias de Aprendizaje Activo en Plataforma (AcciÃƒÂ³n AutÃƒÂ³noma)</th><th style="width: 25%">DimensiÃƒÂ³n Humana y AutogestiÃƒÂ³n</th></tr>
+</thead>
+<tbody>
+<tr class="w-exp"><td>Semana 1</td><td>ExploraciÃƒÂ³n</td><td>Ingreso individual al mÃƒÂ³dulo virtual de cinÃƒÂ©tica molecular "Ecuaciones Interactivas". ObservaciÃƒÂ³n de simulaciones animadas de rupturas de enlaces quÃƒÂ­micos reactivos.</td><td>ActivaciÃƒÂ³n de la curiosidad cientÃƒÂ­fica independiente y valoraciÃƒÂ³n de nociones predictivas de transformaciÃƒÂ³n material.</td></tr>
+<tr class="w-exp"><td>Semana 2</td><td>ExploraciÃƒÂ³n</td><td>Diligenciamiento del cuestionario interactivo de emparejamiento de criterios de balanceo de masa elementales (ConservaciÃƒÂ³n de materia macro, coeficientes estequiomÃƒÂ©tricos).</td><td>Reconocimiento individualizado de brechas conceptuales de partida frente al rigor algebraico quÃƒÂ­mico.</td></tr>
+<tr class="w-ind"><td>Semana 3</td><td>IndagaciÃƒÂ³n</td><td>Uso del software de balanceo redox matricial digital. ResoluciÃƒÂ³n autÃƒÂ³noma guiada de ecuaciones moleculares complejas balanceando transferencias electrÃƒÂ³nicas.</td><td>Desarrollo de la disciplina mental abstracta profunda y rigor algebraico analÃƒÂ­tico en la manipulaciÃƒÂ³n cuantitativa.</td></tr>
+<tr class="w-ind"><td>Semana 4</td><td>IndagaciÃƒÂ³n</td><td>OperaciÃƒÂ³n del "Simulador Reactivo LÃƒÂ­mite y Excesos". ModificaciÃƒÂ³n de masas moleculares de reactivos y tabulaciÃƒÂ³n de rendimientos de productos obtenidos.</td><td>Exigencia de honestidad intelectual profunda en el registro informÃƒÂ¡tico exacto de datos numÃƒÂ©ricos analÃƒÂ­ticos.</td></tr>
+<tr class="w-ind"><td>Semana 5</td><td>IndagaciÃƒÂ³n</td><td>Taller conceptual de estructuraciÃƒÂ³n autÃƒÂ³noma: Completar diagramas de bloques termoquÃƒÂ­micos distinguiendo perfiles cinÃƒÂ©ticos endotÃƒÂ©rmicos frente a exotÃƒÂ©rmicos.</td><td>Uso formalizado de metodologÃƒÂ­as matemÃƒÂ¡ticas algebraicas precisas como descriptores rigurosos de transformaciones moleculares.</td></tr>
+<tr class="w-tra"><td>Semana 6</td><td>Transferencia</td><td>Estudio analÃƒÂ­tico de accidentes quÃƒÂ­micos CTS: Lectura guiada en plataforma sobre consecuencias industriales de desbalances cinÃƒÂ©ticos de masa reactiva en plantas comerciales.</td><td>EstructuraciÃƒÂ³n de posturas crÃƒÂ­ticas civiles ciudadanas independientes fundamentadas frente a riesgos del desarrollo tÃƒÂ©cnico.</td></tr>
+<tr class="w-tra"><td>Semana 7</td><td>Transferencia</td><td>Reto de dosificaciÃƒÂ³n algorÃƒÂ­tmico individualizado: Configurar de forma ÃƒÂ³ptma las proporciones quÃƒÂ­micas de masa en un neutralizador virtual de vertimientos ÃƒÂ¡cidos industriales.</td><td>Capacidad tÃƒÂ©cnica autÃƒÂ³noma orientada al diseÃƒÂ±o e implementaciÃƒÂ³n por software de soluciones a pasivos ambientales.</td></tr>
+<tr class="w-met"><td>Semana 8</td><td>MetacogniciÃƒÂ³n</td><td>Carga de portafolios estequiomÃƒÂ©tricos quÃƒÂ­micos moleculares integrados en formato PDF. Test adaptativo de periodo en lÃƒÂ­nea con reportes automatizados de logro.</td><td>ConsolidaciÃƒÂ³n de la autoestima intelectual a travÃƒÂ©s de la superaciÃƒÂ³n de secuencias de ciencias formales avanzadas.</td></tr>
+</tbody>
+</table>
+<div class="grade-title">Grado 9Ã‚Â° - Periodo 2: BiologÃƒÂ­a - RegulaciÃƒÂ³n Endocrina, Neurotransmisores e Homeostasis</div><table>
+<tbody>
+<tr class="w-exp"><td>Semana 1</td><td>ExploraciÃƒÂ³n</td><td>Ingreso al mÃƒÂ³dulo interactivo de fisiologÃƒÂ­a "El Monitor SomÃƒÂ¡tico". SimulaciÃƒÂ³n virtual individual de respuestas de la frecuencia cardÃƒÂ­aca ante estÃƒÂ­mulos controlados.</td><td>Toma de conciencia reflexiva ÃƒÂ­ntima sobre las respuestas afectivas y neurofisiolÃƒÂ³gicas primarias del organismo.</td></tr>
+<tr class="w-exp"><td>Semana 2</td><td>ExploraciÃƒÂ³n</td><td>Registro libre de conjeturas explicativas individuales en bitÃƒÂ¡cora detallando identidades quÃƒÂ­micas de mensajeros hormonales frente a impulsos neuro-sinÃƒÂ¡pticos rÃƒÂ¡pidos.</td><td>ValoraciÃƒÂ³n de la introspecciÃƒÂ³n biolÃƒÂ³gica consciente como pilar del equilibrio y salud del yo.</td></tr>
+<tr class="w-ind"><td>Semana 3</td><td>IndagaciÃƒÂ³n</td><td>ConstrucciÃƒÂ³n individual de diagramas de lazo cerrado interactivos en el software grÃƒÂ¡fico, modelando los circuitos de retroalimentaciÃƒÂ³n quÃƒÂ­mica del eje hipotÃƒÂ¡lamo-hipÃƒÂ³fisis.</td><td>Cultivo de la paciencia, minuciosidad analÃƒÂ­tica profunda y rigor estructural en el mapeo de cascadas moleculares.</td></tr>
+<tr class="w-ind"><td>Semana 4</td><td>IndagaciÃƒÂ³n</td><td>InvestigaciÃƒÂ³n documental dirigida autÃƒÂ³noma en bases de datos mÃƒÂ©dicas indexadas provistas por la plataforma sobre desbalances insulÃƒÂ­nicos y diabetes de control.</td><td>Desarrollo de un criterio de selecciÃƒÂ³n analÃƒÂ­tico escÃƒÂ©ptico frente a informaciones sanitarias web comerciales.</td></tr>
+<tr class="w-ind"><td>Semana 5</td><td>IndagaciÃƒÂ³n</td><td>Estudio autÃƒÂ³nomo interactivo del OVA "QuÃƒÂ­mica de la Sinapsis", asociando neurotransmisores basales (dopamina, serotonina) con conductas estables mediante tests rÃƒÂ¡pidos.</td><td>AceptaciÃƒÂ³n reflexiva de la variabilidad neuro-emocional y ritmos biolÃƒÂ³gicos individuales de los seres humanos.</td></tr>
+<tr class="w-tra"><td>Semana 6</td><td>Transferencia</td><td>Estudio analÃƒÂ­tico de toxicologÃƒÂ­a digital: AnÃƒÂ¡lisis de simulaciones moleculares que ilustran los impactos degenerativos sinÃƒÂ¡pticos inducidos por adicciones quÃƒÂ­micas de abuso.</td><td>AsunciÃƒÂ³n de un criterio ÃƒÂ©tico firme e independiente orientado a la protecciÃƒÂ³n sanitaria integral del cuerpo.</td></tr>
+<tr class="w-tra"><td>Semana 7</td><td>Transferencia</td><td>ElaboraciÃƒÂ³n individual de una infografÃƒÂ­a interactiva avanzada sobre prevenciÃƒÂ³n de consumos problemÃƒÂ¡ticos de compuestos estimulantes y autocuidado neurolÃƒÂ³gico.</td><td>Solidaridad civil proactiva y compromiso ÃƒÂ©tico personal con la divulgaciÃƒÂ³n de pautas epidemiolÃƒÂ³gicas de bienestar.</td></tr>
+<tr class="w-met"><td>Semana 8</td><td>MetacogniciÃƒÂ³n</td><td>Carga de portafolios digitales de homeostasis sistÃƒÂ©mica regulada. SoluciÃƒÂ³n de examen de periodo adaptativo en lÃƒÂ­nea con analÃƒÂ­ticas de desempeÃƒÂ±o inmediatas.</td><td>ConsolidaciÃƒÂ³n definitiva del compromiso ÃƒÂ©tico autÃƒÂ³nomo cimentado en el respeto y protecciÃƒÂ³n del propio organismo.</td></tr>
+</tbody>
+</table>
+<div class="grade-title">Grado 9Ã‚Â° - Periodo 3: BiologÃƒÂ­a - Algoritmos Evolutivos, Filogenias y SelecciÃƒÂ³n Natural</div><table>
+<tbody>
+<tr class="w-exp"><td>Semana 1</td><td>ExploraciÃƒÂ³n</td><td>OperaciÃƒÂ³n del software adaptativo "Mecanismos de SelecciÃƒÂ³n". SimulaciÃƒÂ³n interactiva de tasas de captura depredadora sobre variaciones fenotÃƒÂ­picas camufladas.</td><td>Desarrollo de la flexibilidad cognitiva, paciencia de largo plazo y apertura intelectual ante procesos evolutivos.</td></tr>
+<tr class="w-exp"><td>Semana 2</td><td>ExploraciÃƒÂ³n</td><td>Registro de oscilaciones de supervivencia y conjeturas iniciales en bitÃƒÂ¡cora sobre causas moleculares macro de la especiaciÃƒÂ³n y diversificaciÃƒÂ³n biÃƒÂ³tica.</td><td>ValoraciÃƒÂ³n de las propias modelaciones predictivas virtuales iniciales como detonadores de interrogantes cientÃƒÂ­ficos complejos.</td></tr>
+<tr class="w-ind"><td>Semana 3</td><td>IndagaciÃƒÂ³n</td><td>AnÃƒÂ¡lisis documental guiado de ÃƒÂ¡rboles filogenÃƒÂ©ticos dinÃƒÂ¡micos interactivos y registros morfolÃƒÂ³gicos fÃƒÂ³siles antiguos. ConfrontaciÃƒÂ³n teÃƒÂ³rica lamarckismo frente a darwinismo.</td><td>Reconocimiento del carÃƒÂ¡cter histÃƒÂ³rico, colectivo, acumulativo y transitorio de los paradigmas de la ciencia viva.</td></tr>
+<tr class="w-ind"><td>Semana 4</td><td>IndagaciÃƒÂ³n</td><td>ResoluciÃƒÂ³n de problemas de genÃƒÂ©tica poblacional de mutaciÃƒÂ³n aleatoria en el OVA avanzado de evoluciÃƒÂ³n, vinculando cambios moleculares con ÃƒÂ©xito reproductivo.</td><td>Fomento de la disciplina analÃƒÂ­tica profunda estructural coordinada en el manejo de explicaciones biolÃƒÂ³gicas multicausales.</td></tr>
+<tr class="w-ind"><td>Semana 5</td><td>IndagaciÃƒÂ³n</td><td>EstructuraciÃƒÂ³n individual de mapas analÃƒÂ­ticos conceptuales detallando axiomas del modelo sintÃƒÂ©tico evolutivo: Deriva genÃƒÂ©tica, aislamiento geogrÃƒÂ¡fico y flujos alÃƒÂ©licos.</td><td>AdopciÃƒÂ³n de un pensamiento holÃƒÂ­stico integrador sistÃƒÂ©mico complejo de las transformaciones biolÃƒÂ³gicas evolutivas de la vida.</td></tr>
+<tr class="w-tra"><td>Semana 6</td><td>Transferencia</td><td>Estudio tÃƒÂ©cnico digital: AnÃƒÂ¡lisis detallado de bases de datos de biodiversidad andina amenazada por presiones antrÃƒÂ³picas ecorregionales colombianas.</td><td>AsunciÃƒÂ³n de una responsabilidad ÃƒÂ©tica civil superior informada en la defensa activa del patrimonio biÃƒÂ³tico local.</td></tr>
+<tr class="w-tra"><td>Semana 7</td><td>Transferencia</td><td>DiseÃƒÂ±o individual autÃƒÂ³nomo de un plan estratÃƒÂ©gico virtual de mitigaciÃƒÂ³n ecolÃƒÂ³gica orientado a frenar pÃƒÂ©rdidas genÃƒÂ©ticas regionales de especies endÃƒÂ©micas.</td><td>Liderazgo civil ÃƒÂ©tico proactivo comprometido de forma directa con la preservaciÃƒÂ³n material de los entornos naturales de la naciÃƒÂ³n.</td></tr>
+<tr class="w-met"><td>Semana 8</td><td>MetacogniciÃƒÂ³n</td><td>Entrega de portafolios anuales de evoluciÃƒÂ³n biolÃƒÂ³gica en la plataforma. Diligenciamiento del cuestionario final automatizado de autoevaluaciÃƒÂ³n autorregulada.</td><td>ConsolidaciÃƒÂ³n definitiva de la identidad ciudadana crÃƒÂ­tica humanista concebida como custodios de la biosfera habitable.</td></tr>
+</tbody>
+</table>
+<div class="grade-title">Grado 9Ã‚Â° - Periodo 4: FÃƒÂ­sica - MecÃƒÂ¡nica de Ondas, AcÃƒÂºstica y Ãƒâ€œptica GeomÃƒÂ©trica</div><table>
+<tbody>
+<tr class="w-exp"><td>Semana 1</td><td>ExploraciÃƒÂ³n</td><td>OperaciÃƒÂ³n individual del simulador acÃƒÂºstico "El Generador de Frecuencias". ModificaciÃƒÂ³n interactiva de tonos virtuales y amplitudes sonoras en pantalla.</td><td>ApreciaciÃƒÂ³n de manifestaciones auditivas y estÃƒÂ©ticas concebidas como canales de comunicaciÃƒÂ³n humana.</td></tr>
+<tr class="w-exp"><td>Semana 2</td><td>ExploraciÃƒÂ³n</td><td>FormulaciÃƒÂ³n de hipÃƒÂ³tesis fÃƒÂ­sicas predictivas escritas en bitÃƒÂ¡cora detallando cÃƒÂ³mo se propaga la energÃƒÂ­a ondulatoria invisible a travÃƒÂ©s de medios elÃƒÂ¡sticos simulados.</td><td>Flexibilidad mental y apertura cognitiva para debatir concepciones intuitivas previas de transferencia mecÃƒÂ¡nica.</td></tr>
+<tr class="w-ind"><td>Semana 3</td><td>IndagaciÃƒÂ³n</td><td>Uso guiado autÃƒÂ³nomo de la "Cubeta de Ondas Virtual 2D". MediciÃƒÂ³n matemÃƒÂ¡tica directa de longitudes de onda sinusoidales, periodos cinÃƒÂ©ticos y velocidad de frentes.</td><td>Exigencia de rigor metodolÃƒÂ³gico procedimental objetivo en el registro numÃƒÂ©rico de variables fÃƒÂ­sicas medidas.</td></tr>
+<tr class="w-ind"><td>Semana 4</td><td>IndagaciÃƒÂ³n</td><td>VerificaciÃƒÂ³n empÃƒÂ­rica en el laboratorio ÃƒÂ³ptico web de fenÃƒÂ³menos ondulatorios de reflexiÃƒÂ³n especular, refracciÃƒÂ³n geomÃƒÂ©trica en prismas y patrones de difracciÃƒÂ³n.</td><td>Uso integrado avanzado de lenguajes matemÃƒÂ¡ticos de la fÃƒÂ­sica para dar soporte descriptivo preciso a radiaciones ondulatorias.</td></tr>
+<tr class="w-ind"><td>Semana 5</td><td>IndagaciÃƒÂ³n</td><td>NavegaciÃƒÂ³n individual por el OVA avanzado de espectros electromagnÃƒÂ©ticos, analizando la dualidad onda-partÃƒÂ­cula lumÃƒÂ­nica y la ecuaciÃƒÂ³n de Planck cuÃƒÂ¡ntica.</td><td>Constancia disciplinada operativa en la gestiÃƒÂ³n y anÃƒÂ¡lisis predictivo de modelos virtuales abstractos de fÃƒÂ­sica de ondas.</td></tr>
+<tr class="w-tra"><td>Semana 6</td><td>Transferencia</td><td>ABP de acÃƒÂºstica urbana digital: MediciÃƒÂ³n individual del mapa de ruido del hogar del estudiante empleando aplicaciones sonomÃƒÂ©tricas integradas avanzadas.</td><td>Responsabilidad civil individual orientada a mitigar la contaminaciÃƒÂ³n auditiva domÃƒÂ©stica para favorecer la concentraciÃƒÂ³n.</td></tr>
+<tr class="w-tra"><td>Semana 7</td><td>Transferencia</td><td>DiseÃƒÂ±o individual de planos virtuales de barreras de aislamiento acÃƒÂºstico modulares eco-amigables empleando coeficientes de absorciÃƒÂ³n de materiales modelados.</td><td>Capacidad tÃƒÂ©cnica autÃƒÂ³noma orientada a proponer soluciones materiales a problemÃƒÂ¡ticas ambientales reales de su espacio.</td></tr>
+<tr class="w-met"><td>Semana 8</td><td>MetacogniciÃƒÂ³n</td><td>EnvÃƒÂ­o de bitÃƒÂ¡coras de fÃƒÂ­sica ondulatoria en formato digital. Test automatizado de periodo de cierre anual con reportes de rendimiento cognitivo acumulado.</td><td>ConsolidaciÃƒÂ³n del autoconcepto intelectual estructurado a partir de la resoluciÃƒÂ³n autÃƒÂ³noma de retos mecÃƒÂ¡nicos fÃƒÂ­sicos.</td></tr>
+</tbody>
+</table>
+</div>
+<div id="malla-grado-10" class="contenedor-malla" style="display:none;">
+<div class="grade-title">Malla Curricular: Grado DÃƒÂ©cimo (10Ã‚Â°)</div><table>
+<thead>
+<tr>
+<th style="width: 7%">Periodo / Asignatura</th>
+<th style="width: 15%">Pregunta Problematizadora</th>
+<th style="width: 22%">Me Aproximo al Conocimiento como CientÃƒÂ­fico-a Natural (Entorno Virtual)</th>
+<th style="width: 22%">Manejo Conocimientos Propios (MÃƒÂ³dulos del OVA)</th>
+<th style="width: 17%">Desarrollo Compromisos Personales y Sociales (AutogestiÃƒÂ³n)</th>
+<th style="width: 17%">TransversalizaciÃƒÂ³n con otras ÃƒÂreas Fundamentales (Ejes de Co-DiseÃƒÂ±o Web)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><b>P1: <span class="t-quimica">QuÃƒÂ­mica</span></b></td>
+<td>Ã‚Â¿CÃƒÂ³mo determina la configuraciÃƒÂ³n electrÃƒÂ³nica cuÃƒÂ¡ntica las interacciones de enlace?</td>
+<td><span class="badge b-aprox">AproximaciÃƒÂ³n</span><ul><li>DiseÃƒÂ±o e implemento proyectos de indagaciÃƒÂ³n estructurada empleando software cuÃƒÂ¡ntico de SchrÃƒÂ¶dinger.</li></ul></td>
+<td><span class="badge b-fisico">Procesos QuÃƒÂ­micos</span><ul><li>Explico la distribuciÃƒÂ³n electrÃƒÂ³nica atÃƒÂ³mica cuÃƒÂ¡ntica y su correspondencia con enlaces moleculares.</li></ul></td>
+<td><span class="badge b-comp">Compromisos</span><ul><li>Reflexiono sobre el carÃƒÂ¡cter provisional de los axiomas quÃƒÂ­micos al confrontar modelos en la red.</li></ul></td>
+<td><span class="badge b-trans">ConexiÃƒÂ³n</span><ul><li><b>MatemÃƒÂ¡ticas:</b> GeometrÃƒÂ­a molecular espacial tridimensional y orbitales hÃƒÂ­bridos vectoriales.</li><li><b>Lengua Castellana:</b> RedacciÃƒÂ³n de informes analÃƒÂ­ticos argumentativos con rigor lÃƒÂ³gico formal.</li></ul></td>
+</tr>
+<tr>
+<td><b>P2: <span class="t-biologia">BiologÃƒÂ­a</span></b></td>
+<td>Ã‚Â¿CÃƒÂ³mo los modelos algorÃƒÂ­tmicos de deriva genÃƒÂ©tica predicen mutaciones alÃƒÂ©licas?</td>
+<td><span class="badge b-aprox">AproximaciÃƒÂ³n</span><ul><li>Propongo simulaciones matemÃƒÂ¡ticas matriciales independientes corriendo modelos alÃƒÂ©licos en el OVA.</li></ul></td>
+<td><span class="badge b-vivo">Procesos BiolÃƒÂ³gicos</span><ul><li>Explico la relaciÃƒÂ³n molecular entre ADN, ambiente neotropical y evoluciÃƒÂ³n biolÃƒÂ³gica (Hardy-Weinberg).</li></ul></td>
+<td><span class="badge b-comp">Compromisos</span><ul><li>Analizo crÃƒÂ­ticamente mediante lecturas autÃƒÂ³nomas la equidad de derechos e identidades biolÃƒÂ³gicas libres de sesgos.</li></ul></td>
+<td><span class="badge b-trans">ConexiÃƒÂ³n</span><ul><li><b>MatemÃƒÂ¡ticas/EstadÃƒÂ­stica:</b> CÃƒÂ¡lculo probabilÃƒÂ­stico combinatorio y distribuciÃƒÂ³n binomial de frecuencias de alelos.</li><li><b>TecnologÃƒÂ­a e InformÃƒÂ¡tica:</b> Correr bucles condicionales de simulaciÃƒÂ³n algorÃƒÂ­tmica.</li></ul></td>
+</tr>
+<tr>
+<td><b>P3: <span class="t-fisica">FÃƒÂ­sica</span></b></td>
+<td>Ã‚Â¿CÃƒÂ³mo se modelan vectorialmente las fuerzas coplanares de equilibrio mecÃƒÂ¡nico lineal?</td>
+<td><span class="badge b-aprox">AproximaciÃƒÂ³n</span><ul><li>Uso modelaciÃƒÂ³n matemÃƒÂ¡tica y conversiones analÃƒÂ­ticas de vectores en calculadoras de alta precisiÃƒÂ³n de la web.</li></ul></td>
+<td><span class="badge b-fisico">Procesos FÃƒÂ­sicos</span><ul><li>Establezco relaciones funcionales grÃƒÂ¡ficas algebraicas de movimientos lineales ($MRU, MRUA$).</li><li>Newton mecÃƒÂ¡nico.</li></ul></td>
+<td><span class="badge b-comp">Compromisos</span><ul><li>Demuestro rigor, honestidad y paciencia ante la resoluciÃƒÂ³n autÃƒÂ³noma introspectiva de problemas mecÃƒÂ¡nicos.</li></ul></td>
+<td><span class="badge b-trans">ConexiÃƒÂ³n</span><ul><li><b>MatemÃƒÂ¡ticas/TrigonometrÃƒÂ­a:</b> DescomposiciÃƒÂ³n de vectores mecÃƒÂ¡nicos mediante funciones trigonomÃƒÂ©tricas e identidades complejas.</li><li><b>TecnologÃƒÂ­a:</b> Uso de simuladores cinemÃƒÂ¡ticos interactivos CAD.</li></ul></td>
+</tr>
+<tr>
+<td><b>P4: <span class="t-fisica">FÃƒÂ­sica</span></b></td>
+<td>Ã‚Â¿QuÃƒÂ© balances cinemÃƒÂ¡ticos gobiernan la conservaciÃƒÂ³n de la energÃƒÂ­a mecÃƒÂ¡nica?</td>
+<td><span class="badge b-aprox">AproximaciÃƒÂ³n</span><ul><li>Hago revisiones bibliogrÃƒÂ¡ficas analÃƒÂ­ticas de artÃƒÂ­culos indexados provistos por el mÃƒÂ³dulo avanzado del OVA.</li></ul></td>
+<td><span class="badge b-fisico">Procesos FÃƒÂ­sicos</span><ul><li>Caracterizo transferencias de trabajo mecÃƒÂ¡nico y curvas tÃƒÂ©rmicas disipativas en dashboards interactivos.</li></ul></td>
+<td><span class="badge b-comp">Compromisos</span><ul><li>DiseÃƒÂ±o de forma individual planes autÃƒÂ³nomos de eficiencia de recursos y consumo energÃƒÂ©tico limpio familiar.</li></ul></td>
+<td><span class="badge b-trans">ConexiÃƒÂ³n</span><ul><li><b>MatemÃƒÂ¡ticas:</b> Funciones analÃƒÂ­ticas complejas de cÃƒÂ¡lculo de ÃƒÂ¡reas bajo la curva de potencia y trabajo mecÃƒÂ¡nico.</li><li><b>TecnologÃƒÂ­a:</b> SimulaciÃƒÂ³n paramÃƒÂ©trica de sistemas limpios.</li></ul></td>
+</tr>
+</tbody>
+</table>
+<div class="grade-title">Grado 10Ã‚Â° - Periodo 1: QuÃƒÂ­mica - MecÃƒÂ¡nica CuÃƒÂ¡ntica AtÃƒÂ³mica y GeometrÃƒÂ­a de Enlace</div><table>
+<thead>
+<tr><th style="width: 8%">Semana</th><th style="width: 12%">Fase DidÃƒÂ¡ctica</th><th style="width: 55%">Estrategias de Aprendizaje Activo en Plataforma (AcciÃƒÂ³n AutÃƒÂ³noma)</th><th style="width: 25%">DimensiÃƒÂ³n Humana y AutogestiÃƒÂ³n</th></tr>
+</thead>
+<tbody>
+<tr class="w-exp"><td>Semana 1</td><td>ExploraciÃƒÂ³n</td><td>Ingreso al simulador cuÃƒÂ¡ntico molecular "El Espacio de SchrÃƒÂ¶dinger". OperaciÃƒÂ³n interactiva inicial de orbitales de densidad probabilÃƒÂ­stica electrÃƒÂ³nica en pantalla.</td><td>AceptaciÃƒÂ³n reflexiva de la incertidumbre matemÃƒÂ¡tica epistÃƒÂ©mica propia de paradigmas contemporÃƒÂ¡neos avanzados.</td></tr>
+<tr class="w-exp"><td>Semana 2</td><td>ExploraciÃƒÂ³n</td><td>FormulaciÃƒÂ³n escrita de interrogantes abstractos individuales en bitÃƒÂ¡cora analizando limitaciones insalvables de trayectorias clÃƒÂ¡sicas ÃƒÂ³rbitas deterministas.</td><td>Fomento de la flexibilidad cognitiva profunda y de la disposiciÃƒÂ³n interna al replanteamiento radical de modelos quÃƒÂ­micos.</td></tr>
+<tr class="w-ind"><td>Semana 3</td><td>IndagaciÃƒÂ³n</td><td>Uso del software cuÃƒÂ¡ntico estructural de la plataforma, calculando distribuciones de nÃƒÂºmeros cuÃƒÂ¡nticos y configuraciones segÃƒÂºn el principio de exclusiÃƒÂ³n de Pauli.</td><td>Cultivo de la autodisciplina mental intelectual rigurosa indispensable para descodificar leyes cuÃƒÂ¡nticas moleculares.</td></tr>
+<tr class="w-ind"><td>Semana 4</td><td>IndagaciÃƒÂ³n</td><td>DiseÃƒÂ±o y ensamblaje geomÃƒÂ©trico tridimensional de arquitecturas moleculares en el visor interactivo web, calculando vectores parciales electrostÃƒÂ¡ticos de polaridad.</td><td>Manejo ordenado y autogestionado de entornos de software especializados y recursos de simulaciÃƒÂ³n web abstracta de aula.</td></tr>
+<tr class="w-ind"><td>Semana 5</td><td>IndagaciÃƒÂ³n</td><td>AnÃƒÂ¡lisis de espectros de absorciÃƒÂ³n de compuestos orgÃƒÂ¡nicos mediante simulaciones de calibraciÃƒÂ³n espectroscÃƒÂ³pica en dashboards analÃƒÂ­ticos integrados en el OVA.</td><td>Rigor analÃƒÂ­tico profundo e independencia cognitiva en la decodificaciÃƒÂ³n de datos espectrales moleculares de la materia.</td></tr>
+<tr class="w-tra"><td>Semana 6</td><td>Transferencia</td><td>Estudio estructural CTS digital: InvestigaciÃƒÂ³n bibliogrÃƒÂ¡fica sistemÃƒÂ¡tica autÃƒÂ³noma sobre la sÃƒÂ­ntesis ÃƒÂ­ntima de polÃƒÂ­meros biodegradables frente a plÃƒÂ¡sticos comunes.</td><td>Desarrollo de un criterio ÃƒÂ©tico proactivo crÃƒÂ­tico frente a las consecuencias ambientales macro de cadenas industriales masivas.</td></tr>
+<tr class="w-tra"><td>Semana 7</td><td>Transferencia</td><td>RedacciÃƒÂ³n individual autÃƒÂ³noma de una propuesta tÃƒÂ©cnica evaluando la viabilidad econÃƒÂ³mica regional de sustituciÃƒÂ³n material de empaques por opciones orgÃƒÂ¡nicas.</td><td>Liderazgo civil reflexivo independiente comprometido con la mitigaciÃƒÂ³n de pasivos contaminantes antropogÃƒÂ©nicos ecorregionales.</td></tr>
+<tr class="w-met"><td>Semana 8</td><td>MetacogniciÃƒÂ³n</td><td>SustentaciÃƒÂ³n multimedia individualizada de las maquetas cuÃƒÂ¡nticas construidas ante la plataforma. Test de periodo y analÃƒÂ­ticas cualitativas de logro de cierre.</td><td>Aptitud intelectual constructiva madura para reajustar modelos cientÃƒÂ­ficos propios ante refutaciones algorÃƒÂ­tmicas del software.</td></tr>
+</tbody>
+</table>
+<div class="grade-title">Grado 10Ã‚Â° - Periodo 2: BiologÃƒÂ­a - GenÃƒÂ©tica de Poblaciones y Algoritmos AlÃƒÂ©licos</div><table>
+<tbody>
+<tr class="w-exp"><td>Semana 1</td><td>ExploraciÃƒÂ³n</td><td>Estudio guiado individual de casos contemporÃƒÂ¡neos neotropicales de variaciones fenotÃƒÂ­picas aceleradas de insectos expuestos a presiones selectivas de plaguicidas.</td><td>Apertura y flexibilidad intelectual para abordar dinÃƒÂ¡micas evolutivas multicausales ecolÃƒÂ³gicas de largo plazo.</td></tr>
+<tr class="w-exp"><td>Semana 2</td><td>ExploraciÃƒÂ³n</td><td>Registro individual de hipÃƒÂ³tesis lÃƒÂ³gicas escritas en bitÃƒÂ¡cora detallando nexos moleculares directos causales entre perturbaciones antropogÃƒÂ©nicas de ecosistemas y alelos.</td><td>Fomento de la capacidad reflexiva autÃƒÂ³noma crÃƒÂ­tica del alumno ante pasivos y transformaciones ecolÃƒÂ³gicas de la ecorregiÃƒÂ³n.</td></tr>
+<tr class="w-ind"><td>Semana 3</td><td>IndagaciÃƒÂ³n</td><td>ParametrizaciÃƒÂ³n individual de frecuencias genotÃƒÂ­picas alÃƒÂ©licas corriendo simulaciones automatizadas de la ley genÃƒÂ©tica de Hardy-Weinberg en el mÃƒÂ³dulo informÃƒÂ¡tico.</td><td>Desarrollo de la constancia procedimental operativa y paciencia de campo en el registro objetivo de fluctuaciones numÃƒÂ©ricas.</td></tr>
+<tr class="w-ind"><td>Semana 4</td><td>IndagaciÃƒÂ³n</td><td>ModelaciÃƒÂ³n analÃƒÂ­tica abstracta individual de efectos microevolutivos moleculares inducidos por deriva genÃƒÂ©tica estocÃƒÂ¡stica aleatoria, mutaciones celulares y aislamientos.</td><td>Rigor analÃƒÂ­tico e independencia cognitiva en el manejo y desciframiento de balances de probabilidad de frecuencias moleculares.</td></tr>
+<tr class="w-ind"><td>Semana 5</td><td>IndagaciÃƒÂ³n</td><td>EstructuraciÃƒÂ³n de mapas analÃƒÂ­ticos conceptuales matriciales complejos vinculando variables de nichos ecolÃƒÂ³gicos adaptativos, capacidad de carga poblacional y especiaciÃƒÂ³n.</td><td>AdopciÃƒÂ³n de un pensamiento holÃƒÂ­stico integrador estructural complejo de las tramas intrÃƒÂ­nsecas evolutivas vitales de la biosfera.</td></tr>
+<tr class="w-tra"><td>Semana 6</td><td>Transferencia</td><td>DiseÃƒÂ±o individual de un proyecto botÃƒÂ¡nico de conservaciÃƒÂ³n virtual: FormulaciÃƒÂ³n por software de estrategias algorÃƒÂ­tmicas ÃƒÂ³ptimas para resguardar variabilidad genÃƒÂ©tica de flora.</td><td>AsunciÃƒÂ³n de un compromiso ÃƒÂ©tico ciudadano civil proactivo defensor racional del pool genÃƒÂ©tico nativo de la flora de la naciÃƒÂ³n.</td></tr>
+<tr class="w-tra"><td>Semana 7</td><td>Transferencia</td><td>Montaje operativo digital de bancos germoplÃƒÂ¡smicos virtuales simulando respuestas de adaptaciÃƒÂ³n celular de lÃƒÂ­quenes andinos locales ante gradientes climÃƒÂ¡ticos crÃƒÂ­ticos.</td><td>Cuidado, minuciosidad protectora responsable y respeto profundo hacia la persistencia adaptativa de seres vivos no humanos.</td></tr>
+<tr class="w-met"><td>Semana 8</td><td>MetacogniciÃƒÂ³n</td><td>EnvÃƒÂ­o del portafolio analÃƒÂ­tico de evoluciÃƒÂ³n genÃƒÂ©tica a la plataforma web de aula. Examen de periodo adaptativo en lÃƒÂ­nea con visualizaciÃƒÂ³n de reportes analÃƒÂ­ticos de logro.</td><td>ConsolidaciÃƒÂ³n definitiva de una conciencia bioÃƒÂ©tica planetaria fundamentada en el respeto irrestricto hacia la vida.</td></tr>
+</tbody>
+</table>
+<div class="grade-title">Grado 10Ã‚Â° - Periodo 3: FÃƒÂ­sica - CinemÃƒÂ¡tica Vectorial Lineal y DinÃƒÂ¡mica Newtoniana</div><table>
+<tbody>
+<tr class="w-exp"><td>Semana 1</td><td>ExploraciÃƒÂ³n</td><td>AnÃƒÂ¡lisis cinemÃƒÂ¡tico de vÃƒÂ­deo de alta definiciÃƒÂ³n: Captura analÃƒÂ­tica directa de coordenadas espaciales, tiempos cronometrados y velocidades vectoriales en pantalla.</td><td>ValoraciÃƒÂ³n de las dinÃƒÂ¡micas fÃƒÂ­sicas cinemÃƒÂ¡ticas y del orden geomÃƒÂ©trico como base del equilibrio material.</td></tr>
+<tr class="w-exp"><td>Semana 2</td><td>ExploraciÃƒÂ³n</td><td>FormulaciÃƒÂ³n de hipÃƒÂ³tesis cinemÃƒÂ¡ticas predictivas algebraicas individuales en bitÃƒÂ¡cora detallando desviaciones mecÃƒÂ¡nicas inducidas por fricciÃƒÂ³n simulada aire frente a vacÃƒÂ­o.</td><td>AceptaciÃƒÂ³n y tolerancia constructiva del error matemÃƒÂ¡tico procedimental concebido como andamiaje necesario del saber formal.</td></tr>
+<tr class="w-ind"><td>Semana 3</td><td>IndagaciÃƒÂ³n</td><td>Uso de calculadoras cinemÃƒÂ¡ticas web de alta precisiÃƒÂ³n. ResoluciÃƒÂ³n matemÃƒÂ¡tica lineal formalizada de ecuaciones acopladas de movimientos rectolÃƒÂ­neos ($MRU, MRUA$).</td><td>Exigencia de rigor metodolÃƒÂ³gico procedimental estricto, minuciosidad analÃƒÂ­tica profunda en matrices mÃƒÂ©tricas y control del error.</td></tr>
+<tr class="w-ind"><td>Semana 4</td><td>IndagaciÃƒÂ³n</td><td>ModelaciÃƒÂ³n matemÃƒÂ¡tica vectorial formal de las Leyes de Newton operando simuladores interactivos de fuerzas coplanares concurrentes en planos mecÃƒÂ¡nicos.</td><td>Honestidad intelectual profunda en el registro transparente de datos numÃƒÂ©ricos experimentales virtuales capturados sin alteraciones.</td></tr>
+<tr class="w-ind"><td>Semana 5</td><td>IndagaciÃƒÂ³n</td><td>Taller de diagramaciÃƒÂ³n vectorial de fuerzas mecÃƒÂ¡nicas de rozamiento cinÃƒÂ©tico frente a estÃƒÂ¡tico libre lineal empleando el software grÃƒÂ¡fico de la plataforma.</td><td>Constancia, paciencia analÃƒÂ­tica y persistencia autÃƒÂ³noma frente a desafÃƒÂ­os cuantitativos abstractos complejos de fÃƒÂ­sica mecÃƒÂ¡nica.</td></tr>
+<tr class="w-tra"><td>Semana 6</td><td>Transferencia</td><td>Reto de ingenierÃƒÂ­a de aula: ModelaciÃƒÂ³n paramÃƒÂ©trica y cÃƒÂ¡lculo geomÃƒÂ©trico por software de las trayectorias parabÃƒÂ³licas balÃƒÂ­sticas de un proyectil neumÃƒÂ¡tico virtual.</td><td>Desarrollo del pensamiento lÃƒÂ³gico estructural y destreza analÃƒÂ­tica aplicada al desciframiento autÃƒÂ³nomo de ecuaciones mecÃƒÂ¡nicas avanzadas.</td></tr>
+<tr class="w-tra"><td>Semana 7</td><td>Transferencia</td><td>ConfiguraciÃƒÂ³n algorÃƒÂ­tmica ÃƒÂ³ptima individual por software de ÃƒÂ¡ngulos de tiro y fuerzas impulsoras para superar retos de impacto espacial controlado simulado.</td><td>Cultivo de la resiliencia operativa y del ingenio prÃƒÂ¡ctico resolutivo ante desajustes o pÃƒÂ©rdidas de magnitudes fÃƒÂ­sicas virtuales.</td></tr>
+<tr class="w-met"><td>Semana 8</td><td>MetacogniciÃƒÂ³n</td><td>EnvÃƒÂ­o de matrices cinemÃƒÂ¡ticas al portafolio web de aula. Test sumativo adaptativo final de periodo en lÃƒÂ­nea con analÃƒÂ­ticas automÃƒÂ¡ticas de logro de competencias mecÃƒÂ¡nicas.</td><td>Fortalecimiento de la autoconfianza intelectual cimentada en la superaciÃƒÂ³n individual de desafÃƒÂ­os complejos de fÃƒÂ­sica lineal.</td></tr>
+</tbody>
+</table>
+<div class="grade-title">Grado 10Ã‚Â° - Periodo 4: FÃƒÂ­sica - Trabajo, Potencia y ConservaciÃƒÂ³n de la EnergÃƒÂ­a MecÃƒÂ¡nica</div><table>
+<tbody>
+<tr class="w-exp"><td>Semana 1</td><td>ExploraciÃƒÂ³n</td><td>InteracciÃƒÂ³n interactiva inicial con el simulador de energÃƒÂ­a mecÃƒÂ¡nica "MontaÃƒÂ±as Rusas Virtuales". Registro de oscilaciones libres macro mÃƒÂ©tricas entre altura y velocidad.</td><td>ValoraciÃƒÂ³n de la curiosidad exploratoria individual aplicada a descifrar patrones de transferencia de trabajo fÃƒÂ­sico.</td></tr>
+<tr class="w-exp"><td>Semana 2</td><td>ExploraciÃƒÂ³n</td><td>FormulaciÃƒÂ³n de conjeturas dinÃƒÂ¡micas predictivas en bitÃƒÂ¡cora detallando pÃƒÂ©rdidas tÃƒÂ©rmicas energÃƒÂ©ticas mecÃƒÂ¡nicas causadas por fricciÃƒÂ³n superficial en planos inclinados.</td><td>Fomento de la confianza epistÃƒÂ©mica personal del estudiante para proponer explicaciones mecÃƒÂ¡nicas moleculares de conservaciÃƒÂ³n.</td></tr>
+<tr class="w-ind"><td>Semana 3</td><td>IndagaciÃƒÂ³n</td><td>DiseÃƒÂ±o de experimentos en la plataforma de planos mecÃƒÂ¡nicos, midiendo integrales matemÃƒÂ¡ticas formales de trabajo neto de arrastre de masas en fricciÃƒÂ³n.</td><td>Exigencia de rigor metodolÃƒÂ³gico procedimental analÃƒÂ­tico profundo y honestidad intelectual en la captura de datos numÃƒÂ©ricos.</td></tr>
+<tr class="w-ind"><td>Semana 4</td><td>IndagaciÃƒÂ³n</td><td>ModelaciÃƒÂ³n matemÃƒÂ¡tica de ecuaciones algebraicas de potencia mecÃƒÂ¡nica lineal ($W/t$) en dashboards interactivos tÃƒÂ©cnicos de control industrial.</td><td>Disciplina e interÃƒÂ©s analÃƒÂ­tico mental riguroso por descodificar expresiones cinemÃƒÂ¡ticas avanzadas de transferencia de vatios.</td></tr>
+<tr class="w-ind"><td>Semana 5</td><td>IndagaciÃƒÂ³n</td><td>Taller conceptual de balances termodinÃƒÂ¡micos mecÃƒÂ¡nicos diferenciando energÃƒÂ­as potenciales elÃƒÂ¡sticas y gravitacionales basÃƒÂ¡ndose en leyes invariables de conservaciÃƒÂ³n.</td><td>Uso integrado avanzado de lenguajes matemÃƒÂ¡ticos formalizados abstractos de la fÃƒÂ­sica como descriptores de dinÃƒÂ¡micas de potencia.</td></tr>
+<tr class="w-tra"><td>Semana 6</td><td>Transferencia</td><td>ABP de polÃƒÂ­tica de desarrollo limpio nacional: RedacciÃƒÂ³n individual autÃƒÂ³noma de un ensayo estructurado argumentativo evaluando matrices sustentables de potencia elÃƒÂ©ctrica.</td><td>FormulaciÃƒÂ³n de posturas crÃƒÂ­ticas ciudadanas civiles independientes fundamentadas frente a dilemas tecnolÃƒÂ³gicos de la naciÃƒÂ³n.</td></tr>
+<tr class="w-tra"><td>Semana 7</td><td>Transferencia</td><td>EstructuraciÃƒÂ³n tÃƒÂ©cnica individual por software de propuestas de optimizaciÃƒÂ³n de vatios y balances tÃƒÂ©rmicos cinÃƒÂ©ticos en motores mecÃƒÂ¡nicos cerrados virtuales de su espacio.</td><td>Liderazgo civil participativo y corresponsabilidad social directa encaminada al diseÃƒÂ±o de soluciones ecolÃƒÂ³gicas eficientes del hogar.</td></tr>
+<tr class="w-met"><td>Semana 8</td><td>MetacogniciÃƒÂ³n</td><td>SustentaciÃƒÂ³n de ensayos argumentativos en asamblea digital de periodo de cierre anual escolar de educaciÃƒÂ³n media. CoevaluaciÃƒÂ³n final automatizada por rÃƒÂºbricas de logro.</td><td>ConsolidaciÃƒÂ³n de la autonomÃƒÂ­a crÃƒÂ­tica del egresado de dÃƒÂ©cimo grado concebida para actuar como agente de transformaciÃƒÂ³n consciente.</td></tr>
+</tbody>
+</table>
+</div>
+<div id="malla-grado-11" class="contenedor-malla" style="display:none;">
+<div class="grade-title">Malla Curricular: Grado UndÃƒÂ©cimo (11Ã‚Â°)</div><table>
+<thead>
+<tr>
+<th style="width: 7%">Periodo / Asignatura</th>
+<th style="width: 15%">Pregunta Problematizadora</th>
+<th style="width: 22%">Me Aproximo al Conocimiento como CientÃƒÂ­fico-a Natural (Entorno Virtual)</th>
+<th style="width: 22%">Manejo Conocimientos Propios (MÃƒÂ³dulos del OVA)</th>
+<th style="width: 17%">Desarrollo Compromisos Personales y Sociales (AutogestiÃƒÂ³n)</th>
+<th style="width: 17%">TransversalizaciÃƒÂ³n con otras ÃƒÂreas Fundamentales (Ejes de Co-DiseÃƒÂ±o Web)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><b>P1: <span class="t-quimica">QuÃƒÂ­mica</span></b></td>
+<td>Ã‚Â¿CÃƒÂ³mo la hibridaciÃƒÂ³n del carbono fundamenta el metabolismo bioquÃƒÂ­mica humano?</td>
+<td><span class="badge b-aprox">AproximaciÃƒÂ³n</span><ul><li>Sustento defensas de monografÃƒÂ­as teÃƒÂ³ricas individuales empleando tableros multimedia de la plataforma web.</li></ul></td>
+<td><span class="badge b-fisico">Procesos QuÃƒÂ­micos</span><ul><li>Asocio la hibridaciÃƒÂ³n orbital ($sp^3, sp^2, sp$) con estructuras orgÃƒÂ¡nicas.</li><li>Relaciono grupos funcionales con metabolismo.</li></ul></td>
+<td><span class="badge b-comp">Compromisos</span><ul><li>Sustento posturas ÃƒÂ©ticas basadas en evidencias clÃƒÂ­nicas moleculares analizando de forma autÃƒÂ³noma patologÃƒÂ­as metabÃƒÂ³licas.</li></ul></td>
+<td><span class="badge b-trans">ConexiÃƒÂ³n</span><ul><li><b>Lengua Castellana:</b> RedacciÃƒÂ³n acadÃƒÂ©mica cientÃƒÂ­fica formalizada de monografÃƒÂ­as integrales bajo pautas de estilo internacionales APA.</li><li><b>MatemÃƒÂ¡ticas:</b> GeometrÃƒÂ­a tridimensional molecular compleja.</li></ul></td>
+</tr>
+<tr>
+<td><b>P2: <span class="t-biologia">BiologÃƒÂ­a</span></b></td>
+<td>Ã‚Â¿CÃƒÂ³mo regulan entalpÃƒÂ­a y entropÃƒÂ­a celular las conversiones bioenergÃƒÂ©ticas?</td>
+<td><span class="badge b-aprox">AproximaciÃƒÂ³n</span><ul><li>Formulo preguntas complejas analizando modelos de bio-espectroscopia de patÃƒÂ³genos en el software analÃƒÂ­tico.</li></ul></td>
+<td><span class="badge b-vivo">Procesos BiolÃƒÂ³gicos</span><ul><li>Argumento la bioenergÃƒÂ©tica molecular fotosintÃƒÂ©tica modelando espectros.</li><li>Aplico principios termodinÃƒÂ¡micos a redes trÃƒÂ³ficas.</li></ul></td>
+<td><span class="badge b-comp">Compromisos</span><ul><li>Asumo posturas bioÃƒÂ©ticas independientes crÃƒÂ­ticas frente a dilemas de salud pÃƒÂºblica mediante anÃƒÂ¡lisis individuales.</li></ul></td>
+<td><span class="badge b-trans">ConexiÃƒÂ³n</span><ul><li><b>MatemÃƒÂ¡ticas:</b> Ecuaciones diferenciales elementales tÃƒÂ©rmicas y logaritmos neperianos de entropÃƒÂ­a de biomasa.</li><li><b>TecnologÃƒÂ­a:</b> AnÃƒÂ¡lisis espectroscÃƒÂ³pico de datos digitales.</li></ul></td>
+</tr>
+<tr>
+<td><b>P3: <span class="t-fisica">FÃƒÂ­sica</span></b></td>
+<td>Ã‚Â¿CÃƒÂ³mo describen los teoremas de hidrodinÃƒÂ¡mica los desarrollos bio-mecÃƒÂ¡nicos vasculares?</td>
+<td><span class="badge b-aprox">AproximaciÃƒÂ³n</span><ul><li>Acoto mÃƒÂ¡rgenes de incertidumbre analizando errores de aproximaciÃƒÂ³n algorÃƒÂ­tmicos en simuladores fluidicos.</li></ul></td>
+<td><span class="badge b-fisico">Procesos FÃƒÂ­sicos</span><ul><li>Expreso matemÃƒÂ¡ticamente las leyes de estÃƒÂ¡tica e hidrodinÃƒÂ¡mica de fluidos (continuidad, Torricelli, Bernoulli).</li></ul></td>
+<td><span class="badge b-comp">Compromisos</span><ul><li>Organizo de manera soberana portafolios tÃƒÂ©cnicos digitales avanzados de fÃƒÂ­sica fluidica demostrando altos niveles de pulcritud.</li></ul></td>
+<td><span class="badge b-trans">ConexiÃƒÂ³n</span><ul><li><b>MatemÃƒÂ¡ticas:</b> ÃƒÂlgebra de funciones continuas racionales aplicadas al cÃƒÂ¡lculo de caudales hÃƒÂ­dricos y diÃƒÂ¡metros.</li><li><b>TecnologÃƒÂ­a:</b> DiseÃƒÂ±o paramÃƒÂ©trico asistido de bio-sensores mecÃƒÂ¡nicos.</li></ul></td>
+</tr>
+<tr>
+<td><b>P4: <span class="t-fisica">FÃƒÂ­sica</span></b></td>
+<td>Ã‚Â¿CÃƒÂ³mo integra la electrofisiologÃƒÂ­a sinÃƒÂ¡ptica circuitos elÃƒÂ©ctricos complejos?</td>
+<td><span class="badge b-aprox">AproximaciÃƒÂ³n</span><ul><li>Relaciono conclusiones monogrÃƒÂ¡ficas de fÃƒÂ­sica aplicada con bases de datos experimentales electrofisiolÃƒÂ³gicas provistas por el OVA.</li></ul></td>
+<td><span class="badge b-fisico">Procesos FÃƒÂ­sicos</span><ul><li>Modelo el potencial de acciÃƒÂ³n celular neuro-sinÃƒÂ¡ptico acoplÃƒÂ¡ndolo con voltajes, corrientes (Kirchhoff) y fuerzas de Lorentz.</li></ul></td>
+<td><span class="badge b-comp">Compromisos</span><ul><li>Tomo decisiones informadas, autÃƒÂ³nomas e introspectivas sobre mi sexualidad basadas en leyes biofÃƒÂ­sicas de control.</li></ul></td>
+<td><span class="badge b-trans">ConexiÃƒÂ³n</span><ul><li><b>MatemÃƒÂ¡ticas:</b> Sistemas de ecuaciones lineales de mallas elÃƒÂ©ctricas aplicados a circuitos mixtos neuronales y cÃƒÂ¡lculo analÃƒÂ­tico.</li><li><b>EducaciÃƒÂ³n Ãƒâ€°tica:</b> BiofÃƒÂ­sica cerebral de la toma de decisiones cognitivas.</li></ul></td>
+</tr>
+</tbody>
+</table>
+<div class="grade-title">Grado 11Ã‚Â° - Periodo 1: QuÃƒÂ­mica - HibridaciÃƒÂ³n del Carbono y BioquÃƒÂ­mica Humana</div><table>
+<thead>
+<tr><th style="width: 8%">Semana</th><th style="width: 12%">Fase DidÃƒÂ¡ctica</th><th style="width: 55%">Estrategias de Aprendizaje Activo en Plataforma (AcciÃƒÂ³n AutÃƒÂ³noma)</th><th style="width: 25%">DimensiÃƒÂ³n Humana y AutogestiÃƒÂ³n</th></tr>
+</thead>
+<tbody>
+<tr class="w-exp"><td>Semana 1</td><td>ExploraciÃƒÂ³n</td><td>Ingreso al visor quÃƒÂ­mico macromolecular 3D de la plataforma. ManipulaciÃƒÂ³n interactiva rotacional individualizada de la estructura orbital molecular del ÃƒÂ¡tomo de carbono.</td><td>ActivaciÃƒÂ³n del asombro epistÃƒÂ©mico superior frente al ordenamiento quÃƒÂ­mico ÃƒÂ­ntimo que edifica la complejidad de la materia viva.</td></tr>
+<tr class="w-exp"><td>Semana 2</td><td>ExploraciÃƒÂ³n</td><td>FormulaciÃƒÂ³n de hipÃƒÂ³tesis escritas autÃƒÂ³nomas en bitÃƒÂ¡cora detallando cÃƒÂ³mo la hibridaciÃƒÂ³n geomÃƒÂ©trica orbital permite enlazar cadenas polimÃƒÂ©ricas orgÃƒÂ¡nicas inmensas.</td><td>Fomento de la capacidad reflexiva analÃƒÂ­tica independiente para formular explicaciones de arquitectura molecular abstracta.</td></tr>
+<tr class="w-ind"><td>Semana 3</td><td>IndagaciÃƒÂ³n</td><td>Uso del mÃƒÂ³dulo "IsomerÃƒÂ­as y Grupos Funcionales". ConfiguraciÃƒÂ³n virtual interactiva de cadenas sustituidas alcoholes, cetonas y aminas moleculares.</td><td>Meticulosidad, autodisciplina mental de revisiÃƒÂ³n sistemÃƒÂ¡tica y rigor analÃƒÂ­tico en la manipulaciÃƒÂ³n de nomenclaturas de la red.</td></tr>
+<tr class="w-ind"><td>Semana 4</td><td>IndagaciÃƒÂ³n</td><td>ModelaciÃƒÂ³n molecular formalizada de las rutas metabÃƒÂ³licas humanas bioquÃƒÂ­micas basales (glucÃƒÂ³lisis, ciclo de Krebs) en diagramas de flujo dinÃƒÂ¡micos interactivos con feedback.</td><td>Uso e integraciÃƒÂ³n formalizada del lenguaje cuantitativo quÃƒÂ­mico avanzado como vehÃƒÂ­culo descriptor de balances moleculares.</td></tr>
+<tr class="w-ind"><td>Semana 5</td><td>IndagaciÃƒÂ³n</td><td>ResoluciÃƒÂ³n de retos por software cruzando espectros FTIR de macromolÃƒÂ©culas inyectadas en bases de datos analÃƒÂ­ticas del OVA de espectroscopia.</td><td>Constancia procedimental analÃƒÂ­tica profunda en la gestiÃƒÂ³n y desciframiento predictivo multivariado mediante herramientas de ciencias.</td></tr>
+<tr class="w-tra"><td>Semana 6</td><td>Transferencia</td><td>DelimitaciÃƒÂ³n teÃƒÂ³rica del proyecto monogrÃƒÂ¡fico anual: SelecciÃƒÂ³n autÃƒÂ³noma individualizada de una patologÃƒÂ­a metabÃƒÂ³lica molecular humana para investigar.</td><td>AsunciÃƒÂ³n de las responsabilidades civiles ÃƒÂ©ticas inherentes al rol del investigador cientÃƒÂ­fico social.</td></tr>
+<tr class="w-tra"><td>Semana 7</td><td>Transferencia</td><td>RedacciÃƒÂ³n final estructurada del informe monogrÃƒÂ¡fico preliminar bioquÃƒÂ­mico siguiendo normas internacionales formales de citaciÃƒÂ³n de autorÃƒÂ­a indexada APA.</td><td>Sustento de posturas bioÃƒÂ©ticas individuales basadas en evidencias clÃƒÂ­nicas moleculares analizando desbalances orgÃƒÂ¡nicos.</td></tr>
+<tr class="w-met"><td>Semana 8</td><td>MetacogniciÃƒÂ³n</td><td>SustentaciÃƒÂ³n de las monografÃƒÂ­as bioquÃƒÂ­micas en el casillero virtual. Test automatizado de periodo en lÃƒÂ­nea adaptativo con reportes de rendimiento cualitativo.</td><td>ConsolidaciÃƒÂ³n integral de la autoestima y suficiencia intelectual autÃƒÂ³noma madura adecuada para afrontar trÃƒÂ¡nsitos de educaciÃƒÂ³n superior.</td></tr>
+</tbody>
+</table>
+<div class="grade-title">Grado 11Ã‚Â° - Periodo 2: BiologÃƒÂ­a - BioenergÃƒÂ©tica, TermodinÃƒÂ¡mica EcolÃƒÂ³gica y PatÃƒÂ³genos</div><table>
+<tbody>
+<tr class="w-exp"><td>Semana 1</td><td>ExploraciÃƒÂ³n</td><td>Ingreso al simulador bioenergÃƒÂ©tico avanzado. EstimaciÃƒÂ³n de curvas de captaciÃƒÂ³n de radiaciÃƒÂ³n lumÃƒÂ­nica cuÃƒÂ¡ntica en cloroplastos simulados bajo variaciones de ondas espectrales.</td><td>Desarrollo del asombro reflexivo de escala superior ante la sofisticaciÃƒÂ³n molecular bioenergÃƒÂ©tica que sostiene la trama vital planetaria.</td></tr>
+<tr class="w-exp"><td>Semana 2</td><td>ExploraciÃƒÂ³n</td><td>FormulaciÃƒÂ³n de hipÃƒÂ³tesis complejas en bitÃƒÂ¡cora sobre lÃƒÂ­mites moleculares de conversiÃƒÂ³n fotosintÃƒÂ©tica frente a modelos bio-espectroscÃƒÂ³picos de identificaciÃƒÂ³n de patÃƒÂ³genos.</td><td>Fomento de la capacidad reflexiva analÃƒÂ­tica independiente para cuestionar la optimizaciÃƒÂ³n de los flujos de materia en la biosfera.</td></tr>
+<tr class="w-ind"><td>Semana 3</td><td>IndagaciÃƒÂ³n</td><td>AnÃƒÂ¡lisis documental guiado autÃƒÂ³nomo en repositorios virtuales sobre espectros Raman aplicados a identificar microorganismos fitopatÃƒÂ³genos como <i>Toxoplasma</i> o <i>Cryptosporidium</i>.</td><td>Cultivo del escrutinio crÃƒÂ­tico de literatura cientÃƒÂ­fica indexada avanzada de la fÃƒÂ­sica y biologÃƒÂ­a acopladas.</td></tr>
+<tr class="w-ind"><td>Semana 4</td><td>IndagaciÃƒÂ³n</td><td>ModelaciÃƒÂ³n matemÃƒÂ¡tica formal de ecuaciones de balances entÃƒÂ¡lpicos y entrÃƒÂ³picos clÃƒÂ¡sicos aplicados a disipaciones de biomasa celular respiratoria en redes trÃƒÂ³ficas.</td><td>Uso e integraciÃƒÂ³n formalizada del lenguaje cuantitativo matemÃƒÂ¡tico avanzado como vehÃƒÂ­culo descriptor de equilibrios biÃƒÂ³ticos.</td></tr>
+<tr class="w-ind"><td>Semana 5</td><td>IndagaciÃƒÂ³n</td><td>OperaciÃƒÂ³n de software simulador ecolÃƒÂ³gico virtual interactivo de la plataforma parametrizando pÃƒÂ©rdidas de calor metabÃƒÂ³licas de biomasa andina bajo estrÃƒÂ©s eco-climÃƒÂ¡tico.</td><td>Constancia procedimental analÃƒÂ­tica en la gestiÃƒÂ³n y anÃƒÂ¡lisis predictivo multivariado mediante herramientas computacionales.</td></tr>
+<tr class="w-tra"><td>Semana 6</td><td>Transferencia</td><td>AuditorÃƒÂ­a ecolÃƒÂ³gica individual automatizada por software: EstimaciÃƒÂ³n cuantitativa de la huella de carbono neta generada por consumos energÃƒÂ©ticos domÃƒÂ©sticos del alumno.</td><td>Liderazgo ÃƒÂ©tico proactivo civil comprometido con el diseÃƒÂ±o estratÃƒÂ©gico de soluciones materiales ecolÃƒÂ³gicas habitacionales.</td></tr>
+<tr class="w-tra"><td>Semana 7</td><td>Transferencia</td><td>FormulaciÃƒÂ³n de planos de mitigaciÃƒÂ³n de carbono hogareÃƒÂ±os mediante proyecciones de eco-sistemas e implantaciÃƒÂ³n botÃƒÂ¡nica de coberturas de lÃƒÂ­quenes y plantas suculentas.</td><td>Solidaridad civil activa e independiente orientada a concretar el bienestar medioambiental de su entorno familiar inmediato.</td></tr>
+<tr class="w-met"><td>Semana 8</td><td>MetacogniciÃƒÂ³n</td><td>Carga de portafolios bioenergÃƒÂ©ticos ecolÃƒÂ³gicos al casillero virtual. Test adaptativo de periodo en lÃƒÂ­nea con analÃƒÂ­ticas automÃƒÂ¡ticas de logro de competencias ecolÃƒÂ³gicas.</td><td>ConsolidaciÃƒÂ³n del compromiso ÃƒÂ©tico civil superior como defensores racionales fundamentados de la habitabilidad biÃƒÂ³tica planetaria.</td></tr>
+</tbody>
+</table>
+<div class="grade-title">Grado 11Ã‚Â° - Periodo 3: FÃƒÂ­sica - MecÃƒÂ¡nica de Fluidos e HidrodinÃƒÂ¡mica Lineal</div><table>
+<tbody>
+<tr class="w-exp"><td>Semana 1</td><td>ExploraciÃƒÂ³n</td><td>Ingreso al simulador hemodinÃƒÂ¡mico cardiovascular "PresiÃƒÂ³n Interna de Fluidos". Registro individual de variaciones cinÃƒÂ©ticas ante cambios interactivos elÃƒÂ¡sticos.</td><td>ApropiaciÃƒÂ³n de hÃƒÂ¡bitos rigurosos autÃƒÂ³nomos de monitoreo de constantes de salud corporal biolÃƒÂ³gica como base del bienestar.</td></tr>
+<tr class="w-exp"><td>Semana 2</td><td>ExploraciÃƒÂ³n</td><td>FormulaciÃƒÂ³n de hipÃƒÂ³tesis mecÃƒÂ¡nicas explicativas escritas en bitÃƒÂ¡cora detallando variaciones de presiÃƒÂ³n hidrostÃƒÂ¡tica hidrodinÃƒÂ¡mica registradas en conductos elÃƒÂ¡sticos.</td><td>Tolerancia ante la complejidad de interpretar trÃƒÂ¡nsitos de fluidos materiales reales biolÃƒÂ³gicos mediante esquemas abstractos fÃƒÂ­sicos.</td></tr>
+<tr class="w-ind"><td>Semana 3</td><td>IndagaciÃƒÂ³n</td><td>DiseÃƒÂ±o experimental y calibraciÃƒÂ³n matemÃƒÂ¡tica en el simulador de vasos de vaciado de Torricelli midiendo velocidades de descarga cinemÃƒÂ¡tica de fluidos lÃƒÂ­quidos.</td><td>Exigencia de precisiÃƒÂ³n de datos y de rigor de control metodolÃƒÂ³gico procedimental acotando errores de instrumentaciÃƒÂ³n.</td></tr>
+<tr class="w-ind"><td>Semana 4</td><td>IndagaciÃƒÂ³n</td><td>ResoluciÃƒÂ³n algebraica formalizada guiada de ecuaciones fÃƒÂ­sicas lineales continuas integrando de forma acoplada los teoremas mecÃƒÂ¡nicos de continuidad y Bernoulli.</td><td>Honestidad intelectual en el registro y anÃƒÂ¡lisis numÃƒÂ©rico transparente de discrepancias de datos reales frente a ideales.</td></tr>
+<tr class="w-ind"><td>Semana 5</td><td>IndagaciÃƒÂ³n</td><td>AnÃƒÂ¡lisis documental estructurado comparativo de aplicaciones de ingenierÃƒÂ­a clÃƒÂ¡sicas industriales basadas en multiplicaciÃƒÂ³n de fuerzas por prensas hidrÃƒÂ¡ulicas y viscosidad.</td><td>Reconocimiento del carÃƒÂ¡cter histÃƒÂ³rico transicional y colectivo de desarrollos mecÃƒÂ¡nicos de la ingenierÃƒÂ­a clÃƒÂ¡sica.</td></tr>
+<tr class="w-tra"><td>Semana 6</td><td>Transferencia</td><td>Proyecto individual autÃƒÂ³nomo de diseÃƒÂ±o bio-robÃƒÂ³tico: FormulaciÃƒÂ³n por software de planos tÃƒÂ©cnicos conceptuales que simulen el bombeo cardÃƒÂ­aco mecÃƒÂ¡nico vascular.</td><td>Desarrollo del pensamiento de ingenierÃƒÂ­a lÃƒÂ³gico estructural avanzado y destreza analÃƒÂ­tica aplicada al desciframiento de ecuaciones de fluidos.</td></tr>
+<tr class="w-tra"><td>Semana 7</td><td>Transferencia</td><td>ConfiguraciÃƒÂ³n algorÃƒÂ­tmica ÃƒÂ³ptima en la simulaciÃƒÂ³n bio-robÃƒÂ³tica vascular de mangueras, microcontroladores integrados virtuales y presiones fluidicas controladas.</td><td>Cultivo de la resiliencia operativa y del ingenio prÃƒÂ¡ctico resolutivo ante desajustes o pÃƒÂ©rdidas de magnitudes mecÃƒÂ¡nicas virtuales.</td></tr>
+<tr class="w-met"><td>Semana 8</td><td>MetacogniciÃƒÂ³n</td><td>Entrega de bitÃƒÂ¡coras de hidrodinÃƒÂ¡mica avanzada al casillero digital. Examen sumativo adaptativo final de periodo con visualizaciÃƒÂ³n automÃƒÂ¡tica de analÃƒÂ­ticas de logro.</td><td>ConsolidaciÃƒÂ³n de la suficiencia intelectual autÃƒÂ³noma madura adecuada para afrontar trÃƒÂ¡nsitos hacia educaciÃƒÂ³n superior cientÃƒÂ­fica.</td></tr>
+</tbody>
+</table>
+<div class="grade-title">Grado 11Ã‚Â° - Periodo 4: FÃƒÂ­sica - Electromagnetismo Complejo y Bio-RobÃƒÂ³tica Integrada</div><table>
+<tbody>
+<tr class="w-exp"><td>Semana 1</td><td>ExploraciÃƒÂ³n</td><td>Ingreso al mÃƒÂ³dulo interactivo de electrofisiologÃƒÂ­a avanzada "El Arco SinÃƒÂ¡ptico". OperaciÃƒÂ³n en pantalla de compuertas iÃƒÂ³nicas transmembranales polarizantes.</td><td>Apertura intelectual superior para interpretar procesos biolÃƒÂ³gicos a partir de integraciones de biofÃƒÂ­sica molecular.</td></tr>
+<tr class="w-exp"><td>Semana 2</td><td>ExploraciÃƒÂ³n</td><td>FormulaciÃƒÂ³n de conjeturas biofÃƒÂ­sicas de partida en bitÃƒÂ¡cora detallando causas de velocidades de conducciÃƒÂ³n de micro-potenciales de acciÃƒÂ³n axÃƒÂ³nicos.</td><td>ValoraciÃƒÂ³n de las propias modelaciones analÃƒÂ³gicas biolÃƒÂ³gicas como detonadores de explicaciones complejas de la electrofisiologÃƒÂ­a.</td></tr>
+<tr class="w-ind"><td>Semana 3</td><td>IndagaciÃƒÂ³n</td><td>Ensamble, parametrizaciÃƒÂ³n y anÃƒÂ¡lisis matemÃƒÂ¡tico de circuitos elÃƒÂ©ctricos cerrados de resistencias mixtas complejas operando software de mallas.</td><td>Fomento de la minuciosidad analÃƒÂ­tica, precisiÃƒÂ³n algebraica de algoritmos y rigor procedimental en el manejo de leyes fÃƒÂ­sicas.</td></tr>
+<tr class="w-ind"><td>Semana 4</td><td>IndagaciÃƒÂ³n</td><td>Establecimiento analÃƒÂ­tico cuantitativo vectorial de leyes electromagnÃƒÂ©ticas de Coulomb, campo gravitacional universal relativo y fuerzas mecÃƒÂ¡nicas de Lorentz.</td><td>Uso integrado avanzado de lenguajes formales matemÃƒÂ¡ticos abstractos de la fÃƒÂ­sica electromagnÃƒÂ©tica contemporÃƒÂ¡nea.</td></tr>
+<tr class="w-ind"><td>Semana 5</td><td>IndagaciÃƒÂ³n</td><td>InvestigaciÃƒÂ³n de bio-robotics: Estudio guiado en el OVA sobre la integraciÃƒÂ³n de microcontroladores y algoritmos con organismos (suculentas, lÃƒÂ­quenes) para registrar seÃƒÂ±ales fÃƒÂ­sicas.</td><td>AdopciÃƒÂ³n de un pensamiento holÃƒÂ­stico integrador bio-robÃƒÂ³tico unificando circuitos electrÃƒÂ³nicos con respuestas biolÃƒÂ³gicas vivas.</td></tr>
+<tr class="w-tra"><td>Semana 6</td><td>Transferencia</td><td>Estudio analÃƒÂ­tico bioÃƒÂ©tico de salud pÃƒÂºblica: AnÃƒÂ¡lisis crÃƒÂ­tico fundamentado en evidencias clÃƒÂ­nicas sobre impactos de adicciones quÃƒÂ­micas neuronales.</td><td>AsunciÃƒÂ³n consciente de un rechazo autÃƒÂ³nomo soberano de aula informado y proactivo frente al consumo problemÃƒÂ¡tico de compuestos.</td></tr>
+<tr class="w-tra"><td>Semana 7</td><td>Transferencia</td><td>Fase de RedacciÃƒÂ³n de MonografÃƒÂ­a de Cierre Anual: ConsolidaciÃƒÂ³n final del informe tÃƒÂ©cnico de fÃƒÂ­sica aplicada siguiendo pautas internacionales APA.</td><td>Toma de postura responsable libre de sesgos en debates contemporÃƒÂ¡neos de bioÃƒÂ©tica clÃƒÂ­nica y derechos reproductivos de salud.</td></tr>
+<tr class="w-met"><td>Semana 8</td><td>MetacogniciÃƒÂ³n</td><td>Fase de Defensa PÃƒÂºblica Magistral Virtual de la MonografÃƒÂ­a Anual de Ciencias: Congreso CientÃƒÂ­fico Escolar en Red. AutoevaluaciÃƒÂ³n general de egreso.</td><td>ConsolidaciÃƒÂ³n definitiva del perfil de egreso: ciudadanos ÃƒÂ©ticos competentes intelectualmente autÃƒÂ³nomos humanistas activos en la sociedad.</td></tr>
+</tbody>
+</table>
+</div> <!-- fin malla-grado-11 -->
+
+                    </div> <!-- CIERRE admin-view-mallas -->
+
+                    <!-- OTRAS VISTAS ADMIN -->
+                    <div id="admin-view-docentes" class="admin-view" style="display: none; padding: 20px;">
+                        <h3 style="font-weight: 800; margin-bottom: 20px;">Docentes Home School</h3>
+                        <table style="width: 100%; border-collapse: collapse; text-align: left; background: white; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+                            <thead><tr style="border-bottom: 2px solid #E5E7EB;"><th style="padding: 15px;">Documento</th><th style="padding: 15px;">Docente</th><th style="padding: 15px;">Estudiantes Matriculados</th></tr></thead>
+                            <tbody id="tbody-admin-docentes"></tbody>
+                        </table>
+                    </div>
+
+                    <div id="admin-view-estudiantes" class="admin-view" style="display: none; padding: 20px;">
+                        <h3 style="font-weight: 800; margin-bottom: 20px;">Todos los Estudiantes</h3>
+                        <table style="width: 100%; border-collapse: collapse; text-align: left; background: white; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+                            <thead><tr style="border-bottom: 2px solid #E5E7EB;"><th style="padding: 15px;">Documento</th><th style="padding: 15px;">Nombre</th><th style="padding: 15px;">Grado</th></tr></thead>
+                            <tbody id="tbody-admin-todos-estudiantes"></tbody>
+                        </table>
+                    </div>
+
+                    <div id="admin-view-asignaturas" class="admin-view" style="display: none; padding: 20px;">
+                        <h3 style="font-weight: 800; margin-bottom: 20px;">Crear Asignatura</h3>
+                        <div style="display: flex; gap: 10px; margin-bottom: 20px; align-items: center; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+                            <input type="text" id="admin-asig-nombre" placeholder="Nombre Asignatura" style="padding: 12px; border: 1px solid #d1d5db; border-radius: 8px; flex: 1;">
+                            <select id="admin-asig-grado" style="padding: 12px; border: 1px solid #d1d5db; border-radius: 8px;">
+                                <option value="6">6Ã‚Â°</option><option value="7">7Ã‚Â°</option><option value="8">8Ã‚Â°</option><option value="9">9Ã‚Â°</option><option value="10">10Ã‚Â°</option><option value="11">11Ã‚Â°</option>
+                            </select>
+                            <button id="btn-crear-asignatura" style="background: #10B981; color: white; padding: 12px 24px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;">Registrar Asignatura</button>
+                        </div>
+                    </div>
+
+<td><span class="badge b-comp">Compromisos</span><ul><li>Demuestro rigor, honestidad y paciencia ante la resoluciÃƒÂ³n autÃƒÂ³noma introspectiva de problemas mecÃƒÂ¡nicos.</li></ul></td>
+<td><span class="badge b-trans">ConexiÃƒÂ³n</span><ul><li><b>MatemÃƒÂ¡ticas/TrigonometrÃƒÂ­a:</b> DescomposiciÃƒÂ³n de vectores mecÃƒÂ¡nicos mediante funciones trigonomÃƒÂ©tricas e identidades complejas.</li><li><b>TecnologÃƒÂ­a:</b> Uso de simuladores cinemÃƒÂ¡ticos interactivos CAD.</li></ul></td>
+</tr>
+<tr>
+<td><b>P4: <span class="t-fisica">FÃƒÂ­sica</span></b></td>
+<td>Ã‚Â¿QuÃƒÂ© balances cinemÃƒÂ¡ticos gobiernan la conservaciÃƒÂ³n de la energÃƒÂ­a mecÃƒÂ¡nica?</td>
+<td><span class="badge b-aprox">AproximaciÃƒÂ³n</span><ul><li>Hago revisiones bibliogrÃƒÂ¡ficas analÃƒÂ­ticas de artÃƒÂ­culos indexados provistos por el mÃƒÂ³dulo avanzado del OVA.</li></ul></td>
+<td><span class="badge b-fisico">Procesos FÃƒÂ­sicos</span><ul><li>Caracterizo transferencias de trabajo mecÃƒÂ¡nico y curvas tÃƒÂ©rmicas disipativas en dashboards interactivos.</li></ul></td>
+<td><span class="badge b-comp">Compromisos</span><ul><li>DiseÃƒÂ±o de forma individual planes autÃƒÂ³nomos de eficiencia de recursos y consumo energÃƒÂ©tico limpio familiar.</li></ul></td>
+<td><span class="badge b-trans">ConexiÃƒÂ³n</span><ul><li><b>MatemÃƒÂ¡ticas:</b> Funciones analÃƒÂ­ticas complejas de cÃƒÂ¡lculo de ÃƒÂ¡reas bajo la curva de potencia y trabajo mecÃƒÂ¡nico.</li><li><b>TecnologÃƒÂ­a:</b> SimulaciÃƒÂ³n paramÃƒÂ©trica de sistemas limpios.</li></ul></td>
+</tr>
+</tbody>
+</table>
+<div class="grade-title">Grado 10Ã‚Â° - Periodo 1: QuÃƒÂ­mica - MecÃƒÂ¡nica CuÃƒÂ¡ntica AtÃƒÂ³mica y GeometrÃƒÂ­a de Enlace</div><table>
+<thead>
+<tr><th style="width: 8%">Semana</th><th style="width: 12%">Fase DidÃƒÂ¡ctica</th><th style="width: 55%">Estrategias de Aprendizaje Activo en Plataforma (AcciÃƒÂ³n AutÃƒÂ³noma)</th><th style="width: 25%">DimensiÃƒÂ³n Humana y AutogestiÃƒÂ³n</th></tr>
+</thead>
+<tbody>
+<tr class="w-exp"><td>Semana 1</td><td>ExploraciÃƒÂ³n</td><td>Ingreso al simulador cuÃƒÂ¡ntico molecular "El Espacio de SchrÃƒÂ¶dinger". OperaciÃƒÂ³n interactiva inicial de orbitales de densidad probabilÃƒÂ­stica electrÃƒÂ³nica en pantalla.</td><td>AceptaciÃƒÂ³n reflexiva de la incertidumbre matemÃƒÂ¡tica epistÃƒÂ©mica propia de paradigmas contemporÃƒÂ¡neos avanzados.</td></tr>
+<tr class="w-exp"><td>Semana 2</td><td>ExploraciÃƒÂ³n</td><td>FormulaciÃƒÂ³n escrita de interrogantes abstractos individuales en bitÃƒÂ¡cora analizando limitaciones insalvables de trayectorias clÃƒÂ¡sicas ÃƒÂ³rbitas deterministas.</td><td>Fomento de la flexibilidad cognitiva profunda y de la disposiciÃƒÂ³n interna al replanteamiento radical de modelos quÃƒÂ­micos.</td></tr>
+<tr class="w-ind"><td>Semana 3</td><td>IndagaciÃƒÂ³n</td><td>Uso del software cuÃƒÂ¡ntico estructural de la plataforma, calculando distribuciones de nÃƒÂºmeros cuÃƒÂ¡nticos y configuraciones segÃƒÂºn el principio de exclusiÃƒÂ³n de Pauli.</td><td>Cultivo de la autodisciplina mental intelectual rigurosa indispensable para descodificar leyes cuÃƒÂ¡nticas moleculares.</td></tr>
+<tr class="w-ind"><td>Semana 4</td><td>IndagaciÃƒÂ³n</td><td>DiseÃƒÂ±o y ensamblaje geomÃƒÂ©trico tridimensional de arquitecturas moleculares en el visor interactivo web, calculando vectores parciales electrostÃƒÂ¡ticos de polaridad.</td><td>Manejo ordenado y autogestionado de entornos de software especializados y recursos de simulaciÃƒÂ³n web abstracta de aula.</td></tr>
+<tr class="w-ind"><td>Semana 5</td><td>IndagaciÃƒÂ³n</td><td>AnÃƒÂ¡lisis de espectros de absorciÃƒÂ³n de compuestos orgÃƒÂ¡nicos mediante simulaciones de calibraciÃƒÂ³n espectroscÃƒÂ³pica en dashboards analÃƒÂ­ticos integrados en el OVA.</td><td>Rigor analÃƒÂ­tico profundo e independencia cognitiva en la decodificaciÃƒÂ³n de datos espectrales moleculares de la materia.</td></tr>
+<tr class="w-tra"><td>Semana 6</td><td>Transferencia</td><td>Estudio estructural CTS digital: InvestigaciÃƒÂ³n bibliogrÃƒÂ¡fica sistemÃƒÂ¡tica autÃƒÂ³noma sobre la sÃƒÂ­ntesis ÃƒÂ­ntima de polÃƒÂ­meros biodegradables frente a plÃƒÂ¡sticos comunes.</td><td>Desarrollo de un criterio ÃƒÂ©tico proactivo crÃƒÂ­tico frente a las consecuencias ambientales macro de cadenas industriales masivas.</td></tr>
+<tr class="w-tra"><td>Semana 7</td><td>Transferencia</td><td>RedacciÃƒÂ³n individual autÃƒÂ³noma de una propuesta tÃƒÂ©cnica evaluando la viabilidad econÃƒÂ³mica regional de sustituciÃƒÂ³n material de empaques por opciones orgÃƒÂ¡nicas.</td><td>Liderazgo civil reflexivo independiente comprometido con la mitigaciÃƒÂ³n de pasivos contaminantes antropogÃƒÂ©nicos ecorregionales.</td></tr>
+<tr class="w-met"><td>Semana 8</td><td>MetacogniciÃƒÂ³n</td><td>SustentaciÃƒÂ³n multimedia individualizada de las maquetas cuÃƒÂ¡nticas construidas ante la plataforma. Test de periodo y analÃƒÂ­ticas cualitativas de logro de cierre.</td><td>Aptitud intelectual constructiva madura para reajustar modelos cientÃƒÂ­ficos propios ante refutaciones algorÃƒÂ­tmicas del software.</td></tr>
+</tbody>
+</table>
+<div class="grade-title">Grado 10Ã‚Â° - Periodo 2: BiologÃƒÂ­a - GenÃƒÂ©tica de Poblaciones y Algoritmos AlÃƒÂ©licos</div><table>
+<tbody>
+<tr class="w-exp"><td>Semana 1</td><td>ExploraciÃƒÂ³n</td><td>Estudio guiado individual de casos contemporÃƒÂ¡neos neotropicales de variaciones fenotÃƒÂ­picas aceleradas de insectos expuestos a presiones selectivas de plaguicidas.</td><td>Apertura y flexibilidad intelectual para abordar dinÃƒÂ¡micas evolutivas multicausales ecolÃƒÂ³gicas de largo plazo.</td></tr>
+<tr class="w-exp"><td>Semana 2</td><td>ExploraciÃƒÂ³n</td><td>Registro individual de hipÃƒÂ³tesis lÃƒÂ³gicas escritas en bitÃƒÂ¡cora detallando nexos moleculares directos causales entre perturbaciones antropogÃƒÂ©nicas de ecosistemas y alelos.</td><td>Fomento de la capacidad reflexiva autÃƒÂ³noma crÃƒÂ­tica del alumno ante pasivos y transformaciones ecolÃƒÂ³gicas de la ecorregiÃƒÂ³n.</td></tr>
+<tr class="w-ind"><td>Semana 3</td><td>IndagaciÃƒÂ³n</td><td>ParametrizaciÃƒÂ³n individual de frecuencias genotÃƒÂ­picas alÃƒÂ©licas corriendo simulaciones automatizadas de la ley genÃƒÂ©tica de Hardy-Weinberg en el mÃƒÂ³dulo informÃƒÂ¡tico.</td><td>Desarrollo de la constancia procedimental operativa y paciencia de campo en el registro objetivo de fluctuaciones numÃƒÂ©ricas.</td></tr>
+<tr class="w-ind"><td>Semana 4</td><td>IndagaciÃƒÂ³n</td><td>ModelaciÃƒÂ³n analÃƒÂ­tica abstracta individual de efectos microevolutivos moleculares inducidos por deriva genÃƒÂ©tica estocÃƒÂ¡stica aleatoria, mutaciones celulares y aislamientos.</td><td>Rigor analÃƒÂ­tico e independencia cognitiva en el manejo y desciframiento de balances de probabilidad de frecuencias moleculares.</td></tr>
+<tr class="w-ind"><td>Semana 5</td><td>IndagaciÃƒÂ³n</td><td>EstructuraciÃƒÂ³n de mapas analÃƒÂ­ticos conceptuales matriciales complejos vinculando variables de nichos ecolÃƒÂ³gicos adaptativos, capacidad de carga poblacional y especiaciÃƒÂ³n.</td><td>AdopciÃƒÂ³n de un pensamiento holÃƒÂ­stico integrador estructural complejo de las tramas intrÃƒÂ­nsecas evolutivas vitales de la biosfera.</td></tr>
+<tr class="w-tra"><td>Semana 6</td><td>Transferencia</td><td>DiseÃƒÂ±o individual de un proyecto botÃƒÂ¡nico de conservaciÃƒÂ³n virtual: FormulaciÃƒÂ³n por software de estrategias algorÃƒÂ­tmicas ÃƒÂ³ptimas para resguardar variabilidad genÃƒÂ©tica de flora.</td><td>AsunciÃƒÂ³n de un compromiso ÃƒÂ©tico ciudadano civil proactivo defensor racional del pool genÃƒÂ©tico nativo de la flora de la naciÃƒÂ³n.</td></tr>
+<tr class="w-tra"><td>Semana 7</td><td>Transferencia</td><td>Montaje operativo digital de bancos germoplÃƒÂ¡smicos virtuales simulando respuestas de adaptaciÃƒÂ³n celular de lÃƒÂ­quenes andinos locales ante gradientes climÃƒÂ¡ticos crÃƒÂ­ticos.</td><td>Cuidado, minuciosidad protectora responsable y respeto profundo hacia la persistencia adaptativa de seres vivos no humanos.</td></tr>
+<tr class="w-met"><td>Semana 8</td><td>MetacogniciÃƒÂ³n</td><td>EnvÃƒÂ­o del portafolio analÃƒÂ­tico de evoluciÃƒÂ³n genÃƒÂ©tica a la plataforma web de aula. Examen de periodo adaptativo en lÃƒÂ­nea con visualizaciÃƒÂ³n de reportes analÃƒÂ­ticos de logro.</td><td>ConsolidaciÃƒÂ³n definitiva de una conciencia bioÃƒÂ©tica planetaria fundamentada en el respeto irrestricto hacia la vida.</td></tr>
+</tbody>
+</table>
+<div class="grade-title">Grado 10Ã‚Â° - Periodo 3: FÃƒÂ­sica - CinemÃƒÂ¡tica Vectorial Lineal y DinÃƒÂ¡mica Newtoniana</div><table>
+<tbody>
+<tr class="w-exp"><td>Semana 1</td><td>ExploraciÃƒÂ³n</td><td>AnÃƒÂ¡lisis cinemÃƒÂ¡tico de vÃƒÂ­deo de alta definiciÃƒÂ³n: Captura analÃƒÂ­tica directa de coordenadas espaciales, tiempos cronometrados y velocidades vectoriales en pantalla.</td><td>ValoraciÃƒÂ³n de las dinÃƒÂ¡micas fÃƒÂ­sicas cinemÃƒÂ¡ticas y del orden geomÃƒÂ©trico como base del equilibrio material.</td></tr>
+<tr class="w-exp"><td>Semana 2</td><td>ExploraciÃƒÂ³n</td><td>FormulaciÃƒÂ³n de hipÃƒÂ³tesis cinemÃƒÂ¡ticas predictivas algebraicas individuales en bitÃƒÂ¡cora detallando desviaciones mecÃƒÂ¡nicas inducidas por fricciÃƒÂ³n simulada aire frente a vacÃƒÂ­o.</td><td>AceptaciÃƒÂ³n y tolerancia constructiva del error matemÃƒÂ¡tico procedimental concebido como andamiaje necesario del saber formal.</td></tr>
+<tr class="w-ind"><td>Semana 3</td><td>IndagaciÃƒÂ³n</td><td>Uso de calculadoras cinemÃƒÂ¡ticas web de alta precisiÃƒÂ³n. ResoluciÃƒÂ³n matemÃƒÂ¡tica lineal formalizada de ecuaciones acopladas de movimientos rectolÃƒÂ­neos ($MRU, MRUA$).</td><td>Exigencia de rigor metodolÃƒÂ³gico procedimental estricto, minuciosidad analÃƒÂ­tica profunda en matrices mÃƒÂ©tricas y control del error.</td></tr>
+<tr class="w-ind"><td>Semana 4</td><td>IndagaciÃƒÂ³n</td><td>ModelaciÃƒÂ³n matemÃƒÂ¡tica vectorial formal de las Leyes de Newton operando simuladores interactivos de fuerzas coplanares concurrentes en planos mecÃƒÂ¡nicos.</td><td>Honestidad intelectual profunda en el registro transparente de datos numÃƒÂ©ricos experimentales virtuales capturados sin alteraciones.</td></tr>
+<tr class="w-ind"><td>Semana 5</td><td>IndagaciÃƒÂ³n</td><td>Taller de diagramaciÃƒÂ³n vectorial de fuerzas mecÃƒÂ¡nicas de rozamiento cinÃƒÂ©tico frente a estÃƒÂ¡tico libre lineal empleando el software grÃƒÂ¡fico de la plataforma.</td><td>Constancia, paciencia analÃƒÂ­tica y persistencia autÃƒÂ³noma frente a desafÃƒÂ­os cuantitativos abstractos complejos de fÃƒÂ­sica mecÃƒÂ¡nica.</td></tr>
+<tr class="w-tra"><td>Semana 6</td><td>Transferencia</td><td>Reto de ingenierÃƒÂ­a de aula: ModelaciÃƒÂ³n paramÃƒÂ©trica y cÃƒÂ¡lculo geomÃƒÂ©trico por software de las trayectorias parabÃƒÂ³licas balÃƒÂ­sticas de un proyectil neumÃƒÂ¡tico virtual.</td><td>Desarrollo del pensamiento lÃƒÂ³gico estructural y destreza analÃƒÂ­tica aplicada al desciframiento autÃƒÂ³nomo de ecuaciones mecÃƒÂ¡nicas avanzadas.</td></tr>
+<tr class="w-tra"><td>Semana 7</td><td>Transferencia</td><td>ConfiguraciÃƒÂ³n algorÃƒÂ­tmica ÃƒÂ³ptima individual por software de ÃƒÂ¡ngulos de tiro y fuerzas impulsoras para superar retos de impacto espacial controlado simulado.</td><td>Cultivo de la resiliencia operativa y del ingenio prÃƒÂ¡ctico resolutivo ante desajustes o pÃƒÂ©rdidas de magnitudes fÃƒÂ­sicas virtuales.</td></tr>
+<tr class="w-met"><td>Semana 8</td><td>MetacogniciÃƒÂ³n</td><td>EnvÃƒÂ­o de matrices cinemÃƒÂ¡ticas al portafolio web de aula. Test sumativo adaptativo final de periodo en lÃƒÂ­nea con analÃƒÂ­ticas automÃƒÂ¡ticas de logro de competencias mecÃƒÂ¡nicas.</td><td>Fortalecimiento de la autoconfianza intelectual cimentada en la superaciÃƒÂ³n individual de desafÃƒÂ­os complejos de fÃƒÂ­sica lineal.</td></tr>
+</tbody>
+</table>
+<div class="grade-title">Grado 10Ã‚Â° - Periodo 4: FÃƒÂ­sica - Trabajo, Potencia y ConservaciÃƒÂ³n de la EnergÃƒÂ­a MecÃƒÂ¡nica</div><table>
+<tbody>
+<tr class="w-exp"><td>Semana 1</td><td>ExploraciÃƒÂ³n</td><td>InteracciÃƒÂ³n interactiva inicial con el simulador de energÃƒÂ­a mecÃƒÂ¡nica "MontaÃƒÂ±as Rusas Virtuales". Registro de oscilaciones libres macro mÃƒÂ©tricas entre altura y velocidad.</td><td>ValoraciÃƒÂ³n de la curiosidad exploratoria individual aplicada a descifrar patrones de transferencia de trabajo fÃƒÂ­sico.</td></tr>
+<tr class="w-exp"><td>Semana 2</td><td>ExploraciÃƒÂ³n</td><td>FormulaciÃƒÂ³n de conjeturas dinÃƒÂ¡micas predictivas en bitÃƒÂ¡cora detallando pÃƒÂ©rdidas tÃƒÂ©rmicas energÃƒÂ©ticas mecÃƒÂ¡nicas causadas por fricciÃƒÂ³n superficial en planos inclinados.</td><td>Fomento de la confianza epistÃƒÂ©mica personal del estudiante para proponer explicaciones mecÃƒÂ¡nicas moleculares de conservaciÃƒÂ³n.</td></tr>
+<tr class="w-ind"><td>Semana 3</td><td>IndagaciÃƒÂ³n</td><td>DiseÃƒÂ±o de experimentos en la plataforma de planos mecÃƒÂ¡nicos, midiendo integrales matemÃƒÂ¡ticas formales de trabajo neto de arrastre de masas en fricciÃƒÂ³n.</td><td>Exigencia de rigor metodolÃƒÂ³gico procedimental analÃƒÂ­tico profundo y honestidad intelectual en la captura de datos numÃƒÂ©ricos.</td></tr>
+<tr class="w-ind"><td>Semana 4</td><td>IndagaciÃƒÂ³n</td><td>ModelaciÃƒÂ³n matemÃƒÂ¡tica de ecuaciones algebraicas de potencia mecÃƒÂ¡nica lineal ($W/t$) en dashboards interactivos tÃƒÂ©cnicos de control industrial.</td><td>Disciplina e interÃƒÂ©s analÃƒÂ­tico mental riguroso por descodificar expresiones cinemÃƒÂ¡ticas avanzadas de transferencia de vatios.</td></tr>
+<tr class="w-ind"><td>Semana 5</td><td>IndagaciÃƒÂ³n</td><td>Taller conceptual de balances termodinÃƒÂ¡micos mecÃƒÂ¡nicos diferenciando energÃƒÂ­as potenciales elÃƒÂ¡sticas y gravitacionales basÃƒÂ¡ndose en leyes invariables de conservaciÃƒÂ³n.</td><td>Uso integrado avanzado de lenguajes matemÃƒÂ¡ticos formalizados abstractos de la fÃƒÂ­sica como descriptores de dinÃƒÂ¡micas de potencia.</td></tr>
+<tr class="w-tra"><td>Semana 6</td><td>Transferencia</td><td>ABP de polÃƒÂ­tica de desarrollo limpio nacional: RedacciÃƒÂ³n individual autÃƒÂ³noma de un ensayo estructurado argumentativo evaluando matrices sustentables de potencia elÃƒÂ©ctrica.</td><td>FormulaciÃƒÂ³n de posturas crÃƒÂ­ticas ciudadanas civiles independientes fundamentadas frente a dilemas tecnolÃƒÂ³gicos de la naciÃƒÂ³n.</td></tr>
+<tr class="w-tra"><td>Semana 7</td><td>Transferencia</td><td>EstructuraciÃƒÂ³n tÃƒÂ©cnica individual por software de propuestas de optimizaciÃƒÂ³n de vatios y balances tÃƒÂ©rmicos cinÃƒÂ©ticos en motores mecÃƒÂ¡nicos cerrados virtuales de su espacio.</td><td>Liderazgo civil participativo y corresponsabilidad social directa encaminada al diseÃƒÂ±o de soluciones ecolÃƒÂ³gicas eficientes del hogar.</td></tr>
+<tr class="w-met"><td>Semana 8</td><td>MetacogniciÃƒÂ³n</td><td>SustentaciÃƒÂ³n de ensayos argumentativos en asamblea digital de periodo de cierre anual escolar de educaciÃƒÂ³n media. CoevaluaciÃƒÂ³n final automatizada por rÃƒÂºbricas de logro.</td><td>ConsolidaciÃƒÂ³n de la autonomÃƒÂ­a crÃƒÂ­tica del egresado de dÃƒÂ©cimo grado concebida para actuar como agente de transformaciÃƒÂ³n consciente.</td></tr>
+</tbody>
+</table>
+</div>
+<div id="malla-grado-11" class="contenedor-malla" style="display:none;">
+<div class="grade-title">Malla Curricular: Grado UndÃƒÂ©cimo (11Ã‚Â°)</div><table>
+<thead>
+<tr>
+<th style="width: 7%">Periodo / Asignatura</th>
+<th style="width: 15%">Pregunta Problematizadora</th>
+<th style="width: 22%">Me Aproximo al Conocimiento como CientÃƒÂ­fico-a Natural (Entorno Virtual)</th>
+<th style="width: 22%">Manejo Conocimientos Propios (MÃƒÂ³dulos del OVA)</th>
+<th style="width: 17%">Desarrollo Compromisos Personales y Sociales (AutogestiÃƒÂ³n)</th>
+<th style="width: 17%">TransversalizaciÃƒÂ³n con otras ÃƒÂreas Fundamentales (Ejes de Co-DiseÃƒÂ±o Web)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><b>P1: <span class="t-quimica">QuÃƒÂ­mica</span></b></td>
+<td>Ã‚Â¿CÃƒÂ³mo la hibridaciÃƒÂ³n del carbono fundamenta el metabolismo bioquÃƒÂ­mica humano?</td>
+<td><span class="badge b-aprox">AproximaciÃƒÂ³n</span><ul><li>Sustento defensas de monografÃƒÂ­as teÃƒÂ³ricas individuales empleando tableros multimedia de la plataforma web.</li></ul></td>
+<td><span class="badge b-fisico">Procesos QuÃƒÂ­micos</span><ul><li>Asocio la hibridaciÃƒÂ³n orbital ($sp^3, sp^2, sp$) con estructuras orgÃƒÂ¡nicas.</li><li>Relaciono grupos funcionales con metabolismo.</li></ul></td>
+<td><span class="badge b-comp">Compromisos</span><ul><li>Sustento posturas ÃƒÂ©ticas basadas en evidencias clÃƒÂ­nicas moleculares analizando de forma autÃƒÂ³noma patologÃƒÂ­as metabÃƒÂ³licas.</li></ul></td>
+<td><span class="badge b-trans">ConexiÃƒÂ³n</span><ul><li><b>Lengua Castellana:</b> RedacciÃƒÂ³n acadÃƒÂ©mica cientÃƒÂ­fica formalizada de monografÃƒÂ­as integrales bajo pautas de estilo internacionales APA.</li><li><b>MatemÃƒÂ¡ticas:</b> GeometrÃƒÂ­a tridimensional molecular compleja.</li></ul></td>
+</tr>
+<tr>
+<td><b>P2: <span class="t-biologia">BiologÃƒÂ­a</span></b></td>
+<td>Ã‚Â¿CÃƒÂ³mo regulan entalpÃƒÂ­a y entropÃƒÂ­a celular las conversiones bioenergÃƒÂ©ticas?</td>
+<td><span class="badge b-aprox">AproximaciÃƒÂ³n</span><ul><li>Formulo preguntas complejas analizando modelos de bio-espectroscopia de patÃƒÂ³genos en el software analÃƒÂ­tico.</li></ul></td>
+<td><span class="badge b-vivo">Procesos BiolÃƒÂ³gicos</span><ul><li>Argumento la bioenergÃƒÂ©tica molecular fotosintÃƒÂ©tica modelando espectros.</li><li>Aplico principios termodinÃƒÂ¡micos a redes trÃƒÂ³ficas.</li></ul></td>
+<td><span class="badge b-comp">Compromisos</span><ul><li>Asumo posturas bioÃƒÂ©ticas independientes crÃƒÂ­ticas frente a dilemas de salud pÃƒÂºblica mediante anÃƒÂ¡lisis individuales.</li></ul></td>
+<td><span class="badge b-trans">ConexiÃƒÂ³n</span><ul><li><b>MatemÃƒÂ¡ticas:</b> Ecuaciones diferenciales elementales tÃƒÂ©rmicas y logaritmos neperianos de entropÃƒÂ­a de biomasa.</li><li><b>TecnologÃƒÂ­a:</b> AnÃƒÂ¡lisis espectroscÃƒÂ³pico de datos digitales.</li></ul></td>
+</tr>
+<tr>
+<td><b>P3: <span class="t-fisica">FÃƒÂ­sica</span></b></td>
+<td>Ã‚Â¿CÃƒÂ³mo describen los teoremas de hidrodinÃƒÂ¡mica los desarrollos bio-mecÃƒÂ¡nicos vasculares?</td>
+<td><span class="badge b-aprox">AproximaciÃƒÂ³n</span><ul><li>Acoto mÃƒÂ¡rgenes de incertidumbre analizando errores de aproximaciÃƒÂ³n algorÃƒÂ­tmicos en simuladores fluidicos.</li></ul></td>
+<td><span class="badge b-fisico">Procesos FÃƒÂ­sicos</span><ul><li>Expreso matemÃƒÂ¡ticamente las leyes de estÃƒÂ¡tica e hidrodinÃƒÂ¡mica de fluidos (continuidad, Torricelli, Bernoulli).</li></ul></td>
+<td><span class="badge b-comp">Compromisos</span><ul><li>Organizo de manera soberana portafolios tÃƒÂ©cnicos digitales avanzados de fÃƒÂ­sica fluidica demostrando altos niveles de pulcritud.</li></ul></td>
+<td><span class="badge b-trans">ConexiÃƒÂ³n</span><ul><li><b>MatemÃƒÂ¡ticas:</b> ÃƒÂlgebra de funciones continuas racionales aplicadas al cÃƒÂ¡lculo de caudales hÃƒÂ­dricos y diÃƒÂ¡metros.</li><li><b>TecnologÃƒÂ­a:</b> DiseÃƒÂ±o paramÃƒÂ©trico asistido de bio-sensores mecÃƒÂ¡nicos.</li></ul></td>
+</tr>
+<tr>
+<td><b>P4: <span class="t-fisica">FÃƒÂ­sica</span></b></td>
+<td>Ã‚Â¿CÃƒÂ³mo integra la electrofisiologÃƒÂ­a sinÃƒÂ¡ptica circuitos elÃƒÂ©ctricos complejos?</td>
+<td><span class="badge b-aprox">AproximaciÃƒÂ³n</span><ul><li>Relaciono conclusiones monogrÃƒÂ¡ficas de fÃƒÂ­sica aplicada con bases de datos experimentales electrofisiolÃƒÂ³gicas provistas por el OVA.</li></ul></td>
+<td><span class="badge b-fisico">Procesos FÃƒÂ­sicos</span><ul><li>Modelo el potencial de acciÃƒÂ³n celular neuro-sinÃƒÂ¡ptico acoplÃƒÂ¡ndolo con voltajes, corrientes (Kirchhoff) y fuerzas de Lorentz.</li></ul></td>
+<td><span class="badge b-comp">Compromisos</span><ul><li>Tomo decisiones informadas, autÃƒÂ³nomas e introspectivas sobre mi sexualidad basadas en leyes biofÃƒÂ­sicas de control.</li></ul></td>
+<td><span class="badge b-trans">ConexiÃƒÂ³n</span><ul><li><b>MatemÃƒÂ¡ticas:</b> Sistemas de ecuaciones lineales de mallas elÃƒÂ©ctricas aplicados a circuitos mixtos neuronales y cÃƒÂ¡lculo analÃƒÂ­tico.</li><li><b>EducaciÃƒÂ³n Ãƒâ€°tica:</b> BiofÃƒÂ­sica cerebral de la toma de decisiones cognitivas.</li></ul></td>
+</tr>
+</tbody>
+</table>
+<div class="grade-title">Grado 11Ã‚Â° - Periodo 1: QuÃƒÂ­mica - HibridaciÃƒÂ³n del Carbono y BioquÃƒÂ­mica Humana</div><table>
+<thead>
+<tr><th style="width: 8%">Semana</th><th style="width: 12%">Fase DidÃƒÂ¡ctica</th><th style="width: 55%">Estrategias de Aprendizaje Activo en Plataforma (AcciÃƒÂ³n AutÃƒÂ³noma)</th><th style="width: 25%">DimensiÃƒÂ³n Humana y AutogestiÃƒÂ³n</th></tr>
+</thead>
+<tbody>
+<tr class="w-exp"><td>Semana 1</td><td>ExploraciÃƒÂ³n</td><td>Ingreso al visor quÃƒÂ­mico macromolecular 3D de la plataforma. ManipulaciÃƒÂ³n interactiva rotacional individualizada de la estructura orbital molecular del ÃƒÂ¡tomo de carbono.</td><td>ActivaciÃƒÂ³n del asombro epistÃƒÂ©mico superior frente al ordenamiento quÃƒÂ­mico ÃƒÂ­ntimo que edifica la complejidad de la materia viva.</td></tr>
+<tr class="w-exp"><td>Semana 2</td><td>ExploraciÃƒÂ³n</td><td>FormulaciÃƒÂ³n de hipÃƒÂ³tesis escritas autÃƒÂ³nomas en bitÃƒÂ¡cora detallando cÃƒÂ³mo la hibridaciÃƒÂ³n geomÃƒÂ©trica orbital permite enlazar cadenas polimÃƒÂ©ricas orgÃƒÂ¡nicas inmensas.</td><td>Fomento de la capacidad reflexiva analÃƒÂ­tica independiente para formular explicaciones de arquitectura molecular abstracta.</td></tr>
+<tr class="w-ind"><td>Semana 3</td><td>IndagaciÃƒÂ³n</td><td>Uso del mÃƒÂ³dulo "IsomerÃƒÂ­as y Grupos Funcionales". ConfiguraciÃƒÂ³n virtual interactiva de cadenas sustituidas alcoholes, cetonas y aminas moleculares.</td><td>Meticulosidad, autodisciplina mental de revisiÃƒÂ³n sistemÃƒÂ¡tica y rigor analÃƒÂ­tico en la manipulaciÃƒÂ³n de nomenclaturas de la red.</td></tr>
+<tr class="w-ind"><td>Semana 4</td><td>IndagaciÃƒÂ³n</td><td>ModelaciÃƒÂ³n molecular formalizada de las rutas metabÃƒÂ³licas humanas bioquÃƒÂ­micas basales (glucÃƒÂ³lisis, ciclo de Krebs) en diagramas de flujo dinÃƒÂ¡micos interactivos con feedback.</td><td>Uso e integraciÃƒÂ³n formalizada del lenguaje cuantitativo quÃƒÂ­mico avanzado como vehÃƒÂ­culo descriptor de balances moleculares.</td></tr>
+<tr class="w-ind"><td>Semana 5</td><td>IndagaciÃƒÂ³n</td><td>ResoluciÃƒÂ³n de retos por software cruzando espectros FTIR de macromolÃƒÂ©culas inyectadas en bases de datos analÃƒÂ­ticas del OVA de espectroscopia.</td><td>Constancia procedimental analÃƒÂ­tica profunda en la gestiÃƒÂ³n y desciframiento predictivo multivariado mediante herramientas de ciencias.</td></tr>
+<tr class="w-tra"><td>Semana 6</td><td>Transferencia</td><td>DelimitaciÃƒÂ³n teÃƒÂ³rica del proyecto monogrÃƒÂ¡fico anual: SelecciÃƒÂ³n autÃƒÂ³noma individualizada de una patologÃƒÂ­a metabÃƒÂ³lica molecular humana para investigar.</td><td>AsunciÃƒÂ³n de las responsabilidades civiles ÃƒÂ©ticas inherentes al rol del investigador cientÃƒÂ­fico social.</td></tr>
+<tr class="w-tra"><td>Semana 7</td><td>Transferencia</td><td>RedacciÃƒÂ³n final estructurada del informe monogrÃƒÂ¡fico preliminar bioquÃƒÂ­mico siguiendo normas internacionales formales de citaciÃƒÂ³n de autorÃƒÂ­a indexada APA.</td><td>Sustento de posturas bioÃƒÂ©ticas individuales basadas en evidencias clÃƒÂ­nicas moleculares analizando desbalances orgÃƒÂ¡nicos.</td></tr>
+<tr class="w-met"><td>Semana 8</td><td>MetacogniciÃƒÂ³n</td><td>SustentaciÃƒÂ³n de las monografÃƒÂ­as bioquÃƒÂ­micas en el casillero virtual. Test automatizado de periodo en lÃƒÂ­nea adaptativo con reportes de rendimiento cualitativo.</td><td>ConsolidaciÃƒÂ³n integral de la autoestima y suficiencia intelectual autÃƒÂ³noma madura adecuada para afrontar trÃƒÂ¡nsitos de educaciÃƒÂ³n superior.</td></tr>
+</tbody>
+</table>
+<div class="grade-title">Grado 11Ã‚Â° - Periodo 2: BiologÃƒÂ­a - BioenergÃƒÂ©tica, TermodinÃƒÂ¡mica EcolÃƒÂ³gica y PatÃƒÂ³genos</div><table>
+<tbody>
+<tr class="w-exp"><td>Semana 1</td><td>ExploraciÃƒÂ³n</td><td>Ingreso al simulador bioenergÃƒÂ©tico avanzado. EstimaciÃƒÂ³n de curvas de captaciÃƒÂ³n de radiaciÃƒÂ³n lumÃƒÂ­nica cuÃƒÂ¡ntica en cloroplastos simulados bajo variaciones de ondas espectrales.</td><td>Desarrollo del asombro reflexivo de escala superior ante la sofisticaciÃƒÂ³n molecular bioenergÃƒÂ©tica que sostiene la trama vital planetaria.</td></tr>
+<tr class="w-exp"><td>Semana 2</td><td>ExploraciÃƒÂ³n</td><td>FormulaciÃƒÂ³n de hipÃƒÂ³tesis complejas en bitÃƒÂ¡cora sobre lÃƒÂ­mites moleculares de conversiÃƒÂ³n fotosintÃƒÂ©tica frente a modelos bio-espectroscÃƒÂ³picos de identificaciÃƒÂ³n de patÃƒÂ³genos.</td><td>Fomento de la capacidad reflexiva analÃƒÂ­tica independiente para cuestionar la optimizaciÃƒÂ³n de los flujos de materia en la biosfera.</td></tr>
+<tr class="w-ind"><td>Semana 3</td><td>IndagaciÃƒÂ³n</td><td>AnÃƒÂ¡lisis documental guiado autÃƒÂ³nomo en repositorios virtuales sobre espectros Raman aplicados a identificar microorganismos fitopatÃƒÂ³genos como <i>Toxoplasma</i> o <i>Cryptosporidium</i>.</td><td>Cultivo del escrutinio crÃƒÂ­tico de literatura cientÃƒÂ­fica indexada avanzada de la fÃƒÂ­sica y biologÃƒÂ­a acopladas.</td></tr>
+<tr class="w-ind"><td>Semana 4</td><td>IndagaciÃƒÂ³n</td><td>ModelaciÃƒÂ³n matemÃƒÂ¡tica formal de ecuaciones de balances entÃƒÂ¡lpicos y entrÃƒÂ³picos clÃƒÂ¡sicos aplicados a disipaciones de biomasa celular respiratoria en redes trÃƒÂ³ficas.</td><td>Uso e integraciÃƒÂ³n formalizada del lenguaje cuantitativo matemÃƒÂ¡tico avanzado como vehÃƒÂ­culo descriptor de equilibrios biÃƒÂ³ticos.</td></tr>
+<tr class="w-ind"><td>Semana 5</td><td>IndagaciÃƒÂ³n</td><td>OperaciÃƒÂ³n de software simulador ecolÃƒÂ³gico virtual interactivo de la plataforma parametrizando pÃƒÂ©rdidas de calor metabÃƒÂ³licas de biomasa andina bajo estrÃƒÂ©s eco-climÃƒÂ¡tico.</td><td>Constancia procedimental analÃƒÂ­tica en la gestiÃƒÂ³n y anÃƒÂ¡lisis predictivo multivariado mediante herramientas computacionales.</td></tr>
+<tr class="w-tra"><td>Semana 6</td><td>Transferencia</td><td>AuditorÃƒÂ­a ecolÃƒÂ³gica individual automatizada por software: EstimaciÃƒÂ³n cuantitativa de la huella de carbono neta generada por consumos energÃƒÂ©ticos domÃƒÂ©sticos del alumno.</td><td>Liderazgo ÃƒÂ©tico proactivo civil comprometido con el diseÃƒÂ±o estratÃƒÂ©gico de soluciones materiales ecolÃƒÂ³gicas habitacionales.</td></tr>
+<tr class="w-tra"><td>Semana 7</td><td>Transferencia</td><td>FormulaciÃƒÂ³n de planos de mitigaciÃƒÂ³n de carbono hogareÃƒÂ±os mediante proyecciones de eco-sistemas e implantaciÃƒÂ³n botÃƒÂ¡nica de coberturas de lÃƒÂ­quenes y plantas suculentas.</td><td>Solidaridad civil activa e independiente orientada a concretar el bienestar medioambiental de su entorno familiar inmediato.</td></tr>
+<tr class="w-met"><td>Semana 8</td><td>MetacogniciÃƒÂ³n</td><td>Carga de portafolios bioenergÃƒÂ©ticos ecolÃƒÂ³gicos al casillero virtual. Test adaptativo de periodo en lÃƒÂ­nea con analÃƒÂ­ticas automÃƒÂ¡ticas de logro de competencias ecolÃƒÂ³gicas.</td><td>ConsolidaciÃƒÂ³n del compromiso ÃƒÂ©tico civil superior como defensores racionales fundamentados de la habitabilidad biÃƒÂ³tica planetaria.</td></tr>
+</tbody>
+</table>
+<div class="grade-title">Grado 11Ã‚Â° - Periodo 3: FÃƒÂ­sica - MecÃƒÂ¡nica de Fluidos e HidrodinÃƒÂ¡mica Lineal</div><table>
+<tbody>
+<tr class="w-exp"><td>Semana 1</td><td>ExploraciÃƒÂ³n</td><td>Ingreso al simulador hemodinÃƒÂ¡mico cardiovascular "PresiÃƒÂ³n Interna de Fluidos". Registro individual de variaciones cinÃƒÂ©ticas ante cambios interactivos elÃƒÂ¡sticos.</td><td>ApropiaciÃƒÂ³n de hÃƒÂ¡bitos rigurosos autÃƒÂ³nomos de monitoreo de constantes de salud corporal biolÃƒÂ³gica como base del bienestar.</td></tr>
+<tr class="w-exp"><td>Semana 2</td><td>ExploraciÃƒÂ³n</td><td>FormulaciÃƒÂ³n de hipÃƒÂ³tesis mecÃƒÂ¡nicas explicativas escritas en bitÃƒÂ¡cora detallando variaciones de presiÃƒÂ³n hidrostÃƒÂ¡tica hidrodinÃƒÂ¡mica registradas en conductos elÃƒÂ¡sticos.</td><td>Tolerancia ante la complejidad de interpretar trÃƒÂ¡nsitos de fluidos materiales reales biolÃƒÂ³gicos mediante esquemas abstractos fÃƒÂ­sicos.</td></tr>
+<tr class="w-ind"><td>Semana 3</td><td>IndagaciÃƒÂ³n</td><td>DiseÃƒÂ±o experimental y calibraciÃƒÂ³n matemÃƒÂ¡tica en el simulador de vasos de vaciado de Torricelli midiendo velocidades de descarga cinemÃƒÂ¡tica de fluidos lÃƒÂ­quidos.</td><td>Exigencia de precisiÃƒÂ³n de datos y de rigor de control metodolÃƒÂ³gico procedimental acotando errores de instrumentaciÃƒÂ³n.</td></tr>
+<tr class="w-ind"><td>Semana 4</td><td>IndagaciÃƒÂ³n</td><td>ResoluciÃƒÂ³n algebraica formalizada guiada de ecuaciones fÃƒÂ­sicas lineales continuas integrando de forma acoplada los teoremas mecÃƒÂ¡nicos de continuidad y Bernoulli.</td><td>Honestidad intelectual en el registro y anÃƒÂ¡lisis numÃƒÂ©rico transparente de discrepancias de datos reales frente a ideales.</td></tr>
+<tr class="w-ind"><td>Semana 5</td><td>IndagaciÃƒÂ³n</td><td>AnÃƒÂ¡lisis documental estructurado comparativo de aplicaciones de ingenierÃƒÂ­a clÃƒÂ¡sicas industriales basadas en multiplicaciÃƒÂ³n de fuerzas por prensas hidrÃƒÂ¡ulicas y viscosidad.</td><td>Reconocimiento del carÃƒÂ¡cter histÃƒÂ³rico transicional y colectivo de desarrollos mecÃƒÂ¡nicos de la ingenierÃƒÂ­a clÃƒÂ¡sica.</td></tr>
+<tr class="w-tra"><td>Semana 6</td><td>Transferencia</td><td>Proyecto individual autÃƒÂ³nomo de diseÃƒÂ±o bio-robÃƒÂ³tico: FormulaciÃƒÂ³n por software de planos tÃƒÂ©cnicos conceptuales que simulen el bombeo cardÃƒÂ­aco mecÃƒÂ¡nico vascular.</td><td>Desarrollo del pensamiento de ingenierÃƒÂ­a lÃƒÂ³gico estructural avanzado y destreza analÃƒÂ­tica aplicada al desciframiento de ecuaciones de fluidos.</td></tr>
+<tr class="w-tra"><td>Semana 7</td><td>Transferencia</td><td>ConfiguraciÃƒÂ³n algorÃƒÂ­tmica ÃƒÂ³ptima en la simulaciÃƒÂ³n bio-robÃƒÂ³tica vascular de mangueras, microcontroladores integrados virtuales y presiones fluidicas controladas.</td><td>Cultivo de la resiliencia operativa y del ingenio prÃƒÂ¡ctico resolutivo ante desajustes o pÃƒÂ©rdidas de magnitudes mecÃƒÂ¡nicas virtuales.</td></tr>
+<tr class="w-met"><td>Semana 8</td><td>MetacogniciÃƒÂ³n</td><td>Entrega de bitÃƒÂ¡coras de hidrodinÃƒÂ¡mica avanzada al casillero digital. Examen sumativo adaptativo final de periodo con visualizaciÃƒÂ³n automÃƒÂ¡tica de analÃƒÂ­ticas de logro.</td><td>ConsolidaciÃƒÂ³n de la suficiencia intelectual autÃƒÂ³noma madura adecuada para afrontar trÃƒÂ¡nsitos hacia educaciÃƒÂ³n superior cientÃƒÂ­fica.</td></tr>
+</tbody>
+</table>
+<div class="grade-title">Grado 11Ã‚Â° - Periodo 4: FÃƒÂ­sica - Electromagnetismo Complejo y Bio-RobÃƒÂ³tica Integrada</div><table>
+<tbody>
+<tr class="w-exp"><td>Semana 1</td><td>ExploraciÃƒÂ³n</td><td>Ingreso al mÃƒÂ³dulo interactivo de electrofisiologÃƒÂ­a avanzada "El Arco SinÃƒÂ¡ptico". OperaciÃƒÂ³n en pantalla de compuertas iÃƒÂ³nicas transmembranales polarizantes.</td><td>Apertura intelectual superior para interpretar procesos biolÃƒÂ³gicos a partir de integraciones de biofÃƒÂ­sica molecular.</td></tr>
+<tr class="w-exp"><td>Semana 2</td><td>ExploraciÃƒÂ³n</td><td>FormulaciÃƒÂ³n de conjeturas biofÃƒÂ­sicas de partida en bitÃƒÂ¡cora detallando causas de velocidades de conducciÃƒÂ³n de micro-potenciales de acciÃƒÂ³n axÃƒÂ³nicos.</td><td>ValoraciÃƒÂ³n de las propias modelaciones analÃƒÂ³gicas biolÃƒÂ³gicas como detonadores de explicaciones complejas de la electrofisiologÃƒÂ­a.</td></tr>
+<tr class="w-ind"><td>Semana 3</td><td>IndagaciÃƒÂ³n</td><td>Ensamble, parametrizaciÃƒÂ³n y anÃƒÂ¡lisis matemÃƒÂ¡tico de circuitos elÃƒÂ©ctricos cerrados de resistencias mixtas complejas operando software de mallas.</td><td>Fomento de la minuciosidad analÃƒÂ­tica, precisiÃƒÂ³n algebraica de algoritmos y rigor procedimental en el manejo de leyes fÃƒÂ­sicas.</td></tr>
+<tr class="w-ind"><td>Semana 4</td><td>IndagaciÃƒÂ³n</td><td>Establecimiento analÃƒÂ­tico cuantitativo vectorial de leyes electromagnÃƒÂ©ticas de Coulomb, campo gravitacional universal relativo y fuerzas mecÃƒÂ¡nicas de Lorentz.</td><td>Uso integrado avanzado de lenguajes formales matemÃƒÂ¡ticos abstractos de la fÃƒÂ­sica electromagnÃƒÂ©tica contemporÃƒÂ¡nea.</td></tr>
+<tr class="w-ind"><td>Semana 5</td><td>IndagaciÃƒÂ³n</td><td>InvestigaciÃƒÂ³n de bio-robotics: Estudio guiado en el OVA sobre la integraciÃƒÂ³n de microcontroladores y algoritmos con organismos (suculentas, lÃƒÂ­quenes) para registrar seÃƒÂ±ales fÃƒÂ­sicas.</td><td>AdopciÃƒÂ³n de un pensamiento holÃƒÂ­stico integrador bio-robÃƒÂ³tico unificando circuitos electrÃƒÂ³nicos con respuestas biolÃƒÂ³gicas vivas.</td></tr>
+<tr class="w-tra"><td>Semana 6</td><td>Transferencia</td><td>Estudio analÃƒÂ­tico bioÃƒÂ©tico de salud pÃƒÂºblica: AnÃƒÂ¡lisis crÃƒÂ­tico fundamentado en evidencias clÃƒÂ­nicas sobre impactos de adicciones quÃƒÂ­micas neuronales.</td><td>AsunciÃƒÂ³n consciente de un rechazo autÃƒÂ³nomo soberano de aula informado y proactivo frente al consumo problemÃƒÂ¡tico de compuestos.</td></tr>
+<tr class="w-tra"><td>Semana 7</td><td>Transferencia</td><td>Fase de RedacciÃƒÂ³n de MonografÃƒÂ­a de Cierre Anual: ConsolidaciÃƒÂ³n final del informe tÃƒÂ©cnico de fÃƒÂ­sica aplicada siguiendo pautas internacionales APA.</td><td>Toma de postura responsable libre de sesgos en debates contemporÃƒÂ¡neos de bioÃƒÂ©tica clÃƒÂ­nica y derechos reproductivos de salud.</td></tr>
+<tr class="w-met"><td>Semana 8</td><td>MetacogniciÃƒÂ³n</td><td>Fase de Defensa PÃƒÂºblica Magistral Virtual de la MonografÃƒÂ­a Anual de Ciencias: Congreso CientÃƒÂ­fico Escolar en Red. AutoevaluaciÃƒÂ³n general de egreso.</td><td>ConsolidaciÃƒÂ³n definitiva del perfil de egreso: ciudadanos ÃƒÂ©ticos competentes intelectualmente autÃƒÂ³nomos humanistas activos en la sociedad.</td></tr>
+</tbody>
+</table>
+</div> <!-- fin malla-grado-11 -->
+
+                    </div> <!-- CIERRE admin-view-mallas -->
+
+                    <!-- OTRAS VISTAS ADMIN -->
+                    <div id="admin-view-docentes" class="admin-view" style="display: none; padding: 20px;">
+                        <h3 style="font-weight: 800; margin-bottom: 20px;">Docentes Home School</h3>
+                        <table style="width: 100%; border-collapse: collapse; text-align: left; background: white; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+                            <thead><tr style="border-bottom: 2px solid #E5E7EB;"><th style="padding: 15px;">Documento</th><th style="padding: 15px;">Docente</th><th style="padding: 15px;">Estudiantes Matriculados</th></tr></thead>
+                            <tbody id="tbody-admin-docentes"></tbody>
+                        </table>
+                    </div>
+
+                    <div id="admin-view-estudiantes" class="admin-view" style="display: none; padding: 20px;">
+                        <h3 style="font-weight: 800; margin-bottom: 20px;">Todos los Estudiantes</h3>
+                        <table style="width: 100%; border-collapse: collapse; text-align: left; background: white; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+                            <thead><tr style="border-bottom: 2px solid #E5E7EB;"><th style="padding: 15px;">Documento</th><th style="padding: 15px;">Nombre</th><th style="padding: 15px;">Grado</th></tr></thead>
+                            <tbody id="tbody-admin-todos-estudiantes"></tbody>
+                        </table>
+                    </div>
+
+                    <div id="admin-view-asignaturas" class="admin-view" style="display: none; padding: 20px;">
+                        <h3 style="font-weight: 800; margin-bottom: 20px;">Crear Asignatura</h3>
+                        <div style="display: flex; gap: 10px; margin-bottom: 20px; align-items: center; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+                            <input type="text" id="admin-asig-nombre" placeholder="Nombre Asignatura" style="padding: 12px; border: 1px solid #d1d5db; border-radius: 8px; flex: 1;">
+                            <select id="admin-asig-grado" style="padding: 12px; border: 1px solid #d1d5db; border-radius: 8px;">
+                                <option value="6">6Ã‚Â°</option><option value="7">7Ã‚Â°</option><option value="8">8Ã‚Â°</option><option value="9">9Ã‚Â°</option><option value="10">10Ã‚Â°</option><option value="11">11Ã‚Â°</option>
+                            </select>
+                            <button id="btn-crear-asignatura" style="background: #10B981; color: white; padding: 12px 24px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;">Registrar Asignatura</button>
+                        </div>
+                    </div>
+
+                </div> <!-- fin div bg white admin central -->
+            </div> <!-- fin contenedor central -->
+        </div> <!-- fin dashboard-screen-container -->
+    </div> <!-- fin app-container -->
+
+    <script>
+        // FunciÃƒÂ³n global para navegaciÃƒÂ³n SPA segura sin conflictos con app.js
+        function mostrarVista(id) {
+            const vistas = [
+                'login-screen-container',
+                'register-screen-container',
+                'docente-dashboard-container',
+                'dashboard-screen-container'
+            ];
+            
+            vistas.forEach(vista => {
+                const el = document.getElementById(vista);
+                if (el) {
+                    el.style.display = 'none';
+                }
+            });
+            
+            const target = document.getElementById(id);
+            if (target) {
+                if (id === 'login-screen-container') {
+                    target.style.display = 'grid';
+                } else if (id === 'register-screen-container') {
+                    target.style.display = 'flex';
+                } else {
+                    target.style.display = 'block';
+                }
+            }
+        }
+    </script>
+    <script src="app.js"></script>
+        
+</body>
+</html>

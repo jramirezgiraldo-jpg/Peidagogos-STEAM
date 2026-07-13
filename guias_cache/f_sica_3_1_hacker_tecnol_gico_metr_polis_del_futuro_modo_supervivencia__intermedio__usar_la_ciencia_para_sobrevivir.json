@@ -1,0 +1,188 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Cuál es la forma real de las órbitas de los planetas alrededor del Sol de acuerdo con las observaciones científicas?",
+      "opciones": [
+        "A) Son circunferencias perfectas con el Sol exactamente en el centro.",
+        "B) Son elipses donde el Sol se ubica en uno de los focos.",
+        "C) Son espirales que poco a poco van acercando el planeta al Sol.",
+        "D) Son trayectorias onduladas sin un patrón geométrico definido."
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Qué ocurre con la velocidad de un cuerpo celeste a medida que se acerca al foco gravitatorio (como el Sol)?",
+      "opciones": [
+        "A) Disminuye drásticamente debido a la fricción espacial.",
+        "B) Se mantiene completamente constante en toda la trayectoria.",
+        "C) Aumenta debido a la mayor fuerza de atracción gravitatoria.",
+        "D) Se reduce a cero momentáneamente antes de cambiar de dirección."
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "¿Qué científico unificó las leyes del movimiento planetario con la física terrestre formulando la Ley de Gravitación Universal?",
+      "opciones": [
+        "A) Johannes Kepler",
+        "B) Galileo Galilei",
+        "C) Isaac Newton",
+        "D) Albert Einstein"
+      ],
+      "correcta": 2
+    }
+  ],
+  "texto_inductivo": "Saludos, reclutas del subsuelo digital. Soy Vector-X, su hacker de infraestructura en esta distopía metálica llamada Neo-Midgard. En el año 2142, las megacorporaciones controlan la superficie de la Tierra y vigilan cada uno de nuestros movimientos utilizando la red Aegis-Net, un cinturón de satélites armados que patrulla la órbita baja. Si queremos sobrevivir como resistencia, hackear sus transmisiones no es suficiente: debemos entender cómo se mueven en el vacío. No podemos enviar una sonda de interferencia o calcular la trayectoria de escape de nuestros planeadores electromagnéticos si ignoramos las leyes del movimiento planetario. En esta misión de supervivencia intermedia, usaremos la física como nuestra principal herramienta de hackeo.\n\nPara empezar, deben olvidar la vieja mentira escolar de que las órbitas de los satélites y planetas son círculos perfectos de precisión milimétrica. La naturaleza no trabaja con la estética corporativa del orden absoluto; trabaja con la eficiencia de las elipses. Johannes Kepler, un astrofísico que vivió siglos antes de que el asfalto sintético cubriera nuestros cielos, descubrió tres reglas de oro que rigen el cosmos. Su primera ley establece que todos los planetas se mueven en órbitas elípticas, con el Sol en uno de sus focos. En nuestro caso, los satélites de Aegis-Net siguen elipses perfectas alrededor del centro de masa de la Tierra. Una elipse tiene dos puntos críticos: el perihelio (o perigeo para satélites terrestres), que es el punto más cercano a la masa central, y el afelio (o apogeo), que es el punto más lejano. Saber esto es vital: si nuestro planeador interceptor ataca en el apogeo, el satélite corporativo estará en su punto de mayor vulnerabilidad y menor velocidad orbital.\n\nLa segunda ley de Kepler, conocida como la Ley de las Áreas, nos revela el ritmo del universo. Nos dice que la línea que une a un planeta con el Sol barre áreas iguales en tiempos iguales. Esto se traduce en un principio táctico: un objeto en órbita no viaja a una velocidad constante. Cuando un satélite de vigilancia corporativa se acerca al perigeo, acelera vertiginosamente para no ser engullido por el pozo gravitatorio de la Tierra. Por el contrario, al alejarse hacia el apogeo, su velocidad disminuye drásticamente. Como hackers de la resistencia, esta variación de velocidad es nuestra ventana de escape. Si programamos nuestro pulso electromagnético (EMP) justo en el apogeo, la defensa enemiga tardará más tiempo en reaccionar porque su velocidad orbital es mínima y su inercia es menor.\n\nFinalmente, la tercera ley de Kepler —la ley armónica— conecta el tamaño de la órbita con el tiempo que tarda en completarse. Nos dice que el cuadrado del periodo orbital (el tiempo de una vuelta completa) es proporcional al cubo de la distancia media al Sol (o a la Tierra). Si interceptamos los datos de telemetría de un dron pesado de patrulla y descubrimos que su distancia media al centro del planeta se duplica, podemos predecir con absoluta exactitud matemática cuánto tardará en volver a pasar sobre nuestro refugio. La física celeste no es teoría aburrida; es el mapa de vulnerabilidades de nuestros opresores. Comprendan estas leyes, dominen la gravedad y utilicen la ciencia para sobrevivir en esta selva de silicio.",
+  "recurso_visual": "graph TD\n    A[Órbita Elíptica del Satélite] --> B[Perigeo: Punto más cercano]\n    A --> C[Apogeo: Punto más lejano]\n    B --> B1[Fuerza Gravitacional Máxima]\n    B --> B2[Velocidad Orbital Máxima]\n    C --> C1[Fuerza Gravitacional Mínima]\n    C --> C2[Velocidad Orbital Mínima]\n    D[Leyes de Kepler] --> E[1a Ley: Órbitas Elípticas]\n    D --> F[2a Ley: Áreas Iguales en Tiempos Iguales]\n    D --> G[3a Ley: T² proporcional a a³]",
+  "preguntas_inductivas_pagina": [
+    "¿Por qué los satélites de vigilancia corporativa cambian su velocidad a lo largo de su órbita en lugar de mantenerse constantes?",
+    "¿En qué punto de la órbita (perigeo o apogeo) es más conveniente lanzar un ataque de interferencia de señal si necesitamos más tiempo de acción, y por qué?",
+    "¿Cómo definirías la diferencia geométrica entre un círculo y una elipse basándote en la ubicación de sus focos?",
+    "Si un satélite militar duplica su distancia media respecto a la Tierra, ¿su periodo orbital aumentará o disminuirá?",
+    "¿De qué manera la ley de conservación del momento angular explica que un satélite acelere al acercarse a la Tierra?"
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema detallado de la órbita elíptica de un satélite alrededor de la Tierra, señalando claramente el perigeo, el apogeo, los focos de la elipse, y vectores que representen la velocidad máxima y mínima.",
+    "Realiza un cuadro comparativo entre el perigeo y el apogeo, evaluando las variables de distancia, fuerza gravitatoria, velocidad orbital y viabilidad de hackeo según la narrativa.",
+    "Escribe una reflexión de dos párrafos sobre cómo el conocimiento de las leyes naturales (como la gravedad) permite a una población desfavorecida resistir frente a una tecnología artificial avanzada.",
+    "Representa gráficamente, mediante sectores sombreados en una elipse, la Segunda Ley de Kepler (barrido de áreas iguales en tiempos iguales) y explica su significado físico."
+  ],
+  "juegos_ordenar_letras_1": [
+    "ELIPSE",
+    "APOGEO",
+    "PERIODO"
+  ],
+  "juego_ordenar_frase_1": "LAS LEYES DE LA GRAVITACION SON LAS LLAVES PARA CONTROLAR EL CIELO DE LA METROPOLIS",
+  "texto_deductivo": "Habiendo asimilado la intuición de las órbitas, es hora de descifrar el código matemático que sostiene esta maquinaria celeste. Como hackers de élite, no podemos conformarnos con conceptos vagos; requerimos ecuaciones precisas para calibrar nuestros sistemas de escape y sabotaje. Isaac Newton dio el paso definitivo al unificar la física terrestre con el movimiento de los astros mediante su Ley de Gravitación Universal. Esta ley matemática establece que la fuerza de atracción entre dos cuerpos con masas $m_1$ y $m_2$ separados por una distancia $r$ es directamente proporcional al producto de sus masas e inversamente proporcional al cuadrado de la distancia que los separa. Matemáticamente, lo expresamos como: $F = G \\cdot \\frac{m_1 \\cdot m_2}{r^2}$, donde $G$ es la constante de gravitación universal ($6.674 \\times 10^{-11} \\text{ N}\\cdot\\text{m}^2/\\text{kg}^2$).\n\nEsta simple ecuación es la que mantiene a la Luna en su sitio y a la red Aegis-Net apuntando a nuestras cabezas. Si analizamos la estructura del satélite corporativo en una órbita circular estable de radio $r$ alrededor de la Tierra (de masa $M$), la fuerza gravitatoria actúa directamente como la fuerza centrípeta que curva su trayectoria. Al igualar ambas fuerzas ($F_g = F_c$), obtenemos que: $G \\cdot \\frac{M \\cdot m}{r^2} = \\frac{m \\cdot v^2}{r}$. Al simplificar la masa del satélite ($m$) y despejar la velocidad orbital ($v$), obtenemos una de las fórmulas de supervivencia más poderosas del sector hacker: $v = \\sqrt{\\frac{G \\cdot M}{r}}$. Esta ecuación nos demuestra de manera deductiva que la velocidad requerida para mantener una órbita depende única y exclusivamente de la masa del planeta central y de la distancia al centro de este. La masa del propio satélite es irrelevante. Si queremos interceptar un dron pesado de transporte de armas de 10 toneladas o una microsonda espía de 5 kilogramos que se encuentran a la misma altitud, ambos se desplazarán exactamente a la misma velocidad.\n\nPor otra parte, deducir el periodo orbital ($T$) a partir de esta velocidad es directo si consideramos que el tiempo necesario para completar una órbita circular de perímetro $2\\pi r$ es $T = \\frac{2\\pi r}{v}$. Al sustituir la velocidad orbital en esta relación y elevar ambos miembros al cuadrado, llegamos matemáticamente a la Tercera Ley de Kepler: $T^2 = \\left(\\frac{4\\pi^2}{G \\cdot M}\\right) \\cdot r^3$. El término entre paréntesis es una constante para cualquier cuerpo que orbite alrededor de la Tierra. Este rigor físico nos da un poder inmenso. Si los sensores de nuestro refugio subterráneo detectan un cambio en la frecuencia de paso de un satélite espía (su periodo $T$), podemos deducir de inmediato si ha cambiado su altitud orbital para buscarnos en zonas más profundas de la metrópolis. No hay trucos de magia en el cielo digital, solo física implacable gobernada por fuerzas centrales. Al comprender la gravedad como una curvatura y una fuerza central, dominamos el tablero de juego tridimensional del espacio.",
+  "preguntas_deductivas_pagina": [
+    "¿Cómo cambia la fuerza gravitatoria entre la Tierra y un satélite si la distancia entre ellos se reduce a la mitad?",
+    "¿Por qué la masa de un satélite artificial no influye en la velocidad que requiere para mantener una órbita estable?",
+    "¿Cuál es el valor y el significado físico de la Constante de Gravitación Universal (G) en el sistema internacional de unidades?",
+    "A partir de la ecuación del periodo orbital, ¿qué relación matemática existe entre el periodo T y el radio de giro r?",
+    "¿Qué tipo de fuerza hace el papel de fuerza centrípeta para mantener a los satélites en su órbita alrededor de la Tierra?"
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Elabora un diagrama de cuerpo libre detallado de un satélite en órbita circular alrededor de la Tierra, mostrando los vectores de fuerza gravitatoria, velocidad tangencial y aceleración centrípeta.",
+    "Diseña un mapa mental detallado que conecte de manera jerárquica la Ley de Gravitación Universal de Newton con las tres Leyes de Kepler.",
+    "Realiza un dibujo explicativo que represente la diferencia física entre la velocidad de escape de la atmósfera terrestre y la velocidad orbital requerida para mantenerse en órbita constante.",
+    "Crea una infografía artesanal en tu cuaderno que muestre el procedimiento matemático paso a paso para deducir la Tercera Ley de Kepler a partir de la ley de gravitación y el movimiento circular."
+  ],
+  "juegos_ordenar_letras_2": [
+    "GRAVEDAD",
+    "NEWTON",
+    "CENTRIPETA"
+  ],
+  "juego_ordenar_frase_2": "LA CONSTANTE DE GRAVITACION ENLAZA LA TIERRA CON EL RESTO DE LOS MUNDOS",
+  "sopa_letras": [
+    "KEPLER",
+    "NEWTON",
+    "ORBITA",
+    "ELIPSE",
+    "GRAVEDAD",
+    "PERIGEO",
+    "APOGEO",
+    "FUERZA",
+    "MASA",
+    "PERIODO"
+  ],
+  "crucigrama": [
+    {
+      "palabra": "ELIPSE",
+      "pista": "Figura geométrica de las órbitas planetarias que posee dos focos."
+    },
+    {
+      "palabra": "PERIGEO",
+      "pista": "Punto de menor distancia de un satélite a la Tierra donde su velocidad es máxima."
+    },
+    {
+      "palabra": "APOGEO",
+      "pista": "Punto de la órbita terrestre más alejado de la Tierra donde el satélite se desplaza más lento."
+    },
+    {
+      "palabra": "GRAVEDAD",
+      "pista": "Fuerza fundamental de atracción mutua entre masas descubierta en su forma universal por Newton."
+    },
+    {
+      "palabra": "PERIODO",
+      "pista": "Tiempo requerido por un satélite para completar una revolución u órbita completa."
+    },
+    {
+      "palabra": "KEPLER",
+      "pista": "Astrónomo que determinó las tres leyes matemáticas del movimiento orbital planetario."
+    },
+    {
+      "palabra": "NEWTON",
+      "pista": "Científico que unificó la gravedad terrestre con la celeste mediante una ley matemática de inverso del cuadrado."
+    },
+    {
+      "palabra": "CENTRIPETA",
+      "pista": "Fuerza dirigida al centro que obliga a un cuerpo a seguir una trayectoria curva."
+    },
+    {
+      "palabra": "CONSTANTE",
+      "pista": "El valor G que multiplica la relación de masas y distancia en la gravitación universal."
+    },
+    {
+      "palabra": "SATELITE",
+      "pista": "Cuerpo celeste o dispositivo artificial que gira en una órbita fija alrededor de un planeta."
+    }
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "La corporación militar Aegis Corp ha posicionado dos satélites de vigilancia sobre la metrópolis. El Satélite Alpha tiene una masa de 500 kg y se encuentra a una altitud de 200 km sobre la superficie de la Tierra. El Satélite Beta, con una masa de 1500 kg, orbita a la misma altitud de 200 km. Los ingenieros de la resistencia interceptan los datos de telemetría física de ambos satélites para evaluar su velocidad orbital.",
+      "tabla_o_grafica_markdown": "| Satélite | Masa (kg) | Altitud (km) | Velocidad Orbital (km/s) |\n|---|---|---|---|\n| Alpha | 500 | 200 | v_alpha |\n| Beta | 1500 | 200 | v_beta |",
+      "pregunta": "¿Cómo se comparan las velocidades orbitales de ambos satélites de vigilancia?",
+      "opciones": [
+        "A) La velocidad del satélite Beta es tres veces mayor que la del satélite Alpha debido a su triple masa.",
+        "B) La velocidad del satélite Alpha es mayor porque tiene menos inercia que vencer para sostenerse.",
+        "C) Las velocidades de ambos satélites son exactamente iguales porque la velocidad orbital no depende de la masa del objeto que orbita.",
+        "D) La velocidad de Beta es menor porque la gravedad actúa con mayor fuerza sobre masas más pesadas frenándolas."
+      ],
+      "correcta": 2,
+      "retroalimentacion": {
+        "0": "Incorrecto. La masa del satélite se cancela matemáticamente al igualar la fuerza gravitatoria con la fuerza centrípeta, por lo que la masa propia no afecta la velocidad orbital.",
+        "1": "Incorrecto. Aunque tenga menos inercia, la fuerza gravitatoria que actúa sobre él es proporcionalmente menor, cancelando el efecto de la masa.",
+        "2": "Correcto. De acuerdo con la ecuación v = raíz(GM/r), la velocidad de un cuerpo en órbita depende solo de la masa del planeta central (M) y del radio orbital (r). Al estar a la misma altitud, ambos se mueven a la misma velocidad.",
+        "3": "Incorrecto. La gravedad actúa con mayor fuerza en masas grandes, pero esto se equilibra exactamente con su inercia, resultando en la misma aceleración orbital y velocidad."
+      }
+    },
+    {
+      "competencia": "Uso comprensivo del conocimiento científico",
+      "texto_introductorio": "Un grupo de hackers de la metrópolis necesita interferir un dron de telecomunicaciones que describe una órbita fuertemente elíptica alrededor del centro de comando de la ciudad. El dron pasa por dos puntos clave de monitoreo llamados Punto de Control A (perigeo) y Punto de Control B (apogeo).",
+      "tabla_o_grafica_markdown": "| Punto de Control | Distancia al Centro de la Tierra | Velocidad del Dron |\n|---|---|---|\n| A (Perigeo) | Mínima | Máxima |\n| B (Apogeo) | Máxima | Mínima |",
+      "pregunta": "Teniendo en cuenta la conservación del momento angular y la Segunda Ley de Kepler, ¿qué sucede con la velocidad y el área barrida por el vector de posición del dron en estos puntos?",
+      "opciones": [
+        "A) En el Punto A el dron se mueve más rápido barriendo un área mayor en un intervalo de tiempo dado en comparación con el Punto B.",
+        "B) El dron barre áreas iguales en tiempos iguales en ambos puntos, pero su velocidad es sustancialmente mayor en el Punto A.",
+        "C) El dron se mueve a velocidad constante en toda la elipse, barriendo áreas distintas a medida que se aleja del centro de la Tierra.",
+        "D) En el Punto B el dron acelera para compensar la pérdida de atracción gravitatoria debida a la gran distancia."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. La Segunda Ley de Kepler establece explícitamente que las áreas barridas en intervalos de tiempo idénticos son siempre iguales, no mayores en el perigeo.",
+        "1": "Correcto. Por la Segunda Ley de Kepler, la línea que une al dron con el centro de la Tierra barre áreas iguales en tiempos iguales. Como en el perigeo (Punto A) el radio de giro es más corto, el dron debe viajar más rápido a lo largo de su arco para igualar el área barrida en el apogeo (Punto B).",
+        "2": "Incorrecto. En una órbita elíptica la velocidad cambia de manera continua según la distancia al foco, por lo que no es constante.",
+        "3": "Incorrecto. En el apogeo (Punto B) el dron se mueve a su velocidad mínima absoluta debido a que el pozo gravitatorio ha realizado trabajo en su contra al alejarlo."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "Los analistas de la resistencia estudian una tabla histórica con datos orbitales de tres satélites espías que orbitan un exoplaneta masivo colonizado por la megacorporación. Buscan verificar la validez de la tercera ley de Kepler ($T^2 = k \\cdot r^3$) para predecir la posición de nuevos objetivos de sabotaje.",
+      "tabla_o_grafica_markdown": "| Satélite | Radio Medio de la Órbita (r en km) | Periodo Orbital (T en horas) | Relación T² / r³ |\n|---|---|---|---|\n| Nexus-1 | 1000 | 10.0 | C |\n| Nexus-2 | 2000 | 28.3 | C |\n| Nexus-3 | 4000 | 80.0 | C |",
+      "pregunta": "¿Qué conclusión científica pueden extraer los analistas al comparar los valores de la relación $T^2 / r^3$ para los tres satélites en base a los datos recolectados?",
+      "opciones": [
+        "A) La relación cambia caóticamente, lo que indica que la gravedad en ese sector del espacio no sigue leyes físicas constantes.",
+        "B) La relación T²/r³ es constante para todos los satélites, lo que demuestra que orbitan alrededor del mismo cuerpo central masivo.",
+        "C) Los satélites con mayor masa presentan un valor de relación T²/r³ sustancialmente más bajo debido a su inercia mecánica.",
+        "D) La tercera ley de Kepler es inaplicable en este exoplaneta dado que el periodo aumenta linealmente con el radio de órbita."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. La física es universal; los datos muestran un comportamiento consistente y predecible bajo leyes de gravitación estándar.",
+        "1": "Correcto. De acuerdo con la formulación de Kepler y Newton, el valor T²/r³ es igual a la constante (4π²)/(G·M), la cual solo depende de la masa del cuerpo central (M). Al orbitar todos el mismo planeta, el valor numérico de la relación se mantiene idéntico para todos.",
+        "2": "Incorrecto. La relación T²/r³ no se ve modificada por la masa propia del satélite en órbita, ya que esta se simplifica en el desarrollo físico del movimiento.",
+        "3": "Incorrecto. Si analizamos los datos, observamos que al aumentar el radio el periodo aumenta de manera no lineal (2^1.5 ≈ 2.83, 4^1.5 = 8), lo cual concuerda con la ley de las potencias de Kepler."
+      }
+    }
+  ]
+}
