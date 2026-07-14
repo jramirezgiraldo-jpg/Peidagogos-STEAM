@@ -1,187 +1,102 @@
 {
   "saberes_previos": [
     {
-      "pregunta": "¿Cuáles son los tres departamentos principales que conforman tradicionalmente el núcleo del Eje Cafetero colombiano?",
+      "pregunta": "Antes del Colapso Global, ¿cuáles eran los tres departamentos principales que conformaban el núcleo del Eje Cafetero en Colombia?",
       "opciones": [
+        "Antioquia, Santander y Boyacá",
         "Caldas, Quindío y Risaralda",
-        "Antioquia, Valle del Cauca y Tolima",
-        "Cundinamarca, Boyacá y Santander",
-        "Huila, Nariño y Cauca"
+        "Valle del Cauca, Tolima y Huila",
+        "Cundinamarca, Meta y Casanare"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "En un entorno de supervivencia, ¿por qué es crucial identificar los límites geográficos y el relieve montañoso de una región de alta montaña como el Eje Cafetero?",
+      "opciones": [
+        "Para establecer rutas de escape seguras, localizar fuentes hídricas limpias y predecir microclimas aptos para el refugio.",
+        "Para construir rascacielos blindados que soporten las tormentas de ceniza volcánica.",
+        "Para pavimentar autopistas rápidas que conecten con las ruinas costeras.",
+        "Para buscar depósitos subterráneos de petróleo refinado sin usar herramientas especializadas."
       ],
       "correcta": 0
     },
     {
-      "pregunta": "¿Qué reconocimiento internacional otorgó la UNESCO al Eje Cafetero en el año 2011 debido a su fusión entre naturaleza y cultura?",
+      "pregunta": "El Paisaje Cultural Cafetero (PCC) fue declarado Patrimonio de la Humanidad. ¿Qué aspecto de esta herencia crees que sigue siendo vital para la reconstrucción social post-apocalíptica?",
       "opciones": [
-        "Reserva Biológica de la Humanidad",
-        "Patrimonio Histórico Militar",
-        "Paisaje Cultural Cafetero (PCC)",
-        "Maravilla Natural del Nuevo Mundo"
+        "La producción masiva de tecnología de comunicación satelital de alta frecuencia.",
+        "La arquitectura tradicional sismorresistente en bahareque y guadua, ideal para refugios sostenibles.",
+        "El uso de pesticidas industriales para revivir la flora nativa arrasada.",
+        "La importación de semillas exóticas modificadas genéticamente en laboratorios de alta mar."
       ],
-      "correcta": 2
-    },
-    {
-      "pregunta": "¿Cuál es el árbol nacional de Colombia, característico del Valle de Cocora en el Quindío, que destaca por su asombrosa altura?",
-      "opciones": [
-        "El Samán del Cauca",
-        "La Palma de Cera del Quindío",
-        "El Guayacán Amarillo",
-        "El Helecho Arborescente"
-      ],
-      "correcta": 2
+      "correcta": 1
     }
   ],
-  "texto_inductivo": "¡Atención, reclutas del Nuevo Mundo! Les habla el Detective de Misterios Ambientales. Ajusten sus máscaras de filtración de ceniza, aseguren sus cantimploras y enciendan sus linternas dinamo. Nos encontramos en los límites de la Zona de Exclusión Central, en la antigua Colombia, un territorio que los antiguos mapas llamaban **El Eje Cafetero**. Tras el Gran Colapso del siglo XXI, la mayor parte del continente quedó reducida a páramos estériles y desiertos de silicio. Sin embargo, nuestros radares térmicos y biológicos han detectado una anomalía inexplicable: una franja de tierra montañosa que no solo ha resistido la desertificación, sino que vibra con un color verde esmeralda tan intenso que desafía las leyes de la física post-apocalíptica. \n\nNuestra misión como detectives turísticos de supervivencia es resolver este enigma: **¿Por qué esta región específica sobrevivió al cataclismo ecológico y cómo podemos convertir sus ruinas seguras en el primer santuario de turismo de memoria y resiliencia para los clanes de supervivientes?**\n\nAl adentrarnos en el territorio de lo que antes eran los departamentos de **Caldas, Quindío y Risaralda**, descubrimos fenómenos extraños que debemos registrar en nuestros diarios de campo. En primer lugar, la tierra posee un brillo cobrizo. Al tomar muestras de suelo en las ruinas de Manizales (Caldas), descubrimos que la ceniza del volcán Nevado del Ruiz, lejos de envenenar el suelo, actuó como un escudo mineral que neutralizó la radiación del Colapso. En segundo lugar, al descender hacia el valle de Risaralda, cerca de la antigua Pereira, observamos que el agua del río Otún fluye con una pureza cristalina aberrante, protegida por una red simbiótica de plantas trepadoras que filtran de forma natural cualquier metal pesado. Por último, en el Quindío, los gigantescos esqueletos verdes de la Palma de Cera se elevan como pararrayos biológicos, canalizando la energía estática de las tormentas ácidas directamente al subsuelo, energizando las raíces de las plantas de café mutantes, cuyos frutos ahora brillan con una bioluminiscencia rojiza.\n\nLos pocos nómadas que habitan la periferia hablan de una 'fuerza ancestral' que emana de las laderas terrazadas. No es magia, reclutas; es el legado del **Paisaje Cultural Cafetero (PCC)**. La forma en que los antiguos arrieros moldearon la montaña, sembrando árboles de sombrío y construyendo casas de bahareque y guadua (que absorben las ondas sísmicas como resortes naturales), creó una red de microclimas autorregulados. Los cafetales tradicionales no eran simples plantaciones monoculturales, sino ecosistemas hipercomplejos de alta montaña que crearon una 'burbuja de estabilidad ecológica'. Como detectives, nuestro objetivo es descifrar este mapa de tres nodos (Manizales, Armenia y Pereira) para trazar una ruta de expedición segura. Debemos diseñar un portafolio de 'Turismo de Salvación' que enseñe a los clanes del desierto cómo la interacción inteligente entre el ser humano y la accidentada geografía andina puede salvar a la especie humana de la extinción total. ¡Preparen sus cuadernos de notas, el misterio de la resistencia verde del café aguarda!",
-  "recurso_visual": "graph TD\n    A[Eje Cafetero: Burbuja de Resistencia] --> B(Caldas: Escudo Volcánico)\n    A --> C(Risaralda: Filtro Hídrico Otún)\n    A --> D(Quindío: Pararrayos de Palma de Cera)\n    B --> B1[Termalismo y Energía Geotérmica]\n    C --> C1[Corredor de Biodiversidad y Aves]\n    D --> D1[Arquitectura Resiliente en Guadua]\n    B1 & C1 & D1 --> E[Ruta Turística de Supervivencia - PCC]",
+  "texto_inductivo": "# Cuaderno de Notas del Detective de Misterios: El enigma de las montañas doradas\n\nSaludos, aspirantes a Guías de Exploración y Supervivencia. Soy el Detective de Misterios Ambientales. En este mundo devastado por el Gran Colapso del año 2140, donde las brumas ácidas y las mutaciones del terreno son el pan de cada día, el turismo ya no es un viaje de placer; es una expedición de reconocimiento, rescate y valorización de lo que nos queda. Hoy nos adentraremos en una de las regiones más enigmáticas y biodiversas que resisten a la degradación global: la ecorregión del Eje Cafetero de Colombia. [JUEGO:ORDENAR_LETRAS:MISTERIO] Nuestras brújulas apuntan a un misterio sin resolver en los antiguos territorios de Caldas, Quindío y Risaralda. Las antiguas bitácoras hablan de un 'Paisaje Cultural Cafetero' que alguna vez alimentó el espíritu de millones con un grano mágico. [JUEGO:ORDENAR_FRASE:EL EJE CAFETERO RESISTE] \n\nHace tres días recibí un informe inquietante de una patrulla de exploradores en el Valle de Cocora, Quindío. Reportan que las icónicas palmas de cera, que antes median hasta 60 metros, ahora emiten una extraña fluorescencia azulada durante las noches de luna llena, y que los ríos de Risaralda han tomado un tinte cobrizo que desconcierta a los asentamientos locales. [JUEGO:SOPA_LETRAS:CALDAS,RISARALDA,QUINDIO] Como detectives de la geografía, nuestro primer deber es mapear las zonas afectadas. Caldas, al norte, con su imponente y siempre vigilante Nevado del Ruiz, parece ser el origen de las cenizas cargadas de extraños minerales cargados de energía. [JUEGO:CRUCIGRAMA:Capital de Quindio|ARMENIA;Planta sagrada|CAFETO] Necesitamos analizar si estos fenómenos son una amenaza bioquímica o un nuevo atractivo ecoturístico de supervivencia que puede atraer a las comunidades nómadas en busca de energía limpia.\n\nPara resolver este misterio, debemos descender desde las gélidas alturas caldenses de Manizales, cruzar las verdes y ahora mutadas colinas de Pereira en Risaralda, hasta llegar a los profundos valles de Armenia en el Quindío. [JUEGO:ORDENAR_LETRAS:CALDAS] Cada uno de estos departamentos posee una geografía particular que afecta el comportamiento de las anomalías climáticas. [JUEGO:ORDENAR_FRASE:VALLE DE COCORA] Por ejemplo, la densa nubosidad de Risaralda parece retener las partículas fluorescentes en el aire, creando espectáculos visuales nocturnos que los colonos llaman 'Auroras de Montaña'. [JUEGO:SOPA_LETRAS:ARMENIA,MANIZALES,PEREIRA] ¿Es este aire respirable? ¿Podemos convertir estas zonas de avistamiento en un santuario de turismo seguro para los clanes de la Red de Supervivientes? [JUEGO:CRUCIGRAMA:Departamento de Manizales|CALDAS;Arbol nacional|PALMA]\n\nEl análisis de suelo que realizamos cerca de los antiguos cafetales revela que el café, esa planta noble que definió la identidad de Colombia, ha desarrollado una simbiosis única con los hongos locales para sobrevivir a la lluvia ácida. [JUEGO:ORDENAR_LETRAS:CAFE] El cafeto ya no produce el tradicional grano rojo en todas partes, sino una semilla dura de color ámbar que puede purificar el agua contaminada si se filtra adecuadamente. [JUEGO:ORDENAR_FRASE:EL AGUA ES VIDA] Este hallazgo cambia por completo las reglas de nuestro inventario turístico. [JUEGO:SOPA_LETRAS:COCORA,NEVADO,RUINS] Quien controle las rutas de senderismo y recolección de este 'grano de agua limpia' controlará el comercio de la ecorregión. Debemos trazar senderos de interpretación ambiental para guiar a los visitantes de manera segura a través de los escarpados cañones risaraldenses, evitando las trampas de gas de los antiguos termales del Ruiz. [JUEGO:CRUCIGRAMA:Capital de Risaralda|PEREIRA;Clima frio|PARAMO]\n\nMirad a vuestro alrededor, cadetes. Lo que antes era un destino de hoteles boutique y parques temáticos de diversión, ahora es un aula viva de resiliencia ecológica. [JUEGO:ORDENAR_LETRAS:QUINDIO] Para diseñar una experiencia turística viable, primero debemos comprender cómo la población local se adaptó al entorno montañoso utilizando la arquitectura de bahareque. Esta técnica milenaria ha demostrado resistir las ondas sísmicas de los volcanes activos mucho mejor que el concreto pre-apocalíptico. [JUEGO:ORDENAR_FRASE:BUSCANDO LA VERDAD] Las antiguas haciendas cafeteras se han transformado en fortalezas comunitarias autosuficientes que captan agua de niebla y cultivan hortalizas en terrazas verticales. [JUEGO:SOPA_LETRAS:CAFETO,DETECTIVE,NIEBLA] Al guiar a un grupo por este territorio, no solo les mostramos paisajes; les enseñamos lecciones de ingeniería ancestral para la vida. [JUEGO:CRUCIGRAMA:Investiga misterios|DETECTIVE;Guia de rutas|MAPA]\n\nFinalmente, el misterio de las montañas doradas nos lleva a formular hipótesis. El brillo cobrizo del río Otún en Risaralda no es veneno, sino una biomasa de algas termófilas que proliferan por el cambio de temperatura del subsuelo. [JUEGO:ORDENAR_LETRAS:TURISMO] Estas algas, al interactuar con las cenizas del Ruiz, actúan como un abono natural de alta potencia. [JUEGO:ORDENAR_FRASE:PAISAJE CULTURAL CAFETERO] El Paisaje Cultural Cafetero no ha muerto; ha mutado en una versión bio-luminiscente y fértil que debemos proteger y mostrar al mundo como el milagro del siglo XXII. [JUEGO:SOPA_LETRAS:TURISTA,MAPA,BRUJULA] Preparemos nuestros trajes de protección ligera, encendamos los analizadores de espectro y adentrémonos en los bosques de niebla para resolver el caso de la Bruma de Oro. [JUEGO:CRUCIGRAMA:Peligro quimico|TOXINA;Niebla densa|BRUMA]",
+  "recurso_visual": "graph TD\n    A[Eje Cafetero Post-Apocalíptico] --> B[Caldas: El Núcleo Volcánico]\n    A --> C[Risaralda: El Corredor Hídrico]\n    A --> D[Quindío: El Santuario Biológico]\n    \n    B --> B1[Capital: Manizales]\n    B --> B2[Fenómeno: Cenizas energéticas del Ruiz]\n    B --> B3[Uso Turístico: Termales y energía geotérmica]\n    \n    C --> C1[Capital: Pereira]\n    C --> C2[Fenómeno: Ríos cobrizos y algas termófilas]\n    C --> C3[Uso Turístico: Senderismo de purificación hídrica]\n    \n    D --> D1[Capital: Armenia]\n    D --> D2[Fenómeno: Palmas de cera fluorescentes]\n    D --> D3[Uso Turístico: Avistamiento nocturno de bioluminiscencia]",
   "preguntas_inductivas_pagina": [
-    "¿Cuál es el misterio principal que el Detective de Misterios invita a resolver en el Eje Cafetero?",
-    "Según el texto, ¿qué papel jugó la ceniza del Nevado del Ruiz en el departamento de Caldas?",
-    "¿Qué fenómeno extraño presentan los frutos del café mutante en el departamento del Quindío?",
-    "¿Cómo protegieron las construcciones tradicionales de bahareque y guadua el ecosistema durante el colapso?",
-    "¿Cuáles son los tres nodos o departamentos que el detective propone conectar en la ruta de expedición?"
+    "¿Qué fenómeno inusual reportaron las patrullas en las palmas de cera del Valle de Cocora?",
+    "¿Cuáles son los tres departamentos que el Detective menciona como el núcleo de la investigación?",
+    "¿Cómo ha mutado el grano de café tras el Gran Colapso y qué propiedad vital posee ahora?",
+    "¿Por qué la arquitectura tradicional en bahareque resulta superior en este escenario post-apocalíptico?",
+    "¿Cuál es la verdadera causa del color cobrizo en los ríos de Risaralda según el Detective?"
   ],
   "preguntas_inductivas_cuaderno": [
-    "Dibuja un esquema de la ruta de supervivencia que conecte a Caldas, Quindío y Risaralda, señalando el 'escudo protector' o fenómeno de cada uno.",
-    "Realiza un cuadro comparativo entre los tres departamentos del Eje Cafetero mencionados en la historia, detallando sus recursos naturales sobrevivientes y su potencial de uso turístico.",
-    "Escribe una carta reflexiva de un sobreviviente que visita el Valle de Cocora por primera vez después del apocalipsis, explicando por qué ver las Palmas de Cera de pie le devuelve la esperanza en el futuro del planeta.",
-    "Representa gráficamente, mediante un dibujo a color, la interacción de la Palma de Cera del Quindío actuando como un pararrayos biológico protector del suelo fértil."
+    "Dibuja un mapa de la ecorregión del Eje Cafetero (Caldas, Quindío, Risaralda), ubicando sus capitales y señalando con íconos de advertencia o interés las zonas donde se presentan los fenómenos descritos (cenizas, palmas brillantes y ríos cobrizos).",
+    "Realiza un cuadro comparativo de doble entrada donde analices las características pre-apocalípticas y las adaptaciones post-apocalípticas de los tres recursos clave del Eje Cafetero: las palmas de cera, los cultivos de café y la arquitectura de las haciendas.",
+    "Escribe un informe de detective de tres párrafos donde argumentes cómo el fenómeno de la bioluminiscencia en el Valle de Cocora puede convertirse en un atractivo turístico de bajo impacto sin perturbar el ecosistema mutante de la región.",
+    "Representa gráficamente (mediante un dibujo técnico detallado) un 'Refugio Turístico de Supervivencia' construido enteramente en guadua y bahareque, que incorpore un sistema artesanal de filtrado de agua usando el nuevo grano de café ámbar."
   ],
-  "juegos_ordenar_letras_1": [
-    "SADLAC",
-    "IODIUNQ",
-    "ADAARSRLI"
-  ],
-  "juego_ordenar_frase_1": "EL PAISAJE CULTURAL CAFETERO ES UN ESCUDO DE VIDA EN EL APOCALIPSIS",
-  "texto_deductivo": "Habiendo recolectado las pistas iniciales en el campo de exploración, es momento de que encendamos las computadoras de análisis de la Agencia de Detectives Turísticos para sistematizar el conocimiento científico y geográfico de la región. El **Eje Cafetero** no es solo una leyenda de supervivencia; es una realidad geográfica y sociocultural delimitada en el centro-occidente de Colombia, sobre la cordillera Central de los Andes. Tradicionalmente, está constituido por los departamentos de **Caldas** (capital Manizales), **Risaralda** (capital Pereira) y **Quindío** (capital Armenia). Este territorio posee características geológicas, climáticas y altitudinales únicas que explican científicamente el 'fenómeno extraño' de su resiliencia ecológica y su incalculable valor para el turismo del nuevo mundo.\n\nEl secreto científico de esta fertilidad y resistencia radica en su suelo de origen volcánico. Los volcanes de la cordillera, especialmente el Nevado del Ruiz, el Nevado de Santa Isabel y el Nevado del Tolima, han depositado capas ricas en minerales como fósforo, potasio y nitrógeno durante millones de años. Estos suelos, clasificados como *Andisoles*, actúan como esponjas químicas: retienen grandes cantidades de agua y nutrientes, impidiendo la erosión incluso en laderas con inclinaciones de más de 45 grados. Cuando el colapso climático global alteró el ciclo del agua, estos suelos andisolados mantuvieron la humedad profunda, permitiendo que la vegetación del bosque andino y los cafetales de sombrío sobrevivieran a las sequías extremas.\n\nDesde la perspectiva del turismo de conservación y el emprendimiento territorial, el **Paisaje Cultural Cafetero (PCC)** representa un modelo de desarrollo sostenible replicable. El PCC, reconocido por la UNESCO, consta de seis zonas paisajísticas y dieciocho centros urbanos repartidos entre Caldas, Risaralda, Quindío y el norte del Valle del Cauca. Su valor excepcional radica en la armonía de cuatro elementos clave que debemos estructurar como productos turísticos:\n1. **El esfuerzo humano:** Agricultores que adaptaron el cultivo del café a condiciones extremas de ladera andina, sin recurrir a la mecanización destructiva.\n2. **La cultura cafetera:** Fiestas, vestimenta típica (ruana, carriel, sombrero), leyendas y la gastronomía que configuran la identidad comunitaria.\n3. **La arquitectura de colonización:** Casas pintorescas de techos altos, amplios aleros y estructuras flexibles de madera y guadua, adaptadas a la alta sismicidad de la zona.\n4. **La biodiversidad integrada:** Cafetales asociados con árboles frutales y bosques nativos que sirven de refugio a miles de especies de aves y mariposas.\n\nPara diseñar empresas de turismo viables en este escenario post-apocalíptico, los estudiantes de turismo deben aprender a valorizar estos activos. Un emprendimiento de guianza interpretativa en el Santuario de Flora y Fauna Otún Quimbaya (Risaralda) o una estación ecoturística de aguas termales curativas en Caldas no son solo atracciones de ocio; son laboratorios vivos de educación ambiental. Al explicar científicamente a los visitantes cómo el ecosistema de páramo y el bosque de niebla capturan el agua de la atmósfera para alimentar los valles, el detective-guía transforma la recreación en un acto de preservación biológica y empoderamiento cultural para las nuevas generaciones de seres humanos.",
+  "texto_deductivo": "# Manual de Operaciones de Ecoturismo de Supervivencia: Geografía y Patrimonio del PCC\n\nPara operar con éxito en las rutas del Eje Cafetero, un Guía-Detective debe dominar los conceptos teóricos fundamentales de la geografía física y el patrimonio cultural. El Paisaje Cultural Cafetero (PCC) no es solo una delimitación espacial, es un sistema adaptativo donde el ser humano transformó la abrupta cordillera de los Andes para cultivar sustento. [JUEGO:ORDENAR_LETRAS:CULTURA] En la actualidad, este patrimonio se clasifica bajo criterios de sostenibilidad extrema, donde la comprensión de los pisos térmicos y la geología local determina la supervivencia de cualquier expedición. [JUEGO:ORDENAR_FRASE:TURISMO DE SUPERVIVENCIA] El relieve accidentado de Caldas, Risaralda y Quindío genera microclimas que van desde las tierras cálidas de los cañones de los ríos Cauca y Magdalena, hasta las nieves perpetuas (ahora grises) de la Sierra Nevada de los Nevados. [JUEGO:SOPA_LETRAS:SOSTENIBLE,PATRIMONIO,HISTORIA]\n\nAnalicemos el fenómeno de la adaptabilidad cultural. El PCC es un ejemplo excepcional de un paisaje cultural sustentable e integrado. [JUEGO:CRUCIGRAMA:Siglas del Paisaje Cultural Cafetero|PCC;Fruto rojo|CEREZA] La herencia de la colonización antioqueña configuró un modelo de ocupación del territorio caracterizado por pequeñas propiedades agrícolas donde el esfuerzo familiar superó las pendientes más difíciles. [JUEGO:ORDENAR_LETRAS:PAISAJE] En nuestro contexto de reconstrucción, este modelo de minifundio es la base para el diseño de 'Rutas de Coexistencia'. [JUEGO:ORDENAR_FRASE:PRESERVAR LA MEMORIA] Los turistas de supervivencia aprenden cómo el manejo del suelo y la preservación de los bosques de niebla regulan el ciclo del agua, vital para evitar que los ríos mutados se tornen tóxicos. [JUEGO:SOPA_LETRAS:ECOLOGIA,CULTIVO,MONTAÑA] La geografía del Quindío, con su relieve más suave pero altamente susceptible a deslizamientos inducidos por lluvias ácidas, requiere un turismo de senderos controlados con anclajes biológicos de raíces de palma. [JUEGO:CRUCIGRAMA:Accion de cuidar|PRESERVAR;Lugar de hospedaje|POSADA]\n\nEl segundo pilar teórico de nuestra disciplina es la 'Capacidad de Carga Ecológica en Tiempos de Crisis'. [JUEGO:ORDENAR_LETRAS:PARQUE] No podemos llevar hordas de viajeros a los santuarios biológicos sin alterar las delicadas mutaciones que mantienen con vida el suelo. [JUEGO:ORDENAR_FRASE:LA RUTA DE LA COSECHA] El turismo científico de exploración debe estar limitado a un número específico de personas por día en cada ruta caldense. [JUEGO:SOPA_LETRAS:GEOGRAFIA,CATASTROFE,PCC] Los guías deben dominar la lectura de instrumentos como barómetros analógicos y contadores de partículas para desviar las rutas de senderismo si el viento del Ruiz sopla ceniza altamente ionizada hacia el sur. [JUEGO:CRUCIGRAMA:Viaje de exploracion|RUTA;Estudio del relieve|GEOGRAFIA] La cartografía de Risaralda muestra que sus valles fluviales son corredores de viento natural; conocer estos flujos permite a los guías diseñar refugios nocturnos libres de gases nocivos.\n\nPor último, la valorización de la identidad cultural es nuestra principal herramienta de marketing de supervivencia. [JUEGO:ORDENAR_LETRAS:HERENCIA] Las comunidades de Caldas y Quindío que han preservado el saber de la herbolaria tradicional y la música andina ofrecen el mayor valor agregado en la experiencia de viaje. [JUEGO:ORDENAR_FRASE:MONTANAS DE COLOMBIA] El viajero del mañana no busca lujo material; busca reconectarse con la resiliencia humana, aprender cantos de siembra y comprender la mística de la montaña. [JUEGO:SOPA_LETRAS:BIODIVERSIDAD,TERRITORIO,GUIA] El patrimonio inmaterial es el verdadero combustible que enciende el deseo de preservar este rincón del planeta. [JUEGO:CRUCIGRAMA:Riesgo inminente|PELIGRO;Grupo humano|TRIBU]\n\nComo detectives turísticos, nuestra misión es documentar cada especie vegetal adaptada, cada técnica constructiva que resista y cada relato oral de las ruinas. [JUEGO:ORDENAR_LETRAS:RESERVA] Al estructurar guías de viaje basadas en la ciencia del paisaje, transformamos el miedo a lo desconocido en asombro educativo. [JUEGO:ORDENAR_FRASE:EL PATRIMONIO DE LA HUMANIDAD] El Eje Cafetero es la llave para la restauración ecológica y cultural de nuestra nación; mantengamos las rutas abiertas, los ojos alerta y los cuadernos de notas listos para la acción. [JUEGO:SOPA_LETRAS:RECURSO,IDENTIDAD,COMUNIDAD] El próximo caso nos espera más allá del cañón del río Barbas, donde se dice que los monos aulladores han aprendido a predecir las erupciones solares con un canto de frecuencia baja. [JUEGO:CRUCIGRAMA:Habilidad de resistir|SUPERVIVENCIA;Tierra de cultivo|FINCA]",
   "preguntas_deductivas_pagina": [
-    "¿Cuáles son las capitales de los departamentos de Caldas, Risaralda y Quindío, respectivamente?",
-    "¿Qué tipo de suelo volcánico, rico en minerales y con alta capacidad de retención de agua, explica la fertilidad del Eje Cafetero?",
-    "Mencione los cuatro elementos clave que otorgan valor excepcional al Paisaje Cultural Cafetero (PCC) según la UNESCO.",
-    "¿Cómo ayuda la arquitectura tradicional de guadua y madera a mitigar los riesgos naturales de la región?",
-    "¿Qué papel cumple el turismo de guianza interpretativa en un área protegida como el Santuario Otún Quimbaya en el contexto de reconstrucción?"
+    "¿Qué es el Paisaje Cultural Cafetero (PCC) según los lineamientos de preservación adaptados al colapso?",
+    "¿Cómo influye el relieve accidentado de Caldas en la formación de microclimas y la planificación de rutas turísticas?",
+    "¿Por qué el modelo de minifundio de la colonización antioqueña es útil para las 'Rutas de Coexistencia' hoy en día?",
+    "¿Qué variables ambientales deben medir los guías de turismo científico usando instrumentos analógicos?",
+    "¿Qué papel juega el patrimonio cultural inmaterial (cantos, herbolaria, relatos) en la oferta turística de supervivencia?"
   ],
   "preguntas_deductivas_cuaderno": [
-    "Elabora un diagrama de flujo detallado que explique el ciclo del agua en el Eje Cafetero, mostrando la interacción entre el páramo, los volcanes, el suelo andisol y los cafetales de sombrío.",
-    "Crea un mapa mental sobre el Paisaje Cultural Cafetero (PCC), dividiéndolo en cuatro ramas principales: Esfuerzo Humano, Arquitectura, Biodiversidad y Cultura Cafetera, agregando subramas detalladas para cada una.",
-    "Realiza un dibujo explicativo a escala de un corte transversal de una montaña cafetera, mostrando la diferencia entre un cultivo de ladera sostenible con árboles de sombrío frente a una ladera erosionada sin protección vegetal.",
-    "Diseña una infografía artesanal en una página completa donde propongas un 'Plan de Emprendimiento Ecoturístico Post-Apocalíptico' enfocado en el avistamiento de aves en Risaralda o el termalismo científico en Caldas."
-  ],
-  "juegos_ordenar_letras_2": [
-    "NDSAIOLES",
-    "UADGUA",
-    "OIERARR"
-  ],
-  "juego_ordenar_frase_2": "LOS SUELOS VOLCANICOS Y LA GUADUA CONSTRUYEN EL FUTURO DE NUESTRA TIERRA",
-  "sopa_letras": [
-    "COCORA",
-    "NEVADO",
-    "CAFETO",
-    "ARRIERO",
-    "GUADUA",
-    "MANIZALES",
-    "PEREIRA",
-    "ARMENIA",
-    "COLOMBIA",
-    "TURISMO"
-  ],
-  "crucigrama": [
-    {
-      "palabra": "NEVADO",
-      "pista": "Estructura volcánica que provee cenizas ricas en minerales al suelo de Caldas."
-    },
-    {
-      "palabra": "VALLE",
-      "pista": "Depresión geográfica como la del Cocora donde crecen las palmas gigantes."
-    },
-    {
-      "palabra": "ANDISOLES",
-      "pista": "Suelos negros de origen volcánico con increíble capacidad de retención hídrica."
-    },
-    {
-      "palabra": "GUADUA",
-      "pista": "Planta gramínea gigante conocida como el acero vegetal, usada en la arquitectura resiliente."
-    },
-    {
-      "palabra": "ARRIERO",
-      "pista": "Personaje histórico que transportaba café a lomo de mula por las empinadas laderas."
-    },
-    {
-      "palabra": "BIODIVERSIDAD",
-      "pista": "Variedad de vida animal y vegetal que se refugia en los cafetales de sombrío."
-    },
-    {
-      "palabra": "SANTUARIO",
-      "pista": "Área protegida como el Otún Quimbaya, clave para el avistamiento de fauna silvestre."
-    },
-    {
-      "palabra": "TERMALES",
-      "pista": "Fuentes de agua caliente de origen volcánico cotizadas para el turismo de bienestar en Caldas."
-    },
-    {
-      "palabra": "SOMBRIO",
-      "pista": "Técnica de cultivo donde se siembran árboles altos para proteger los arbustos de café del sol directo."
-    },
-    {
-      "palabra": "RESILIENCIA",
-      "pista": "Capacidad del ecosistema del PCC para resistir perturbaciones y mantener sus funciones ecológicas."
-    }
+    "Diseña un diagrama de flujo de seguridad que muestre paso a paso el protocolo que debe seguir un guía turístico si el contador de partículas detecta ceniza ionizada proveniente del Nevado del Ruiz durante un recorrido por Caldas.",
+    "Elabora un mapa mental detallado sobre el Paisaje Cultural Cafetero (PCC) post-apocalíptico, dividiéndolo en cuatro ramas principales: Geografía y Alivio, Patrimonio Material, Patrimonio Inmaterial e Innovación de Supervivencia.",
+    "Realiza un dibujo a color explicativo que ilustre el fenómeno de la simbiosis de la planta de café con hongos locales, mostrando de forma técnica cómo se realiza la filtración del agua contaminada a través de las semillas de ámbar en un filtro de campamento.",
+    "Crea una infografía artesanal en una página de tu cuaderno que promocione la 'Ruta de la Bruma de Oro' en Risaralda. Debe incluir un eslogan llamativo, mapa de accesos, tres paradas de interés ecoturístico, equipo de supervivencia necesario y recomendaciones de seguridad."
   ],
   "icfes": [
     {
       "competencia": "Explicación de Fenómenos",
-      "texto_introductorio": "Durante una expedición científica en el norte del Quindío, los estudiantes del clan de exploradores observan que a pesar del aumento extremo en la radiación solar y las sequías estacionales prolongadas del desierto circundante, los suelos cultivados con café bajo árboles de nogal y guamo conservan una humedad del 65% y una rica microbiota activa, en comparación con los suelos deforestados donde la humedad es menor al 10%.",
-      "tabla_o_grafica_markdown": "| Tipo de Cobertura de Suelo | Temperatura del Suelo (°C) | Humedad del Suelo (%) | Diversidad de Microorganismos (UFC/g) |\n|---|---|---|---|\n| Suelo de Cafetal con Sombrío | 22 | 65 | 8.5 x 10^6 |\n| Suelo Monocultivo a Libre Exposición | 38 | 24 | 1.2 x 10^4 |\n| Suelo Deforestado y Erosionado | 48 | 8 | 0.03 x 10^2 |",
-      "pregunta": "¿Cuál de las siguientes afirmaciones explica científicamente el fenómeno de resistencia hídrica del suelo de cafetal con sombrío en condiciones post-apocalípticas?",
+      "texto_introductorio": "En el año 2140, durante las expediciones turísticas de exploración en el Valle de Cocora (Quindío), los investigadores documentaron un cambio en las palmas de cera (Ceroxylon quindiuense). Los árboles, que habitualmente prosperaban en bosques de niebla entre los 2000 y 3000 metros sobre el nivel del mar, ahora exhiben una bioluminiscencia azul brillante en sus troncos durante la noche. Los análisis de laboratorio arrojaron los siguientes datos sobre la composición del suelo y la atmósfera en la zona de avistamiento:",
+      "tabla_o_grafica_markdown": "| Parámetro Analizado | Valor Promedio Pre-Colapso | Valor Promedio Actual (Año 2140) | Impacto Observado en el Ecosistema |\n| :--- | :--- | :--- | :--- |\n| Concentración de Fósforo en Suelo | 12 ppm | 145 ppm (Anomalía Volcánica) | Estimulación de microorganismos simbióticos |\n| Humedad Relativa del Aire | 85% | 98% (Neblina Ácida Constante) | Disolución de ceras protectoras de la corteza |\n| Presencia de la bacteria *Pseudomonas fluorescens* | Traza (mínima) | Alta densidad en la superficie del tronco | Reacción química con el exceso de fósforo absorbed |\n| Radiación UV Nocturna reflejada | Baja | Alta por ionización de la estratosfera | Activación de pigmentos fotoreactivos |",
+      "pregunta": "Con base en la información de la tabla y los principios biológicos de la interacción organismo-entorno, ¿cuál de las siguientes opciones explica científicamente el extraño fenómeno de la bioluminiscencia en las palmas de cera, permitiendo a un guía turístico fundamentar su charla científica?",
       "opciones": [
-        "El sombrío arbóreo genera un dosel que reduce la radiación solar directa, disminuye la evaporación y favorece la retención de agua por la materia orgánica en descomposición aportada por las hojas caídas.",
-        "Los cafetales a la sombra evaporan el agua más rápido para enfriar el aire exterior, lo que atrae lluvias localizadas artificiales mediante campos magnéticos.",
-        "Los árboles de sombrío absorben toda el agua de las capas freáticas profundas e inundan la superficie por capilaridad inversa para proteger sus raíces secundarias.",
-        "Los granos de café mutantes tienen propiedades químicas que congelan el agua del suelo, impidiendo que el sol la evapore durante el día."
+        "Las palmas de cera absorben grandes cantidades de fósforo volcánico del suelo, el cual interactúa simbióticamente con la bacteria colonizadora *Pseudomonas fluorescens* en la corteza húmeda, produciendo una reacción de quimioluminiscencia activada por la alta radiación ambiental.",
+        "La radiación UV nocturna quema las capas exteriores del tronco de la palma, provocando que la savia interna de color azul se derrame y brille al entrar en contacto con el oxígeno del aire altamente contaminado por las lluvias ácidas.",
+        "Las palmas de cera mutaron artificialmente debido a la tecnología dejada por las antiguas cadenas hoteleras del siglo XXI para atraer turistas adinerados durante las noches de tormentas eléctricas.",
+        "El aumento de la humedad relativa al 98% satura los estomas del árbol, forzando a la palma a emitir energía lumínica en el espectro azul como un mecanismo de transpiración alternativa para eliminar el exceso de agua dulce."
       ],
       "correcta": 0,
       "retroalimentacion": {
-        "0": "Correcto. El dosel de los árboles de sombrío actúa como una barrera térmica que reduce la evaporación del agua del suelo, mientras que la hojarasca que cae mejora la estructura orgánica del suelo andisol, permitiendo almacenar agua como una esponja.",
-        "1": "Incorrecto. La evaporación rápida deshidrataría el sistema, y el café no tiene mecanismos de inducción de campos magnéticos para generar lluvia.",
-        "2": "Incorrecto. Los árboles de sombrío no realizan capilaridad inversa de forma que inunden la superficie; al contrario, compiten moderadamente y regulan la transpiración.",
-        "3": "Incorrecto. Es físicamente imposible que los granos de café congelen el agua del suelo bajo temperaturas altas de 22°C."
+        "0": "Correcto. Esta opción integra adecuadamente los datos de la tabla (alto fósforo por actividad volcánica, alta presencia de bacterias simbióticas del género Pseudomonas que son conocidas por su capacidad de fluorescencia, y el factor activador de la radiación), ofreciendo una explicación biológica y ecológica coherente con el fenómeno observado.",
+        "1": "Incorrecto. La savia de las palmas no es azul ni emite luz por el simple contacto con el oxígeno; la explicación carece de sustento en la fisiología vegetal y en los datos químicos presentados.",
+        "2": "Incorrecto. Es una explicación de tipo conspirativo o de ciencia ficción que ignora los datos científicos del suelo, la atmósfera y la simbiosis bacteriana presentados en el registro del Detective.",
+        "3": "Incorrecto. La transpiración de las plantas se realiza mediante vapor de agua y procesos físicos de presión osmótica, no mediante la emisión de luz visible o fotones de energía azul."
       }
     },
     {
-      "competencia": "Uso Comprensivo del Conocimiento Científico y Social",
-      "texto_introductorio": "El Paisaje Cultural Cafetero de Colombia fue declarado Patrimonio de la Humanidad por la UNESCO debido a que representa un ejemplo sobresaliente de adaptación humana a condiciones geográficas difíciles. Un grupo de supervivientes desea reconstruir un asentamiento turístico en las laderas empinadas de Caldas empleando la arquitectura tradicional de Bahareque en Guadua, en lugar de utilizar estructuras rígidas de concreto recuperadas de las ruinas costeras.",
-      "tabla_o_grafica_markdown": "| Tipo de Material | Resistencia Mecánica | Flexibilidad y Elasticidad | Costo de Obtención / Huella Ecológica |\n|---|---|---|---|\n| Concreto Rígido Recuperado | Alta pero Frágil al sismo | Nula | Muy alto / Requiere maquinaria pesada |\n| Estructuras de Acero Oxidado | Media-Alta | Baja por fatiga de material | Alto / Difícil transporte en ladera |\n| Bahareque en Guadua (Bambú) | Alta | Muy alta (sismorresistente) | Muy bajo / Recurso renovable local |",
-      "pregunta": "¿Por qué el uso del Bahareque en Guadua resulta más eficiente, seguro y sostenible para el desarrollo de la infraestructura turística en las laderas andinas del Eje Cafetero?",
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "Durante la travesía por el departamento de Risaralda, los turistas de supervivencia notaron que las aguas del río Otún presentan un tono cobrizo brillante que desaparece cuando el cauce se aleja más de 20 kilómetros de la zona de influencia de los termales del Nevado del Ruiz. Los colonos locales temen beber del río, pero el Detective ha observado que la fauna acuática mutante prospera con vigor en las zonas de agua cobriza. Se realiza una prueba de conductividad y pH a lo largo del río, obteniendo los resultados descritos a continuación:",
+      "tabla_o_grafica_markdown": "| Estación de Muestreo | Distancia al Volcán (km) | pH del Agua | Concentración de Algas Termófilas (UFC/ml) | Color Visual |\n| :--- | :--- | :--- | :--- | :--- |\n| Estación 1: Nacimiento | 5 | 5.2 (Ácido) | 12.000 | Cobrizo Intenso |\n| Estación 2: Puente Alto | 12 | 6.1 (Ligeramente Ácido) | 7.500 | Cobrizo Brillante |\n| Estación 3: Valle Medio | 22 | 7.0 (Neutro) | 200 | Verde Claro |\n| Estación 4: Desembocadura | 45 | 7.2 (Neutro) | 10 | Transparente |\n| Estación de Control Pre-Colapso | - | 7.2 | 0 | Transparente |",
+      "pregunta": "¿Qué fenómeno bio-geográfico explica la coloración cobriza del río Otún y su desaparición paulatina a medida que se aleja del volcán, y qué implicación tiene esto para el diseño de la ruta turística?",
       "opciones": [
-        "Porque el concreto rígido es un material que atrae la radiación electromagnética de las tormentas ácidas, destruyendo las habitaciones turísticas.",
-        "Porque la elasticidad natural de las fibras de la guadua disipa las fuerzas de los sismos frecuentes de la cordillera, y su obtención local no requiere maquinaria pesada ni genera gran impacto ecológico.",
-        "Porque el bahareque repele los insectos mutantes que abundan en las zonas de exclusión gracias a sus componentes plásticos sintéticos.",
-        "Porque los edificios de madera y guadua son completamente ignífugos e impermeables ante cualquier flujo volcánico del Nevado del Ruiz."
+        "El río arrastra óxido de hierro de antiguas tuberías colapsadas de la ciudad de Pereira, que se disuelven exclusivamente en aguas neutras de alta montaña.",
+        "La coloración se debe a la proliferación de algas termófilas adaptadas a las temperaturas elevadas y acidez de los afluentes volcánicos cercanos al nacimiento; al enfriarse y neutralizarse el agua río abajo, estas algas mueren o disminuyen drásticamente, lo que indica que el agua río abajo es más segura para consumo pero menos atractiva estéticamente.",
+        "El volcán Ruiz expulsa cobre líquido fundido directamente en el cauce del río, el cual se solidifica instantáneamente en forma de pepitas de cobre dorado después de los 20 kilómetros de recorrido debido al frío de los páramos.",
+        "Las algas termófilas son una especie invasora traída por turistas que viajan sin protocolos de descontaminación, y su coloración cobriza se debe a la absorción de plásticos derretidos en las orillas del río."
       ],
       "correcta": 1,
       "retroalimentacion": {
-        "0": "Incorrecto. El concreto no atrae radiación por magnetismo en tormentas ácidas de la forma descrita, aunque su rigidez sí lo hace vulnerable a sismos de ladera.",
-        "1": "Correcto. La guadua es conocida como el 'acero vegetal' debido a su excelente relación resistencia/peso y su comportamiento sismorresistente gracias a su flexibilidad. Además, al ser un recurso forestal local, su huella de carbono es mínima y facilita la construcción comunitaria sin grúas pesadas.",
-        "2": "Incorrecto. El bahareque tradicional está hecho de tierra, paja y guadua, componentes orgánicos que no contienen plásticos sintéticos repelentes por sí mismos.",
-        "3": "Incorrecto. Aunque la guadua tratada resiste moderadamente, no es ignífuga ante la lava o flujos piroclásticos directos de un volcán."
-      }
-    },
-    {
-      "competencia": "Indagación",
-      "texto_introductorio": "Como detectives turísticos, queremos diseñar una ruta de avistamiento de aves endémicas de alta montaña en el departamento de Risaralda (Parque Nacional Natural Los Nevados y Santuario Otún Quimbaya). Para ello, contamos con un registro histórico de avistamientos realizados por tres patrullas de scouts en diferentes altitudes durante la estación húmeda.",
-      "tabla_o_grafica_markdown": "| Especie de Ave Observada | Altitud de Avistamiento (m.s.n.m.) | Tipo de Cobertura Vegetal | Frecuencia de Avistamiento (Aves/Hora) |\n|---|---|---|---|\n| Pava Caucana (*Penelope perspicax*) | 1.600 - 2.200 | Bosque subandino conservado | Alta (5 aves/hora) |\n| Loro Coroniazul (*Hapalopsittaca fuertesi*) | 2.800 - 3.500 | Bosque de niebla y palmares | Media (2 aves/hora) |\n| Cóndor de los Andes (*Vultur gryphus*) | 3.800 - 4.500 | Páramo y zonas rocosas altas | Baja (0.5 aves/hora) |",
-      "pregunta": "Si quisiéramos estructurar un tour turístico de alta probabilidad de éxito de avistamiento enfocado en turistas con limitaciones de movilidad física (que no pueden ascender a altitudes superiores a los 2.000 metros de altura sobre laderas empinadas), ¿qué decisión de diseño de ruta se debe tomar con base en los datos provistos?",
-      "opciones": [
-        "Establecer la ruta de observación en los senderos planos del bosque subandino conservado a 1.800 m.s.n.m. para buscar la Pava Caucana, garantizando alta frecuencia de avistamientos con menor esfuerzo de ascenso.",
-        "Llevar a los turistas con movilidad limitada en teleférico improvisado hasta los páramos a 4.000 m.s.n.m. para buscar al Cóndor, ya que presenta el mayor índice de frecuencia de avistamiento.",
-        "Cancelar la actividad de observación de aves, dado que a menos de 3.000 metros de altura la contaminación radiactiva impide que las aves vuelen y se dejen fotografiar.",
-        "Combinar la búsqueda del Loro Coroniazul y la Pava Caucana en la misma estación de páramo a 4.200 m.s.n.m., asumiendo que las aves migran verticalmente todos los días al mediodía."
-      ],
-      "correcta": 0,
-      "retroalimentacion": {
-        "0": "Correcto. Los datos indican que la Pava Caucana se avista en altitudes bajas (1.600 - 2.200 m.s.n.m.) con una alta frecuencia (5 aves/hora) y en bosques conservados, lo que minimiza el esfuerzo físico del turista y maximiza la probabilidad de éxito de la guianza turística.",
-        "1": "Incorrecto. El Cóndor posee la menor frecuencia de avistamiento (0.5 aves/hora) y su hábitat a 4.000 m.s.n.m. expone a los turistas a condiciones de baja presión de oxígeno inadecuadas para personas con movilidad reducida.",
-        "2": "Incorrecto. Los datos demuestran que a baja altitud (1.600 - 2.200 m.s.n.m.) la frecuencia de avistamiento es alta (5 aves/hora), lo que desmiente que la radiación impida su presencia.",
-        "3": "Incorrecto. Ninguna de las dos especies habita el rango altitudinal de páramo de forma regular, y las aves andinas no realizan migraciones altitudinales extremas de más de 2.000 metros diariamente."
+        "0": "Incorrecto. Si fuera óxido de hierro de tuberías, la mayor concentración estaría cerca de las zonas urbanas destruidas (río abajo) y no en el nacimiento virgen cerca al volcán.",
+        "1": "Correcto. El pH ácido y las altas temperaturas de las fuentes termales volcánicas del nacimiento (Estación 1 y 2) crean el hábitat perfecto para que las algas termófilas cobrizas proliferen. A medida que el río avanza, recibe agua de otros afluentes fríos y neutros, aumentando el pH a 7.0 y enfriando el cauce, lo que reduce la población de algas. Esto permite explicar el fenómeno físicamente y orientar al turista sobre la potabilidad del agua y el valor escénico de la ruta.",
+        "2": "Incorrecto. El cobre fundido a temperaturas de erupción volcánica destruiría inmediatamente el ecosistema fluvial y no permitiría la vida de la fauna acuática que el Detective reportó como próspera.",
+        "3": "Incorrecto. Aunque la contaminación por plásticos existe, el patrón de coloración está claramente correlacionado con la distancia al volcán y los niveles de pH/temperatura que sostienen a las algas termófilas, no con la acumulación de desechos urbanos."
       }
     }
   ]

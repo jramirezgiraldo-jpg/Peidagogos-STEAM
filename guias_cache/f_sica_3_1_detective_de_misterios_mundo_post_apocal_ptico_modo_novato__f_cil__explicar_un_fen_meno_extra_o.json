@@ -1,187 +1,83 @@
 {
   "saberes_previos": [
     {
-      "pregunta": "¿Cuál es el cuerpo celeste que se encuentra en el centro de nuestro sistema solar?",
+      "pregunta": "Antes de que la nube de ceniza cubriera el cielo, ¿qué forma creían los antiguos que tenían las órbitas de los planetas alrededor del Sol?",
       "opciones": [
-        "La Tierra",
-        "La Luna",
-        "El Sol",
-        "Marte"
+        "Círculos perfectos",
+        "Líneas rectas que van y vienen",
+        "Órbitas elípticas ligeramente ovaladas",
+        "Formas cuadradas con esquinas redondeadas"
       ],
       "correcta": 2
     },
     {
-      "pregunta": "¿Qué fuerza invisible hace que los objetos caigan hacia el suelo en la Tierra?",
+      "pregunta": "¿Qué fuerza invisible evita que la Tierra salga volando hacia el oscuro espacio exterior?",
       "opciones": [
-        "Magnetismo",
-        "Electricidad",
-        "Gravedad",
-        "Fricción"
+        "El magnetismo de los polos",
+        "La fuerza de gravedad del Sol",
+        "La presión del aire post-apocalíptico",
+        "La energía de la Luna"
       ],
-      "correcta": 2
+      "correcta": 1
     },
     {
-      "pregunta": "¿Qué forma crees que tienen las rutas (órbitas) que siguen los planetas?",
+      "pregunta": "Si un planeta tarda más tiempo en dar una vuelta completa alrededor del Sol, ¿qué nos dice esto sobre su distancia al Sol?",
       "opciones": [
-        "Cuadradas",
-        "Circulares perfectas",
-        "Ovaladas (Elípticas)",
-        "Triangulares"
+        "Que está mucho más cerca del Sol",
+        "Que está mucho más lejos del Sol",
+        "Que se mueve a la velocidad de la luz",
+        "La distancia no influye en el tiempo de su año"
       ],
-      "correcta": 2
+      "correcta": 1
     }
   ],
-  "texto_inductivo": "Saludos, jóvenes rastreadores de la Zona Cero. Soy el Detective de Misterios Estelares, y hoy nos enfrentamos al 'Caso de las Esferas Errantes'. En este mundo post-apocalíptico, donde la tecnología es escasa y las nubes de ceniza a veces nos ocultan el firmamento, mirar las estrellas no es solo un acto de nostalgia, es una necesidad de supervivencia. Antes del Gran Colapso, los antiguos tenían mapas precisos del cielo, pero hoy, con nuestros telescopios remendados con restos de chatarra, debemos redescubrir las leyes que rigen el cosmos. El misterio comienza con una observación extraña: ¿por qué algunos puntos brillantes en el cielo no se mueven de la misma forma que las estrellas fijas? Los antiguos llamaron a estos puntos 'planetas', que significa 'vagabundos'. Si observas el cielo durante varias noches desde las ruinas del Observatorio del Norte, notarás que la mayoría de las estrellas mantienen sus posiciones relativas, como un telón de fondo estático. Sin embargo, Marte, ese punto rojizo que parece vigilar nuestras tierras baldías, a veces parece frenar, retroceder y luego continuar su camino. ¿Acaso los planetas tienen voluntad propia? ¿O es que estamos viendo una ilusión óptica desde nuestra posición en la Tierra? Durante siglos, los investigadores de la vieja era, como Ptolomeo, creyeron que la Tierra era el centro inmóvil de todo (Geocentrismo). Pensaban que los planetas hacían bucles extraños llamados epiciclos para explicar ese movimiento errático. Pero algo no encajaba en esa teoría; era demasiado complicada, como un motor oxidado lleno de piezas innecesarias. Fue entonces cuando Nicolás Copérnico, un detective del pensamiento, propuso una idea radical: ¿Y si nosotros también nos estamos moviendo? Al colocar al Sol en el centro (Heliocentrismo), el misterioso retroceso de Marte se explicó fácilmente. Es como cuando viajas en un vehículo de vapor por las llanuras y adelantas a otro carro más lento; por un momento, parece que el otro carro retrocede, aunque ambos avancen. Este cambio de perspectiva fue el primer paso para resolver el enigma. Sin embargo, aún quedaba una duda: si la Tierra se mueve, ¿por qué no sentimos el viento cósmico arrancándonos la piel? ¿Y qué mantiene a los planetas en sus rutas sin que salgan disparados hacia el vacío oscuro? Investigar el movimiento planetario es entender la maquinaria del reloj más grande que existe. Para nosotros, los habitantes de este mundo herido, comprender la regularidad de los planetas significa poder predecir las estaciones, saber cuándo cultivar en los invernaderos subterráneos y cuándo prepararnos para las tormentas solares. No podemos permitirnos el lujo de la ignorancia. Cada planeta sigue una coreografía precisa, una danza dictada por reglas que no cambian aunque nuestras ciudades hayan caído. Estamos aquí para redescubrir esas reglas, para limpiar el polvo de los viejos libros de física y aplicarlos a nuestra realidad. El cielo no es un caos; es un sistema ordenado que espera a que mentes curiosas como las de ustedes descifren sus secretos. Preparen sus cuadernos de bitácora, ajusten sus lentes y acompáñenme en esta investigación. El movimiento de los planetas es la pista principal para entender cómo funciona la gravedad y la inercia, conceptos que algún día nos permitirán, quizás, abandonar este suelo polvoriento y reclamar nuestro lugar entre las luces que hoy solo podemos observar desde las sombras.",
-  "recurso_visual": "| Teoría | Centro del Sistema | Movimiento de los Planetas | Principal Defensor |\n| :--- | :--- | :--- | :--- |\n| **Geocéntrica** | La Tierra | Círculos con bucles (Epiciclos) | Ptolomeo |\n| **Heliocéntrica** | El Sol | Órbitas alrededor del Sol | Copérnico |\n| **Moderna (Kepler)** | El Sol | Elipses (Órbitas ovaladas) | Johannes Kepler |",
+  "texto_inductivo": "¡Saludos, recluta del Páramo! Soy el Detective de las Sombras Celestes. En este mundo devastado, donde el cielo permanece cubierto por una densa neblina roja de ceniza, comprender el movimiento del firmamento no es solo curiosidad; es nuestra única forma de predecir cuándo se abrirá un claro de luz solar para cargar nuestras baterías vitales. [JUEGO:ORDENAR_LETRAS:CIELO] Investigando las ruinas de un antiguo observatorio de la pre-catástrofe, he recuperado bitácoras del célebre astrónomo Johannes Kepler. Él descubrió que los planetas no se mueven por capricho, sino siguiendo reglas matemáticas precisas. [JUEGO:ORDENAR_FRASE:KEPLER ESTUDIO LOS PLANETAS]\n\nLa primera gran revelación de Kepler rompió con miles de años de creencias. Los antiguos creían que el cielo era perfecto y, por ende, las órbitas debían ser círculos perfectos. Sin embargo, Kepler demostró que las trayectorias de los planetas son ovaladas, una curva geométrica que llamamos elipse. [JUEGO:ORDENAR_LETRAS:ELIPSE] Al graficar estos datos, nos damos cuenta de que el Sol no está en el centro geométrico de esta figura, sino un poco desplazado hacia un lado. [JUEGO:SOPA_LETRAS:ASTRO,GRAVEDAD,ELIPSE]\n\nEste punto de desvío donde se ubica nuestra estrella se denomina foco. [JUEGO:ORDENAR_LETRAS:FOCO] En una elipse hay dos de estos puntos, pero el Sol ocupa solo uno de ellos, dejando el otro vacío. [JUEGO:CRUCIGRAMA:Forma de la orbita|ELIPSE;Astro central|SOL] Esto significa que a lo largo de su viaje de un año, un planeta a veces está más cerca de nuestra gran fuente de calor y a veces mucho más lejos, un misterio que explica los cambios extremos de radiación térmica que sufrimos en los refugios superficiales. [JUEGO:SOPA_LETRAS:KEPLER,SOL,PLANETA]\n\nPero el misterio se complica, recluta. Kepler notó que los planetas cambian de velocidad durante su órbita. Cuando el planeta se encuentra en su punto más cercano al Sol (llamado perihelio), se mueve a toda velocidad, como si tuviera prisa por alejarse de las llamas cósmicas. [JUEGO:CRUCIGRAMA:Velocidad maxima en|PERIHELIO;Velocidad minima en|AFELIO] Por el contrario, cuando llega al punto más lejano (el afelio), su marcha se vuelve perezosa y lenta. Kepler lo resumió diciendo que una línea imaginaria que une al Sol con el planeta barre áreas iguales en tiempos iguales. [JUEGO:ORDENAR_FRASE:LAS ORBITAS SON ELIPTICAS]\n\nFinalmente, la tercera ley de Kepler relaciona el tamaño de la órbita con el tiempo que tarda el planeta en completarla. Un planeta que viaja por una órbita pequeña tiene un año muy corto, mientras que aquellos situados en los confines fríos del sistema solar tardan décadas en dar una sola vuelta. [JUEGO:ORDENAR_LETRAS:ORBITA] Al analizar los datos numéricos de los archivos sobrevivientes, vemos que el cuadrado del periodo orbital es directamente proporcional al cubo de su distancia media al Sol. [JUEGO:SOPA_LETRAS:FOCO,RUTA,VELOCIDAD]\n\nComo detective de misterios físicos, debes saber que estas tres leyes nos permiten predecir con exactitud milimétrica la posición de los planetas y satélites que aún rondan nuestro marchito firmamento. [JUEGO:ORDENAR_FRASE:EL SOL ESTA EN UN FOCO] La regularidad matemática detrás de la aparente anarquía del cielo rojo nos demuestra que, incluso tras el fin del mundo, la ciencia sigue gobernando el universo con perfecta armonía. [JUEGO:SOPA_LETRAS:TIEMPO,DISTANCIA,GIRAR]\n\nComprender estas rutas espaciales es clave para reestablecer las telecomunicaciones del refugio usando los viejos satélites meteorológicos que aún flotan en la atmósfera superior. [JUEGO:CRUCIGRAMA:Camino del planeta|ORBITA;Punto del eclipse|FOCO] Si logramos calcular cuándo cruzará un satélite el punto de máxima cercanía, sabremos cuándo enviar la señal de radio con menor interferencia atmosférica. [JUEGO:ORDENAR_LETRAS:SOL]\n\nNo dejes que el miedo al Páramo nuble tu mente analítica, recluta. El cosmos tiene un orden lógico que espera ser descifrado por mentes como la tuya. [JUEGO:ORDENAR_FRASE:LA TIERRA GIRA ALREDEDOR DEL SOL] Cada planeta del sistema solar es una pista en nuestro gran caso por la supervivencia de la humanidad. [JUEGO:CRUCIGRAMA:Planeta habitado|TIERRA;Astro nocturno|LUNA]\n\nA medida que limpies el polvo de los viejos telescopios reflectores del búnker, recuerda que el aparente caos diario es solo una ilusión óptica. [JUEGO:ORDENAR_FRASE:EL MOVIMIENTO ES CONSTANTE] Con el método científico en una mano y tu linterna dinamo en la otra, desvelaremos los secretos mecánicos del cielo. [JUEGO:SOPA_LETRAS:CIENCIA,MISTERIO,CIELO] Las leyes planetarias son los engranajes de un reloj cósmico monumental que ni el peor cataclismo ha podido detener. [JUEGO:CRUCIGRAMA:Fuerza invisible|GRAVEDAD;Cientifico de las leyes|KEPLER]",
+  "recurso_visual": "mermaid\ngraph TD\n  A[Leyes de Kepler del Movimiento Planetario] --> B[1ra Ley: Ley de las Órbitas]\n  A --> C[2da Ley: Ley de las Áreas]\n  A --> D[3ra Ley: Ley de los Periodos]\n  \n  B --> B1[Trayectoria elíptica ovalada]\n  B --> B2[El Sol está en uno de los focos]\n  \n  C --> C1[Áreas iguales barridas en tiempos iguales]\n  C --> C2[Perihelio: Máxima velocidad al estar más cerca]\n  C --> C3[Afelio: Mínima velocidad al estar más lejos]\n  \n  D --> D1[Relación matemática entre periodo y distancia]\n  D --> D2[Planetas lejanos tardan más años en orbitar]\n",
   "preguntas_inductivas_pagina": [
-    "¿Qué significa la palabra 'planeta' según el texto?",
-    "¿Por qué el movimiento de Marte resultaba un misterio para los antiguos?",
-    "¿Cuál es la diferencia principal entre el Geocentrismo y el Heliocentrismo?",
-    "¿Qué analogía utiliza el detective para explicar por qué parece que los planetas retroceden?",
-    "¿Por qué es importante para los sobrevivientes del mundo post-apocalíptico conocer el movimiento de los planetas?"
+    "¿Por qué los antiguos filósofos insistían en que las órbitas debían ser círculos perfectos en lugar de elipses?",
+    "¿Qué ocurre con la velocidad de un planeta cuando se acerca al perihelio y por qué crees que ocurre esto?",
+    "¿En qué se diferencia el concepto de 'foco' del concepto de 'centro' en una elipse?",
+    "Si un planeta ficticio llamado 'Páramo-9' tiene un año que dura 8 veces el de la Tierra, ¿su distancia al Sol será mayor o menor que la nuestra?",
+    "¿Cómo nos ayuda la Segunda Ley de Kepler a predecir los momentos de mayor radiación solar en los refugios?"
   ],
   "preguntas_inductivas_cuaderno": [
-    "Dibuja un esquema que compare el modelo de Ptolomeo (Tierra al centro) con el modelo de Copérnico (Sol al centro). Usa colores diferentes para las órbitas.",
-    "Realiza un cuadro comparativo entre lo que las personas ven a simple vista en el cielo y lo que la ciencia explica que realmente está sucediendo.",
-    "Escribe una reflexión de 10 líneas sobre cómo cambiaría tu vida en el refugio si no pudiéramos predecir el movimiento de los astros.",
-    "Representa gráficamente, mediante una historieta corta, la escena del detective adelantando a otro vehículo para explicar el movimiento relativo."
+    "Dibuja en tu cuaderno una elipse exagerada. Ubica los dos focos, posiciona al Sol en uno de ellos, dibuja un planeta y marca claramente los puntos correspondientes al Perihelio y al Afelio, indicando dónde es mayor la velocidad.",
+    "Elabora un cuadro comparativo entre la visión geocéntrica antigua (órbitas circulares con la Tierra en el centro) y la visión heliocéntrica de Kepler (órbitas elípticas con el Sol en un foco).",
+    "Escribe una reflexión de una página sobre cómo el descubrimiento de Kepler de que el cielo no es 'perfecto' en el sentido circular afectó la forma en que los seres humanos entendemos nuestro lugar en el cosmos.",
+    "Representa mediante un gráfico de barras cualitativo cómo cambia la velocidad de la Tierra a lo largo de los 12 meses del año, asumiendo que el perihelio ocurre en enero y el afelio en julio."
   ],
-  "juegos_ordenar_letras_1": [
-    "PLANETA",
-    "ORBITA",
-    "CENTRO"
-  ],
-  "juego_ordenar_frase_1": "EL SOL ES EL CENTRO DE NUESTRO SISTEMA PLANETARIO",
-  "texto_deductivo": "Atención, reclutas del conocimiento. Una vez que aceptamos que el Sol es el centro de nuestra investigación, debemos profundizar en las leyes que gobiernan este movimiento. No basta con saber 'quién' está en el centro, necesitamos saber 'cómo' se mueven los sospechosos. Aquí es donde entra en escena Johannes Kepler, un hombre que, trabajando con las observaciones de Tycho Brahe (quien recolectó datos como quien recolecta piezas de metal precioso en un desguace), formuló tres leyes fundamentales. La Primera Ley de Kepler rompió el mito de la perfección circular. Los planetas no se mueven en círculos perfectos, sino en elipses. Una elipse es como un círculo que ha sido aplastado. En esta figura, el Sol no está en el centro exacto, sino en uno de los puntos llamados 'focos'. Esto significa que, en algunos momentos de su año, un planeta está más cerca del Sol (perihelio) y en otros más lejos (afelio). En nuestro mundo actual, entender esto es vital para calcular la intensidad de la radiación solar que llega a las celdas de energía. La Segunda Ley de Kepler, o la Ley de las Áreas, nos dice algo fascinante sobre la velocidad. Un planeta no viaja siempre a la misma rapidez. Cuando está más cerca del Sol, se mueve más rápido, como si el Sol lo atrajera con más desesperación. Cuando está lejos, se mueve más lento. Kepler descubrió que una línea imaginaria que une al Sol con el planeta barre áreas iguales en tiempos iguales. Imaginen que están barriendo el suelo de la base: si barren una zona ancha y corta cerca del Sol, tardarán lo mismo que barriendo una zona larga y delgada lejos de él. Esto explica por qué las estaciones no duran exactamente lo mismo. Finalmente, la Tercera Ley conecta a todos los planetas. Nos dice que existe una relación matemática entre la distancia al Sol y el tiempo que tardan en dar una vuelta completa (periodo). Mientras más lejos está un planeta, mucho más lento y largo es su camino. Es una armonía matemática perfecta que parece escrita por un arquitecto invisible. Pero, ¿qué mantiene a los planetas en estas elipses? Aquí es donde Isaac Newton entra en la escena del crimen con su Ley de Gravitación Universal. Newton se dio cuenta de que la misma fuerza que hace caer una manzana podrida de un árbol en las Tierras Altas es la que mantiene a la Luna en su sitio. La gravedad es una fuerza de atracción que depende de la masa de los objetos y de la distancia entre ellos. A mayor masa, más atracción; a mayor distancia, menos fuerza. Es el pegamento del universo. Sin la gravedad, la Tierra saldría disparada hacia la oscuridad del espacio profundo, donde el frío acabaría con los pocos sobrevivientes que quedamos. Y sin la inercia (la tendencia de un objeto a seguir moviéndose), la gravedad nos arrastraría directamente hacia el Sol para ser incinerados. El movimiento planetario es, por lo tanto, un equilibrio delicado entre caer hacia el Sol y escapar de él. Cada vez que observamos el cielo, estamos viendo un sistema en equilibrio dinámico. Para nosotros, entender la física del movimiento planetario no es solo teoría; es la base para entender la energía, la luz y las fuerzas fundamentales que algún día repararán este mundo. Los planetas siguen su curso sin falta, ajenos a nuestras guerras y caídas, recordándonos que el orden siempre subyace bajo el aparente caos.",
+  "texto_deductivo": "¡Excelente trabajo con las pistas iniciales, recluta! Ya sabemos el 'cómo' se mueven los planetas gracias a Kepler. Pero como buenos detectives del Páramo, no nos conformamos con describir el movimiento; necesitamos resolver el enigma del 'por qué'. ¿Qué misteriosa cuerda invisible ata a los planetas al Sol para que no salgan despedidos hacia la eterna noche interestelar? Aquí entra en escena el físico más brillante de la era antigua: Sir Isaac Newton. [JUEGO:ORDENAR_LETRAS:NEWTON]\n\nNewton dedujo que existe una fuerza universal de atracción mutua entre todos los objetos del cosmos debido a su masa. [JUEGO:SOPA_LETRAS:LEY,MANZANA,FISICA] Esta fuerza, que llamamos gravedad, actúa como un lazo invisible. [JUEGO:ORDENAR_FRASE:LA GRAVEDAD ATRAE LOS CUERPOS] Cuanta más masa tiene un objeto, mayor es su capacidad de atraer a otros cuerpos hacia sí. [JUEGO:ORDENAR_LETRAS:MASA] Como el Sol posee la inmensa mayoría de la masa de nuestro sistema solar, su tirón gravitacional domina por completo el movimiento de todo lo que le rodea. [JUEGO:ORDENAR_FRASE:A MAYOR MASA MAYOR FUERZA]\n\nLa masa de un cuerpo representa la cantidad de materia que posee, la cual permanece constante sin importar dónde se encuentre en el espacio. [JUEGO:CRUCIGRAMA:Ocurre al caer|CAIDA;Fuerza sobre masa|PESO] Sin embargo, la fuerza de gravedad no depende únicamente de la masa, sino también de la distancia que separa a los cuerpos. [JUEGO:ORDENAR_FRASE:LA DISTANCIA AFECTA LA ATRACCION] Si duplicamos la distancia entre un planeta y el Sol, la atracción gravitatoria no se reduce a la mitad, ¡sino a la cuarta parte! Esto se conoce como la ley del inverso del cuadrado de la distancia. [JUEGO:ORDENAR_LETRAS:GRAVEDAD]\n\nEsta increíble relación matemática explica perfectamente por qué los planetas más lejanos sienten una atracción tan débil y se mueven tan despacio en sus órbitas. [JUEGO:SOPA_LETRAS:EQUILIBRIO,ESPACIO,CAIDA] El Sol apenas puede sujetarlos con su gravedad debilitada por la distancia. [JUEGO:CRUCIGRAMA:Fuerza de atraccion|GRAVEDAD;Cientifico de la manzana|NEWTON] Para mantener su órbita y no caer directo hacia el Sol ni salir despedidos, los planetas deben mantener un equilibrio perfecto entre su velocidad de avance (inercia) y la fuerza de atracción gravitatoria. [JUEGO:SOPA_LETRAS:FUERZA,MASA,ATRAER]\n\nImagina que lanzas una piedra horizontalmente en el Páramo. [JUEGO:ORDENAR_LETRAS:FUERZA] Caerá al suelo después de recorrer unos metros debido a la gravedad terrestre. Pero si la lanzaras con tanta fuerza que la curvatura de su caída coincidiera exactamente con la curvatura de la Tierra, la piedra estaría en órbita, cayendo continuamente alrededor del planeta sin tocar jamás el suelo. [JUEGO:CRUCIGRAMA:Regla de la naturaleza|LEY;Ciencia de la materia|FISICA] ¡Eso es exactamente lo que hace la Luna y nuestros satélites artificiales! [JUEGO:ORDENAR_FRASE:EL UNIVERSO TIENE LEYES]\n\nLa ley de gravitación de Newton nos permite deducir y calcular con absoluta certeza matemática las trayectorias elípticas que Kepler solo había observado. [JUEGO:CRUCIGRAMA:Cantidad de materia|MASA;Espacio recorrido|DISTANCIA] Al combinar la fuerza de atracción y la inercia, obtenemos la explicación física definitiva del movimiento planetario. [JUEGO:SOPA_LETRAS:NEWTON,GRAVEDAD,DISTANCIA] Ya no es un misterio de magia celeste; es mecánica pura, engranajes lógicos del universo que podemos usar a nuestro favor. [JUEGO:ORDENAR_LETRAS:LEY]\n\nPor ejemplo, si un asteroide cargado de metales raros se acerca a la Tierra, usando las ecuaciones de la gravedad podemos predecir si pasará de largo, si chocará contra nuestro refugio o si quedará atrapado de forma segura en nuestra órbita. [JUEGO:CRUCIGRAMA:Accion de jalar|ATRACCION;Camino curvo|ORBITA] La gravedad es el motor invisible que le da sentido a las órbitas de Kepler. [JUEGO:ORDENAR_FRASE:NEWTON EXPLICO LA GRAVEDAD] Ahora, recluta, tienes las herramientas científicas para explicar cualquier anomalía en el cielo del Páramo. [JUEGO:SOPA_LETRAS:ACELERACION,PESO,ORBITA]",
   "preguntas_deductivas_pagina": [
-    "¿Qué forma tienen realmente las órbitas planetarias según Kepler?",
-    "¿Qué es un 'foco' en una elipse?",
-    "¿En qué punto de su órbita se mueve un planeta con mayor velocidad?",
-    "¿Qué relación establece la Tercera Ley de Kepler?",
-    "¿Qué dos conceptos deben estar en equilibrio para que un planeta mantenga su órbita?"
+    "¿Qué ocurriría con la órbita de la Tierra si, de repente, la masa del Sol disminuyera a la mitad?",
+    "Explica por qué los astronautas flotan en la Estación Espacial Internacional. ¿Es porque allí no hay gravedad?",
+    "Si la fuerza de gravedad atrae a la Tierra hacia el Sol, ¿por qué la Tierra no termina chocando directamente contra él?",
+    "¿Cómo cambia la fuerza de atracción gravitacional entre dos cuerpos si la distancia entre ellos se triplica?",
+    "¿Qué propiedad fundamental de un cuerpo determina la intensidad de su campo gravitatorio?"
   ],
   "preguntas_deductivas_cuaderno": [
-    "Realiza un diagrama detallado de una elipse, señalando los focos, el Sol, el perihelio y el afelio.",
-    "Elabora un mapa mental que conecte las Tres Leyes de Kepler con la Ley de Gravitación de Newton.",
-    "Dibuja una escena explicativa que muestre la diferencia de velocidad de un planeta cuando está cerca y lejos del Sol, usando flechas de diferentes tamaños.",
-    "Crea una infografía artesanal que explique la Ley de Gravitación Universal usando objetos cotidianos del mundo post-apocalíptico (chatarra, latas, etc.)."
-  ],
-  "juegos_ordenar_letras_2": [
-    "ELIPSE",
-    "GRAVEDAD",
-    "INERCIA"
-  ],
-  "juego_ordenar_frase_2": "LA FUERZA DE GRAVEDAD MANTIENE A LOS PLANETAS EN ORBITA",
-  "sopa_letras": [
-    "ASTRONOMIA",
-    "GALAXIA",
-    "ESTRELLA",
-    "COMETA",
-    "ELIPTICA",
-    "MASA",
-    "FUERZA",
-    "ESPACIO",
-    "VACIO",
-    "MOVIMIENTO"
-  ],
-  "crucigrama": [
-    {
-      "palabra": "ELIPSE",
-      "pista": "Forma geométrica de la órbita de un planeta."
-    },
-    {
-      "palabra": "GRAVEDAD",
-      "pista": "Fuerza de atracción entre dos masas."
-    },
-    {
-      "palabra": "KEPLER",
-      "pista": "Científico que propuso las tres leyes del movimiento planetario."
-    },
-    {
-      "palabra": "ORBITA",
-      "pista": "Trayectoria que sigue un cuerpo alrededor de otro."
-    },
-    {
-      "palabra": "NEWTON",
-      "pista": "Formuló la ley de gravitación universal."
-    },
-    {
-      "palabra": "FOCO",
-      "pista": "Punto donde se sitúa el Sol dentro de la elipse planetaria."
-    },
-    {
-      "palabra": "PERIODO",
-      "pista": "Tiempo que tarda un planeta en dar una vuelta al Sol."
-    },
-    {
-      "palabra": "INERCIA",
-      "pista": "Resistencia de un cuerpo a cambiar su estado de movimiento."
-    },
-    {
-      "palabra": "SOL",
-      "pista": "Estrella central de nuestro sistema."
-    },
-    {
-      "palabra": "PLANETA",
-      "pista": "Cuerpo celeste que orbita alrededor de una estrella."
-    }
+    "Elabora un diagrama detallado que muestre las fuerzas vectoriales actuando sobre un planeta en órbita alrededor del Sol. Representa la velocidad tangencial (inercia) y la fuerza de gravedad.",
+    "Crea un mapa mental que conecte los siguientes conceptos clave: Masa, Distancia, Fuerza de Gravedad, Inercia, Órbita Elíptica y Leyes de Kepler.",
+    "Realiza un dibujo explicativo de la analogía del 'cañón de Newton', mostrando cómo un proyectil disparado a diferentes velocidades terrestres puede caer a la Tierra o entrar en una órbita circular/elíptica.",
+    "Diseña una infografía artesanal dirigida a los habitantes del refugio del Páramo que explique, de forma muy sencilla, cómo la gravedad mantiene los satélites de comunicación en el cielo."
   ],
   "icfes": [
     {
       "competencia": "Explicación de Fenómenos",
-      "texto_introductorio": "En el asentamiento 'Esperanza', los estudiantes observan que Marte parece moverse hacia atrás en el cielo durante algunas semanas. El profesor les explica que este fenómeno se conoce como movimiento retrógrado.",
-      "tabla_o_grafica_markdown": "| Planeta | Distancia Media al Sol (UA) | Periodo Orbital (Años) |\n|---|---|---|\n| Tierra | 1.0 | 1.0 |\n| Marte | 1.5 | 1.9 |",
-      "pregunta": "¿Cuál es la causa científica por la cual desde la Tierra se observa que Marte retrocede?",
+      "texto_introductorio": "En el año 2142, los investigadores del Observatorio del Páramo detectaron un fenómeno inusual: el satélite artificial de comunicaciones 'Fénix-1' comenzó a perder altitud debido a la resistencia de las cenizas de la atmósfera superior. A medida que su distancia a la superficie terrestre disminuía, los sensores registraron cambios drásticos en su velocidad orbital. Los datos de la última semana se presentan en la siguiente tabla:",
+      "tabla_o_grafica_markdown": "| Día | Altitud del satélite (km) | Velocidad registrada (km/s) |\n| :--- | :---: | :---: |\n| Lunes | 400 | 7.67 |\n| Miércoles | 300 | 7.73 |\n| Viernes | 200 | 7.79 |\n| Domingo | 150 | 7.82 |",
+      "pregunta": "Teniendo en cuenta los principios de la mecánica celeste de Kepler y la ley de gravitación de Newton, ¿cuál es la explicación científica correcta para el incremento de la velocidad del satélite a medida que pierde altitud?",
       "opciones": [
-        "Marte cambia físicamente su dirección de movimiento en el espacio.",
-        "La Tierra viaja más rápido en su órbita y rebasa a Marte, creando un efecto visual de retroceso.",
-        "La gravedad del Sol empuja a Marte hacia atrás periódicamente.",
-        "La atmósfera polvorienta de la Tierra desvía la luz de Marte."
+        "Al estar más cerca de la Tierra, la fuerza de atracción gravitatoria es mayor, lo que acelera al satélite para mantener el equilibrio orbital en una órbita más baja.",
+        "La fricción con las partículas de ceniza de la atmósfera genera un empuje adicional que empuja al satélite hacia adelante.",
+        "La masa de la Tierra aumenta a medida que el satélite desciende, incrementando la fuerza neta sobre el aparato de transmisión.",
+        "El satélite enciende de manera automática sus propulsores de emergencia para contrarrestar la pérdida de altitud constante."
       ],
-      "correcta": 1,
+      "correcta": 0,
       "retroalimentacion": {
-        "0": "Incorrecto. Los planetas nunca cambian su dirección de órbita.",
-        "1": "Correcto. Es un efecto de movimiento relativo debido a las diferentes velocidades orbitales.",
-        "2": "Incorrecto. La gravedad siempre atrae, no empuja hacia atrás en la órbita.",
-        "3": "Incorrecto. La refracción atmosférica no explica el cambio de posición a lo largo de semanas."
-      }
-    },
-    {
-      "competencia": "Uso comprensivo del conocimiento científico",
-      "texto_introductorio": "Según la Segunda Ley de Kepler, los planetas barren áreas iguales en tiempos iguales, lo que implica cambios en su velocidad lineal.",
-      "tabla_o_grafica_markdown": "| Posición | Distancia al Sol | Velocidad Orbital |\n|---|---|---|\n| Perihelio | Mínima | Máxima |\n| Afelio | Máxima | Mínima |",
-      "pregunta": "Si un satélite de comunicaciones antiguo está en una órbita elíptica alrededor de la Tierra, ¿en qué punto su velocidad será menor?",
-      "opciones": [
-        "Cuando esté en el punto más cercano a la Tierra.",
-        "Cuando esté en el punto más alejado de la Tierra.",
-        "Su velocidad es constante en toda la órbita.",
-        "Cuando pase exactamente sobre el ecuador."
-      ],
-      "correcta": 1,
-      "retroalimentacion": {
-        "0": "Incorrecto. Cerca de la masa central, el objeto se mueve más rápido.",
-        "1": "Correcto. Según la ley de las áreas, a mayor distancia, menor velocidad.",
-        "2": "Incorrecto. Las velocidades solo son constantes en órbitas circulares perfectas.",
-        "3": "Incorrecto. La posición respecto al ecuador no determina la velocidad orbital en una elipse."
-      }
-    },
-    {
-      "competencia": "Indagación",
-      "texto_introductorio": "Un grupo de exploradores encuentra un antiguo registro que dice que un planeta desconocido tarda 8 años en dar una vuelta al Sol.",
-      "tabla_o_grafica_markdown": "| Planeta | Distancia (UA) | Periodo^2 / Distancia^3 |\n|---|---|---|\n| Planeta X | ? | Constante (K) |",
-      "pregunta": "Para determinar a qué distancia se encuentra este planeta del Sol, ¿qué ley física deberían aplicar los exploradores?",
-      "opciones": [
-        "La Primera Ley de Kepler sobre las elipses.",
-        "La ley de la inercia de Newton.",
-        "La Tercera Ley de Kepler que relaciona periodos y distancias.",
-        "La ley de la reflexión de la luz."
-      ],
-      "correcta": 2,
-      "retroalimentacion": {
-        "0": "Incorrecto. Esta ley solo describe la forma de la órbita.",
-        "1": "Incorrecto. La inercia no ayuda a calcular distancias orbitales.",
-        "2": "Correcto. La Tercera Ley permite calcular distancias si se conoce el periodo orbital.",
-        "3": "Incorrecto. La óptica no se usa para calcular periodos orbitales directamente."
+        "0": "¡Correcto, detective! De acuerdo con Newton, la fuerza gravitatoria aumenta al disminuir la distancia (F ∝ 1/d²). Para mantenerse en órbita a menor altitud sin caer en espiral inmediata, el cuerpo requiere una velocidad orbital mayor para contrarrestar la intensa atracción gravitatoria terrestre.",
+        "1": "Incorrecto. La fricción con la atmósfera (resistencia del aire y ceniza) disipa la energía mecánica del satélite y reduce su energía total, pero el incremento de la velocidad se debe directamente al ajuste dinámico en un campo gravitatorio más fuerte a menor distancia.",
+        "2": "Incorrecto. La masa de la Tierra es constante y no se altera por la posición relativa del satélite en descenso.",
+        "3": "Incorrecto. Aunque los satélites reales tienen propulsores, el incremento sistemático de la velocidad de órbita al disminuir el radio es una consecuencia física natural de la gravitación y la conservación del momento angular, no de una propulsión activa."
       }
     }
   ]

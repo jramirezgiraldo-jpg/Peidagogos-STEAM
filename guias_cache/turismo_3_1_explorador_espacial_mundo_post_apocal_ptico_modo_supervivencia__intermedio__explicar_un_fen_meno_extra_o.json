@@ -1,0 +1,84 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "Desde nuestra estación orbital, ¿qué color predomina en la zona conocida como el Triángulo del Café?",
+      "opciones": [
+        "Rojo desértico",
+        "Verde esmeralda",
+        "Azul oceánico",
+        "Gris metálico"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Cuáles son los tres departamentos principales que conforman el núcleo del Eje Cafetero?",
+      "opciones": [
+        "Antioquia, Valle y Cauca",
+        "Cundinamarca, Boyacá y Tolima",
+        "Caldas, Quindío y Risaralda",
+        "Bolívar, Atlántico y Magdalena"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "En un entorno de supervivencia, ¿qué elemento del Paisaje Cultural Cafetero es considerado Patrimonio de la Humanidad?",
+      "opciones": [
+        "Las ruinas de las ciudades antiguas",
+        "La técnica de cultivo en laderas y la arquitectura de colonización",
+        "Los búnkeres de almacenamiento de grano",
+        "Los satélites de vigilancia climática"
+      ],
+      "correcta": 1
+    }
+  ],
+  "texto_inductivo": "¡Saludos, cadetes del espacio! Aquí el Capitán Astro-Survivor informando desde la órbita terrestre. Hemos detectado una zona anómala de vitalidad biológica en las coordenadas del antiguo continente americano. [JUEGO:ORDENAR_LETRAS:VITALIDAD] Esta región, que antes del Gran Colapso se conocía como el Eje Cafetero, parece resistir la erosión del tiempo. [JUEGO:ORDENAR_FRASE:EL EJE CAFETERO ES UN MILAGRO] Al descender en nuestras cápsulas, lo primero que notamos es la densidad de la niebla en las montañas de Caldas. [JUEGO:SOPA_LETRAS:CALDAS,NIEBLA,MONTAÑA] La capital de este sector, Manizales, se alza sobre laderas empinadas desafiando la gravedad. [JUEGO:CRUCIGRAMA:Capital de Caldas|MANIZALES;Elevacion natural|MONTAÑA] \n\nMás al sur, el radar detecta el departamento del Quindío, el más pequeño pero el más denso en biodiversidad rescatable. [JUEGO:ORDENAR_LETRAS:QUINDIO] Es aquí donde el fenómeno de la palma de cera parece actuar como una antena de purificación atmosférica. [JUEGO:ORDENAR_FRASE:LA PALMA DE CERA ES EL ARBOL NACIONAL] Debemos recolectar muestras de suelo en Salento para entender cómo la tierra sigue siendo fértil. [JUEGO:SOPA_LETRAS:SALENTO,TIERRA,FERTIL] Este lugar es clave para nuestro plan de turismo de restauración ambiental. [JUEGO:CRUCIGRAMA:Departamento mas pequeño|QUINDIO;Pueblo pintoresco|SALENTO] \n\nEntre Caldas y Quindío, encontramos a Risaralda, un puente logístico vital para el transporte de recursos. [JUEGO:ORDENAR_LETRAS:RISARALDA] Su capital, Pereira, es conocida como la 'Querendona, Trasnochadora y Morena', un centro de comercio que sobrevive en la memoria de los archivos digitales. [JUEGO:ORDENAR_FRASE:PEREIRA ES EL CORAZON LOGISTICO] Los antiguos caminos de arrieros ahora son rutas de exploración para nuestra misión. [JUEGO:SOPA_LETRAS:ARRIERO,CAMINO,RUTA] \n\nEl Paisaje Cultural Cafetero (PCC) no es solo agricultura; es un sistema simbiótico entre el hombre y la montaña. [JUEGO:ORDENAR_LETRAS:PAISAJE] La forma en que las casas de bareque resistieron las ondas expansivas es un misterio de la ingeniería antigua. [JUEGO:ORDENAR_FRASE:EL BAREQUE ES RESISTENTE] Esta arquitectura utiliza materiales locales como la guadua, el 'acero vegetal'. [JUEGO:SOPA_LETRAS:GUADUA,ACERO,CONSTRUCCION] \n\nFinalmente, para sobrevivir en este sector, debemos aprender a identificar las variedades de café que aún crecen de forma silvestre. [JUEGO:ORDENAR_LETRAS:GRANO] El café no era solo una bebida, era la moneda y la energía de una civilización entera. [JUEGO:ORDENAR_FRASE:EL CAFE ES ORO NEGRO] El reconocimiento de estos tres departamentos es nuestra prioridad de reconocimiento esta semana. [JUEGO:SOPA_LETRAS:RECONOCIMIENTO,SEMANA,PRIORIDAD] ¿Están listos para cartografiar el paraíso perdido? [JUEGO:CRUCIGRAMA:Departamento central|RISARALDA;Capital de Risaralda|PEREIRA;Oro negro liquido|CAFE]",
+  "recurso_visual": "graph TD\n    A[Eje Cafetero - PCC] --> B(Caldas)\n    A --> C(Quindío)\n    A --> D(Risaralda)\n    B --> B1[Capital: Manizales]\n    C --> C1[Capital: Armenia]\n    D --> D1[Capital: Pereira]\n    B1 --> E[Nevado del Ruiz]\n    C1 --> F[Valle de Cocora]\n    D1 --> G[Viaducto César Gaviria]",
+  "preguntas_inductivas_pagina": [
+    "¿Qué departamentos conforman el núcleo del Eje Cafetero según el reporte del Capitán?",
+    "¿Por qué se menciona que la arquitectura de bareque es un misterio de ingeniería?",
+    "¿Cuál es el apodo de la ciudad de Pereira en los archivos antiguos?",
+    "¿Qué material es denominado 'acero vegetal' en la construcción regional?",
+    "¿Qué departamento es descrito como el más pequeño pero con mayor densidad de biodiversidad?"
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un mapa del Triángulo del Café identificando los tres departamentos y sus capitales, añadiendo símbolos que representen la supervivencia (ej. cápsulas de escape o radares).",
+    "Realiza un cuadro comparativo entre Caldas, Quindío y Risaralda, destacando su capital y una característica geográfica mencionada en el texto.",
+    "Redacta una bitácora de explorador donde expliques por qué el Paisaje Cultural Cafetero es fundamental para la reconstrucción de la civilización.",
+    "Representa gráficamente una casa de colonización antioqueña hecha de bareque y guadua, señalando sus partes principales."
+  ],
+  "texto_deductivo": "Como exploradores espaciales en modo supervivencia, debemos analizar el fenómeno del Paisaje Cultural Cafetero desde una perspectiva científica y económica. [JUEGO:ORDENAR_LETRAS:CIENCIA] El turismo en esta zona no es solo recreativo; es un ejercicio de reconocimiento cultural y emprendimiento de rescate. [JUEGO:ORDENAR_FRASE:EL TURISMO ES RECONOCIMIENTO CULTURAL] Los departamentos de Caldas, Quindío y Risaralda forman un ecosistema económico basado en la sostenibilidad del grano. [JUEGO:SOPA_LETRAS:ECONOMIA,SOSTENIBLE,GRANO] \n\nEl fenómeno que debemos explicar es la 'Resiliencia del Paisaje'. ¿Cómo sobrevivió el PCC al apocalipsis? [JUEGO:ORDENAR_LETRAS:RESILIENCIA] La respuesta reside en el esfuerzo humano colectivo y la adaptación al entorno montañoso. [JUEGO:ORDENAR_FRASE:EL ESFUERZO HUMANO CREA PAISAJE] La UNESCO declaró esta zona patrimonio porque representa una tradición centenaria de cultivo en condiciones extremas. [JUEGO:SOPA_LETRAS:UNESCO,PATRIMONIO,TRADICION] \n\nEn Caldas, el emprendimiento se centra en el aprovechamiento de las aguas termales y el turismo volcánico cerca del Nevado del Ruiz. [JUEGO:ORDENAR_LETRAS:VOLCAN] Esto genera una fuente de energía y recursos para los colonos espaciales. [JUEGO:ORDENAR_FRASE:LAS TERMALES SON ENERGIA PURA] Debemos evaluar el impacto de estas fuentes en nuestra tecnología de supervivencia. [JUEGO:SOPA_LETRAS:TERMALES,ENERGIA,TECNOLOGIA] [JUEGO:CRUCIGRAMA:Agua caliente natural|TERMAL;Nevado famoso|RUIZ] \n\nQuindío ofrece un modelo de agroturismo que podemos replicar en los bio-domos orbitales. [JUEGO:ORDENAR_LETRAS:AGROTURISMO] Los parques temáticos, como el del Café, son bases de datos vivientes sobre la historia de la agricultura colombiana. [JUEGO:ORDENAR_FRASE:LOS PARQUES SON BASES DE DATOS] El turismo rural es la base de la economía de intercambio en este sector. [JUEGO:SOPA_LETRAS:RURAL,INTERCAMBIO,BASE] [JUEGO:CRUCIGRAMA:Parque tematico|DELCAFE;Tipo de turismo|AGROTURISMO] \n\nRisaralda, con su conectividad, permite que los productos del campo lleguen a las zonas de refugio. [JUEGO:ORDENAR_LETRAS:CONEXION] El emprendedor del Eje Cafetero se caracteriza por su hospitalidad y visión de negocio, incluso en tiempos de escasez. [JUEGO:ORDENAR_FRASE:EL EMPRENDEDOR TIENE VISION] Es imperativo valorar la riqueza del PCC como un activo estratégico de Colombia. [JUEGO:SOPA_LETRAS:ESTRATEGICO,ACTIVO,VALOR] [JUEGO:CRUCIGRAMA:Accion de emprender|NEGOCIO;Cualidad de recibir bien|HOSPITALIDAD] \n\nPara concluir nuestro análisis, el fenómeno del Eje Cafetero se explica mediante la triada: Geografía, Cultura y Economía. [JUEGO:ORDENAR_LETRAS:TRIADA] Sin uno de estos pilares, el sistema colapsaría como las antiguas redes de comunicaciones. [JUEGO:ORDENAR_FRASE:GEOGRAFIA CULTURA Y ECONOMIA] Mantengan sus visores limpios y su curiosidad alerta para la próxima misión de campo. [JUEGO:SOPA_LETRAS:VISOR,CURIOSIDAD,MISION] [JUEGO:CRUCIGRAMA:Entorno fisico|GEOGRAFIA;Sistema de produccion|ECONOMIA]",
+  "preguntas_deductivas_pagina": [
+    "¿Cuáles son los tres pilares que explican el fenómeno del Eje Cafetero según el texto?",
+    "¿Por qué el Quindío es considerado un modelo para los bio-domos orbitales?",
+    "¿Qué importancia estratégica tiene Risaralda en el contexto de la supervivencia?",
+    "¿Qué tipo de energía se menciona que puede aprovecharse en el departamento de Caldas?",
+    "¿Qué valor le otorgó la UNESCO a esta región y por qué es relevante hoy?"
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Elabora un diagrama detallado que muestre la relación entre el relieve montañoso y la economía del café en el periodo post-apocalíptico.",
+    "Crea un mapa mental sobre el 'Emprendimiento de Rescate' en el Eje Cafetero, incluyendo turismo rural, agroturismo y turismo volcánico.",
+    "Dibuja una infografía artesanal que explique el proceso del café desde la semilla hasta la taza, pero adaptado a una estación espacial.",
+    "Realiza un dibujo explicativo de cómo una palma de cera podría purificar el aire de un sector contaminado según la narrativa del texto."
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "Durante la exploración del Valle de Cocora en el departamento del Quindío, los exploradores espaciales observan que las Palmas de Cera (Ceroxylon quindiuense) alcanzan alturas de hasta 60 metros, mucho más que cualquier otra vegetación circundante, a pesar de los fuertes vientos y la atmósfera enrarecida.",
+      "tabla_o_grafica_markdown": "| Especie | Altura Promedio | Resistencia al Viento | Adaptación al Suelo |\n| :--- | :--- | :--- | :--- |\n| Palma de Cera | 60m | Alta | Volcánico |\n| Cafetal Tradicional | 2m | Media | Orgánico |\n| Arbusto de Páramo | 1m | Muy Alta | Rocoso |",
+      "pregunta": "¿Qué fenómeno biológico y geográfico explica mejor la supervivencia y altura de estas palmas en este ecosistema específico?",
+      "opciones": [
+        "La adaptación evolutiva a suelos de ceniza volcánica y la capacidad de las fibras de la palma para oscilar sin romperse ante el viento.",
+        "El uso de fertilizantes químicos dejados por las civilizaciones antiguas antes del colapso global.",
+        "La falta de competidores por la luz solar, ya que las demás plantas murieron debido a la radiación espacial.",
+        "Un sistema de riego artificial subterráneo construido por los antiguos habitantes del Quindío."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. La Palma de Cera ha evolucionado para prosperar en suelos andinos de origen volcánico y su estructura fibrosa le permite flexibilidad frente a las corrientes de aire de alta montaña.",
+        "1": "Incorrecto. Los fertilizantes químicos habrían desaparecido o perdido su efecto tras siglos de colapso.",
+        "2": "Incorrecto. Aunque la luz es un factor, la altura es una característica intrínseca de la especie, no solo una respuesta a la radiación.",
+        "3": "Incorrecto. No hay evidencia de tales sistemas y la planta es un organismo natural, no depende de tecnología antigua."
+      }
+    }
+  ]
+}

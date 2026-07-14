@@ -1,187 +1,83 @@
 {
   "saberes_previos": [
     {
-      "pregunta": "¿Qué forma crees que tiene el camino que sigue la Tierra alrededor del Sol?",
+      "pregunta": "En nuestro refugio post-apocalíptico observamos que los antiguos satélites caen en curvas. Antes del colapso, ¿cómo se creía que era el centro del universo en los modelos antiguos más sencillos?",
       "opciones": [
-        "Un círculo perfecto",
-        "Un cuadrado con bordes curvos",
-        "Una elipse (como un círculo alargado)",
-        "Una línea recta"
+        "Se creía que la Tierra era el centro inmóvil de todo (Modelo Geocéntrico).",
+        "Se creía que los satélites flotaban sin ninguna fuerza que los atrajera.",
+        "Se pensaba que el Sol giraba alrededor de la Luna constantemente.",
+        "Se creía que no existía ningún orden y las estrellas se movían al azar."
+      ],
+      "correcta": 0
+    },
+    {
+      "pregunta": "Si encontramos un viejo diario científico que habla de órbitas, ¿cuál es la forma real que describen los planetas alrededor del Sol según la ciencia clásica?",
+      "opciones": [
+        "Círculos perfectos sin ninguna desviación.",
+        "Líneas rectas que rebotan en el borde del universo.",
+        "Órbitas elípticas, que son como círculos ligeramente estirados.",
+        "Espirales infinitas que se acercan al Sol cada segundo."
       ],
       "correcta": 2
     },
     {
-      "pregunta": "En la antigüedad, ¿quién se creía que estaba en el centro de todo el universo?",
+      "pregunta": "Para resolver el misterio de las trayectorias de los bólidos celestes, necesitamos saber qué fuerza mantiene a un planeta en su órbita. ¿Cuál es?",
       "opciones": [
-        "El Sol",
-        "La Tierra",
-        "La Luna",
-        "Marte"
+        "La fuerza del viento solar empujando las rocas.",
+        "La fuerza de atracción gravitacional entre el Sol y el planeta.",
+        "La energía magnética de los polos de la Tierra únicamente.",
+        "La presión del vacío del espacio exterior."
       ],
       "correcta": 1
-    },
-    {
-      "pregunta": "¿Qué fuerza crees que mantiene a los planetas 'atados' al Sol para que no salgan volando?",
-      "opciones": [
-        "El viento solar",
-        "El magnetismo",
-        "La gravedad",
-        "La presión atmosférica"
-      ],
-      "correcta": 2
     }
   ],
-  "texto_inductivo": "Saludos, jóvenes rastreadores del Yermo. Soy el Detective de las Sombras. En este mundo post-apocalíptico, donde las luces de las ciudades se apagaron hace siglos y el GPS es solo una leyenda de los Ancianos, las estrellas han vuelto a ser nuestro único mapa. Pero hay un problema: el cielo parece moverse, y si no entendemos cómo lo hace, nos perderemos para siempre en las Tierras Baldías. Nuestra misión hoy es resolver el 'Caso del Carrusel Celeste'. Hace mucho tiempo, antes de la Gran Caída, los seres humanos vivían en una confusión total. Miraban hacia arriba y veían al Sol salir por el este y ocultarse por el oeste. Veían la Luna y las estrellas desplazarse lentamente sobre sus cabezas. La conclusión lógica para un detective novato sería: 'Nosotros estamos quietos y todo lo demás da vueltas a nuestro alrededor'. Esta es la famosa Teoría Geocéntrica. Durante más de mil años, esta fue la verdad absoluta. Imaginen un mundo donde la Tierra es el trono inmóvil del universo. Sin embargo, había pistas que no encajaban. Algunos puntos brillantes, a los que llamaron 'planetas' (que significa errantes), a veces parecían retroceder en el cielo en lugar de seguir siempre hacia adelante. ¿Cómo es posible que un sospechoso cambie de dirección sin razón aparente? Fue entonces cuando un detective polaco llamado Nicolás Copérnico empezó a revisar las pruebas. Él propuso una teoría radical para su época: ¿Y si no somos el centro? ¿Y si el Sol es el corazón de este sistema y nosotros somos los que corremos a su alrededor? A esto lo llamamos Heliocentrismo. Al principio, nadie le creyó. Parecía absurdo sentir que la Tierra se movía cuando todo bajo nuestros pies parece sólido y firme. Pero piensen en esto como estar dentro de una caravana blindada que viaja por el desierto a una velocidad constante; si no miras por la ventana y el camino es suave, jurarías que estás detenido. Copérnico no fue el único en este caso. Años después, Galileo Galilei usó una nueva herramienta tecnológica, el telescopio, para buscar pruebas visuales. Encontró que Júpiter tenía sus propias lunas girando a su alrededor, lo que demostraba que no todo en el universo tenía que girar obligatoriamente en torno a la Tierra. Este hallazgo fue el equivalente a encontrar huellas dactilares que contradecían la coartada principal del modelo geocéntrico. Entender que nos movemos alrededor del Sol no fue solo un cambio de opinión; fue una revolución que permitió a los antiguos calcular las estaciones, predecir eclipses y, eventualmente, lanzar satélites (aquellos que ahora son chatarra espacial flotante). Como detectives del nuevo mundo, debemos entender que las apariencias engañan. El hecho de que veamos al Sol 'moverse' es solo un efecto de nuestra propia rotación y traslación. Aprender estas leyes es la clave para recuperar la ciencia de los antiguos y asegurar que nuestra civilización pueda, algún día, volver a mirar a las estrellas no con miedo, sino con conocimiento técnico.",
-  "recurso_visual": "| Modelo | Centro del Sistema | Descripción de las Órbitas | Defensores Principales |\n| :--- | :--- | :--- | :--- |\n| **Geocéntrico** | La Tierra | Círculos perfectos (Epiciclos) | Ptolomeo, Aristóteles |\n| **Heliocéntrico** | El Sol | Elípticas (aunque Copérnico creía que eran círculos) | Copérnico, Galileo, Kepler |\n| **Post-Apocalíptico** | El Sol | Trayectorias elípticas regidas por la gravedad | Detectives del Yermo |",
+  "texto_inductivo": "¡Saludos, recluta! Soy el Detective de Misterios del Páramo Celestial. En este mundo post-apocalíptico, donde la tecnología del viejo mundo se ha desmoronado, mirar al cielo no es solo un pasatiempo, ¡es una estrategia de supervivencia! Satélites antiguos y basura espacial caen constantemente. Para predecir sus rutas, debemos desenterrar los secretos del movimiento planetario. Imagina que somos detectives tras la pista de un sospechoso que viaja por el cosmos. El primer indicio nos lleva a entender cómo se desplazan estos cuerpos celestes en su órbita. [JUEGO:ORDENAR_LETRAS:ORBITA] Los antiguos observadores pensaban que todo giraba en círculos perfectos alrededor de la Tierra, pero el gran misterio comenzó a resolverse cuando nos dimos cuenta de que la trayectoria real es una curva estirada llamada elipse. [JUEGO:ORDENAR_LETRAS:ELIPSE]\n\nNuestra investigación revela que los planetas no se mueven solos; hay una fuerza invisible que actúa como el hilo de una marioneta cósmica: la gravedad. [JUEGO:ORDENAR_LETRAS:GRAVEDAD] Sin ella, cada planeta saldría disparado en línea recta hacia el vacío oscuro del espacio. [JUEGO:SOPA_LETRAS:ELIPSE,GRAVEDAD,SOL] Para descifrar las pistas que dejaron los astrónomos del pasado, debemos analizar cómo cambia la distancia de un planeta. [JUEGO:ORDENAR_LETRAS:PLANETA] Cuando el planeta está más cerca del Sol, que es el gran motor de nuestro sistema, su velocidad aumenta drásticamente. [JUEGO:ORDENAR_LETRAS:SOL]\n\nLos sabios del pasado debatieron durante siglos sobre quién ocupaba el trono central de nuestro vecindario cósmico. [JUEGO:SOPA_LETRAS:FOCO,ORBITA,ASTRON] Nicolás Copérnico propuso que la Tierra no era el centro de todo. [JUEGO:ORDENAR_FRASE:EL SOL ESTA EN EL CENTRO] Esta idea revolucionaria fue la clave para resolver el enigma del cielo. [JUEGO:CRUCIGRAMA:Forma de la orbita|ELIPSE;Centro del sistema|SOL] Posteriormente, Johannes Kepler analizó los datos de las órbitas de los mundos vecinos, como el planeta rojo. [JUEGO:SOPA_LETRAS:PLANETA,TIERRA,MARTE] Él descubrió que las órbitas no eran circulares. [JUEGO:ORDENAR_FRASE:LA ORBITA ES UNA ELIPSE] Kepler resumió sus hallazgos en tres leyes fundamentales que hoy usamos para rastrear los restos tecnológicos en el cielo. [JUEGO:CRUCIGRAMA:Fuerza de atraccion|GRAVEDAD;Cuerpo que orbita|PLANETA]\n\nPara un detective del páramo, cada observación astronómica es una pista crucial en la escena del crimen cósmico. [JUEGO:SOPA_LETRAS:CIENCIA,MISTERIO,LEYES] Aprendimos que las leyes de la física son universales y aplican tanto a planetas gigantes como a pequeños fragmentos de metal que caen del cielo. [JUEGO:ORDENAR_FRASE:KEPLER DESCUBRIO LAS LEYES] Al estudiar el movimiento, notamos que las áreas barridas por el planeta en tiempos iguales siempre son iguales, lo que nos obliga a calcular con precisión los tiempos de órbita. [JUEGO:SOPA_LETRAS:RAPIDEZ,AREA,TIEMPO]\n\nEl Sol se ubica en uno de los puntos especiales de la elipse, conocidos como focos. [JUEGO:CRUCIGRAMA:Punto de apoyo orbital|FOCO;Camino en el espacio|ORBITA] Por lo tanto, el planeta experimenta un cambio constante en su velocidad a lo largo de su viaje anual. [JUEGO:ORDENAR_FRASE:EL PLANETA GIRA RAPIDO] Cuanto más cerca pasa del foco caliente, más rápido debe moverse para no ser devorado por la gravedad solar. [JUEGO:CRUCIGRAMA:Cientifico de las elipses|KEPLER;Cientifico de la gravedad|NEWTON] Esta relación matemática nos permite predecir con exactitud milimétrica la posición de cualquier cuerpo en el cielo. [JUEGO:ORDENAR_FRASE:LA GRAVEDAD NOS UNE] Al final, todo se reduce a dos visiones del universo que compitieron en la historia humana. [JUEGO:CRUCIGRAMA:Modelo con la Tierra al centro|GEOCENTRICO;Modelo con el Sol al centro|HELIOCENTRICO] ¡La verdad científica ha sido revelada, detective!",
+  "recurso_visual": "graph TD\n    A[Modelos del Movimiento Planetario] --> B(Modelo Geocéntrico)\n    A --> C(Modelo Heliocéntrico)\n    B --> B1[Tierra en el centro inmóvil]\n    B --> B2[Órbitas circulares perfectas]\n    C --> C1[Sol en el centro del sistema]\n    C --> C2[Órbitas elípticas - Leyes de Kepler]\n    C2 --> D1[1ra Ley: Órbitas Elípticas con el Sol en un foco]\n    C2 --> D2[2da Ley: Áreas iguales en tiempos iguales]\n    C2 --> D3[3ra Ley: Relación entre período y distancia orbital]",
   "preguntas_inductivas_pagina": [
-    "¿Cuál es la diferencia principal entre el modelo geocéntrico y el heliocéntrico?",
-    "¿Por qué los antiguos creían que la Tierra estaba quieta?",
-    "¿Qué significa la palabra 'planeta' según el texto y por qué se les llamó así?",
-    "¿Qué prueba observó Galileo Galilei para cuestionar el modelo geocéntrico?",
-    "¿Por qué es importante para nosotros, en el mundo post-apocalíptico, entender el movimiento planetario?"
+    "¿Qué diferencia fundamental encuentras entre el modelo geocéntrico y el heliocéntrico según las pistas del texto?",
+    "¿Por qué los planetas aumentan su velocidad cuando están más cerca del Sol en su órbita elíptica?",
+    "¿Cuál es el papel de la gravedad en la conservación de la trayectoria de un satélite en ruinas?",
+    "¿Qué forma geométrica describe la órbita de un planeta y qué elementos la componen?",
+    "¿Cómo ayudaron las observaciones de Kepler a descartar las órbitas perfectamente circulares de los antiguos modelos?"
   ],
   "preguntas_inductivas_cuaderno": [
-    "Dibuja un esquema del Sistema Solar comparando la visión de Ptolomeo (Tierra al centro) y la de Copérnico (Sol al centro).",
-    "Realiza un cuadro comparativo entre los argumentos a favor del geocentrismo (sentidos) y los argumentos del heliocentrismo (observación técnica).",
-    "Escribe una reflexión de media página sobre cómo cambiaría tu vida en el Yermo si no pudieras predecir las estaciones del año usando el movimiento de los planetas.",
-    "Representa gráficamente, mediante un dibujo narrativo, el momento en que Galileo observa las lunas de Júpiter con su telescopio."
+    "Dibuja un esquema detallado de una órbita elíptica señalando el Sol en uno de sus focos, el planeta en órbita, el afelio (punto lejano) y el perihelio (punto cercano), indicando dónde es mayor la velocidad.",
+    "Realiza un cuadro comparativo entre el Modelo Geocéntrico (Ptolomeo) y el Modelo Heliocéntrico (Copérnico/Kepler), detallando ventajas, desventajas y el científico impulsor.",
+    "Escribe una reflexión de dos párrafos explicando cómo la comprensión del movimiento planetario y las órbitas elípticas te ayudaría a salvar a tu comunidad de sobrevivientes de la colisión de un viejo satélite militar.",
+    "Representa gráficamente, mediante un dibujo estilo 'cómic de misterio', el momento en que Kepler descubre que las órbitas no son círculos perfectos sino elipses."
   ],
-  "juegos_ordenar_letras_1": [
-    "HELIO",
-    "ORBITA",
-    "CENTRO"
-  ],
-  "juego_ordenar_frase_1": "LA TIERRA NO ES EL CENTRO DEL UNIVERSO SINO QUE GIRA ALREDEDOR DEL SOL",
-  "texto_deductivo": "Atención, equipo de investigación. Hemos pasado de las simples sospechas a las pruebas contundentes. Si el primer caso fue entender 'quién' estaba en el centro, este segundo caso trata de entender 'cómo' se mueven exactamente esos astros. Entramos en la Bóveda de las Leyes Eternas, un lugar donde el Detective Johannes Kepler dejó las reglas definitivas del movimiento planetario. Kepler no era un detective de campo como Galileo; él era un analista de datos. Pasó años estudiando las notas de su mentor, Tycho Brahe, quien había registrado las posiciones de los planetas con una precisión asombrosa. Kepler notó algo que a Copérnico se le escapó: los planetas no se mueven en círculos perfectos. Esa era una idea romántica pero errónea. La Primera Ley de Kepler dicta que las órbitas son **elipses**, y el Sol no está en el centro exacto, sino en uno de los puntos llamados 'focos'. Imaginen una cuerda atada a dos postes; si pasan un lápiz por la cuerda y dibujan, la figura resultante es una elipse. Esto cambió todo, porque explicaba por qué a veces los planetas están más cerca del Sol y otras veces más lejos. La Segunda Ley es aún más fascinante para un detective que busca patrones de velocidad. Kepler descubrió que los planetas no mantienen siempre la misma rapidez. Cuando un planeta está cerca del Sol (perihelio), corre como si estuviera huyendo de una explosión en el Yermo. Cuando está lejos (afelio), se mueve perezosamente. Técnicamente, la ley dice que el radio vector que une al planeta con el Sol barre 'áreas iguales en tiempos iguales'. Esto significa que el movimiento planetario no es uniforme, sino que depende de su posición. Finalmente, la Tercera Ley nos da la fórmula matemática para entender la armonía del sistema. Nos dice que cuanto más lejos está un planeta del Sol, más tiempo tarda en completar su vuelta (su año). Mientras que la Tierra tarda 365 días, los planetas exteriores como Júpiter o Saturno tardan décadas de nuestros años. Pero estas leyes eran como un código sin explicar hasta que llegó Isaac Newton. Él encontró el 'motivo del crimen': la **Gravedad**. Newton dedujo que la misma fuerza que hace caer una manzana podrida de un árbol en nuestras ruinas es la que mantiene a la Luna en órbita. Descubrió que la fuerza de atracción depende de la masa de los objetos y de la distancia que los separa. Si duplicas la distancia, la fuerza no se reduce a la mitad, ¡se reduce a la cuarta parte! Esta es la Ley de la Gravitación Universal. Gracias a Newton, sabemos que el Sol, al tener una masa gigantesca, tiene la fuerza necesaria para curvar el camino de todos los planetas. Sin esta fuerza, la Tierra saldría disparada en línea recta hacia el vacío oscuro del espacio. Como detectives expertos, ahora sabemos que el universo no es un caos, sino una maquinaria de relojería precisa que sigue leyes matemáticas que podemos descifrar incluso entre los escombros de nuestra civilización.",
+  "texto_deductivo": "Ahora que conocemos las pistas básicas, es momento de aplicar el método deductivo para resolver el caso de las órbitas celestes. Como detectives del páramo, necesitamos leyes precisas. Isaac Newton, un genio del viejo mundo, nos legó la ley de la gravitación universal, la cual nos dice que la fuerza que atrae a una manzana al caer es la misma que mantiene a los mundos en el firmamento. [JUEGO:ORDENAR_LETRAS:NEWTON] Kepler, por su parte, estructuró tres leyes matemáticas irrefutables que gobiernan este gran reloj cósmico. [JUEGO:ORDENAR_LETRAS:KEPLER]\n\nLa gravedad actúa a distancia. Si un cuerpo celeste tiene gran masa, atraerá con mayor intensidad a sus vecinos. [JUEGO:SOPA_LETRAS:MASA,FUERZA,RADIO] La fuerza de atracción es directamente proporcional al producto de sus masas e inversamente proporcional al cuadrado de la distancia que los separa. [JUEGO:ORDENAR_LETRAS:FUERZA] Esto significa que si alejamos un satélite al doble de la distancia, la atracción disminuye enormemente. [JUEGO:ORDENAR_LETRAS:MASA] Cada segundo que pasa, el tiempo que tarda un planeta en dar la vuelta completa, llamado período orbital, depende de su distancia media al Sol. [JUEGO:ORDENAR_LETRAS:PERIODO]\n\nDeduzcamos lo siguiente: un satélite artificial abandonado en una órbita baja experimentará una fuerza gravitacional tremenda. [JUEGO:SOPA_LETRAS:LEYES,FISICA,NEWTON] Por lo tanto, su velocidad orbital debe ser extremadamente alta para no caer. [JUEGO:ORDENAR_FRASE:LA FUERZA DEPENDE DE LA MASA] Al aplicar la tercera ley de Kepler, descubrimos una constante en el universo: el cuadrado del período de revolución es proporcional al cubo de la distancia media al Sol. [JUEGO:CRUCIGRAMA:Segunda ley de Kepler habla de|AREAS;Tercera ley de Kepler habla de|PERIODOS] Si la distancia aumenta, el período se hace mucho más largo. [JUEGO:ORDENAR_FRASE:A MAYOR DISTANCIA MENOR FUERZA]\n\nEn nuestro laboratorio del refugio, usamos estas fórmulas para predecir el paso del satélite 'Halcón de Hierro'. [JUEGO:SOPA_LETRAS:INERCIA,ACCION,REACCION] Sabemos que la inercia del satélite intenta llevarlo en línea recta, pero la Tierra curva su espacio de caída de forma constante. [JUEGO:ORDENAR_FRASE:EL PERIODO DEPENDE DEL RADIO] Con el telescopio improvisado, medimos su distancia orbital y calculamos su período de retorno. [JUEGO:CRUCIGRAMA:Fuerza invisible del cosmos|GRAVEDAD;Unidad de masa|KILOGRAMO] Cada dato recolectado nos acerca a desvelar el secreto de la mecánica del cosmos. [JUEGO:SOPA_LETRAS:CONSTANTE,PERIODO,DISTANCIA]\n\nEstudiar el vacío del espacio nos enseña que las fuerzas mecánicas no necesitan aire para propagarse. [JUEGO:ORDENAR_FRASE:LAS LEYES EXPLICAN EL CIELO] Los planetas viajan por el vacío absoluto siguiendo estas precisas directrices matemáticas. [JUEGO:CRUCIGRAMA:Espacio vacio orbital|VACIO;Instrumento para mirar estrellas|TELESCOPIO] El punto de la órbita donde el planeta está más cerca de la estrella se llama perihelio, y el punto donde se encuentra más alejado se llama afelio. [JUEGO:SOPA_LETRAS:DETECTIVE,PISTA,SOLUCION] Estos términos nos permiten guiar a nuestra comunidad en la observación estelar nocturna.\n\nPara cerrar el caso criminal de las fuerzas invisibles, debemos recordar que la naturaleza siempre prefiere la simplicidad en sus leyes fundamentales. [JUEGO:ORDENAR_FRASE:RESOLVIMOS EL GRAN MISTERIO] Al igual que un detective descifra el culpable usando lógica y huellas, nosotros desciframos el movimiento planetario usando la física. [JUEGO:CRUCIGRAMA:Punto mas cercano al Sol|PERIHELIO;Punto mas lejano al Sol|AFELIO] Con estas herramientas científicas, el firmamento deja de ser un caos amenazante y se convierte en un mapa predecible. [JUEGO:CRUCIGRAMA:Forma geometrica perfecta que no es elipse|CIRCULO;Estrella mas cercana|SOL] ¡Misterio resuelto, detective!",
   "preguntas_deductivas_pagina": [
-    "¿Qué forma tienen realmente las órbitas planetarias según la Primera Ley de Kepler?",
-    "¿En qué parte de su órbita se mueve más rápido un planeta, cerca o lejos del Sol?",
-    "¿Qué es un 'foco' en el contexto de una órbita elíptica?",
-    "¿De qué factores depende la fuerza de gravedad según Isaac Newton?",
-    "¿Qué sucedería con la trayectoria de la Tierra si la gravedad del Sol desapareciera de repente?"
+    "¿Qué postula la Tercera Ley de Kepler sobre la relación entre el tiempo que tarda un planeta en orbitar y su distancia al Sol?",
+    "¿Cómo cambia la fuerza de atracción gravitacional si la distancia entre dos cuerpos se reduce a la mitad?",
+    "¿Qué ocurriría con la órbita de un satélite si, de repente, se apagara la gravedad de la Tierra?",
+    "¿Cuál es la diferencia matemática entre el Perihelio y el Afelio en términos de velocidad y distancia?",
+    "¿Por qué la masa de los cuerpos celestes determina la intensidad de la fuerza que rige sus movimientos orbitales?"
   ],
   "preguntas_deductivas_cuaderno": [
-    "Dibuja una elipse detallada señalando los focos, el perihelio (punto cercano) y el afelio (punto lejano).",
-    "Elabora un mapa mental que conecte las 3 Leyes de Kepler con la Ley de Gravitación de Newton.",
-    "Realiza un dibujo explicativo que muestre la 'Segunda Ley de Kepler', sombreando las áreas barridas por el planeta en diferentes puntos de su órbita.",
-    "Crea una infografía artesanal que explique por qué un año en Marte es más largo que un año en la Tierra usando la Tercera Ley de Kepler."
-  ],
-  "juegos_ordenar_letras_2": [
-    "ELIPSE",
-    "GRAVEDAD",
-    "NEWTON"
-  ],
-  "juego_ordenar_frase_2": "LA FUERZA DE GRAVEDAD MANTIENE A LOS PLANETAS EN SUS ORBITAS ELIPTICAS",
-  "sopa_letras": [
-    "GALAXIA",
-    "TELESCOPIO",
-    "PLANETA",
-    "COMETA",
-    "ESPACIO",
-    "ESTRELLA",
-    "SISTEMA",
-    "INERCIA",
-    "MASA",
-    "FUERZA"
-  ],
-  "crucigrama": [
-    {
-      "palabra": "GRAVEDAD",
-      "pista": "Fuerza de atracción entre dos cuerpos con masa."
-    },
-    {
-      "palabra": "ELIPSE",
-      "pista": "Forma geométrica de la órbita de un planeta."
-    },
-    {
-      "palabra": "SOL",
-      "pista": "Astro que ocupa uno de los focos en las órbitas planetarias."
-    },
-    {
-      "palabra": "KEPLER",
-      "pista": "Apellido del científico que formuló las tres leyes del movimiento planetario."
-    },
-    {
-      "palabra": "NEWTON",
-      "pista": "Descubrió la Ley de la Gravitación Universal."
-    },
-    {
-      "palabra": "AFELIO",
-      "pista": "Punto de la órbita donde el planeta está más lejos del Sol."
-    },
-    {
-      "palabra": "PERIHELIO",
-      "pista": "Punto de la órbita donde el planeta se mueve más rápido."
-    },
-    {
-      "palabra": "FOCO",
-      "pista": "Punto interno de la elipse donde se sitúa el Sol."
-    },
-    {
-      "palabra": "ORBITA",
-      "pista": "Camino que recorre un cuerpo alrededor de otro."
-    },
-    {
-      "palabra": "ANIO",
-      "pista": "Tiempo que tarda un planeta en dar una vuelta completa al Sol."
-    }
+    "Diseña un diagrama detallado que ilustre la Ley de la Gravitación Universal de Newton, mostrando dos masas, la distancia que las separa y los vectores que representan la fuerza de atracción mutua.",
+    "Elabora un mapa mental creativo que conecte las Tres Leyes de Kepler con la Ley de Gravitación de Newton, destacando palabras clave como Elipse, Áreas, Período, Masa y Distancia.",
+    "Realiza un dibujo explicativo del experimento mental del 'Cañón de Newton', mostrando cómo un proyectil disparado a gran velocidad puede entrar en órbita constante alrededor de la Tierra sin caer al suelo.",
+    "Dibuja una infografía artesanal en tu cuaderno que explique detalladamente los conceptos de Afelio y Perihelio, decorándola con un estilo post-apocalíptico de supervivencia científica."
   ],
   "icfes": [
     {
       "competencia": "Explicación de Fenómenos",
-      "texto_introductorio": "Un detective del Yermo observa que el planeta Marte se mueve a diferentes velocidades mientras orbita el Sol. Él registra los siguientes datos de velocidad en dos puntos diferentes de la órbita:",
-      "tabla_o_grafica_markdown": "| Posición | Distancia al Sol (millones km) | Velocidad Orbital (km/s) |\n| :--- | :--- | :--- |\n| Punto A | 206 | 26.5 |\n| Punto B | 249 | 22.0 |",
-      "pregunta": "De acuerdo con las leyes de Kepler, ¿cuál es la explicación correcta para esta diferencia de velocidad?",
+      "texto_introductorio": "En el año 2145, los científicos de tu refugio detectan un antiguo satélite de comunicaciones meteorológicas llamado 'Sombra Celeste' que está orbitando la Tierra. Al consultar los viejos registros del siglo XXI, encuentran la siguiente tabla con datos de diferentes órbitas ensayadas por los antiguos ingenieros:",
+      "tabla_o_grafica_markdown": "| Órbita del Satélite | Distancia Media al Centro de la Tierra (km) | Período de Revolución (horas) | Velocidad Promedio (km/s) |\n|---|---|---|---|\n| Órbita Baja (LEO) | 7,000 | 1.5 | 7.8 |\n| Órbita Media (MEO) | 26,000 | 12.0 | 3.8 |\n| Órbita Geoestacionaria | 42,000 | 24.0 | 3.1 |",
+      "pregunta": "Basándote en las leyes del movimiento planetario y en la información recolectada en la tabla, si un satélite es impulsado a una órbita aún más alejada del centro de la Tierra (por ejemplo, a 50,000 km), ¿qué sucederá con su período de revolución y su velocidad promedio?",
       "opciones": [
-        "En el punto A el planeta está en el perihelio y la gravedad del sol lo acelera más.",
-        "En el punto B el planeta tiene más masa y por eso se mueve más lento.",
-        "La velocidad cambia porque el Sol se apaga por momentos.",
-        "Marte se detiene en el punto B para cambiar de dirección."
+        "El período de revolución será mayor a 24 horas y su velocidad promedio será menor a 3.1 km/s.",
+        "El período de revolución será menor a 1.5 horas y su velocidad promedio será mayor a 7.8 km/s.",
+        "El período se mantendrá exactamente en 24 horas pero la velocidad aumentará exponencialmente.",
+        "Tanto el período de revolución como la velocidad promedio aumentarán de forma directamente proporcional."
       ],
       "correcta": 0,
       "retroalimentacion": {
-        "0": "¡Exacto! Según la segunda ley de Kepler, los planetas aumentan su velocidad cuando están más cerca del Sol (perihelio).",
-        "1": "Incorrecto. La masa del planeta no cambia durante su órbita.",
-        "2": "Incorrecto. El Sol mantiene una luminosidad constante a estos efectos.",
-        "3": "Incorrecto. El movimiento es continuo, nunca se detiene."
-      }
-    },
-    {
-      "competencia": "Uso comprensivo del conocimiento científico",
-      "texto_introductorio": "La ley de gravitación universal establece que la fuerza de atracción entre dos cuerpos depende de sus masas y de la distancia entre ellos. Imagina que encontramos una antigua máquina que puede mover la Tierra al doble de su distancia actual del Sol.",
-      "tabla_o_grafica_markdown": "| Situación | Masa Sol | Masa Tierra | Distancia |\n| :--- | :--- | :--- | :--- |\n| Actual | M1 | M2 | R |\n| Nueva | M1 | M2 | 2R |",
-      "pregunta": "¿Qué sucedería con la fuerza de atracción gravitacional entre la Tierra y el Sol?",
-      "opciones": [
-        "La fuerza se mantendría igual.",
-        "La fuerza se reduciría a la cuarta parte de la original.",
-        "La fuerza se duplicaría.",
-        "La fuerza se reduciría a la mitad."
-      ],
-      "correcta": 1,
-      "retroalimentacion": {
-        "0": "Incorrecto. La distancia afecta drásticamente la fuerza.",
-        "1": "¡Correcto! Como la fuerza es inversamente proporcional al cuadrado de la distancia (2 al cuadrado = 4), la fuerza disminuye 4 veces.",
-        "2": "Incorrecto. Al alejarse, la atracción disminuye, no aumenta.",
-        "3": "Incorrecto. La relación no es lineal, es cuadrática."
-      }
-    },
-    {
-      "competencia": "Indagación",
-      "texto_introductorio": "Un grupo de supervivientes encuentra un registro astronómico antiguo que compara el periodo orbital (tiempo en dar una vuelta al Sol) de tres planetas desconocidos.",
-      "tabla_o_grafica_markdown": "| Planeta | Distancia Media al Sol (UA) | Periodo Orbital (Años) |\n| :--- | :--- | :--- |\n| X | 0.39 | 0.24 |\n| Y | 1.00 | 1.00 |\n| Z | 5.20 | 11.86 |",
-      "pregunta": "Si los investigadores descubren un Planeta 'W' que está a una distancia de 1.52 UA del Sol, ¿qué se puede predecir sobre su periodo orbital basándose en la tendencia de la tabla?",
-      "opciones": [
-        "Su periodo será menor a 0.24 años.",
-        "Su periodo será exactamente 1.00 año.",
-        "Su periodo será mayor a 1.00 año pero menor a 11.86 años.",
-        "Su periodo será mayor a 11.86 años."
-      ],
-      "correcta": 2,
-      "retroalimentacion": {
-        "0": "Incorrecto. Está más lejos que el Planeta X, por lo que tardará más.",
-        "1": "Incorrecto. Al estar más lejos que la Tierra (Planeta Y), debe tardar más de un año.",
-        "2": "¡Muy bien detective! Siguiendo la Tercera Ley de Kepler, a mayor distancia, mayor es el periodo orbital. 1.52 está entre 1.00 y 5.20.",
-        "3": "Incorrecto. No puede ser mayor a 11.86 porque su distancia es menor a la del planeta Z."
+        "0": "Correcto. De acuerdo con la Tercera Ley de Kepler y la Ley de Gravitación Universal de Newton, a mayor distancia del centro de masa, el período de revolución aumenta (tarda más tiempo en dar una vuelta) y la velocidad orbital requerida disminuye.",
+        "1": "Incorrecto. Esa respuesta contradice las leyes orbitales: una distancia mayor requiere menor velocidad y resulta en un período de revolución mucho más largo, no más corto.",
+        "2": "Incorrecto. El período no puede mantenerse constante si la distancia aumenta, ya que la órbita es más larga y la atracción gravitatoria disminuye.",
+        "3": "Incorrecto. Aunque el período aumenta con la distancia, la velocidad promedio disminuye, por lo que no pueden aumentar ambos de manera directamente proporcional."
       }
     }
   ]

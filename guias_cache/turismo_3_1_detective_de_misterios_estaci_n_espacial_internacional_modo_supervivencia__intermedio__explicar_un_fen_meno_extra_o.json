@@ -1,177 +1,83 @@
 {
   "saberes_previos": [
     {
-      "pregunta": "Desde la Estación Espacial Internacional, observamos una región montañosa en Colombia famosa por su alta concentración de minifundios dedicados a un cultivo de exportación de fama mundial. ¿A qué región y cultivo nos referimos principalmente?",
+      "pregunta": "¿Qué departamento NO pertenece tradicionalmente al Eje Cafetero colombiano?",
       "opciones": [
-        "A) La Región Caribe y el cultivo de banano",
-        "B) El Eje Cafetero y el cultivo de café de alta montaña",
-        "C) Los Llanos Orientales y el cultivo de palma de aceite",
-        "D) El Altiplano Cundiboyacense y el cultivo de flores"
+        "Caldas",
+        "Quindío",
+        "Risaralda",
+        "Amazonas"
+      ],
+      "correcta": 3
+    },
+    {
+      "pregunta": "Desde el espacio, el Paisaje Cultural Cafetero se distingue por su relieve montañoso. ¿Qué cordillera atraviesa esta hermosa región?",
+      "opciones": [
+        "Cordillera Occidental",
+        "Cordillera Central",
+        "Cordillera Oriental",
+        "Sierra Nevada de Santa Marta"
       ],
       "correcta": 1
     },
     {
-      "pregunta": "¿Cuáles son los tres departamentos principales que conforman tradicionalmente el núcleo geográfico y turístico del Eje Cafetero colombiano?",
+      "pregunta": "¿Qué reconocimiento otorgó la UNESCO en el año 2011 a esta zona de Colombia?",
       "opciones": [
-        "A) Antioquia, Boyacá y Santander",
-        "B) Valle del Cauca, Cauca y Nariño",
-        "C) Caldas, Risaralda y Quindío",
-        "D) Tolima, Huila y Cundinamarca"
+        "Parque Tecnológico Industrial",
+        "Patrimonio Cultural de la Humanidad",
+        "Desierto de Interés Científico",
+        "Zona Exclusiva de Navegación Aérea"
       ],
-      "correcta": 2
+      "correcta": 1
     }
   ],
-  "texto_inductivo": "¡Saludos, Cadetes del Espacio! Les habla su Detective de Misterios desde la Cúpula de Observación de la Estación Espacial Internacional (EEI). A 400 kilómetros de altura sobre la superficie terrestre, nuestra misión no es solo mirar las estrellas, sino desentrañar los enigmas geográficos y culturales más fascinantes del planeta azul. Hoy, nuestros sensores espectrales de largo alcance han detectado una anomalía luminosa y térmica sin precedentes en el hemisferio norte de Suramérica, específicamente sobre la cordillera de los Andes en Colombia. Un brillo verde esmeralda con destellos dorados emana de un área montañosa concentrada, rompiendo todos los patrones de radiación conocidos por la ciencia espacial. Los instrumentos de la EEI indican que esta firma energética proviene de un territorio conocido como el Eje Cafetero. ¿Qué misterio se oculta tras esta intensa radiación de vitalidad y cómo se conecta con el turismo mundial? Como detectives turísticos espaciales en Modo Supervivencia, nuestro deber es recopilar pistas inductivas para explicar este fenómeno extraño.\n\nAl hacer zoom con nuestras cámaras de alta resolución, descubrimos que este 'brillo' no es energía radiactiva peligrosa, sino una manifestación de sinergia ambiental y humana. Observamos un relieve accidentado, con laderas empinadas vestidas de un verde profundo y coronadas por picos nevados. En medio de estas pendientes, identificamos miles de pequeñas parcelas agrícolas que desafían la gravedad. Pequeños vehículos de colores brillantes, que parecen escarabajos mecánicos desde nuestra altura (conocidos localmente como Yipaos), suben y bajan por caminos de herradura transportando sacos de un grano sagrado y racimos de plátano. Pero lo más sorprendente es el flujo constante de naves terrestres (buses turísticos, excursionistas, científicos) que convergen en este punto del globo. ¿Por qué esta región, conformada principalmente por los departamentos de Caldas, Risaralda y Quindío, atrae a millones de mentes curiosas del mundo entero?\n\nLa primera pista de nuestra investigación radica en la configuración del espacio geográfico. Desde la EEI, vemos cómo la Cordillera Central divide las aguas y crea microclimas excepcionales. A diferentes altitudes, el aire cambia de templado a frío, permitiendo que el suelo volcánico, enriquecido por las cenizas de volcanes guardianes como el Nevado del Ruiz, nutra una biodiversidad exuberante. En este laboratorio natural, el ser humano ha aprendido a cultivar un café de suavidad incomparable bajo la sombra de nogales y platanales. Este esfuerzo colectivo, sostenido por generaciones de familias caficultoras, ha moldeado no solo la tierra, sino la arquitectura de las casas de bahareque y tapia pisada, pintadas con colores vibrantes que reflejan la luz solar de una forma única. Esta fusión perfecta entre naturaleza, cultura y esfuerzo humano fue reconocida por la UNESCO como Patrimonio de la Humanidad bajo el nombre de Paisaje Cultural Cafetero (PCC). El 'fenómeno extraño' que observamos desde el espacio exterior es, en realidad, el faro de la sostenibilidad cultural y el agroturismo. ¿Están listos para descender en nuestra cápsula y resolver el misterio de los tres departamentos que sostienen este asombroso ecosistema turístico?",
-  "recurso_visual": "graph TD\n    EEI[Estación Espacial Internacional] -->|Detecta Anomalía Espectral| PCC[Paisaje Cultural Cafetero - PCC]\n    PCC --> Caldas[Caldas - Capital: Manizales]\n    PCC --> Risaralda[Risaralda - Capital: Pereira]\n    PCC --> Quindio[Quindío - Capital: Armenia]\n    Caldas -->|Atractivos| Nevado[Parque Nacional Natural Los Nevados]\n    Risaralda -->|Atractivos| Termales[Termales de Santa Rosa de Cabal]\n    Quindio -->|Atractivos| Cocora[Valle de Cocora y Palmas de Cera]",
+  "texto_inductivo": "# El Misterio del Destello Esmeralda en la Tierra\n\n¡Atención, reclutas de la Estación Espacial Internacional (EEI)! Aquí les habla el Detective de Misterios Planetarios. Reportando desde la cúpula de observación de nuestra estación orbital. Mientras escaneábamos el continente sudamericano en busca de anomalías geográficas, nuestros sensores de espectro visible detectaron un destello color esmeralda y oro de una intensidad inusual en la cordillera de los Andes colombianos. El misterio es real: una huella de energía cultural y natural que brilla incluso en la noche espacial. [JUEGO:ORDENAR_LETRAS:ORBITA] Para resolver este enigma, debemos descender digitalmente con nuestras cámaras térmicas hacia el corazón del Eje Cafetero. Las lecturas preliminares indican que no se trata de radiación alienígena, sino de una de las regiones turísticas y agrícolas más fascinantes del planeta Tierra. [JUEGO:ORDENAR_FRASE:LA ESTACION ESPACIAL GIRA RAPIDO]\n\nNuestras coordenadas nos llevan directamente a tres departamentos clave que componen el epicentro de este fenómeno lumínico y cultural: Caldas, Risaralda y Quindío. [JUEGO:SOPA_LETRAS:CALDAS,QUINDIO,RISARALDA] Cada uno de ellos aporta una vibración única al mapa interactivo de nuestro radar de turismo espacial. El fenómeno extraño que estamos investigando se conoce en la Tierra como el Paisaje Cultural Cafetero (PCC). ¿Cómo es posible que el cultivo de una pequeña semilla roja de café haya transformado montañas empinadas en un paraíso que atrae a millones de viajeros de todo el mundo? [JUEGO:CRUCIGRAMA:Departamento de Manizales|CALDAS;Departamento de Armenia|QUINDIO]\n\nAl hacer zoom en el norte del destello, nos encontramos con el departamento de Caldas, custodiado por la imponente presencia del volcán Nevado del Ruiz. [JUEGO:ORDENAR_LETRAS:ANDES] Desde nuestra altura orbital, observamos cómo las nubes chocan contra los picos nevados, creando un microclima perfecto para el cultivo de cafés de alta calidad. Su capital, Manizales, brilla en el mapa de calor debido a su relieve escarpado y su oferta de ecoturismo y termalismo. [JUEGO:SOPA_LETRAS:VOLCAN,NEVADO,CORDILLERA]\n\nUn poco más al sur, el radar detecta un flujo hídrico impresionante. Estamos sobrevolando el departamento de Risaralda y su capital, Pereira. [JUEGO:ORDENAR_FRASE:CALDAS QUINDIO Y RISARALDA] Aquí, el misterio del destello verde se intensifica gracias a los densos bosques de niebla y los santuarios de flora y fauna que sirven como imán para el aviturismo (turismo de observación de aves). Las aguas termales de Santa Rosa de Cabal emiten una firma térmica de relajación que los turistas adoran experimentar tras largas caminatas ecológicas. [JUEGO:CRUCIGRAMA:Capital de Risaralda|PEREIRA;Arbol nacional|PALMA]\n\nFinalmente, el sensor óptico de alta resolución se enfoca en el departamento de Quindío, el más pequeño en territorio pero gigantesco en su impacto turístico. [JUEGO:ORDENAR_LETRAS:PAISAJE] Aquí encontramos el famoso Valle de Cocora, hogar de la Palma de Cera, el árbol nacional de Colombia, cuyas siluetas parecen gigantes verdes tratando de tocar nuestra estación espacial. [JUEGO:SOPA_LETRAS:PALMA,CERA,COCORA] El turismo en esta zona ha crecido exponencialmente, transformando antiguos pueblos agrícolas en coloridos museos habitados donde el jeep 'Willys' es el medio de transporte rey.\n\nPara que un detective entienda el turismo de esta región, debe comprender que no estamos analizando simples hoteles o carreteras. Este es un modelo de turismo sostenible donde la cultura cafetera, la arquitectura colonial de bahareque y las tradiciones campesinas se fusionan para dar una explicación lógica al fenómeno del destello esmeralda: la perfecta armonía entre el ser humano y la naturaleza. [JUEGO:ORDENAR_FRASE:EL TURISMO SOSTENIBLE ES CLAVE] ¿Qué hace que el café de estas laderas sea tan especial para la economía del turismo? [JUEGO:ORDENAR_LETRAS:CAFE]\n\nReclutas, es momento de ajustar sus cascos y preparar sus cuadernos de notas espaciales. [JUEGO:SOPA_LETRAS:ASTRONAUTA,LUPA,MAPA] El misterio del Eje Cafetero requiere que analicemos cómo los campesinos locales, conocidos como caficultores, han adaptado su modo de vida a estas laderas verticales, creando una arquitectura colorida que fascina a los visitantes internacionales. [JUEGO:CRUCIGRAMA:Bebida energetica natural de la region|CAFE;Vehiculo tipico de transporte|YIPAO]\n\nNuestra misión espacial no es solo observar, sino planificar cómo promover y preservar esta joya de la geografía colombiana. [JUEGO:ORDENAR_FRASE:LOS DETECTIVES BUSCAN PISTAS] El turismo bien gestionado es la clave para que este destello no se apague debido a la sobreexplotación. Cada departamento aporta una pieza del rompecabezas. [JUEGO:ORDENAR_LETRAS:TURISMO]\n\nLa base de datos de la EEI registra un aumento constante en las búsquedas globales de experiencias de 'Turismo de Origen'. Los viajeros ya no solo buscan playas; buscan historias, olores y sabores auténticos. [JUEGO:SOPA_LETRAS:CAFETAL,MUSEO,CULTURA] En el Eje Cafetero, los turistas participan activamente en la recolección del grano, descifrando el misterio del sabor de una taza de café suave desde su origen en el suelo volcánico hasta su preparación final. [JUEGO:CRUCIGRAMA:Laboratorio orbital donde investigamos|ISS;Persona que viaja al espacio|ASTRONAUTA]\n\nTerminamos nuestra primera fase de escaneo visual inductivo. El enigma del destello esmeralda en los Andes está parcialmente resuelto: es la energía de un pueblo que transformó la geografía en patrimonio mundial. [JUEGO:ORDENAR_FRASE:EL PAISAJE ES PATRIMONIO] Prepárense para profundizar en el análisis de datos de nuestro laboratorio. [JUEGO:CRUCIGRAMA:Patrimonio Mundial de la Humanidad|PCC;Siglas de la Estacion Espacial Internacional|EEI]",
+  "recurso_visual": "graph TD\n    A[Paisaje Cultural Cafetero - PCC] --> B(Caldas)\n    A --> C(Risaralda)\n    A --> D(Quindío)\n    \n    B --> B1[Capital: Manizales]\n    B --> B2[Atractivos: Nevado del Ruiz / Termalismo / Cafés de Altura]\n    \n    C --> C1[Capital: Pereira]\n    C --> C2[Atractivos: Bioparque Ukumarí / Termales de Santa Rosa / Aviturismo]\n    \n    D --> D1[Capital: Armenia]\n    D --> D2[Atractivos: Valle de Cocora / Parque del Café / Filandia y Salento]\n    \n    style A fill:#006400,stroke:#333,stroke-width:2px,color:#fff\n    style B fill:#228B22,stroke:#333,stroke-width:1px,color:#fff\n    style C fill:#2E8B57,stroke:#333,stroke-width:1px,color:#fff\n    style D fill:#3CB371,stroke:#333,stroke-width:1px,color:#fff",
   "preguntas_inductivas_pagina": [
-    "¿Qué tipo de anomalía detectaron los sensores de la Estación Espacial Internacional sobre Colombia?",
-    "¿Cuáles son los tres departamentos que conforman el núcleo del fenómeno geográfico investigado?",
-    "¿Qué reconocimiento internacional otorgado por la UNESCO explica el brillo cultural de esta región?",
-    "¿Qué papel juegan las cenizas volcánicas y el relieve de la Cordillera Central en la conformación de este territorio?",
-    "¿Cómo influyen los medios de transporte tradicionales como el 'Yipao' en la experiencia del turista que visita la región?"
+    "¿Qué fenómeno lumínico detectaron los sensores de la Estación Espacial Internacional sobre Colombia?",
+    "¿Cuáles son los tres departamentos que componen la región del Eje Cafetero analizada?",
+    "¿Qué volcán imponente custodia la geografía del departamento de Caldas?",
+    "¿Qué atractivo natural de Risaralda emite una firma térmica muy visitada por turistas?",
+    "¿Qué especie vegetal gigante destaca en el paisaje del Valle de Cocora en Quindío?"
   ],
   "preguntas_inductivas_cuaderno": [
-    "Dibuja un esquema o mapa conceptual que represente la conexión entre la Estación Espacial Internacional, los tres departamentos del Eje Cafetero y los elementos del Paisaje Cultural Cafetero (PCC) descritos en el texto.",
-    "Realiza un cuadro comparativo donde clasifiques las pistas geográficas (relieve, clima, volcanes) y las pistas culturales (arquitectura, café, transporte) encontradas por el Detective de Misterios.",
-    "Escribe una reflexión de dos párrafos donde expliques cómo el turismo en el Eje Cafetero puede ser una herramienta para conservar la cultura y la biodiversidad en lugar de destruirlas, usando como base el texto inductivo.",
-    "Representa gráficamente (dibujo a color) la escena donde la Estación Espacial Internacional escanea el territorio colombiano y detecta el 'brillo verde-dorado' del Paisaje Cultural Cafetero."
+    "Dibuja un mapa conceptual que conecte la Estación Espacial Internacional con los tres departamentos analizados y sus respectivas capitales.",
+    "Realiza un cuadro comparativo donde detalles el principal atractivo turístico y la geografía característica de Caldas, Risaralda y Quindío.",
+    "Escribe una reflexión de una página sobre cómo el turismo sostenible puede ayudar a conservar el Paisaje Cultural Cafetero sin destruir sus tradiciones ancestrales.",
+    "Representa gráficamente (dibujo a todo color) el Valle de Cocora visto desde la perspectiva de un astronauta en órbita, destacando la silueta de las palmas de cera."
   ],
-  "juegos_ordenar_letras_1": [
-    "CALDAS",
-    "QUINDIO",
-    "RISARALDA"
-  ],
-  "juego_ordenar_frase_1": "EL PAISAJE CULTURAL CAFETERO ES UN PATRIMONIO DE LA HUMANIDAD DECLARADO POR LA UNESCO",
-  "texto_deductivo": "Bienvenidos a la fase de análisis deductivo, investigadores espaciales en Modo Supervivencia. En esta etapa, utilizaremos la lógica científica y los conceptos fundamentales del turismo geográfico para resolver definitivamente el enigma del Eje Cafetero. Para entender por qué esta región brilla con luz propia en los mapas mundiales de turismo, debemos analizar de manera deductiva la estructura de sus tres departamentos pilares: Caldas, Risaralda y Quindío. Cada uno de estos territorios aporta un elemento especializado a la cadena de valor turística, configurando un modelo de negocio y desarrollo regional que fomenta la mentalidad emprendedora y el reconocimiento cultural exigido por nuestra meta de comprensión.\n\nComencemos por el norte del triángulo: el departamento de Caldas, cuya capital es Manizales. Deduciendo a partir de su topografía, Caldas se caracteriza por una geografía sumamente escarpada. Su capital, conocida como la 'Ciudad de las Puertas Abiertas', desafía la gravedad sobre colinas empinadas. Desde el punto de vista del turismo de naturaleza y científico, Caldas alberga el imponente Parque Nacional Natural Los Nevados. Aquí, la anomalía que observamos desde la EEI se manifiesta en el contraste de temperaturas: los turistas pueden pasar del calor templado de las fincas cafeteras al frío extremo del glaciar del Nevado del Ruiz en cuestión de horas. Este departamento lidera el turismo de observación de aves (avistamiento de avifauna), aprovechando que Colombia es el país con mayor diversidad de aves del planeta. El turismo aquí se estructura como una actividad de alta especialización científica y de aventura extrema.\n\nEn el centro del Eje se ubica Risaralda, con su capital Pereira. Pereira funciona como el nodo logístico, comercial y de conectividad de toda la región. Al analizar el flujo de pasajeros terrestres y aéreos, deducimos que Risaralda es el corazón interconector del triángulo. Su propuesta turística combina la modernidad urbana con el termalismo y la conservación ambiental. Destinos como los Termales de Santa Rosa de Cabal muestran cómo las aguas calientes de origen volcánico brotan en medio de cascadas de agua fría, atrayendo a miles de visitantes interesados en el bienestar y la salud. El turismo en Risaralda demuestra cómo la infraestructura vial y la capacidad hotelera son vitales para sostener la economía turística de toda una región.\n\nFinalmente, en el sur, encontramos al departamento del Quindío, con su capital Armenia. Quindío es el pionero del agroturismo y el turismo rural en Colombia. Deduciendo la historia local, tras la crisis mundial del café en la década de 1990, los caficultores locales transformaron sus tradicionales haciendas coloniales en alojamientos turísticos, dando nacimiento al concepto de 'Finca Hotel'. Quindío alberga maravillas de renombre internacional como el Valle de Cocora en Salento, hogar de la Palma de Cera del Quindío (árbol nacional de Colombia), la cual crece a altitudes inusuales en un ambiente de bosque de niebla que atrae a fotógrafos de todo el mundo. Además, parques temáticos como el Parque Nacional del Café y Panaca consolidaron la mentalidad emprendedora de la región, convirtiendo el saber cotidiano de la caficultura en un producto educativo y de entretenimiento masivo.\n\nAl unir estas piezas, el misterio queda resuelto: la anomalía de luz detectada desde el espacio no es otra cosa que el flujo dinámico de energía cultural, biodiversidad y emprendimiento turístico de tres departamentos que entendieron que su mayor riqueza reside en su identidad cultural y natural.",
+  "texto_deductivo": "# Análisis de Datos del Laboratorio Espacial: Explicando el Fenómeno\n\nBienvenidos a la fase de deducción científica de nuestro caso, detectives espaciales. Para explicar con rigor científico el 'destello esmeralda' del Paisaje Cultural Cafetero (PCC), debemos analizar los criterios técnicos que la UNESCO utilizó para declarar esta región como Patrimonio de la Humanidad. No se trata simplemente de un paisaje bonito; es una estructura social, económica y ecológica altamente compleja. [JUEGO:ORDENAR_LETRAS:CULTURA] La interacción entre el relieve montañoso de la Cordillera Central y la cultura del café genera un fenómeno de adaptabilidad humana único en el mundo. [JUEGO:ORDENAR_FRASE:LA UNESCO PROTEGE EL PAISAJE]\n\nAl analizar la infraestructura turística con nuestros espectrómetros, descubrimos que los antiguos alojamientos rurales se han reconvertido en haciendas agroturísticas y eco-hoteles. [JUEGO:ORDENAR_LETRAS:UNESCO] Esta reconversión permite al turista extranjero experimentar la vida cotidiana del caficultor, lo que genera un flujo económico circular que beneficia directamente a las comunidades locales, preservando la biodiversidad y reduciendo la huella de carbono del turismo masivo tradicional. [JUEGO:SOPA_LETRAS:BIODIVERSIDAD,ECOLOGIA,PRESERVACION]\n\nOtro factor del misterio es la arquitectura de la colonización antioqueña, caracterizada por casas de paredes de bahareque (barro y caña brava) con coloridos balcones de madera. [JUEGO:SOPA_LETRAS:ARQUITECTURA,COLONIAL,TAPIA] Desde la órbita de la EEI, esta distribución urbanística dispersa en medio de los cafetales se ve como un patrón geométrico armonioso que respeta las curvas de nivel del terreno montañoso. [JUEGO:CRUCIGRAMA:Siglas del Paisaje Cultural Cafetero|PCC;Institucion que declara patrimonio mundial|UNESCO]\n\nLa sostenibilidad es el motor de esta industria turística en el siglo XXI. [JUEGO:ORDENAR_FRASE:EL TURISMO TRAE BIENESTAR] El ecoturismo en el Eje Cafetero promueve la conservación de las cuencas hidrográficas y la reforestación con árboles nativos para dar sombra a los cafetales. Al diversificar la economía local, el turismo evita que los jóvenes migren a las grandes ciudades, manteniendo vivo el relevo generacional de la caficultura tradicional. [JUEGO:ORDENAR_LETRAS:HOTEL]\n\n¿Cómo explicamos científicamente la coloración y vitalidad del territorio? [JUEGO:SOPA_LETRAS:AVISTAMIENTO,AVES,BOSQUE] El destello esmeralda es producido por la densa cobertura vegetal de los cafetales bajo sombra combinada con la vegetación de selva subandina. Esta combinación regula la temperatura del suelo y capta el CO2 de la atmósfera de manera eficiente, convirtiendo al Eje Cafetero en un pulmón verde indispensable para el planeta. [JUEGO:CRUCIGRAMA:Atraccion termal en Risaralda|SANTA ROSA;Valle famoso en Quindio|COCORA]\n\nEl relieve escarpado de la cordillera genera pendientes superiores al 25%, lo que impide la mecanización industrial del cultivo. [JUEGO:ORDENAR_FRASE:CUIDEMOS LA BIODIVERSIDAD DEL PLANETA] Por tanto, la recolección del café sigue siendo un trabajo manual, delicado y selectivo grano a grano. Esto se traduce en un café de calidad premium muy valorado en los mercados internacionales y un gran atractivo para el turismo de alta gama que busca experiencias artesanales únicas. [JUEGO:SOPA_LETRAS:GEOGRAFIA,RELIEVE,ALTURA]\n\nLas agencias de viajes locales han desarrollado rutas temáticas como la 'Ruta del Café' o la 'Ruta del Chocolate y el Paisaje'. [JUEGO:ORDENAR_LETRAS:HACIENDA] Estos productos turísticos integran la gastronomía regional, las leyendas locales y la observación de aves exóticas, creando un paquete de experiencias holístico que retiene al turista por más días en la región, inyectando capital a la economía de los pequeños municipios. [JUEGO:CRUCIGRAMA:Cumbre nevada en Caldas|RUIZ;Ciudad de las puertas abiertas|MANIZALES]\n\nComo detectives de la EEI, concluimos que el Paisaje Cultural Cafetero es un sistema vivo y dinámico. [JUEGO:ORDENAR_FRASE:LOS DETECTIVES RESUELVEN EL ENIGMA] No es un museo estático, sino un ecosistema donde la actividad económica principal (la caficultura) y la actividad turística se apoyan mutuamente para garantizar la supervivencia del territorio frente a las amenazas del cambio climático y la urbanización descontrolada. [JUEGO:ORDENAR_LETRAS:GUIAS]\n\nLa preservación de los recursos naturales, especialmente el agua que desciende de los glaciares de los Nevados hacia los cultivos de Caldas y Risaralda, es vital. [JUEGO:SOPA_LETRAS:SOSTENIBLE,LOCAL,COMUNIDAD] El aviturismo se ha consolidado como una herramienta de conservación poderosa: al proteger los hábitats de las aves endémicas para que los turistas puedan fotografiarlas, se protegen también miles de hectáreas de bosque andino. [JUEGO:CRUCIGRAMA:Actividad de observar aves|AVITURISMO;Viaje responsable en la naturaleza|ECOTURISMO]\n\nFin de la transmisión de datos científicos, reclutas. [JUEGO:ORDENAR_FRASE:EL COCORA TIENE PALMAS ALTAS] Hemos resuelto el misterio de la anomalía esmeralda. El Paisaje Cultural Cafetero es un ejemplo de cómo la cultura, el turismo y la geografía pueden alinearse para crear un futuro sostenible en nuestro planeta Tierra. [JUEGO:CRUCIGRAMA:Tipo de cafe de alta calidad|SUAVE;Color de las montanas cafeteras|VERDE]",
   "preguntas_deductivas_pagina": [
-    "¿Cuál es el departamento del Eje Cafetero que funciona como principal eje de conectividad y logística, y cuál es su capital?",
-    "¿Qué fenómeno natural de contraste térmico pueden experimentar los turistas que visitan el departamento de Caldas?",
-    "¿Cómo transformaron los caficultores de Quindío una crisis económica en una oportunidad de negocio turístico sostenible?",
-    "¿Qué especie de flora protegida y representativa de Colombia se encuentra en abundancia en el Valle de Cocora?",
-    "¿De qué manera el termalismo en Risaralda aprovecha la actividad geológica de la Cordillera Central para atraer turistas?"
+    "¿Por qué el relieve escarpado con pendientes mayores al 25% impide la mecanización del cultivo de café?",
+    "¿Qué relación existe entre la arquitectura colonial de bahareque y la identidad turística de la región?",
+    "¿Cómo ayuda el turismo sostenible a prevenir la migración de los jóvenes caficultores a las grandes ciudades?",
+    "¿Qué beneficio ecológico tiene la combinación de cafetales bajo sombra con el bosque de niebla?",
+    "¿Qué es la 'Ruta del Café' y cómo impacta económicamente a los pequeños municipios del Eje Cafetero?"
   ],
   "preguntas_deductivas_cuaderno": [
-    "Elabora un diagrama detallado de flujo que explique el proceso de reconversión económica del Quindío: desde la producción tradicional de café, pasando por la crisis cafetera, hasta la creación del agroturismo y las fincas hoteles.",
-    "Crea un mapa mental coloreado en tu cuaderno donde el núcleo sea 'El Paisaje Cultural Cafetero' y sus ramas principales sean los departamentos de Caldas, Risaralda y Quindío, incluyendo sus capitales, atractivos principales y aportes económicos.",
-    "Realiza un dibujo explicativo que muestre un perfil transversal de la cordillera andina colombiana, ubicando el Valle de Cocora con sus palmas de cera, las fincas cafeteras a media altura y los glaciares en la cima, explicando la biodiversidad según la altitud.",
-    "Diseña una infografía artesanal en una página completa de tu cuaderno que sirva como póster promocional para turistas espaciales que llegan a la EEI y desean visitar el Eje Cafetero colombiano en sus vacaciones terrestres."
-  ],
-  "juegos_ordenar_letras_2": [
-    "COCORA",
-    "YIPAO",
-    "PALA"
-  ],
-  "juego_ordenar_frase_2": "EL VALLE DE COCORA ES EL HOGAR DE LA PALMA DE CERA DEL QUINDIO",
-  "sopa_letras": [
-    "CALDAS",
-    "QUINDIO",
-    "RISARALDA",
-    "COCORA",
-    "NEVADO",
-    "YIPAO",
-    "PEREIRA",
-    "ARMENIA",
-    "MANIZALES",
-    "CAFETERA"
-  ],
-  "crucigrama": [
-    {
-      "palabra": "MANIZALES",
-      "pista": "Capital del departamento de Caldas, famosa por su topografía montañosa e inclinada."
-    },
-    {
-      "palabra": "PEREIRA",
-      "pista": "Capital de Risaralda, conocida como la querendona, trasnochadora y morena, eje logístico del café."
-    },
-    {
-      "palabra": "ARMENIA",
-      "pista": "Capital de Quindío, llamada la Ciudad Milagro, reconstruida tras un terremoto en 1999."
-    },
-    {
-      "palabra": "YIPAO",
-      "pista": "Vehículo Jeep Willys cargado de productos agrícolas que es ícono del transporte en el Eje Cafetero."
-    },
-    {
-      "palabra": "COCORA",
-      "pista": "Famoso valle ubicado en el Quindío donde crece la majestuosa y alta palma de cera."
-    },
-    {
-      "palabra": "BAHAREQUE",
-      "pista": "Sistema de construcción tradicional del Eje Cafetero a base de caña brava, guadua y tierra esterillada."
-    },
-    {
-      "palabra": "UNESCO",
-      "pista": "Organización internacional que declaró al Paisaje Cultural Cafetero como Patrimonio Mundial."
-    },
-    {
-      "palabra": "AGROTURISMO",
-      "pista": "Modalidad de turismo donde los viajeros se alojan en fincas tradicionales y participan en las labores del campo."
-    },
-    {
-      "palabra": "NEVADO",
-      "pista": "Estructura volcánica con cobertura glacial, como el Ruiz, que es gran atractivo en el departamento de Caldas."
-    },
-    {
-      "palabra": "CULTURA",
-      "pista": "Conjunto de tradiciones, cantos, formas de vestir e identidad que hacen del PCC algo único en el mundo."
-    }
+    "Elabora un diagrama de flujo detallado que explique el ciclo económico del turismo sostenible en una hacienda cafetera tradicional, desde la llegada del turista hasta el beneficio a la comunidad local.",
+    "Crea un mapa mental sobre el Paisaje Cultural Cafetero como Patrimonio de la Humanidad, destacando los criterios de la UNESCO, la cultura, la arquitectura y la biodiversidad.",
+    "Realiza un dibujo explicativo que compare un cafetal tradicional sembrado bajo la sombra de árboles nativos frente a un monocultivo industrializado sin árboles, mostrando los efectos en el suelo y el turismo.",
+    "Diseña una infografía artesanal en tu cuaderno que promocione al Eje Cafetero como un destino turístico bioseguro y sostenible para científicos y astronautas de todo el mundo."
   ],
   "icfes": [
     {
       "competencia": "Explicación de Fenómenos",
-      "texto_introductorio": "Durante un análisis de datos en la Estación Espacial Internacional, los estudiantes observan que a pesar del relieve sumamente inclinado y las constantes lluvias de la Cordillera Central de Colombia, el suelo de la región cafetera no sufre procesos masivos de erosión destructiva que impidan el turismo. Al investigar los métodos de cultivo tradicionales del Paisaje Cultural Cafetero, se obtiene el siguiente registro de prácticas de conservación de suelo:",
-      "tabla_o_grafica_markdown": "| Práctica Agrícola | Cobertura del Suelo | Impacto en la Escorrentía de Agua |\n|---|---|---|\n| Monocultivo al sol | Baja (exposición directa) | Alta erosión hídrica |\n| Cultivo bajo sombra de árboles | Alta (hojarasca y raíces) | Muy baja escorrentía, retiene nutrientes |\n| Siembra en curvas de nivel | Media (barreras físicas) | Disminuye la velocidad del agua cuesta abajo |",
-      "pregunta": "¿Cómo explica la combinación de cultivos bajo sombra de árboles y la siembra en curvas de nivel la estabilidad ambiental que permite el desarrollo del turismo sostenible en las laderas del Eje Cafetero?",
+      "texto_introductorio": "Durante una misión de monitoreo ambiental y turístico, los astronautas de la Estación Espacial Internacional analizaron datos espectrales y de ocupación hotelera en el Eje Cafetero colombiano. Con el fin de explicar por qué esta región mantiene altos niveles de conservación biológica y, a la vez, una dinámica actividad turística, recopilaron la siguiente información comparativa:",
+      "tabla_o_grafica_markdown": "| Variable de Análisis | Zona de Caficultura Sostenible (PCC) | Zona de Caficultura Agroindustrial Intensa |\n|---|---|---|\n| **Cobertura vegetal forestal** | Alta (Sombra diversificada y corredores biológicos) | Muy baja (Monocultivo a plena exposición solar) |\n| **Conservación del suelo** | Alta (Poca erosión gracias al sistema de raíces de árboles de sombra) | Baja (Alta dependencia de fertilizantes químicos y erosión por lluvias) |\n| **Atractivo para Ecoturismo** | Excelente (Avistamiento de aves, senderismo, hospedaje tradicional) | Nulo o muy bajo (Paisaje homogéneo desprovisto de fauna) |\n| **Participación Comunitaria** | Elevada (Haciendas familiares abiertas al agroturismo) | Baja (Grandes plantaciones mecanizadas con pocos operarios permanentes) |",
+      "pregunta": "Con base en la información de la tabla y los principios del turismo sostenible en el Paisaje Cultural Cafetero, ¿cuál de los siguientes enunciados explica de forma más completa y coherente por qué el PCC logra ser un destino turístico exitoso y ecológicamente equilibrado?",
       "opciones": [
-        "A) Evitan por completo la ocurrencia de sismos tectónicos en la cordillera, garantizando infraestructura turística 100% segura.",
-        "B) Reducen la velocidad del agua de lluvia y la escorrentía superficial gracias a las raíces de los árboles y las barreras físicas de los cultivos, previniendo deslizamientos de tierra que bloquearían las rutas turísticas.",
-        "C) Permiten que el café crezca el doble de rápido, disminuyendo los costos del turismo de aventura y aumentando el flujo de divisas extranjeras sin regulaciones ecológicas.",
-        "D) Absorben toda la radiación solar incidente, impidiendo que el clima frío de los Nevados afecte las áreas de piscinas termales en Risaralda."
+        "A) Porque la caficultura a plena exposición solar genera mayores ingresos económicos rápidos, lo que permite comprar tecnologías de conservación ambiental para otras zonas.",
+        "B) Porque la combinación de prácticas agrícolas tradicionales con la conservación de bosques de sombra genera un ecosistema diverso que protege el suelo y la biodiversidad, sirviendo de base para un turismo de naturaleza y de experiencias que valora la autenticidad cultural.",
+        "C) Porque la falta de carreteras y la geografía empinada impiden el acceso de turistas masivos, permitiendo que la naturaleza se recupere sola sin intervención del sector turístico.",
+        "D) Porque los gobiernos locales prohibieron la exportación de café, obligando a los campesinos a dedicarse exclusivamente a guiar turistas espaciales en la región."
       ],
       "correcta": 1,
       "retroalimentacion": {
-        "0": "Incorrecto porque las prácticas agrícolas y forestales regulan la estabilidad del suelo y el agua, pero no tienen la capacidad de detener o prevenir sismos tectónicos de gran magnitud.",
-        "1": "Correcto porque la combinación de raíces profundas de árboles sombreadores y el diseño de siembra en curvas de nivel detiene la fuerza erosiva del agua de lluvia en laderas empinadas, protegiendo los suelos de derrumbes y salvaguardando las carreteras y senderos turísticos del paisaje.",
-        "2": "Incorrecto porque si bien estas prácticas mejoran la calidad del grano del café, el objetivo de la conservación del suelo en laderas no es acelerar el crecimiento sin control ecológico, sino buscar el equilibrio ambiental a largo plazo.",
-        "3": "Incorrecto porque las prácticas de conservación de suelos no alteran la radiación solar a nivel planetario ni influyen en la temperatura geotérmica de las fuentes termales distantes."
-      }
-    },
-    {
-      "competence": "Uso Comprensivo del Conocimiento Científico",
-      "texto_introductorio": "El departamento del Quindío lidera los índices nacionales de turismo rural y agroturismo. Tras la crisis de precios internacionales del café, el modelo de negocio cambió. Se analiza el comportamiento de la ocupación hotelera tradicional frente a la ocupación de fincas de arquitectura tradicional cafetera acondicionadas para el turismo (fincas hoteles):",
-      "tabla_o_grafica_markdown": "| Tipo de Alojamiento | Capacidad Promedio (Huéspedes) | Experiencia Ofrecida | Conservación del Patrimonio Arquitectónico |\n|---|---|---|---|\n| Hotel Moderno Urbano | Alta (100+) | Hospedaje y servicios estándar | Baja (estructuras de concreto genéricas) |\n| Finca Hotel Tradicional | Media (15-30) | Proceso del café, senderismo | Alta (conservación de bahareque y madera teñida) |",
-      "pregunta": "Desde la perspectiva de la mentalidad emprendedora y el reconocimiento cultural del Paisaje Cultural Cafetero, ¿cuál es la ventaja competitiva más importante de las Fincas Hoteles frente a la hotelería convencional urbana?",
-      "opciones": [
-        "A) La posibilidad de hospedar a miles de personas simultáneamente en un espacio reducido sin importar la cultura local.",
-        "B) La oferta de un servicio desconectado del entorno natural que prioriza el uso de tecnología espacial e industrial de punta.",
-        "C) La comercialización de una experiencia vivencial y cultural auténtica que valoriza la identidad del campesino, conservando las casas históricas de bahareque.",
-        "D) El bajo costo derivado de no pagar impuestos departamentales debido a su ubicación geográfica en áreas montañosas remotas."
-      ],
-      "correcta": 2,
-      "retroalimentacion": {
-        "0": "Incorrecto porque las fincas hoteles tienen baja capacidad de huéspedes en comparación con hoteles urbanos gigantescos, su fortaleza reside en la calidad y exclusividad cultural, no en el volumen masivo.",
-        "1": "Incorrecto porque el agroturismo se basa precisamente en la reconexión con el entorno natural, el campo y la vida rural, no en la desconexión tecnológica.",
-        "2": "Correcto porque el éxito emprendedor de la región radica en transformar su patrimonio habitacional tradicional (arquitectura de colonización antioqueña en bahareque y colores vivos) y sus saberes cotidianos (proceso de café) en un valor intangible altamente apetecido por turistas internacionales que buscan autenticidad.",
-        "3": "Incorrecto porque todos los prestadores de servicios turísticos legales en Colombia, incluidos los rurales, están sujetos al cumplimiento de normativas fiscales y registros de turismo correspondientes."
-      }
-    },
-    {
-      "competence": "Indagación",
-      "texto_introductorio": "Un grupo de investigadores de la Estación Espacial Internacional propone evaluar el impacto ambiental del turismo masivo de naturaleza en el Valle de Cocora (Quindío). Observan imágenes satelitales que muestran una alarmante disminución en la regeneración de plántulas de la Palma de Cera en áreas de pastoreo donde transitan caballos alquilados para el turismo. Los investigadores deciden estructurar un experimento para probar una solución sostenible.",
-      "tabla_o_grafica_markdown": "| Zona de Estudio | Acceso de Ganado y Caballos | Presencia de Senderos Delimitados | Tasa de Regeneración de Palmas de Cera (5 años) |\n|---|---|---|---|\n| Zona A (Control) | Libre | No (tránsito disperso) | Menor al 1% |\n| Zona B (Intervención) | Prohibido (Cercamiento) | Sí (únicamente peatonal) | Mayor al 35% |",
-      "pregunta": "Con base en los datos de la tabla, ¿cuál de las siguientes conclusiones científicas y de gestión turística deberían recomendar los investigadores para asegurar la supervivencia de la Palma de Cera (árbol nacional) sin prohibir totalmente la actividad turística en el valle?",
-      "opciones": [
-        "A) Permitir el libre acceso de ganado para que limpie el suelo de maleza, facilitando el crecimiento de nuevas palmas.",
-        "B) Implementar zonas de exclusión biológica con cercas para proteger el brote de nuevas palmas, delimitando senderos peatonales fijos para que los turistas admiren el paisaje sin compactar el suelo de germinación.",
-        "C) Reemplazar la Palma de Cera por palmeras exóticas artificiales de plástico que resistan el pisoteo de los caballos turísticos.",
-        "D) Cancelar por completo todas las actividades turísticas en el departamento del Quindío y desmantelar los senderos peatonales existentes."
-      ],
-      "correcta": 1,
-      "retroalimentacion": {
-        "0": "Incorrecto porque la Zona A demuestra que el acceso libre de ganado y caballos disminuye drásticamente la tasa de regeneración de las palmas debido a la compactación del suelo y el consumo de brotes tiernos.",
-        "1": "Correcto porque el experimento de indagación demuestra que el aislamiento de zonas vulnerables mediante cercas (Zona B) combinado con infraestructura turística controlada (senderos delimitados) permite la recuperación biológica de la especie insignia, equilibrando la conservación del ecosistema con la operación turística.",
-        "2": "Incorrecto porque introducir elementos artificiales destruiría el valor del Paisaje Cultural Cafetero y su categoría de Patrimonio Natural e Histórico ante el mundo.",
-        "3": "Incorrecto porque la prohibición absoluta de la actividad destruiría la economía de subsistencia de las comunidades locales; la ciencia y el turismo sostenible buscan el equilibrio dinámico mediante la planificación del territorio."
+        "0": "Incorrecto. La caficultura a plena exposición (agroindustrial intensa) destruye el suelo y la biodiversidad, haciendo la zona poco atractiva para el ecoturismo y reduciendo la sostenibilidad a largo plazo.",
+        "1": "¡Correcto! Esta opción explica de manera científica y cultural cómo el equilibrio entre una agricultura responsable de conservación y la herencia cultural tradicional crea el escenario idóneo para el turismo sostenible y el reconocimiento de la UNESCO.",
+        "2": "Incorrecto. Aunque la geografía dificulta ciertos accesos, el turismo masivo sí llega a la región si no se controla; la recuperación no se debe a la incomunicación, sino al manejo sostenible y planificación territorial.",
+        "3": "Incorrecto. La exportación de café sigue siendo una de las principales fuentes de ingresos del país y un orgullo cultural que complementa la experiencia turística de los visitantes."
       }
     }
   ]

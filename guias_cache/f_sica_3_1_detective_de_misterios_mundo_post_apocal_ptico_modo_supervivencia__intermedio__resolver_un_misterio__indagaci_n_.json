@@ -1,177 +1,83 @@
 {
   "saberes_previos": [
     {
-      "pregunta": "En el viejo mundo, antes del Gran Colapso, ¿qué forma decían los científicos que tenían las órbitas de los planetas?",
+      "pregunta": "En el mundo antiguo, ¿qué cuerpo celeste se creía que era el centro del universo?",
       "opciones": [
-        "Círculos perfectos",
-        "Líneas rectas",
-        "Elipses",
-        "Triángulos"
+        "El Sol",
+        "La Tierra",
+        "Marte",
+        "La Luna"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "Si un planeta se aleja del sol en su órbita elíptica, su velocidad:",
+      "opciones": [
+        "Aumenta",
+        "Se mantiene constante",
+        "Disminuye",
+        "Se vuelve cero"
       ],
       "correcta": 2
     },
     {
-      "pregunta": "¿Qué fuerza invisible mantiene a los fragmentos de satélites orbitando la Tierra en lugar de salir disparados al vacío?",
+      "pregunta": "¿Qué fuerza mantiene a los planetas 'atados' a su estrella en este páramo estelar?",
       "opciones": [
         "Magnetismo",
+        "Fricción",
         "Gravedad",
-        "Presión atmosférica",
-        "Fuerza nuclear"
+        "Electricidad"
       ],
-      "correcta": 1
+      "correcta": 2
     }
   ],
-  "texto_inductivo": "LOG DEL DETECTIVE THORNE - FECHA: AÑO 42 D.C. (DESPUÉS DEL COLAPSO). **Asunto: El Misterio del Vagabundo Rojo.** \n\nMis botas crujen sobre el cristal roto de lo que alguna vez fue un observatorio astronómico en la cima de la Cordillera Central. El aire es denso, cargado de polvo estelar y los restos de una civilización que olvidó mirar hacia arriba. Mi misión como Detective de Misterios no es encontrar asesinos de carne y hueso, sino descifrar los crímenes contra la lógica que el cosmos parece cometer. Hoy, el expediente se centra en el 'Movimiento Retrogrado'. \n\nHe encontrado un viejo diario de un astrónomo llamado Tycho Brahe, o al menos eso dicen los fragmentos de papel amarillento. En sus notas, Brahe describía una anomalía que volvía locos a los antiguos: Marte, el planeta rojo, a veces parece detenerse en el cielo y retroceder. En un mundo post-apocalíptico donde dependemos de la posición de los astros para cultivar lo poco que crece en la ceniza, entender este movimiento es cuestión de supervivencia. ¿Por qué un objeto masivo cambiaría de dirección de repente? ¿Acaso las leyes de la física son tan frágiles como nuestras ciudades? \n\nAl revisar los esquemas de Ptolomeo, veo círculos dentro de círculos, llamados epiciclos. Una explicación complicada para un fenómeno simple. Pero luego, entre los escombros, hallé los bosquejos de un tal Copérnico. Él proponía algo radical: no somos el centro del escenario. Si ponemos al Sol en el medio, el movimiento retrógrado no es más que una ilusión óptica, como cuando superas a otro camión de suministros en la carretera y parece que el otro retrocede, aunque ambos avancen. Sin embargo, algo no encajaba. Copérnico seguía obsesionado con los círculos perfectos. \n\nFue en las cartas de Johannes Kepler donde encontré la primera pista real. Kepler no era un guerrero de los páramos, sino un guerrero de los datos. Trabajó con los registros de Brahe y descubrió que el cielo no es perfecto, es eficiente. Las órbitas no son círculos, son elipses. En este desierto de hierro, la elipse es la firma de la gravedad. Imaginen una cuerda atada a dos postes (los focos); si caminas alrededor de ellos manteniendo la cuerda tensa, dibujas la ruta que siguen los mundos. \n\nEl misterio se profundiza al observar que los planetas no mantienen una velocidad constante. Cuando están cerca de la hoguera solar, parecen correr desesperados, como si temieran ser consumidos. Cuando se alejan, se ralentizan, como un explorador cansado. Este baile no es aleatorio. Existe una armonía oculta entre la distancia y el tiempo. Si no logramos descifrar esta relación, nunca podremos predecir cuándo caerán los restos de la Estación Espacial Internacional, que ahora cuelga como una espada de Damocles sobre nuestro asentamiento. Necesito entender cómo se relacionan el radio de la órbita y el periodo de traslación. Los antiguos lo llamaban la 'Tercera Ley'. Para nosotros, es el horario de la caída de chatarra espacial. La investigación apenas comienza.",
-  "recurso_visual": "graph TD\n    A[Modelos Planetarios] --> B[Geocentrismo]\n    A --> C[Heliocentrismo]\n    B --> D[Tierra en el centro]\n    B --> E[Epiciclos complejos]\n    C --> F[Sol en el centro]\n    F --> G[Orbitas Circulares -Copérnico-]\n    F --> H[Orbitas Elípticas -Kepler-]\n    H --> I[1ra Ley: Elipses]\n    H --> J[2da Ley: Áreas Iguales]\n    H --> K[3ra Ley: Armonía P2/a3]",
+  "texto_inductivo": "# Informe del Detective: Las Ruinas del Cielo\n\nSaludos, superviviente. Soy el Detective de Misterios Celestiales. En este mundo post-apocalíptico, hemos perdido la brújula, pero las estrellas siguen ahí, dictando las leyes que una vez comprendimos. [JUEGO:ORDENAR_LETRAS:ELIPSE] Para reconstruir nuestra civilización, debemos entender cómo se mueven los astros. [JUEGO:ORDENAR_FRASE:LA TIERRA GIRA ALREDEDOR DEL SOL] Antiguamente, los hombres creían que éramos el centro de todo. [JUEGO:SOPA_LETRAS:TIERRA,SOL,ASTRO] \n\nAristóteles y Ptolomeo defendían el modelo geocéntrico. [JUEGO:CRUCIGRAMA:Centro del universo antiguo|TIERRA;Teoría de esferas perfectas|GEOCENTRISMO] Sin embargo, algo no cuadraba en los mapas de navegación. [JUEGO:ORDENAR_LETRAS:ORBITA] Los planetas parecían retroceder en el cielo, un misterio que llamaron movimiento retrógrado. [JUEGO:ORDENAR_FRASE:EL MISTERIO DEL CIELO NOCTURNO] \n\nFue Copérnico quien, entre las sombras de la duda, propuso que el Sol era el verdadero centro. [JUEGO:SOPA_LETRAS:CENTRO,MODELO,PLANO] [JUEGO:CRUCIGRAMA:Padre del heliocentrismo|COPERNICO;Astro rey central|SOL] Pero sus círculos eran demasiado perfectos para la realidad. [JUEGO:ORDENAR_LETRAS:CIRCULO] Necesitábamos a alguien que observara las cenizas con mayor precisión. [JUEGO:ORDENAR_FRASE:LAS OBSERVACIONES DE TYCHO BRAHE] \n\nTycho Brahe recolectó datos durante años sin telescopio, solo con su vista y cuadrantes metálicos en su isla fortaleza. [JUEGO:SOPA_LETRAS:DATOS,MAPAS,CIELO] [JUEGO:CRUCIGRAMA:Observador danés|TYCHO;Instrumento de medida|SEXTANTE] Estos datos fueron heredados por Johannes Kepler. [JUEGO:ORDENAR_LETRAS:KEPLER] Kepler se dio cuenta de que los planetas no seguían círculos, sino caminos estirados. [JUEGO:ORDENAR_FRASE:LAS ORBITAS SON ELIPTICAS] \n\nEste descubrimiento cambió nuestra forma de ver el vacío. [JUEGO:SOPA_LETRAS:FOCO,LEY,ESPACIO] [JUEGO:CRUCIGRAMA:Punto de la elipse|FOCO;Forma de la orbita|ELIPSE] Kepler formuló sus leyes mientras Europa se sumía en guerras, similar a nuestro caos actual. [JUEGO:ORDENAR_LETRAS:PLANETA] El movimiento planetario no es caprichoso; sigue una danza matemática precisa. [JUEGO:ORDENAR_FRASE:KEPLER DESCUBRIO EL MOVIMIENTO REAL] \n\nPara sobrevivir, debemos usar esta lógica: si conocemos la posición de un astro ayer, sabremos dónde estará mañana para guiarnos en la oscuridad. [JUEGO:SOPA_LETRAS:GUIA,NOCHE,RUTAS] [JUEGO:CRUCIGRAMA:Tiempo de una vuelta|PERIODO;Camino de un astro|TRAYECTORIA] Finalmente, entenderemos que el universo es un reloj mecánico oxidado, pero predecible. [JUEGO:ORDENAR_LETRAS:RELOJ] [JUEGO:ORDENAR_FRASE:EL UNIVERSO SIGUE LEYES FISICAS]",
+  "recurso_visual": "graph TD\n    A[Modelos del Universo] --> B(Geocéntrico)\n    A --> C(Heliocéntrico)\n    B --> B1[Tierra al centro]\n    B --> B2[Órbitas circulares perfectas]\n    C --> C1[Sol al centro]\n    C --> C2[Órbitas elípticas - Kepler]\n    C2 --> D[1ra Ley: Elipses]\n    C2 --> E[2da Ley: Áreas iguales]\n    C2 --> F[3ra Ley: Periodos/Armónica]",
   "preguntas_inductivas_pagina": [
-    "¿Qué fenómeno visual motivó a los antiguos a crear el sistema de epiciclos?",
-    "¿Cuál es la diferencia fundamental entre el modelo de Copérnico y el de Kepler?",
-    "¿Por qué el detective Thorne considera que entender las órbitas es vital para la supervivencia?",
-    "¿Qué metáfora utiliza el texto para explicar cómo se dibuja una elipse?",
-    "¿En qué parte de su órbita se mueve más rápido un planeta según el relato?"
+    "¿Por qué el modelo de círculos perfectos de Copérnico fallaba al predecir la posición de los planetas?",
+    "¿Cuál fue el aporte fundamental de Tycho Brahe al trabajo de Kepler?",
+    "¿Qué fenómeno visual intentaba explicar el modelo geocéntrico con los 'epiciclos'?",
+    "¿En qué se diferencia una elipse de un círculo perfecto?",
+    "¿Cómo ayuda el conocimiento del movimiento planetario a un superviviente en un mundo sin GPS?"
   ],
   "preguntas_inductivas_cuaderno": [
-    "Dibuja un esquema que compare el modelo Geocéntrico (con epiciclos) y el modelo Heliocéntrico, señalando dónde está la Tierra en cada uno.",
-    "Realiza un cuadro comparativo entre las ideas de Ptolomeo, Copérnico y Kepler sobre el movimiento de los planetas.",
-    "Escribe una reflexión de 10 líneas sobre cómo la ciencia ayudó al Detective Thorne a ver el movimiento retrógrado no como un misterio mágico, sino como una ilusión óptica.",
-    "Representa gráficamente una elipse, identifica sus dos focos y sombrea dos áreas iguales según la Segunda Ley de Kepler."
+    "Dibuja un esquema comparativo entre el modelo Geocéntrico y el Heliocéntrico, señalando sus diferencias clave.",
+    "Realiza un cuadro comparativo entre los aportes de Copérnico, Brahe y Kepler a la astronomía.",
+    "Escribe una reflexión de 15 líneas sobre cómo la observación sistemática de Brahe permitió a Kepler resolver el 'misterio' de Marte.",
+    "Representa gráficamente una elipse, ubicando sus dos focos y explicando en cuál de ellos se situaría el Sol según Kepler."
   ],
-  "juegos_ordenar_letras_1": [
-    "ELIPSE",
-    "RETRÓGRADO",
-    "HELIOCENTRISMO"
-  ],
-  "juego_ordenar_frase_1": "LAS ORBITAS PLANETARIAS SON ELIPSES CON EL SOL EN UN FOCO",
-  "texto_deductivo": "INFORME TÉCNICO DE BALÍSTICA ORBITAL - **CÓDIGO: NEWTON-KEPLER.** \n\nPara resolver este misterio, debemos pasar de la observación a la deducción matemática. La física no es solo mirar; es calcular. El Detective de Misterios debe dominar las tres leyes de Johannes Kepler, pero también la pieza que faltaba en su rompecabezas: la gravitación universal de Isaac Newton. \n\n**La Primera Ley (Ley de las Órbitas):** Todo planeta se desplaza alrededor del Sol describiendo una trayectoria elíptica. El Sol no está en el centro, sino en uno de los focos de la elipse. En nuestro mundo post-apocalíptico, esto significa que la distancia entre nosotros y el Sol cambia constantemente. Existe un punto de máxima cercanía (perihelio) y uno de máxima distancia (afelio). Si el invierno es más crudo, ¿es por la órbita o por la inclinación del eje? La deducción nos dice que la elipse terrestre es casi circular, por lo que la distancia no es la causa principal de las estaciones, sino la inclinación. \n\n**La Segunda Ley (Ley de las Áreas):** El radio vector que une a un planeta con el Sol barre áreas iguales en tiempos iguales. Esto implica una deducción lógica devastadora: la velocidad orbital no es uniforme. Para que un planeta barra la misma 'cantidad de espacio' cerca del Sol (donde el radio es corto), debe moverse mucho más rápido que cuando está lejos (donde el radio es largo). Si intentas interceptar un satélite de comunicaciones antiguo, debes calcular su aceleración al acercarse a la Tierra. La conservación del momento angular es la ley de hierro aquí; nada se acelera porque sí, es el intercambio entre distancia y velocidad. \n\n**La Tercera Ley (Ley de los Periodos):** El cuadrado del periodo orbital (T) es proporcional al cubo de la distancia media (a) al Sol. Matemáticamente: T² / a³ = K. Esta constante K es la misma para todos los objetos que orbitan el mismo cuerpo central. Aquí es donde el Detective resuelve el caso. Si conocemos a qué distancia está un fragmento de chatarra espacial, podemos deducir exactamente cuánto tardará en completar una vuelta. Es la partitura del reloj cósmico. \n\nFinalmente, aparece el sospechoso principal: **Isaac Newton**. Él dedujo que estas leyes no eran caprichos de la naturaleza, sino consecuencia de una fuerza: la Gravedad. La ley de la gravitación universal establece que la fuerza es directamente proporcional al producto de las masas e inversamente proporcional al cuadrado de la distancia. F = G * (m1 * m2) / r². Esta fórmula explica por qué la Luna no escapa y por qué las manzanas (si aún quedaran árboles sanos) caen al suelo. La gravedad es el pegamento que mantiene unido lo que queda de nuestro sistema solar. Al combinar Newton con Kepler, deducimos que si la masa del Sol aumentara, nuestro periodo orbital tendría que cambiar. En este mundo devastado, la única constante en la que podemos confiar es en la precisión de estas ecuaciones.",
+  "texto_deductivo": "# Manual de Supervivencia: Las Leyes del Movimiento\n\nComo detective, no me basta con saber *cómo* se mueven; necesito saber *por qué*. [JUEGO:ORDENAR_LETRAS:FUERZA] La primera ley de Kepler nos dice que los planetas describen órbitas elípticas. [JUEGO:ORDENAR_FRASE:EL SOL ESTA EN UN FOCO] Esto rompió la perfección antigua. [JUEGO:SOPA_LETRAS:SOL,FOCO,ELIPSE] [JUEGO:CRUCIGRAMA:Línea que une focos|EJE;Punto más cercano al sol|PERIHELIO] \n\nLa segunda ley es vital para calcular raciones de tiempo. [JUEGO:ORDENAR_LETRAS:AREAS] Los planetas barren áreas iguales en tiempos iguales. [JUEGO:ORDENAR_FRASE:MAS RAPIDO CERCA DEL SOL] Esto significa que cuando un planeta está en el perihelio, corre como un fugitivo. [JUEGO:SOPA_LETRAS:VELOZ,TIEMPO,RADIO] [JUEGO:CRUCIGRAMA:Punto más lejano al sol|AFELIO;Velocidad en el afelio|MINIMA] \n\nLa tercera ley, o ley armónica, relaciona el tiempo de órbita con la distancia. [JUEGO:ORDENAR_LETRAS:ARMONIA] Cuanto más lejos está un planeta del sol, más lento completa su año. [JUEGO:ORDENAR_FRASE:LOS PLANETAS LEJANOS TARDAN MAS] Es una relación matemática: T al cuadrado es proporcional a R al cubo. [JUEGO:SOPA_LETRAS:AÑO,DISTANCIA,CUBO] [JUEGO:CRUCIGRAMA:Unidad de distancia astral|UA;Relación matemática|PROPORCION] \n\nPero, ¿qué encadena a los planetas a estas leyes? Isaac Newton resolvió el enigma final. [JUEGO:ORDENAR_LETRAS:NEWTON] Todo cuerpo con masa atrae a otro con una fuerza invisible. [JUEGO:ORDENAR_FRASE:LA GRAVEDAD ES UNA FUERZA] Esta fuerza depende de las masas y de la distancia al cuadrado. [JUEGO:SOPA_LETRAS:MASA,PESO,FUERZA] [JUEGO:CRUCIGRAMA:Fuerza universal|GRAVITACION;Invento de Newton|CALCULO] \n\nLa gravedad es el pegamento que mantiene unido el sistema solar. [JUEGO:ORDENAR_LETRAS:MASA] Sin ella, los planetas saldrían disparados al vacío infinito. [JUEGO:ORDENAR_FRASE:TODO CUERPO TIENE GRAVEDAD] Es la misma fuerza que hace caer una manzana en este suelo yermo. [JUEGO:SOPA_LETRAS:CAIDA,MANZANA,VACIO] [JUEGO:CRUCIGRAMA:Constante de gravitación|G;Distancia entre centros|RADIO] \n\nEntender esto nos permite calcular trayectorias de escape o predecir eclipses que nos sirvan de cobertura. [JUEGO:ORDENAR_LETRAS:CIENCIA] La física es la única ley que sobrevive al fin del mundo. [JUEGO:ORDENAR_FRASE:LA FISICA ES NUESTRA BRUJULA] No ignores estos datos, detective, son tu billete para salir de este apocalipsis. [JUEGO:SOPA_LETRAS:DATOS,LUZ,NORTE] [JUEGO:CRUCIGRAMA:Camino de un proyectil|PARABOLA;Resistencia al cambio|INERCIA]",
   "preguntas_deductivas_pagina": [
-    "¿Qué sucede con la velocidad de un planeta cuando se acerca al perihelio?",
-    "Según la Tercera Ley, si un planeta está más lejos del Sol que la Tierra, ¿su periodo orbital será mayor o menor?",
-    "¿Qué fuerza física explica matemáticamente por qué se cumplen las leyes de Kepler?",
-    "¿En qué punto de la elipse se encuentra el Sol?",
-    "¿Cómo cambia la fuerza de gravedad si duplicamos la distancia entre dos objetos?"
+    "¿Qué sucede con la velocidad de un planeta cuando se acerca al Perihelio?",
+    "¿Cómo cambia la fuerza de gravedad si duplicamos la distancia entre dos planetas?",
+    "¿Qué establece la Tercera Ley de Kepler sobre los planetas más alejados del Sol?",
+    "¿Por qué los planetas no se caen directamente hacia el Sol debido a la gravedad?",
+    "¿Qué pasaría con la órbita de la Tierra si el Sol perdiera la mitad de su masa de repente?"
   ],
   "preguntas_deductivas_cuaderno": [
-    "Realiza un diagrama detallado de una órbita elíptica señalando: Focos, Perihelio, Afelio, Eje mayor y el vector velocidad en diferentes puntos.",
+    "Realiza un diagrama detallado de una órbita elíptica marcando el Perihelio, el Afelio, los Focos y los vectores de velocidad (mayor y menor).",
     "Elabora un mapa mental que conecte las 3 Leyes de Kepler con la Ley de Gravitación Universal de Newton.",
-    "Dibuja un esquema explicativo que muestre por qué un planeta barre áreas iguales en tiempos iguales (2da Ley).",
-    "Diseña una infografía artesanal donde expliques a otros supervivientes cómo calcular el tiempo que tarda un satélite en orbitar usando la Tercera Ley."
-  ],
-  "juegos_ordenar_letras_2": [
-    "GRAVEDAD",
-    "PERIHELIO",
-    "PERIODO"
-  ],
-  "juego_ordenar_frase_2": "LA FUERZA DE GRAVEDAD DISMINUYE CON EL CUADRADO DE LA DISTANCIA",
-  "sopa_letras": [
-    "KEPLER",
-    "NEWTON",
-    "ORBITA",
-    "FOCO",
-    "ELIPSE",
-    "MASA",
-    "RADIO",
-    "TIEMPO",
-    "FUERZA",
-    "SOL"
-  ],
-  "crucigrama": [
-    {
-      "palabra": "AFELIO",
-      "pista": "Punto de la órbita donde el planeta está más lejos del Sol."
-    },
-    {
-      "palabra": "PERIODO",
-      "pista": "Tiempo que tarda un planeta en dar una vuelta completa al Sol."
-    },
-    {
-      "palabra": "INERCIA",
-      "pista": "Tendencia de los cuerpos a mantener su estado de movimiento."
-    },
-    {
-      "palabra": "GRAVEDAD",
-      "pista": "Fuerza de atracción entre dos cuerpos con masa."
-    },
-    {
-      "palabra": "ELIPSE",
-      "pista": "Figura geométrica de las órbitas planetarias."
-    },
-    {
-      "palabra": "BRAHE",
-      "pista": "Astrónomo que recolectó los datos que usó Kepler."
-    },
-    {
-      "palabra": "FOCO",
-      "pista": "Uno de los dos puntos internos de una elipse."
-    },
-    {
-      "palabra": "CONSTANTE",
-      "pista": "Valor que no cambia en la relación T al cuadrado sobre a al cubo."
-    },
-    {
-      "palabra": "ACELERACION",
-      "pista": "Lo que experimenta un planeta al acercarse al Sol."
-    },
-    {
-      "palabra": "SOPORTE",
-      "pista": "Lo que necesitamos para sobrevivir (No científica, pero temática)."
-    }
+    "Dibuja un esquema explicativo que demuestre la Segunda Ley de Kepler (Áreas Iguales en Tiempos Iguales) usando sectores de una elipse.",
+    "Diseña una infografía artesanal que explique la fórmula de la Gravitación Universal, definiendo qué significa cada variable (M, m, r, G)."
   ],
   "icfes": [
     {
       "competencia": "Explicación de Fenómenos",
-      "texto_introductorio": "En el asentamiento 'Esperanza', los supervivientes observan que un antiguo satélite de reconocimiento se mueve más rápido cuando pasa sobre el desierto de sal que cuando pasa sobre las montañas congeladas. Se determina que el centro de la Tierra está más cerca del desierto de sal.",
-      "tabla_o_grafica_markdown": "| Posición | Distancia al Centro (km) | Velocidad Observada |\n|---|---|---|\n| Desierto | 6371 | Alta |\n| Montañas | 6380 | Baja |",
-      "pregunta": "¿Cuál de las leyes de Kepler explica mejor este cambio en la velocidad del satélite?",
+      "texto_introductorio": "En la exploración de un nuevo sistema solar tras el apocalipsis, un detective observa dos planetas, A y B. El planeta A está a 1 Unidad Astronómica (UA) de su estrella y tarda 1 año en dar la vuelta. El planeta B está a 4 UA de la misma estrella.",
+      "tabla_o_grafica_markdown": "| Planeta | Distancia al Sol (UA) | Periodo (T) |\n| :--- | :--- | :--- |\n| A | 1 | 1 año |\n| B | 4 | ? |",
+      "pregunta": "Según la Tercera Ley de Kepler (T² ∝ R³), ¿cuál es el periodo orbital del planeta B?",
       "opciones": [
-        "La Segunda Ley: Áreas iguales en tiempos iguales.",
-        "La Primera Ley: Las órbitas son circulares.",
-        "La Tercera Ley: El cuadrado del periodo es el cubo del radio.",
-        "La Ley de la Inercia de Newton."
+        "2 años",
+        "4 años",
+        "8 años",
+        "16 años"
       ],
-      "correcta": 0,
+      "correcta": 2,
       "retroalimentacion": {
-        "0": "Correcto. La segunda ley establece que a menor distancia (radio vector), la velocidad debe aumentar para barrer la misma área.",
-        "1": "Incorrecto. La primera ley habla de la forma elíptica, no directamente de la variación de velocidad.",
-        "2": "Incorrecto. La tercera ley relaciona periodos y distancias medias de diferentes órbitas, no cambios de velocidad en una misma órbita.",
-        "3": "Incorrecto. La inercia mantendría la velocidad constante si no hubiera fuerzas; aquí la gravedad causa la aceleración."
-      }
-    },
-    {
-      "competencia": "Uso comprensivo del conocimiento científico",
-      "texto_introductorio": "Un detective encuentra un telescopio y observa dos lunas orbitando un planeta gaseoso lejano. Nota que la Luna A está a una distancia 'd' y la Luna B está a una distancia '4d'.",
-      "tabla_o_grafica_markdown": "| Luna | Distancia (r) | Periodo (T) |\n|---|---|---|\n| A | d | T |\n| B | 4d | ? |",
-      "pregunta": "Si se aplica la tercera ley de Kepler (T² ∝ r³), ¿cómo será el periodo de la Luna B en comparación con la Luna A?",
-      "opciones": [
-        "El periodo de B será 4 veces mayor.",
-        "El periodo de B será 8 veces mayor.",
-        "El periodo de B será 16 veces mayor.",
-        "El periodo de B será 64 veces mayor."
-      ],
-      "correcta": 1,
-      "retroalimentacion": {
-        "0": "Incorrecto. No es una relación lineal simple.",
-        "1": "Correcto. Si r aumenta 4 veces, r³ aumenta 64 veces (4*4*4). Como T² = r³, entonces T = √64 = 8.",
-        "2": "Incorrecto. 16 es 4 al cuadrado, pero la ley pide el cubo y luego raíz cuadrada.",
-        "3": "Incorrecto. 64 es el cubo de la distancia, pero falta aplicar la raíz cuadrada para hallar el periodo."
-      }
-    },
-    {
-      "competencia": "Indagación",
-      "texto_introductorio": "Un grupo de estudiantes del páramo quiere investigar si la masa de un planeta afecta su periodo orbital alrededor del Sol. Para ello, diseñan un experimento virtual con los siguientes datos simulados:",
-      "tabla_o_grafica_markdown": "| Planeta Simulado | Masa (kg) | Distancia al Sol (UA) | Periodo (años) |\n|---|---|---|---|\n| Alfa | 1x10^24 | 1.0 | 1.0 |\n| Beta | 5x10^24 | 1.0 | 1.0 |\n| Gamma | 10x10^24 | 1.0 | 1.0 |",
-      "pregunta": "¿Qué conclusión pueden sacar los estudiantes a partir de los datos obtenidos en su indagación?",
-      "opciones": [
-        "A mayor masa del planeta, menor es el tiempo que tarda en dar la vuelta al Sol.",
-        "El periodo orbital es independiente de la masa del planeta que orbita.",
-        "La masa del planeta es directamente proporcional al cuadrado de la distancia.",
-        "Es necesario aumentar la distancia para que la masa afecte el periodo."
-      ],
-      "correcta": 1,
-      "retroalimentacion": {
-        "0": "Incorrecto. Los datos muestran que aunque la masa aumenta, el periodo sigue siendo 1.0.",
-        "1": "Correcto. La tabla muestra que variando la masa pero manteniendo la distancia, el periodo no cambia.",
-        "2": "Incorrecto. La relación de la tercera ley no involucra la masa del objeto menor (planeta).",
-        "3": "Incorrecto. El experimento demuestra que para una misma distancia, la masa del planeta no influye en el tiempo de traslación."
+        "0": "Incorrecto. 2 años sería si la relación fuera lineal.",
+        "1": "Incorrecto. 4 años no cumple con la proporción cúbica del semieje mayor.",
+        "2": "Correcto. Si R=4, R³ = 64. Como T² = R³, entonces T = √64 = 8 años.",
+        "3": "Incorrecto. 16 años es el cuadrado de 4, pero la ley requiere la raíz cuadrada del cubo."
       }
     }
   ]

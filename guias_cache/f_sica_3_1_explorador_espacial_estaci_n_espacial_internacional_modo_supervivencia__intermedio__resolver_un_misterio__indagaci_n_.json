@@ -1,187 +1,121 @@
 {
   "saberes_previos": [
     {
-      "pregunta": "¿Cuál de estos modelos propone que el Sol es el centro del sistema solar?",
+      "pregunta": "¿Cuál de las siguientes afirmaciones describe mejor el modelo heliocéntrico de Copérnico?",
       "opciones": [
-        "Modelo Geocéntrico",
-        "Modelo Heliocéntrico",
-        "Modelo Estacionario",
-        "Modelo Newtoniano"
+        "La Tierra es el centro inamovible del universo y el Sol gira a su alrededor.",
+        "El Sol es el centro del sistema solar y la Tierra, junto a los demás planetas, orbita a su alrededor en trayectorias circulares.",
+        "La Tierra y el Sol orbitan alrededor de un agujero negro central.",
+        "Los planetas se mueven de manera aleatoria por el espacio debido al viento solar."
       ],
       "correcta": 1
     },
     {
-      "pregunta": "¿Qué forma geométrica tienen las órbitas de los planetas según Johannes Kepler?",
+      "pregunta": "¿Qué forma geométrica tienen las órbitas de los planetas según las observaciones de Johannes Kepler?",
       "opciones": [
-        "Círculos perfectos",
-        "Parábolas",
-        "Elipses",
-        "Espirales"
+        "Círculos perfectos.",
+        "Líneas rectas oscilatorias.",
+        "Elipses con el Sol en uno de sus focos.",
+        "Parábolas infinitas."
       ],
       "correcta": 2
     },
     {
-      "pregunta": "¿Qué fuerza es responsable de mantener a los planetas en su órbita?",
+      "pregunta": "Si un planeta se encuentra en el afelio (punto más lejano al Sol), ¿cómo es su velocidad orbital en comparación con el perihelio (punto más cercano)?",
       "opciones": [
-        "Magnetismo",
-        "Inercia",
-        "Gravedad",
-        "Presión de radiación"
+        "Es mayor en el afelio.",
+        "Es menor en el afelio.",
+        "Es exactamente igual en ambos puntos.",
+        "La velocidad se reduce a cero de forma instantánea."
       ],
-      "correcta": 2
+      "correcta": 1
     }
   ],
-  "texto_inductivo": "¡Saludos, cadetes! Aquí el Comandante Nova desde el módulo Cupola de la Estación Espacial Internacional (ISS). Hoy nos enfrentamos a un desafío crítico: nuestros sistemas de navegación han detectado una pequeña discrepancia en la trayectoria de Marte, y para resolverla, debemos entender cómo la humanidad descifró el 'Misterio del Movimiento Planetario'. Imaginen que están flotando aquí conmigo, observando la Tierra girar bajo sus pies a 28.000 km/h. Durante milenios, los seres humanos miraron al cielo y vieron puntos de luz moviéndose de forma extraña. A veces, planetas como Marte parecían detenerse y retroceder en el cielo (movimiento retrógrado). Este era el gran misterio: ¿por qué los dioses jugaban con las trayectorias? El modelo geocéntrico de Ptolomeo, que ponía a la Tierra en el centro, intentó explicarlo con círculos dentro de círculos llamados epiciclos. Fue un caos matemático que duró más de mil años. Pero en el siglo XVI, Nicolás Copérnico se atrevió a sugerir algo radical: no somos el centro. Si el Sol es el eje, el movimiento retrógrado es solo una ilusión óptica cuando la Tierra rebasa a otros planetas en su carrera orbital. Sin embargo, Copérnico seguía obsesionado con los círculos perfectos. El verdadero salto vino con Tycho Brahe, un astrónomo danés que, sin telescopio, recolectó los datos más precisos de la época. Tras su muerte, su asistente Johannes Kepler heredó esos datos y pasó años intentando ajustar el movimiento de Marte a un círculo. No funcionaba. Había un error de apenas 8 minutos de arco. Kepler, en lugar de ignorar ese pequeño error, decidió que la teoría estaba mal y no los datos. Así descubrió que los planetas se mueven en **elipses**. Este cambio de paradigma fue la llave para abrir el universo. Aquí en la ISS, sentimos ese legado. Cada vez que corregimos nuestra órbita, estamos aplicando la lógica que Kepler dedujo de un misterio antiguo. La ciencia no se trata de tener todas las respuestas, sino de perseguir las anomalías. Kepler descubrió que el Sol no solo estaba ahí, sino que influía en la velocidad de los planetas: cuanto más cerca están, más rápido se mueven. Esto es supervivencia pura en el espacio; si no calculamos bien estas velocidades, nuestra estación se quemaría en la atmósfera o se perdería en el vacío. Estamos navegando sobre los hombros de gigantes que se atrevieron a dudar de lo evidente. El misterio de Marte no era un error de los dioses, era una invitación a descubrir las leyes matemáticas que rigen el cosmos. ¿Están listos para analizar los datos de la misión y resolver nuestra discrepancia orbital? La física no es solo fórmulas; es el mapa para volver a casa.",
-  "recurso_visual": "graph TD\n    A[Misterio: Movimiento Retrógrado] --> B{¿Tierra en el centro?}\n    B -->|Sí: Ptolomeo| C[Epiciclos Complejos]\n    B -->|No: Copérnico| D[Modelo Heliocéntrico]\n    D --> E[Problema: Órbitas Circulares]\n    E --> F[Datos de Tycho Brahe]\n    F --> G[Kepler: Órbitas Elípticas]\n    G --> H[Leyes del Movimiento Planetario]",
+  "texto_inductivo": "# Bitácora del Explorador: ¡Alerta de Colisión en la ISS!\n\n¡Atención, cadetes! Les habla el Capitán Astrum desde la cúpula de observación de la Estación Espacial Internacional (ISS). Tenemos un código rojo de nivel supervivencia. Los sensores de largo alcance han detectado un objeto masivo no identificado aproximándose a nuestra trayectoria. No sabemos si es un asteroide errante o una sonda científica perdida. Para resolver este misterio espacial y salvar la estación, debemos comprender las leyes que rigen el movimiento orbital. [JUEGO:ORDENAR_LETRAS:ORBITA] Para empezar, nuestra supervivencia depende de descifrar cómo se desplazan los cuerpos celestes bajo la influencia de fuerzas invisibles.\n\nDurante siglos, la humanidad miró al cielo intentando comprender este orden. Ptolomeo propuso un universo donde la Tierra era el centro absoluto, pero este modelo geocéntrico fallaba al explicar movimientos extraños como la retrogradación de Marte. [JUEGO:CRUCIGRAMA:Propuso el modelo heliocentrico|COPERNICO;Propuso el modelo geocentrico|PTOLOMEO] Copérnico llegó después para poner orden, situando al Sol en el centro. Pero fue Johannes Kepler quien, analizando los meticulosos datos del astrónomo Tycho Brahe, descubrió la verdadera geometría cósmica. Él entendió que los planetas no se mueven en círculos perfectos, sino en trayectorias ovaladas muy particulares. [JUEGO:ORDENAR_LETRAS:ELIPSE] Estas formas geométricas tienen dos puntos clave llamados focos, y nuestro Sol se ubica exactamente en uno de ellos. [JUEGO:ORDENAR_FRASE:EL SOL ESTA EN EL FOCO DE LA ELIPSE]\n\nPara visualizar la situación actual de la ISS frente al misterioso objeto, debemos realizar un análisis de su velocidad orbital. Kepler descubrió que los planetas barren áreas iguales en tiempos iguales. [JUEGO:SOPA_LETRAS:SOL,FOCO,ORBITA,ELIPSE] Esto significa que cuando el objeto misterioso se acerque a su punto de máxima aproximación al Sol, se moverá muchísimo más rápido que cuando esté en el punto más lejano. [JUEGO:ORDENAR_FRASE:LOS PLANETAS SE MUEVEN EN ORBITAS ELIPTICAS] La física detrás de este fenómeno nos ayudará a predecir si el objeto impactará contra nosotros o si pasará de largo aprovechando una honda gravitatoria.\n\nAnalicemos los datos teóricos de Kepler. Sus leyes revolucionaron la astronomía y nos permitieron entender que el universo sigue reglas matemáticas precisas. [JUEGO:ORDENAR_LETRAS:KEPLER] Al estudiar el movimiento planetario, notamos que la distancia al Sol altera directamente el tiempo que tarda un cuerpo en dar una vuelta completa. [JUEGO:SOPA_LETRAS:KEPLER,NEWTON,COPERNICO] Aquellos cuerpos que están situados en los confines de nuestro sistema orbital viajan con una lentitud majestuosa, mientras que los planetas interiores son verdaderos bólidos de carreras espaciales. [JUEGO:ORDENAR_FRASE:A MAYOR DISTANCIA MENOR VELOCIDAD ORBITAL]\n\n¡La gravedad es la clave del rompecabezas! [JUEGO:ORDENAR_LETRAS:GRAVEDAD] Esta fuerza es como una cuerda invisible que mantiene atados a los astros en su danza eterna. [JUEGO:CRUCIGRAMA:Punto mas cercano al Sol|PERIHELIO;Punto mas lejano al Sol|AFELIO] Sin ella, la ISS y cada planeta saldrían despedidos en línea recta hacia el vacío infinito del cosmos. El objeto que nos amenaza está sujeto a esta misma e inapelable ley de atracción cósmica. [JUEGO:ORDENAR_FRASE:LA GRAVEDAD MANTIENE LOS PLANETAS EN SU LUGAR]\n\nPara resolver el misterio de la trayectoria del objeto, debemos medir con precisión su posición en dos momentos específicos: su perihelio y su afelio. [JUEGO:SOPA_LETRAS:PERIHELIO,AFELIO,DISTANCIA] Con estos datos, determinaremos su semieje mayor. La tercera ley de Kepler postula que existe una relación constante entre el tiempo que tarda un cuerpo en completar su órbita y su distancia promedio a la estrella central. [JUEGO:CRUCIGRAMA:Cientifico de las leyes de movimiento planetario|KEPLER;Fuerza que atrae los cuerpos|GRAVEDAD]\n\nCadetes, es hora de poner a prueba su capacidad de indagación. Observen el comportamiento del objeto desconocido. Si su órbita cumple exactamente con la constante armónica de nuestro sistema solar, sabremos que pertenece a nuestro vecindario cósmico y podremos predecir su posición exacta para realizar una maniobra de evasión con los propulsores de la ISS. [JUEGO:ORDENAR_LETRAS:PLANETA] Si los cálculos no coinciden, podríamos estar ante un visitante de otro sistema estelar. [JUEGO:SOPA_LETRAS:GRAVEDAD,MASA,FUERZA] Prepárense para registrar, comparar y analizar cada dato recolectado por el computador central de nuestra estación espacial. [JUEGO:CRUCIGRAMA:Forma de la orbita planetaria|ELIPSE;Camino que sigue un planeta|ORBITA]\n\nEl tiempo corre, los niveles de oxígeno son estables pero el combustible de maniobra es limitado. [JUEGO:SOPA_LETRAS:TIEMPO,RADIO,PERIODO] Necesitamos un mapa preciso de la órbita de este intruso para tomar una decisión informada. [JUEGO:CRUCIGRAMA:Estrella central de nuestro sistema|SOL;Astro que gira alrededor de una estrella|PLANETA] La ciencia y el rigor matemático son nuestras únicas herramientas para sobrevivir a este encuentro cercano en el espacio profundo. [JUEGO:ORDENAR_FRASE:EL PERIODO ORBITAL DEPENDE DEL SEMIEJE MAYOR]",
+  "recurso_visual": "mermaid\ngraph TD\n    A[Modelos de Movimiento Planetario] --> B[Modelo Geocéntrico]\n    A --> C[Modelo Heliocéntrico]\n    B --> B1(Tierra en el centro / Ptolomeo)\n    C --> C1(Sol en el centro / Copérnico)\n    C1 --> D[Leyes de Kepler]\n    D --> D1(1a Ley: Órbitas Elípticas / Focos)\n    D --> D2(2a Ley: Áreas Iguales en Tiempos Iguales / Velocidad Variable)\n    D --> D3(3a Ley: Relación Período-Distancia / Armónica del Sistema)\n    D3 --> E[Resolución del Misterio de la ISS]\n",
   "preguntas_inductivas_pagina": [
-    "¿Por qué el movimiento retrógrado de Marte era un misterio para los antiguos?",
-    "¿Qué diferencia fundamental introdujo Copérnico en la visión del universo?",
-    "¿Cuál fue el papel de Tycho Brahe en el descubrimiento de las leyes de Kepler?",
-    "¿Qué importancia tuvo el 'error de 8 minutos de arco' para Johannes Kepler?",
-    "¿Cómo cambia la velocidad de un planeta según su distancia al Sol?"
+    "¿Qué diferencias fundamentales existen entre las explicaciones del movimiento planetario propuestas por Ptolomeo y las propuestas por Copérnico?",
+    "¿Por qué el descubrimiento de las órbitas elípticas por parte de Kepler representó una ruptura con las ideas de la Grecia Antigua sobre el cosmos?",
+    "¿En qué parte de la órbita un cuerpo celeste experimenta la mayor fuerza de atracción solar y cómo afecta esto a su aceleración orbital?",
+    "¿Cómo permite la Segunda Ley de Kepler explicar que la velocidad de un planeta varíe a lo largo de su trayectoria?",
+    "¿Por qué es necesario conocer la masa del Sol para validar las órbitas en el modelo heliocéntrico actual?"
   ],
   "preguntas_inductivas_cuaderno": [
-    "Dibuja un esquema que compare el modelo geocéntrico (Ptolomeo) y el heliocéntrico (Copérnico), señalando la posición del Sol y la Tierra.",
-    "Realiza un cuadro comparativo entre las creencias sobre las órbitas antes de Kepler (Círculos) y el descubrimiento de Kepler (Elipses).",
-    "Escribe una reflexión de media página: ¿Cómo crees que el cambio del geocentrismo al heliocentrismo afectó la forma en que los humanos se ven a sí mismos?",
-    "Representa gráficamente un planeta en diferentes puntos de su elipse y sombrea áreas iguales para ilustrar la Segunda Ley de Kepler."
+    "Dibuja un esquema detallado de una órbita elíptica, señalando los dos focos, el Sol, el perihelio, el afelio y el vector velocidad del objeto en cada uno de estos extremos.",
+    "Realiza un cuadro comparativo donde contrasts el modelo Geocéntrico, el Heliocéntrico de Copérnico y el Modelo Kepleriano, detallando fortalezas y limitaciones de cada uno.",
+    "Escribe una reflexión de una página sobre cómo el cambio de paradigma de la Tierra como centro del universo al Sol como centro afectó el desarrollo del pensamiento científico y filosófico de la humanidad.",
+    "Representa gráficamente mediante un cómic de cuatro viñetas el momento en que Kepler descubre que las órbitas no son círculos perfectos, destacando el papel del análisis de datos riguroso."
   ],
-  "juegos_ordenar_letras_1": [
-    "ELIPSE",
-    "ORBITA",
-    "KEPLER"
-  ],
-  "juego_ordenar_frase_1": "LOS PLANETAS DESCRIBEN ORBITAS ELIPTICAS CON EL SOL EN UNO DE SUS FOCOS",
-  "texto_deductivo": "Atención tripulación, ahora que hemos comprendido la historia, debemos aplicar el rigor físico-matemático para estabilizar nuestra posición. Mientras Kepler nos dijo *cómo* se movían los planetas, tuvo que llegar Isaac Newton para explicarnos *por qué*. En el año 1687, Newton publicó sus 'Principia', donde formuló la Ley de Gravitación Universal. Imaginen la gravedad no como algo que te tira hacia abajo, sino como un hilo invisible que une a cada átomo de la ISS con cada átomo de la Tierra. Newton dedujo que la fuerza de atracción es directamente proporcional al producto de las masas e inversamente proporcional al cuadrado de la distancia que las separa. Esto significa que si nos alejamos al doble de distancia de la Tierra, la gravedad no se reduce a la mitad, ¡se reduce a la cuarta parte! Esta es la razón por la que los planetas exteriores, como Neptuno, se mueven tan lentamente en comparación con Mercurio. La Tercera Ley de Kepler, que relaciona el periodo orbital con la distancia media al Sol (T² ∝ a³), fue finalmente demostrada matemáticamente por Newton. Aquí en 'Modo Supervivencia', esto es vital: para mantener la ISS en una órbita circular estable a 400 km de altura, debemos viajar exactamente a 7.66 km/s. Si fuéramos más lento, la gravedad de la Tierra ganaría y caeríamos. Si fuéramos más rápido, la inercia nos lanzaría hacia el espacio profundo. El movimiento planetario es, por tanto, un equilibrio perfecto entre la caída libre y el movimiento lateral. El misterio que estamos resolviendo requiere que analicemos la constante gravitacional (G) y cómo esta gobierna desde la caída de una manzana hasta la danza de las galaxias. Newton unificó la física terrestre y la celeste; nos enseñó que las mismas reglas que aplican en un laboratorio en Bogotá aplican en los anillos de Saturno. Al revisar el movimiento planetario científicamente, vemos que no hay magia, solo una geometría dictada por la masa. Si detectamos una perturbación en la órbita de un planeta, según Newton, debe haber otra masa cerca ejerciendo influencia, como sucedió con el descubrimiento de Neptuno. Para resolver nuestra anomalía actual, debemos calcular las fuerzas vectoriales presentes. Recuerden: en el espacio, la precisión es la diferencia entre el éxito de la misión y el silencio eterno.",
+  "texto_deductivo": "# Análisis de Datos de Supervivencia: La Física de Newton en Acción\n\n¡Excelente trabajo de observación, tripulación! Ahora que hemos delimitado de forma inductiva las leyes geométricas del movimiento planetario, es momento de deducir las causas físicas precisas utilizando la artillería matemática. Para evitar que el objeto misterioso, bautizado temporalmente como Sonda Kepler-X, colisione con la ISS, debemos recurrir a Sir Isaac Newton. Él se dio cuenta de que la misma fuerza que hace caer una manzana en la Tierra es la que mantiene a la Luna y a la ISS en caída libre constante alrededor de nuestro planeta. [JUEGO:ORDENAR_LETRAS:NEWTON] Esta es la Ley de Gravitación Universal, que establece que la fuerza de atracción entre dos cuerpos es directamente proporcional al producto de sus masas e inversamente proporcional al cuadrado de la distancia que los separa. [JUEGO:ORDENAR_FRASE:LA FUERZA DE GRAVEDAD DISMINUYE CON LA DISTANCIA]\n\nMatemáticamente, expresamos esta ley como F = G * (m1 * m2) / r², donde G es la constante de gravitación universal. [JUEGO:SOPA_LETRAS:LEY,CONSTANTE,MASA,DISTANCIA] Esta constante es un valor increíblemente pequeño, lo que significa que necesitamos masas gigantescas para sentir la fuerza de gravedad en el espacio. [JUEGO:ORDENAR_FRASE:LA CONSTANTE DE GRAVITACION UNIVERSAL ES MUY PEQUENA] Gracias a esta fórmula, podemos deducir de forma precisa la trayectoria de la Sonda Kepler-X y predecir su comportamiento dinámico exacto al acercarse a la Tierra. [JUEGO:CRUCIGRAMA:Formulo la ley de gravitacion universal|NEWTON;Fuerza que mantiene la luna en orbita|GRAVEDAD]\n\nNewton no solo explicó la causa de la gravedad, sino que también demostró matemáticamente por qué se cumplen las leyes de Kepler. Si combinamos la segunda ley de Newton (F = m * a) con la ley de gravitación, deducimos que la aceleración de un satélite no depende de su propia masa, sino únicamente de la masa del cuerpo central que orbita y de la distancia a la que se encuentra. [JUEGO:SOPA_LETRAS:INVERSO,CUADRADO,FUERZA,ATRACCION] Por lo tanto, la ISS y una pequeña tuerca perdida flotando al lado de ella viajan exactamente a la misma velocidad orbital si se encuentran a la misma altura. [JUEGO:ORDENAR_LETRAS:FUERZA]\n\nEsta deducción nos lleva directamente a analizar la tercera ley de Kepler desde una perspectiva matemática rigurosa. Newton demostró que la relación entre el cuadrado del período orbital (T²) y el cubo del semieje mayor (a³) depende de la masa de la estrella central (M) según la fórmula: T² / a³ = 4π² / (G * M). [JUEGO:ORDENAR_FRASE:EL CUADRADO DEL PERIODO ES PROPORCIONAL AL CUBO DEL RADIO] Esto nos permite deducir con precisión absoluta que si la Sonda Kepler-X tarda un tiempo específico en completar su órbita, debe encontrarse a una distancia media muy concreta de la Tierra. [JUEGO:ORDENAR_LETRAS:PERIODO] ¡El misterio está a punto de ser resuelto! [JUEGO:CRUCIGRAMA:Resistencia al cambio de movimiento|INERCIA;Trayectoria curva de un satelite|ORBITA]\n\nPero, ¿por qué los satélites no caen directamente hacia la Tierra si la gravedad los atrae constantemente? La respuesta radica en el delicado equilibrio entre la inercia del objeto y la fuerza gravitacional. [JUEGO:ORDENAR_LETRAS:INERCIA] La ISS viaja a unos impresionantes 28,000 km/h de manera tangencial a la Tierra. [JUEGO:SOPA_LETRAS:INERCIA,ACELERACION,VELOCIDAD,CAMINO] A esta velocidad de supervivencia, la curvatura de la caída de la ISS debido a la gravedad coincide exactamente con la curvatura de la Tierra. La ISS está, literalmente, cayendo constantemente hacia la Tierra, pero nunca la toca porque el suelo se \"curva\" a la misma velocidad bajo ella. [JUEGO:CRUCIGRAMA:Letra que representa la constante de gravitacion|G;Letra que representa la aceleracion de gravedad|g]\n\nLa Sonda Kepler-X parece estar experimentando una anomalía en su inercia. [JUEGO:SOPA_LETRAS:SATELITE,ESTACION,ORBITAL,ALTURA] Los sensores indican que su velocidad tangencial ha disminuido ligeramente debido a la fricción residual con la atmósfera exterior alta. [JUEGO:ORDENAR_LETRAS:SATELITE] Al disminuir su velocidad, la fuerza de gravedad se vuelve dominante y su órbita comienza a cerrarse en forma de espiral descendente. [JUEGO:ORDENAR_FRASE:A MAYOR MASA SE PRODUCE UNA MAYOR ATRACCION] Si no calculamos el momento exacto en que cruzará nuestra altitud de 400 km, sufriremos una colisión catastrófica en órbita baja. [JUEGO:CRUCIGRAMA:Unidad de medida de la fuerza|NEWTON;Medida de la inercia de un cuerpo|MASA]\n\nHemos cargado los datos del intruso en nuestra supercomputadora. [JUEGO:SOPA_LETRAS:CIENTIFICO,MISTERIO,DATOS,METODO] El análisis matemático nos dice que su órbita elíptica tiene una excentricidad alta. [JUEGO:CRUCIGRAMA:Tercera ley de Kepler relaciona periodo y|RADIO;Segunda ley de Kepler habla de areas|IGUALES] Con las ecuaciones deductivas de Newton, determinaremos el vector velocidad necesario para encender nuestros propulsores de emergencia en el momento justo, esquivando la sonda y asegurando que la ISS permanezca en su órbita segura de supervivencia estable. [JUEGO:ORDENAR_FRASE:LA LEY DE GRAVITACION EXPLICA EL MOVIMIENTO PLANETARIO]",
   "preguntas_deductivas_pagina": [
-    "¿Qué establece la Ley de Gravitación Universal de Newton?",
-    "¿Por qué la fuerza de gravedad disminuye rápidamente al aumentar la distancia?",
-    "¿Cómo demostró Newton la Tercera Ley de Kepler?",
-    "¿Qué sucede con la velocidad orbital si un satélite aumenta su altitud?",
-    "¿Qué significa que la ISS esté en 'caída libre constante'?"
+    "¿Cómo demostró Isaac Newton que la fuerza que atrae a los planetas al Sol es de la misma naturaleza que la fuerza que hace caer los objetos en la Tierra?",
+    "Si la distancia entre la ISS y el centro de la Tierra se duplicara de forma hipotética, ¿en qué factor disminuiría la fuerza de atracción gravitacional entre ambas?",
+    "¿Por qué la masa de un satélite artificial en órbita alrededor de la Tierra no afecta la velocidad orbital necesaria para mantenerlo a una altitud constante?",
+    "A partir de la relación matemática deducida por Newton para la tercera ley de Kepler, explique qué ocurriría con el período orbital de la Tierra si la masa del Sol se duplicara de forma instantánea.",
+    "¿Qué fenómeno físico explica que la ISS experimente un estado de microgravedad o caída libre a pesar de que la gravedad terrestre a esa altitud es aproximadamente el 90% de la que sentimos en la superficie?"
   ],
   "preguntas_deductivas_cuaderno": [
-    "Realiza un diagrama detallado que muestre los vectores de fuerza gravitatoria y velocidad tangencial en un satélite en órbita.",
-    "Elabora un mapa mental que conecte a Newton, Kepler y las leyes del movimiento planetario.",
-    "Dibuja un esquema explicativo que ilustre la Ley del Cuadrado Inverso aplicada a la gravedad.",
-    "Crea una infografía artesanal sobre 'Cómo mantenerse en órbita' usando los conceptos de masa, distancia y velocidad."
-  ],
-  "juegos_ordenar_letras_2": [
-    "GRAVEDAD",
-    "NEWTON",
-    "PERIODO"
-  ],
-  "juego_ordenar_frase_2": "LA FUERZA DE GRAVEDAD MANTIENE A LOS PLANETAS ATADOS AL SOL",
-  "sopa_letras": [
-    "GRAVEDAD",
-    "KEPLER",
-    "NEWTON",
-    "ELIPSE",
-    "FOCO",
-    "ORBITA",
-    "MASA",
-    "PERIODO",
-    "INERCIA",
-    "SOL"
-  ],
-  "crucigrama": [
-    {
-      "palabra": "ELIPSE",
-      "pista": "Forma geométrica de las órbitas planetarias."
-    },
-    {
-      "palabra": "GRAVEDAD",
-      "pista": "Fuerza de atracción entre dos cuerpos con masa."
-    },
-    {
-      "palabra": "PERIODO",
-      "pista": "Tiempo que tarda un planeta en dar una vuelta completa al Sol."
-    },
-    {
-      "palabra": "AFELIO",
-      "pista": "Punto de la órbita más alejado del Sol."
-    },
-    {
-      "palabra": "PERIHELIO",
-      "pista": "Punto de la órbita más cercano al Sol."
-    },
-    {
-      "palabra": "KEPLER",
-      "pista": "Científico que enunció las tres leyes del movimiento planetario."
-    },
-    {
-      "palabra": "NEWTON",
-      "pista": "Formuló la Ley de Gravitación Universal."
-    },
-    {
-      "palabra": "COPERNICO",
-      "pista": "Propuso formalmente el modelo heliocéntrico."
-    },
-    {
-      "palabra": "FOCO",
-      "pista": "Lugar que ocupa el Sol dentro de la elipse orbital."
-    },
-    {
-      "palabra": "INERCIA",
-      "pista": "Tendencia de un cuerpo a mantener su estado de movimiento."
-    }
+    "Diseña un diagrama de fuerzas detallado que represente a la ISS en órbita, mostrando los vectores de fuerza centrípeta, velocidad tangencial, aceleración de la gravedad y la trayectoria curva resultante.",
+    "Elabora un mapa mental que conecte de manera jerárquica la Ley de Gravitación Universal de Newton con las tres Leyes de Kepler, destacando las ecuaciones fundamentales involucradas.",
+    "Realiza un dibujo explicativo que ilustre el concepto de \"Cañón de Newton\", demostrando visualmente cómo un proyectil disparado a suficiente velocidad se convierte en un satélite artificial en órbita.",
+    "Crea una infografía artesanal a doble página que explique el misterio de la Sonda Kepler-X: describe sus datos orbitales, los cálculos de Newton aplicados para predecir su trayectoria y la maniobra de supervivencia realizada por la ISS."
   ],
   "icfes": [
     {
       "competencia": "Explicación de Fenómenos",
-      "texto_introductorio": "La ISS orbita la Tierra a una altura donde la aceleración de la gravedad es aproximadamente el 90% de la que sentimos en la superficie. Sin embargo, los astronautas flotan.",
-      "tabla_o_grafica_markdown": "| Ubicación | Gravedad (m/s²) | Estado del objeto |\n|---|---|---|\n| Superficie | 9.8 | En reposo/movimiento |\n| Órbita ISS | 8.7 | Caída libre constante |",
-      "pregunta": "¿Por qué los astronautas experimentan ingravidez aparente en la ISS?",
+      "texto_introductorio": "La Estación Espacial Internacional (ISS) mantiene una órbita circular estable alrededor de la Tierra a una altitud aproximada de 400 km sobre la superficie marina. En este punto, la aceleración de la gravedad (g) es aproximadamente 8.7 m/s². El centro de control de misión detecta que un satélite meteorológico fuera de control se aproxima a la misma altitud que la ISS, pero viaja a una velocidad un 10% menor de la requerida para una órbita circular estable en esa posición.",
+      "tabla_o_grafica_markdown": "| Parámetro | ISS (Órbita Estable) | Satélite Meteorológico Anómalo |\n|---|---|---|\n| Altitud | 400 km | 400 km |\n| Masa | 420,000 kg | 1,500 kg |\n| Velocidad | 7.66 km/s | 6.89 km/s |",
+      "pregunta": "De acuerdo con las leyes de la física orbital y los datos suministrados en la tabla, ¿qué ocurrirá con la trayectoria del satélite meteorológico en comparación con la de la ISS?",
       "opciones": [
-        "Porque a esa altura ya no existe fuerza de gravedad.",
-        "Porque la estación y los astronautas caen hacia la Tierra con la misma aceleración lateral.",
-        "Porque el vacío del espacio anula el peso de los objetos.",
-        "Porque la fuerza centrífuga es mayor que la fuerza gravitacional."
+        "El satélite caerá gradualmente hacia la Tierra describiendo una trayectoria espiral descendente debido a que la fuerza de gravedad supera el requerimiento dinámico para mantener la órbita circular.",
+        "El satélite flotará en una trayectoria perfectamente estable justo al lado de la ISS porque su masa es mucho menor y requiere menos velocidad.",
+        "El satélite saldrá disparado tangencialmente hacia el espacio exterior debido a la inercia acumulada en su trayectoria previa.",
+        "El satélite aumentará su altitud de forma espontánea para compensar la falta de velocidad mediante la ley de conservación de la energía."
       ],
-      "correcta": 1,
+      "correcta": 0,
       "retroalimentacion": {
-        "0": "Incorrecto. La gravedad en la ISS es casi tan fuerte como en la superficie.",
-        "1": "Correcto. La ingravidez es el resultado de estar en caída libre perpetua mientras se tiene velocidad tangencial.",
-        "2": "Incorrecto. El peso depende de la masa y la gravedad, el vacío no lo anula.",
-        "3": "Incorrecto. En una órbita estable, la fuerza centrípeta (gravedad) es la que permite el giro."
-      }
-    },
-    {
-      "competencia": "Uso Comprensivo del Conocimiento Científico",
-      "texto_introductorio": "La Tercera Ley de Kepler establece una relación constante entre el cubo del semieje mayor (r) y el cuadrado del periodo orbital (T).",
-      "tabla_o_grafica_markdown": "| Planeta | Distancia Media (UA) | Periodo (Años) |\n|---|---|---|\n| Tierra | 1.0 | 1.0 |\n| Marte | 1.52 | 1.88 |\n| Júpiter | 5.20 | 11.86 |",
-      "pregunta": "Si se descubriera un asteroide situado a 4 unidades astronómicas (UA) del Sol, ¿cuál sería su periodo orbital aproximado?",
-      "opciones": [
-        "2 años",
-        "4 años",
-        "8 años",
-        "16 años"
-      ],
-      "correcta": 2,
-      "retroalimentacion": {
-        "0": "Incorrecto. Según T²=r³, si r=4, r³=64. Entonces T=√64.",
-        "1": "Incorrecto. El periodo no es igual a la distancia.",
-        "2": "Correcto. T² = 4³ = 64, por lo tanto T = 8 años.",
-        "3": "Incorrecto. Has elevado al cuadrado en lugar de sacar raíz cuadrada."
+        "0": "Correcto. Al tener una velocidad orbital inferior a la requerida para mantener una órbita circular a esa altitud (7.66 km/s), la inercia del satélite es insuficiente para equilibrar la atracción de la gravedad, lo que provoca que caiga hacia la Tierra en una espiral elíptica descendente.",
+        "1": "Incorrecto. La velocidad orbital estable no depende de la masa del satélite, sino de la masa de la Tierra y el radio de la órbita. Al viajar a menor velocidad, el satélite no puede mantener la altura.",
+        "2": "Incorrecto. Para salir disparado hacia el espacio exterior, el satélite requeriría una velocidad mucho mayor que la velocidad orbital estable (la velocidad de escape), no una menor.",
+        "3": "Incorrecto. Un satélite con menor energía mecánica (menor velocidad) disminuye su altitud; no puede ascender de forma espontánea sin un impulso de empuje externo."
       }
     },
     {
       "competencia": "Indagación",
-      "texto_introductorio": "Un grupo de exploradores espaciales observa que un satélite en órbita alrededor de un planeta desconocido aumenta su velocidad a medida que se acerca a un punto específico de su trayectoria.",
-      "tabla_o_grafica_markdown": "| Punto | Distancia al Centro (km) | Velocidad (km/s) |\n|---|---|---|\n| A | 12.000 | 5.5 |\n| B | 8.000 | 7.2 |\n| C | 15.000 | 4.8 |",
-      "pregunta": "Basándose en las Leyes de Kepler, ¿qué se puede concluir sobre el punto B?",
+      "texto_introductorio": "Los astronautas de la ISS estudian el movimiento de un satélite experimental de masa M que gira alrededor de un planeta desconocido X. Los sensores registran el período orbital (T) del satélite a diferentes distancias medias (R) del centro del planeta, con el fin de determinar la masa del cuerpo celeste central empleando la formulación de Newton de la tercera ley de Kepler.",
+      "tabla_o_grafica_markdown": "| Observación | Radio de la Órbita (R) [m] | Período Orbital (T) [s] | Relación R³/T² [m³/s²] |\n|---|---|---|---|\n| 1 | 2.0 x 10^7 | 4.0 x 10^4 | 5.0 x 10^12 |\n| 2 | 4.0 x 10^7 | 1.13 x 10^5 | 5.0 x 10^12 |\n| 3 | 8.0 x 10^7 | 3.2 x 10^5 | 5.0 x 10^12 |",
+      "pregunta": "A partir de la información experimental recolectada, ¿cuál de las siguientes conclusiones científicas sobre la relación entre el período y el radio de la órbita es correcta?",
       "opciones": [
-        "Es el afelio de la órbita.",
-        "Es el perihelio de la órbita.",
-        "Es el centro de la elipse.",
-        "Es un punto donde la gravedad es mínima."
+        "El cubo del radio orbital es directamente proporcional al cuadrado del período del satélite, lo que valida la constancia de la tercera ley de Kepler para este sistema planetario.",
+        "La masa del satélite determina el valor de la constante de proporcionalidad R³/T², por lo que satélites más masivos tendrían relaciones diferentes.",
+        "La relación R³/T² disminuye drásticamente a medida que el satélite se aleja del centro de masa del planeta central.",
+        "El período orbital es inversamente proporcional al cuadrado del radio de giro del cuerpo espacial."
       ],
-      "correcta": 1,
+      "correcta": 0,
       "retroalimentacion": {
-        "0": "Incorrecto. El afelio es el punto más alejado y lento.",
-        "1": "Correcto. El perihelio es el punto más cercano y donde el cuerpo se mueve más rápido.",
-        "2": "Incorrecto. Los planetas no orbitan el centro de la elipse, sino un foco.",
-        "3": "Incorrecto. En el punto más cercano (B), la gravedad es máxima."
+        "0": "Correcto. Los datos demuestran de forma experimental que la relación R³/T² permanece constante con un valor de 5.0 x 10^12 m³/s² en todas las mediciones, confirmando la proporcionalidad predicha por Kepler y Newton.",
+        "1": "Incorrecto. La relación R³/T² depende exclusivamente de la masa del cuerpo central (planeta X) y de la constante gravitacional, por lo que la masa del satélite experimental es irrelevante para este cálculo.",
+        "2": "Incorrecto. Como se observa en la última columna de la tabla, la relación R³/T² se mantiene perfectamente constante en todas las observaciones orbitales.",
+        "3": "Incorrecto. Según la ley armónica, el cuadrado del período es directamente proporcional al cubo del radio, no inversamente proporcional al cuadrado del mismo."
+      }
+    },
+    {
+      "competencia": "Uso Comprensivo del Conocimiento Científico",
+      "texto_introductorio": "Dos sondas gemelas de exploración espacial profunda, Alfa y Beta, con masas idénticas, describen órbitas alrededor de una estrella estable. Alfa se encuentra en una órbita circular de radio R, mientras que Beta se desplaza en una órbita elíptica alargada cuyo semieje mayor es equivalente a R, tal como se ilustra en los análisis cinemáticos de la ISS.",
+      "tabla_o_grafica_markdown": "| Parámetro Orbital | Sonda Alfa | Sonda Beta |\n|---|---|---|\n| Tipo de Órbita | Circular Estable | Elíptica de Alta Excentricidad |\n| Masa de la Sonda | 500 kg | 500 kg |\n| Semieje Mayor (o Radio medio) | R | R |\n| Período Orbital | T_Alfa | T_Beta |",
+      "pregunta": "Al comparar los períodos orbitales que tardan ambas sondas en completar una revolución alrededor de la estrella central, se deduce físicamente que:",
+      "opciones": [
+        "T_Alfa es exactamente igual a T_Beta porque ambos sistemas tienen el mismo semieje mayor equivalente R y orbitan la misma estrella.",
+        "T_Alfa es mucho menor que T_Beta debido a que la sonda elíptica debe recorrer una trayectoria físicamente más larga en el espacio.",
+        "T_Alfa es mayor que T_Beta porque la órbita circular carece de la aceleración gravitacional adicional generada en el perihelio.",
+        "La relación de sus períodos no se puede deducir sin conocer con precisión las masas de ambas sondas espaciales."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. De acuerdo con la formulación de la tercera ley de Kepler y la gravitación universal, el período orbital de un cuerpo depende únicamente de la masa del cuerpo central y de la longitud de su semieje mayor. Dado que el semieje mayor de la elipse de Beta es igual al radio circular de Alfa (R), ambos cuerpos completan su órbita exactamente en el mismo tiempo (T_Alfa = T_Beta).",
+        "1": "Incorrecto. Aunque la geometría del movimiento varía en velocidad instantánea, el período neto orbital promedio es matemáticamente idéntico si el semieje mayor de ambos cuerpos es igual.",
+        "2": "Incorrecto. El perihelio aumenta la velocidad, pero el afelio la reduce en proporción igual, equilibrando el período total según la ley de las áreas de Kepler.",
+        "3": "Incorrecto. Las masas de las sondas no afectan el período orbital, tal como se deduce analíticamente de la síntesis newtoniana del movimiento celeste."
       }
     }
   ]

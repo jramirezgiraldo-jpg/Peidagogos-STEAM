@@ -1,197 +1,83 @@
 {
   "saberes_previos": [
     {
-      "pregunta": "¿Cuál es la fuerza principal que mantiene a los planetas en órbita alrededor del Sol?",
-      "opciones": [
-        "Magnetismo",
-        "Gravedad",
-        "Fricción",
-        "Electricidad"
-      ],
-      "correcta": 1
-    },
-    {
-      "pregunta": "Según tu observación diaria, ¿cuál es el centro del movimiento del Sistema Solar?",
-      "opciones": [
-        "La Tierra",
-        "La Luna",
-        "El Sol",
-        "Marte"
-      ],
-      "correcta": 2
-    },
-    {
-      "pregunta": "¿Qué forma crees que tienen las trayectorias de los planetas?",
+      "pregunta": "¿Qué forma creían los antiguos astrónomos que tenían las órbitas de los planetas?",
       "opciones": [
         "Círculos perfectos",
+        "Elipses perfectas",
         "Líneas rectas",
-        "Óvalos o elipses",
-        "Triángulos"
+        "Espirales infinitas"
+      ],
+      "correcta": 0
+    },
+    {
+      "pregunta": "¿Cuál es la fuerza invisible que mantiene a los planetas girando alrededor del Sol?",
+      "opciones": [
+        "Fuerza magnética",
+        "Fuerza de fricción",
+        "Fuerza gravitatoria",
+        "Fuerza nuclear fuerte"
       ],
       "correcta": 2
     },
     {
-      "pregunta": "¿Qué sucede con la velocidad de un planeta si se acerca al Sol?",
+      "pregunta": "¿Quién es el científico famoso por proponer las tres leyes del movimiento planetario?",
       "opciones": [
-        "Aumenta",
-        "Disminuye",
-        "Se detiene",
-        "Sigue igual"
+        "Albert Einstein",
+        "Johannes Kepler",
+        "Galileo Galilei",
+        "Isaac Newton"
       ],
-      "correcta": 0
+      "correcta": 1
     }
   ],
-  "texto_inductivo": "¡Saludos, cadete! Bienvenido a la Estación Espacial Internacional (ISS). Soy el Detective Astro y hoy tenemos un caso fascinante entre manos. Imagina que estamos flotando a 400 kilómetros sobre la superficie de la Tierra, observando por la cúpula de nuestra estación. Desde aquí, el cosmos parece un reloj perfecto, pero hace cientos de años, el movimiento de los planetas era el mayor 'misterio sin resolver' de la humanidad. Los antiguos observadores miraban al cielo y veían que los planetas, a veces, parecían detenerse y retroceder en el cielo nocturno. A este fenómeno lo llamaron 'movimiento retrógrado'. Era como si un sospechoso estuviera dando vueltas en círculos para despistar a la policía. Durante siglos, se creyó que la Tierra era el centro de todo (el modelo geocéntrico), pero las cuentas no cuadraban. El misterio se complicaba porque, si todo era circular y perfecto, ¿por qué los planetas no seguían un ritmo constante? Aquí es donde entra nuestro primer informante clave: Tycho Brahe. Brahe era un noble danés que, sin telescopios (porque aún no se habían inventado para la astronomía), registró la posición de las estrellas y planetas con una precisión asombrosa. Brahe era como el fotógrafo de la escena del crimen; recolectó las pruebas, pero no sabía interpretarlas. A su muerte, los datos pasaron a manos de Johannes Kepler, un matemático brillante que actuó como el analista forense de este caso. Kepler pasó años revisando las notas de Brahe, especialmente las de Marte, el planeta más 'rebelde'. Kepler intentó encajar los datos en círculos perfectos, pero siempre había un pequeño error de 8 minutos de arco. Para un detective común, eso no sería nada, pero para Kepler, esa pequeña inconsistencia era la pista que revelaba la verdad. Se dio cuenta de que los planetas no se movían en círculos, sino en elipses. Una elipse es como un círculo que alguien ha aplastado un poco. Al cambiar el círculo por la elipse, todas las piezas del rompecabezas encajaron. Kepler descubrió que el Sol no estaba en el centro exacto, sino en un punto llamado 'foco'. Este hallazgo fue una revolución. Significaba que el universo no seguía la perfección estética que los humanos querían imponerle, sino una lógica física propia. Observamos que cuando un planeta está en su punto más cercano al Sol (perihelio), parece que tiene prisa, como si estuviera huyendo de algo. Pero cuando está lejos (afelio), se mueve con calma, como si estuviera disfrutando de la vista. Este comportamiento extraño es nuestra primera pista para entender las leyes que rigen el cosmos. Como detectives, debemos preguntarnos: ¿Qué empuja a los planetas? ¿Por qué no salen disparados hacia el vacío? ¿Por qué mantienen ese baile eterno alrededor del Sol? En esta semana, vamos a examinar las huellas dactilares de la gravedad y las leyes de Kepler para resolver este enigma espacial. Prepárate, saca tu lupa científica y mantén los ojos abiertos, porque en el espacio, nada es lo que parece a simple vista.",
-  "recurso_visual": "graph TD\n    A[Misterio del Movimiento Planetario] --> B[Observaciones de Tycho Brahe]\n    B --> C[Análisis Forense de Johannes Kepler]\n    C --> D[Primera Ley: Elipses]\n    C --> E[Segunda Ley: Áreas Iguales]\n    C --> F[Tercera Ley: Periodos y Distancias]\n    D --> G[El Sol en un Foco]\n    E --> H[Velocidad Variable]\n    F --> I[Relación Matemática]",
+  "texto_inductivo": "¡Saludos, recluta! Soy el Detective de Misterios Espaciales, asignado a la Estación Espacial Internacional (EEI). Hoy nos enfrentamos al caso del 'Dron Danzante'. Un dron de mantenimiento ha comenzado a orbitar el módulo central de la estación con una trayectoria extraña, no circular. [JUEGO:ORDENAR_LETRAS:ORBITA] Para resolver este enigma, primero debemos entender cómo se mueven los cuerpos en el espacio. Los antiguos astrónomos creían que el movimiento en el cielo era perfecto y circular. Pero la realidad resultó ser diferente y mucho más intrigante. [JUEGO:ORDENAR_FRASE:LA TIERRA GIRA ALREDEDOR DEL SOL]\n\nJohannes Kepler, un detective del cosmos del siglo XVII, analizó minuciosamente los datos de Tycho Brahe y descubrió algo asombroso. El Sol ejerce una atracción fundamental sobre todos los planetas de nuestro sistema. [JUEGO:SOPA_LETRAS:SOL,TIERRA,LUNA] Kepler se dio cuenta de que los astros no viajan en círculos perfectos, sino en curvas ovaladas muy especiales. [JUEGO:CRUCIGRAMA:Estrella central|SOL;Camino espacial|ORBITA]\n\n¿Cómo es posible esta trayectoria en el vacío del espacio? Aquí entra en juego la fuerza invisible del universo. [JUEGO:ORDENAR_LETRAS:GRAVEDAD] Esta fuerza mantiene a cada cuerpo celeste en su ruta sin salir disparado hacia la nada. El dron de la EEI parece estar replicando a escala este comportamiento natural de los planetas. [JUEGO:ORDENAR_FRASE:EL SOL ATRAE A LOS PLANETAS]\n\nLa primera gran pista para resolver nuestro misterio es la Primera Ley de Kepler: los planetas describen órbitas elípticas alrededor del Sol, estando este en uno de los focos. [JUEGO:SOPA_LETRAS:FUERZA,MASA,ESPACIO] Esta forma elíptica hace que la distancia entre el planeta y la estrella varíe continuamente a lo largo de su año. [JUEGO:CRUCIGRAMA:Astrónomo alemán|KEPLER;Fuerza invisible|GRAVEDAD]\n\n¡Inspeccionemos la trayectoria de nuestro dron! Kepler usó las matemáticas para descifrar este patrón cósmico. [JUEGO:ORDENAR_LETRAS:KEPLER] Al mapear el recorrido, vemos que el óvalo tiene dos puntos clave de simetría llamados focos. [JUEGO:ORDENAR_FRASE:LAS ORBITAS SON ELIPTICAS]\n\nEsto nos lleva a buscar pistas en la geometría del espacio exterior. Si el dron sigue una elipse, su velocidad no puede ser siempre la misma. [JUEGO:SOPA_LETRAS:ELIPSE,FOCO,RADIO] ¿Por qué acelera tanto al acercarse al módulo central de nuestra estación? [JUEGO:CRUCIGRAMA:Cuerpo celeste que brilla|ESTRELLA;Cuerpo que orbita|PLANETA]\n\nPara entender este extraño cambio de velocidad, analicemos la elipse misma en nuestro laboratorio. [JUEGO:ORDENAR_LETRAS:ELIPSE] La distancia desde el centro no es constante, lo que afecta directamente el movimiento de traslación del objeto. [JUEGO:ORDENAR_FRASE:LA GRAVEDAD ES UNA FUERZA]\n\nLa física nos proporciona las herramientas científicas necesarias para decodificar estos fenómenos extraños. [JUEGO:SOPA_LETRAS:FISICA,LEYES,CIENCIA] Kepler formuló un conjunto de tres reglas empíricas que describen con precisión matemática estas órbitas celestes. [JUEGO:CRUCIGRAMA:Forma ovalada|ELIPSE;Puntos centrales de la elipse|FOCOS]\n\nResolvamos este misterio planetario observando detenidamente cada detalle de su viaje a través del espacio. [JUEGO:ORDENAR_LETRAS:PLANETA] Cada órbita en el cosmos es una obra maestra de la física que podemos descifrar con observación y lógica. [JUEGO:ORDENAR_FRASE:KEPLER DESCUBRIO TRES LEYES]\n\nPor tanto, el dron acelera y desacelera no por un fallo del motor, sino por pura geometría cósmica elemental. [JUEGO:SOPA_LETRAS:VELOZ,DISTANCIA,TIEMPO] La órbita es el escenario donde se libra la constante batalla física entre la inercia del movimiento y la gravedad. [JUEGO:CRUCIGRAMA:Satélite natural|LUNA;Aceleración de caída|GRAVEDAD]",
+  "recurso_visual": "mermaid\ngraph TD\n    A[Movimiento Planetario] --> B[Leyes de Kepler]\n    A --> C[Gravitación de Newton]\n    B --> B1[1ra Ley: Órbitas Elípticas]\n    B --> B2[2da Ley: Áreas Iguales en Tiempos Iguales]\n    B --> B3[3ra Ley: Período al cuadrado es prop. al Radio al cubo]\n    C --> C1[Fuerza de Atracción]\n    C --> C2[Depende de la Masa]\n    C --> C3[Inversa del Cuadrado de la Distancia]\n",
   "preguntas_inductivas_pagina": [
-    "¿Quién fue el personaje que recolectó los datos precisos antes de Kepler?",
-    "¿Qué forma geométrica descubrió Kepler que tenían las órbitas?",
-    "¿Cómo se llama el punto de la órbita donde el planeta está más cerca del Sol?",
-    "¿Qué sucedía con los planetas que hacía que los antiguos pensaran que retrocedían?",
-    "¿Por qué Kepler no aceptó el modelo de círculos perfectos si el error era muy pequeño?"
+    "¿Qué forma geométrica tienen las órbitas planetarias según Kepler?",
+    "¿Qué es un foco en el contexto de una elipse?",
+    "¿El dron de la EEI mantiene una velocidad constante en su órbita?",
+    "¿Qué fuerza invisible evita que el dron salga volando en línea recta?",
+    "¿Qué astrónomo recolectó los datos que usó Kepler para sus leyes?"
   ],
   "preguntas_inductivas_cuaderno": [
-    "Dibuja un esquema de la Estación Espacial Internacional observando la órbita de un planeta elíptico, señalando los focos y el Sol.",
-    "Realiza un cuadro comparativo entre el Modelo Geocéntrico (la Tierra en el centro) y el Modelo Heliocéntrico (el Sol en el centro).",
-    "Escribe una reflexión de 10 líneas sobre por qué es importante dudar de las 'verdades absolutas' basándote en el error de 8 minutos que encontró Kepler.",
-    "Representa gráficamente mediante un dibujo cómo cambia la velocidad de un planeta en diferentes puntos de su elipse (usa flechas de diferentes tamaños)."
+    "Dibuja un esquema detallado de una órbita elíptica, ubicando el Sol en uno de los focos y señalando los puntos de máxima y mínima distancia.",
+    "Realiza un cuadro comparativo entre la antigua creencia del movimiento circular perfecto y el modelo de órbitas elípticas de Kepler.",
+    "Escribe una reflexión de una página sobre cómo la observación matemática de Kepler cambió nuestra forma de ver el universo.",
+    "Representa gráficamente mediante un dibujo cómo cambia la velocidad del dron en los diferentes puntos de su órbita elíptica."
   ],
-  "juegos_ordenar_letras_1": [
-    "ELIPSE",
-    "PLANETA",
-    "ORBITA"
-  ],
-  "juego_ordenar_frase_1": "LOS PLANETAS DESCRIBEN ORBITAS ELIPTICAS ALREDEDOR DEL SOL",
-  "texto_deductivo": "Ahora que hemos analizado las pistas iniciales, es momento de formalizar nuestro informe de investigación. Como detectives de la ISS, necesitamos leyes sólidas que expliquen por qué los sospechosos (los planetas) se comportan como lo hacen. Johannes Kepler destiló sus años de análisis en tres leyes fundamentales que hoy conocemos como las Leyes de Kepler. La Primera Ley, o Ley de las Órbitas, nos dice que todos los planetas se mueven en órbitas elípticas con el Sol en uno de los focos. Esto rompió con la idea de milenios de que el cielo era el reino de la perfección circular. Una elipse tiene dos focos; en uno está el Sol y el otro es un punto vacío en el espacio. Esta estructura explica por qué la distancia entre la Tierra y el Sol cambia a lo largo del año. La Segunda Ley, o Ley de las Áreas, es más técnica pero fascinante: una línea imaginaria que conecte a un planeta con el Sol barre áreas iguales en tiempos iguales. ¿Qué significa esto para nuestra investigación? Significa que el planeta no viaja a una velocidad constante. Para 'barrer' la misma área cuando está lejos del Sol (donde el triángulo imaginario es largo y delgado), debe moverse lento. Para barrer la misma área cuando está cerca del Sol (donde el triángulo es corto y ancho), debe moverse mucho más rápido. Es como un patinador sobre hielo que gira más rápido cuando encoge sus brazos. La Tercera Ley, o Ley de los Periodos, establece una relación matemática entre la distancia de un planeta al Sol y el tiempo que tarda en dar una vuelta completa (su año). Kepler descubrió que el cuadrado del periodo orbital es proporcional al cubo de la distancia media al Sol (T² ∝ r³). En términos sencillos: cuanto más lejos está un planeta del Sol, más lento es su viaje y más largo es su año. Por eso Mercurio completa su órbita en solo 88 días, mientras que Neptuno tarda unos 165 años terrestres. Pero el caso no estaba cerrado del todo. Faltaba la 'fuerza motriz'. Fue Isaac Newton quien, años después, conectó los puntos con su Ley de Gravitación Universal. Newton explicó que la misma fuerza que hace caer una manzana en la Tierra es la que mantiene a la Luna en órbita y a los planetas siguiendo las leyes de Kepler. La gravedad es una fuerza de atracción que depende de la masa de los objetos y de la distancia que los separa. A mayor masa, mayor atracción; a mayor distancia, menor atracción. Esta fuerza invisible es el motor de nuestro reloj cósmico. Sin la gravedad, los planetas saldrían disparados en línea recta hacia el vacío del espacio debido a su inercia. Es el equilibrio perfecto entre la velocidad del planeta y el tirón gravitacional del Sol lo que mantiene la órbita estable. Aquí en la ISS, experimentamos esto constantemente; estamos 'cayendo' alrededor de la Tierra a la velocidad justa para no chocar contra ella ni escapar al espacio. Entender estas leyes nos permite predecir dónde estará un planeta en mil años o cómo enviar una sonda a Marte con precisión milimétrica. El misterio ha sido resuelto por la ciencia.",
+  "texto_deductivo": "Como detectives de la física, ahora debemos deducir las leyes matemáticas detrás del extraño caso de nuestro dron en la EEI. Isaac Newton, el gran detective de la naturaleza, resolvió el porqué de las órbitas usando su ley de gravitación universal. [JUEGO:ORDENAR_LETRAS:NEWTON] La gravedad es la fuerza invisible que mantiene a los planetas firmemente atados a sus órbitas elípticas. [JUEGO:ORDENAR_FRASE:A MAYOR MASA MAYOR GRAVEDAD]\n\nNewton demostró que un objeto en movimiento tiende a seguir en línea recta debido a su resistencia innata al cambio. [JUEGO:SOPA_LETRAS:MANZANA,NEWTON,CAIDA] Si no hubiera una fuerza de gravedad constante, los planetas saldrían volando en línea recta hacia el vacío infinito del cosmos. [JUEGO:CRUCIGRAMA:Fórmula de la fuerza|FMA;Unidad de fuerza|NEWTON]\n\nEsta resistencia natural de los cuerpos se conoce en física como la inercia de la materia. [JUEGO:ORDENAR_LETRAS:INERCIA] El balance perfecto entre esta inercia y el tirón gravitacional del Sol da como resultado la órbita elíptica. [JUEGO:ORDENAR_FRASE:LOS PLANETAS TIENEN INERCIA]\n\nPodemos deducir que la fuerza de gravedad depende de manera crítica de la masa de los objetos involucrados. [JUEGO:SOPA_LETRAS:LEYES,INERCIA,ACELERACION] A mayor masa del cuerpo central, mayor es el tirón gravitatorio que ejerce sobre los satélites que lo rodean. [JUEGO:CRUCIGRAMA:Propiedad de oponerse al cambio|INERCIA;Cantidad de materia|MASA]\n\nLa fuerza de gravedad también se debilita rápidamente a medida que la distancia entre los dos cuerpos aumenta. [JUEGO:ORDENAR_LETRAS:FUERZA] Esta es la famosa ley de la inversa del cuadrado de la distancia que rige el espacio. [JUEGO:ORDENAR_FRASE:LA MANZANA CAYO AL SUELO]\n\nPara entender completamente el comportamiento de nuestro dron, usemos la Segunda Ley de Kepler. Esta ley afirma que una línea imaginaria que une al planeta con el Sol barre áreas iguales en tiempos iguales. [JUEGO:SOPA_LETRAS:CENTRIFUGA,GRAVITATORIA,MECANICA] Por lo tanto, cuando el planeta está más cerca del Sol (perihelio), debe moverse mucho más rápido para barrer la misma área que cuando está lejos (afelio). [JUEGO:CRUCIGRAMA:Distancia al cuadrado|INVERSA;Atracción mutua|GRAVITACION]\n\n¿Y qué ocurre con el tiempo total que tarda un planeta en dar una vuelta completa al Sol? Ese es su período orbital. [JUEGO:ORDENAR_LETRAS:PERIODO] La Tercera Ley de Kepler establece que el cuadrado del período es proporcional al cubo de la distancia media al Sol. [JUEGO:ORDENAR_FRASE:LA FUERZA DISMINUYE CON LA DISTANCIA]\n\nEsta ley nos permite deducir con precisión que los planetas más lejanos tardan mucho más tiempo en completar una órbita. [JUEGO:SOPA_LETRAS:PERIODO,RADIO,VELOCIDAD] Por ejemplo, Neptuno tarda 165 años terrestres, mientras que Mercurio solo tarda 88 días. [JUEGO:CRUCIGRAMA:Tiempo de una vuelta|PERIODO;Trayectoria cerrada|ORBITA]\n\nTodo objeto que orbita en el espacio obedece a las mismas reglas físicas de masa, fuerza y distancia. [JUEGO:ORDENAR_LETRAS:MASA] La gravedad es la gran escultora de la arquitectura de nuestro sistema solar y de la EEI. [JUEGO:ORDENAR_FRASE:EL SOL TIENE MUCHA MASA]\n\nAl interactuar la masa con el espacio-tiempo, se genera esta curvatura que percibimos como fuerza de gravedad. [JUEGO:SOPA_LETRAS:ATRAER,REPELER,MOVER] Así resolvemos el caso: nuestro dron no tiene un motor dañado, solo sigue las leyes físicas de Kepler y Newton. [JUEGO:CRUCIGRAMA:Lugar sin aire|VACIO;Fuerza hacia el centro|CENTRIPETA]",
   "preguntas_deductivas_pagina": [
-    "¿Qué establece la Primera Ley de Kepler sobre la forma de las órbitas?",
-    "¿En qué punto de la órbita un planeta se mueve a su máxima velocidad?",
-    "¿Cómo se relaciona el periodo orbital con la distancia según la Tercera Ley?",
-    "¿Qué fuerza identificó Newton como la causa del movimiento planetario?",
-    "¿Qué pasaría con un planeta si la gravedad del Sol desapareciera de repente?"
+    "¿Qué es la inercia según lo explicado en el texto?",
+    "¿Cómo afecta la distancia a la fuerza de gravedad entre dos cuerpos?",
+    "¿Qué es el perihelio y qué ocurre con la velocidad de un cuerpo allí?",
+    "¿Qué es el afelio y cómo es la velocidad en ese punto?",
+    "¿Cómo se relaciona el período orbital con la distancia al Sol en la Tercera Ley?"
   ],
   "preguntas_deductivas_cuaderno": [
-    "Realiza un diagrama detallado de una elipse identificando: Foco 1 (Sol), Foco 2, Perihelio, Afelio y el Semieje Mayor.",
-    "Elabora un mapa mental que conecte las 3 Leyes de Kepler con la Ley de Gravitación Universal de Newton.",
-    "Haz un dibujo explicativo que demuestre la Segunda Ley de Kepler (Áreas Iguales), sombreando las áreas barridas en diferentes tiempos.",
-    "Crea una infografía artesanal que explique por qué el año en Neptuno es mucho más largo que el año en la Tierra usando la Tercera Ley."
-  ],
-  "juegos_ordenar_letras_2": [
-    "GRAVEDAD",
-    "PERIODO",
-    "ENERGIA"
-  ],
-  "juego_ordenar_frase_2": "LA GRAVEDAD MANTIENE A LOS PLANETAS EN SUS ORBITAS",
-  "sopa_letras": [
-    "KEPLER",
-    "NEWTON",
-    "ELIPSE",
-    "FOCO",
-    "GRAVEDAD",
-    "ORBITA",
-    "SOL",
-    "MASA",
-    "PERIODO",
-    "AFELIO"
-  ],
-  "crucigrama": [
-    {
-      "palabra": "ELIPSE",
-      "pista": "Forma geométrica de la trayectoria de un planeta."
-    },
-    {
-      "palabra": "PERIHELIO",
-      "pista": "Punto de la órbita más cercano al Sol."
-    },
-    {
-      "palabra": "AFELIO",
-      "pista": "Punto de la órbita más alejado del Sol."
-    },
-    {
-      "palabra": "GRAVEDAD",
-      "pista": "Fuerza de atracción entre dos masas."
-    },
-    {
-      "palabra": "KEPLER",
-      "pista": "Apellido del científico que formuló las tres leyes del movimiento planetario."
-    },
-    {
-      "palabra": "FOCO",
-      "pista": "Lugar donde se sitúa el Sol dentro de la elipse."
-    },
-    {
-      "palabra": "NEWTON",
-      "pista": "Científico que explicó por qué se mueven los planetas usando la gravitación."
-    },
-    {
-      "palabra": "INERCIA",
-      "pista": "Tendencia de un cuerpo a mantener su estado de movimiento."
-    },
-    {
-      "palabra": "AREA",
-      "pista": "Lo que barren los planetas en tiempos iguales según la segunda ley."
-    },
-    {
-      "palabra": "AÑO",
-      "pista": "Nombre común para el periodo orbital de un planeta."
-    }
+    "Realiza un diagrama detallado que ilustre la Segunda Ley de Kepler, mostrando las 'áreas iguales' barridas en tiempos iguales.",
+    "Elabora un mapa mental que conecte las Tres Leyes de Kepler con la Ley de Gravitación Universal de Newton.",
+    "Dibuja un esquema explicativo del experimento mental de Newton (el cañón de Newton) para explicar cómo cae un objeto en órbita.",
+    "Diseña una infografía artesanal en tu cuaderno que explique a otros estudiantes por qué el dron de la EEI acelera al acercarse al módulo central."
   ],
   "icfes": [
     {
       "competencia": "Explicación de Fenómenos",
-      "texto_introductorio": "En la Estación Espacial Internacional, los astronautas observan que un satélite en órbita elíptica alrededor de la Tierra cambia su velocidad dependiendo de su posición. Este fenómeno se explica mediante las leyes del movimiento planetario aplicadas a cualquier cuerpo en órbita.",
-      "tabla_o_grafica_markdown": "| Posición | Distancia al Centro (km) | Velocidad (km/s) |\n|---|---|---|\n| Perigeo (Cerca) | 6,700 | 7.8 |\n| Apogeo (Lejos) | 7,200 | 7.2 |",
-      "pregunta": "¿Por qué el satélite aumenta su velocidad cuando se encuentra en el perigeo?",
+      "texto_introductorio": "En la Estación Espacial Internacional (EEI), los astronautas analizan el movimiento de un micro-satélite de pruebas que orbita alrededor del módulo principal. Al registrar los datos de distancia y velocidad orbital del micro-satélite, obtuvieron la siguiente tabla:",
+      "tabla_o_grafica_markdown": "| Posición | Distancia al módulo central (m) | Velocidad orbital (m/s) |\n|---|---|---|\n| Punto A | 10 | 5.0 |\n| Punto B | 5 | 10.0 |\n| Punto C | 20 | 2.5 |",
+      "pregunta": "Teniendo en cuenta la Segunda Ley de Kepler y los datos de la tabla, ¿cuál es la explicación correcta de la variación de la velocidad del micro-satélite?",
       "opciones": [
-        "Porque debe barrer la misma área en el mismo tiempo que cuando está lejos.",
-        "Porque la gravedad de la Tierra desaparece en ese punto.",
-        "Porque el espacio es más denso cerca de la Tierra y lo empuja.",
-        "Porque el satélite pesa menos cuando está cerca de la Tierra."
+        "El satélite acelera al acercarse al módulo central (Punto B) para barrer áreas iguales en tiempos iguales en su órbita elíptica.",
+        "El satélite pierde velocidad al acercarse porque la gravedad del módulo central disminuye a cortas distancias.",
+        "El satélite se mueve más rápido en el Punto C porque la fuerza centrípeta es mayor cuando la distancia aumenta.",
+        "La velocidad varía debido a la fricción con el aire remanente en el espacio exterior, que lo empuja en el Punto B."
       ],
       "correcta": 0,
       "retroalimentacion": {
-        "0": "Correcto. Según la segunda ley de Kepler, para mantener áreas iguales en tiempos iguales, el objeto debe ir más rápido en el punto más cercano.",
-        "1": "Incorrecto. La gravedad es más fuerte cuanto más cerca está el objeto.",
-        "2": "Incorrecto. La densidad del espacio no causa el aumento de velocidad orbital.",
-        "3": "Incorrecto. La masa del satélite no cambia y el peso (fuerza) aumenta al estar cerca."
-      }
-    },
-    {
-      "competencia": "Uso comprensivo del conocimiento científico",
-      "texto_introductorio": "La Tercera Ley de Kepler establece una relación fija entre la distancia media de un planeta al Sol y el tiempo que tarda en completar su órbita.",
-      "tabla_o_grafica_markdown": "| Planeta | Distancia Media (UA) | Periodo (Años) |\n|---|---|---|\n| Tierra | 1.0 | 1.0 |\n| Marte | 1.5 | 1.88 |\n| Júpiter | 5.2 | 11.86 |",
-      "pregunta": "Si descubriéramos un nuevo planeta 'X' a una distancia de 10 UA del Sol, ¿cómo sería su periodo orbital comparado con el de Júpiter?",
-      "opciones": [
-        "Menor que el de Júpiter.",
-        "Igual al de Júpiter.",
-        "Mayor que el de Júpiter.",
-        "Exactamente un año terrestre."
-      ],
-      "correcta": 2,
-      "retroalimentacion": {
-        "0": "Incorrecto. A mayor distancia, mayor es el periodo según la tercera ley.",
-        "1": "Incorrecto. Al estar a diferente distancia, su periodo debe ser distinto.",
-        "2": "Correcto. Al estar más lejos (10 UA frente a 5.2 UA), tardará mucho más tiempo en completar su órbita.",
-        "3": "Incorrecto. Solo la Tierra tarda un año terrestre por estar a 1 UA."
-      }
-    },
-    {
-      "competencia": "Indagación",
-      "texto_introductorio": "Un grupo de estudiantes de la ISS investiga cómo varía la fuerza de atracción entre dos cuerpos. Realizan un experimento variando la distancia y registrando la fuerza.",
-      "tabla_o_grafica_markdown": "| Experimento | Masa 1 | Masa 2 | Distancia | Fuerza (N) |\n|---|---|---|---|---|\n| 1 | 10 kg | 10 kg | 1 m | 100 |\n| 2 | 10 kg | 10 kg | 2 m | 25 |\n| 3 | 10 kg | 10 kg | 4 m | 6.25 |",
-      "pregunta": "A partir de los datos, ¿qué conclusión se puede sacar sobre la relación entre la distancia y la fuerza gravitacional?",
-      "opciones": [
-        "La fuerza es directamente proporcional a la distancia.",
-        "La fuerza disminuye rápidamente a medida que aumenta la distancia.",
-        "La distancia no afecta la fuerza si las masas son iguales.",
-        "Si la distancia se duplica, la fuerza se reduce a la mitad."
-      ],
-      "correcta": 1,
-      "retroalimentacion": {
-        "0": "Incorrecto. Si fuera directa, la fuerza subiría con la distancia.",
-        "1": "Correcto. Los datos muestran que al aumentar la distancia, la fuerza cae de manera drástica (ley del inverso del cuadrado).",
-        "2": "Incorrecto. La tabla muestra claramente que la fuerza cambia con la distancia.",
-        "3": "Incorrecto. Si se duplica (de 1m a 2m), la fuerza baja de 100 a 25 (una cuarta parte, no la mitad)."
+        "0": "Correcto. Según la Segunda Ley de Kepler (ley de las áreas), para que el radio vector barra áreas iguales en tiempos iguales, la velocidad debe ser inversamente proporcional a la distancia; por ende, es máxima en el punto más cercano (perihelio/Punto B).",
+        "1": "Incorrecto. La gravedad no disminuye a cortas distancias; al contrario, aumenta según la ley de la inversa del cuadrado de la distancia de Newton.",
+        "2": "Incorrecto. En el Punto C la velocidad es la menor (2.5 m/s) debido a que es la mayor distancia (20 m), donde la fuerza de atracción es más débil.",
+        "3": "Incorrecto. En el vacío orbital del espacio no hay suficiente aire para generar una fuerza de fricción que acelere selectivamente al satélite en el Punto B."
       }
     }
   ]
