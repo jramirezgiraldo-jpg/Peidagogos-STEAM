@@ -1,4 +1,6 @@
 const fs = require('fs');
+const { exec } = require('child_process');
+const path = require('path');
 
 const roles = [
     "Detective de Misterios",
@@ -131,6 +133,35 @@ async function generarTodas() {
         await sleep(1000);
     }
     console.log("¡Terminado de generar todas las guías!");
+
+    // Backup local
+    const now = new Date();
+    const backupFolderName = `guias_cache_backup_${now.getFullYear()}${(now.getMonth()+1).toString().padStart(2,'0')}${now.getDate().toString().padStart(2,'0')}_${now.getHours().toString().padStart(2,'0')}${now.getMinutes().toString().padStart(2,'0')}`;
+    const backupPath = path.join(__dirname, backupFolderName);
+    console.log(`Creando backup local en: ${backupFolderName}...`);
+    try {
+        if (!fs.existsSync(backupPath)) fs.mkdirSync(backupPath);
+        const cacheDir = path.join(__dirname, 'guias_cache');
+        if (fs.existsSync(cacheDir)) {
+            const files = fs.readdirSync(cacheDir);
+            for (const file of files) {
+                fs.copyFileSync(path.join(cacheDir, file), path.join(backupPath, file));
+            }
+        }
+        console.log("Backup local completado exitosamente.");
+    } catch(err) {
+        console.error("Error al crear backup local:", err);
+    }
+
+    // Git push
+    console.log("Subiendo archivos a la página web (GitHub)...");
+    exec('git add guias_cache/ && git commit -m "Auto: guías generadas actualizadas" && git push origin master', (error, stdout, stderr) => {
+        if (error && !stdout.includes("nothing to commit") && !stderr.includes("nothing to commit")) {
+            console.error(`Error en git push: ${error.message}`);
+            return;
+        }
+        console.log(`Git push completado: ${stdout}`);
+    });
 }
 
 generarTodas();

@@ -13,13 +13,19 @@ app.use(cors());
 app.use(express.json()); // Permitir parseo de JSON en el body
 app.use(express.static(path.join(__dirname))); // Servir archivos estáticos
 
-// Inicializar el SDK de Gemini. Si la key está en process.env.GEMINI_API_KEY, la tomará automáticamente.
-// Si no hay key, igual inicializamos pero mostrará error al intentar generar.
-let ai;
-try {
-    ai = new GoogleGenAI({}); // Toma process.env.GEMINI_API_KEY por defecto
-} catch (error) {
-    console.warn("Advertencia: No se pudo inicializar GoogleGenAI. Probablemente falta la GEMINI_API_KEY en el archivo .env");
+// Inicializar el sistema de rotación de API Keys
+const rawKeys = process.env.GEMINI_API_KEYS || process.env.GEMINI_API_KEY || "";
+const apiKeys = rawKeys.split(',').map(k => k.trim()).filter(k => k.length > 0);
+let currentKeyIndex = 0;
+
+function getAIClient() {
+    if (apiKeys.length === 0) return null;
+    const key = apiKeys[currentKeyIndex];
+    const keyNumber = currentKeyIndex + 1;
+    // Rotar al siguiente para la próxima petición
+    currentKeyIndex = (currentKeyIndex + 1) % apiKeys.length;
+    console.log(`[IA] Usando API Key #${keyNumber} de ${apiKeys.length} (${key.substring(0,8)}...)`);
+    return new GoogleGenAI({ apiKey: key });
 }
 
 // Endpoint para generar la guía
@@ -38,9 +44,9 @@ app.post('/api/generate-guide', async (req, res) => {
         } = req.body;
 
         // Validar si la IA está lista
-        if (!process.env.GEMINI_API_KEY) {
+        if (apiKeys.length === 0) {
             return res.status(500).json({ 
-                error: "El motor de IA no está configurado todavía. Falta añadir la API Key al servidor." 
+                error: "El motor de IA no está configurado todavía. Faltan las llaves en GEMINI_API_KEYS." 
             });
         }
 
@@ -78,13 +84,23 @@ Contexto Curricular:
 - Meta de Comprensión Anual: ${meta}
 - Tópico Generativo de la Semana: ${topico}
 
+INSTRUCCIÓN MUY IMPORTANTE SOBRE MINIJUEGOS:
+Para dar descansos mentales y reforzar el conocimiento, debes incrustar OBLIGATORIAMENTE minijuegos DIRECTAMENTE dentro de los párrafos del "texto_inductivo" y del "texto_deductivo". En cada uno de estos dos textos debe haber intercalados exactamente:
+- 5 juegos de ordenar letras. Etiqueta: [JUEGO:ORDENAR_LETRAS:PALABRA]
+- 5 juegos de ordenar frases. Etiqueta: [JUEGO:ORDENAR_FRASE:LA FRASE COMPLETA SIN TILDES NI SIGNOS]
+- 5 juegos de sopa de letras. Etiqueta: [JUEGO:SOPA_LETRAS:PALABRA1,PALABRA2,PALABRA3] (mínimo 3, máximo 6 palabras por sopa)
+- 5 juegos de crucigrama. Etiqueta: [JUEGO:CRUCIGRAMA:Pista 1|RESPUESTA1;Pista 2|RESPUESTA2] (mínimo 2, máximo 4 pistas por crucigrama)
+
+Ejemplo de cómo redactar un párrafo con juegos intercalados:
+"El sol es la estrella principal de nuestro sistema solar. [JUEGO:ORDENAR_LETRAS:ESTRELLA] Su gravedad mantiene a los planetas en órbita. [JUEGO:CRUCIGRAMA:Astro rey|SOL;Fuerza de atracción|GRAVEDAD] A continuación, veremos las leyes de Newton..."
+
 DEBES DEVOLVER EXCLUSIVAMENTE UN OBJETO JSON VÁLIDO (sin bloques de código markdown como \`\`\`json) CON LA SIGUIENTE ESTRUCTURA EXACTA:
 {
   "saberes_previos": [
     { "pregunta": "¿...?", "opciones": ["A", "B", "C", "D"], "correcta": 0 }
   ],
-  "texto_inductivo": "Texto de al menos 500 palabras, formato markdown o HTML simple permitido para negritas...",
-  "recurso_visual": "Genera una tabla en formato Markdown o un código de diagrama Mermaid (graph TD...) que resuma o ejemplifique el contenido del texto inductivo.",
+  "texto_inductivo": "Texto largo en formato Markdown. OBLIGATORIAMENTE debes incrustar aquí 5 etiquetas de ORDENAR_LETRAS, 5 de ORDENAR_FRASE, 5 de SOPA_LETRAS y 5 de CRUCIGRAMA intercaladas entre los párrafos...",
+  "recurso_visual": "Genera una tabla en formato Markdown o un código de diagrama Mermaid (graph TD...) que resuma el texto inductivo.",
   "preguntas_inductivas_pagina": [ "¿P1?", "¿P2?", "¿P3?", "¿P4?", "¿P5?" ],
   "preguntas_inductivas_cuaderno": [
       "Pregunta que exija dibujar un esquema o mapa conceptual",
@@ -92,9 +108,7 @@ DEBES DEVOLVER EXCLUSIVAMENTE UN OBJETO JSON VÁLIDO (sin bloques de código mar
       "Pregunta reflexiva extensa sobre el texto",
       "Pregunta que exija representar gráficamente una idea"
   ],
-  "juegos_ordenar_letras_1": ["PALABRA1", "PALABRA2", "PALABRA3"],
-  "juego_ordenar_frase_1": "FRASE LARGA CON SENTIDO",
-  "texto_deductivo": "Texto deductivo de al menos 500 palabras...",
+  "texto_deductivo": "Texto deductivo largo en formato Markdown. OBLIGATORIAMENTE debes incrustar aquí también 5 etiquetas de ORDENAR_LETRAS, 5 de ORDENAR_FRASE, 5 de SOPA_LETRAS y 5 de CRUCIGRAMA intercaladas entre los párrafos...",
   "preguntas_deductivas_pagina": [ "¿P1?", "¿P2?", "¿P3?", "¿P4?", "¿P5?" ],
   "preguntas_deductivas_cuaderno": [
       "Pregunta que exija realizar un diagrama detallado",
@@ -102,18 +116,11 @@ DEBES DEVOLVER EXCLUSIVAMENTE UN OBJETO JSON VÁLIDO (sin bloques de código mar
       "Pregunta que exija un dibujo explicativo del tema",
       "Pregunta que exija una infografía artesanal"
   ],
-  "juegos_ordenar_letras_2": ["TERMINO1", "TERMINO2", "TERMINO3"],
-  "juego_ordenar_frase_2": "OTRA FRASE A ORDENAR",
-  "sopa_letras": ["PALABRA1", "PALABRA2", "PALABRA3", "PALABRA4", "PALABRA5", "PALABRA6", "PALABRA7", "PALABRA8", "PALABRA9", "PALABRA10"],
-  "crucigrama": [
-    { "palabra": "RESPUESTA1", "pista": "Definición o pista 1" }, // hasta 10 palabras
-    { "palabra": "RESPUESTA2", "pista": "Definición o pista 2" }
-  ],
   "icfes": [
     {
       "competencia": "Explicación de Fenómenos",
       "texto_introductorio": "Contexto de la pregunta...",
-      "tabla_o_grafica_markdown": "| Dato | Valor |\n|---|---|",
+      "tabla_o_grafica_markdown": "| Dato | Valor |\\n|---|---|",
       "pregunta": "¿Qué ocurre si...?",
       "opciones": ["Opcion 1", "Opcion 2", "Opcion 3", "Opcion 4"],
       "correcta": 0,
@@ -123,7 +130,7 @@ DEBES DEVOLVER EXCLUSIVAMENTE UN OBJETO JSON VÁLIDO (sin bloques de código mar
         "2": "Incorrecto porque...",
         "3": "Incorrecto porque..."
       }
-    } // Añade 2 preguntas más para las otras 2 competencias (uso comprensivo, indagación)
+    }
   ]
 }`;
         // Modelos de respaldo en caso de saturación
@@ -131,6 +138,7 @@ DEBES DEVOLVER EXCLUSIVAMENTE UN OBJETO JSON VÁLIDO (sin bloques de código mar
         let responseText = "";
         let finalError = null;
 
+        const ai = getAIClient();
         for (let i = 0; i < modelos.length; i++) {
             try {
                 const response = await ai.models.generateContent({
