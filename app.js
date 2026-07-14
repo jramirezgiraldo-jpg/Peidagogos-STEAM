@@ -1165,7 +1165,7 @@ window.ingresarAGuia = async function() {
         `;
     }
     
-    // Petición al Backend
+    // Petición al caché local (Archivos JSON estáticos)
     try {
         const payload = {
             asignatura,
@@ -1179,16 +1179,23 @@ window.ingresarAGuia = async function() {
             enfoque: enfoqueElem.options[enfoqueElem.selectedIndex].text
         };
         
-        const response = await fetch('http://localhost:3000/api/generate-guide', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(payload)
-        });
+        const fileNameSafe = [payload.asignatura, payload.periodo, payload.semana, payload.rol, payload.ambiente, payload.nivel, payload.enfoque]
+            .map(s => s ? s.toString().toLowerCase().replace(/[^a-z0-9]/g, '_') : 'na')
+            .join('_') + '.json';
+
+        const response = await fetch('guias_cache/' + fileNameSafe);
         
-        const data = await response.json();
+        if (!response.ok) {
+            innerContent.innerHTML = `<div style="padding: 20px; background: #FEE2E2; border: 1px solid #EF4444; border-radius: 8px; color: #B91C1C;"><strong>Guía no encontrada:</strong> La guía para esta configuración aún no ha sido generada o no está disponible localmente.</div>`;
+            return;
+        }
         
-        if (data.error) {
-            innerContent.innerHTML = `<div style="padding: 20px; background: #FEE2E2; border: 1px solid #EF4444; border-radius: 8px; color: #B91C1C;"><strong>Error:</strong> ${data.error}</div>`;
+        let guideData;
+        try {
+            guideData = await response.json();
+        } catch (e) {
+            console.error("Error parseando JSON:", e);
+            innerContent.innerHTML = `<div style="padding: 20px; background: #FEE2E2; border: 1px solid #EF4444; border-radius: 8px; color: #B91C1C;"><strong>Error de formato:</strong> El archivo de la guía tiene un formato incorrecto.</div>`;
             return;
         }
         
@@ -1216,16 +1223,6 @@ window.ingresarAGuia = async function() {
             
             window.guiaActualAsignatura = asignatura;
             window.guiaActualPeriodo = periodo;
-        }
-
-        let guideData;
-        try {
-            let cleanJson = data.text.replace(/```json/gi, '').replace(/```/g, '').trim();
-            guideData = JSON.parse(cleanJson);
-        } catch (e) {
-            console.error("Error parseando JSON:", e, data.text);
-            innerContent.innerHTML = `<div style="padding: 20px; background: #FEE2E2; border: 1px solid #EF4444; border-radius: 8px; color: #B91C1C;"><strong>Error de formato IA:</strong> El generador no produjo un formato estructurado correcto.</div>`;
-            return;
         }
         
         window.guideDataCache = guideData;
