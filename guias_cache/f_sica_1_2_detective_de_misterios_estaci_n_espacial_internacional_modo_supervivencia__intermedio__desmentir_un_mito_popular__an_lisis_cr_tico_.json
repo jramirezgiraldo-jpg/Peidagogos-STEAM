@@ -1,0 +1,78 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "Si estás dentro de la Estación Espacial Internacional (ISS) y dejas caer una manzana, esta parece flotar quieta frente a ti. Esto se debe a que:",
+      "opciones": [
+        "No hay gravedad en el espacio, por lo que nada puede caer.",
+        "Ambos, tú y la manzana, están cayendo juntos hacia la Tierra a la misma velocidad.",
+        "El aire dentro de la estación la sostiene magnéticamente.",
+        "La estación repele la fuerza de gravedad de la Tierra mediante motores."
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "En física de grado sexto, la 'trayectoria' de un objeto en movimiento se define como:",
+      "opciones": [
+        "La distancia más corta en línea recta entre el inicio y el final.",
+        "La velocidad constante medida en kilómetros por hora.",
+        "La línea imaginaria que une todos los puntos por los que pasa un objeto al moverse.",
+        "El tiempo total que tarda un cuerpo en detenerse por completo."
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "Para describir la posición exacta de un astronauta dentro de la ISS, lo primero que necesitamos definir es:",
+      "opciones": [
+        "La velocidad del viento solar.",
+        "Un sistema de referencia (un punto de origen desde dónde medir).",
+        "El peso del astronauta en kilogramos.",
+        "La temperatura del casco exterior de la nave."
+      ],
+      "correcta": 1
+    }
+  ],
+  "texto_inductivo": "### CASO 01: El Gran Fraude de la Gravedad Cero\n\n¡Atención, Cadetes de la **IE Instituto Montenegro**! Aquí su Detective de Misterios Espaciales reportándose desde el laboratorio de observación de la Estación Espacial Internacional (ISS). Tenemos un enigma urgente que resolver en nuestra bitácora del **Periodo 1, Semana 2**. \n\nEn las redes sociales del colegio ronda un video viral donde afirman que *«en el espacio no hay gravedad y por eso los astronautas flotan sin moverse, sin tener posición ni trayectoria»*. ¡Un completo mito que desafía las leyes de la física! \n\nPara resolver este misterio, planteemos nuestra gran pregunta de investigación:\n\n**_¿Cómo es posible que un grano de café lanzado en el patio de la IE Instituto Montenegro caiga al suelo en segundos, mientras que la Estación Espacial Internacional, que también está cayendo continuamente hacia la Tierra bajo la gravedad, nunca choca contra el suelo y mantiene una trayectoria eterna?_**\n\nObservemos con atención el siguiente diagrama de nuestra escena del crimen orbital:\n\n<svg width=\"400\" height=\"250\" style=\"background:#0c1020; border-radius:8px; margin: 10px auto; display:block;\">\n  <circle cx=\"200\" cy=\"220\" r=\"100\" fill=\"#1e3d59\" stroke=\"#17b978\" stroke-width=\"3\"/>\n  <path d=\"M 120 120 Q 200 40 280 120\" fill=\"none\" stroke=\"#ff6f61\" stroke-width=\"2\" stroke-dasharray=\"5,5\"/>\n  <circle cx=\"200\" cy=\"220\" r=\"160\" fill=\"none\" stroke=\"#a6e3e9\" stroke-width=\"2\"/>\n  <circle cx=\"200\" cy=\"60\" r=\"6\" fill=\"#ff6f61\"/>\n  <text x=\"200\" y=\"50\" fill=\"#ffffff\" font-size=\"10\" text-anchor=\"middle\">ISS (Trayectoria Orbital)</text>\n  <text x=\"200\" y=\"105\" fill=\"#ff6f61\" font-size=\"10\" text-anchor=\"middle\">Tiro Parabólico (Montenegro)</text>\n  <text x=\"200\" y=\"215\" fill=\"#ffffff\" font-size=\"12\" text-anchor=\"middle\" font-weight=\"bold\">Tierra</text>\n</svg>\n\nComo detectives astutos, nuestro primer paso es analizar las pistas iniciales mediante estos desafíos mentales. ¡Resuélvelos para desbloquear las coordenadas de la ISS!\n\n[JUEGO:ORDENAR_LETRAS:ORBITA]\n[JUEGO:ORDENAR_LETRAS:GRAVEDAD]\n\n[JUEGO:ORDENAR_FRASE:La gravedad existe en el espacio]\n[JUEGO:ORDENAR_FRASE:La trayectoria es una curva]\n\n[JUEGO:SOPA_LETRAS:POSICION,TRAYECTORIA,ESPACIO]\n[JUEGO:SOPA_LETRAS:CAIDA,LIBRE,ORBITA]\n\n[JUEGO:CRUCIGRAMA:Lugar ocupado en el espacio|POSICION;Camino recorrido|TRAYECTORIA]\n[JUEGO:CRUCIGRAMA:Fuerza de atraccion planetaria|GRAVEDAD;Estacion Espacial|ISS]",
+  "recurso_visual": "| Variable Cinemática | En la IE Instituto Montenegro (Tierra) | En la Estación Espacial Internacional (ISS) |\n| :--- | :--- | :--- |\n| **Posición (¿Dónde está?)** | Medida desde el campanario de la iglesia o el patio central (Origen). | Medida desde el domo central de la ISS o el centro de la Tierra. |\n| **Trayectoria (¿Cómo se mueve?)** | Curva rápida hacia el suelo (Tiro parabólico del grano de café). | Curva circular continua y cerrada alrededor de la Tierra (Órbita). |\n| **Gravedad presente** | Alta (~9.8 m/s²). El suelo detiene el movimiento de caída. | Casi igual (~8.9 m/s²). Nunca choca porque la ISS se mueve muy rápido de lado. |",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "De acuerdo con el texto y la tabla, ¿por qué los objetos en la ISS parecen estar flotando inmóviles si realmente están cayendo?",
+      "respuesta_esperada": "Porque tanto la estación espacial como los astronautas y los objetos dentro de ella están cayendo juntos hacia la Tierra a la misma velocidad, lo que elimina la sensación de peso (caída libre)."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja en tu cuaderno cómo imaginas que se vería la trayectoria de un grano de café lanzado en el patio de la IE Instituto Montenegro si no hubiera gravedad en la Tierra.",
+    "Investiga y escribe a qué velocidad en kilómetros por hora debe viajar la ISS para que su trayectoria sea circular y nunca caiga sobre nuestras cabezas."
+  ],
+  "texto_deductivo": "### El Veredicto Científico: Posición, Trayectoria y Caída Libre\n\n¡La verdad ha salido a la luz, Cadetes! Tras recopilar las pistas, el Detective de Misterios revela que **la gravedad en la ISS no es cero; es del 90% de la gravedad terrestre**. La ISS no flota en la nada; está en una **caída libre perpetua**. \n\nPara entender esto científicamente, definamos las variables cinemáticas clave de nuestro caso:\n\n1. **Sistema de Referencia:** Es el punto físico o el conjunto de ejes que un detective (observador) elige para medir la posición de un cuerpo. En Montenegro, tu sistema de referencia puede ser la portería de la cancha. En la ISS, es el módulo de comando.\n2. **Posición ($\\vec{r}$):** Es el lugar exacto que ocupa un cuerpo en el espacio en un momento determinado con respecto a nuestro sistema de referencia.\n3. **Trayectoria:** Es el camino real, la línea imaginaria (recta o curva) que describe un objeto al desplazarse.\n\nObservemos detalladamente el plano cartesiano del vector posición en el laboratorio espacial:\n\n<svg width=\"400\" height=\"250\" style=\"background:#0f172a; border-radius:8px; margin: 10px auto; display:block;\">\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#64748b\" stroke-width=\"2\"/>\n  <line x1=\"50\" y1=\"200\" x2=\"50\" y2=\"30\" stroke=\"#64748b\" stroke-width=\"2\"/>\n  <text x=\"340\" y=\"220\" fill=\"#64748b\" font-size=\"12\">Eje X (Metros)</text>\n  <text x=\"30\" y=\"45\" fill=\"#64748b\" font-size=\"12\">Eje Y</text>\n  <circle cx=\"50\" cy=\"200\" r=\"8\" fill=\"#38bdf8\"/>\n  <text x=\"45\" y=\"220\" fill=\"#38bdf8\" font-size=\"10\" font-weight=\"bold\">Origen (Detective)</text>\n  <path d=\"M 100 150 Q 200 60 300 100\" fill=\"none\" stroke=\"#fbbf24\" stroke-width=\"3\"/>\n  <line x1=\"50\" y1=\"200\" x2=\"100\" y2=\"150\" stroke=\"#ef4444\" stroke-width=\"2\"/>\n  <line x1=\"50\" y1=\"200\" x2=\"300\" y2=\"100\" stroke=\"#10b981\" stroke-width=\"2\"/>\n  <circle cx=\"100\" cy=\"150\" r=\"5\" fill=\"#ef4444\"/>\n  <circle cx=\"300\" cy=\"100\" r=\"5\" fill=\"#10b981\"/>\n  <text x=\"110\" y=\"155\" fill=\"#ef4444\" font-size=\"10\">Posición Inicial (r1)</text>\n  <text x=\"290\" y=\"90\" fill=\"#10b981\" font-size=\"10\">Posición Final (r2)</text>\n  <text x=\"200\" y=\"80\" fill=\"#fbbf24\" font-size=\"12\" font-weight=\"bold\">Trayectoria del Astronauta</text>\n</svg>\n\nEl grano de café en Montenegro tiene una trayectoria llamada *parábola* porque viaja lento hacia adelante mientras la gravedad lo jala al suelo. En cambio, la ISS viaja horizontalmente tan rápido (¡a unos 27.600 km/h!) que la curvatura de su caída coincide perfectamente con la redondez de la Tierra. ¡Por eso cae eternamente sin chocar!\n\nCompleta estos mini-juegos de nivel experto para archivar el caso en el cuartel general:\n\n[JUEGO:ORDENAR_LETRAS:TRAYECTORIA]\n[JUEGO:ORDENAR_LETRAS:DETECTIVE]\n[JUEGO:ORDENAR_LETRAS:CAIDA]\n\n[JUEGO:ORDENAR_FRASE:El movimiento es relativo]\n[JUEGO:ORDENAR_FRASE:La ISS cae continuamente hacia la Tierra]\n[JUEGO:ORDENAR_FRASE:El vector posicion indica donde estas]\n\n[JUEGO:SOPA_LETRAS:CINEMATICA,SISTEMA,REFERENCIA]\n[JUEGO:SOPA_LETRAS:DISTANCIA,TIEMPO,RAPIDEZ]\n[JUEGO:SOPA_LETRAS:MITO,REALIDAD,CIENCIA]\n\n[JUEGO:CRUCIGRAMA:Punto de partida para medir|REFERENCIA;Linea imaginaria del movimiento|TRAYECTORIA]\n[JUEGO:CRUCIGRAMA:Estado de caida sin obstaculos|CAIDALIBRE;Unidad de longitud|METRO]\n[JUEGO:CRUCIGRAMA:Magnitud que cambia al moverse|POSICION;Aparato flotante|ESTACION]",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "¿Qué sucedería con la trayectoria de la ISS si sus motores se detuvieran por completo y perdiera toda su velocidad horizontal?",
+      "respuesta_esperada": "Perdería la capacidad de esquivar la curvatura terrestre y su trayectoria cambiaría a una espiral directa de colisión contra la superficie de la Tierra debido a la atracción de la gravedad."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Dibuja un plano cartesiano (X, Y) en tu cuaderno. Define el origen (0,0) como la puerta de tu salón de clases en la IE Instituto Montenegro. Traza la trayectoria de un estudiante que va hacia la cafetería y marca su vector posición inicial y final.",
+    "Escribe un párrafo explicando, con tus propias palabras, por qué decir que 'en el espacio no hay gravedad' es un mito."
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de fenómenos",
+      "texto_introductorio": "Dos estudiantes del grado sexto de la IE Instituto Montenegro discuten sobre cómo se vería la trayectoria de una pelota de tenis lanzada horizontalmente desde la ventana de su salón en el segundo piso, en comparación con una pelota lanzada por un astronauta dentro de la Estación Espacial Internacional (ISS) frente a una cámara fija en la pared de la estación.",
+      "tabla_o_grafica_markdown": "| Caso | Objeto lanzado | Trayectoria observada por el estudiante/cámara |\n| :--- | :--- | :--- |\n| **1** | Pelota en el colegio | Curva descendente que impacta contra el suelo del patio. |\n| **2** | Pelota en la ISS | Línea recta constante flotando frente a la cámara. |",
+      "pregunta": "De acuerdo con los conceptos de cinemática (sistema de referencia, posición y trayectoria) analizados por el detective, ¿cuál es la explicación correcta de la diferencia en las trayectorias observadas?",
+      "options": [
+        "En el colegio hay gravedad y en la ISS la gravedad es exactamente cero, por eso no cae.",
+        "La pelota en el colegio es atraída por la gravedad de la Tierra, mientras que la ISS está tan lejos que la gravedad del Sol la empuja hacia arriba.",
+        "Ambas pelotas caen bajo el efecto de la gravedad, pero en la ISS todo cae con la misma aceleración que la estación, por lo que respecto a la cámara no cambia su posición relativa.",
+        "La pelota de la ISS describe una trayectoria circular porque la estación gira sobre su propio eje como un trompo."
+      ],
+      "correct": 2,
+      "retroalimentacion": {
+        "0": "Incorrecto. Ya desmentimos que la gravedad en la ISS es casi la misma que en la Tierra (90%).",
+        "1": "Incorrecto. La gravedad del Sol no compensa la de la Tierra en esta órbita baja.",
+        "2": "¡Excelente detective! Como el sistema de referencia (la cámara/estación) cae al mismo tiempo que la pelota, la trayectoria relativa parece ser estática o rectilínea libre dentro del módulo.",
+        "3": "Incorrecto. La ISS no gira sobre su propio eje para simular gravedad, mantiene su orientación orbital respecto a la Tierra."
+      }
+    }
+  ]
+}

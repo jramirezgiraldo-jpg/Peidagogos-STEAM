@@ -1,0 +1,78 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "Imaginas que estás flotando en medio de tu salón de clases en la IE Instituto Montenegro con los ojos cerrados. ¿Cómo podrías decirle a un compañero exactamente en qué parte del salón te encuentras sin abrir los ojos?",
+      "opciones": [
+        "A) Diciendo que estoy en el espacio exterior sin ninguna referencia.",
+        "B) Midiendo la distancia desde una esquina específica del salón (como la puerta) usando coordenadas.",
+        "C) Simplemente gritando mi nombre para que me busquen por el sonido.",
+        "D) Es imposible saber mi ubicación si no estoy tocando el suelo."
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "Si lanzas un borrador en línea recta hacia el tablero, el recorrido que este hace en el aire se conoce en física como:",
+      "opciones": [
+        "A) Posición de llegada.",
+        "B) Punto de partida.",
+        "C) Trayectoria.",
+        "D) Sistema de control."
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "En la Estación Espacial Internacional (ISS), las cosas flotan debido a la microgravedad. Si un astronauta deja un destornillador flotando y se va, ¿por qué necesitamos un 'punto de referencia' para recuperarlo?",
+      "opciones": [
+        "A) Porque sin un punto de referencia no podemos definir si el objeto se ha movido o sigue en el mismo lugar respecto a la nave.",
+        "B) Porque las herramientas flotantes desaparecen inmediatamente en el espacio.",
+        "C) Porque la ISS gira tan rápido que los objetos se evaporan.",
+        "D) No se necesita ningún punto, el instinto es suficiente."
+      ],
+      "correcta": 0
+    }
+  ],
+  "texto_inductivo": "# 🕵️‍♂️ REPORTE DETECTIVESCO: El Misterio del Módulo Destiny\n\n¡Atención, reclutas! Soy el Detective de la Estación Espacial Internacional (ISS). Hoy nos enfrentamos a un misterio sin precedentes. Un prototipo de sensor ambiental de alta tecnología, desarrollado en los laboratorios de la **IE Instituto Montenegro** en Quindío y enviado a la ISS, ha comenzado a moverse de forma autónoma dentro del Módulo Científico Destiny.\n\nEl sensor no tiene motores. No hay corrientes de aire. Sin embargo, nuestras cámaras de seguridad registraron que cambió de lugar de forma misteriosa durante la noche espacial.\n\n***¿Cómo puede un estudiante del IE Instituto Montenegro en el Quindío rastrear la extraña trayectoria de un objeto perdido en la Estación Espacial Internacional usando solo las coordenadas de su posición?***\n\nPara resolver este misterio espacial, primero debemos aprender a leer las pistas del movimiento.\n\n<svg viewBox='0 0 600 250' width='100%' style='background-color:#0d1117; border-radius:10px; border: 2px solid #30363d;' xmlns='http://www.w3.org/2000/svg'>\n  <!-- Cuadrícula de coordenadas del Módulo Destiny -->\n  <defs>\n    <pattern id='grid' width='40' height='40' patternUnits='userSpaceOnUse'>\n      <path d='M 40 0 L 0 0 0 40' fill='none' stroke='#1f2937' stroke-width='1'/>\n    </pattern>\n  </defs>\n  <rect width='100%' height='100%' fill='#0b0f19'/>\n  <rect width='100%' height='100%' fill='url(#grid)'/>\n  \n  <!-- Ejes de Coordenadas (Punto de Referencia: Escotilla de Entrada) -->\n  <line x1='80' y1='200' x2='520' y2='200' stroke='#38bdf8' stroke-width='2' stroke-dasharray='5,5'/>\n  <line x1='80' y1='40' x2='80' y2='220' stroke='#38bdf8' stroke-width='2' stroke-dasharray='5,5'/>\n  \n  <!-- Textos de los ejes -->\n  <text x='530' y='205' fill='#38bdf8' font-family='sans-serif' font-size='12'>Eje X (Metros)</text>\n  <text x='50' y='30' fill='#38bdf8' font-family='sans-serif' font-size='12'>Eje Y (Metros)</text>\n  <text x='50' y='215' fill='#f43f5e' font-family='sans-serif' font-size='12' font-weight='bold'>ORIGEN (0,0)</text>\n  \n  <!-- Puntos del misterio -->\n  <circle cx='160' cy='160' r='8' fill='#eab308'/>\n  <text x='175' y='155' fill='#eab308' font-family='sans-serif' font-size='11' font-weight='bold'>Posición Inicial A (2, 1)</text>\n  \n  <circle cx='400' cy='80' r='8' fill='#ec4899'/>\n  <text x='310' y='70' fill='#ec4899' font-family='sans-serif' font-size='11' font-weight='bold'>Posición Final B (8, 3)</text>\n  \n  <!-- Trayectoria misteriosa -->\n  <path d='M 160 160 Q 250 50, 400 80' fill='none' stroke='#10b981' stroke-width='3' stroke-dasharray='4,4'/>\n  <text x='250' y='110' fill='#10b981' font-family='sans-serif' font-size='12' font-style='italic'>Trayectoria del Sensor</text>\n</svg>\n\nPara iniciar la investigación, descifra estas dos palabras clave que los astronautas usaron en el reporte de alarma:\n\n[JUEGO:ORDENAR_LETRAS:POSICION]\n\n[JUEGO:ORDENAR_LETRAS:TRAYECTORIA]\n\n## 📝 El Diario de a Bordo\n\nEl sensor montenegrino inició su viaje flotando junto a la escotilla principal (nuestro Punto de Referencia). A las 02:00 AM, el oficial de seguridad reportó que el objeto se encontraba en las coordenadas indicadas en la tabla de abajo. \n\n¿Logras ver el camino que recorrió? Ordenemos las ideas de los científicos con este juego:\n\n[JUEGO:ORDENAR_FRASE:LA POSICION DEPENDE DEL ORIGEN]\n\n[JUEGO:ORDENAR_FRASE:LA TRAYECTORIA ES EL CAMINO RECORRIDO]\n\nBusquemos más pistas en la base de datos digital de la estación espacial. Resuelve esta sopa de letras técnica:\n\n[JUEGO:SOPA_LETRAS:POSICION,TRAYECTORIA,FISICA]\n\n[JUEGO:SOPA_LETRAS:ORIGEN,DISTANCIA,PUNTO]\n\nUsa tus dotes de detective para resolver este crucigrama rápido sobre los conceptos básicos que estamos observando en el mapa del módulo:\n\n[JUEGO:CRUCIGRAMA:Lugar que ocupa un cuerpo|POSICION;Línea descrita por un móvil|TRAYECTORIA]\n\n[JUEGO:CRUCIGRAMA:Punto que sirve para medir|REFERENCIA;Cambio de posición|MOVIMIENTO]",
+  "recurso_visual": "| Registro de Anomalía | Coordenada X (Eje Horizontal) | Coordenada Y (Eje Vertical) | Tipo de Ubicación |\n| :--- | :---: | :---: | :--- |\n| **Punto de Referencia (Escotilla)** | 0 metros | 0 metros | Origen del Sistema |\n| **Posición Inicial (Sensor)** | 2 metros | 1 metro | Punto de Partida |\n| **Posición Final (Sensor)** | 8 metros | 3 metros | Punto de Hallazgo |\n| **Trayectoria Detectada** | Curva senoidal | En el espacio del módulo | Línea física del recorrido |",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "¿Qué diferencia observas entre el punto donde inició el sensor (Posición Inicial) y la línea punteada verde que muestra el camino que siguió?",
+      "respuesta_esperada": "La posición inicial es un punto exacto en el espacio medido desde el origen, mientras que la línea punteada representa la trayectoria, es decir, el camino o ruta completa que el sensor recorrió para llegar a su destino."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Reto 1: Dibuja en tu cuaderno un plano simple de tu salón de clases en la IE Instituto Montenegro. Elige la puerta como (0,0) y ubica tu pupitre. Escribe sus coordenadas estimadas en metros.",
+    "Reto 2: Si caminas de tu pupitre al tablero esquivando las mesas, ¿tu trayectoria fue una línea recta o curva? Explica por qué utilizando el concepto de trayectoria."
+  ],
+  "texto_deductivo": "# 🔍 ANÁLISIS CIENTÍFICO: Las Variables del Movimiento\n\n¡Excelente trabajo, detectives! Hemos recolectado suficientes pistas visuales. Ahora es momento de aplicar la rigurosidad de la física de grado sexto para formalizar nuestros hallazgos. Para entender el misterioso comportamiento del sensor espacial, debemos dominar las **Variables Cinemáticas**.\n\nEn la física, el movimiento no ocurre 'porque sí'. Siempre se define bajo ciertas reglas claras:\n\n1. **Punto de Referencia:** Es el lugar físico (u origen) que elegimos para realizar todas las mediciones. En la ISS, usamos la Escotilla. En tu colegio, podría ser la portería de entrada.\n2. **Posición:** Es el lugar exacto en el que se encuentra un objeto en un momento determinado, representado por coordenadas (X, Y) respecto al punto de referencia.\n3. **Trayectoria:** Es la línea imaginaria que une todos los puntos por donde pasa el objeto en movimiento. Puede ser Rectilínea (línea recta) o Curvilínea (curvas, círculos, zigzag).\n\nConsolida estos conceptos ordenando las siguientes palabras misteriosas descubiertas en los códigos del sensor:\n\n[JUEGO:ORDENAR_LETRAS:MOVIMIENTO]\n\n[JUEGO:ORDENAR_LETRAS:DISTANCIA]\n\n[JUEGO:ORDENAR_LETRAS:SISTEMA]\n\n<svg viewBox='0 0 600 250' width='100%' style='background-color:#1e1e2f; border-radius:10px; border: 2px solid #4f46e5;' xmlns='http://www.w3.org/2000/svg'>\n  <!-- Fondo Estrellado -->\n  <circle cx='50' cy='40' r='1' fill='#fff'/>\n  <circle cx='120' cy='180' r='1.5' fill='#fff'/>\n  <circle cx='350' cy='90' r='1' fill='#fff'/>\n  <circle cx='500' cy='150' r='2' fill='#fff'/>\n  \n  <!-- Trayectoria Rectilínea (Azul) -->\n  <line x1='50' y1='80' x2='250' y2='80' stroke='#3b82f6' stroke-width='4'/>\n  <circle cx='50' cy='80' r='6' fill='#60a5fa'/>\n  <circle cx='250' cy='80' r='6' fill='#60a5fa'/>\n  <text x='60' y='65' fill='#60a5fa' font-family='sans-serif' font-size='12' font-weight='bold'>TRAYECTORIA RECTILÍNEA (Línea Recta)</text>\n\n  <!-- Trayectoria Curvilínea (Rosa) -->\n  <path d='M 350 180 C 400 100, 450 240, 550 180' fill='none' stroke='#ec4899' stroke-width='4'/>\n  <circle cx='350' cy='180' r='6' fill='#f472b6'/>\n  <circle cx='550' cy='180' r='6' fill='#f472b6'/>\n  <text x='350' y='150' fill='#f472b6' font-family='sans-serif' font-size='12' font-weight='bold'>TRAYECTORIA CURVILÍNEA</text>\n</svg>\n\n¡La física es clara! El movimiento del sensor de la IE Instituto Montenegro no fue mágico; siguió una **trayectoria curvilínea** bien definida dentro del módulo. \n\nPara certificar nuestro conocimiento científico, resolvamos los siguientes desafíos interactivos de organización de leyes físicas:\n\n[JUEGO:ORDENAR_FRASE:EL MOVIMIENTO ES RELATIVO AL OBSERVADOR]\n\n[JUEGO:ORDENAR_FRASE:UN PUNTO DE REFERENCIA ES NECESARIO]\n\n[JUEGO:ORDENAR_FRASE:LA DISTANCIA SE MIDE EN METROS]\n\nNo dejes que los misterios del espacio te confundan. Encuentra estas palabras clave de la cinemática moderna:\n\n[JUEGO:SOPA_LETRAS:CAMINO,ESPACIO,TIEMPO]\n\n[JUEGO:SOPA_LETRAS:LINEAL,CURVA,SISTEMA]\n\n[JUEGO:SOPA_LETRAS:ESTACION,GRAVEDAD,RUSTICO]\n\nPon a prueba tu mente de detective científico completando las definiciones fundamentales de este crucigrama avanzado:\n\n[JUEGO:CRUCIGRAMA:Camino en línea recta|RECTILINEO;Medida de la longitud recorrida|DISTANCIA]\n\n[JUEGO:CRUCIGRAMA:Trayectoria circular|CURVILINEO;Cero absoluto de referencia|ORIGEN]\n\n[JUEGO:CRUCIGRAMA:Instrumento para medir el tiempo|CRONOMETRO;Unidad de longitud del SI|METRO]",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "Si un astronauta mide el movimiento del sensor flotante usando la mesa de trabajo como punto de referencia, y otro lo mide usando la escotilla, ¿las coordenadas de posición de partida del sensor serán las mismas para ambos?",
+      "respuesta_esperada": "No, las coordenadas cambian porque la posición siempre depende del punto de referencia seleccionado. Si cambia el punto de referencia, cambian los valores numéricos de las coordenadas."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Reto 1: En una tabla en tu cuaderno, define con tus propias palabras qué es: Punto de Referencia, Posición y Trayectoria.",
+    "Reto 2: Explica de qué manera la gravedad de la Tierra influye en que las trayectorias de los objetos lanzados en Montenegro (Quindío) caigan al suelo en forma curva (parabólica), mientras que en la ISS los objetos flotantes pueden mantener líneas rectas prolongadas."
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de fenómenos",
+      "texto_introductorio": "Durante un experimento controlado en la Estación Espacial Internacional, los estudiantes del semillero de ciencias del IE Instituto Montenegro analizan la trayectoria de una esfera robótica de prueba. Los datos de la posición de la esfera se muestran en la siguiente tabla a medida que avanza el tiempo:",
+      "tabla_o_grafica_markdown": "| Tiempo (s) | Posición X (m) | Posición Y (m) |\n| :---: | :---: | :---: |\n| 0 | 1 | 2 |\n| 2 | 2 | 2 |\n| 4 | 3 | 2 |\n| 6 | 4 | 2 |",
+      "pregunta": "De acuerdo con los datos recolectados en la tabla, ¿qué tipo de trayectoria describe la esfera robótica y cómo se puede justificar?",
+      "options": [
+        "A) Rectilínea, porque el valor de la coordenada Y se mantiene constante mientras que la coordenada X cambia de manera uniforme paso a paso.",
+        "B) Curvilínea, porque ambas coordenadas cambian a velocidades espaciales extremadamente diferentes.",
+        "C) Circular, porque el robot gira alrededor de un punto central ubicado en el origen (0,0) del laboratorio.",
+        "D) Reposo, porque la posición Y no cambia, lo cual significa que el robot nunca llegó a moverse en absoluto."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "¡Correcto! Como la coordenada Y se mantiene constante (siempre es 2) y la coordenada X cambia en línea horizontal a intervalos iguales, la trayectoria del robot es una línea recta perfecta (rectilínea).",
+        "1": "Incorrecto. Para que fuese curvilínea, los cambios en las coordenadas debieron generar variaciones simultáneas no lineales en ambos ejes.",
+        "2": "Incorrecto. Una trayectoria circular requiere que tanto X como Y cambien constantemente describiendo una circunferencia alrededor de un centro físico.",
+        "3": "Incorrecto. Aunque Y no cambie, el objeto sí se está moviendo en el eje X (pasa de 1 a 4 metros), por lo tanto, no está en reposo."
+      }
+    }
+  ]
+}

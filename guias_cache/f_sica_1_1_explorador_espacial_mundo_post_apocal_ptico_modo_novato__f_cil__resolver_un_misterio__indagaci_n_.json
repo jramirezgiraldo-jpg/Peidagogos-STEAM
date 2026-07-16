@@ -1,0 +1,76 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "Imaginas que estás durmiendo dentro de tu cápsula espacial en pleno vuelo a velocidad constante por el sector de Quindío. ¿Te estás moviendo realmente?",
+      "opciones": [
+        "No, porque tu cuerpo no cambia de posición respecto a las paredes de la cápsula.",
+        "Sí, porque la nave viaja a toda velocidad respecto a la superficie del planeta.",
+        "Ambas respuestas son correctas, todo depende de con qué compares tu posición.",
+        "No hay forma de saberlo sin un radar cuántico de última tecnología."
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "¿Qué elemento tecnológico o natural es indispensable para poder afirmar con certeza que un dron de exploración ha cambiado de posición?",
+      "opciones": [
+        "Un combustible de alto octanaje.",
+        "Un punto de referencia fijo u observador.",
+        "Un motor de gravedad cero.",
+        "Una brújula magnética antigua."
+      ],
+      "correcta": 1
+    }
+  ],
+  "texto_inductivo": "¡Saludos, jóvenes reclutas de la **IE Instituto Montenegro**! Soy su Comandante de Exploración Estelar. Tras el Gran Colapso de 2142, la Tierra quedó cubierta de un manto de ceniza y energía estática. Hoy, nos enfrentamos a un enigma crítico en las ruinas de nuestro antiguo colegio. Nuestro radar ha detectado un contenedor de suministros vitales, el *Santuario Montenegro-1*. Sin embargo, nuestros sensores muestran lecturas contradictorias: algunos sistemas dicen que se mueve velozmente hacia nosotros, mientras que otros indican que está totalmente inmóvil bajo el suelo del Quindío.\n\n***¿Cómo podemos determinar si el misterioso convoy de suministros atrapado en las ruinas de la IE Instituto Montenegro se está moviendo realmente para salvarnos, o si somos nosotros los que nos desplazamos a través del polvo cósmico sin darnos cuenta?***\n\n<div style='background: #1e1e2e; color: #a6e3a1; font-family: monospace; padding: 15px; border: 3px double #f38ba8; border-radius: 10px; margin: 15px 0;'>\n  <h4 style='color: #fab387; margin-top: 0;'>[SISTEMA DE ALERTA TEMPRANA - ASTRO-FÉNIX]</h4>\n  <p>Detectando anomalías espaciales sobre la plaza de la IE Instituto Montenegro. Analiza la telemetría inicial para descifrar la clave del movimiento:</p>\n  <table style='width: 100%; border-collapse: collapse; text-align: center;'>\n    <thead>\n      <tr style='background-color: #313244; color: #cdd6f4;'>\n        <th style='padding: 8px; border: 1px solid #45475a;'>Objeto</th>\n        <th style='padding: 8px; border: 1px solid #45475a;'>Punto de Observación</th>\n        <th style='padding: 8px; border: 1px solid #45475a;'>Estado Reportado</th>\n      </tr>\n    </thead>\n    <tbody>\n      <tr>\n        <td style='padding: 8px; border: 1px solid #45475a; color: #89b4fa;'>Convoy</td>\n        <td style='padding: 8px; border: 1px solid #45475a;'>Desde la Nave en órbita</td>\n        <td style='padding: 8px; border: 1px solid #45475a; color: #f38ba8;'>En Movimiento Rápido</td>\n      </tr>\n      <tr>\n        <td style='padding: 8px; border: 1px solid #45475a; color: #89b4fa;'>Convoy</td>\n        <td style='padding: 8px; border: 1px solid #45475a;'>Desde el Suelo del Colegio</td>\n        <td style='padding: 8px; border: 1px solid #45475a; color: #a6e3a1;'>En Reposo Absoluto</td>\n      </tr>\n    </tbody>\n  </table>\n</div>\n\nPara resolver este misterio físico, debemos activar los decodificadores de la nave. Comencemos ordenando los códigos fundamentales del espacio:\n\n[JUEGO:ORDENAR_LETRAS:REPOSO]\n\n[JUEGO:ORDENAR_LETRAS:MOVIMIENTO]\n\n[JUEGO:ORDENAR_LETRAS:DISTANCIA]\n\n¡Excelente! Ahora debemos descifrar las transmisiones encriptadas que flotan en la atmósfera electromagnética de Montenegro. Ordena las siguientes transmisiones esenciales:\n\n[JUEGO:ORDENAR_FRASE:EL MOVIMIENTO DEPENDE DEL OBSERVADOR]\n\n[JUEGO:ORDENAR_FRASE:TODO SE MUEVE EN EL ESPACIO]\n\n[JUEGO:ORDENAR_FRASE:EL REPOSO ES RELATIVO]\n\nPara que tu mente de explorador se sintonice con los misterios de la cinemática, te reto a buscar las palabras clave perdidas en las tormentas de polvo cósmico de nuestro sector. Encuéntralas aquí:\n\n[JUEGO:SOPA_LETRAS:REPOSO,MOVIMIENTO,VELOCIDAD]\n\n[JUEGO:SOPA_LETRAS:MARCO,REFERENCIA,PUNTO]\n\n[JUEGO:SOPA_LETRAS:CAMBIO,TIEMPO,LUGAR]\n\nFinalmente, abre la compuerta analítica resolviendo los tres primeros enigmas del ordenador de a bordo:\n\n[JUEGO:CRUCIGRAMA:Estado donde la posicion no cambia respecto a un punto de referencia|REPOSO;Lugar desde donde miras el movimiento|REFERENCIA]\n\n[JUEGO:CRUCIGRAMA:Cambio de posicion en el tiempo|MOVIMIENTO;Linea imaginaria del camino recorrido|TRAYECTORIA]\n\n[JUEGO:CRUCIGRAMA:Magnitud que mide la prisa del viaje|RAPIDEZ;Unidad de tiempo espacial|SEGUNDO]",
+  "recurso_visual": "<svg viewBox='0 0 500 250' width='100%' style='background:#1e1e2e; border-radius:8px; border: 2px solid #89b4fa; padding: 10px;'>\n  <!-- Background space stars -->\n  <circle cx='50' cy='40' r='1' fill='#fff'/>\n  <circle cx='120' cy='180' r='1.5' fill='#fff'/>\n  <circle cx='380' cy='70' r='1' fill='#fff'/>\n  <circle cx='450' cy='200' r='2' fill='#fff'/>\n  \n  <!-- Tectonic block or Ruined school ground -->\n  <rect x='50' y='160' width='400' height='60' fill='#313244' rx='5'/>\n  <text x='60' y='185' fill='#a6e3a1' font-family='monospace' font-size='10'>Suelo del Quindío (Punto Fijo Terrestre)</text>\n  \n  <!-- Static Convoy -->\n  <rect x='150' y='110' width='90' height='50' fill='#f38ba8' rx='4'/>\n  <circle cx='170' cy='160' r='8' fill='#11111b'/>\n  <circle cx='220' cy='160' r='8' fill='#11111b'/>\n  <text x='160' y='140' fill='#fff' font-family='sans-serif' font-weight='bold' font-size='11'>CONVOY</text>\n  \n  <!-- Explorer observing -->\n  <circle cx='80' cy='130' r='10' fill='#f9e2af'/>\n  <line x1='80' y1='140' x2='80' y2='160' stroke='#f9e2af' stroke-width='2'/>\n  <text x='60' y='115' fill='#f9e2af' font-family='sans-serif' font-size='10'>Estudiante (A)</text>\n  \n  <!-- Flying scout spaceship inside the same SVG -->\n  <path d='M350 70 L410 50 L410 90 Z' fill='#89b4fa'/>\n  <circle cx='390' cy='70' r='5' fill='#a6e3a1'/>\n  <text x='330' y='45' fill='#89b4fa' font-family='sans-serif' font-size='10'>Nave Astro-Fénix (B)</text>\n  <path d='M320 70 L280 70' stroke='#89b4fa' stroke-width='2' stroke-dasharray='4'/>\n  <polygon points='280,70 285,67 285,73' fill='#89b4fa'/>\n  \n  <!-- Motion Vector for the Ship -->\n  <text x='230' y='30' fill='#cdd6f4' font-family='sans-serif' font-size='11'>¿Quién se mueve realmente?</text>\n</svg>",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "¿Por qué el estudiante que está de pie en el patio de la IE Instituto Montenegro ve el convoy totalmente inmóvil?",
+      "respuesta_esperada": "Porque la distancia y la dirección entre el estudiante (su punto de referencia) y el convoy no cambian a medida que pasa el tiempo."
+    },
+    {
+      "pregunta": "¿Por qué la nave Astro-Fénix en órbita reporta que el convoy se está moviendo a gran velocidad?",
+      "respuesta_esperada": "Porque la nave se está moviendo con respecto a la Tierra, y al usar la nave como punto de referencia, parece que es el convoy el que se desplaza en sentido contrario."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Reto de Campo: Dibuja en tu cuaderno de bitácora espacial la escena del patio del colegio, marcando con una flecha roja el movimiento que observa el piloto de la nave espacial, y con un círculo azul lo que ve el estudiante en tierra.",
+    "Indagación Teórica: Si todo el planeta Tierra gira y se mueve por el espacio, ¿existe algún objeto en el universo que esté en reposo absoluto? Argumenta tu respuesta desde tu rol de explorador."
+  ],
+  "texto_deductivo": "¡Felicidades por asegurar el perímetro del conocimiento, cadetes! Ahora que hemos observado las anomalías, es momento de analizar los datos con el rigor de la ciencia física de nuestro santuario académico. \n\nEn física cuántica y cinemática básica, el **movimiento** se define como el cambio de posición que experimenta un cuerpo (al que llamaremos *móvil*) a lo largo del tiempo, tomando siempre un **punto de referencia** o *sistema de referencia* preestablecido. Si el cuerpo cambia su posición respecto a ese punto, decimos que está en **movimiento**. Si su posición no varía, se encuentra en **reposo**.\n\nPor lo tanto, la respuesta a nuestro gran misterio es fascinante: ¡ambos reportes del radar eran correctos! El convoy está en reposo respecto al suelo de la IE Instituto Montenegro, pero está en movimiento continuo respecto a nuestra nave *Astro-Fénix* en órbita.\n\n<div style='background: #11111b; border-left: 5px solid #fab387; padding: 15px; margin: 15px 0; border-radius: 0 10px 10px 0;'>\n  <h4 style='color: #fab387; margin-top: 0;'>[SISTEMA DE REFERENCIA INERCIAL - TELEMETRÍA AVANZADA]</h4>\n  <p style='color: #cdd6f4;'>Todo estado de movimiento o reposo es <strong>relativo</strong>. Observa el siguiente mapa de vectores cinemáticos:</p>\n  <table style='width:100%; color: #cdd6f4; font-family: monospace; text-align: left;'>\n    <tr>\n      <td style='color: #a6e3a1;'><strong>Concepto</strong></td>\n      <td>Es la posición fija en el espacio desde la cual se realizan las mediciones de distancia y tiempo.</td>\n    </tr>\n    <tr>\n      <td style='color: #a6e3a1;'><strong>Trayectoria</strong></td>\n      <td>El camino o línea imaginaria que describe el móvil al desplazarse en el espacio del Quindío.</td>\n    </tr>\n  </table>\n</div>\n\nDesbloqueemos los últimos sistemas de seguridad de la base de datos de la escuela para registrar nuestra investigación científica:\n\n[JUEGO:ORDENAR_LETRAS:MARCO]\n\n[JUEGO:ORDENAR_LETRAS:SISTEMA]\n\nConsolida la información vital del viaje ordenando estos teoremas de nuestro manual de supervivencia:\n\n[JUEGO:ORDENAR_FRASE:EL PUNTO DE REFERENCIA ES CLAVE]\n\n[JUEGO:ORDENAR_FRASE:LA CINEMATICA ESTUDIA EL MOVIMIENTO]\n\nBusquemos las últimas trazas de datos de coordenadas en este tablero magnético espacial:\n\n[JUEGO:SOPA_LETRAS:FISICA,CIENCIA,ESPACIO]\n\n[JUEGO:SOPA_LETRAS:METRO,DISTANCIA,TRAYECTO]\n\nFinalmente, resolvamos los últimos códigos del panel principal para liberar los suministros del Santuario Montenegro-1:\n\n[JUEGO:CRUCIGRAMA:La ciencia que estudia la naturaleza|FISICA;Espacio recorrido dividido entre tiempo|VELOCIDAD]\n\n[JUEGO:CRUCIGRAMA:Cuerpo que se mueve|MOVIL;Ausencia de movimiento|ESTATICO]",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "¿Qué elemento físico define si un cuerpo está en movimiento o en reposo?",
+      "respuesta_esperada": "El sistema o punto de referencia seleccionado para observar el cuerpo."
+    },
+    {
+      "pregunta": "Si un astronauta viaja en una cápsula y lanza una manzana al aire dentro de ella, ¿cómo es el movimiento de la manzana para el astronauta comparado con un observador en el planeta?",
+      "respuesta_esperada": "Para el astronauta, la manzana solo sube y baja en línea recta. Para el observador externo en el planeta, la manzana describe una curva parabólica a gran velocidad."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Análisis Científico: Redacta un informe de tres párrafos en tu bitácora explicando por qué el concepto de 'reposo absoluto' es considerado imposible en el universo conocido.",
+    "Diseño de Misión: Imagina que debes enviar un dron de rescate desde la IE Instituto Montenegro hasta el municipio vecino de Circasia. Describe detalladamente cuál será tu punto de referencia de salida, tu punto de llegada y cómo sabrás si el dron está en reposo al aterrizar."
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de fenómenos",
+      "texto_introductorio": "Durante la exploración científica en el patio devastado de la IE Instituto Montenegro, dos jóvenes exploradores espaciales analizan el estado de un generador de energía geotérmica semi-enterrado. El explorador Alfa, que se encuentra de pie junto al generador, afirma que este se encuentra en reposo absoluto. El explorador Beta, que monitorea la actividad desde la cabina de la nave Astro-Fénix en órbita constante, afirma que el generador se desplaza a una velocidad de 30 km/min.",
+      "tabla_o_grafica_markdown": "| Observador | Punto de Referencia | Estado del Generador | Velocidad Detectada |\n| :--- | :--- | :--- | :--- |\n| Explorador Alfa | Suelo del Colegio | Reposo | 0 km/h |\n| Explorador Beta | Nave Astro-Fénix | Movimiento | 30 km/min |",
+      "pregunta": "Teniendo en cuenta los datos de telemetría y los principios de la cinemática, ¿cuál de los exploradores tiene la razón científica?",
+      "opciones": [
+        "Solo Alfa, porque el generador está enterrado en el suelo firme del colegio y la Tierra no se mueve.",
+        "Solo Beta, porque los sensores satelitales de la nave Astro-Fénix son más precisos que el ojo humano.",
+        "Ambos tienen razón, porque el estado de movimiento o reposo del generador depende del punto de referencia de cada observador.",
+        "Ninguno tiene razón, porque el generador no puede estar en reposo y en movimiento al mismo tiempo, lo cual es físicamente imposible."
+      ],
+      "correcta": 2,
+      "retroalimentacion": {
+        "0": "Incorrecto. Recuerda que la Tierra también gira sobre su propio eje y se traslada por el espacio, por lo que el suelo tampoco es un punto inmóvil en el universo absoluto.",
+        "1": "Incorrecto. La precisión tecnológica no cambia el hecho físico de que el movimiento es relativo al marco de referencia de cada observador.",
+        "2": "¡Excelente trabajo, Cadete! Has comprendido perfectamente que el movimiento y el reposo son relativos y dependen completamente del punto de referencia elegido para el análisis.",
+        "3": "Incorrecto. En física, un cuerpo sí puede estar en reposo para un observador y en movimiento para otro al mismo tiempo, esto define la relatividad del movimiento."
+      }
+    }
+  ]
+}

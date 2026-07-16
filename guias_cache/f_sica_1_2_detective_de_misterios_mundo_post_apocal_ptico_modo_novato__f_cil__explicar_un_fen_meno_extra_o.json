@@ -1,0 +1,68 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "Imaginas que caminas en línea recta desde la entrada destruida de la IE Instituto Montenegro hasta el laboratorio abandonado. El camino exacto que tus pies marcaron sobre la ceniza representa tu:",
+      "opciones": [
+        "A) Trayectoria",
+        "B) Posición final",
+        "C) Punto de referencia",
+        "D) Velocidad instantánea"
+      ],
+      "correcta": 0
+    },
+    {
+      "pregunta": "Si un compañero de refugio te dice: 'Estoy a 15 metros de la entrada principal', ¿qué elemento falta para saber exactamente dónde encontrarlo?",
+      "opciones": [
+        "A) La hora exacta",
+        "B) La dirección o rumbo (ej. hacia el norte o el sur)",
+        "C) El color de su traje de protección",
+        "D) El peso de su mochila de supervivencia"
+      ],
+      "correcta": 1
+    }
+  ],
+  "texto_inductivo": "# 🕵️‍♂️ BITÁCORA DEL DETECTIVE: El Misterio de los Rastros de Neón\n\nSaludos, Cadete del **Refugio Montenegro**. Soy el Detective de la Física. El mundo tal como lo conocíamos cambió tras el Gran Colapso, pero las leyes de la naturaleza siguen operando con precisión matemática. Hoy nos enfrentamos a un fenómeno inusual dentro de las ruinas de nuestra querida **IE Instituto Montenegro**.\n\nHemos detectado extrañas líneas luminosas de color azul neón que cruzan el patio central abandonado. Los sobrevivientes los llaman \"Fantasmas de Energía\", pero nosotros, como científicos de campo, sabemos que todo comportamiento físico tiene una explicación.\n\n***¿Cómo podemos usar las pistas de posición y trayectoria para mapear las misteriosas rutas de los \"Merodeadores Luminosos\" que cruzan las ruinas de nuestra IE Instituto Montenegro y así asegurar la supervivencia de nuestro refugio?***\n\n<svg width=\"100%\" height=\"220\" viewBox=\"0 0 500 220\" style=\"background-color:#111; border: 2px solid #00ffcc; border-radius: 8px; font-family: monospace;\">\n  <g stroke=\"#222\" stroke-width=\"1\">\n    <line x1=\"50\" y1=\"0\" x2=\"50\" y2=\"220\" />\n    <line x1=\"150\" y1=\"0\" x2=\"150\" y2=\"220\" />\n    <line x1=\"250\" y1=\"0\" x2=\"250\" y2=\"220\" />\n    <line x1=\"350\" y1=\"0\" x2=\"350\" y2=\"220\" />\n    <line x1=\"450\" y1=\"0\" x2=\"450\" y2=\"220\" />\n    <line x1=\"0\" y1=\"50\" x2=\"500\" y2=\"50\" />\n    <line x1=\"0\" y1=\"100\" x2=\"500\" y2=\"100\" />\n    <line x1=\"0\" y1=\"150\" x2=\"500\" y2=\"150\" />\n  </g>\n  <path d=\"M 80,170 Q 180,40 320,130 T 450,60\" fill=\"none\" stroke=\"#00ffcc\" stroke-width=\"3\" stroke-dasharray=\"6,4\" />\n  <circle cx=\"80\" cy=\"170\" r=\"8\" fill=\"#ff3366\" />\n  <text x=\"95\" y=\"175\" fill=\"#ff3366\" font-size=\"12\" font-weight=\"bold\">Inicio (Refugio A)</text>\n  <circle cx=\"450\" cy=\"60\" r=\"8\" fill=\"#ffcc00\" />\n  <text x=\"340\" y=\"50\" fill=\"#ffcc00\" font-size=\"12\" font-weight=\"bold\">Fin (Laboratorio B)</text>\n  <text x=\"10\" y=\"30\" fill=\"#00ffcc\" font-size=\"14\" font-weight=\"bold\">[MAPA DE RASTREO TÁCTICO]</text>\n  <text x=\"10\" y=\"205\" fill=\"#888\" font-size=\"10\">La línea punteada es la Trayectoria del fenómeno lumínico.</text>\n</svg>\n\nPara resolver este misterio, primero debemos entender dónde están las cosas y cómo se mueven. No podemos darnos el lujo de perdernos en el yermo.\n\n[JUEGO:ORDENAR_LETRAS:POSICION]\n\n[JUEGO:ORDENAR_FRASE:LA POSICION ES UN PUNTO EN EL ESPACIO]\n\nCuando analizamos las huellas de estos extraños entes, estamos registrando su cambio de lugar en el tiempo. Cada rastro en el suelo representa un punto en nuestro mapa.\n\n[JUEGO:SOPA_LETRAS:POSICION,RUTA,FISICA]\n\n[JUEGO:CRUCIGRAMA:Lugar donde se encuentra un objeto|POSICION;Camino imaginario que deja un cuerpo al moverse|TRAYECTORIA]\n\nInvestiguemos a fondo. Si no sabemos determinar la ubicación exacta de una amenaza o de un recurso, nuestro refugio en Montenegro no durará mucho.",
+  "recurso_visual": "| Variable Cinemática | Definición en el Refugio | Ejemplo Práctico en IE Instituto Montenegro |\n| :--- | :--- | :--- |\n| **Punto de Referencia** | Lugar fijo desde donde medimos todo. | La estatua del fundador en la entrada de la IE. |\n| **Posición** | El lugar exacto donde te encuentras respecto al punto de referencia. | Estar a 5 metros al Norte de la estatua. |\n| **Trayectoria** | El camino o la línea imaginaria que dibujas al moverte. | Las curvas que haces esquivando escombros para ir a la cancha. |",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "¿Qué diferencia observas entre el punto donde inicias tu caminata de exploración y el camino físico que recorres?",
+      "respuesta_esperada": "El punto de inicio es un lugar fijo específico (posición inicial), mientras que el camino recorrido es la línea o contorno completo de los pasos dados (trayectoria)."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja en tu cuaderno un mapa simple de tu salón de clases destruido. Elige tu pupitre como 'Punto de Referencia' y traza dos trayectorias diferentes para llegar a la puerta de escape.",
+    "Si un dron del yermo vuela en línea recta y luego en círculos, ¿cómo describirías sus trayectorias? Explica con tus palabras."
+  ],
+  "texto_deductivo": "# 📊 LA CIENCIA DETRÁS DE LAS PISTAS: Posición, Sistema de Referencia y Trayectoria\n\n¡Excelente trabajo recopilando pistas, detective! Ahora es momento de formalizar nuestros conocimientos científicos para que nuestro mapa sea infalible. En la física del yermo, usamos tres conceptos clave:\n\n1. **Sistema de Referencia:** Es el objeto o punto desde el cual decidimos realizar nuestras mediciones de movimiento. Sin él, es imposible decir si algo se mueve o no. En nuestro caso, usamos la **Torre de la IE Instituto Montenegro** como nuestro punto cero.\n2. **Posición ($\\vec{r}$):** Es el vector que apunta desde el Sistema de Referencia hasta el lugar exacto del objeto en un instante determinado. \n3. **Trayectoria:** Es la línea continua que une todas las posiciones sucesivas por las que pasa un cuerpo en movimiento. Puede ser:\n   * **Rectilínea:** Un camino perfectamente recto (como un proyectil de defensa).\n   * **Curvilínea:** Caminos con curvas (como un explorador esquivando mutantes o árboles).\n\n<svg width=\"100%\" height=\"200\" viewBox=\"0 0 500 200\" style=\"background-color:#151522; border: 2px solid #ffcc00; border-radius: 8px; font-family: monospace;\">\n  <text x=\"20\" y=\"30\" fill=\"#ffcc00\" font-size=\"14\" font-weight=\"bold\">ANÁLISIS VECTORIAL DE MOVIMIENTO</text>\n  <!-- Sistema de Referencia -->\n  <circle cx=\"100\" cy=\"150\" r=\"10\" fill=\"#ff3366\" />\n  <text x=\"75\" y=\"180\" fill=\"#ff3366\" font-size=\"11\">Origen (Torre)</text>\n  \n  <!-- Trayectoria Curva -->\n  <path d=\"M 100,150 C 120,50 300,50 380,110\" fill=\"none\" stroke=\"#888\" stroke-width=\"2\" stroke-dasharray=\"4\" />\n  <text x=\"240\" y=\"60\" fill=\"#888\" font-size=\"11\">Trayectoria (Camino Real)</text>\n  \n  <!-- Vector Posición -->\n  <line x1=\"100\" y1=\"150\" x2=\"374\" y2=\"112\" stroke=\"#ffcc00\" stroke-width=\"3\" marker-end=\"url(#arrow)\" />\n  <circle cx=\"380\" cy=\"110\" r=\"8\" fill=\"#00ffcc\" />\n  <text x=\"385\" y=\"130\" fill=\"#00ffcc\" font-size=\"11\">Posición Final (Dron)</text>\n  \n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"1\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#ffcc00\" />\n    </marker>\n  </defs>\n</svg>\n\n[JUEGO:ORDENAR_LETRAS:TRAYECTORIA]\n\n[JUEGO:ORDENAR_FRASE:LA TRAYECTORIA DIBUJA EL CAMINO SEGUIDO]\n\nPara comunicarnos efectivamente por radio con otros puestos de avanzada, debemos dar coordenadas exactas basadas en estas variables cinemáticas.\n\n[JUEGO:ORDENAR_LETRAS:DISTANCIA]\n\n[JUEGO:SOPA_LETRAS:PUNTO,ORIGEN,LINEA]\n\n[JUEGO:CRUCIGRAMA:Punto que sirve como referencia|ORIGEN;Magnitud de la trayectoria|DISTANCIA]\n\n[JUEGO:ORDENAR_LETRAS:MOVIMIENTO]\n\n[JUEGO:ORDENAR_FRASE:EL DETECTOR DE MOVIMIENTO MUESTRA LA RUTA]\n\n[JUEGO:SOPA_LETRAS:CAMINO,MAPA,RASTRO]\n\n[JUEGO:CRUCIGRAMA:Cambio de posición de un cuerpo|MOVIMIENTO;El que observa el fenómeno|OBSERVADOR]\n\n[JUEGO:ORDENAR_LETRAS:DETECTIVE]\n\n[JUEGO:ORDENAR_FRASE:TODO MOVIMIENTO DEPENDE DEL OBSERVADOR]\n\n[JUEGO:SOPA_LETRAS:METRO,VECTOR,TIEMPO]\n\n[JUEGO:CRUCIGRAMA:Línea recta entre inicio y fin|DESPLAZAMIENTO;Unidad de medida de longitud en el SI|METRO]\n\n[JUEGO:ORDENAR_FRASE:MEDIR LA DISTANCIA SALVA VIDAS HOY]\n\n[JUEGO:SOPA_LETRAS:NUBE,CIENCIA,REFUGIO]\n\n[JUEGO:CRUCIGRAMA:Persona que investiga el misterio|DETECTIVE;Instrumento para medir longitudes|REGLA]\n\n¡La ciencia ha arrojado luz sobre el misterio! Esos rastros brillantes no son fantasmas, son fluidos residuales de drones autónomos de mapeo que siguen trayectorias curvilíneas preprogramadas.",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "¿Por qué es crucial establecer un Sistema de Referencia antes de reportar la posición de una anomalía?",
+      "respuesta_esperada": "Porque la posición es un dato relativo. Sin un sistema de referencia (punto de origen común), los demás exploradores no sabrán desde dónde medir y buscar la anomalía, haciendo imposible su localización."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Escribe un breve informe de investigación donde expliques la diferencia técnica entre decir 'el objetivo se movió 50 metros' y 'el objetivo cambió su posición a 50 metros al Norte de la huerta del colegio'.",
+    "Clasifica las siguientes trayectorias como rectilíneas o curvilíneas: A) Una piedra cayendo del techo de la IE, B) Un explorador esquivando cráteres en zigzag, C) Un proyectil lanzado en arco."
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de fenómenos",
+      "texto_introductorio": "Un grupo de estudiantes de grado sexto del refugio IE Instituto Montenegro está analizando el rastro de un robot recolector de agua. El robot parte de la biblioteca del colegio, va a la huerta escolar en busca de muestras describiendo un camino curvo para evitar las paredes colapsadas, y finalmente se detiene.",
+      "tabla_o_grafica_markdown": "| Tramo del Robot | Tipo de Camino recorrido | Distancia Medida (m) |\n| :--- | :--- | :--- |\n| Biblioteca -> Huerta | Curva sinuosa | 45 metros |\n| Distancia en línea recta final | Línea recta directa | 15 metros |",
+      "pregunta": "Con base en la información anterior y los conceptos de cinemática aprendidos, los estudiantes pueden afirmar correctamente que:",
+      "opciones": [
+        "A) La trayectoria del robot fue rectilínea y su posición final está a 45 metros.",
+        "B) Los 45 metros representan la longitud de la trayectoria curvilínea, mientras que los 15 metros corresponden a la distancia en línea recta entre sus posiciones inicial y final.",
+        "C) El sistema de referencia no es necesario para determinar la trayectoria del robot.",
+        "D) La trayectoria y la posición final siempre deben tener el mismo valor numérico."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. La trayectoria fue curvilínea debido a que el robot debió esquivar obstáculos.",
+        "1": "¡Correcto! El camino curvo recorrido representa la longitud de la trayectoria (45m), mientras que la separación directa entre el punto de inicio y final es la distancia neta (15m).",
+        "2": "Incorrecto. El sistema de referencia es vital para poder trazar y medir cualquier movimiento.",
+        "3": "Incorrecto. La trayectoria puede ser muy larga y sinuosa mientras que la posición final puede estar muy cerca del punto de partida."
+      }
+    }
+  ]
+}

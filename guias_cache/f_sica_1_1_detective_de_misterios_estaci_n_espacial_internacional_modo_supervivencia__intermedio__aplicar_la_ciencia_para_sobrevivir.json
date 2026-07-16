@@ -1,0 +1,152 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "Imaginas que estás sentado en el bus de la IE Instituto Montenegro camino a clases. Mientras miras al conductor, ¿dirías que te estás moviendo o que estás en reposo?",
+      "opciones": [
+        "Me estoy moviendo porque el bus avanza por la carretera.",
+        "Estoy en reposo respecto al conductor, pero en movimiento respecto a un árbol en la acera.",
+        "Estoy en movimiento absoluto porque el planeta Tierra siempre gira.",
+        "Estoy en reposo absoluto porque mi cuerpo no realiza ningún esfuerzo físico."
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "En la Estación Espacial Internacional (EEI), un destornillador flota inmóvil en el centro de la cabina. ¿Qué se necesita para afirmar científicamente si está en reposo o en movimiento?",
+      "opciones": [
+        "Saber si la cabina tiene las luces encendidas o apagadas.",
+        "Definir un punto o sistema de referencia para comparar su posición.",
+        "Medir el peso del destornillador en la Tierra.",
+        "Comprobar si el astronauta lo está tocando con la mano."
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "Un satélite de comunicaciones orbita sobre Colombia a gran velocidad. Si una antena en el patio del Instituto Montenegro lo apunta continuamente sin moverse, ¿cómo es el movimiento del satélite respecto a la antena?",
+      "opciones": [
+        "El satélite está en reposo respecto a la antena si viajan a la misma velocidad angular.",
+        "El satélite siempre se mueve sin importar el punto de vista.",
+        "La antena se mueve y el satélite está quieto en el vacío.",
+        "Ninguno de los dos se mueve porque la gravedad anula el movimiento."
+      ],
+      "correcta": 0
+    }
+  ],
+  "texto_inductivo": "# ‽️ Bitácora del Detective Espacial: El Misterio de la Basura Orbitante\n\n***¿Cómo es posible que un estudiante de la IE Instituto Montenegro, sentado tranquilamente en su pupitre de Grado 6, sostenga que está en absoluto reposo, mientras que un detective espacial a bordo de la Estación Espacial Internacional (EEI) demuestra que ambos viajan juntos a miles de kilómetros por hora por el cosmos para sobrevivir a una inminente colisión de basura espacial?***\n\n¡Atención, cadetes! Les habla el **Detective Newton**. Nos encontramos en el Modo Supervivencia a bordo de la **Estación Espacial Internacional (EEI)**. Las alarmas de proximidad están parpadeando en rojo. Un objeto no identificado se acerca a nuestra posición. Para salvar la estación y registrar nuestro reporte de investigación, debemos dominar el primer concepto de la cinemática: **la diferencia entre movimiento y reposo**.\n\n<div style='text-align: center; margin: 20px 0;'>\n  <svg width='100%' height='220' viewBox='0 0 600 220' style='background-color:#0b0f19; border-radius: 8px;'>\n    <!-- Espacio y Estrellas -->\n    <circle cx='50' cy='30' r='1' fill='#fff' />\n    <circle cx='120' cy='180' r='1.5' fill='#fff' />\n    <circle cx='520' cy='80' r='1' fill='#fff' />\n    <circle cx='450' cy='170' r='2' fill='#fff' />\n    <!-- Planeta Tierra -->\n    <circle cx='100' cy='110' r='70' fill='#1d4ed8' />\n    <path d='M60,80 Q80,70 110,90 T150,130' fill='none' stroke='#059669' stroke-width='10' stroke-linecap='round' />\n    <text x='55' y='180' fill='#93c5fd' font-family='sans-serif' font-size='12' font-weight='bold'>Tierra (IE Montenegro)</text>\n    <!-- Trayectoria Órbita -->\n    <path d='M100,110 m120,0 a120,120 0 1,0 240,0 a120,120 0 1,0 -240,0' fill='none' stroke='#4b5563' stroke-width='2' stroke-dasharray='5,5' />\n    <!-- Estación Espacial EEI -->\n    <g transform='translate(310,80)'>\n      <rect x='-25' y='-5' width='50' height='10' fill='#9ca3af' />\n      <rect x='-5' y='-20' width='10' height='40' fill='#6b7280' />\n      <!-- Paneles Solares -->\n      <rect x='-35' y='-25' width='10' height='20' fill='#3b82f6' />\n      <rect x='25' y='-25' width='10' height='20' fill='#3b82f6' />\n      <rect x='-35' y='5' width='10' height='20' fill='#3b82f6' />\n      <rect x='25' y='5' width='10' height='20' fill='#3b82f6' />\n      <circle cx='0' cy='0' r='8' fill='#d1d5db' />\n    </g>\n    <text x='280' y='50' fill='#f3f4f6' font-family='sans-serif' font-size='12' font-weight='bold'>EEI (27,600 km/h)</text>\n    <!-- Basura Espacial en ruta -->\n    <circle cx='440' cy='140' r='6' fill='#ef4444' />\n    <path d='M440,140 L340,95' fill='none' stroke='#ef4444' stroke-width='2' stroke-dasharray='3,3' />\n    <polygon points='340,95 350,93 344,103' fill='#ef4444' />\n    <text x='380' y='160' fill='#fca5a5' font-family='sans-serif' font-size='11' font-style='italic'>Basura Espacial</text>\n  </svg>\n  <p style='color: #9ca3af; font-size: 12px; margin-top: 5px;'>Figura 1: Representación orbital de la EEI respecto a la Tierra y trayectoria de colisión.</p>\n</div>\n\n### El Caso del Tornillo Flotante\n\nImagina que estás investigando una fuga de aire en el módulo de soporte vital. De repente, observas un tornillo suspendido en el aire frente a ti. No se mueve respecto a las paredes del módulo. ¿Está realmente en reposo?\n\nPara resolver este misterio, juguemos un poco con las palabras ocultas en nuestros sistemas de seguridad:\n\n[JUEGO:ORDENAR_LETRAS:REPOSO]\n\n[JUEGO:ORDENAR_LETRAS:MOVIMIENTO]\n\nSi le preguntas a un estudiante en Montenegro, Quindío, te dirá que la EEI se desplaza velozmente por el cielo nocturno. Pero para ti, dentro de la estación, el tornillo no cambia su distancia a tu panel de control. ¡Ambos tienen razón! Todo depende del **Punto de Referencia**.\n\n[JUEGO:ORDENAR_FRASE:EL MOVIMIENTO DEPENDE DEL PUNTO DE REFERENCIA]\n\n[JUEGO:SOPA_LETRAS:REPOSO,MOVIMIENTO,FISICA]\n\n### El Reporte del Detective: ¿Estás Quieto o Volando?\n\nAnalicemos la situación con este enigma interactivo de supervivencia:\n\n[JUEGO:CRUCIGRAMA:Estado donde la posición no cambia respecto a un punto|REPOSO;Estado donde la posición cambia|MOVIMIENTO]\n\nPara que la tripulación sobreviva, debemos comprender que el reposo absoluto no existe en el espacio exterior.\n\n[JUEGO:ORDENAR_FRASE:NADA EN EL UNIVERSO ESTA EN REPOSO ABSOLUTO]\n\n[JUEGO:SOPA_LETRAS:ASTRO,TRAYECTO,ESPACIO]\n\n[JUEGO:CRUCIGRAMA:Punto que elegimos para medir el movimiento|REFERENCIA;Camino que recorre un cuerpo|TRAYECTORIA]",
+  "recurso_visual": "| Situación a Evaluar | Punto de Referencia | ¿Está en Reposo? | ¿Está en Movimiento? | Explicación del Detective |\n| :--- | :--- | :---: | :---: | :--- |\n| Astronauta durmiendo en su litera | Paredes de la EEI | **SÍ** | NO | Su posición no cambia respecto al interior de la cabina. |\n| Astronauta durmiendo en su litera | Centro de la Tierra | NO | **SÍ** | La EEI orbita la Tierra a 27,600 km/h, arrastrando al astronauta. |\n| Estudiante en el Instituto Montenegro | Su pupitre de 6° | **SÍ** | NO | No cambia de posición respecto al salón de clase. |\n| Estudiante en el Instituto Montenegro | El Sol | NO | **SÍ** | La Tierra orbita alrededor del Sol a unos 107,000 km/h. |",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "¿Por qué un objeto puede estar en movimiento y en reposo al mismo tiempo?",
+      "respuesta_esperada": "Porque el estado de movimiento depende enteramente del punto de referencia que elija el observador; respecto a un punto puede cambiar de posición, pero respecto a otro puede permanecer inmóvil."
+    },
+    {
+      "pregunta": "Si estás flotando en la EEI y dejas un lápiz en el aire, ¿qué observas respecto a ti?",
+      "respuesta_esperada": "Se observa que el lápiz está en reposo relativo respecto al detective o a las paredes de la cabina, ya que se mueven juntos a la misma velocidad espacial."
+    },
+    {
+      "pregunta": "¿Cómo ayuda un punto de referencia a evitar choques en el espacio?",
+      "respuesta_esperada": "Permite calcular con precisión si la distancia entre la estación espacial y un fragmento de basura espacial se está reduciendo con el tiempo."
+    },
+    {
+      "pregunta": "Si la Tierra gira, ¿por qué los estudiantes de Montenegro sienten que el tablero del salón está quieto?",
+      "respuesta_esperada": "Porque tanto los estudiantes como el tablero se mueven juntos a la misma velocidad sobre la superficie terrestre, manteniendo constante su distancia y posición relativa."
+    },
+    {
+      "pregunta": "¿Qué pasaría si calculamos la órbita de un satélite usando un punto de referencia equivocado?",
+      "respuesta_esperada": "Los cálculos de trayectoria fallarían catastróficamente, haciendo imposible predecir su posición real y provocando colisiones o pérdidas de señal."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja en tu cuaderno la EEI orbitando la Tierra. Dibuja un astronauta dentro y una persona en la IE Instituto Montenegro. Traza líneas que muestren qué ve cada uno al mirar al otro.",
+    "Escribe una hipótesis de por qué los astronautas sienten que flotan en reposo si la estación espacial viaja extremadamente rápido.",
+    "Describe un experimento sencillo que puedas hacer en el patio de tu colegio para demostrarle a un compañero que el reposo absoluto no existe.",
+    "Resuelve el siguiente acertijo: Un satélite espía pasa exactamente sobre el Instituto Montenegro cada 24 horas a la misma hora. ¿Está en movimiento o en reposo respecto al colegio? Explica tu respuesta."
+  ],
+  "texto_deductivo": "# 🔍 La Ciencia Detrás del Movimiento Relativo\n\nPara sobrevivir en la EEI, no podemos depender de corazonadas; requerimos la precisión de la **Física Cinematática**. Vamos a definir formalmente las reglas de nuestro universo.\n\n### Definición Formal de Elementos\n1. **Cuerpo (o Móvil):** El objeto que estamos estudiando (la EEI, un asteroide o un estudiante en Montenegro).\n2. **Sistema de Referencia:** Un punto o conjunto de ejes coordenados (X, Y) desde el cual medimos la posición del móvil a lo largo del tiempo.\n3. **Posición ($x$):** El lugar exacto donde se encuentra el cuerpo respecto al sistema de referencia.\n4. **Movimiento:** El cambio de posición que experimenta un cuerpo a lo largo del tiempo respecto a un sistema de referencia elegido.\n5. **Reposo:** El estado en el cual la posición de un cuerpo no cambia al transcurrir el tiempo, respecto al sistema de referencia seleccionado.\n\n<div style='text-align: center; margin: 20px 0;'>\n  <svg width='100%' height='240' viewBox='0 0 600 240' style='background-color:#111827; border-radius: 8px;'>\n    <!-- Ejes Coordenados del Sistema de Referencia -->\n    <line x1='80' y1='180' x2='480' y2='180' stroke='#9ca3af' stroke-width='2' />\n    <line x1='80' y1='40' x2='80' y2='190' stroke='#9ca3af' stroke-width='2' />\n    <text x='490' y='185' fill='#9ca3af' font-family='sans-serif' font-size='12'>Eje X (Distancia en metros)</text>\n    <text x='50' y='35' fill='#9ca3af' font-family='sans-serif' font-size='12'>Eje Y</text>\n    \n    <!-- Origen (Punto de Referencia) -->\n    <circle cx='80' cy='180' r='5' fill='#ef4444' />\n    <text x='65' y='210' fill='#ef4444' font-family='sans-serif' font-size='12' font-weight='bold'>Origen (0,0) [Pared de la EEI]</text>\n    \n    <!-- Posición 1 (Tiempo t = 0s) -->\n    <circle cx='200' cy='100' r='8' fill='#10b981' />\n    <text x='170' y='80' fill='#10b981' font-family='sans-serif' font-size='11' font-weight='bold'>Posición Inicial (A)</text>\n    <text x='185' y='125' fill='#9ca3af' font-family='sans-serif' font-size='11'>t = 0 s (x = 4 m)</text>\n    <line x1='200' y1='100' x2='200' y2='180' stroke='#4b5563' stroke-width='1' stroke-dasharray='3,3' />\n\n    <!-- Posición 2 (Tiempo t = 5s) -->\n    <circle cx='380' cy='100' r='8' fill='#3b82f6' />\n    <text x='350' y='80' fill='#3b82f6' font-family='sans-serif' font-size='11' font-weight='bold'>Posición Final (B)</text>\n    <text x='365' y='125' fill='#9ca3af' font-family='sans-serif' font-size='11'>t = 5 s (x = 10 m)</text>\n    <line x1='380' y1='100' x2='380' y2='180' stroke='#4b5563' stroke-width='1' stroke-dasharray='3,3' />\n    \n    <!-- Vector Desplazamiento -->\n    <path d='M208,100 L370,100' fill='none' stroke='#f59e0b' stroke-width='3' />\n    <polygon points='370,100 360,95 360,105' fill='#f59e0b' />\n    <text x='250' y='150' fill='#f59e0b' font-family='sans-serif' font-size='13' font-weight='bold'>Movimiento Detectado</text>\n  </svg>\n  <p style='color: #9ca3af; font-size: 12px; margin-top: 5px;'>Figura 2: Gráfico del cambio de posición de un módulo de mantenimiento respecto a un punto fijo de referencia en la EEI.</p>\n</div>\n\nDesencriptemos las herramientas de cálculo con los siguientes minijuegos de seguridad:\n\n[JUEGO:ORDENAR_LETRAS:SISTEMA]\n\n[JUEGO:ORDENAR_FRASE:LA ESTACION ESPACIAL DA DIECISEIS VUELTAS AL DIA]\n\n[JUEGO:SOPA_LETRAS:SISTEMA,PUNTO,DISTANCIA]\n\n[JUEGO:CRUCIGRAMA:Siglas de la Estación Espacial Internacional|EEI;Lugar donde orbitamos|ESPACIO]\n\n### La Ecuación del Detective de Movimiento\n\nPara determinar si la basura espacial colisionará con nosotros, medimos cómo varía su posición ($x$) en intervalos de tiempo determinados. \n\n$$\\Delta x = x_{\\text{final}} - x_{\\text{inicial}}$$\n\nSi $\\Delta x$ es igual a cero respecto a la EEI, ¡el objeto viaja con nosotros en formación! Si $\\Delta x$ cambia rápidamente, el riesgo es inminente.\n\n[JUEGO:ORDENAR_LETRAS:VELOCIDAD]\n\n[JUEGO:ORDENAR_FRASE:EL DETECTIVE USA LA CIENCIA PARA RESOLVER MISTERIOS]\n\n[JUEGO:SOPA_LETRAS:GRAVEDAD,TIEMPO,MEDIDA]\n\n[JUEGO:CRUCIGRAMA:Magnitud que mide la rapidez del cambio de posición|VELOCIDAD;La fuerza que nos mantiene en órbita|GRAVEDAD]\n\n[JUEGO:ORDENAR_LETRAS:TRAYECTORIA]\n\n[JUEGO:ORDENAR_FRASE:MEDIR LA VELOCIDAD SALVA VIDAS EN EL ESPACIO]\n\n[JUEGO:SOPA_LETRAS:ORBITA,DETECTIVE,INERCIA]\n\n[JUEGO:CRUCIGRAMA:Persona que resuelve misterios científicos|DETECTIVE;Institución educativa del misterio de Montenegro|MONTENEGRO]",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "¿Qué elementos componen un sistema de referencia en física?",
+      "respuesta_esperada": "Un punto de origen fijo, un sistema de ejes coordenados (para medir dirección y distancia) y un instrumento para medir el transcurso del tiempo (reloj)."
+    },
+    {
+      "pregunta": "Si un objeto tiene una posición final igual a su posición inicial tras una hora de viaje, ¿qué puedes deducir?",
+      "respuesta_esperada": "Que su desplazamiento total es cero; aunque pudo haber recorrido una trayectoria cerrada en movimiento, regresó al mismo punto respecto a la referencia."
+    },
+    {
+      "pregunta": "¿Por qué es incorrecto decir en física que un carro va a 80 km/h sin especificar nada más?",
+      "respuesta_esperada": "Porque omitimos el sistema de referencia. Aunque se asume implícitamente respecto al suelo, en física rigurosa todo movimiento debe referirse a un sistema específico."
+    },
+    {
+      "pregunta": "Si la basura espacial tiene una velocidad de cero respecto a la EEI, ¿significa que está quieta respecto a la Tierra?",
+      "respuesta_esperada": "No. Significa que viaja a los mismos 27,600 km/h que la estación espacial alrededor de la Tierra, manteniéndose en reposo relativo respecto a nosotros."
+    },
+    {
+      "pregunta": "¿Cómo definirías el concepto de trayectoria usando tus propias palabras según la cinemática?",
+      "respuesta_esperada": "Es la línea continua o camino geométrico invisible que une todas las posiciones sucesivas por las que pasa un cuerpo en movimiento."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Plantea un problema matemático de física donde un astronauta cambie de la posición X = 3 metros a la posición X = -12 metros dentro de la EEI. Calcula su desplazamiento total.",
+    "Elabora una tabla comparativa explicando la diferencia científica exacta entre los términos: 'Desplazamiento', 'Trayectoria' y 'Posición'.",
+    "Explica por escrito cómo aplicarías lo aprendido en esta semana para ayudar a un controlador aéreo del aeropuerto El Edén (cercano a Montenegro) a rastrear un avión en aproximación.",
+    "Investigación de Campo: Pregunta a tres personas en tu casa qué significa para ellos estar 'en reposo'. Escribe por qué sus definiciones cotidianas pueden diferir de la definición de la física cuántica u orbital."
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de fenómenos",
+      "texto_introductorio": "A bordo de la Estación Espacial Internacional (EEI), un astronauta observa un satélite meteorológico fuera de la ventana. El satélite mantiene exactamente la misma distancia y la misma orientación respecto a la ventana de la EEI durante varias órbitas alrededor de la Tierra.",
+      "tabla_o_grafica_markdown": "| Observador | Objeto Observado | ¿Se mueve el objeto? |\n| :--- | :--- | :---: |\n| Astronauta en la ventana | Satélite Meteorológico | No cambia de posición |\n| Científico en el Instituto Montenegro | Satélite Meteorológico | Cambia de posición a 27,600 km/h |",
+      "pregunta": "De acuerdo con la información anterior, ¿cuál de las siguientes afirmaciones describe de manera correcta la situación física del satélite?",
+      "opciones": [
+        "El satélite está en movimiento absoluto ya que orbita la Tierra a gran velocidad.",
+        "El satélite está en reposo respecto al astronauta, pero en movimiento respecto al científico en el Instituto Montenegro.",
+        "El satélite está en reposo absoluto porque sus motores están apagados en el vacío del espacio.",
+        "El satélite se mueve para el astronauta debido a que la Tierra gira sobre su propio eje."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. En física no existe el movimiento absoluto, todo depende del sistema de referencia seleccionado.",
+        "1": "¡Correcto! El movimiento es relativo. Dado que no cambia su posición respecto al astronauta, está en reposo respecto a este; pero sí cambia respecto a un observador en la superficie terrestre.",
+        "2": "Incorrecto. El reposo absoluto es físicamente imposible, ya que todo en el universo se mueve respecto a algo.",
+        "3": "Incorrecto. Para el astronauta de la EEI, el satélite se encuentra a una distancia fija constante, por lo tanto, está en reposo relativo."
+      }
+    },
+    {
+      "competencia": "Uso comprensivo del conocimiento científico",
+      "texto_introductorio": "Un grupo de estudiantes de Grado 6 de la IE Instituto Montenegro realiza un experimento en el patio del colegio. Dibujan un plano cartesiano en el suelo. El estudiante A se para en la coordenada (0,0) (origen) y no se mueve. El estudiante B camina desde la coordenada (2,0) metros hasta la (10,0) metros, demorando 4 segundos.",
+      "tabla_o_grafica_markdown": "| Estudiante | Posición Inicial (t=0s) | Posición Final (t=4s) |\n| :--- | :---: | :---: |\n| Estudiante A | (0,0) m | (0,0) m |\n| Estudiante B | (2,0) m | (10,0) m |",
+      "pregunta": "Tomando al estudiante A como el sistema de referencia, ¿cuál fue el cambio de posición (desplazamiento) del estudiante B durante el experimento?",
+      "options": [
+        "8 metros",
+        "10 metros",
+        "2 metros",
+        "12 metros"
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "¡Correcto! El desplazamiento se calcula restando la posición inicial de la posición final: 10m - 2m = 8 metros.",
+        "1": "Incorrecto. 10 metros es la posición final respecto al origen, pero no la distancia recorrida desde su punto de partida.",
+        "2": "Incorrecto. 2 metros representa únicamente su posición inicial, no el cambio de posición realizado.",
+        "3": "Incorrecto. El desplazamiento es la diferencia de posiciones (resta), no la suma de ellas."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "En una misión de rescate en la EEI, se requiere capturar un carguero robótico averiado. Los sensores muestran los siguientes datos de la distancia entre la EEI y el carguero a lo largo de un minuto de observación:",
+      "tabla_o_grafica_markdown": "| Tiempo (segundos) | Distancia al carguero (metros) |\n| :---: | :---: |\n| 0 | 50.0 |\n| 20 | 50.0 |\n| 40 | 50.0 |\n| 60 | 50.0 |",
+      "pregunta": "Con base en los datos de la tabla, ¿qué puede concluir correctamente el Detective Newton sobre el estado de movimiento del carguero respecto a la EEI?",
+      "opciones": [
+        "El carguero se está alejando a una velocidad constante debido al viento solar.",
+        "El carguero se encuentra en estado de reposo relativo respecto a la EEI.",
+        "El carguero cayó en la gravedad terrestre y ya no órbita con la EEI.",
+        "El carguero está en reposo absoluto en el centro inmóvil del universo."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. Si se estuviera alejando, el valor de la distancia incrementaría con el paso del tiempo.",
+        "1": "¡Correcto! Como la distancia se mantiene constante en 50.0 metros a lo largo de todo el intervalo de tiempo, el carguero no cambia de posición respecto al sistema de referencia de la EEI.",
+        "2": "Incorrecto. Si hubiera caído, la distancia con respecto a la EEI habría cambiado drásticamente en los sensores.",
+        "3": "Incorrecto. No existe un centro inmóvil ni un reposo absoluto en el universo observable."
+      }
+    }
+  ]
+}

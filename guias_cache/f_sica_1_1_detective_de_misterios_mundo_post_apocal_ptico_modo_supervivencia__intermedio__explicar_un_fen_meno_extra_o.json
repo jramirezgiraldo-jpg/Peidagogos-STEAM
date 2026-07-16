@@ -1,0 +1,114 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "Estás dentro de un vagón blindado que viaja a velocidad constante por las Ruinas de Montenegro sin ventanas. No sientes baches ni aceleración. Si dejas caer una cantimplora de metal, ¿dónde caerá?",
+      "opciones": [
+        "Detrás de ti, porque el vagón se mueve hacia adelante mientras la cantimplora cae.",
+        "Exactamente a tus pies, como si el vagón estuviera completamente detenido.",
+        "Delante de ti, impulsada por el motor de vapor del vagón.",
+        "Se quedará flotando en el aire debido a la inercia del apocalipsis."
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "Desde el puesto de guardia de la IE Instituto Montenegro, ves pasar un convoy de suministros a 40 km/h. Dentro del convoy, un explorador camina hacia el frente a 5 km/h. ¿A qué velocidad lo ves moverte tú desde la torre?",
+      "opciones": [
+        "A 5 km/h, porque esa es su velocidad real de caminata.",
+        "A 35 km/h, restando su movimiento del convoy.",
+        "A 45 km/h, sumando la velocidad del convoy y la del explorador.",
+        "A 40 km/h, ya que la velocidad de la persona no afecta la del vehículo."
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "Si te quedas completamente inmóvil acechando a una presa en el páramo, ¿estás realmente en un estado de reposo absoluto?",
+      "opciones": [
+        "Sí, porque mi cuerpo no cambia de posición respecto al suelo del páramo.",
+        "No, porque la Tierra sigue rotando y orbitando alrededor del Sol, moviéndote por el espacio.",
+        "Sí, porque el reposo absoluto es la única forma de camuflaje efectiva en el apocalipsis.",
+        "No, solo si los mutantes te están observando desde un punto fijo."
+      ],
+      "correcta": 1
+    }
+  ],
+  "texto_inductivo": "# El Misterio de los Monolitos Errantes de Montenegro\n\nSaludos, valiente recluta de la **IE Instituto Montenegro**. Soy el Detective Maxwell, encargado de descifrar las anomalías físicas en esta Tierra Devastada. Hoy nos enfrentamos a un fenómeno que ha aterrorizado a nuestros exploradores de la periferia. \n\n*¿**Cómo es posible que los antiguos monolitos de metal de la IE Instituto Montenegro parezcan moverse velozmente cuando huimos de los Mutantes de Chatarra en nuestro vagón blindado, pero si nos detenemos a vigilarlos, juraríamos que son ellos los que nos observan inmóviles en medio del páramo?***\n\nPara resolver este misterio, primero debemos agudizar nuestra mente y preparar nuestro equipo de supervivencia mental. Analicemos las pistas.\n\n<div style='text-align: center; margin: 20px 0;'>\n  <svg viewBox='0 0 800 350' width='100%' style='background-color: #1a1a1a; border-radius: 8px; border: 2px solid #ff7700;'>\n    <!-- Cielo apocalíptico -->\n    <rect x='0' y='0' width='800' height='250' fill='#2b1a11'/>\n    <path d='M0 150 Q 200 120, 400 160 T 800 130 L 800 250 L 0 250 Z' fill='#3d2516'/>\n    <!-- Sol radioactivo -->\n    <circle cx='700' cy='60' r='30' fill='#ffaa00' opacity='0.8'/>\n    <circle cx='700' cy='60' r='45' fill='#ff5500' opacity='0.3'/>\n    <!-- Monolito de la IE Instituto Montenegro -->\n    <rect x='350' y='80' width='60' height='140' fill='#3a3a3a' stroke='#ff7700' stroke-width='3'/>\n    <text x='380' y='140' fill='#ff7700' font-family='sans-serif' font-weight='bold' font-size='10' text-anchor='middle'>I.E.</text>\n    <text x='380' y='160' fill='#ff7700' font-family='sans-serif' font-weight='bold' font-size='10' text-anchor='middle'>MONTENEGRO</text>\n    <line x1='350' y1='110' x2='410' y2='110' stroke='#ff7700' stroke-width='1'/>\n    <!-- Suelo arenoso -->\n    <rect x='0' y='220' width='800' height='130' fill='#1f120a'/>\n    <!-- Vagón de vapor en movimiento -->\n    <g transform='translate(100, 180)'>\n      <rect x='0' y='0' width='160' height='50' fill='#444' rx='10' stroke='#555' stroke-width='2'/>\n      <circle cx='30' cy='50' r='18' fill='#222' stroke='#ff5500' stroke-width='3'/>\n      <circle cx='130' cy='50' r='18' fill='#222' stroke='#ff5500' stroke-width='3'/>\n      <rect x='110' y='-20' width='20' height='25' fill='#ff3300'/>\n      <!-- Humo de vapor -->\n      <circle cx='120' cy='-30' r='10' fill='#aaa' opacity='0.5'/>\n      <circle cx='135' cy='-45' r='15' fill='#ccc' opacity='0.4'/>\n      <!-- Explorador -->\n      <circle cx='60' cy='-10' r='12' fill='#ffaa55'/>\n      <rect x='52' y='2' width='16' height='20' fill='#0055ff'/>\n    </g>\n    <!-- Vectores de movimiento aparente -->\n    <path d='M 270 230 L 150 230' stroke='#00ffcc' stroke-width='4' marker-end='url(#arrow)'/>\n    <text x='210' y='215' fill='#00ffcc' font-family='sans-serif' font-size='12' font-weight='bold'>Movimiento aparente del Monolito</text>\n    <path d='M 270 290 L 390 290' stroke='#ff5500' stroke-width='4' marker-end='url(#arrow)'/>\n    <text x='330' y='310' fill='#ff5500' font-family='sans-serif' font-size='12' font-weight='bold'>Movimiento real del Vagón (V = 50 km/h)</text>\n    <!-- Definición de marcadores para flechas -->\n    <defs>\n      <marker id='arrow' viewBox='0 0 10 10' refX='5' refY='5' markerWidth='6' markerHeight='6' orient='auto-start-reverse'>\n        <path d='M 0 0 L 10 5 L 0 10 z' fill='#00ffcc'/>\n      </marker>\n    </defs>\n  </svg>\n  <p style='color: #ff7700; font-style: italic; font-size: 13px;'>Figura 1: El dilema del explorador. ¿Quién se mueve realmente? ¿El vagón o el monolito de herencia pre-apocalíptica?</p>\n</div>\n\nNuestros vigías insisten en que los monolitos están embrujados. Al correr a toda prisa por el sendero agrietado de Montenegro, ven que estas gigantescas estructuras metálicas se desplazan velozmente hacia atrás, perdiéndose en la densa niebla ácida. Pero cuando el motor del vagón falla y nos quedamos en silencio absoluto, el monolito se planta firme, como un titán petrificado en el tiempo.\n\nPara descifrar este enigma, debemos dominar las palabras de poder de la física antigua. Resuelve estos desafíos de supervivencia de inmediato:\n\n[JUEGO:ORDENAR_LETRAS:REPOSO]\n\n[JUEGO:ORDENAR_LETRAS:MOVIMIENTO]\n\nCuando nuestros exploradores huyen de las bestias metálicas, el pánico les impide ver la realidad con claridad científica. Necesitamos estructurar nuestros pensamientos y analizar cómo cambia nuestra percepción del entorno según las condiciones en las que nos encontremos.\n\n[JUEGO:ORDENAR_FRASE:EL MOVIMIENTO DEPENDE DEL OBSERVADOR]\n\n[JUEGO:ORDENAR_FRASE:TODO ESTA EN CONSTANTE CAMBIO]\n\nPara que la patrulla de la IE Instituto Montenegro no caiga en la superstición, debemos registrar los términos clave en nuestras bitácoras de supervivencia de metal. Busca los conceptos clave en esta sopa de letras radioactiva:\n\n[JUEGO:SOPA_LETRAS:REPOSO,MOVIMIENTO,SISTEMA]\n\n[JUEGO:SOPA_LETRAS:OBSERVADOR,METRO,TIEMPO]\n\nComo detectives del desierto, sabemos que todo misterio tiene una explicación racional oculta tras las apariencias. Completa este crucigrama táctico para asegurar las bases de tu investigación:\n\n[JUEGO:CRUCIGRAMA:Estado donde la posicion no cambia|REPOSO;Cambio de posicion en el tiempo|MOVIMIENTO]\n\n[JUEGO:CRUCIGRAMA:Persona que mide el fenomeno|OBSERVADOR;Lugar donde se ubica el detective|ORIGEN]",
+  "recurso_visual": "| Estado del Observador | Objeto Observado | ¿Qué percibe el observador en el Vagón? | Explicación Física de Emergencia |\n| :--- | :--- | :--- | :--- |\n| **En movimiento rápido** (Vagón blindado) | Monolito de la IE Montenegro | El Monolito se mueve rápidamente hacia atrás. | Movimiento Relativo (El observador se toma a sí mismo como punto de reposo). |\n| **Detenido en el páramo** (Vagón varado) | Monolito de la IE Montenegro | El Monolito permanece estático e inofensivo. | Reposo Relativo (Ambos comparten el mismo estado de movimiento nulo respecto al suelo). |\n| **En movimiento rápido** (Vagón blindado) | Compañero de viaje sentado al lado | El compañero está inmóvil, sin cambiar de posición. | Reposo Relativo dentro del mismo sistema de referencia móvil. |",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "¿Por qué los exploradores creen inicialmente que los monolitos se mueven solos?",
+      "respuesta_esperada": "Porque al viajar en el vagón blindado a toda velocidad, ven que la posición de los monolitos cambia rápidamente hacia atrás respecto al vagón, creando la ilusión óptica de que las estructuras son las que se desplazan."
+    },
+    {
+      "pregunta": "¿Qué ocurre con la percepción del movimiento del monolito cuando el vagón se detiene por completo?",
+      "respuesta_esperada": "El monolito parece quedar completamente inmóvil, revelando que el movimiento percibido anteriormente era causado únicamente por el desplazamiento del propio vagón."
+    },
+    {
+      "pregunta": "Si vas dentro del vagón blindado, ¿cómo se ve tu compañero de patrulla sentado frente a ti?",
+      "respuesta_esperada": "Se ve en completo reposo, ya que la distancia y posición entre tú y él no cambian con el transcurrir del tiempo."
+    },
+    {
+      "pregunta": "¿Cuál es la gran pregunta problematizadora que debemos resolver para tranquilizar a los guardias del Instituto Montenegro?",
+      "respuesta_esperada": "Cómo es posible que los monolitos parezcan moverse rápidamente cuando huimos en el vagón, pero parezcan inmóviles cuando nos detenemos."
+    },
+    {
+      "pregunta": "¿De qué depende que digamos que un objeto del páramo está en reposo o en movimiento?",
+      "respuesta_esperada": "Depende totalmente del punto o sistema de referencia que elijamos para realizar la observación."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja en tu bitácora de campo la escena del vagón blindado en movimiento, señalando con flechas rojas la dirección real del vagón y con flechas verdes la dirección en la que parece moverse el monolito de la IE Instituto Montenegro.",
+    "Describe una situación de la vida diaria en el Montenegro pre-apocalíptico donde hayas experimentado esta misma confusión de movimiento (por ejemplo, al estar dentro de un autobús o vehículo detenido al lado de otro).",
+    "Si un mutante te acecha desde la copa de un árbol seco sin moverse, ¿está en reposo respecto a la copa del árbol? ¿Está en reposo respecto a las nubes ácidas que cruzan el cielo?",
+    "¿Por qué es vital para un detective de misterios de la física establecer reglas claras de observación antes de acusar a un monolito de estar 'embrujado' o poseer vida propia?"
+  ],
+  "texto_deductivo": "# La Ciencia Detrás de la Ilusión: Sistemas de Referencia\n\n¡Atención, detectives del páramo! Es hora de decodificar la verdad científica con las ecuaciones y conceptos legados por los sabios del pasado. El misterio de los Monolitos Errantes no es magia mutante; es pura **Cinemática**.\n\nEn física, el **movimiento** se define como el cambio de posición que experimenta un cuerpo a lo largo del tiempo con respecto a un **sistema de referencia** que consideramos fijo. \n\n<div style='text-align: center; margin: 20px 0;'>\n  <svg viewBox='0 0 800 350' width='100%' style='background-color: #111e1e; border-radius: 8px; border: 2px solid #00ffcc;'>\n    <!-- Sistema de Coordenadas Cartesiano del Páramo -->\n    <grid />\n    <!-- Eje Y -->\n    <line x1='100' y1='50' x2='100' y2='300' stroke='#555' stroke-width='2' stroke-dasharray='5,5'/>\n    <text x='85' y='60' fill='#888' font-family='monospace'>Y (Norte)</text>\n    <!-- Eje X -->\n    <line x1='100' y1='250' x2='750' y2='250' stroke='#555' stroke-width='2' stroke-dasharray='5,5'/>\n    <text x='730' y='270' fill='#888' font-family='monospace'>X (Este)</text>\n    <!-- Origen del Sistema (IE Instituto Montenegro) -->\n    <circle cx='100' cy='250' r='8' fill='#ff3300'/>\n    <text x='115' y='240' fill='#ff3300' font-family='sans-serif' font-weight='bold' font-size='12'>Origen (La Escuela)</text>\n    <!-- Posición Monolito (Punto Fijo) -->\n    <rect x='450' y='130' width='40' height='120' fill='#2a2a2a' stroke='#00ffcc' stroke-width='2'/>\n    <circle cx='470' cy='250' r='6' fill='#00ffcc'/>\n    <text x='470' y='115' fill='#00ffcc' font-family='sans-serif' font-weight='bold' font-size='12' text-anchor='middle'>Monolito (X = 370m)</text>\n    <!-- Posición Vagón en T1 y T2 -->\n    <!-- Vagón en T1 -->\n    <g transform='translate(200, 210)' opacity='0.5'>\n      <rect x='0' y='0' width='80' height='30' fill='#555' rx='5'/>\n      <circle cx='20' cy='30' r='10' fill='#000'/>\n      <circle cx='60' cy='30' r='10' fill='#000'/>\n      <text x='40' y='-10' fill='#aaa' font-family='sans-serif' font-size='10' text-anchor='middle'>T1 (Inicio)</text>\n    </g>\n    <!-- Vagón en T2 -->\n    <g transform='translate(550, 210)'>\n      <rect x='0' y='0' width='80' height='30' fill='#ffaa00' rx='5' stroke='#fff' stroke-width='1'/>\n      <circle cx='20' cy='30' r='10' fill='#000' stroke='#ffaa00'/>\n      <circle cx='60' cy='30' r='10' fill='#000' stroke='#ffaa00'/>\n      <text x='40' y='-10' fill='#ffaa00' font-family='sans-serif' font-size='10' font-weight='bold' text-anchor='middle'>T2 (Fuga)</text>\n    </g>\n    <!-- Vector Desplazamiento del Vagón -->\n    <path d='M 285 225 L 540 225' stroke='#ffaa00' stroke-width='3' stroke-dasharray='4,4' marker-end='url(#arrow2)'/>\n    <text x='410' y='210' fill='#ffaa00' font-family='sans-serif' font-size='11' text-anchor='middle'>Desplazamiento real (Δx)</text>\n    <defs>\n      <marker id='arrow2' viewBox='0 0 10 10' refX='5' refY='5' markerWidth='6' markerHeight='6' orient='auto-start-reverse'>\n        <path d='M 0 0 L 10 5 L 0 10 z' fill='#ffaa00'/>\n      </marker>\n    </defs>\n  </svg>\n  <p style='color: #00ffcc; font-style: italic; font-size: 13px;'>Figura 2: Sistema de coordenadas cartesianas donde el Origen (0,0) está situado en la IE Instituto Montenegro. El monolito tiene una coordenada X constante, mientras que el vagón cambia de posición continuamente.</p>\n</div>\n\n### El Secreto del Sistema de Referencia\n\nUn **Sistema de Referencia** está compuesto por:\n1. Un **punto de origen** (desde donde medimos las distancias, por ejemplo, la entrada de la escuela).\n2. Un **sistema de ejes coordinados** (para saber si vamos al norte, sur, este u oeste).\n3. Un **instrumento de tiempo** (nuestro reloj de pulsera de superviviente).\n\nCuando viajas en el vagón blindado a toda velocidad, tu mente comete un error de cálculo táctico: toma al **propio vagón** como si fuera el punto de origen (inmóvil). Al hacerlo, todo lo que está afuera (árboles secos, ruinas, monolitos) parece moverse en sentido contrario con la misma velocidad que tiene el vehículo.\n\nPara certificar que hemos comprendido la matemática detrás de este fenómeno, decodifica los siguientes códigos científicos cifrados:\n\n[JUEGO:ORDENAR_LETRAS:REFERENCIA]\n\n[JUEGO:ORDENAR_LETRAS:TRAYECTORIA]\n\n[JUEGO:ORDENAR_LETRAS:RAPIDEZ]\n\n¡Excelente! Con estos conceptos claros, la tripulación puede entender que el estado de reposo absoluto no existe en el universo entero. Todo se mueve con respecto a algo más.\n\n[JUEGO:ORDENAR_FRASE:EL PUNTO DE REFERENCIA ES CLAVE]\n\n[JUEGO:ORDENAR_FRASE:NADA ESTA REALMENTE EN REPOSO ABSOLUTO]\n\n[JUEGO:ORDENAR_FRASE:LA DISTANCIA SE MIDE DESDE EL ORIGEN]\n\nContinuemos extrayendo información del entorno. Rastrea las siguientes magnitudes físicas esenciales en la rejilla del mapa de datos:\n\n[JUEGO:SOPA_LETRAS:CINEMATICA,FISICA,PUNTO]\n\n[JUEGO:SOPA_LETRAS:DISTANCIA,POSICION,VECTOR]\n\n[JUEGO:SOPA_LETRAS:VELOCIDAD,CAMBIO,ORIGEN]\n\nPor último, demostremos que estamos listos para la evaluación final resolviendo las ecuaciones de correspondencia conceptual:\n\n[JUEGO:CRUCIGRAMA:Sistema para medir coordenadas|REFERENCIA;Camino recorrido por el movil|TRAYECTORIA]\n\n[JUEGO:CRUCIGRAMA:Magnitud escalar de la distancia dividida por tiempo|RAPIDEZ;Unidad de medida de longitud en el SI|METRO]\n\n[JUEGO:CRUCIGRAMA:Cambio de posicion por unidad de tiempo con direccion|VELOCIDAD;Rama de la fisica que estudia el movimiento|CINEMATICA]\n\nCon todo este conocimiento recopilado en nuestra base de datos en la IE Instituto Montenegro, hemos resuelto el enigma: **Los monolitos están fijos con respecto al suelo del páramo, pero se mueven con respecto al vagón.** No hay espectros mutantes empujándolos, ¡es solo física relativista básica en acción de supervivencia!",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "¿Qué es la cinemática según el manual de física del detective?",
+      "respuesta_esperada": "Es la rama de la física clásica que se encarga de estudiar y describir el movimiento de los cuerpos sin preocuparse por las causas (fuerzas) que lo producen."
+    },
+    {
+      "pregunta": "¿Cuáles son los tres componentes elementales de un Sistema de Referencia?",
+      "respuesta_esperada": "Consiste en un punto de origen tomado como fijo, un sistema de ejes de coordenadas espaciales y un instrumento de medición del tiempo (reloj)."
+    },
+    {
+      "pregunta": "¿Por qué se afirma que el reposo absoluto es una ilusión cósmica?",
+      "respuesta_esperada": "Porque aunque un objeto esté inmóvil sobre el suelo terrestre, la Tierra misma rota sobre su propio eje y gira alrededor del Sol, moviendo todo por el espacio exterior."
+    },
+    {
+      "pregunta": "Si un mutante corre persiguiendo tu vagón a tu misma velocidad y en tu misma dirección, ¿cómo lo ves tú?",
+      "respuesta_esperada": "Lo verás en reposo relativo respecto a ti, ya que la distancia horizontal entre el mutante y el vagón se mantendrá siempre constante."
+    },
+    {
+      "pregunta": "¿Cómo se calcula el cambio de posición (desplazamiento) en una dimensión?",
+      "respuesta_esperada": "Se calcula restando la posición inicial de la posición final (Δx = x_final - x_inicial) respecto al origen seleccionado."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Plantea un ejercicio matemático simple en el que el vagón blindado parte de la posición x = 10 metros del origen (IE Instituto Montenegro) y avanza en línea recta hasta x = 120 metros. ¿Cuál fue su distancia total recorrida y su desplazamiento?",
+    "Si te encuentras dentro del vagón blindado y dejas caer tu brújula táctica al suelo del vehículo, describe su movimiento desde dos sistemas de referencia diferentes: el tuyo propio (sentado dentro del vagón) y el de un guardián inmóvil en una torre de la escuela.",
+    "¿Cuál es la diferencia matemática e intuitiva entre la distancia total recorrida y el desplazamiento neto? Proporciona un ejemplo ambientado en la exploración del páramo.",
+    "Diseña un protocolo de seguridad física para los mensajeros del Instituto Montenegro que explique cómo reportar con exactitud la posición de un enemigo usando coordenadas y puntos de referencia fijos."
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de fenómenos cotidianos y análisis gráfico.",
+      "texto_introductorio": "Dos patrullas del Instituto Montenegro, la Patrulla Alfa (A) y la Patrulla Beta (B), vigilan un monolito en el páramo. La Patrulla A se encuentra detenida junto al monolito, mientras que la Patrulla B viaja en círculos concéntricos alrededor del monolito a una rapidez constante de 20 km/h. La siguiente tabla registra las observaciones tomadas por ambos líderes de patrulla.",
+      "tabla_o_grafica_markdown": "| Observador | Objeto Analizado | Estado reportado por el líder de patrulla |\n| :--- | :--- | :--- |\n| **Patrulla A** (Detenida) | Monolito de Metal | En completo reposo en la coordenada X = 50m |\n| **Patrulla B** (En círculo) | Monolito de Metal | En movimiento constante de rotación a su alrededor |\n| **Patrulla B** (En círculo) | Patrulla A (Detenida) | En movimiento circular continuo en sentido contrario |",
+      "pregunta": "Basándose en los datos recolectados y en las leyes de la cinemática básica, ¿cuál de las siguientes conclusiones científicas es la única correcta?",
+      "options": [
+        "La Patrulla A tiene la única razón absoluta, pues el reposo de las estructuras terrestres no puede ser cuestionado.",
+        "Ambos reportes son correctos y científicamente válidos, debido a que el estado de movimiento o de reposo depende exclusivamente del sistema de referencia adoptado por cada observador.",
+        "La Patrulla B comete un grave error de observación por culpa del estrés del apocalipsis, ya que un objeto pesado no puede moverse si no tiene un motor encendido.",
+        "El monolito se encuentra en un estado mixto donde se mueve y está en reposo de forma simultánea respecto al mismo punto de la Tierra."
+      ],
+      "correct": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. La física clásica demuestra que no existen sistemas de referencia absolutos que tengan la verdad por encima de otros en términos de movimiento relativo.",
+        "1": "¡Correcto, detective! El movimiento es una propiedad relativa. Para la Patrulla B, al considerarse a sí mismos como punto de reposo, el monolito y la Patrulla A se mueven a su alrededor.",
+        "2": "Incorrecto. No se trata de un error psicológico, sino de un fenómeno físico medible y predecible basado en la cinemática relativista de Galileo.",
+        "3": "Incorrecto. Un cuerpo no puede estar en reposo y movimiento simultáneamente con respecto al *mismo* sistema de referencia; debe ser respecto a sistemas distintos."
+      }
+    }
+  ]
+}

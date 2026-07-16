@@ -1,0 +1,114 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "Estás oculto en los restos del laboratorio de química de la IE Instituto Montenegro. Si ves una roca en el suelo y no cambia de lugar respecto a ti durante una hora, ¿en qué estado se encuentra?",
+      "opciones": [
+        "En movimiento acelerado",
+        "En estado de reposo relativo",
+        "En caída libre",
+        "En movimiento rectilíneo"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "Un dron de reconocimiento pasa volando sobre tu refugio. Para un observador que viaja dentro del dron, el maletín de herramientas que lleva al lado está en:",
+      "opciones": [
+        "Movimiento",
+        "Reposo",
+        "Órbita",
+        "Fuga"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "Para afirmar científicamente que un objeto mutante se está moviendo, ¿qué necesitamos obligatoriamente?",
+      "opciones": [
+        "Un detector de calor",
+        "Un punto de referencia para comparar su posición",
+        "Que el objeto haga mucho ruido al avanzar",
+        "Un telescopio de alta potencia"
+      ],
+      "correcta": 1
+    }
+  ],
+  "texto_inductivo": "# Expediente de Investigación: El Enigma de las Sombras en el Instituto Montenegro\n\n¡Saludos, recluta! Soy el Detective de Misterios de la Zona Cero. Tras el Gran Colapso, las ruinas de nuestra querida **IE Instituto Montenegro** se han convertido en un laberinto lleno de peligros y enigmas físicos. Para sobrevivir aquí afuera, no necesitas armas de fuego; necesitas afilar tu mente y comprender las leyes del universo. Hoy nos enfrentamos a un dilema de vida o muerte.\n\n***¿Cómo podemos usar las ruinas de la IE Instituto Montenegro como punto de referencia para saber si un acechador mutante se está moviendo hacia nuestro refugio o si solo es una ilusión óptica causada por la neblina ácida?***\n\n<div style=\"text-align: center; background: #1a1a1a; padding: 15px; border: 2px solid #ff4500; border-radius: 8px; margin: 20px 0;\">\n  <svg viewBox=\"0 0 400 180\" width=\"100%\" height=\"100%\" style=\"background:#2d2d2d; border-radius: 5px;\">\n    <!-- Cuadrícula de Referencia -->\n    <defs>\n      <pattern id=\"grid\" width=\"20\" height=\"20\" patternUnits=\"userSpaceOnUse\">\n        <path d=\"M 20 0 L 0 0 0 20\" fill=\"none\" stroke=\"#444\" stroke-width=\"1\"/>\n      </pattern>\n    </defs>\n    <rect width=\"100%\" height=\"100%\" fill=\"url(#grid)\" />\n    \n    <!-- Ruinas de la IE Instituto Montenegro (Origen) -->\n    <rect x=\"180\" y=\"80\" width=\"40\" height=\"40\" fill=\"#8b0000\" stroke=\"#ff4500\" stroke-width=\"2\" />\n    <text x=\"200\" y=\"105\" fill=\"#fff\" font-size=\"8\" font-weight=\"bold\" text-anchor=\"middle\">Refugio</text>\n    <text x=\"200\" y=\"115\" fill=\"#ff4500\" font-size=\"6\" font-weight=\"bold\" text-anchor=\"middle\">(Punto 0)</text>\n\n    <!-- Acechador Mutante -->\n    <circle cx=\"300\" cy=\"100\" r=\"8\" fill=\"#32cd32\" />\n    <line x1=\"300\" y1=\"100\" x2=\"260\" y2=\"100\" stroke=\"#32cd32\" stroke-dasharray=\"4\" stroke-width=\"2\" />\n    <polygon points=\"260,97 250,100 260,103\" fill=\"#32cd32\" />\n    <text x=\"300\" y=\"88\" fill=\"#32cd32\" font-size=\"8\" font-weight=\"bold\" text-anchor=\"middle\">¿Mutante en Movimiento?</text>\n\n    <!-- Leyenda -->\n    <text x=\"10\" y=\"20\" fill=\"#00ffff\" font-size=\"9\" font-weight=\"bold\">Radar de la Zona Cero</text>\n    <text x=\"10\" y=\"35\" fill=\"#aaa\" font-size=\"7\">Eje X: Distancia en metros respecto al Refugio</text>\n  </svg>\n  <p style=\"color: #aaa; font-size: 0.85em; margin: 8px 0 0 0;\">Figura 1: Mapa táctico del refugio. Usamos la entrada del colegio como nuestro origen (posición x = 0).</p>\n</div>\n\nPara resolver este misterio, primero debemos descifrar los códigos ocultos que nos dejó el antiguo profesor de ciencias. Si no ordenamos estos conceptos, seremos presa fácil.\n\n[JUEGO:ORDENAR_LETRAS:REPOSO]\n\nCuando una criatura acecha en la niebla, nuestro primer instinto es correr. ¡Grave error! Debemos observar científicamente. Si la distancia entre la entrada de la IE Instituto Montenegro y la silueta sospechosa no cambia con el paso de los segundos, entonces la silueta está en:\n\n[JUEGO:ORDENAR_LETRAS:MOVIMIENTO]\n\n¡Espera! Si la silueta avanza y esa distancia se reduce de 100 metros a 50 metros, sabemos con certeza matemática que hay acción física en juego. \n\n[JUEGO:ORDENAR_FRASE:EL MOVIMIENTO ES RELATIVO]\n\nPara que todo el equipo de sobrevivientes hable el mismo idioma táctico, debemos ponernos de acuerdo en qué lugar usaremos como origen de nuestras mediciones.\n\n[JUEGO:ORDENAR_FRASE:EL PUNTO DE REFERENCIA ES CLAVE]\n\nDespejemos la niebla buscando conceptos vitales en este registro encriptado:\n\n[JUEGO:SOPA_LETRAS:REPOSO,MOVIMIENTO,DISTANCIA]\n\n[JUEGO:SOPA_LETRAS:FISICA,CIENCIA,DETECTIVE]\n\nResuelve este primer enigma rápido, recluta. El tiempo corre y las sombras no esperan.\n\n[JUEGO:CRUCIGRAMA:Cambio de posicion de un cuerpo respecto a un punto|MOVIMIENTO;Estado de un cuerpo que no cambia de posicion|REPOSO]\n\n[JUEGO:CRUCIGRAMA:Punto que elegimos para medir el movimiento|REFERENCIA;Camino recorrido por un objeto|TRAYECTORIA]",
+  "recurso_visual": "| Estado Físico | Definición en la Zona Cero | Relación con el Punto de Referencia (IE Montenegro) | Ejemplo Práctico de Supervivencia |\n| :--- | :--- | :--- | :--- |\n| **Movimiento** | Cambio continuo de posición a lo largo del tiempo. | La distancia o dirección al refugio cambia segundo a segundo. | Un recolector corriendo con suministros hacia el portón principal. |\n| **Reposo** | Permanencia en el mismo lugar sin experimentar cambios de posición. | La distancia y dirección al refugio se mantienen constantes. | Una mina terrestre oculta enterrada a exactamente 15 metros del muro oeste. |",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "¿Qué elemento del entorno de la IE Instituto Montenegro elegimos como punto de referencia en la simulación?",
+      "respuesta_esperada": "Elegimos el refugio, situado en la entrada del colegio (Punto 0)."
+    },
+    {
+      "pregunta": "Si la distancia entre tú y un mutante no cambia a pesar de que el mutante agite sus brazos, ¿está en movimiento o en reposo respecto a ti?",
+      "respuesta_esperada": "Está en reposo respecto a mí, porque su posición espacial no cambia con el tiempo en relación con mi ubicación."
+    },
+    {
+      "pregunta": "¿Por qué se dice que el movimiento es relativo en el escenario apocalíptico?",
+      "respuesta_esperada": "Porque un objeto puede estar en movimiento para un observador en el suelo, pero en reposo para alguien que viaje junto al objeto."
+    },
+    {
+      "pregunta": "Si cambias el punto de referencia de las ruinas del colegio a un camión que se desplaza, ¿qué pasa con el estado de reposo de las ruinas?",
+      "respuesta_esperada": "Las ruinas, que antes estaban en reposo, pasarían a considerarse en movimiento relativo respecto al camión."
+    },
+    {
+      "pregunta": "¿Qué magnitud física nos permite comprobar si la sombra se está acercando al refugio?",
+      "respuesta_esperada": "La posición a lo largo del tiempo, que nos indica el cambio de distancia respecto al origen de coordenadas."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja en tu cuaderno un mapa táctico del patio de la IE Instituto Montenegro. Ubica tu refugio en el centro (punto de referencia) y dibuja dos amenazas: una en reposo y otra en movimiento.",
+    "Explica por qué un sobreviviente que duerme dentro de un carro blindado en marcha está en reposo respecto al conductor, pero en movimiento respecto a un vigía que lo observa desde la azotea del colegio.",
+    "Propón un método científico casero usando cuerdas y marcas en el suelo para detectar si el muro del refugio se está desplazando debido a un sismo o derrumbe.",
+    "Escribe un breve informe policial describiendo cómo la física del movimiento te ayudó a determinar que una trampa de la Zona Cero fue activada y movida de su lugar original."
+  ],
+  "texto_deductivo": "# Manual de Táctica Física: El Método Científico de la Cinemática\n\n¡Atención, recluta! Para ser un auténtico Detective de Misterios, no basta con sospechar; hay que probar. La **Cinemática** es la rama de la física que estudia el movimiento de los cuerpos sin preocuparse por las causas que lo producen. Es nuestra herramienta de supervivencia definitiva. \n\nEn este nivel, debemos sistematizar el uso de nuestro **Sistema de Referencia**. Un sistema de referencia consta de un observador, un origen de coordenadas (el punto cero) y un reloj para medir el tiempo.\n\n<div style=\"text-align: center; background: #222; padding: 15px; border: 2px solid #00ffff; border-radius: 8px; margin: 20px 0;\">\n  <table style=\"width:100%; border-collapse: collapse; font-family: monospace; color: #fff;\">\n    <thead>\n      <tr style=\"background: #00ffff; color: #000;\">\n        <th style=\"padding: 8px; border: 1px solid #444;\">Tiempo (t en segundos)</th>\n        <th style=\"padding: 8px; border: 1px solid #444;\">Posición Acechador (x en metros)</th>\n        <th style=\"padding: 8px; border: 1px solid #444;\">Estado de Movimiento</th>\n      </tr>\n    </thead>\n    <tbody>\n      <tr>\n        <td style=\"padding: 8px; border: 1px solid #444;\">0 s</td>\n        <td style=\"padding: 8px; border: 1px solid #444;\">100 m</td>\n        <td style=\"padding: 8px; border: 1px solid #444; color: #ff4500;\">Reposo Inicial (Alerta)</td>\n      </tr>\n      <tr style=\"background: #333;\">\n        <td style=\"padding: 8px; border: 1px solid #444;\">2 s</td>\n        <td style=\"padding: 8px; border: 1px solid #444;\">80 m</td>\n        <td style=\"padding: 8px; border: 1px solid #444; color: #32cd32;\">Movimiento (Se acerca)</td>\n      </tr>\n      <tr>\n        <td style=\"padding: 8px; border: 1px solid #444;\">4 s</td>\n        <td style=\"padding: 8px; border: 1px solid #444;\">60 m</td>\n        <td style=\"padding: 8px; border: 1px solid #444; color: #32cd32;\">Movimiento (Sigue avanzando)</td>\n      </tr>\n      <tr style=\"background: #333;\">\n        <td style=\"padding: 8px; border: 1px solid #444;\">6 s</td>\n        <td style=\"padding: 8px; border: 1px solid #444;\">60 m</td>\n        <td style=\"padding: 8px; border: 1px solid #444; color: #ff4500;\">Reposo (Se detuvo a acechar)</td>\n      </tr>\n    </tbody>\n  </table>\n  <p style=\"color: #00ffff; font-size: 0.85em; margin: 8px 0 0 0;\">Tabla de Datos de Avistamiento: Registro de cinemática básica en la IE Instituto Montenegro.</p>\n</div>\n\nComo detective de misterios, debes descifrar los componentes fundamentales de este sistema para poder programar las alarmas automáticas del campamento:\n\n[JUEGO:ORDENAR_LETRAS:SISTEMA]\n\n[JUEGO:ORDENAR_LETRAS:REFERENCIA]\n\n[JUEGO:ORDENAR_LETRAS:TIEMPO]\n\nSi el tiempo corre, pero el valor de la posición (x) de un objeto no varía, podemos configurar las torretas de defensa en modo pasivo. Sin embargo, recuerda siempre nuestra regla de oro:\n\n[JUEGO:ORDENAR_FRASE:TODO DEPENDE DEL OBSERVADOR]\n\nNo te dejes engañar por los sensores dañados por el pulso electromagnético.\n\n[JUEGO:ORDENAR_FRASE:EL REPOSO ABSOLUTO NO EXISTE]\n\nDado que la Tierra se mueve por el espacio, todo lo que consideramos \"quieto\" en el Instituto Montenegro se mueve a gran velocidad con respecto al Sol. El reposo es siempre relativo a la superficie terrestre.\n\n[JUEGO:ORDENAR_FRASE:LA CINEMATICA ESTUDIA EL MOVIMIENTO]\n\nPara blindar nuestro conocimiento, descifra las siguientes sopas de letras de alta complejidad científica:\n\n[JUEGO:SOPA_LETRAS:SISTEMA,TIEMPO,ESPACIO]\n\n[JUEGO:SOPA_LETRAS:CAMBIO,POSICION,LUGAR]\n\n[JUEGO:SOPA_LETRAS:MUTANTE,ALERTA,ESCAPE]\n\nCompleta las bitácoras finales de la investigación usando las pistas del antiguo laboratorio:\n\n[JUEGO:CRUCIGRAMA:Magnitud que mide la duracion de un evento|TIEMPO;Lugar que ocupa un cuerpo en el espacio|POSICION]\n\n[JUEGO:CRUCIGRAMA:Ciencia que estudia la materia y energia|FISICA;El que observa el movimiento|OBSERVADOR]\n\n[JUEGO:CRUCIGRAMA:Estado sin movimiento aparente|QUIETUD;Linea del viaje|TRAYECTO]",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "¿Qué tres elementos componen un sistema de referencia completo para estudiar el movimiento en el campamento?",
+      "respuesta_esperada": "Un origen de coordenadas, un observador con un instrumento de medición espacial y un reloj para medir el tiempo."
+    },
+    {
+      "pregunta": "Según la tabla de datos, ¿en qué intervalo de tiempo (de qué segundo a qué segundo) el acechador se mantuvo en reposo?",
+      "respuesta_esperada": "Se mantuvo en reposo entre el segundo 4 y el segundo 6, ya que su posición se mantuvo constante en 60 metros."
+    },
+    {
+      "pregunta": "Si un sobreviviente camina a 1 m/s sobre un tren en marcha que se mueve a 10 m/s, ¿por qué su velocidad cambia según el observador?",
+      "respuesta_esperada": "Porque la velocidad es una magnitud relativa que depende del estado de movimiento del sistema de referencia del observador."
+    },
+    {
+      "pregunta": "¿Por qué afirmamos científicamente que el reposo absoluto no existe en el universo?",
+      "respuesta_esperada": "Porque todo cuerpo en el universo está en constante movimiento respecto a otros cuerpos celestes, como la Tierra girando alrededor del Sol."
+    },
+    {
+      "pregunta": "¿Qué ocurre con el valor de la posición de un objeto en reposo respecto a su punto de origen a medida que el tiempo avanza?",
+      "respuesta_esperada": "La posición del objeto permanece constante, sin importar cuánto aumente el valor del tiempo."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Basándote en la Tabla de Datos de Avistamiento, elabora en tu cuaderno un gráfico de Posición contra Tiempo (Eje Vertical: Posición en metros, Eje Horizontal: Tiempo en segundos). Une los puntos con líneas de color rojo.",
+    "Escribe una regla de seguridad de 3 pasos para que tus compañeros del Instituto Montenegro verifiquen si una criatura camuflada en los árboles está realmente inmóvil o acechando lentamente.",
+    "Investiga y redacta un párrafo sobre cómo el GPS de los antiguos celulares requería de múltiples puntos de referencia para determinar la posición exacta de un usuario.",
+    "Plantea un experimento mental donde dos sobrevivientes se mueven a la misma velocidad en la misma dirección y explica por qué se ven el uno al otro en reposo."
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de fenómenos",
+      "texto_introductorio": "Durante una guardia nocturna en la IE Instituto Montenegro, un centinela utiliza un sensor de posición láser para vigilar un viejo camión de suministros abandonado en la calle frente al refugio. El sensor genera la siguiente tabla de datos registrando la posición (x) del camión a lo largo del tiempo (t):",
+      "tabla_o_grafica_markdown": "| Tiempo (s) | Posición (m) |\n| :--- | :--- |\n| 0 | 12 |\n| 10 | 12 |\n| 20 | 12 |\n| 30 | 12 |",
+      "pregunta": "Basándose en los datos de la tabla, ¿cuál es el estado del camión respecto al sensor de posición del centinela y cómo se justifica científicamente?",
+      "options": [
+        "Está en movimiento acelerado, porque el tiempo transcurre constantemente de 10 en 10 segundos.",
+        "Está en estado de reposo, porque su posición se mantiene constante en 12 metros a medida que transcurre el tiempo.",
+        "Está en movimiento uniforme, porque el camión se desplaza a una distancia fija de 12 metros en cada intervalo.",
+        "No se puede determinar su estado, porque el sensor láser no registra la velocidad del viento ni de la luz."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. Que el tiempo avance de manera uniforme es una característica del transcurso temporal, no implica que el camión esté acelerando si su posición no varía.",
+        "1": "¡Correcto, recluta! En cinemática, si la posición de un objeto permanece inalterada (en este caso constante en 12 metros) a medida que transcurre el tiempo, se define formalmente como un estado de reposo respecto al sistema de referencia utilizado.",
+        "2": "Incorrecto. Para que hubiera movimiento uniforme, la posición tendría que cambiar de manera constante en cada intervalo de tiempo. Aquí la posición no cambia.",
+        "3": "Incorrecto. No se requiere medir el viento ni la luz para definir el estado de movimiento o reposo respecto al punto de referencia establecido por el sensor."
+      }
+    }
+  ]
+}

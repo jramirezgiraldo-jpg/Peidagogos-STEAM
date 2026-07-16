@@ -1,0 +1,94 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "Estás atrapado en un bote que flota en un río muy calmado dentro de la selva. No hay viento y las orillas están cubiertas de niebla espesa. ¿Cómo puedes saber realmente si te estás moviendo respecto al fondo del río?",
+      "opciones": [
+        "A) Cerrando los ojos y sintiendo la velocidad del agua.",
+        "B) Necesitas ver un punto de referencia fijo, como una roca en el fondo o un árbol en la orilla.",
+        "C) El movimiento se siente siempre en los oídos sin importar las referencias.",
+        "D) Un cuerpo en el agua siempre está en reposo absoluto."
+      ],
+      "correcta": 1
+    }
+  ],
+  "texto_inductivo": "# ¡Expedición en la Selva del Quindío!\n\n¡Atención, reclutas de la **IE Instituto Montenegro**! Soy su Detective de Misterios Naturales. Nos hemos adentrado en una espesa y misteriosa selva. El aire es húmedo, los árboles son gigantes y, a lo lejos, se escucha el rugido de un jaguar. Para sobrevivir aquí, nuestra mejor arma no es un machete, sino la **Física**.\n\n* **_¿Cómo podemos, como jóvenes exploradores de la IE Instituto Montenegro perdidos en la espesa selva del Quindío, determinar con absoluta certeza si un jaguar al acecho está realmente inmóvil o si somos nosotros quienes nos movemos debido al temblor de nuestro propio cuerpo por el miedo?_**\n\nPara resolver este misterio, primero debemos entender qué es el movimiento. Observen esta escena:\n\n<svg viewBox='0 0 400 200' style='background-color:#1e3d2f; border-radius:8px;' width='100%' xmlns='http://www.w3.org/2000/svg'><rect width='400' height='200' fill='#0f2017'/><circle cx='80' cy='120' r='15' fill='#8B4513' /><text x='80' y='150' fill='#fff' font-family='sans-serif' font-size='10' text-anchor='middle'>Árbol Fijo (Referencia)</text><circle cx='200' cy='120' r='10' fill='#FF8C00' /><text x='200' y='150' fill='#fff' font-family='sans-serif' font-size='10' text-anchor='middle'>Jaguar (¿Se mueve?)</text><line x1='80' y1='120' x2='200' y2='120' stroke='#ffeb3b' stroke-dasharray='5,5' stroke-width='2' /><text x='140' y='110' fill='#ffeb3b' font-family='sans-serif' font-size='10' text-anchor='middle'>Distancia d</text></svg>\n\nSi la distancia (d) entre el árbol y el jaguar no cambia a medida que pasa el tiempo, decimos que el jaguar está en **reposo** respecto al árbol. Pero si la distancia cambia, ¡cuidado! El jaguar está en **movimiento**.\n\nPara agudizar sus mentes detectivescas, resuelvan estos desafíos de entrenamiento en la selva:\n\n### Desafío 1: Descifra los conceptos\n[JUEGO:ORDENAR_LETRAS:REPOSO]\n[JUEGO:ORDENAR_LETRAS:SELVA]\n[JUEGO:ORDENAR_LETRAS:JAGUAR]\n[JUEGO:ORDENAR_LETRAS:PUNTO]\n[JUEGO:ORDENAR_LETRAS:CAMINO]\n\n### Desafío 2: Mensajes encriptados de la naturaleza\n[JUEGO:ORDENAR_FRASE:EL MOVIMIENTO DEPENDE DEL OBSERVADOR]\n[JUEGO:ORDENAR_FRASE:LA SELVA NUNCA DUERME REALMENTE]\n[JUEGO:ORDENAR_FRASE:UN CUERPO EN REPOSO NO SE MUEVE]\n[JUEGO:ORDENAR_FRASE:EL PUNTO DE REFERENCIA ES CLAVE]\n[JUEGO:ORDENAR_FRASE:MEDIR LA DISTANCIA SALVA VIDAS]\n\n### Desafío 3: Búsqueda de pistas ocultas\n[JUEGO:SOPA_LETRAS:REPOSO,MOVIMIENTO,SELVA]\n[JUEGO:SOPA_LETRAS:DISTANCIA,TIEMPO,RAPIDEZ]\n[JUEGO:SOPA_LETRAS:SISTEMA,REFERENCIA,FISICA]\n[JUEGO:SOPA_LETRAS:DETECTIVE,PISTA,MISTERIO]\n[JUEGO:SOPA_LETRAS:CAMINO,BRUJULA,MAPA]\n\n### Desafío 4: Crucigrama del Explorador\n[JUEGO:CRUCIGRAMA:Estado donde no cambia la posicion|REPOSO;Estado de cambio de posicion|MOVIMIENTO]\n[JUEGO:CRUCIGRAMA:Lugar desde donde miras|REFERENCIA;Lo que recorres en metros|DISTANCIA]\n[JUEGO:CRUCIGRAMA:Instrumento de orientacion|BRUJULA;Representacion grafica de la selva|MAPA]\n[JUEGO:CRUCIGRAMA:Animal rapido de la selva|JAGUAR;Arboles densos|BOSQUE]\n[JUEGO:CRUCIGRAMA:El misterio que resolvemos|FISICA;Unidad de tiempo basica|SEGUNDO]\n\nComo detectives, sabemos que el miedo puede hacernos creer que las cosas se mueven cuando no es así. Si tus ojos tiemblan, el jaguar parecerá moverse, pero si miras el árbol de referencia a su lado, ¡sabrás la verdad científica!",
+  "recurso_visual": "| Situación en la Selva | ¿Cambia de posición? | Estado respecto a la Tierra | Estado respecto a un río que fluye |\n|---|---|---|---|\n| Árbol de mango gigante | No | Reposo | Movimiento |\n| Explorador corriendo | Sí | Movimiento | Movimiento |\n| Piedra en el camino | No | Reposo | Movimiento |\n| Jaguar acechando inmóvil | No | Reposo | Movimiento |",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "¿Qué elemento de la selva elegimos como punto de referencia para saber si el jaguar se mueve?",
+      "respuesta_esperada": "Elegimos el árbol fijo, ya que su posición no cambia con respecto al suelo."
+    },
+    {
+      "pregunta": "Si estás temblando de miedo, ¿por qué parece que todo a tu alrededor se mueve?",
+      "respuesta_esperada": "Porque tu propio cuerpo (el punto de referencia de tus ojos) está cambiando de posición rápidamente."
+    },
+    {
+      "pregunta": "¿Es posible estar en movimiento y en reposo al mismo tiempo?",
+      "respuesta_esperada": "Sí, depende del punto de referencia que elijas para medir el estado."
+    },
+    {
+      "pregunta": "¿Por qué un árbol de mango de Montenegro se considera en reposo para un habitante del municipio?",
+      "respuesta_esperada": "Porque no cambia su distancia ni su posición con respecto a las calles del municipio a lo largo del tiempo."
+    },
+    {
+      "pregunta": "¿Qué pasaría si no tuviéramos ningún punto de referencia en la selva?",
+      "respuesta_esperada": "No podríamos saber si nos estamos moviendo o si estamos completamente quietos."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja en tu cuaderno una escena de la selva donde un mono esté en movimiento respecto a una palmera, pero en reposo respecto a la rama sobre la que está sentado.",
+    "Explica con tus propias palabras qué es un 'Punto de Referencia' usando un ejemplo del Instituto Montenegro.",
+    "Si viajas en el bus escolar del colegio, ¿te estás moviendo respecto al conductor? ¿Y respecto a las casas de la calle? Explica la diferencia.",
+    "Escribe una hipótesis de cómo un detective de la física puede usar la sombra de un árbol para saber si el sol se está moviendo en el cielo."
+  ],
+  "texto_deductivo": "# La Ciencia detrás del Misterio: Cinemática de Supervivencia\n\n¡Excelente trabajo resolviendo las primeras pistas, reclutas! Ahora vamos a formalizar nuestro conocimiento científico. En física, la rama que estudia el movimiento sin preocuparse por qué lo causa se llama **Cinemática**.\n\nPara un detective, las definiciones exactas son las que resuelven los casos más difíciles. Veamos los conceptos clave:\n\n1. **Punto de Referencia:** Es el lugar físico (un objeto o coordenada) que consideramos inmóvil para medir el movimiento de otros cuerpos.\n2. **Posición:** Es la ubicación de un objeto respecto al punto de referencia.\n3. **Movimiento:** Es el cambio de posición de un cuerpo a lo largo del tiempo respecto a un punto de referencia.\n4. **Reposo:** Es el estado de un cuerpo que no cambia su posición respecto al punto de referencia a medida que pasa el tiempo.\n\nObservemos este mapa de trayectoria en la selva:\n\n<svg viewBox='0 0 400 200' style='background-color:#1c2833; border-radius:8px;' width='100%' xmlns='http://www.w3.org/2000/svg'><rect width='400' height='200' fill='#17202a'/><line x1='50' y1='150' x2='350' y2='150' stroke='#5d6d7e' stroke-width='3'/><circle cx='100' cy='150' r='5' fill='#e74c3c'/><text x='100' y='170' fill='#e74c3c' font-family='sans-serif' font-size='10' text-anchor='middle'>Posición Inicial (A)</text><circle cx='300' cy='150' r='5' fill='#2ecc71'/><text x='300' y='170' fill='#2ecc71' font-family='sans-serif' font-size='10' text-anchor='middle'>Posición Final (B)</text><path d='M 100 150 Q 200 80 300 150' fill='none' stroke='#f1c40f' stroke-width='2' stroke-dasharray='4,4'/><text x='200' y='100' fill='#f1c40f' font-family='sans-serif' font-size='10' text-anchor='middle'>Trayectoria (Movimiento)</text></svg>\n\n### Desafío Técnico 1: Vocabulario Científico\n[JUEGO:ORDENAR_LETRAS:BRUJULA]\n[JUEGO:ORDENAR_LETRAS:SISTEMA]\n[JUEGO:ORDENAR_LETRAS:RAPIDEZ]\n[JUEGO:ORDENAR_LETRAS:TIEMPO]\n[JUEGO:ORDENAR_LETRAS:METRO]\n\n### Desafío Técnico 2: Leyes de la Cinemática\n[JUEGO:ORDENAR_FRASE:EL JAGUAR ACECHA DESDE EL ARBOL]\n[JUEGO:ORDENAR_FRASE:LA FISICA EXPLICA EL MOVIMIENTO]\n[JUEGO:ORDENAR_FRASE:LA DISTANCIA ES UNA MAGNITUD]\n[JUEGO:ORDENAR_FRASE:TU ERES EL PUNTO CENTRAL]\n[JUEGO:ORDENAR_FRASE:DESCUBRE EL MISTERIO OCULTO]\n\n### Desafío Técnico 3: Sopa de Letras Física\n[JUEGO:SOPA_LETRAS:RELOJ,CRONOMETRO,HORA]\n[JUEGO:SOPA_LETRAS:VECTOR,SENTIDO,DIRECCION]\n[JUEGO:SOPA_LETRAS:METROS,KILOMETRO,MEDIDA]\n[JUEGO:SOPA_LETRAS:POSICION,TRAYECTO,ORIGEN]\n[JUEGO:SOPA_LETRAS:OBSERVADOR,VISTA,MIRADA]\n\n### Desafío Técnico 4: Crucigrama Avanzado\n[JUEGO:CRUCIGRAMA:Lugar donde inicias el viaje|ORIGEN;Hacia donde te diriges|DESTINO]\n[JUEGO:CRUCIGRAMA:Magnitud que solo tiene tamano|ESCALAR;Magnitud con direccion y sentido|VECTORIAL]\n[JUEGO:CRUCIGRAMA:Unidad de medida de longitud|METRO;Aparato para medir el tiempo|CRONOMETRO]\n[JUEGO:CRUCIGRAMA:Linea que describe el movimiento|TRAYECTORIA;Cambio de posicion de un cuerpo|DESPLAZAMIENTO]\n[JUEGO:CRUCIGRAMA:Persona que recolecta pistas|DETECTIVE;Lugar de estudio en Montenegro|COLEGIO]\n\n¡La relatividad del movimiento es real! Un jaguar puede estar en reposo para el árbol donde descansa, pero está moviéndose a miles de kilómetros por hora con respecto al sol porque la Tierra gira. ¡Todo es cuestión de perspectiva!",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "¿Cuál es la definición formal de movimiento en física?",
+      "respuesta_esperada": "Es el cambio de posición que experimenta un cuerpo a lo largo del tiempo respecto a un punto de referencia dado."
+    },
+    {
+      "pregunta": "Si un cuerpo no cambia de posición respecto a un punto de referencia, ¿en qué estado se encuentra?",
+      "respuesta_esperada": "Se encuentra en estado de reposo absoluto respecto a ese punto de referencia."
+    },
+    {
+      "pregunta": "¿Por qué se dice que el movimiento es relativo?",
+      "respuesta_esperada": "Porque el mismo cuerpo puede estar moviéndose para un observador y estar quieto para otro, dependiendo de sus puntos de referencia."
+    },
+    {
+      "pregunta": "¿Qué unidad del Sistema Internacional usamos para medir la distancia en nuestros mapas de la selva?",
+      "respuesta_esperada": "Usamos el metro (m) como unidad fundamental de longitud."
+    },
+    {
+      "pregunta": "Si corres alrededor de una fogata en la selva, ¿cuál es tu punto de referencia más lógico?",
+      "respuesta_esperada": "La fogata, porque está fija en el centro de tu trayectoria."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Define detalladamente en tu cuaderno: Cinemática, Posición, Trayectoria y Reposo.",
+    "Plantea un experimento sencillo que puedas hacer en el salón de clases de la IE Instituto Montenegro para demostrar que el movimiento es relativo.",
+    "Imagina que una mariposa vuela de flor en flor en la selva. Describe cómo cambiaría su estado de movimiento si tomamos como referencia la mariposa misma.",
+    "Elabora una tabla comparativa entre los conceptos de Reposo y Movimiento, dando tres ejemplos de cada uno aplicados a la vida en Montenegro."
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de fenómenos",
+      "texto_introductorio": "Un grupo de expedicionarios del Instituto Montenegro está acampando al lado de un río caudaloso. Un estudiante observa una balsa que flota en la corriente y una roca gigante en la orilla.",
+      "tabla_o_grafica_markdown": "| Objeto | Posición respecto al Árbol en la Orilla | Posición respecto al Agua del Río |\n|---|---|---|\n| Roca | No cambia (Constante) | Cambia (El agua fluye) |\n| Balsa | Cambia (Se aleja) | No cambia (Flota con la corriente) |",
+      "pregunta": "¿Cuál de las siguientes afirmaciones describe correctamente el estado de movimiento o reposo de la balsa según el punto de referencia elegido?",
+      "opciones": [
+        "A) La balsa está en movimiento respecto al agua del río porque el río fluye.",
+        "B) La balsa está en reposo respecto al árbol en la orilla porque flota libremente.",
+        "C) La balsa está en reposo respecto al agua del río, pero en movimiento respecto al árbol en la orilla.",
+        "D) Tanto la roca como la balsa están en movimiento absoluto sin importar el punto de referencia."
+      ],
+      "correcta": 2,
+      "retroalimentacion": {
+        "0": "Incorrecto. Al flotar libremente con la corriente, la balsa no cambia su posición respecto al agua que la rodea.",
+        "1": "Incorrecto. La balsa cambia de posición respecto al árbol en la orilla, por lo que está en movimiento respecto a este.",
+        "2": "¡Excelente detective! Como la balsa viaja junto con el agua, su posición relativa al río no cambia (reposo relativo), pero sí cambia respecto al árbol fijo en la orilla (movimiento relativo).",
+        "3": "Incorrecto. El movimiento es relativo y siempre depende del punto de referencia seleccionado. No existe el movimiento absoluto en este contexto."
+      }
+    }
+  ]
+}

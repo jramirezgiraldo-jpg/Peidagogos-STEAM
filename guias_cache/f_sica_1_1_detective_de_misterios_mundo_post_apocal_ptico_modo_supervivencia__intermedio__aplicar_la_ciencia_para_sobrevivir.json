@@ -1,0 +1,114 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "Estás dentro del refugio de la IE Instituto Montenegro y observas a un compañero sentado durmiendo. Respecto al suelo de la habitación, tu compañero está en reposo. Pero respecto al Sol en el espacio, ¿cuál es su estado de movimiento?",
+      "opciones": [
+        "Está en reposo absoluto porque no se despierta ni se desplaza.",
+        "Está en movimiento continuo porque la Tierra gira y se desplaza alrededor del Sol.",
+        "Depende del clima y de si hay marea alta o baja en el cañón.",
+        "No se puede saber porque los sensores de movimiento están apagados."
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "Para determinar si un dron de vigilancia del páramo se está acercando a tu trinchera, ¿qué es lo primero que necesitas definir?",
+      "opciones": [
+        "La velocidad máxima que alcanza el dron.",
+        "El combustible restante en los motores del dron.",
+        "Un punto de referencia fijo, como la entrada del búnker principal.",
+        "La masa total del dron y sus proyectiles."
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "Si un carro de reconocimiento viaja en línea recta por la vía Montenegro-Armenia y su copiloto deja caer una linterna dentro del vehículo, ¿cómo ve caer la linterna el conductor del carro?",
+      "opciones": [
+        "Ve que cae en línea recta vertical hacia abajo.",
+        "Ve que la linterna retrocede con una curva extraña hacia el parabrisas trasero.",
+        "No la ve caer porque el carro viaja más rápido que la luz de la linterna.",
+        "La ve flotar estática debido a la inercia del motor de combustión."
+      ],
+      "correcta": 0
+    }
+  ],
+  "texto_inductivo": "# INFORME DETECTIVESCO: Operación Niebla del Quindío\n\n**Investigador principal:** Detective Falcon\n**Ubicación:** Ruinas de la *IE Instituto Montenegro*, Quindío (Zona Cero de la Nebulosa)\n**Dificultad:** Modo Supervivencia (Intermedio)\n\n¡Atención, reclutas del Instituto Montenegro! El aire exterior es denso y tóxico, pero nuestra mayor amenaza no es la atmósfera, sino lo que acecha tras la neblina. Hemos detectado una anomalía térmica cerca de la antigua cancha de fútbol de la institución. Los radares parpadean, pero no logramos descifrar si la amenaza avanza hacia nosotros o si el terreno colapsado del cañón nos desliza hacia ella. \n\n**_¿Cómo podemos los sobrevivientes de la IE Instituto Montenegro determinar si una amenaza biomecánica acecha en movimiento hacia nuestro refugio, o si somos nosotros quienes nos desplazamos inadvertidamente hacia ella debido al movimiento del terreno inestable del cañón?_**\n\nPara resolver este misterio y no desperdiciar nuestras preciadas baterías de defensa, debemos dominar el arte de la **cinemática básica**. Debemos aprender a diferenciar con precisión quirúrgica el **movimiento** del **reposo**.\n\n<div style='text-align: center; margin: 20px 0;'>\n  <svg width='100%' height='220' style='background:#111; border:2px solid #0f0; font-family:monospace; border-radius: 8px;'>\n    <circle cx='150' cy='110' r='80' fill='none' stroke='#0f0' stroke-width='1'/>\n    <circle cx='150' cy='110' r='50' fill='none' stroke='#0f0' stroke-dasharray='5,5'/>\n    <line x1='150' y1='10' x2='150' y2='210' stroke='#0f0' stroke-opacity='0.5'/>\n    <line x1='50' y1='110' x2='250' y2='110' stroke='#0f0' stroke-opacity='0.5'/>\n    <circle cx='190' cy='70' r='6' fill='#ff0000'>\n      <animate attributeName='opacity' values='0.2;1;0.2' dur='2s' repeatCount='indefinite'/>\n    </circle>\n    <text x='200' y='65' fill='#ff0000' font-size='11' font-weight='bold'>AMENAZA (Sombra)</text>\n    <text x='65' y='125' fill='#0f0' font-size='10'>IE MONTENEGRO (Refugio)</text>\n    <rect x='146' y='106' width='8' height='8' fill='#0f0'/>\n  </svg>\n  <p style='color: #0f0; font-size: 11px; font-style: italic;'>Radar de Posición de la IE Instituto Montenegro. ¿La sombra cambia de cuadrante respecto al origen?</p>\n</div>\n\nEl problema es el siguiente: cuando miras por la rendija del búnker, la silueta metálica parece congelada en el horizonte. Sin embargo, los sensores sísmicos del laboratorio de química muestran vibración. ¿Es el suelo del cañón del río Roble que cede y nos mueve, o es la criatura que avanza sigilosamente?\n\nPara comenzar nuestra investigación criminalística, desbloquea las primeras pistas de tu libreta de campo resolviendo estos enigmas de descifrado:\n\n[JUEGO:ORDENAR_LETRAS:MOVIMIENTO]\n\n[JUEGO:ORDENAR_LETRAS:REPOSO]\n\nSi no logramos ponernos de acuerdo sobre qué está estático y qué está viajando, dispararemos los cañones de pulso electromagnético en la dirección equivocada, revelando nuestra posición y condenando a toda la comunidad de Montenegro. El análisis de rastros requiere ojos de halcón y mentes frías.\n\n[JUEGO:ORDENAR_FRASE:EL MOVIMIENTO DEPENDE DEL OBSERVADOR]\n\n[JUEGO:ORDENAR_FRASE:TODO SE MUEVE EN EL ESPACIO]\n\nUsa tus binoculares tácticos e intenta resolver esta sopa de letras de reconocimiento de entorno para buscar las palabras clave que salven nuestras vidas hoy:\n\n[JUEGO:SOPA_LETRAS:CINEMATICA,REPOSO,SISTEMA]\n\n[JUEGO:SOPA_LETRAS:VELOCIDAD,MARCO,PUNTO]\n\nFinalmente, antes de salir a patrullar el perímetro del bloque A, completa este breve reporte de aduana para verificar tu identidad táctica:\n\n[JUEGO:CRUCIGRAMA:Cambio de posicion de un objeto respecto a un punto de referencia|MOVIMIENTO;Estado en el que la posicion no cambia respecto al tiempo|REPOSO]",
+  "recurso_visual": "| Variable de Supervivencia | Estado Físico | Definición Operativa en Combate | Ejemplo Práctico en IE Montenegro |\n| :--- | :--- | :--- | :--- |\n| **Punto de Referencia (Origen)** | Variable Clave | Objeto estático elegido para medir distancias. | El asta de la bandera en la plaza central de la institución. |\n| **Movimiento** | Dinámico | Cambio continuo de posición respecto al origen. | Un merodeador corriendo hacia las puertas del laboratorio de física. |\n| **Reposo** | Estático | La posición permanece constante con el tiempo. | La torreta de defensa automática anclada sobre el tejado del gimnasio. |",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "¿Por qué es peligroso no saber si la amenaza se mueve o si el suelo de la IE Instituto Montenegro se desplaza?",
+      "respuesta_esperada": "Porque podríamos disparar las defensas en la dirección equivocada, revelando nuestra posición y desperdiciando recursos valiosos para la supervivencia."
+    },
+    {
+      "pregunta": "¿Qué papel cumple el asta de la bandera en el ejemplo del recurso visual?",
+      "respuesta_esperada": "Sirve como punto de referencia u origen para determinar si un objeto o amenaza cambia de posición o permanece estático."
+    },
+    {
+      "pregunta": "Según la narrativa, ¿por qué un compañero que duerme en el refugio está en movimiento respecto al Sol?",
+      "respuesta_esperada": "Porque la Tierra realiza movimientos de rotación y traslación alrededor del Sol, arrastrándonos con ella a gran velocidad por el espacio."
+    },
+    {
+      "pregunta": "¿Qué estudia la cinemática de acuerdo con las pistas del informe?",
+      "respuesta_esperada": "Estudia el movimiento de los cuerpos sin preocuparse por las fuerzas o causas que lo producen."
+    },
+    {
+      "pregunta": "¿Cómo definimos técnicamente que la sombra biomecánica está en reposo respecto a nosotros?",
+      "respuesta_esperada": "Si al medir su distancia y dirección respecto a nuestro refugio (punto de referencia) a lo largo del tiempo, estos valores no sufren ninguna variación."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Reto de Observación: Mira a tu alrededor en el salón o refugio de clase. Elige un objeto fijo como tu punto de referencia. Ahora, desplaza tu cartuchera y explica paso a paso por qué se movió usando el concepto de cambio de posición.",
+    "El Enigma del Bus de Escape: Si estás huyendo de los mutantes dentro de un camión a 80 km/h y lanzas una manzana verticalmente hacia arriba, ¿caerá en tu mano o detrás de ti? Justifica tu respuesta dibujando la trayectoria según tú y según un observador de pie en la carretera.",
+    "Mapa de Calor de Montenegro: Dibuja un plano simple de tu colegio (IE Instituto Montenegro). Ubica tres puntos que consideres completamente estáticos (puntos de referencia) y dibuja el camino (trayectoria) que recorre un centinela de seguridad.",
+    "Análisis de Bitácora: Explica por qué la frase 'el reposo absoluto no existe en el universo' es crucial para entender el movimiento orbital terrestre."
+  ],
+  "texto_deductivo": "# MANUAL DE CAMPO: Principios Científicos de la Cinemática\n\nComo Detective de Misterios de la Física, es momento de traducir las pistas en leyes científicas irrefutables. Para sobrevivir en este mundo post-apocalíptico, no podemos basarnos en suposiciones; necesitamos mediciones y teoría física aplicada.\n\n### 1. El Marco de Referencia: Tu Brújula de Supervivencia\nEn física, el **movimiento** no es una propiedad del objeto en sí, sino una relación entre el objeto y el observador. Decimos que un cuerpo está en **movimiento** cuando cambia su **posición** a medida que transcurre el **tiempo** con respecto a un **sistema de referencia** elegido previamente. \n\nSi el observador cambia el punto de referencia, el estado de movimiento cambia por completo. ¡Esto se conoce como la Relatividad del Movimiento!\n\n<div style='text-align: center; margin: 20px 0;'>\n  <svg width='100%' height='160' style='background:#1a1a1a; border:1px solid #ff9900; font-family:sans-serif; border-radius: 8px;'>\n    <line x1='30' y1='100' x2='370' y2='100' stroke='#fff' stroke-width='3'/>\n    <polygon points='370,95 380,100 370,105' fill='#fff'/>\n    <circle cx='100' cy='100' r='8' fill='#ff9900'/>\n    <text x='85' y='80' fill='#ff9900' font-size='12' font-weight='bold'>X1 (Inicio: 0m)</text>\n    <circle cx='280' cy='100' r='8' fill='#00ffcc'/>\n    <text x='255' y='80' fill='#00ffcc' font-size='12' font-weight='bold'>X2 (Final: 15m)</text>\n    <path d='M 100 100 Q 190 40 280 100' fill='none' stroke='#ffff00' stroke-width='2' stroke-dasharray='4,4'/>\n    <text x='160' y='55' fill='#ffff00' font-size='11'>Trayectoria Curva</text>\n    <line x1='100' y1='120' x2='280' y2='120' stroke='#00ffcc' stroke-width='2'/>\n    <text x='155' y='140' fill='#00ffcc' font-size='11'>Distancia en línea recta (18m reales)</text>\n  </svg>\n  <p style='color: #ff9900; font-size: 11px; font-style: italic;'>Esquema vectorial: Cambio de posición en el espacio unidimensional.</p>\n</div>\n\n### 2. Conceptos Fundamentales a Memorizar\n*   **Posición ($x$):** Es el lugar preciso donde se encuentra un cuerpo dentro de nuestro sistema de coordenadas en un instante específico.\n*   **Trayectoria:** La línea imaginaria que une todos los puntos por los que pasa un cuerpo durante su movimiento. Puede ser rectilínea, curva, circular, etc.\n*   **Distancia recorrida ($d$):** La longitud total del camino recorrido medida sobre la trayectoria.\n\nCompleta estos ejercicios para calibrar tus sistemas mecánicos de medición táctica:\n\n[JUEGO:ORDENAR_LETRAS:TRAYECTORIA]\n\n[JUEGO:ORDENAR_LETRAS:DISTANCIA]\n\n[JUEGO:ORDENAR_LETRAS:POSICION]\n\n[JUEGO:ORDENAR_FRASE:EL PUNTO DE REFERENCIA ES CLAVE]\n\n[JUEGO:ORDENAR_FRASE:EL REPOSO ABSOLUTO NO EXISTE]\n\n[JUEGO:ORDENAR_FRASE:LA DISTANCIA SE MIDE EN METROS]\n\n### 3. Aplicación de Emergencia\nImagina que un robot explorador sale de la IE Instituto Montenegro hacia el norte buscando suministros medicinales. Camina en línea recta 4 metros, se detiene, y luego regresa al mismo punto de partida para refugiarse de una tormenta de ácido. \n*   ¿Su posición final cambió respecto al inicio? ¡No, regresó a su origen! ($x_f = 0$ m).\n*   ¿Recorrió distancia? ¡Sí, recorrió 8 metros en total ($4\\text{m de ida} + 4\\text{m de vuelta}$)! Aquí radica el misterio del detective: posición y distancia no son lo mismo.\n\nDemuestra que tienes las competencias lingüísticas de la ciencia descifrando estas sopas de letras avanzadas:\n\n[JUEGO:SOPA_LETRAS:TRAYECTORIA,DISTANCIA,TIEMPO]\n\n[JUEGO:SOPA_LETRAS:CAMBIO,FISICA,METRO]\n\n[JUEGO:SOPA_LETRAS:ORIGEN,EJE,ESPACIO]\n\nConsolida tus conocimientos y conviértete en Detective Certificado resolviendo los últimos acertijos del manual de operaciones:\n\n[JUEGO:CRUCIGRAMA:Camino imaginario que sigue un cuerpo al moverse|TRAYECTORIA;Lugar exacto en el espacio medido desde el origen|POSICION]\n\n[JUEGO:CRUCIGRAMA:Magnitud escalar que mide la longitud del camino recorrido|DISTANCIA;Objeto o lugar que elegimos para saber si algo se mueve|REFERENCIA]\n\n[JUEGO:CRUCIGRAMA:Magnitud fisica que mide la duracion de un evento|TIEMPO;Rama de la fisica que estudia el movimiento sin atender sus causas|CINEMATICA]\n\n[JUEGO:CRUCIGRAMA:Unidad basica de longitud en el Sistema Internacional|METRO;Cambio de posicion en un intervalo de tiempo con direccion|DESPLAZAMIENTO]",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "¿Qué diferencia sustancial hay entre la trayectoria y la distancia recorrida?",
+      "respuesta_esperada": "La trayectoria es la forma geométrica del camino dibujado en el espacio, mientras que la distancia es la medida numérica de la longitud de ese camino."
+    },
+    {
+      "pregunta": "Si un dron vuela en círculos perfectos sobre el colegio y aterriza exactamente donde despegó, ¿cuál fue su cambio de posición neto?",
+      "respuesta_esperada": "Su cambio de posición neto es cero metros, ya que sus coordenadas de partida y de llegada coinciden perfectamente."
+    },
+    {
+      "pregunta": "¿Por qué se afirma que el reposo absoluto es una ilusión en nuestro universo?",
+      "respuesta_esperada": "Porque todo en el universo se mueve. Aunque un objeto esté quieto en la Tierra, nuestro planeta rota, orbita alrededor del Sol y la galaxia entera viaja por el cosmos."
+    },
+    {
+      "pregunta": "¿Qué herramientas matemáticas o físicas componen formalmente un Sistema de Referencia?",
+      "respuesta_esperada": "Un punto de origen fijo, un sistema de ejes coordenados (como el plano cartesiano) y un instrumento de medición del tiempo (reloj)."
+    },
+    {
+      "pregunta": "Un explorador corre a esconderse de una criatura. Si cambia su posición de $x = 2\\text{ m}$ a $x = -5\\text{ m}$ respecto a la puerta principal, ¿qué significa el signo negativo?",
+      "respuesta_esperada": "Significa que el explorador se encuentra en el sentido opuesto al definido como positivo a partir del punto de origen (la puerta)."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Prueba Matemática de Escape: Un sobreviviente corre en línea recta de la posición $x = 10\\text{ m}$ a $x = 35\\text{ m}$, y luego regresa a la posición $x = 20\\text{ m}$ para esconderse en una alcantarilla. Calcula la distancia total recorrida y analiza cuál es su posición final respecto al origen.",
+    "El Detective Teórico: Imagina que diseñas un sensor láser para defender la entrada de la IE Instituto Montenegro. Explica cómo programarías el microchip del sensor para que diferencie las ráfagas de viento (que mueven las ramas de los árboles de lado a lado regresando al mismo punto) de la incursión real de un intruso que avanza de manera constante.",
+    "Ensayo de Supervivencia: Redacta un texto de un párrafo donde defiendas la siguiente tesis: 'En el combate táctico moderno, quien controla el punto de referencia, controla el campo de batalla'.",
+    "Estudio de Trayectorias: Lanza una pelota pequeña de tres maneras diferentes: verticalmente hacia arriba, con un ángulo (parabólico) y rodando por el suelo. Describe el tipo de trayectoria física que realiza cada lanzamiento en tu cuaderno."
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "En la IE Instituto Montenegro, dos estudiantes sobrevivientes, Juan y Sofía, analizan el movimiento de un carro robótico recolector de agua de lluvia. El carro se desplaza en línea recta desde la puerta del laboratorio hasta el portón externo de la institución. Juan se encuentra parado al lado de la puerta de salida y asegura que el robot se está alejando a una velocidad de 2 m/s. Al mismo tiempo, Sofía va montada de pie sobre la plataforma de carga del mismo carro de recolección.",
+      "tabla_o_grafica_markdown": "| Observador | Ubicación Física | Objeto Observado | Velocidad Registrada del Robot | Estado del Robot Según Observador |\n| :--- | :--- | :--- | :--- | :--- |\n| **Juan** | Estático en la puerta | Carro robótico | 2 m/s | En Movimiento |\n| **Sofía** | Montada sobre el carro | Carro robótico | 0 m/s | En Reposo |",
+      "pregunta": "Teniendo en cuenta el concepto de marco de referencia y la información de la tabla táctica, ¿cuál de las siguientes afirmaciones científicas es la correcta?",
+      "opciones": [
+        "Juan tiene la razón absoluta porque él está de pie en el suelo firme del colegio.",
+        "Sofía se equivoca porque es imposible que un vehículo que avanza por el patio esté en reposo.",
+        "Ambos tienen la razón, ya que el estado de movimiento o reposo depende del sistema de referencia desde el cual cada uno realiza la medición.",
+        "Ninguno tiene la razón, porque para determinar el movimiento real se requiere medir la temperatura del motor del carro."
+      ],
+      "correcta": 2,
+      "retroalimentacion": {
+        "0": "Incorrecto. No existe un punto de observación absoluto en el universo físico que posea privilegios sobre otros.",
+        "1": "Incorrecto. Respecto a la plataforma del carro, la posición de Sofía no varía, por lo cual está en perfecto reposo respecto al carro.",
+        "2": "¡Excelente elección, Detective! El movimiento es relativo y depende enteramente del marco de referencia del observador. Ambos observadores realizan una lectura científicamente válida.",
+        "3": "Incorrecto. La termodinámica del motor no define el estado cinemático de movimiento o reposo relativo."
+      }
+    }
+  ]
+}
