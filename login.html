@@ -48,6 +48,22 @@
             font-weight: 600;
             color: #1E3A8A;
         }
+
+        /* Responsive Mobile Fixes */
+        @media (max-width: 768px) {
+            #login-screen-container {
+                display: flex !important;
+                flex-direction: column !important;
+                height: auto !important;
+                min-height: 100vh;
+                overflow-y: auto !important;
+            }
+            #login-screen-container > div {
+                padding: 10% !important;
+                border-left: none !important;
+                border-bottom: 1px solid #e5e7eb;
+            }
+        }
     </style>
 
 </head>
