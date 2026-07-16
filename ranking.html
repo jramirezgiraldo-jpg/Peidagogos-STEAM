@@ -108,6 +108,39 @@
             font-weight: bold;
             font-size: 1rem;
         }
+        
+        /* Responsive Mobile Fixes */
+        @media (max-width: 768px) {
+            body > div {
+                flex-direction: column !important;
+                height: auto !important;
+                min-height: 100vh;
+            }
+            body > div > div:first-child {
+                width: 100% !important;
+                min-width: 100% !important;
+                border-right: none !important;
+                border-bottom: 4px solid #3B82F6 !important;
+                padding: 15px !important;
+            }
+            .header {
+                flex-direction: column;
+                text-align: center;
+                padding: 15px;
+            }
+            .title-container {
+                flex-direction: column;
+            }
+            .table-container {
+                padding: 15px;
+            }
+            table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+                -webkit-overflow-scrolling: touch;
+            }
+        }
     </style>
 </head>
 <body>

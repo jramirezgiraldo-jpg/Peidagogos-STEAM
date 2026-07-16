@@ -222,3 +222,42 @@ body {
 #btn-generar-lote:hover {
     background: #2563EB !important;
 }
+
+/* === RESPONSIVE MEDIA QUERIES === */
+@media (max-width: 768px) {
+    body {
+        height: auto;
+        overflow-y: auto;
+    }
+    
+    .split-layout {
+        grid-template-columns: 1fr;
+        height: auto;
+        min-height: 100vh;
+        overflow-y: auto;
+    }
+    
+    .split-left, .split-right {
+        padding: 2rem;
+    }
+    
+    .logo-container {
+        position: relative;
+        top: 0;
+        left: 0;
+        margin-bottom: 1.5rem;
+        text-align: center;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .bento-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .bento-hero {
+        grid-column: span 1;
+    }
+}
