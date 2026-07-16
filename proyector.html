@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modo Proyector - Peidagogos STEAM</title>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <style>
+        body, html {
+            margin: 0; padding: 0; width: 100%; height: 100%;
+            background-color: #0B0F19; color: #F3F4F6;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            overflow: hidden;
+        }
+        .screen {
+            display: none; width: 100%; height: 100%; flex-direction: column;
+            justify-content: center; align-items: center; padding: 40px; box-sizing: border-box;
+            text-align: center; position: relative;
+        }
+        .active-screen { display: flex; }
+        
+        /* Typography */
+        h1 { font-size: 4rem; font-weight: 900; margin-bottom: 20px; color: #60A5FA; text-shadow: 0 0 20px rgba(96,165,250,0.3); }
+        h2 { font-size: 2.5rem; font-weight: 700; margin-bottom: 30px; color: #E5E7EB; }
+        p { font-size: 1.5rem; line-height: 1.6; max-width: 900px; margin-bottom: 30px; color: #9CA3AF; }
+        
+        /* Controls */
+        .menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; width: 100%; max-width: 1000px; }
+        .btn-class {
+            background: rgba(31, 41, 55, 0.8); border: 2px solid #374151; padding: 30px; border-radius: 16px;
+            font-size: 1.5rem; font-weight: bold; color: white; cursor: pointer; transition: all 0.3s;
+            display: flex; flex-direction: column; align-items: center; gap: 15px;
+        }
+        .btn-class:hover { transform: translateY(-5px); border-color: #60A5FA; background: rgba(59, 130, 246, 0.2); box-shadow: 0 10px 30px rgba(59,130,246,0.2); }
+        .btn-class i { font-size: 3rem; color: #60A5FA; }
+
+        .btn-nav {
+            background: #3B82F6; color: white; border: none; padding: 15px 40px; border-radius: 50px;
+            font-size: 1.2rem; font-weight: bold; cursor: pointer; transition: 0.2s; box-shadow: 0 5px 15px rgba(59,130,246,0.4);
+        }
+        .btn-nav:hover { background: #2563EB; transform: scale(1.05); }
+        .btn-nav-outline { background: transparent; border: 2px solid #4B5563; }
+        
+        .controls-bottom { position: absolute; bottom: 40px; display: flex; gap: 20px; }
+        .btn-close { position: absolute; top: 30px; right: 30px; background: rgba(239,68,68,0.2); border: 1px solid #EF4444; color: #EF4444; width: 50px; height: 50px; border-radius: 50%; cursor: pointer; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; transition: 0.2s;}
+        .btn-close:hover { background: #EF4444; color: white; }
+
+        /* Timer */
+        .timer-display { font-size: 8rem; font-weight: 900; font-variant-numeric: tabular-nums; color: #FBBF24; text-shadow: 0 0 40px rgba(251,191,36,0.4); margin: 20px 0; }
+        .timer-pulse { animation: pulse 1s infinite; color: #EF4444; text-shadow: 0 0 40px rgba(239,68,68,0.6); }
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
+
+        /* Artística Rhythm Game */
+        .rhythm-container { display: flex; gap: 30px; margin: 50px 0; }
+        .rhythm-pad { width: 150px; height: 150px; border-radius: 50%; background: #374151; border: 4px solid #4B5563; display: flex; justify-content: center; align-items: center; font-size: 3rem; transition: 0.1s; box-shadow: inset 0 0 20px rgba(0,0,0,0.5); }
+        .pad-active-red { background: #EF4444; border-color: #FCA5A5; box-shadow: 0 0 50px #EF4444; transform: scale(1.1); color: white; }
+        .pad-active-blue { background: #3B82F6; border-color: #93C5FD; box-shadow: 0 0 50px #3B82F6; transform: scale(1.1); color: white; }
+        .pad-active-yellow { background: #FBBF24; border-color: #FDE68A; box-shadow: 0 0 50px #FBBF24; transform: scale(1.1); color: white; }
+
+        .notebook-icon { font-size: 6rem; color: #10B981; margin-bottom: 20px; animation: float 3s ease-in-out infinite; }
+        @keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-20px); } 100% { transform: translateY(0px); } }
+    </style>
+</head>
+<body>
+
+    <!-- MENÚ PRINCIPAL -->
+    <div id="screen-menu" class="screen active-screen">
+        <a href="login.html" class="btn-close" title="Volver al Panel"><i class="ph ph-x"></i></a>
+        <h1>Modo Proyector</h1>
+        <p>Selecciona la clase magistral para proyectar. Los estudiantes solo necesitarán su cuaderno y un lápiz.</p>
+        
+        <div class="menu-grid">
+            <button class="btn-class" onclick="startClass('fisica6')">
+                <i class="ph ph-planet"></i> Física 6º<br><span style="font-size: 1rem; color:#9CA3AF; font-weight: normal;">Movimiento y Reposo</span>
+            </button>
+            <button class="btn-class" onclick="startClass('fisica7')">
+                <i class="ph ph-trend-up"></i> Física 7º<br><span style="font-size: 1rem; color:#9CA3AF; font-weight: normal;">Vectores y Fuerzas</span>
+            </button>
+            <button class="btn-class" onclick="startClass('quimica')">
+                <i class="ph ph-flask"></i> Química PENSAR<br><span style="font-size: 1rem; color:#9CA3AF; font-weight: normal;">Mezclas y Separación</span>
+            </button>
+            <button class="btn-class" onclick="startClass('etica')">
+                <i class="ph ph-scales"></i> Ética<br><span style="font-size: 1rem; color:#9CA3AF; font-weight: normal;">Dilemas Morales</span>
+            </button>
+            <button class="btn-class" onclick="startClass('artistica')">
+                <i class="ph ph-music-notes"></i> Artística<br><span style="font-size: 1rem; color:#9CA3AF; font-weight: normal;">Percusión Interactiva</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- PANTALLA GENÉRICA DE CLASE -->
+    <div id="screen-slide" class="screen">
+        <button class="btn-close" onclick="backToMenu()"><i class="ph ph-house"></i></button>
+        
+        <div id="slide-icon" class="notebook-icon"><i class="ph ph-notebook"></i></div>
+        <h1 id="slide-title">Título</h1>
+        <h2 id="slide-subtitle">Subtítulo</h2>
+        <p id="slide-content">Contenido</p>
+        
+        <div id="slide-custom-area"></div>
+
+        <div id="timer-container" style="display:none; flex-direction: column; align-items: center;">
+            <div id="timer-text" class="timer-display">00:00</div>
+            <button class="btn-nav btn-nav-outline" onclick="startTimerGlobal()" id="btn-start-timer"><i class="ph ph-play"></i> Iniciar Tiempo</button>
+        </div>
+
+        <div class="controls-bottom">
+            <button class="btn-nav btn-nav-outline" onclick="prevSlide()"><i class="ph ph-arrow-left"></i> Anterior</button>
+            <button class="btn-nav" onclick="nextSlide()">Siguiente <i class="ph ph-arrow-right"></i></button>
+        </div>
+    </div>
+
+    <script>
+        // DATOS DE LAS CLASES (1 HORA APROX)
+        const classData = {
+            fisica6: [
+                { title: "Misión: El Universo Estático", sub: "Física 6º - Movimiento vs Reposo", content: "Preparen sus bitácoras (cuadernos). Hoy seremos observadores espaciales.", icon: "ph-planet" },
+                { title: "Reto de Observación", sub: "Dibuja esto en tu cuaderno", content: "Imagina que estás en un tren a 100 km/h. Tienes una manzana en tu mano.<br>¿La manzana está en movimiento o en reposo? Justifica tu respuesta en 3 líneas.", icon: "ph-pencil-line", timer: 180 },
+                { title: "El Secreto de la Física", sub: "La Relatividad del Movimiento", content: "¡Todo depende del PUNTO DE REFERENCIA!<br><br>Para ti en el tren, la manzana está en REPOSO.<br>Para alguien fuera del tren, la manzana viaja a 100 km/h.", icon: "ph-lightbulb" },
+                { title: "Misión Final", sub: "Mapeo del Entorno", content: "Escribe 3 objetos en tu salón que estén en reposo relativo a ti, y 3 objetos que estén en movimiento en el universo (ej: la Tierra gira).", icon: "ph-globe-hemisphere-west", timer: 300 }
+            ],
+            fisica7: [
+                { title: "Operación: Fuerzas Invisibles", sub: "Física 7º - Vectores", content: "Preparen sus coordenadas. Hoy entenderemos cómo se mueven las cosas a nuestro alrededor.", icon: "ph-trend-up" },
+                { title: "El Enigma de la Dirección", sub: "Copia el diagrama", content: "Dibuja un carro. Si lo empujan 2 personas hacia adelante con fuerza de 10, y 1 persona hacia atrás con fuerza de 5.<br>¿Hacia dónde se mueve el carro y con qué fuerza total?", icon: "ph-car", timer: 180 },
+                { title: "Desbloqueo de Sistema", sub: "Los Vectores", content: "Los vectores tienen MAGNITUD (qué tan fuerte) y DIRECCIÓN (hacia dónde).<br><br>10 (Adelante) - 5 (Atrás) = 5 (Adelante).", icon: "ph-arrows-left-right" },
+                { title: "Evaluación Rápida", sub: "Anota la respuesta correcta", content: "Si un avión vuela al norte a 200km/h y el viento lo empuja al sur a 50km/h. ¿Cuál es su velocidad real?<br>A) 250km/h Norte<br>B) 150km/h Norte<br>C) 150km/h Sur", icon: "ph-airplane-tilt", timer: 120 }
+            ],
+            quimica: [
+                { title: "Laboratorio PENSAR", sub: "Química - Mezclas y Separación", content: "Hoy seremos alquimistas modernos. Solo necesitas tu mente y tu cuaderno.", icon: "ph-flask" },
+                { title: "Análisis de Muestras", sub: "Clasifica en tu cuaderno", content: "Dibuja una tabla con dos columnas: HOMOGÉNEA y HETEROGÉNEA. Ubica las siguientes sustancias: <br><br>1. Agua con Sal <br>2. Sopa de Verduras <br>3. Aire <br>4. Agua y Aceite", icon: "ph-table", timer: 240 },
+                { title: "Revelación", sub: "Revisa tus apuntes", content: "Homogéneas (No se ven las partes): Agua con Sal, Aire.<br>Heterogéneas (Se ven las partes): Sopa de Verduras, Agua y Aceite.", icon: "ph-check-circle" },
+                { title: "Reto de Ingeniería", sub: "El Rescate del Agua", content: "Tienes un vaso con agua, arena y sal. Todo está mezclado.<br>Escribe en pasos lógicos cómo harías para separar y recuperar los 3 elementos por completo.", icon: "ph-drop", timer: 300 }
+            ],
+            etica: [
+                { title: "Foro de Decisiones", sub: "Ética - Dilemas Morales", content: "Cierra los ojos un momento. Hoy pondremos a prueba tu brújula moral.", icon: "ph-scales" },
+                { title: "El Dilema del Billete", sub: "Escucha atentamente y escribe", content: "Ves que a tu mejor amigo se le caen $50.000 sin darse cuenta. Sabes que él los iba a usar para comprarse un videojuego. Pero tu familia no tiene para almorzar hoy.<br><br>¿Qué haces y por qué? Escribe tu argumento.", icon: "ph-money", timer: 300 },
+                { title: "Debate Abierto", sub: "Reglas de oro", content: "No hay respuestas 100% correctas. La ética trata de la JUSTIFICACIÓN de nuestros actos.<br><br>Prepárense para compartir sus argumentos.", icon: "ph-users-three" },
+                { title: "Conclusión en Cuaderno", sub: "La Empatía", content: "Escribe tu propia definición de EMPATÍA en una frase corta basada en el debate que acabamos de tener.", icon: "ph-heart", timer: 120 }
+            ],
+            artistica: [
+                { title: "Ensamble Rítmico", sub: "Artística - Percusión Interactiva", content: "Pongan sus lápices en la mesa. Sus manos son el instrumento.", icon: "ph-music-notes" },
+                { title: "Instrucciones de Lectura", sub: "Simbología de colores", content: "🔴 ROJO = Aplauso<br>🔵 AZUL = Golpe en la mesa<br>🟡 AMARILLO = Silencio (Manos arriba)<br><br>Memoriza este código, empezaremos pronto.", icon: "ph-palette", timer: 60 },
+                { title: "Nivel 1: Sincronización", sub: "Sigan la pantalla todos juntos", content: "", icon: "ph-metronome", customHtml: `<div class="rhythm-container"><div id="pad-1" class="rhythm-pad"><i class="ph ph-hand-clapping"></i></div><div id="pad-2" class="rhythm-pad"><i class="ph ph-hand-pointing"></i></div></div><button class="btn-nav" onclick="startRhythm(1)">▶ Iniciar Secuencia</button>` },
+                { title: "Nivel 2: Polirritmia", sub: "Doble velocidad", content: "", icon: "ph-metronome", customHtml: `<div class="rhythm-container"><div id="pad-3" class="rhythm-pad"><i class="ph ph-hand-clapping"></i></div><div id="pad-4" class="rhythm-pad"><i class="ph ph-hand-pointing"></i></div><div id="pad-5" class="rhythm-pad"><i class="ph ph-hands-clapping"></i></div></div><button class="btn-nav" onclick="startRhythm(2)">▶ Iniciar Secuencia Loca</button>` }
+            ]
+        };
+
+        let currentCourse = null;
+        let currentSlideIdx = 0;
+        let timerInterval = null;
+        let currentTimerSeconds = 0;
+
+        function startClass(courseId) {
+            currentCourse = classData[courseId];
+            currentSlideIdx = 0;
+            document.getElementById('screen-menu').classList.remove('active-screen');
+            document.getElementById('screen-slide').classList.add('active-screen');
+            renderSlide();
+        }
+
+        function backToMenu() {
+            clearInterval(timerInterval);
+            document.getElementById('screen-slide').classList.remove('active-screen');
+            document.getElementById('screen-menu').classList.add('active-screen');
+        }
+
+        function nextSlide() {
+            if (currentSlideIdx < currentCourse.length - 1) {
+                currentSlideIdx++;
+                renderSlide();
+            } else {
+                alert("Fin de la clase magistral.");
+                backToMenu();
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlideIdx > 0) {
+                currentSlideIdx--;
+                renderSlide();
+            }
+        }
+
+        function renderSlide() {
+            clearInterval(timerInterval);
+            const slide = currentCourse[currentSlideIdx];
+            
+            document.getElementById('slide-title').innerHTML = slide.title;
+            document.getElementById('slide-subtitle').innerHTML = slide.sub;
+            document.getElementById('slide-content').innerHTML = slide.content;
+            document.getElementById('slide-icon').innerHTML = `<i class="ph ${slide.icon}"></i>`;
+            
+            const customArea = document.getElementById('slide-custom-area');
+            customArea.innerHTML = slide.customHtml || "";
+
+            const timerContainer = document.getElementById('timer-container');
+            const timerText = document.getElementById('timer-text');
+            const btnTimer = document.getElementById('btn-start-timer');
+
+            if (slide.timer) {
+                timerContainer.style.display = 'flex';
+                currentTimerSeconds = slide.timer;
+                updateTimerDisplay();
+                btnTimer.style.display = 'block';
+                timerText.classList.remove('timer-pulse');
+                timerText.style.color = '#FBBF24';
+            } else {
+                timerContainer.style.display = 'none';
+            }
+        }
+
+        function updateTimerDisplay() {
+            const m = Math.floor(currentTimerSeconds / 60).toString().padStart(2, '0');
+            const s = (currentTimerSeconds % 60).toString().padStart(2, '0');
+            document.getElementById('timer-text').innerText = `${m}:${s}`;
+        }
+
+        function startTimerGlobal() {
+            document.getElementById('btn-start-timer').style.display = 'none';
+            timerInterval = setInterval(() => {
+                if (currentTimerSeconds > 0) {
+                    currentTimerSeconds--;
+                    updateTimerDisplay();
+                    if (currentTimerSeconds <= 10) {
+                        document.getElementById('timer-text').classList.add('timer-pulse');
+                    }
+                } else {
+                    clearInterval(timerInterval);
+                    document.getElementById('timer-text').style.color = '#EF4444';
+                    document.getElementById('timer-text').innerText = "¡TIEMPO!";
+                    document.getElementById('timer-text').classList.remove('timer-pulse');
+                    // Play a soft beep if needed
+                }
+            }, 1000);
+        }
+
+        // =====================================
+        // MOTOR DE RITMO PARA ARTÍSTICA
+        // =====================================
+        let rhythmInterval = null;
+        function startRhythm(level) {
+            if(rhythmInterval) clearInterval(rhythmInterval);
+            
+            if(level === 1) {
+                const p1 = document.getElementById('pad-1');
+                const p2 = document.getElementById('pad-2');
+                let step = 0;
+                // 4/4 Beat: Rojo (aplauso), Silencio, Azul (Mesa), Silencio
+                rhythmInterval = setInterval(() => {
+                    p1.className = 'rhythm-pad'; p2.className = 'rhythm-pad';
+                    p1.innerHTML = `<i class="ph ph-hand-clapping"></i>`;
+                    p2.innerHTML = `<i class="ph ph-hand-pointing"></i>`;
+
+                    if (step === 0 || step === 4) {
+                        p1.classList.add('pad-active-red');
+                        p1.innerHTML = `<strong>¡PLAS!</strong>`;
+                    } else if (step === 2 || step === 6) {
+                        p2.classList.add('pad-active-blue');
+                        p2.innerHTML = `<strong>¡PAM!</strong>`;
+                    }
+                    
+                    step++;
+                    if(step > 7) step = 0;
+                }, 800); // 800ms = 75 BPM
+            }
+            
+            if(level === 2) {
+                const p3 = document.getElementById('pad-3');
+                const p4 = document.getElementById('pad-4');
+                const p5 = document.getElementById('pad-5');
+                let step = 0;
+                rhythmInterval = setInterval(() => {
+                    p3.className = 'rhythm-pad'; p4.className = 'rhythm-pad'; p5.className = 'rhythm-pad';
+                    p3.innerHTML = `<i class="ph ph-hand-clapping"></i>`;
+                    p4.innerHTML = `<i class="ph ph-hand-pointing"></i>`;
+                    p5.innerHTML = `<i class="ph ph-hands-clapping"></i>`;
+
+                    if (step === 0 || step === 3) p3.classList.add('pad-active-red');
+                    if (step === 1 || step === 4) p4.classList.add('pad-active-blue');
+                    if (step === 2) p5.classList.add('pad-active-yellow');
+                    
+                    step++;
+                    if(step > 4) step = 0;
+                }, 500); // Fast!
+            }
+        }
+    </script>
+</body>
+</html>
