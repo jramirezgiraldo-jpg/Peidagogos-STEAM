@@ -72,37 +72,17 @@ const mallasCurriculares = {
     }
 };
 
-async function checkTimeWindow() {
-    while (true) {
-        const now = new Date();
-        const currentHour = now.getHours();
-        
-        // La ventana de trabajo es de 2:00 AM a 7:59 AM
-        if (currentHour >= 2 && currentHour < 8) {
-            break; // Estamos en la ventana de tiempo correcta, salir del bucle
-        }
-
-        // Si estamos fuera del horario, dormimos hasta las 2:00 AM del día siguiente (o de hoy si es antes de las 2 AM)
-        let targetDate = new Date();
-        if (currentHour >= 8) {
-            targetDate.setDate(now.getDate() + 1); // Mañana
-        }
-        targetDate.setHours(2, 0, 0, 0); // 2:00 AM
-        
-        const msUntilTarget = targetDate.getTime() - now.getTime();
-        
-        if (msUntilTarget > 0) {
-            logMsg(`[HIBERNANDO] Fuera de horario (2 AM - 8 AM). Durmiendo hasta las 2:00 AM...`);
-            // Dormimos en trozos de 1 hora máximo para seguridad
-            const chunk = Math.min(msUntilTarget, 1000 * 60 * 60);
-            await sleep(chunk);
-        }
+function getDynamicDelay() {
+    const currentHour = new Date().getHours();
+    // 2:00 AM - 7:59 AM -> 20 segundos
+    if (currentHour >= 2 && currentHour < 8) {
+        return { ms: 20000, desc: "20s (Horario Nocturno)" };
     }
+    // 8:00 AM - 1:59 AM -> 120 segundos (2 minutos)
+    return { ms: 120000, desc: "2m (Horario Diurno)" };
 }
 
 async function generarGuia(asignatura, grado, periodo, semanaData, rol, ambiente, nivel, enfoque) {
-    // Validar siempre el horario antes de procesar CADA guía
-    await checkTimeWindow();
 
     const cacheDir = path.join(__dirname, 'guias_cache');
     if (!fs.existsSync(cacheDir)) fs.mkdirSync(cacheDir, { recursive: true });
@@ -192,8 +172,9 @@ DEBES DEVOLVER EXCLUSIVAMENTE UN OBJETO JSON VÁLIDO CON ESTA ESTRUCTURA EXACTA:
         logMsg(`[ERROR JSON] Fallo sintáctico en la respuesta. Saltando guía.`);
     }
     
-    // PAUSA OBLIGATORIA DE SEGURIDAD (20 SEGUNDOS)
-    await sleep(20000); 
+    const delayInfo = getDynamicDelay();
+    logMsg(`[DESCANSO] Esperando ${delayInfo.desc} para proteger cuota API...`);
+    await sleep(delayInfo.ms); 
 }
 
 async function generarSemanaCompleta(semanaObjetivo) {
@@ -242,20 +223,24 @@ function pushGuiasToGit() {
 
 async function main() {
     logMsg("=================================================");
-    logMsg("  CRON GENERATOR - VENTANA DE 2:00 AM A 8:00 AM");
+    logMsg("  CRON GENERATOR - MODO 24/7 DINÁMICO ACTIVO");
     logMsg("=================================================");
     
-    // Generar consecutivamente de la semana 1 a la 8
-    for (let semana = 1; semana <= 8; semana++) {
-        logMsg(`+++ PUESTA EN COLA: SEMANA ${semana} +++`);
-        await generarSemanaCompleta(semana);
-        logMsg(`+++ COMPLETADA: SEMANA ${semana} +++`);
-        await pushGuiasToGit();
-    }
+    while (true) {
+        // Generar consecutivamente de la semana 1 a la 8
+        for (let semana = 1; semana <= 8; semana++) {
+            logMsg(`+++ PUESTA EN COLA: SEMANA ${semana} +++`);
+            await generarSemanaCompleta(semana);
+            logMsg(`+++ COMPLETADA: SEMANA ${semana} +++`);
+            await pushGuiasToGit();
+        }
 
-    logMsg("=================================================");
-    logMsg("  🎉 TODAS LAS SEMANAS COMPLETADAS (1-8)");
-    logMsg("=================================================");
+        logMsg("=================================================");
+        logMsg("  🎉 REVISIÓN DE TODAS LAS SEMANAS COMPLETADA.");
+        logMsg("  Iniciando un descanso de 5 minutos antes del próximo ciclo...");
+        logMsg("=================================================");
+        await sleep(300000); // 5 minutos de pausa general al final
+    }
 }
 
 main();
