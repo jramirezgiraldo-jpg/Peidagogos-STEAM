@@ -154,15 +154,19 @@
                     weekClasses.forEach((claseObj, idx) => {
                         const btn = document.createElement('button');
                         btn.className = 'btn-class';
-                        btn.innerHTML = `<i class="ph ph-calendar"></i> Semana ${i}<br><span style="font-size:1rem; color:#9CA3AF;">Clase ${idx + 1}</span>`;
+                        btn.innerHTML = `<i class="ph ph-calendar"></i> Semana ${i}<br><span style="font-size:1rem; color:#10B981;">Clase ${idx + 1}</span>`;
                         btn.onclick = () => startClass(courseId, i, idx);
                         grid.appendChild(btn);
                     });
+                } else {
+                    // Mostrar bloqueado
+                    const btn = document.createElement('button');
+                    btn.className = 'btn-class';
+                    btn.style.opacity = '0.5';
+                    btn.style.cursor = 'not-allowed';
+                    btn.innerHTML = `<i class="ph ph-lock"></i> Semana ${i}<br><span style="font-size:1rem; color:#9CA3AF;">Próximamente</span>`;
+                    grid.appendChild(btn);
                 }
-            }
-
-            if (!hasWeeks) {
-                grid.innerHTML = `<p style="color:#EF4444; font-size:1.2rem;">Semanas no generadas aún por el servidor.</p>`;
             }
 
             document.getElementById('screen-menu').classList.remove('active-screen');
