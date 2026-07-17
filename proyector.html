@@ -85,6 +85,9 @@
             <button class="btn-class" onclick="startClass('artistica')">
                 <i class="ph ph-music-notes"></i> Artística<br><span style="font-size: 1rem; color:#9CA3AF; font-weight: normal;">Percusión Interactiva</span>
             </button>
+            <button class="btn-class" onclick="startClass('turismo')">
+                <i class="ph ph-suitcase"></i> Turismo<br><span style="font-size: 1rem; color:#9CA3AF; font-weight: normal;">Creación de Producto</span>
+            </button>
         </div>
     </div>
 
@@ -172,6 +175,18 @@
                 { title: "Polirritmia Mental", sub: "8/10 - Dibuja el reto", content: "La polirritmia es hacer dos ritmos a la vez. Dibuja un cerebro dividido en dos mitades.<br>Escribe: 'Mano izquierda golpea cada 2 segundos. Mano derecha cada 3 segundos.'", icon: "ph-brain", timer: 300 },
                 { title: "Nivel 2 (Polirritmia)", sub: "9/10 - Doble Velocidad", content: "Intenta seguir esta secuencia asimétrica en la pantalla. ¡No te rindas si te equivocas, retoma el ritmo!", icon: "ph-lightning", customHtml: `<div class="rhythm-container"><div id="pad-3" class="rhythm-pad"><i class="ph ph-hand-clapping"></i></div><div id="pad-4" class="rhythm-pad"><i class="ph ph-hand-pointing"></i></div><div id="pad-5" class="rhythm-pad"><i class="ph ph-hands-clapping"></i></div></div><button class="btn-nav" onclick="startRhythm(2)">▶ Iniciar Nivel 2</button>`, timer: 300 },
                 { title: "Cierre de Ensayo", sub: "10/10 - Evaluación Personal", content: "Escribe en tu cuaderno del 1 al 10 qué tan difícil fue mantener la sincronización y por qué la percusión exige trabajo en equipo.", icon: "ph-check-circle", timer: 300 }
+            ],
+            turismo: [
+                { title: "Misión: Innovadores", sub: "1/10 - Preparación", content: "Hoy seremos creadores de experiencias turísticas y emprendedores. Tienen 2 minutos para alistar únicamente su cuaderno (bitácora) y lápiz.", icon: "ph-suitcase", timer: 120 },
+                { title: "Bien vs Servicio", sub: "2/10 - Clasificación", content: "Dibuja un cuadro de dos columnas. En la primera (BIEN TANGIBLE) dibuja un Souvenir turístico. En la segunda (SERVICIO INTANGIBLE) dibuja un Guía Turístico.", icon: "ph-table", timer: 300 },
+                { title: "Descubre el Problema", sub: "3/10 - Lluvia de ideas", content: "Piensa en tu ciudad o región. Anota 2 problemas que tienen los turistas al visitarla (ej: falta de mapas, no hay comida típica fácil de encontrar, sitios aburridos).", icon: "ph-magnifying-glass", timer: 300 },
+                { title: "El Concepto de Producto", sub: "4/10 - Ideación", content: "Elige UNO de los problemas. Escribe UNA idea de producto (bien o servicio) que solucione ese problema. Dale un Nombre Atractivo a tu invento.", icon: "ph-lightbulb", timer: 300 },
+                { title: "Bocetando la Experiencia", sub: "5/10 - Diseño Gráfico", content: "Dibuja el logotipo de tu nuevo producto turístico o haz un dibujo de cómo se vería la experiencia (ej: un bus pintado, una app móvil, un plato de comida).", icon: "ph-pencil-line", timer: 300 },
+                { title: "Valor Agregado", sub: "6/10 - ¿Por qué tú?", content: "El Valor Agregado es lo que te hace diferente. Escribe 2 razones por las que un turista compraría TU producto en lugar de irse a la competencia.", icon: "ph-star", timer: 300 },
+                { title: "Estructura de Costos", sub: "7/10 - Las finanzas", content: "Haz una lista de 3 cosas que tendrías que COMPRAR o PAGAR obligatoriamente para hacer realidad tu producto (Ej: internet, ingredientes, transporte, permisos).", icon: "ph-money", timer: 300 },
+                { title: "El Eslogan de Venta", sub: "8/10 - Marketing", content: "Escribe una frase corta, pegajosa y emocionante (máximo 7 palabras) que invite al turista a probar tu producto. Subráyalo con color.", icon: "ph-megaphone", timer: 300 },
+                { title: "Pitch de 1 Minuto", sub: "9/10 - Presentación Cruzada", content: "Gírate hacia tu compañero de al lado. Cada uno tiene 2 minutos para leerle su problema, su producto y su eslogan, intentando 'vendérselo'.", icon: "ph-users-three", timer: 300 },
+                { title: "Retroalimentación", sub: "10/10 - Mejora Continua", content: "Anota en tu cuaderno 1 sugerencia o crítica constructiva que te dio tu compañero para mejorar el producto. ¡Un buen emprendedor siempre escucha al cliente!", icon: "ph-check-circle", timer: 300 }
             ]
         };
 
