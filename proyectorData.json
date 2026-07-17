@@ -1,23 +1,468 @@
 {
-    "semanasGeneradas": 1,
-    "clases": {
-        "fisica6": {
-            "1": []
-        },
-        "fisica7": {
-            "1": []
-        },
-        "quimica": {
-            "1": []
-        },
-        "turismo": {
-            "1": []
-        },
-        "etica": {
-            "1": []
-        },
-        "artistica": {
-            "1": []
-        }
+  "semanasGeneradas": 1,
+  "clases": {
+    "fisica6": {
+      "1": [
+        [
+          {
+            "title": "Misión: El Universo Estático",
+            "sub": "1/10 - Preparación",
+            "content": "Hoy seremos observadores espaciales.<br>Tienen 2 minutos para alistar únicamente su cuaderno (bitácora), lápiz y regla. Guarden lo demás.",
+            "icon": "ph-planet",
+            "timer": 120
+          },
+          {
+            "title": "Reto Visual: Tren Bala",
+            "sub": "2/10 - Dibuja el escenario",
+            "content": "Imagina que estás dentro de un tren bala a 300 km/h. Tienes una manzana en tu mano. Afuera hay un árbol.<br>Dibuja la escena en 5 minutos.",
+            "icon": "ph-pencil-line",
+            "timer": 300
+          },
+          {
+            "title": "Análisis del Sistema",
+            "sub": "3/10 - Argumentación",
+            "content": "Observando tu dibujo: ¿La manzana está en movimiento o en reposo? Justifica tu respuesta en un párrafo corto pensando en el ÁRBOL vs TÚ.",
+            "icon": "ph-text-align-left",
+            "timer": 300
+          },
+          {
+            "title": "Cuadro Clasificatorio",
+            "sub": "4/10 - Movimiento Absoluto vs Relativo",
+            "content": "Dibuja una tabla de 2 columnas: 'En Reposo' y 'En Movimiento'.<br>Clasifica: El Sol, Tu pupitre, La Luna, Una nube, El tablero del salón.",
+            "icon": "ph-table",
+            "timer": 300
+          },
+          {
+            "title": "El Misterio del Semáforo",
+            "sub": "5/10 - Escenario Mental",
+            "content": "Estás en un carro detenido en un semáforo. El carro de al lado avanza y tú sientes que te vas hacia atrás.<br>Escribe por qué tu cerebro se confunde con el punto de referencia.",
+            "icon": "ph-brain",
+            "timer": 300
+          },
+          {
+            "title": "Trayectorias: Dibuja",
+            "sub": "6/10 - Tipos de Movimiento",
+            "content": "Divide tu hoja en tres cuadros. Dibuja un ejemplo real para cada tipo de trayectoria:<br>1. Rectilínea (Línea recta)<br>2. Circular<br>3. Parabólica (Como lanzar un balón)",
+            "icon": "ph-scribble-loop",
+            "timer": 300
+          },
+          {
+            "title": "Desafío de Rapidez",
+            "sub": "7/10 - Gráfica Distancia vs Tiempo",
+            "content": "Observa la gráfica proyectada. Si la línea azul representa un guepardo, ¿cuántos metros crees que recorre en 1 segundo?<br>Muestra el cálculo (División) en tu cuaderno.",
+            "icon": "ph-chart-line-up",
+            "customHtml": "<div style=\"background:white; padding:15px; border-radius:10px; color:black; font-weight:bold; margin-top:20px; text-align:center;\"><div style=\"height:100px; border-left:2px solid black; border-bottom:2px solid black; display:flex; align-items:flex-end; position:relative; margin: 0 auto; width:80%;\"><div style=\"position:absolute; bottom:0; left:0; width:100%; height:100%; overflow:hidden;\"><svg width=\"100%\" height=\"100%\" viewBox=\"0 0 100 100\" preserveAspectRatio=\"none\"><line x1=\"0\" y1=\"100\" x2=\"100\" y2=\"0\" stroke=\"#3B82F6\" stroke-width=\"3\"/></svg></div><span style=\"position:absolute; top:-20px; left:-10px;\">Distancia (m)</span><span style=\"position:absolute; bottom:-25px; right:0;\">Tiempo (s)</span></div></div>",
+            "timer": 300
+          },
+          {
+            "title": "Mapa Conceptual",
+            "sub": "8/10 - Síntesis",
+            "content": "Dibuja un mapa conceptual que conecte las siguientes 4 palabras clave:<br>PUNTO DE REFERENCIA, MOVIMIENTO, REPOSO, OBSERVADOR.",
+            "icon": "ph-tree-structure",
+            "timer": 300
+          },
+          {
+            "title": "Verdadero o Falso",
+            "sub": "9/10 - Justifica el error",
+            "content": "Copia la frase y escribe V o F. Si es F, corrígela:<br>'Si estoy sentado en un avión volando, estoy en reposo absoluto para todo el universo.'",
+            "icon": "ph-check-square-offset",
+            "timer": 300
+          },
+          {
+            "title": "Simulacro ICFES",
+            "sub": "10/10 - Lectura Crítica",
+            "content": "Para un astronauta en la Estación Espacial, la Tierra gira bajo sus pies. Para nosotros, la Estación cruza el cielo. Esto demuestra que:<br>A) La Tierra está en reposo absoluto<br>B) El movimiento depende del observador<br>C) La Estación está quieta.",
+            "icon": "ph-exam",
+            "timer": 300
+          }
+        ]
+      ]
+    },
+    "fisica7": {
+      "1": [
+        [
+          {
+            "title": "Operación Fuerzas",
+            "sub": "1/10 - Preparación",
+            "content": "Entraremos al mundo invisible de los Vectores.<br>Tienen 2 minutos para alistar su cuaderno, lápiz y ojalá una regla.",
+            "icon": "ph-trend-up",
+            "timer": 120
+          },
+          {
+            "title": "Gráfica Cardinal",
+            "sub": "2/10 - Rosa de los Vientos",
+            "content": "Dibuja grande en tu cuaderno la Rosa de los Vientos (Norte arriba, Sur abajo, Este derecha, Oeste izquierda).",
+            "icon": "ph-compass",
+            "timer": 300
+          },
+          {
+            "title": "Vector Resultante 1D",
+            "sub": "3/10 - Suma simple",
+            "content": "Dibuja una caja. Una persona la empuja al ESTE con 10 Newtons. Otra persona también al ESTE con 5 Newtons.<br>Dibuja una flecha grande que represente la fuerza final (15N).",
+            "icon": "ph-arrow-right",
+            "timer": 300
+          },
+          {
+            "title": "El Tira y Afloje",
+            "sub": "4/10 - Resta de Fuerzas",
+            "content": "Juego de soga. Equipo A tira a la Izquierda con 50N. Equipo B tira a la Derecha con 40N.<br>Dibuja el diagrama y escribe con cuánta fuerza gana el Equipo A.",
+            "icon": "ph-arrows-left-right",
+            "timer": 300
+          },
+          {
+            "title": "El Plano Cartesiano",
+            "sub": "5/10 - 2 Dimensiones",
+            "content": "Dibuja un eje X y un eje Y. Marca desde el cero hasta el número 5 en todos los lados.<br>Ubica un punto en la coordenada (3, 4) y traza una flecha desde el (0,0) hasta ese punto.",
+            "icon": "ph-chart-line-up",
+            "timer": 300
+          },
+          {
+            "title": "El Enigma del Avión",
+            "sub": "6/10 - Analiza el dibujo",
+            "content": "Dibuja un avión que intenta volar hacia el NORTE, pero un viento muy fuerte lo empuja hacia el ESTE.<br>Dibuja con una flecha roja hacia dónde terminará moviéndose realmente el avión (Diagonal).",
+            "icon": "ph-airplane-tilt",
+            "timer": 300
+          },
+          {
+            "title": "Reto Pitágoras",
+            "sub": "7/10 - Analiza el Vector",
+            "content": "Observa el diagrama proyectado del Avión vs el Viento. Se forma un triángulo rectángulo.<br>Si el avión vuela a 40km/h y el viento a 30km/h... anota la fórmula de Pitágoras (a² + b² = c²) para hallar la velocidad real de la línea punteada verde.",
+            "icon": "ph-function",
+            "customHtml": "<div style=\"background:#1E293B; padding:15px; border-radius:10px; margin-top:20px; display:flex; justify-content:center; align-items:center; position:relative; height: 120px;\"><div style=\"position:absolute; width:60px; border-top:2px solid #EF4444; top:50%; right:30%;\"><span style=\"position:absolute; top:-20px; right:0; color:#EF4444; font-size:0.8rem;\">Viento</span><div style=\"position:absolute; right:-5px; top:-5px; border:5px solid transparent; border-left-color:#EF4444;\"></div></div><div style=\"position:absolute; height:60px; border-left:2px solid #3B82F6; bottom:50%; left:30%;\"><span style=\"position:absolute; top:-20px; left:-40px; color:#3B82F6; font-size:0.8rem;\">Avión</span><div style=\"position:absolute; top:-5px; left:-5px; border:5px solid transparent; border-bottom-color:#3B82F6;\"></div></div><svg style=\"position:absolute; top:10%; left:30%; width:40%; height:40%;\" preserveAspectRatio=\"none\"><line x1=\"0\" y1=\"100%\" x2=\"100%\" y2=\"0\" stroke=\"#10B981\" stroke-width=\"2\" stroke-dasharray=\"4\"/></svg><span style=\"position:absolute; top:20%; right:45%; color:#10B981; font-weight:bold;\">?</span></div>",
+            "timer": 300
+          },
+          {
+            "title": "Cuadro de Propiedades",
+            "sub": "8/10 - Magnitud y Dirección",
+            "content": "Haz una tabla. Explica con tus propias palabras qué significa:<br>- Magnitud de un vector (Pista: tamaño/fuerza)<br>- Dirección de un vector (Pista: el ángulo/Norte)",
+            "icon": "ph-table",
+            "timer": 300
+          },
+          {
+            "title": "Diseña tu problema",
+            "sub": "9/10 - Creación",
+            "content": "Inventa e ilustra un problema donde 3 fuerzas actúen sobre un mismo objeto (ej: un burro empujando una carreta y dos humanos tirando de ella).",
+            "icon": "ph-pencil-line",
+            "timer": 300
+          },
+          {
+            "title": "Evaluación ICFES",
+            "sub": "10/10 - Análisis",
+            "content": "Si dos fuerzas de 10N empujan un objeto en sentidos opuestos (Norte y Sur). ¿Qué le pasa al objeto?<br>A) Se mueve al Norte<br>B) Se mueve al Sur<br>C) Se queda en reposo (Fuerza Neta = 0).",
+            "icon": "ph-exam",
+            "timer": 300
+          }
+        ]
+      ]
+    },
+    "quimica": {
+      "1": [
+        [
+          {
+            "title": "Laboratorio PENSAR",
+            "sub": "1/10 - Preparación",
+            "content": "Hoy seremos alquimistas modernos.<br>Alista tu cuaderno de laboratorio y lápiz. Tiempo: 2 minutos.",
+            "icon": "ph-flask",
+            "timer": 120
+          },
+          {
+            "title": "Diagnóstico Inicial",
+            "sub": "2/10 - Cuadro Comparativo",
+            "content": "Copia la tabla proyectada en tu cuaderno.<br>Ubica las siguientes sustancias debajo de la columna correcta: Sangre, Agua con Sal, Ensalada de frutas, Aire, Agua con Aceite.",
+            "icon": "ph-table",
+            "customHtml": "<div style=\"background:#1E293B; padding:10px; border-radius:10px; margin-top:20px;\"><div style=\"display:flex; justify-content:space-between; font-weight:bold; border-bottom:1px solid #374151; padding-bottom:10px; margin-bottom:10px;\"><div style=\"width:50%; text-align:center; color:#10B981;\">HOMOGÉNEA (1 sola fase)</div><div style=\"width:50%; text-align:center; color:#F59E0B;\">HETEROGÉNEA (Varias fases)</div></div><div style=\"display:flex; justify-content:space-around; flex-wrap:wrap; gap:10px;\"><span style=\"background:#374151; padding:5px 10px; border-radius:15px; font-size:0.8rem;\">Agua con Sal</span><span style=\"background:#374151; padding:5px 10px; border-radius:15px; font-size:0.8rem;\">Sangre</span><span style=\"background:#374151; padding:5px 10px; border-radius:15px; font-size:0.8rem;\">Ensalada</span><span style=\"background:#374151; padding:5px 10px; border-radius:15px; font-size:0.8rem;\">Aire</span></div></div>",
+            "timer": 300
+          },
+          {
+            "title": "Modelo Corpuscular",
+            "sub": "3/10 - Dibuja Átomos",
+            "content": "Dibuja cómo se ven por dentro (con lupas gigantes imaginarias):<br>1. Agua con sal mezclada uniformemente.<br>2. Agua y aceite separados por capas.",
+            "icon": "ph-atom",
+            "timer": 300
+          },
+          {
+            "title": "Concepto de Soluto",
+            "sub": "4/10 - Análisis Teórico",
+            "content": "En el agua con sal, ¿quién es el SOLVENTE (el que disuelve) y quién es el SOLUTO (el que es disuelto)?<br>Explica la diferencia en dos renglones.",
+            "icon": "ph-drop",
+            "timer": 300
+          },
+          {
+            "title": "Filtración: Esquema",
+            "sub": "5/10 - Dibuja el método",
+            "content": "Dibuja un vaso, un embudo con papel filtro y arena. Explica cómo la filtración separa sólidos que NO se disuelven en el líquido.",
+            "icon": "ph-funnel",
+            "timer": 300
+          },
+          {
+            "title": "Evaporación: Esquema",
+            "sub": "6/10 - Método de Separación",
+            "content": "Dibuja una olla en el fuego evaporando agua para dejar solo la sal en el fondo.<br>Explica por qué sirve para sólidos que SÍ se disolvieron.",
+            "icon": "ph-fire",
+            "timer": 300
+          },
+          {
+            "title": "Magnetismo",
+            "sub": "7/10 - Dibuja el método",
+            "content": "Dibuja un imán separando virutas de hierro de un montículo de arena.<br>Explica qué propiedad física permite esto.",
+            "icon": "ph-magnet",
+            "timer": 300
+          },
+          {
+            "title": "Reto de Ingeniería",
+            "sub": "8/10 - Planta Purificadora",
+            "content": "Dibuja una 'máquina' secuencial de 3 pasos para limpiar agua turbia (contiene lodo grueso, arena fina y sal) para hacerla potable.",
+            "icon": "ph-gear",
+            "timer": 300
+          },
+          {
+            "title": "Diferencia Crucial",
+            "sub": "9/10 - Síntesis",
+            "content": "En 5 líneas: ¿Cuál es la diferencia química entre mezclar (agua y sal) y reaccionar (quemar un papel)?<br>Pista: En una mezcla, los componentes se pueden separar de nuevo.",
+            "icon": "ph-file-text",
+            "timer": 300
+          },
+          {
+            "title": "Simulacro ICFES",
+            "sub": "10/10 - Caso Práctico",
+            "content": "Para separar una mezcla de agua y alcohol (que son líquidos que se mezclan perfectamente y tienen distinto punto de ebullición), el mejor método es:<br>A) Filtración<br>B) Destilación<br>C) Imantación",
+            "icon": "ph-exam",
+            "timer": 300
+          }
+        ]
+      ]
+    },
+    "etica": {
+      "1": [
+        [
+          {
+            "title": "Foro de Valores",
+            "sub": "1/10 - Preparación",
+            "content": "Cierren los ojos. Prepárense para escuchar y escribir. Alisten su cuaderno de reflexiones.",
+            "icon": "ph-scales",
+            "timer": 120
+          },
+          {
+            "title": "Dilema 1: El Billete",
+            "sub": "2/10 - El Escenario",
+            "content": "Ves que a tu mejor amigo se le caen $50.000, los cuales iba a usar en un videojuego. Pero tu familia no tiene para almorzar hoy.<br>Describe el dilema ético con tus propias palabras.",
+            "icon": "ph-money",
+            "timer": 300
+          },
+          {
+            "title": "Argumento A favor",
+            "sub": "3/10 - Quedarse el dinero",
+            "content": "Incluso si no estás de acuerdo, escribe 3 razones LÓGICAS de por qué alguien justificaría quedarse el dinero (ej: necesidad vital vs ocio).",
+            "icon": "ph-hand-coins",
+            "timer": 300
+          },
+          {
+            "title": "Argumento En contra",
+            "sub": "4/10 - Devolver el dinero",
+            "content": "Escribe 3 razones ÉTICAS de por qué es obligatorio devolver el dinero sin importar la situación familiar (ej: respeto a la propiedad, amistad).",
+            "icon": "ph-hand-heart",
+            "timer": 300
+          },
+          {
+            "title": "Tu Sentencia",
+            "sub": "5/10 - Toma de decisión",
+            "content": "Ahora sí, escribe qué harías TÚ exactamente y por qué. Tienes 5 minutos para redactar un párrafo poderoso y convicente.",
+            "icon": "ph-gavel",
+            "timer": 300
+          },
+          {
+            "title": "Dilema 2: El Grupo",
+            "sub": "6/10 - Presión Social",
+            "content": "En WhatsApp, todos se burlan cruelmente de un chico nuevo. Si lo defiendes, te expulsarán y te harán bullying a ti.<br>Escribe cómo te sentirías en ese instante.",
+            "icon": "ph-chat-circle-text",
+            "timer": 300
+          },
+          {
+            "title": "El Observador",
+            "sub": "7/10 - El cómplice silencioso",
+            "content": "Dibuja un 'Espectador Pasivo' (alguien que lee el chat y no dice nada).<br>Explica por qué guardar silencio es también una forma de participar en el daño.",
+            "icon": "ph-eye-closed",
+            "timer": 300
+          },
+          {
+            "title": "Gráfica de Emociones",
+            "sub": "8/10 - Termómetro del Bullying",
+            "content": "Dibuja el termómetro proyectado en tu cuaderno. Reflexiona: ¿Por qué el 'Testigo' (que no hace nada) está en el medio sintiendo la misma temperatura de la situación?",
+            "icon": "ph-thermometer",
+            "customHtml": "<div style=\"background:#1E293B; padding:20px; border-radius:10px; margin-top:20px; display:flex; flex-direction:column; align-items:center; gap:2px;\"><div style=\"width:60px; height:30px; background:#EF4444; border-radius:50px 50px 0 0; color:white; font-size:0.7rem; display:flex; align-items:center; justify-content:center; font-weight:bold;\">Acosador</div><div style=\"width:60px; height:30px; background:#F59E0B; color:white; font-size:0.7rem; display:flex; align-items:center; justify-content:center; font-weight:bold;\">Testigo</div><div style=\"width:80px; height:80px; background:#3B82F6; border-radius:50%; color:white; font-size:0.7rem; display:flex; align-items:center; justify-content:center; font-weight:bold; box-shadow: inset 0 0 10px rgba(0,0,0,0.5);\">Víctima</div></div>",
+            "timer": 300
+          },
+          {
+            "title": "Decálogo de Paz",
+            "sub": "9/10 - Síntesis",
+            "content": "Redacta 3 'Reglas de Oro' que deberían existir en cualquier chat grupal de este colegio para evitar el ciberacoso.",
+            "icon": "ph-scroll",
+            "timer": 300
+          },
+          {
+            "title": "Empatía",
+            "sub": "10/10 - Conclusión Personal",
+            "content": "Construye tu propia definición de la palabra EMPATÍA en base a los dos dilemas (el amigo y el chat). ¿Es la empatía algo pasivo o activo?",
+            "icon": "ph-heart",
+            "timer": 300
+          }
+        ]
+      ]
+    },
+    "artistica": {
+      "1": [
+        [
+          {
+            "title": "Ensamble Percusivo",
+            "sub": "1/10 - Preparación",
+            "content": "Hoy tus manos, tu cerebro y tu atención serán el único instrumento. Despeja tu escritorio, solo necesitas tu cuaderno para empezar.",
+            "icon": "ph-music-notes",
+            "timer": 120
+          },
+          {
+            "title": "Simbología Visual",
+            "sub": "2/10 - Copia la leyenda",
+            "content": "Copia esto grande y en colores:<br>🔴 ROJO = Aplauso (¡PLAS!)<br>🔵 AZUL = Golpe en la mesa (¡PAM!)<br>🟡 AMARILLO = Silencio (Manos arriba)",
+            "icon": "ph-palette",
+            "timer": 300
+          },
+          {
+            "title": "Escritura Rítmica",
+            "sub": "3/10 - Patrón 4/4",
+            "content": "Dibuja una cuadrícula de 4 espacios (como casillas). Pinta la 1 de rojo, la 2 azul, la 3 amarillo y la 4 rojo. Repasa mentalmente cómo suena eso.",
+            "icon": "ph-pencil-line",
+            "timer": 300
+          },
+          {
+            "title": "Práctica de Nivel 1",
+            "sub": "4/10 - Sincronización Básica",
+            "content": "Sigue los pulsos de la pantalla. Concentración total, nadie debe acelerarse.",
+            "icon": "ph-metronome",
+            "customHtml": "<div class=\"rhythm-container\"><div id=\"pad-1\" class=\"rhythm-pad\"><i class=\"ph ph-hand-clapping\"></i></div><div id=\"pad-2\" class=\"rhythm-pad\"><i class=\"ph ph-hand-pointing\"></i></div></div><button class=\"btn-nav\" onclick=\"startRhythm(1)\">▶ Iniciar Secuencia</button>",
+            "timer": 300
+          },
+          {
+            "title": "Composición Libre",
+            "sub": "5/10 - Crea tu partitura",
+            "content": "Dibuja ahora una cuadrícula de 8 espacios (8 tiempos). Rellénala con los colores que quieras, pero DEBE tener exactamente 2 silencios (amarillos).",
+            "icon": "ph-scribble-loop",
+            "timer": 300
+          },
+          {
+            "title": "Análisis del Silencio",
+            "sub": "6/10 - Reflexión en cuaderno",
+            "content": "Escribe: ¿Por qué en la música es tan importante el silencio (color amarillo) como el golpe (rojo/azul)? ¿Qué pasaría sin silencios?",
+            "icon": "ph-ear",
+            "timer": 300
+          },
+          {
+            "title": "Ensayo Grupal",
+            "sub": "7/10 - Trabajo de a 4",
+            "content": "Júntate con 3 compañeros. Muestren sus partituras (los dibujos de 8 colores) y elijan la más difícil. Ensáyenla juntos en bucle.",
+            "icon": "ph-users",
+            "timer": 300
+          },
+          {
+            "title": "Polirritmia Mental",
+            "sub": "8/10 - Dibuja el reto",
+            "content": "La polirritmia es hacer dos ritmos a la vez. Dibuja un cerebro dividido en dos mitades.<br>Escribe: 'Mano izquierda golpea cada 2 segundos. Mano derecha cada 3 segundos.'",
+            "icon": "ph-brain",
+            "timer": 300
+          },
+          {
+            "title": "Nivel 2 (Polirritmia)",
+            "sub": "9/10 - Doble Velocidad",
+            "content": "Intenta seguir esta secuencia asimétrica en la pantalla. ¡No te rindas si te equivocas, retoma el ritmo!",
+            "icon": "ph-lightning",
+            "customHtml": "<div class=\"rhythm-container\"><div id=\"pad-3\" class=\"rhythm-pad\"><i class=\"ph ph-hand-clapping\"></i></div><div id=\"pad-4\" class=\"rhythm-pad\"><i class=\"ph ph-hand-pointing\"></i></div><div id=\"pad-5\" class=\"rhythm-pad\"><i class=\"ph ph-hands-clapping\"></i></div></div><button class=\"btn-nav\" onclick=\"startRhythm(2)\">▶ Iniciar Nivel 2</button>",
+            "timer": 300
+          },
+          {
+            "title": "Cierre de Ensayo",
+            "sub": "10/10 - Evaluación Personal",
+            "content": "Escribe en tu cuaderno del 1 al 10 qué tan difícil fue mantener la sincronización y por qué la percusión exige trabajo en equipo.",
+            "icon": "ph-check-circle",
+            "timer": 300
+          }
+        ]
+      ]
+    },
+    "turismo": {
+      "1": [
+        [
+          {
+            "title": "Misión: Innovadores",
+            "sub": "1/10 - Preparación",
+            "content": "Hoy seremos creadores de experiencias turísticas y emprendedores. Tienen 2 minutos para alistar únicamente su cuaderno (bitácora) y lápiz.",
+            "icon": "ph-suitcase",
+            "timer": 120
+          },
+          {
+            "title": "Bien vs Servicio",
+            "sub": "2/10 - Clasificación",
+            "content": "Dibuja un cuadro de dos columnas. En la primera (BIEN TANGIBLE) dibuja un Souvenir turístico. En la segunda (SERVICIO INTANGIBLE) dibuja un Guía Turístico.",
+            "icon": "ph-table",
+            "timer": 300
+          },
+          {
+            "title": "Descubre el Problema",
+            "sub": "3/10 - Lluvia de ideas",
+            "content": "Piensa en tu ciudad o región. Anota 2 problemas que tienen los turistas al visitarla (ej: falta de mapas, no hay comida típica fácil de encontrar, sitios aburridos).",
+            "icon": "ph-magnifying-glass",
+            "timer": 300
+          },
+          {
+            "title": "El Concepto de Producto",
+            "sub": "4/10 - Ideación",
+            "content": "Elige UNO de los problemas. Escribe UNA idea de producto (bien o servicio) que solucione ese problema. Dale un Nombre Atractivo a tu invento.",
+            "icon": "ph-lightbulb",
+            "timer": 300
+          },
+          {
+            "title": "Bocetando la Experiencia",
+            "sub": "5/10 - Diseño Gráfico",
+            "content": "Dibuja el logotipo de tu nuevo producto turístico o haz un dibujo de cómo se vería la experiencia (ej: un bus pintado, una app móvil, un plato de comida).",
+            "icon": "ph-pencil-line",
+            "timer": 300
+          },
+          {
+            "title": "Valor Agregado",
+            "sub": "6/10 - Análisis del Gráfico",
+            "content": "Mira la gráfica proyectada. El 'Valor Agregado' es lo que eleva tu producto por encima de lo común. Escribe 2 razones por las que un turista compraría TU producto y no el de la competencia.",
+            "icon": "ph-star",
+            "customHtml": "<div style=\"background:#1E293B; padding:15px; border-radius:10px; margin-top:20px; display:flex; justify-content:space-around; align-items:flex-end; height:120px; border-bottom:2px solid #4B5563;\"><div style=\"width:40%; background:#4B5563; height:40%; border-radius:5px 5px 0 0; text-align:center; font-size:0.8rem; padding-top:10px;\">Competencia<br>(Básico)</div><div style=\"width:40%; background:linear-gradient(0deg, #10B981, #34D399); height:90%; border-radius:5px 5px 0 0; text-align:center; font-size:0.8rem; font-weight:bold; color:black; padding-top:10px;\">TU PRODUCTO<br>(+Valor Agregado)</div></div>",
+            "timer": 300
+          },
+          {
+            "title": "Estructura de Costos",
+            "sub": "7/10 - Las finanzas",
+            "content": "Haz una lista de 3 cosas que tendrías que COMPRAR o PAGAR obligatoriamente para hacer realidad tu producto (Ej: internet, ingredientes, transporte, permisos).",
+            "icon": "ph-money",
+            "timer": 300
+          },
+          {
+            "title": "El Eslogan de Venta",
+            "sub": "8/10 - Marketing",
+            "content": "Escribe una frase corta, pegajosa y emocionante (máximo 7 palabras) que invite al turista a probar tu producto. Subráyalo con color.",
+            "icon": "ph-megaphone",
+            "timer": 300
+          },
+          {
+            "title": "Pitch de 1 Minuto",
+            "sub": "9/10 - Presentación Cruzada",
+            "content": "Gírate hacia tu compañero de al lado. Cada uno tiene 2 minutos para leerle su problema, su producto y su eslogan, intentando 'vendérselo'.",
+            "icon": "ph-users-three",
+            "timer": 300
+          },
+          {
+            "title": "Retroalimentación",
+            "sub": "10/10 - Mejora Continua",
+            "content": "Anota en tu cuaderno 1 sugerencia o crítica constructiva que te dio tu compañero para mejorar el producto. ¡Un buen emprendedor siempre escucha al cliente!",
+            "icon": "ph-check-circle",
+            "timer": 300
+          }
+        ]
+      ]
     }
+  }
 }
