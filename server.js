@@ -4,6 +4,7 @@ const path = require('path');
 const fs = require('fs');
 const cors = require('cors');
 const { GoogleGenAI } = require('@google/genai');
+const { exec } = require('child_process');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -84,6 +85,13 @@ Contexto Curricular:
 - Meta de Comprensión Anual: ${meta}
 - Tópico Generativo de la Semana: ${topico}
 
+INSTRUCCIÓN MUY IMPORTANTE SOBRE GRÁFICOS Y ESTÉTICA:
+1. Es OBLIGATORIO acompañar TODOS los textos (tanto "texto_inductivo" como "texto_deductivo") con un recurso visual generado por ti. Debes intercalar directamente dentro del texto Markdown tablas HTML, diagramas de conceptos (usando HTML/CSS), o imágenes vectoriales (SVG) que ilustren el tema. No dejes texto plano sin elementos visuales.
+2. Si la materia es "Artística", "Música" o "Ética", debes cuidar profundamente la legibilidad. Especialmente para "Artística", DEBES utilizar tamaños de fuente muy grandes (ej. <span style="font-size:3rem">𝄞 ♩ ♫</span>) para las notas musicales, tempos y crear pentagramas clarísimos usando HTML/CSS o caracteres Unicode amplificados, garantizando total claridad visual en pantalla.
+
+INSTRUCCIÓN VITAL: LA PREGUNTA PROBLEMATIZADORA
+Al inicio de tu "texto_inductivo", debes plantear una GRAN PREGUNTA PROBLEMATIZADORA (destacada en negrita y cursiva) que conecte el Tópico Generativo con la vida real del estudiante. Todo el desarrollo posterior de la guía, tanto inductivo como deductivo, debe girar en torno a resolver y darle respuesta a esta pregunta, manteniendo el rol y la narrativa gamificada.
+
 INSTRUCCIÓN MUY IMPORTANTE SOBRE MINIJUEGOS:
 Para dar descansos mentales y reforzar el conocimiento, debes incrustar OBLIGATORIAMENTE minijuegos DIRECTAMENTE dentro de los párrafos del "texto_inductivo" y del "texto_deductivo". En cada uno de estos dos textos debe haber intercalados exactamente:
 - 5 juegos de ordenar letras. Etiqueta: [JUEGO:ORDENAR_LETRAS:PALABRA]
@@ -99,17 +107,29 @@ DEBES DEVOLVER EXCLUSIVAMENTE UN OBJETO JSON VÁLIDO (sin bloques de código mar
   "saberes_previos": [
     { "pregunta": "¿...?", "opciones": ["A", "B", "C", "D"], "correcta": 0 }
   ],
-  "texto_inductivo": "Texto largo en formato Markdown. OBLIGATORIAMENTE debes incrustar aquí 5 etiquetas de ORDENAR_LETRAS, 5 de ORDENAR_FRASE, 5 de SOPA_LETRAS y 5 de CRUCIGRAMA intercaladas entre los párrafos...",
+  "texto_inductivo": "Texto largo en formato Markdown. OBLIGATORIAMENTE debes incrustar aquí los 5 juegos de cada tipo, así como los GRÁFICOS (SVG, Tablas, CSS) o PENTAGRAMAS GIGANTES explicados en la instrucción visual...",
   "recurso_visual": "Genera una tabla en formato Markdown o un código de diagrama Mermaid (graph TD...) que resuma el texto inductivo.",
-  "preguntas_inductivas_pagina": [ "¿P1?", "¿P2?", "¿P3?", "¿P4?", "¿P5?" ],
+  "preguntas_inductivas_pagina": [
+    { "pregunta": "¿P1?", "respuesta_esperada": "Respuesta ideal a P1" },
+    { "pregunta": "¿P2?", "respuesta_esperada": "Respuesta ideal a P2" },
+    { "pregunta": "¿P3?", "respuesta_esperada": "Respuesta ideal a P3" },
+    { "pregunta": "¿P4?", "respuesta_esperada": "Respuesta ideal a P4" },
+    { "pregunta": "¿P5?", "respuesta_esperada": "Respuesta ideal a P5" }
+  ],
   "preguntas_inductivas_cuaderno": [
       "Pregunta que exija dibujar un esquema o mapa conceptual",
       "Pregunta que exija realizar un cuadro comparativo",
       "Pregunta reflexiva extensa sobre el texto",
       "Pregunta que exija representar gráficamente una idea"
   ],
-  "texto_deductivo": "Texto deductivo largo en formato Markdown. OBLIGATORIAMENTE debes incrustar aquí también 5 etiquetas de ORDENAR_LETRAS, 5 de ORDENAR_FRASE, 5 de SOPA_LETRAS y 5 de CRUCIGRAMA intercaladas entre los párrafos...",
-  "preguntas_deductivas_pagina": [ "¿P1?", "¿P2?", "¿P3?", "¿P4?", "¿P5?" ],
+  "texto_deductivo": "Texto deductivo largo en formato Markdown. OBLIGATORIAMENTE debes incrustar aquí también los 5 juegos de cada tipo y nuevos GRÁFICOS/PENTAGRAMAS explicativos...",
+  "preguntas_deductivas_pagina": [
+    { "pregunta": "¿P1?", "respuesta_esperada": "Respuesta ideal a P1" },
+    { "pregunta": "¿P2?", "respuesta_esperada": "Respuesta ideal a P2" },
+    { "pregunta": "¿P3?", "respuesta_esperada": "Respuesta ideal a P3" },
+    { "pregunta": "¿P4?", "respuesta_esperada": "Respuesta ideal a P4" },
+    { "pregunta": "¿P5?", "respuesta_esperada": "Respuesta ideal a P5" }
+  ],
   "preguntas_deductivas_cuaderno": [
       "Pregunta que exija realizar un diagrama detallado",
       "Pregunta que exija elaborar un mapa mental",
@@ -201,6 +221,13 @@ const readJSON = (file) => {
 };
 const writeJSON = (file, data) => {
     fs.writeFileSync(path.join(__dirname, file), JSON.stringify(data, null, 4), 'utf-8');
+    exec(`git add ${file} && git commit -m "sync: actualizar ${file} desde el panel admin" && git push`, (err, stdout, stderr) => {
+        if (err) {
+            console.error(`Error sincronizando ${file}:`, err.message);
+        } else {
+            console.log(`[GIT SYNC] ${file} sincronizado exitosamente en GitHub.`);
+        }
+    });
 };
 
 app.get('/api/usuarios', (req, res) => res.json(readJSON('usuarios.json')));

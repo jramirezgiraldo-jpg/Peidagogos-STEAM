@@ -648,6 +648,174 @@ window.mallaTurismo = {
     }
 };
 
+// MALLA CURRICULAR ARTÍSTICA (MÚSICA INTERACTIVA)
+// ==========================================
+window.mallaArtistica = {
+    "7": {
+        objetivo: "Desarrollar habilidades rítmicas, auditivas y creativas utilizando herramientas digitales y el teclado del computador como instrumento musical.",
+        periodos: {
+            "1": {
+                "1": "Introducción a la música digital y uso del teclado como instrumento.",
+                "3": "El ritmo y el pulso: patrones rítmicos básicos.",
+                "5": "Identificación de notas musicales en la interfaz digital.",
+                "7": "Ejecución de melodías sencillas a una mano."
+            },
+            "2": {
+                "1": "Coordinación rítmica y ejercicios de digitación.",
+                "3": "Lectura básica de partituras simplificadas.",
+                "5": "Interpretación de una canción tradicional.",
+                "7": "Creación de un ritmo base para acompañamiento."
+            },
+            "3": {
+                "1": "Exploración de géneros musicales modernos y sus patrones.",
+                "3": "Ensamblaje de percusión y melodía.",
+                "5": "Uso de secuencias y loops en la música interactiva.",
+                "7": "Composición de una breve pieza musical original."
+            },
+            "4": {
+                "1": "Audición crítica: apreciación de diferentes instrumentos.",
+                "3": "Práctica de ensamble virtual.",
+                "5": "Preparación de la presentación musical del periodo.",
+                "7": "Presentación final de interpretaciones musicales."
+            }
+        }
+    },
+    "8": {
+        objetivo: "Desarrollar habilidades rítmicas, auditivas y creativas utilizando herramientas digitales y el teclado del computador como instrumento musical.",
+        periodos: {
+            "1": {
+                "1": "Introducción a la música digital y uso del teclado como instrumento.",
+                "3": "El ritmo y el pulso: patrones rítmicos básicos.",
+                "5": "Identificación de notas musicales en la interfaz digital.",
+                "7": "Ejecución de melodías sencillas a una mano."
+            },
+            "2": {
+                "1": "Coordinación rítmica y ejercicios de digitación.",
+                "3": "Lectura básica de partituras simplificadas.",
+                "5": "Interpretación de una canción tradicional.",
+                "7": "Creación de un ritmo base para acompañamiento."
+            },
+            "3": {
+                "1": "Exploración de géneros musicales modernos y sus patrones.",
+                "3": "Ensamblaje de percusión y melodía.",
+                "5": "Uso de secuencias y loops en la música interactiva.",
+                "7": "Composición de una breve pieza musical original."
+            },
+            "4": {
+                "1": "Audición crítica: apreciación de diferentes instrumentos.",
+                "3": "Práctica de ensamble virtual.",
+                "5": "Preparación de la presentación musical del periodo.",
+                "7": "Presentación final de interpretaciones musicales."
+            }
+        }
+    },
+    "9": {
+        objetivo: "Desarrollar habilidades rítmicas, auditivas y creativas utilizando herramientas digitales y el teclado del computador como instrumento musical.",
+        periodos: {
+            "1": {
+                "1": "Introducción a la música digital y uso del teclado como instrumento.",
+                "3": "El ritmo y el pulso: patrones rítmicos básicos.",
+                "5": "Identificación de notas musicales en la interfaz digital.",
+                "7": "Ejecución de melodías sencillas a una mano."
+            },
+            "2": {
+                "1": "Coordinación rítmica y ejercicios de digitación.",
+                "3": "Lectura básica de partituras simplificadas.",
+                "5": "Interpretación de una canción tradicional.",
+                "7": "Creación de un ritmo base para acompañamiento."
+            },
+            "3": {
+                "1": "Exploración de géneros musicales modernos y sus patrones.",
+                "3": "Ensamblaje de percusión y melodía.",
+                "5": "Uso de secuencias y loops en la música interactiva.",
+                "7": "Composición de una breve pieza musical original."
+            },
+            "4": {
+                "1": "Audición crítica: apreciación de diferentes instrumentos.",
+                "3": "Práctica de ensamble virtual.",
+                "5": "Preparación de la presentación musical del periodo.",
+                "7": "Presentación final de interpretaciones musicales."
+            }
+        }
+    }
+};
+
+// MALLA CURRICULAR ÉTICA (PROYECTO DE VIDA Y DILEMAS)
+// ==========================================
+window.mallaEtica = {
+    "7": {
+        objetivo: "Fomentar el reconocimiento de sí mismo y el desarrollo de la empatía a través de dilemas morales, contribuyendo a la construcción de su proyecto de vida.",
+        periodos: {
+            "1": {
+                "1": "Autoconocimiento: mis fortalezas y talentos en mi proyecto de vida.",
+                "3": "Resolución pacífica de conflictos y el diálogo asertivo.",
+                "5": "Dilemas morales: la honestidad vs la presión social.",
+                "7": "Empatía digital: convivencia sana y prevención del ciberacoso."
+            },
+            "2": {
+                "1": "Mis emociones y cómo influyen en mis decisiones.",
+                "3": "Toma de decisiones responsables frente a situaciones difíciles.",
+                "5": "El valor del respeto a la diversidad en mi entorno.",
+                "7": "Construyendo metas a corto plazo para mi futuro."
+            },
+            "3": {
+                "1": "El trabajo en equipo y la solidaridad grupal.",
+                "3": "Cómo actuar frente a la injusticia: mi rol activo.",
+                "5": "Mis derechos y mis deberes como estudiante y ciudadano.",
+                "7": "La influencia de las redes sociales en mi identidad."
+            },
+            "4": {
+                "1": "Reconociendo líderes positivos en mi comunidad.",
+                "3": "El esfuerzo y la disciplina como pilares del éxito.",
+                "5": "Reflexión sobre las decisiones del año y aprendizajes.",
+                "7": "Proyección: Visualizando mis metas para el próximo año."
+            }
+        }
+    },
+    "10": {
+        objetivo: "Estructurar el proyecto de vida con bases éticas sólidas, analizando dilemas morales complejos y asumiendo responsabilidad ciudadana y profesional.",
+        periodos: {
+            "1": {
+                "1": "El Proyecto de Vida: propósitos, vocación y visión a futuro.",
+                "3": "La libertad y la responsabilidad en la toma de decisiones.",
+                "5": "Dilemas éticos modernos: tecnología, bioética y sociedad.",
+                "7": "La presión de grupo y la autenticidad en la adolescencia."
+            },
+            "2": {
+                "1": "Exploración vocacional y profesional: ¿quién quiero ser?",
+                "3": "Ética profesional y la integridad en el ámbito laboral.",
+                "5": "Liderazgo ético y el impacto positivo en mi comunidad.",
+                "7": "Resolución de conflictos morales: análisis de casos reales."
+            },
+            "3": {
+                "1": "Ciudadanía activa y participación democrática juvenil.",
+                "3": "Los Derechos Humanos y su defensa en el entorno cercano.",
+                "5": "Consumo responsable y ética ambiental.",
+                "7": "La influencia de los medios masivos en nuestra moralidad."
+            },
+            "4": {
+                "1": "Manejo de la frustración y la resiliencia ante el fracaso.",
+                "3": "Planificación financiera básica con enfoque ético.",
+                "5": "Presentación del bosquejo del Proyecto de Vida personal.",
+                "7": "Evaluación moral del año y compromisos para el futuro."
+            }
+        }
+    }
+};
+
+window.mallaMatematicas = {
+    '6': { objetivo: 'Desarrollar el pensamiento numérico y espacial.', periodos: { '1': { '1': 'Sistemas Numéricos (Números Enteros).', '2': 'Operaciones Básicas con Enteros.' } } }
+};
+window.mallaNaturales = {
+    '6': { objetivo: 'Comprender la estructura celular y el entorno vivo.', periodos: { '1': { '1': 'La Célula y sus partes.', '2': 'Funciones Celulares y organelos.' } } }
+};
+window.mallaSociales = {
+    '6': { objetivo: 'Identificar el espacio geográfico y el universo.', periodos: { '1': { '1': 'Geografía Física.', '2': 'El Sistema Solar.' } } }
+};
+window.mallaCastellano = {
+    '6': { objetivo: 'Fortalecer la comprensión lectora.', periodos: { '1': { '1': 'Tipos de Textos.', '2': 'Estructura del Cuento.' } } }
+};
+
 window.mallaFisica = {
     '6': {
         objetivo: 'Interpretar fenómenos naturales, la gravitación y los conceptos básicos de cinemática (posición, velocidad y aceleración).',
@@ -760,10 +928,25 @@ window.actualizarVisualizadorPlaneacion = function() {
     let asignatura = selectorAsignatura ? selectorAsignatura.value : 'Física';
     
     let malla = null;
+
     if (asignatura.toLowerCase().includes('física')) {
+        malla = window.mallaFisica;
+    } else if (asignatura.toLowerCase().includes('matemática') || asignatura.toLowerCase().includes('matematica')) {
+        malla = window.mallaMatematicas;
+    } else if (asignatura.toLowerCase().includes('naturales')) {
+        malla = window.mallaNaturales;
+    } else if (asignatura.toLowerCase().includes('sociales')) {
+        malla = window.mallaSociales;
+    } else if (asignatura.toLowerCase().includes('castellano') || asignatura.toLowerCase().includes('humanidades')) {
+        malla = window.mallaCastellano;
+
         malla = window.mallaFisica;
     } else if (asignatura.toLowerCase().includes('turismo')) {
         malla = window.mallaTurismo;
+    } else if (asignatura.toLowerCase().includes('artística') || asignatura.toLowerCase().includes('música') || asignatura.toLowerCase().includes('artistica')) {
+        malla = window.mallaArtistica;
+    } else if (asignatura.toLowerCase().includes('ética') || asignatura.toLowerCase().includes('etica')) {
+        malla = window.mallaEtica;
     }
 
     const dataGrado = malla ? malla[gradoNum] : null;
@@ -811,6 +994,7 @@ window.actualizarVisualizadorPlaneacion = function() {
 window.abrirGrupo = function(grupoName) {
     document.getElementById('admin-grupos-container').style.display = 'none';
     document.getElementById('admin-estudiantes-grupo-container').style.display = 'block';
+    if(typeof pushSubView === 'function') pushSubView();
     document.getElementById('admin-titulo-grupo-actual').textContent = 'Grupo: ' + grupoName;
 
     // Inicializar planeacion
@@ -878,7 +1062,7 @@ window.abrirGrupo = function(grupoName) {
                 </div>
             </td>
             <td style="padding: 15px; text-align: center;">
-                    <button onclick="verInformeEstudiante('${est.nombre || ''} ${est.apellidos || ''}', ${progreso}, '${grupoName}')" style="background: #3B82F6; color: white; border: none; padding: 6px 12px; border-radius: 6px; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 5px;" title="Ver Informe">
+                    <button onclick="verInformeEstudiante('${est.nombre || ''} ${est.apellidos || ''}', ${progreso}, '${grupoName}', '${est.documento}')" style="background: #3B82F6; color: white; border: none; padding: 6px 12px; border-radius: 6px; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 5px;" title="Ver Informe">
                         <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
                         Informe
                     </button>
@@ -896,7 +1080,7 @@ window.volverAGrupos = function() {
     document.getElementById('admin-estudiantes-grupo-container').style.display = 'none';
 };
 
-window.verInformeEstudiante = function(nombre, progreso, grupoName) {
+window.verInformeEstudiante = function(nombre, progreso, grupoName, documento) {
     document.getElementById('informe-nombre-estudiante').textContent = 'Informe: ' + nombre + ' (' + (grupoName || 'Sin Grupo') + ')';
     
     // Mapping of group to subjects based on the provided schedule
@@ -904,10 +1088,27 @@ window.verInformeEstudiante = function(nombre, progreso, grupoName) {
     let materias = obtenerMateriasPorGrupo(grupoName);
     
     materias.forEach(m => {
+        let guiasHtml = '';
+        if (documento) {
+            for (let i = 0; i < localStorage.length; i++) {
+                let key = localStorage.key(i);
+                if (key.startsWith(`config_${documento}_${m.nombre}`)) {
+                    let p = key.match(/_p(\d+)_/);
+                    let s = key.match(/_s(\d+)$/);
+                    let per = p ? p[1] : '?';
+                    let sem = s ? s[1] : '?';
+                    guiasHtml += `<button onclick="abrirGuiaProfesor('${key}')" style="margin-top: 5px; margin-right: 5px; background:#10B981; color:white; border:none; border-radius:4px; font-size:0.75rem; padding:4px 8px; cursor:pointer;">P${per} S${sem}</button>`;
+                }
+            }
+        }
+        
         materiasHTML += `
-            <li style="display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #E5E7EB;">
-                <span style="font-weight: bold;">${m.nombre} (${m.horas})</span>
-                <span style="color: ${m.color}; font-weight: bold;">${m.estado}</span>
+            <li style="display: flex; flex-direction: column; padding: 10px 0; border-bottom: 1px solid #E5E7EB;">
+                <div style="display: flex; justify-content: space-between;">
+                    <span style="font-weight: bold;">${m.nombre} (${m.horas})</span>
+                    <span style="color: ${m.color}; font-weight: bold;">${m.estado}</span>
+                </div>
+                ${guiasHtml ? `<div style="margin-top: 5px; display: flex; flex-wrap: wrap;">Guías: ${guiasHtml}</div>` : ''}
             </li>
         `;
     });
@@ -935,6 +1136,150 @@ window.verInformeEstudiante = function(nombre, progreso, grupoName) {
     `;
     
     document.getElementById('modal-informe-estudiante').style.display = 'flex';
+    if(typeof pushSubView === 'function') pushSubView();
+};
+
+window.abrirGuiaProfesor = async function(key) {
+    const configStr = localStorage.getItem(key);
+    if (!configStr) return alert("Configuración no encontrada");
+    const payload = JSON.parse(configStr);
+    
+    const fileNameSafe = [payload.asignatura, payload.periodo, payload.semana, payload.rol, payload.ambiente, payload.nivel, payload.enfoque]
+        .map(s => s ? s.toString().toLowerCase().replace(/[^a-z0-9]/g, '_') : 'na')
+        .join('_') + '.json';
+
+    try {
+        const response = await fetch('guias_cache/' + fileNameSafe);
+        if (!response.ok) return alert("Guía no encontrada en caché: " + fileNameSafe);
+        
+        const guideData = await response.json();
+        
+        // Cargar vista de profesor
+        window.isTeacherView = true;
+        
+        // Simular variables que necesita la UI de estudiante
+        document.getElementById("admin-dashboard-container").style.display = "none";
+        document.getElementById("student-dashboard-container").style.display = "block";
+        document.getElementById("student-quest-container").style.display = "none";
+        document.getElementById("student-guide-content").style.display = "block";
+        
+        const innerContent = document.getElementById("student-guide-inner-content");
+        innerContent.innerHTML = "<p>Cargando vista de profesor...</p>";
+        
+        // Llamar a ingresarAGuia mockeando el comportamiento
+        window.guiaActualAsignatura = payload.asignatura;
+        window.guiaActualPeriodo = payload.periodo;
+        document.getElementById('student-select-semana').value = payload.semana;
+        document.getElementById('student-select-periodo').value = payload.periodo;
+        
+        // Simular una llamada directa para renderizar (usaremos una copia adaptada de la lógica de ingresarAGuia)
+        renderizarGuiaProfesor(guideData, payload.asignatura, payload.periodo, payload.semana);
+        
+    } catch (e) {
+        console.error(e);
+        alert("Error cargando la guía");
+    }
+};
+
+function renderizarGuiaProfesor(guideData, asignatura, periodo, semanaStr) {
+    const innerContent = document.getElementById("student-guide-inner-content");
+    window.guideDataCache = guideData;
+    
+    let htmlRenderizado = `
+        <div style="text-align: center; margin-bottom: 20px; background: #FEF3C7; padding: 10px; border-radius: 8px; border: 2px solid #F59E0B;">
+            <h3 style="color: #D97706; font-weight: 900; margin: 0;">👨‍🏫 VISTA DE PROFESOR</h3>
+            <p style="color: #92400E; margin: 5px 0 0 0;">Visualizando guía exacta generada por el estudiante.</p>
+            <button onclick="cerrarGuiaProfesor()" style="margin-top: 10px; background: #EF4444; color: white; border: none; padding: 8px 16px; border-radius: 6px; font-weight: bold; cursor: pointer;">Cerrar Vista Profesor</button>
+        </div>
+        <div class="mega-guide-container" style="background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); border: 1px solid #E5E7EB; font-family: 'Inter', sans-serif;">
+    `;
+    
+    if (guideData.saberes_previos) {
+        htmlRenderizado += `<h4 style="color: #4F46E5; margin-top: 0;">🧠 Saberes Previos</h4>`;
+        htmlRenderizado += `<div style="background: #F3F4F6; padding: 20px; border-radius: 8px; margin-bottom: 30px;">`;
+        guideData.saberes_previos.forEach((pregunta, idx) => {
+            htmlRenderizado += `
+                <div style="margin-bottom: 15px;">
+                    <p style="font-weight: bold;">${idx+1}. ${pregunta.pregunta}</p>
+                    ${pregunta.opciones.map((opcion, i) => `
+                        <label style="display: block; margin-bottom: 8px; padding: 10px; background: ${i === pregunta.correcta ? '#10B981' : 'white'}; border: 1px solid #D1D5DB; border-radius: 6px; ${i === pregunta.correcta ? 'color: white; font-weight: bold;' : ''}">
+                            <input type="radio" disabled ${i === pregunta.correcta ? 'checked' : ''} style="margin-right: 10px;">
+                            ${opcion} ${i === pregunta.correcta ? '✅' : ''}
+                        </label>
+                    `).join('')}
+                </div>
+            `;
+        });
+        htmlRenderizado += `</div>`;
+    }
+    
+    if (guideData.texto_inductivo) {
+        htmlRenderizado += `<h4 style="color: #4F46E5;">📖 Texto Inductivo</h4>`;
+        htmlRenderizado += `<div class="markdown-body" style="font-size: 1.1rem; line-height: 1.6; color: #374151;">${window.procesarJuegosEnTexto(guideData.texto_inductivo)}</div>`;
+    }
+
+    if (guideData.recurso_visual) {
+        htmlRenderizado += `<h4 style="color: #4F46E5; margin-top: 20px;">📊 Recurso Visual</h4>`;
+        if (guideData.recurso_visual.includes('graph TD') || guideData.recurso_visual.includes('graph LR') || guideData.recurso_visual.includes('pie') || guideData.recurso_visual.includes('flowchart')) {
+            let cleanMermaid = guideData.recurso_visual.replace(/```mermaid/g, '').replace(/```/g, '').trim();
+            htmlRenderizado += `<div class="mermaid" style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px; text-align: center; overflow-x: auto;">${cleanMermaid}</div>`;
+        } else {
+            htmlRenderizado += `<div class="markdown-body" style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px; overflow-x: auto;">${marked.parse(guideData.recurso_visual)}</div>`;
+        }
+    }
+    
+    if (guideData.preguntas_inductivas_pagina) {
+        htmlRenderizado += `<h4 style="color: #4F46E5; margin-top: 20px;">✍️ Preguntas de Análisis</h4>`;
+        htmlRenderizado += `<div style="background: #F8FAFC; padding: 20px; border: 1px dashed #94A3B8; border-radius: 8px; margin-bottom: 20px;">`;
+        guideData.preguntas_inductivas_pagina.forEach((p, i) => {
+            let textoPreg = typeof p === 'string' ? p : p.pregunta;
+            let resEsp = typeof p === 'string' ? '' : p.respuesta_esperada;
+            htmlRenderizado += `
+                <div style="margin-bottom: 15px;">
+                    <label style="font-weight: bold; color: #1E293B; display: block; margin-bottom: 8px;">${i+1}. ${textoPreg}</label>
+                    <textarea disabled rows="3" style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #CBD5E1; background: #F1F5F9;"></textarea>
+                    ${resEsp ? `<div style="margin-top: 5px; padding: 10px; background: #ECFDF5; border: 1px solid #10B981; border-radius: 6px; font-size: 0.9rem;"><strong style="color: #047857;">💡 Respuesta Esperada:</strong> ${resEsp}</div>` : ''}
+                </div>
+            `;
+        });
+        htmlRenderizado += `</div>`;
+    }
+    
+    if (guideData.texto_deductivo) {
+        htmlRenderizado += `<h4 style="color: #4F46E5;">🔍 Texto Deductivo</h4>`;
+        htmlRenderizado += `<div class="markdown-body" style="font-size: 1.1rem; line-height: 1.6; color: #374151;">${window.procesarJuegosEnTexto(guideData.texto_deductivo)}</div>`;
+    }
+    
+    if (guideData.preguntas_deductivas_pagina) {
+        htmlRenderizado += `<h4 style="color: #4F46E5; margin-top: 20px;">✍️ Preguntas Deductivas</h4>`;
+        htmlRenderizado += `<div style="background: #F8FAFC; padding: 20px; border: 1px dashed #94A3B8; border-radius: 8px; margin-bottom: 20px;">`;
+        guideData.preguntas_deductivas_pagina.forEach((p, i) => {
+            let textoPreg = typeof p === 'string' ? p : p.pregunta;
+            let resEsp = typeof p === 'string' ? '' : p.respuesta_esperada;
+            htmlRenderizado += `
+                <div style="margin-bottom: 15px;">
+                    <label style="font-weight: bold; color: #1E293B; display: block; margin-bottom: 8px;">${i+1}. ${textoPreg}</label>
+                    <textarea disabled rows="3" style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #CBD5E1; background: #F1F5F9;"></textarea>
+                    ${resEsp ? `<div style="margin-top: 5px; padding: 10px; background: #ECFDF5; border: 1px solid #10B981; border-radius: 6px; font-size: 0.9rem;"><strong style="color: #047857;">💡 Respuesta Esperada:</strong> ${resEsp}</div>` : ''}
+                </div>
+            `;
+        });
+        htmlRenderizado += `</div>`;
+    }
+    
+    htmlRenderizado += `</div>`;
+    innerContent.innerHTML = htmlRenderizado;
+    
+    if (window.MathJax) {
+        window.MathJax.typesetPromise().catch((err) => console.log('MathJax error: ', err));
+    }
+}
+
+window.cerrarGuiaProfesor = function() {
+    window.isTeacherView = false;
+    document.getElementById("student-dashboard-container").style.display = "none";
+    document.getElementById("student-guide-content").style.display = "none";
+    document.getElementById("admin-dashboard-container").style.display = "block";
 };
 
 function normalizar(valor) {
@@ -1015,10 +1360,25 @@ window.actualizarPlaneacionEstudiante = function() {
     let asignatura = subjectTitle.innerText.replace('Aula de ', '').trim();
     
     let malla = null;
+
     if (asignatura.toLowerCase().includes('física')) {
+        malla = window.mallaFisica;
+    } else if (asignatura.toLowerCase().includes('matemática') || asignatura.toLowerCase().includes('matematica')) {
+        malla = window.mallaMatematicas;
+    } else if (asignatura.toLowerCase().includes('naturales')) {
+        malla = window.mallaNaturales;
+    } else if (asignatura.toLowerCase().includes('sociales')) {
+        malla = window.mallaSociales;
+    } else if (asignatura.toLowerCase().includes('castellano') || asignatura.toLowerCase().includes('humanidades')) {
+        malla = window.mallaCastellano;
+
         malla = window.mallaFisica;
     } else if (asignatura.toLowerCase().includes('turismo')) {
         malla = window.mallaTurismo;
+    } else if (asignatura.toLowerCase().includes('artística') || asignatura.toLowerCase().includes('música') || asignatura.toLowerCase().includes('artistica')) {
+        malla = window.mallaArtistica;
+    } else if (asignatura.toLowerCase().includes('ética') || asignatura.toLowerCase().includes('etica')) {
+        malla = window.mallaEtica;
     }
 
     const dataGrado = malla ? malla[gradoNum] : null;
@@ -1074,6 +1434,7 @@ window.abrirAsignaturaEstudiante = function(asig, grado) {
     if (mainContent && subjectView) {
         mainContent.style.display = "none";
         subjectView.style.display = "block";
+        if(typeof pushSubView === 'function') pushSubView();
     }
     
     if (subjectTitle) {
@@ -1106,7 +1467,47 @@ window.volverAlGridEstudiante = function() {
     }
 };
 
+window.procesarJuegosEnTexto = function(textoMarkdown) {
+    if (!textoMarkdown) return "";
+    let html = marked.parse(textoMarkdown);
+    
+    // Buscar [JUEGO:TIPO:DATOS]
+    const regex = /\[JUEGO:(ORDENAR_LETRAS|ORDENAR_FRASE|SOPA_LETRAS|CRUCIGRAMA):(.*?)\]/g;
+    html = html.replace(regex, (match, tipo, datos) => {
+        let uniqueId = 'juego_' + Math.random().toString(36).substr(2, 9);
+        if (tipo === 'ORDENAR_LETRAS') {
+            return `<div class="juego-incrustado" style="background:#F0FDF4; border:2px dashed #22C55E; padding:15px; margin:15px 0; border-radius:8px;">
+                <h5 style="color:#166534; margin-top:0;">🧩 Minijuego: Ordenar Letras</h5>
+                ${window.renderizarJuegoOrdenar(datos.split(''), 'letras')}
+            </div>`;
+        } else if (tipo === 'ORDENAR_FRASE') {
+            let palabras = datos.split(' ');
+            return `<div class="juego-incrustado" style="background:#EFF6FF; border:2px dashed #3B82F6; padding:15px; margin:15px 0; border-radius:8px;">
+                <h5 style="color:#1E3A8A; margin-top:0;">🧩 Minijuego: Ordenar Frase</h5>
+                ${window.renderizarJuegoOrdenar(palabras, 'palabras')}
+            </div>`;
+        } else if (tipo === 'SOPA_LETRAS') {
+            let palabras = datos.split(',');
+            window.juegosPendientes.push(() => window.renderizarSopaLetras(uniqueId, palabras));
+            return `<div class="juego-incrustado" style="background:#FFFBEB; border:2px dashed #F59E0B; padding:15px; margin:15px 0; border-radius:8px;">
+                <h5 style="color:#92400E; margin-top:0;">🔍 Minijuego: Sopa de Letras</h5>
+                <div id="${uniqueId}" style="display:flex; flex-direction:column; align-items:center;">Cargando sopa de letras...</div>
+            </div>`;
+        } else if (tipo === 'CRUCIGRAMA') {
+            window.juegosPendientes.push(() => window.renderizarCrucigrama(uniqueId, datos));
+            return `<div class="juego-incrustado" style="background:#FAF5FF; border:2px dashed #A855F7; padding:15px; margin:15px 0; border-radius:8px;">
+                <h5 style="color:#581C87; margin-top:0;">✏️ Minijuego: Crucigrama</h5>
+                <div id="${uniqueId}" style="display:flex; flex-direction:column; align-items:center;">Cargando crucigrama...</div>
+            </div>`;
+        }
+        return match;
+    });
+    
+    return html;
+};
+
 window.ingresarAGuia = async function() {
+    window.juegosPendientes = [];
     const rolElem = document.getElementById("student-quest-rol");
     const ambienteElem = document.getElementById("student-quest-ambiente");
     const nivelElem = document.getElementById("student-quest-nivel");
@@ -1126,13 +1527,23 @@ window.ingresarAGuia = async function() {
     const innerContent = document.getElementById("student-guide-inner-content");
     
     if (questContainer) questContainer.style.display = "none";
-    if (guideContent) guideContent.style.display = "block";
+    if (guideContent) {
+        guideContent.style.display = "block";
+        if(typeof pushSubView === 'function') pushSubView();
+    }
     
     // Obtener la meta y el tópico de la malla
     const gradoNum = window.gradoActualEstudiante.replace(/[^0-9PENS]/g, '');
     let malla = null;
     if (asignatura.toLowerCase().includes('física')) malla = window.mallaFisica;
+    else if (asignatura.toLowerCase().includes('matemática') || asignatura.toLowerCase().includes('matematica')) malla = window.mallaMatematicas;
+    else if (asignatura.toLowerCase().includes('naturales')) malla = window.mallaNaturales;
+    else if (asignatura.toLowerCase().includes('sociales')) malla = window.mallaSociales;
+    else if (asignatura.toLowerCase().includes('castellano') || asignatura.toLowerCase().includes('humanidades')) malla = window.mallaCastellano;
+
     else if (asignatura.toLowerCase().includes('turismo')) malla = window.mallaTurismo;
+    else if (asignatura.toLowerCase().includes('artística') || asignatura.toLowerCase().includes('música') || asignatura.toLowerCase().includes('artistica')) malla = window.mallaArtistica;
+    else if (asignatura.toLowerCase().includes('ética') || asignatura.toLowerCase().includes('etica')) malla = window.mallaEtica;
     
     let meta = "Aprender los conceptos básicos";
     let topico = "Introducción a la materia";
@@ -1202,6 +1613,10 @@ window.ingresarAGuia = async function() {
         // Inicializar Sticky Header
         const user = window.usuarioEstudianteActual || JSON.parse(localStorage.getItem('usuario_sesion'));
         if (user) {
+            // Guardar configuración para el panel admin (Teacher View)
+            const configKey = `config_${user.documento}_${asignatura}_p${periodo}_s${semanaStr}`;
+            localStorage.setItem(configKey, JSON.stringify(payload));
+            
             document.getElementById('student-guide-header-name').innerText = user.nombres + " " + user.apellidos;
             // Calcular XP total del estudiante para esta materia y periodo
             const xpKey = `prog_${user.documento}_${asignatura}_p${periodo}`;
@@ -1260,7 +1675,7 @@ window.ingresarAGuia = async function() {
         
         if (guideData.texto_inductivo) {
             htmlRenderizado += `<h4 style="color: #4F46E5;">📖 Exploración: Texto Inductivo</h4>`;
-            htmlRenderizado += `<div class="markdown-body" style="font-size: 1.1rem; line-height: 1.6; color: #374151;">${marked.parse(guideData.texto_inductivo)}</div>`;
+            htmlRenderizado += `<div class="markdown-body" style="font-size: 1.1rem; line-height: 1.6; color: #374151;">${window.procesarJuegosEnTexto(guideData.texto_inductivo)}</div>`;
         }
 
         if (guideData.recurso_visual) {
@@ -1312,7 +1727,7 @@ window.ingresarAGuia = async function() {
         // --- FASE DEDUCTIVA ---
         if (guideData.texto_deductivo) {
             htmlRenderizado += `<h4 style="color: #4F46E5; margin-top: 30px;">📖 Síntesis: Texto Deductivo</h4>`;
-            htmlRenderizado += `<div class="markdown-body" style="font-size: 1.1rem; line-height: 1.6; color: #374151;">${marked.parse(guideData.texto_deductivo)}</div>`;
+            htmlRenderizado += `<div class="markdown-body" style="font-size: 1.1rem; line-height: 1.6; color: #374151;">${window.procesarJuegosEnTexto(guideData.texto_deductivo)}</div>`;
         }
 
         if (guideData.preguntas_deductivas_pagina) {
@@ -1356,6 +1771,12 @@ window.ingresarAGuia = async function() {
         
         if (window.MathJax) {
             window.MathJax.typesetPromise().catch((err) => console.log('MathJax error: ', err));
+        }
+        if (window.juegosPendientes && window.juegosPendientes.length > 0) {
+            setTimeout(() => {
+                window.juegosPendientes.forEach(j => j());
+                window.juegosPendientes = [];
+            }, 200);
         }
         // Registrar avance de semana
         if (user) {
@@ -1934,3 +2355,139 @@ window.ejecutarRobo = function(premio) {
     document.getElementById('student-guide-header-xp').innerText = parseInt(document.getElementById('student-guide-header-xp').innerText) + robado;
     document.getElementById('modal-huevos').style.display = 'none';
 };
+
+window.renderizarSopaLetras = function(containerId, palabras) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+    
+    // Generar una sopa de letras simple 10x10
+    const size = 10;
+    let grid = Array(size).fill(null).map(() => Array(size).fill(''));
+    const letras = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    
+    palabras.forEach(palabra => {
+        let p = palabra.toUpperCase().replace(/[^A-Z]/g, '');
+        if (p.length > size) p = p.substring(0, size);
+        let placed = false;
+        let attempts = 0;
+        while (!placed && attempts < 50) {
+            let row = Math.floor(Math.random() * size);
+            let col = Math.floor(Math.random() * size);
+            let dir = Math.random() > 0.5 ? 'H' : 'V';
+            
+            if (dir === 'H' && col + p.length <= size) {
+                let canPlace = true;
+                for (let i=0; i<p.length; i++) {
+                    if (grid[row][col+i] !== '' && grid[row][col+i] !== p[i]) {
+                        canPlace = false;
+                        break;
+                    }
+                }
+                if (canPlace) {
+                    for (let i=0; i<p.length; i++) grid[row][col+i] = p[i];
+                    placed = true;
+                }
+            } else if (dir === 'V' && row + p.length <= size) {
+                let canPlace = true;
+                for (let i=0; i<p.length; i++) {
+                    if (grid[row+i][col] !== '' && grid[row+i][col] !== p[i]) {
+                        canPlace = false;
+                        break;
+                    }
+                }
+                if (canPlace) {
+                    for (let i=0; i<p.length; i++) grid[row+i][col] = p[i];
+                    placed = true;
+                }
+            }
+            attempts++;
+        }
+    });
+    
+    // Rellenar vacíos
+    for (let i=0; i<size; i++) {
+        for (let j=0; j<size; j++) {
+            if (grid[i][j] === '') grid[i][j] = letras[Math.floor(Math.random() * letras.length)];
+        }
+    }
+    
+    let html = `<div style="display:grid; grid-template-columns:repeat(${size}, 30px); gap:2px; margin-bottom:10px;">`;
+    for (let i=0; i<size; i++) {
+        for (let j=0; j<size; j++) {
+            html += `<div style="width:30px; height:30px; background:white; border:1px solid #D1D5DB; display:flex; align-items:center; justify-content:center; font-weight:bold; cursor:pointer;" onclick="this.style.background='#FDE047'; this.style.borderColor='#EAB308';">${grid[i][j]}</div>`;
+        }
+    }
+    html += `</div><div style="font-size:0.9rem; color:#6B7280;">Encuentra: <b>${palabras.join(', ')}</b></div>`;
+    container.innerHTML = html;
+};
+
+window.renderizarCrucigrama = function(containerId, datosCrucigrama) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+    
+    let pistas = datosCrucigrama.split(';');
+    let html = `<div style="width: 100%; max-width: 400px; text-align: left;">`;
+    pistas.forEach((pistaStr, i) => {
+        let parts = pistaStr.split('|');
+        if (parts.length === 2) {
+            let desc = parts[0].trim();
+            let res = parts[1].trim().toUpperCase();
+            html += `
+            <div style="margin-bottom: 10px;">
+                <div style="font-weight: bold; font-size: 0.9rem; margin-bottom: 5px;">${i+1}. ${desc}</div>
+                <div style="display:flex; gap:2px; overflow-x: auto; padding-bottom: 5px;">
+                    ${res.split('').map(l => `<input type="text" maxlength="1" oninput="this.value = this.value.toUpperCase(); if(this.value === '${l}') { this.style.background = '#BBF7D0'; this.style.borderColor='#22C55E'; } else { this.style.background = 'white'; }" style="width:30px; height:30px; min-width:30px; text-align:center; font-weight:bold; border:1px solid #9CA3AF; border-radius:4px; text-transform:uppercase;">`).join('')}
+                </div>
+            </div>`;
+        }
+    });
+    html += `</div>`;
+    container.innerHTML = html;
+};
+
+// ==========================================
+// HISTORY API INTERCEPTOR (NAVEGACI�N BOT�N ATR�S)
+// ==========================================
+let subviewsDepth = 0;
+
+window.pushSubView = function() {
+    subviewsDepth++;
+    history.pushState({ depth: subviewsDepth }, "", location.href);
+};
+
+window.addEventListener('popstate', (e) => {
+    if (subviewsDepth > 0) {
+        subviewsDepth--;
+        
+        // 1. Modals
+        const modalInforme = document.getElementById('modal-informe-estudiante');
+        if (modalInforme && modalInforme.style.display === 'flex') {
+            modalInforme.style.display = 'none';
+            return;
+        }
+        
+        // 2. Student Guide View -> Back to Quest View
+        const guideContent = document.getElementById("student-guide-content");
+        if (guideContent && guideContent.style.display === 'block') {
+            if (typeof volverAlFormulario === 'function') volverAlFormulario();
+            return;
+        }
+        
+        // 3. Student Subject View -> Back to Student Grid
+        const subjectView = document.getElementById("student-subject-view-container");
+        if (subjectView && subjectView.style.display === 'block') {
+            if (typeof volverAlGridEstudiante === 'function') volverAlGridEstudiante();
+            return;
+        }
+
+        // 4. Admin Subviews
+        const estudiantesGrupo = document.getElementById('admin-estudiantes-grupo-container');
+        if (estudiantesGrupo && estudiantesGrupo.style.display === 'block') {
+            if (typeof volverGruposAdmin === 'function') volverGruposAdmin();
+            return;
+        }
+    } else {
+        // They are at the root of a dashboard (depth 0). If they press back, log them out.
+        location.reload();
+    }
+});
