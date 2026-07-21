@@ -519,8 +519,16 @@
 
         <!-- PANEL DE ESTUDIANTE -->
         <div id="student-dashboard-container" style="display: none; height: 100vh; overflow-y: auto; background-color: #F8FAFC;">
-            <!-- Header Superior -->
-            <header style="background: white; border-bottom: 1px solid #E5E7EB; padding: 15px 30px; display: flex; justify-content: flex-end; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+            <!-- Header Superior Siempre Visible -->
+            <header style="background: white; border-bottom: 1px solid #E5E7EB; padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100;">
+                <div style="display: flex; align-items: center; gap: 15px;">
+                    <div style="font-weight: 800; color: #1E293B; font-size: 1.1rem; display: flex; align-items: center; gap: 8px;">
+                        <span style="font-size: 1.5rem;">👨‍🎓</span> <span id="header-student-name">Estudiante</span>
+                    </div>
+                    <div style="background: #E0E7FF; color: #4338CA; padding: 4px 12px; border-radius: 12px; font-weight: bold; font-size: 0.9rem;">
+                        Grado <span id="header-student-grade">0</span>
+                    </div>
+                </div>
                 <div style="display: flex; align-items: center; gap: 20px;">
                     <div style="background: linear-gradient(135deg, #10B981, #059669); padding: 8px 18px; border-radius: 20px; font-size: 1rem; font-weight: 800; color: white; box-shadow: 0 4px 6px rgba(16, 185, 129, 0.2);">
                         🌟 <span id="student-score-display">0</span> Puntos
@@ -528,7 +536,6 @@
                     <button onclick="location.reload()" style="background: #EF4444; color: white; border: none; padding: 8px 20px; border-radius: 8px; font-weight: bold; cursor: pointer; font-family: Inter, sans-serif;">Cerrar Sesi&oacute;n</button>
                 </div>
             </header>
-
             <!-- Hero Banner -->
             <div style="background: #2563EB; padding: 40px 30px; display: flex; align-items: center; justify-content: flex-start; gap: 30px; border-bottom: 5px solid #60A5FA;">
                 <div style="background: white; padding: 10px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
