@@ -156,6 +156,11 @@ document.addEventListener("DOMContentLoaded", function() {
                                 badgeMsg.innerText = badgeText.length > 0 ? badgeText.join(" | ") : "Estudiante";
                             }
                             
+                            const headerName = document.getElementById("header-student-name");
+                            if (headerName) headerName.innerText = data.nombre;
+                            const headerGrade = document.getElementById("header-student-grade");
+                            if (headerGrade) headerGrade.innerText = data.grado || "N/A";
+                            
                             // Mostrar materias matriculadas
                             const subjectsGrid = document.getElementById("student-subjects-grid");
                             if (subjectsGrid) {
@@ -2255,7 +2260,8 @@ window.mostrarHuevos = function() {
     }
     
     modal.innerHTML = `
-        <div style="background: white; padding: 40px; border-radius: 20px; text-align: center; max-width: 500px;">
+        <div style="background: white; padding: 40px; border-radius: 20px; text-align: center; max-width: 500px; position: relative;">
+            <button onclick="document.getElementById('modal-huevos').style.display='none'" style="position: absolute; top: 15px; right: 20px; background: none; border: none; font-size: 2rem; cursor: pointer; color: #9CA3AF; transition: color 0.2s;" onmouseover="this.style.color='#EF4444'" onmouseout="this.style.color='#9CA3AF'">&times;</button>
             <h2 style="color: #F59E0B; font-weight: 900; font-size: 2rem;">🥚 ¡RECOMPENSA DESBLOQUEADA!</h2>
             <p>Has superado el desafío. Elige un huevo para reclamar tu premio.</p>
             <div style="display: flex; justify-content: space-around; margin-top: 30px;">
