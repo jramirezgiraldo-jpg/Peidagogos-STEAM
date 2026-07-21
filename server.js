@@ -231,6 +231,7 @@ const writeJSON = (file, data) => {
 };
 
 app.get('/api/usuarios', (req, res) => res.json(readJSON('usuarios.json')));
+app.get('/api/estudiantes', (req, res) => res.json(readJSON('usuarios.json')));
 app.get('/api/docentes', (req, res) => res.json(readJSON('docentes.json')));
 app.get('/api/asignaturas', (req, res) => res.json(readJSON('asignaturas.json')));
 
