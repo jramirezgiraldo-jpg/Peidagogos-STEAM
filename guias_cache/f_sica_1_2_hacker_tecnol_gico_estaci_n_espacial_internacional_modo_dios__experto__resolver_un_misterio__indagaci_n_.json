@@ -1,0 +1,86 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "Imaginas que estás flotando en la ISS y ves pasar un destello de luz. ¿Cómo describirías su ubicación exacta a la base de control en la Tierra?",
+      "opciones": [
+        "A) Diciendo que está 'arriba' o 'abajo' de la estación espacial.",
+        "B) Estableciendo un punto de referencia fijo (como la escotilla principal) y midiendo la distancia en un sistema de ejes.",
+        "C) Esperando a que el destello se detenga para poder medirlo con una regla común.",
+        "D) No es posible determinarlo porque en el espacio no existe la gravedad ni el suelo."
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "Si un dron en el patio de la IE Instituto Montenegro vuela en línea recta de norte a sur y luego regresa al mismo punto de partida, ¿qué podemos afirmar sobre su trayectoria y su desplazamiento?",
+      "opciones": [
+        "A) Su trayectoria fue recta, pero su desplazamiento final es cero porque volvió al origen.",
+        "B) No tuvo trayectoria porque regresó al mismo lugar de inicio.",
+        "C) El desplazamiento es mayor que la trayectoria total recorrida.",
+        "D) La trayectoria y el desplazamiento son exactamente iguales en magnitud y dirección."
+      ],
+      "correcta": 0
+    },
+    {
+      "pregunta": "Para poder hackear un sistema de navegación orbital, ¿cuál es el dato de entrada primordial que requiere nuestro algoritmo para definir la posición de un objeto?",
+      "opciones": [
+        "A) La masa total del satélite que intentamos interceptar.",
+        "B) La velocidad máxima de procesamiento de nuestra computadora de a bordo.",
+        "C) Un marco o sistema de referencia con un origen (punto cero) bien definido.",
+        "D) El color de la trayectoria que dibuja el objeto en el radar."
+      ],
+      "correcta": 2
+    }
+  ],
+  "texto_inductivo": "# 💻 SISTEMA HACKER: FILTRACIÓN DE TELEMETRÍA EN LA ISS\n\nAtención, Cadetes de la **IE Instituto Montenegro**. Soy **Zero-G**, su hacker técnico de cabecera. Hemos interceptado una anomalía crítica en el radar de la Estación Espacial Internacional (ISS). Un objeto no identificado, código **\"Specter-9\"**, se aproxima en rumbo de colisión.\n\nPara salvar la estación, debemos hackear el sistema de telemetría orbital de la ISS y mapear los datos del intruso. Pero aquí está lo increíble: el software de navegación de la ISS comparte el mismo núcleo de código que usamos en Montenegro, Quindío, para controlar los drones que patrullan los cafetales.\n\n***¿Cómo puede un hacker espacial en la ISS predecir si un fragmento de basura espacial chocará con la cúpula de observación utilizando el mismo análisis de posición y trayectoria que usa un caficultor de la IE Instituto Montenegro para rastrear un dron agrícola sobre los cafetales del Quindío?***\n\nComencemos a descifrar los datos iniciales desordenados del sistema de coordenadas espaciales.\n\n[JUEGO:ORDENAR_LETRAS:POSICION]\n\n[JUEGO:ORDENAR_FRASE:LA POSICION DEPENDE DEL ORIGEN DEL SISTEMA]\n\n<div style=\"text-align: center; margin: 20px 0;\">\n  <svg width=\"400\" height=\"250\" style=\"background-color:#0f172a; border-radius: 10px; font-family: monospace; border: 2px solid #38bdf8;\">\n    <!-- Grid lines -->\n    <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#1e293b\" stroke-width=\"2\" />\n    <line x1=\"50\" y1=\"150\" x2=\"350\" y2=\"150\" stroke=\"#1e293b\" stroke-width=\"1\" />\n    <line x1=\"50\" y1=\"100\" x2=\"350\" y2=\"100\" stroke=\"#1e293b\" stroke-width=\"1\" stroke-dasharray=\"5,5\" />\n    <line x1=\"50\" y1=\"50\" x2=\"350\" y2=\"50\" stroke=\"#1e293b\" stroke-width=\"2\" />\n    \n    <line x1=\"50\" y1=\"50\" x2=\"50\" y2=\"200\" stroke=\"#1e293b\" stroke-width=\"2\" />\n    <line x1=\"150\" y1=\"50\" x2=\"150\" y2=\"200\" stroke=\"#1e293b\" stroke-dasharray=\"5,5\" />\n    <line x1=\"250\" y1=\"50\" x2=\"250\" y2=\"200\" stroke=\"#1e293b\" stroke-width=\"1\" />\n    <line x1=\"350\" y1=\"50\" x2=\"350\" y2=\"200\" stroke=\"#1e293b\" stroke-width=\"2\" />\n\n    <!-- ISS (Reference Frame Origin) -->\n    <circle cx=\"150\" cy=\"150\" r=\"8\" fill=\"#38bdf8\" />\n    <text x=\"165\" y=\"155\" fill=\"#38bdf8\" font-size=\"12\" font-weight=\"bold\">ISS (0,0)</text>\n\n    <!-- Specter-9 Target -->\n    <circle cx=\"280\" cy=\"80\" r=\"6\" fill=\"#f43f5e\" />\n    <text x=\"295\" y=\"85\" fill=\"#f43f5e\" font-size=\"12\" font-weight=\"bold\">Specter-9 (X, Y)</text>\n\n    <!-- Trajectory Vector -->\n    <path d=\"M 150 150 Q 220 120 280 80\" fill=\"none\" stroke=\"#10b981\" stroke-dasharray=\"4\" stroke-width=\"3\" />\n    <text x=\"180\" y=\"110\" fill=\"#10b981\" font-size=\"10\">Trayectoria</text>\n    \n    <!-- Compass/HUD -->\n    <text x=\"15\" y=\"30\" fill=\"#38bdf8\" font-size=\"10\">SISTEMA DE REFERENCIA RADAR v1.2</text>\n  </svg>\n</div>\n\nPara poder mapear la amenaza, necesitamos limpiar de interferencias el transpondedor del satélite. Resuelve este hackeo de letras rápido:\n\n[JUEGO:SOPA_LETRAS:ORIGEN,EJE,PUNTO]\n\n[JUEGO:CRUCIGRAMA:Punto de partida cero|ORIGEN;Línea que describe el movimiento|TRAYECTORIA]\n\n## 📡 LA INVESTIGACIÓN DE CAMPO: RASTREO EN EL QUINDÍO VS. ÓRBITA BAJA\n\nCuando un caficultor en Montenegro opera un dron para analizar la salud de las hojas de café, establece un **Marco de Referencia** en el centro de acopio de la finca (punto $0,0$). Si el dron vuela hacia el norte, su **Posición** cambia respecto al caficultor.\n\nEn la ISS ocurre exactamente lo mismo. El origen $(0,0)$ es el laboratorio Destiny de la ISS. Cualquier fragmento de basura espacial flotando a nuestro alrededor posee coordenadas vectoriales dinámicas. Si no entendemos su **Trayectoria** (el camino geométrico que dibuja en el espacio), ¡no sabremos si el impacto es inminente!\n\n[JUEGO:ORDENAR_LETRAS:TRAYECTORIA]\n\n[JUEGO:ORDENAR_FRASE:LA TRAYECTORIA ES EL CAMINO DIBUJADO]\n\n[JUEGO:CRUCIGRAMA:Sistema para medir posiciones|REFERENCIA;Longitud del camino recorrido|DISTANCIA]\n\nDesbloqueemos la consola de comunicaciones con la siguiente sopa de letras para estabilizar el enlace de datos:\n\n[JUEGO:SOPA_LETRAS:VECTOR,RAPIDEZ,CINEMATICA]",
+  "recurso_visual": "<table style=\"width:100%; border-collapse: collapse; margin: 20px 0; background-color: #1e293b; color: #f8fafc; border: 2px solid #38bdf8;\">\n  <thead>\n    <tr style=\"background-color: #0f172a;\">\n      <th style=\"padding: 12px; border: 1px solid #38bdf8;\">Variable Cinemática</th>\n      <th style=\"padding: 12px; border: 1px solid #38bdf8;\">Definición en la ISS</th>\n      <th style=\"padding: 12px; border: 1px solid #38bdf8;\">Análogo en la IE Instituto Montenegro</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td style=\"padding: 10px; border: 1px solid #38bdf8; font-weight: bold; color: #38bdf8;\">Sistema de Referencia</td>\n      <td style=\"padding: 10px; border: 1px solid #38bdf8;\">La cúpula de observación de la estación espacial como origen (0,0,0).</td>\n      <td style=\"padding: 10px; border: 1px solid #38bdf8;\">La portería de entrada principal de la institución educativa.</td>\n    </tr>\n    <tr>\n      <td style=\"padding: 10px; border: 1px solid #38bdf8; font-weight: bold; color: #38bdf8;\">Posición</td>\n      <td style=\"padding: 10px; border: 1px solid #38bdf8;\">Coordenadas espaciales (X, Y, Z) de la basura espacial en un momento T.</td>\n      <td style=\"padding: 10px; border: 1px solid #38bdf8;\">Coordenadas del salón de física respecto a la entrada principal.</td>\n    </tr>\n    <tr>\n      <td style=\"padding: 10px; border: 1px solid #38bdf8; font-weight: bold; color: #38bdf8;\">Trayectoria</td>\n      <td style=\"padding: 10px; border: 1px solid #38bdf8;\">La línea curva u órbita que dibuja el residuo a lo largo del tiempo.</td>\n      <td style=\"padding: 10px; border: 1px solid #38bdf8;\">El camino que recorre un estudiante desde la cafetería hasta su aula.</td>\n    </tr>\n  </tbody>\n</table>",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "¿Por qué es crucial establecer un origen (0,0) en la ISS antes de intentar calcular si un asteroide o basura espacial va a chocar contra ella?",
+      "respuesta_esperada": "Porque sin un punto de origen o marco de referencia, los valores numéricos de la posición no tienen sentido físico, impidiendo predecir si la distancia relativa llegará a ser cero (colisión)."
+    },
+    {
+      "pregunta": "Si un dron agrícola sobrevuela una hectárea de café dibujando una trayectoria en forma de espiral, ¿su posición final es igual a la distancia total recorrida?",
+      "respuesta_esperada": "No. La posición final solo mide la distancia en línea recta desde el origen al punto donde aterrizó, mientras que la distancia de la trayectoria espiral es la longitud completa de todo el cable de vuelo imaginario recorrido."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja en tu cuaderno un plano cartesiano simple. Coloca la cafetería de la IE Instituto Montenegro en el origen (0,0). Traza la trayectoria de un estudiante que va al baño, luego a rectoría y finalmente al salón de clase de 6°. Identifica la diferencia entre el camino recorrido (trayectoria) y la posición final.",
+    "Investiga y escribe en tu bitácora digital cómo afecta la falta de gravedad a la forma de las trayectorias de los objetos lanzados dentro de la ISS comparado con lanzarlos en el patio del colegio en Montenegro."
+  ],
+  "texto_deductivo": "# 🛠️ CONSOLA DE CÓDIGO CORE: CONCEPTOS CIENTÍFICOS DEDUCTIVOS\n\n¡Alerta del Sistema! El cortafuegos de la ISS requiere que definamos rigurosamente las variables cinemáticas para desbloquear los propulsores de evasión. \n\n## 1. El Marco de Referencia (Sistemas de Coordenadas)\nPara un hacker, el espacio no es vacío; es una matriz de datos. Un **Marco de Referencia** consiste en un sistema de coordenadas (comúnmente cartesianas $X, Y, Z$) y un reloj integrado. Sin este marco, la física no puede operar.\n\n[JUEGO:ORDENAR_LETRAS:COORDENADAS]\n\n[JUEGO:ORDENAR_FRASE:UN MARCO DE REFERENCIA ES INDISPENSABLE]\n\n## 2. El Vector Posición ($\\vec{r}$)\nEs una flecha matemática que nace en el origen $(0,0,0)$ y apunta directamente a la ubicación actual de la partícula en estudio. Se escribe matemáticamente como:\n\n$$\\vec{r} = x\\hat{i} + y\\hat{j} + z\\hat{k}$$\n\nEn nuestra simulación 2D en Montenegro, podemos ignorar la coordenada $Z$ (altitud) temporalmente para simplificar nuestro código de rastreo.\n\n<div style=\"text-align: center; margin: 20px 0;\">\n  <svg width=\"400\" height=\"180\" style=\"background-color:#0b1329; border-radius: 8px; border: 1px dashed #10b981;\">\n    <!-- Coordinates Axes -->\n    <arrow><line x1=\"40\" y1=\"140\" x2=\"360\" y2=\"140\" stroke=\"#64748b\" stroke-width=\"2\" /></arrow>\n    <arrow><line x1=\"40\" y1=\"140\" x2=\"40\" y2=\"20\" stroke=\"#64748b\" stroke-width=\"2\" /></arrow>\n    <text x=\"350\" y=\"155\" fill=\"#64748b\" font-size=\"11\">Eje X (Metros)</text>\n    <text x=\"10\" y=\"15\" fill=\"#64748b\" font-size=\"11\">Eje Y</text>\n\n    <!-- Origin -->\n    <circle cx=\"40\" y=\"140\" r=\"5\" fill=\"#e2e8f0\" />\n    <text x=\"20\" y=\"155\" fill=\"#e2e8f0\" font-size=\"10\">Origen (0,0)</text>\n\n    <!-- Vectors -->\n    <line x1=\"40\" y1=\"140\" x2=\"220\" y2=\"60\" stroke=\"#38bdf8\" stroke-width=\"3\" marker-end=\"url(#arrow)\" />\n    <circle cx=\"220\" cy=\"60\" r=\"5\" fill=\"#38bdf8\" />\n    <text x=\"210\" y=\"50\" fill=\"#38bdf8\" font-size=\"12\" font-weight=\"bold\">Vector Posición r(t)</text>\n\n    <path d=\"M 40 140 C 100 30, 150 90, 220 60\" fill=\"none\" stroke=\"#f43f5e\" stroke-width=\"2\" stroke-dasharray=\"3,3\" />\n    <text x=\"90\" y=\"70\" fill=\"#f43f5e\" font-size=\"10\">Trayectoria Curvilínea</text>\n  </svg>\n</div>\n\n[JUEGO:SOPA_LETRAS:MARCO,LINEA,CURVA]\n\n## 3. Trayectoria vs Desplazamiento\n\n*   **Trayectoria**: Es el \"camino de hormigas\", la línea geométrica imaginaria que describe el móvil al desplazarse. Puede ser rectilínea, curvilínea, parabólica o elíptica (como las órbitas en el espacio).\n*   **Desplazamiento**: Es el cambio neto de posición. Se calcula restando la posición final menos la inicial ($\\Delta\\vec{r} = \\vec{r}_f - \\vec{r}_i$). Solo le importa el punto inicial y final, no el camino intermedio.\n\n[JUEGO:ORDENAR_LETRAS:DISTANCIA]\n\n[JUEGO:ORDENAR_FRASE:LA DISTANCIA RECORRIDA ES UNA MEDIDA ESCALAR]\n\n[JUEGO:CRUCIGRAMA:Lugar donde se encuentra un objeto|POSICION;Cambio de posición|DESPLAZAMIENTO]\n\nPor favor, ejecuten la depuración del sistema de telemetría de drones local de Montenegro usando estos módulos de código oculto:\n\n[JUEGO:SOPA_LETRAS:SATELITE,DRON,COFRE]\n\n[JUEGO:CRUCIGRAMA:Trayectoria en línea recta|RECTILINEO;Trayectoria con forma de círculo|CIRCULAR]\n\n## 🛡️ EL ALGORITMO DE EVASIÓN ACTIVADO\n\nHemos triangulado la posición de \"Specter-9\" a través de nuestro terminal hacker. \nAl modelar su trayectoria deducimos que sigue una función elíptica cerrada. Gracias a la física cinemática que aprendimos conectando los drones del Quindío con el software orbital, el motor de la ISS se encenderá en el momento preciso (T+12 segundos) para evitar la colisión.\n\n[JUEGO:ORDENAR_LETRAS:TELEMETRIA]\n\n[JUEGO:ORDENAR_FRASE:EL VECTOR POSICION APUNTA DESDE EL ORIGEN]\n\n[JUEGO:SOPA_LETRAS:QUINDIO,ESPACIO,TIEMPO]\n\n[JUEGO:CRUCIGRAMA:Estación espacial internacional|ISS;Variable que mide la duración|TIEMPO]",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "Si un módulo de reabastecimiento describe una trayectoria circular exacta de un perímetro de 1000 km alrededor de la ISS y vuelve a acoplarse en el mismo puerto de salida, ¿cuál fue su distancia recorrida y cuál su desplazamiento vectorial?",
+      "respuesta_esperada": "La distancia recorrida fue de 1000 km (la longitud de la circunferencia), pero su desplazamiento fue exactamente 0 km, porque su posición inicial y final coinciden en el mismo origen."
+    },
+    {
+      "pregunta": "¿Qué tipo de trayectoria describe un objeto lanzado por un astronauta en el espacio exterior lejos de la gravedad de cualquier planeta?",
+      "respuesta_esperada": "Describe una trayectoria rectilínea (en línea recta) a velocidad constante, según la primera ley de Newton (inercia), al no haber fuerzas externas actuando sobre él."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Escribe un párrafo técnico (estilo hacker de la ISS) justificando cómo el cambio del punto de referencia de un radar de control en tierra al radar propio de la estación espacial cambia las ecuaciones de posición de un satélite que pasa.",
+    "Elabora una tabla comparativa en tu cuaderno que ilustre detalladamente tres diferencias clave entre la magnitud escalar (distancia recorrida) y la magnitud vectorial (desplazamiento)."
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de fenómenos",
+      "texto_introductorio": "El equipo de semilleros de robótica de la IE Instituto Montenegro monitorea un dron agrícola utilizando coordenadas cartesianas desde el patio central. Al mismo tiempo, en la ISS, los científicos monitorean un brazo mecánico. Ambos equipos registran el movimiento de sus respectivos sistemas en las siguientes tablas de datos recopilados por sus sensores de telemetría:",
+      "tabla_o_grafica_markdown": "| Tiempo (s) | Posición Dron Quindío (X, Y) en metros | Posición Brazo ISS (X, Y) en metros |\n|---|---|---|\n| T = 0 s | (0, 0) | (5, 5) |\n| T = 2 s | (3, 4) | (5, 8) |\n| T = 4 s | (6, 8) | (5, 11) |\n| T = 6 s | (0, 0) | (5, 14) |",
+      "pregunta": "Con base en los datos de la tabla, ¿cuál es la descripción correcta de las trayectorias de ambos móviles entre T = 0 s y T = 6 s?",
+      "opciones": [
+        "A) Ambos objetos mantuvieron trayectorias rectilíneas idénticas puesto que sus coordenadas cambiaron al mismo ritmo temporal.",
+        "B) El brazo de la ISS describe una trayectoria rectilínea unidimensional (solo varía el eje Y), mientras que el dron de Montenegro describe una trayectoria cerrada donde su desplazamiento neto final al cabo de 6 segundos es nulo.",
+        "C) El dron de la IE Instituto Montenegro se desplazó una distancia neta de 14 metros, superando el desplazamiento del brazo robótico de la ISS en el espacio.",
+        "D) Ninguno de los dos sistemas tiene un marco de referencia válido ya que sus orígenes de coordenadas iniciales no coinciden."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. El dron varió en X e Y y volvió a (0,0), mientras que el brazo de la ISS solo varió en el eje Y de manera lineal. Sus trayectorias no son idénticas.",
+        "1": "¡Correcto, hacker! El brazo de la ISS se mueve linealmente sobre el eje Y (de 5 a 14 m) con una trayectoria rectilínea. El dron de Montenegro inicia en (0,0), viaja y regresa a (0,0) a los 6 s, por ende su trayectoria fue cerrada y su desplazamiento resultante es cero.",
+        "2": "Incorrecto. El desplazamiento neto del dron al regresar a su punto de partida (0,0) es cero metros, no 14 metros.",
+        "3": "Incorrecto. Ambos sistemas poseen un sistema de referencia espacial definido y válido, sin importar que los puntos iniciales sean diferentes."
+      }
+    }
+  ]
+}

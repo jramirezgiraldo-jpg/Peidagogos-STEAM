@@ -1,0 +1,86 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "Si estás parado en el patio de la IE Instituto Montenegro y ves a un compañero correr, ¿cuál es tu punto de referencia para afirmar que se está moviendo?",
+      "opciones": [
+        "El sol, porque siempre está en movimiento en el cielo.",
+        "Tu propia posición estática o un elemento fijo como el arco de fútbol.",
+        "Los tenis del compañero que corre.",
+        "La velocidad a la que se desplaza el viento en ese instante."
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "Un explorador camina 5 metros al norte y luego 5 metros al sur. ¿Cuál es su desplazamiento final respecto al punto de partida?",
+      "opciones": [
+        "10 metros hacia el norte.",
+        "5 metros en diagonal.",
+        "0 metros, pues regresó al mismo punto de inicio.",
+        "Depende de la velocidad a la que caminó."
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "En un mapa de coordenadas alienígena, si tu posición inicial es (2, 3) y te mueves a (2, 8), ¿en qué eje ocurrió el cambio de posición?",
+      "opciones": [
+        "En el eje X (horizontal).",
+        "En el eje Y (vertical).",
+        "En ambos ejes de manera diagonal.",
+        "En el eje Z (profundidad espacial)."
+      ],
+      "correcta": 1
+    }
+  ],
+  "texto_inductivo": "# bitácora de viaje: anomalía en la selva de exión-9\n\n¡Saludos, jóvenes cadetes de la **IE Instituto Montenegro**! Aquí su Comandante de Exploración Espacial reportándose desde la densa, húmeda y misteriosa *Selva Bioluminiscente de Exión-9*. He aterrizado de emergencia y me he topado con un fenómeno que desafía todo lo que sabemos sobre el espacio-tiempo. Las plantas y los portales de esta selva parecen cambiar de lugar, pero solo cuando parpadeamos. \n\n***¿Cómo podríamos ayudar a los estudiantes de la IE Instituto Montenegro a mapear las misteriosas distorsiones de posición que ocurren entre la cancha de fútbol y el aula de ciencias, usando las mismas variables cinemáticas que utilizo para sobrevivir en esta selva alienígena donde los caminos se curvan solos?***\n\n<svg viewBox=\"0 0 600 300\" xmlns=\"http://www.w3.org/2000/svg\" style=\"background-color:#091d1e; border: 3px solid #00ffcc; border-radius: 12px; margin: 20px 0;\">\n  <!-- Grid de Coordenadas -->\n  <defs>\n    <pattern id=\"grid\" width=\"30\" height=\"30\" patternUnits=\"userSpaceOnUse\">\n      <path d=\"M 30 0 L 0 0 0 30\" fill=\"none\" stroke=\"#00ffcc\" stroke-width=\"0.5\" opacity=\"0.2\"/>\n    </pattern>\n  </defs>\n  <rect width=\"100%\" height=\"100%\" fill=\"url(#grid)\" />\n  \n  <!-- Camino/Trayectoria -->\n  <path d=\"M 60 240 Q 150 60, 300 150 T 540 60\" fill=\"none\" stroke=\"#ff0055\" stroke-width=\"4\" stroke-dasharray=\"8,8\" />\n  \n  <!-- Vector Desplazamiento -->\n  <line x1=\"60\" y1=\"240\" x2=\"540\" y2=\"60\" stroke=\"#00ffcc\" stroke-width=\"3\" marker-end=\"url(#arrow)\" />\n  \n  <!-- Puntos Clave -->\n  <circle cx=\"60\" cy=\"240\" r=\"8\" fill=\"#00ffcc\" />\n  <text x=\"50\" y=\"270\" fill=\"#ffffff\" font-family=\"monospace\" font-size=\"12\">Nave (Inicio: x1)</text>\n  \n  <circle cx=\"540\" cy=\"60\" r=\"8\" fill=\"#ff0055\" />\n  <text x=\"460\" y=\"45\" fill=\"#ffffff\" font-family=\"monospace\" font-size=\"12\">Portal Activo (Fin: x2)</text>\n\n  <!-- Indicaciones de Leyenda -->\n  <rect x=\"20\" y=\"20\" width=\"180\" height=\"50\" fill=\"#0b2b2d\" stroke=\"#00ffcc\" stroke-width=\"1\" opacity=\"0.8\" />\n  <line x1=\"30\" y1=\"35\" x2=\"60\" y2=\"35\" stroke=\"#ff0055\" stroke-width=\"2\" stroke-dasharray=\"4,4\" />\n  <text x=\"70\" y=\"40\" fill=\"#ffffff\" font-family=\"monospace\" font-size=\"10\">Trayectoria (Curva)</text>\n  <line x1=\"30\" y1=\"55\" x2=\"60\" y2=\"55\" stroke=\"#00ffcc\" stroke-width=\"2\" />\n  <text x=\"70\" y=\"60\" fill=\"#ffffff\" font-family=\"monospace\" font-size=\"10\">Desplazamiento</text>\n</svg>\n\nPara salir con vida de esta selva, necesito registrar con absoluta precisión mi **posición** en cada segundo. Al moverme, trazo una línea invisible en el suelo llamada **trayectoria**. Pero ¡cuidado! En este planeta hostil, la trayectoria no siempre coincide con el **desplazamiento**. Si camino esquivando las lianas venenosas en forma de zigzag, mi trayectoria será larguísima, pero mi desplazamiento real (la línea recta desde donde empecé hasta donde terminé) será mucho más corto.\n\nPara entrenar sus mentes de exploradores y descifrar este enigma, resuelvan primero estos desafíos interactivos de reconocimiento de terreno:\n\n[JUEGO:ORDENAR_LETRAS:POSICION]\n\n[JUEGO:ORDENAR_FRASE:LA POSICION DEPENDE DEL SISTEMA DE REFERENCIA]\n\n[JUEGO:SOPA_LETRAS:SISTEMA,ORIGEN,COORDENADAS]\n\n[JUEGO:CRUCIGRAMA:Punto que se toma como base para medir|ORIGEN;Línea imaginaria del movimiento|TRAYECTORIA]\n\n## El Fenómeno de las Coordenadas Danzantes\n\nAquí la anomalía: he colocado mi baliza de navegación en el tronco de un *Árbol de Neón*. Cuando camino 10 metros en línea recta hacia el norte, el árbol parece estar a 15 metros en diagonal. ¿Por qué ocurre esto? ¡Porque mi **sistema de referencia** se está moviendo con el suelo de la selva! Si no definimos claramente un punto de origen fijo, la cinemática se vuelve loca, tal como si intentaras medir distancias en tu colegio mientras el patio se encogiera. ¡Es hora de teorizar!",
+  "recurso_visual": "| Variable Cinemática | Definición Espacial | Instrumento de Medición | Comportamiento en la Selva de Exión-9 |\n| :--- | :--- | :--- | :--- |\n| **Posición ($\\vec{x}$)** | Ubicación exacta respecto a un origen cartográfico | Escáner GPS cuántico / Cinta métrica | Cambia instantáneamente si el origen de referencia se altera |\n| **Trayectoria** | Camino geométrico recorrido por el cuerpo en movimiento | Sensor de estela lumínica | Es curva, sinuosa y caótica debido a los árboles flotantes |\n| **Desplazamiento ($\\Delta\\vec{x}$)** | Cambio de posición neto (vector desde inicio a fin) | Brújula de vector de gravedad | Siempre es una línea recta, sin importar los obstáculos cruzados |",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "¿Cuál es la diferencia principal entre la trayectoria que describe el explorador y su desplazamiento real al esquivar las lianas?",
+      "respuesta_esperada": "La trayectoria es el camino real y curvo recorrido paso a paso por el explorador, mientras que el desplazamiento es únicamente la distancia medida en línea recta que une el punto de partida directo con el punto de llegada."
+    },
+    {
+      "pregunta": "¿Por qué un cambio en el sistema de referencia puede hacer que un objeto fijo parezca moverse?",
+      "respuesta_esperada": "Porque la posición se mide siempre de forma relativa respecto al punto de origen elegido. Si el observador o el origen del sistema de referencia se desplaza, las coordenadas calculadas del objeto cambiarán, simulando movimiento."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja en tu cuaderno un mapa esquemático de tu habitación. Define la puerta como tu origen de coordenadas (0,0). Luego, calcula de forma estimada tu posición (coordenadas x, y) cuando estás en tu cama y cuando estás en tu escritorio.",
+    "Imagina que caminas desde la entrada de la IE Instituto Montenegro hasta tu salón de clases en zigzag para evitar los charcos de lluvia. En un párrafo, explica si tu trayectoria fue mayor, menor o igual a la magnitud de tu desplazamiento."
+  ],
+  "texto_deductivo": "# la física del movimiento: dominando los vectores de supervivencia\n\n¡Felicidades por sobrevivir a la primera etapa, héroes de la física! Ahora debemos dotar a nuestras observaciones de un rigor matemático implacable. En física, el movimiento se estudia a través de la **Cinemática**, la rama que describe cómo se mueven los cuerpos sin preocuparse por las fuerzas que causan dicho movimiento.\n\nPara localizar cualquier portal espacial o el aula de la **IE Instituto Montenegro**, requerimos tres elementos fundamentales:\n\n1. **Sistema de Referencia:** Un punto físico (origen) dotado de ejes coordenados (eje X horizontal, eje Y vertical).\n2. **Vector de Posición ($\\vec{x}$):** Una flecha matemática que apunta desde el origen de coordenadas hasta donde se encuentra el cuerpo.\n3. **Intervalo de Tiempo ($\\Delta t$):** La diferencia entre el instante final y el instante inicial del movimiento ($t_f - t_i$).\n\n<svg viewBox=\"0 0 600 250\" xmlns=\"http://www.w3.org/2000/svg\" style=\"background-color:#111625; border: 3px solid #ff0055; border-radius: 12px; margin: 20px 0;\">\n  <!-- Ejes cartesianos -->\n  <line x1=\"50\" y1=\"200\" x2=\"550\" y2=\"200\" stroke=\"#ffffff\" stroke-width=\"2\" />\n  <line x1=\"80\" y1=\"220\" x2=\"80\" y2=\"30\" stroke=\"#ffffff\" stroke-width=\"2\" />\n  <text x=\"540\" y=\"220\" fill=\"#ffffff\" font-family=\"monospace\">Eje X</text>\n  <text x=\"50\" y=\"40\" fill=\"#ffffff\" font-family=\"monospace\">Eje Y</text>\n  \n  <!-- Origen -->\n  <circle cx=\"80\" cy=\"200\" r=\"6\" fill=\"#ffea00\" />\n  <text x=\"60\" y=\"215\" fill=\"#ffea00\" font-family=\"monospace\" font-size=\"10\">(0,0) Origen</text>\n\n  <!-- Vectores de Posición -->\n  <!-- x_inicial -->\n  <line x1=\"80\" y1=\"200\" x2=\"220\" y2=\"110\" stroke=\"#00ffcc\" stroke-width=\"3\" stroke-dasharray=\"1,1\" />\n  <circle cx=\"220\" cy=\"110\" r=\"6\" fill=\"#00ffcc\" />\n  <text x=\"210\" y=\"100\" fill=\"#00ffcc\" font-family=\"monospace\" font-size=\"12\">Posición Inicial (xi)</text>\n\n  <!-- x_final -->\n  <line x1=\"80\" y1=\"200\" x2=\"480\" y2=\"80\" stroke=\"#ff0055\" stroke-width=\"3\" stroke-dasharray=\"1,1\" />\n  <circle cx=\"480\" cy=\"80\" r=\"6\" fill=\"#ff0055\" />\n  <text x=\"440\" y=\"70\" fill=\"#ff0055\" font-family=\"monospace\" font-size=\"12\">Posición Final (xf)</text>\n\n  <!-- Vector Desplazamiento (Delta x) -->\n  <line x1=\"220\" y1=\"110\" x2=\"480\" y2=\"80\" stroke=\"#39ff14\" stroke-width=\"4\" />\n  <text x=\"310\" y=\"85\" fill=\"#39ff14\" font-family=\"monospace\" font-size=\"12\" font-weight=\"bold\">Desplazamiento (Δx)</text>\n</svg>\n\nLa ecuación fundamental del desplazamiento está dada por:\n$$\\Delta \\vec{x} = \\vec{x}_f - \\vec{x}_i$$\n\nDonde:\n- $\\Delta \\vec{x}$ es el cambio de posición (desplazamiento).\n- $\\vec{x}_f$ es la posición final.\n- $\\vec{x}_i$ es la posición inicial.\n\n¡Atención exploradores! Resuelvan las siguientes misiones de encriptación física para calibrar los propulsores cinemáticos de sus trajes espaciales:\n\n[JUEGO:ORDENAR_LETRAS:TRAYECTORIA]\n\n[JUEGO:ORDENAR_FRASE:EL DESPLAZAMIENTO ES LA LINEA RECTA ENTRE DOS PUNTOS]\n\n[JUEGO:SOPA_LETRAS:METROS,TIEMPO,MEDIDA]\n\n[JUEGO:CRUCIGRAMA:Magnitud que indica la longitud recorrida|DISTANCIA;Cambio de posición en línea recta|DESPLAZAMIENTO]\n\n[JUEGO:ORDENAR_LETRAS:DISTANCIA]\n\n[JUEGO:ORDENAR_FRASE:LA TRAYECTORIA ES EL CAMINO QUE DIBUJA UN CUERPO]\n\n[JUEGO:SOPA_LETRAS:ANOMALIA,SELVA,COORDENADA]\n\n[JUEGO:CRUCIGRAMA:Lugar que ocupa un cuerpo en el espacio|POSICION;Rama de la física que estudia el movimiento|CINEMATICA]\n\n[JUEGO:ORDENAR_LETRAS:DESPLAZAMIENTO]\n\n[JUEGO:ORDENAR_FRASE:LA DISTANCIA SIEMPRE ES UN VALOR POSITIVO]\n\n[JUEGO:SOPA_LETRAS:FISICA,CIENCIA,RAPIDEZ]\n\n[JUEGO:CRUCIGRAMA:Unidad de medida del SI para longitud|METRO;Variable que mide la duración de un evento|TIEMPO]\n\n[JUEGO:ORDENAR_LETRAS:REFERENCIA]\n\n[JUEGO:ORDENAR_FRASE:EL MOVIMIENTO ES RELATIVO AL OBSERVADOR]\n\n[JUEGO:CRUCIGRAMA:Que cambia de posición con el tiempo|MOVIL;Ejes que permiten ubicar un punto|COORDENADAS]\n\nEn la Tierra o en la selva alienígena, si corres alrededor de la cancha de fútbol del colegio y regresas exactamente al punto de partida, habrás sudado y recorrido una gran **distancia** (los metros totales que marcaron tus tenis), pero tu **desplazamiento** será vectorialmente nulo (0 metros). Esto se debe a que la posición final coincide matemáticamente con la inicial. ¡Asombroso pero real!",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "Si un dron explorador despega desde (0, 0) metros, vuela en círculos completando 3 vueltas de 50 metros cada una, y aterriza en el mismo punto (0, 0), ¿cuáles son su distancia recorrida y su desplazamiento?",
+      "respuesta_esperada": "La distancia recorrida es de 150 metros (las tres vueltas sumadas), mientras que su desplazamiento es de 0 metros, ya que su posición final es idéntica a la posición inicial."
+    },
+    {
+      "pregunta": "¿Qué papel juega el tiempo (t) en la determinación de las variables cinemáticas de un cuerpo?",
+      "respuesta_esperada": "El tiempo actúa como la variable independiente que permite registrar la secuencia de posiciones sucesivas del móvil, permitiendo definir instantes específicos para evaluar el cambio de posición."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Un saltamontes alienígena realiza tres saltos consecutivos en línea recta sobre el eje X: primero salta de 0m a +4m, luego de +4m a +9m, y finalmente retrocede de +9m a +5m. Calcula paso a paso la distancia total recorrida y su desplazamiento final.",
+    "Elabora un mapa conceptual de conectores donde expliques las diferencias operativas y conceptuales entre magnitudes escalares (como la distancia) y vectoriales (como el desplazamiento)."
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de fenómenos",
+      "texto_introductorio": "Durante una prueba de exploración robótica en la selva de Exión-9, los cadetes de la IE Instituto Montenegro programan un vehículo todoterreno para que se mueva en línea recta sobre una pista de pruebas experimental graduada en metros. Los datos de la posición del vehículo en función del tiempo se registraron en la siguiente tabla:",
+      "tabla_o_grafica_markdown": "| Tiempo ($t$) (s) | Posición ($x$) (m) |\n| :--- | :--- |\n| $0$ | $2$ |\n| $2$ | $8$ |\n| $4$ | $14$ |\n| $6$ | $8$ |\n| $8$ | $2$ |",
+      "pregunta": "Con base en los datos de la tabla, ¿cuáles son el desplazamiento neto y la distancia total recorrida por el vehículo explorador al cabo de los 8 segundos de movimiento?",
+      "options": [
+        "Desplazamiento = 0 m; Distancia recorrida = 24 m",
+        "Desplazamiento = 6 m; Distancia recorrida = 12 m",
+        "Desplazamiento = 0 m; Distancia recorrida = 12 m",
+        "Desplazamiento = 12 m; Distancia recorrida = 24 m"
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "¡Excelente elección! El desplazamiento neto es cero (0 m) porque la posición final en t=8s es x=2m, idéntica a la posición inicial en t=0s. Por otro lado, la distancia recorrida es la suma de los tramos: de 2m a 14m avanzó 12m, y de 14m de vuelta a 2m recorrió otros 12m, totalizando 24 metros.",
+        "1": "Incorrecto. Recuerda que el desplazamiento neto se calcula restando la posición final menos la posición inicial: x_f - x_i. Evalúa detalladamente las posiciones en t=0s y t=8s.",
+        "2": "Incorrecto. Aunque identificaste correctamente que el desplazamiento neto es de 0 metros, calculaste mal la distancia recorrida, ya que olvidaste sumar el viaje de regreso completo.",
+        "3": "Incorrecto. Has confundido las definiciones. El desplazamiento mide el cambio directo entre posición final e inicial, el cual da cero, mientras que la distancia acumula todo el camino recorrido."
+      }
+    }
+  ]
+}

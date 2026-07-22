@@ -1,0 +1,114 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "Si lanzas una pelota en el espacio lejos de cualquier planeta, ¿qué le sucede?",
+      "opciones": [
+        "Se detiene inmediatamente",
+        "Sigue moviéndose en línea recta a velocidad constante",
+        "Empieza a girar en círculos",
+        "Regresa a tus manos"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Cuál es la forma principal de las órbitas planetarias según la ciencia moderna?",
+      "opciones": [
+        "Círculos perfectos",
+        "Triángulos redondeados",
+        "Elipses",
+        "Líneas rectas"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "¿Qué magnitud física describe qué tan rápido cambia la posición de un objeto?",
+      "opciones": [
+        "Masa",
+        "Velocidad",
+        "Energía",
+        "Temperatura"
+      ],
+      "correcta": 1
+    }
+  ],
+  "texto_inductivo": "# Expediente ISS: El Enigma de la Caída Perpetua\n\nSaludos, Detectives Estelares. Reportándose desde la Estación Espacial Internacional (ISS). Tenemos un caso crítico que desafía nuestra lógica terrestre. ***¿Cómo es posible que los planetas y satélites floten en el vacío perpetuamente sin 'caerse' hacia el Sol o la Tierra, y qué pistas nos da su velocidad sobre el destino del universo?*** [JUEGO:ORDENAR_LETRAS:GRAVEDAD] Para resolver este misterio, debemos observar el firmamento. La Tierra no está simplemente suspendida; está en una caída libre constante que nunca toca el suelo. [JUEGO:ORDENAR_FRASE:LA TIERRA GIRA ALREDEDOR DEL SOL] \n\n<div style='background: #001f3f; color: #39FF14; padding: 20px; border: 2px solid #39FF14; font-family: monospace;'>\n  <h3>SISTEMA DE MONITOREO ORBITAL</h3>\n  <svg viewBox='0 0 400 200' xmlns='http://www.w3.org/2000/svg'>\n    <ellipse cx='200' cy='100' rx='150' ry='70' style='fill:none;stroke:#39FF14;stroke-width:2' />\n    <circle cx='130' cy='100' r='20' fill='yellow' />\n    <circle cx='350' cy='100' r='10' fill='cyan'>\n      <animateMotion dur='5s' repeatCount='indefinite' path='M 0,0 a 150,70 0 1,1 0,0.1' />\n    </circle>\n    <text x='115' y='135' fill='#39FF14' font-size='12'>SOL (FOCO)</text>\n    <text x='280' y='40' fill='#39FF14' font-size='12'>TRAYECTORIA ELÍPTICA</text>\n  </svg>\n</div>\n\nEl primer indicio nos lo da la inercia. [JUEGO:SOPA_LETRAS:GRAVEDAD,FOCO,RADIO] Todo cuerpo tiende a mantener su movimiento. Pero una fuerza invisible curva esa línea recta. [JUEGO:ORDENAR_LETRAS:ORBITA] Kepler, nuestro detective antecesor, notó que los planetas no se mueven a velocidad constante. [JUEGO:CRUCIGRAMA:Atracción|GRAVEDAD;Masa|MATERIA] ¿Por qué aceleran al acercarse al Sol? [JUEGO:ORDENAR_FRASE:KEPLER ESTUDIO LAS ORBITAS] \n\nExplorar el vacío requiere entender que no hay fricción que detenga los astros. [JUEGO:SOPA_LETRAS:SATELITE,VACIO,ESPACIO] La posición de un planeta está determinada por una coreografía de fuerzas. [JUEGO:ORDENAR_LETRAS:ELIPSE] Si la velocidad fuera menor, colapsaríamos. [JUEGO:CRUCIGRAMA:Camino|ORBITA;Centro|NUCLEO] Si fuera mayor, escaparíamos al cosmos. [JUEGO:ORDENAR_FRASE:LA GRAVEDAD ES UNA FUERZA INVISIBLE] \n\nAnalizando la cinemática, vemos que el tiempo y la distancia recorridos forman un patrón. [JUEGO:SOPA_LETRAS:CINETICA,FUERZA,PESO] Los planetas barren áreas iguales en tiempos iguales. [JUEGO:ORDENAR_LETRAS:INERCIA] Esto significa que la aceleración no siempre cambia la rapidez, a veces solo cambia la dirección. [JUEGO:CRUCIGRAMA:Rapidez|VELOCIDAD;Empuje|IMPULSO] \n\n<table style='width:100%; border-collapse: collapse; border: 1px solid #39FF14;'>\n  <tr style='background: #003366;'>\n    <th style='border: 1px solid #39FF14; padding: 8px;'>Variable</th>\n    <th style='border: 1px solid #39FF14; padding: 8px;'>Efecto en el Misterio</th>\n  </tr>\n  <tr>\n    <td style='border: 1px solid #39FF14; padding: 8px;'>Posición</td>\n    <td style='border: 1px solid #39FF14; padding: 8px;'>Define el punto en la elipse respecto al foco.</td>\n  </tr>\n  <tr>\n    <td style='border: 1px solid #39FF14; padding: 8px;'>Velocidad</td>\n    <td style='border: 1px solid #39FF14; padding: 8px;'>Tangente a la órbita, evita la caída vertical.</td>\n  </tr>\n</table>\n\nEl rompecabezas se complica al notar que el espacio no es plano. [JUEGO:ORDENAR_FRASE:LA POSICION CAMBIA CON EL TIEMPO] La masa del Sol curva el tejido mismo de la realidad. [JUEGO:SOPA_LETRAS:ALTURA,TIEMPO,MAGNITUD] Por eso, estudiar cinemática orbital es como leer el mapa de una montaña invisible. [JUEGO:ORDENAR_LETRAS:VELOCIDAD] ¿Están listos para descifrar las leyes que rigen este baile? [JUEGO:CRUCIGRAMA:Cambio velocidad|ACELERACION;Frenado|FRICCION] Finalmente, el cosmos nos revela que el equilibrio es dinámico, nunca estático. [JUEGO:SOPA_LETRAS:NEWTON,KEPLER,GALILEO] No nos caemos porque vamos lo suficientemente rápido para fallarle al suelo. [JUEGO:ORDENAR_FRASE:EL MISTERIO RESIDE EN EL VACIO] [JUEGO:CRUCIGRAMA:Lugar|POSICION;Trayecto|DISTANCIA]",
+  "recurso_visual": "graph TD\n    A[Gravedad Solar] -->|Atrae| B(Planeta)\n    C[Inercia/Velocidad Tangencial] -->|Mueve| B\n    B --> D{Resultado}\n    D -->|Equilibrio| E[Órbita Elíptica]\n    D -->|Velocidad Baja| F[Colapso/Choque]\n    D -->|Velocidad Alta| G[Escape Estelar]",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "¿Cuál es el factor que evita que un satélite caiga directo hacia la Tierra?",
+      "respuesta_esperada": "Su alta velocidad tangencial, que le permite caer 'alrededor' de la curvatura terrestre."
+    },
+    {
+      "pregunta": "¿Qué sucede con la velocidad de un planeta cuando está más cerca del Sol?",
+      "respuesta_esperada": "La velocidad aumenta debido a que la fuerza de atracción gravitacional es mayor."
+    },
+    {
+      "pregunta": "¿Cómo describió Kepler la forma de las órbitas?",
+      "respuesta_esperada": "Como elipses donde el Sol ocupa uno de los focos."
+    },
+    {
+      "pregunta": "¿Qué papel juega la inercia en el movimiento planetario?",
+      "respuesta_esperada": "Mantiene al planeta moviéndose en línea recta, oponiéndose a la atracción gravitatoria que busca jalarlo al centro."
+    },
+    {
+      "pregunta": "En términos de cinemática, ¿qué significa que un planeta cambie de dirección?",
+      "respuesta_esperada": "Significa que existe una aceleración actuando sobre él, incluso si su rapidez fuera constante."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema de la Tierra orbitando el Sol, señalando con flechas (vectores) la fuerza de gravedad y la velocidad tangencial.",
+    "Realiza un cuadro comparativo entre el concepto de 'caída libre' en la Tierra (soltar una manzana) y la 'caída libre' de la Luna.",
+    "Escribe una reflexión de media página sobre por qué crees que los antiguos pensaban que las órbitas debían ser círculos perfectos y no elipses.",
+    "Representa gráficamente mediante un diagrama de flujo qué pasaría con la órbita de la ISS si de repente duplicara su masa."
+  ],
+  "texto_deductivo": "# El Código de Newton: Deducción de la Mecánica Celeste\n\nAtención, equipo. Tras la observación, pasamos al análisis matemático. [JUEGO:ORDENAR_LETRAS:VECTOR] La cinemática nos permite predecir el futuro de un astro. La posición no es solo un punto, es un vector que nace en el Sol. [JUEGO:ORDENAR_FRASE:NEWTON DESCUBRIO LA LEY GRAVITACIONAL] La aceleración centrípeta es la clave del misterio: es la responsable de curvar el camino. [JUEGO:SOPA_LETRAS:COSMOS,LEY,FISICA] \n\n<div style='border: 4px double #FFD700; padding: 15px; background: #1a1a1a;'>\n<h2 style='color: #FFD700; text-align: center;'>Leyes de la Mecánica Orbital</h2>\n<div style='display: flex; justify-content: space-around;'>\n  <div style='width: 30%; border: 1px solid #FFD700; padding: 5px;'>1. Ley de Elipses: Las trayectorias no son redondas.</div>\n  <div style='width: 30%; border: 1px solid #FFD700; padding: 5px;'>2. Ley de Áreas: A mayor cercanía, mayor velocidad.</div>\n  <div style='width: 30%; border: 1px solid #FFD700; padding: 5px;'>3. Ley de Periodos: El tiempo de órbita depende de la distancia.</div>\n</div>\n</div>\n\nSi analizamos el vector velocidad, vemos que siempre es perpendicular al radio de la órbita circular ideal. [JUEGO:ORDENAR_LETRAS:ELIPSES] [JUEGO:ORDENAR_FRASE:LA ACELERACION ES UN VECTOR] Cuando el planeta recorre su elipse, su energía cinética se intercambia con la potencial. [JUEGO:SOPA_LETRAS:PLANETA,ASTRO,MUNDO] [JUEGO:CRUCIGRAMA:Curva cerrada|ELIPSE;Puntos fijos|FOCOS] Sin una fuerza central, el objeto escaparía en una línea recta infinita. [JUEGO:ORDENAR_LETRAS:ACELERAR] \n\nLa aceleración en el espacio no siempre significa 'ir más rápido'. [JUEGO:ORDENAR_FRASE:EL RADIO VECTOR BARRE AREAS IGUALES] Significa que hay un cambio en el vector velocidad. [JUEGO:SOPA_LETRAS:VECTOR,ESCALAR,PUNTO] [JUEGO:CRUCIGRAMA:Fuerza central|CENTRIPETA;Huida|CENTRIFUGA] En la ISS, experimentamos microgravedad porque estamos cayendo a la misma tasa que la estación. [JUEGO:ORDENAR_LETRAS:TRAYECTO] [JUEGO:ORDENAR_FRASE:EL CUADRADO DEL PERIODO ES PROPORCIONAL] \n\n<table style='width:100%; border: 2px solid white; color: white;'>\n<tr style='background-color: #444;'><th>Magnitud</th><th>Unidad SI</th><th>Tipo</th></tr>\n<tr><td>Posición (r)</td><td>Metros (m)</td><td>Vectorial</td></tr>\n<tr><td>Velocidad (v)</td><td>m/s</td><td>Vectorial</td></tr>\n<tr><td>Aceleración (a)</td><td>m/s²</td><td>Vectorial</td></tr>\n</table>\n\n¿Podemos concluir que el universo es un reloj mecánico? [JUEGO:SOPA_LETRAS:SOLAR,SISTEMA,LUNA] Newton unificó el cielo y la tierra con su Ley de Gravitación Universal. [JUEGO:ORDENAR_LETRAS:UNIVERESO] [JUEGO:CRUCIGRAMA:Masa por gravedad|PESO;Cantidad materia|MASA] La masa de los objetos dicta la curvatura de su destino. [JUEGO:ORDENAR_FRASE:LA INERCIA MANTIENE EL MOVIMIENTO] [JUEGO:SOPA_LETRAS:GIRO,ROTAR,EJE] Entender esto es el primer paso para convertirnos en una especie multiplanetaria. [JUEGO:CRUCIGRAMA:Línea acción|DIRECTRIZ;Curva|PARABOLA] [JUEGO:CRUCIGRAMA:Velocidad angular|FRECUENCIA;Vueltas|ROTACION]",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "¿Qué pasaría con la velocidad orbital si la distancia al Sol se duplicara?",
+      "respuesta_esperada": "La velocidad necesaria para mantener la órbita disminuiría, ya que la fuerza gravitacional es menor a mayor distancia."
+    },
+    {
+      "pregunta": "Define aceleración centrípeta en el contexto de un planeta.",
+      "respuesta_esperada": "Es la aceleración dirigida hacia el Sol que cambia constantemente la dirección de la velocidad del planeta, manteniéndolo en órbita."
+    },
+    {
+      "pregunta": "¿Por qué un astronauta en la ISS flota si la gravedad terrestre allí es casi el 90% de la de la superficie?",
+      "respuesta_esperada": "Porque tanto el astronauta como la ISS están en caída libre lateral constante; no hay una fuerza normal que los sostenga."
+    },
+    {
+      "pregunta": "¿Cuál es la relación entre el periodo orbital y la distancia media al Sol?",
+      "respuesta_esperada": "Según la tercera ley de Kepler, el cuadrado del periodo es proporcional al cubo de la distancia media (semieje mayor)."
+    },
+    {
+      "pregunta": "¿Qué diferencia hay entre rapidez y velocidad en un movimiento orbital circular?",
+      "respuesta_esperada": "La rapidez puede ser constante, pero la velocidad cambia constantemente porque su dirección varía en cada punto de la trayectoria."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Dibuja un diagrama detallado de una órbita elíptica marcando el Perihelio (punto más cercano) y el Afelio (punto más lejano), indicando dónde la velocidad es máxima y mínima.",
+    "Elabora un mapa mental que conecte las tres leyes de Kepler con la Ley de Gravitación Universal de Newton.",
+    "Realiza un dibujo explicativo que muestre la diferencia entre un objeto con velocidad de escape y un objeto en órbita cerrada.",
+    "Crea una infografía artesanal sobre 'Cómo poner un satélite en órbita', explicando los conceptos de posición, velocidad inicial y aceleración."
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "Un satélite de comunicaciones se encuentra en una órbita circular estable alrededor de la Tierra. Debido a un fallo técnico, sus motores se encienden brevemente reduciendo su velocidad tangencial a la mitad de forma instantánea.",
+      "tabla_o_grafica_markdown": "| Estado | Velocidad (v) | Radio (r) |\n|---|---|---|\n| Inicial | v_orbital | R_estable |\n| Final | 0.5 v_orbital | R_estable (inicialmente) |",
+      "pregunta": "¿Cuál es la consecuencia inmediata del cambio de velocidad en la trayectoria del satélite?",
+      "opciones": [
+        "El satélite comenzará a caer hacia la Tierra en una trayectoria espiral o elíptica más cerrada.",
+        "El satélite saldrá disparado hacia el espacio exterior en línea recta.",
+        "El satélite se mantendrá en la misma órbita pero tardará el doble de tiempo en dar una vuelta.",
+        "La gravedad dejará de actuar sobre el satélite al cambiar su velocidad."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. Al disminuir la velocidad, la inercia no es suficiente para compensar la fuerza de gravedad, por lo que el satélite 'cae' hacia el centro.",
+        "1": "Incorrecto. Para salir al espacio se requiere aumentar la velocidad por encima de la velocidad de escape, no reducirla.",
+        "2": "Incorrecto. Una órbita estable requiere una velocidad específica para un radio dado; al cambiar la velocidad, el radio necesariamente debe cambiar.",
+        "3": "Incorrecto. La gravedad depende de las masas y la distancia, no de la velocidad del objeto."
+      }
+    }
+  ]
+}

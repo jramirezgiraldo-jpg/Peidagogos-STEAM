@@ -1,0 +1,114 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "Si lanzas una bengala de auxilio en la selva, ¿qué trayectoria describe antes de caer?",
+      "opciones": [
+        "Una línea recta hacia el infinito",
+        "Una trayectoria parabólica debido a la gravedad",
+        "Un círculo perfecto alrededor del lanzador",
+        "Se queda estática en el aire por la humedad"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Qué diferencia fundamental hay entre la masa de un jaguar y su peso?",
+      "opciones": [
+        "No hay diferencia, son el mismo concepto",
+        "La masa cambia según el planeta, el peso es constante",
+        "La masa es la cantidad de materia y el peso es la fuerza gravitacional",
+        "El peso se mide en kilogramos y la masa en Newtons"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "¿Quién propuso que los planetas se mueven en elipses y no en círculos perfectos?",
+      "opciones": [
+        "Isaac Newton",
+        "Johannes Kepler",
+        "Galileo Galilei",
+        "Nicolás Copérnico"
+      ],
+      "correcta": 1
+    }
+  ],
+  "texto_inductivo": "Saludos, aspirantes a exploradores. Soy el Detective de Misterios Celestiales. Nos encontramos en lo profundo de la Amazonía, frente al Gran Templo de las Sombras Estelares. Los antiguos habitantes de esta selva dejaron un mecanismo que solo se activa cuando entendemos el orden del cosmos. ***¿Cómo es posible que las mismas leyes que hacen caer una fruta en la selva mantengan a los planetas en una danza eterna alrededor del Sol sin chocar ni escapar al vacío?*** [JUEGO:ORDENAR_FRASE:LA GRAVEDAD ES UNA FUERZA] Para entrar al templo, debemos descifrar el movimiento de los astros. Observen el cielo a través del follaje: los planetas no se mueven al azar. [JUEGO:ORDENAR_LETRAS:ORBITA] La posición de un planeta en el firmamento cambia con el tiempo, trazando una ruta específica. [JUEGO:SOPA_LETRAS:SOL,LUNA,ASTRO] <svg width='200' height='100' style='background:#001a00; border-radius:10px;'><ellipse cx='100' cy='50' rx='80' ry='40' style='fill:none;stroke:#fbff00;stroke-width:2' /><circle cx='60' cy='50' r='8' fill='#ffae00' /><circle cx='180' cy='50' r='5' fill='#00d9ff' /><text x='10' y='20' fill='white' font-size='10'>Modelo Elíptico</text></svg> Johannes Kepler, un detective del pasado, notó que los planetas no viajan en círculos perfectos, sino en elipses. [JUEGO:ORDENAR_LETRAS:ELIPSE] Esto significa que su distancia al Sol varía. [JUEGO:CRUCIGRAMA:Camino planetario|ORBITA;Centro de masa|FOCO] <div style='border: 2px solid #228B22; padding: 10px; background-color: #f0fff0;'> <h4 style='color: #006400;'>Evidencia 1: La Primera Ley</h4> <p>Los planetas describen órbitas elípticas estando el Sol en uno de sus focos.</p></div> [JUEGO:ORDENAR_FRASE:LOS PLANETAS GIRAN EN ELIPSES] Al observar el movimiento, notamos que la velocidad no es constante. [JUEGO:ORDENAR_LETRAS:FOCO] Cuando el planeta está cerca del Sol, parece correr desesperado; cuando está lejos, camina con calma. [JUEGO:SOPA_LETRAS:TIERRA,MARTE,JUPITER] [JUEGO:CRUCIGRAMA:Atracción universal|GRAVEDAD;Rapidez con dirección|VELOCIDAD] <table style='width:100%; border-collapse: collapse; background: #e8f5e9;' border='1'><tr><th style='background:#2e7d32; color:white;'>Concepto</th><th style='background:#2e7d32; color:white;'>Descripción Detectivesca</th></tr><tr><td>Posición</td><td>Coordenadas en el mapa estelar.</td></tr><tr><td>Velocidad</td><td>Qué tan rápido cambia su posición.</td></tr></table> [JUEGO:ORDENAR_FRASE:EL SOL ESTA EN UN FOCO] El misterio se profundiza al ver que la aceleración siempre apunta hacia el Sol. [JUEGO:ORDENAR_LETRAS:INERCIA] No hay cuerdas invisibles, solo la gravedad actuando como un lazo invisible. [JUEGO:SOPA_LETRAS:ESPACIO,VACIO,COMETA] [JUEGO:CRUCIGRAMA:Cambio de velocidad|ACELERACION;Lugar en el espacio|POSICION] <div style='display: flex; justify-content: space-around;'><div style='width: 50px; height: 50px; background: radial-gradient(circle, #ff0, #f90); border-radius: 50%; box-shadow: 0 0 20px #ff0;'></div><div style='width: 20px; height: 20px; background: blue; border-radius: 50%; margin-top: 15px; animation: orbit 4s linear infinite;'></div></div> [JUEGO:ORDENAR_FRASE:NEWTON DESCUBRIO LA LEY] La masa de los cuerpos determina qué tan fuerte es este lazo. [JUEGO:ORDENAR_LETRAS:MASA] [JUEGO:SOPA_LETRAS:FUERZA,MASA,PESO] [JUEGO:CRUCIGRAMA:Primer astronomo moderno|KEPLER;Padre de la fisica|NEWTON] Investigar estos movimientos nos permite predecir dónde estará un planeta en el futuro, resolviendo el enigma del tiempo en la selva. [JUEGO:ORDENAR_FRASE:KEPLER ESTUDIO LOS ASTROS] [JUEGO:SOPA_LETRAS:CIENCIA,LOGICA,DATOS] [JUEGO:CRUCIGRAMA:Forma de la orbita|ELIPSE;Gran estrella|SOL]",
+  "recurso_visual": "graph LR\n  A[Movimiento Planetario] --> B(Cinemática)\n  A --> C(Gravitación)\n  B --> D[Posición, Velocidad, Aceleración]\n  C --> E[Leyes de Kepler y Newton]\n  E --> F{Órbita Elíptica}",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "¿Cuál es la forma real de la órbita de un planeta según lo observado en el templo?",
+      "respuesta_esperada": "La órbita es una elipse, no un círculo perfecto, con el Sol ubicado en uno de sus focos."
+    },
+    {
+      "pregunta": "¿Qué ocurre con la velocidad de un planeta cuando se acerca al Sol?",
+      "respuesta_esperada": "La velocidad del planeta aumenta a medida que se acerca al Sol (perihelio) debido a la mayor fuerza de atracción gravitacional."
+    },
+    {
+      "pregunta": "¿Hacia dónde apunta siempre el vector de aceleración de un planeta en órbita?",
+      "respuesta_esperada": "El vector de aceleración siempre apunta hacia el Sol, que es el centro de la fuerza gravitatoria."
+    },
+    {
+      "pregunta": "¿Qué elemento invisible actúa como el 'lazo' que mantiene a los planetas unidos al Sol?",
+      "respuesta_esperada": "La fuerza de gravedad es el lazo invisible que mantiene a los cuerpos en órbita."
+    },
+    {
+      "pregunta": "¿Por qué es importante la masa en este misterio orbital?",
+      "respuesta_esperada": "La masa es fundamental porque la magnitud de la fuerza gravitatoria depende directamente de la cantidad de materia de los cuerpos involucrados."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja el Templo de las Sombras Estelares y representa dentro de él una órbita elíptica, señalando los focos, el Sol y un planeta en dos posiciones diferentes.",
+    "Realiza un cuadro comparativo entre el movimiento circular (erróneo) y el movimiento elíptico (correcto) basándote en la evidencia de Kepler.",
+    "Escribe un informe de detective de 10 líneas explicando por qué la fruta cae en la selva usando el concepto de gravedad universal.",
+    "Representa gráficamente los vectores de velocidad en el perihelio (punto cercano) y en el afelio (punto lejano) usando flechas de distintos tamaños."
+  ],
+  "texto_deductivo": "Para abrir la cámara secreta de la expedición, debemos aplicar el rigor matemático de nuestras deducciones. [JUEGO:ORDENAR_LETRAS:GRAVEDAD] La Ley de Gravitación Universal de Newton nos dice que la fuerza es proporcional al producto de las masas e inversamente proporcional al cuadrado de la distancia. [JUEGO:ORDENAR_FRASE:TODO CUERPO SE ATRAE] <div style='background: black; color: #0f0; font-family: monospace; padding: 15px; border: 3px double #0f0;'> F = G * (m1 * m2) / r² </div> [JUEGO:ORDENAR_LETRAS:VELOCIDAD] Esta fórmula es la llave maestra. [JUEGO:SOPA_LETRAS:FISICA,LEY,ORDEN] Si la distancia r se duplica, la fuerza se reduce a la cuarta parte. [JUEGO:CRUCIGRAMA:Punto mas cercano|PERIHELIO;Punto mas lejano|AFELIO] <svg width='300' height='120'><rect width='300' height='120' fill='#eee'/><line x1='50' y1='60' x2='250' y2='60' stroke='black' stroke-dasharray='5,5'/><circle cx='80' cy='60' r='15' fill='orange'/><circle cx='220' cy='60' r='8' fill='blue'/><path d='M 220 60 L 180 60' stroke='red' stroke-width='2' marker-end='url(#arrowhead)'/><defs><marker id='arrowhead' markerWidth='10' markerHeight='7' refX='0' refY='3.5' orient='auto'><polygon points='0 0, 10 3.5, 0 7' /></marker></defs><text x='170' y='50' font-size='12'>Vector Fuerza</text></svg> [JUEGO:ORDENAR_FRASE:LA DISTANCIA AL CUADRADO] El periodo orbital, es decir, el tiempo que tarda un planeta en dar una vuelta completa, está regido por la Tercera Ley de Kepler. [JUEGO:ORDENAR_LETRAS:PERIODO] [JUEGO:SOPA_LETRAS:VECTOR,ESCALAR,NORMA] [JUEGO:CRUCIGRAMA:Magnitud de cinematica|RAPIDEZ;Vector de cambio|ACELERACION] Los planetas más lejanos tienen periodos mucho más largos. [JUEGO:ORDENAR_FRASE:EL CUADRADO DEL PERIODO] La cinemática nos ayuda a describir este movimiento usando vectores. [JUEGO:ORDENAR_LETRAS:AFELIO] [JUEGO:SOPA_LETRAS:RADIO,ARCO,ANGULO] [JUEGO:CRUCIGRAMA:Ley de las areas|SEGUNDA;Ley de las orbitas|PRIMERA] La aceleración centrípeta es la que mantiene al planeta 'cayendo' continuamente hacia el Sol sin llegar nunca a chocar. [JUEGO:ORDENAR_FRASE:LA ACELERACION ES CONSTANTE] [JUEGO:ORDENAR_LETRAS:PERIHELIO] [JUEGO:SOPA_LETRAS:TIEMPO,SEGUNDO,RELOJ] [JUEGO:CRUCIGRAMA:Unidad de masa|KILOGRAMO;Unidad de fuerza|NEWTON] Al final del camino, entendemos que el universo es un reloj gigante. [JUEGO:ORDENAR_FRASE:EL RADIO VECTOR BARRE AREAS] [JUEGO:SOPA_LETRAS:COSMOS,GALAXIA,NUBE] [JUEGO:CRUCIGRAMA:Constante G|CAVENDISH;Astronomo danes|BRAHE]",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "Si la distancia entre dos astros se triplica, ¿cómo cambia la fuerza de atracción entre ellos?",
+      "respuesta_esperada": "La fuerza se reduce a la novena parte (1/3²) de su valor original, según la ley del inverso del cuadrado."
+    },
+    {
+      "pregunta": "¿Qué establece la Tercera Ley de Kepler sobre la relación entre el periodo y la distancia?",
+      "respuesta_esperada": "Establece que el cuadrado del periodo orbital (T²) es proporcional al cubo de la distancia media al Sol (r³)."
+    },
+    {
+      "pregunta": "¿Qué tipo de aceleración experimenta un planeta en una órbita circular aproximada?",
+      "respuesta_esperada": "Experimenta una aceleración centrípeta dirigida hacia el centro de la órbita (el Sol)."
+    },
+    {
+      "pregunta": "¿Por qué un planeta no sale volando en línea recta al espacio?",
+      "respuesta_esperada": "Porque la fuerza de gravedad actúa como una fuerza centrípeta que curva constantemente su trayectoria."
+    },
+    {
+      "pregunta": "¿Qué sucedería con la órbita de la Tierra si el Sol desapareciera instantáneamente?",
+      "respuesta_esperada": "La Tierra seguiría una trayectoria rectilínea tangente a su órbita original debido a la inercia, al desaparecer la fuerza centrípeta."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Diseña un diagrama detallado de un sistema planetario ficticio donde apliques la Tercera Ley de Kepler para calcular los años de un planeta lejano.",
+    "Elabora un mapa mental que conecte a Newton, Kepler y las variables de posición, velocidad y aceleración.",
+    "Realiza un dibujo explicativo del concepto de 'caída libre perpetua' de la Luna alrededor de la Tierra.",
+    "Crea una infografía artesanal que resuma las tres leyes de Kepler con ejemplos visuales de la selva (ej. usando frutas para representar planetas)."
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "En la expedición, se descubre una tabla de datos sobre dos planetas que orbitan una estrella similar al Sol. Los datos muestran la distancia media (R) y el periodo (T) de cada uno.",
+      "tabla_o_grafica_markdown": "| Planeta | Distancia Media (UA) | Periodo (Años) |\n| :--- | :--- | :--- |\n| Planeta A | 1 | 1 |\n| Planeta B | 4 | 8 |",
+      "pregunta": "De acuerdo con la Tercera Ley de Kepler (T² ∝ R³), si se descubre un Planeta C a una distancia de 9 UA, su periodo orbital sería:",
+      "opciones": [
+        "27 años",
+        "9 años",
+        "81 años",
+        "3 años"
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. Si R=9, R³ = 9*9*9 = 729. La raíz cuadrada de 729 es 27. Por tanto, T = 27 años.",
+        "1": "Incorrecto. 9 años implicaría que T = R, lo cual contradice la ley de Kepler.",
+        "2": "Incorrecto. 81 años sería el cuadrado de 9, pero la ley relaciona T² con R³.",
+        "3": "Incorrecto. 3 años es la raíz cuadrada de la distancia, no el periodo calculado correctamente."
+      }
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¡Recluta de la ciencia! Si estás flotando dentro del módulo de la Estación Espacial Internacional (ISS) y no te mueves respecto a sus paredes metálicas, pero la ISS viaja a 27,600 km/h respecto a la superficie de la Tierra, ¿te estás moviendo realmente?",
+      "opciones": [
+        "No, porque tu cuerpo está completamente relajado, estático y flotando en gravedad cero.",
+        "Sí y no; depende totalmente del Punto de Referencia que elijas para medir tu movimiento.",
+        "Sí, porque la gravedad del espacio te arrastra y te obliga a moverte físicamente.",
+        "No, ya que en el vacío espacial la velocidad es una simple ilusión óptica de los ojos."
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Qué elemento físico y matemático es absolutamente obligatorio para describir la ubicación exacta de un tornillo suelto que amenaza con perforar tu traje espacial?",
+      "opciones": [
+        "Un telescopio de alta resolución y mucha suerte para que no te golpee.",
+        "Un sistema de referencia espacial y un conjunto de coordenadas cartesianas.",
+        "Saber únicamente la masa del tornillo y la densidad del vacío cósmico.",
+        "La distancia acumulada desde el centro de la Tierra hasta la ISS."
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "Si un micro-meteorito da una vuelta completa alrededor de la ISS y regresa exactamente al mismo punto donde comenzó, ¿cuál fue su cambio de posición neto (desplazamiento)?",
+      "opciones": [
+        "Igual a la longitud de la circunferencia que recorrió alrededor de la ISS.",
+        "Infinito, porque en el espacio exterior las distancias se multiplican por la velocidad.",
+        "Cero, porque su posición inicial y su posición final son exactamente idénticas.",
+        "No se puede calcular en absoluto si no conocemos el tiempo exacto que tardó en viajar."
+      ],
+      "correcta": 2
+    }
+  ],
+  "texto_inductivo": "# ¡ALERTA ROJA EN LA ESTACIÓN ESPACIAL INTERNACIONAL! \n\n¡Cerebros flotantes, presten atención! Soy el Dr. Von Flux, su Científico Loco de cabecera. Los he traído a bordo de la ISS no para contemplar las estrellas, ¡sino para sobrevivir! Una densa nube de basura espacial hiperveloz se dirige hacia nosotros. Si no comprendemos la física del movimiento *AHORA*, terminaremos convertidos en polvo cósmico.\n\n***¿Cómo puede un estudiante del Instituto Montenegro usar las coordenadas de su salón de clases para calcular una trayectoria de escape y esquivar un trozo de basura espacial que viaja a 28,000 km/h hacia la Estación Espacial Internacional?***\n\nPara responder a esto, primero debemos entender dónde estamos parados... o flotando. En el espacio, decir \"arriba\" o \"abajo\" no significa nada. Necesitamos un **Punto de Referencia**. Piensa en la IE Instituto Montenegro: para explicarle a un compañero de grado sexto dónde está la rectoría, tomas como referencia la entrada principal. ¡Aquí en la ISS es igual! Usamos las escotillas de acoplamiento como nuestro origen de coordenadas.\n\n<svg viewBox='0 0 500 250' style='background-color:#0d1117; border-radius:10px; margin: 20px 0;'><rect width='500' height='250' fill='#0b0f19'/><line x1='50' y1='200' x2='450' y2='200' stroke='#388bfd' stroke-width='2'/><line x1='50' y1='50' x2='50' y2='220' stroke='#388bfd' stroke-width='2'/><text x='40' y='235' fill='#58a6ff' font-family='monospace'>Origen (0,0)</text><text x='430' y='215' fill='#58a6ff' font-family='monospace'>Eje X (Módelo ISS)</text><text x='15' y='45' fill='#58a6ff' font-family='monospace'>Eje Y</text><circle cx='150' cy='120' r='10' fill='#ff7b72'/><animate attributeName='opacity' values='1;0.2;1' dur='1.5s' repeatCount='indefinite'/><text x='170' y='125' fill='#ff7b72' font-family='sans-serif' font-weight='bold'>PELIGRO: Basura Espacial en (150, 120)</text><path d='M 150 120 Q 280 40 400 180' stroke='#39d353' stroke-width='3' fill='none' stroke-dasharray='5,5'/><circle cx='400' cy='180' r='8' fill='#58a6ff'/><text x='350' y='205' fill='#58a6ff' font-family='sans-serif'>Tu Posición Segura (400, 180)</text></svg>\n\n¡Rápido! Si no descifras las variables cinemáticas fundamentales, no sabrás hacia dónde propulsarte. Comencemos con un ejercicio mental de ordenación espacial antes de que el oxígeno disminuya:\n\n[JUEGO:ORDENAR_LETRAS:POSICION]\n\n¡Excelente! Pero el trozo de metal que viene hacia nosotros sigue una ruta en el espacio. El camino geométrico que describe ese objeto se llama... ¡Descúbrelo tú mismo descifrando este desorden cósmico!\n\n[JUEGO:ORDENAR_LETRAS:TRAYECTORIA]\n\n¡Por las barbas de Einstein! Si la basura espacial se mueve, debemos advertir a toda la tripulación con un mensaje de emergencia codificado. ¡Ordena esta frase antes del impacto!\n\n[JUEGO:ORDENAR_FRASE:EL ESPACIO ES PELIGROSO]\n\nNo te relajes, cadete. La distancia entre el peligro y tu escotilla de escape es vital. Resuelve el siguiente fragmento de comunicación cuántica:\n\n[JUEGO:ORDENAR_FRASE:MEDIR LA DISTANCIA SALVA VIDAS]\n\n¡Alerta! Los sensores de telemetría están registrando datos caóticos. Para limpiar el ruido de los instrumentos, resuelve estas sopas de letras con términos clave de navegación orbital:\n\n[JUEGO:SOPA_LETRAS:ORBITA,FISICA,METRO]\n\n¡Y aquí va otra ráfaga de datos que debes organizar en tu procesador mental!\n\n[JUEGO:SOPA_LETRAS:VECTOR,RAPIDEZ,TIEMPO]\n\n¡Maldición! El ordenador central se ha bloqueado. Para restaurar el sistema de posicionamiento global del módulo experimental, resuelve estos dos crucigramas cinemáticos de emergencia inmediatamente:\n\n[JUEGO:CRUCIGRAMA:Punto de referencia inicial|ORIGEN;Camino seguido|TRAYECTORIA]\n\n[JUEGO:CRUCIGRAMA:Lugar que ocupa|POSICION;Cambio de posicion|MOVIMIENTO]",
+  "recurso_visual": "| Variable Cinemática | Definición en Modo Héroe | Símbolo y Unidad (SI) | Aplicación para Sobrevivir en la ISS |\n| :--- | :--- | :--- | :--- |\n| **Posición** | El lugar exacto en el espacio tridimensional donde te encuentras respecto a la cabina de mando. | Vector $\\vec{r}$ (Metros - $m$) | Saber si estás dentro de la zona de impacto de la basura espacial. |\n| **Trayectoria** | El \"dibujo\" o camino geométrico invisible que dejas al moverte por la estación. | Línea de movimiento (No tiene unidad única) | Predecir la curva que describirá un fragmento de escombro espacial. |\n| **Distancia Recorrida**| La longitud total de la trayectoria que recorres flotando, sin importar las curvas que des. | Escalar $d$ (Metros - $m$) | Calcular cuánto combustible de tus propulsores gastarás al moverte. |\n| **Desplazamiento** | La línea recta imaginaria que conecta directamente tu punto de partida con tu punto de llegada. | Vector $\\Delta \\vec{r}$ (Metros - $m$) | Encontrar la ruta de escape más rápida y corta hacia el refugio blindado. |",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "Si un astronauta en Montenegro dibuja un plano de su colegio y define el origen (0,0) en la entrada principal, ¿cambiaría la posición del salón de Grado Sexto si cambiamos el origen de referencia a la cancha de fútbol?",
+      "respuesta_esperada": "Sí, los valores numéricos de las coordenadas de la posición del salón cambiarían porque ahora se miden desde un punto inicial diferente (la cancha), aunque físicamente el salón siga estando en el mismo lugar."
+    },
+    {
+      "pregunta": "¿Qué diferencia sustancial hay entre decir 'he recorrido 15 metros flotando por toda la estación' y decir 'mi posición actual es a 15 metros al norte del panel solar principal'?",
+      "respuesta_esperada": "La primera describe la distancia recorrida (un valor escalar sin dirección), mientras que la segunda define una posición exacta mediante un vector que incluye un punto de referencia y una dirección específica (norte)."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "RETO CIENTÍFICO 1: Dibuja en tu cuaderno un mapa del salón de clase de la IE Instituto Montenegro. Elige tu propio pupitre como el Origen de Referencia (0,0). Escribe las coordenadas estimadas en metros de: el tablero, la puerta, el escritorio del profesor y el pupitre de tu mejor amigo. ¡No olvides trazar los ejes X e Y!",
+    "RETO CIENTÍFICO 2: Imagina que un dron de la ISS debe viajar desde el radiador térmico en (0,0) hasta el módulo ruso en (8,6) metros. Dibuja dos caminos posibles: uno que represente una trayectoria rectilínea y otro que represente una trayectoria curvilínea. ¿En cuál de los dos caminos el dron recorre más distancia? ¿Cómo es el desplazamiento en ambos casos?"
+  ],
+  "texto_deductivo": "# LA FÍSICA DETRÁS DEL ESCAPE: EL RIGOR DE LA CINEMÁTICA\n\n¡Atención, mentes brillantes! El Dr. Von Flux está de vuelta con ecuaciones y conceptos puros. No podemos esquivar proyectiles espaciales con solo adivinanzas; necesitamos la precisión absoluta de la **Cinemática**, la rama de la física clásica que describe el movimiento de los cuerpos sin preocuparse por las causas que lo provocan.\n\nPara definir la **Posición** de un cuerpo en el espacio, utilizamos un vector que une el origen de coordenadas con el punto donde se encuentra el objeto. \n\n<svg viewBox='0 0 500 200' style='background-color:#161b22; border-radius:10px; margin: 20px 0;'><rect width='500' height='200' fill='#0d1117'/><path d='M 80 150 Q 200 30 320 160 T 430 80' stroke='#ff8800' stroke-width='3' fill='none' stroke-dasharray='4,4'/><line x1='80' y1='150' x2='430' y2='80' stroke='#58a6ff' stroke-width='4'/><polygon points='430,80 420,88 425,76' fill='#58a6ff'/><circle cx='80' cy='150' r='8' fill='#238636'/><circle cx='430' cy='80' r='8' fill='#da3633'/><text x='65' y='180' fill='#58a6ff' font-family='monospace' font-weight='bold'>Punto A (Inicio)</text><text x='410' y='60' fill='#ff7b72' font-family='monospace' font-weight='bold'>Punto B (Fin)</text><text x='180' y='70' fill='#ffa657' font-family='sans-serif'>Trayectoria (Distancia Recorrida)</text><text x='220' y='145' fill='#58a6ff' font-family='sans-serif'>Vector Desplazamiento</text></svg>\n\nLa **Trayectoria** es la línea continua que une todas las posiciones sucesivas por las que pasa un cuerpo. La **Distancia** es la longitud de esa trayectoria (una magnitud escalar, siempre positiva). En cambio, el **Desplazamiento** es la diferencia vectorial entre la posición final y la inicial:\n\n$$\\Delta \\vec{r} = \\vec{r}_{final} - \\vec{r}_{inicial}$$\n\n¡Por todos los rayos gamma! Si regresas al origen, tu desplazamiento es nulo, aunque tus pies estén adoloridos por correr. Despejen sus canales neuronales y resuelvan estos conceptos desordenados:\n\n[JUEGO:ORDENAR_LETRAS:CINEMATICA]\n\n[JUEGO:ORDENAR_LETRAS:DISTANCIA]\n\n[JUEGO:ORDENAR_LETRAS:SISTEMA]\n\n¡Cuidado! El software de la ISS requiere confirmar las leyes de la trayectoria. Si no ordenas estas directrices de vuelo, los motores no se encenderán:\n\n[JUEGO:ORDENAR_FRASE:LA TRAYECTORIA NO SIEMPRE ES RECTA]\n\n[JUEGO:ORDENAR_FRASE:EL VECTOR DEFINE LA POSICION]\n\n[JUEGO:ORDENAR_FRASE:EL TIEMPO CORRE EN EL ESPACIO]\n\n¡Rápido! Busquemos patrones de interferencia electromagnética en la base de datos resolviendo estas sopas de letras matemáticas de nivel superior:\n\n[JUEGO:SOPA_LETRAS:CINEMATICA,SISTEMA,DIRECCION]\n\n[JUEGO:SOPA_LETRAS:COORDENADA,ESPACIO,LINEA]\n\n[JUEGO:SOPA_LETRAS:PUNTO,PLANO,MAPA]\n\n¡Excelente trabajo! Por último, descifra estos tres criptogramas de crucigrama para sellar las compuertas térmicas exteriores de la estación espacial contra la radiación solar:\n\n[JUEGO:CRUCIGRAMA:Unidad de medida del SI|METRO;Magnitud con direccion|VECTOR]\n\n[JUEGO:CRUCIGRAMA:Trayectoria en linea recta|RECTILINEO;Espacio recorrido|DISTANCIA]\n\n[JUEGO:CRUCIGRAMA:Medida del tiempo|SEGUNDO;Linea que describe el movimiento|CURVA]",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "¿En qué caso físico e ideal la distancia recorrida por un objeto en movimiento es exactamente igual a la magnitud de su desplazamiento?",
+      "respuesta_esperada": "Únicamente cuando el movimiento ocurre en una línea recta perfecta (trayectoria rectilínea) y el objeto se desplaza en un solo sentido sin retroceder jamás."
+    },
+    {
+      "pregunta": "Si un radar de la ISS detecta que la posición de un asteroide es de (300, 400) metros, ¿qué representa físicamente el valor de la distancia directa desde el origen del radar hasta el asteroide calculada por teorema de Pitágoras?",
+      "respuesta_esperada": "Representa la norma o magnitud del vector posición del asteroide respecto al radar, la cual sería de 500 metros en línea recta."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "RETO CIENTÍFICO 3: Un astronauta de la IE Instituto Montenegro realiza una caminata espacial de reparación alrededor de una antena circular de la ISS que tiene un diámetro de 20 metros. Si el astronauta parte del punto de control A y realiza exactamente tres vueltas y media a la antena: a) Calcula la distancia total recorrida en metros utilizando la fórmula de la circunferencia, b) Dibuja la antena y determina el vector de desplazamiento final respecto al punto A.",
+    "RETO CIENTÍFICO 4: Diseña un cuadro comparativo en tu cuaderno donde clasifiques los siguientes ejemplos de la vida diaria en Montenegro y de la ISS como: Trayectoria Rectilínea, Trayectoria Curvilínea o Trayectoria Circular. Ejemplos: El vuelo de un insecto, un Jeep Willys bajando por una calle empinada de Montenegro, la ISS orbitando la Tierra, una manzana cayendo del árbol del colegio, y un transbordador despegando al espacio."
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos (Modo Héroe)",
+      "texto_introductorio": "Durante una misión de mantenimiento de la ISS, un panel de instrumentos científicos se suelta accidentalmente de la estructura principal. El radar de telemetría de la estación espacial registra los cambios de posición del panel segundo tras segundo respecto a la escotilla de escape principal, obteniendo los siguientes datos precisos de su trayectoria plana:",
+      "tabla_o_grafica_markdown": "| Tiempo transcurrido (s) | Posición en el eje X (m) | Posición en el eje Y (m) |\n| :---: | :---: | :---: |\n| 0 | 2 | 3 |\n| 1 | 5 | 7 |\n| 2 | 8 | 11 |\n| 3 | 11 | 15 |",
+      "pregunta": "Con base en el análisis cinemático de los datos tabulados, ¿cuál de las siguientes opciones describe correctamente el comportamiento y el tipo de trayectoria descrita por el panel científico fugitivo?",
+      "options": [
+        "La trayectoria es completamente curvilínea, debido a que las coordenadas de posición en ambos ejes aumentan de forma desigual a cada segundo que transcurre.",
+        "La trayectoria es rectilínea, porque el panel aumenta su posición de manera constante en intervalos iguales de tiempo: avanza 3 metros en el eje X y 4 metros en el eje Y por cada segundo.",
+        "El panel de instrumentos se encuentra en un estado de reposo absoluto porque la diferencia de posición entre los ejes coordenados permanece en una relación constante de 2 a 3.",
+        "La trayectoria es perfectamente circular, puesto que la suma geométrica de las coordenadas de posición siempre equivale al radio constante de la órbita de la ISS."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "¡Incorrecto, cadete! Aunque los números de los ejes X e Y son diferentes, la variación temporal es uniforme y proporcional. ¡Vuelve a calibrar tus instrumentos ópticos!",
+        "1": "¡Soberbio, futuro comandante de la ISS! Al analizar los datos, la variación en X es constante (+3 m/s) y en Y también (+4 m/s). Una tasa de cambio constante en ambas dimensiones produce una trayectoria en línea recta perfecta. ¡Has salvado la estación!",
+        "2": "¡Falso! Si las coordenadas cambian a medida que avanza el tiempo, el panel está en pleno movimiento cinemático respecto a la escotilla de escape.",
+        "3": "¡Error catastrófico! Para que una trayectoria sea circular, las posiciones deben satisfacer la ecuación de una circunferencia. Aquí la relación lineal demuestra un vuelo rectilíneo directo."
+      }
+    }
+  ]
+}

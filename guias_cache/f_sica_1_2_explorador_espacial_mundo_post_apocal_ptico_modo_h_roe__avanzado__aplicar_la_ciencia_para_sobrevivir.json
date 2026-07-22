@@ -1,0 +1,105 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Qué representa la posición ($x$) de un objeto en una medición física dentro del terreno devastado?",
+      "opciones": [
+        "A) El tiempo total que tarda en destruirse el rover.",
+        "B) La ubicación exacta del objeto respecto a un punto de referencia fijado en el mapa.",
+        "C) La velocidad máxima de la horda de mutantes.",
+        "D) La masa del combustible recolectado."
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "Si un dron de reconocimiento permanece detenido observando el perímetro durante 10 segundos, ¿cómo se representa su estado de movimiento?",
+      "opciones": [
+        "A) En movimiento rectilíneo acelerado extremo.",
+        "B) En estado de reposo ($v = 0\\text{ m/s}$).",
+        "C) En trayectoria circular hiperbólica.",
+        "D) En desaceleración infinita."
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "En un plano cartesiano aplicado a la navegación de supervivencia, ¿cuál variable se ubica tradicionalmente en el eje horizontal (eje X)?",
+      "opciones": [
+        "A) La posición ($x$).",
+        "B) La masa ($m$).",
+        "C) El tiempo ($t$).",
+        "D) La velocidad ($v$)."
+      ],
+      "correcta": 2
+    }
+  ],
+  "texto_inductivo": " dynamic_entry_log: **BITÁCORA DE EXPLORACIÓN ESPACIAL - PLANETA TIERRA POST-APOCALÍPTICO**\n\n***¿Cómo podemos usar la interpretación de gráficas de Posición vs Tiempo (x-t) para predecir las trayectorias de las hordas de merodeadores mutantes alrededor de la IE Instituto Montenegro y calcular el tiempo exacto de evacuación hacia el refugio orbital?***\n\n¡Atención, cadete de la tripulación de supervivencia! Soy el Capitán Vane del Rover *Sputnik-VII*. Nos encontramos desplegados en los terrenos en ruinas de Montenegro, Quindío. Nuestra base táctica se ubica en el antiguo **IE Instituto Montenegro**. Los sensores de radar en tiempo real envían constantes ráfagas de datos sobre el movimiento de hostiles y rovers de abastecimiento.\n\nPara sobrevivir en esta era posapocalíptica, no basta con correr: debemos **interpretar los gráficos $x-t$** emitidos por la IA de la nave para calcular la velocidad de aproximación de las amenazas, saber cuándo un objetivo se detiene a emboscarnos y planificar rutas de escape calculadas al milímetro.\n\n### 📡 Registro de Radar #1: La Aproximación de la Horda Mutante\n\nEl siguiente gráfico SVG interactivo de telemetría muestra el desplazamiento de una masa de merodeadores detectada a las afueras de la IE Instituto Montenegro:\n\n<svg viewBox='0 0 500 300' width='100%' height='260' style='background-color:#121824; border-radius:8px; border:2px solid #00ffcc;'><defs><pattern id='grid' width='40' height='40' patternUnits='userSpaceOnUse'><path d='M 40 0 L 0 0 0 40' fill='none' stroke='#1a2e40' stroke-width='1'/></pattern></defs><rect width='100%' height='100%' fill='url(#grid)'/><line x1='50' y1='250' x2='460' y2='250' stroke='#00ffcc' stroke-width='2'/><line x1='50' y1='250' x2='50' y2='30' stroke='#00ffcc' stroke-width='2'/><text x='420' y='285' fill='#00ffcc' font-size='12' font-family='monospace'>Tiempo t (s)</text><text x='10' y='40' fill='#00ffcc' font-size='12' font-family='monospace' transform='rotate(-90 20,40)'>Posición x (m)</text><path d='M 50 250 L 150 150 L 290 150 L 450 30' fill='none' stroke='#ff3366' stroke-width='4'/><circle cx='50' cy='250' r='5' fill='#ff3366'/><circle cx='150' cy='150' r='5' fill='#ffaa00'/><circle cx='290' cy='150' r='5' fill='#ffaa00'/><circle cx='450' cy='30' r='5' fill='#ff0000'/><text x='80' y='190' fill='#ffffff' font-size='11' font-family='monospace'>Tramo A: Avance rápido</text><text x='180' y='135' fill='#ffaa00' font-size='11' font-family='monospace'>Tramo B: Detenidos / Emboscada</text><text x='310' y='80' fill='#ff3366' font-size='11' font-family='monospace'>Tramo C: Carga máxima hacia el Instituto</text></svg>\n\nAnalizando el gráfico anterior de telemetría:\n1. **Tramo A ($0\\text{ s}$ a $10\\text{ s}$):** La línea recta inclinada hacia arriba indica que la horda cambia su posición continuamente hacia la base. ¡Se mueven a velocidad constante!\n2. **Tramo B ($10\\text{ s}$ a $24\\text{ s}$):** La gráfica se vuelve completamente horizontal. La posición $x$ no cambia. La horda está en **reposo**, agrupándose frente a las ruinas del polideportivo.\n3. **Tramo C ($24\\text{ s}$ a $40\\text{ s}$):** La inclinación es aún más empinada. Su velocidad se ha triplicado y avanzan hacia las puertas principales del colegio.\n\n[JUEGO:ORDENAR_LETRAS:POSICION]\n[JUEGO:ORDENAR_LETRAS:TIEMPO]\n[JUEGO:ORDENAR_FRASE:EL TIEMPO SIEMPRE SE GRAFICA EN EL EJE HORIZONTAL]\n[JUEGO:ORDENAR_FRASE:LA PENDIENTE REPRESENTA LA VELOCIDAD DEL RECOLECTOR]\n[JUEGO:SOPA_LETRAS:POSICION,TIEMPO,DISTANCIA]\n[JUEGO:SOPA_LETRAS:VELOCIDAD,PENDIENTE,ORIGEN]\n[JUEGO:CRUCIGRAMA:Distancia vertical recorrida en la grafica|POSICION;Eje de la variable independiente|TIEMPO]\n[JUEGO:CRUCIGRAMA:Inclinacion de la recta|PENDIENTE;Estado de inmovilidad|REPOSO]",
+  "recurso_visual": "| Intervalo de Tiempo | Tipo de Línea en Gráfica $x-t$ | Significado Táctico de Survival | Velocidad ($v$) |\n| :--- | :--- | :--- | :--- |\n| **$t_0$ a $t_1$** | Recta Inclinada Ascendente | Objeto alejándose del origen a velocidad constante | Positiva ($v > 0$) |\n| **$t_1$ a $t_2$** | Línea Horizontal | Objeto detenido en reposo / Oculto en el sector | Cero ($v = 0$) |\n| **$t_2$ a $t_3$** | Recta Inclinada Descendente | Objeto regresando hacia el origen del mapa | Negativa ($v < 0$) |",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "¿Qué ocurre con la posición de la horda durante el Tramo B del gráfico de radar?",
+      "respuesta_esperada": "La posición permanece constante (en reposo a la misma distancia), lo que indica que no hay desplazamiento en ese intervalo de tiempo."
+    },
+    {
+      "pregunta": "¿En cuál de los tramos (A o C) la velocidad de aproximación es mayor y cómo se evidencia en la gráfica?",
+      "respuesta_esperada": "En el Tramo C la velocidad es mayor, porque la pendiente de la línea recta es mucho más inclinada que en el Tramo A."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "RETO TÁCTICO 1: Dibuja en tu cuaderno un boceto de gráfica x-t donde el Rover de exploración salga de la IE Instituto Montenegro, se detenga 5 minutos a recolectar provisiones y luego regrese al mismo punto de partida.",
+    "RETO TÁCTICO 2: Deduce qué significaría una línea vertical en una gráfica x-t y explica por qué es físicamente imposible en el espacio-tiempo de supervivencia."
+  ],
+  "texto_deductivo": "🛠️ **MANUAL DE FÍSICA APLICADA DE LA FLOTA ESPACIAL: FORMALIZACIÓN DE GRÁFICAS $x-t$**\n\nEn el Modo Héroe, todo explorador debe dominar la matemática detrás de los sensores. Una gráfica **Posición vs Tiempo ($x-t$)** es una representación cartesiana que registra la localización $x$ (medida en metros $[m]$ o kilómetros $[km]$) en función del tiempo transcurrido $t$ (medido en segundos $[s]$ u horas $[h]$).\n\n### La Ecuación Clave: La Pendiente es la Velocidad\n\nLa inclinación o **pendiente ($m$)** de la recta en una gráfica $x-t$ equivale exactamente a la **velocidad ($v$)** del cuerpo en movimiento:\n\n$$v = \\frac{\\Delta x}{\\Delta t} = \\frac{x_f - x_i}{t_f - t_i}$$\n\n<table border='1' style='width:100%; border-collapse:collapse; background-color:#1c2536; color:#ffffff; text-align:center;'><thead><tr style='background-color:#00ffcc; color:#000000;'><th>Estado Físico</th><th>Representación Gráfica</th><th>Fórmula Resultante</th></tr></thead><tbody><tr><td><b>Movimiento Uniforme Positivo</b></td><td>Recta con pendiente hacia arriba↗️</td><td>$v = +\\text{valor constante}$</td></tr><tr><td><b>Estado de Reposo</b></td><td>Recta completamente horizontal ➡️</td><td>$v = 0\\text{ m/s}$</td></tr><tr><td><b>Movimiento de Regreso</b></td><td>Recta con pendiente hacia abajo↘️</td><td>$v = -\\text{valor constante}$</td></tr></tbody></table>\n\n### Diagrama Vectorial de Desplazamiento Táctico\n\n<svg viewBox='0 0 500 200' width='100%' height='180' style='background-color:#0d1117; border-radius:8px; border:1px solid #30363d;'><line x1='40' y1='160' x2='460' y2='160' stroke='#8b949e' stroke-width='2'/><line x1='40' y1='160' x2='40' y2='20' stroke='#8b949e' stroke-width='2'/><path d='M 40 160 L 160 60 L 300 60 L 440 160' fill='none' stroke='#00ffcc' stroke-width='3'/><text x='180' y='50' fill='#00ffcc' font-size='12' font-family='sans-serif'>v = 0 (Reposo en refugio)</text><text x='60' y='90' fill='#3388ff' font-size='12' font-family='sans-serif'>v > 0 (Avance)</text><text x='350' y='90' fill='#ff5555' font-size='12' font-family='sans-serif'>v < 0 (Retorno)</text></svg>\n\nSi calculamos la pendiente en el gráfico de retorno, obtenemos un valor negativo. En la física del planeta devastado, el signo negativo **no significa que vas más despacio que cero**, sino que te desplazas en dirección opuesta al sentido positivo del sistema de referencia fijado en la IE Instituto Montenegro.\n\n[JUEGO:ORDENAR_LETRAS:VELOCIDAD]\n[JUEGO:ORDENAR_LETRAS:REPOSO]\n[JUEGO:ORDENAR_LETRAS:TRAYECTORIA]\n[JUEGO:ORDENAR_FRASE:UNA LINEA HORIZONTAL INDICA QUE EL ROVER ESTA EN REPOSO]\n[JUEGO:ORDENAR_FRASE:EL MOVIMIENTO UNIFORME TIENE UNA PENDIENTE CONSTANTE]\n[JUEGO:ORDENAR_FRASE:LA DISTANCIA ES EL CAMBIO DE POSICION EN EL MAPA]\n[JUEGO:SOPA_LETRAS:REPOSO,MOVIMIENTO,ESCALA]\n[JUEGO:SOPA_LETRAS:VECTOR,DESPLAZAMIENTO,EJE]\n[JUEGO:SOPA_LETRAS:INTERVALO,METROS,SEGUNDOS]\n[JUEGO:CRUCIGRAMA:Cambio de posicion por unidad de tiempo|VELOCIDAD;Unidad del tiempo en el SI|SEGUNDOS]\n[JUEGO:CRUCIGRAMA:Punto de referencia cero|ORIGEN;Movimiento en linea recta|RECTA]\n[JUEGO:CRUCIGRAMA:Variable que se coloca en el eje Y|POSICION;Magnitud con direccion|VECTOR]",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "Un rover de suministro cambia su posición de $x_i = 20\\text{ m}$ a $x_f = 100\\text{ m}$ en un intervalo de tiempo de $t = 0\\text{ s}$ a $t = 10\\text{ s}$. ¿Cuál es su velocidad?",
+      "respuesta_esperada": "v = (100 m - 20 m) / (10 s - 0 s) = 80 m / 10 s = 8 m/s."
+    },
+    {
+      "pregunta": "Si en una gráfica x-t la recta va descendiendo desde $x = 50\\text{ m}$ hasta $x = 0\\text{ m}$, ¿qué significa el signo negativo en la velocidad calculada?",
+      "respuesta_esperada": "Indica que el móvil está regresando hacia el origen del sistema de referencia fijado."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "DESAFÍO FÍSICO DE EVALUACIÓN: En el sistema de monitoreo, un Dron Scout se desplaza según los datos: (0s, 0m), (4s, 40m), (8s, 40m), (12s, 10m). Construye la tabla de datos, traza la gráfica x-t a escala en tu cuaderno y calcula la velocidad en cada uno de los 3 tramos.",
+    "ANÁLISIS CRÍTICO POST-APOCALÍPTICO: Explica detalladamente cómo diferenciarías en un radar si una señal detenida en la gráfica x-t corresponde a una trampa enemiga o a una estación de recarga inactiva."
+  ],
+  "icfes": [
+    {
+      "competencia": "Interpretación y Modelación de Fenómenos",
+      "texto_introductorio": "Durante una misión de reconocimiento alrededor de la IE Instituto Montenegro, el ordenador de a bordo del Explorador Espacial registró el movimiento de un vehículo terrestre no identificado. El registro gráfico de Posición ($x$) versus Tiempo ($t$) se muestra en la siguiente tabla de datos sintetizada:",
+      "tabla_o_grafica_markdown": "| Tiempo $t$ (s) | Posición $x$ (m) |\n| :---: | :---: |\n| 0 | 10 |\n| 2 | 30 |\n| 4 | 50 |\n| 6 | 50 |\n| 8 | 20 |",
+      "pregunta": "Con base en la información del registro de telemetría, ¿cuál es la velocidad del vehículo en el intervalo de tiempo entre $t = 4\\text{ s}$ y $t = 6\\text{ s}$?",
+      "opciones": [
+        "A) $10\\text{ m/s}$, porque avanzó 20 metros en 2 segundos.",
+        "B) $0\\text{ m/s}$, porque la posición no varió y el vehículo estuvo en reposo.",
+        "C) $-15\\text{ m/s}$, porque el vehículo retrocedió rápidamente.",
+        "D) $25\\text{ m/s}$, porque se suma la posición inicial y final."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. En el intervalo de 4 s a 6 s la posición se mantiene en 50 m, por lo que no avanzó 20 metros.",
+        "1": "¡Correcto, cadete! Entre t = 4 s y t = 6 s, x permanece constante en 50 m. Dado que Δx = 0 m, la pendiente y por ende la velocidad es 0 m/s (reposo).",
+        "2": "Incorrecto. El retroceso ocurre en el intervalo posterior (de 6 s a 8 s), no entre 4 s y 6 s.",
+        "3": "Incorrecto. La velocidad es el cambio de posición dividido por el tiempo, no la suma de las posiciones."
+      }
+    },
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "Un grupo de sobrevivientes de la IE Instituto Montenegro analiza la siguiente gráfica para determinar cuándo es seguro cruzar la zona cero sin ser detectados por el patrullero automático enemistado:",
+      "tabla_o_grafica_markdown": "\nPosición x (m)\n ^\n60|       +--------+\n40|      /          \\\n20|     /            \\\n 0+----+--------------+----> Tiempo t (s)\n  0    5   10   15   20\n",
+      "pregunta": "¿En qué intervalo de tiempo el patrullero automático se encuentra completamente detenido en el sector de observación?",
+      "opciones": [
+        "A) Entre $t = 0\\text{ s}$ y $t = 5\\text{ s}$.",
+        "B) Entre $t = 5\\text{ s}$ y $t = 10\\text{ s}$.",
+        "C) Entre $t = 10\\text{ s}$ y $t = 15\\text{ s}$.",
+        "D) Entre $t = 15\\text{ s}$ y $t = 20\\text{ s}$."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. Entre 0 s y 5 s el vehículo se mueve con velocidad constante desde 0 m hasta 40 m.",
+        "1": "¡Excelente deducción! Entre t = 5 s y t = 10 s la línea es horizontal en x = 40 m, lo que significa que el vehículo está inmóvil (reposo).",
+        "2": "Incorrecto. En ese intervalo el vehículo continúa moviéndose hacia la posición de 60 m.",
+        "3": "Incorrecto. En ese tramo la línea desciende, indicando un movimiento de regreso hacia el origen."
+      }
+    }
+  ]
+}

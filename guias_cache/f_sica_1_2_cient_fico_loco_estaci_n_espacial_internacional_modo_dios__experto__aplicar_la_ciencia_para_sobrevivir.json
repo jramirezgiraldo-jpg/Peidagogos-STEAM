@@ -1,0 +1,107 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "Si estás flotando en medio de la Estación Espacial Internacional sin moverte, ¿cómo puedes saber si realmente estás en reposo o viajando a miles de kilómetros por hora?",
+      "opciones": [
+        "No se puede saber, el movimiento es absoluto en todo el universo.",
+        "Depende de tu Sistema de Referencia: estás en reposo respecto a la ISS, pero en movimiento rápido respecto a la Tierra.",
+        "Solo la gravedad de la Tierra determina si te mueves o no.",
+        "Si flotas, significa que tu velocidad siempre es exactamente cero en cualquier sistema."
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Cuál es la diferencia fundamental entre el camino curvo que recorre una abeja zumbando y la línea recta que une su punto de partida con el de llegada?",
+      "opciones": [
+        "El camino curvo es la trayectoria y la línea recta representa la distancia total recorrida.",
+        "No hay diferencia, ambos conceptos miden exactamente la misma magnitud escalar.",
+        "El camino curvo es la trayectoria y la línea recta es la magnitud del vector desplazamiento.",
+        "La trayectoria siempre debe ser una línea recta en el plano tridimensional."
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "Para rescatar a un astronauta a la deriva, necesitas reportar su ubicación exacta. ¿Qué elementos mínimos requieres para definir su posición?",
+      "opciones": [
+        "Solo la distancia en metros a la que se encuentra de ti.",
+        "Un punto de origen, un sistema de ejes de referencia y un conjunto de coordenadas.",
+        "Su masa corporal y la velocidad a la que se desplaza la ISS.",
+        "Un cronómetro digital de precisión de milisegundos."
+      ],
+      "correcta": 1
+    }
+  ],
+  "texto_inductivo": "# ¡ALERTA ROJA EN LA ÓRBITA BAJA! ¡AQUÍ EL DR. VON KRAFT!\n\n¡Mis intrépidos, brillantes y ligeramente temerarios cadetes de la **Institución Educativa Instituto Montenegro**! ¡Suelten sus termos de café del Quindío y abróchense los arneses de inducción magnética! Nos encontramos a bordo de la Estación Espacial Internacional (ISS), zumbando a unos descomunales **27,600 km/h** sobre la superficie terrestre. ¡Pero tenemos un problema gigantesco! Un enjambre de basura espacial —restos de un satélite espía que explotó por mi culpa (¡un pequeño error de cálculo en mi condensador de flujo, lo admito!)— se dirige directamente hacia nosotros.\n\nPara sobrevivir, debemos dominar el arte de la **Cinemática Extrema** en menos de cinco minutos. Si no podemos definir con precisión de milímetros dónde estamos y por dónde se mueven los fragmentos destructores, ¡terminaremos convertidos en polvo cósmico brillante!\n\n***¿Cómo puede el cálculo matemático exacto de nuestra trayectoria de escape de emergencia ante una lluvia de basura espacial en la Estación Espacial Internacional salvarnos la vida, y de qué manera este mismo análisis cinemático nos ayudaría a trazar una ruta de evacuación segura ante los sismos y deslizamientos en la topografía empinada de nuestro amado Instituto Montenegro?***\n\n[JUEGO:SOPA_LETRAS:ORIGEN,PUNTO,ESPACIO]\n\n## El Arte de Saber Dónde Diablos Estás: La Posición\n\nEn el vacío tridimensional del espacio, las palabras 'arriba', 'abajo', 'izquierda' o 'derecha' no significan absolutamente nada. ¡Son conceptos obsoletos para terrícolas perezosos! Para sobrevivir en Modo Dios, necesitamos establecer un **Sistema de Referencia**. Imaginen que la cúpula de observación de la ISS es nuestro punto cero, el **origen de coordenadas (0,0,0)**. Cualquier objeto en el espacio, ya sea un perno asesino volador o tu sándwich de almuerzo flotando, se localiza mediante un punto exacto en el espacio medido desde nuestro origen.\n\n[JUEGO:ORDENAR_LETRAS:POSICION]\n\nA continuación, observen este radar holográfico de nuestra sección de escape:\n\n<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 300' width='100%' style='background:#0a0f24; border-radius:10px; border:2px solid #00ffcc;'>\n  <defs>\n    <pattern id='grid1' width='20' height='20' patternUnits='userSpaceOnUse'>\n      <path d='M 20 0 L 0 0 0 20' fill='none' stroke='#00ffcc' stroke-width='0.5' opacity='0.2'/>\n    </pattern>\n  </defs>\n  <rect width='100%' height='100%' fill='url(#grid1)' />\n  <line x1='50' y1='250' x2='450' y2='250' stroke='#ff0055' stroke-width='2' />\n  <line x1='50' y1='50' x2='50' y2='250' stroke='#ff0055' stroke-width='2' />\n  <text x='440' y='270' fill='#ff0055' font-family='monospace' font-size='12'>Eje X (Metros)</text>\n  <text x='15' y='60' fill='#ff0055' font-family='monospace' font-size='12' transform='rotate(-90 15 60)'>Eje Y (Metros)</text>\n  <circle cx='50' cy='250' r='6' fill='#00ffcc' />\n  <text x='60' y='240' fill='#00ffcc' font-family='monospace' font-size='10'>Origen (0,0) Cúpula ISS</text>\n  <path d='M 100 200 Q 220 70 320 160 T 450 100' fill='none' stroke='#ffcc00' stroke-dasharray='5,5' stroke-width='3' />\n  <circle cx='100' cy='200' r='7' fill='#ff3300' />\n  <text x='90' y='185' fill='#ff3300' font-family='monospace' font-size='11' font-weight='bold'>Resto K-9 (100, 200)</text>\n  <circle cx='450' cy='100' r='7' fill='#00ff00' />\n  <text x='340' y='90' fill='#00ff00' font-family='monospace' font-size='11' font-weight='bold'>Módulo de Escape (450, 100)</text>\n  <text x='130' y='30' fill='#ffffff' font-family='monospace' font-size='14' font-weight='bold'>MAPA DE EVACUACIÓN INTERSTELAR</text>\n</svg>\n\n¿Lo ven? El meteorito se encuentra en una **posición** inicial descrita por coordenadas de plano cartesiano. Si no entienden esto, ¡están fritos!\n\n[JUEGO:ORDENAR_FRASE:La posicion se mide desde un origen de coordenadas.]\n\n## El Camino de la Salvación: La Trayectoria\n\n¡La basura espacial no se teletransporta! Se desplaza dibujando una línea imaginaria continua en el espacio. A esa hermosa y peligrosa línea geométrica que une todas las posiciones sucesivas por las que pasa un cuerpo en movimiento la llamamos **Trayectoria**. \n\n¡Atención! La trayectoria puede ser recta como el disparo de un cañón láser, parabólica como una cápsula cayendo de regreso a la Tierra, o caótica y curvilínea como un astronauta dando vueltas sin control.\n\n[JUEGO:SOPA_LETRAS:CINEMATICA,FISICA,GRAVEDAD]\n\n[JUEGO:ORDENAR_LETRAS:TRAYECTORIA]\n\n[JUEGO:ORDENAR_FRASE:La trayectoria es el camino que sigue un cuerpo.]\n\n[JUEGO:CRUCIGRAMA:Punto inicial de medida|ORIGEN;Linea geometrica que describe el movimiento|TRAYECTORIA]\n\n[JUEGO:CRUCIGRAMA:Lugar que ocupa un cuerpo en el espacio|POSICION;Cambio de posicion de un cuerpo|MOVIMIENTO]\n\n[JUEGO:ORDENAR_LETRAS:DISTANCIA]",
+  "recurso_visual": "| Variable Cinemática | Definición Operacional | Tipo de Magnitud | Unidad de Medida (SI) | Aplicación de Supervivencia ISS |\n| :--- | :--- | :--- | :--- | :--- |\n| **Posición ($\\vec{r}$)** | Ubicación espacial de un cuerpo respecto a un origen establecido. | Vectorial | Metro ($m$) | Ubicar con precisión milimétrica la fuga de oxígeno en el casco exterior. |\n| **Trayectoria** | Línea geométrica imaginaria que une los puntos sucesivos del movimiento. | Geométrica / No física | Sin dimensión física | Trazar el curso curvo de una cápsula Soyuz esquivando basura en órbita. |\n| **Distancia ($d$)** | Longitud medida a lo largo de toda la trayectoria recorrida. | Escalar | Metro ($m$) | Calcular la energía que consumirán los propulsores para recorrer un camino curvo. |\n| **Desplazamiento ($\\Delta \\vec{r}$)**| Cambio neto de posición entre el punto inicial y el punto final. | Vectorial | Metro ($m$) | Trazar la distancia de línea recta más corta para disparar un cable de anclaje de rescate. |",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "¿Por qué un astronauta que camina en círculos por toda la estación espacial puede recorrer una distancia muy grande de 50 metros pero tener un desplazamiento de cero metros?",
+      "pregunta_esperada": "Porque la distancia mide todo el contorno o camino curvo recorrido (trayectoria), mientras que el desplazamiento solo compara la posición final con la inicial. Al dar la vuelta completa y regresar al punto de partida, su posición inicial y final son idénticas, resultando en un cambio neto nulo o desplazamiento cero."
+    },
+    {
+      "pregunta": "Si cambiamos de lugar el origen de coordenadas de la cúpula de la ISS al traje del comandante, ¿cambia la trayectoria real que describe un micrometeorito que pasa cerca de nosotros?",
+      "pregunta_esperada": "No, la trayectoria geométrica física real del micrometeorito sigue siendo la misma línea en el espacio tridimensional. Sin embargo, su descripción matemática (las ecuaciones y números de posición que usamos para describirla) sí cambiará porque se calcula desde un nuevo punto de referencia."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja en tu cuaderno un plano cartesiano imaginando que el patio principal del Instituto Montenegro es el origen de coordenadas (0,0). Representa la trayectoria curva que realiza un estudiante de grado sexto desde el salón de clases hasta la cafetería y marca con color rojo el vector desplazamiento.",
+    "¿Por qué es fundamental que todos los equipos de rescate de Quindío (bomberos, defensa civil) utilicen el mismo sistema de coordenadas y origen de referencia al buscar sobrevivientes tras un sismo en el municipio de Montenegro?",
+    "Escribe un breve informe científico de un párrafo explicando cómo usarías las variables cinemáticas para salvar la ISS si un trozo de satélite destruido tuviera una trayectoria rectilínea hacia el tanque de combustible principal."
+  ],
+  "texto_deductivo": "# LA FÓRMULA DE LA INMORTALIDAD CÓSMICA: FORMALIZACIÓN MATEMÁTICA\n\n¡Suficiente juego, mis pequeños científicos locos! Es momento de ponernos serios y activar el **Modo Dios (Experto)**. La física no se trata de adivinar; se trata de calcular con la precisión de un superordenador cuántico.\n\nPara definir formalmente el movimiento, necesitamos estructurar las variables cinemáticas matemáticamente. \n\n## 1. El Vector de Posición ($\\vec{r}$)\nLa posición de un objeto en el espacio bidimensional (2D) se define matemáticamente mediante un vector que va desde el origen de coordenadas $(0,0)$ hasta el punto donde se encuentra el objeto $(x,y)$:\n\n$$\\vec{r} = x\\hat{i} + y\\hat{j}$$\n\nDonde $\\hat{i}$ y $\\hat{j}$ son vectores unitarios que indican la dirección en los ejes horizontales y verticales respectivamente. Si un fragmento de basura espacial está en $\\vec{r} = 3\\hat{i} + 4\\hat{j}$ metros, significa que está a $3$ metros al este (eje X) y $4$ metros al norte (eje Y) del centro de control de nuestra ISS.\n\n[JUEGO:ORDENAR_LETRAS:SISTEMA]\n\n## 2. Trayectoria vs Desplazamiento\n\nAquí es donde el cerebro de los débiles explota, ¡pero no el de los campeones del Montenegro! \n*   La **Trayectoria** es la función matemática que describe el camino real. Puede ser descrita como $y = f(x)$.\n*   El **Desplazamiento ($\\Delta \\vec{r}$)** es la diferencia vectorial directa entre el vector de posición final ($\\vec{r}_f$) y el vector de posición inicial ($\\vec{r}_i$):\n\n$$\\Delta \\vec{r} = \\vec{r}_f - \\vec{r}_i = (x_f - x_i)\\hat{i} + (y_f - y_i)\\hat{j}$$\n\n[JUEGO:ORDENAR_LETRAS:VECTOR]\n\n¡Por los circuitos quemados de mi robot asistente, miren este diagrama técnico de alta precisión vectorizada!:\n\n<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 300' width='100%' style='background:#0d1117; border-radius:10px; border:2px solid #58a6ff;'>\n  <defs>\n    <marker id='arrow1' viewBox='0 0 10 10' refX='5' refY='5' markerWidth='6' markerHeight='6' orient='auto-start-reverse'>\n      <path d='M 0 0 L 10 5 L 0 10 z' fill='#58a6ff'/>\n    </marker>\n    <marker id='arrowGreen' viewBox='0 0 10 10' refX='5' refY='5' markerWidth='6' markerHeight='6' orient='auto-start-reverse'>\n      <path d='M 0 0 L 10 5 L 0 10 z' fill='#7ee787'/>\n    </marker>\n  </defs>\n  <line x1='80' y1='220' x2='420' y2='220' stroke='#8b949e' stroke-width='2' />\n  <line x1='80' y1='50' x2='80' y2='220' stroke='#8b949e' stroke-width='2' />\n  <text x='425' y='225' fill='#8b949e' font-family='monospace' font-size='12'>Eje X</text>\n  <text x='75' y='45' fill='#8b949e' font-family='monospace' font-size='12'>Eje Y</text>\n  <circle cx='80' cy='220' r='5' fill='#ff7b72' />\n  <text x='60' y='240' fill='#ff7b72' font-family='monospace' font-size='11'>Origen (0,0)</text>\n  <path d='M 120 180 C 180 80, 280 80, 360 140' fill='none' stroke='#f0883e' stroke-width='3' />\n  <text x='210' y='75' fill='#f0883e' font-family='monospace' font-size='12' font-weight='bold'>Trayectoria (Camino Real)</text>\n  <line x1='80' y1='220' x2='120' y2='180' stroke='#58a6ff' stroke-width='2.5' marker-end='url(#arrow1)' />\n  <text x='110' y='205' fill='#58a6ff' font-family='monospace' font-size='10'>r_i (Inicio)</text>\n  <line x1='80' y1='220' x2='355' y2='142' stroke='#58a6ff' stroke-width='2.5' marker-end='url(#arrow1)' />\n  <text x='250' y='185' fill='#58a6ff' font-family='monospace' font-size='10'>r_f (Final)</text>\n  <line x1='120' y1='180' x2='353' y2='141' stroke='#7ee787' stroke-width='2' stroke-dasharray='4,4' marker-end='url(#arrowGreen)' />\n  <text x='180' y='130' fill='#7ee787' font-family='monospace' font-size='11' font-weight='bold'>Desplazamiento (Δr)</text>\n</svg>\n\n[JUEGO:ORDENAR_FRASE:El espacio exterior requiere un sistema de referencia claro.]\n\n[JUEGO:SOPA_LETRAS:MOVIMIENTO,RAPIDEZ,TIEMPO]\n\n[JUEGO:SOPA_LETRAS:COORDENADA,EJE,SISTEMA]\n\n[JUEGO:ORDENAR_FRASE:El vector de posicion apunta desde el origen al objeto.]\n\n[JUEGO:CRUCIGRAMA:Segmento de recta orientado que indica posicion|VECTOR;Magnitud que solo tiene valor numerico|ESCALAR]\n\n[JUEGO:CRUCIGRAMA:Distancia en linea recta entre punto inicial y final|DESPLAZAMIENTO;Unidad de medida del SI para longitud|METRO]\n\n[JUEGO:ORDENAR_FRASE:Sobrevivir en el espacio exige precision matematica absoluta.]\n\n[JUEGO:SOPA_LETRAS:METEORITO,ESCAPE,ORBITA]\n\n[JUEGO:CRUCIGRAMA:Estacion cientifica en orbita terrestre|ISS;Fuerza que atrae los cuerpos al centro de la Tierra|GRAVEDAD]\n\n## Análisis Matemático de Supervivencia\n\nSupongamos que un trozo de fuselaje espacial se mueve desde la posición inicial $\\vec{r}_i = 10\\hat{i} + 5\\hat{j}$ metros hasta la posición final $\\vec{r}_f = 40\\hat{i} + 45\\hat{j}$ metros en un lapso de 2 segundos. \n\nCalculando el vector desplazamiento:\n\n$$\\Delta \\vec{r} = (40 - 10)\\hat{i} + (45 - 5)\\hat{j} = 30\\hat{i} + 40\\hat{j}\\text{ metros}$$\n\nPara hallar el módulo (longitud) de este desplazamiento en línea recta, usamos el legendario e infalible Teorema de Pitágoras de nuestros antepasados matemáticos:\n\n$$|\\Delta \\vec{r}| = \\sqrt{30^2 + 40^2} = \\sqrt{900 + 1600} = \\sqrt{2500} = 50\\text{ metros}$$\n\n¡La distancia mínima de evacuación para no ser desintegrados por el impacto directo de este fragmento es de exactamente 50 metros!",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "¿Cuál es la diferencia matemática entre representar una variable cinemática como escalar (como la distancia recorrida) o como vector (como el desplazamiento)?",
+      "pregunta_esperada": "La magnitud escalar se describe únicamente con un número y su unidad de medida (ej. 30 metros), mientras que la magnitud vectorial requiere obligatoriamente una dirección y sentido además del número (ej. 30 metros en dirección 45 grados norte o 30i + 40j)."
+    },
+    {
+      "pregunta": "Si un astronauta se desplaza de r1 = -5i + 2j metros a r2 = 5i + 2j metros, ¿cuál es su vector de desplazamiento resultante?",
+      "pregunta_esperada": "El vector desplazamiento resultante es de delta r = (5 - (-5))i + (2 - 2)j = 10i + 0j metros, lo que indica un movimiento puramente horizontal de 10 metros hacia la derecha."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Un módulo auxiliar de la ISS se desplaza desde r_i = 12i - 4j metros hasta r_f = -3i + 4j metros debido a una maniobra evasiva repentina de propulsores. Calcula vectorialmente el desplazamiento resultante y determina su magnitud utilizando el teorema de Pitágoras.",
+    "Analiza el relieve montañoso del municipio de Montenegro (Quindío). ¿Cómo influye la gran pendiente (eje Y vertical) y la longitud de las calles (eje X horizontal) al diseñar rutas cinemáticas óptimas para la evacuación masiva de la población estudiantil?",
+    "Formula una hipótesis del comportamiento cinemático de los objetos si la constante de la gravedad en la Tierra de repente cayera a cero. ¿Sería más fácil o difícil calcular sus trayectorias y por qué?"
+  ],
+  "icfes": [
+    {
+      "competence": "Explicación de Fenómenos",
+      "texto_introductorio": "Durante una simulación de colisión orbital en la Estación Espacial Internacional (ISS), los estudiantes del grado sexto analizan los datos cinemáticos de un fragmento de titanio residual que viaja a gran velocidad en la vecindad de los paneles solares primarios. Los sensores de posición espacial han registrado la siguiente bitácora de coordenadas cinemáticas bidimensionales:",
+      "tabla_o_grafica_markdown": "| Tiempo (s) | Posición X (m) | Posición Y (m) | Vector de Posición ($\\vec{r}$) |\n| :--- | :--- | :--- | :--- |\n| $t_0 = 0$ | $2$ | $3$ | $2\\hat{i} + 3\\hat{j}$ |\n| $t_1 = 1$ | $5$ | $7$ | $5\\hat{i} + 7\\hat{j}$ |\n| $t_2 = 2$ | $8$ | $11$ | $8\\hat{i} + 11\\hat{j}$ |",
+      "pregunta": "Con base en los datos de la tabla, ¿cuál es el vector desplazamiento total del residuo de titanio entre el instante inicial de registro (t0 = 0 s) y el instante de peligro final (t2 = 2 s)?",
+      "opciones": [
+        "Δr = 6i + 8j metros",
+        "Δr = 10i + 14j metros",
+        "Δr = 3i + 4j metros",
+        "Δr = 8i + 11j metros"
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "¡Excelente cálculo, cadete! El desplazamiento total se calcula restando la posición final menos la posición inicial: (8 - 2)i + (11 - 3)j = 6i + 8j metros. Demuestra perfecta comprensión de vectores coordenados.",
+        "1": "Incorrecto. Has sumado las coordenadas de la posición final e inicial en lugar de restarlas de forma vectorial.",
+        "2": "Incorrecto. Este valor corresponde únicamente al desplazamiento intermedio entre t0 y t1, pero la pregunta pide el cambio neto total desde el inicio (t0) hasta el final de la secuencia (t2).",
+        "3": "Incorrecto. Has seleccionado las coordenadas absolutas de la última posición del objeto, olvidando restar las condiciones del punto de origen espacial en t0."
+      }
+    },
+    {
+      "competence": "Uso Comprensivo del Conocimiento Científico",
+      "texto_introductorio": "En la ladera de la IE Instituto Montenegro se diseña una ruta de evacuación rápida por amenaza de deslizamientos de tierra debido a las intensas lluvias quindianas. Dos estudiantes de grado sexto evalúan los caminos mostrados a continuación para ir del punto de control de las aulas al punto seguro de la cancha principal.",
+      "tabla_o_grafica_markdown": "\nCamino A (Trayectoria Curva): Recorre 120 metros bordeando el área de riesgo por caminos peatonales.\nCamino B (Línea Recta): Atraviesa directamente la zona inestable recorriendo 50 metros de forma lineal.\n",
+      "pregunta": "Desde el punto de vista físico de la cinemática de supervivencia, ¿cuál es la mejor opción para la planificación escolar considerando la trayectoria y el desplazamiento de los estudiantes?",
+      "opciones": [
+        "El Camino B es preferible porque su trayectoria lineal representa un menor desplazamiento físico, minimizando el tiempo de exposición, aunque pase por la zona de máximo peligro.",
+        "El Camino A representa la trayectoria real más segura, ya que, aunque la distancia recorrida es mayor que el módulo del desplazamiento, evita por completo la zona inestable garantizando la vida.",
+        "Ambos caminos representan exactamente el mismo desplazamiento neto final, por lo tanto, no existe ninguna diferencia física o de seguridad al momento de realizar la evacuación.",
+        "El Camino A debe descartarse de inmediato porque las trayectorias no lineales no permiten aplicar las leyes matemáticas del movimiento estudiadas en clase."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. Aunque el Camino B es el de menor desplazamiento en línea recta, priorizar la distancia geométrica sobre el factor físico del entorno peligroso pone en grave riesgo a las personas.",
+        "1": "¡Correcto! En términos prácticos de supervivencia, la trayectoria real elegida (Camino A) esquiva físicamente las zonas de alto peligro geológico. La física aplicada debe ajustarse a resguardar la vida, aun cuando la distancia total recorrida sea mayor al vector desplazamiento óptimo.",
+        "2": "Incorrecto. Aunque el desplazamiento vectorial neto (inicio-fin) sea matemáticamente equivalente en ambos recorridos, las trayectorias físicas reales exponen a los estudiantes a riesgos completamente diferentes.",
+        "3": "Incorrecto. Las trayectorias curvilíneas son perfectamente estudiadas y descritas por las herramientas cinemáticas de la física matemática orbital y terrestre."
+      }
+    }
+  ]
+}

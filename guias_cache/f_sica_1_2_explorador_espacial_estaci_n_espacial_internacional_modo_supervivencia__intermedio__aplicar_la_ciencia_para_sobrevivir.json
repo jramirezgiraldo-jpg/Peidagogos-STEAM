@@ -1,0 +1,105 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "Si estás sentado dentro de la Estación Espacial Internacional (ISS) flotando a la misma velocidad que ella, ¿te estás moviendo?",
+      "opciones": [
+        "No, porque no siento que me mueva respecto a las paredes de la ISS.",
+        "Sí, porque la ISS se desplaza a 27,600 km/h respecto a la Tierra.",
+        "Depende del punto de referencia que usemos para medir el movimiento.",
+        "No, en el espacio no existe el movimiento real."
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "¿Qué diferencia hay entre el camino que recorre una hormiga dando vueltas y la línea recta que une su inicio con su final?",
+      "opciones": [
+        "El camino largo es la trayectoria y la línea recta es el desplazamiento.",
+        "El camino largo es el desplazamiento y la línea recta es la trayectoria.",
+        "Son exactamente lo mismo en física.",
+        "La trayectoria siempre debe ser una línea recta perfecta."
+      ],
+      "correcta": 0
+    },
+    {
+      "pregunta": "Si un astronauta da una vuelta completa a la ISS y regresa al mismo punto donde empezó, ¿cuánto se desplazó?",
+      "opciones": [
+        "Se desplazó la longitud total de la ISS.",
+        "Su desplazamiento es cero porque regresó al punto de partida.",
+        "Se desplazó el doble de la longitud de la ISS.",
+        "No se puede calcular sin saber el tiempo."
+      ],
+      "correcta": 1
+    }
+  ],
+  "texto_inductivo": "# ¡ALERTA DE IMPACTO EN LA ISS! Modo Supervivencia Activado\n\nHola, recluta. Te habla el Capitán Silva desde la cúpula de la **Estación Espacial Internacional (ISS)**. No hay tiempo para formalidades. Un micrometeorito acaba de golpear uno de nuestros paneles solares externos y la antena de comunicación de largo alcance se ha desalineado. Estamos incomunicados con el control de misión en la Tierra, pero tenemos un transmisor de emergencia apuntando directamente a tu colegio, la **IE Instituto Montenegro** en el Quindío.\n\n***¿Cómo podríamos guiar un dron de rescate desde la IE Instituto Montenegro en el Quindío hasta la Estación Espacial Internacional usando solo coordenadas y el camino recorrido, si un asteroide bloqueara nuestras comunicaciones visuales?***\n\nPara resolver este misterio y salvarnos, debes dominar dos conceptos vitales de la física de supervivencia: la **Posición** (dónde estamos exactamente) y la **Trayectoria** (el camino que tomamos para llegar allí).\n\nAquí tienes un mapa de nuestra situación actual en la ISS. Míralo con atención:\n\n<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 300' style='background-color:#0d1117; border-radius:8px; border: 2px solid #58a6ff;'>\n  <defs>\n    <pattern id='grid' width='30' height='30' patternUnits='userSpaceOnUse'>\n      <path d='M 30 0 L 0 0 0 30' fill='none' stroke='#1f242c' stroke-width='1'/>\n    </pattern>\n  </defs>\n  <rect width='100%' height='100%' fill='url(#grid)' />\n  <!-- Origen (IE Instituto Montenegro en la Tierra) -->\n  <circle cx='80' cy='220' r='10' fill='#238636' />\n  <text x='80' y='245' fill='#238636' font-family='sans-serif' font-size='12' font-weight='bold' text-anchor='middle'>IE Instituto Montenegro (Origen)</text>\n  <!-- Trayectoria del Dron -->\n  <path d='M 80 220 Q 200 80 350 180 T 500 100' fill='none' stroke='#ff7b72' stroke-width='3' stroke-dasharray='5,5' />\n  <!-- Desplazamiento (Línea recta) -->\n  <line x1='80' y1='220' x2='500' y2='100' stroke='#58a6ff' stroke-width='3' />\n  <!-- ISS -->\n  <g transform='translate(500, 100)'>\n    <rect x='-25' y='-10' width='50' height='20' rx='5' fill='#8b949e' stroke='#ffffff' stroke-width='1.5'/>\n    <rect x='-45' y='-5' width='20' height='10' fill='#f0e68c'/>\n    <rect x='25' y='-5' width='20' height='10' fill='#f0e68c'/>\n    <circle cx='0' cy='0' r='5' fill='#ff7b72'/>\n  </g>\n  <text x='500' y='75' fill='#58a6ff' font-family='sans-serif' font-size='12' font-weight='bold' text-anchor='middle'>ISS (Posición Final)</text>\n  <!-- Leyendas -->\n  <text x='250' y='40' fill='#ff7b72' font-family='sans-serif' font-size='11'>-- Linea Punteada: Trayectoria (Camino Real)</text>\n  <text x='250' y='60' fill='#58a6ff' font-family='sans-serif' font-size='11'>— Linea Azul: Desplazamiento (Línea Recta)</text>\n</svg>\n\n### Primer Reto de Supervivencia: Descifrar las Señales\n\nAntes de enviar las coordenadas de rescate, debemos asegurarnos de que la computadora de la IE Instituto Montenegro entienda nuestros términos. Completa los siguientes acertijos espaciales para desbloquear la señal del transmisor:\n\n[JUEGO:ORDENAR_LETRAS:POSICION]\n\n[JUEGO:ORDENAR_LETRAS:TRAYECTORIA]\n\nPara movernos en el espacio exterior, cada metro cuenta. Si el dron toma la ruta equivocada, se quedará sin combustible criogénico en medio de la nada. Por eso, ordena la siguiente regla de oro del navegante espacial:\n\n[JUEGO:ORDENAR_FRASE:EL MOVIMIENTO ES RELATIVO]\n\n[JUEGO:ORDENAR_FRASE:LA TRAYECTORIA ES EL CAMINO]\n\nBusquemos las palabras clave en los sistemas de soporte vital antes de que la cabina pierda presión:\n\n[JUEGO:SOPA_LETRAS:MOVIMIENTO,ORIGEN,PUNTO]\n\n[JUEGO:SOPA_LETRAS:ESPACIO,LINEA,RUTA]\n\nFinalmente, abre la compuerta de emergencia resolviendo estos códigos cruzados:\n\n[JUEGO:CRUCIGRAMA:Punto de partida|ORIGEN;Distancia recta|DESPLAZAMIENTO]\n\n[JUEGO:CRUCIGRAMA:Camino seguido|TRAYECTORIA;Lugar exacto|POSICION]",
+  "recurso_visual": "| Variable Cinemática | ¿Qué representa en el espacio? | ¿Cómo se mide en la ISS? | Ejemplo de Supervivencia |\n| :--- | :--- | :--- | :--- |\n| **Posición ($\\vec{r}$)** | Ubicación exacta respecto a un punto de origen. | Coordenadas cartesianas $(x, y, z)$ desde el centro de la ISS. | Saber en qué módulo exacto se encuentra la fuga de aire. |\n| **Trayectoria** | El camino geométrico real que describe un cuerpo al moverse. | Dibujando la línea de vuelo del dron de rescate en el radar. | Esquivar los restos de paneles destruidos volando en zigzag. |\n| **Desplazamiento ($\\Delta\\vec{r}$)** | El vector en línea recta que une el punto inicial con el punto final. | Midiendo la distancia más corta con un telémetro láser. | Disparar un cable de anclaje directo de un módulo a otro. |",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "¿Por qué es importante definir que el 'Origen' de nuestro sistema de rescate está en la IE Instituto Montenegro?",
+      "respuesta_esperada": "Porque la posición es un concepto relativo. Si no definimos un punto de partida u origen (0,0), las coordenadas del dron no tendrían sentido para los computadores de la Tierra ni para la estación espacial."
+    },
+    {
+      "pregunta": "Si el dron de auxilio viaja en línea recta hacia nosotros, ¿su trayectoria y su desplazamiento serían iguales?",
+      "respuesta_esperada": "Sí. Cuando el movimiento es en línea recta y sin cambiar de dirección, la longitud de la trayectoria (distancia recorrida) coincide exactamente con la magnitud de su desplazamiento."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja en tu cuaderno un plano donde el patio de la IE Instituto Montenegro sea el origen (0,0) y ubica la ISS en las coordenadas (5,8). Dibuja una línea curva que represente una trayectoria caótica para esquivar basura espacial y una línea recta de otro color que represente el desplazamiento.",
+    "Imagina que un astronauta sale a reparar un panel solar. Camina 10 metros al norte, luego 10 metros al sur. ¿Cuál fue su trayectoria total recorrida y cuál fue su desplazamiento final respecto a la escotilla de salida? Explica por qué son diferentes."
+  ],
+  "texto_deductivo": "# Fundamentos Físicos de la Navegación Espacial\n\nAtención, reclutas de grado sexto en Montenegro. Para sobrevivir en el espacio, no basta con tener valor; necesitamos precisión milimétrica. Vamos a formalizar las leyes del universo que gobiernan el movimiento para que puedan programar el computador de rescate con éxito.\n\n### 1. El Marco de Referencia\nEn el espacio no hay \"arriba\" ni \"abajo\". Para saber si algo se mueve, necesitamos un **Sistema de Referencia**. Este consta de un origen y un sistema de ejes coordenados. Si tomamos la Tierra como referencia, la ISS vuela rapidísimo. Si tomamos la ISS como referencia, nosotros estamos quietos flotando en el laboratorio espacial.\n\n<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 200' style='background-color:#161b22; border-radius:8px; border: 2px solid #30363d;'>\n  <!-- Eje Y -->\n  <line x1='50' y1='20' x2='50' y2='170' stroke='#8b949e' stroke-width='2' />\n  <polygon points='50,15 45,25 55,25' fill='#8b949e' />\n  <text x='35' y='30' fill='#8b949e' font-family='sans-serif' font-size='12'>Y</text>\n  \n  <!-- Eje X -->\n  <line x1='50' y1='170' x2='550' y2='170' stroke='#8b949e' stroke-width='2' />\n  <polygon points='555,170 545,165 545,175' fill='#8b949e' />\n  <text x='545' y='190' fill='#8b949e' font-family='sans-serif' font-size='12'>X</text>\n\n  <!-- Origen -->\n  <circle cx='50' cy='170' r='6' fill='#ff7b72' />\n  <text x='65' y='185' fill='#ff7b72' font-family='sans-serif' font-size='11' font-weight='bold'>Origen (0,0)</text>\n\n  <!-- Punto de posición de la ISS -->\n  <circle cx='350' cy='60' r='5' fill='#58a6ff' />\n  <line x1='50' y1='170' x2='350' y2='60' stroke='#58a6ff' stroke-width='2' stroke-dasharray='4' />\n  <text x='360' y='60' fill='#58a6ff' font-family='sans-serif' font-size='12' font-weight='bold'>Módulo Dañado (300m , 110m)</text>\n</svg>\n\n### 2. Posición ($\\vec{r}$)\nEs el punto exacto donde se encuentra un objeto en un instante determinado de tiempo. Se representa mediante un **vector** (una flecha) que va desde el origen de nuestro sistema de coordenadas hasta el objeto.\n\n### 3. Trayectoria vs. Desplazamiento\nAquí es donde muchos cadetes novatos fallan y terminan perdidos en el vacío cósmico:\n*   **Trayectoria:** Es la línea continua que une todas las posiciones sucesivas por las que pasa un cuerpo. Puede ser curva, circular, elíptica o recta. Su longitud medida se llama **distancia recorrida** (un número, una magnitud escalar).\n*   **Desplazamiento:** Es el cambio neto de posición. Se representa con una flecha recta que apunta desde el punto inicial directamente hasta el punto final, sin importar qué vueltas dio el objeto en el camino. Es una magnitud vectorial.\n\nDemuestra que has asimilado la teoría para calibrar los propulsores del dron:\n\n[JUEGO:ORDENAR_LETRAS:SISTEMA]\n\n[JUEGO:ORDENAR_LETRAS:VECTOR]\n\n[JUEGO:ORDENAR_LETRAS:DISTANCIA]\n\nEl dron necesita procesar las ecuaciones de navegación. Ordena las siguientes verdades de la física:\n\n[JUEGO:ORDENAR_FRASE:EL DESPLAZAMIENTO ES EN LINEA RECTA]\n\n[JUEGO:ORDENAR_FRASE:EL ORIGEN ES EL PUNTO DE PARTIDA]\n\n[JUEGO:ORDENAR_FRASE:LA FISICA NOS SALVA LA VIDA]\n\nBusca los elementos de medición en el radar del panel de control:\n\n[JUEGO:SOPA_LETRAS:VECTOR,ESCALAR,METRO]\n\n[JUEGO:SOPA_LETRAS:TIEMPO,RAPIDEZ,FISICA]\n\n[JUEGO:SOPA_LETRAS:SISTEMA,MARCO,COORDENADAS]\n\nAntes de abrir la escotilla para recibir el dron, asegúrate de alinear estos conceptos clave:\n\n[JUEGO:CRUCIGRAMA:Unidad de longitud|METRO;Magnitud con direccion|VECTOR]\n\n[JUEGO:CRUCIGRAMA:Cambio de posicion|MOVIMIENTO;No tiene direccion|ESCALAR]\n\n[JUEGO:CRUCIGRAMA:Lugar de referencia|SISTEMA;Unidad de tiempo|SEGUNDO]",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "¿Cuál es la unidad del Sistema Internacional (SI) que debemos usar para reportar la distancia y el desplazamiento del dron?",
+      "respuesta_esperada": "El metro (m). Aunque en el espacio profundo usemos kilómetros para distancias astronómicas, el Sistema Internacional establece el metro como unidad básica."
+    },
+    {
+      "pregunta": "Si un dron da dos vueltas completas en órbita circular alrededor de la ISS y se detiene exactamente donde empezó, ¿cuál fue su desplazamiento total?",
+      "respuesta_esperada": "Su desplazamiento es cero (0 metros), porque su posición inicial y final son idénticas, aunque la distancia de su trayectoria haya sido de varios kilómetros."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Explica con tus propias palabras la diferencia entre distancia recorrida (un escalar) y desplazamiento (un vector). ¿Por qué para el desplazamiento necesitamos indicar hacia dónde apunta la flecha?",
+    "Si un astronauta de la ISS debe ir del Laboratorio Columbus al Módulo Kibo siguiendo un pasillo con forma de 'L' (avanza 8 metros de frente y luego gira 90 grados a la derecha para avanzar 6 metros): Calcula la distancia recorrida y utiliza el teorema de Pitágoras para hallar la longitud de su desplazamiento en línea recta."
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de fenómenos",
+      "texto_introductorio": "Durante una misión de rescate coordinada desde la IE Instituto Montenegro, se registra el movimiento de un dron de suministros que vuela alrededor de la Estación Espacial Internacional (ISS). El dron parte del punto A, pasa por el punto B describiendo una semicircunferencia de 50 metros de longitud, y finalmente regresa al punto A por el mismo camino.",
+      "tabla_o_grafica_markdown": "| Tramo del Vuelo | Trayectoria (Camino) | Distancia Recorridal | Desplazamiento Final (Desde el inicio) |\n| :--- | :--- | :--- | :--- |\n| Ida (A -> B) | Curva | 50 metros | 30 metros (en línea recta) |\n| Regreso (B -> A) | Curva | 50 metros | 0 metros (regreso al origen) |",
+      "pregunta": "Al analizar el viaje completo de ida y vuelta del dron (A -> B -> A), el equipo de estudiantes de Montenegro determina correctamente que:",
+      "opciones": [
+        "La distancia recorrida total fue de 100 metros y el desplazamiento total fue de 0 metros.",
+        "La distancia recorrida total fue de 60 metros y el desplazamiento total fue de 100 metros.",
+        "Tanto la distancia recorrida total como el desplazamiento total fueron de 100 metros.",
+        "El desplazamiento total fue de 30 metros y la distancia recorrida total fue de 0 metros."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "¡Excelente, tripulante! Como el dron regresó exactamente al punto de partida (A), su cambio neto de posición (desplazamiento) es cero. Sin embargo, sus motores sí acumularon el desgaste de recorrer 50 m de ida y 50 m de vuelta, sumando 100 m de trayectoria.",
+        "1": "Incorrecto. Recuerda que la distancia es la suma de todo el camino recorrido (50m + 50m = 100m) y el desplazamiento mide el cambio de posición desde el origen.",
+        "2": "Incorrecto. No confundas trayectoria con desplazamiento. Al volver al inicio, el desplazamiento neto es nulo.",
+        "3": "Incorrecto. El desplazamiento no puede ser mayor que cero si el punto final es igual al punto inicial."
+      }
+    },
+    {
+      "competencia": "Uso comprensivo del conocimiento científico",
+      "texto_introductorio": "Dos astronautas, Valeria y Juan, realizan reparaciones en el exterior de la ISS. Valeria está firmemente sujeta al brazo robótico de la estación, el cual se mueve a velocidad constante alrededor de los paneles solares. Juan está flotando quieto al lado de la escotilla principal de la ISS. Valeria afirma que Juan se está moviendo hacia atrás, mientras que Juan afirma que Valeria es quien se está moviendo hacia adelante.",
+      "tabla_o_grafica_markdown": "| Observador | Punto de Referencia | ¿Quién se mueve según el observador? |\n| :--- | :--- | :--- |\n| Valeria | El brazo robótico (donde ella está parada) | Juan (se aleja hacia atrás) |\n| Juan | La ISS (donde él está parado) | Valeria (se desplaza hacia adelante) |",
+      "pregunta": "De acuerdo con los conceptos de la física cinemática sobre el movimiento relativo y los marcos de referencia, ¿cuál de los astronautas tiene la razón?",
+      "opciones": [
+        "Solo Juan tiene la razón, porque la ISS es el único objeto que puede considerarse verdaderamente quieto en el espacio.",
+        "Solo Valeria tiene la razón, porque el brazo robótico tiene motores que producen el movimiento real.",
+        "Ambos tienen la razón, ya que el estado de reposo o movimiento depende enteramente del sistema de referencia elegido.",
+        "Ninguno tiene la razón, porque en el espacio exterior todo está en movimiento absoluto y nada puede considerarse en reposo."
+      ],
+      "correcta": 2,
+      "retroalimentacion": {
+        "0": "Incorrecto. La ISS no está quieta; se mueve a más de 27,000 km/h respecto a la Tierra. No existe un punto de reposo absoluto.",
+        "1": "Incorrecto. El movimiento es recíproco; desde el sistema de Valeria, es Juan quien experimenta un cambio de posición.",
+        "2": "¡Brillante! El movimiento es relativo. Dependiendo de qué punto tomemos como origen (0,0) de nuestro sistema de referencia, describiremos el movimiento de manera diferente, y ambas descripciones son físicamente válidas.",
+        "3": "Incorrecto. Aunque todo se mueva en el universo, para hacer física definimos sistemas de referencia donde consideramos un punto arbitrariamente en reposo para poder medir."
+      }
+    }
+  ]
+}

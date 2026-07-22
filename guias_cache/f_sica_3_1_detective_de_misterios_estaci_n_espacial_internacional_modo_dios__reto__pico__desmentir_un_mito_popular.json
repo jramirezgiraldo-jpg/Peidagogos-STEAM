@@ -1,0 +1,94 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "Si un astronauta suelta una manzana dentro de la Estación Espacial Internacional (EEI), ¿qué sucede con el objeto?",
+      "opciones": [
+        "Cae al suelo de la estación instantáneamente por la gravedad terrestre.",
+        "Se queda quieta respecto al astronauta porque ambos están en caída libre.",
+        "Sale disparada hacia el techo debido a la falta total de gravedad.",
+        "Flota porque en el espacio la masa de los objetos desaparece."
+      ],
+      "correcta": 1
+    }
+  ],
+  "texto_inductivo": "¡Saludos, cadetes y futuros detectives de la física! Soy su Investigador Principal en esta misión a bordo de la Estación Espacial Internacional (EEI). Estamos a 400 km de altura, moviéndonos a 28,000 km/h. Pero hay un misterio que resolver. La gente en la Tierra cree que aquí arriba no hay gravedad. Ven los videos de astronautas haciendo piruetas y asumen que la fuerza de la Tierra ha desaparecido. Sin embargo, si eso fuera cierto, ¿por qué la EEI no sale disparada hacia el vacío del espacio profundo? ***¿Si la gravedad de la Tierra es tan fuerte como para mantener a la Luna en órbita, por qué los astronautas en la Estación Espacial Internacional parecen no pesar absolutamente nada?*** [JUEGO:ORDENAR_LETRAS:MISTERIO] \n\nPara resolver este caso, debemos observar el entorno. [JUEGO:SOPA_LETRAS:ESPACIO,PESO,MASA] Notamos que todo parece flotar, pero la realidad es que estamos cayendo. [JUEGO:ORDENAR_FRASE:LA TIERRA ATRAE A LA LUNA] Imaginen que lanzan una piedra. Cae al suelo. Si la lanzan más fuerte, llega más lejos. [JUEGO:ORDENAR_LETRAS:GRAVEDAD] ¿Qué pasa si la lanzan tan fuerte que la curvatura de su caída coincide con la curvatura de la Tierra? [JUEGO:CRUCIGRAMA:Invisible|GRAVEDAD;Centro|NUCLEO] \n\n<div style='background-color: #1a1a1a; padding: 20px; border: 2px solid #00ff00; border-radius: 10px; color: white; font-family: monospace;'>\n  <h3 style='color: #00ff00; text-align: center;'>REGISTRO DE EVIDENCIA: LA CAÍDA PERPETUA</h3>\n  <svg viewBox='0 0 400 200' xmlns='http://www.w3.org/2000/svg'>\n    <!-- Tierra -->\n    <circle cx='200' cy='250' r='120' fill='#2b5d95' />\n    <!-- Órbita -->\n    <circle cx='200' cy='250' r='160' fill='none' stroke='#ffff00' stroke-dasharray='5,5' />\n    <!-- EEI -->\n    <rect x='190' y='85' width='20' height='10' fill='#ff0000'>\n      <animateTransform attributeName='transform' type='rotate' from='0 200 250' to='360 200 250' dur='10s' repeatCount='indefinite' />\n    </rect>\n    <text x='150' y='30' fill='#00ff00' font-size='12'>EEI EN CAÍDA LIBRE (ÓRBITA)</text>\n  </svg>\n  <p style='font-size: 0.8rem;'>La EEI avanza tan rápido lateralmente que, aunque la Tierra la atrae hacia abajo, el suelo 'se curva' antes de que choque. [JUEGO:ORDENAR_FRASE:EL VACIO NO ELIMINA EL PESO]</p>\n</div>\n\nAquí los objetos no están 'sin peso' por falta de gravedad. [JUEGO:ORDENAR_LETRAS:ORBITA] Están en un estado de microgravedad porque el suelo (la estación) cae a la misma velocidad que ellos. [JUEGO:SOPA_LETRAS:CAIDA,LIBRE,CERO] Es como estar en un ascensor al que se le cortan los cables. [JUEGO:ORDENAR_FRASE:LOS CUERPOS CAEN JUNTOS] Durante la caída, tú y tu mochila flotarían uno respecto al otro. [JUEGO:CRUCIGRAMA:Trayectoria|ORBITA;Rapidez|VELOCIDAD] \n\nEl mito de la 'Gravedad Cero' es nuestra primera víctima en esta investigación. [JUEGO:ORDENAR_LETRAS:FLOTAR] En la EEI, la gravedad es un 90% de la que hay en la superficie. [JUEGO:SOPA_LETRAS:MITO,REAL,LEY] Si estuviéramos en una torre de 400km de altura sin movernos lateralmente, ¡pesaríamos casi lo mismo! [JUEGO:ORDENAR_FRASE:LA ESTACION VIAJA MUY RAPIDO] El secreto es la velocidad. [JUEGO:CRUCIGRAMA:Atraccion|PESO;Materia|MASA] Sin velocidad tangencial, nos estrellaríamos. [JUEGO:ORDENAR_LETRAS:INERCIA] La gravedad no ha desaparecido, simplemente la estamos 'esquivando' al caer de lado permanentemente. [JUEGO:SOPA_LETRAS:FUERZA,CAMPO,EJE] Busquemos más pistas en las leyes que rigen este baile cósmico. [JUEGO:ORDENAR_FRASE:NADA ES LO QUE PARECE] [JUEGO:CRUCIGRAMA:Cero|NADA;Espacio|VACIO] [JUEGO:SOPA_LETRAS:LUNA,SOL,MAR] [JUEGO:CRUCIGRAMA:Detective|INVESTIGADOR;Pista|INDICIO]",
+  "recurso_visual": "| Concepto | Realidad en la EEI | Mito Común |\n| :--- | :--- | :--- |\n| **Gravedad** | 8.7 m/s² (90% de la Tierra) | 0 m/s² (No existe) |\n| **Estado Físico** | Caída Libre Perpetua | Flotación Estática |\n| **Velocidad** | 7.6 km/s (Tangencial) | Estática en el vacío |\n| **Peso Aparente** | Cero (Ingravidez) | Cero (Sin Gravedad) |",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "¿Cuál es la principal diferencia entre 'ausencia de gravedad' y 'caída libre'?",
+      "respuesta_esperada": "La ausencia de gravedad implica que no hay fuerza de atracción, mientras que la caída libre es el movimiento bajo la única influencia de la gravedad donde el objeto y su entorno caen a la misma aceleración."
+    },
+    {
+      "pregunta": "¿Por qué la EEI no cae hacia la superficie de la Tierra si la gravedad es del 90%?",
+      "respuesta_esperada": "Porque posee una velocidad tangencial extremadamente alta (28,000 km/h) que hace que su trayectoria de caída coincida con la curvatura de la Tierra."
+    },
+    {
+      "pregunta": "¿Qué sentirías en un ascensor que cae libremente en la Tierra?",
+      "respuesta_esperada": "Sentiría ingravidez o peso aparente cero, similar a lo que experimentan los astronautas, aunque la gravedad terrestre siga actuando con toda su fuerza."
+    },
+    {
+      "pregunta": "¿Qué pasaría con la EEI si de repente se detuviera su movimiento lateral?",
+      "respuesta_esperada": "Caería directamente hacia la superficie de la Tierra debido a la fuerte atracción gravitatoria que aún existe a esa altura."
+    },
+    {
+      "pregunta": "¿Es correcto el término 'Gravedad Cero' para describir la EEI?",
+      "respuesta_esperada": "No, es incorrecto. El término técnico es microgravedad o caída libre, ya que la gravedad terrestre es la que mantiene a la estación en órbita."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema de la Tierra y la EEI, trazando un vector de velocidad tangencial y un vector de fuerza gravitatoria hacia el centro.",
+    "Realiza un cuadro comparativo entre 'Masa' y 'Peso' basándote en la situación de un astronauta en la Tierra vs en la EEI.",
+    "Escribe una reflexión de 10 líneas sobre por qué los medios de comunicación suelen perpetuar el mito de la gravedad cero.",
+    "Representa gráficamente la trayectoria de un objeto lanzado a baja, media y alta velocidad (velocidad orbital) desde una montaña imaginaria."
+  ],
+  "texto_deductivo": "Ahora, detectives, pasamos del '¿qué?' al '¿cómo?'. La ciencia detrás de este misterio fue descifrada por Sir Isaac Newton. [JUEGO:ORDENAR_LETRAS:NEWTON] Su Ley de Gravitación Universal nos dice que la fuerza de atracción depende de las masas y la distancia al cuadrado. [JUEGO:SOPA_LETRAS:INVERSA,CUADRADO,MASAS] [JUEGO:ORDENAR_FRASE:FUERZA ES IGUAL A MASA POR ACELERACION] \n\n<div style='border: 4px double #ffffff; padding: 15px; background: #000033; color: #00ffff; font-family: serif;'>\n  <h2 style='text-align: center;'>LA MATEMÁTICA DEL DETECTIVE</h2>\n  <p style='font-size: 1.5rem; text-align: center;'>F = G * (m1 * m2) / r²</p>\n  <hr>\n  <table style='width: 100%; color: white;'>\n    <tr><td>G</td><td>Constante Gravitacional</td></tr>\n    <tr><td>r</td><td>Distancia al centro de la Tierra</td></tr>\n  </table>\n</div>\n\nEn la órbita, la fuerza gravitatoria actúa como una aceleración centrípeta. [JUEGO:ORDENAR_LETRAS:ACELERACION] [JUEGO:SOPA_LETRAS:CENTRIPETA,CURVA,RADIO] Esto significa que la fuerza no se usa para aumentar la rapidez, sino para cambiar la dirección del vector velocidad constantemente. [JUEGO:ORDENAR_FRASE:LA DISTANCIA REDUCE LA ATRACCION] Si la fuerza apunta al centro, pero la velocidad es tangencial, el resultado es una curva. [JUEGO:ORDENAR_LETRAS:ELIPSE] [JUEGO:CRUCIGRAMA:Unidad|NEWTON;Tierra|GEA]\n\nJohannes Kepler también dejó pistas sobre cómo se mueven los planetas. [JUEGO:SOPA_LETRAS:KEPLER,LEYES,FOCO] [JUEGO:ORDENAR_FRASE:EL RADIO ORBITAL ES CONSTANTE] Nos enseñó que las órbitas no son círculos perfectos, sino elipses. [JUEGO:ORDENAR_LETRAS:VECTOR] En la EEI, para mantener esa elipse estable, necesitamos una aceleración constante. [JUEGO:CRUCIGRAMA:Cambio velocidad|ACELERACION;Tiempo|SEGUNDO] [JUEGO:SOPA_LETRAS:DINAMICA,ACCION,REACCION] \n\n<svg width='100%' height='150' viewBox='0 0 400 150'>\n  <line x1='50' y1='100' x2='350' y2='100' stroke='white' stroke-width='2' />\n  <circle cx='200' cy='100' r='5' fill='red' />\n  <path d='M 200 100 Q 275 20 350 100' stroke='yellow' fill='transparent' />\n  <text x='180' y='120' fill='white'>Atracción Gravitatoria</text>\n  <text x='250' y='40' fill='yellow'>Inercia (Tangente)</text>\n</svg>\n\nLa inercia quiere que la estación siga en línea recta. [JUEGO:ORDENAR_FRASE:TODO CUERPO TIENDE A SEGUIR RECTO] La gravedad tira de ella hacia abajo. [JUEGO:ORDENAR_LETRAS:TANGENTE] [JUEGO:CRUCIGRAMA:Camino|TRAYECTORIA;Punto|NODO] El compromiso entre ambas fuerzas crea la órbita. [JUEGO:SOPA_LETRAS:TENSIÓN,CABLE,GIRO] [JUEGO:ORDENAR_FRASE:LA CENTRIPETA APUNTA AL CENTRO] Al final, el mito se desmorona ante la evidencia: los astronautas no están sin gravedad, están viviendo en un equilibrio dinámico perfecto. [JUEGO:CRUCIGRAMA:Formula|ECUACION;Variable|X] Caso cerrado. [JUEGO:CRUCIGRAMA:Cien|SIGLO;Genio|ISAAC]",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "¿Qué variables determinan la magnitud de la fuerza gravitatoria entre dos objetos?",
+      "respuesta_esperada": "Las masas de ambos objetos (proporcionalmente) y la distancia que los separa (inversamente al cuadrado de la misma)."
+    },
+    {
+      "pregunta": "Si duplicamos la distancia entre la Tierra y un satélite, ¿cómo cambia la fuerza de atracción?",
+      "respuesta_esperada": "La fuerza se reduce a la cuarta parte (1/2² = 1/4), siguiendo la ley del inverso del cuadrado."
+    },
+    {
+      "pregunta": "¿Cuál es la función de la fuerza gravitatoria en un movimiento circular orbital?",
+      "respuesta_esperada": "Actúa como fuerza centrípeta, obligando al objeto a cambiar constantemente su dirección para mantener la trayectoria curva."
+    },
+    {
+      "pregunta": "¿Por qué los astronautas sienten 'ingravidez' si hay gravedad?",
+      "respuesta_esperada": "Porque no hay una fuerza normal (suelo que empuje de vuelta) ya que tanto el astronauta como la estación caen con la misma aceleración gravitatoria."
+    },
+    {
+      "pregunta": "¿Qué establece la primera ley de Kepler sobre las órbitas planetarias?",
+      "respuesta_esperada": "Establece que todos los planetas se mueven en órbitas elípticas, con el Sol situado en uno de los focos."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Dibuja un diagrama de cuerpo libre para un astronauta dentro de la EEI, explicando por qué no hay fuerza normal.",
+    "Elabora un mapa mental que conecte la Ley de Gravitación Universal con las tres Leyes de Kepler.",
+    "Crea un dibujo explicativo que compare el movimiento de un proyectil en la Tierra con el movimiento de un satélite en órbita.",
+    "Diseña una infografía titulada 'El Mito de la Gravedad Cero' donde expliques visualmente los cálculos de gravedad a 400km de altura."
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "Un grupo de científicos analiza la gravedad (g) en diferentes puntos respecto al radio de la Tierra (R). Saben que en la superficie (1R) la gravedad es de 9.8 m/s².",
+      "tabla_o_grafica_markdown": "| Altitud | Distancia al centro | Gravedad (aprox) |\n|---|---|---|\n| Superficie | 1 R | 9.8 m/s² |\n| EEI | 1.06 R | 8.7 m/s² |\n| Órbita GPS | 4.2 R | 0.56 m/s² |",
+      "pregunta": "Si un astronauta en la EEI tiene una masa de 70 kg, ¿cuál es su peso real (fuerza gravitatoria) en ese punto y por qué no lo percibe?",
+      "opciones": [
+        "Su peso es de 609 N, pero no lo percibe porque está en caída libre junto con la estación.",
+        "Su peso es 0 N, porque a esa altura la gravedad terrestre ya no tiene efecto.",
+        "Su peso es de 686 N, igual que en la Tierra, porque la masa no cambia.",
+        "Su peso es de 70 N, porque en el espacio el peso es igual a la masa."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. El peso se calcula como m*g (70kg * 8.7 m/s² ≈ 609 N). No lo percibe debido al estado de caída libre.",
+        "1": "Incorrecto. La tabla muestra que la gravedad aún es muy fuerte (8.7 m/s²).",
+        "2": "Incorrecto. El peso sí cambia porque depende de la gravedad local, la cual es menor en la EEI que en la superficie.",
+        "3": "Incorrecto. El peso es una fuerza (Newtons), no es igual a la masa (Kilogramos)."
+      }
+    }
+  ]
+}

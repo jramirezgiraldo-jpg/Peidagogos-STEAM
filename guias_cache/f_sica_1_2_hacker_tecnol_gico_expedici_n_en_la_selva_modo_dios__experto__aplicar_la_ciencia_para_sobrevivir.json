@@ -1,0 +1,105 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "Un dron de reconocimiento despega de la cancha de la IE Instituto Montenegro, vuela en círculos sobre el bosque de guadua y aterriza en el mismo punto. ¿Cuál fue su desplazamiento final?",
+      "opciones": [
+        "Igual a la longitud de todos los círculos recorridos.",
+        "Cero, porque su posición final es idéntica a su posición inicial.",
+        "Depende de la velocidad a la que voló el dron.",
+        "Mayor a cero, porque consumió energía de la batería."
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "Para interceptar una señal de radio en medio de la selva, un hacker necesita establecer un 'Sistema de Referencia'. ¿Qué elemento es INDISPENSABLE para lograrlo?",
+      "opciones": [
+        "Un reloj digital de alta precisión únicamente.",
+        "Un punto de origen fijo arbitrario y un sistema de ejes coordenados.",
+        "Un mapa impreso en papel sin coordenadas.",
+        "Una brújula averiada y una linterna de señalización."
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "Un explorador camina 30 metros al norte y luego 40 metros al este para esquivar una ciénaga. ¿Qué representa la huella zigzagueante dejada en el barro?",
+      "opciones": [
+        "El vector posición final.",
+        "El desplazamiento vectorial.",
+        "La trayectoria recorrida.",
+        "El origen de coordenadas del sistema."
+      ],
+      "correcta": 2
+    }
+  ],
+  "texto_inductivo": "# MODULO HACKER: INFILTRACION EN LA SELVA Y CINEMATICA TACTICA\n\n***¿Cómo podríamos utilizar el hackeo de coordenadas cinemáticas para rastrear una ruta de escape segura desde el Instituto Montenegro hasta el centro de la selva Amazónica sin ser detectados por el sistema de radar enemigo?***\n\n<svg width='100%' height='200' viewBox='0 0 400 200' style='background-color:#0d1117; border-radius:8px;' xmlns='http://www.w3.org/2000/svg'><circle cx='200' cy='100' r='80' stroke='#00ff66' stroke-width='1' fill='none'/><circle cx='200' cy='100' r='50' stroke='#00ff66' stroke-width='1' stroke-dasharray='4' fill='none'/><line x1='200' y1='10' x2='200' y2='190' stroke='#00ff66' stroke-width='1'/><line x1='100' y1='100' x2='300' y2='100' stroke='#00ff66' stroke-width='1'/><circle cx='200' cy='100' r='5' fill='#ff0055'/><text x='208' y='95' fill='#00ff66' font-size='10' font-family='monospace'>Origen (IE Montenegro)</text><circle cx='270' cy='50' r='5' fill='#00e5ff'/><text x='275' y='50' fill='#00e5ff' font-size='10' font-family='monospace'>Base Alpha (x=70, y=50)</text><path d='M200 100 Q 220 140, 270 50' stroke='#ffcc00' stroke-width='2' fill='none' stroke-dasharray='4'/><line x1='200' y1='100' x2='270' y2='50' stroke='#ff0055' stroke-width='2' stroke-dasharray='2'/></svg>\n\n¡Atención, hackers de grado 6° de la IE Instituto Montenegro! Bienvenidos al **Modo Dios**. Estamos desplegados en una misión crítica en lo profundo de la selva. Nuestro terminal de comandos ha detectado un bloqueo perimetral. Para sobrevivir y evacuar a la patrulla, debemos convertirnos en maestros de la **Cinemática**. La física no es solo teoría en un libro: es el algoritmo matemático que nos permitirá predecir la posición del enemigo y trazar nuestra ruta de escape.\n\nDesencripta los conceptos clave usando tus habilidades de consola:\n\n[JUEGO:ORDENAR_LETRAS:POSICION]\n\n[JUEGO:ORDENAR_LETRAS:TRAYECTORIA]\n\n<table border='1' style='width:100%; border-collapse:collapse; background-color:#161b22; color:#c9d1d9; font-family:monospace; margin:10px 0;'><thead><tr style='background-color:#21262d; color:#58a6ff;'><th>Nodo Telemetría</th><th>Coordenada X (m)</th><th>Coordenada Y (m)</th><th>Estado de Vector</th></tr></thead><tbody><tr><td>IE Instituto Montenegro (Origen)</td><td>0</td><td>0</td><td>Punto de Referencia (0,0)</td></tr><tr><td>Puesto Avanzado Selva</td><td>+120</td><td>-40</td><td>Posición Relativa</td></tr><tr><td>Zona de Extracción Alpha</td><td>+300</td><td>+180</td><td>Objetivo Final</td></tr></tbody></table>\n\nPara evadir las torres de vigilancia, no podemos movernos en línea recta. Debemos seguir las curvas del río y los senderos bajo el dosel arbóreo. Ese camino retorcido que pisamos paso a paso se denomina **Trayectoria**. Sin embargo, los sensores térmicos del satélite no ven las curvas; solo miden la distancia recta desde el punto de partida (IE Instituto Montenegro) hasta nuestra ubicación actual. Esa flecha directa es el **Desplazamiento**.\n\nDemuestra tu capacidad de descifrado resolviendo estos protocolos cinemáticos:\n\n[JUEGO:ORDENAR_FRASE:LA POSICION DEPENDE DEL SISTEMA DE REFERENCIA]\n\n[JUEGO:ORDENAR_FRASE:LA TRAYECTORIA ES EL CAMINO RECORRIDO POR EL MOVIL]\n\n[JUEGO:SOPA_LETRAS:POSICION,ORIGEN,VECTOR]\n\n[JUEGO:SOPA_LETRAS:TRAYECTORIA,DISTANCIA,PUNTO]\n\n[JUEGO:CRUCIGRAMA:Punto cero de referencia|ORIGEN;Ubicacion exacta en el espacio|POSICION]\n\n[JUEGO:CRUCIGRAMA:Camino continuo trazado por el objeto|TRAYECTORIA;Medida de la trayectoria|DISTANCIA]",
+  "recurso_visual": "| Variable Cinemática | Definición Hacker / Operativa | ¿Es Vectorial? | Ejemplo en la Expedición Selvática |\n| :--- | :--- | :--- | :--- |\n| **Sistema de Referencia ($O$)** | Marco de ejes $(X, Y)$ desde donde medimos todo movimiento. | No (Es el marco) | Patio Central de la IE Instituto Montenegro con $O=(0,0)$. |\n| **Posición ($\\vec{r}$)** | Coordenada exacta que ubica al explorador en un tiempo $t$. | Sí | $\\vec{r} = (50\\text{m E}, 30\\text{m N})$ respecto al campamento. |\n| **Trayectoria** | Trazo curvilíneo de las huellas dejadas en la vegetación. | No (Es una línea) | El sendero zigzagueante que bordea el río turbio. |\n| **Distancia ($d$)** | Longitud total del camino recorrido (metros marcados en el podómetro). | No (Escalar) | Walkie-talkie registra $450\\text{ metros}$ caminados. |\n| **Desplazamiento ($\\Delta \\vec{r}$)** | Vector directo en línea recta desde el origen al punto final. | Sí | Flecha recta de $200\\text{ metros}$ con dirección $Norte-Este$. |",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "¿Por qué un dron que sobrevuela la selva puede recorrer una distancia de 2 km pero tener un desplazamiento de 0 km?",
+      "respuesta_esperada": "Porque la distancia mide la longitud total de la trayectoria curva recorrida, mientras que el desplazamiento mide el cambio neto de posición. Si el dron despega y regresa exactamente al mismo punto de partida, su posición final e inicial son idénticas, haciendo que el vector desplazamiento sea cero."
+    },
+    {
+      "pregunta": "Si cambiamos el Sistema de Referencia desde la IE Instituto Montenegro hasta el puesto del helicóptero en la selva, ¿cambia la posición del explorador?",
+      "respuesta_esperada": "Sí, porque la posición es un valor relativo al origen seleccionado. Si el punto de origen (0,0) cambia, las coordenadas numéricas de la posición del explorador también cambiarán obligatoriamente."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "RETO HACKER 1: Dibuja en tu cuaderno un sistema de ejes cartesiano (X,Y) asignando el origen (0,0) a la puerta principal de la IE Instituto Montenegro. Grafica la posición de un explorador en P1=(3, 4) km y otro en P2=(-2, 5) km. Traza con líneas punteadas sus trayectorias y con flechas rojas sus vectores de desplazamiento.",
+    "RETO HACKER 2: Escribe un algoritmo de 4 pasos para explicarle a un compañero de expedición la diferencia entre la lectura de un odómetro (distancia) y la lectura de un GPS táctico (posición/desplazamiento)."
+  ],
+  "texto_deductivo": "# TEORIA AVANZADA: MATEMATICAS DE VECTOR Y TRAYECTORIA\n\n<svg width='100%' height='220' viewBox='0 0 400 220' style='background-color:#0d1117; border-radius:8px;' xmlns='http://www.w3.org/2000/svg'><defs><pattern id='grid' width='20' height='20' patternUnits='userSpaceOnUse'><path d='M 20 0 L 0 0 0 20' fill='none' stroke='#21262d' stroke-width='1'/></pattern></defs><rect width='400' height='220' fill='url(#grid)'/><line x1='40' y1='180' x2='360' y2='180' stroke='#8b949e' stroke-width='2'/><line x1='40' y1='20' x2='40' y2='180' stroke='#8b949e' stroke-width='2'/><text x='365' y='185' fill='#8b949e' font-size='12' font-family='monospace'>X (m)</text><text x='35' y='15' fill='#8b949e' font-size='12' font-family='monospace'>Y (m)</text><circle cx='40' cy='180' r='4' fill='#ff0055'/><text x='45' y='195' fill='#ff0055' font-size='10' font-family='monospace'>O(0,0)</text><path d='M 40 180 C 100 80, 180 220, 300 60' stroke='#ffcc00' stroke-width='3' fill='none'/><line x1='40' y1='180' x2='300' y2='60' stroke='#00e5ff' stroke-width='2' stroke-dasharray='5,5'/><polygon points='295,58 305,58 300,68' fill='#00e5ff'/><text x='180' y='110' fill='#ffcc00' font-size='11' font-family='monospace'>Trayectoria s(t)</text><text x='160' y='140' fill='#00e5ff' font-size='11' font-family='monospace'>Desplazamiento Δr</text></svg>\n\nEn la modalidad **Modo Dios**, formalizamos las variables cinemáticas con precisión de software táctico. La física describe el movimiento mediante ecuaciones vectoriales relativas al marco de referencia.\n\n1. **Posición ($\\vec{r}$):** Es el vector que va desde el Origen $O$ hasta el punto donde se ubica el móvil en un instante de tiempo $t$. En el plano 2D de la selva:\n$$\\vec{r}(t) = x(t)\\hat{i} + y(t)\\hat{j}$$\n\n2. **Trayectoria ($s$):** Es el conjunto infinito de puntos del espacio geométrico por los que pasa el objeto. Es una curva escalar contínua $y = f(x)$.\n\n3. **Desplazamiento ($\\Delta \\vec{r}$):** La variación neta del vector posición entre un tiempo inicial $t_1$ y un tiempo final $t_2$:\n$$\\Delta \\vec{r} = \\vec{r}_f - \\vec{r}_i = (x_f - x_i)\\hat{i} + (y_f - y_i)\\hat{j}$$\n\nEjecuta los siguientes algoritmos de descompresión para continuar con la depuración del código:\n\n[JUEGO:ORDENAR_LETRAS:DISTANCIA]\n\n[JUEGO:ORDENAR_LETRAS:VECTOR]\n\n[JUEGO:ORDENAR_LETRAS:CINEMATICA]\n\n<table border='1' style='width:100%; border-collapse:collapse; background-color:#161b22; color:#c9d1d9; font-family:monospace; margin:10px 0;'><thead><tr style='background-color:#21262d; color:#79c0ff;'><th>Tramo de Expedición</th><th>Posición Inicial $\\vec{r}_i$ (m)</th><th>Posición Final $\\vec{r}_f$ (m)</th><th>Cálculo $\\Delta \\vec{r}$ (m)</th></tr></thead><tbody><tr><td>Paso de la Ciénaga</td><td>$(10, 20)$</td><td>$(50, 20)$</td><td>$(40\\hat{i} + 0\\hat{j})$</td></tr><tr><td>Escalada de la Cascada</td><td>$(50, 20)$</td><td>$(50, 90)$</td><td>$(0\\hat{i} + 70\\hat{j})$</td></tr><tr><td>Huida en Tirolesa</td><td>$(50, 90)$</td><td>$(100, 10)$</td><td>$(50\\hat{i} - 80\\hat{j})$</td></tr></tbody></table>\n\nPara infiltrar la base enemiga y escapar de regreso a la IE Instituto Montenegro, debes coordinar cada uno de tus movimientos calculando correctamente el cambio de coordenadas vectoriales sin confundir la distancia escalar caminada con la posición escalar esperada.\n\nCompleta las secuencias finales del sistema informático:\n\n[JUEGO:ORDENAR_FRASE:EL DESPLAZAMIENTO ES UN VECTOR DIRECTO EN EL ESPACIO]\n\n[JUEGO:ORDENAR_FRASE:EL HACKEO DEL RADAR REVELA LA RUTA DE ESCAPE]\n\n[JUEGO:ORDENAR_FRASE:SABER CINEMATICA SALVA VIDAS EN LA SELVA]\n\n[JUEGO:SOPA_LETRAS:CINEMATICA,TIEMPO,CAMINO]\n\n[JUEGO:SOPA_LETRAS:RADAR,ESCAPE,COORDENADA]\n\n[JUEGO:SOPA_LETRAS:SELVA,CAMPAMENTO,MAPA]\n\n[JUEGO:CRUCIGRAMA:Magnitud que une inicio y fin|DESPLAZAMIENTO;Estudio del movimiento|CINEMATICA]\n\n[JUEGO:CRUCIGRAMA:Lugar de partida en Montenegro|INSTITUTO;Eje horizontal de coordenadas|X]\n\n[JUEGO:CRUCIGRAMA:Sensor que mide variables|RADAR;Unidad basica de distancia|METRO]",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "Un explorador se ubica en $\\vec{r}_i = (20, 15)\\text{ m}$ y camina hacia un refugio ubicado en $\\vec{r}_f = (80, 15)\\text{ m}$. ¿Cuál es el valor del vector desplazamiento $\\Delta \\vec{r}$ y su magnitud?",
+      "respuesta_esperada": "El vector desplazamiento es Δr = rf - ri = (80 - 20)i + (15 - 15)j = 60i + 0j metros. La magnitud del desplazamiento es exactamente 60 metros dirigidos hacia el eje X positivo (Este)."
+    },
+    {
+      "pregunta": "¿Es posible que la magnitud del desplazamiento sea MAYOR que la distancia recorrida a lo largo de una trayectoria? Justifica matemáticamente.",
+      "respuesta_esperada": "No, nunca. La distancia recorrida a lo largo de la trayectoria es siempre mayor o igual a la magnitud del desplazamiento (|Δr| <= d). El desplazamiento es la distancia más corta entre dos puntos (línea recta), por lo que ninguna trayectoria curva o zigzagueante puede ser más corta que la línea recta que une esos dos puntos."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "RETO MODO DIOS 1: Un dron parte de la IE Instituto Montenegro en (0,0)m. Se desplaza a P1=(30, 0)m en t=2s, luego a P2=(30, 40)m en t=5s y finalmente regresa a (0,0)m en t=10s. Calcula: a) La distancia total recorrida. b) El desplazamiento total al cabo de los 10 segundos. c) Realiza la gráfica cartesiana del recorrido.",
+    "RETO MODO DIOS 2: Escribe una ecuación en tu cuaderno para representar la posición final de una patrulla si conoce su posición inicial r_i = (100, 250)m y sufre un desplazamiento Δr = (-40, 80)m debido a una persecución en el denso follaje."
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de fenómenos",
+      "texto_introductorio": "Durante una expedición táctica en la selva, un grupo de estudiantes de la IE Instituto Montenegro monitorea el escape de dos vehículos robotizados (Rover Alpha y Rover Beta). Ambos vehículos parten al mismo tiempo desde la base de operaciones situada en el punto O(0,0). La telemetría capturada por el radar se muestra en la siguiente gráfica de trayectorias:",
+      "tabla_o_grafica_markdown": "<svg width='100%' height='200' viewBox='0 0 350 200' style='background-color:#0d1117; border-radius:8px;' xmlns='http://www.w3.org/2000/svg'><line x1='30' y1='170' x2='320' y2='170' stroke='#8b949e' stroke-width='2'/><line x1='30' y1='20' x2='30' y2='170' stroke='#8b949e' stroke-width='2'/><path d='M 30 170 Q 150 30, 280 50' stroke='#00e5ff' stroke-width='3' fill='none'/><line x1='30' y1='170' x2='280' y2='50' stroke='#ff0055' stroke-width='2' stroke-dasharray='4,4'/><circle cx='30' cy='170' r='5' fill='#00ff66'/><circle cx='280' cy='50' r='5' fill='#ffcc00'/><text x='290' y='55' fill='#ffcc00' font-size='10' font-family='monospace'>Punto Final P(250, 120)</text><text x='110' y='60' fill='#00e5ff' font-size='10' font-family='monospace'>Rover Alpha (Curva)</text><text x='150' y='125' fill='#ff0055' font-size='10' font-family='monospace'>Rover Beta (Recta)</text></svg>",
+      "pregunta": "Teniendo en cuenta el mapa de telemetría cinemática, si ambos vehículos llegan exactamente al mismo punto final P(250, 120) metros, ¿cuál de las siguientes afirmaciones respecto a sus variables cinemáticas es CORRECTA?",
+      "opciones": [
+        "El Rover Alpha tuvo un desplazamiento mayor que el Rover Beta porque recorrió una curva más larga.",
+        "Ambos vehículos tuvieron exactamente el mismo vector desplazamiento, pero el Rover Alpha recorrió una distancia mayor.",
+        "El Rover Beta recorrió mayor distancia porque se movió en línea recta directa.",
+        "La posición final de ambos vehículos es diferente porque siguieron caminos distintos."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. El desplazamiento solo depende de las posiciones inicial y final (vector directo). Como ambos partieron de O y llegaron a P, su desplazamiento es idéntico. La curva del Rover Alpha incrementa la distancia, no el desplazamiento.",
+        "1": "¡CORRECTO HACKER! Como ambos rovers inician en O(0,0) y terminan en P(250,120), el vector desplazamiento es el mismo (Δr = 250i + 120j m). Sin embargo, el Rover Alpha viaja por una curva, haciendo que la longitud de su trayectoria (distancia) sea mayor que la del Rover Beta.",
+        "2": "Incorrecto. La línea recta es la distancia más corta posible entre dos puntos. Por ende, el Rover Beta recorrió MENOR distancia que el Rover Alpha.",
+        "3": "Incorrecto. La posición final es la coordenada del punto donde se encuentran al terminar P(250,120), la cual es idéntica para ambos sin importar la ruta tomada."
+      }
+    },
+    {
+      "competencia": "Uso comprensivo del conocimiento científico",
+      "texto_introductorio": "Un dron de exploración es enviado desde el centro de comando de la IE Instituto Montenegro para escanear la vegetación en la selva. El dron realiza el siguiente patrón de vuelo registrado en el cuaderno de bitácora:",
+      "tabla_o_grafica_markdown": "| Intervalo de Tiempo | Movimiento Realizado | Coordenada Final $(X,Y)$ (m) |\n| :--- | :--- | :--- |\n| $t_0 = 0\\text{ s}$ | Despegue en Origen | $(0, 0)$ |\n| $t_1 = 10\\text{ s}$ | Vuelo recto al Este | $(100, 0)$ |\n| $t_2 = 20\\text{ s}$ | Vuelo recto al Norte | $(100, 100)$ |\n| $t_3 = 30\\text{ s}$ | Regreso en diagonal directa | $(0, 0)$ |",
+      "pregunta": "Al finalizar los 30 segundos de misión, ¿cuáles son los valores de la DISTANCIA total recorrida ($d$) y la magnitud del DESPLAZAMIENTO final ($|\\Delta \\vec{r}|$) del dron?",
+      "opciones": [
+        "$d = 341.4\\text{ m}$ y $|\\Delta \\vec{r}| = 0\\text{ m}$",
+        "$d = 200\\text{ m}$ y $|\\Delta \\vec{r}| = 100\\text{ m}$",
+        "$d = 0\\text{ m}$ y $|\\Delta \\vec{r}| = 341.4\\text{ m}$",
+        "$d = 300\\text{ m}$ y $|\\Delta \\vec{r}| = 300\\text{ m}$"
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "¡CORRECTO SYSTEM OVERRIDE! Tramo 1 = 100m. Tramo 2 = 100m. Tramo 3 (diagonal por Pitágoras) = √(100² + 100²) ≈ 141.4m. Distancia total = 100 + 100 + 141.4 = 341.4m. Como el dron regresa al origen (0,0), la posición final es igual a la inicial, por ende el desplazamiento es 0m.",
+        "1": "Incorrecto. La distancia debe sumar todos los tramos recorridos incluyendo la diagonal de regreso (141.4m), y el desplazamiento debe ser cero porque regresó al origen.",
+        "2": "Incorrecto. La distancia recorrida no puede ser cero si el dron se movió continuamente durante 30 segundos.",
+        "3": "Incorrecto. Confundes distancia con desplazamiento. Además, la diagonal del triángulo rectángulo de lados 100m vale 141.4m, no 100m."
+      }
+    }
+  ]
+}

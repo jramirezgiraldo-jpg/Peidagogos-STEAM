@@ -1,0 +1,114 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Cuál es el astro que se encuentra en el centro de nuestro sistema?",
+      "opciones": [
+        "La Tierra",
+        "La Luna",
+        "El Sol",
+        "Marte"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "¿Qué forma crees que tienen los caminos (órbitas) que siguen los planetas?",
+      "opciones": [
+        "Cuadrada",
+        "Circular o casi circular",
+        "Triangular",
+        "Zigzag"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Qué fuerza hace que las cosas caigan al suelo en la Tierra?",
+      "opciones": [
+        "Magnetismo",
+        "Electricidad",
+        "Gravedad",
+        "Viento"
+      ],
+      "correcta": 2
+    }
+  ],
+  "texto_inductivo": "¡Bienvenido a la Expedición en la Selva, joven detective! Me alegra que hayas llegado al Campamento Base. Soy el Detective de Misterios y hoy nos enfrentamos a un enigma ancestral oculto en el Templo de los Cielos. Las leyendas dicen que los antiguos sabios de esta selva podían predecir el movimiento de las estrellas con precisión milimétrica. Para entrar al templo, debemos resolver la gran incógnita que ha desvelado a científicos por siglos:\n\n***¿Cómo es posible que los planetas floten y se muevan en círculos alrededor del Sol sin caerse ni perderse en el espacio infinito?***\n\nImagina que el Sol es una gran fogata en medio de nuestra selva. [JUEGO:ORDENAR_LETRAS:SOL] Alrededor de ella, los planetas danzan como luciérnagas. [JUEGO:ORDENAR_FRASE:LA TIERRA GIRA] Para entender este misterio, primero debemos observar el cielo. [JUEGO:SOPA_LETRAS:ESPACIO,LUNA,VIAJE] \n\n<div style='background-color:#f0f8ff; padding:20px; border-radius:15px; border: 2px solid #2e8b57; text-align:center;'>\n  <svg width='300' height='200' viewBox='0 0 300 200'>\n    <circle cx='150' cy='100' r='30' fill='#FFD700' />\n    <ellipse cx='150' cy='100' rx='100' ry='60' fill='none' stroke='#2e8b57' stroke-width='2' stroke-dasharray='5,5' />\n    <circle cx='50' cy='100' r='10' fill='#4682B4' />\n    <text x='130' y='145' font-family='Arial' font-size='12' fill='#2e8b57'>Órbita Planetaria</text>\n    <text x='135' y='90' font-family='Arial' font-size='10' fill='black'>SOL</text>\n  </svg>\n  <p><i>Representación de un planeta en su órbita alrededor del Sol.</i></p>\n</div>\n\nCada planeta tiene su propio camino, llamado órbita. [JUEGO:ORDENAR_LETRAS:PLANETA] A veces parece que se mueven rápido y otras más lento. [JUEGO:CRUCIGRAMA:Astro rey|SOL;Donde vivimos|TIERRA] En nuestra expedición, hemos notado que nada en el espacio se mueve por azar. [JUEGO:ORDENAR_FRASE:EL SOL DA CALOR] \n\n<table style='width:100%; border-collapse: collapse; margin: 20px 0; background-color: #eaffea;'>\n  <thead>\n    <tr style='background-color: #2e8b57; color: white;'>\n      <th style='padding: 10px; border: 1px solid #ddd;'>Concepto de Selva</th>\n      <th style='padding: 10px; border: 1px solid #ddd;'>Concepto de Física</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td style='padding: 10px; border: 1px solid #ddd;'>El sendero marcado</td>\n      <td style='padding: 10px; border: 1px solid #ddd;'>Órbita (Posición)</td>\n    </tr>\n    <tr>\n      <td style='padding: 10px; border: 1px solid #ddd;'>Correr tras una presa</td>\n      <td style='padding: 10px; border: 1px solid #ddd;'>Velocidad</td>\n    </tr>\n  </tbody>\n</table>\n\n¿Será que hay una cuerda invisible que los sujeta? [JUEGO:ORDENAR_LETRAS:SELVA] Los antiguos decían que el cielo era un gran mapa. [JUEGO:ORDENAR_FRASE:MIRAMOS AL CIELO] Debemos buscar pistas en la posición de los astros. [JUEGO:SOPA_LETRAS:DETECTIVE,PISTA,MAPA] \n\nPara ser un buen detective, hay que notar que los planetas no se escapan. [JUEGO:CRUCIGRAMA:Luz del cielo|ESTRELLA;Satelite natural|LUNA] Algo los mantiene unidos en este sistema. [JUEGO:ORDENAR_LETRAS:ORBITA] La selva nos enseña que todo tiene un equilibrio. [JUEGO:ORDENAR_FRASE:LA SELVA ES VERDE] \n\n<div style='display: flex; justify-content: space-around; margin: 20px;'>\n  <div style='text-align: center;'>\n    <div style='font-size: 3rem;'>🔭</div>\n    <p>Observación</p>\n  </div>\n  <div style='text-align: center;'>\n    <div style='font-size: 3rem;'>🗺️</div>\n    <p>Mapeo</p>\n  </div>\n</div>\n\nSigamos explorando el terreno. [JUEGO:SOPA_LETRAS:ROCA,GAS,POLVO] Cada paso nos acerca a entender el movimiento planetario. [JUEGO:CRUCIGRAMA:Camino circular|ORBITA;Nuestra galaxia|LACTEA] El aire aquí es denso, pero nuestra mente debe estar clara. [JUEGO:ORDENAR_LETRAS:CIELO] ¡Las estrellas nos guían! [JUEGO:ORDENAR_FRASE:LAS ESTRELLAS BRILLAN] [JUEGO:SOPA_LETRAS:NOCHE,DIA,HORA] [JUEGO:CRUCIGRAMA:Fuerza invisible|GRAVEDAD;Cuerpo celeste|PLANETA] [JUEGO:SOPA_LETRAS:NORTE,SUR,ESTE] [JUEGO:CRUCIGRAMA:Lupa de detective|TELESCOPIO;Mirar con atencion|OBSERVAR]",
+  "recurso_visual": "| Elemento | Descripción en la Selva | Función en el Espacio |\n| :--- | :--- | :--- |\n| **El Sol** | La gran fogata central | Centro de gravedad y giro |\n| **Planetas** | Exploradores en ruta | Cuerpos en movimiento orbital |\n| **Órbita** | El sendero de la selva | Trayectoria elíptica definida |\n| **Gravedad** | El lazo invisible | Fuerza que evita que se escapen |",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "Según el texto, ¿qué nombre recibe el camino que siguen los planetas?",
+      "respuesta_esperada": "Se llama órbita."
+    },
+    {
+      "pregunta": "¿Con qué objeto de la selva se compara al Sol en la narrativa?",
+      "respuesta_esperada": "Se compara con una gran fogata central."
+    },
+    {
+      "pregunta": "¿Qué analogía se usa para describir el movimiento de los planetas?",
+      "respuesta_esperada": "Se comparan con luciérnagas que danzan alrededor de una fogata."
+    },
+    {
+      "pregunta": "¿Cuál es la gran pregunta que debemos resolver como detectives?",
+      "respuesta_esperada": "¿Cómo es posible que los planetas floten y se muevan sin caerse ni perderse?"
+    },
+    {
+      "pregunta": "¿Qué elementos de la tabla comparativa representan la 'Velocidad'?",
+      "respuesta_esperada": "El acto de correr tras una presa."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja el 'Templo de los Cielos' con el Sol en el centro y tres planetas siguiendo sus senderos (órbitas).",
+    "Realiza un cuadro comparativo entre un explorador caminando por la selva y un planeta moviéndose por el espacio.",
+    "Escribe una reflexión de media página sobre por qué crees que los planetas no chocan entre sí.",
+    "Representa gráficamente, usando colores, la diferencia entre una trayectoria recta y una trayectoria circular."
+  ],
+  "texto_deductivo": "¡Excelente trabajo recolectando pistas! Ahora, como detectives expertos, debemos aplicar la lógica científica para resolver el misterio. La respuesta a nuestra pregunta problematizadora se encuentra en las leyes de la física. [JUEGO:ORDENAR_LETRAS:ELIPSE] \n\nPrimero, hablemos de la **Gravedad**. [JUEGO:ORDENAR_FRASE:NEWTON DESCUBRIO LA GRAVEDAD] Isaac Newton, un detective de la naturaleza, descubrió que todos los objetos con masa se atraen. [JUEGO:SOPA_LETRAS:GRAVEDAD,CAIDA,SALTO] \n\n<div style='background-color: #fff8e1; border: 3px dashed #ffa000; padding: 15px; margin: 20px 0;'>\n  <svg width='100%' height='120'>\n    <circle cx='50' cy='60' r='30' fill='#FFD700' />\n    <circle cx='250' cy='60' r='15' fill='#4682B4' />\n    <line x1='80' y1='60' x2='235' y2='60' stroke='red' stroke-width='3' marker-end='url(#arrowhead)' />\n    <defs>\n      <marker id='arrowhead' markerWidth='10' markerHeight='7' refX='0' refY='3.5' orient='auto'>\n        <polygon points='0 0, 10 3.5, 0 7' fill='red' />\n      </marker>\n    </defs>\n    <text x='110' y='50' fill='red' font-weight='bold'>FUERZA DE ATRACCIÓN</text>\n  </svg>\n  <p style='text-align:center;'><i>La masa del Sol atrae a la Tierra, como un imán gigante.</i></p>\n</div>\n\nPero, ¿por qué no se estrella la Tierra contra el Sol? [JUEGO:ORDENAR_LETRAS:MASA] Aquí entra Johannes Kepler. Él descubrió que los planetas no se mueven en círculos perfectos, sino en **Elipses** (como círculos aplastados). [JUEGO:ORDENAR_FRASE:LAS ORBITAS SON ELIPSES] \n\n[JUEGO:SOPA_LETRAS:KEPLER,LEYES,FISICA] \n\n<table style='width:100%; text-align:center; border: 2px solid #ffa000;'>\n  <tr style='background-color:#ffe082;'>\n    <th>Concepto</th>\n    <th>Definición Simple</th>\n  </tr>\n  <tr>\n    <td>Posición</td>\n    <td>¿Dónde está el planeta ahora?</td>\n  </tr>\n  <tr>\n    <td>Velocidad</td>\n    <td>¿Qué tan rápido se desplaza?</td>\n  </tr>\n  <tr>\n    <td>Aceleración</td>\n    <td>¿Cómo cambia su rapidez al acercarse al Sol?</td>\n  </tr>\n</table>\n\nEl secreto es el equilibrio: la velocidad del planeta intenta lanzarlo hacia afuera, mientras la gravedad lo jala hacia adentro. [JUEGO:ORDENAR_LETRAS:PESO] Es como girar una piedra atada a una cuerda. [JUEGO:ORDENAR_FRASE:EL SOL TIENE MASA] Si cortas la cuerda, la piedra sale volando. [JUEGO:SOPA_LETRAS:INERCIA,REPOSO,EMPÜJE] \n\n[JUEGO:CRUCIGRAMA:Forma de huevo|ELIPSE;Unidad de masa|KILO] \n\nLa cinemática nos ayuda a medir este viaje. [JUEGO:ORDENAR_LETRAS:FUERZA] La aceleración ocurre porque el planeta cambia de dirección constantemente. [JUEGO:ORDENAR_FRASE:KEPLER HIZO LEYES] \n\n[JUEGO:SOPA_LETRAS:GALILEO,LUNA,CRATER] \n\n[JUEGO:CRUCIGRAMA:Cientifico manzana|NEWTON;Astronómo leyes|KEPLER] \n\nFinalmente, entendemos que los planetas 'caen' continuamente hacia el Sol, pero tienen tanta velocidad lateral que siempre fallan y terminan dando vueltas. [JUEGO:ORDENAR_LETRAS:RAPIDO] ¡Misterio resuelto! [JUEGO:ORDENAR_FRASE:TODO LO QUE SUBE BAJA] \n\n[JUEGO:SOPA_LETRAS:TIEMPO,SEGUNDO,RELOJ] \n\n[JUEGO:CRUCIGRAMA:Lugar exacto|POSICION;Cambio de lugar|MOVIMIENTO] \n\n[JUEGO:CRUCIGRAMA:Rapidez de viaje|VELOCIDAD;Cambio de rapidez|ACELERACION] \n\n[JUEGO:CRUCIGRAMA:Reloj de vida|TIEMPO;Regla de medir|METRO]",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "¿Qué descubrió Newton sobre los objetos con masa?",
+      "respuesta_esperada": "Descubrió que todos los objetos con masa se atraen entre sí mediante la fuerza de gravedad."
+    },
+    {
+      "pregunta": "¿Cuál es la forma real de las órbitas según Kepler?",
+      "respuesta_esperada": "Tienen forma de elipse (círculos aplastados)."
+    },
+    {
+      "pregunta": "¿Qué pasaría si un planeta no tuviera velocidad lateral?",
+      "respuesta_esperada": "Sería atraído directamente por la gravedad del Sol y chocaría contra él."
+    },
+    {
+      "pregunta": "¿A qué se debe la aceleración de un planeta en órbita?",
+      "respuesta_esperada": "A que cambia constantemente de dirección para seguir su camino curvo."
+    },
+    {
+      "pregunta": "¿Qué analogía se usa para explicar el equilibrio entre velocidad y gravedad?",
+      "respuesta_esperada": "La analogía de una piedra atada a una cuerda que se hace girar."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Dibuja un diagrama de 'Fuerzas en la Selva' usando la analogía de la piedra y la cuerda, señalando cuál es la gravedad y cuál es la velocidad.",
+    "Elabora un mapa mental que conecte a Newton, Kepler, la Gravedad y las Elipses.",
+    "Realiza un dibujo explicativo de por qué un planeta no sale volando al espacio infinito.",
+    "Crea una infografía artesanal donde expliques los conceptos de Posición, Velocidad y Aceleración usando un jaguar corriendo por la selva."
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "Un detective observa que cuando un planeta se acerca más al Sol en su órbita elíptica, este parece moverse más rápido en comparación a cuando está lejos.",
+      "tabla_o_grafica_markdown": "| Posición del Planeta | Distancia al Sol | Velocidad |\n|---|---|---|\n| Punto A (Perihelio) | Cercana | Alta |\n| Punto B (Afelio) | Lejana | Baja |",
+      "pregunta": "Teniendo en cuenta la información y las leyes de movimiento planetario, ¿cuál es la razón de este cambio de velocidad?",
+      "opciones": [
+        "La fuerza de gravedad es más intensa cuando el planeta está cerca, aumentando su velocidad.",
+        "El Sol se apaga un poco cuando el planeta se aleja.",
+        "Los planetas deciden ir más lento para descansar.",
+        "El espacio es más espeso lejos del Sol."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. A menor distancia, la fuerza de atracción gravitatoria es mayor, lo que provoca un aumento en la velocidad orbital.",
+        "1": "Incorrecto. La luminosidad del Sol no afecta la velocidad orbital del planeta.",
+        "2": "Incorrecto. Los planetas no tienen voluntad; se mueven por leyes físicas.",
+        "3": "Incorrecto. El vacío del espacio es uniforme; no hay 'espesor' que cambie la velocidad."
+      }
+    }
+  ]
+}

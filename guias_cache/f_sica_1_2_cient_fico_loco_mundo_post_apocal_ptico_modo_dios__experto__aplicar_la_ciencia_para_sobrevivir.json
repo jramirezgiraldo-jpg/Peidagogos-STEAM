@@ -1,0 +1,86 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "Si un sobreviviente recorre 20 metros en 4 segundos a velocidad constante, ¿cuál es su velocidad en el páramo radiactivo?",
+      "opciones": [
+        "5 m/s",
+        "80 m/s",
+        "0.2 m/s",
+        "16 m/s"
+      ],
+      "correcta": 0
+    },
+    {
+      "pregunta": "¿Qué variable se ubica tradicionalmente en el eje horizontal (eje X) al graficar el movimiento de una presa en el tiempo?",
+      "opciones": [
+        "La posición (x)",
+        "El tiempo (t)",
+        "La velocidad (v)",
+        "La aceleración (a)"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "Si te quedas inmóvil escondido de un Acechador Radiactivo durante 10 segundos a una distancia de 5 metros del origen, tu posición respecto al tiempo es:",
+      "opciones": [
+        "Aumenta linealmente",
+        "Constante (línea horizontal)",
+        "Disminuye a cero",
+        "Una curva descendente"
+      ],
+      "correcta": 1
+    }
+  ],
+  "texto_inductivo": "¡MUAJAJAJA! ¡Atención, especímenes del holocausto nuclear! Soy el Dr. Vektor, y si están escuchando esta transmisión de radio de onda corta desde las ruinas tóxicas del Quindío, es porque aún no han sido devorados por los Mutantes Radiactivos.\n\n***¿Cómo podemos usar una gráfica de Posición vs Tiempo (x-t) para calcular la velocidad exacta y la trayectoria de escape desde los ruinosos pabellones del Instituto Montenegro hasta el búnker de suministros antes de que la horda de Mutantes Radiactivos alcance su punto de intercepción en la Plaza de Bolívar?***\n\nSi no aprenden a descifrar las lecturas de los radares de mi laboratorio improvisado, ¡serán alimento para las bestias! Observen el siguiente escaneo de radar de una criatura mutante aproximándose a la entrada principal de la IE Instituto Montenegro:\n\n<svg width='100%' height='260' viewBox='0 0 500 260' xmlns='http://www.w3.org/2000/svg' style='background:#0d1117; border:2px solid #00ff66; border-radius:8px;'><defs><pattern id='grid' width='40' height='40' patternUnits='userSpaceOnUse'><path d='M 40 0 L 0 0 0 40' fill='none' stroke='#003311' stroke-width='1'/></pattern></defs><rect width='500' height='260' fill='url(#grid)'/><line x1='60' y1='220' x2='460' y2='220' stroke='#00ff66' stroke-width='2'/><line x1='60' y1='20' x2='60' y2='220' stroke='#00ff66' stroke-width='2'/><text x='430' y='250' fill='#00ff66' font-family='monospace' font-size='12'>Tiempo t (s)</text><text x='10' y='35' fill='#00ff66' font-family='monospace' font-size='12'>Posición x (m)</text><polyline points='60,220 160,120 280,120 440,220' fill='none' stroke='#ff0055' stroke-width='3' stroke-dasharray='5,5'/><circle cx='60' cy='220' r='5' fill='#00ff66'/><circle cx='160' cy='120' r='5' fill='#ffcc00'/><circle cx='280' cy='120' r='5' fill='#ffcc00'/><circle cx='440' cy='220' r='5' fill='#ff0055'/><text x='50' y='240' fill='#00ff66' font-family='monospace'>0</text><text x='150' y='240' fill='#00ff66' font-family='monospace'>5</text><text x='270' y='240' fill='#00ff66' font-family='monospace'>11</text><text x='430' y='240' fill='#00ff66' font-family='monospace'>19</text><text x='35' y='125' fill='#00ff66' font-family='monospace'>50</text><text x='120' y='110' fill='#ffffff' font-family='monospace' font-size='11'>Tramo A: Avance mutante</text><text x='190' y='105' fill='#ffcc00' font-family='monospace' font-size='11'>Tramo B: Acecho (Inmóvil)</text><text x='300' y='160' fill='#ff0055' font-family='monospace' font-size='11'>Tramo C: Cacería en retroceso</text></svg>\n\n¡Analicen el gráfico de escaneo! En el Tramo A (0s a 5s), el engendro avanza de $x = 0\\text{ m}$ a $x = 50\\text{ m}$. En el Tramo B (5s a 11s), la criatura permanece petrificada a $50\\text{ m}$... ¿Acaso huele nuestro miedo? Finalmente, en el Tramo C (11s a 19s), la abominación regresa velozmente al origen ($x = 0\\text{ m}$) para emboscarnos.\n\nPara sobrevivir a este entorno, completen los siguientes módulos de encriptación táctica de datos:\n\n[JUEGO:ORDENAR_LETRAS:POSICION]\n\n[JUEGO:ORDENAR_FRASE:LA PENDIENTE DE LA GRAFICA REPRESENTA LA VELOCIDAD]\n\n[JUEGO:SOPA_LETRAS:VECTOR,ORIGEN,PENDIENTE]\n\n[JUEGO:CRUCIGRAMA:Línea horizontal en gráfica x-t|REPOSO;Cambio de posición dividido entre tiempo|VELOCIDAD]\n\n<table border='1' style='width:100%; text-align:center; background-color:#1e1e1e; color:#00ff66; border-collapse:collapse; margin-top:10px;'><thead><tr style='background-color:#333;'><th style='padding:8px;'>Intervalo de Tiempo (s)</th><th style='padding:8px;'>Posición Inicial $x_i$ (m)</th><th style='padding:8px;'>Posición Final $x_f$ (m)</th><th style='padding:8px;'>Comportamiento del Mutante</th></tr></thead><tbody><tr><td style='padding:8px;'>0 - 5</td><td style='padding:8px;'>0</td><td style='padding:8px;'>50</td><td style='padding:8px;'>Se aleja del refugio a velocidad constante</td></tr><tr><td style='padding:8px;'>5 - 11</td><td style='padding:8px;'>50</td><td style='padding:8px;'>50</td><td style='padding:8px;'>Detenido en la sombra (Reposo)</td></tr><tr><td style='padding:8px;'>11 - 19</td><td style='padding:8px;'>50</td><td style='padding:8px;'>0</td><td style='padding:8px;'>Retorna velozmente hacia la entrada del Instituto</td></tr></tbody></table>\n\n[JUEGO:ORDENAR_LETRAS:TIEMPO]\n\n[JUEGO:ORDENAR_FRASE:SI LA LINEA ES HORIZONTAL EL CUERPO ESTA EN REPOSO]",
+  "recurso_visual": "| Tipo de Línea en Gráfica $x-t$ | Inclinación / Pendiente | Significado Físico Post-Apocalíptico | Estado del Escáner |\n| :--- | :--- | :--- | :--- |\n| **Inclinada hacia arriba (/)** | Positiva ($m > 0$) | Movimiento hacia adelante (alejándose del origen) | Presa/Avanzando |\n| **Horizontal (—)** | Cero ($m = 0$) | En Reposo (Sin cambio de posición) | Emboscada / Escondido |\n| **Inclinada hacia abajo (\\)** | Negativa ($m < 0$) | Movimiento de regreso (hacia el origen) | Amenaza aproximándose |\n| **Curva convexa/cóncava** | Variable | Velocidad cambiando (Aceleración) | Mutación en carrera |",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "¿Qué ocurrió con la criatura entre los segundos 5 y 11 según la gráfica del escáner?",
+      "respuesta_esperada": "La criatura permaneció inmóvil (en reposo) a una distancia constante de 50 metros del origen."
+    },
+    {
+      "pregunta": "¿En cuál de los tramos (A, B o C) el mutante se desplaza de regreso hacia la posición inicial (0 m)?",
+      "respuesta_esperada": "En el Tramo C (entre los segundos 11 y 19)."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja en tu bitácora de campo un boceto de la gráfica x-t del escáner y marca con rojo la zona de mayor peligro.",
+    "Si te encuentras en $x = 0\\text{ m}$ al segundo $11$, determina cuántos segundos tienes para cerrar la escotilla blindada antes de que el mutante regrese al origen."
+  ],
+  "texto_deductivo": "¡Silencio en el laboratorio! La teoría formal es la única diferencia entre ser un científico sobreviviente o un montón de cenizas radiactivas. Escuchen atentamente la ley fundamental de las gráficas de Posición contra Tiempo ($x-t$).\n\nEn una gráfica $x-t$, el **eje horizontal** representa el tiempo transcurrido ($t$, medido en segundos $[s]$) y el **eje vertical** representa la posición del objeto ($x$, medida en metros $[m]$) respecto a un punto de referencia considerado el **Origen ($x = 0\\text{ m}$)**.\n\n<svg width='100%' height='220' viewBox='0 0 500 220' xmlns='http://www.w3.org/2000/svg' style='background:#121212; border:1px solid #ff9900; border-radius:8px;'><line x1='50' y1='180' x2='450' y2='180' stroke='#ffffff' stroke-width='2'/><line x1='50' y1='20' x2='50' y2='180' stroke='#ffffff' stroke-width='2'/><text x='420' y='210' fill='#ffffff' font-family='sans-serif'>t (s)</text><text x='15' y='30' fill='#ffffff' font-family='sans-serif'>x (m)</text><line x1='50' y1='180' x2='200' y2='60' stroke='#00ccff' stroke-width='3'/><line x1='200' y1='60' x2='320' y2='60' stroke='#ffcc00' stroke-width='3'/><line x1='320' y1='60' x2='440' y2='180' stroke='#ff0055' stroke-width='3'/><text x='110' y='100' fill='#00ccff' font-size='12' font-weight='bold'>v > 0 (Pendiente +)</text><text x='230' y='50' fill='#ffcc00' font-size='12' font-weight='bold'>v = 0 (Pendiente 0)</text><text x='350' y='100' fill='#ff0055' font-size='12' font-weight='bold'>v < 0 (Pendiente -)</text></svg>\n\nLa **Pendiente ($m$)** de un segmento rectilíneo en una gráfica $x-t$ equivale matemáticamente a la **Velocidad ($v$)** del cuerpo en dicho intervalo:\n\n$$v = \\frac{\\Delta x}{\\Delta t} = \\frac{x_f - x_i}{t_f - t_i}$$\n\nDonde:\n- $x_f$: Posición final $[m]$\n- $x_i$: Posición inicial $[m]$\n- $t_f$: Tiempo final $[s]$\n- $t_i$: Tiempo inicial $[s]$\n\nCalculemos la velocidad de escape en los tres tramos de la amenaza:\n1. **Tramo A ($0\\text{s}$ a $5\\text{s}$):** $v_A = \\frac{50\\text{ m} - 0\\text{ m}}{5\\text{ s} - 0\\text{ s}} = +10\\text{ m/s}$. El mutante avanza a $10\\text{ m/s}$.\n2. **Tramo B ($5\\text{s}$ a $11\\text{s}$):** $v_B = \\frac{50\\text{ m} - 50\\text{ m}}{11\\text{ s} - 5\\text{ s}} = 0\\text{ m/s}$. ¡Está detenido!\n3. **Tramo C ($11\\text{s}$ a $19\\text{s}$):** $v_C = \\frac{0\\text{ m} - 50\\text{ m}}{19\\text{ s} - 11\\text{ s}} = \\frac{-50\\text{ m}}{8\\text{ s}} = -6.25\\text{ m/s}$. El signo negativo indica que se mueve hacia el origen.\n\nDemuestren su competencia técnica descifrando estos códigos del búnker:\n\n[JUEGO:ORDENAR_LETRAS:PENDIENTE]\n\n[JUEGO:ORDENAR_LETRAS:VELOCIDAD]\n\n[JUEGO:ORDENAR_LETRAS:DESPLAZAMIENTO]\n\n[JUEGO:ORDENAR_FRASE:EL TIEMPO SIEMPRE AVANZA EN EL EJE HORIZONTAL]\n\n[JUEGO:ORDENAR_FRASE:UNA PENDIENTE NEGATIVA INDICA RETORNO AL ORIGEN]\n\n[JUEGO:ORDENAR_FRASE:LA POSICION SE MIDE EN METROS EN EL EJE VERTICAL]\n\n[JUEGO:SOPA_LETRAS:TIEMPO,DISTANCIA,RAPIDEZ]\n\n[JUEGO:SOPA_LETRAS:REPOSO,METROS,SEGUNDOS]\n\n[JUEGO:SOPA_LETRAS:GRAFICA,MOVIMIENTO,ESCALAR]\n\n[JUEGO:SOPA_LETRAS:TRAYECTORIA,DESPLAZAMIENTO,EJE]\n\n[JUEGO:CRUCIGRAMA:Eje horizontal en una gráfica de movimiento|TIEMPO;Inclinación de una recta|PENDIENTE]\n\n[JUEGO:CRUCIGRAMA:Unidad base de posición en el Sistema Internacional|METROS;Punto de referencia cero|ORIGEN]\n\n[JUEGO:CRUCIGRAMA:Magnitud que indica la inclinación negativa|RETORNO;Gráfica de posición contra tiempo|XT]\n\n[JUEGO:CRUCIGRAMA:Línea con pendiente constante indica movimiento|UNIFORME;Distancia medida desde el origen|POSICION]\n\n<table border='1' style='width:100%; text-align:center; background-color:#1a1a2e; color:#ffffff; border-collapse:collapse; margin-top:10px;'><thead><tr style='background-color:#16213e;'><th style='padding:8px;'>Parámetro</th><th style='padding:8px;'>Fórmula</th><th style='padding:8px;'>Unidad S.I.</th><th style='padding:8px;'>Interpretación Gráfica</th></tr></thead><tbody><tr><td style='padding:8px;'>Desplazamiento ($\\Delta x$)</td><td style='padding:8px;'>$x_f - x_i$</td><td style='padding:8px;'>Metros ($m$)</td><td style='padding:8px;'>Cambio vertical en el eje Y</td></tr><tr><td style='padding:8px;'>Intervalo de Tiempo ($\\Delta t$)</td><td style='padding:8px;'>$t_f - t_i$</td><td style='padding:8px;'>Segundos ($s$)</td><td style='padding:8px;'>Avance horizontal en el eje X</td></tr><tr><td style='padding:8px;'>Velocidad ($v$)</td><td style='padding:8px;'>$\\Delta x / \\Delta t$</td><td style='padding:8px;'>Metros por segundo ($m/s$)</td><td style='padding:8px;'>Inclinación o pendiente de la línea</td></tr></tbody></table>",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "¿Cuál es la velocidad exacta de la criatura en el Tramo A expresada con sus correctas unidades?",
+      "respuesta_esperada": "+10 m/s (avanza a 10 metros por segundo en sentido positivo)."
+    },
+    {
+      "pregunta": "¿Qué significa físicamente que la velocidad en el Tramo C sea de -6.25 m/s?",
+      "respuesta_esperada": "Significa que la criatura se desplaza regresando hacia el punto de origen (posición 0 m) a una rapidez de 6.25 m/s."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Usando la fórmula $v = \\frac{x_f - x_i}{t_f - t_i}$, calcula la velocidad de un dron de reconocimiento que va desde $x = 10\\text{ m}$ en $t = 2\\text{ s}$ hasta $x = 100\\text{ m}$ en $t = 8\\text{ s}$. Muestra todo el procedimiento.",
+    "Diseña una gráfica $x-t$ para un sobreviviente del Instituto Montenegro que: 1) Corre desde $0\\text{ m}$ hasta $30\\text{ m}$ en $6\\text{ s}$; 2) Se esconde durante $4\\text{ s}$; 3) Camina despacio hasta la posición $40\\text{ m}$ en otros $5\\text{ s}$."
+  ],
+  "icfes": [
+    {
+      "competencia": "Interpretación y Uso de Conceptos",
+      "texto_introductorio": "En la zona devastada frente a la IE Instituto Montenegro, el Dr. Vektor rastrea el movimiento de dos exploradores sobrevivientes (Explorador Alpha y Explorador Beta) mediante un sensor de telemetría. El sensor genera la siguiente gráfica de Posición vs Tiempo (x-t):",
+      "tabla_o_grafica_markdown": "<svg width='100%' height='240' viewBox='0 0 500 240' xmlns='http://www.w3.org/2000/svg' style='background:#050505; border:1px solid #00ffff;'><line x1='50' y1='200' x2='450' y2='200' stroke='#00ffff' stroke-width='2'/><line x1='50' y1='20' x2='50' y2='200' stroke='#00ffff' stroke-width='2'/><text x='420' y='230' fill='#00ffff' font-family='monospace'>t (s)</text><text x='10' y='30' fill='#00ffff' font-family='monospace'>x (m)</text><line x1='50' y1='200' x2='400' y2='50' stroke='#ff00ff' stroke-width='3'/><line x1='50' y1='100' x2='400' y2='100' stroke='#ffff00' stroke-width='3'/><text x='380' y='40' fill='#ff00ff' font-family='monospace' font-size='12'>Alpha</text><text x='380' y='90' fill='#ffff00' font-family='monospace' font-size='12'>Beta</text><text x='40' y='215' fill='#00ffff' font-family='monospace'>0</text><text x='40' y='105' fill='#00ffff' font-family='monospace'>40</text><text x='40' y='55' fill='#00ffff' font-family='monospace'>100</text></svg>",
+      "pregunta": "A partir de la gráfica mostrada, ¿cuál de las siguientes afirmaciones describe con precisión rigurosa el estado de movimiento de ambos exploradores?",
+      "opciones": [
+        "El Explorador Alpha se mueve a velocidad constante positiva, mientras que el Explorador Beta permanece inmóvil a 40 metros del origen.",
+        "Ambos exploradores se mueven a la misma velocidad constante pero iniciaron en puntos distintos del páramo.",
+        "El Explorador Beta se mueve más rápido que el Explorador Alpha porque su línea está por encima en el inicio.",
+        "El Explorador Alpha experimenta aceleración constante mientras que el Explorador Beta se desplaza en sentido negativo."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "¡CORRECTO! La recta del Explorador Alpha tiene una pendiente constante y positiva (se aleja del origen), mientras que la recta del Explorador Beta es completamente horizontal ($x = 40\\text{ m}$ constante), lo que indica pendiente cero y por lo tanto velocidad cero (reposo).",
+        "1": "INCORRECTO. El Explorador Beta no se está moviendo; su gráfica es una línea horizontal, lo que indica que su posición no cambia con el tiempo.",
+        "2": "INCORRECTO. Estar por encima en el eje vertical sólo significa estar a una posición mayor respecto al origen, no tener mayor velocidad. La velocidad corresponde a la inclinación (pendiente).",
+        "3": "INCORRECTO. Una recta con inclinación constante en una gráfica x-t representa velocidad constante (movimiento uniforme), no aceleración."
+      }
+    }
+  ]
+}

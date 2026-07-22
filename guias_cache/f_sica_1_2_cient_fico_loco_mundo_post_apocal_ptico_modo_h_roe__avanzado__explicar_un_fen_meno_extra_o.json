@@ -1,0 +1,108 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¡Atención, sobrevivientes! Si queremos establecer la ubicación exacta de un mutante acechador en las ruinas de la IE Instituto Montenegro, ¿qué es lo PRIMERO que debemos definir?",
+      "opciones": [
+        "Un punto o sistema de referencia fijo.",
+        "La velocidad de escape del mutante.",
+        "La temperatura del aire contaminado.",
+        "La masa de nuestro equipo de protección."
+      ],
+      "correcta": 0
+    },
+    {
+      "pregunta": "Si corres en círculos perfectos huyendo de una nube tóxica alrededor del laboratorio y regresas exactamente al mismo punto donde iniciaste, tu desplazamiento neto ha sido:",
+      "opciones": [
+        "Cero, porque tu posición inicial y final son idénticas.",
+        "Igual a la circunferencia del círculo que recorriste.",
+        "Infinito, debido a la distorsión del espacio-tiempo.",
+        "El doble de la distancia total caminada."
+      ],
+      "correcta": 0
+    },
+    {
+      "pregunta": "En nuestro desgastado radar de supervivencia, una línea continua que dibuja paso a paso el rastro de lodo radiactivo dejado por una criatura representa su:",
+      "opciones": [
+        "Trayectoria.",
+        "Desplazamiento vectorial.",
+        "Punto de origen.",
+        "Intervalo de tiempo."
+      ],
+      "correcta": 0
+    }
+  ],
+  "texto_inductivo": "¡Ssshh! ¡Silencio, mis queridos conejillos de indias... digo, estudiantes! Soy el Dr. Kilovatio Mutado, y si están escuchando esta grabación holográfica en las ruinas radioactivas de la **IE Instituto Montenegro**, es porque han sobrevivido al Gran Colapso Atmosférico. Pero no canten victoria todavía. \n\n***¿Cómo podemos trazar la ruta de escape perfecta desde el Bloque A hasta los laboratorios de la IE Instituto Montenegro para evitar que la Anomalía de Ceniza Ácida nos disuelva vivos antes de que toque nuestra posición?***\n\nEsa es la pregunta que salvará sus pellejos hoy. Miren por la ventana reforzada. Esa neblina flotante de color verde brillante que ven flotando sobre lo que solía ser la cancha de fútbol es la *Anomalía de Ceniza Ácida*. No se mueve al azar; obedece a las leyes implacables de la física que el cataclismo no pudo destruir. Para sobrevivir, debemos predecir dónde está y hacia dónde se dirige.\n\n<svg viewBox=\"0 0 400 300\" width=\"100%\" style=\"background-color:#11151c; border: 3px solid #00ff66; font-family: 'Courier New', monospace; margin: 15px 0;\">\n  <defs>\n    <pattern id=\"grid\" width=\"20\" height=\"20\" patternUnits=\"userSpaceOnUse\">\n      <path d=\"M 20 0 L 0 0 0 20\" fill=\"none\" stroke=\"#1f2e22\" stroke-width=\"1\"/>\n    </pattern>\n  </defs>\n  <rect width=\"400\" height=\"300\" fill=\"url(#grid)\" />\n  <line x1=\"40\" y1=\"260\" x2=\"360\" y2=\"260\" stroke=\"#00ff66\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"40\" x2=\"40\" y2=\"260\" stroke=\"#00ff66\" stroke-width=\"2\" />\n  <text x=\"340\" y=\"280\" fill=\"#00ff66\" font-size=\"12\" font-weight=\"bold\">X (Metros)</text>\n  <text x=\"10\" y=\"35\" fill=\"#00ff66\" font-size=\"12\" font-weight=\"bold\">Y (M)</text>\n  <circle cx=\"40\" cy=\"260\" r=\"6\" fill=\"#ff3300\" />\n  <text x=\"45\" y=\"275\" fill=\"#ff3300\" font-size=\"10\">Ref: Cafetería (0,0)</text>\n  <rect x=\"60\" y=\"180\" width=\"80\" height=\"50\" fill=\"#223344\" stroke=\"#00ffaa\" stroke-width=\"2\" opacity=\"0.8\"/>\n  <text x=\"70\" y=\"210\" fill=\"#ffffff\" font-size=\"10\" font-weight=\"bold\">BLOQUE A</text>\n  <rect x=\"260\" y=\"60\" width=\"100\" height=\"50\" fill=\"#442222\" stroke=\"#ff5500\" stroke-width=\"2\" opacity=\"0.8\"/>\n  <text x=\"270\" y=\"90\" fill=\"#ffffff\" font-size=\"10\" font-weight=\"bold\">LABORATORIOS</text>\n  <path d=\"M 100,180 Q 150,80 260,85\" fill=\"none\" stroke=\"#ff00ff\" stroke-width=\"3\" stroke-dasharray=\"6,4\"/>\n  <circle cx=\"170\" cy=\"115\" r=\"8\" fill=\"#00ff66\" opacity=\"0.7\"/>\n  <text x=\"185\" y=\"120\" fill=\"#00ff66\" font-size=\"11\" font-weight=\"bold\">Anomalía</text>\n  <line x1=\"100\" y1=\"180\" x2=\"260\" y2=\"85\" stroke=\"#00aaff\" stroke-width=\"2\" />\n  <text x=\"120\" y=\"150\" fill=\"#00aaff\" font-size=\"9\" transform=\"rotate(-25, 120, 150)\">Desplazamiento</text>\n</svg>\n\nPara entender este fenómeno extremo, primero debemos dominar la ubicación. ¿Cómo sabemos que la Anomalía se acerca? Porque cambia su **posición** respecto a nuestro punto seguro: la cafetería en ruinas, que declararemos como nuestro origen (0,0). \n\n[JUEGO:ORDENAR_LETRAS:POSICION]\n\n¡Cuidado! Si la Anomalía avanza flotando sobre los escombros de la cancha, describe un camino curvo y caprichoso. A este recorrido real, paso a paso, lo llamamos **trayectoria**. ¡No te confundas o terminarás derretido por el ácido!\n\n[JUEGO:ORDENAR_LETRAS:TRAYECTORIA]\n\nPara sobrevivir, debemos descifrar el código oculto de los supervivientes en estas sopas de letras de emergencia:\n\n[JUEGO:SOPA_LETRAS:ANOMALIA,MUTANTE,FISICA]\n\n[JUEGO:SOPA_LETRAS:SISTEMA,REFERENCIA,METRO]\n\n¡Rápido! Ordena esta directiva de supervivencia antes de que el gas penetre los filtros de ventilación:\n\n[JUEGO:ORDENAR_FRASE:EL PUNTO DE REFERENCIA ES VITAL]\n\n[JUEGO:ORDENAR_FRASE:LA TRAYECTORIA ES EL CAMINO]\n\nPara asegurar nuestro escape, debemos resolver este enigma crucial:\n\n[JUEGO:CRUCIGRAMA:Lugar ocupado en el espacio|POSICION;Línea geométrica que describe un cuerpo al moverse|TRAYECTORIA]\n\n[JUEGO:CRUCIGRAMA:Magnitud vectorial que une posición inicial y final|DESPLAZAMIENTO;Punto desde donde se mide todo|ORIGEN]",
+  "recurso_visual": "| Variable Cinemática | Símbolo | Tipo de Magnitud | Descripción en el Apocalipsis |\n| :--- | :---: | :---: | :--- |\n| **Punto de Referencia** | $O$ | No aplica | Punto de origen donde instalamos nuestro radar de supervivencia (ej. Cafetería). |\n| **Posición** | $\\vec{r}$ | Vectorial | Ubicación exacta de la Anomalía medida desde nuestro origen. |\n| **Trayectoria** | $s$ | Escalar | La línea o huella física que va dejando el gas ácido en el suelo de la IE. |\n| **Distancia Recorrida** | $d$ | Escalar | Longitud total del enmarañado camino que recorremos esquivando mutantes. |\n| **Desplazamiento** | $\\Delta\\vec{r}$ | Vectorial | Línea recta de escape desde el inicio (Bloque A) hasta la salvación (Laboratorios). |",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "¿Por qué es imposible determinar si la Anomalía de Ceniza Ácida se está moviendo sin establecer primero un punto de referencia fijo en las ruinas de la institución?",
+      "respuesta_esperada": "Porque el movimiento es relativo. Sin un punto fijo de comparación (como la Cafetería o el Bloque A), no podemos saber si la posición de la Anomalía cambia con el tiempo o si somos nosotros quienes nos movemos."
+    },
+    {
+      "pregunta": "Si observas que el gas letal rodea un poste de luz y vuelve al mismo lugar, ¿qué diferencia hay entre la longitud del camino que recorrió y su cambio de posición final?",
+      "respuesta_esperada": "La longitud del camino (trayectoria) es un valor mayor a cero, mientras que su cambio de posición final (desplazamiento) es exactamente cero porque volvió al punto de partida."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja en tu bitácora de supervivencia un mapa de la IE Instituto Montenegro. Establece un origen (0,0) en la portería devastada y traza la trayectoria curva de la Anomalía de Ceniza y, con un color diferente, el vector de desplazamiento de tu escape.",
+    "Explica con tus propias palabras de superviviente por qué la distancia recorrida a través de las ruinas siempre será mayor o igual al módulo del vector desplazamiento.",
+    "Si un radar registra que la posición de un mutante es de (5 metros al Norte, 12 metros al Este) respecto a tu refugio, calcula de forma gráfica la distancia en línea recta que te separa de la criatura."
+  ],
+  "texto_deductivo": "¡Excelente! Si sigues respirando, significa que tu cerebro procesa la información más rápido que las toxinas del ambiente. Ahora, entremos en el **Modo Héroe**. Vamos a formalizar estas variables cinemáticas con la rigurosidad de la vieja ciencia pre-apocalíptica.\n\nPara describir matemáticamente el movimiento de cualquier anomalía u objeto dentro de la IE Instituto Montenegro, necesitamos un **Sistema de Referencia**. Este consta de un origen y un sistema de ejes coordenados ($X, Y$).\n\nLa **Posición** ($\\vec{r}$) es un vector que va desde el origen de nuestro sistema de referencia hasta el lugar exacto donde se encuentra el cuerpo en un instante dado $t$. Se expresa como:\n\n$$\\vec{r} = x\\hat{i} + y\\hat{j}$$\n\n<svg viewBox=\"0 0 400 220\" width=\"100%\" style=\"background-color:#0b0f19; border: 2px solid #00aaff; font-family: sans-serif; margin: 15px 0;\">\n  <!-- Eje X e Y -->\n  <line x1=\"50\" y1=\"180\" x2=\"350\" y2=\"180\" stroke=\"#555\" stroke-width=\"2\" stroke-dasharray=\"4\"/>\n  <line x1=\"50\" y1=\"30\" x2=\"50\" y2=\"180\" stroke=\"#555\" stroke-width=\"2\" stroke-dasharray=\"4\"/>\n  <!-- Origen -->\n  <circle cx=\"50\" y1=\"180\" cy=\"180\" r=\"5\" fill=\"#00aaff\"/>\n  <text x=\"30\" y=\"195\" fill=\"#00aaff\" font-size=\"10\">Origen (0,0)</text>\n  <!-- Posición Inicial A -->\n  <circle cx=\"120\" y=\"130\" r=\"6\" fill=\"#ffaa00\"/>\n  <text x=\"100\" y=\"120\" fill=\"#ffaa00\" font-size=\"11\" font-weight=\"bold\">A (Posición Inicial)</text>\n  <!-- Posición Final B -->\n  <circle cx=\"280\" y=\"70\" r=\"6\" fill=\"#ff3366\"/>\n  <text x=\"270\" y=\"60\" fill=\"#ff3366\" font-size=\"11\" font-weight=\"bold\">B (Posición Final)</text>\n  <!-- Vector de Posición rA -->\n  <line x1=\"50\" y1=\"180\" x2=\"115\" y2=\"134\" stroke=\"#00ff66\" stroke-width=\"2\" marker-end=\"url(#arrow-green)\"/>\n  <text x=\"65\" y=\"150\" fill=\"#00ff66\" font-size=\"10\">r_A</text>\n  <!-- Vector de Posición rB -->\n  <line x1=\"50\" y1=\"180\" x2=\"274\" y2=\"74\" stroke=\"#00ff66\" stroke-width=\"2\" marker-end=\"url(#arrow-green)\"/>\n  <text x=\"150\" y=\"110\" fill=\"#00ff66\" font-size=\"10\">r_B</text>\n  <!-- Desplazamiento Delta r -->\n  <line x1=\"120\" y1=\"130\" x2=\"274\" y2=\"73\" stroke=\"#00aaff\" stroke-width=\"3\" marker-end=\"url(#arrow-blue)\"/>\n  <text x=\"180\" y=\"90\" fill=\"#00aaff\" font-size=\"11\" font-weight=\"bold\">Desplazamiento (Δr)</text>\n  <!-- Trayectoria curva -->\n  <path d=\"M 120,130 C 150,180 220,150 280,70\" fill=\"none\" stroke=\"#ffea00\" stroke-width=\"2\" stroke-dasharray=\"5,3\"/>\n  <text x=\"180\" y=\"165\" fill=\"#ffea00\" font-size=\"10\">Trayectoria (Distancia s)</text>\n  <!-- Definición de marcadores -->\n  <defs>\n    <marker id=\"arrow-green\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"5\" markerHeight=\"5\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#00ff66\"/>\n    </marker>\n    <marker id=\"arrow-blue\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"5\" markerHeight=\"5\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#00aaff\"/>\n    </marker>\n  </defs>\n</svg>\n\nLa **Trayectoria** es el conjunto de infinitos puntos por los que pasa el móvil. Es una línea geométrica. La **Distancia recorrida ($d$)** es la medida de la longitud de esa trayectoria (una cantidad escalar, siempre positiva).\n\nEn cambio, el **Desplazamiento ($\\Delta\\vec{r}$)** es la diferencia vectorial entre la posición final y la posición inicial:\n\n$$\\Delta\\vec{r} = \\vec{r}_f - \\vec{r}_i$$\n\n¡Cuidado! Desplazamiento no es lo mismo que distancia. Si la anomalía recorre un laberinto de escombros de 100 metros de longitud (distancia) pero la distancia en línea recta desde donde empezó a donde terminó es de solo 15 metros, ¡su desplazamiento neto tiene un módulo de solo 15 metros!\n\n[JUEGO:ORDENAR_LETRAS:DISTANCIA]\n[JUEGO:ORDENAR_LETRAS:DESPLAZAMIENTO]\n[JUEGO:ORDENAR_LETRAS:CINEMATICA]\n\nResuelve estos desafíos mentales antes de continuar con la teorización cuántica:\n\n[JUEGO:SOPA_LETRAS:VECTOR,COORDENADA,ORIGEN]\n[JUEGO:SOPA_LETRAS:RAPIDEZ,TIEMPO,ESCALAR]\n[JUEGO:SOPA_LETRAS:CINEMATICA,CAMINO,RUTAS]\n\nAlinea las leyes de la física para calibrar tu procesador lógico:\n\n[JUEGO:ORDENAR_FRASE:EL CAMBIO DE POSICION ES MOVIMIENTO]\n[JUEGO:ORDENAR_FRASE:EL DESPLAZAMIENTO ES UN VECTOR]\n[JUEGO:ORDENAR_FRASE:LA DISTANCIA ES SIEMPRE POSITIVA]\n\nDemuestra que tu lóbulo frontal no ha mutado resolviendo este enigmático sistema de ecuaciones lúdicas:\n\n[JUEGO:CRUCIGRAMA:Longitud real del camino recorrido|DISTANCIA;Rama de la física que estudia el movimiento sin sus causas|CINEMATICA]\n\n[JUEGO:CRUCIGRAMA:Instrumento para medir el tiempo en segundos|CRONOMETRO;Unidad del sistema internacional para la longitud|METRO]\n\n[JUEGO:CRUCIGRAMA:Flecha matemática con dirección y magnitud|VECTOR;Anomalía radiactiva que flota en el aire|CENIZA]",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "Un dron de reconocimiento vuela desde la Cafetería a (0,0) hasta el Bloque A a (30m, 40m). ¿Cuál es la magnitud de su vector de posición final calculado mediante el teorema de Pitágoras?",
+      "text_introductorio": "Usa la fórmula de la hipotenusa para hallar la distancia directa desde el origen.",
+      "respuesta_esperada": "La magnitud es de 50 metros, ya que de acuerdo con el teorema de Pitágoras: r = √(30² + 40²) = √(900 + 1600) = √2500 = 50 metros."
+    },
+    {
+      "pregunta": "Si un sobreviviente camina 12 metros al Norte y luego 5 metros al Este, ¿cuál es la distancia total recorrida y cuál es la magnitud de su desplazamiento?",
+      "respuesta_esperada": "La distancia total recorrida es de 17 metros (12m + 5m), mientras que la magnitud del desplazamiento es de 13 metros, calculada como la hipotenusa de un triángulo rectángulo de catetos 12m y 5m (√(12² + 5²) = √169 = 13 metros)."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Deduce y escribe una fórmula general que relacione la distancia recorrida (d) y el módulo del desplazamiento (|Δr|) para cualquier tipo de trayectoria.",
+    "Analiza la siguiente situación: Un proyectil de defensa contra mutantes es lanzado verticalmente hacia arriba, alcanza una altura máxima de 80 metros y regresa al punto de lanzamiento. Determina el valor de su distancia total recorrida y su desplazamiento final.",
+    "Si tuviéramos un detector de movimiento tridimensional para la Anomalía, ¿cómo cambiaría la ecuación de nuestro vector de posición? Escribe la expresión matemática en tres dimensiones (X, Y, Z)."
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de fenómenos",
+      "texto_introductorio": "Durante un experimento táctico en el patio central de la IE Instituto Montenegro, el Dr. Kilovatio registra las posiciones sucesivas de la Anomalía de Ceniza Ácida cada 2 segundos. Los datos obtenidos se presentan en la siguiente tabla:",
+      "tabla_o_grafica_markdown": "| Tiempo (s) | Posición X (m) | Posición Y (m) |\n| :---: | :---: | :---: |\n| 0 | 0 | 0 |\n| 2 | 3 | 4 |\n| 4 | 6 | 8 |\n| 6 | 9 | 12 |",
+      "pregunta": "De acuerdo con los datos recolectados por el Dr. Kilovatio, ¿cuál de las siguientes afirmaciones describe de forma correcta y precisa la trayectoria y el desplazamiento de la Anomalía entre t = 0 s y t = 6 s?",
+      "opciones": [
+        "La trayectoria es rectilínea, y el desplazamiento neto tiene una magnitud de 15 metros.",
+        "La trayectoria es una curva parabólica, y la distancia recorrida total es de 21 metros.",
+        "La trayectoria es circular, y el desplazamiento neto de la Anomalía es igual a cero metros.",
+        "La trayectoria es irregular, y la distancia calculada equivale a una magnitud escalar de 9 metros."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "¡Excelente deducción, mi colega de la ciencia! Las coordenadas (X, Y) aumentan de forma proporcional constante (3 metros en X por cada 4 metros en Y), lo que describe una línea recta. El vector de desplazamiento total va desde (0,0) hasta (9,12), con una magnitud igual a √(9² + 12²) = √225 = 15 metros.",
+        "1": "¡Incorrecto! Si graficas los puntos (0,0), (3,4), (6,8) y (9,12) notarás que no es una parábola, sino una perfecta línea recta.",
+        "2": "¡Falso! Para que el desplazamiento fuera cero, la anomalía debería haber regresado al origen (0,0) al final de los 6 segundos.",
+        "3": "¡Error de cálculo! Una magnitud de 9 metros solo contempla la variación del eje X, ignorando por completo la variación del eje Y."
+      }
+    },
+    {
+      "competencia": "Uso comprensivo del conocimiento científico",
+      "texto_introductorio": "Para evitar los nidos de los mutantes acechadores, los estudiantes de la IE Instituto Montenegro deben desplazarse desde el refugio ubicado en el punto inicial A=(10, 20) metros hasta el laboratorio seguro ubicado en el punto final B=(40, 60) metros. Sin embargo, debido a los escombros acumulados, deben realizar el recorrido siguiendo un camino curvo de herradura, tal como se ilustra en el plano táctico de la institución.",
+      "tabla_o_grafica_markdown": "| Variable | Valor Medido | Unidad |\n| :--- | :---: | :---: |\n| Coordenada Inicial A | (10, 20) | metros |\n| Coordenada Final B | (40, 60) | metros |\n| Longitud del camino de herradura | 95 | metros |",
+      "pregunta": "Al analizar la distancia total recorrida por los estudiantes y compararla con la magnitud de su desplazamiento neto, se puede afirmar con total certeza científica que:",
+      "opciones": [
+        "La distancia recorrida es de 95 metros y el desplazamiento neto tiene una magnitud de 50 metros.",
+        "La distancia recorrida es de 50 metros y el desplazamiento neto tiene una magnitud de 95 metros.",
+        "Ambas variables tienen exactamente el mismo valor de 50 metros ya que el punto de inicio y de fin no han cambiado.",
+        "La distancia recorrida es de 130 metros y el desplazamiento neto es de 70 metros por la presencia de escombros."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "¡Brillante! La distancia recorrida es la longitud real de la trayectoria curva (95 metros). El desplazamiento es la distancia más corta en línea recta entre A y B, calculada como Δr = √((40-10)² + (60-20)²) = √(30² + 40²) = √2500 = 50 metros.",
+        "1": "¡Por todos los rayos gamma! Has confundido los conceptos. La distancia siempre corresponde al trayecto real caminado (el más largo en este caso) y el desplazamiento a la línea recta.",
+        "2": "¡Imposible! La distancia recorrida y el desplazamiento solo tienen la misma magnitud si el movimiento se realiza en una línea recta sin cambiar de sentido.",
+        "3": "¡Incorrecto! Esos valores no tienen correspondencia con los datos geométricos ni vectoriales del plano táctico de la institución."
+      }
+    }
+  ]
+}

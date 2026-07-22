@@ -1,0 +1,86 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "Si estás explorando la selva y te detienes junto a un árbol de mango gigante para descansar, ¿qué necesitas para describir exactamente dónde te encuentras con respecto a ese árbol?",
+      "opciones": [
+        "Un punto de referencia, una dirección y una distancia.",
+        "Solamente conocer el color de las hojas del árbol.",
+        "Saber la velocidad a la que venías corriendo.",
+        "Tener un mapa de toda la galaxia sin escalas."
+      ],
+      "correcta": 0
+    },
+    {
+      "pregunta": "Un explorador camina 5 metros al norte y luego 5 metros al sur, regresando al mismo punto de partida. ¿Qué se puede afirmar sobre su recorrido?",
+      "opciones": [
+        "Su distancia recorrida es cero y su desplazamiento fue de 10 metros.",
+        "Su distancia recorrida es de 10 metros y su desplazamiento neto es cero.",
+        "No realizó ningún movimiento porque se quedó dormido.",
+        "Su posición final cambió radicalmente con respecto al inicio."
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "En los mapas del Instituto Montenegro, la línea curva que dibuja el camino de un estudiante cruzando el patio se conoce en física como:",
+      "opciones": [
+        "Desplazamiento vectorial.",
+        "Punto de origen.",
+        "Trayectoria.",
+        "Eje de coordenadas esféricas."
+      ],
+      "correcta": 2
+    }
+  ],
+  "texto_inductivo": "# 🚀 Bitácora de Exploración: ¡Aterrizaje en la Selva de Montenegro!\n\n¡Atención, cadetes de la **IE Instituto Montenegro**! Aquí su Capitán del Servicio de Exploración de la Flota Estelar. Mi nave de reconocimiento se ha estrellado en una selva hiperbórea y misteriosa, muy similar a los espesos bosques andinos de su región en el Quindío. Para sobrevivir y trazar mapas de escape eficientes, debemos dominar el arte de la **cinemática espacial**.\n\n***¿Cómo puede un estudiante del Instituto Montenegro usar la diferencia entre su trayectoria y su vector de posición para escapar de un depredador en la selva de Montenegro, desmitificando la creencia de que correr en zigzag siempre es la ruta más rápida para salvarse?***\n\nEn este primer tramo de nuestra expedición, nos enfrentamos a un entorno denso, lleno de árboles gigantescos y senderos confusos. Muchos exploradores novatos creen que para moverse con éxito basta con correr sin rumbo, o que dar rodeos en zigzag ayuda a esquivar las amenazas de la jungla de forma mágica. ¡Falso! Hoy analizaremos críticamente este mito desde la física real.\n\n<div style='text-align: center; margin: 20px 0;'>\n  <svg width='320' height='240' viewBox='0 0 320 240' style='background-color:#0d1b2a; border-radius: 8px;'>\n    <!-- Sistema de Referencia en la Selva -->\n    <grid stroke='#1b4965' stroke-width='0.5' />\n    <line x1='40' y1='200' x2='280' y2='200' stroke='#4cc9f0' stroke-width='2' marker-end='url(#arrow)' />\n    <line x1='40' y1='200' x2='40' y2='40' stroke='#4cc9f0' stroke-width='2' />\n    <!-- Ejes -->\n    <text x='290' y='205' fill='#4cc9f0' font-family='sans-serif' font-size='12'>X (Este)</text>\n    <text x='35' y='30' fill='#4cc9f0' font-family='sans-serif' font-size='12'>Y (Norte)</text>\n    <!-- Origen: Árbol de Referencia -->\n    <circle cx='40' cy='200' r='8' fill='#f72585' />\n    <text x='50' y='215' fill='#f72585' font-family='sans-serif' font-size='10'>Origen (Árbol)</text>\n    <!-- Nave Exploradora -->\n    <rect x='180' y='80' width='30' height='20' rx='5' fill='#7209b7' />\n    <circle cx='195' cy='90' r='5' fill='#4cc9f0' />\n    <text x='170' y='70' fill='#fff' font-family='sans-serif' font-size='10'>Nave (Posición)</text>\n    <!-- Vector Posición -->\n    <line x1='40' y1='200' x2='180' y2='90' stroke='#4cc9f0' stroke-width='3' stroke-dasharray='5,5' />\n    <polygon points='180,90 170,95 175,85' fill='#4cc9f0' />\n  </svg>\n  <p style='color: #888; font-size: 11px;'>Figura 1: Representación de nuestro Sistema de Referencia Espacial en la Selva.</p>\n</div>\n\nPara empezar a movernos, primero debemos aprender a leer las coordenadas de nuestro campamento. Pon a prueba tus habilidades de comunicación estelar con este primer reto de descifrado:\n\n[JUEGO:ORDENAR_LETRAS:POSICION]\n\nAhora, analicemos cómo los novatos se confunden al intentar describir su camino. Al caminar por la selva, la ruta real que pisas, esquivando lianas y rocas, dibuja una línea sobre el suelo. Pero, ¿es esa línea lo mismo que la distancia directa hacia tu destino?\n\n[JUEGO:ORDENAR_FRASE:EL PUNTO DE REFERENCIA ES EL ORIGEN DEL MAPA]\n\nDesmitifiquemos el primer concepto erróneo: la creencia de que dar vueltas de manera aleatoria nos hace inalcanzables. Para entender esto, busquemos las palabras clave ocultas en la densa vegetación de nuestro mapa holográfico:\n\n[JUEGO:SOPA_LETRAS:ORIGEN,COORDENADA,SISTEMA]\n\n¡Excelente! Con estas herramientas conceptuales listas, podemos adentrarnos en la selva profunda. Pero cuidado: un depredador alienígena acecha, y si aplicas el mito del zigzag sin entender la física de vectores, estarás en grave peligro.\n\n[JUEGO:CRUCIGRAMA:Punto que sirve para medir la posicion|ORIGEN;Magnitud del vector de posicion|DISTANCIA]",
+  "recurso_visual": "<table border='1' style='width:100%; border-collapse: collapse; text-align: center; background-color: #1a1a2e; color: #fff; font-family: sans-serif; border: 2px solid #4cc9f0;'>\n  <thead>\n    <tr style='background-color: #4cc9f0; color: #000;'>\n      <th>Concepto Cinemático</th>\n      <th>Definición Física</th>\n      <th>Símbolo / Representación</th>\n      <th>Aplicación en la Selva</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td><b>Sistema de Referencia</b></td>\n      <td>Punto u objeto fijo desde el cual se describe el movimiento.</td>\n      <td>Origen (0,0) (Ej. Árbol gigante)</td>\n      <td>Saber de dónde partimos para no perdernos.</td>\n    </tr>\n    <tr>\n      <td><b>Posición</b></td>\n      <td>Localización exacta de un cuerpo respecto al sistema de referencia.</td>\n      <td>Vector de posición $\\vec{r}$</td>\n      <td>Coordenadas GPS de nuestra nave estelar.</td>\n    </tr>\n    <tr>\n      <td><b>Trayectoria</b></td>\n      <td>El camino o línea geométrica que describe un cuerpo al moverse.</td>\n      <td>Línea curva o recta dibujada en el suelo</td>\n      <td>El sendero real que pisamos entre la maleza.</td>\n    </tr>\n  </tbody>\n</table>",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "¿Por qué crees que un explorador necesita establecer un árbol o roca fija antes de empezar a medir distancias en la selva?",
+      "respuesta_esperada": "Porque sin un punto de referencia (origen), es imposible definir la posición o saber si nos hemos movido o en qué dirección lo hicimos."
+    },
+    {
+      "pregunta": "Si sigues un camino lleno de curvas para evitar un pantano, ¿la longitud de tus pasos acumulados será mayor, menor o igual a la línea recta que une el inicio y el final?",
+      "respuesta_esperada": "Será mayor, ya que la trayectoria curva recorre más distancia que la línea recta directa del desplazamiento."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja en tu cuaderno un mapa simple que muestre tu salón de clases en la IE Instituto Montenegro. Elige la puerta como origen (0,0) y ubica tu pupitre usando flechas de coordenadas.",
+    "Investiga en casa: ¿De dónde proviene el mito de que correr en zigzag es la mejor manera de escapar de un cocodrilo o un depredador terrestre? ¿Qué dice la física al respecto?"
+  ],
+  "texto_deductivo": "# 🗺️ La Verdad Científica: Desarmando el Mito del Zigzag\n\n¡Bienvenidos al laboratorio de análisis de nuestra nave nodriza, exploradores del grado sexto! Ahora analizaremos con rigor científico por qué el famoso mito de correr en zigzag para escapar de un depredador en la selva puede ser una trampa mortal debido a la mala comprensión de las variables cinemáticas.\n\nEn física de nivel experto, debemos diferenciar tajantemente entre dos variables fundamentales:\n1. **La Trayectoria (Camino Recorrido):** Es la línea geométrica real que describe el cuerpo en movimiento. La longitud de esta trayectoria se llama **Distancia ($d$)** y es una magnitud escalar (siempre positiva, acumulativa).\n2. **El Desplazamiento ($\\Delta\\vec{r}$):** Es el cambio de posición de un objeto. Es una magnitud vectorial representada por una flecha recta que va directamente desde el punto de partida hasta el punto de llegada, sin importar las vueltas que se hayan dado.\n\n<div style='text-align: center; margin: 20px 0;'>\n  <svg width='340' height='220' viewBox='0 0 340 220' style='background-color:#0f172a; border-radius: 8px;'>\n    <!-- Punto A (Inicio) -->\n    <circle cx='50' cy='150' r='6' fill='#3a86c8' />\n    <text x='35' y='140' fill='#3a86c8' font-family='sans-serif' font-weight='bold' font-size='12'>Inicio (A)</text>\n    <!-- Punto B (Fin) -->\n    <circle cx='280' cy='70' r='6' fill='#ff006e' />\n    <text x='270' y='60' fill='#ff006e' font-family='sans-serif' font-weight='bold' font-size='12'>Fin (B)</text>\n    <!-- Desplazamiento (Línea recta verde) -->\n    <line x1='50' y1='150' x2='280' y2='70' stroke='#38b000' stroke-width='3' />\n    <text x='150' y='100' fill='#38b000' font-family='sans-serif' font-size='11' transform='rotate(-19, 150, 100)'>Desplazamiento (Vector)</text>\n    <!-- Trayectoria en zigzag (Línea punteada naranja) -->\n    <path d='M 50,150 L 100,60 L 160,180 L 220,50 L 280,70' fill='none' stroke='#ffbe0b' stroke-width='2.5' stroke-dasharray='4,4' />\n    <text x='110' y='190' fill='#ffbe0b' font-family='sans-serif' font-size='11'>Trayectoria (Distancia recorrida)</text>\n  </svg>\n  <p style='color: #888; font-size: 11px;'>Figura 2: Comparación física entre el vector desplazamiento (línea recta) y la trayectoria en zigzag.</p>\n</div>\n\nAnalicemos el mito. El mito dice: *'Si corres en zigzag, confundes al depredador y te salvas'*. Pero la física demuestra lo contrario:\n- Al correr en **zigzag**, tu **distancia recorrida ($d$)** se duplica o triplica en comparación con una línea recta.\n- Tu **desplazamiento neto** avanza muy lentamente con respecto al tiempo, lo que significa que tu velocidad efectiva de alejamiento disminuye drásticamente.\n- El depredador, que suele correr en línea recta (su trayectoria coincide con su desplazamiento), te alcanzará rápidamente porque él optimiza su vector de movimiento.\n\nDescifremos esta verdad con un juego de ordenación cinemática:\n\n[JUEGO:ORDENAR_LETRAS:TRAYECTORIA]\n\n[JUEGO:ORDENAR_FRASE:CORRER EN ZIGZAG AUMENTA LA DISTANCIA RECORRIDA]\n\nEn la selva de Montenegro, si necesitas huir de un obstáculo o peligro, la ruta óptima es buscar la trayectoria más directa posible hacia una zona segura, reduciendo la distancia recorrida para conservar energía.\n\n[JUEGO:SOPA_LETRAS:CAMINO,RUTA,LONGITUD]\n\n[JUEGO:SOPA_LETRAS:METRO,MEDIDA,CINEMATICA]\n\n[JUEGO:ORDENAR_LETRAS:DISTANCIA]\n\n[JUEGO:ORDENAR_FRASE:LA TRAYECTORIA ES EL CAMINO REAL DE TU VIAJE]\n\n[JUEGO:ORDENAR_LETRAS:DESPLAZAMIENTO]\n\n[JUEGO:ORDENAR_FRASE:EL DESPLAZAMIENTO ES LA LINEA RECTA ENTRE INICIO Y FIN]\n\n[JUEGO:CRUCIGRAMA:Línea imaginaria que describe un cuerpo al moverse|TRAYECTORIA;Medida de la trayectoria|DISTANCIA]\n\n[JUEGO:CRUCIGRAMA:Cambio de posicion de un objeto|MOVIMIENTO;Lugar en el espacio respecto a un origen|POSICION]\n\n[JUEGO:CRUCIGRAMA:Segmento de recta dirigido con flecha|VECTOR;Unidad de medida del SI para la distancia|METRO]\n\n[JUEGO:SOPA_LETRAS:SELVA,EXPLORADOR,PELIGRO]\n\n[JUEGO:ORDENAR_LETRAS:VECTOR]\n\n[JUEGO:CRUCIGRAMA:Mito que dice que esta ruta es mejor para escapar|ZIGZAG;Estado de no movimiento|REPOSO]\n\nPara consolidar, observemos la siguiente gráfica que compara las dos estrategias de escape:\n\n<div style='text-align: center; margin: 20px 0;'>\n  <svg width='320' height='200' viewBox='0 0 320 200' style='background-color:#1e1e24; border-radius: 8px;'>\n    <rect x='10' y='10' width='300' height='180' fill='none' stroke='#ff006e' stroke-width='1' />\n    <!-- Eje vertical: Distancia al peligro -->\n    <line x1='40' y1='170' x2='40' y2='20' stroke='#fff' stroke-width='1.5' />\n    <!-- Eje horizontal: Tiempo -->\n    <line x1='40' y1='170' x2='290' y2='170' stroke='#fff' stroke-width='1.5' />\n    <text x='250' y='190' fill='#fff' font-family='sans-serif' font-size='10'>Tiempo (t)</text>\n    <text x='15' y='15' fill='#fff' font-family='sans-serif' font-size='10' transform='rotate(-90, 15, 15)'>Distancia del peligro</text>\n    <!-- Curva escape recto -->\n    <path d='M 40,170 Q 150,80 280,30' fill='none' stroke='#38b000' stroke-width='3' />\n    <text x='180' y='50' fill='#38b000' font-family='sans-serif' font-size='9'>Escape Recto (Rápido)</text>\n    <!-- Curva escape zigzag -->\n    <path d='M 40,170 Q 120,160 280,120' fill='none' stroke='#ffbe0b' stroke-width='3' />\n    <text x='180' y='140' fill='#ffbe0b' font-family='sans-serif' font-size='9'>Escape Zigzag (Lento)</text>\n  </svg>\n  <p style='color: #888; font-size: 11px;'>Figura 3: Gráfica de distancia acumulada versus tiempo del escape.</p>\n</div>",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "Si un estudiante del Instituto Montenegro corre en zigzag recorriendo tramos de 3 metros a la izquierda y 3 metros a la derecha hasta completar 30 metros en total, pero termina a solo 6 metros del origen, ¿cuál es el valor de su distancia recorrida y cuál el de su desplazamiento?",
+      "respuesta_esperada": "La distancia recorrida es de 30 metros (la longitud de toda la trayectoria), mientras que la magnitud de su desplazamiento es de solo 6 metros (la línea recta desde el origen hasta su posición final)."
+    },
+    {
+      "pregunta": "Físicamente, ¿por qué un depredador que corre en línea recta tiene ventaja sobre una presa que corre en zigzag?",
+      "respuesta_esperada": "Porque el depredador optimiza su trayectoria haciendo que coincida perfectamente con su desplazamiento, minimizando la distancia y el tiempo requerido para alcanzar la posición de la presa."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Explica con tus propias palabras, usando ecuaciones conceptuales de distancia y desplazamiento, por qué el mito del escape en zigzag puede considerarse un fallo de análisis crítico en situaciones de supervivencia.",
+    "Crea un cuadro comparativo detallado en tu cuaderno entre Magnitudes Escalares (como la distancia) y Magnitudes Vectoriales (como la posición y el desplazamiento)."
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de fenómenos",
+      "texto_introductorio": "En la IE Instituto Montenegro, durante una simulación de escape en la clase de educación física y física de grado sexto, los estudiantes registran los movimientos de dos corredores en un plano de coordenadas. El Corredor 1 sigue una trayectoria completamente rectilínea desde el punto A(0,0) hasta el punto B(0,10) metros. El Corredor 2 decide correr en zigzag pasando por varios puntos intermedios antes de llegar al mismo destino final B(0,10) metros.",
+      "tabla_o_grafica_markdown": "| Corredor | Trayectoria | Punto Inicial | Punto Final | Distancia Recorrida | Magnitud del Desplazamiento |\n| :---: | :---: | :---: | :---: | :---: | :---: |\n| 1 | Rectilínea | (0,0) | (0,10) | 10 metros | 10 metros |\n| 2 | Zigzag | (0,0) | (0,10) | 24 metros | 10 metros |",
+      "pregunta": "A partir de los datos presentados en la tabla y los conceptos físicos analizados, ¿cuál de las siguientes afirmaciones es correcta con respecto al movimiento de los corredores?",
+      "opciones": [
+        "El Corredor 2 fue más eficiente porque su desplazamiento fue mayor que el del Corredor 1.",
+        "Ambos corredores tuvieron el mismo desplazamiento neto porque partieron y llegaron a los mismos puntos de referencia.",
+        "La distancia recorrida por el Corredor 1 es mayor porque la línea recta acumula más puntos en el espacio.",
+        "El desplazamiento del Corredor 2 es de 24 metros debido a las curvas que realizó durante su trayectoria."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. El desplazamiento es un vector que solo depende de las posiciones inicial y final, las cuales son idénticas para ambos.",
+        "1": "¡Excelente! Como el desplazamiento es la diferencia vectorial entre la posición final y la inicial, y ambos iniciaron en (0,0) y terminaron en (0,10), sus desplazamientos son idénticos (10 metros al norte), sin importar el camino.",
+        "2": "Incorrecto. La línea recta representa la distancia mínima posible entre dos puntos; por ende, la distancia del Corredor 1 es la menor.",
+        "3": "Incorrecto. Los 24 metros corresponden a la distancia recorrida (longitud de la trayectoria), no al desplazamiento."
+      }
+    }
+  ]
+}

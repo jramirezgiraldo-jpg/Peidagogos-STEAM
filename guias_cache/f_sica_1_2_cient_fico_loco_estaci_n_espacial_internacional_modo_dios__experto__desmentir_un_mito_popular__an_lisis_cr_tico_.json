@@ -1,0 +1,86 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¡BZZZT! Si observas un objeto cuya posición $x$ permanece idéntica a $x = 15\\text{ m}$ durante un intervalo de $10\\text{ s}$, ¿cuál es su estado de movimiento?",
+      "opciones": [
+        "Se desplaza con velocidad constante a 15 m/s.",
+        "Está completamente en reposo a 15 metros del origen.",
+        "Está acelerando a razón de 1.5 m/s².",
+        "Se mueve hacia atrás a 15 m/s."
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Qué magnitud física se representa habitualmente en el eje horizontal (abscisas) de una gráfica de posición contra tiempo ($x-t$)?",
+      "opciones": [
+        "La aceleración ($a$)",
+        "La velocidad ($v$)",
+        "El tiempo ($t$)",
+        "La posición ($x$)"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "En un gráfico $x-t$, si la línea es completamente recta e inclinada hacia arriba, ¿qué podemos afirmar sobre la rapidez del objeto?",
+      "opciones": [
+        "Es constante y mayor que cero.",
+        "Es variable y aumenta continuamente.",
+        "Es exactamente cero en todo instante.",
+        "Es negativa e hiperbólica."
+      ],
+      "correcta": 0
+    }
+  ],
+  "texto_inductivo": "¡JUAJUAJUA! ¡Bienvenidos a mi laboratorio orbital de microgravedad a 400 kilómetros sobre la Tierra! Les habla el **Dr. Von Krahn**, científico loco titular de la Estación Espacial Internacional (EEI). Mientras mi reactor de plasma hierve, observo por la cúpula el hermoso departamento del Quindío... ¡Ajá! Veo los techos brillantes de la **IE Instituto Montenegro**.\n\n***¿Cómo es posible que un astronauta inmóvil en la cafetería de la Estación Espacial Internacional tenga un gráfico x-t más 'alto' que un jeep Willys acelerando a toda marcha por la plaza central de Montenegro en Quindío?***\n\n¡Sostengan sus tubos de ensayo! Vamos a resolver este misterio cósmico destructores de mitos. ¡Análisis de datos inmediato!\n\n<svg viewBox='0 0 500 220' width='100%' height='220' xmlns='http://www.w3.org/2000/svg' style='background-color:#0B0E14; border-radius:8px; border:1px solid #00FFCC;'><line x1='50' y1='180' x2='450' y2='180' stroke='#4A5568' stroke-width='2'/><line x1='50' y1='20' x2='50' y2='180' stroke='#4A5568' stroke-width='2'/><text x='450' y='210' fill='#00FFCC' font-size='12' font-family='sans-serif'>Tiempo t (s)</text><text x='10' y='25' fill='#00FFCC' font-size='12' font-family='sans-serif'>Posición x (m)</text><line x1='50' y1='40' x2='400' y2='40' stroke='#FF007F' stroke-width='3' stroke-dasharray='5,5'/><text x='230' y='35' fill='#FF007F' font-size='11' font-family='sans-serif'>Astronauta EEI (x = 400.000 m)</text><line x1='50' y1='180' x2='400' y2='80' stroke='#00E5FF' stroke-width='3'/><text x='250' y='115' fill='#00E5FF' font-size='11' font-family='sans-serif'>Jeep Willys (En aceleración constante)</text><circle cx='50' cy='180' r='4' fill='#00E5FF'/><circle cx='400' cy='80' r='4' fill='#00E5FF'/><circle cx='400' cy='40' r='4' fill='#FF007F'/></svg>\n\n| Sujeto de Estudio | Ubicación de Referencia | Posición $x$ (m) | Inclinación de la Línea | ¿Se mueve rápido? |\n| :--- | :--- | :--- | :--- | :--- |\n| **Astronauta EEI** | Órbita Terrestre | $x = 400.000\\text{ m}$ | Plana / Horizontal | ¡Cero velocidad relativa a la EEI! |\n| **Jeep Willys** | Montenegro (Quindío) | De $0$ a $500\\text{ m}$ | Muy inclinada | ¡Acelerando velozmente! |\n\n¡Abran los ojos, reclutas! La altura de una línea en un gráfico $x-t$ NO significa velocidad. ¡Es solo la distancia al origen! Para probar que sus mentes están despiertas, completen estos desfíos criptográficos de a bordo:\n\n[JUEGO:ORDENAR_LETRAS:POSICION]\n\n[JUEGO:ORDENAR_LETRAS:PENDIENTE]\n\n[JUEGO:ORDENAR_FRASE:LA PENDIENTE DE LA GRAFICA REPRESENTA LA VELOCIDAD]\n\n[JUEGO:ORDENAR_FRASE:EL TIEMPO SIEMPRE AVANZA EN EL EJE HORIZONTAL]\n\n[JUEGO:SOPA_LETRAS:GRAFICA,PENDIENTE,ORIGEN]\n\n[JUEGO:SOPA_LETRAS:METROS,SEGUNDOS,RAPIDEZ]\n\n[JUEGO:CRUCIGRAMA:Eje vertical de la gráfica|POSICION;Eje horizontal de la gráfica|TIEMPO]\n\n[JUEGO:CRUCIGRAMA:Inclinación de la recta|PENDIENTE;Estado donde la posición no cambia|REPOSO]",
+  "recurso_visual": "| Intervalo de Tiempo ($s$) | Posición del Willys ($m$) | Posición del Astronauta ($m$) | Interpretación Física |\n| :---: | :---: | :---: | :--- |\n| $0 - 5$ | $0 \\to 50$ | $400.000 \\to 400.000$ | Willys avanza a $10\\text{ m/s}$; Astronauta estático en órbita. |\n| $5 - 10$ | $50 \\to 50$ | $400.000 \\to 400.000$ | Willys se detiene en semáforo de Montenegro. |\n| $10 - 15$ | $50 \\to 0$ | $400.000 \\to 400.000$ | Willys regresa en reversa ($v = -10\\text{ m/s}$). |",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "¿Qué representa la inclinación o 'pendiente' de la recta en una gráfica de Posición vs Tiempo?",
+      "respuesta_esperada": "Representa la velocidad del objeto ($v = \\Delta x / \\Delta t$). A mayor inclinación, mayor rapidez."
+    },
+    {
+      "pregunta": "Si la recta en un gráfico $x-t$ se ubica a $x = 5000\\text{ m}$ pero es totalmente horizontal, ¿cuál es la velocidad?",
+      "respuesta_esperada": "La velocidad es exactamente cero ($0\\text{ m/s}$), porque no hay cambio de posición respecto al tiempo."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja en tu cuaderno una gráfica $x-t$ donde muestres a un estudiante de la IE Instituto Montenegro caminando hacia el colegio, permaneciendo en clase de física y regresando a su casa.",
+    "Calcula la pendiente de una recta que pasa por $(t_1=0\\text{ s}, x_1=10\\text{ m})$ y $(t_2=4\\text{ s}, x_2=30\\text{ m})$. ¿Qué representa ese valor numérico?"
+  ],
+  "texto_deductivo": "¡ATENCIÓN COMPAÑEROS DE LA CIENCIA! Llego la hora de **DESMENTIR EL MITO POPULAR** que plaga los cerebros terrestres.\n\n### ☠️ EL MITO DESMONTADO: 'La línea más alta en un gráfico x-t va más rápido'\n¡FALSO! ¡MENTIRA ESPACIAL! La posición vertical ($x$) solo te dice **DÓNDE** está el objeto en el espacio, NO **QUÉ TAN RÁPIDO** se mueve. Lo que determina la velocidad es la **PENDIENTE** ($m$).\n\n$$\\text{Velocidad } (v) = \\frac{\\text{Cambio de Posición } (\\Delta x)}{\\text{Tiempo Transcurrido } (\\Delta t)} = \\frac{x_f - x_i}{t_f - t_i}$$\n\n<svg viewBox='0 0 500 200' width='100%' height='200' xmlns='http://www.w3.org/2000/svg' style='background-color:#121824; border-radius:8px; border:1px solid #FF007F;'><rect x='20' y='20' width='210' height='160' rx='5' fill='#1A2333'/><text x='30' y='40' fill='#FF007F' font-size='12' font-weight='bold'>MITO ERRÓNEO</text><line x1='40' y1='60' x2='210' y2='60' stroke='#FF007F' stroke-width='4'/><text x='45' y='80' fill='#FFF' font-size='10'>Línea ALTA = '¡Va lejísimos y facilísimo!'</text><text x='45' y='95' fill='#FF8080' font-size='10'>ERROR: V = 0 m/s (¡Está congelado!)</text><rect x='260' y='20' width='210' height='160' rx='5' fill='#1A2333'/><text x='270' y='40' fill='#00FFCC' font-size='12' font-weight='bold'>VERDAD FÍSICA</text><line x1='280' y1='160' x2='450' y2='60' stroke='#00FFCC' stroke-width='4'/><text x='285' y='80' fill='#FFF' font-size='10'>Línea INCLINADA = 'Gran Pendiente'</text><text x='285' y='95' fill='#00FFCC' font-size='10'>CORRECTO: ¡Alta velocidad!</text></svg>\n\n<table border='1' style='width:100%; border-collapse:collapse; background-color:#1E293B; color:#FFFFFF;'><thead><tr style='background-color:#0F172A; color:#00FFCC;'><th>Tipo de Pendiente en $x-t$</th><th>Significado Físico</th><th>Ejemplo en la EEI / Montenegro</th></tr></thead><tbody><tr><td><b>Horizontal ($\text{Pendiente} = 0$)</b></td><td>Objeto en REPOSO ($v = 0$)</td><td>Satélite estacionado o Jeep apagado.</td></tr><tr><td><b>Inclinada hacia arriba ($\text{Pendiente} > 0$)</b></td><td>Movimiento Hacia Adelante ($v > 0$)</td><td>Cápsula Dragon acercándose a la EEI.</td></tr><tr><td><b>Inclinada hacia abajo ($\text{Pendiente} < 0$)</b></td><td>Movimiento de REGRESO ($v < 0$)</td><td>Estudiante volviendo a casa tras clases.</td></tr></tbody></table>\n\n¡Demuestra tu dominio intelectual resolviendo estos enigmas finales en la Estación Espacial!\n\n[JUEGO:ORDENAR_LETRAS:TIEMPO]\n\n[JUEGO:ORDENAR_LETRAS:VELOCIDAD]\n\n[JUEGO:ORDENAR_LETRAS:TRAYECTORIA]\n\n[JUEGO:ORDENAR_FRASE:UNA LINEA HORIZONTAL SIGNIFICA REPOSO TOTAL]\n\n[JUEGO:ORDENAR_FRASE:LA ALTURA EN EL EJE X SOLO INDICA UBICACION]\n\n[JUEGO:ORDENAR_FRASE:LA VELOCIDAD ES EL CAMBIO DE POSICION SOBRE TIEMPO]\n\n[JUEGO:SOPA_LETRAS:ORBITA,ESPACIO,MOVIMIENTO]\n\n[JUEGO:SOPA_LETRAS:VECTOR,ESCALAR,REPOSO]\n\n[JUEGO:SOPA_LETRAS:DESPLAZAMIENTO,TRAYECTO,DESACELERAR]\n\n[JUEGO:CRUCIGRAMA:Cambio de posición por unidad de tiempo|VELOCIDAD;Unidad de medida del tiempo|SEGUNDO]\n\n[JUEGO:CRUCIGRAMA:Lugar donde orbita nuestro laboratorio|ESTACION;Punto de referencia cero|ORIGEN]\n\n[JUEGO:CRUCIGRAMA:Línea con pendiente negativa indica regreso|RETORNO;Distancia desde el origen|DISTANCIA]",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "¿Por qué un objeto con una gráfica $x-t$ ubicada a $x = -100\\text{ m}$ y pendiente empinada se mueve más rápido que uno a $x = +1000\\text{ m}$ con pendiente horizontal?",
+      "respuesta_esperada": "Porque la rapidez depende del cambio de posición por unidad de tiempo (la inclinación), no del signo ni de la magnitud de la posición inicial."
+    },
+    {
+      "pregunta": "¿Qué significa una pendiente negativa en un gráfico $x-t$?",
+      "respuesta_esperada": "Significa que el objeto se desplaza en dirección opuesta al sistema de referencia (regresando al origen)."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Resuelve: Un rover en Marte está en $x_1 = 20\\text{ m}$ a los $t_1 = 2\\text{ s}$ y llega a $x_2 = 80\\text{ m}$ a los $t_2 = 5\\text{ s}$. Calcula la velocidad exacta.",
+    "Crea un argumento destructor de mitos de 5 líneas explicando a un compañero de Montenegro por qué estar 'más arriba' en la gráfica $x-t$ no te hace el más veloz."
+  ],
+  "icfes": [
+    {
+      "competencia": "Interpretación y Mapeo de Gráficas",
+      "texto_introductorio": "Un grupo de científicos de la IE Instituto Montenegro monitorea el desplazamiento de dos vehículos robóticos (Alfa y Beta) en una pista recta. Los datos recopilados se plasmaron en la siguiente gráfica de Posición vs Tiempo ($x-t$):",
+      "tabla_o_grafica_markdown": "| Tiempo ($s$) | Posición Vehículo Alfa ($m$) | Posición Vehículo Beta ($m$) |\n| :---: | :---: | :---: |\n| 0 | 100 | 0 |\n| 2 | 100 | 20 |\n| 4 | 100 | 40 |\n| 6 | 100 | 60 |",
+      "pregunta": "Con base en la gráfica y tabla anterior, ¿cuál de las siguientes afirmaciones sobre los vehículos es CORRECTA?",
+      "opciones": [
+        "El Vehículo Alfa es más veloz porque su recta está en la posición de 100 metros.",
+        "El Vehículo Beta es el único en movimiento, moviéndose con una velocidad constante de 10 m/s.",
+        "Ambos vehículos se desplazan a la misma velocidad constante.",
+        "El Vehículo Alfa tiene mayor pendiente que el Vehículo Beta."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "¡ERROR GRAVE DE RECLUTA! Confundiste la posición ($x=100\\text{ m}$) con la velocidad. Como la recta de Alfa es horizontal, su velocidad es $0\\text{ m/s}$.",
+        "1": "¡EXCELENTE CÁLCULO, CIENTÍFICO EN POTENCIA! Beta recorre $20\\text{ m}$ cada $2\\text{ s}$ ($v = 20/2 = 10\\text{ m/s}$), mientras que Alfa está completamente en reposo a $100\\text{ m}$.",
+        "2": "¡FALSO! Alfa no se desplaza ($v = 0\\text{ m/s}$), por lo tanto sus velocidades no pueden ser iguales.",
+        "3": "¡INCORRECTO! La pendiente de Alfa es cero (recta totalmente plana), mientras que Beta posee pendiente positiva."
+      }
+    }
+  ]
+}

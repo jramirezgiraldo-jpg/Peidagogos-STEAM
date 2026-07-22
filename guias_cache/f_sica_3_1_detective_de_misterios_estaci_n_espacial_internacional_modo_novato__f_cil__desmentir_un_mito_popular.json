@@ -1,0 +1,133 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Qué ocurre con la fuerza de atracción gravitacional que la Tierra ejerce sobre un objeto cuando este se aleja hacia el espacio?",
+      "opciones": [
+        "Desaparece inmediatamente al salir de la atmósfera.",
+        "Disminuye gradualmente a medida que aumenta la distancia, pero no llega a cero.",
+        "Aumenta porque el objeto está más cerca de las estrellas.",
+        "Permanece exactamente igual sin importar la distancia."
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "Un detective observa un objeto en 'caída libre' dentro de un ascensor al que se le cortó el cable. ¿Cómo percibe un ocupante los objetos a su alrededor?",
+      "opciones": [
+        "Caen más rápido que él.",
+        "Salen disparados hacia el techo a velocidad constante.",
+        "Parecen flotar a su lado porque todos caen con la misma aceleración.",
+        "Se vuelven infinitamente más pesados."
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "¿Cuál es la diferencia fundamental entre 'masa' y 'peso'?",
+      "opciones": [
+        "La masa es la cantidad de materia (en kg) y el peso es la fuerza gravitacional sobre ella (en N).",
+        "La masa se mide en Newtons y el peso en kilogramos.",
+        "La masa cambia con el lugar y el peso siempre es constante.",
+        "No existe ninguna diferencia, son exactamente el mismo concepto."
+      ],
+      "correcta": 0
+    }
+  ],
+  "texto_inductivo": "# Expediente #001: El Misterio de la Gravedad Perdida en la ISS\n\n**Agente Detective**, bienvenido a bordo de la **Estación Espacial Internacional (ISS)**, una gigantesca estructura de 450 toneladas que orbita a unos 400 kilómetros sobre la superficie terrestre.\n\n***¿Por qué los videos de los astronautas flotando en la Estación Espacial Internacional nos han hecho creer falsamente que en el espacio no existe gravedad, y cuál es la misteriosa razón física por la cual la ISS no se desploma contra la Tierra a pesar de estar atraída intensamente por ella?***\n\n<div style=\"background-color:#1e1e2f; color:#ffffff; padding:15px; border-radius:10px; border-left:5px solid #00d2d3; margin:15px 0;\">\n<h3 style=\"margin-top:0; color:#00d2d3;\">🕵️‍♂️ Pista Inicial del Detective</h3>\nExiste un mito popular muy extendido en películas y redes sociales: <i>'En el espacio no hay gravedad y por eso las cosas flotan'</i>. ¡Eso es un rotundo falso testimonio en nuestro tribunal científico! A 400 km de altitud, la fuerza de gravedad terrestre es casi un **90%** de la que sentimos en el suelo.\n</div>\n\nSi la gravedad sigue ahí... ¿por qué flota la tripulación? [JUEGO:ORDENAR_LETRAS:GRAVEDAD] Para resolver el misterio, debemos examinar la física del movimiento. [JUEGO:ORDENAR_FRASE:LA GRAVEDAD NO DESAPARECE EN EL ESPACIO]\n\n<svg viewBox=\"0 0 500 220\" width=\"100%\" height=\"200\" style=\"background:#0b0d17; border-radius:8px;\">\n  <circle cx=\"250\" cy=\"280\" r=\"180\" fill=\"#1e3799\" stroke=\"#4a69bd\" stroke-width=\"4\" />\n  <path d=\"M 100,100 Q 250,20 A 400,400 0 0,1 400,100\" fill=\"none\" stroke=\"#e1b12c\" stroke-dasharray=\"6,6\" stroke-width=\"3\" />\n  <rect x=\"235\" y=\"15\" width=\"30\" height=\"15\" fill=\"#dcdde1\" rx=\"3\" />\n  <line x1=\"250\" y1=\"22\" x2=\"250\" y2=\"100\" stroke=\"#e74c3c\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"260\" y=\"60\" fill=\"#e74c3c\" font-size=\"12\" font-family=\"sans-serif\">Fuerza Gravitacional (Caída)</text>\n  <line x1=\"250\" y1=\"22\" x2=\"320\" y2=\"22\" stroke=\"#44bd32\" stroke-width=\"2\" />\n  <text x=\"280\" y=\"15\" fill=\"#44bd32\" font-size=\"12\" font-family=\"sans-serif\">Velocidad Tangencial (8 km/s)</text>\n  <text x=\"170\" y=\"160\" fill=\"#ffffff\" font-size=\"14\" font-weight=\"bold\" font-family=\"sans-serif\">TIERRA</text>\n</svg>\n\nImagina que lanzas una manzana en la Tierra. [JUEGO:SOPA_LETRAS:GRAVEDAD,ORBITA,CAIDA] Caen al suelo por efecto de la gravedad. Si la lanzas con más fuerza, llega más lejos antes de caer. [JUEGO:CRUCIGRAMA:Fuerza que atrae a las masas|GRAVEDAD;Trayectoria de un satelite|ORBITA] ¿Qué sucedería si la lanzaras tan rápido que la curvatura con la que cae coincide exactamente con la curvatura de la superficie de la Tierra? [JUEGO:ORDENAR_LETRAS:ORBITA]\n\n¡La manzana caería continuamente sin tocar jamás el suelo! [JUEGO:ORDENAR_FRASE:LA ESTACION ESPACIAL CAECE LIBREMENTE] Eso es exactamente una **órbita**. La ISS no está libre de gravedad; está en un estado permanente de **caída libre**. [JUEGO:ORDENAR_LETRAS:CAIDA] [JUEGO:SOPA_LETRAS:ESPACIO,MASA,PESO]\n\n<table style=\"width:100%; border-collapse:collapse; margin:15px 0; background-color:#2c2c54; color:white;\">\n<thead>\n<tr style=\"background-color:#474787;\">\n<th style=\"padding:10px; border:1px solid #706fd3;\">Concepto Mito</th>\n<th style=\"padding:10px; border:1px solid #706fd3;\">Evidencia Real Científica</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td style=\"padding:10px; border:1px solid #706fd3;\">'Gravedad Cero' en el espacio cercano.</td>\n<td style=\"padding:10px; border:1px solid #706fd3;\">Gravedad del ~90% de la superficie a 400 km de altura.</td>\n</tr>\n<tr>\n<td style=\"padding:10px; border:1px solid #706fd3;\">Los astronautas flotan porque no hay fuerza que los jale.</td>\n<td style=\"padding:10px; border:1px solid #706fd3;\">Flotan porque están en caída libre junto con la nave (Ingravidez aparente).</td>\n</tr>\n</tbody>\n</table>\n\nLos astronautas no están sin gravedad; están experimentando **ingravidez aparente** o microgravedad. [JUEGO:CRUCIGRAMA:Lugar donde flotan astronautas|ESTACION;Estado de aceleracion gravitacional pura|CAIDA] Como la nave y sus cuerpos caen a la misma tasa de aceleración, no hay fuerza normal (soporte del piso) empujando sus pies. [JUEGO:ORDENAR_LETRAS:ESTACION] [JUEGO:ORDENAR_FRASE:LOS ASTRONAUTAS FLOTAN POR CAIDA LIBRE]\n\nAnalicemos cómo Sir Isaac Newton desentrañó este comportamiento planetario. [JUEGO:SOPA_LETRAS:NEWTON,KEPLER,FISICA] [JUEGO:CRUCIGRAMA:Cientifico de la manzana|NEWTON;Masa en movimiento continuo|SATELITE] La inercia del objeto busca llevarlo en línea recta, pero la atracción gravitacional dobla esa trayectoria en una curva. [JUEGO:ORDENAR_LETRAS:INERCIA] [JUEGO:ORDENAR_FRASE:EL MOVIMIENTO PLANETARIO TIENE REGLAS CIENTIFICAS]\n\n<div style=\"border: 2px dashed #ffb142; padding: 12px; border-radius: 8px; background: #332a15; color: #ffeaa7;\">\n📌 <b>Nota del Detective:</b> Si la ISS detuviera su velocidad horizontal de 28,000 km/h (aprox. 7.6 km/s), se desplomaría verticalmente hacia la Tierra de inmediato. La velocidad es la clave para no estrellarse.\n</div>\n\n[JUEGO:SOPA_LETRAS:ALTURA,FUERZA,TIEMPO] [JUEGO:CRUCIGRAMA:Distancia al centro terrestre|RADIO;Rapidez en una direccion|VELOCIDAD] [JUEGO:ORDENAR_FRASE:UN DETECTIVE BUSCA SIEMPRE LA VERDAD] [JUEGO:SOPA_LETRAS:SISTEMA,PLANETA,SOLAR] [JUEGO:CRUCIGRAMA:Falta de sensacion de peso|MICROGRAVEDAD;Camino curvo planetario|ELIPSE]",
+  "recurso_visual": "| Componente del Caso | Explicación Física | Efecto Observado |\n| :--- | :--- | :--- |\n| **Aceleración Gravitacional a 400 km** | $g \\approx 8.7 \\text{ m/s}^2$ (Atrae hacia el centro de la Tierra) | Mantiene a la ISS encadenada en su órbita. |\n| **Velocidad Tangencial** | $v \\approx 7.66 \\text{ km/s}$ (Tangente a la curva terrestre) | Evita que la ISS caiga directamente al suelo. |\n| **Caída Libre Continua** | Nave y tripulantes caen juntos con la misma aceleración | Ausencia de Fuerza Normal $\\to$ Sensación de flotar. |",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "¿Qué porcentaje aproximado de la gravedad terrestre existe a la altura de la Estación Espacial Internacional (400 km)?",
+      "respuesta_esperada": "Aproximadamente el 88% - 90% de la gravedad medida en la superficie terrestre."
+    },
+    {
+      "pregunta": "¿Cuál es la razón real por la que los astronautas parecen flotar dentro de la ISS?",
+      "respuesta_esperada": "Porque tanto la nave como los astronautas están cayendo libremente hacia la Tierra a la misma velocidad y aceleración."
+    },
+    {
+      "pregunta": "¿Qué le sucedería a la ISS si perdiera repentinamente su velocidad horizontal?",
+      "respuesta_esperada": "Caería directamente hacia la superficie terrestre debido a la atracción de la gravedad."
+    },
+    {
+      "pregunta": "¿Cómo se le llama al estado en el que parece no haber peso debido a la caída libre continua?",
+      "respuesta_esperada": "Ingravidez aparente o microgravedad."
+    },
+    {
+      "pregunta": "¿Por qué se considera un mito decir que en el espacio no existe gravedad?",
+      "respuesta_esperada": "Porque la gravedad de la Tierra se extiende por todo el sistema solar; disminuye con la distancia pero nunca llega a ser cero."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema que muestre la Tierra, la ISS en órbita, el vector de fuerza gravitacional y el vector de velocidad tangencial.",
+    "Realiza un cuadro comparativo entre el estado de 'Ingravidez Real' (gravedad = 0) e 'Ingravidez Aparente' (caída libre).",
+    "Escribe una reflexión de dos párrafos argumentando cómo la ciencia ayuda a desmentir mitos presentes en las películas de ciencia ficción.",
+    "Representa gráficamente la famosa 'Cañón de Newton', ilustrando cómo diferentes velocidades iniciales cambian la trayectoria de un proyectil hasta orbitar."
+  ],
+  "texto_deductivo": "# Análisis Deductivo: Las Leyes Cinemáticas y Gravitacionales\n\nComo detectives científicos, debemos aplicar el rigor deductivo a nuestra investigación. [JUEGO:ORDENAR_LETRAS:ACELERACION] El movimiento de la Estación Espacial Internacional y de los planetas alrededor del Sol se rige por leyes cinemáticas y dinámicas muy precisas.\n\n<div style=\"background:#0f2027; background:linear-gradient(to right, #203a43, #0f2027); padding:15px; border-radius:8px; color:white; margin:15px 0;\">\n<h4 style=\"color:#4ecdc4; margin-0;\">📐 La Matemática Detrás de la Órbita Circular</h4>\nPara que la ISS se mantenga en una órbita circular de radio $r = R_T + h$, la fuerza de gravedad debe actuar exactamente como la <b>fuerza centrípeta</b> requerida:\n<p style=\"text-align:center; font-size:1.2rem; color:#ffeaa7;\">$$F_g = F_c \\implies G \\frac{M_T \\cdot m}{r^2} = m \\frac{v^2}{r}$$</p>\nSimplificando la masa $m$ de la ISS, obtenemos la velocidad orbital necesaria:\n<p style=\"text-align:center; font-size:1.2rem; color:#ffeaa7;\">$$v = \\sqrt{\\frac{G M_T}{r}}$$</p>\n</div>\n\n[JUEGO:ORDENAR_LETRAS:VELOCIDAD] Observa detenidamente la ecuación anterior. [JUEGO:ORDENAR_FRASE:LA VELOCIDAD TANGENCIAL EVITA EL IMPACTO] La velocidad necesaria para mantenerse en órbita **NO** depende de la masa del objeto ($m$). [JUEGO:SOPA_LETRAS:CENTRIPETA,INERCIA,VECTOR] ¡Un satélite de 1 kg y la ISS de 450,000 kg se mueven exactamente a la misma velocidad si están a la misma altitud! [JUEGO:CRUCIGRAMA:Aceleracion dirigida al centro|CENTRIPETA;Resistencia a cambiar de estado|INERCIA]\n\n<svg viewBox=\"0 0 500 180\" width=\"100%\" height=\"160\" style=\"background:#181818; border-radius:8px;\">\n  <ellipse cx=\"250\" cy=\"90\" rx=\"180\" ry=\"60\" fill=\"none\" stroke=\"#38ada9\" stroke-width=\"2\" />\n  <circle cx=\"180\" cy=\"90\" r=\"18\" fill=\"#f6b93b\" />\n  <text x=\"170\" y=\"120\" fill=\"#f6b93b\" font-size=\"12\" font-family=\"sans-serif\">Sol (Foco)</text>\n  <circle cx=\"430\" cy=\"90\" r=\"8\" fill=\"#e74c3c\" />\n  <text x=\"410\" y=\"70\" fill=\"#e74c3c\" font-size=\"12\" font-family=\"sans-serif\">Planeta</text>\n  <line x1=\"180\" y1=\"90\" x2=\"430\" y2=\"90\" stroke=\"#7f8c8d\" stroke-dasharray=\"4,4\" />\n  <text x=\"280\" y=\"85\" fill=\"#ffffff\" font-size=\"10\" font-family=\"sans-serif\">Radio vector r</text>\n</svg>\n\nJohannes Kepler dedujo que las órbitas no son círculos perfectos, sino elipses. [JUEGO:ORDENAR_LETRAS:TRAYECTORIA] [JUEGO:ORDENAR_FRASE:KEPLER EXPLICO LAS ORBITAS ELIPTICAS] La Primera Ley de Kepler confirma que el Sol está en uno de los focos. [JUEGO:SOPA_LETRAS:ELIPSE,FOCO,PERIODO] [JUEGO:CRUCIGRAMA:Figura geometrica de las orbitas|ELIPSE;Punto central gravitatorio|FOCO]\n\nPor otro lado, la aceleración que sufren los cuerpos en caída libre dentro de la ISS se describe con los conceptos de cinemática básica: posición ($x$), velocidad ($v$) y aceleración ($a$). [JUEGO:ORDENAR_LETRAS:CENTRIPETA] [JUEGO:ORDENAR_FRASE:LA FUERZA CENTRIPETA MANTIENE LA ORBITA] La aceleración es el cambio de velocidad en el tiempo. En un movimiento circular uniforme, aunque la **rapidez** sea constante, la **dirección** del vector velocidad cambia continuamente hacia el centro de la Tierra. [JUEGO:SOPA_LETRAS:RADIO,DISTANCIA,TANGENTE] [JUEGO:CRUCIGRAMA:Magnitud vectorial del cambio de posicion|VELOCIDAD;Cambio de velocidad en el tiempo|ACELERACION]\n\n<table style=\"width:100%; border-collapse:collapse; margin:15px 0; background-color:#11081f; color:white;\">\n<thead>\n<tr style=\"background-color:#2c1458;\">\n<th style=\"padding:8px; border:1px solid #5a2a98;\">Variable Cinemática</th>\n<th style=\"padding:8px; border:1px solid #5a2a98;\">En Órbita Circular</th>\n<th style=\"padding:8px; border:1px solid #5a2a98;\">Efecto Detectado</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td style=\"padding:8px; border:1px solid #5a2a98;\">Posición $r$</td>\n<td style=\"padding:8px; border:1px solid #5a2a98;\">Constante respecto al centro terrestre</td>\n<td style=\"padding:8px; border:1px solid #5a2a98;\">Mantiene altura constante (~400 km)</td>\n</tr>\n<tr>\n<td style=\"padding:8px; border:1px solid #5a2a98;\">Velocidad $v$</td>\n<td style=\"padding:8px; border:1px solid #5a2a98;\">Magnitud constante, dirección cambiante</td>\n<td style=\"padding:8px; border:1px solid #5a2a98;\">Trayectoria curva continua</td>\n</tr>\n<tr>\n<td style=\"padding:8px; border:1px solid #5a2a98;\">Aceleración $a_c$</td>\n<td style=\"padding:8px; border:1px solid #5a2a98;\">Aprieta perpendicular hacia el centro</td>\n<td style=\"padding:8px; border:1px solid #5a2a98;\">Caída permanente libre</td>\n</tr>\n</tbody>\n</table>\n\nDesmentir el mito de la 'gravedad cero' nos permite comprender que los planetas, las lunas y las estaciones espaciales se mueven bajo exactamente las mismas leyes universales. [JUEGO:ORDENAR_LETRAS:SATELITE] [JUEGO:ORDENAR_FRASE:DESMENTIR MITOS REQUIERE EVIDENCIA EXPERIMENTAL] ¡Misterio resuelto, detective! [JUEGO:SOPA_LETRAS:DESPLAZAMIENTO,RAPIDEZ,DIRECCION] [JUEGO:CRUCIGRAMA:Creencia falsa muy extendida|MITO;Prueba cientifica irrefutable|EVIDENCIA]\n\n[JUEGO:ORDENAR_FRASE:LA FISICA DEMUESTRA LA VERDADERA REALIDAD] [JUEGO:SOPA_LETRAS:LEYES,EVIDENCIA,MITO] [JUEGO:CRUCIGRAMA:Tiempo en dar una vuelta completa|PERIODO;Linea recta rozando curva|TANGENTE]",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "¿Depende la velocidad orbital de un satélite de la masa del propio satélite? Justifica con la fórmula.",
+      "respuesta_esperada": "No depende de la masa del satélite, pues al igualar la fuerza gravitacional con la centrípeta, la masa del satélite se cancela ($v = \\sqrt{GM/r}$)."
+    },
+    {
+      "pregunta": "¿Por qué existe aceleración centrípeta en la ISS si esta viaja a una rapidez constante de 7.6 km/s?",
+      "respuesta_esperada": "Porque la aceleración se produce no solo por cambios en la rapidez, sino también por cambios en la dirección del vector velocidad."
+    },
+    {
+      "pregunta": "¿Qué establece la Primera Ley de Kepler respecto a la forma de las órbitas planetarias?",
+      "respuesta_esperada": "Establece que los planetas se mueven en órbitas elípticas alrededor del Sol, estando este ubicado en uno de los focos."
+    },
+    {
+      "pregunta": "Si la distancia entre la ISS y el centro de la Tierra aumentara, ¿la velocidad orbital necesaria para mantener la órbita aumentaría o disminuiría?",
+      "respuesta_esperada": "Disminuiría, ya que la velocidad es inversamente proporcional a la raíz cuadrada de la distancia ($r$)."
+    },
+    {
+      "pregunta": "¿Cuál es la dirección de la aceleración centrípeta que experimenta la ISS en todo momento?",
+      "respuesta_esperada": "Está dirigida siempre hacia el centro de la Tierra."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Elabora un diagrama detallado mostrando los vectores de Fuerza Gravitacional, Velocidad Tangencial y Aceleración Centrípeta en cuatro puntos distintos de la órbita de la ISS.",
+    "Elabora un mapa mental que conecte el mito desmentido con los conceptos de: Gravedad, Caída Libre, Inercia, Velocidad Tangencial y Leyes de Kepler.",
+    "Haz un dibujo explicativo paso a paso demostrando por qué una persona dentro de un ascensor en caída libre siente la misma sensación que un astronauta en la ISS.",
+    "Diseña una infografía artesanal en tu cuaderno titulada: 'Desmontando el Mito de la Gravedad Cero', dirigida a estudiantes de primaria."
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "En un foro académico, un estudiante afirma: 'Los astronautas en la Estación Espacial Internacional (ISS) flotan porque la gravedad terrestre no llega hasta esa altura (400 km)'. Para evaluar esta afirmación, el profesor presenta la siguiente tabla con datos sobre el campo gravitacional a distintas altitudes:",
+      "tabla_o_grafica_markdown": "| Ubicación | Altitud sobre la Tierra | Aceleración de la gravedad ($g$) |\n| :--- | :--- | :--- |\n| Superficie terrestre | 0 km | $9.8 \\text{ m/s}^2$ |\n| Órbita de la ISS | 400 km | $8.7 \\text{ m/s}^2$ |\n| Órbita GPS | 20,200 km | $0.57 \\text{ m/s}^2$ |",
+      "pregunta": "Con base en la información anterior, la afirmación del estudiante es:",
+      "opciones": [
+        "Incorrecta, porque a 400 km de altitud la gravedad sigue siendo del 89% del valor en la superficie.",
+        "Correcta, porque a 400 km la aceleración gravitacional cae drásticamente a cero.",
+        "Incorrecta, porque la gravedad en la ISS es el doble de la que experimentamos en la superficie terrestre.",
+        "Correcta, porque los astronautas solo flotan cuando la aceleración gravitacional es exactamente $9.8 \\text{ m/s}^2$."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "¡Correcto! La tabla demuestra que a 400 km de altura $g = 8.7\\text{ m/s}^2$, lo cual desmiente que la gravedad sea cero.",
+        "1": "Incorrecto. La tabla indica claramente que $g = 8.7\\text{ m/s}^2$ a 400 km, no cero.",
+        "2": "Incorrecto. $8.7\\text{ m/s}^2$ es menor que $9.8\\text{ m/s}^2$, no el doble.",
+        "3": "Incorrecto. Si $g = 9.8\\text{ m/s}^2$ no flotamos, estamos firmes en el suelo debido a la fuerza normal."
+      }
+    },
+    {
+      "competencia": "Uso Comprensivo del Conocimiento Científico",
+      "texto_introductorio": "Sir Isaac Newton explicó el movimiento orbital mediante el experimento mental del cañón disparado desde una alta montaña. A medida que la velocidad proyectil aumenta, la distancia horizontal recorrida es mayor hasta que el proyectil 'cae rodeando la Tierra'.",
+      "tabla_o_grafica_markdown": "| Proyectil | Velocidad inicial ($v$) | Resultado del Trayecto |\n| :--- | :--- | :--- |\n| A | $2 \\text{ km/s}$ | Cae en la superficie terrestre (curva corta) |\n| B | $5 \\text{ km/s}$ | Cae a miles de km (curva más amplia) |\n| C | $7.6 \\text{ km/s}$ | Entra en órbita circular (caída continua) |",
+      "pregunta": "¿Qué concluye el detective científico al analizar por qué el Proyectil C no colisiona con el suelo?",
+      "opciones": [
+        "Que el Proyectil C dejó de sentir la atracción gravitacional.",
+        "Que la curvatura de la trayectoria de caída del proyectil coincide con la curvatura de la superficie de la Tierra.",
+        "Que la masa del Proyectil C se volvió cero debido a la alta velocidad.",
+        "Que el aire del espacio empuja el proyectil hacia arriba impidiendo su caída."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. La fuerza gravitacional sigue actuando para curva la trayectoria del proyectil C.",
+        "1": "¡Correcto! Una órbita se logra cuando el objeto cae hacia la Tierra al mismo ritmo que la superficie terrestre se curva alejándose de él.",
+        "2": "Incorrecto. La masa es una propiedad intrínseca e invariable en este contexto cinemático.",
+        "3": "Incorrecto. A esa altitud no hay suficiente atmósfera ni aire para generar empuje aerodinámico hacia arriba."
+      }
+    }
+  ]
+}

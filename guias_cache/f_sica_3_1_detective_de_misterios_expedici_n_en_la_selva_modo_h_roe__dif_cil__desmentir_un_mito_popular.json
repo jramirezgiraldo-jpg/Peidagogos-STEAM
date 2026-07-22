@@ -1,0 +1,114 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Cuál es la forma real de las órbitas planetarias según Johannes Kepler?",
+      "opciones": [
+        "Círculos perfectos",
+        "Elipses con el Sol en el centro",
+        "Elipses con el Sol en uno de los focos",
+        "Trayectorias en forma de ocho"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "Si un planeta se acerca al Sol en su órbita, ¿qué sucede con su velocidad?",
+      "opciones": [
+        "Se mantiene constante",
+        "Aumenta",
+        "Disminuye",
+        "Se detiene un instante"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Qué fuerza es la responsable de mantener a los planetas girando alrededor del Sol?",
+      "opciones": [
+        "Fuerza Electromagnética",
+        "Fuerza de Fricción Espacial",
+        "Fuerza Gravitacional",
+        "Inercia pura sin fuerzas"
+      ],
+      "correcta": 2
+    }
+  ],
+  "texto_inductivo": "¡Bienvenidos, cadetes de la selva! Soy el Detective Astro-Jungle y hemos encontrado un antiguo tótem que afirma algo muy extraño: *'El calor del verano llega porque la Tierra corre a abrazar al Sol, acercándose en un círculo perfecto'*. **_¿Es posible que la distancia al Sol sea la verdadera causa de nuestras estaciones y que nos movamos en una pista circular perfecta como una rueda de madera?_** [JUEGO:ORDENAR_LETRAS:ELIPSE] Esta es la mentira que desmentiremos hoy mientras atravesamos la maleza densa de la ignorancia. <br><div style='background-color: #1a2e1a; padding: 20px; border-radius: 10px; border: 2px solid #4CAF50;'> <svg viewBox='0 0 400 200' xmlns='http://www.w3.org/2000/svg'> <ellipse cx='200' cy='100' rx='150' ry='70' fill='none' stroke='#fff' stroke-width='2' stroke-dasharray='5,5'/> <circle cx='280' cy='100' r='20' fill='#FFD700'/> <circle cx='60' cy='100' r='8' fill='#4FC3F7'/> <text x='260' y='140' fill='#FFD700' font-size='14'>Sol (Foco)</text> <text x='40' y='80' fill='#4FC3F7' font-size='14'>Planeta</text> <line x1='50' y1='100' x2='280' y2='100' stroke='red' stroke-width='1'/> </svg> <p style='text-align: center; color: #fff;'>Diagrama 1: La realidad de la órbita elíptica</p> </div> Al observar las estrellas desde la copa de los árboles, notamos que el Sol no siempre tiene el mismo tamaño aparente. [JUEGO:ORDENAR_FRASE:LA TIERRA GIRA ALREDEDOR DEL SOL] Si la órbita fuera un círculo, el Sol siempre se vería igual. [JUEGO:SOPA_LETRAS:SOL,TIERRA,LUNA] Johannes Kepler, un detective del cielo del pasado, descubrió que los planetas se mueven siguiendo elipses. [JUEGO:CRUCIGRAMA:Camino de un planeta|ORBITA;Centro del sistema|SOL] En una elipse, hay dos puntos llamados focos. [JUEGO:ORDENAR_LETRAS:ORBITA] <br><table style='width:100%; color: white; border-collapse: collapse; border: 1px solid #4CAF50;'> <tr style='background-color: #2e7d32;'> <th>Mito Popular</th> <th>Evidencia Científica</th> </tr> <tr> <td>Órbita Circular</td> <td>Órbita Elíptica (1ra Ley de Kepler)</td> </tr> <tr> <td>Velocidad Constante</td> <td>Velocidad Variable (2da Ley de Kepler)</td> </tr> </table> <br> [JUEGO:ORDENAR_FRASE:EL SOL ESTA EN UN FOCO] El Sol no está en el centro, sino en uno de esos focos. [JUEGO:SOPA_LETRAS:PLANETA,ESPACIO,VACIO] Esto significa que a veces estamos más lejos (Afelio) y a veces más cerca (Perihelio). [JUEGO:CRUCIGRAMA:Ley de las elipses|PRIMERA;Forma de huevo|OVALO] Pero, ¡aquí está la pista clave! [JUEGO:ORDENAR_LETRAS:KEPLER] Cuando la Tierra está en su punto más cercano al Sol (Perihelio), ¡es invierno en el hemisferio norte! [JUEGO:ORDENAR_FRASE:LAS ORBITAS SON ELIPTICAS] Por tanto, el mito de la distancia queda desmentido por la simple lógica de las estaciones opuestas. [JUEGO:SOPA_LETRAS:MASA,PESO,FUERZA] La cinemática de los planetas es un baile de velocidades cambiantes. [JUEGO:CRUCIGRAMA:Segunda ley|AREAS;Unidad de tiempo|SEGUNDO] [JUEGO:ORDENAR_LETRAS:FOCO] Los planetas barren áreas iguales en tiempos iguales. [JUEGO:ORDENAR_FRASE:KEPLER DESCUBRIO LAS LEYES] Esto significa que cuando el planeta se acerca al Sol, debe correr más rápido para cubrir la misma área. [JUEGO:SOPA_LETRAS:RADIO,VECTOR,AREA] ¡No es un movimiento uniforme! [JUEGO:CRUCIGRAMA:Atraccion universal|GRAVEDAD;Cientifico ingles|NEWTON] [JUEGO:ORDENAR_LETRAS:GRAVEDAD] La gravedad es el motor de este misterio. [JUEGO:ORDENAR_FRASE:NEWTON EXPLICO LA FUERZA] [JUEGO:SOPA_LETRAS:INERCIA,MOVIMIENTO,RAPIDEZ] [JUEGO:CRUCIGRAMA:Tercera ley|PERIODOS;Distancia al centro|RADIO] Sin esta aceleración constante hacia el Sol, saldríamos disparados hacia la selva profunda del espacio.",
+  "recurso_visual": "graph TD\n    A[Mito: Órbita Circular] --> B{¿Por qué es Falso?}\n    B --> C[1ra Ley Kepler: Órbitas Elípticas]\n    B --> D[2da Ley Kepler: Velocidad Variable]\n    C --> E[Sol en un FOCO, no en el centro]\n    D --> F[Más rápido en el Perihelio]\n    F --> G[Conclusión: La distancia no causa las estaciones]",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "¿En qué punto de la elipse se encuentra el Sol según la primera ley de Kepler?",
+      "respuesta_esperada": "Se encuentra en uno de los focos de la elipse, no en el centro geométrico."
+    },
+    {
+      "pregunta": "¿Qué sucede con la rapidez de un planeta cuando se encuentra en el perihelio?",
+      "respuesta_esperada": "La rapidez del planeta aumenta considerablemente para cumplir con la segunda ley de Kepler (barrer áreas iguales en tiempos iguales)."
+    },
+    {
+      "pregunta": "Si el mito dice que el calor es por la cercanía, ¿cómo se desmiente esto con las estaciones?",
+      "respuesta_esperada": "Se desmiente observando que cuando la Tierra está en el perihelio (más cerca), es invierno en el hemisferio norte, lo que prueba que la inclinación del eje es la causa, no la distancia."
+    },
+    {
+      "pregunta": "¿Qué forma geométrica describe la trayectoria de los planetas?",
+      "respuesta_esperada": "Una elipse, que es una curva cerrada con dos focos."
+    },
+    {
+      "pregunta": "¿Cuál es la relación entre el área barrida por el radio vector y el tiempo?",
+      "respuesta_esperada": "Son proporcionales; el radio vector barre áreas iguales en intervalos de tiempo iguales."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja una elipse marcando claramente sus dos focos, el perihelio, el afelio y la posición del Sol.",
+    "Realiza un cuadro comparativo entre el Movimiento Circular Uniforme y el Movimiento Planetario elíptico.",
+    "Escribe una reflexión de media página sobre cómo el cambio de velocidad de la Tierra afecta nuestra percepción del tiempo astronómico.",
+    "Crea una ilustración que explique por qué si la Tierra está más cerca del Sol en enero, no es verano en todo el mundo."
+  ],
+  "texto_deductivo": "Ahora que hemos rastreado las huellas de Kepler, debemos usar las herramientas de la física para medir este movimiento. [JUEGO:ORDENAR_LETRAS:PERIHELIO] La posición de un planeta se define por su distancia al Sol y su ángulo. [JUEGO:ORDENAR_FRASE:EL AFELIO ES EL PUNTO LEJANO] No podemos usar las fórmulas simples de velocidad constante porque aquí existe una aceleración centrípeta gravitatoria variable. [JUEGO:SOPA_LETRAS:INVIERNO,VERANO,OTONO] <br> <div style='border: 2px solid yellow; padding: 10px; font-family: monospace; color: cyan;'> <strong>Ecuación de la 3ra Ley:</strong> T² ∝ a³ <br> Donde T es el periodo y 'a' es el semieje mayor. </div> <br> [JUEGO:CRUCIGRAMA:Punto lejano|AFELIO;Punto cercano|PERIHELIO] Los planetas más lejanos se mueven más lento. [JUEGO:ORDENAR_LETRAS:AFELIO] Si comparamos a Mercurio con Neptuno, Neptuno es un perezoso de la selva espacial. [JUEGO:ORDENAR_FRASE:LA VELOCIDAD CAMBIA EN LA ORBITA] [JUEGO:SOPA_LETRAS:CINETICA,POTENCIAL,ENERGIA] Al analizar la aceleración, vemos que siempre apunta hacia el Sol. [JUEGO:CRUCIGRAMA:Cambio de velocidad|ACELERACION;Rapidez|VELOCIDAD] [JUEGO:ORDENAR_LETRAS:VELOCIDAD] La velocidad tangencial cambia de magnitud constantemente. [JUEGO:ORDENAR_FRASE:EL PERIHELIO ES EL PUNTO CERCANO] [JUEGO:SOPA_LETRAS:ELIPSE,CIRCULO,CURVA] <br> <table style='width:100%; border: 1px solid #FFD700; color: white;'> <tr> <th>Variable</th> <th>Comportamiento en Perihelio</th> <th>Comportamiento en Afelio</th> </tr> <tr> <td>Velocidad</td> <td>Máxima</td> <td>Mínima</td> </tr> <tr> <td>Energía Cinética</td> <td>Máxima</td> <td>Mínima</td> </tr> </table> <br> [JUEGO:CRUCIGRAMA:Curva cerrada|ELIPSE;Lineas|VECTORES] El mito del movimiento circular se cae como un árbol podrido ante la Tercera Ley de Kepler. [JUEGO:ORDENAR_LETRAS:ACELERACION] [JUEGO:ORDENAR_FRASE:LA INCLINACION CAUSA LAS ESTACIONES] [JUEGO:SOPA_LETRAS:MAGNITUD,DIRECCION,SENTIDO] La distancia promedio al Sol no dicta la temperatura global, sino la inclinación del eje terrestre. [JUEGO:CRUCIGRAMA:Tiempo de giro|PERIODO;Ley tres|ARITMETICA] [JUEGO:ORDENAR_LETRAS:PERIODO] Si la órbita fuera un círculo, no habría diferencia de velocidad entre enero y julio. [JUEGO:ORDENAR_FRASE:LA DISTANCIA NO DEFINE EL CLIMA] [JUEGO:SOPA_LETRAS:TIEMPO,ESPACIO,MATERIA] [JUEGO:CRUCIGRAMA:Inclinacion|EJE;Clima|ESTACION] Hemos resuelto el misterio: el universo no es perfecto en simetría circular, sino perfecto en su equilibrio elíptico.",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "¿Qué establece la Tercera Ley de Kepler sobre el periodo orbital?",
+      "respuesta_esperada": "Establece que el cuadrado del periodo orbital es proporcional al cubo del semieje mayor de la órbita (T² ∝ a³)."
+    },
+    {
+      "pregunta": "¿Por qué un planeta se mueve más lento cuando está lejos del Sol (Afelio)?",
+      "respuesta_esperada": "Debido a la conservación del momento angular y la Segunda Ley de Kepler, al aumentar el radio, la velocidad debe disminuir para barrer la misma área."
+    },
+    {
+      "pregunta": "¿Cómo es la aceleración en un movimiento planetario elíptico?",
+      "respuesta_esperada": "Es una aceleración variable que siempre apunta hacia el Sol (fuerza central) y cambia su magnitud según la distancia inversamente al cuadrado."
+    },
+    {
+      "pregunta": "¿Qué magnitud física se conserva en el movimiento de un planeta?",
+      "respuesta_esperada": "Se conserva el momento angular respecto al Sol."
+    },
+    {
+      "pregunta": "¿Cuál es la diferencia entre el semieje mayor y el radio de un círculo?",
+      "respuesta_esperada": "En un círculo el radio es constante, en una elipse el semieje mayor es la mitad del diámetro más largo, representando la distancia promedio."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Diseña un diagrama detallado que muestre los vectores de velocidad y aceleración en cuatro puntos diferentes de una órbita elíptica.",
+    "Elabora un mapa mental que conecte las tres Leyes de Kepler con la Ley de Gravitación Universal de Newton.",
+    "Dibuja un esquema explicativo que muestre la diferencia entre la órbita de la Tierra (baja excentricidad) y la de un cometa (alta excentricidad).",
+    "Crea una infografía artesanal que desmienta el mito de que 'el verano ocurre porque estamos más cerca del Sol', usando datos de distancia en Perihelio y Afelio."
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "Un astrónomo aficionado observa que el planeta Marte tarda mucho más tiempo en completar una vuelta al Sol que la Tierra. Para entender esto, consulta la siguiente tabla de distancias promedio al Sol (Unidades Astronómicas):",
+      "tabla_o_grafica_markdown": "| Planeta | Distancia Media (UA) | Periodo (Años) |\n|---|---|---|\n| Tierra | 1.00 | 1.00 |\n| Marte | 1.52 | 1.88 |\n| Júpiter | 5.20 | 11.86 |",
+      "pregunta": "Según la Tercera Ley de Kepler y los datos de la tabla, si se descubriera un nuevo planeta a una distancia de 4 UA, su periodo orbital sería:",
+      "opciones": [
+        "Exactamente 4 años",
+        "Menor a 1 año",
+        "Mayor a 1.88 años pero menor a 11.86 años",
+        "Igual al de la Tierra porque la masa no importa"
+      ],
+      "correcta": 2,
+      "retroalimentacion": {
+        "0": "Incorrecto. La relación no es lineal (1:1), sino T² ∝ a³.",
+        "1": "Incorrecto. A mayor distancia, el periodo debe ser mayor, no menor.",
+        "2": "Correcto. Según la ley de los periodos, al estar a una distancia intermedia entre Marte (1.52) y Júpiter (5.20), su periodo debe estar entre 1.88 y 11.86 años.",
+        "3": "Incorrecto. El periodo depende de la distancia al Sol, no es igual para todos."
+      }
+    }
+  ]
+}

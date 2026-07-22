@@ -1,0 +1,86 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "Si un astronauta flota dentro de la ISS sin moverse respecto a las paredes, ¿podemos decir que realmente está quieto?",
+      "opciones": [
+        "Sí, está en reposo absoluto porque no cambia su distancia a los muros de la estación.",
+        "No, porque la ISS orbita la Tierra a 28,000 km/h, así que el astronauta también se mueve rápido respecto a la Tierra.",
+        "Depende de la gravedad, si no hay gravedad no existe el concepto de movimiento.",
+        "Solo se mueve si activa sus propulsores de emergencia."
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "Para reportar la ubicación exacta de una fuga de oxígeno en la estación, ¿qué elemento es INDISPENSABLE establecer primero?",
+      "opciones": [
+        "Un punto de referencia u origen para medir las distancias.",
+        "La velocidad a la que viaja el oxígeno flotando.",
+        "La hora exacta en que se detectó la alarma.",
+        "El volumen total de la estación espacial."
+      ],
+      "correcta": 0
+    },
+    {
+      "pregunta": "Un dron espacial vuela desde el Módulo Zvezda al Módulo Destiny dando giros en espiral. ¿Cómo se llama la línea curva imaginaria que dibujó en el aire?",
+      "opciones": [
+        "Desplazamiento directo",
+        "Posición instantánea",
+        "Trayectoria",
+        "Línea de vector de fuerza"
+      ],
+      "correcta": 2
+    }
+  ],
+  "texto_inductivo": "# ¡ALERTA EN LA ESTACIÓN ESPACIAL INTERNACIONAL! \n\n¡Saludos, aspirantes a Exploradores Espaciales! Soy el Comandante Astro. Nos encontramos a 400 kilómetros de altura sobre la superficie de la Tierra, orbitando a una velocidad vertiginosa. En este preciso momento, nos enfrentamos a una **misión de supervivencia crítica**.\n\nDurante una caminata espacial rutinaria, una caja de herramientas de alta tecnología (la *Caja Alpha*) se desprendió del brazo robótico. No podemos verla a simple vista, pero sus sensores de proximidad emiten señales intermitentes. Para recuperarla antes de que colisione con nuestros paneles solares o se pierda en el vacío cósmico, debemos rastrear su camino. \n\n***¿Cómo podemos predecir el camino de un objeto que se mueve en el espacio de la Estación Espacial Internacional (o un balón en las canchas de la IE Instituto Montenegro) si no comprendemos la diferencia entre el punto de partida y la ruta que decide tomar?***\n\nPara resolver este gran misterio, debemos aprender a leer el mapa del cosmos y dominar las variables de **Posición** y **Trayectoria**.\n\n<div style='text-align: center; margin: 20px 0;'>\n  <svg width='100%' height='220' viewBox='0 0 500 220' style='background-color:#0b0f19; border-radius: 10px; border: 2px solid #00f0ff;'>\n    <!-- Cuadrícula de Referencia -->\n    <defs>\n      <pattern id='grid' width='20' height='20' patternUnits='userSpaceOnUse'>\n        <path d='M 20 0 L 0 0 0 20' fill='none' stroke='#14253d' stroke-width='1'/>\n      </pattern>\n    </defs>\n    <rect width='100%' height='100%' fill='url(#grid)' />\n    \n    <!-- Ejes de Coordenadas -->\n    <line x1='50' y1='180' x2='450' y2='180' stroke='#3a5d8c' stroke-width='2' />\n    <line x1='50' y1='20' x2='50' y2='180' stroke='#3a5d8c' stroke-width='2' />\n    <text x='440' y='195' fill='#3a5d8c' font-size='10'>Eje X (Metros)</text>\n    <text x='15' y='30' fill='#3a5d8c' font-size='10' transform='rotate(-90, 15, 30)'>Eje Y (Metros)</text>\n    \n    <!-- ISS (Punto de Referencia - Origen) -->\n    <circle cx='100' cy='140' r='10' fill='#00f0ff' />\n    <text x='85' y='125' fill='#00f0ff' font-size='11' font-weight='bold'>ISS (Origen)</text>\n    \n    <!-- Trayectoria errática de la caja -->\n    <path d='M 100 140 Q 180 40 280 130 T 400 70' fill='none' stroke='#ff0077' stroke-width='3' stroke-dasharray='4' />\n    <text x='210' y='75' fill='#ff0077' font-size='11' font-weight='bold'>Trayectoria de la Caja Alpha</text>\n    \n    <!-- Caja perdida -->\n    <rect x='390' y='60' width='20' height='20' fill='#ffaa00' rx='3' />\n    <text x='380' y='50' fill='#ffaa00' font-size='11' font-weight='bold'>Caja Alpha (x=15m, y=6m)</text>\n  </svg>\n  <p style='color: #8fa0b5; font-size: 12px; font-style: italic;'>Esquema del radar de la ISS: El camino punteado rosa representa la trayectoria real descrita por la caja.</p>\n</div>\n\n### Actividad de Despegue: El Radar del Investigador\nPara activar el software de rastreo de la ISS, nuestros sistemas de cómputo requieren descifrar códigos clave. Comencemos ordenando los términos fundamentales que se han desconfigurado por la interferencia electromagnética:\n\n[JUEGO:ORDENAR_LETRAS:POSICION]\n\n[JUEGO:ORDENAR_LETRAS:TRAYECTORIA]\n\nUna vez que las computadoras vuelven a la vida, logramos descifrar un bit de información del cuaderno de bitácora del astronauta que perdió la caja:\n\n[JUEGO:ORDENAR_FRASE:LA POSICION DEPENDE DEL SISTEMA DE REFERENCIA]\n\n¡Excelente! Con estos códigos iniciales listos, nuestro radar empieza a trazar las líneas de búsqueda. Para encontrar la caja, busquemos términos clave ocultos en el sensor de escaneo electromagnético:\n\n[JUEGO:SOPA_LETRAS:SISTEMA,ORIGEN,COORDENADAS]\n\nPara fijar nuestro origen de coordenadas de manera correcta, resolvamos este primer acertijo de orientación espacial:\n\n[JUEGO:CRUCIGRAMA:Punto que se toma como referencia para medir la posicion|ORIGEN;Lugar exacto en el espacio donde se encuentra un cuerpo|POSICION]",
+  "recurso_visual": "<table style='width: 100%; border-collapse: collapse; border: 2px solid #00f0ff; background-color: #0d1625; color: #ffffff;'>\n  <thead>\n    <tr style='background-color: #1a2f4c;'>\n      <th style='padding: 10px; border: 1px solid #00f0ff; text-align: left;'>Variable Cinemática</th>\n      <th style='padding: 10px; border: 1px solid #00f0ff; text-align: left;'>¿Qué es en la ISS?</th>\n      <th style='padding: 10px; border: 1px solid #00f0ff; text-align: left;'>¿Cómo lo vemos en la IE Instituto Montenegro?</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td style='padding: 10px; border: 1px solid #00f0ff; font-weight: bold; color: #00f0ff;'>Punto de Referencia</td>\n      <td style='padding: 10px; border: 1px solid #00f0ff;'>La escotilla principal del módulo Destiny de la estación.</td>\n      <td style='padding: 10px; border: 1px solid #00f0ff;'>La portería de fútbol de la cancha principal de la institución.</td>\n    </tr>\n    <tr>\n      <td style='padding: 10px; border: 1px solid #00f0ff; font-weight: bold; color: #ff0077;'>Posición</td>\n      <td style='padding: 10px; border: 1px solid #00f0ff;'>Coordenadas (X=5m, Y=2m) del astronauta flotando.</td>\n      <td style='padding: 10px; border: 1px solid #00f0ff;'>Estar parado exactamente a 3 metros de la puerta del salón de grado 6.</td>\n    </tr>\n    <tr>\n      <td style='padding: 10px; border: 1px solid #00f0ff; font-weight: bold; color: #ffaa00;'>Trayectoria</td>\n      <td style='padding: 10px; border: 1px solid #00f0ff;'>El camino curvo que hace un tornillo suelto al flotar por los pasillos.</td>\n      <td style='padding: 10px; border: 1px solid #00f0ff;'>La curva zigzagueante que hace un estudiante esquivando compañeros en el descanso.</td>\n    </tr>\n  </tbody>\n</table>",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "¿Por qué el punto de referencia de la ISS es crucial para poder decir si la Caja Alpha se está alejando o acercando?",
+      "respuesta_esperada": "Porque la distancia se mide en relación con ese punto fijo; sin un origen acordado, no podemos saber en qué dirección buscar ni qué coordenadas usar para la recuperación."
+    },
+    {
+      "pregunta": "Mirando el gráfico del radar, si la caja se movió describiendo curvas, ¿su longitud de viaje será igual a la línea recta que une la ISS con su posición final?",
+      "respuesta_esperada": "No, el camino curvo (trayectoria) siempre es más largo que la línea recta directa (desplazamiento) cuando hay giros o curvas."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "RETO CIENTÍFICO 1: Imagina que estás en la entrada de la IE Instituto Montenegro. Define tu punto de referencia como la puerta principal. Dibuja un mapa de coordenadas sencillo de tu salón de clases y escribe la posición exacta de tu pupitre en metros (X, Y).",
+    "RETO CIENTÍFICO 2: Narra el 'vuelo' de un zancudo que entra a tu salón. Describe si su trayectoria fue recta o curvilínea y explica por qué su posición cambia a cada segundo."
+  ],
+  "texto_deductivo": "# FUNDAMENTACIÓN CIENTÍFICA: LA FÍSICA DETRÁS DEL RASTREO\n\n¡Atención, equipo de rescate! Para consolidar nuestra misión de supervivencia en la ISS, debemos estructurar matemáticamente nuestros hallazgos. En física, el movimiento no es algo mágico; se rige por leyes exactas y variables medibles.\n\n### 1. El Sistema de Referencia\nEs el conjunto de convenciones que un observador utiliza para medir la posición de un cuerpo físico. En la Tierra, solemos usar el suelo como referencia, pero en el espacio, donde todo se desplaza a velocidades extremas, ¡debemos elegir nuestro origen con extrema astucia!\n\n### 2. La Posición\nEs una magnitud vectorial que nos indica la localización del objeto respecto al sistema de referencia elegido. Se representa mediante coordenadas $(x, y, z)$.\n\n### 3. La Trayectoria\nEs la línea geométrica continua que describe un cuerpo en movimiento. Puede ser:\n* **Rectilínea**: Un rayo de luz láser cruzando el laboratorio de la ISS.\n* **Curvilínea**: La órbita de la ISS alrededor de la Tierra, o la parábola de un balón lanzado en el patio de la IE Instituto Montenegro.\n\n<div style='text-align: center; margin: 20px 0;'>\n  <svg width='100%' height='180' viewBox='0 0 500 180' style='background-color:#0d1625; border-radius: 8px; border: 1px solid #3a5d8c;'>\n    <!-- Trayectoria Curva vs Desplazamiento Recto -->\n    <!-- Inicio -->\n    <circle cx='80' cy='110' r='8' fill='#00f0ff' />\n    <text x='70' y='130' fill='#00f0ff' font-size='11'>Inicio (A)</text>\n    \n    <!-- Fin -->\n    <circle cx='400' cy='60' r='8' fill='#ffaa00' />\n    <text x='390' y='50' fill='#ffaa00' font-size='11'>Fin (B)</text>\n    \n    <!-- Camino real curvo (Trayectoria) -->\n    <path d='M 80 110 C 180 190, 250 10, 400 60' fill='none' stroke='#ff0077' stroke-width='3' />\n    <text x='200' y='140' fill='#ff0077' font-size='12' font-weight='bold'>Trayectoria (Línea del Recorrido)</text>\n    \n    <!-- Vector Desplazamiento -->\n    <line x1='80' y1='110' x2='400' y2='60' stroke='#00ff44' stroke-width='2' stroke-dasharray='5' />\n    <text x='230' y='75' fill='#00ff44' font-size='12' font-weight='bold'>Desplazamiento (Línea Recta)</text>\n  </svg>\n  <p style='color: #8fa0b5; font-size: 11px; margin-top: 5px;'>Física en acción: Diferencia crucial entre la Trayectoria (curva roja) y el Desplazamiento (línea discontinua verde).</p>\n</div>\n\n### Ajuste de Sensores Teóricos\nPara que los algoritmos de navegación no se descalibren, resolvamos los siguientes desafíos de código físico:\n\n[JUEGO:ORDENAR_LETRAS:DISTANCIA]\n\n[JUEGO:ORDENAR_LETRAS:MOVIMIENTO]\n\n[JUEGO:ORDENAR_LETRAS:ORBITA]\n\nLas transmisiones de la Tierra nos recuerdan cómo esta física espacial se conecta con la vida cotidiana en el Quindío:\n\n[JUEGO:ORDENAR_FRASE:LA TRAYECTORIA ES EL CAMINO DIBUJADO]\n\n[JUEGO:ORDENAR_FRASE:EL DESPLAZAMIENTO ES LA LINEA RECTA]\n\n[JUEGO:ORDENAR_FRASE:EN EL ESPACIO TODO ESTA EN MOVIMIENTO]\n\n[JUEGO:ORDENAR_FRASE:EL INSTITUTO MONTENEGRO EXPLORA EL COSMOS]\n\nActivemos ahora los sistemas auxiliares de rastreo térmico con esta sopa de palabras científicas esenciales:\n\n[JUEGO:SOPA_LETRAS:ESPACIO,LINEA,CAMINO]\n\n[JUEGO:SOPA_LETRAS:VECTOR,METRO,TIEMPO]\n\n[JUEGO:SOPA_LETRAS:RAPIDEZ,CINEMATICA,FISICA]\n\n[JUEGO:SOPA_LETRAS:COHETE,SATELITE,GRAVEDAD]\n\nPara cerrar la sincronización de la computadora de a bordo, superemos los últimos desafíos lógicos del manual de astrofísica:\n\n[JUEGO:CRUCIGRAMA:Linea invisible que describe un objeto al moverse|TRAYECTORIA;Medida de la longitud de la trayectoria|DISTANCIA]\n\n[JUEGO:CRUCIGRAMA:Cambio de posicion de un cuerpo respecto a un punto de referencia|MOVIMIENTO;Cuerpo en movimiento del cual estudiamos su trayectoria|MOVIL]\n\n[JUEGO:CRUCIGRAMA:Distancia medida en linea recta desde el inicio al final|DESPLAZAMIENTO;Magnitud que tiene direccion y sentido|VECTOR]\n\n[JUEGO:CRUCIGRAMA:Estacion cientifica que orbita la Tierra|ISS;Estudiante de fisica que explora el espacio|EXPLORADOR]\n\n¡Sistemas completamente calibrados! Hemos localizado las coordenadas exactas de la Caja Alpha gracias a sus cálculos vectoriales.",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "¿Qué diferencia matemática fundamental existe entre la trayectoria y el desplazamiento de un cuerpo?",
+      "respuesta_esperada": "La trayectoria es la longitud total recorrida a lo largo de cualquier camino (escalar), mientras que el desplazamiento es la distancia más corta medida en línea recta desde el punto inicial hasta el punto final (vectorial)."
+    },
+    {
+      "pregunta": "Si un astronauta sale de la escotilla de la ISS a reparar un panel y regresa exactamente al mismo punto de partida, ¿cuánto vale su desplazamiento?",
+      "respuesta_esperada": "Su desplazamiento es cero (0), ya que sus puntos inicial y final coinciden, a pesar de que su trayectoria y distancia recorrida hayan sido largas."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "DIARIO DE ABORDO: Dibuja detalladamente una cancha de baloncesto de la IE Instituto Montenegro. Traza la trayectoria de un pase de pelota con efecto parabólico y, con un color diferente, traza el vector de desplazamiento directo.",
+    "RETO MATEMÁTICO: Un astronauta se desplaza 4 metros al norte y luego 3 metros al este dentro del módulo laboratorio. Calcula la distancia recorrida (trayectoria) y calcula la longitud del desplazamiento usando tus conocimientos geométricos básicos (pista: teorema de Pitágoras)."
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de fenómenos",
+      "texto_introductorio": "En la Estación Espacial Internacional (ISS), una cámara robótica de seguridad se desplaza por un riel recto para vigilar los tanques de combustible. La cámara parte de la posición X = 2 metros, avanza hasta X = 10 metros, y luego retrocede hasta la posición X = 6 metros, donde se detiene a tomar una fotografía, tal como se muestra en la siguiente gráfica de posiciones:",
+      "tabla_o_grafica_markdown": "| Evento | Posición en el Riel (metros) |\n| :--- | :--- |\n| Punto de Partida (A) | X = 2 m |\n| Punto de Retorno (B) | X = 10 m |\n| Punto de la Foto (C) | X = 6 m |",
+      "pregunta": "Con base en la información anterior, ¿cuáles son los valores correctos para la distancia total recorrida (trayectoria) y el desplazamiento neto de la cámara desde que inició su movimiento hasta que tomó la fotografía?",
+      "opciones": [
+        "Distancia recorrida = 8 metros; Desplazamiento = 4 metros.",
+        "Distancia recorrida = 12 metros; Desplazamiento = 4 metros en dirección positiva.",
+        "Distancia recorrida = 12 metros; Desplazamiento = 6 metros.",
+        "Distancia recorrida = 16 metros; Desplazamiento = 8 metros en dirección negativa."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. Olvidaste sumar la distancia de regreso (de 10m a 6m, que son 4m adicionales) al trayecto de ida (de 2m a 10m, que son 8m).",
+        "1": "¡Excelente, Explorador! La distancia total recorrida es la suma de los tramos recorridos: de 2 a 10 metros (8 metros) más de 10 a 6 metros (4 metros), dando un total de 12 metros. El desplazamiento neto es la distancia en línea recta desde la posición inicial (2m) hasta la final (6m), lo que da 4 metros positivos.",
+        "2": "Incorrecto. Aunque la distancia recorrida de 12 metros es correcta, el desplazamiento neto es la diferencia entre el punto final (6m) y el inicial (2m), que da 4m, no 6m.",
+        "3": "Incorrecto. Los cálculos de los tramos no corresponden a la resta de posiciones en el riel de coordenadas."
+      }
+    }
+  ]
+}

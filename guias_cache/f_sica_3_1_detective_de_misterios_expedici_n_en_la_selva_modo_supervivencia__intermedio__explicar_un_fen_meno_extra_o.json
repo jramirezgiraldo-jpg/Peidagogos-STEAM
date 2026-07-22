@@ -1,0 +1,114 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Qué modelo situaba a la Tierra como el centro del universo?",
+      "opciones": [
+        "Heliocéntrico",
+        "Geocéntrico",
+        "Big Bang",
+        "Galáctico"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Quién propuso que las órbitas de los planetas eran elipses?",
+      "opciones": [
+        "Isaac Newton",
+        "Galileo Galilei",
+        "Johannes Kepler",
+        "Nicolás Copérnico"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "¿Qué fuerza mantiene a los planetas girando alrededor del Sol?",
+      "opciones": [
+        "Fricción",
+        "Magnetismo",
+        "Gravedad",
+        "Electricidad"
+      ],
+      "correcta": 2
+    }
+  ],
+  "texto_inductivo": "¡Saludos, exploradores! Soy el Detective de Misterios y nos encontramos en las profundidades de la Selva Amazónica. Frente a nosotros se alza la 'Pirámide del Observador', una estructura que no debería existir según los libros de historia tradicionales. Los glifos en las paredes sugieren que estos antiguos habitantes conocían el cielo mejor que nosotros. ***¿Cómo es posible que civilizaciones antiguas, perdidas en la selva, pudieran predecir con exactitud el movimiento de los planetas sin telescopios modernos, y qué nos dice esto sobre la mecánica del universo?*** \n\nPara resolver este enigma, debemos observar el cielo como ellos lo hacían. Notaban que algunos puntos de luz no seguían el camino de las estrellas fijas. Los llamaron 'errantes' o planetas. [JUEGO:ORDENAR_LETRAS:PLANETA] Al principio, pensamos que todo giraba en torno a nosotros, pero la selva nos enseña que el centro es la luz, el Sol. [JUEGO:ORDENAR_FRASE:LOS PLANETAS GIRAN ALREDEDOR DEL SOL] \n\n<div style='background: #1a1a1a; padding: 20px; border-radius: 10px; border: 2px solid #4CAF50; color: white; text-align: center;'>\n  <h3>Visualización de la Órbita según la Selva</h3>\n  <svg width='300' height='150'>\n    <ellipse cx='150' cy='75' rx='120' ry='60' style='fill:none;stroke:#8bc34a;stroke-width:3;stroke-dasharray:5,5' />\n    <circle cx='190' cy='75' r='15' fill='#ffeb3b' />\n    <text x='180' y='55' fill='white' font-size='12'>Sol (Foco)</text>\n    <circle cx='50' cy='45' r='8' fill='#2196f3' />\n    <text x='35' y='35' fill='white' font-size='10'>Planeta</text>\n  </svg>\n  <p><i>Representación de la Primera Ley de Kepler: Órbitas Elípticas</i></p>\n</div>\n\nEl camino que recorren estos astros no es un círculo perfecto, sino una curva llamada elipse. [JUEGO:ORDENAR_LETRAS:ELIPSE] En esta danza cósmica, el Sol no está en el centro, sino en un punto especial. [JUEGO:CRUCIGRAMA:Estrella central|SOL;Camino de un planeta|ORBITA] La observación constante permitió a los antiguos detectar patrones. [JUEGO:SOPA_LETRAS:GALILEO,KEPLER,NEWTON] \n\nCada planeta tiene su propio ritmo. [JUEGO:ORDENAR_FRASE:LA TIERRA SE MUEVE EN EL ESPACIO] Los más cercanos al Sol corren desesperados, mientras los lejanos caminan con parsimonia de tortuga milenaria. [JUEGO:CRUCIGRAMA:Forma de la orbita|ELIPSE;Cientifico de las leyes|KEPLER] Explorando las ruinas, encontramos un calendario de piedra que marca las estaciones. [JUEGO:ORDENAR_LETRAS:ORBITA] \n\n[JUEGO:SOPA_LETRAS:ASTRO,MUNDO,CIELO] La mecánica celeste es como el ecosistema de la selva: cada pieza tiene un lugar y un tiempo. [JUEGO:ORDENAR_FRASE:KEPLER DESCUBRIO LAS LEYES DEL MOVIMIENTO] El Sol actúa como el gran motor de este sistema. [JUEGO:ORDENAR_LETRAS:SOL] \n\n<table style='width:100%; border-collapse: collapse; background-color: #2e7d32; color: white;'>\n  <tr style='border-bottom: 2px solid white;'>\n    <th style='padding: 10px;'>Concepto</th>\n    <th style='padding: 10px;'>Descripción en la Selva</th>\n  </tr>\n  <tr>\n    <td style='padding: 10px; border-bottom: 1px solid #4caf50;'>Foco</td>\n    <td style='padding: 10px; border-bottom: 1px solid #4caf50;'>El lugar donde se ubica el Sol (motor térmico).</td>\n  </tr>\n  <tr>\n    <td style='padding: 10px; border-bottom: 1px solid #4caf50;'>Radio Vector</td>\n    <td style='padding: 10px; border-bottom: 1px solid #4caf50;'>La liana invisible que une al Sol con el planeta.</td>\n  </tr>\n</table>\n\nEl Sol siempre ocupa un foco. [JUEGO:ORDENAR_FRASE:EL SOL OCUPA UN FOCO DE LA ELIPSE] Los antiguos sabían que el tiempo y el área recorrida estaban conectados. [JUEGO:SOPA_LETRAS:FOCO,AREA,TIEMPO] No es magia, es física pura oculta en mitos. [JUEGO:ORDENAR_LETRAS:FOCO] \n\n[JUEGO:CRUCIGRAMA:Fuerza invisible|GRAVEDAD;Cuerpo celeste|ASTRO] Para entender el movimiento, debemos medir la posición y el tiempo. [JUEGO:SOPA_LETRAS:RADIO,VECTOR,ARCO] El movimiento es relativo a quien mira, pero las leyes son universales. [JUEGO:ORDENAR_FRASE:EL MOVIMIENTO ES RELATIVO AL OBSERVADOR] \n\n[JUEGO:CRUCIGRAMA:Tercer planeta|TIERRA;Satelite natural|LUNA] Finalmente, descubrimos que la aceleración es la clave para entender por qué no se escapan al vacío. [JUEGO:SOPA_LETRAS:MASA,PESO,FUERZA] [JUEGO:CRUCIGRAMA:Velocidad en el tiempo|ACELERACION;Cambio de posicion|MOVIMIENTO]",
+  "recurso_visual": "| Descubrimiento | Científico | Impacto en la Navegación |\n| :--- | :--- | :--- |\n| Órbitas Elípticas | Johannes Kepler | Predicción exacta de eclipses |\n| Telescopio/Satélites | Galileo Galilei | Confirmación del Heliocentrismo |\n| Gravitación Universal | Isaac Newton | Entender por qué los planetas no caen |",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "¿Qué forma tienen las órbitas según el texto?",
+      "respuesta_esperada": "Tienen forma de elipse, no de círculos perfectos."
+    },
+    {
+      "pregunta": "¿Dónde se ubica el Sol en el modelo de Kepler?",
+      "respuesta_esperada": "Se ubica en uno de los focos de la elipse."
+    },
+    {
+      "pregunta": "¿Por qué los planetas cercanos al sol se mueven más rápido?",
+      "respuesta_esperada": "Debido a las leyes de Kepler, para barrer áreas iguales en tiempos iguales, deben aumentar su velocidad al estar cerca del Sol."
+    },
+    {
+      "pregunta": "¿Cómo llamaban los antiguos a los planetas?",
+      "respuesta_esperada": "Los llamaban 'errantes'."
+    },
+    {
+      "pregunta": "¿Cuál es la función del Sol en este sistema narrativo?",
+      "respuesta_esperada": "Actúa como el gran motor o el foco central de atracción."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema de una elipse identificando los dos focos y la posición del Sol en uno de ellos.",
+    "Realiza un cuadro comparativo entre el modelo geocéntrico y el heliocéntrico basándote en la lectura.",
+    "Escribe una reflexión de 10 líneas sobre cómo la observación de la naturaleza ayudó a los antiguos a entender el cosmos.",
+    "Representa gráficamente la diferencia entre un círculo y una elipse mediante un diagrama de Venn."
+  ],
+  "texto_deductivo": "Ahora que hemos observado el fenómeno, es hora de usar la lupa del detective para deducir las leyes matemáticas que rigen este misterio. En la física, el movimiento no es solo 'moverse'; es un cambio de posición respecto al tiempo. [JUEGO:ORDENAR_LETRAS:FUERZA] Para que un planeta mantenga su órbita en la selva cósmica, debe existir una fuerza que lo atraiga constantemente hacia el centro. [JUEGO:ORDENAR_FRASE:LA GRAVEDAD DEPENDE DE LA MASA] \n\n<div style='border: 4px double #ff9800; padding: 15px; background: #fffde7; font-family: serif;'>\n  <h2 style='color: #e65100; text-align: center;'>Ley de la Gravitación Universal</h2>\n  <p style='font-size: 1.5rem; text-align: center; font-weight: bold;'>\n    F = G &middot; (m₁ &middot; m₂) / r²\n  </p>\n  <p style='text-align: center;'><i>Donde la atracción disminuye con el cuadrado de la distancia.</i></p>\n</div>\n\nEsta fuerza es la Gravedad. [JUEGO:ORDENAR_LETRAS:MASA] Newton dedujo que la masa de los objetos es la que genera esta atracción. [JUEGO:SOPA_LETRAS:GRAVEDAD,INERCIA,ORBITA] Si el planeta no tuviera velocidad, caería directo al Sol como una fruta madura de un árbol. [JUEGO:ORDENAR_FRASE:LA ACELERACION CAMBIA LA VELOCIDAD] \n\nLa cinemática nos ayuda a describir este viaje. [JUEGO:ORDENAR_LETRAS:RADIO] El vector posición nos dice dónde está el astro en cada segundo. [JUEGO:CRUCIGRAMA:Magnitud vectorial|VELOCIDAD;Resistencia al cambio|INERCIA] [JUEGO:SOPA_LETRAS:POSICION,ESPACIO,LUGAR] El movimiento requiere una dirección y un sentido. [JUEGO:ORDENAR_FRASE:EL VECTOR POSICION INDICA EL LUGAR] \n\n[JUEGO:CRUCIGRAMA:Atraccion de masas|GRAVEDAD;Trayectoria curva|ORBITA] La distancia es un factor crítico. [JUEGO:ORDENAR_LETRAS:TIEMPO] Si duplicamos la distancia, la fuerza no se reduce a la mitad, ¡se reduce a la cuarta parte! [JUEGO:ORDENAR_FRASE:LA DISTANCIA AFECTA LA ATRACCION] [JUEGO:SOPA_LETRAS:VALOR,UNIDAD,MEDIDA] \n\nEn nuestra expedición, la aceleración centrípeta es la que 'tira' del planeta hacia adentro para que su trayectoria sea curva y no una línea recta hacia el vacío. [JUEGO:ORDENAR_LETRAS:VECTOR] [JUEGO:SOPA_LETRAS:CENTRO,CURVA,GIRO] Esta es la verdadera razón del equilibrio. [JUEGO:ORDENAR_FRASE:NEWTON EXPLICO LA GRAVEDAD UNIVERSAL] \n\n[JUEGO:CRUCIGRAMA:Espacio recorrido|DISTANCIA;Punto de partida|ORIGEN] Las leyes de la física son el mapa que nos permite no perdernos en la selva del desconocimiento. [JUEGO:SOPA_LETRAS:LEYES,FISICA,CIENCIA] [JUEGO:CRUCIGRAMA:Unidad de fuerza|NEWTON;Masa por aceleracion|FUERZA] \n\n[JUEGO:CRUCIGRAMA:Relacion espacio tiempo|RAPIDEZ;Cambio de rapidez|ACELERACION] El misterio de la pirámide se resuelve entendiendo que la física es el lenguaje del universo.",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "¿Qué sucede con la fuerza de gravedad si la masa de un cuerpo aumenta?",
+      "respuesta_esperada": "La fuerza de gravedad aumenta proporcionalmente a la masa."
+    },
+    {
+      "pregunta": "¿Qué pasaría si un planeta perdiera toda su velocidad tangencial?",
+      "respuesta_esperada": "Sería atraído directamente por la gravedad del Sol y chocaría contra él."
+    },
+    {
+      "pregunta": "¿Qué indica el vector posición?",
+      "respuesta_esperada": "Indica el lugar exacto de un objeto respecto a un punto de origen en un momento dado."
+    },
+    {
+      "pregunta": "¿Por qué la trayectoria de los planetas es curva y no recta?",
+      "respuesta_esperada": "Debido a la aceleración centrípeta generada por la fuerza de gravedad que curva su movimiento inercial."
+    },
+    {
+      "pregunta": "¿Cómo cambia la fuerza de gravedad al alejarse del Sol?",
+      "respuesta_esperada": "Disminuye inversamente con el cuadrado de la distancia."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Dibuja un diagrama detallado de un planeta en órbita mostrando los vectores de velocidad y de fuerza centrípeta.",
+    "Elabora un mapa mental que conecte los conceptos de Masa, Distancia, Gravedad y Órbita.",
+    "Realiza un dibujo explicativo de la 'caída libre' de un planeta alrededor del Sol.",
+    "Crea una infografía artesanal que explique la fórmula de Gravitación Universal de Newton usando elementos de la selva (ej. cocos, lianas)."
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "En la selva, observamos que un pequeño satélite natural de un planeta lejano parece moverse más lento cuando está en el punto más alejado de su órbita (afelio) y más rápido cuando está cerca (perhelio).",
+      "tabla_o_grafica_markdown": "| Posición | Distancia al Centro | Velocidad Orbital |\n|---|---|---|\n| Cerca | Mínima | Máxima |\n| Lejos | Máxima | Mínima |",
+      "pregunta": "¿Cuál es la razón científica que explica este cambio de velocidad según las leyes de Kepler?",
+      "opciones": [
+        "El satélite debe barrer áreas iguales en tiempos iguales, por lo que compensa la distancia con velocidad.",
+        "El aire de la selva espacial frena al satélite cuando está lejos.",
+        "La gravedad desaparece cuando el satélite se aleja demasiado.",
+        "El satélite decide ir más lento para ahorrar energía en el viaje largo."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. La Segunda Ley de Kepler establece que el radio vector barre áreas iguales en tiempos iguales, lo que implica mayor velocidad cerca del foco.",
+        "1": "Incorrecto. En el espacio no hay aire que genere fricción de ese tipo.",
+        "2": "Incorrecto. La gravedad disminuye pero nunca desaparece totalmente en órbita.",
+        "3": "Incorrecto. Los satélites no tienen voluntad propia ni 'ahorran energía' de esa forma; siguen leyes físicas."
+      }
+    }
+  ]
+}

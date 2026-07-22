@@ -1,0 +1,96 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "Si un astronauta flota sin moverse frente a la ventana de la ISS, ¿cómo sabemos que realmente se está moviendo a gran velocidad alrededor de la Tierra?",
+      "opciones": [
+        "Porque la Tierra se ve girar debajo de él, sirviendo como punto de referencia.",
+        "Porque la ISS tiene las luces encendidas todo el tiempo.",
+        "Porque el traje espacial es de color blanco brillante.",
+        "No se está moviendo en absoluto, está completamente quieto en el universo."
+      ],
+      "correcta": 0
+    },
+    {
+      "pregunta": "Cuando caminas por los pasillos de la IE Instituto Montenegro, ¿qué utilizas principalmente para saber dónde estás ubicado?",
+      "opciones": [
+        "La hora que marca tu reloj de mano.",
+        "La cantidad de estudiantes que hay en el salón.",
+        "Puntos de referencia fijos como la entrada, la rectoría o el patio.",
+        "El color del uniforme de tus compañeros."
+      ],
+      "correcta": 2
+    }
+  ],
+  "texto_inductivo": "¡Atención, recluta espacial! Te habla el Comandante de la Estación Espacial Internacional (ISS). Te encuentras a 400 kilómetros de altura, orbitando el planeta Tierra a una velocidad de 27,600 km/h. En este entorno hostil, la física no es solo una materia escolar; ¡es tu única herramienta de supervivencia!\n\nImagínate esto: estás realizando una caminata espacial para reparar un panel solar exterior. De repente, una pequeña alerta suena en tu traje: la reserva de oxígeno está disminuyendo y debes regresar de inmediato a la esclusa de aire (la entrada de la estación). Pero hay un problema: todo a tu alrededor parece flotar y moverse. ¿Hacia dónde te diriges? ¿Cómo defines tu ubicación en el vacío infinito?\n\nAquí es donde conectamos el cosmos con tu realidad cotidiana. Hagámonos esta gran pregunta:\n\n***¿Cómo puede un astronauta perdido en el espacio exterior de la ISS usar los mismos conceptos de posición y trayectoria que tú utilizas para cruzar el patio de la IE Instituto Montenegro sin chocar durante el recreo, y de esto depender su supervivencia?***\n\nPara resolver este misterio, primero debemos entender dos conceptos clave: dónde estamos (Posición) y qué camino seguimos para movernos (Trayectoria). ¡Si fallas al calcular tu trayectoria en el espacio, podrías flotar eternamente hacia el vacío!\n\nComencemos entrenando tu cerebro con estos retos de supervivencia espacial:\n\n[JUEGO:ORDENAR_LETRAS:POSICION]\n\n[JUEGO:ORDENAR_FRASE:La posicion es un punto]\n\nMira el siguiente mapa táctico de la estación espacial. Muestra la ruta que debes seguir para ponerte a salvo:\n\n<svg width='100%' height='220' viewBox='0 0 400 220' style='background-color:#0d1117; border-radius:8px; border:2px solid #58a6ff; margin:20px 0;'>\n  <defs>\n    <pattern id='grid1' width='20' height='20' patternUnits='userSpaceOnUse'>\n      <path d='M 20 0 L 0 0 0 20' fill='none' stroke='#21262d' stroke-width='1'/>\n    </pattern>\n  </defs>\n  <rect width='100%' height='100%' fill='url(#grid1)'/>\n  <line x1='40' y1='180' x2='360' y2='180' stroke='#8b949e' stroke-width='2'/>\n  <line x1='60' y1='20' x2='60' y2='200' stroke='#8b949e' stroke-width='2'/>\n  <path d='M 60 180 L 160 100 L 260 140 L 340 40' fill='none' stroke='#ff7b72' stroke-width='3' stroke-dasharray='4,4'/>\n  <circle cx='60' cy='180' r='8' fill='#58a6ff'/>\n  <circle cx='340' cy='40' r='8' fill='#39d353'/>\n  <text x='75' y='195' fill='#58a6ff' font-family='sans-serif' font-size='11' font-weight='bold'>ORIGEN (Tu Posición)</text>\n  <text x='230' y='30' fill='#39d353' font-family='sans-serif' font-size='11' font-weight='bold'>MÓDULO DE ESCAPE</text>\n  <text x='150' y='80' fill='#ff7b72' font-family='sans-serif' font-size='11'>Trayectoria de Evacuación</text>\n</svg>\n\n¿Viste cómo la línea punteada marca cada paso que das? ¡Esa es tu trayectoria! Mientras que el punto azul donde inicias es tu posición.\n\nSigamos practicando con más herramientas interactivas antes de salir al espacio exterior:\n\n[JUEGO:SOPA_LETRAS:ORIGEN,CAMINO,METRO]\n\n[JUEGO:CRUCIGRAMA:Lugar donde se encuentra un objeto|POSICION;Punto de referencia inicial|ORIGEN]\n\n[JUEGO:ORDENAR_LETRAS:TRAYECTORIA]\n\n[JUEGO:ORDENAR_FRASE:La trayectoria es el camino]\n\n[JUEGO:SOPA_LETRAS:COHETE,LINEA,MAPA]\n\n[JUEGO:CRUCIGRAMA:Camino que deja un cuerpo al moverse|TRAYECTORIA;Sigla de la Estacion Espacial Internacional|ISS]\n\n¡Excelente trabajo, cadete! Ahora estás listo para formalizar estos conocimientos teóricos y asegurar la supervivencia de la tripulación.",
+  "recurso_visual": "| Variable Cinemática | Concepto Físico | Aplicación en la ISS (Supervivencia) | Aplicación en la IE Instituto Montenegro |\n| :--- | :--- | :--- | :--- |\n| **Punto de Referencia** | Lugar fijo desde donde se mide el movimiento. | El Módulo Zvezda de la ISS. | La entrada principal de la institución. |\n| **Posición** | Lugar exacto donde se encuentra el cuerpo en un momento dado respecto al origen. | Coordenadas cartesianas (X, Y) respecto a la compuerta. | Frente al tablero del salón de Grado 6. |\n| **Trayectoria** | Línea o camino imaginario que describe un móvil durante su viaje. | Ruta curva para esquivar restos de basura espacial flotante. | Camino en zig-zag que haces en el patio para no chocar durante el recreo. |",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "¿Qué pasaría con la trayectoria de un astronauta si no tuviera un punto de referencia para medir hacia dónde se está moviendo?",
+      "respuesta_esperada": "El astronauta no sabría si se está acercando o alejando de la estación espacial, perdiéndose en el espacio, ya que la trayectoria requiere un marco de referencia para ser definida y medida correctamente."
+    },
+    {
+      "pregunta": "Si estás en la IE Instituto Montenegro y caminas en línea recta desde tu salón hasta la cafetería, ¿cómo describirías tu trayectoria?",
+      "respuesta_esperada": "Es una trayectoria rectilínea, porque el camino seguido dibuja una línea recta imaginaria sobre el suelo."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja en tu cuaderno un mapa del patio de la IE Instituto Montenegro. Marca un punto de inicio (Posición A) y un punto de llegada (Posición B). Dibuja con color rojo una trayectoria rectilínea y con color azul una trayectoria curvilínea para ir de A a B.",
+    "Escribe una breve historia de supervivencia de 5 renglones donde un astronauta debe cambiar su trayectoria rápidamente para esquivar un meteoroide."
+  ],
+  "texto_deductivo": "¡Bienvenido a la cubierta científica, cadete! Aquí analizamos los datos con precisión matemática. Para sobrevivir en el espacio exterior, no podemos usar direcciones vagas como 'por allá' o 'arriba'. En el vacío, ¡no hay arriba ni abajo! Necesitamos coordenadas formales.\n\n### 1. El Marco de Referencia: El Ancla del Movimiento\nPara decir que algo se mueve, necesitamos comparar su posición con algo que esté quieto. A esto lo llamamos **Marco de Referencia**. En la Tierra, tu marco de referencia puede ser el campanario de la iglesia de Montenegro. En el espacio, es la propia estructura de la ISS.\n\n[JUEGO:ORDENAR_LETRAS:ESPACIO]\n\n[JUEGO:ORDENAR_FRASE:El astronauta flota en la estacion]\n\n### 2. La Posición: Tu Dirección Cósmica\nLa posición nos indica el lugar exacto donde se encuentra un cuerpo respecto a nuestro origen. Se mide en metros (m) en el Sistema Internacional.\nPor ejemplo, si la esclusa de aire es nuestro origen (0,0), tu posición en un momento de peligro podría ser de 5 metros a la derecha.\n\n[JUEGO:SOPA_LETRAS:PUNTO,RUTAS,CURVA]\n\n[JUEGO:CRUCIGRAMA:Fuerza que atrae los cuerpos|GRAVEDAD;Unidad de medida de la distancia|METRO]\n\n### 3. La Trayectoria: Las Huellas del Movimiento\nLa trayectoria es el conjunto de todos los puntos sucesivos por los que pasa un cuerpo en movimiento. Dependiendo de su forma, las clasificamos en:\n*   **Rectilíneas:** Caminos en línea recta perfecta.\n*   **Curvilíneas:** Caminos que se doblan, como círculos (circulares) o curvas irregulares (elípticas).\n\n[JUEGO:ORDENAR_LETRAS:DISTANCIA]\n\n[JUEGO:ORDENAR_FRASE:El movimiento depende del observador]\n\nMiremos gráficamente cómo se diferencian estas trayectorias con este diagrama de nuestro radar de abordo:\n\n<svg width='100%' height='200' viewBox='0 0 400 200' style='background-color:#0a0e17; border-radius:8px; border:2px solid #ff7b72; margin:20px 0;'>\n  <text x='20' y='30' fill='#ffffff' font-family='sans-serif' font-weight='bold' font-size='13'>Trayectoria Rectilínea (Misión Estándar)</text>\n  <line x1='30' y1='65' x2='370' y2='65' stroke='#58a6ff' stroke-width='3'/>\n  <circle cx='30' cy='65' r='5' fill='#58a6ff'/>\n  <circle cx='370' cy='65' r='5' fill='#39d353'/>\n  <text x='20' y='115' fill='#ffffff' font-family='sans-serif' font-weight='bold' font-size='13'>Trayectoria Curvilínea (Esquivando Basura)</text>\n  <path d='M 30 155 C 100 110, 200 200, 370 155' fill='none' stroke='#ff7b72' stroke-width='3' stroke-dasharray='4,4'/>\n  <circle cx='30' cy='155' r='5' fill='#58a6ff'/>\n  <circle cx='370' cy='155' r='5' fill='#39d353'/>\n</svg>\n\nEn el espacio, una trayectoria rectilínea gasta menos combustible, pero a veces, para salvar la vida ante un pedazo de satélite destruido que vuela hacia ti, debes realizar una trayectoria curva de emergencia.\n\nTermina tu entrenamiento con los últimos sistemas de simulación interactiva:\n\n[JUEGO:SOPA_LETRAS:FISICA,MONTE,NORTE]\n\n[JUEGO:CRUCIGRAMA:Persona que viaja al espacio exterior|ASTRONAUTA;Lugar sin aire en el espacio|VACIO]\n\n[JUEGO:ORDENAR_LETRAS:GRAVEDAD]\n\n[JUEGO:ORDENAR_FRASE:La fisica nos ayuda a sobrevivir]\n\n[JUEGO:SOPA_LETRAS:RAPIDO,TIEMPO,MOVIL]\n\n[JUEGO:CRUCIGRAMA:Estacion espacial rusa antigua|MIR;Instrumento para ver estrellas|TELESCOPIO]\n\n¡Felicidades, cadete! Has completado el entrenamiento básico de física cinemática.",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "¿Por qué la trayectoria recorrida por un cuerpo puede ser diferente para dos personas que la observan desde lugares distintos?",
+      "text": "",
+      "respuesta_esperada": "Porque la trayectoria depende del marco de referencia del observador. Si un observador está quieto dentro de la ISS verá una trayectoria recta, pero alguien que mire desde la Tierra verá una trayectoria curva debido a la rotación orbital."
+    },
+    {
+      "pregunta": "¿Cuál es la unidad básica del Sistema Internacional que utilizamos para medir el cambio de posición de un astronauta?",
+      "respuesta_esperada": "La unidad básica es el metro, que se simboliza con la letra 'm'."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Define con tus propias palabras qué es un sistema de referencia y explica por qué la entrada del colegio es un buen sistema de referencia para ubicar tu salón.",
+    "Un astronauta se mueve desde el punto (2m, 3m) hasta el punto (2m, 8m). ¿Cuál fue su cambio de posición y qué tipo de trayectoria realizó?"
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de fenómenos",
+      "texto_introductorio": "En la Estación Espacial Internacional, un astronauta realiza una reparación exterior. Para volver al módulo principal, dispone de dos rutas posibles representadas en la siguiente tabla táctica:",
+      "tabla_o_grafica_markdown": "| Ruta | Forma del camino | Distancia total | Obstáculos en el camino |\n| :--- | :--- | :--- | :--- |\n| **Ruta Alfa** | Línea recta directa | 15 metros | Ninguno |\n| **Ruta Beta** | Semicírculo amplio | 35 metros | Antenas de comunicación |",
+      "pregunta": "Si el astronauta tiene poco oxígeno en su tanque y necesita minimizar la distancia recorrida para regresar lo más rápido posible, ¿cuál es la trayectoria que debe elegir y por qué?",
+      "opciones": [
+        "La Ruta Alfa, porque su trayectoria rectilínea representa la distancia más corta entre su posición actual y el módulo.",
+        "La Ruta Beta, porque la trayectoria curvilínea le permite flotar con mayor velocidad.",
+        "Cualquiera de las dos, porque la posición inicial y final es la misma y la trayectoria no influye en la distancia.",
+        "La Ruta Alfa, porque al ser curva le permite ahorrar combustible en sus propulsores de emergencia."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "¡Excelente! Una trayectoria rectilínea entre dos puntos siempre representa el camino de menor longitud (distancia más corta).",
+        "1": "Incorrecto. Una trayectoria curvilínea aumenta la distancia recorrida, lo cual consumiría más tiempo y oxígeno.",
+        "2": "Incorrecto. Aunque las posiciones inicial y final sean iguales, la longitud de la trayectoria determina la distancia recorrida.",
+        "3": "Incorrecto. La Ruta Alfa es rectilínea, no curvilínea."
+      }
+    },
+    {
+      "competencia": "Uso comprensivo del conocimiento científico",
+      "texto_introductorio": "Dos estudiantes de la IE Instituto Montenegro discuten sobre cómo describir su posición en el colegio de forma exacta. Registran sus propuestas en la siguiente bitácora:",
+      "tabla_o_grafica_markdown": "| Estudiante | Información suministrada | ¿Tiene origen de referencia? | ¿Tiene dirección? |\n| :--- | :--- | :--- | :--- |\n| Juan | 5 metros | No | No |\n| María | 5 metros al norte de la cafetería | Sí (Cafetería) | Sí (Al Norte) |",
+      "pregunta": "De acuerdo con los conceptos físicos de posición estudiados para la supervivencia en la ISS, ¿cuál de los estudiantes describió correctamente su posición y por qué?",
+      "opciones": [
+        "Juan, porque la posición solo requiere saber la distancia recorrida en metros.",
+        "María, porque la posición requiere un punto de referencia (origen), un valor (magnitud) y una dirección.",
+        "Ambos, porque los dos mencionan la distancia de 5 metros que es lo único importante en física.",
+        "Ninguno, porque para saber la posición en el colegio se requiere usar un GPS satelital obligatoriamente."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. Decir solo la distancia no ubica a nadie de forma unívoca, ya que podría estar en cualquier punto de un círculo de 5 metros de radio.",
+        "1": "¡Correcto! Para definir de forma completa una posición, se necesita un origen de referencia, una magnitud (distancia) y una dirección o sentido.",
+        "2": "Incorrecto. La información de Juan es incompleta y no sirve para ubicar su posición exacta.",
+        "3": "Incorrecto. Los puntos de referencia locales como la cafetería son perfectamente válidos y útiles sin necesidad de un GPS."
+      }
+    }
+  ]
+}

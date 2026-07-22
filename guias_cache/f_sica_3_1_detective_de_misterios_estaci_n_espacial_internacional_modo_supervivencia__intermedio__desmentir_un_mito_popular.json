@@ -1,0 +1,114 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Por qué crees que los astronautas flotan en la Estación Espacial Internacional (ISS)?",
+      "opciones": [
+        "Porque no hay gravedad en el espacio.",
+        "Porque están muy lejos del centro de la Tierra.",
+        "Porque la ISS está en caída libre constante alrededor de la Tierra.",
+        "Porque hay un vacío absoluto que elimina el peso."
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "Si lanzas una pelota horizontalmente con mucha fuerza, ¿qué determina que caiga al suelo?",
+      "opciones": [
+        "La resistencia del aire únicamente.",
+        "La aceleración de la gravedad que curva su trayectoria.",
+        "La masa de la pelota que busca su lugar natural.",
+        "La falta de combustible de la pelota."
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Qué es la gravedad según lo que has escuchado?",
+      "opciones": [
+        "Un magnetismo que solo afecta a los metales.",
+        "Una fuerza de atracción entre dos cuerpos con masa.",
+        "Una capa de aire que nos empuja hacia abajo.",
+        "Una ilusión causada por la rotación de la Tierra."
+      ],
+      "correcta": 1
+    }
+  ],
+  "texto_inductivo": "¡Saludos, reclutas del misterio! Soy su Detective de Misterios asignado a este sector de la galaxia. Hemos recibido un reporte alarmante desde la Estación Espacial Internacional (ISS). Los ciudadanos de la Tierra creen un mito peligroso: dicen que allí arriba la gravedad ha 'muerto'. ¡Qué crimen contra la ciencia! \n\n***¿Si la gravedad de la Tierra es lo suficientemente fuerte como para mantener a la Luna en órbita a 384,400 km, por qué los astronautas en la ISS 'flotan' a solo 400 km de altura si allí la gravedad es casi tan fuerte como en el suelo?***\n\nAl llegar a la escena del crimen, observamos a los astronautas desplazándose sin tocar el suelo. [JUEGO:ORDENAR_LETRAS:GRAVEDAD] Muchos piensan que esto ocurre por la falta de aire o porque están 'fuera' de la Tierra. [JUEGO:ORDENAR_FRASE:EL MISTERIO DE LA FLOTACION] Pero mis lupas detectan algo distinto. A 400 km de altura, la gravedad terrestre sigue siendo el 90% de la que sentimos en la superficie. [JUEGO:SOPA_LETRAS:CIENCIA,MISTERIO,PESO] \n\n<div style='background-color: #1a1a2e; color: #e94560; padding: 20px; border: 2px solid #e94560; border-radius: 10px; font-family: monospace;'>\n<h3>ARCHIVO DEL CASO: EL MITO DEL VACÍO</h3>\n<table style='width:100%; border-collapse: collapse;'>\n<tr style='border-bottom: 2px solid #e94560;'>\n<th>EVIDENCIA</th><th>MITO POPULAR</th><th>REALIDAD CIENTÍFICA</th>\n</tr>\n<tr>\n<td>Altura ISS</td><td>\"No hay gravedad\"</td><td>90% de gravedad terrestre</td>\n</tr>\n<tr>\n<td>Estado Físico</td><td>Flotan por falta de peso</td><td>Caída libre perpetua</td>\n</tr>\n</table>\n</div>\n\nSi hay gravedad, ¿por qué no chocan contra el suelo? [JUEGO:CRUCIGRAMA:Atracción entre masas|GRAVEDAD;Lugar donde está la ISS|ESPACIO] Es como si estuvieran en un ascensor al que se le cortó el cable. [JUEGO:ORDENAR_LETRAS:ORBITA] Los astronautas no flotan, ¡están cayendo! [JUEGO:ORDENAR_FRASE:LA TIERRA NOS ATRAE] Solo que caen de una forma muy especial. [JUEGO:SOPA_LETRAS:ESPACIO,CIELO,LUNA] \n\n<svg width='100%' height='200' viewBox='0 0 400 200'>\n  <circle cx='200' cy='300' r='150' fill='#222266' stroke='#ffffff' stroke-width='2' />\n  <path d='M 100,50 Q 200,10 300,50' stroke='yellow' fill='transparent' stroke-dasharray='5,5' />\n  <rect x='190' y='5' width='20' height='10' fill='silver' />\n  <text x='150' y='100' fill='white' font-family='Arial' font-size='12'>Curvatura de la Tierra</text>\n  <text x='180' y='35' fill='yellow' font-family='Arial' font-size='10'>Trayectoria ISS</text>\n</svg>\n\nLa ISS se mueve tan rápido lateralmente que, a medida que cae hacia la Tierra, la superficie de nuestro planeta se curva alejándose de ella. [JUEGO:ORDENAR_LETRAS:MASA] [JUEGO:ORDENAR_FRASE:NADA ES LO QUE PARECE] El resultado es un círculo infinito. [JUEGO:SOPA_LETRAS:SOL,NAVE,LUZ] [JUEGO:CRUCIGRAMA:Trayectoria curva|ORBITA;Masa por gravedad|PESO] Para resolver este enigma, debemos analizar la cinemática de este movimiento. [JUEGO:ORDENAR_LETRAS:CAIDA] [JUEGO:ORDENAR_FRASE:ESTAMOS CAYENDO SIEMPRE] El vacío no es el responsable, es la velocidad. [JUEGO:SOPA_LETRAS:IMAN,FUERZA,EFECTO] [JUEGO:CRUCIGRAMA:Sin aire|VACIO;Cambio de lugar|POSICION] Finalmente, entramos en la zona de datos duros. [JUEGO:ORDENAR_LETRAS:VACIO] [JUEGO:ORDENAR_FRASE:INVESTIGA LOS DATOS] [JUEGO:SOPA_LETRAS:CASO,PISTA,LUPA] [JUEGO:CRUCIGRAMA:Pista clave|EVIDENCIA;Velocidad de caída|ACELERACION]",
+  "recurso_visual": "graph TD\n    A[Mito: Gravedad Cero] -->|Desmentido por| B(Evidencia: 90% Gravedad a 400km)\n    B --> C{¿Por qué flotan?}\n    C --> D[Cinemática: Velocidad Orbital Tangencial]\n    C --> E[Física: Caída Libre Perpetua]\n    D & E --> F[Resultado: Órbita Estable]",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "¿Cuál es el porcentaje aproximado de gravedad en la ISS comparado con la superficie terrestre?",
+      "respuesta_esperada": "Aproximadamente el 90%."
+    },
+    {
+      "pregunta": "Según el texto, ¿qué pasaría si la ISS dejara de moverse lateralmente?",
+      "respuesta_esperada": "Caería directamente hacia la superficie de la Tierra debido a la atracción gravitacional."
+    },
+    {
+      "pregunta": "¿Qué analogía usa el detective para explicar la sensación de flotar?",
+      "respuesta_esperada": "La analogía de un ascensor al que se le corta el cable (caída libre)."
+    },
+    {
+      "pregunta": "¿Cuál es el 'crimen contra la ciencia' que menciona el detective?",
+      "respuesta_esperada": "El mito de que la gravedad no existe en el espacio o en la ISS."
+    },
+    {
+      "pregunta": "¿Qué elemento físico 'se curva' evitando que la ISS choque contra el suelo?",
+      "respuesta_esperada": "La superficie de la Tierra."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema de la Tierra y la ISS, señalando con flechas la fuerza de gravedad y la velocidad lateral.",
+    "Crea un cuadro comparativo entre 'Estar en reposo en el suelo' y 'Estar en órbita en la ISS'.",
+    "Escribe una reflexión de 10 líneas sobre cómo los sentidos pueden engañarnos al observar a los astronautas flotar.",
+    "Representa gráficamente mediante un dibujo cómo sería el experimento del 'Cañón de Newton' mencionado indirectamente en la lógica del texto."
+  ],
+  "texto_deductivo": "Para cerrar el caso, debemos aplicar las Leyes de Newton. [JUEGO:ORDENAR_LETRAS:NEWTON] La Ley de Gravitación Universal nos dice que la fuerza depende de las masas y la distancia. [JUEGO:ORDENAR_FRASE:LA FUERZA ES INVISIBLE] No importa cuán lejos vayas, la gravedad siempre estará allí, aunque sea débil. [JUEGO:SOPA_LETRAS:METRO,TIEMPO,RADIO] \n\n<div style='border: 4px dashed #00ff00; padding: 15px; background: black; color: #00ff00; font-family: Courier;'>\n<h3>FORMULARIO DEL DETECTIVE</h3>\n<p>Fuerza (F) = G * (m1 * m2) / r²</p>\n<p>Aceleración Centrípeta (Ac) = v² / r</p>\n<hr>\n<p>Para que un objeto no caiga al suelo, su velocidad (v) debe ser:</p>\n<span style='font-size: 1.5rem;'>v = √(G * M / r)</span>\n</div>\n\nEn la ISS, la aceleración de la gravedad actúa como aceleración centrípeta. [JUEGO:ORDENAR_LETRAS:VECTOR] Esto significa que la fuerza solo cambia la dirección de la velocidad, no su magnitud. [JUEGO:ORDENAR_FRASE:TODO LO QUE SUBE BAJA] [JUEGO:SOPA_LETRAS:SIGMA,DELTA,ALFA] Por eso los astronautas experimentan la 'ingravidez aparente'. [JUEGO:CRUCIGRAMA:Padre de la gravedad|NEWTON;Fuerza hacia el centro|CENTRIPETA] \n\n<svg width='300' height='200' viewBox='0 0 300 200'>\n  <circle cx='150' cy='100' r='40' fill='green' />\n  <circle cx='150' cy='100' r='80' stroke='gray' fill='none' />\n  <circle cx='230' cy='100' r='10' fill='white' />\n  <line x1='230' y1='100' x2='230' y2='40' stroke='red' stroke-width='2' marker-end='url(#arrow)' />\n  <line x1='230' y1='100' x2='170' y2='100' stroke='blue' stroke-width='2' />\n  <defs>\n    <marker id='arrow' viewBox='0 0 10 10' refX='5' refY='5' markerWidth='6' markerHeight='6' orient='auto-start-reverse'>\n      <path d='M 0 0 L 10 5 L 0 10 z' />\n    </marker>\n  </defs>\n  <text x='240' y='70' fill='red'>Velocidad (v)</text>\n  <text x='170' y='120' fill='blue'>Gravedad (g)</text>\n</svg>\n\nJohannes Kepler también dejó pistas en sus leyes sobre el movimiento planetario. [JUEGO:ORDENAR_LETRAS:KEPLER] Él descubrió que las órbitas no son círculos perfectos, sino elipses. [JUEGO:ORDENAR_FRASE:LA MASA NO CAMBIA] [JUEGO:SOPA_LETRAS:ELIPSE,FOCO,EJE] En la ISS, la excentricidad es casi cero, por lo que es casi circular. [JUEGO:CRUCIGRAMA:Leyes planetarias|KEPLER;Unidad de fuerza|NEWTON] Entender la cinemática es entender que la posición cambia porque la velocidad es tangencial a la atracción. [JUEGO:ORDENAR_LETRAS:FISICA] [JUEGO:ORDENAR_FRASE:EL MOVIMIENTO ES RELATIVO] [JUEGO:SOPA_LETRAS:RAPIDEZ,NORMA,GIRO] [JUEGO:CRUCIGRAMA:Cambio de velocidad|ACELERACION;Resistencia al cambio|INERCIA] El caso está resuelto: la ISS es un proyectil que cae eternamente sin tocar el suelo. [JUEGO:ORDENAR_LETRAS:INERCIA] [JUEGO:ORDENAR_FRASE:LA CIENCIA DESMIENTE MITOS] [JUEGO:SOPA_LETRAS:DATOS,LEYES,ORDEN] [JUEGO:CRUCIGRAMA:Centro de la elipse|FOCO;Todo es...|FISICA]",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "¿Qué papel cumple la gravedad en el movimiento circular de la ISS?",
+      "respuesta_esperada": "Actúa como una fuerza centrípeta que mantiene a la estación en órbita."
+    },
+    {
+      "pregunta": "Según la Ley de Gravitación Universal, ¿qué ocurre con la fuerza si la distancia (r) aumenta?",
+      "respuesta_esperada": "La fuerza de atracción disminuye cuadráticamente (se hace más débil)."
+    },
+    {
+      "pregunta": "¿Por qué se dice que los astronautas tienen 'ingravidez aparente'?",
+      "respuesta_esperada": "Porque la gravedad sí existe y actúa sobre ellos, pero al estar en caída libre no hay una fuerza normal (suelo) que los sostenga."
+    },
+    {
+      "pregunta": "¿Qué forma tienen las órbitas según las leyes de Kepler?",
+      "respuesta_esperada": "Tienen forma de elipse."
+    },
+    {
+      "pregunta": "¿Qué variables se necesitan para calcular la velocidad orbital (v)?",
+      "respuesta_esperada": "La constante gravitacional (G), la masa de la Tierra (M) y la distancia al centro (r)."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Realiza un diagrama detallado de los vectores de fuerza y velocidad en un punto de la órbita terrestre.",
+    "Elabora un mapa mental que conecte a Newton, Kepler y la caída libre con el concepto de órbita.",
+    "Dibuja una historieta de 4 viñetas donde expliques a un civil por qué los astronautas no flotan por falta de gravedad.",
+    "Crea una infografía artesanal que compare la gravedad en la Tierra, la ISS y la Luna usando los datos del texto."
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "Un estudiante afirma que si se detiene por un segundo el movimiento lateral de la Estación Espacial Internacional, esta se quedaría flotando en el mismo punto debido a que está en el espacio.",
+      "tabla_o_grafica_markdown": "| Objeto | Masa (kg) | Distancia al centro Tierra (km) | Aceleración (m/s²) |\n|---|---|---|---|\n| Humano en Tierra | 70 | 6,371 | 9.8 |\n| ISS | 450,000 | 6,771 | 8.7 |",
+      "pregunta": "Teniendo en cuenta los datos de la tabla y los principios físicos, ¿cuál sería el comportamiento real de la ISS si su velocidad lateral fuera cero?",
+      "opciones": [
+        "Se quedaría estática porque a esa altura la inercia compensa la falta de aire.",
+        "Caería verticalmente hacia la Tierra con una aceleración de 8.7 m/s².",
+        "Saldría disparada hacia el espacio exterior alejándose de la Tierra.",
+        "Flotaría hacia la Luna debido a que la gravedad lunar sería ahora más fuerte."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. La inercia no compensa la gravedad; sin velocidad lateral, la gravedad atrae el objeto al centro.",
+        "1": "Correcto. Al no tener velocidad tangencial, la aceleración de la gravedad (8.7 m/s²) tiraría de la ISS directamente hacia el centro de la Tierra.",
+        "2": "Incorrecto. Sin velocidad lateral no hay forma de alejarse; la gravedad es una fuerza atractiva.",
+        "3": "Incorrecto. La gravedad de la Tierra a 400km sigue siendo mucho más fuerte que la de la Luna en ese punto."
+      }
+    }
+  ]
+}

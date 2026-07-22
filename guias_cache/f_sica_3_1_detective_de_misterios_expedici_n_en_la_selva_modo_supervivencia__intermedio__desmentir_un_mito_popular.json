@@ -1,0 +1,114 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Cuál de estas formas describe mejor la trayectoria de la Tierra alrededor del Sol según el conocimiento científico actual?",
+      "opciones": [
+        "Un círculo perfecto",
+        "Una elipse (un círculo ligeramente alargado)",
+        "Un cuadrado con esquinas redondeadas",
+        "Un zig-zag constante"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "Si un planeta está más cerca del Sol en su órbita, ¿cómo es su velocidad comparada con cuando está más lejos?",
+      "opciones": [
+        "Es más lento",
+        "Es más rápido",
+        "Es exactamente la misma",
+        "Se detiene por completo"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Quién fue el científico que propuso las tres leyes del movimiento planetario?",
+      "opciones": [
+        "Isaac Newton",
+        "Albert Einstein",
+        "Johannes Kepler",
+        "Galileo Galilei"
+      ],
+      "correcta": 2
+    }
+  ],
+  "texto_inductivo": "# 🕵️ Expedición: El Enigma de los Círculos Perfectos\n\n¡Saludos, recluta! Soy tu Detective de Misterios. Nos encontramos en lo profundo de la selva del Amazonas, donde el follaje es tan espeso que apenas vemos el cielo. Sin embargo, los antiguos exploradores dejaron una inscripción que nos desafía. El mito local dice que los dioses mueven los planetas en círculos perfectos porque la perfección es divina.\n\n***¿Es verdad que el verano ocurre porque la Tierra está más cerca del Sol en un círculo perfecto, o acaso los planetas siguen un baile matemático mucho más misterioso y elíptico de lo que nuestros ojos perciben en el cielo de la selva?***\n\nObserva este diagrama que he tallado en la corteza de un árbol para que entiendas nuestra primera pista:\n\n<div style='background-color: #0d1117; padding: 20px; border-radius: 10px; text-align: center;'>\n  <svg width='300' height='200' viewBox='0 0 300 200'>\n    <!-- Elipse de la órbita -->\n    <ellipse cx='150' cy='100' rx='120' ry='70' style='fill:none;stroke:#58a6ff;stroke-width:3' />\n    <!-- El Sol en uno de los focos -->\n    <circle cx='190' cy='100' r='15' fill='#f9e01b' />\n    <text x='180' y='130' fill='white' font-family='Arial' font-size='12'>SOL (Foco)</text>\n    <!-- Planeta -->\n    <circle cx='40' cy='100' r='8' fill='#ff7b72' />\n    <text x='15' y='90' fill='white' font-family='Arial' font-size='12'>PLANETA</text>\n    <!-- Ejes -->\n    <line x1='30' y1='100' x2='270' y2='100' stroke='gray' stroke-dasharray='5,5' />\n  </svg>\n  <p style='color: #8b949e; font-style: italic;'>Figura 1: Representación de la 1ra Ley de Kepler</p>\n</div>\n\nAl investigar las huellas de los astros [JUEGO:ORDENAR_LETRAS:ELIPSE], descubrimos que no hay tales círculos. Johannes Kepler, un detective del pasado, descubrió que los planetas orbitan en elipses. [JUEGO:ORDENAR_FRASE:LAS ORBITAS SON ELIPTICAS] En esta selva, si caminas siguiendo un rastro circular, te perderías, pues la naturaleza prefiere la eficiencia de la elipse. [JUEGO:SOPA_LETRAS:SOL,CIELO,FOCO]\n\nCuando el planeta se acerca a ese gran horno solar, parece ganar una energía salvaje. [JUEGO:CRUCIGRAMA:Centro del sistema|SOL;Camino del planeta|ORBITA] Los datos recogidos por los antiguos telescopios en las cimas de estas montañas indican que el área barrida por el vector posición es constante. [JUEGO:ORDENAR_LETRAS:AREA] Esto significa que cuando el planeta está cerca del sol, debe correr como un jaguar perseguido. [JUEGO:ORDENAR_FRASE:EL PLANETA CORRE MAS CERCA DEL SOL]\n\n| Momento | Distancia al Sol | Velocidad | Área Barrida |\n| :--- | :--- | :--- | :--- |\n| Perihelio | Mínima | Máxima | Igual |\n| Afelio | Máxima | Mínima | Igual |\n\n[JUEGO:SOPA_LETRAS:MARTE,TIERRA,RADIO] El misterio se profundiza al ver que no todos los planetas tardan lo mismo en dar la vuelta. [JUEGO:CRUCIGRAMA:Punto cercano|PERIHELIO;Punto lejano|AFELIO] Algunos parecen perezosos en los confines del sistema. [JUEGO:ORDENAR_LETRAS:PLANETA] Debemos usar nuestras herramientas para medir el tiempo. [JUEGO:ORDENAR_FRASE:EL TIEMPO ES ORO EN LA SELVA] ¿Cómo se relaciona el tiempo con la distancia? [JUEGO:SOPA_LETRAS:RELOJ,MAPA,GUIA] [JUEGO:ORDENAR_LETRAS:ORDEN] [JUEGO:CRUCIGRAMA:Estrella|SOL;Mundo|TIERRA] [JUEGO:ORDENAR_FRASE:KEPLER EXPLICO EL CIELO] [JUEGO:SOPA_LETRAS:PISTA,CASO,LUPA] [JUEGO:ORDENAR_LETRAS:ASTRO] [JUEGO:ORDENAR_FRASE:TODO ESTA CONECTADO] [JUEGO:SOPA_LETRAS:AIRE,AGUA,VIDA] [JUEGO:CRUCIGRAMA:Siglo de Kepler|DIECISIETE;Forma ovalada|ELIPSE] [JUEGO:CRUCIGRAMA:Nombre del detective|KEPLER;Fuerza de Newton|GRAVEDAD]",
+  "recurso_visual": "graph TD\n    A[Mito: Órbitas Circulares] --> B{Evidencia Científica}\n    B --> C[1ra Ley: Elipses con el Sol en un foco]\n    B --> D[2da Ley: Áreas iguales en tiempos iguales]\n    B --> E[3ra Ley: Relación Período y Distancia]\n    C --> F[Desmentido: La distancia varía constantemente]\n    D --> G[Desmentido: La velocidad NO es constante]\n    E --> H[Conclusión: El movimiento es una armonía matemática]",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "¿Qué forma geométrica tienen realmente las órbitas planetarias?",
+      "respuesta_esperada": "Tienen forma de elipse, con el Sol ubicado en uno de sus focos."
+    },
+    {
+      "pregunta": "¿Qué ocurre con la velocidad de un planeta cuando se acerca al Sol?",
+      "respuesta_esperada": "La velocidad del planeta aumenta a medida que se acerca al Sol (Perihelio)."
+    },
+    {
+      "pregunta": "¿Qué dice la segunda ley de Kepler sobre las áreas barridas por los planetas?",
+      "respuesta_esperada": "Dice que la línea que une al Sol con el planeta barre áreas iguales en tiempos iguales."
+    },
+    {
+      "pregunta": "¿Cómo se llama el punto de la órbita más cercano al Sol?",
+      "respuesta_esperada": "Se llama Perihelio."
+    },
+    {
+      "pregunta": "¿Cuál es el mito que estamos intentando desmentir en esta expedición?",
+      "respuesta_esperada": "El mito de que las órbitas son círculos perfectos y que los planetas se mueven a una velocidad constante."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema detallado de una órbita elíptica, señalando los focos, el perihelio y el afelio, usando colores para diferenciar las zonas de mayor velocidad.",
+    "Realiza un cuadro comparativo entre el concepto de 'Círculo Perfecto' y 'Elipse', explicando por qué la elipse se ajusta mejor a las observaciones de Kepler.",
+    "Escribe una reflexión de una página sobre cómo cambiaría nuestra visión del universo si las órbitas fueran realmente círculos perfectos.",
+    "Representa gráficamente la 2da Ley de Kepler, sombreando dos sectores de la elipse que tengan la misma área pero diferentes formas, y explica qué significa esto para la velocidad."
+  ],
+  "texto_deductivo": "# 🔍 El Informe del Detective: Desmontando el Mito\n\nTras analizar los datos en nuestro campamento base, es hora de aplicar la lógica deductiva. El mito de que el verano ocurre porque estamos 'más cerca' del Sol cae por su propio peso. [JUEGO:ORDENAR_LETRAS:LOGICA] Si así fuera, ¡todo el planeta tendría verano al mismo tiempo! Pero sabemos que mientras en el norte hay nieve, aquí en la selva del sur el sol quema. [JUEGO:ORDENAR_FRASE:LAS ESTACIONES DEPENDEN DE LA INCLINACION]\n\nLa Tercera Ley de Kepler es la llave maestra de nuestro caso. [JUEGO:ORDENAR_LETRAS:TIEMPO] Ella establece que el cuadrado del período orbital (T) es proporcional al cubo de la distancia media (a) al Sol. [JUEGO:SOPA_LETRAS:CUBO,RADIO,LEY]\n\n<div style='border: 2px solid #238636; padding: 15px; background-color: #f0fff4; color: black;'>\n  <h3 style='margin-top:0;'>Fórmula de la Armonía (3ra Ley):</h3>\n  <p style='font-size: 1.5rem; text-align: center;'>T² ∝ a³</p>\n  <hr>\n  <p>Donde:</p>\n  <ul>\n    <li><b>T:</b> Tiempo que tarda en dar una vuelta (Período).</li>\n    <li><b>a:</b> Distancia promedio al Sol (Semieje mayor).</li>\n  </ul>\n</div>\n\nEsta ley nos permite deducir que los planetas exteriores son como tortugas gigantes de la selva: lentos y pesados en sus órbitas. [JUEGO:ORDENAR_FRASE:PLANETAS LEJANOS TARDAN MAS TIEMPO] La gravedad, esa fuerza invisible que actúa como los hilos de una marioneta, es la responsable. [JUEGO:SOPA_LETRAS:MASA,PESO,CAIDA] [JUEGO:ORDENAR_LETRAS:FUERZA] [JUEGO:CRUCIGRAMA:Unidad de tiempo|AÑO;Masa gigante|SOL]\n\nAl desmentir el mito, descubrimos que la Tierra está en realidad más cerca del Sol en enero (invierno boreal). [JUEGO:ORDENAR_LETRAS:DATOS] ¡Qué ironía detective! [JUEGO:ORDENAR_FRASE:LA CIENCIA DESMIENTE EL MITO] El calor de las estaciones se debe a la inclinación del eje terrestre, no a la cercanía de la órbita elíptica. [JUEGO:SOPA_LETRAS:EJE,CALOR,NORTE] [JUEGO:CRUCIGRAMA:Inclinacion|EJE;Frío extremo|INVIERNO] [JUEGO:ORDENAR_LETRAS:MASA] [JUEGO:ORDENAR_FRASE:TODO CUERPO TIENE GRAVEDAD] [JUEGO:SOPA_LETRAS:TEORIA,PRUEBA,CIENCIA] [JUEGO:ORDENAR_LETRAS:LEYES] [JUEGO:ORDENAR_FRASE:NEWTON COMPLEMENTO A KEPLER] [JUEGO:SOPA_LETRAS:MUNDO,ASTRO,FOCAL] [JUEGO:CRUCIGRAMA:Forma de huevo|OVAL;Ciencia natural|FISICA] [JUEGO:CRUCIGRAMA:Espacio vacio|VACIO;Centro de masa|NUCLEO]",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "¿Cuál es la relación matemática exacta de la tercera ley de Kepler?",
+      "respuesta_esperada": "El cuadrado del período orbital es proporcional al cubo de la distancia media al Sol (T² / a³ = constante)."
+    },
+    {
+      "pregunta": "Si un planeta está al doble de distancia del Sol que otro, ¿tardará más o menos tiempo en completar su órbita?",
+      "respuesta_esperada": "Tardará mucho más tiempo, ya que a mayor distancia, mayor es el período orbital."
+    },
+    {
+      "pregunta": "¿Por qué el mito de la cercanía solar como causa de las estaciones es falso?",
+      "respuesta_esperada": "Porque la diferencia de distancia en la elipse es mínima y las estaciones ocurren en tiempos opuestos en cada hemisferio debido a la inclinación del eje."
+    },
+    {
+      "pregunta": "¿Qué fuerza física, explicada más tarde por Newton, mantiene estas leyes funcionando?",
+      "respuesta_esperada": "La fuerza de gravitación universal."
+    },
+    {
+      "pregunta": "¿Qué pasaría con el período de la Tierra si mágicamente se alejara más del Sol?",
+      "respuesta_esperada": "El año terrestre duraría mucho más de 365 días."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Elabora un diagrama detallado que muestre la Tierra en cuatro puntos de su órbita elíptica, incluyendo la inclinación del eje para explicar las estaciones.",
+    "Crea un mapa mental que conecte las tres leyes de Kepler con los conceptos de gravedad, velocidad y tiempo.",
+    "Realiza un dibujo explicativo donde compares la órbita de Mercurio (cercano y rápido) con la de Neptuno (lejano y lento), aplicando la 3ra ley.",
+    "Diseña una infografía artesanal titulada 'Detectives del Cosmos: Desmintiendo el Mito del Círculo Perfecto', resumiendo los hallazgos de la expedición."
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "Un grupo de exploradores en la selva observa que Marte parece moverse más lento en ciertos meses del año. Al revisar las tablas de datos astronómicos, encuentran la siguiente relación entre la distancia al Sol (UA) y el tiempo orbital (Años):",
+      "tabla_o_grafica_markdown": "| Planeta | Distancia (a) | Período (T) |\n|---|---|---|\n| Tierra | 1.0 UA | 1.0 Año |\n| Marte | 1.52 UA | 1.88 Años |\n| Júpiter | 5.20 UA | 11.86 Años |",
+      "pregunta": "Basándose en las leyes de Kepler y los datos de la tabla, ¿qué se puede concluir sobre el movimiento de los planetas?",
+      "opciones": [
+        "A mayor distancia del Sol, la velocidad orbital disminuye y el tiempo para completar la órbita aumenta.",
+        "Todos los planetas se mueven a la misma velocidad constante sin importar su distancia.",
+        "La distancia al Sol no tiene ninguna relación con el tiempo que tarda un planeta en dar la vuelta.",
+        "Los planetas más lejanos se mueven más rápido para compensar la gran distancia que deben recorrer."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. Según la 3ra ley de Kepler, a mayor distancia (a), el período (T) aumenta de forma no lineal, lo que implica una velocidad media menor.",
+        "1": "Incorrecto. La 2da y 3ra ley demuestran que la velocidad varía tanto en la misma órbita como entre diferentes planetas.",
+        "2": "Incorrecto. Existe una relación matemática directa (T² ∝ a³).",
+        "3": "Incorrecto. Es lo opuesto; los planetas lejanos se mueven más lentamente debido a que la atracción gravitatoria es menor."
+      }
+    }
+  ]
+}

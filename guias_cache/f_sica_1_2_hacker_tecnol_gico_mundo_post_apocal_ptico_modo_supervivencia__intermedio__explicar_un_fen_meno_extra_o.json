@@ -1,0 +1,86 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "Para determinar si un dron de vigilancia del sector se está moviendo hacia nuestro refugio, ¿qué es lo primero que necesitamos establecer?",
+      "opciones": [
+        "La velocidad máxima del dron en el aire.",
+        "Un punto de referencia fijo (como la antena del Instituto).",
+        "El color del fuselaje del dron.",
+        "La cantidad de batería restante en el sensor."
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "Si un superviviente camina 10 metros al norte y luego 10 metros al sur para esquivar una ruina, regresando al punto de inicio, su cambio de posición final es:",
+      "opciones": [
+        "20 metros.",
+        "10 metros al norte.",
+        "Cero metros.",
+        "Depende de la velocidad a la que corrió."
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "En las pantallas de fósforo verde de nuestra base, ¿cómo representamos la línea continua que dibuja un objeto al desplazarse por el mapa?",
+      "opciones": [
+        "La trayectoria.",
+        "El origen.",
+        "La coordenada estática.",
+        "El vector de aceleración espacial."
+      ],
+      "correcta": 0
+    }
+  ],
+  "texto_inductivo": "# ¡ALERTA DEL SISTEMA! LA ANOMALÍA SE ACERCA\n\n*¡Atención, hackers de la IE Instituto Montenegro! Aquí el Tecno-Hacker Alfa desde el búnker de servidores subterráneos. Hemos detectado fluctuaciones electromagnéticas masivas cruzando las canchas de fútbol en ruinas de nuestra institución. Lo llamamos el 'Pulso Fantasma'. Si no logramos predecir su movimiento y configurar nuestros deflectores, nuestros preciados discos duros se borrarán para siempre.*\n\n***¿Cómo podemos usar las coordenadas de los viejos terminales de la IE Instituto Montenegro para predecir la trayectoria del \"Pulso Fantasma\" antes de que calcine nuestros servidores de supervivencia?***\n\nPara detener esto, debemos hackear las variables cinemáticas del pulso. El primer paso es entender dónde está y hacia dónde se dirige.\n\n<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 600 300\" width=\"100%\" style=\"background-color:#0d1117; border: 2px solid #00ff00; border-radius: 8px;\">\n  <!-- Grid de fósforo verde -->\n  <defs>\n    <pattern id=\"grid\" width=\"30\" height=\"30\" patternUnits=\"userSpaceOnUse\">\n      <path d=\"M 30 0 L 0 0 0 30\" fill=\"none\" stroke=\"#00ff00\" stroke-width=\"0.5\" opacity=\"0.2\"/>\n    </pattern>\n  </defs>\n  <rect width=\"100%\" height=\"100%\" fill=\"url(#grid)\" />\n  \n  <!-- Ejes de Coordenadas -->\n  <line x1=\"50\" y1=\"250\" x2=\"550\" y2=\"250\" stroke=\"#00ff00\" stroke-width=\"2\" />\n  <line x1=\"80\" y1=\"30\" x2=\"80\" y2=\"270\" stroke=\"#00ff00\" stroke-width=\"2\" />\n  \n  <!-- Marcaciones de Posición -->\n  <text x=\"70\" y=\"265\" fill=\"#00ff00\" font-family=\"Courier\" font-size=\"12\">Origen (0,0)</text>\n  <circle cx=\"80\" cy=\"250\" r=\"5\" fill=\"#ff0000\" />\n  \n  <!-- El Pulso Anómalo -->\n  <path d=\"M 80 250 Q 200 80 350 180 T 500 100\" fill=\"none\" stroke=\"#00ffff\" stroke-width=\"4\" stroke-dasharray=\"5,5\" id=\"pulsePath\" />\n  <circle cx=\"500\" cy=\"100\" r=\"8\" fill=\"#00ffff\">\n    <animate attributeName=\"opacity\" values=\"1;0.2;1\" dur=\"1.5s\" repeatCount=\"indefinite\" />\n  </circle>\n  \n  <text x=\"360\" y=\"150\" fill=\"#00ffff\" font-family=\"Courier\" font-size=\"14\" font-weight=\"bold\">Trayectoria del Pulso</text>\n  <text x=\"420\" y=\"90\" fill=\"#00ffff\" font-family=\"Courier\" font-size=\"12\">Posición Actual (Xf)</text>\n  <text x=\"95\" y=\"210\" fill=\"#00ff00\" font-family=\"Courier\" font-size=\"11\">Estación de Control Montenegro</text>\n</svg>\n\n### Descifrando el Lenguaje del Movimiento\n\nCada vez que el Pulso Fantasma parpadea, registra una **Posición** ($x$) en nuestra pantalla de radar. La posición no es más que el lugar exacto donde se encuentra el pulso en un instante de tiempo, medido desde nuestro punto de referencia: el viejo asta de la bandera del Instituto Montenegro.\n\n[JUEGO:ORDENAR_LETRAS:POSICION]\n\nCuando el pulso se desplaza de un punto a otro, deja un rastro de energía ionizada. Ese camino físico y curvo que dibuja en el aire es su **Trayectoria**.\n\n[JUEGO:ORDENAR_FRASE:EL PULSO CAMBIA DE LUGAR]\n\nPara rastrear esto en nuestros sistemas obsoletos, debemos dominar el arte de las coordenadas. Si no sabemos dónde empieza el movimiento (punto de origen), estaremos disparando nuestros sistemas de defensa electromagnética a ciegas.\n\n[JUEGO:SOPA_LETRAS:COORDENADA,ORIGEN,MOVIMIENTO]\n\n¿Logras ver la diferencia en la pantalla de radar? La trayectoria es sinuosa, esquiva las viejas estructuras de la IE, pero el cambio neto de su posición final respecto a la inicial podría ser una simple línea recta.\n\n[JUEGO:CRUCIGRAMA:Lugar exacto en el espacio|POSICION;Camino recorrido por el pulso|TRAYECTORIA]",
+  "recurso_visual": "| Variable Cinemática | Símbolo en Radar | Unidad de Medida (SI) | Descripción en el Campo de Batalla |\n| :--- | :---: | :---: | :--- |\n| **Posición** | $x$ | Metros ($m$) | Ubicación exacta respecto a la antena de la IE Montenegro. |\n| **Trayectoria** | $s$ | Línea Geométrica | El camino real (curvo, recto o zig-zag) que toma el pulso. |\n| **Distancia** | $d$ | Metros ($m$) | La longitud total del camino recorrido por la anomalía. |\n| **Desplazamiento** | $\\Delta x$ | Metros ($m$) con dirección | El vector que une directamente el punto de partida con el de llegada. |",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "¿Por qué es crucial establecer que la antena de la IE Instituto Montenegro es nuestro origen (0,0) antes de reportar la posición del pulso?",
+      "respuesta_esperada": "Porque la posición es una variable relativa. Sin un punto de referencia u origen común, los supervivientes en diferentes puestos reportarían coordenadas distintas para el mismo pulso, haciendo imposible coordinar la defensa."
+    },
+    {
+      "pregunta": "Si observas que el rastro de luz azul de la anomalía dibuja una 'S' en el aire, ¿qué variable física estás observando directamente?",
+      "respuesta_esperada": "Estás observando la trayectoria, que es la línea geométrica o camino real que describe el cuerpo en movimiento."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja en tu cuaderno de supervivencia un mapa del Instituto Montenegro. Ubica la cafetería como el origen (0,0). Traza una trayectoria curva que esquive tres obstáculos (escombros de concreto) hasta llegar a la sala de sistemas. Señala con un color la trayectoria y con otro el desplazamiento.",
+    "Si el Pulso Fantasma se mueve desde el punto X = 5 metros hasta el punto X = 15 metros, y luego regresa al punto X = 5 metros, ¿cuál fue su desplazamiento total final? Explica tu respuesta basándote en la definición de cambio de posición."
+  ],
+  "texto_deductivo": "# LA FÓRMULA DE LA SUPERVIVENCIA: TEORÍA DE LA CINEMÁTICA\n\n*¡Sistemas en línea! Hemos hackeado el núcleo del mainframe del Instituto Montenegro. Ahora tenemos acceso a las ecuaciones de la cinemática clásica. Para sobrevivir a la anomalía, no basta con ver su rastro; debemos calcular su comportamiento matemático exacto.*\n\n### 1. El Sistema de Referencia (SR)\nUn sistema de referencia es un conjunto de convenciones usado por un observador para poder medir la posición y otras magnitudes físicas de un sistema mecánico. Para nosotros, consiste en nuestro mapa digital superpuesto con ejes Cartesianos ($X, Y$).\n\n[JUEGO:ORDENAR_LETRAS:TRAYECTORIA]\n\n### 2. Posición (Vectorial) vs. Trayectoria (Línea)\n- **Posición ($x$):** Es el vector que va desde el origen de coordenadas hasta el punto donde se encuentra el móvil.\n- **Trayectoria:** Es el conjunto de puntos sucesivos que ocupa un móvil en el espacio a lo largo del tiempo. Puede ser rectilínea o curvilínea.\n\n[JUEGO:ORDENAR_FRASE:LA POSICION DEPENDE DEL ORIGEN]\n\n<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 600 250\" width=\"100%\" style=\"background-color:#111; border: 1px solid #00ff00;\">\n  <!-- Eje X -->\n  <line x1=\"50\" y1=\"150\" x2=\"550\" y2=\"150\" stroke=\"#555\" stroke-width=\"1\" />\n  \n  <!-- Puntos del movimiento -->\n  <circle cx=\"100\" cy=\"150\" r=\"6\" fill=\"#00ff00\" />\n  <text x=\"90\" y=\"180\" fill=\"#00ff00\" font-family=\"Courier\" font-size=\"12\">Xi (20m)</text>\n  \n  <circle cx=\"450\" cy=\"150\" r=\"6\" fill=\"#ff3333\" />\n  <text x=\"440\" y=\"180\" fill=\"#ff3333\" font-family=\"Courier\" font-size=\"12\">Xf (90m)</text>\n  \n  <!-- Trayectoria Curva Arriba -->\n  <path d=\"M 100 150 C 200 50, 350 50, 450 150\" fill=\"none\" stroke=\"#00ffff\" stroke-width=\"3\" stroke-dasharray=\"4\" />\n  <text x=\"250\" y=\"80\" fill=\"#00ffff\" font-family=\"Courier\" font-size=\"12\">Trayectoria Real (Distancia = 120m)</text>\n  \n  <!-- Desplazamiento Directo -->\n  <line x1=\"105\" y1=\"150\" x2=\"440\" y2=\"150\" stroke=\"#ffcc00\" stroke-width=\"3\" />\n  <polygon points=\"440,145 450,150 440,155\" fill=\"#ffcc00\" />\n  <text x=\"210\" y=\"140\" fill=\"#ffcc00\" font-family=\"Courier\" font-size=\"12\">Desplazamiento (70m Este)</text>\n</svg>\n\n### 3. Distancia Recorrida ($d$) vs. Desplazamiento ($\\Delta x$)\n\n¡Alerta de error común de novato en el software! Muchos supervivientes confunden distancia con desplazamiento:\n1. La **Distancia ($d$)** es una magnitud escalar. Es la longitud de la trayectoria real medida en metros. Siempre es positiva.\n2. El **Desplazamiento ($\\Delta x$)** es una magnitud vectorial. Mide el cambio neto de posición: \n   $$\\Delta x = x_f - x_i$$\n   donde $x_f$ es la posición final y $x_i$ es la posición inicial.\n\n[JUEGO:SOPA_LETRAS:DISTANCIA,PUNTO,RELOJ]\n\n[JUEGO:ORDENAR_LETRAS:DISTANCIA]\n\n[JUEGO:ORDENAR_FRASE:EL VECTOR UNE INICIO Y FIN]\n\nSi el pulso viaja desde el laboratorio (20m) hasta la portería (90m) siguiendo la tubería curva de gas (trayectoria de 120m), su distancia recorrida es 120m, pero su desplazamiento es de solo:\n$$\\Delta x = 90\\text{ m} - 20\\text{ m} = 70\\text{ m}\\text{ al Este}$$\n\n[JUEGO:CRUCIGRAMA:Punto de referencia cero|ORIGEN;Cambio de posicion|DESPLAZAMIENTO]\n\n[JUEGO:SOPA_LETRAS:METRO,CURVA,GRAFICA]\n\n[JUEGO:ORDENAR_LETRAS:ANOMALIA]\n\n[JUEGO:ORDENAR_FRASE:LA TRAYECTORIA ES EL CAMINO REAL]\n\n[JUEGO:CRUCIGRAMA:Magnitud sin direccion|ESCALAR;Longitud real|DISTANCIA]\n\n[JUEGO:ORDENAR_LETRAS:VECTOR]\n\n[JUEGO:ORDENAR_FRASE:MEDIMOS LA DISTANCIA EN METROS]\n\n[JUEGO:SOPA_LETRAS:RAPIDEZ,TIEMPO,ESCALAR]\n\n[JUEGO:SOPA_LETRAS:VECTOR,SENTIDO,MEDIDA]\n\n[JUEGO:CRUCIGRAMA:Segmento de recta dirigido|VECTOR;Unidad standard|METRO]\n\n[JUEGO:CRUCIGRAMA:Cambio neto de posicion|DESPLAZAMIENTO;Variable temporal|SEGUNDO]",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "Un dron de patrulla inicia en x = -10 metros, vuela hasta x = 40 metros para escanear señales, y finalmente retrocede hasta x = 10 metros. ¿Cuál es su desplazamiento total?",
+      "respuesta_esperada": "El desplazamiento total es de 20 metros hacia el este (o positivo). Se calcula usando la fórmula final menos inicial: Δx = Xf - Xi = 10m - (-10m) = 20m."
+    },
+    {
+      "pregunta": "¿En qué único caso de movimiento la distancia recorrida por un objeto es exactamente igual a la magnitud de su desplazamiento?",
+      "respuesta_esperada": "Únicamente cuando el movimiento es rectilíneo y no presenta cambios de sentido (siempre avanza en la misma dirección sin devolverse)."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Demuestra matemáticamente en tu bitácora: Si un pulso de radiación viaja en círculo alrededor de nuestra torre de radio (de radio = 10 metros) y completa exactamente una vuelta, ¿cuál es su distancia recorrida y cuál su desplazamiento? (Pista: Usa la fórmula de la circunferencia para la distancia).",
+    "Analiza por qué un podómetro (contador de pasos para caminatas de supervivencia) mide distancia y no desplazamiento. Escribe un párrafo técnico explicando cómo hackearías el dispositivo para que mida desplazamiento."
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de fenómenos",
+      "texto_introductorio": "Durante un experimento de calibración de radares en las inmediaciones de la IE Instituto Montenegro, los estudiantes registran el movimiento de un robot explorador que se desplaza a lo largo de un corredor recto. El robot parte de la posición x = 2 metros, avanza hasta x = 12 metros, y luego regresa hasta detenerse en x = 5 metros. Los sensores registraron que el robot tardó 10 segundos en completar todo el recorrido.",
+      "tabla_o_grafica_markdown": "| Intervalo de Movimiento | Posición Inicial ($x_i$) | Posición Final ($x_f$) | Distancia Recorrida en el Tramo |\n| :---: | :---: | :---: | :---: |\n| Tramo 1 (Ida) | 2 m | 12 m | 10 m |\n| Tramo 2 (Vuelta) | 12 m | 5 m | 7 m |\n| **Total acumulado** | **2 m** | **5 m** | **17 m** |",
+      "pregunta": "Con base en los datos del sistema de telemetría y la tabla de registros, ¿cuál de las siguientes opciones describe correctamente la distancia total recorrida y el desplazamiento neto del robot explorador?",
+      "opciones": [
+        "Distancia = 17 metros; Desplazamiento = 3 metros en dirección positiva.",
+        "Distancia = 3 metros; Desplazamiento = 17 metros en dirección positiva.",
+        "Distancia = 17 metros; Desplazamiento = -3 metros en dirección negativa.",
+        "Distancia = 10 metros; Desplazamiento = 7 metros en dirección positiva."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "¡Excelente hackeo del sistema! La distancia total recorrida es la suma de los tramos (10 m + 7 m = 17 m). El desplazamiento neto depende únicamente del cambio de posición final e inicial: Δx = Xf - Xi = 5 m - 2 m = 3 m en sentido positivo.",
+        "1": "Incorrecto. Has confundido los conceptos de distancia (escalar acumulativo) y desplazamiento (cambio de posición neta vectorial).",
+        "2": "Incorrecto. El desplazamiento es positivo (3 m) porque la posición final (5 m) está a la derecha de la posición inicial (2 m). No es negativo.",
+        "3": "Incorrecto. Esos valores corresponden a mediciones parciales aisladas de los tramos de ida y vuelta, no al comportamiento neto de todo el recorrido del robot."
+      }
+    }
+  ]
+}

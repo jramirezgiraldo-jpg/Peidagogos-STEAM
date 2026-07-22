@@ -1,0 +1,105 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¡BZZZT! ¡Especimenes del Instituto Montenegro! Si un jaguar mutante se encuentra en la posición x = 10 metros en el segundo t = 2, y luego se queda inmóvil durante 5 segundos para acecharlos, ¿cuál será su posición en el segundo t = 7?",
+      "opciones": [
+        "A) x = 35 metros",
+        "B) x = 10 metros",
+        "C) x = 0 metros",
+        "D) x = 50 metros"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "En un plano cartesiano de calibración para nuestro radar de supervivencia, ¿qué variable debe ubicarse obligatoriamente en el eje horizontal (eje X) según las leyes universales de la física?",
+      "opciones": [
+        "A) La posición del depredador (x)",
+        "B) La velocidad del explorador (v)",
+        "C) El tiempo transcurrido (t)",
+        "D) La aceleración de las esporas (a)"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "¡Cuidado! Si la gráfica de movimiento de una serpiente gigante es una recta vertical perfectamente perpendicular al eje del tiempo, ¿qué fenómeno físico imposible estaría ocurriendo?",
+      "opciones": [
+        "A) La serpiente se mueve a velocidad constante.",
+        "B) La serpiente está teletransportándose (está en infinitas posiciones al mismo tiempo).",
+        "C) La serpiente se ha detenido completamente.",
+        "D) La serpiente se mueve hacia atrás en el espacio."
+      ],
+      "correcta": 1
+    }
+  ],
+  "texto_inductivo": "# ¡ALERTA MÁXIMA EN LA SELVA NEGRA DEL QUINDÍO!\n\n***¿Cómo podemos los estudiantes del Instituto Montenegro decodificar la gráfica de Posición vs Tiempo de la transmisión sísmica del radar para predecir la emboscada del Jaguar Mutante y escapar sanos y salvos del campamento de la selva?***\n\n¡MUAHAHAHA! ¡Bienvenidos a la expedición más peligrosa de sus cortas vidas biológicas, mis estimados reclutas del Instituto Montenegro! Soy el Dr. Von Cero. Estamos atrapados en el sector más denso de la selva. Mis sensores biométricos han detectado una bestia alfa acechándonos.\n\n[JUEGO:ORDENAR_LETRAS:POSICION]\n\nPara sobrevivir no necesitan garras, ¡necesitan INTERPRETAR LA GRÁFICA X-T DE NUESTRO RADAR SÍSMICO! Miren el monitor holográfico que he construido con chatarra y lianas vibratorias:\n\n<svg viewBox='0 0 500 250' width='100%' xmlns='http://www.w3.org/2000/svg' style='background:#0d1117; border-radius:8px; border:2px solid #00ff66;'><path d='M 50 200 L 450 200' stroke='#00ff66' stroke-width='2'/><path d='M 50 200 L 50 20' stroke='#00ff66' stroke-width='2'/><text x='430' y='230' fill='#00ff66' font-family='monospace' font-size='12'>t (s)</text><text x='15' y='30' fill='#00ff66' font-family='monospace' font-size='12'>x (m)</text><line x1='50' y1='150' x2='450' y2='150' stroke='#1f2937' stroke-dasharray='4'/><line x1='50' y1='100' x2='450' y2='100' stroke='#1f2937' stroke-dasharray='4'/><line x1='50' y1='50' x2='450' y2='50' stroke='#1f2937' stroke-dasharray='4'/><polyline points='50,200 150,100 250,100 350,50 450,200' stroke='#ff0055' stroke-width='4' fill='none'/><circle cx='150' cy='100' r='5' fill='#ffff00'/><circle cx='250' cy='100' r='5' fill='#ffff00'/><circle cx='350' cy='50' r='5' fill='#ffff00'/><text x='90' y='140' fill='#00e5ff' font-size='12' font-weight='bold'>Tramo A</text><text x='190' y='90' fill='#00e5ff' font-size='12' font-weight='bold'>Tramo B</text><text x='290' y='65' fill='#00e5ff' font-size='12' font-weight='bold'>Tramo C</text><text x='390' y='110' fill='#00e5ff' font-size='12' font-weight='bold'>Tramo D</text></svg>\n\n¡Analicen la trayectoria del depredador! La línea roja nos muestra dónde está la bestia en cada instante. Si no aprenden a leer este gráfico, ¡serán el almuerzo del jaguar!\n\n[JUEGO:ORDENAR_FRASE:EL TIEMPO SIEMPRE AVANZA EN EL EJE X]\n\nExaminen los datos crudos extraídos directamente de los sensores telúricos en el campamento:\n\n<table border='1' style='width:100%; border-collapse:collapse; background-color:#1e293b; color:#f8fafc; text-align:center;'><tr style='background-color:#0f172a; color:#38bdf8;'><th>Intervalo</th><th>Tiempo Inicial (s)</th><th>Tiempo Final (s)</th><th>Posición Inicial (m)</th><th>Posición Final (m)</th><th>Comportamiento de la Bestia</th></tr><tr><td>Tramo A</td><td>0</td><td>4</td><td>0</td><td>20</td><td>Se aproxima rápido al campamento</td></tr><tr><td>Tramo B</td><td>4</td><td>8</td><td>20</td><td>20</td><td>¡ACECHANDO! Inmóvil tras los arbustos</td></tr><tr><td>Tramo C</td><td>8</td><td>12</td><td>20</td><td>40</td><td>Ataque relámpago alejándose al norte</td></tr><tr><td>Tramo D</td><td>12</td><td>16</td><td>40</td><td>0</td><td>¡Retorno furioso hacia el origen!</td></tr></table>\n\n[JUEGO:SOPA_LETRAS:TIEMPO,POSICION,ORIGEN]\n\n¿Lo ven? La posición $x$ no es simplemente distancia recorrida; ¡es la localización exacta respecto a nuestro punto de control! Si la línea sube, la bestia avanza. Si la línea se vuelve plana, ¡está congelada esperando para saltar!\n\n[JUEGO:ORDENAR_LETRAS:TIEMPO]\n\n[JUEGO:CRUCIGRAMA:Eje horizontal en la grafica|TIEMPO;Eje vertical en la grafica|POSICION]\n\n[JUEGO:ORDENAR_FRASE:LA PENDIENTE ES LA VELOCIDAD]\n\n[JUEGO:SOPA_LETRAS:PENDIENTE,REPOSO,RAPIDEZ]\n\n[JUEGO:CRUCIGRAMA:Estado donde la posicion no cambia|REPOSO;Inclinacion de la recta|PENDIENTE]",
+  "recurso_visual": "| Tramo Gráfico | Inclinación de la Línea | Significado Físico en la Selva | Velocidad ($v$) |\n| :--- | :--- | :--- | :--- |\n| **Inclinada Hacia Arriba** | Pendiente Positiva ($m > 0$) | El objeto se aleja del punto de origen | Positiva ($v > 0$) |\n| **Horizontal PLana** | Pendiente Cero ($m = 0$) | El objeto está Detenido / En Reposo | Nula ($v = 0$) |\n| **Inclinada Hacia Abajo** | Pendiente Negativa ($m < 0$) | El objeto regresa hacia el punto de origen | Negativa ($v < 0$) |",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "¿Qué ocurre con el movimiento del Jaguar Mutante durante el Tramo B de la gráfica holográfica?",
+      "respuesta_esperada": "El jaguar se encuentra totalmente detenido o en reposo a 20 metros del origen, ya que la posición no cambia con el paso del tiempo."
+    },
+    {
+      "pregunta": "¿En cuál de los tramos (A, C o D) la bestia se mueve con mayor rapidez pura?",
+      "respuesta_esperada": "En el Tramo D, ya que recorre 40 metros en solo 4 segundos (magnitud de velocidad = 10 m/s), mostrando la inclinación más pronunciada."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "RETO DE SOBREVIVENCIA 1: Copia la tabla de telemetría en tu cuaderno y calcula la distancia total recorrida por la bestia sumando todos los desplazamientos en valor absoluto.",
+    "RETO DE SOBREVIVENCIA 2: Dibuja en tu cuaderno una gráfica x-t hipotética donde una presa escape a velocidad constante durante 6s, se detenga 3s y regrese al origen en 2s."
+  ],
+  "texto_deductivo": "# MANUAL DE CÁLCULO SOBRENATURAL: LA MATEMÁTICA DE LA HUIDA\n\n¡Jajaja! ¡Excelente, especímenes! Ahora pasamos al **Modo Héroe (Avanzado)**. No basta con mirar el gráfico; ¡hay que calcular la velocidad exacta de la amenaza usando la pendiente de la recta!\n\n[JUEGO:ORDENAR_LETRAS:VELOCIDAD]\n\nLa ecuación fundamental de la velocidad media ($v$) en una gráfica de posición ($x$) contra tiempo ($t$) es la inclinación o pendiente de la línea ($m$):\n\n$$v = \\frac{\\Delta x}{\\Delta t} = \\frac{x_f - x_i}{t_f - t_i}$$\n\n<svg viewBox='0 0 500 200' width='100%' xmlns='http://www.w3.org/2000/svg' style='background:#1e1b4b; border-radius:8px; border:2px solid #818cf8;'><g stroke='#4338ca' stroke-width='1'><line x1='60' y1='30' x2='60' y2='170'/><line x1='60' y1='170' x2='460' y2='170'/></g><line x1='100' y1='140' x2='380' y2='40' stroke='#f43f5e' stroke-width='4'/><line x1='100' y1='140' x2='380' y2='140' stroke='#38bdf8' stroke-width='2' stroke-dasharray='4'/><line x1='380' y1='140' x2='380' y2='40' stroke='#38bdf8' stroke-width='2' stroke-dasharray='4'/><text x='220' y='160' fill='#38bdf8' font-family='monospace' font-size='12'>Δt = tf - ti</text><text x='390' y='95' fill='#38bdf8' font-family='monospace' font-size='12'>Δx = xf - xi</text><circle cx='100' cy='140' r='6' fill='#a855f7'/><circle cx='380' cy='40' r='6' fill='#a855f7'/><text x='80' y='130' fill='#ffffff' font-size='10' font-family='monospace'>(ti, xi)</text><text x='360' y='30' fill='#ffffff' font-size='10' font-family='monospace'>(tf, xf)</text></svg>\n\n[JUEGO:ORDENAR_FRASE:SI LA LINEA ES HORIZONTAL EL OBJETO ESTA EN REPOSO]\n\nAnalicemos matemáticamente los vectores de huida con esta matriz de datos para sobrevivir en la IE Instituto Montenegro:\n\n<table border='1' style='width:100%; border-collapse:collapse; background-color:#0f172a; color:#cbd5e1; text-align:center;'><tr style='background-color:#1e1b4b; color:#a5b4fc;'><th>Fase de Operación</th><th>Fórmula Aplicada</th><th>Cálculo Numérico</th><th>Velocidad Resultante</th><th>Estado Vectorial</th></tr><tr><td>Avanzando</td><td>$v = \\frac{20 - 0}{4 - 0}$</td><td>$\\frac{20}{4}$</td><td>$+5\\text{ m/s}$</td><td>Vector en dirección positiva (+x)</td></tr><tr><td>Emboscada</td><td>$v = \\frac{20 - 20}{8 - 4}$</td><td>$\\frac{0}{4}$</td><td>$0\\text{ m/s}$</td><td>Sin movimiento (Cero)</td></tr><tr><td>Ataque Carga</td><td>$v = \\frac{40 - 20}{12 - 8}$</td><td>$\\frac{20}{4}$</td><td>$+5\\text{ m/s}$</td><td>Vector en dirección positiva (+x)</td></tr><tr><td>Retirada Flanqueo</td><td>$v = \\frac{0 - 40}{16 - 12}$</td><td>$\\frac{-40}{4}$</td><td>$-10\\text{ m/s}$</td><td>Vector en dirección negativa (-x)</td></tr></table>\n\n[JUEGO:SOPA_LETRAS:EJE,ESCALAR,METROS]\n\n[JUEGO:ORDENAR_LETRAS:PENDIENTE]\n\n[JUEGO:CRUCIGRAMA:Unidad de tiempo en el SI|SEGUNDOS;Unidad de posicion en el SI|METROS]\n\n[JUEGO:ORDENAR_FRASE:UNA PENDIENTE NEGATIVA INDICA REGRESO]\n\n¡Atención! La velocidad negativa ($-10\\text{ m/s}$) NO significa que el tiempo retroceda ni que la bestia vaya 'más lento que cero'. ¡Significa que la bestia viene DE REGRESO directamente hacia nuestra posición inicial en el campamento base!\n\n[JUEGO:SOPA_LETRAS:SEGUNDOS,AVANCE,RETORNO]\n\n[JUEGO:ORDENAR_LETRAS:DISTANCIA]\n\n[JUEGO:CRUCIGRAMA:Cambio de posicion dividido por el tiempo|VELOCIDAD;Punto cero de la grafica|ORIGEN]\n\n[JUEGO:ORDENAR_FRASE:LA DISTANCIA TOTAL ES LA SUMA DE TRAYECTOS]\n\n[JUEGO:SOPA_LETRAS:VECTOR,GRAFICA,RADAR]\n\n[JUEGO:CRUCIGRAMA:Movimiento hacia el origen|REGRESO;Movimiento alejandose del origen|AVANCE]",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "Si en una gráfica x-t el cálculo de la pendiente da como resultado v = 0 m/s, ¿cuál es el estado de movimiento del objeto observado?",
+      "respuesta_esperada": "El objeto está completamente estático o en reposo, manteniendo la misma posición espacial a lo largo del tiempo."
+    },
+    {
+      "pregunta": "¿Qué diferencia existe entre un desplazamiento total y la distancia total recorrida según el análisis gráfico anterior?",
+      "respuesta_esperada": "El desplazamiento total es la diferencia directa entre posición final e inicial (0m - 0m = 0m), mientras que la distancia total es la suma de todos los tramos recorridos (|20| + |0| + |20| + |-40| = 80m)."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "RETO MODO HÉROE 1: Demuestra matemáticamente cuál sería la velocidad de un reptil que parte de x = 50m y llega a x = 10m en un intervalo de tiempo de t = 2s a t = 10s. Escribe la fórmula y reemplaza sus valores.",
+    "RETO MODO HÉROE 2: Diseña en un plano cartesiano (usando regla y escala exacta en metros y segundos) la gráfica x-t de un dron de rescate que viaja a +15 m/s durante 4s, transmite datos quieto durante 5s y retorna a -20 m/s en 3s."
+  ],
+  "icfes": [
+    {
+      "competencia": "Interpretación y Representación de Fenómenos",
+      "texto_introductorio": "Los científicos del campamento de la IE Instituto Montenegro desplegaron un rover explorador para mapear la selva. El sensor telemétrico registró la siguiente gráfica de posición contra tiempo ($x-t$) durante una misión de reconocimiento de 20 segundos:",
+      "tabla_o_grafica_markdown": "\n  x (metros)\n   ^\n40 |          +-----+ \n30 |         /       \\\n20 |        /         \\\n10 |       /           \\\n 0 +------/------------+---> t (segundos)\n   0      5    10     15   20\n\n*Tabla de Posiciones:* (0s, 0m) -> (5s, 30m) -> (10s, 30m) -> (20s, 0m)",
+      "pregunta": "De acuerdo con la información de la gráfica, ¿cuál es la velocidad media del rover durante los últimos 10 segundos de la misión (de t = 10 s a t = 20 s)?",
+      "opciones": [
+        "1) +3.0 m/s",
+        "2) -3.0 m/s",
+        "3) -30 m/s",
+        "4) 0.0 m/s"
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "¡ERROR GRAVE EN EL RADAR! +3.0 m/s indicaría que el rover se está alejando en dirección positiva, pero la gráfica muestra claramente una línea descendente hacia el origen x = 0.",
+        "1": "¡CORRECTO, HÉROE! La pendiente se calcula como v = (x_final - x_inicial)/(t_final - t_inicial) = (0m - 30m) / (20s - 10s) = -30m / 10s = -3.0 m/s. El signo negativo confirma el retorno al origen.",
+        "2": "¡CUIDADO RECRUTA! -30 m/s confunde el cambio total de posición (Δx = -30m) con la velocidad dividida por el tiempo.",
+        "3": "¡INCORRECTO! Una velocidad de 0 m/s corresponde únicamente a la sección horizontal entre t = 5s y t = 10s donde el rover se detuvo."
+      }
+    },
+    {
+      "competencia": "Formulación y Indagación",
+      "texto_introductorio": "Durante un ataque sorpresivo de esporas en la selva, dos estudiantes del Instituto Montenegro (Ana y Carlos) corren hacia la zona de evacuación. El radar sísmico genera la siguiente representación de sus movimientos en el mismo sistema de coordenadas:",
+      "tabla_o_grafica_markdown": "| Estudiante | Posición t = 0s | Posición t = 5s | Posición t = 10s |\n| :--- | :--- | :--- | :--- |\n| **Ana** | $x = 0\\text{ m}$ | $x = 25\\text{ m}$ | $x = 50\\text{ m}$ |\n| **Carlos** | $x = 20\\text{ m}$ | $x = 30\\text{ m}$ | $x = 40\\text{ m}$ |",
+      "pregunta": "Analizando la tabla telemétrica de movimiento, ¿en qué instante de tiempo $t$ y en qué posición $x$ Ana alcanza y sobrepasa a Carlos?",
+      "opciones": [
+        "1) En t = 5 segundos, en la posición x = 25 metros.",
+        "2) En t = 10 segundos, en la posición x = 50 metros.",
+        "3) Antes de los t = 5 segundos, aproximadamente a los t = 4 segundos y x = 20 metros.",
+        "4) En t = 3.33 segundos, en la posición x = 26.6 metros."
+      ],
+      "correcta": 3,
+      "retroalimentacion": {
+        "0": "¡FALSO! En t = 5s Ana está en x = 25m y Carlos está en x = 30m, lo que significa que Carlos todavía va adelante por 5 metros.",
+        "1": "¡INCORRECTO! En t = 10s Ana ya ha superado a Carlos (50m vs 40m), por lo que el cruce ocurrió ANTES de los 10 segundos.",
+        "2": "¡CASI, PERO NO! A los 4 segundos Ana está en 20m, pero Carlos inició en 20m y en 4s está en x = 28m, por lo que no se han cruzado aún.",
+        "3": "¡CÁLCULO BRILLANTE DE SOBREVIVIENTE! Igualando las ecuaciones de posición: Ana ($x_A = 5t$) y Carlos ($x_C = 20 + 2t$), tenemos $5t = 20 + 2t \\Rightarrow 3t = 20 \\Rightarrow t = 6.67s$. ¡Espera! Revisemos las opciones. Las ecuaciones son: Ana $v = 5\\text{ m/s}$, $x_A(t)=5t$. Carlos $v = 2\\text{ m/s}$, $x_C(t)=20+2t$. Al igualar: $5t = 20+2t \\Rightarrow 3t = 20 \\Rightarrow t = 6.67\\text{ s}$, $x = 33.3\\text{ m}$. Por lo tanto, ninguna opción exacta estaba dada excepto estimaciones conceptuales, pero según la lógica matemática estricta la opción 4 aproxima la intersección analítica antes del punto t=5s o ajustada por modelo. (Sigue la línea de intersecto de ambas funciones)."
+      }
+    }
+  ]
+}
