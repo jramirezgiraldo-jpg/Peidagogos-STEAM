@@ -2,22 +2,766 @@
     "semanasGeneradas": 1,
     "clases": {
         "fisica6": {
-            "1": []
+            "1": [
+                [
+                    {
+                        "title": "¡Listos para Física!",
+                        "sub": "Prepara tu espacio de trabajo",
+                        "content": "Asegúrate de tener tu cuaderno de física, lápiz, borrador y colores listos.<br>Escribe la fecha y el título de la clase: 'Cinemática Básica: Movimiento vs Reposo'.",
+                        "icon": "ph-book-open",
+                        "customHtml": "",
+                        "timer": 120
+                    },
+                    {
+                        "title": "¿Qué es Cinemática?",
+                        "sub": "La ciencia del movimiento",
+                        "content": "La Cinemática es la rama de la física que estudia el movimiento de los objetos sin considerar las causas que lo producen.<br>Copia esta definición en tu cuaderno.",
+                        "icon": "ph-lightbulb",
+                        "customHtml": "",
+                        "timer": 300
+                    },
+                    {
+                        "title": "Marco de Referencia",
+                        "sub": "Todo es relativo",
+                        "content": "Para describir el movimiento, necesitamos un 'marco de referencia'.<br>Es un punto o sistema de coordenadas desde donde observamos el movimiento.<br>Dibuja un esquema simple de un observador y un objeto en movimiento.",
+                        "icon": "ph-target",
+                        "customHtml": "<div class='mermaid'>graph TD; A[Observador] --> B(Objeto en Movimiento); B --> C(Trayectoria); style A fill:#f9f,stroke:#333,stroke-width:2px; style B fill:#ccf,stroke:#333,stroke-width:2px; style C fill:#cfc,stroke:#333,stroke-width:2px;</div>",
+                        "timer": 300
+                    },
+                    {
+                        "title": "¿Qué es Movimiento?",
+                        "sub": "Cambio de posición",
+                        "content": "Un objeto está en movimiento si cambia su posición con respecto a un marco de referencia en un intervalo de tiempo.<br>Copia esta definición y piensa en un ejemplo.",
+                        "icon": "ph-arrow-right",
+                        "customHtml": "",
+                        "timer": 300
+                    },
+                    {
+                        "title": "¿Qué es Reposo?",
+                        "sub": "Posición constante",
+                        "content": "Un objeto está en reposo si su posición no cambia con respecto a un marco de referencia en un intervalo de tiempo.<br>Copia esta definición y contrástala con la de movimiento.",
+                        "icon": "ph-bed",
+                        "customHtml": "",
+                        "timer": 300
+                    },
+                    {
+                        "title": "Movimiento Relativo",
+                        "sub": "Depende del observador",
+                        "content": "El movimiento y el reposo son conceptos relativos. Un objeto puede estar en movimiento para un observador y en reposo para otro.<br>Dibuja un tren en movimiento y una persona dentro y otra fuera.",
+                        "icon": "ph-arrows-left-right",
+                        "customHtml": "<div class='mermaid'>graph TD; A[Persona en Andén] --> B(Ve tren en movimiento); C[Persona en Tren] --> D(Ve andén en movimiento); C --> E(Ve a otra persona en tren en reposo);</div>",
+                        "timer": 300
+                    },
+                    {
+                        "title": "Ejemplo: Carro y Árbol",
+                        "sub": "Analizando el movimiento",
+                        "content": "Imagina un carro moviéndose por una carretera y un árbol al lado.<br>Desde el punto de vista del árbol, ¿el carro está en movimiento o en reposo?<br>Desde el punto de vista del conductor, ¿el árbol está en movimiento o en reposo?<br>Escribe tus respuestas.",
+                        "icon": "ph-car",
+                        "customHtml": "<div class='mermaid'>graph TD; A[Árbol] -- \"Marco de Ref.\" --> B(Carro en Movimiento); C[Conductor] -- \"Marco de Ref.\" --> D(Árbol en Movimiento Relativo);</div>",
+                        "timer": 300
+                    },
+                    {
+                        "title": "Ejemplo: Tierra y Sol",
+                        "sub": "Perspectivas diferentes",
+                        "content": "Desde la Tierra, el Sol parece moverse en el cielo. Pero, ¿está la Tierra en reposo o en movimiento alrededor del Sol?<br>¿Y el Sol, está en reposo o en movimiento en la galaxia?<br>Reflexiona y anota tus conclusiones.",
+                        "icon": "ph-globe",
+                        "customHtml": "<div class='mermaid'>graph TD; A[Tierra] -- \"Gira alrededor\" --> B(Sol); B -- \"Gira alrededor del centro\" --> C(Vía Láctea);</div>",
+                        "timer": 300
+                    },
+                    {
+                        "title": "Conceptos Clave",
+                        "sub": "Resumen de la clase",
+                        "content": "1. La cinemática estudia el movimiento sin sus causas.<br>2. El movimiento y el reposo son relativos y dependen del marco de referencia.<br>3. Un objeto se mueve si cambia de posición; está en reposo si no lo hace.<br>Copia estos puntos importantes.",
+                        "icon": "ph-check-circle",
+                        "customHtml": "",
+                        "timer": 300
+                    },
+                    {
+                        "title": "Pregunta ICFES",
+                        "sub": "Aplica lo aprendido",
+                        "content": "<b>Enunciado del Caso:</b><br>Un pasajero viaja en un tren que se mueve a una velocidad constante. Dentro del tren, el pasajero observa a otro pasajero sentado frente a él y un árbol que pasa rápidamente por la ventana.<br><br><b>Pregunta Problema:</b><br>Respecto al pasajero sentado frente a él y al árbol, ¿cómo percibe el movimiento el pasajero que observa?<br><br><b>Distractores:</b><br>A. Ambos, el otro pasajero y el árbol, están en reposo.<br>B. Ambos, el otro pasajero y el árbol, están en movimiento.<br>C. El otro pasajero está en reposo y el árbol está en movimiento.<br>D. El otro pasajero está en movimiento y el árbol está en reposo.<br><br><b>Respuesta Correcta Justificada:</b><br>La respuesta correcta es la <b>C</b>. Desde el marco de referencia del pasajero observador (dentro del tren), el otro pasajero sentado no cambia su posición relativa, por lo tanto, está en reposo. Sin embargo, el árbol, que está fuera del tren, cambia su posición rápidamente con respecto al pasajero observador, lo que significa que está en movimiento.<br><br>Copia toda la pregunta, los distractores y la grfica en tu cuaderno y encierra la respuesta correcta.",
+                        "icon": "ph-question",
+                        "customHtml": "<div class='mermaid'>graph TD; A[Pasajero Observador] -- \"Marco de Ref.\" --> B(Pasajero Sentado); A -- \"Marco de Ref.\" --> C(Árbol Exterior); B -- \"No cambia posición\" --> D(Reposo); C -- \"Cambia posición\" --> E(Movimiento); style A fill:#f9f,stroke:#333,stroke-width:2px; style B fill:#ccf,stroke:#333,stroke-width:2px; style C fill:#cfc,stroke:#333,stroke-width:2px; style D fill:#fcc,stroke:#333,stroke-width:2px; style E fill:#cff,stroke:#333,stroke-width:2px;</div>",
+                        "timer": 300
+                    }
+                ],
+                [
+                    {
+                        "title": "¡Listos para aprender!",
+                        "sub": "Prepara tu espacio",
+                        "content": "Asegúrate de tener tu cuaderno de física, lápiz, borrador y colores listos.<br>Escribe la fecha y el título de la clase: <b>Cinemática básica (Clase 2)</b>.",
+                        "icon": "ph-book-open",
+                        "customHtml": "",
+                        "timer": 120
+                    },
+                    {
+                        "title": "¿Qué es movimiento?",
+                        "sub": "Recordando la clase anterior",
+                        "content": "Copia en tu cuaderno la definición de <b>Movimiento</b> y <b>Reposo</b> que vimos la clase pasada.<br>Recuerda que son conceptos relativos.",
+                        "icon": "ph-repeat",
+                        "customHtml": "",
+                        "timer": 300
+                    },
+                    {
+                        "title": "El punto de vista",
+                        "sub": "Introducción al sistema de referencia",
+                        "content": "Para determinar si algo se mueve o está en reposo, necesitamos un <b>Sistema de Referencia</b>.<br>Copia: 'Un sistema de referencia es un punto o conjunto de puntos respecto al cual se describe el movimiento de un cuerpo.'",
+                        "icon": "ph-map-pin",
+                        "customHtml": "",
+                        "timer": 300
+                    },
+                    {
+                        "title": "Movimiento relativo",
+                        "sub": "Analizando situaciones cotidianas",
+                        "content": "Piensa en un pasajero dentro de un bus en movimiento.<br>¿Está en reposo respecto al bus? ¿Está en movimiento respecto a un árbol fuera del bus?<br>Escribe tus conclusiones.",
+                        "icon": "ph-bus",
+                        "customHtml": "",
+                        "timer": 300
+                    },
+                    {
+                        "title": "Dibuja el escenario",
+                        "sub": "Visualizando el sistema de referencia",
+                        "content": "Dibuja un bus en movimiento y una persona dentro. Afuera, dibuja un árbol y una persona observando.<br>Usa flechas para indicar el movimiento del bus y la persona dentro respecto al árbol.",
+                        "icon": "ph-pencil-line",
+                        "customHtml": "<div class=\"mermaid\">\ngraph TD\n    A[Persona en bus] --> B(Bus en movimiento);\n    B --> C(Carretera);\n    C --> D[Árbol];\n    D --> E[Persona observando];\n\n    subgraph Sistema de Referencia 1 (Bus)\n        A -- \"En reposo respecto a\" --> B;\n    end\n\n    subgraph Sistema de Referencia 2 (Tierra)\n        B -- \"En movimiento respecto a\" --> D;\n        A -- \"En movimiento respecto a\" --> D;\n        E -- \"En reposo respecto a\" --> D;\n    end\n</div>",
+                        "timer": 300
+                    },
+                    {
+                        "title": "Trayectoria y Desplazamiento",
+                        "sub": "Diferencias clave",
+                        "content": "Copia las definiciones:<br><b>Trayectoria:</b> Es el camino que sigue un cuerpo en su movimiento.<br><b>Desplazamiento:</b> Es el cambio de posición de un cuerpo, medido en línea recta desde el punto inicial al final.",
+                        "icon": "ph-arrows-left-right",
+                        "customHtml": "",
+                        "timer": 300
+                    },
+                    {
+                        "title": "Identifica el estado",
+                        "sub": "Ejemplos prácticos",
+                        "content": "Para cada situación, indica si el objeto está en <b>Movimiento</b> o <b>Reposo</b> y especifica el <b>Sistema de Referencia</b>:<br>1. Un libro sobre una mesa.<br>2. Un pájaro volando.<br>3. Tú sentado en tu silla.",
+                        "icon": "ph-question",
+                        "customHtml": "",
+                        "timer": 300
+                    },
+                    {
+                        "title": "El Observador",
+                        "sub": "¿Quién ve el movimiento?",
+                        "content": "El estado de movimiento o reposo de un objeto siempre depende del <b>observador</b> y su sistema de referencia.<br>No existe el movimiento o reposo absoluto.",
+                        "icon": "ph-eye",
+                        "customHtml": "",
+                        "timer": 300
+                    },
+                    {
+                        "title": "Resumen de la clase",
+                        "sub": "Conceptos clave",
+                        "content": "Escribe en tu cuaderno 3 ideas principales que hayas aprendido hoy sobre movimiento, reposo y sistemas de referencia.<br>¿Tienes alguna pregunta? Anótala para discutirla.",
+                        "icon": "ph-lightbulb",
+                        "customHtml": "",
+                        "timer": 300
+                    },
+                    {
+                        "title": "Pregunta ICFES",
+                        "sub": "Aplica tus conocimientos",
+                        "content": "<b>Enunciado del Caso:</b><br>\nUn estudiante observa a un ciclista que se mueve en una pista recta. El estudiante se encuentra de pie al borde de la pista. En el mismo instante, un pájaro vuela en círculos sobre la cabeza del ciclista.<br><br>\n<b>Pregunta Problema:</b><br>\nRespecto al ciclista, ¿cuál de las siguientes afirmaciones es correcta?<br><br>\n<b>Distractores:</b><br>\nA. El estudiante está en reposo y el pájaro está en movimiento circular.<br>\nB. El estudiante está en movimiento y el pájaro está en reposo.<br>\nC. Tanto el estudiante como el pájaro están en movimiento.<br>\nD. El estudiante está en movimiento y el pájaro está en movimiento circular.<br><br>\n<b>Respuesta Correcta Justificada:</b><br>\nLa respuesta correcta es <b>D</b>. Si el sistema de referencia es el ciclista, el estudiante (que está de pie al borde de la pista) se aleja del ciclista, por lo tanto, está en movimiento respecto a él. El pájaro, aunque vuela en círculos, mantiene su movimiento circular respecto al ciclista, ya que el ciclista es el punto de referencia.<br><br>\nCopia toda la pregunta, los distractores y la grfica en tu cuaderno y encierra la respuesta correcta.",
+                        "icon": "ph-exam",
+                        "customHtml": "<div style=\"display: flex; justify-content: center; align-items: flex-end; height: 200px; position: relative;\">\n    <!-- Pista -->\n    <div style=\"width: 80%; height: 10px; background-color: #ccc; position: absolute; bottom: 0;\"></div>\n    <!-- Ciclista -->\n    <div style=\"position: absolute; bottom: 10px; left: 30%; transform: translateX(-50%);\">\n        <div style=\"width: 40px; height: 30px; background-color: #f00; border-radius: 50%; position: relative; display: flex; justify-content: center; align-items: center;\">\n            <span style=\"color: white; font-size: 10px;\">C</span>\n        </div>\n        <div style=\"width: 50px; height: 5px; background-color: #333; position: absolute; top: 15px; left: -5px;\"></div>\n        <div style=\"width: 10px; height: 10px; background-color: #333; border-radius: 50%; position: absolute; bottom: -5px; left: 0;\"></div>\n        <div style=\"width: 10px; height: 10px; background-color: #333; border-radius: 50%; position: absolute; bottom: -5px; right: 0;\"></div>\n        <div style=\"font-size: 12px; text-align: center; margin-top: 5px;\">Ciclista</div>\n    </div>\n    <!-- Estudiante -->\n    <div style=\"position: absolute; bottom: 10px; left: 10%; transform: translateX(-50%);\">\n        <div style=\"width: 20px; height: 50px; background-color: #00f; border-radius: 5px 5px 0 0;\"></div>\n        <div style=\"width: 30px; height: 10px; background-color: #00f; border-radius: 5px; position: absolute; top: 0; left: -5px;\"></div>\n        <div style=\"width: 20px; height: 20px; background-color: #00f; border-radius: 50%; position: absolute; top: -10px; left: 0;\"></div>\n        <div style=\"font-size: 12px; text-align: center; margin-top: 5px;\">Estudiante</div>\n    </div>\n    <!-- Pájaro -->\n    <div style=\"position: absolute; top: 20px; left: 30%; transform: translateX(-50%);\">\n        <div style=\"width: 20px; height: 10px; background-color: #8B4513; border-radius: 50%;\"></div>\n        <div style=\"width: 10px; height: 5px; background-color: #8B4513; border-radius: 50%; position: absolute; top: 0; left: -5px; transform: rotate(-30deg);\"></div>\n        <div style=\"width: 10px; height: 5px; background-color: #8B4513; border-radius: 50%; position: absolute; top: 0; right: -5px; transform: rotate(30deg);\"></div>\n        <div style=\"font-size: 12px; text-align: center; margin-top: 5px;\">Pájaro</div>\n    </div>\n    <!-- Flecha de movimiento del ciclista -->\n    <div style=\"position: absolute; bottom: 25px; left: 35%; width: 100px; border-bottom: 2px dashed #333;\">\n        <div style=\"width: 0; height: 0; border-top: 5px solid transparent; border-bottom: 5px solid transparent; border-left: 10px solid #333; position: absolute; right: 0; top: -4px;\"></div>\n        <div style=\"font-size: 10px; position: absolute; top: -20px; left: 20px;\">Movimiento del ciclista</div>\n    </div>\n    <!-- Flecha de movimiento circular del pájaro -->\n    <div style=\"position: absolute; top: 50px; left: 30%; transform: translateX(-50%); width: 60px; height: 60px; border: 2px dashed #8B4513; border-radius: 50%;\">\n        <div style=\"width: 0; height: 0; border-top: 5px solid transparent; border-bottom: 5px solid transparent; border-left: 10px solid #8B4513; position: absolute; right: 0; top: 25px;\"></div>\n        <div style=\"font-size: 10px; position: absolute; top: -15px; left: 5px;\">Vuelo circular</div>\n    </div>\n</div>",
+                        "timer": 300
+                    }
+                ]
+            ]
         },
         "fisica7": {
-            "1": []
+            "1": [
+                [
+                    {
+                        "title": "¡Listos para Aprender!",
+                        "sub": "Prepara tu espacio de trabajo",
+                        "content": "¡Hola a todos! Bienvenidos a nuestra clase de Física 7.<br>Para empezar, asegúrate de tener tu cuaderno, lápiz, borrador y regla listos.<br>Vamos a tomar apuntes importantes y realizar algunos dibujos.<br>Organiza tu mesa para que tengas suficiente espacio y puedas concentrarte al máximo.<br>¡Hoy exploraremos el fascinante mundo del Análisis Vectorial del Movimiento!",
+                        "icon": "ph-book-open",
+                        "customHtml": "",
+                        "timer": 120
+                    },
+                    {
+                        "title": "¿Qué es un Vector?",
+                        "sub": "Magnitudes escalares vs. vectoriales",
+                        "content": "En física, las magnitudes se clasifican en dos tipos:<br><br><b>1. Magnitudes Escalares:</b> Se definen completamente con un número y una unidad (ej: masa, tiempo, temperatura).<br><b>2. Magnitudes Vectoriales:</b> Requieren un número, una unidad, una dirección y un sentido para ser completamente descritas (ej: fuerza, velocidad, desplazamiento).<br><br>Un <b>vector</b> es una herramienta matemática que usamos para representar estas magnitudes vectoriales. ¡Es como una flecha que nos indica 'cuánto', 'hacia dónde' y 'en qué sentido'!",
+                        "icon": "ph-arrow-fat-line-right",
+                        "customHtml": "",
+                        "timer": 300
+                    },
+                    {
+                        "title": "Elementos de un Vector",
+                        "sub": "Módulo, dirección, sentido",
+                        "content": "Todo vector tiene tres elementos fundamentales:<br><br><b>1. Módulo (o Magnitud):</b> Es la longitud del vector, representa el valor numérico de la magnitud física (ej: 5 metros, 10 N).<br><b>2. Dirección:</b> Es la línea de acción del vector, dada por el ángulo que forma con un eje de referencia (ej: horizontal, vertical, 30° al noreste).<br><b>3. Sentido:</b> Indicado por la punta de la flecha, señala hacia dónde actúa el vector a lo largo de su dirección (ej: hacia arriba, hacia abajo, hacia la derecha).<br><br>Copia este esquema en tu cuaderno.",
+                        "icon": "ph-ruler",
+                        "customHtml": "<div class='mermaid'>graph TD; A[Vector] --> B(Módulo); A --> C(Dirección); A --> D(Sentido); style A fill:#f9f,stroke:#333,stroke-width:2px; style B fill:#ccf,stroke:#333,stroke-width:2px; style C fill:#ccf,stroke:#333,stroke-width:2px; style D fill:#ccf,stroke:#333,stroke-width:2px;</div>",
+                        "timer": 300
+                    },
+                    {
+                        "title": "Representación Gráfica",
+                        "sub": "Escala y sistema de coordenadas",
+                        "content": "Para dibujar un vector, necesitamos un sistema de coordenadas (generalmente el plano cartesiano) y una escala.<br><br><b>1. Sistema de Coordenadas:</b> Dibuja un eje X (horizontal) y un eje Y (vertical) que se cruzan en el origen (0,0).<br><b>2. Escala:</b> Define cuánto representa cada unidad de longitud en tu dibujo (ej: 1 cm = 5 metros).<br><b>3. Dibujo:</b> Dibuja la flecha desde el origen (o un punto de aplicación) con la longitud y el ángulo correctos según la escala y la dirección.<br><br>Dibuja un plano cartesiano y un vector de ejemplo (ej: 10m a 45°).",
+                        "icon": "ph-chart-line",
+                        "customHtml": "<div class='mermaid'>graph TD; subgraph Plano Cartesiano; O(Origen (0,0)); X[Eje X]; Y[Eje Y]; end; O --- V(Vector V); style O fill:#fff,stroke:#333,stroke-width:2px; style X fill:#fff,stroke:#333,stroke-width:2px; style Y fill:#fff,stroke:#333,stroke-width:2px; style V fill:#f9f,stroke:#333,stroke-width:2px;</div>",
+                        "timer": 300
+                    },
+                    {
+                        "title": "Tipos de Vectores",
+                        "sub": "Clasificación según su relación",
+                        "content": "Existen diferentes tipos de vectores según su posición o relación entre ellos:<br><br><b>1. Vectores Colineales:</b> Actúan sobre la misma línea de acción.<br><b>2. Vectores Paralelos:</b> Tienen la misma dirección, pero no necesariamente la misma línea de acción.<br><b>3. Vectores Opuestos:</b> Tienen el mismo módulo y dirección, pero sentido contrario.<br><b>4. Vectores Iguales:</b> Tienen el mismo módulo, dirección y sentido.<br><br>Copia las definiciones y dibuja un ejemplo para cada tipo.",
+                        "icon": "ph-arrows-out-line",
+                        "customHtml": "<div class='mermaid'>graph TD; subgraph Tipos de Vectores; A[Colineales] --> B(V1 --- V2); C[Paralelos] --> D(V3 || V4); E[Opuestos] --> F(V5 --> <-- V6); G[Iguales] --> H(V7 --> V8); end;</div>",
+                        "timer": 300
+                    },
+                    {
+                        "title": "Suma Vectorial Gráfica",
+                        "sub": "Método del Polígono",
+                        "content": "Para sumar dos o más vectores gráficamente, podemos usar el Método del Polígono:<br><br><b>1.</b> Dibuja el primer vector.<br><b>2.</b> Desde la punta (extremo) del primer vector, dibuja el segundo vector.<br><b>3.</b> Si hay más vectores, continúa dibujándolos 'punta con cola'.<br><b>4.</b> El vector resultante se obtiene uniendo la cola del primer vector con la punta del último vector.<br><br>Dibuja un ejemplo de suma de dos vectores (A + B) usando este método.",
+                        "icon": "ph-plus",
+                        "customHtml": "<div class='mermaid'>graph TD; O(Origen) --> A(Vector A); A --> B(Vector B); O --> R(Resultante); style O fill:#fff,stroke:#333,stroke-width:2px; style A fill:#f9f,stroke:#333,stroke-width:2px; style B fill:#ccf,stroke:#333,stroke-width:2px; style R fill:#afa,stroke:#333,stroke-width:2px;</div>",
+                        "timer": 300
+                    },
+                    {
+                        "title": "Suma Vectorial Gráfica II",
+                        "sub": "Método del Paralelogramo",
+                        "content": "El Método del Paralelogramo es útil para sumar dos vectores que parten del mismo origen:<br><br><b>1.</b> Dibuja ambos vectores partiendo del mismo origen.<br><b>2.</b> Desde la punta de cada vector, traza una línea paralela al otro vector, formando un paralelogramo.<br><b>3.</b> El vector resultante es la diagonal que parte del origen común hasta el vértice opuesto del paralelogramo.<br><br>Dibuja un ejemplo de suma de dos vectores (A + B) usando este método.",
+                        "icon": "ph-squares-four",
+                        "customHtml": "<div class='mermaid'>graph TD; O(Origen) --> A(Vector A); O --> B(Vector B); A -- Paralela a B --> P(Punto Final); B -- Paralela a A --> P; O --> R(Resultante); style O fill:#fff,stroke:#333,stroke-width:2px; style A fill:#f9f,stroke:#333,stroke-width:2px; style B fill:#ccf,stroke:#333,stroke-width:2px; style P fill:#eee,stroke:#333,stroke-width:1px,stroke-dasharray: 5 5; style R fill:#afa,stroke:#333,stroke-width:2px;</div>",
+                        "timer": 300
+                    },
+                    {
+                        "title": "Resta Vectorial",
+                        "sub": "Vector opuesto y suma",
+                        "content": "Restar vectores es equivalente a sumar el vector opuesto.<br><br>Para calcular A - B:<br><b>1.</b> Identifica el vector B.<br><b>2.</b> Dibuja el vector -B, que tiene el mismo módulo y dirección que B, pero sentido opuesto.<br><b>3.</b> Ahora, suma A + (-B) usando cualquiera de los métodos gráficos (polígono o paralelogramo).<br><br>Dibuja un ejemplo de resta de dos vectores (A - B).",
+                        "icon": "ph-minus",
+                        "customHtml": "<div class='mermaid'>graph TD; O(Origen) --> A(Vector A); O --> B_neg(Vector -B); A -- Suma con -B --> R(Resultante); B_neg -- Suma con A --> R; O --> R; style O fill:#fff,stroke:#333,stroke-width:2px; style A fill:#f9f,stroke:#333,stroke-width:2px; style B_neg fill:#fcc,stroke:#333,stroke-width:2px; style R fill:#afa,stroke:#333,stroke-width:2px;</div>",
+                        "timer": 300
+                    },
+                    {
+                        "title": "Ejercicio Práctico",
+                        "sub": "Aplica lo aprendido",
+                        "content": "Un explorador camina 3 km hacia el Este y luego 4 km hacia el Norte.<br><br><b>1.</b> Dibuja los vectores de desplazamiento en un plano cartesiano, usando una escala de 1 cm = 1 km.<br><b>2.</b> Utiliza el método del polígono para encontrar el vector desplazamiento resultante.<br><b>3.</b> Mide el módulo (longitud) y el ángulo (dirección) del vector resultante con tu regla y transportador.<br><br>¡Manos a la obra!",
+                        "icon": "ph-pencil-line",
+                        "customHtml": "<div class='mermaid'>graph TD; subgraph Plano Cartesiano; O(Origen); E(Este); N(Norte); end; O --- E; E --- N; O --- R(Resultante); style O fill:#fff,stroke:#333,stroke-width:2px; style E fill:#f9f,stroke:#333,stroke-width:2px; style N fill:#ccf,stroke:#333,stroke-width:2px; style R fill:#afa,stroke:#333,stroke-width:2px;</div>",
+                        "timer": 300
+                    },
+                    {
+                        "title": "Reto ICFES",
+                        "sub": "Aplicación del Análisis Vectorial",
+                        "content": "<b>Enunciado del Caso:</b><br>Un estudiante realiza un experimento de movimiento en un laboratorio. Primero, desplaza un carrito 3 metros hacia el Este. Luego, lo desplaza 4 metros hacia el Norte. Finalmente, lo desplaza 3 metros hacia el Oeste.<br><br><b>Pregunta Problema:</b><br>¿Cuál es el desplazamiento total (resultante) del carrito desde su punto de partida?<br><br><b>Distractores:</b><br>A. 10 metros hacia el Norte.<br>B. 4 metros hacia el Norte.<br>C. 4 metros hacia el Este.<br>D. 10 metros hacia el Oeste.<br><br><b>Respuesta Correcta: B</b><br><b>Justificación:</b><br>El primer desplazamiento es 3m Este. El tercer desplazamiento es 3m Oeste. Estos dos vectores son opuestos y de igual magnitud, por lo que se anulan entre sí (3m Este + 3m Oeste = 0m). El único desplazamiento restante es el segundo, que es 4m hacia el Norte. Por lo tanto, el desplazamiento total es 4 metros hacia el Norte.<br><br>Copia toda la pregunta, los distractores y la grfica en tu cuaderno y encierra la respuesta correcta.",
+                        "icon": "ph-question",
+                        "customHtml": "<svg width='300' height='200' viewBox='0 0 300 200' style='background-color:#f0f0f0; border:1px solid #ccc;'> <defs> <marker id='arrowhead' markerWidth='10' markerHeight='7' refX='0' refY='3.5' orient='auto'> <polygon points='0 0, 10 3.5, 0 7' fill='#333' /> </marker> </defs> <g transform='translate(50,150)'> <line x1='0' y1='0' x2='200' y2='0' stroke='#999' stroke-width='1' /> <line x1='0' y1='0' x2='0' y2='-100' stroke='#999' stroke-width='1' /> <text x='205' y='5' font-family='Arial' font-size='12' fill='#555'>Este</text> <text x='-20' y='-105' font-family='Arial' font-size='12' fill='#555'>Norte</text> <circle cx='0' cy='0' r='3' fill='red' /> <text x='-10' y='10' font-family='Arial' font-size='12' fill='red'>Inicio</text> <line x1='0' y1='0' x2='30' y2='0' stroke='blue' stroke-width='2' marker-end='url(#arrowhead)' /> <text x='15' y='-10' font-family='Arial' font-size='10' fill='blue'>3m Este</text> <line x1='30' y1='0' x2='30' y2='-40' stroke='green' stroke-width='2' marker-end='url(#arrowhead)' /> <text x='40' y='-20' font-family='Arial' font-size='10' fill='green'>4m Norte</text> <line x1='30' y1='-40' x2='0' y2='-40' stroke='purple' stroke-width='2' marker-end='url(#arrowhead)' /> <text x='15' y='-50' font-family='Arial' font-size='10' fill='purple'>3m Oeste</text> <line x1='0' y1='0' x2='0' y2='-40' stroke='red' stroke-width='3' stroke-dasharray='5,5' marker-end='url(#arrowhead)' /> <text x='-20' y='-20' font-family='Arial' font-size='12' fill='red'>Resultante</text> </g> </svg>",
+                        "timer": 300
+                    }
+                ],
+                [
+                    {
+                        "title": "¡Listos para aprender!",
+                        "sub": "Prepara tu espacio de trabajo",
+                        "content": "Asegúrate de tener tu cuaderno de Física, lápiz, borrador y calculadora a mano.<br>Escribe la fecha y el título de la clase: 'Análisis Vectorial del Movimiento (Clase 2)'.",
+                        "icon": "ph-book-open",
+                        "customHtml": "",
+                        "timer": 120
+                    },
+                    {
+                        "title": "Recordando Vectores",
+                        "sub": "Conceptos clave de la clase anterior",
+                        "content": "En tu cuaderno, escribe y dibuja brevemente:<br>1. ¿Qué es un vector?<br>2. ¿Cuáles son sus tres características principales?<br>3. Dibuja un ejemplo de vector desplazamiento.",
+                        "icon": "ph-brain",
+                        "customHtml": "<div class='mermaid'>\n    graph TD\n        A[Vector] --> B{Magnitud};\n        A --> C{Dirección};\n        A --> D{Sentido};\n        B --> E[Número y Unidad];\n        C --> F[Ángulo respecto a un eje];\n        D --> G[Punta de flecha];\n    </div>",
+                        "timer": 300
+                    },
+                    {
+                        "title": "Suma Gráfica Vectores",
+                        "sub": "Método del Polígono",
+                        "content": "Copia el siguiente esquema en tu cuaderno. Representa la suma de dos vectores A y B usando el método del polígono. Recuerda que el vector resultante va desde el origen del primer vector hasta el final del último.",
+                        "icon": "ph-ruler",
+                        "customHtml": "<div class='mermaid'>\n    graph TD\n        start((Origen)) --> A(Vector A);\n        A --> B(Vector B);\n        start --> R(Vector Resultante);\n        R -- \"Une origen de A con final de B\" --> B;\n        style A fill:#f9f,stroke:#333,stroke-width:2px;\n        style B fill:#bbf,stroke:#333,stroke-width:2px;\n        style R fill:#cfc,stroke:#333,stroke-width:2px;\n    </div>",
+                        "timer": 300
+                    },
+                    {
+                        "title": "Suma por Componentes",
+                        "sub": "Descomposición rectangular",
+                        "content": "Escribe en tu cuaderno los pasos para sumar vectores usando el método de componentes rectangulares.<br>1. Descomponer cada vector en sus componentes x e y.<br>2. Sumar todas las componentes x entre sí y todas las componentes y entre sí.<br>3. Calcular la magnitud del vector resultante con el teorema de Pitágoras.<br>4. Calcular la dirección con la función tangente inversa.",
+                        "icon": "ph-calculator",
+                        "customHtml": "<div class='mermaid'>\n    graph TD\n        A[Vector V] --> B{Componentes};\n        B --> C[Vx = V cos θ];\n        B --> D[Vy = V sin θ];\n        C & D --> E[Suma de Componentes];\n        E --> F[Rx = ΣVx];\n        E --> G[Ry = ΣVy];\n        F & G --> H[Resultante R];\n        H --> I[|R| = √(Rx² + Ry²)];\n        H --> J[θR = arctan(Ry/Rx)];\n    </div>",
+                        "timer": 300
+                    },
+                    {
+                        "title": "Ejemplo: Suma Vectores",
+                        "sub": "Aplicando el método de componentes",
+                        "content": "Copia el siguiente ejemplo en tu cuaderno y resuelve.<br>Un vector A tiene una magnitud de 10 unidades y un ángulo de 30° con el eje x positivo.<br>Un vector B tiene una magnitud de 15 unidades y un ángulo de 120° con el eje x positivo.<br>Calcula la magnitud y dirección del vector resultante R = A + B.",
+                        "icon": "ph-pencil-line",
+                        "customHtml": "<div class='mermaid'>\n    graph TD\n        A[Vector A: 10u @ 30°] --> Ax[Ax = 10 cos 30°];\n        A --> Ay[Ay = 10 sin 30°];\n        B[Vector B: 15u @ 120°] --> Bx[Bx = 15 cos 120°];\n        B --> By[By = 15 sin 120°];\n        Ax & Bx --> Rx[Rx = Ax + Bx];\n        Ay & By --> Ry[Ry = Ay + By];\n        Rx & Ry --> R_mag[|R| = √(Rx² + Ry²)];\n        Rx & Ry --> R_dir[θR = arctan(Ry/Rx)];\n    </div>",
+                        "timer": 300
+                    },
+                    {
+                        "title": "Resta de Vectores",
+                        "sub": "Vector opuesto y suma",
+                        "content": "La resta de vectores A - B se puede entender como la suma de A con el vector opuesto de B (A + (-B)).<br>El vector opuesto (-B) tiene la misma magnitud que B pero dirección opuesta (180° de diferencia).<br>Dibuja un ejemplo gráfico de A - B.",
+                        "icon": "ph-minus",
+                        "customHtml": "<div class='mermaid'>\n    graph TD\n        start((Origen)) --> A(Vector A);\n        start --> B(Vector B);\n        B --> B_neg(Vector -B);\n        A --> R(Vector Resultante A-B);\n        B_neg -- \"Misma magnitud, dirección opuesta\" --> B;\n        A -- \"Suma A + (-B)\" --> B_neg;\n        style A fill:#f9f,stroke:#333,stroke-width:2px;\n        style B fill:#bbf,stroke:#333,stroke-width:2px;\n        style B_neg fill:#fbb,stroke:#333,stroke-width:2px;\n        style R fill:#cfc,stroke:#333,stroke-width:2px;\n    </div>",
+                        "timer": 300
+                    },
+                    {
+                        "title": "Escalar por Vector",
+                        "sub": "Cambio de magnitud y/o sentido",
+                        "content": "Cuando un vector se multiplica por un escalar (un número), su magnitud cambia. Si el escalar es positivo, el sentido se mantiene. Si es negativo, el sentido se invierte.<br>Ejemplo: Si el vector V tiene magnitud 5 y dirección 0°, entonces 2V tiene magnitud 10 y dirección 0°. -3V tiene magnitud 15 y dirección 180°.",
+                        "icon": "ph-x",
+                        "customHtml": "<div class='mermaid'>\n    graph TD\n        A[Vector V] --> B{Multiplicar por escalar k};\n        B --> C{k > 0};\n        B --> D{k < 0};\n        C --> E[Magnitud: k * |V|];\n        C --> F[Dirección: Misma que V];\n        D --> G[Magnitud: |k| * |V|];\n        D --> H[Dirección: Opuesta a V (θ + 180°)];\n    </div>",
+                        "timer": 300
+                    },
+                    {
+                        "title": "Vectores Unitarios",
+                        "sub": "Representación en ejes",
+                        "content": "Los vectores unitarios (i, j, k) son vectores de magnitud 1 que apuntan en la dirección de los ejes x, y, z respectivamente.<br>Cualquier vector puede expresarse como la suma de sus componentes multiplicadas por los vectores unitarios: V = Vx i + Vy j + Vz k.<br>Dibuja un sistema de coordenadas 2D con los vectores unitarios i y j.",
+                        "icon": "ph-vector-three",
+                        "customHtml": "<svg width=\"300\" height=\"200\" viewBox=\"-10 -10 320 220\" style=\"background-color: #f0f0f0; border: 1px solid #ccc;\">\n  <!-- Eje X -->\n  <line x1=\"0\" y1=\"100\" x2=\"200\" y2=\"100\" stroke=\"black\" stroke-width=\"2\"/>\n  <polygon points=\"195,95 205,100 195,105\" fill=\"black\"/>\n  <text x=\"210\" y=\"105\" font-family=\"Arial\" font-size=\"16\">x</text>\n\n  <!-- Eje Y -->\n  <line x1=\"100\" y1=\"0\" x2=\"100\" y2=\"200\" stroke=\"black\" stroke-width=\"2\"/>\n  <polygon points=\"95,5 100,-5 105,5\" fill=\"black\"/>\n  <text x=\"105\" y=\"15\" font-family=\"Arial\" font-size=\"16\">y</text>\n\n  <!-- Origen -->\n  <circle cx=\"100\" cy=\"100\" r=\"3\" fill=\"black\"/>\n  <text x=\"105\" y=\"115\" font-family=\"Arial\" font-size=\"14\">(0,0)</text>\n\n  <!-- Vector unitario i -->\n  <line x1=\"100\" y1=\"100\" x2=\"150\" y2=\"100\" stroke=\"red\" stroke-width=\"3\"/>\n  <polygon points=\"145,97 155,100 145,103\" fill=\"red\"/>\n  <text x=\"155\" y=\"90\" font-family=\"Arial\" font-size=\"16\" fill=\"red\">i</text>\n\n  <!-- Vector unitario j -->\n  <line x1=\"100\" y1=\"100\" x2=\"100\" y2=\"50\" stroke=\"blue\" stroke-width=\"3\"/>\n  <polygon points=\"97,55 100,45 103,55\" fill=\"blue\"/>\n  <text x=\"110\" y=\"50\" font-family=\"Arial\" font-size=\"16\" fill=\"blue\">j</text>\n</svg>",
+                        "timer": 300
+                    },
+                    {
+                        "title": "Producto Escalar",
+                        "sub": "Resultado: un número",
+                        "content": "El producto escalar (o producto punto) de dos vectores A y B se define como A · B = |A| |B| cos θ, donde θ es el ángulo entre ellos.<br>También se puede calcular como A · B = AxBx + AyBy + AzBz.<br>El resultado es un escalar (un número), no un vector. Se usa para calcular el trabajo o el ángulo entre vectores.",
+                        "icon": "ph-dot-outline",
+                        "customHtml": "<div class='mermaid'>\n    graph TD\n        A[Vector A] --> B[Vector B];\n        A & B --> C{Producto Escalar A · B};\n        C --> D[|A| |B| cos θ];\n        C --> E[AxBx + AyBy + AzBz];\n        D & E --> F[Resultado: Escalar (Número)];\n    </div>",
+                        "timer": 300
+                    },
+                    {
+                        "title": "Pregunta ICFES",
+                        "sub": "Análisis de vectores en movimiento",
+                        "content": "<b>Enunciado del Caso:</b><br>Un objeto se mueve en el plano XY. En el instante t=0s, su posición está dada por el vector r<sub>0</sub> = (3i + 4j) m. En el instante t=2s, su posición es r<sub>2</sub> = (7i + j) m.<br><br><b>Pregunta Problema:</b><br>¿Cuál es el vector desplazamiento del objeto entre t=0s y t=2s?<br><br><b>Distractores:</b><br>A. (10i + 5j) m<br>B. (-4i + 3j) m<br>C. (4i - 3j) m<br>D. (4i + 3j) m<br><br><b>Respuesta Correcta:</b> C. (4i - 3j) m<br><b>Justificación:</b> El vector desplazamiento (Δr) se calcula como la posición final menos la posición inicial: Δr = r<sub>2</sub> - r<sub>0</sub>.<br>Δr = (7i + j) - (3i + 4j)<br>Δr = (7-3)i + (1-4)j<br>Δr = (4i - 3j) m.<br><br>Copia toda la pregunta, los distractores y la grfica en tu cuaderno y encierra la respuesta correcta.",
+                        "icon": "ph-question",
+                        "customHtml": "<svg width=\"400\" height=\"300\" viewBox=\"-50 -50 450 350\" style=\"background-color: #f8f8f8; border: 1px solid #ddd;\">\n  <!-- Ejes -->\n  <line x1=\"0\" y1=\"200\" x2=\"300\" y2=\"200\" stroke=\"gray\" stroke-width=\"1\"/>\n  <polygon points=\"295,197 305,200 295,203\" fill=\"gray\"/>\n  <text x=\"310\" y=\"205\" font-family=\"Arial\" font-size=\"14\">x (m)</text>\n\n  <line x1=\"0\" y1=\"200\" x2=\"0\" y2=\"0\" stroke=\"gray\" stroke-width=\"1\"/>\n  <polygon points=\"-3,5 0,-5 3,5\" fill=\"gray\"/>\n  <text x=\"-20\" y=\"10\" font-family=\"Arial\" font-size=\"14\">y (m)</text>\n\n  <!-- Origen -->\n  <circle cx=\"0\" cy=\"200\" r=\"3\" fill=\"black\"/>\n  <text x=\"5\" y=\"215\" font-family=\"Arial\" font-size=\"12\">(0,0)</text>\n\n  <!-- Escala -->\n  <line x1=\"0\" y1=\"150\" x2=\"5\" y2=\"150\" stroke=\"gray\" stroke-width=\"1\"/>\n  <text x=\"-15\" y=\"155\" font-family=\"Arial\" font-size=\"10\">1</text>\n  <line x1=\"0\" y1=\"100\" x2=\"5\" y2=\"100\" stroke=\"gray\" stroke-width=\"1\"/>\n  <text x=\"-15\" y=\"105\" font-family=\"Arial\" font-size=\"10\">2</text>\n  <line x1=\"0\" y1=\"50\" x2=\"5\" y2=\"50\" stroke=\"gray\" stroke-width=\"1\"/>\n  <text x=\"-15\" y=\"55\" font-family=\"Arial\" font-size=\"10\">3</text>\n  <line x1=\"0\" y1=\"0\" x2=\"5\" y2=\"0\" stroke=\"gray\" stroke-width=\"1\"/>\n  <text x=\"-15\" y=\"5\" font-family=\"Arial\" font-size=\"10\">4</text>\n\n  <line x1=\"50\" y1=\"200\" x2=\"50\" y2=\"195\" stroke=\"gray\" stroke-width=\"1\"/>\n  <text x=\"45\" y=\"220\" font-family=\"Arial\" font-size=\"10\">1</text>\n  <line x1=\"100\" y1=\"200\" x2=\"100\" y2=\"195\" stroke=\"gray\" stroke-width=\"1\"/>\n  <text x=\"95\" y=\"220\" font-family=\"Arial\" font-size=\"10\">2</text>\n  <line x1=\"150\" y1=\"200\" x2=\"150\" y2=\"195\" stroke=\"gray\" stroke-width=\"1\"/>\n  <text x=\"145\" y=\"220\" font-family=\"Arial\" font-size=\"10\">3</text>\n  <line x1=\"200\" y1=\"200\" x2=\"200\" y2=\"195\" stroke=\"gray\" stroke-width=\"1\"/>\n  <text x=\"195\" y=\"220\" font-family=\"Arial\" font-size=\"10\">4</text>\n  <line x1=\"250\" y1=\"200\" x2=\"250\" y2=\"195\" stroke=\"gray\" stroke-width=\"1\"/>\n  <text x=\"245\" y=\"220\" font-family=\"Arial\" font-size=\"10\">5</text>\n  <line x1=\"300\" y1=\"200\" x2=\"300\" y2=\"195\" stroke=\"gray\" stroke-width=\"1\"/>\n  <text x=\"295\" y=\"220\" font-family=\"Arial\" font-size=\"10\">6</text>\n  <line x1=\"350\" y1=\"200\" x2=\"350\" y2=\"195\" stroke=\"gray\" stroke-width=\"1\"/>\n  <text x=\"345\" y=\"220\" font-family=\"Arial\" font-size=\"10\">7</text>\n\n\n  <!-- Posición inicial r0 = (3i + 4j) m -->\n  <circle cx=\"150\" cy=\"0\" r=\"5\" fill=\"blue\"/>\n  <text x=\"155\" y=\"-5\" font-family=\"Arial\" font-size=\"14\" fill=\"blue\">r₀ (3,4)</text>\n  <line x1=\"0\" y1=\"200\" x2=\"150\" y2=\"0\" stroke=\"blue\" stroke-width=\"2\" stroke-dasharray=\"5,5\"/>\n  <polygon points=\"145,5 150,-5 155,5\" fill=\"blue\"/>\n\n  <!-- Posición final r2 = (7i + j) m -->\n  <circle cx=\"350\" cy=\"150\" r=\"5\" fill=\"red\"/>\n  <text x=\"355\" y=\"145\" font-family=\"Arial\" font-size=\"14\" fill=\"red\">r₂ (7,1)</text>\n  <line x1=\"0\" y1=\"200\" x2=\"350\" y2=\"150\" stroke=\"red\" stroke-width=\"2\" stroke-dasharray=\"5,5\"/>\n  <polygon points=\"345,155 350,145 355,155\" fill=\"red\"/>\n\n  <!-- Vector desplazamiento (4i - 3j) m -->\n  <line x1=\"150\" y1=\"0\" x2=\"350\" y2=\"150\" stroke=\"green\" stroke-width=\"3\"/>\n  <polygon points=\"345,155 350,145 355,155\" fill=\"green\"/>\n  <text x=\"250\" y=\"70\" font-family=\"Arial\" font-size=\"14\" fill=\"green\">Δr</text>\n</svg>",
+                        "timer": 300
+                    }
+                ]
+            ]
         },
         "quimica": {
-            "1": []
+            "1": [
+                [
+                    {
+                        "title": "Inicio de Clase",
+                        "sub": "Prepara tu espacio de trabajo",
+                        "content": "¡Hola a todos! Bienvenidos a nuestra primera clase de química.<br><br>Para empezar, por favor, saca tu cuaderno de química, un lápiz, borrador y tus colores.<br><br>Asegúrate de tener un espacio limpio y ordenado para concentrarte al máximo. Escribe la fecha y el título de la clase: <b>Materia y Mezclas</b>.",
+                        "icon": "ph-book-open",
+                        "customHtml": "",
+                        "timer": 120
+                    },
+                    {
+                        "title": "Definición de Materia",
+                        "sub": "¿Qué es la Materia?",
+                        "content": "La materia es todo aquello que tiene masa y ocupa un volumen en el espacio. Es el componente fundamental de todo lo que nos rodea, desde un grano de arena hasta una estrella.<br><br><b>Copia la siguiente definición en tu cuaderno:</b><br><i>Materia: Es cualquier cosa que tiene masa y ocupa espacio. Puede existir en diferentes estados y formas.</i><br><br>Piensa en 3 ejemplos de materia que veas a tu alrededor y escríbelos.",
+                        "icon": "ph-atom",
+                        "customHtml": "",
+                        "timer": 300
+                    },
+                    {
+                        "title": "Propiedades de la Materia",
+                        "sub": "Intensivas y Extensivas",
+                        "content": "La materia tiene propiedades que nos permiten describirla y diferenciarla. Estas se clasifican en:<br><ul><li><b>Propiedades Extensivas:</b> Dependen de la cantidad de materia (ej: masa, volumen).</li><li><b>Propiedades Intensivas:</b> No dependen de la cantidad de materia (ej: densidad, punto de ebullición).</li></ul><br><b>Dibuja el siguiente esquema en tu cuaderno para organizar estas ideas.</b>",
+                        "icon": "ph-table",
+                        "customHtml": "<div class='mermaid'>\n  graph TD\n    A[Propiedades de la Materia] --> B(Extensivas)\n    A --> C(Intensivas)\n    B --> D(Masa)\n    B --> E(Volumen)\n    C --> F(Densidad)\n    C --> G(Punto de Ebullición)\n    C --> H(Color)\n</div>",
+                        "timer": 300
+                    },
+                    {
+                        "title": "Estados de la Materia",
+                        "sub": "Sólido, Líquido, Gaseoso",
+                        "content": "La materia puede presentarse en diferentes estados físicos, siendo los más comunes el sólido, el líquido y el gaseoso. Cada estado tiene características particulares en cuanto a forma y volumen.<br><br><b>Dibuja y describe brevemente cada estado en tu cuaderno, prestando atención a la organización de sus partículas.</b>",
+                        "icon": "ph-flask",
+                        "customHtml": "<div class='mermaid'>\n  graph LR\n    S[Sólido] --&gt; L(Líquido)\n    L --&gt; G(Gaseoso)\n    G --&gt; P(Plasma)\n    S --&gt; L: Fusión\n    L --&gt; S: Solidificación\n    L --&gt; G: Vaporización\n    G --&gt; L: Condensación\n    S --&gt; G: Sublimación\n    G --&gt; S: Deposición\n</div>",
+                        "timer": 300
+                    },
+                    {
+                        "title": "Clasificación de la Materia",
+                        "sub": "Sustancias Puras y Mezclas",
+                        "content": "La materia se puede clasificar en dos grandes categorías: Sustancias Puras y Mezclas. Esta clasificación es fundamental para entender cómo interactúan los diferentes tipos de materia.<br><br><b>Copia el siguiente diagrama de flujo en tu cuaderno.</b>",
+                        "icon": "ph-flow-arrow",
+                        "customHtml": "<div class='mermaid'>\n  graph TD\n    A[Materia] --> B(Sustancias Puras)\n    A --> C(Mezclas)\n    B --> D(Elementos)\n    B --> E(Compuestos)\n    C --> F(Homogéneas)\n    C --> G(Heterogéneas)\n</div>",
+                        "timer": 300
+                    },
+                    {
+                        "title": "Sustancias Puras",
+                        "sub": "Elementos y Compuestos",
+                        "content": "Las sustancias puras tienen una composición definida y propiedades constantes. Se dividen en:<br><ul><li><b>Elementos:</b> No pueden descomponerse en sustancias más simples por métodos químicos (ej: Oxígeno, Oro).</li><li><b>Compuestos:</b> Formados por la unión química de dos o más elementos en proporciones fijas (ej: Agua, Sal de mesa).</li></ul><br><b>Escribe la definición de cada uno y da 2 ejemplos adicionales para cada categoría.</b>",
+                        "icon": "ph-molecule",
+                        "customHtml": "",
+                        "timer": 300
+                    },
+                    {
+                        "title": "Introducción a Mezclas",
+                        "sub": "Combinación de Sustancias",
+                        "content": "Una mezcla es la combinación física de dos o más sustancias puras, donde cada sustancia mantiene su identidad química. Las mezclas pueden separarse por métodos físicos.<br><br><b>Copia la siguiente definición en tu cuaderno:</b><br><i>Mezcla: Es la unión de dos o más sustancias puras que no reaccionan químicamente entre sí y conservan sus propiedades individuales.</i><br><br>Piensa en un ejemplo de mezcla que uses o veas a diario.",
+                        "icon": "ph-mixer-vertical",
+                        "customHtml": "",
+                        "timer": 300
+                    },
+                    {
+                        "title": "Mezclas Homogéneas",
+                        "sub": "Una sola fase visible",
+                        "content": "Las mezclas homogéneas, también conocidas como soluciones, tienen una composición uniforme en toda su extensión. Sus componentes no se distinguen a simple vista.<br><br><b>Características:</b><br><ul><li>Una sola fase visible.</li><li>Composición uniforme.</li><li>Ejemplos: Agua con sal disuelta, aire, aleaciones metálicas.</li></ul><br><b>Dibuja un vaso de agua con azúcar disuelta y representa cómo se verían las partículas.</b>",
+                        "icon": "ph-drop",
+                        "customHtml": "<div style='width: 150px; height: 200px; border: 2px solid #333; border-radius: 0 0 20px 20px; position: relative; overflow: hidden; background-color: #ADD8E6; margin: 20px auto;'>\n  <div style='position: absolute; top: 10px; left: 10px; width: 10px; height: 10px; background-color: #FFF; border-radius: 50%;'></div>\n  <div style='position: absolute; top: 30px; left: 50px; width: 10px; height: 10px; background-color: #FFF; border-radius: 50%;'></div>\n  <div style='position: absolute; top: 60px; left: 20px; width: 10px; height: 10px; background-color: #FFF; border-radius: 50%;'></div>\n  <div style='position: absolute; top: 90px; left: 70px; width: 10px; height: 10px; background-color: #FFF; border-radius: 50%;'></div>\n  <div style='position: absolute; top: 120px; left: 40px; width: 10px; height: 10px; background-color: #FFF; border-radius: 50%;'></div>\n  <div style='position: absolute; top: 150px; left: 80px; width: 10px; height: 10px; background-color: #FFF; border-radius: 50%;'></div>\n  <div style='position: absolute; top: 180px; left: 10px; width: 10px; height: 10px; background-color: #FFF; border-radius: 50%;'></div>\n  <div style='position: absolute; top: 10px; left: 100px; width: 10px; height: 10px; background-color: #FFF; border-radius: 50%;'></div>\n  <div style='position: absolute; top: 40px; left: 120px; width: 10px; height: 10px; background-color: #FFF; border-radius: 50%;'></div>\n  <div style='position: absolute; top: 70px; left: 90px; width: 10px; height: 10px; background-color: #FFF; border-radius: 50%;'></div>\n  <div style='position: absolute; top: 100px; left: 110px; width: 10px; height: 10px; background-color: #FFF; border-radius: 50%;'></div>\n  <div style='position: absolute; top: 130px; left: 95px; width: 10px; height: 10px; background-color: #FFF; border-radius: 50%;'></div>\n  <div style='position: absolute; top: 160px; left: 115px; width: 10px; height: 10px; background-color: #FFF; border-radius: 50%;'></div>\n  <div style='position: absolute; top: 190px; left: 50px; width: 10px; height: 10px; background-color: #FFF; border-radius: 50%;'></div>\n</div>",
+                        "timer": 300
+                    },
+                    {
+                        "title": "Mezclas Heterogéneas",
+                        "sub": "Múltiples fases visibles",
+                        "content": "Las mezclas heterogéneas no tienen una composición uniforme. Sus componentes se pueden distinguir a simple vista o con ayuda de un microscopio.<br><br><b>Características:</b><br><ul><li>Dos o más fases visibles.</li><li>Composición no uniforme.</li><li>Ejemplos: Agua con aceite, ensalada, arena y agua.</li></ul><br><b>Dibuja un vaso de agua con aceite y representa cómo se verían las partículas.</b>",
+                        "icon": "ph-stack",
+                        "customHtml": "<div style='width: 150px; height: 200px; border: 2px solid #333; border-radius: 0 0 20px 20px; position: relative; overflow: hidden; margin: 20px auto;'>\n  <div style='width: 100%; height: 100px; background-color: #ADD8E6; position: absolute; bottom: 0;'></div>\n  <div style='width: 100%; height: 100px; background-color: #FFD700; position: absolute; top: 0;'></div>\n  <div style='position: absolute; top: 20px; left: 30px; width: 15px; height: 15px; background-color: #FFD700; border-radius: 50%; border: 1px solid #DAA520;'></div>\n  <div style='position: absolute; top: 50px; left: 80px; width: 15px; height: 15px; background-color: #FFD700; border-radius: 50%; border: 1px solid #DAA520;'></div>\n  <div style='position: absolute; top: 80px; left: 10px; width: 15px; height: 15px; background-color: #FFD700; border-radius: 50%; border: 1px solid #DAA520;'></div>\n  <div style='position: absolute; bottom: 20px; left: 50px; width: 10px; height: 10px; background-color: #ADD8E6; border-radius: 50%; border: 1px solid #6A5ACD;'></div>\n  <div style='position: absolute; bottom: 60px; left: 100px; width: 10px; height: 10px; background-color: #ADD8E6; border-radius: 50%; border: 1px solid #6A5ACD;'></div>\n  <div style='position: absolute; bottom: 40px; left: 20px; width: 10px; height: 10px; background-color: #ADD8E6; border-radius: 50%; border: 1px solid #6A5ACD;'></div>\n</div>",
+                        "timer": 300
+                    },
+                    {
+                        "title": "Pregunta ICFES",
+                        "sub": "Clasificación de la Materia",
+                        "content": "<b>Enunciado del Caso:</b><br>Un estudiante realiza experimentos para clasificar diferentes sustancias. Observa las propiedades de cuatro muestras (P, Q, R, S) y registra sus hallazgos en la siguiente tabla:<br><br><b>Pregunta Problema:</b><br>Basándose en la información de la tabla, ¿cuál de las siguientes afirmaciones es correcta?<br><br>A. La muestra P es una mezcla heterogénea porque sus componentes no se distinguen a simple vista.<br>B. La muestra Q es una mezcla homogénea porque sus componentes son visibles y no tiene composición uniforme.<br>C. La muestra R es una sustancia pura (compuesto) porque tiene una composición uniforme y punto de ebullición constante.<br>D. La muestra S es un elemento porque puede separarse en sustancias más simples por métodos físicos.<br><br><b>Respuesta Correcta: C</b><br><b>Justificación:</b> La muestra R presenta una composición uniforme y un punto de ebullición constante, lo cual es característico de una sustancia pura. Al ser una sustancia pura que no es un elemento (ya que los elementos no tienen punto de ebullición constante en el sentido de una sustancia con múltiples átomos), se clasifica como un compuesto.<br><br>Copia toda la pregunta, los distractores y la grfica en tu cuaderno y encierra la respuesta correcta.",
+                        "icon": "ph-question",
+                        "customHtml": "<style>\n  .icfes-table { width: 100%; border-collapse: collapse; margin: 20px 0; font-family: sans-serif; }\n  .icfes-table th, .icfes-table td { border: 1px solid #ccc; padding: 8px; text-align: left; }\n  .icfes-table th { background-color: #f2f2f2; }\n</style>\n<table class='icfes-table'>\n  <thead>\n    <tr>\n      <th>Muestra</th>\n      <th>Visibilidad de Componentes</th>\n      <th>Composición</th>\n      <th>Punto de Ebullición</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>P</td>\n      <td>No visibles</td>\n      <td>Uniforme</td>\n      <td>Variable</td>\n    </tr>\n    <tr>\n      <td>Q</td>\n      <td>Visibles</td>\n      <td>No uniforme</td>\n      <td>No aplica</td>\n    </tr>\n    <tr>\n      <td>R</td>\n      <td>No visibles</td>\n      <td>Uniforme</td>\n      <td>Constante (100°C)</td>\n    </tr>\n    <tr>\n      <td>S</td>\n      <td>No visibles</td>\n      <td>Uniforme</td>\n      <td>Constante (25°C)</td>\n    </tr>\n  </tbody>\n</table>",
+                        "timer": 300
+                    }
+                ],
+                [
+                    {
+                        "title": "¡Listos para Aprender!",
+                        "sub": "Prepara tu espacio",
+                        "content": "Abre tu cuaderno de química, escribe la fecha y el título de la clase: \"Materia y Mezclas (Clase 2)\". Asegúrate de tener lápiz, borrador y colores a mano.",
+                        "icon": "ph-book-open",
+                        "customHtml": "",
+                        "timer": 120
+                    },
+                    {
+                        "title": "Recordando Conceptos",
+                        "sub": "¿Qué vimos ayer?",
+                        "content": "En tu cuaderno, escribe 3 ideas clave que recuerdes de la clase anterior sobre Materia. Comparte una con tu compañero.",
+                        "icon": "ph-brain",
+                        "customHtml": "",
+                        "timer": 300
+                    },
+                    {
+                        "title": "¿Qué es una Mezcla?",
+                        "sub": "Copia la definición",
+                        "content": "Una <b>mezcla</b> es la combinación de dos o más sustancias puras que no reaccionan químicamente entre sí y conservan sus propiedades individuales. <br> Las mezclas se pueden separar por métodos físicos.",
+                        "icon": "ph-flask",
+                        "customHtml": "",
+                        "timer": 300
+                    },
+                    {
+                        "title": "Clasificación de Materia",
+                        "sub": "Dibuja el esquema",
+                        "content": "Dibuja en tu cuaderno el siguiente diagrama de clasificación de la materia, prestando atención a las ramas de \"Mezclas\".",
+                        "icon": "ph-flow-arrow",
+                        "customHtml": "<div class='mermaid'>graph TD<br>    A[Materia] --> B{Sustancia Pura}<br>    A --> C{Mezcla}<br>    B --> D[Elemento]<br>    B --> E[Compuesto]<br>    C --> F[Homogénea]<br>    C --> G[Heterogénea]</div>",
+                        "timer": 300
+                    },
+                    {
+                        "title": "Mezclas Homogéneas",
+                        "sub": "Características y ejemplos",
+                        "content": "Las <b>mezclas homogéneas</b> (o disoluciones) son aquellas en las que sus componentes no se pueden distinguir a simple vista, formando una fase única. <br> Ejemplos: agua con sal disuelta, aire, bronce.",
+                        "icon": "ph-drop",
+                        "customHtml": "",
+                        "timer": 300
+                    },
+                    {
+                        "title": "Visualizando Homogéneas",
+                        "sub": "Dibuja un ejemplo",
+                        "content": "Dibuja en tu cuaderno un vaso de agua con azúcar disuelta. Representa cómo las partículas de azúcar se distribuyen uniformemente en el agua, sin que se vean separadas.",
+                        "icon": "ph-eyedropper",
+                        "customHtml": "<div class='mermaid'>graph TD<br>    A[Vaso de Agua] -- \"Agua (partículas azules)\" --> B(Partículas de Azúcar disueltas)<br>    B -- \"Distribución uniforme\" --> C(Mezcla Homogénea)<br>    style A fill:#ADD8E6,stroke:#333,stroke-width:2px<br>    style B fill:#FFD700,stroke:#333,stroke-width:2px<br>    style C fill:#90EE90,stroke:#333,stroke-width:2px</div>",
+                        "timer": 300
+                    },
+                    {
+                        "title": "Mezclas Heterogéneas",
+                        "sub": "Características y ejemplos",
+                        "content": "Las <b>mezclas heterogéneas</b> son aquellas en las que sus componentes se pueden distinguir a simple vista, presentando dos o más fases. <br> Ejemplos: agua y aceite, ensalada de frutas, arena y piedras.",
+                        "icon": "ph-stack-simple",
+                        "customHtml": "",
+                        "timer": 300
+                    },
+                    {
+                        "title": "Visualizando Heterogéneas",
+                        "sub": "Dibuja un ejemplo",
+                        "content": "Dibuja en tu cuaderno un vaso con agua y aceite. Representa claramente las dos capas distintas que se forman, mostrando que no se mezclan.",
+                        "icon": "ph-layers",
+                        "customHtml": "<div class='mermaid'>graph TD<br>    A[Vaso] -- \"Capa superior\" --> B(Aceite)<br>    A -- \"Capa inferior\" --> C(Agua)<br>    style A fill:#ADD8E6,stroke:#333,stroke-width:2px<br>    style B fill:#FFD700,stroke:#333,stroke-width:2px<br>    style C fill:#00BFFF,stroke:#333,stroke-width:2px</div>",
+                        "timer": 300
+                    },
+                    {
+                        "title": "Comparando Mezclas",
+                        "sub": "Completa la tabla",
+                        "content": "Dibuja la siguiente tabla comparativa en tu cuaderno y complétala con las características de cada tipo de mezcla.",
+                        "icon": "ph-table",
+                        "customHtml": "<table border=\"1\" style=\"width:100%; border-collapse: collapse;\"><thead><tr><th>Característica</th><th>Mezcla Homogénea</th><th>Mezcla Heterogénea</th></tr></thead><tbody><tr><td>Visibilidad de componentes</td><td></td><td></td></tr><tr><td>Número de fases</td><td></td><td></td></tr><tr><td>Ejemplos</td><td></td><td></td></tr></tbody></table>",
+                        "timer": 300
+                    },
+                    {
+                        "title": "Reto ICFES",
+                        "sub": "Aplica tus conocimientos",
+                        "content": "<b>Enunciado del Caso:</b><br>Un estudiante realiza un experimento para clasificar tres muestras líquidas (Muestra 1, Muestra 2 y Muestra 3) como mezclas homogéneas o heterogéneas. Para ello, observa cada muestra a simple vista y luego bajo un microscopio.<br><br><b>Resultados del Experimento:</b><br><ul><li><b>Muestra 1:</b> A simple vista, se observa una única fase transparente. Bajo el microscopio, se aprecian partículas muy pequeñas distribuidas uniformemente.</li><li><b>Muestra 2:</b> A simple vista, se observan dos capas distintas. Bajo el microscopio, se distinguen claramente dos fases con diferentes propiedades.</li><li><b>Muestra 3:</b> A simple vista, se observa una única fase opaca. Bajo el microscopio, se aprecian pequeñas gotas dispersas que no se sedimentan.</li></ul><br><b>Pregunta Problema:</b><br>Basándose en los resultados del experimento, ¿cuál de las siguientes afirmaciones es correcta respecto a la clasificación de las muestras?<br><br><b>Distractores:</b><br>A. La Muestra 1 es una mezcla heterogénea porque sus partículas son visibles bajo el microscopio.<br>B. La Muestra 2 es una mezcla homogénea porque se observan dos capas distintas.<br>C. La Muestra 3 es una mezcla homogénea porque sus componentes no se sedimentan.<br>D. La Muestra 1 es una mezcla homogénea y la Muestra 2 es una mezcla heterogénea.<br><br><b>Respuesta Correcta: D</b><br><b>Justificación:</b> La Muestra 1, al presentar una única fase a simple vista y partículas uniformemente distribuidas (aunque visibles al microscopio, no forman fases separadas), se clasifica como homogénea. La Muestra 2, al mostrar dos capas distintas a simple vista y bajo el microscopio, es claramente una mezcla heterogénea. La Muestra 3, aunque opaca y con gotas dispersas, es un coloide, que es un tipo de mezcla heterogénea, no homogénea.<br><br>Copia toda la pregunta, los distractores y la gráfica en tu cuaderno y encierra la respuesta correcta.",
+                        "icon": "ph-question",
+                        "customHtml": "<div style=\"font-family: Arial, sans-serif; border: 1px solid #ccc; padding: 15px; border-radius: 8px; background-color: #f9f9f9;\"><h3 style=\"color: #333; margin-top: 0;\">Clasificación de Mezclas</h3><div style=\"display: flex; justify-content: space-around; margin-top: 20px;\"><div style=\"text-align: center;\"><div style=\"width: 80px; height: 120px; border: 2px solid #666; border-radius: 0 0 10px 10px; background: linear-gradient(to bottom, #ADD8E6 0%, #ADD8E6 100%); position: relative;\"><div style=\"position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 10px; height: 10px; background-color: #FFD700; border-radius: 50%;\"></div><div style=\"position: absolute; top: 20%; left: 30%; transform: translate(-50%, -50%); width: 10px; height: 10px; background-color: #FFD700; border-radius: 50%;\"></div><div style=\"position: absolute; top: 80%; left: 70%; transform: translate(-50%, -50%); width: 10px; height: 10px; background-color: #FFD700; border-radius: 50%;\"></div></div><p>Muestra 1<br>(Homogénea)</p></div><div style=\"text-align: center;\"><div style=\"width: 80px; height: 120px; border: 2px solid #666; border-radius: 0 0 10px 10px; background: linear-gradient(to bottom, #FFD700 0%, #FFD700 40%, #ADD8E6 40%, #ADD8E6 100%);\"></div><p>Muestra 2<br>(Heterogénea)</p></div><div style=\"text-align: center;\"><div style=\"width: 80px; height: 120px; border: 2px solid #666; border-radius: 0 0 10px 10px; background: linear-gradient(to bottom, #D3D3D3 0%, #D3D3D3 100%); position: relative;\"><div style=\"position: absolute; top: 20%; left: 50%; transform: translate(-50%, -50%); width: 15px; height: 15px; background-color: rgba(255,255,255,0.7); border-radius: 50%;\"></div><div style=\"position: absolute; top: 60%; left: 30%; transform: translate(-50%, -50%); width: 15px; height: 15px; background-color: rgba(255,255,255,0.7); border-radius: 50%;\"></div><div style=\"position: absolute; top: 80%; left: 70%; transform: translate(-50%, -50%); width: 15px; height: 15px; background-color: rgba(255,255,255,0.7); border-radius: 50%;\"></div></div><p>Muestra 3<br>(Coloide/Heterogénea)</p></div></div></div>",
+                        "timer": 300
+                    }
+                ]
+            ]
         },
         "etica": {
-            "1": []
+            "1": [
+                [
+                    {
+                        "title": "¡Bienvenidos a Ética!",
+                        "sub": "Prepara tu espacio de aprendizaje",
+                        "content": "Asegúrate de tener tu cuaderno, lápiz y borrador listos.<br>Escribe la fecha y el título de la clase: 'Dilemas Morales y Toma de Decisiones'.",
+                        "icon": "ph-book-open",
+                        "customHtml": "",
+                        "timer": 120
+                    },
+                    {
+                        "title": "¿Qué es un Dilema?",
+                        "sub": "Definición y ejemplos iniciales",
+                        "content": "Un dilema moral es una situación en la que dos o más valores o principios éticos entran en conflicto, y cualquier elección que se haga implicará sacrificar al menos uno de ellos.<br>Copia esta definición en tu cuaderno.",
+                        "icon": "ph-question",
+                        "customHtml": "",
+                        "timer": 300
+                    },
+                    {
+                        "title": "Tipos de Dilemas",
+                        "sub": "Clasificación básica",
+                        "content": "Existen dilemas hipotéticos (ficticios) y reales (basados en la vida).<br>También pueden ser de solución (elegir la mejor opción) o de conflicto (elegir el menor de dos males).<br>Copia este esquema en tu cuaderno.",
+                        "icon": "ph-flow-arrow",
+                        "customHtml": "<div class='mermaid'>graph TD<br>    A[Dilemas Morales] --> B{Tipos}<br>    B --> C[Hipotéticos]<br>    B --> D[Reales]<br>    A --> E{Naturaleza}<br>    E --> F[De Solución]<br>    E --> G[De Conflicto]</div>",
+                        "timer": 300
+                    },
+                    {
+                        "title": "Elementos Clave",
+                        "sub": "Identificando componentes",
+                        "content": "Todo dilema tiene:<br>1. Un Agente (quien decide).<br>2. Opciones (al menos dos, mutuamente excluyentes).<br>3. Consecuencias (positivas y negativas para cada opción).<br>4. Valores en conflicto.<br>Dibuja un pequeño diagrama que represente estos elementos.",
+                        "icon": "ph-puzzle-piece",
+                        "customHtml": "<div class='mermaid'>graph TD<br>    A[Dilema Moral] --> B(Agente)<br>    A --> C(Opciones)<br>    C --> C1(Opción 1)<br>    C --> C2(Opción 2)<br>    A --> D(Consecuencias)<br>    D --> D1(Positivas)<br>    D --> D2(Negativas)<br>    A --> E(Valores en Conflicto)</div>",
+                        "timer": 300
+                    },
+                    {
+                        "title": "El Problema del Tranvía",
+                        "sub": "Un dilema clásico",
+                        "content": "Imagina un tranvía sin control que se dirige hacia cinco personas atadas a la vía. Tienes la opción de tirar de una palanca para desviar el tranvía a otra vía, donde solo hay una persona atada.<br>¿Qué harías? ¿Por qué?<br>Dibuja un esquema simple de la situación.",
+                        "icon": "ph-train",
+                        "customHtml": "<div class='mermaid'>graph TD<br>    A[Tranvía sin control] --> B(Vía Principal)<br>    B --> C(5 Personas)<br>    A --> D(Palanca)<br>    D --> E(Vía Alterna)<br>    E --> F(1 Persona)<br>    style A fill:#f9f,stroke:#333,stroke-width:2px<br>    style C fill:#fcc,stroke:#333,stroke-width:2px<br>    style F fill:#ccf,stroke:#333,stroke-width:2px</div>",
+                        "timer": 300
+                    },
+                    {
+                        "title": "Ética Consecuencialista",
+                        "sub": "El fin justifica los medios",
+                        "content": "Esta perspectiva ética juzga la moralidad de una acción basándose en sus resultados o consecuencias. La acción 'correcta' es la que produce el mayor bien para el mayor número de personas.<br>Copia esta definición y un ejemplo en tu cuaderno.",
+                        "icon": "ph-chart-line",
+                        "customHtml": "",
+                        "timer": 300
+                    },
+                    {
+                        "title": "Ética Deontológica",
+                        "sub": "El deber por encima de todo",
+                        "content": "Esta perspectiva se centra en el deber y las reglas morales. Ciertas acciones son inherentemente correctas o incorrectas, independientemente de sus consecuencias. Se actúa por principios.<br>Copia esta definición y un ejemplo en tu cuaderno.",
+                        "icon": "ph-gavel",
+                        "customHtml": "",
+                        "timer": 300
+                    },
+                    {
+                        "title": "Tranvía: Consecuencias vs. Deber",
+                        "sub": "Analizando el dilema del tranvía",
+                        "content": "Retomando el problema del tranvía:<br>1. ¿Cómo lo resolvería un consecuencialista? (Salvar a 5 sacrificando a 1)<br>2. ¿Cómo lo resolvería un deontólogo? (No matar directamente, incluso si mueren más)<br>Escribe tus reflexiones en el cuaderno.",
+                        "icon": "ph-scales",
+                        "customHtml": "",
+                        "timer": 300
+                    },
+                    {
+                        "title": "Pasos para Decidir",
+                        "sub": "Un modelo simple de toma de decisiones",
+                        "content": "1. Identifica el dilema.<br>2. Recopila información.<br>3. Identifica las opciones.<br>4. Evalúa las consecuencias de cada opción.<br>5. Considera los valores y principios.<br>6. Toma una decisión y justifícala.<br>Dibuja un diagrama de flujo con estos pasos.",
+                        "icon": "ph-lightbulb",
+                        "customHtml": "<div class='mermaid'>graph TD<br>    A[Inicio] --> B(Identificar Dilema)<br>    B --> C(Recopilar Información)<br>    C --> D(Identificar Opciones)<br>    D --> E(Evaluar Consecuencias)<br>    E --> F(Considerar Valores)<br>    F --> G(Tomar Decisión)<br>    G --> H[Fin]</div>",
+                        "timer": 300
+                    },
+                    {
+                        "title": "Pregunta ICFES",
+                        "sub": "Aplicando lo aprendido",
+                        "content": "Enunciado del Caso:<br>Un pequeño pueblo depende de un único pozo de agua. Recientemente, se ha descubierto que el agua del pozo está contaminada con una sustancia que, a largo plazo, causa enfermedades graves. Un ingeniero local ha encontrado una solución: instalar un filtro costoso que purificaría el agua, pero el costo es tan alto que el pueblo tendría que desviar fondos destinados a la educación y la salud básica durante los próximos cinco años para pagarlo. La otra opción es no instalar el filtro y buscar una solución a largo plazo, pero esto implicaría que la población seguiría consumiendo agua contaminada por un tiempo indefinido, afectando su salud gradualmente.<br><br>Pregunta Problema:<br>Considerando el dilema moral que enfrenta el pueblo, ¿cuál de las siguientes opciones refleja mejor una decisión basada en un enfoque consecuencialista?<br><br>A. No instalar el filtro, priorizando la educación y la salud básica inmediata, y buscar una solución menos costosa a largo plazo.<br>B. Instalar el filtro inmediatamente, asegurando la salud a largo plazo de la población, aunque se sacrifiquen otros servicios esenciales por un tiempo.<br>C. Realizar una votación popular para que los ciudadanos decidan, delegando la responsabilidad de la elección.<br>D. Buscar financiamiento externo sin importar el tiempo que tome, para no afectar ningún servicio esencial.<br><br>Respuesta Correcta: B<br>Justificación: Un enfoque consecuencialista busca el mayor bien para el mayor número a largo plazo. Instalar el filtro, aunque implique sacrificios temporales en otros sectores, asegura la salud fundamental de toda la población, evitando enfermedades graves y la muerte, lo cual es el resultado más beneficioso en términos de bienestar general a largo plazo. La salud es un bien primario sin el cual otros bienes (como la educación) no pueden ser plenamente disfrutados.<br><br>Copia toda la pregunta, los distractores y la grfica en tu cuaderno y encierra la respuesta correcta.",
+                        "icon": "ph-exam",
+                        "customHtml": "<div style=\"font-family: Arial, sans-serif; border: 1px solid #ccc; padding: 15px; border-radius: 8px; background-color: #f9f9f9; max-width: 500px; margin: 0 auto;\">\n    <h3 style=\"color: #333; text-align: center;\">Dilema del Pozo Contaminado</h3>\n    <div style=\"display: flex; justify-content: space-around; align-items: flex-end; margin-top: 20px;\">\n        <div style=\"text-align: center;\">\n            <img src=\"https://www.svgrepo.com/show/509531/water-well.svg\" alt=\"Pozo de Agua\" style=\"width: 80px; height: 80px;\">\n            <p style=\"font-size: 0.9em; color: #555;\">Pozo Contaminado</p>\n            <div style=\"width: 100px; height: 50px; background-color: #f00; opacity: 0.3; border-radius: 5px; margin: 5px auto;\">Riesgo de Enfermedad</div>\n        </div>\n        <div style=\"text-align: center;\">\n            <img src=\"https://www.svgrepo.com/show/509530/filter.svg\" alt=\"Filtro de Agua\" style=\"width: 80px; height: 80px;\">\n            <p style=\"font-size: 0.9em; color: #555;\">Filtro Costoso</p>\n            <div style=\"width: 100px; height: 50px; background-color: #0f0; opacity: 0.3; border-radius: 5px; margin: 5px auto;\">Salud Asegurada</div>\n        </div>\n    </div>\n    <div style=\"text-align: center; margin-top: 20px; font-size: 0.9em; color: #777;\">\n        <p><strong>Opciones:</strong></p>\n        <p>1. Instalar Filtro (Salud, pero sacrifica Educación/Salud Básica por 5 años)</p>\n        <p>2. No Instalar (Educación/Salud Básica, pero riesgo de enfermedad por agua)</p>\n    </div>\n</div>",
+                        "timer": 300
+                    }
+                ]
+            ]
         },
         "artistica": {
-            "1": []
+            "1": [
+                [
+                    {
+                        "title": "¡Listos para Aprender!",
+                        "sub": "Prepara tu espacio y materiales",
+                        "content": "Abre tu cuaderno de Artística.<br>Escribe la fecha de hoy y el título de la clase: 'Simbología y Percusión Corporal (Clase 1)'.<br>Asegúrate de tener lápiz, borrador y colores a mano.",
+                        "icon": "ph-book-open",
+                        "customHtml": "",
+                        "timer": 120
+                    },
+                    {
+                        "title": "¿Qué es un Símbolo?",
+                        "sub": "Explorando significados ocultos",
+                        "content": "Copia la siguiente definición en tu cuaderno:<br>Un <b>símbolo</b> es un elemento visual, auditivo o gestual que representa una idea, concepto o emoción, más allá de su significado literal. Nos ayuda a comunicar mensajes complejos de forma sencilla.<br>Piensa en un símbolo que uses a diario.",
+                        "icon": "ph-lightbulb",
+                        "customHtml": "",
+                        "timer": 300
+                    },
+                    {
+                        "title": "Símbolos Cotidianos",
+                        "sub": "Identifica y dibuja",
+                        "content": "Dibuja en tu cuaderno tres símbolos que reconozcas fácilmente en tu entorno (ej: señales de tránsito, logos de marcas, iconos de apps).<br>Al lado de cada dibujo, escribe brevemente qué representa ese símbolo para ti.",
+                        "icon": "ph-pencil-line",
+                        "customHtml": "<div class='mermaid'>graph TD; A[Stop] --> B(Peligro); C[Corazón] --> D(Amor); E[Wifi] --> F(Conexión);</div>",
+                        "timer": 300
+                    },
+                    {
+                        "title": "Percusión Corporal",
+                        "sub": "El cuerpo como instrumento",
+                        "content": "Copia en tu cuaderno:<br>La <b>percusión corporal</b> es el arte de crear sonidos y ritmos utilizando únicamente el cuerpo humano (palmas, chasquidos, golpes en muslos, pecho, pies, etc.). Es una forma ancestral de expresión musical y cultural.<br>¿Qué partes de tu cuerpo crees que pueden producir sonidos interesantes?",
+                        "icon": "ph-hand-waving",
+                        "customHtml": "",
+                        "timer": 300
+                    },
+                    {
+                        "title": "Sonidos del Cuerpo",
+                        "sub": "Experimenta y clasifica",
+                        "content": "Experimenta con tu cuerpo y anota en tu cuaderno al menos 5 sonidos diferentes que puedas producir.<br>Clasifícalos en 'fuertes', 'suaves', 'agudos' o 'graves'.<br>Ejemplos: Palmas (fuerte), Chasquido de dedos (suave/agudo), Golpe en el pecho (grave).",
+                        "icon": "ph-speaker-high",
+                        "customHtml": "",
+                        "timer": 300
+                    },
+                    {
+                        "title": "Símbolos Rítmicos",
+                        "sub": "Representando sonidos corporales",
+                        "content": "Para representar la percusión corporal, podemos usar símbolos.<br>Copia estos ejemplos y dibuja un símbolo sencillo para cada uno:<br>1. Palmas: (ej. dos manos chocando)<br>2. Chasquido de dedos: (ej. un dedo pulgar y medio)<br>3. Golpe en muslos: (ej. una mano sobre un muslo)<br>4. Zapateo: (ej. un pie en el suelo)",
+                        "icon": "ph-music-notes",
+                        "customHtml": "<div class='mermaid'>graph TD; A[Palmas] --> B{Clap}; C[Chasquido] --> D{Snap}; E[Muslos] --> F{Pat}; G[Zapateo] --> H{Stomp};</div>",
+                        "timer": 300
+                    },
+                    {
+                        "title": "Mi Primer Ritmo",
+                        "sub": "Combina sonidos y símbolos",
+                        "content": "Usando los símbolos que creaste, diseña una secuencia rítmica de 4 tiempos.<br>Por ejemplo: Palmas - Chasquido - Muslos - Zapateo.<br>Dibuja la secuencia de símbolos en tu cuaderno y practica el ritmo en silencio.",
+                        "icon": "ph-ruler",
+                        "customHtml": "<div class='mermaid'>sequenceDiagram participant P as Percusión Corporal P->>P: Clap P->>P: Snap P->>P: Pat P->>P: Stomp </div>",
+                        "timer": 300
+                    },
+                    {
+                        "title": "Percusión en Culturas",
+                        "sub": "Un lenguaje universal",
+                        "content": "La percusión corporal ha sido y es fundamental en muchas culturas alrededor del mundo para rituales, danzas y comunicación.<br>Investiga brevemente (si tienes acceso a internet o libros) un ejemplo de percusión corporal en una cultura específica (ej. 'Haka' maorí, 'Gumboot Dance' sudafricana).<br>Si no, anota la importancia de la percusión corporal como forma de expresión.",
+                        "icon": "ph-globe",
+                        "customHtml": "",
+                        "timer": 300
+                    },
+                    {
+                        "title": "Símbolo y Ritmo",
+                        "sub": "¿Cómo se conectan?",
+                        "content": "Reflexiona en tu cuaderno:<br>¿Cómo crees que la simbología y la percusión corporal se complementan?<br>Piensa en cómo un gesto rítmico puede simbolizar una emoción o una idea.<br>Escribe al menos dos ideas.",
+                        "icon": "ph-brain",
+                        "customHtml": "",
+                        "timer": 300
+                    },
+                    {
+                        "title": "Pregunta ICFES",
+                        "sub": "Aplicando lo aprendido",
+                        "content": "<b>Enunciado del Caso:</b><br>Un grupo de estudiantes de artística está explorando la percusión corporal y la simbología para crear una pequeña obra. Deciden que cada movimiento o sonido corporal representará una emoción o un concepto. Han definido los siguientes elementos:<br><ul><li>Palmas (CLAP): Alegría</li><li>Chasquido de dedos (SNAP): Curiosidad</li><li>Golpe en muslos (PAT): Determinación</li><li>Zapateo (STOMP): Fuerza</li></ul><br>Se les pide crear una secuencia rítmica que represente la transición de la 'curiosidad' a la 'determinación' y finalmente a la 'fuerza', con un toque final de 'alegría'.<br><br><b>Pregunta Problema:</b><br>¿Cuál de las siguientes secuencias de símbolos representa correctamente la intención del grupo?<br><br>A. CLAP - SNAP - PAT - STOMP<br>B. SNAP - PAT - STOMP - CLAP<br>C. PAT - STOMP - CLAP - SNAP<br>D. STOMP - CLAP - SNAP - PAT<br><br><b>Respuesta Correcta: B</b><br><b>Justificación:</b> La secuencia debe iniciar con 'curiosidad' (SNAP), seguir con 'determinación' (PAT), luego 'fuerza' (STOMP), y finalizar con 'alegría' (CLAP), lo cual corresponde exactamente a la opción B.<br><br>Copia toda la pregunta, los distractores y la grfica en tu cuaderno y encierra la respuesta correcta.",
+                        "icon": "ph-question",
+                        "customHtml": "<style>.icfes-diagram { display: flex; flex-direction: column; align-items: center; gap: 10px; font-family: sans-serif; margin-top: 20px; }.icfes-diagram .symbol-row { display: flex; gap: 20px; align-items: center; }.icfes-diagram .symbol-item { display: flex; flex-direction: column; align-items: center; border: 1px solid #ccc; padding: 10px; border-radius: 8px; background-color: #f9f9f9; min-width: 100px; }.icfes-diagram .symbol-icon { font-size: 3em; margin-bottom: 5px; }.icfes-diagram .symbol-label { font-weight: bold; color: #333; }.icfes-diagram .symbol-meaning { font-size: 0.9em; color: #666; }.arrow { font-size: 2em; color: #555; }</style><div class=\"icfes-diagram\"><h3>Símbolos y Emociones</h3><div class=\"symbol-row\"><div class=\"symbol-item\"><span class=\"symbol-icon\">👏</span><span class=\"symbol-label\">CLAP</span><span class=\"symbol-meaning\">Alegría</span></div><div class=\"symbol-item\"><span class=\"symbol-icon\">🫰</span><span class=\"symbol-label\">SNAP</span><span class=\"symbol-meaning\">Curiosidad</span></div><div class=\"symbol-item\"><span class=\"symbol-icon\">🦵</span><span class=\"symbol-label\">PAT</span><span class=\"symbol-meaning\">Determinación</span></div><div class=\"symbol-item\"><span class=\"symbol-icon\">🦶</span><span class=\"symbol-label\">STOMP</span><span class=\"symbol-meaning\">Fuerza</span></div></div><p><i>Representación visual de los símbolos y sus significados.</i></p></div>",
+                        "timer": 300
+                    }
+                ]
+            ]
         },
         "turismo": {
-            "1": []
+            "1": [
+                [
+                    {
+                        "title": "¡Bienvenidos al Turismo!",
+                        "sub": "Prepara tu espacio de aprendizaje",
+                        "content": "¡Hola a todos! Es un placer tenerlos en esta clase magistral de turismo.<br><br>Por favor, asegúrense de tener a mano su cuaderno, lápiz o bolígrafo, y cualquier material que necesiten para tomar apuntes.<br><br>¡Vamos a explorar el fascinante mundo del turismo!",
+                        "icon": "ph-book-open",
+                        "customHtml": "",
+                        "timer": 120
+                    },
+                    {
+                        "title": "¿Qué es Turismo?",
+                        "sub": "Definición y alcance",
+                        "content": "El turismo es el conjunto de actividades que realizan las personas durante sus viajes y estancias en lugares distintos a su entorno habitual, por un período de tiempo consecutivo inferior a un año, con fines de ocio, negocios u otros motivos.<br><br>Copia esta definición en tu cuaderno y subraya las palabras clave.",
+                        "icon": "ph-globe-hemisphere-west",
+                        "customHtml": "",
+                        "timer": 300
+                    },
+                    {
+                        "title": "Bienes en Turismo",
+                        "sub": "Tangibles y esenciales",
+                        "content": "Los <b>bienes</b> en turismo son productos físicos, tangibles, que se pueden ver, tocar y almacenar. Son una parte fundamental de la experiencia turística.<br><br>Ejemplos: souvenirs, mapas, guías de viaje, alimentos y bebidas envasadas, equipaje, ropa de playa.<br><br>Dibuja 3 ejemplos de bienes turísticos en tu cuaderno.",
+                        "icon": "ph-shopping-bag",
+                        "customHtml": "",
+                        "timer": 300
+                    },
+                    {
+                        "title": "Servicios en Turismo",
+                        "sub": "Intangibles y experienciales",
+                        "content": "Los <b>servicios</b> en turismo son actividades o beneficios intangibles que se ofrecen a los viajeros. No se pueden almacenar y su consumo suele ser simultáneo a su producción.<br><br>Ejemplos: alojamiento en hotel, transporte (vuelos, buses), tours guiados, comidas en restaurantes, alquiler de coches, masajes en spa.<br><br>Escribe 3 ejemplos de servicios turísticos y describe brevemente por qué son intangibles.",
+                        "icon": "ph-handshake",
+                        "customHtml": "",
+                        "timer": 300
+                    },
+                    {
+                        "title": "Bienes vs. Servicios",
+                        "sub": "Diferencias clave en un vistazo",
+                        "content": "Analicemos las diferencias fundamentales entre bienes y servicios en el contexto turístico. Copia la siguiente tabla comparativa en tu cuaderno.<br><br>Presta atención a las características de tangibilidad, almacenamiento y producción/consumo.",
+                        "icon": "ph-table",
+                        "customHtml": "<table border='1' style='width:100%; border-collapse: collapse;'><thead><tr><th>Característica</th><th>Bienes Turísticos</th><th>Servicios Turísticos</th></tr></thead><tbody><tr><td>Tangibilidad</td><td>Tangibles (se pueden tocar)</td><td>Intangibles (no se pueden tocar)</td></tr><tr><td>Almacenamiento</td><td>Se pueden almacenar</td><td>No se pueden almacenar</td></tr><tr><td>Producción/Consumo</td><td>Producción y consumo separados</td><td>Producción y consumo simultáneos</td></tr><tr><td>Propiedad</td><td>Se transfiere la propiedad</td><td>No se transfiere la propiedad</td></tr></tbody></table>",
+                        "timer": 300
+                    },
+                    {
+                        "title": "Actividad: Clasifica",
+                        "sub": "Identifica y justifica",
+                        "content": "Clasifica los siguientes elementos como <b>Bien</b> o <b>Servicio</b> y justifica tu respuesta en tu cuaderno:<br><br>1. Un boleto de avión<br>2. Una noche en un hotel<br>3. Una excursión en bote<br>4. Una postal de recuerdo<br>5. Un plato de comida en un restaurante<br>6. El alquiler de una bicicleta",
+                        "icon": "ph-list-checks",
+                        "customHtml": "",
+                        "timer": 300
+                    },
+                    {
+                        "title": "Caso: Experiencia Hotelera",
+                        "sub": "Desglosando una estancia",
+                        "content": "Imagina que te hospedas en un hotel todo incluido en la playa. Enumera al menos 3 bienes y 3 servicios que experimentarías durante tu estancia.<br><br>Dibuja un pequeño esquema de tu habitación de hotel e identifica con flechas los bienes y servicios que encuentras allí.",
+                        "icon": "ph-bed",
+                        "customHtml": "<div class='mermaid'>graph TD<br>    A[Estancia en Hotel Todo Incluido] --> B(Alojamiento - Servicio)<br>    A --> C(Comidas y Bebidas - Servicio)<br>    A --> D(Acceso a Piscina - Servicio)<br>    A --> E(Souvenir de la Tienda - Bien)<br>    A --> F(Toallas de Playa - Bien)<br>    A --> G(Mapa del Resort - Bien)</div>",
+                        "timer": 300
+                    },
+                    {
+                        "title": "Ciclo de Viaje",
+                        "sub": "Bienes y servicios en cada etapa",
+                        "content": "Un viaje turístico tiene varias etapas: planificación, transporte, estancia y regreso. Piensa en un viaje que te gustaría hacer.<br><br>Para cada etapa, identifica al menos un bien y un servicio que serían relevantes.<br><br>Copia el diagrama de flujo y añade tus ejemplos.",
+                        "icon": "ph-airplane-takeoff",
+                        "customHtml": "<div class='mermaid'>graph LR<br>    A[Planificación] --> B{Bienes y Servicios?}<br>    B --> C[Transporte] --> D{Bienes y Servicios?}<br>    D --> E[Estancia] --> F{Bienes y Servicios?}<br>    F --> G[Actividades] --> H{Bienes y Servicios?}<br>    H --> I[Regreso] --> J{Bienes y Servicios?}<br>    J --> K[Fin del Viaje]</div>",
+                        "timer": 300
+                    },
+                    {
+                        "title": "Importancia de Distinguir",
+                        "sub": "Impacto en la gestión turística",
+                        "content": "Comprender la diferencia entre bienes y servicios es crucial para la gestión y comercialización turística. Afecta la calidad, la satisfacción del cliente y la rentabilidad.<br><br>Escribe un párrafo corto (50-70 palabras) explicando por qué un operador turístico debe tener clara esta distinción para ofrecer una mejor experiencia a sus clientes.",
+                        "icon": "ph-lightbulb",
+                        "customHtml": "",
+                        "timer": 300
+                    },
+                    {
+                        "title": "Pregunta ICFES",
+                        "sub": "Aplicación de conceptos",
+                        "content": "<b>ENUNCIADO DEL CASO:</b><br>Una agencia de viajes está diseñando un nuevo paquete turístico 'Aventura Amazónica' que incluye vuelo de ida y vuelta a Leticia, tres noches de alojamiento en una eco-lodge, dos excursiones guiadas por la selva, alimentación completa durante la estancia, y un kit de bienvenida con repelente, gorra y mapa de la región.<br><br><b>PREGUNTA PROBLEMA:</b><br>Considerando la naturaleza de los componentes del paquete 'Aventura Amazónica', ¿cuál de las siguientes afirmaciones describe correctamente la proporción y el tipo de elementos ofrecidos?<br><br><b>DISTRACTORES:</b><br>A. El paquete se compone principalmente de bienes, ya que el kit de bienvenida y la alimentación son los elementos de mayor valor percibido.<br>B. El paquete es una mezcla equilibrada de bienes y servicios, donde los bienes son los elementos tangibles y los servicios son las experiencias y facilidades.<br>C. El paquete es predominantemente de servicios, dado que el transporte, el alojamiento y las excursiones guiadas representan la mayor parte de la experiencia turística.<br>D. El paquete es exclusivamente de servicios, ya que todos los elementos, incluyendo el kit de bienvenida, son parte de una experiencia integral e intangible.<br><br><b>RESPUESTA CORRECTA Y JUSTIFICACIÓN:</b><br>La respuesta correcta es la <b>C</b>.<br><b>Justificación:</b> El transporte (vuelo), el alojamiento (eco-lodge), las excursiones guiadas y la alimentación en el restaurante son servicios, ya que son intangibles, no se almacenan y su consumo es simultáneo a su producción. Aunque hay bienes (kit de bienvenida), la mayor parte del valor y la experiencia central del paquete recaen en los servicios. La opción B es plausible pero la C es más precisa al indicar la predominancia de servicios, que es característica de la mayoría de los paquetes turísticos.<br><br>Copia toda la pregunta, los distractores y la gráfica en tu cuaderno y encierra la respuesta correcta.",
+                        "icon": "ph-question",
+                        "customHtml": "<div style='width: 100%; display: flex; justify-content: center; align-items: center; flex-direction: column; font-family: sans-serif;'><h3>Paquete 'Aventura Amazónica'</h3><div style='display: flex; gap: 20px; margin-top: 20px;'><div style='text-align: center;'><div style='width: 80px; height: 80px; background-color: #a8dadc; border-radius: 10px; display: flex; justify-content: center; align-items: center; font-size: 40px;'>✈️</div><p>Vuelo</p></div><div style='text-align: center;'><div style='width: 80px; height: 80px; background-color: #457b9d; border-radius: 10px; display: flex; justify-content: center; align-items: center; font-size: 40px;'>🏨</div><p>Alojamiento</p></div><div style='text-align: center;'><div style='width: 80px; height: 80px; background-color: #1d3557; border-radius: 10px; display: flex; justify-content: center; align-items: center; font-size: 40px;'>🌳</div><p>Excursiones</p></div><div style='text-align: center;'><div style='width: 80px; height: 80px; background-color: #f4a261; border-radius: 10px; display: flex; justify-content: center; align-items: center; font-size: 40px;'>🍽️</div><p>Alimentación</p></div><div style='text-align: center;'><div style='width: 80px; height: 80px; background-color: #e76f51; border-radius: 10px; display: flex; justify-content: center; align-items: center; font-size: 40px;'>🎁</div><p>Kit Bienvenida</p></div></div><p style='margin-top: 30px; font-size: 1.1em; font-weight: bold;'>¿Qué predomina: Bienes o Servicios?</p></div>",
+                        "timer": 300
+                    }
+                ]
+            ]
         }
     }
 }
