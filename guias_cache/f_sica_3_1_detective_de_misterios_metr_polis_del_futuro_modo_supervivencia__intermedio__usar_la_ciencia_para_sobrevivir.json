@@ -1,0 +1,114 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Qué forma geométrica tienen las órbitas de los planetas alrededor del Sol según Johannes Kepler?",
+      "opciones": [
+        "Círculos perfectos",
+        "Elipses",
+        "Parábolas",
+        "Líneas rectas"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Qué ocurre con la velocidad de un planeta a medida que se acerca al Sol en su órbita?",
+      "opciones": [
+        "Disminuye",
+        "Se mantiene constante",
+        "Aumenta",
+        "Se reduce a cero"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "¿Cuál de las siguientes opciones describe mejor el concepto de aceleración?",
+      "opciones": [
+        "El espacio total recorrido por un cuerpo",
+        "El cambio de velocidad de un objeto por unidad de tiempo",
+        "La masa de un objeto multiplicada por su gravedad",
+        "La posición final de un cuerpo en el espacio"
+      ],
+      "correcta": 1
+    }
+  ],
+  "texto_inductivo": "# El Misterio de la Gravedad en Neo-Veridia\n\nSaludos, jóvenes investigadores de la física del mañana. Soy el **Detective Silas Vance**, inspector jefe de dinámica urbana en la metrópolis flotante de Neo-Veridia. Hoy nos enfrentamos a una crisis sin precedentes. El núcleo de gravedad artificial de nuestro sector residencial está fallando, y si las plataformas orbitales pierden su trayectoria correcta, caerán al abismo helado del planeta inferior. Para salvar a millones de ciudadanos, debemos descifrar las leyes que gobiernan el movimiento planetario. \n\n***¿Cómo puede el conocimiento de las órbitas planetarias salvarnos de caer al abismo si el núcleo de gravedad artificial de Neo-Veridia falla por completo?***\n\nNuestra investigación comienza analizando la posición y velocidad de nuestras plataformas orbitales. En física, la cinemática nos ayuda a describir el movimiento sin preocuparnos por las causas que lo producen. El primer paso de nuestro misterio es comprender la trayectoria. Durante siglos, la humanidad pensó que el universo se movía en círculos perfectos, hasta que Johannes Kepler descubrió que el movimiento es elíptico.\n\n<svg width=\"400\" height=\"200\" style=\"background:#111; border:2px solid #00ffcc; border-radius:10px; margin: 20px auto; display:block;\">\n  <ellipse cx=\"200\" cy=\"100\" rx=\"150\" ry=\"60\" fill=\"none\" stroke=\"#00ffcc\" stroke-width=\"2\" stroke-dasharray=\"5,5\" />\n  <circle cx=\"120\" cy=\"100\" r=\"15\" fill=\"#ffcc00\" />\n  <text x=\"120\" y=\"75\" fill=\"#ffcc00\" font-family=\"sans-serif\" font-size=\"12\" text-anchor=\"middle\">Foco (Núcleo)</text>\n  <circle cx=\"350\" cy=\"100\" r=\"8\" fill=\"#0099ff\" />\n  <text x=\"350\" y=\"120\" fill=\"#0099ff\" font-family=\"sans-serif\" font-size=\"12\" text-anchor=\"middle\">Afelio (Lento)</text>\n  <circle cx=\"50\" cy=\"100\" r=\"8\" fill=\"#ff3333\" />\n  <text x=\"50\" y=\"120\" fill=\"#ff3333\" font-family=\"sans-serif\" font-size=\"12\" text-anchor=\"middle\">Perihelio (Rápido)</text>\n</svg>\n\nPara restaurar el equilibrio, debemos aplicar la Primera Ley de Kepler: \"Todos los planetas se mueven en órbitas elípticas, con el Sol en uno de los focos\". [JUEGO:ORDENAR_LETRAS:ELIPSE] Si la órbita de nuestra metrópolis pierde su excentricidad, el colapso será inminente. El núcleo central actúa exactamente como el Sol en nuestro sistema solar, ejerciendo la fuerza de gravedad [JUEGO:ORDENAR_LETRAS:GRAVEDAD] necesaria para mantenernos flotando en nuestra órbita [JUEGO:ORDENAR_LETRAS:ORBITA].\n\n[JUEGO:ORDENAR_FRASE:EL SOL OCUPA UN FOCO DE LA ELIPSE]\n\n¿Cómo varía la velocidad de nuestro sector residencial a lo largo de este recorrido? Al estudiar el movimiento de un planeta [JUEGO:ORDENAR_LETRAS:PLANETA], notamos que cuando se encuentra más cerca del foco de atracción (perihelio), su velocidad cinemática se incrementa notablemente gracias a la fuerza [JUEGO:ORDENAR_LETRAS:FUERZA] de atracción. \n\n[JUEGO:SOPA_LETRAS:SOL,FOCO,ORBITA]\n\n[JUEGO:CRUCIGRAMA:Curva cerrada con dos focos|ELIPSE;Punto donde el planeta esta mas cerca del sol|PERIHELIO]\n\nEn cambio, al alejarse hacia el afelio, la velocidad disminuye drásticamente. Esta variación representa una aceleración constante en dirección al centro. \n\n[JUEGO:ORDENAR_FRASE:A MAYOR DISTANCIA MENOR ES LA VELOCIDAD]\n\n[JUEGO:SOPA_LETRAS:KEPLER,NEWTON,COPERNICO]\n\nAnalicemos este fenómeno mediante las herramientas del cuaderno de investigación. Es vital esquematizar estas variables para no perder el rumbo de la física de supervivencia.\n\n[ACTIVIDAD:CUADERNO:Dibuja un diagrama de una órbita elíptica señalando los focos, el perihelio y el afelio.]\n\nmermaid\ngraph TD\n    A[Elipse Orbital] --> B[Foco 1: Sol o Nucleo]\n    A --> C[Foco 2: Vacio]\n    A --> D[Perihelio: Maxima velocidad]\n    A --> E[Afelio: Minima velocidad]\n\n\n[JUEGO:CRUCIGRAMA:Cientifico de las tres leyes planetarias|KEPLER;Fuerza de atraccion entre masas|GRAVEDAD]\n\nPara entender esto, la cinemática debe ser nuestra guía de supervivencia. La posición determina dónde se halla nuestra plataforma, la velocidad define su ritmo de desplazamiento y la aceleración mide los cambios críticos en su velocidad debido a las anomalías del núcleo gravitatorio.\n\n[JUEGO:ORDENAR_FRASE:LA CINEMATICA ESTUDIA EL MOVIMIENTO]\n\n[JUEGO:SOPA_LETRAS:ELIPSE,RADIO,PERIODO]\n\n[ACTIVIDAD:CUADERNO:Dibuja un mapa conceptual de los conceptos de cinemática: posición, velocidad y aceleración.]\n\nmermaid\ngraph TD\n    A[Cinematica] --> B[Posicion: Lugar en el espacio]\n    A --> C[Velocidad: Rapidez del cambio de posicion]\n    A --> D[Aceleracion: Variacion de la velocidad]\n\n\nHistóricamente, pasamos de creer que la Tierra era el centro inmóvil de todo (modelo geocéntrico) a comprender el poder de la gravedad solar (modelo heliocéntrico) gracias a valientes científicos.\n\n[JUEGO:CRUCIGRAMA:Punto mas lejano de la orbita|AFELIO;Estrella central de nuestro sistema|SOL]\n\n[JUEGO:ORDENAR_FRASE:KEPLER REVOLUCIONO LA ASTRONOMIA]\n\n[JUEGO:SOPA_LETRAS:GRAVEDAD,MASA,FUERZA]\n\n[ACTIVIDAD:CUADERNO:Dibuja un esquema comparativo entre el modelo geocéntrico y el heliocéntrico.]\n\nmermaid\ngraph TD\n    A[Modelos Celestes] --> B[Geocentrico: Tierra en el centro]\n    A --> C[Heliocentrico: Sol en el centro]\n\n\nFinalmente, la interacción de fuerzas gravitacionales es lo que mantiene estable este delicado baile cósmico en Neo-Veridia. Si una de las masas se altera, toda la trayectoria colapsará.\n\n[JUEGO:CRUCIGRAMA:Tiempo que tarda una orbita completa|PERIODO;Medida de la inercia de un cuerpo|MASA]\n\n[JUEGO:ORDENAR_FRASE:LA GRAVEDAD ATRAE LOS CUERPOS AL CENTRO]\n\n[JUEGO:SOPA_LETRAS:VELOCIDAD,POSICION,ACELERACION]\n\n[JUEGO:CRUCIGRAMA:Cambio de velocidad en el tiempo|ACELERACION;Trayectoria de un cuerpo celeste|ORBITA]\n\n[ACTIVIDAD:CUADERNO:Dibuja un esquema de vectores que muestre la fuerza de atracción entre dos masas planetarias.]\n\nmermaid\ngraph TD\n    A[Fuerzas en orbita] --> B[Fuerza Gravitacional: Hacia el centro]\n    A --> C[Inercia: Direccion tangencial]\n",
+  "recurso_visual": "| Ley de Kepler | Descripción Física | Implicación Cinemática |\n| :--- | :--- | :--- |\n| **1ª Ley (Órbitas)** | Órbitas elípticas con el Sol/Núcleo en un foco. | La posición cambia constantemente de distancia respecto al centro. |\n| **2ª Ley (Áreas)** | El radio vector barre áreas iguales en tiempos iguales. | La velocidad aumenta en el perihelio y disminuye en el afelio. |\n| **3ª Ley (Armónica)** | El cuadrado del periodo es proporcional al cubo del radio medio. | Permite calcular el tiempo orbital según la distancia al núcleo. |",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "¿Qué forma geométrica describe la trayectoria de las plataformas orbitales de Neo-Veridia bajo la influencia del núcleo gravitatorio?",
+      "respuesta_esperada": "Describe una elipse, donde el núcleo de gravedad ocupa uno de los focos orbitales."
+    },
+    {
+      "pregunta": "De acuerdo con la Segunda Ley de Kepler, ¿en qué punto de la trayectoria experimentarán los ciudadanos la mayor velocidad orbital?",
+      "respuesta_esperada": "En el perihelio, que es el punto más cercano al núcleo de gravedad central."
+    },
+    {
+      "pregunta": "¿Por qué varía la velocidad de una plataforma a lo largo de su órbita elíptica?",
+      "respuesta_esperada": "Porque la fuerza de atracción gravitatoria es mayor cuando el objeto está más cerca del centro de masa, generando una aceleración que incrementa la velocidad."
+    },
+    {
+      "pregunta": "¿Cuál es la diferencia entre el modelo geocéntrico y el modelo heliocéntrico?",
+      "respuesta_esperada": "El modelo geocéntrico coloca a la Tierra en el centro del universo, mientras que el heliocéntrico sitúa correctamente al Sol en el centro del sistema orbital."
+    },
+    {
+      "pregunta": "¿Cómo definimos la cinemática en el contexto del movimiento de nuestras plataformas?",
+      "respuesta_esperada": "Es la rama de la física que describe la posición, velocidad y aceleración de las plataformas sin atender inicialmente a las fuerzas que causan dicho movimiento."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja en tu cuaderno una elipse y explica la diferencia en la velocidad orbital en el perihelio frente al afelio a partir de la Segunda Ley de Kepler.",
+    "Realiza un cuadro comparativo detallado entre el movimiento circular uniforme y el movimiento orbital elíptico.",
+    "Escribe un ensayo de dos párrafos explicando cómo se aplicaría la primera ley de Kepler para rescatar una plataforma a la deriva en Neo-Veridia.",
+    "Representa gráficamente los vectores de velocidad y fuerza gravitatoria de una plataforma orbital en cuatro puntos distintos de su órbita elíptica."
+  ],
+  "texto_deductivo": "# La Deducción del Caso: Ecuaciones de Supervivencia\n\n¡Excelente trabajo de campo, detectives! Hemos recopilado los datos inductivos iniciales. Ahora, debemos aplicar el rigor deductivo y matemático para reactivar los propulsores de emergencia del sector residencial. El núcleo central requiere que configuremos los parámetros exactos basándonos en la Tercera Ley de Kepler y la Ley de Gravitación Universal de Isaac Newton.\n\nPara que una plataforma de Neo-Veridia mantenga su órbita sin caer, debe existir un equilibrio perfecto entre su inercia [JUEGO:ORDENAR_LETRAS:INERCIA] y la fuerza de gravedad del núcleo central. Si la aceleración [JUEGO:ORDENAR_LETRAS:ACELERACION] centrípeta disminuye por debajo del valor crítico, la plataforma descenderá rápidamente.\n\n<svg width=\"400\" height=\"200\" style=\"background:#111; border:2px solid #ff0055; border-radius:10px; margin: 20px auto; display:block;\">\n  <circle cx=\"200\" cy=\"100\" r=\"30\" fill=\"#222\" stroke=\"#ff0055\" stroke-width=\"3\" />\n  <text x=\"200\" y=\"105\" fill=\"#ff0055\" font-family=\"sans-serif\" font-size=\"12\" text-anchor=\"middle\">Núcleo M</text>\n  <circle cx=\"320\" cy=\"100\" r=\"10\" fill=\"#00ffcc\" />\n  <line x1=\"320\" y1=\"100\" x2=\"230\" y2=\"100\" stroke=\"#ff0055\" stroke-width=\"2\" />\n  <line x1=\"320\" y1=\"100\" x2=\"320\" y2=\"40\" stroke=\"#00ffcc\" stroke-width=\"2\" />\n  <text x=\"260\" y=\"90\" fill=\"#ff0055\" font-family=\"sans-serif\" font-size=\"10\">F_gravedad</text>\n  <text x=\"330\" y=\"60\" fill=\"#00ffcc\" font-family=\"sans-serif\" font-size=\"10\">Velocidad</text>\n</svg>\n\nLa Tercera Ley de Kepler establece formalmente que el cuadrado del periodo orbital ($T^2$) es directamente proporcional al cubo de la distancia media ($a^3$) al foco. \n\n[JUEGO:ORDENAR_FRASE:EL PERIODO AL CUADRADO ES PROPORCIONAL AL RADIO AL CUBO]\n\nAl calcular la órbita de emergencia, debemos evaluar las variaciones de velocidad cinemática en el perihelio [JUEGO:ORDENAR_LETRAS:PERIHELIO] y en el afelio [JUEGO:ORDENAR_LETRAS:AFELIO] para evitar que la estructura colapse por las fuerzas de marea del sistema [JUEGO:ORDENAR_LETRAS:SISTEMA] gravitacional.\n\n[JUEGO:SOPA_LETRAS:INERCIA,ACELERACION,FUERZA]\n\n[JUEGO:CRUCIGRAMA:Ley que describe las areas iguales en tiempos iguales|SEGUNDALEY;Unidad de fuerza en el SI|NEWTON]\n\nUtilicemos nuestro cuaderno de notas detectivescas para plasmar los cálculos vectoriales y comprender las relaciones entre el periodo, el radio y la masa central.\n\n[ACTIVIDAD:CUADERNO:Dibuja un diagrama representando la segunda ley de Kepler, ilustrando las áreas iguales barridas en tiempos iguales.]\n\nmermaid\ngraph TD\n    A[Segunda Ley de Kepler] --> B[Area A1 perihelio] \n    A --> C[Area A2 afelio]\n    B --> D[A1 = A2 en tiempos iguales]\n    C --> E[Velocidad variable en la trayectoria]\n\n\n[JUEGO:ORDENAR_FRASE:LA VELOCIDAD CAMBIA DURANTE EL RECORRIDO]\n\n[JUEGO:SOPA_LETRAS:AFELIO,PERIHELIO,FOCO]\n\n[JUEGO:CRUCIGRAMA:Espacio que recorre un movil|DISTANCIA;Rapidez con direccion|VELOCIDAD]\n\nLa masa del núcleo central de Neo-Veridia ejerce una fuerza de atracción definida por la Ley de Gravitación Universal: $F = G \\frac{m_1 m_2}{r^2}$. Si la distancia se reduce a la mitad, la fuerza de atracción se cuadruplica. Esto exige un ajuste inmediato en la velocidad tangencial de la plataforma.\n\n[JUEGO:ORDENAR_FRASE:LA FUERZA ES IGUAL A LA MASA POR ACELERACION]\n\n[JUEGO:SOPA_LETRAS:UNIVERSAL,CONSTANTE,GRAVITACION]\n\n[ACTIVIDAD:CUADERNO:Dibuja un mapa mental con las variables de la Ley de Gravitación Universal de Newton.]\n\nmermaid\ngraph TD\n    A[Ley de Gravitacion Universal] --> B[Fuerza de atraccion: F]\n    A --> C[Constante de Cavendish: G]\n    A --> D[Masas de los cuerpos: m1, m2]\n    A --> E[Distancia al cuadrado: r2]\n\n\n[JUEGO:CRUCIGRAMA:El opuesto al afelio|PERIHELIO;Instrumento para observar estrellas|TELESCOPIO]\n\nPara que una plataforma mantenga un vuelo estable, la aceleración centrípeta requerida debe ser provista en su totalidad por la aceleración de la gravedad. Esta relación cinemática-dinámica es la clave final de nuestro caso.\n\n[JUEGO:ORDENAR_FRASE:EL DETECTIVE RESUELVE EL MISTERIO GRAVITACIONAL]\n\n[JUEGO:SOPA_LETRAS:CINEMATICA,VECTOR,TRAYECTORIA]\n\n[ACTIVIDAD:CUADERNO:Crea un diagrama que diferencie claramente la velocidad lineal y la aceleración centrípeta en una órbita circular.]\n\nmermaid\ngraph TD\n    A[Movimiento Circular Estable] --> B[Velocidad Lineal: Tangente a la curva]\n    A --> C[Aceleracion Centripeta: Hacia el centro del nucleo]\n\n\n[JUEGO:CRUCIGRAMA:Planeta donde habitamos|TIERRA;Fuerza extrema en el vacio|GRAVEDAD]\n\nSi logramos calibrar los propulsores para contrarrestar la pérdida de gravedad, salvaremos a Neo-Veridia de la destrucción absoluta.\n\n[JUEGO:ORDENAR_FRASE:LAS ORBITAS SON CAMINOS EN EL ESPACIO]\n\n[JUEGO:SOPA_LETRAS:SATELITE,METROPOLIS,NUCLEO]\n\n[JUEGO:CRUCIGRAMA:Forma de la trayectoria terrestre|ELIPSE;Magnitud que mide la duracion|TIEMPO]\n\n[ACTIVIDAD:CUADERNO:Dibuja un esquema del protocolo de emergencia de Neo-Veridia en caso de fallo del núcleo de gravedad.]\n\nmermaid\ngraph TD\n    A[Fallo del Nucleo] --> B[Calcular posicion y distancia r]\n    B --> C[Determinar velocidad de escape orbital]\n    C --> D[Activar propulsores tangenciales de emergencia]\n",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "¿Qué nos dice la Tercera Ley de Kepler sobre la relación entre el tiempo que tarda una plataforma en orbitar y su distancia al núcleo?",
+      "respuesta_esperada": "Establece que el cuadrado de su periodo de revolución (tiempo orbital) es proporcional al cubo de la distancia media al núcleo gravitatorio central."
+    },
+    {
+      "pregunta": "Si duplicamos la distancia entre una plataforma de Neo-Veridia y el núcleo de gravedad, ¿qué sucede con la fuerza de atracción gravitatoria?",
+      "respuesta_esperada": "La fuerza de atracción disminuye a la cuarta parte, ya que es inversamente proporcional al cuadrado de la distancia."
+    },
+    {
+      "pregunta": "¿Cuál es el rol de la inercia de la plataforma para evitar caer directamente hacia el núcleo de gravedad?",
+      "respuesta_esperada": "La inercia mantiene la velocidad tangencial de la plataforma, lo que genera una trayectoria de caída libre continua que se traduce en una órbita en lugar de un choque directo."
+    },
+    {
+      "pregunta": "¿Cómo se calcula matemáticamente la aceleración centrípeta de una plataforma en una órbita circular estable?",
+      "respuesta_esperada": "La aceleración centrípeta se calcula dividiendo el cuadrado de la velocidad tangencial entre el radio de la órbita (a_c = v^2 / r)."
+    },
+    {
+      "pregunta": "¿Por qué un fallo total del núcleo gravitatorio haría que las plataformas salieran despedidas en línea recta?",
+      "respuesta_esperada": "Por la Primera Ley de Newton (inercia). Al desaparecer la fuerza centrípeta de la gravedad, el cuerpo continúa en la dirección de su velocidad tangencial instantánea."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Dibuja un diagrama de cuerpo libre detallado para una de las plataformas de Neo-Veridia en órbita elíptica, identificando los vectores de velocidad, aceleración centrípeta y fuerza de gravedad.",
+    "Elabora un mapa mental que unifique las tres leyes de Kepler con la ley de gravitación universal de Newton.",
+    "Realiza un dibujo explicativo que represente la distorsión del espacio-tiempo causada por el núcleo de gravedad de la metrópolis.",
+    "Crea una infografía artesanal en tu cuaderno que detalle los pasos científicos para estabilizar la órbita de una plataforma residencial a la deriva."
+  ],
+  "icfes": [
+    {
+      "competencia": "Uso comprensivo del conocimiento científico",
+      "texto_introductorio": "En la metrópolis de Neo-Veridia, una de las plataformas habitacionales de masa M se encuentra en órbita circular estable de radio R alrededor del núcleo central. Debido a una falla técnica, el núcleo duplica instantáneamente su masa atractiva de M a 2M. Para que la plataforma mantenga exactamente el mismo radio de órbita R sin colapsar ni alejarse, los ingenieros deben ajustar la velocidad orbital de la plataforma.",
+      "tabla_o_grafica_markdown": "| Variable Orbital | Valor Inicial | Valor Final (Ajustado) |\n| :--- | :--- | :--- |\n| Masa del Núcleo | M | 2M |\n| Radio de Órbita | R | R |\n| Velocidad Requerida | v | ? |",
+      "pregunta": "¿Cuál debe ser el nuevo valor de la velocidad orbital de la plataforma para mantenerse estable a distancia R?",
+      "options": [
+        "Debe duplicarse (2v)",
+        "Debe reducirse a la mitad (v/2)",
+        "Debe multiplicarse por la raíz cuadrada de dos (√2 * v)",
+        "Debe permanecer constante (v)"
+      ],
+      "correct": 2,
+      "retroalimentacion": {
+        "0": "Incorrecto. Duplicar la velocidad con el doble de gravedad haría que la plataforma se desplace a una órbita más externa o de escape.",
+        "1": "Incorrecto. Reducir la velocidad causaría que la plataforma sea absorbida inevitablemente por la gravedad incrementada del núcleo.",
+        "2": "¡Correcto! De acuerdo con la relación orbital de Newton, la velocidad de órbita circular es v = √(G*M/R). Si la masa M se duplica (2M), la nueva velocidad requerida es √(2)*v.",
+        "3": "Incorrecto. Si la velocidad permanece igual ante un aumento de masa gravitatoria, la fuerza centrípeta ya no compensaría la atracción y la plataforma colapsaría."
+      }
+    }
+  ]
+}

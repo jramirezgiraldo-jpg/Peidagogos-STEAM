@@ -1,0 +1,114 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Qué mantiene a la Luna en órbita alrededor de la Tierra sin que salga disparada al espacio profundo?",
+      "opciones": [
+        "La fuerza magnética que generan los polos de la Tierra.",
+        "La fuerza de atracción gravitacional entre la Tierra y la Luna.",
+        "La presión del viento solar que la empuja constantemente.",
+        "Una red de cables de energía invisible creada por civilizaciones antiguas."
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "Si viajas al espacio exterior, más allá de la atmósfera terrestre, ¿qué ocurre realmente con la fuerza de gravedad de la Tierra?",
+      "opciones": [
+        "Desaparece por completo inmediatamente al salir de la atmósfera.",
+        "Se duplica debido a la falta de aire que frene los cuerpos.",
+        "Disminuye gradualmente a medida que te alejas, pero sigue existiendo.",
+        "Se convierte en una fuerza repulsiva que te empuja hacia otros planetas."
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "¿Cuál es la forma geométrica real de las órbitas de los planetas según el conocimiento científico moderno?",
+      "opciones": [
+        "Círculos perfectos y concéntricos.",
+        "Líneas rectas en constante zigzag.",
+        "Elipses con el Sol en uno de sus focos.",
+        "Espirales que terminan estrellándose en el Sol."
+      ],
+      "correcta": 2
+    }
+  ],
+  "texto_inductivo": "# CASO 101: El Misterio del Domo Gravitacional de Neo-Metrópolis\n\nSaludos, jóvenes detectives. Soy el Detective de Misterios Orbitales. Hoy nos enfrentamos a un caso de desinformación masiva en la gran metrópolis del futuro. Las pantallas holográficas del centro de Neo-Metrópolis están propagando un alarmante rumor urbano: *«Los satélites de vigilancia flotan en órbita porque en el espacio exterior la gravedad es exactamente cero, y se mueven en círculos perfectos e inalterables»*. Mi analizador de espectro indica que este mito está provocando pánico en la población, que teme que un leve fallo en los motores haga caer los satélites sobre nuestras cabezas. \n\n***¿Por qué, si la gravedad de la Neo-Metrópolis atrae todo hacia el suelo, la Luna y nuestros satélites de vigilancia holográfica caen continuamente hacia la Tierra pero nunca llegan a estrellarse contra ella, desmintiendo el mito de que flotan porque no hay gravedad en el espacio?***\n\n<div style=\"background: #0d1b2a; border: 2px solid #00f0ff; border-radius: 8px; padding: 15px; margin: 20px 0; color: #e0e1dd; font-family: sans-serif;\">\n  <h3 style=\"color: #00f0ff; margin-top: 0;\">🔍 ARCHIVO DE EVIDENCIA #1: La Ilusión de la Gravedad Cero</h3>\n  <p>Cuando vemos a los astronautas flotar en la Estación Espacial, asumimos erróneamente que no hay gravedad. ¡Falso! A la altura de la órbita terrestre baja (unos 400 km), la gravedad terrestre es aproximadamente el <strong>90%</strong> de la que sentimos en la superficie. Los satélites no flotan por falta de gravedad; de hecho, están en una <strong>caída libre constante</strong>. [JUEGO:ORDENAR_LETRAS:GRAVEDAD]</p>\n</div>\n\nSi lanzas una piedra horizontalmente en las calles de Neo-Metrópolis, esta avanza y cae al suelo describiendo una parábola. Si la lanzas con más fuerza, llegará más lejos antes de tocar el suelo. Ahora, imagina que la lanzas tan rápido que la curvatura de su caída coincide exactamente con la curvatura de la Tierra. El objeto nunca chocará contra el suelo porque la Tierra se \"curva\" debajo de él a la misma velocidad que cae. ¡Eso es una órbita! [JUEGO:ORDENAR_FRASE:LA GRAVEDAD ATRAE AL SATELITE HACIA LA TIERRA] Esta caída perpetua requiere de una velocidad tangencial altísima. [JUEGO:ORDENAR_LETRAS:ORBITA]\n\nPara verificar esto, analicemos el siguiente esquema vectorial interactivo de nuestra oficina de investigación:\n\n<div style=\"text-align: center; margin: 20px 0;\">\n  <svg width=\"320\" height=\"320\" style=\"background-color: #0a0f1d; border-radius: 50%; border: 3px solid #3a86c8;\">\n    <!-- Tierra -->\n    <circle cx=\"160\" cy=\"160\" r=\"50\" fill=\"#1d3557\" stroke=\"#457b9d\" stroke-width=\"4\" />\n    <text x=\"160\" y=\"165\" fill=\"#f1faee\" font-size=\"14\" text-anchor=\"middle\" font-weight=\"bold\">TIERRA</text>\n    \n    <!-- Órbita -->\n    <ellipse cx=\"160\" cy=\"160\" rx=\"110\" ry=\"90\" fill=\"none\" stroke=\"#a8dadc\" stroke-width=\"2\" stroke-dasharray=\"5,5\" />\n    \n    <!-- Satélite -->\n    <circle cx=\"270\" cy=\"160\" r=\"10\" fill=\"#e63946\" />\n    <text x=\"270\" y=\"145\" fill=\"#e63946\" font-size=\"12\" text-anchor=\"middle\" font-weight=\"bold\">Satélite</text>\n    \n    <!-- Vector Velocidad Tangencial -->\n    <path d=\"M 270 160 L 270 90\" stroke=\"#4ade80\" stroke-width=\"3\" marker-end=\"url(#arrow)\" />\n    <text x=\"295\" y=\"110\" fill=\"#4ade80\" font-size=\"11\" font-family=\"monospace\">Velocidad (v)</text>\n    \n    <!-- Vector Fuerza Gravitacional -->\n    <path d=\"M 270 160 L 215 160\" stroke=\"#f39c12\" stroke-width=\"3\" />\n    <text x=\"235\" y=\"180\" fill=\"#f39c12\" font-size=\"11\" font-family=\"monospace\">Fuerza (Fg)</text>\n    \n    <!-- Marcador de flecha -->\n    <defs>\n      <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n        <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#4ade80\" />\n      </marker>\n    </defs>\n  </svg>\n  <p style=\"font-size: 0.85em; color: #8892b0;\">Figura 1: Interacción de fuerzas que generan una órbita cerrada continua.</p>\n</div>\n\nEl mito de las órbitas perfectamente circulares también debe caer. [JUEGO:SOPA_LETRAS:KEPLER,NEWTON,FISICA] Johannes Kepler descubrió en el siglo XVII que las trayectorias de los planetas son ovaladas, es decir, elipses. [JUEGO:ORDENAR_LETRAS:ELIPSE] Esto significa que los planetas cambian constantemente su distancia al Sol y, por ende, su velocidad varía a lo largo del año. No hay círculos sagrados ni perfectos en el cosmos de Neo-Metrópolis, sino un hermoso balance geométrico de fuerzas dinámicas. [JUEGO:ORDENAR_FRASE:LAS ORBITAS NO SON CIRCULOS PERFECTOS]\n\n[JUEGO:CRUCIGRAMA:Punto mas cercano al sol|PERIHELIO;Punto mas lejano al sol|AFELIO]\n\nAbramos nuestras libretas de campo para registrar las observaciones físicas antes de proceder a la formulación teórica. [JUEGO:ORDENAR_LETRAS:INERCIA]\n\n[ACTIVIDAD:CUADERNO:Dibuja el esquema del detective que muestra las fuerzas que actúan sobre un satélite en órbita. Utiliza la estructura del siguiente diagrama:\n\nmermaid\ngraph TD\nA[Satelite en Orbita] --> B(Fuerza de Gravedad hacia la Tierra)\nA --> C(Inercia / Velocidad Tangencial)\nB --> D[Resultado: Trayectoria Curva Continua]\nC --> D\n\n]\n\n[JUEGO:SOPA_LETRAS:FUERZA,MASA,DISTANCIA]\n\n[JUEGO:ORDENAR_FRASE:LOS PLANETAS SE MUEVEN EN ELIPSES]\n\n[JUEGO:CRUCIGRAMA:Cientifico de las tres leyes|KEPLER;Cientifico de la gravedad universal|NEWTON]\n\n[ACTIVIDAD:CUADERNO:Elabora un cuadro comparativo entre el Mito de la gravedad cero espacial y la Realidad científica explicada por el Detective.]\n\nContinuemos explorando los callejones de la ciudad. Varios ingenieros sospechosos afirman que si un satélite de Neo-Metrópolis se detiene por un instante, se quedará suspendido en el espacio de todas formas. ¡Otro tremendo error! Si la velocidad del satélite cayera a cero instantáneamente, la fuerza de atracción gravitatoria lo atraería directamente hacia el centro del planeta, destruyéndolo contra los rascacielos. [JUEGO:ORDENAR_LETRAS:SATELITE] Su velocidad orbital es su único escudo contra el abismo gravitatorio. [JUEGO:ORDENAR_FRASE:LA VELOCIDAD EVITA QUE EL SATELITE CAIGA]\n\n[JUEGO:SOPA_LETRAS:VELOCIDAD,CAIDA,ACELERACION]\n\n[JUEGO:CRUCIGRAMA:Trayectoria curva de un astro|ORBITA;Forma geometrica ovalada|ELIPSE]\n\n[ACTIVIDAD:CUADERNO:Dibuja la trayectoria elíptica de un planeta alrededor del Sol, señalando los focos y los puntos extremos de la órbita basándote en el siguiente mapa de conceptos:\n\nmermaid\ngraph TD\nA[Orbita Eliptica] --> B[Foco 1: El Sol]\nA --> C[Foco 2: Espacio Vacio]\nA --> D[Perihelio: Mas Cercano y Rapido]\nA --> E[Afelio: Mas Lejano y Lento]\n\n]\n\n[JUEGO:SOPA_LETRAS:GRAVEDAD,ESPACIO,VIOLETA]\n\n[JUEGO:ORDENAR_FRASE:EL MITO DE LA GRAVEDAD CERO HA SIDO DESMENTIDO]\n\n[JUEGO:CRUCIGRAMA:Resistencia al cambio de movimiento|INERCIA;Fuerza que atrae masas|GRAVEDAD]\n\n[JUEGO:SOPA_LETRAS:MITO,CIENCIA,EVIDENCIA]\n\n[JUEGO:CRUCIGRAMA:Estado de aparente ingravidez|CAIDALIBRE;Aparato artificial en orbita|SATELITE]\n\n[ACTIVIDAD:CUADERNO:Escribe una carta de dos párrafos dirigida a los ciudadanos de Neo-Metrópolis explicando detalladamente por qué las plataformas de vigilancia no se desploman sobre sus cabezas.]",
+  "recurso_visual": "| Concepto del Mito Popular | Realidad Científica Detectada | Ecuación / Principio Clave |\n|---|---|---|\n| Gravedad cero en el espacio orbital. | Gravedad activa (~90% de la terrestre en órbita baja). | $F_g = G \\frac{m_1 m_2}{r^2}$ |\n| Órbitas circulares perfectas. | Órbitas elípticas de excentricidad variable. | Primera Ley de Kepler |\n| Flotación estática en el vacío. | Caída libre continua con velocidad tangencial constante. | $v = \\sqrt{\\frac{G M}{r}}$ |",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "¿Por qué un satélite en órbita no cae directamente hacia la superficie de la Tierra si es atraído por la gravedad?",
+      "respuesta_esperada": "Porque posee una gran velocidad tangencial (perpendicular a la fuerza de gravedad), lo que causa que su caída libre constante se curve exactamente igual que la curvatura de la Tierra, manteniéndose en órbita."
+    },
+    {
+      "pregunta": "¿Qué sucedería si un satélite en órbita detiene por completo su movimiento de traslación?",
+      "respuesta_esperada": "Perdería su velocidad tangencial, por lo que la fuerza de gravedad lo atraería directamente hacia el centro de la Tierra en una línea recta descendente, estrellándolo contra el planeta."
+    },
+    {
+      "pregunta": "¿Por qué flotan los astronautas dentro de la Estación Espacial Internacional si allí la gravedad terrestre es de casi el 90% de la superficie?",
+      "offset": "No flotan por falta de gravedad, sino porque tanto ellos como la nave espacial están cayendo libremente hacia la Tierra a la misma velocidad."
+    },
+    {
+      "pregunta": "¿Quién demostró matemáticamente y con observaciones que las órbitas planetarias no son círculos perfectos?",
+      "respuesta_esperada": "Johannes Kepler, quien formuló las leyes del movimiento planetario y estableció que las órbitas son elipses."
+    },
+    {
+      "pregunta": "¿Qué papel juega la velocidad tangencial en la estabilidad del sistema orbital de Neo-Metrópolis?",
+      "respuesta_esperada": "Actúa como un vector de movimiento continuo perpendicular a la fuerza de atracción gravitatoria, evitando que el satélite colapse contra la superficie."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja en tu cuaderno un esquema detallado que compare el lanzamiento de un proyectil a baja velocidad frente a uno lanzado a velocidad orbital, utilizando flechas de colores para representar los vectores de velocidad y fuerza de gravedad.",
+    "Elabora un cuadro comparativo entre el concepto erróneo de 'ingravidez' y el concepto real de 'caída libre orbital' con tus propias palabras.",
+    "Explica detalladamente por qué la Luna no cae sobre la Tierra y por qué la Tierra no cae directamente hacia el Sol, conectándolo con las explicaciones del Detective.",
+    "Realiza una ilustración que muestre un planeta en una órbita elíptica alrededor de una estrella central, marcando claramente los puntos donde el planeta se mueve más rápido y dónde se mueve más lento."
+  ],
+  "texto_deductivo": "# ANÁLISIS FORENSE: Las Leyes de Kepler y la Gravitación Universal\n\nComo detectives de la física, no podemos quedarnos solo con sospechas e intuiciones. Debemos usar las matemáticas y la cinemática para desmontar el mito de manera irrevocable. Los archivos confidenciales de Neo-Metrópolis nos revelan las tres leyes fundamentales que gobiernan el movimiento planetario, descubiertas por Johannes Kepler y explicadas físicamente por Isaac Newton.\n\n<div style=\"background: #112240; border-left: 5px solid #64ffda; padding: 15px; margin: 20px 0; border-radius: 4px;\">\n  <h4 style=\"color: #64ffda; margin-top: 0;\">📏 LEY DE GRAVITACIÓN UNIVERSAL DE NEWTON</h4>\n  <p>La fuerza con la que se atraen dos cuerpos en el universo de Neo-Metrópolis depende directamente del producto de sus masas e inversamente del cuadrado de la distancia que los separa:</p>\n  <p style=\"text-align: center; font-size: 1.25rem; font-family: monospace; color: #ff007f;\">\n    F = G &middot; (m₁ &middot; m₂) / r²\n  </p>\n</div>\n\nEsta ecuación nos revela que la gravedad disminuye con la distancia, pero **nunca llega a ser cero**. [JUEGO:ORDENAR_LETRAS:AFELIO] Por tanto, los satélites espaciales siempre se encuentran bajo la influencia de la gravedad terrestre, sin importar lo lejos que se desplacen. [JUEGO:ORDENAR_FRASE:LA FUERZA CENTRIPETA MANTIENE EL GIRO] \n\nAnalicemos detalladamente las Leyes de Kepler aplicadas al movimiento de nuestros satélites de vigilancia planetaria:\n\n1. **Primera Ley (Ley de las Órbitas):** Las órbitas de los satélites y planetas son elípticas, teniendo a la Tierra o al Sol en uno de sus focos. [JUEGO:ORDENAR_LETRAS:PERIHELIO]\n2. **Segunda Ley (Ley de las Áreas):** El vector de posición de cualquier cuerpo barre áreas iguales en tiempos iguales. [JUEGO:ORDENAR_FRASE:LOS PLANETAS BARREN AREAS IGUALES EN TIEMPOS EQUIVALENTES] Esto significa que cuando el satélite está más cerca de la Tierra (**Perihelio**), viaja mucho más rápido que cuando está en el punto más lejano (**Afelio**). [JUEGO:ORDENAR_LETRAS:CENTRIPETA]\n3. **Tercera Ley (Ley de los Periodos):** El cuadrado del período orbital ($T^2$) es directamente proporcional al cubo de la distancia media al Sol ($a^3$). [JUEGO:ORDENAR_FRASE:EL CUADRADO DEL PERIODO ES PROPORCIONAL AL CUBO DEL RADIO]\n\n[JUEGO:CRUCIGRAMA:Leyes que describen el movimiento planetario|KEPLER;Fuerza que jala hacia el centro|CENTRIPETA]\n\n[JUEGO:SOPA_LETRAS:PERIODO,RADIO,CONSTANTE]\n\n[ACTIVIDAD:CUADERNO:Elabora un mapa mental detallado sobre las tres leyes de Kepler utilizando esta estructura base:\n\nmermaid\ngraph TD\nA[Leyes de Kepler] --> B[Primera Ley: Ley de las Orbitas]\nA --> C[Segunda Ley: Ley de las Areas]\nA --> D[Tercera Ley: Ley de los Periodos]\nB --> B1[Orbitas elipticas con el Sol en un foco]\nC --> C1[Areas iguales en tiempos iguales]\nD --> D1[Relacion de T cuadrado y R cubo]\n\n]\n\n[JUEGO:ORDENAR_LETRAS:TANGENCIAL]\n\nPara que la órbita de un satélite sea perfectamente estable en el plano de Neo-Metrópolis, la fuerza gravitatoria actúa como la **fuerza centrípeta** necesaria para mantener el cuerpo en su trayectoria curva uniforme:\n\n<div style=\"background-color: #0b132b; border: 1px solid #1b4965; border-radius: 8px; padding: 15px; margin: 20px 0;\">\n  <table style=\"width: 100%; border-collapse: collapse; text-align: left; color: #8ecae6; font-family: monospace;\">\n    <thead>\n      <tr style=\"border-bottom: 2px solid #219ebc;\">\n        <th style=\"padding: 8px;\">Parámetro Cinemático</th>\n        <th style=\"padding: 8px;\">Definición Operativa</th>\n        <th style=\"padding: 8px;\">Relación con el Movimiento</th>\n      </tr>\n    </thead>\n    <tbody>\n      <tr style=\"border-bottom: 1px solid #1b4965;\">\n        <td style=\"padding: 8px; color: #ffb703;\">Velocidad Tangencial ($v$)</td>\n        <td style=\"padding: 8px;\">Velocidad instantánea en línea tangente.</td>\n        <td style=\"padding: 8px;\">Evita que la atracción arrastre al satélite hacia la colisión.</td>\n      </tr>\n      <tr style=\"border-bottom: 1px solid #1b4965;\">\n        <td style=\"padding: 8px; color: #ffb703;\">Aceleración Centrípeta ($a_c$)</td>\n        <td style=\"padding: 8px;\">Aceleración dirigida hacia el centro orbital.</td>\n        <td style=\"padding: 8px;\">Cambia constantemente la dirección del vector velocidad.</td>\n      </tr>\n    </tbody>\n  </table>\n</div>\n\n[JUEGO:ORDENAR_FRASE:A MAYOR DISTANCIA MENOR FUERZA DE GRAVEDAD]\n\n[JUEGO:SOPA_LETRAS:FOCO,ELIPSE,EJE]\n\n[JUEGO:CRUCIGRAMA:Velocidad en la direccion del movimiento|TANGENCIAL;Tiempo en completar una orbita completa|PERIDO]\n\n[ACTIVIDAD:CUADERNO:Escribe la ecuación matemática de la Ley de Gravitación Universal de Newton, define cada una de sus variables e indica sus unidades en el Sistema Internacional.]\n\n[JUEGO:ORDENAR_LETRAS:TRAYECTORIA]\n\n[JUEGO:SOPA_LETRAS:UNIVERSAL,ATRACCION,MASAS]\n\n[JUEGO:CRUCIGRAMA:Punto orbital mas alejado de la estrella|AFELIO;Punto orbital mas cercano a la estrella|PERIHELIO]\n\n[ACTIVIDAD:CUADERNO:Dibuja un diagrama donde contrastes la velocidad lineal o tangencial y la aceleración centrípeta de un satélite artificial en órbita circular uniforme:\n\nmermaid\ngraph TD\nA[Movimiento Circular Uniforme] --> B(Velocidad Tangencial: Vector tangente a la orbita)\nA --> C(Aceleracion Centripeta: Vector hacia el centro del planeta)\nB --> D[Angulo de 90 grados entre ambos]\nC --> D\n\n]\n\n[JUEGO:SOPA_LETRAS:VECTOR,ACELERACION,CENTRO]\n\n[JUEGO:ORDENAR_FRASE:LA CINEMATICA ESTUDIA EL MOVIMIENTO SIN SUS CAUSAS]\n\n[JUEGO:CRUCIGRAMA:La constante de la tercera ley|PROPORCIONALIDAD;Unidad de medida del periodo en el SI|SEGUNDO]\n\n[JUEGO:SOPA_LETRAS:DINAMICA,TEORIA,CALCULO]\n\n[JUEGO:CRUCIGRAMA:Propiedad de los cuerpos de resistir el cambio|INERCIA;Fuerza fundamental de atraccion|GRAVEDAD]\n\n[ACTIVIDAD:CUADERNO:Resuelve un problema teórico: si la distancia entre un satélite y el centro de la Tierra se duplica, ¿en cuánto disminuye la fuerza de atracción gravitacional? Muestra el procedimiento paso a paso.]",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "¿Cuál es la relación matemática exacta entre el período orbital de un cuerpo y su distancia al centro de atracción gravitatoria según la tercera ley de Kepler?",
+      "respuesta_esperada": "El cuadrado del período orbital es directamente proporcional al cubo del semieje mayor (o radio medio) de su trayectoria elíptica (T² = k &middot; a³)."
+    },
+    {
+      "pregunta": "Si un satélite pasa del Perihelio al Afelio, ¿su velocidad orbital aumenta, disminuye o se mantiene constante?",
+      "respuesta_esperada": "Disminuye. De acuerdo con la Segunda Ley de Kepler, al estar más alejado del foco de atracción orbital, su velocidad lineal debe disminuir para barrer áreas iguales en tiempos iguales."
+    },
+    {
+      "pregunta": "¿Qué fuerza del universo físico real actúa como fuerza centrípeta para mantener estables las órbitas planetarias y de satélites artificiales?",
+      "respuesta_esperada": "La fuerza de atracción gravitacional formulada por Newton."
+    },
+    {
+      "pregunta": "¿Por qué las órbitas reales no son círculos perfectos sino elipses?",
+      "respuesta_esperada": "Debido a las condiciones dinámicas de formación, las variaciones de energía orbital y las perturbaciones gravitacionales de otros astros que impiden que los vectores coincidan en una excentricidad de cero."
+    },
+    {
+      "pregunta": "Si la masa de la Tierra se duplicara repentinamente sin cambiar su tamaño, ¿qué debería ocurrir con la velocidad orbital de los satélites para no caer al planeta?",
+      "respuesta_esperada": "La velocidad orbital debería aumentar para compensar el incremento en la fuerza de atracción gravitatoria del planeta."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Diseña en tu cuaderno un diagrama explicativo completo que muestre las tres Leyes de Kepler representadas gráficamente en un solo sistema solar hipotético.",
+    "Elabora un mapa mental sobre los aportes de Isaac Newton y Johannes Kepler a la cinemática y dinámica planetaria, destacando cómo se complementaron sus teorías.",
+    "Realiza un dibujo a color donde representes un transbordador espacial cayendo libremente alrededor de la Tierra, señalando por qué la curvatura de caída libre impide la colisión.",
+    "Crea una infografía artesanal de una página titulada 'El Fin del Mito de la Gravedad Cero', que demuestre de forma visual y matemática que el espacio exterior está lleno de gravedad."
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "En la agencia espacial de la metrópolis del futuro, los ingenieros evalúan las órbitas de dos satélites idénticos de monitoreo climático, denominados Alfa y Beta, que se encuentran girando alrededor del planeta Tierra. El satélite Alfa orbita a una distancia r del centro terrestre, mientras que el satélite Beta orbita a una distancia 3r.",
+      "tabla_o_grafica_markdown": "| Satélite | Radio de Órbita | Masa del Satélite | Fuerza Gravitatoria |\n|---|---|---|---|\n| Alfa | $r$ | $m$ | $F_A$ |\n| Beta | $3r$ | $m$ | $F_B$ |",
+      "pregunta": "De acuerdo con la Ley de Gravitación Universal de Newton, si la fuerza de atracción gravitatoria que siente Alfa es F_A, la fuerza F_B que experimenta el satélite Beta es:",
+      "opciones": [
+        "Un tercio de la fuerza que experimenta Alfa (Fa / 3).",
+        "La misma fuerza que experimenta Alfa (Fa) porque tienen masas idénticas.",
+        "Un noveno de la fuerza que experimenta Alfa (Fa / 9).",
+        "Tres veces la fuerza que experimenta Alfa (3 * Fa)."
+      ],
+      "correcta": 2,
+      "retroalimentacion": {
+        "0": "Incorrecto. La fuerza gravitatoria depende del inverso del cuadrado de la distancia, no del inverso simple.",
+        "1": "Incorrecto. La fuerza de gravedad se debilita a mayor distancia del centro planetario.",
+        "2": "¡Correcto, detective! Al triplicarse la distancia orbital (3r), el término de la distancia en el denominador se eleva al cuadrado, es decir, (3)^2 = 9. Por lo tanto, la fuerza se reduce a la novena parte.",
+        "3": "Incorrecto. A mayor distancia del cuerpo celeste la atracción gravitatoria disminuye, no aumenta."
+      }
+    }
+  ]
+}

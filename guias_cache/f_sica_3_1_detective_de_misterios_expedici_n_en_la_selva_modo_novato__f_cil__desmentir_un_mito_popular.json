@@ -1,113 +1,113 @@
 {
   "saberes_previos": [
     {
-      "pregunta": "¿Qué forma crees que tiene el camino que sigue la Tierra alrededor del Sol?",
+      "pregunta": "¿Qué astro se encuentra en el centro de nuestro sistema planetario según la ciencia moderna?",
+      "opciones": [
+        "La Tierra",
+        "El Sol",
+        "La Luna",
+        "Júpiter"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Por qué no sentimos que la Tierra se está moviendo a gran velocidad?",
+      "opciones": [
+        "Porque la Tierra está completamente quieta en el espacio.",
+        "Porque nos movemos junto con ella y con la atmósfera a una velocidad constante.",
+        "Porque la gravedad anula todo tipo de movimiento terrestre.",
+        "Porque el Sol tira de nosotros en dirección contraria."
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Qué forma tiene la trayectoria que recorren los planetas alrededor del Sol?",
       "opciones": [
         "Un círculo perfecto",
-        "Un cuadrado con esquinas redondeadas",
-        "Una curva ligeramente ovalada (elipse)",
-        "Una línea recta hacia arriba"
+        "Una línea recta",
+        "Una elipse (un óvalo)",
+        "Un espiral infinito"
       ],
       "correcta": 2
-    },
-    {
-      "pregunta": "¿Qué fuerza crees que evita que la Tierra salga volando hacia el espacio profundo?",
-      "opciones": [
-        "El magnetismo de los polos",
-        "La fuerza de gravedad del Sol",
-        "El viento solar que la empuja",
-        "La presión de las nubes"
-      ],
-      "correcta": 1
-    },
-    {
-      "pregunta": "¿Los planetas se mueven siempre a la misma velocidad?",
-      "opciones": [
-        "Sí, siempre van igual de rápido",
-        "No, su velocidad cambia según su distancia al Sol",
-        "Solo cambian de velocidad si chocan con un meteorito",
-        "No se mueven, el Sol es el que gira"
-      ],
-      "correcta": 1
     }
   ],
-  "texto_inductivo": "### El Misterio de los Pasos en el Cielo\n\n¡Bienvenidos, jóvenes detectives! Soy su guía en esta **Expedición en la Selva**. Nos encontramos en lo profundo del Amazonas, frente a una pirámide oculta que tiene grabados extraños en sus paredes. Los antiguos exploradores creían que el cielo era un mecanismo perfecto y rígido, pero las pistas que hemos hallado hoy sugieren algo distinto. Antes de avanzar, debemos resolver la incógnita que nos permitirá abrir la puerta del templo:\n\n***¿Por qué si los planetas se mueven tan rápido por el espacio, nunca chocan entre sí ni salen disparados hacia el vacío de la selva cósmica?***\n\nAl observar las estrellas desde la copa de los árboles [JUEGO:ORDENAR_LETRAS:SELVA], notamos que los puntos de luz no se mueven en desorden. Existe un patrón. [JUEGO:ORDENAR_FRASE:EL SOL ES EL CENTRO] Muchos mitos dicen que los planetas bailan en círculos perfectos, como si fueran trompos sobre una mesa plana. [JUEGO:SOPA_LETRAS:SOL,LUNA,MARTE] Pero, al medir las sombras con nuestras herramientas de detective, vemos que algo no encaja. [JUEGO:CRUCIGRAMA:Centro del sistema|SOL;Satélite natural|LUNA] \n\n<div style='background-color: #e0f2f1; padding: 20px; border-radius: 10px; border: 2px solid #00695c;'>\n<svg width='100%' height='150' viewBox='0 0 400 150'>\n  <circle cx='200' cy='75' r='20' fill='#ffca28' />\n  <ellipse cx='200' cy='75' rx='120' ry='50' fill='none' stroke='#26a69a' stroke-width='2' stroke-dasharray='5,5' />\n  <circle cx='80' cy='75' r='8' fill='#42a5f5' />\n  <text x='180' y='110' font-family='Arial' font-size='12' fill='#004d40'>El Sol no está justo en medio</text>\n</svg>\n<p style='text-align: center; color: #004d40;'><b>Mapa de la Órbita Detectada</b></p>\n</div>\n\nLa selva nos enseña que nada es estático. [JUEGO:ORDENAR_LETRAS:ORBITA] La ruta de un planeta es como el rastro de un jaguar: no es una línea recta ni un círculo, es un camino que se adapta. [JUEGO:ORDENAR_FRASE:LA TIERRA SE MUEVE] Si miramos el cielo nocturno, parece que todo es armonía. [JUEGO:SOPA_LETRAS:TIERRA,VENUS,ASTRO] Sin embargo, esa armonía depende de una fuerza invisible que nos mantiene unidos. [JUEGO:CRUCIGRAMA:Ruta del planeta|ORBITA;Hogar humano|TIERRA] \n\n| Elemento del Cielo | Creencia Popular (Mito) | Observación del Detective |\n| :--- | :--- | :--- |\n| Forma del Camino | Círculo perfecto | Óvalo alargado (Elipse) |\n| Velocidad | Siempre constante | Cambia según la distancia |\n| Centro | La Tierra es el centro | El Sol es el foco principal |\n\nDebemos ser cuidadosos con nuestros suministros. [JUEGO:ORDENAR_LETRAS:MUNDO] Al investigar el movimiento planetario, descubrimos que los antiguos se equivocaban al pensar que el espacio era inmutable. [JUEGO:ORDENAR_FRASE:MIRAMOS LAS ESTRELLAS] Cada paso que damos en esta espesura nos acerca a la verdad científica. [JUEGO:SOPA_LETRAS:MAPA,RUTA,NORTE] No podemos confiar solo en lo que parece a simple vista. [JUEGO:CRUCIGRAMA:Cuerpo brillante|ASTRO;Camino a seguir|RUTA] La gravedad es el hilo invisible que guía a los planetas a través de la maleza estelar. [JUEGO:ORDENAR_LETRAS:CIELO] Al final del día, somos nosotros quienes debemos unir las piezas del rompecabezas cósmico. [JUEGO:ORDENAR_FRASE:LA GRAVEDAD NOS UNE] Sin un mapa claro, estaríamos perdidos en el espacio. [JUEGO:SOPA_LETRAS:LUZ,CALOR,VIDA] El sol nos da la energía necesaria para continuar. [JUEGO:CRUCIGRAMA:Punto cardinal|NORTE;Tiempo sin luz|NOCHE] Finalmente, la expedición apenas comienza. [JUEGO:ORDENAR_LETRAS:SOL] Todo detective sabe que la curiosidad es su mejor brújula. [JUEGO:ORDENAR_FRASE:SOMOS EXPLORADORES] El conocimiento nos hará libres. [JUEGO:SOPA_LETRAS:NOCHE,DIA,HORA] [JUEGO:CRUCIGRAMA:Estrella local|SOL;Intervalo de tiempo|HORA]",
-  "recurso_visual": "graph TD\n    A[Mito: Órbitas Circulares] --> B{Investigación Detective}\n    B --> C[Realidad: Órbitas Elípticas]\n    B --> D[Realidad: Velocidad Variable]\n    C --> E[Leyes de Kepler]\n    D --> E\n    E --> F[Comprensión del Movimiento Planetario]",
+  "texto_inductivo": "¡Saludos, recluta! Soy el Detective Astro-Lupa, especialista en resolver enigmas de la naturaleza. Nos encontramos en lo profundo de la selva amazónica, frente al legendario Templo de K'inich. En los muros de piedra, los antiguos exploradores tallaron una creencia muy popular: que la Tierra está fija y el Sol gira a nuestro alrededor en círculos perfectos impulsado por corrientes de aire mágico. ¡Un misterio perfecto para resolver!\n\n***¿Por qué, si sentimos que el suelo bajo nuestros pies está completamente quieto, los científicos aseguran que viajamos por el espacio a una velocidad asombrosa alrededor de un Sol gigante?***\n\nPara desmentir este mito, primero debemos analizar el suelo bajo nuestros pies. En la selva, [JUEGO:ORDENAR_LETRAS:SELVA] todo parece en calma. Pero nuestro planeta, la Tierra, [JUEGO:ORDENAR_LETRAS:TIERRA] se mueve constantemente. Si la Tierra estuviera quieta, no tendríamos ciclos de día y noche ni estaciones del año. El Sol [JUEGO:ORDENAR_LETRAS:SOL] es la estrella masiva en el centro.\n\n<div style='background-color: #1a252f; border: 2px solid #34495e; border-radius: 8px; padding: 15px; color: #ecf0f1; margin: 15px 0;'>\n<h4 style='color: #e74c3c; margin-top: 0;'>🕵️‍♂️ Evidencia de Campo #1: El Gran Registro</h4>\n<table style='width: 100%; border-collapse: collapse; color: #ecf0f1;'>\n  <tr style='background-color: #2c3e50;'>\n    <th style='padding: 8px; border: 1px solid #34495e; text-align: left;'>Concepto del Mito</th>\n    <th style='padding: 8px; border: 1px solid #34495e; text-align: left;'>Explicación Científica (Realidad)</th>\n  </tr>\n  <tr>\n    <td style='padding: 8px; border: 1px solid #34495e;'>La Tierra no se mueve porque no sentimos el viento cósmico en la cara.</td>\n    <td style='padding: 8px; border: 1px solid #34495e;'>Nos movemos junto con toda la atmósfera a velocidad constante (inercia).</td>\n  </tr>\n  <tr>\n    <td style='padding: 8px; border: 1px solid #34495e;'>El Sol gira en círculos perfectos alrededor de la Tierra.</td>\n    <td style='padding: 8px; border: 1px solid #34495e;'>La Tierra orbita alrededor del Sol en una trayectoria elíptica (Kepler).</td>\n  </tr>\n</table>\n</div>\n\nLos mitos antiguos decían que los planetas flotaban sin dirección, pero hoy sabemos que describen una órbita [JUEGO:ORDENAR_LETRAS:ORBITA] elíptica. Este mito [JUEGO:ORDENAR_LETRAS:MITO] del geocentrismo fue desmentido gracias al estudio del cosmos. [JUEGO:ORDENAR_FRASE:LA TIERRA SE MUEVE ALREDEDOR DEL SOL]\n\nPara registrar esta pista en tu diario de detective, realiza esta actividad:\n\n[ACTIVIDAD:CUADERNO:Dibuja el camino que recorre la Tierra alrededor del Sol usando el siguiente mapa conceptual para guiarte:\\n\\nmermaid\\ngraph TD\\n    A[Sol en el Foco] --> B(Orbita Eliptica)\\n    B --> C[Tierra en Movimiento]\\n    C --> D[Fuerza Gravitacional]\\n\\n]\n\nSiguiendo las huellas en la arena, encontramos que la ciencia desmiente los mitos con observaciones rigurosas. [JUEGO:ORDENAR_FRASE:LA CIENCIA DESMIENTE LOS MITOS] La fuerza que tira de los planetas no es el viento celestial, sino la gravedad. [JUEGO:ORDENAR_FRASE:EL SOL TIENE UNA GRAN GRAVEDAD] Busca palabras clave en esta sopa de letras selvática: [JUEGO:SOPA_LETRAS:SOL,TIERRA,GRAVEDAD]\n\nLos antiguos sacerdotes creían que la Tierra era especial y no se movía, pero los planetas no son estáticos [JUEGO:ORDENAR_FRASE:LOS PLANETAS NO SON ESTATICOS] en absoluto. Resuelve este misterio con la siguiente sopa de letras: [JUEGO:SOPA_LETRAS:ORBITA,ELIPSE,MOVIMIENTO]\n\nComparemos ambas ideas directamente en tu cuaderno para que no queden dudas de la resolución de este caso misterioso:\n\n[ACTIVIDAD:CUADERNO:Realiza un cuadro comparativo entre la idea de que la Tierra no se mueve y la realidad de su traslación. Utiliza este esquema de bloques para estructurarlo:\\n\\nmermaid\\ngraph TD\\n    A[Comparacion] --> B[Mito: Tierra Quieta]\\n    A --> C[Realidad: Tierra en Movimiento]\\n    B --> D[Sensacion de reposo]\\n    C --> E[Inercia y Gravedad]\\n\\n]\n\nEl detective busca la verdad [JUEGO:ORDENAR_FRASE:EL DETECTIVE BUSCA LA VERDAD] analizando las sombras proyectadas por las ruinas. Encuentra más pistas en esta sopa de letras: [JUEGO:SOPA_LETRAS:JUNGLA,PISTA,MITO]\n\nMiremos ahora este diagrama vectorial que recrea el movimiento planetario real que observamos desde nuestro campamento selvático:\n\n<svg width='100%' height='220' style='background-color:#141d26; border: 2px solid #00ffcc; border-radius:10px; margin: 15px 0;'>\n  <ellipse cx='200' cy='110' rx='140' ry='70' style='fill:none;stroke:#4f5d75;stroke-width:2;stroke-dasharray:5,5' />\n  <circle cx='140' cy='110' r='22' style='fill:#ffaa00;' />\n  <text x='140' y='80' fill='#ffaa00' font-family='sans-serif' font-size='12' font-weight='bold' text-anchor='middle'>SOL (Foco 1)</text>\n  <circle cx='320' cy='75' r='10' style='fill:#3a86c8;' />\n  <text x='320' y='55' fill='#3a86c8' font-family='sans-serif' font-size='12' font-weight='bold' text-anchor='middle'>TIERRA</text>\n  <line x1='320' y1='75' x2='140' y2='110' style='stroke:#ff3366;stroke-width:2;stroke-dasharray:3,3' />\n  <text x='230' y='85' fill='#ff3366' font-family='sans-serif' font-size='10' text-anchor='middle'>Atracción Gravitatoria</text>\n  <line x1='320' y1='75' x2='360' y2='120' style='stroke:#00ffcc;stroke-width:2;' />\n  <text x='375' y='140' fill='#00ffcc' font-family='sans-serif' font-size='10' text-anchor='middle'>Velocidad</text>\n</svg>\n\n¡Fabuloso! Con esto resolvemos parte del enigma. Para dominar los conceptos básicos, completa estas actividades de sopa de letras sobre exploración planetaria: [JUEGO:SOPA_LETRAS:PLANETA,CIENCIA,TELESCOPIO] y este otro sobre las fuerzas invisibles: [JUEGO:SOPA_LETRAS:FUERZA,ESPACIO,FISICA].\n\nNo olvides reflexionar profundamente sobre por qué nuestros sentidos nos engañan y plasmarlo de manera escrita:\n\n[ACTIVIDAD:CUADERNO:Escribe una reflexión de una página sobre cómo los sentidos nos pueden engañar al pensar que el Sol se mueve alrededor de la Tierra.]\n\n¡Es hora de poner a prueba tus deducciones, detective de la selva! Resuelve estos crucigramas para desencriptar el código de la puerta principal del templo:\n1. [JUEGO:CRUCIGRAMA:Estrella central de nuestro sistema|SOL;Planeta donde vivimos|TIERRA]\n2. [JUEGO:CRUCIGRAMA:Fuerza que nos atrae al suelo|GRAVEDAD;Trayectoria de un planeta|ORBITA]\n3. [JUEGO:CRUCIGRAMA:Forma de la orbita planetaria|ELIPSE;Punto de apoyo o foco|FOCO]\n4. [JUEGO:CRUCIGRAMA:Modelo con la Tierra en el centro|GEOCENTRICO;Modelo con el Sol en el centro|HELIOCENTRICO]\n5. [JUEGO:CRUCIGRAMA:Cientifico de las leyes planetarias|KEPLER;Cientifico que uso el telescopio|GALILEO]\n\nFinalmente, sintetiza los componentes clave de este misterio cósmico en tu bitácora de campo selvática:\n\n[ACTIVIDAD:CUADERNO:Crea un mapa mental sobre los elementos de la órbita terrestre. Sigue este diseño:\\n\\nmermaid\\ngraph TD\\n    A[Orbita Terrestre] --> B[Sol como Foco]\\n    A --> C[Forma Eliptica]\\n    A --> D[Velocidad Variable]\\n\\n]",
+  "recurso_visual": "graph TD\n  Mito[Mito: Tierra inmóvil en el centro] -->|Evidencia de Campo| Obs[Observación Planetaria y de Sombras]\n  Obs --> Heliocentrismo[Heliocentrismo: Sol en el centro]\n  Heliocentrismo --> Kepler[Órbitas Elípticas, no círculos]\n  Kepler --> Gravedad[Gravedad e Inercia guían el movimiento]",
   "preguntas_inductivas_pagina": [
     {
-      "pregunta": "¿Qué figura geométrica reemplaza al círculo en la descripción real de las órbitas?",
-      "answer_expected": "La elipse, que es una forma ovalada."
+      "pregunta": "¿Cuál es la principal diferencia entre el modelo geocéntrico y el modelo heliocéntrico?",
+      "respuesta_esperada": "El modelo geocéntrico ubica a la Tierra en el centro del universo con los astros girando a su alrededor, mientras que el modelo heliocéntrico sitúa al Sol en el centro, siendo los planetas (incluyendo la Tierra) los que giran a su alrededor."
     },
     {
-      "pregunta": "¿Cómo cambia la visión del detective respecto a la velocidad de los planetas?",
-      "answer_expected": "Descubre que la velocidad no es constante, sino que cambia dependiendo de qué tan cerca esté el planeta del Sol."
+      "pregunta": "¿Por qué no percibimos físicamente la enorme velocidad a la que se mueve la Tierra?",
+      "respuesta_esperada": "No la percibimos porque nos movemos de forma constante junto con ella y con su atmósfera (inercia), de manera similar a cuando viajamos dentro de un avión o un automóvil sin acelerar."
     },
     {
-      "pregunta": "Según la tabla, ¿quién ocupa el lugar central (o foco) en el movimiento planetario?",
-      "answer_expected": "El Sol ocupa uno de los focos de la elipse, no el centro exacto."
+      "pregunta": "¿Qué forma geométrica tienen realmente las órbitas planetarias según lo descubierto científicamente?",
+      "respuesta_esperada": "Tienen la forma de una elipse (un óvalo o círculo ligeramente achatado), y no de un círculo perfecto."
     },
     {
-      "pregunta": "¿Qué fuerza invisible se menciona que mantiene a los planetas en su ruta?",
-      "answer_expected": "La fuerza de gravedad."
+      "pregunta": "¿Qué cuerpo celeste se sitúa en uno de los focos de la elipse orbital terrestre?",
+      "respuesta_esperada": "El Sol se sitúa en uno de los focos de la elipse."
     },
     {
-      "pregunta": "¿Por qué es importante desmentir que las órbitas son círculos perfectos?",
-      "answer_expected": "Porque solo entendiendo que son elipses podemos predecir correctamente dónde estarán los planetas y entender cómo funciona la gravedad."
+      "pregunta": "¿Qué fuerza es la responsable de evitar que la Tierra salga disparada en línea recta hacia el espacio profundo?",
+      "respuesta_esperada": "La fuerza de atracción gravitatoria que ejerce el Sol sobre la Tierra."
     }
   ],
   "preguntas_inductivas_cuaderno": [
-    "Dibuja un esquema de la selva donde se vea a un detective observando una órbita circular (mito) tachada con una 'X' y una órbita elíptica (realidad) resaltada.",
-    "Realiza un cuadro comparativo entre lo que creían los antiguos exploradores y lo que la ciencia moderna nos dice sobre el movimiento de los planetas.",
-    "Escribe una reflexión de 10 renglones sobre cómo el cambio de un círculo a una elipse cambia nuestra forma de ver el orden del universo.",
-    "Representa gráficamente, mediante un dibujo creativo, la 'fuerza invisible' (gravedad) actuando como una soga que sujeta a un planeta en la selva espacial."
+    "Dibuja de manera creativa en tu cuaderno una comparación visual entre el modelo geocéntrico y el heliocéntrico utilizando colores llamativos.",
+    "Elabora un cuadro comparativo donde registres las evidencias a favor del movimiento de la Tierra frente a los argumentos del mito popular.",
+    "Redacta un texto argumentativo donde expliques cómo el telescopio de Galileo ayudó a desmentir que todo giraba en torno a la Tierra.",
+    "Esboza un mapa de la selva en tu cuaderno en el cual marques un camino elíptico que represente la traslación terrestre, colocando un templo en la posición del Sol."
   ],
-  "texto_deductivo": "### El Código de Kepler: Las Reglas de la Selva Cósmica\n\nPara salir de esta selva, debemos aplicar la lógica deductiva. El científico Johannes Kepler descifró el código del movimiento planetario. [JUEGO:ORDENAR_LETRAS:ELIPSE] Su primera ley desmiente el mito: los planetas se mueven en elipses, y el Sol está en uno de los focos. [JUEGO:ORDENAR_FRASE:LA ORBITA ES ELIPTICA] Esto significa que hay momentos en que el planeta está más cerca del Sol (perihelio) y otros más lejos (afelio). [JUEGO:SOPA_LETRAS:ELIPSE,FOCO,EJE] \n\n<div style='border: 3px double #5d4037; padding: 15px; background-color: #fffde7;'>\n<h4 style='color: #5d4037; text-align: center;'>Comparativa Cinemática Planetaria</h4>\n<table style='width: 100%; border-collapse: collapse;'>\n  <tr style='background-color: #8d6e63; color: white;'>\n    <th style='border: 1px solid #5d4037; padding: 8px;'>Punto de la Órbita</th>\n    <th style='border: 1px solid #5d4037; padding: 8px;'>Distancia al Sol</th>\n    <th style='border: 1px solid #5d4037; padding: 8px;'>Velocidad del Planeta</th>\n  </tr>\n  <tr>\n    <td style='border: 1px solid #5d4037; padding: 8px;'>Perihelio</td>\n    <td style='border: 1px solid #5d4037; padding: 8px;'>Mínima</td>\n    <td style='border: 1px solid #5d4037; padding: 8px;'>Máxima (¡Más Rápido!)</td>\n  </tr>\n  <tr>\n    <td style='border: 1px solid #5d4037; padding: 8px;'>Afelio</td>\n    <td style='border: 1px solid #5d4037; padding: 8px;'>Máxima</td>\n    <td style='border: 1px solid #5d4037; padding: 8px;'>Mínima (¡Más Lento!)</td>\n  </tr>\n</table>\n</div>\n\nLa segunda ley de Kepler nos dice que el planeta 'barre' áreas iguales en tiempos iguales. [JUEGO:ORDENAR_LETRAS:FUERZA] Esto implica que cuando el planeta está cerca del Sol, debe correr más rápido para cubrir la misma área. [JUEGO:ORDENAR_FRASE:EL SOL ESTA CERCA] No es un movimiento aburrido y constante; es un viaje emocionante con cambios de aceleración. [JUEGO:SOPA_LETRAS:MASA,PESO,CAER] \n\nLa gravedad es la razón de este comportamiento. [JUEGO:CRUCIGRAMA:Forma de huevo|ELIPSE;Atracción masiva|GRAVEDAD] Newton, otro gran detective, explicó que a mayor cercanía, mayor es la fuerza de atracción. [JUEGO:ORDENAR_LETRAS:KEPLER] Es como si el Sol jalara con más fuerza al planeta cuando este intenta pasar cerca. [JUEGO:ORDENAR_FRASE:EL PLANETA VA RAPIDO] Por eso, el mito del círculo perfecto cae por su propio peso. [JUEGO:SOPA_LETRAS:RAPIDO,LENTO,VELOZ] \n\n<div style='text-align: center; margin: 20px;'>\n<span style='font-size: 2.5rem; color: #d32f2f;'>☀</span> <span style='font-size: 4rem;'>⟷</span> <span style='font-size: 1.5rem; color: #1976d2;'>🌍</span>\n<p><i>A menor distancia, mayor velocidad orbital.</i></p>\n</div>\n\nEntender esto nos permite calcular posiciones exactas en el mapa. [JUEGO:ORDENAR_LETRAS:FOCO] Los planetas no son prisioneros de círculos perfectos, sino viajeros de elipses dinámicas. [JUEGO:ORDENAR_FRASE:NEWTON EXPLICO TODO] Cada ley es una herramienta en nuestro maletín de detective. [JUEGO:SOPA_LETRAS:KEPLER,LEY,FISICA] Sin estas leyes, los satélites que usamos hoy no funcionarían. [JUEGO:CRUCIGRAMA:Centro de elipse|FOCO;Cambio de lugar|MOVIMIENTO] El tiempo es fundamental en nuestros cálculos. [JUEGO:ORDENAR_LETRAS:TIEMPO] Debemos registrar cada observación con precisión quirúrgica. [JUEGO:ORDENAR_FRASE:LAS LEYES SON TRES] La selva de la ignorancia se despeja con la luz de la física. [JUEGO:SOPA_LETRAS:ESPACIO,VACIO,FIN] Estamos listos para resolver el misterio final. [JUEGO:CRUCIGRAMA:Autor de leyes|KEPLER;Lo opuesto a lleno|VACIO]",
+  "texto_deductivo": "¡Excelente trabajo de campo, detective! Ahora que hemos desmentido el mito de que la Tierra es estática y el centro del universo, debemos profundizar en las leyes matemáticas y físicas que gobiernan este movimiento por el espacio. El gran astrónomo Johannes Kepler [JUEGO:ORDENAR_LETRAS:KEPLER] descubrió las reglas de este magnífico baile cósmico.\n\nÉl demostró que la órbita de cada planeta no es un círculo perfecto, sino una elipse [JUEGO:ORDENAR_LETRAS:ELIPSE]. Una elipse es como un círculo estirado, con dos puntos llamados 'focos'. El Sol se ubica en uno de ellos. Para mover este gran planeta se requiere una fuerza [JUEGO:ORDENAR_LETRAS:FUERZA] enorme. Esta fuerza de gravedad compite con la inercia [JUEGO:ORDENAR_LETRAS:INERCIA] del planeta, que quiere seguir en línea recta. Todo esto se estudia en la física [JUEGO:ORDENAR_LETRAS:FISICA].\n\n<div style='background-color: #2c3e50; border-left: 5px solid #00ffcc; padding: 15px; margin: 15px 0; border-radius: 4px;'>\n<h4 style='color: #00ffcc; margin-top:0;'>📜 Las Reglas Científicas del Movimiento Planetario</h4>\n<ul style='list-style-type: none; padding-left: 0;'>\n  <li>🌌 <strong>1ª Ley (Órbitas):</strong> Los planetas orbitan al Sol en trayectorias elípticas, con el Sol en uno de sus focos.</li>\n  <li>📊 <strong>2ª Ley (Áreas):</strong> La línea que une al planeta con el Sol barre áreas iguales en tiempos iguales. ¡El planeta acelera al acercarse al Sol!</li>\n  <li>⏱️ <strong>3ª Ley (Periodos):</strong> Los planetas más alejados del Sol tardan mucho más tiempo en completar su órbita.</li>\n</ul>\n</div>\n\n¡Estudiemos estas leyes dibujándolas en nuestra bitácora de detective!\n\n[ACTIVIDAD:CUADERNO:Dibuja las tres leyes de Kepler aplicadas a la órbita de un planeta. Guíate con este diagrama conceptual:\\n\\nmermaid\\ngraph TD\\n    A[Leyes de Kepler] --> B[1ra Ley: Orbita Eliptica]\\n    A --> C[2da Ley: Areas Iguales]\\n    A --> D[3ra Ley: Periodos y Distancias]\\n\\n]\n\nLa física moderna nos enseña que la gravedad mantiene los planetas [JUEGO:ORDENAR_FRASE:LA GRAVEDAD MANTIENE LOS PLANETAS] atrapados en su danza cósmica. Kepler descubrió las leyes planetarias [JUEGO:ORDENAR_FRASE:KEPLER DESCUBRIO LAS LEYES PLANETARIAS] tras años de observación minuciosa de las estrellas. El Sol atrae a la Tierra [JUEGO:ORDENAR_FRASE:EL SOL ATRAE A LA TIERRA] con una fuerza invisible que equilibra perfectamente su movimiento constante. Encuentra conceptos fundamentales en esta sopa de letras: [JUEGO:SOPA_LETRAS:INERCIA,MASA,PESO] y descubre a los científicos del caso histórico aquí: [JUEGO:SOPA_LETRAS:GALILEO,NEWTON,COPERNICO].\n\nAprende por qué no salimos despedidos al espacio con este ejercicio estructurado para tu cuaderno de investigación:\n\n[ACTIVIDAD:CUADERNO:Construye una infografía en tu cuaderno donde expliques por qué no salimos volando de la Tierra a pesar de su gran velocidad de rotación y traslación. Utiliza esta estructura:\\n\\nmermaid\\ngraph TD\\n    A[No salimos volando] --> B[Fuerza Gravitacional hacia el centro]\\n    A --> C[Atmosfera se mueve con la Tierra]\\n    A --> D[Inercia mantiene nuestro movimiento]\\n\\n]\n\nSabemos que las órbitas no son círculos perfectos [JUEGO:ORDENAR_FRASE:LAS ORBITAS NO SON CIRCULOS PERFECTOS], sino sutiles elipses espaciales. Aunque nuestro viaje por la selva continúa [JUEGO:ORDENAR_FRASE:NUESTRO VIAJE POR LA SELVA CONTINUA], ya hemos descifrado con éxito el gran misterio planetario. Resuelve estas sopas de letras sobre geometría física: [JUEGO:SOPA_LETRAS:FOCO,RADIO,EJE] y sobre el sistema que habitamos: [JUEGO:SOPA_LETRAS:SISTEMA,SOLAR,VACIO].\n\nPara entender cómo interactúan estas fuerzas vectoriales, realiza este diagrama esquemático:\n\n[ACTIVIDAD:CUADERNO:Dibuja un diagrama comparativo de las fuerzas que actúan sobre la Tierra (fuerza gravitacional y velocidad tangencial) para mantenerla en órbita. Estructura el dibujo basándote en este mapa:\\n\\nmermaid\\ngraph TD\\n    A[Tierra en Orbita] --> B[Fuerza Gravitacional hacia el Sol]\\n    A --> C[Velocidad Tangencial perpendicular]\\n    B --> D[Equilibrio Dinamico]\\n    C --> D\\n\\n]\n\nSigue recolectando pistas con la sopa de letras final del detective selvático: [JUEGO:SOPA_LETRAS:DETECTIVE,LUPA,PISTA].\n\n¡Excelente, detective de misterios! Ahora usemos nuestro razonamiento lógico para resolver las claves de cierre del templo antiguo:\n1. [JUEGO:CRUCIGRAMA:Resistencia al cambio de movimiento|INERCIA;Cantidad de materia|MASA]\n2. [JUEGO:CRUCIGRAMA:Ley que dice que barremos areas iguales en tiempos iguales|SEGUNDALEY;Astronomo de las orbitas elipticas|KEPLER]\n3. [JUEGO:CRUCIGRAMA:Fuerza de atraccion mutua|GRAVITACION;Camino en el espacio|TRAYECTORIA]\n4. [JUEGO:CRUCIGRAMA:Punto mas cercano al Sol|PERIHELIO;Punto mas lejano al Sol|AFELIO]\n5. [JUEGO:CRUCIGRAMA:Instrumento para ver estrellas|TELESCOPIO;Lente que concentra luz|ESPEJO]\n\nPara consolidar tu aprendizaje científico y cerrar tu diario de campo con broche de oro, escribe esta correspondencia histórica en tu cuaderno:\n\n[ACTIVIDAD:CUADERNO:Escribe una carta ficticia de Johannes Kepler al detective de la selva explicándole el misterio de los focos de la elipse.]",
   "preguntas_deductivas_pagina": [
     {
-      "pregunta": "¿Qué sucede con la velocidad de un planeta cuando se acerca al punto llamado Perihelio?",
-      "answer_expected": "Su velocidad aumenta, alcanzando su punto máximo."
+      "pregunta": "¿Qué ocurre con la velocidad de un planeta a medida que se acerca al Sol en su órbita?",
+      "respuesta_esperada": "La velocidad del planeta aumenta progresivamente debido a que la fuerza de atracción gravitatoria es mayor a menor distancia, barriendo áreas iguales en tiempos iguales."
     },
     {
-      "pregunta": "¿Por qué un planeta se mueve más lento en el Afelio?",
-      "answer_expected": "Porque está a la máxima distancia del Sol y la fuerza de atracción gravitatoria es menor, por lo que su velocidad disminuye."
+      "pregunta": "¿Cómo explica la primera ley de Kepler la forma geométrica de la trayectoria planetaria?",
+      "respuesta_esperada": "Explica que las órbitas no son circulares sino elípticas, lo que implica que el planeta varía constantemente su distancia respecto al Sol, el cual se sitúa en uno de los dos focos."
     },
     {
-      "pregunta": "¿Cuál es la principal diferencia entre la trayectoria real y la del mito popular?",
-      "answer_expected": "La trayectoria real es una elipse con el Sol en un foco, mientras que el mito dice que es un círculo perfecto con el Sol en el centro."
+      "pregunta": "¿Qué propiedad física de los cuerpos hace que la Tierra tienda a seguir en línea recta en lugar de caer directamente hacia el Sol?",
+      "respuesta_esperada": "La inercia, que es la propiedad de los cuerpos de mantener su estado de movimiento o reposo a menos que una fuerza externa actúe sobre ellos."
     },
     {
-      "pregunta": "¿Qué ley de Kepler explica que los planetas no se mueven siempre a la misma velocidad?",
-      "answer_expected": "La Segunda Ley de Kepler (Ley de las áreas)."
+      "pregunta": "¿Qué es el afelio y el perihelio en el contexto del movimiento planetario?",
+      "respuesta_esperada": "El perihelio es el punto de la órbita donde el planeta está más cerca del Sol, y el afelio es el punto donde se encuentra más alejado."
     },
     {
-      "pregunta": "¿Cómo influye la distancia en la fuerza de gravedad según lo estudiado?",
-      "answer_expected": "A menor distancia entre el planeta y el Sol, mayor es la fuerza de gravedad y la aceleración."
+      "pregunta": "¿Por qué un planeta que está más alejado del Sol tarda más tiempo en completar su órbita?",
+      "respuesta_esperada": "Porque la fuerza de atracción gravitatoria disminuye con la distancia, lo que requiere una velocidad orbital menor, y además la trayectoria (elipse) que debe recorrer es mucho más larga."
     }
   ],
   "preguntas_deductivas_cuaderno": [
-    "Dibuja una elipse grande en tu cuaderno. Ubica al Sol en uno de los focos. Marca el Perihelio y el Afelio, y usa flechas de diferentes tamaños para representar la velocidad en cada punto.",
-    "Elabora un mapa mental que conecte a Kepler, Newton, la Elipse y la Gravedad, usando iconos de la selva (lianas, brújulas, árboles).",
-    "Realiza un dibujo explicativo que muestre la 'Segunda Ley de Kepler', dividiendo la elipse en sectores de igual área pero diferentes anchos de arco.",
-    "Diseña una infografía artesanal donde desmientas el mito de los 'círculos perfectos' usando los datos de la tabla de Perihelio y Afelio."
+    "Elabora un diagrama detallado de la órbita de un cometa hiperbólico o elíptico, señalando dónde experimenta su máxima aceleración.",
+    "Diseña un mapa mental interactivo en tu cuaderno donde asocies las leyes de Kepler con las fuerzas gravitacionales propuestas por Isaac Newton.",
+    "Realiza un dibujo a color que ilustre el concepto de inercia usando como ejemplo a un explorador de la selva que frena súbitamente mientras corre.",
+    "Crea una infografía artesanal donde expliques paso a paso cómo se desmintió el modelo geocéntrico en la historia de la astronomía."
   ],
   "icfes": [
     {
       "competencia": "Explicación de Fenómenos",
-      "texto_introductorio": "Un grupo de exploradores en la selva observa un modelo antiguo del sistema solar donde los planetas se mueven en círculos perfectos a velocidad constante. Sin embargo, al usar un telescopio moderno, notan que Marte se mueve más rápido en ciertos meses del año cuando está más cerca del Sol.",
-      "tabla_o_grafica_markdown": "| Posición de Marte | Distancia al Sol (u.a.) | Velocidad Orbital (km/s) |\n| :--- | :--- | :--- |\n| Punto A (Cerca) | 1.38 | 26.5 |\n| Punto B (Lejos) | 1.67 | 22.0 |",
-      "pregunta": "De acuerdo con los datos de la tabla y las leyes de Kepler, ¿cuál es la razón por la que la velocidad de Marte cambia?",
+      "texto_introductorio": "Durante la expedición en la selva, los estudiantes analizan el movimiento de un planeta hipotético alrededor de su estrella central. Utilizando un sensor óptico espacial, registran los datos de distancia y velocidad angular del planeta en cuatro puntos diferentes de su órbita elíptica, representados en la siguiente tabla de mediciones de campo:",
+      "tabla_o_grafica_markdown": "| Punto en la Órbita | Distancia a la Estrella (U.A.) | Velocidad del Planeta (km/s) |\n|--------------------|---------------------------------|------------------------------|\n| Punto A (Cercano)   | 0.8                             | 45                           |\n| Punto B (Medio)     | 1.2                             | 35                           |\n| Punto C (Lejano)    | 1.8                             | 20                           |\n| Punto D (Medio)     | 1.2                             | 35                           |",
+      "pregunta": "Con base en los datos recopilados en la tabla por los estudiantes, ¿cuál de las siguientes conclusiones científicas sobre el movimiento planetario es correcta?",
       "opciones": [
-        "Debido a que Marte tiene una órbita elíptica y su velocidad aumenta al disminuir la distancia al Sol.",
-        "Porque el Sol empuja a Marte con más fuerza cuando este se aleja para que no se pierda.",
-        "Debido a que el aire en el espacio frena a Marte cuando está lejos del Sol.",
-        "Porque todos los planetas deben mantener siempre la misma energía, por lo que el círculo se deforma."
+        "La velocidad del planeta disminuye a medida que se acerca a la estrella debido al viento cósmico.",
+        "La velocidad del planeta es mayor en el punto más cercano (Punto A) porque la fuerza gravitatoria de atracción es más fuerte allí.",
+        "El planeta se mueve a velocidad constante durante toda la órbita elíptica sin verse afectado por la gravedad.",
+        "La velocidad es menor en el Punto A ya que la inercia detiene gradualmente al planeta al aproximarse a la estrella."
       ],
-      "correcta": 0,
+      "correcta": 1,
       "retroalimentacion": {
-        "0": "¡Correcto! La Primera Ley de Kepler establece la órbita elíptica y la Segunda explica el aumento de velocidad al estar más cerca (Perihelio).",
-        "1": "Incorrecto. La fuerza de gravedad atrae, no empuja, y es más fuerte cuando están cerca.",
-        "2": "Incorrecto. En el espacio no hay aire (vacío) que genere fricción de ese tipo.",
-        "3": "Incorrecto. Aunque la energía se conserva, el movimiento circular no es la realidad física observada."
+        "0": "Incorrecto. No existe un 'viento cósmico' que frene el planeta, y la tabla muestra que en el Punto A (el más cercano) la velocidad es máxima (45 km/s).",
+        "1": "¡Correcto! De acuerdo con la segunda ley de Kepler y las leyes de la gravitación universal, la atracción es más fuerte cuando la distancia disminuye, lo que resulta en un incremento de la velocidad en el perihelio (Punto A).",
+        "2": "Incorrecto. Los datos de la tabla demuestran claramente que la velocidad cambia (de 45 km/s a 20 km/s) a lo largo de los diferentes puntos de la órbita.",
+        "3": "Incorrecto. En el Punto A la velocidad es de 45 km/s, la cual es la más alta registrada en la tabla; por ende, no se ralentiza ni se detiene allí."
       }
     }
   ]

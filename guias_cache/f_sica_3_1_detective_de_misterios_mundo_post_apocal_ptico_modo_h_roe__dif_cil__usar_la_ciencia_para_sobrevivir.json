@@ -1,132 +1,133 @@
 {
   "saberes_previos": [
     {
-      "pregunta": "En las ruinas de la antigua civilización, encuentras un manual de navegación espacial. ¿Qué forma geométrica describe la trayectoria real de los planetas alrededor del Sol?",
+      "pregunta": "En un mundo sin satélites funcionales, ¿cuál es la forma más precisa de saber que la Tierra sigue su curso habitual?",
       "opciones": [
-        "Un círculo perfecto sin desviaciones",
-        "Una elipse con el Sol en uno de sus focos",
-        "Una parábola abierta hacia el vacío interestelar",
-        "Una espiral descendente hacia el centro solar"
+        "Observar el cambio en la posición de las estrellas fijas y la duración del día.",
+        "Sentir la temperatura del aire al mediodía.",
+        "Medir la profundidad de los cráteres de impacto.",
+        "Contar los pasos desde el búnker hasta la zona de suministros."
       ],
-      "correcta": 1
+      "correcta": 0
     },
     {
-      "pregunta": "Un satélite militar antiguo se aproxima a la Tierra. ¿En qué punto de su órbita elíptica se moverá a mayor velocidad?",
+      "pregunta": "¿Qué forma geométrica describen los planetas al girar alrededor del Sol, según Johannes Kepler?",
       "opciones": [
-        "En el afelio, cuando está más alejado de la Tierra",
-        "En el perihelio, cuando está más cerca de la Tierra",
-        "La velocidad se mantiene exactamente constante en toda la órbita",
-        "En los puntos donde la aceleración es igual a cero"
+        "Un círculo perfecto.",
+        "Una línea recta hacia el vacío.",
+        "Una elipse con el Sol en uno de sus focos.",
+        "Un hexágono irregular."
       ],
-      "correcta": 1
+      "correcta": 2
     },
     {
-      "pregunta": "¿Qué científico formuló la Ley de Gravitación Universal que explica la atracción entre dos masas en el universo post-colapso?",
+      "pregunta": "Si un objeto en el páramo post-apocalíptico se mueve con velocidad constante, su aceleración es:",
       "opciones": [
-        "Galileo Galilei",
-        "Johannes Kepler",
-        "Isaac Newton",
-        "Albert Einstein"
+        "Máxima.",
+        "Igual a la gravedad.",
+        "Cero.",
+        "Dependiente del viento."
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "¿Qué magnitud física describe tanto la rapidez como la dirección del movimiento de una patrulla de saqueadores?",
+      "opciones": [
+        "Distancia.",
+        "Rapidez.",
+        "Velocidad.",
+        "Tiempo."
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "La fuerza que mantiene a la Luna 'atrapada' en la órbita terrestre se llama:",
+      "opciones": [
+        "Inercia pura.",
+        "Electromagnetismo.",
+        "Fuerza Gravitacional.",
+        "Fricción atmosférica."
       ],
       "correcta": 2
     }
   ],
-  "texto_inductivo": "***¿Cómo puede la comprensión del movimiento de los planetas y de los viejos satélites abandonados ayudarnos a predecir la llegada de suministros orbitales antes de que la radiación solar destruya la superficie en este mundo devastado?***\n\nSoy el Detective Valen, investigador del páramo del Sector 7. Año 2145. La superficie terrestre es inaccesible durante las tormentas de radiación. Sin embargo, en el cielo aún giran las Cápsulas de Suministro B.O.R.E.A.S., vestigios de una era dorada. Si queremos sobrevivir, debemos calcular con precisión quirúrgica cuándo caerán. Para eso, debemos mirar las estrellas y redescubrir lo que los antiguos sabios entendieron sobre las órbitas.[JUEGO:ORDENAR_LETRAS:PLANETA] El cosmos no se mueve al azar; obedece reglas matemáticas implacables. [JUEGO:ORDENAR_FRASE:LA GRAVEDAD MANTIENE LA ORBITA]\n\n<div style='background-color:#1e1e2e; border:2px solid #ff79c6; border-radius:10px; padding:15px; margin:15px 0; font-family:monospace; color:#f8f8f2;'><h4 style='color:#bd93f9; text-align:center;'>DIAGNOSTICO ORBITAL DE CAPSULAS EN EL PARAMO</h4><svg width='100%' height='180' viewBox='0 0 400 180'><ellipse cx='200' cy='90' rx='150' ry='70' fill='none' stroke='#ff79c6' stroke-width='3' stroke-dasharray='5,5'/><circle cx='130' cy='90' r='18' fill='#ffb86c'/><text x='120' y='125' fill='#ffb86c' font-size='12'>Sol / Tierra (Foco 1)</text><circle cx='270' cy='90' r='6' fill='#6272a4'/><text x='255' y='115' fill='#6272a4' font-size='10'>Foco 2 (Vacio)</text><circle cx='350' cy='90' r='10' fill='#8be9fd'/><text x='310' y='75' fill='#8be9fd' font-size='11'>Capsula B.O.R.E.A.S. (Afelio)</text><line x1='130' y1='90' x2='350' y2='90' stroke='#50fa7b' stroke-width='1.5'/><text x='210' y='85' fill='#50fa7b' font-size='10'>Distancia r</text></svg><p style='text-align:center; font-size:0.85rem; color:#f1fa8c;'>Figura 1: Representación elíptica de la órbita de suministros. El foco ocupado genera la atracción principal.</p></div>\n\nEl primer indicio nos lo dejó Johannes Kepler. [JUEGO:ORDENAR_LETRAS:KEPLER] Él descubrió que los cuerpos celestes no giran en círculos perfectos como pensaban los filósofos antiguos, sino en formas ovaladas llamadas elipses. [JUEGO:SOPA_LETRAS:SOL,FOCO,ORBITA] Cuando la cápsula está más cerca del planeta (perihelio), se mueve con una prisa desesperada, como huyendo del impacto solar; mientras que al alejarse (afelio), parece frenar en el frío vacío espacial. [JUEGO:CRUCIGRAMA:Punto de atraccion|SOL;Camino del planeta|ORBITA]\n\n[JUEGO:ORDENAR_LETRAS:ORBITA] Observando los viejos mapas estelares, notamos que si trazamos una línea imaginaria desde el centro del Sol hasta la cápsula, esta línea barrem en tiempos iguales áreas exactamente iguales. [JUEGO:ORDENAR_FRASE:LOS PLANETAS BARRAN AREAS IGUALES] Esto significa que la velocidad orbital no es uniforme, sino variable. [JUEGO:SOPA_LETRAS:KEPLER,NEWTON,MASA] Entender esta variación es la diferencia entre recolectar la carga vital o verla arder en la atmósfera descontrolada. [JUEGO:CRUCIGRAMA:Forma orbital|ELIPSE;Fuerza invisible|GRAVEDAD]\n\n[JUEGO:ORDENAR_LETRAS:GRAVEDAD] Pero las leyes de Kepler solo describían el *cómo* se movían, no el *por qué*. [JUEGO:ORDENAR_FRASE:EL SOL OCUPA UN FOCO DE LA ELIPSE] Tuvo que llegar Isaac Newton para resolver la investigación misteriosa: existe una cuerda invisible llamada Gravedad. [JUEGO:SOPA_LETRAS:ELIPSE,RADIO,TIEMPO] Dos masas cualesquiera se atraen con una fuerza que depende de qué tan pesadas sean y qué tan lejanas se encuentren. [JUEGO:CRUCIGRAMA:Astronomo famoso|KEPLER;Masa en el centro|SOL]\n\n[JUEGO:ORDENAR_LETRAS:FOCO] En nuestro entorno hostil, aplicar estas leyes nos permite calcular exactamente el segundo en que la cápsula cruzará el horizonte. [JUEGO:ORDENAR_FRASE:EL PERIODO DEPENDE DEL RADIO] Si fallamos en el cálculo del período orbital, la banda de saqueadores rival tomará el control del cargamento. [JUEGO:SOPA_LETRAS:GRAVEDAD,FUERZA,LEYES] La física no es teoría académica en el páramo: es nuestra herramienta de detección y supervivencia primaria. [JUEGO:ORDENAR_FRASE:LA CIENCIA NOS PERMITE SOBREVIVIR] [JUEGO:SOPA_LETRAS:VELOCIDAD,PERIODO,LUNA] [JUEGO:CRUCIGRAMA:Punto mas cercano al sol|PERIHELIO;Punto mas lejano|AFELIO] [JUEGO:CRUCIGRAMA:Tiempo en orbitar|PERIODO;Distancia media|RADIO]",
-  "recurso_visual": "| Concepto Orbital | Definición en el Páramo | Impacto en la Misión |\n| :--- | :--- | :--- |\n| **Primera Ley de Kepler** | Órbitas Elípticas con el centro gravitacional en un foco. | Determina el punto de intersección de la cápsula. |\n| **Segunda Ley de Kepler** | Áreas iguales en tiempos iguales (Velocidad variable). | Permite calcular la velocidad del objetivo según su posición. |\n| **Tercera Ley de Kepler** | $T^2 \\propto a^3$ (Relación entre período y distancia). | Determina el tiempo exacto entre reentradas atmosféricas. |\n| **Gravitación Universal** | $F = G \\frac{m_1 m_2}{r^2}$ (Fuerza de atracción entre cuerpos). | Explica la aceleración y atracción hacia el núcleo terrestre. |",
+  "texto_inductivo": "### Expediente 001: El Misterio de los Cielos Errantes\n\nBienvenido, Detective. El mundo que conocíamos terminó en 'El Gran Pulso'. Los sistemas GPS han muerto y los mapas antiguos son cenizas. Para guiar a los supervivientes, debemos redescubrir las leyes que rigen el cosmos. ***¿Cómo determinarías si nuestro planeta ha sido desplazado de su órbita original utilizando únicamente la observación de los astros para asegurar la supervivencia de los últimos refugios?***\n\n<div style=\"border: 2px solid #ff0000; padding: 20px; background-color: #1a1a1a; color: #00ff00; font-family: monospace;\">\n  <h2 style=\"text-align: center;\">ALERTA DE SISTEMA: DATOS ORBITALES CORRUPTOS</h2>\n  <p>La Tierra no se mueve en un círculo perfecto. Johannes Kepler, el detective original del cielo, descubrió que las órbitas son elípticas. [JUEGO:ORDENAR_LETRAS:ELIPSE]</p>\n  <table style=\"width:100%; border-collapse: collapse; color: white;\">\n    <tr style=\"background-color: #333;\">\n      <th>Elemento</th>\n      <th>Descripción Post-Apocalíptica</th>\n    </tr>\n    <tr>\n      <td>Foco</td>\n      <td>El lugar donde el Sol ejerce su dominio gravitatorio.</td>\n    </tr>\n    <tr>\n      <td>Perihelio</td>\n      <td>Punto de máximo calor; la Tierra está más cerca del Sol. [JUEGO:ORDENAR_LETRAS:FOCO]</td>\n    </tr>\n    <tr>\n      <td>Afelio</td>\n      <td>Punto de frío extremo; la Tierra está más lejos del Sol.</td>\n    </tr>\n  </table>\n</div>\n\nPara sobrevivir, debemos entender que el Sol ocupa uno de los focos de esta elipse. [JUEGO:ORDENAR_FRASE:EL SOL ESTA EN EL FOCO] Si la Tierra se alejara, los inviernos nucleares serían eternos. Observa la posición de las estrellas: ellas no mienten. [JUEGO:SOPA_LETRAS:SOL,LUZ,CALOR] \n\n<svg width=\"400\" height=\"200\" viewBox=\"0 0 400 200\">\n  <ellipse cx=\"200\" cy=\"100\" rx=\"150\" ry=\"70\" style=\"fill:none;stroke:#555;stroke-width:2;stroke-dasharray:5,5\" />\n  <circle cx=\"120\" cy=\"100\" r=\"15\" fill=\"#ffcc00\" />\n  <text x=\"105\" y=\"80\" fill=\"white\" font-size=\"12\">SOL (FOCO)</text>\n  <circle cx=\"350\" cy=\"100\" r=\"8\" fill=\"#00aaff\" />\n  <text x=\"330\" y=\"125\" fill=\"#00aaff\" font-size=\"12\">TIERRA (AFELIO)</text>\n</svg>\n\nLa gravedad es el pegamento del universo. [JUEGO:ORDENAR_LETRAS:ORBITA] Newton dedujo que esta fuerza depende de las masas y la distancia. [JUEGO:CRUCIGRAMA:Centro de calor del sistema|SOL;Camino curvo planetario|ORBITA] \n\n[ACTIVIDAD:CUADERNO:Dibuja el diagrama de una órbita elíptica señalando los dos focos, el afelio y el perihelio. Usa colores distintos para las zonas de mayor y menor velocidad orbital.]\n\nmermaid\ngraph LR\n  A((Sol)) -- Gravedad --- B((Tierra))\n  B -- Trayectoria --- C{Elipse}\n  C --- D[Perihelio]\n  C --- E[Afelio]\n\n\nSin este equilibrio, saldríamos disparados al vacío. [JUEGO:ORDENAR_FRASE:LA TIERRA SE MUEVE RAPIDO] Los antiguos decían que el Sol giraba alrededor de nosotros, pero la evidencia física dice lo contrario. [JUEGO:SOPA_LETRAS:TIERRA,MARTE,JUPITER] Debes medir el tiempo que tarda una sombra en volver al mismo punto. [JUEGO:ORDENAR_LETRAS:ASTRO]\n\n[ACTIVIDAD:CUADERNO:Crea un cuadro comparativo entre el modelo Geocéntrico (Tierra al centro) y el Heliocéntrico (Sol al centro). ¿Cuál salvaría a tu refugio?]\n\nmermaid\ngraph TD\n  A[Modelos Celestes] --> B(Geocéntrico)\n  A --> C(Heliocéntrico)\n  B --> B1[Tierra al centro]\n  B --> B2[Desmentido por Galileo]\n  C --> C1[Sol al centro]\n  C --> C2[Base de la navegación actual]\n\n\n[JUEGO:ORDENAR_FRASE:EL CAMINO ES UNA ELIPSE] La segunda ley de Kepler nos advierte: los planetas barren áreas iguales en tiempos iguales. [JUEGO:SOPA_LETRAS:ELIPSE,FOCO,EJE] Esto significa que la velocidad cambia. [JUEGO:CRUCIGRAMA:Científico de las órbitas|KEPLER;Forma de huevo estirado|ELIPSE] \n\n[ACTIVIDAD:CUADERNO:Dibuja un sector de la órbita donde la Tierra está cerca del Sol y otro lejos. Colorea áreas iguales y explica por qué en una la Tierra debe 'correr' más.]\n\nmermaid\ngraph TD\n  A[2da Ley de Kepler] --> B[Áreas Iguales]\n  B --> C[Tiempos Iguales]\n  C --> D[Velocidad Variable]\n  D --> E[Cerca del Sol = Rápido]\n  D --> F[Lejos del Sol = Lento]\n\n\nSi el planeta se detuviera, caeríamos al Sol. [JUEGO:ORDENAR_LETRAS:MASA] Si acelerara demasiado, nos perderíamos en la negrura. [JUEGO:ORDENAR_FRASE:LOS PLANETAS GIRAN SIEMPRE] Mantén tus instrumentos de medición calibrados, Detective. [JUEGO:SOPA_LETRAS:MASA,PESO,GRAVEDAD] \n\n[ACTIVIDAD:CUADERNO:Realiza un mapa mental que conecte la Gravitación Universal con la órbita de los satélites de comunicación que intentamos recuperar.]\n\nmermaid\ngraph TD\n  A[Gravitación] --> B[Masa 1]\n  A --> C[Masa 2]\n  A --> D[Distancia al cuadrado]\n  D --> E[Inversamente Proporcional]\n  B & C --> F[Directamente Proporcional]\n\n\n[JUEGO:ORDENAR_FRASE:KEPLER TENIA LA RAZON] [JUEGO:SOPA_LETRAS:LEY,ORDEN,CIENCIA] [JUEGO:CRUCIGRAMA:Fuerza de atracción|GRAVEDAD;Punto más lejano al sol|AFELIO] [JUEGO:CRUCIGRAMA:Punto más cercano al sol|PERIHELIO;Estrella central|SOL] [JUEGO:CRUCIGRAMA:Satélite natural|LUNA;Unidad de masa|KILOGRAMO]",
+  "recurso_visual": "| Concepto | Definición Clave | Implicación de Supervivencia |\n|---|---|---|\n| **Órbita Elíptica** | Trayectoria no circular del planeta. | Determina los ciclos de siembra y clima extremo. |\n| **Ley de Áreas** | Áreas iguales en tiempos iguales. | La velocidad terrestre cambia; los días no son idénticos. |\n| **Gravitación** | Atracción mutua basada en masa/distancia. | Mantiene la atmósfera pegada al suelo que pisas. |\n| **Inercia** | Tendencia a mantener el movimiento. | Evita que el Sol nos devore instantáneamente. |",
   "preguntas_inductivas_pagina": [
     {
-      "pregunta": "¿Por qué las cápsulas de suministro varían su velocidad a lo largo de su órbita elíptica?",
-      "respuesta_esperada": "Porque según la Segunda Ley de Kepler, la línea que une la cápsula con el centro gravitacional barre áreas iguales en tiempos iguales, acelerando al acercarse al centro (perihelio) y desacelerando al alejarse (afelio)."
+      "pregunta": "¿Por qué es vital para un detective post-apocalíptico saber que las órbitas son elipses y no círculos?",
+      "respuesta_esperada": "Porque esto explica las variaciones estacionales y los cambios en la velocidad orbital, fundamentales para predecir climas extremos y racionar suministros."
     },
     {
-      "pregunta": "¿Qué ocurre con la fuerza de atracción gravitacional si la distancia entre un satélite y la Tierra se duplica?",
-      "respuesta_esperada": "La fuerza gravitacional se reduce a la cuarta parte ($1/2^2 = 1/4$), debido a la ley del cuadrado inverso de la distancia."
+      "pregunta": "Si el Sol está en un foco, ¿qué hay en el otro foco de la elipse terrestre?",
+      "respuesta_esperada": "Nada físicamente presente; es un punto matemático en el espacio vacío que define la geometría de la órbita."
     },
     {
-      "pregunta": "¿Cuál es la forma geométrica de las órbitas celestes descrita por Kepler en su Primera Ley?",
-      "respuesta_esperada": "Una elipse, en la cual el cuerpo central (como el Sol o la Tierra) ocupa uno de los dos focos."
+      "pregunta": "¿Qué sucedería con la fuerza de gravedad si la Tierra duplicara su distancia al Sol de repente?",
+      "respuesta_esperada": "La fuerza de gravedad se reduciría a la cuarta parte (1/4), lo que probablemente nos haría perder la órbita estable."
     },
     {
-      "pregunta": "Si conocemos el semieje mayor de la órbita de un artefacto, ¿qué propiedad temporal podemos calcular con la Tercera Ley?",
-      "respuesta_esperada": "El período orbital ($T$), es decir, el tiempo que tarda el artefacto en dar una vuelta completa alrededor del cuerpo central."
+      "pregunta": "¿En qué punto de la órbita (perihelio o afelio) la Tierra se mueve a su máxima velocidad?",
+      "respuesta_esperada": "En el perihelio, porque al estar más cerca del foco gravitatorio (el Sol), la aceleración radial es mayor según la segunda ley de Kepler."
     },
     {
-      "pregunta": "En la narrativa del páramo, ¿qué función cumple la gravedad como herramienta del detective?",
-      "respuesta_esperada": "Actúa como la causa física que mantiene los objetos en órbita y permite predecir trayectorias exactas para recuperar suministros."
+      "pregunta": "¿Cómo ayuda la Ley de Gravitación Universal de Newton a explicar el movimiento planetario de Kepler?",
+      "respuesta_esperada": "Newton proporciona la causa física (la fuerza) que obliga a los planetas a seguir esas trayectorias elípticas descritas matemáticamente por Kepler."
     }
   ],
   "preguntas_inductivas_cuaderno": [
-    "Dibuja en tu cuaderno un esquema detallado de una órbita elíptica, identificando el Perihelio, Afelio, los Focos, el Semieje Mayor y la posición del Sol/Tierra.",
-    "Elabora un cuadro comparativo entre la visión geométrica del universo de los antiguos filósofos (órbitas circulares perfectas) y el modelo inductivo de Kepler/Newton (órbitas elípticas dinámicas).",
-    "Escribe una reflexión argumentativa de una página respondiendo: ¿De qué manera el rigor matemático en el cálculo de órbitas diferencia a los supervivientes instruidos de los saqueadores del páramo?",
-    "Representa gráficamente el concepto del área barrida por un vector de radio en dos segmentos de tiempo iguales (cerca del perihelio vs. cerca del afelio)."
+    "Dibuja un esquema detallado de la Segunda Ley de Kepler, sombreando las áreas barridas y explicando la relación entre distancia y velocidad.",
+    "Elabora un cuadro comparativo entre Masa y Peso en diferentes planetas del sistema solar, asumiendo que debemos evacuar la Tierra.",
+    "Escribe una reflexión de 15 líneas sobre cómo la ciencia se convierte en la única herramienta de poder en un mundo sin tecnología digital.",
+    "Representa gráficamente la Tercera Ley de Kepler (Armonía de los Mundos) usando una infografía que relacione el periodo orbital con la distancia media."
   ],
-  "texto_deductivo": "Para resolver científicamente los misterios del movimiento planetario y orbital en esta era posapocalíptica, debemos formalizar las ecuaciones deductivas que rigen la física celeste. [JUEGO:ORDENAR_LETRAS:AFELIO] Analicemos con precisión matemática el aparato teórico consolidado por Johannes Kepler e Isaac Newton.[JUEGO:ORDENAR_FRASE:LA FUERZA ES INVERSA AL CUADRADO]\n\n<div style='background-color:#0f1419; border:2px solid #50fa7b; border-radius:8px; padding:12px; margin:15px 0; color:#e6edf3;'><h3 style='color:#50fa7b; margin-top:0;'>FORMULARIO DE MECANICA CELESTE PARA SUPERVIVENCIA</h3><table style='width:100%; border-collapse:collapse; color:#e6edf3;' border='1'><thead><tr style='background-color:#161b22; color:#50fa7b;'><th>Ley / Ecuación</th><th>Expresión Matemática</th><th>Significado Físico</th></tr></thead><tbody><tr><td><b>Gravitación Universal</b></td><td>$$F_g = G \\frac{M \\cdot m}{r^2}$$</td><td>Fuerza de atracción mutua entre masas $M$ y $m$ separadas una distancia $r$. $G = 6.674 \\times 10^{-11} \\text{ N}\\cdot\\text{m}^2/\\text{kg}^2$.</td></tr><tr><td><b>Tercera Ley de Kepler</b></td><td>$$\\frac{T^2}{a^3} = \\frac{4\\pi^2}{G M}$$</td><td>El cuadrado del período orbital $T$ es proporcional al cubo del semieje mayor $a$.</td></tr><tr><td><b>Velocidad Orbital Circular</b></td><td>$$v = \\sqrt{\\frac{G M}{r}}$$</td><td>Velocidad necesaria para mantener una trayectoria circular estable a distancia $r$.</td></tr></tbody></table></div>\n\nPartiendo de la Ley de Gravitación Universal, deducimos que la fuerza gravitacional actúa como una fuerza centrípeta. [JUEGO:ORDENAR_LETRAS:PERIHELIO] Al igualar $F_g = F_c$, obtenemos $G \\frac{M m}{r^2} = \\frac{m v^2}{r}$, lo cual nos permite simplificar la masa del objeto menor $m$ y despejar la velocidad orbital $v$. [JUEGO:SOPA_LETRAS:VECTOR,RADIO,ANGULO] Esto demuestra que la velocidad de una cápsula o planeta no depende de su propia masa, sino de la masa del cuerpo atrayente $M$ y del radio de su órbita $r$. [JUEGO:CRUCIGRAMA:Primera ley de Kepler|ELIPSES;Segunda ley|AREAS]\n\n[JUEGO:ORDENAR_LETRAS:PERIODO] Al analizar la Segunda Ley de Kepler deductivamente, el momento angular $L = m (r \\times v)$ se conserva debido a que la fuerza gravitacional es una fuerza central (no genera torque). [JUEGO:ORDENAR_FRASE:MAYOR DISTANCIA MENOR VELOCIDAD] Por ende, en el perihelio ($r_p$) y en el afelio ($r_a$), se cumple rigurosamente la conservación: $r_p \\cdot v_p = r_a \\cdot v_a$. [JUEGO:SOPA_LETRAS:AFELIO,PERIHELIO,FOCO] A menor distancia $r$, la velocidad $v$ debe aumentar obligatoriamente para mantener el producto constante. [JUEGO:CRUCIGRAMA:Tercera ley relaciona periodo y|RADIO;Fuerza universal|GRAVITACION]\n\n[JUEGO:ORDENAR_LETRAS:CONSTANTE] Finalmente, la Tercera Ley de Kepler se deduce de manera directa para órbitas circulares sustituyendo la velocidad $v = \\frac{2\\pi r}{T}$ en la fórmula de velocidad orbital. [JUEGO:ORDENAR_FRASE:EL PERIODO AL CUADRADO ES PROPORCIONAL] Elevando ambos miembros al cuadrado, obtenemos que el ratio $\\frac{T^2}{r^3}$ es una constante universal que solo depende de $M$ y de la constante gravitacional $G$. [JUEGO:SOPA_LETRAS:DISTANCIA,CUADRADO,MASA] Gracias a esta deducción, podemos calcular la masa de planetas o estrellas desconocidas analizando el movimiento de sus satélites. [JUEGO:CRUCIGRAMA:Mayor velocidad en el|PERIHELIO;Menor velocidad en el|AFELIO]\n\n[JUEGO:ORDENAR_LETRAS:INERCIA] Como detectives en el páramo, no adivinamos: deducimos. [JUEGO:ORDENAR_FRASE:LA MASA CENTRAL DETERMINA LA ORBITA] Si conocemos el período de rotación de un satélite antiguo, deducimos su distancia exacta y su velocidad instantánea. [JUEGO:SOPA_LETRAS:INERCIA,CENTRIPETA,VALOR] La mecánica celeste es el reloj perfecto que coordina nuestro rescate. [JUEGO:ORDENAR_FRASE:EL DETECTIVE RESUELVE EL MISTERIO] [JUEGO:SOPA_LETRAS:TRAYECTORIA,FISICA,DATOS] [JUEGO:CRUCIGRAMA:Descubrio la ley de gravitacion|NEWTON;Masa orbital|SATELITE] [JUEGO:CRUCIGRAMA:Aceleracion hacia el centro|CENTRIPETA;Camino cerrado|ORBITA]",
+  "texto_deductivo": "### Análisis de Campo: Cinemática de la Huida\n\nDetective, para interceptar convoyes o evitar derrumbes, debemos dominar la cinemática. [JUEGO:ORDENAR_LETRAS:VECTOR] La posición es nuestro punto en el mapa de ruinas. [JUEGO:ORDENAR_FRASE:EL VECTOR INDICA LA DIRECCION]\n\n<div style=\"background-color: #222; border: 3px double #555; padding: 15px; font-size: 1.1rem;\">\n  <p style=\"color: #ff9900;\"><strong>PROTOCOLO DE MOVIMIENTO:</strong></p>\n  <p>1. <strong>Posición (r):</strong> ¿Dónde estás respecto al búnker?</p>\n  <p>2. <strong>Velocidad (v):</strong> ¿Qué tan rápido cambias de posición? [JUEGO:ORDENAR_LETRAS:METROS]</p>\n  <p>3. <strong>Aceleración (a):</strong> ¿Estás escapando de algo que te pisa los talones? [JUEGO:ORDENAR_LETRAS:TIEMPO]</p>\n</div>\n\n[JUEGO:ORDENAR_FRASE:LA VELOCIDAD ES UN CAMBIO] La velocidad no es solo un número; es un vector. Tiene módulo, dirección y sentido. [JUEGO:SOPA_LETRAS:VELOCIDAD,TIEMPO,ESPACIO] Si tu vector apunta al norte y el enemigo al sur, la distancia aumenta. [JUEGO:CRUCIGRAMA:Cambio de velocidad|ACELERACION;Trayectoria recta|LINEAL] \n\n[ACTIVIDAD:CUADERNO:Dibuja un plano cartesiano representando la huida de un explorador. Marca su vector posición inicial y final, y traza el vector desplazamiento.]\n\nmermaid\ngraph TD\n  A[Cinemática] --> B[Escalares]\n  A --> C[Vectoriales]\n  B --> B1[Rapidez]\n  B --> B2[Distancia]\n  C --> C1[Velocidad]\n  C --> C2[Desplazamiento]\n\n\n[JUEGO:ORDENAR_LETRAS:RAPIDEZ] El tiempo es nuestro recurso más escaso. [JUEGO:ORDENAR_FRASE:LA ACELERACION ES CONSTANTE AQUI] [JUEGO:SOPA_LETRAS:VECTOR,ESCALAR,MODULO] En un Movimiento Rectilíneo Uniforme (MRU), la velocidad es constante. Pero en el páramo, nada es uniforme. [JUEGO:CRUCIGRAMA:Unidad de tiempo|SEGUNDO;Magnitud con dirección|VECTOR] \n\n<table style=\"width:100%; text-align:center; border: 1px solid white;\">\n  <tr style=\"background: #444;\"><td>Ecuación</td><td>Uso en Supervivencia</td></tr>\n  <tr><td>v = Δx / Δt</td><td>Calcular hora de llegada antes del toque de queda.</td></tr>\n  <tr><td>a = Δv / Δt</td><td>Medir la potencia de un motor improvisado. [JUEGO:ORDENAR_LETRAS:CINEMATICA]</td></tr>\n</table>\n\n[JUEGO:ORDENAR_FRASE:EL TIEMPO NO SE DETIENE] Cuando un objeto cae de un edificio en ruinas, experimenta una aceleración de 9.8 m/s². [JUEGO:SOPA_LETRAS:METRO,SEGUNDO,HORA] [JUEGO:CRUCIGRAMA:Caída bajo gravedad|CAIDALIBRE;Velocidad final cero|FRENADO] \n\n[ACTIVIDAD:CUADERNO:Crea un gráfico de Velocidad vs. Tiempo para un vehículo que acelera al ver una patrulla y luego mantiene su velocidad constante para ocultarse.]\n\nmermaid\ngraph LR\n  X[Tiempo] -- Eje Horizontal --> Z[Gráfico v-t]\n  Y[Velocidad] -- Eje Vertical --> Z\n  Z --> Area[Área bajo la curva = Desplazamiento]\n\n\n[JUEGO:ORDENAR_FRASE:EL MOVIMIENTO ES RELATIVO] [JUEGO:SOPA_LETRAS:INERCIA,FUERZA,IMPULSO] Para entender el cielo, debemos entender que nosotros también nos movemos. [JUEGO:CRUCIGRAMA:Punto de referencia|ORIGEN;Rapidez en un instante|INSTANTANEA] \n\n[ACTIVIDAD:CUADERNO:Representa gráficamente mediante un diagrama de bloques el concepto de Aceleración Media vs Aceleración Instantánea utilizando un ejemplo de una persecución de motos.]\n\nmermaid\ngraph TD\n  A[Aceleración] --> B[Media: Cambio total / Tiempo total]\n  A --> C[Instantánea: En un momento exacto]\n  B --> D[Válida para viajes largos]\n  C --> E[Válida para colisiones]\n\n\n[JUEGO:SOPA_LETRAS:DETECCION,PISTA,PRUEBA] [JUEGO:CRUCIGRAMA:Sin movimiento|REPOSO;Unidad de aceleración|METROSEGUNDO]\n\n[ACTIVIDAD:CUADERNO:Realiza una infografía manual sobre las Leyes de Newton aplicadas a la reconstrucción de una catapulta de defensa para el búnker.]\n\nmermaid\ngraph TD\n  A[Leyes de Newton] --> B[Inercia: La roca no se mueve sola]\n  A --> C[F=m.a: Más fuerza = Más alcance]\n  A --> D[Acción/Reacción: Retroceso de la catapulta]\n",
   "preguntas_deductivas_pagina": [
     {
-      "pregunta": "Demuestre algebraicamente por qué la masa de una cápsula espacial ($m$) no influye en la velocidad necesaria para mantener su órbita circular.",
-      "respuesta_esperada": "Al igualar la fuerza gravitacional con la fuerza centrípeta ($G M m / r^2 = m v^2 / r$), la masa $m$ aparece en ambos lados multiplicando y se cancela, obteniendo $v = \\sqrt{GM/r}$."
+      "pregunta": "¿Qué diferencia fundamental hay entre distancia recorrida y desplazamiento en una misión de reconocimiento?",
+      "respuesta_esperada": "La distancia es la longitud total del camino recorrido (escalar), mientras que el desplazamiento es el cambio de posición neto desde el inicio hasta el final (vector)."
     },
     {
-      "pregunta": "Si un satélite se desplaza en el afelio a una distancia $r_a = 40,000 \\text{ km}$ con velocidad $v_a = 2 \\text{ km/s}$, ¿cuál será su velocidad en el perihelio si $r_p = 10,000 \\text{ km}$?",
-      "respuesta_esperada": "Aplicando conservación del momento angular ($r_a \\cdot v_a = r_p \\cdot v_p$): $(40,000)(2) = (10,000)(v_p) \\implies v_p = 80,000 / 10,000 = 8 \\text{ km/s}$."
+      "pregunta": "Si un dron de vigilancia acelera a 2 m/s², ¿qué significa esto para su velocidad cada segundo?",
+      "respuesta_esperada": "Significa que su velocidad aumenta en 2 metros por segundo cada segundo que transcurre."
     },
     {
-      "pregunta": "¿Qué constante física universal introdujo Newton para poder calcular numéricamente la fuerza gravitacional?",
-      "respuesta_esperada": "La Constante de Gravitación Universal $G$, cuyo valor aproximado es $6.674 \\times 10^{-11} \\text{ N}\\cdot\\text{m}^2/\\text{kg}^2$."
+      "pregunta": "¿Por qué un velocímetro de auto solo marca rapidez y no velocidad?",
+      "respuesta_esperada": "Porque solo indica la magnitud de la rapidez en un instante dado, pero no proporciona la dirección del movimiento."
     },
     {
-      "pregunta": "¿Cómo cambia el período orbital $T$ de un cuerpo si el radio de su órbita circular se multiplica por 4?",
-      "respuesta_esperada": "Según la 3ra Ley ($T^2 \\propto r^3$), si $r$ se multiplica por 4, $r^3$ se multiplica por $64$. Por lo tanto, $T = \\sqrt{64} = 8$. El período se multiplica por 8."
+      "pregunta": "En un gráfico de Velocidad vs. Tiempo, ¿qué representa el área bajo la curva?",
+      "respuesta_esperada": "Representa el desplazamiento total realizado por el objeto en ese intervalo de tiempo."
     },
     {
-      "pregunta": "¿Por qué la fuerza gravitacional se considera una fuerza central?",
-      "respuesta_esperada": "Porque su línea de acción siempre pasa por el centro del cuerpo que genera el campo gravitacional, sin producir momentos de fuerza (torques) respecto a ese centro."
+      "pregunta": "¿Puede un objeto tener velocidad cero y estar acelerando simultáneamente? Da un ejemplo.",
+      "respuesta_esperada": "Sí, cuando lanzas un objeto hacia arriba, en el punto más alto su velocidad es cero, pero sigue acelerado por la gravedad (9.8 m/s²)."
     }
   ],
   "preguntas_deductivas_cuaderno": [
-    "Diseña un diagrama detallado de vectores donde muestres las fuerzas y componentes de velocidad de un objeto orbital en 4 puntos distintos de su elipse (Perihelio, Afelio y dos puntos intermedios).",
-    "Elabora un mapa mental deductivo conectando la Ley de Gravitación Universal de Newton con las tres Leyes de Kepler, mostrando qué ecuación se deriva de cuál.",
-    "Realiza un dibujo explicativo del paso a paso matemático para despejar la velocidad orbital $v$ y el período $T$ a partir del equilibrio entre aceleración centrípeta y masa central.",
-    "Crea una infografía artesanal titulada 'Navegación Celestes en el Páramo', combinando ecuaciones clave, unidades del S.I. y consejos de supervivencia para la recolección de satélites."
+    "Dibuja un diagrama de vectores detallado que muestre la suma de tres desplazamientos distintos realizados por un explorador en busca de agua.",
+    "Elabora un mapa mental sobre la clasificación de los movimientos (MRU, MRUA, Caída Libre) destacando sus ecuaciones y características.",
+    "Realiza un dibujo explicativo del experimento de Galileo cayendo objetos desde la torre de Pisa, adaptado a un edificio post-apocalíptico.",
+    "Diseña una infografía artesanal que explique por qué es más difícil frenar un camión cargado de suministros que una bicicleta, usando el concepto de inercia."
   ],
   "icfes": [
     {
       "competencia": "Explicación de Fenómenos",
-      "texto_introductorio": "En la estación de rastreo del Sector B, el detective detecta dos sondas sobrevivientes (Sonda Alfa y Sonda Beta) que giran alrededor de la Tierra en órbitas circulares. Los datos de la consola de monitoreo se resumen en la siguiente tabla:",
-      "tabla_o_grafica_markdown": "| Sonda | Radio Orbital ($r$) | Masa de la Sonda ($m$) | Período Orbital ($T$) |\n| :--- | :--- | :--- | :--- |\n| **Alfa** | $R$ | $2M_0$ | $T_0$ |\n| **Beta** | $4R$ | $M_0$ | ? |",
-      "pregunta": "Con base en la Tercera Ley de Kepler y la mecánica newtoniana, ¿cuál es el período orbital de la Sonda Beta en función de $T_0$?",
+      "texto_introductorio": "Un grupo de supervivientes observa que un objeto dejado caer desde una torre de comunicación tarda exactamente 3 segundos en tocar el suelo. No hay resistencia del aire significativa debido al cambio atmosférico. Considera g = 10 m/s².",
+      "tabla_o_grafica_markdown": "| Tiempo (s) | Velocidad (m/s) | Altura caída (m) |\n|---|---|---|\n| 0 | 0 | 0 |\n| 1 | 10 | 5 |\n| 2 | 20 | 20 |\n| 3 | 30 | 45 |",
+      "pregunta": "Si la torre tuviera el doble de altura, ¿el tiempo que tarda el objeto en caer se duplicaría?",
       "opciones": [
-        "$2 T_0$",
-        "$4 T_0$",
-        "$8 T_0$",
-        "$16 T_0$"
-      ],
-      "correcta": 2,
-      "retroalimentacion": {
-        "0": "Incorrecto. $2 T_0$ corresponde a una relación lineal con el radio, lo cual violaría la proporción $T^2 \\propto r^3$.",
-        "1": "Incorrecto. $4 T_0$ asume que el período crece igual que el radio, ignorando el exponente cúbico de Kepler.",
-        "2": "¡Correcto! Aplicando $\\frac{T^2}{r^3} = \\text{cte}$, tenemos $\\frac{T_A^2}{R^3} = \\frac{T_B^2}{(4R)^3} \\implies \\frac{T_A^2}{R^3} = \\frac{T_B^2}{64 R^3} \\implies T_B^2 = 64 T_A^2 \\implies T_B = 8 T_0$.",
-        "3": "Incorrecto. $16 T_0$ resulta de elevar al cuadrado el factor 4 sin extraer la raíz cuadrada para $T$."
-      }
-    },
-    {
-      "competencia": "Uso Comprensivo del Conocimiento Científico",
-      "texto_introductorio": "Una cápsula con medicina vital viaja en una órbita elíptica no circular alrededor de la Tierra. En el punto $A$ (Perihelio), la distancia al centro de la Tierra es $r_A$ y su velocidad es $v_A$. En el punto $B$ (Afelio), su distancia es $r_B = 3 r_A$.",
-      "tabla_o_grafica_markdown": "| Posición | Distancia al Centro | Velocidad Orbital |\n| :--- | :--- | :--- |\n| **Punto A (Perihelio)** | $r_A$ | $v_A$ |\n| **Punto B (Afelio)** | $3 r_A$ | $v_B$ |",
-      "pregunta": "¿Cuál es la relación de la velocidad $v_B$ en el afelio respecto a $v_A$?",
-      "opciones": [
-        "$v_B = 3 v_A$",
-        "$v_B = v_A / 3$",
-        "$v_B = v_A / 9$",
-        "$v_B = 9 v_A$"
+        "Sí, porque el tiempo es directamente proporcional a la altura en la caída libre.",
+        "No, porque la altura es proporcional al cuadrado del tiempo, por lo que tardaría menos del doble.",
+        "No, porque la gravedad aumenta a medida que el objeto se acerca al suelo.",
+        "Sí, porque la velocidad final sería el doble también."
       ],
       "correcta": 1,
       "retroalimentacion": {
-        "0": "Incorrecto. Esto implicaría que la cápsula va más rápido cuando está más lejos, lo cual contradice la conservación del momento angular y la Segunda Ley de Kepler.",
-        "1": "¡Correcto! Por conservación del momento angular ($L = m r v$), en las posiciones extremas se cumple $r_A v_A = r_B v_B$. Sustituyendo $r_B = 3 r_A$: $r_A v_A = 3 r_A v_B \\implies v_B = v_A / 3$.",
-        "2": "Incorrecto. $v_A / 9$ confunde la relación lineal con la ley del cuadrado inverso de la fuerza gravitacional.",
-        "3": "Incorrecto. Incrementaría de forma cuadrática la velocidad en el afelio, violando los principios cinemáticos orbitales."
+        "0": "Incorrecto. En caída libre, la relación no es lineal: h = (1/2)gt².",
+        "1": "Correcto. Como la altura depende de t², para duplicar el tiempo se necesitaría cuadruplicar la altura. Si la altura se duplica, el tiempo aumenta por un factor de √2.",
+        "2": "Incorrecto. Cerca de la superficie terrestre, la gravedad se considera constante.",
+        "3": "Incorrecto. El tiempo no se duplica linealmente con la altura."
       }
     }
   ]

@@ -1,132 +1,123 @@
 {
   "saberes_previos": [
     {
-      "pregunta": "¿Cuál es la causa principal de las estaciones del año en el planeta Tierra?",
+      "pregunta": "¿Qué forma tiene la trayectoria de un planeta alrededor del Sol?",
       "opciones": [
-        "La variación drástica de la distancia entre la Tierra y el Sol durante el año.",
-        "La inclinación del eje de rotación terrestre respecto a su plano orbital.",
-        "El cambio en la velocidad de rotación de la Tierra sobre su propio eje.",
-        "Las erupciones solares periódicas que calientan la atmósfera."
+        "Círculo perfecto",
+        "Línea recta",
+        "Elipse",
+        "Cuadrado con bordes curvos"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "¿Qué fuerza mantiene a los planetas en su lugar según la física clásica?",
+      "opciones": [
+        "Magnetismo",
+        "Gravedad",
+        "Fricción espacial",
+        "Energía eólica"
       ],
       "correcta": 1
     },
     {
-      "pregunta": "Según la vista científica moderna, ¿qué forma tienen las órbitas de los planetas alrededor del Sol?",
+      "pregunta": "En un mundo sin GPS, ¿qué astro es el más fiable para orientarse?",
       "opciones": [
-        "Círculos perfectos con el Sol exactamente en el centro.",
-        "Elipses en las que el Sol se ubica en uno de los focos.",
-        "Espirales que se acercan lentamente al Sol.",
-        "Óvalos irregulares sin ninguna simetría matemática."
+        "La Luna",
+        "Marte",
+        "La Estrella Polar",
+        "Un satélite caído"
       ],
-      "correcta": 1
+      "correcta": 2
     },
     {
-      "pregunta": "Si un planeta se desplaza en su órbita y no hay fricción en el espacio, ¿necesita una fuerza constante impulsándolo para no detenerse?",
+      "pregunta": "¿Quién propuso que la Tierra no es el centro del universo?",
       "opciones": [
-        "Sí, requiere un empuje constante hacia adelante según la física aristotélica.",
-        "No, por el principio de inercia mantendrá su movimiento tangencial sin necesidad de propulsión.",
-        "Sí, porque la gravedad del Sol lo frena continuamente.",
-        "No, porque la radiación solar lo empuja hacia adelante."
+        "Aristóteles",
+        "Ptolomeo",
+        "Copérnico",
+        "Newton"
       ],
-      "correcta": 1
+      "correcta": 2
     }
   ],
-  "texto_inductivo": "# Expediente de Investigación: El Mito de las Forjas Solares\n\nSaludos, Agente de Reconocimiento del Yermo. Soy el Detective de Misterios del Sector 7. En este mundo post-apocalíptico del año 2145, la ignorancia es tan letal como la radiación. Los Fanáticos de la pira solar han infundido terror en los refugiados difundiendo un mito peligroso: afirman que la Gran Severidad (el calor abrasador de los veranos) ocurre porque la Tierra 'se precipita en un círculo gigante hacia el centro del Sol' y que necesitamos quemar valioso combustible para 'empujar la Tierra de lado' y evitar que colapse. [JUEGO:ORDENAR_LETRAS:KEPLER]\n\n***¿Cómo la comprensión del verdadero movimiento planetario nos permite desmentir los mitos de los Cultistas del Sol y calcular la trayectoria real de nuestro planeta para gestionar los recursos de supervivencia sin caer en el pánico del Yermo?***\n\nPara resolver esta pregunta problematizadora, primero debemos analizar las evidencias en el terreno. [JUEGO:ORDENAR_FRASE:LA TIERRA GIRA EN UNA ORBITA ELIPTICA] Si la Tierra se moviera en un círculo perfecto y las estaciones dependieran únicamente de la distancia, el hemisferio norte y el hemisferio sur tendrían verano exactamente al mismo tiempo. ¡Pero nuestras viejas bitácoras satelitales demuestran que cuando el norte arde en verano, el sur atraviesa un invierno helado! [JUEGO:SOPA_LETRAS:SOL,FOCO,AFELIO] Esto desmiente la primera parte del mito fanático.\n\n<div style='background-color: #1e2530; border: 2px solid #ff9900; border-radius: 8px; padding: 15px; color: #e6e6e6; font-family: monospace; margin: 15px 0;'>\n<h4 style='color: #ff9900; margin-top: 0;'>🔍 EVIDENCIA VISUAL #1: Elipse Orbital vs Mito Circular</h4>\n<svg viewBox='0 0 500 200' style='width: 100%; height: auto; background: #11141a;'>\n  <!-- Orbit Ellipse -->\n  <ellipse cx='250' cy='100' rx='180' ry='70' fill='none' stroke='#4da6ff' stroke-width='2' stroke-dasharray='5,5'/>\n  <!-- Sun at Focus 1 -->\n  <circle cx='180' cy='100' r='18' fill='#ffcc00'/>\n  <text x='180' y='75' fill='#ffcc00' font-size='12' text-anchor='middle'>Sol (Foco 1)</text>\n  <!-- Focus 2 -->\n  <circle cx='320' cy='100' r='4' fill='#666'/>\n  <text x='320' y='85' fill='#888' font-size='10' text-anchor='middle'>Foco 2 (Vacío)</text>\n  <!-- Earth at Perihelion -->\n  <circle cx='70' cy='100' r='9' fill='#3399ff'/>\n  <text x='70' y='125' fill='#3399ff' font-size='11' text-anchor='middle'>Perihelio (Enero)</text>\n  <!-- Earth at Aphelion -->\n  <circle cx='430' cy='100' r='9' fill='#99ccff'/>\n  <text x='430' y='125' fill='#99ccff' font-size='11' text-anchor='middle'>Afelio (Julio)</text>\n  <!-- Axis Tilt Earth SVG Detail -->\n  <line x1='63' y1='85' x2='77' y2='115' stroke='#ff4444' stroke-width='2'/>\n</svg>\n<p style='font-size: 0.85em; text-align: center; color: #aaa;'>Figura 1. La Tierra está más cerca del Sol en Enero (Perihelio), cuando es invierno en el hemisferio Norte. ¡El mito del calor por distancia queda completamente desmentido!</p>\n</div>\n\nAnalicemos los datos de la Figura 1. [JUEGO:ORDENAR_LETRAS:ORBITA] Durante el mes de julio, la Tierra se encuentra en el **Afelio** (el punto más alejado del Sol, a unos 152 millones de km). [JUEGO:CRUCIGRAMA:Punto mas cercano al sol|PERIHELIO;Punto mas lejano|AFELIO] Sin embargo, es en julio cuando los sobrevivientes de nuestro sector del norte sufren las temperaturas más despiadadas. [JUEGO:ORDENAR_FRASE:EL SOL ESTA EN UN FOCO DE LA ELIPSE] ¿Cómo explica la ciencia física este fenómeno sin apelar a la magia de los cultistas? La clave reside en la inclinación de 23.5 grados del eje de rotación terrestre respecto a su plano de trayectoria. [JUEGO:SOPA_LETRAS:PERIHELIO,RADIO,AREA]\n\nPor otro lado, los cultistas afirman que debemos consumir uranio para 'empujar el planeta lateralmente' o de lo contrario se detendrá en el vacío. [JUEGO:ORDENAR_LETRAS:ELIPSE] ¡Absurdo! En el espacio no hay atmósfera significante que genere rozamiento. [JUEGO:CRUCIGRAMA:Forma de la orbita|ELIPSE;Astro central|SOL] Una vez que un cuerpo posee velocidad tangencial, la gravedad del Sol actúa como una fuerza centrípeta que desvía continuamente su dirección sin necesidad de motores extras. [JUEGO:ORDENAR_FRASE:LA VELOCIDAD CAMBIA SEGUN LA DISTANCIA]\n\n<table style='width: 100%; border-collapse: collapse; margin: 15px 0; font-family: sans-serif; background-color: #181c24; color: #fff;'>\n<thead>\n<tr style='background-color: #ff9900; color: #000;'>\n<th style='padding: 8px; border: 1px solid #444;'>Afirmación del Mito Popular</th>\n<th style='padding: 8px; border: 1px solid #444;'>Realidad Física Comprobada</th>\n<th style='padding: 8px; border: 1px solid #444;'>Evidencia Kinemática / Dinámica</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td style='padding: 8px; border: 1px solid #444;'>'El verano ocurre porque la órbita nos acerca drásticamente al Sol.'</td>\n<td style='padding: 8px; border: 1px solid #444;'>Las estaciones se deben a la inclinación del eje de rotación (23.5°).</td>\n<td style='padding: 8px; border: 1px solid #444;'>En el Perihelio (enero) estamos más cerca, pero es invierno en el norte.</td>\n</tr>\n<tr>\n<td style='padding: 8px; border: 1px solid #444;'>'La órbita es un círculo perfecto.'</td>\n<td style='padding: 8px; border: 1px solid #444;'>La órbita es una elipse con excentricidad casi nula (e ≈ 0.017).</td>\n<td style='padding: 8px; border: 1px solid #444;'>1ª Ley de Kepler: El Sol está en uno de los focos, no en el centro.</td>\n</tr>\n<tr>\n<td style='padding: 8px; border: 1px solid #444;'>'Se requiere una fuerza motora continua para avanzar.'</td>\n<td style='padding: 8px; border: 1px solid #444;'>El movimiento se mantiene por Inercia (1ª Ley de Newton).</td>\n<td style='padding: 8px; border: 1px solid #444;'>La gravedad modifica la dirección (aceleración centrípeta), no el avance inercial.</td>\n</tr>\n</tbody>\n</table>\n\n[JUEGO:ORDENAR_LETRAS:GRAVEDAD] Los registros históricos del físico Johannes Kepler y Sir Isaac Newton son las herramientas con las que restableceremos el orden. [JUEGO:SOPA_LETRAS:NEWTON,MASA,INERCIA] Al medir la posición, velocidad lineal y aceleración de la Tierra en los distintos sectores orbitales, descubrimos que el planeta acelera al acercarse al Perihelio y desacelera al alejarse hacia el Afelio. [JUEGO:ORDENAR_FRASE:EL INVIERNO NO DEPENDE DEL AFELIO] No hay demonios ni motores invisibles; únicamente leyes universales de la física actuando sobre el cosmos. [JUEGO:CRUCIGRAMA:Resistencia al cambio de movimiento|INERCIA;Fuerza de atraccion|GRAVEDAD]\n\n[JUEGO:ORDENAR_LETRAS:INERCIA] Como detective de este refugio, tu deber es estudiar estos datos para desarmar la paranoia colectiva. [JUEGO:SOPA_LETRAS:ORBITA,TIEMPO,PERIODO] Si logras dominar el concepto cinemático de vector posición y aceleración gravitacional, podremos predecir con exactitud el clima del Yermo y conservar las reservas de agua limpia para la comunidad. [JUEGO:ORDENAR_FRASE:LA GRAVEDAD ES LA FUERZA CENTRIPETA] ¡Prosigamos con la investigación científica! [JUEGO:SOPA_LETRAS:INCLINACION,EJE,ESTACION] [JUEGO:CRUCIGRAMA:Cientifico de las tres leyes|KEPLER;Cientifico de la gravedad|NEWTON] [JUEGO:CRUCIGRAMA:Angulo de la Tierra|INCLINACION;Cambio de velocidad|ACELERACION]",
-  "recurso_visual": "| Concepto Evaluado | Visión del Mito / Culto del Yermo | Explicación Científica (Física) |\n|---|---|---|\n| **Geometría Orbital** | Círculo perfecto con el Sol en el centro absoluto. | Elipse con excentricidad reducida; el Sol ocupa uno de los focos. |\n| **Causa de las Estaciones** | Variación brusca en la distancia Tierra-Sol. | Inclinación de 23.5° del eje terrestre frente a la radiación incidente. |\n| **Sostén del Movimiento** | Impulso o empuje constante requerido en la dirección de la trayectoria. | Inercia (1ª Ley de Newton) + Fuerza Gravitacional como Aceleración Centrípeta. |\n| **Variación de Velocidad** | Velocidad constante impuesta por entidades míticas. | Cambio cinemático: Mayor velocidad en el Perihelio, menor velocidad en el Afelio (2ª Ley de Kepler). |",
+  "texto_inductivo": "Saludos, superviviente. Soy el Detective de Misterios de la Zona Cero. Tras el Gran Colapso, los antiguos mapas estelares se han perdido y ha surgido un mito peligroso entre las tribus de los páramos: dicen que la Tierra es un disco inmóvil y que el Sol es solo una lámpara que gira sobre nosotros. Como detective, tu misión es recolectar pruebas para desmentir esta mentira. ***¿Es posible que la Tierra sea el centro estático de un universo en ruinas, o acaso las leyes de Kepler siguen dictando nuestro destino orbital a pesar del colapso de la civilización?***\n\nPara empezar, observa este antiguo diagrama rescatado de un búnker:\n\n<div style='background-color: #2c3e50; padding: 20px; border-radius: 10px; border: 2px solid #e74c3c; color: #ecf0f1;'>\n  <h3 style='text-align: center;'>Diagrama de la Órbita Elíptica</h3>\n  <svg viewBox='0 0 400 200' xmlns='http://www.w3.org/2000/svg'>\n    <ellipse cx='200' cy='100' rx='150' ry='70' style='fill:none;stroke:#f1c40f;stroke-width:3' />\n    <circle cx='130' cy='100' r='15' style='fill:#f39c12' />\n    <text x='115' y='130' fill='white' style='font-size:12px'>SOL (Foco)</text>\n    <circle cx='350' cy='100' r='8' style='fill:#3498db' />\n    <text x='320' y='140' fill='white' style='font-size:12px'>TIERRA (Móvil)</text>\n    <line x1='130' y1='100' x2='350' y2='100' stroke='white' stroke-dasharray='4' />\n  </svg>\n  <p style='font-size: 0.8rem;'>Nota: La Tierra no se mueve en círculos, se mueve en una elipse [JUEGO:ORDENAR_LETRAS:ELIPSE]. El Sol no está en el centro, sino en uno de los focos.</p>\n</div>\n\nEl mito del geocentrismo asume que todo gira en círculos perfectos. [JUEGO:ORDENAR_FRASE:LA TIERRA GIRA ALREDEDOR DEL SOL] Sin embargo, si así fuera, las estaciones no cambiarían de la forma en que lo hacen. Debemos analizar la velocidad. [JUEGO:SOPA_LETRAS:SOL,LUNA,EJE] Cuando el planeta se acerca al Sol en su órbita, su velocidad aumenta debido a la atracción gravitatoria. [JUEGO:CRUCIGRAMA:Trayectoria ovalada|ELIPSE;Punto fijo orbital|FOCO]\n\n[ACTIVIDAD:CUADERNO:Dibuja un diagrama donde se compare una órbita circular mítica con una órbita elíptica real, señalando la posición del Sol.]\n\nmermaid\ngraph TD\n    A[Órbita Mítica] --> B(Círculo Perfecto)\n    A --> C(Sol en el Centro)\n    D[Órbita Real] --> E(Elipse)\n    D --> F(Sol en un Foco)\n    E -.-> G{Diferencia}\n    B -.-> G\n\n\nEn el páramo, la inercia [JUEGO:ORDENAR_LETRAS:INERCIA] es lo que mantiene tu vehículo moviéndose tras apagar el motor. En el espacio, es igual. [JUEGO:ORDENAR_FRASE:EL FOCO ES UN PUNTO FIJO] Los planetas no necesitan un motor para girar; solo necesitan su velocidad inicial y la gravedad del Sol. [JUEGO:SOPA_LETRAS:MASA,PESO,FUERZA] Si la Tierra se detuviera, caeríamos directamente al Sol. [JUEGO:CRUCIGRAMA:Fuerza que atrae|GRAVEDAD;Centro de masa|SOL]\n\n[ACTIVIDAD:CUADERNO:Crea una tabla comparativa entre el Geocentrismo y el Heliocentrismo usando los datos del texto.]\n\nmermaid\ngraph LR\n    id1(Geocentrismo) -- Error --> Tierra_Centro\n    id2(Heliocentrismo) -- Verdad --> Sol_Centro\n    Tierra_Centro -- Versus --> Sol_Centro\n\n\nLa luz del Sol tarda 8 minutos en llegar a nosotros. [JUEGO:ORDENAR_LETRAS:ASTRO] Si el Sol girara alrededor de nosotros a la distancia que dicen los mitos, tendría que moverse más rápido que la luz. [JUEGO:ORDENAR_FRASE:EL RADIO VECTOR BARRE AREAS IGUALES] ¡Físicamente imposible! [JUEGO:SOPA_LETRAS:RAYO,ONDA,LUZ] Analizar la cinemática nos permite descubrir la verdad. [JUEGO:CRUCIGRAMA:Punto mas alejado|AFELIO;Estudio del movimiento|CINEMATICA]\n\n[ACTIVIDAD:CUADERNO:Dibuja un mapa mental que conecte los conceptos de Posición, Velocidad y Aceleración en una órbita.]\n\nmermaid\ngraph TD\n    Movimiento --> Posicion\n    Movimiento --> Velocidad\n    Movimiento --> Aceleracion\n    Velocidad --> Cambia_Direccion\n    Aceleracion --> Centripeta\n\n\nFinalmente, recuerda que el tiempo es relativo a la distancia. [JUEGO:ORDENAR_LETRAS:ORBITA] Los planetas más lejanos tardan más años en dar la vuelta. [JUEGO:ORDENAR_FRASE:EL PERIODO DEPENDE DE LA DISTANCIA] Si todo estuviera en una esfera fija, todos tardarían lo mismo. [JUEGO:SOPA_LETRAS:CIELO,MAPA,RUTA] Como detectives, las pruebas nos dicen que el mito es falso. [JUEGO:CRUCIGRAMA:Cientifico del movimiento|NEWTON;Camino del planeta|ORBITA]\n\n[ACTIVIDAD:CUADERNO:Representa gráficamente la 2da Ley de Kepler, dibujando las 'áreas iguales' que barre un planeta en tiempos iguales.]\n\nmermaid\ngraph TD\n    A[Sol] --- B(Perihelio)\n    A --- C(Afelio)\n    B -- Area 1 -- A\n    C -- Area 2 -- A\n    style B fill:#f96\n    style C fill:#69f\n",
+  "recurso_visual": "| Concepto | Mito (Post-Apoc) | Realidad Científica |\n|---|---|---|\n| **Centro del Sistema** | La Tierra es el centro. | El Sol es el centro (Heliocentrismo). |\n| **Forma de la Órbita** | Círculo perfecto. | Elipse (1ra Ley de Kepler). |\n| **Velocidad** | Constante y eterna. | Varía según la distancia al Sol (2da Ley de Kepler). |\n| **Causa del Movimiento** | Voluntad divina/misterio. | Gravitación Universal y cinemática. |",
   "preguntas_inductivas_pagina": [
     {
-      "pregunta": "¿Por qué el hecho de que sea invierno en el hemisferio sur mientras es verano en el hemisferio norte desmiente el mito de la distancia al Sol?",
-      "respuesta_esperada": "Porque si la distancia al Sol fuera la causa, todo el planeta experimentaría la misma estación calurosa o fría de forma simultánea al estar a la misma distancia de la estrella."
+      "pregunta": "¿Por qué el mito de la órbita circular es incorrecto según Kepler?",
+      "respuesta_esperada": "Porque los planetas siguen trayectorias elípticas donde el Sol ocupa uno de los focos, no el centro exacto."
     },
     {
-      "pregunta": "¿Qué figura geométrica describe realmente la Tierra al orbitar y qué lugar ocupa el Sol en ella?",
-      "respuesta_esperada": "Describe una elipse, y el Sol no está en el centro, sino en uno de los dos focos de la elipse."
+      "pregunta": "¿Qué sucede con la velocidad de la Tierra cuando está más cerca del Sol?",
+      "respuesta_esperada": "La velocidad aumenta debido a la mayor fuerza de atracción gravitatoria."
     },
     {
-      "pregunta": "¿Cómo se denominan los puntos orbitales de máxima cercanía y máxima lejanía entre la Tierra y el Sol?",
-      "respuesta_esperada": "El punto de máxima cercanía se llama Perihelio y el punto de máxima lejanía se llama Afelio."
+      "pregunta": "Si un planeta barre un área en 10 días en el perihelio, ¿cuánto tiempo tarda en barrer la misma área en el afelio?",
+      "respuesta_esperada": "Tarda exactamente los mismos 10 días, según la Segunda Ley de Kepler."
     },
     {
-      "pregunta": "¿Por qué un planeta no se detiene en el espacio exterior aunque no posea motores o cohetes encendidos?",
-      "respuesta_esperada": "Debido al principio de inercia; en la ausencia de fricción atmosférica significativa en el espacio, no se requiere fuerza para mantener la velocidad tangencial."
+      "pregunta": "¿Qué elemento central desmiente que el Sol gire alrededor de la Tierra?",
+      "respuesta_esperada": "La diferencia de masas y las leyes de la inercia y gravitación, que exigen que el cuerpo menor orbite al mayor."
     },
     {
-      "pregunta": "¿Cuál es la inclinación aproximada del eje terrestre que explica las estaciones del año?",
-      "respuesta_esperada": "La inclinación es de aproximadamente 23.5 grados respecto a la perpendicular del plano orbital."
+      "pregunta": "¿Cómo se llama el punto de la órbita más cercano al Sol?",
+      "respuesta_esperada": "Perihelio."
     }
   ],
   "preguntas_inductivas_cuaderno": [
-    "Dibuja un esquema detallado a color en tu cuaderno que muestre la órbita elíptica terrestre, marcando el Sol en un foco, el Perihelio, el Afelio y la inclinación del eje terrestre en verano e invierno.",
-    "Elabora un cuadro comparativo de tres columnas contrastando: 'Creencia del Mito', 'Realidad Física' y 'Consecuencias para los sobrevivientes del Yermo'.",
-    "Escribe una carta reflexiva de dos párrafos redactada desde tu rol de Detective de Misterios, dirigida a los refugiados del Sector 7, donde expliques calmadamente por qué no deben temer un colapso solar inminente.",
-    "Representa gráficamente en un diagrama vectorial cómo la velocidad de la Tierra cambia entre el Perihelio y el Afelio, dibujando los vectores de velocidad tangencial y fuerza gravitacional."
+    "Dibuja un esquema detallado de la Primera Ley de Kepler identificando el Sol, los focos y el eje mayor.",
+    "Realiza un cuadro comparativo entre el concepto de 'Círculo' y 'Elipse', explicando cuál se ajusta mejor a la realidad planetaria.",
+    "Escribe un informe de detective de 10 líneas explicando por qué el mito del geocentrismo pondría en riesgo la navegación estelar.",
+    "Representa mediante un dibujo cómo cambia el vector velocidad (flecha) de un planeta a lo largo de su órbita elíptica."
   ],
-  "texto_deductivo": "# Análisis Formal de Laboratorio: Las Leyes del Movimiento Planetario\n\nBienvenido a la sección deductiva del expediente, Agente. Aquí desglosaremos con precisión matemática y cinemática las herramientas teóricas necesarias para destruir el mito del culto solar. [JUEGO:ORDENAR_LETRAS:VELOCIDAD]\n\n### 1. Las Tres Leyes de Kepler\n\n**Primera Ley (Ley de las Órbitas):** Todos los planetas se mueven en órbitas elípticas con el Sol situado en uno de los focos. La ecuación de la elipse en coordenadas polares considerando el centro en un foco es:\n$$r(\\theta) = \\frac{a(1 - e^2)}{1 + e \\cos\\theta}$$\nDonde $a$ es el semieje mayor y $e$ es la excentricidad ($0 \\le e < 1$). [JUEGO:ORDENAR_LETRAS:POSICION]\n\n**Segunda Ley (Ley de las Áreas):** El radio vector que une a un planeta con el Sol barre áreas iguales en tiempos iguales. [JUEGO:ORDENAR_FRASE:LAS AREAS IGUALES SE BARREN EN TIEMPOS IGUALES] Matemáticamente, la velocidad areolar es constante: $\\frac{dA}{dt} = \\frac{L}{2m} = \\text{constante}$. Esto implica que cuando el radio $r$ es pequeño (Perihelio), la velocidad tangencial $v$ debe ser mayor. [JUEGO:SOPA_LETRAS:SISTEMA,PLANETA,VECTOR]\n\n<div style='background-color: #151922; border: 2px solid #3388ff; border-radius: 8px; padding: 15px; margin: 15px 0;'>\n<h4 style='color: #3388ff; margin-top: 0;'>📐 DIAGRAMA VECTORIAL: 2ª Ley de Kepler y Vectores Kinemáticos</h4>\n<svg viewBox='0 0 500 220' style='width: 100%; height: auto; background: #0c0f14;'>\n  <!-- Sector 1 (Perihelio) -->\n  <path d='M 160 110 L 50 110 A 180 80 0 0 1 80 50 Z' fill='rgba(255, 153, 0, 0.3)' stroke='#ff9900'/>\n  <!-- Sector 2 (Afelio) -->\n  <path d='M 160 110 L 430 110 A 180 80 0 0 1 400 160 Z' fill='rgba(255, 153, 0, 0.3)' stroke='#ff9900'/>\n  <!-- Ellipse -->\n  <ellipse cx='240' cy='110' rx='190' ry='80' fill='none' stroke='#555' stroke-width='1.5'/>\n  <!-- Sun -->\n  <circle cx='160' cy='110' r='14' fill='#ffcc00'/>\n  <!-- Planet at Perihelion -->\n  <circle cx='50' cy='110' r='7' fill='#00ccff'/>\n  <!-- Velocity Vector Perihelion -->\n  <line x1='50' y1='110' x2='50' y2='40' stroke='#00ff66' stroke-width='3' marker-end='url(#arrow)'/>\n  <text x='15' y='50' fill='#00ff66' font-size='12'>v_max (Grande)</text>\n  <!-- Planet at Aphelion -->\n  <circle cx='430' cy='110' r='7' fill='#00ccff'/>\n  <!-- Velocity Vector Aphelion -->\n  <line x1='430' y1='110' x2='430' y2='150' stroke='#00ff66' stroke-width='2'/>\n  <text x='435' y='165' fill='#00ff66' font-size='12'>v_min (Pequeña)</text>\n  <text x='90' y='90' fill='#ff9900' font-size='11'>Área 1</text>\n  <text x='320' y='130' fill='#ff9900' font-size='11'>Área 2 (Área 1 = Área 2)</text>\n</svg>\n<p style='font-size: 0.85em; text-align: center; color: #aaa;'>Figura 2. Conservación del momento angular: El planeta acelera cerca del Sol para barrer el mismo área en el mismo intervalo $\\Delta t$.</p>\n</div>\n\n[JUEGO:ORDENAR_LETRAS:ACELERACION] **Tercera Ley (Ley de los Periodos):** El cuadrado del periodo orbital $T$ de cualquier planeta es proporcional al cubo del semieje mayor $a$ de su órbita: [JUEGO:ORDENAR_FRASE:EL CUADRADO DEL PERIODO ES PROPORCIONAL AL CUBO DEL RADIO]\n$$T^2 = K \\cdot a^3$$\nDonde $K = \\frac{4\\pi^2}{G M_{sol}}$. Esto demuestra matemáticamente la armonía del movimiento dinámico sin intervención mística. [JUEGO:CRUCIGRAMA:Primera ley de Kepler|ELIPSES;Segunda ley de Kepler|AREAS] [JUEGO:SOPA_LETRAS:FUERZA,DISTANCIA,LEY]\n\n### 2. La Unificación Newtoniana y Cinemática Orbital\n\nIsaac Newton demostró que la fuerza responsable de mantener a los planetas en esa trayectoria elíptica es la **Fuerza Gravitacional Universal**:\n$$\\vec{F}_g = -G \\frac{M m}{r^2} \\hat{r}$$\n\nEsta fuerza central genera una **aceleración centrípeta** ($a_c = \\frac{v^2}{r}$), modificando continuamente la dirección del vector velocidad de la Tierra. [JUEGO:ORDENAR_LETRAS:PERIHELIO] Como la fuerza actúa hacia el centro (el Sol), no realiza trabajo para frenar el movimiento tangencial perpetuo en el vacío. [JUEGO:ORDENAR_FRASE:LA INCLINACION DEL EJE CAUSA LAS ESTACIONES] Por ende, no existe pérdida de energía cinética que requiera un empuje de motores. [JUEGO:CRUCIGRAMA:Tercera ley de Kepler|PERIODOS;Fuerza hacia el centro|CENTRIPETA] [JUEGO:SOPA_LETRAS:SOMBRES,ECLIPSE,LUNA]\n\n<div style='background-color: #22181c; border: 2px solid #ff4444; border-radius: 8px; padding: 15px; margin: 15px 0;'>\n<h4 style='color: #ff4444; margin-top: 0;'>☀️ LA VERDADERA CAUSA DE LAS ESTACIONES: Inclinación Axial</h4>\n<svg viewBox='0 0 500 160' style='width: 100%; height: auto; background: #110d0f;'>\n  <!-- Sun rays -->\n  <line x1='10' y1='40' x2='150' y2='40' stroke='#ffff00' stroke-width='2' stroke-dasharray='4,4'/>\n  <line x1='10' y1='80' x2='150' y2='80' stroke='#ffff00' stroke-width='2' stroke-dasharray='4,4'/>\n  <line x1='10' y1='120' x2='150' y2='120' stroke='#ffff00' stroke-width='2' stroke-dasharray='4,4'/>\n  <text x='20' y='25' fill='#ffff00' font-size='12'>Radiación Solar Incidente</text>\n  <!-- Earth -->\n  <circle cx='280' cy='80' r='45' fill='#2255aa'/>\n  <!-- Tilt Axis (23.5 deg) -->\n  <line x1='255' y1='20' x2='305' y2='140' stroke='#ff4444' stroke-width='3'/>\n  <!-- Equator -->\n  <line x1='238' y1='97' x2='322' y2='63' stroke='#ffffff' stroke-width='1.5' stroke-dasharray='3,3'/>\n  <text x='310' y='30' fill='#ff4444' font-size='11'>Eje Tilted (23.5°)</text>\n  <text x='230' y='55' fill='#ff9999' font-size='11'>Hemisferio Norte (Luz Directa = Verano)</text>\n  <text x='250' y='125' fill='#99ccff' font-size='11'>Hemisferio Sur (Luz Oblicua = Invierno)</text>\n</svg>\n<p style='font-size: 0.85em; text-align: center; color: #aaa;'>Figura 3. Cuando el Hemisferio Norte se inclina HACIA el Sol, los rayos caen perpendiculares y concentrados (Verano), sin importar que la distancia orbital sea ligeramente mayor.</p>\n</div>\n\n[JUEGO:ORDENAR_LETRAS:AFELIO] Para desmentir formalmente el mito: las estaciones ocurren porque el ángulo de incidencia de los rayos solares varía debido al eje inclinado de 23.5° (Figura 3). [JUEGO:ORDENAR_FRASE:NO SE REQUIERE MOTOR PARA MANTENER LA ORBITA] Cuando un hemisferio está inclinado hacia el Sol, recibe radiación concentrada por unidad de área, independientemente de si estamos en Afelio o Perihelio. [JUEGO:SOPA_LETRAS:TANGENCIAL,CENTRIPETA,CURVA] [JUEGO:CRUCIGRAMA:Causa real de estaciones|INCLINACION;Mito solar|DISTANCIA]\n\n[JUEGO:ORDENAR_FRASE:DESMENTIR EL MITO ES CLAVE PARA SUPERVIVIR] Con este marco deductivo impecable, has desarmado la mentira de los Fanáticos de la pira solar. [JUEGO:SOPA_LETRAS:MITO,VERDAD,EVIDENCIA] ¡Informa al consejo de sobrevivientes! [JUEGO:CRUCIGRAMA:Cambio de posicion en el tiempo|VELOCIDAD;Cambio de velocidad|ACELERACION] [JUEGO:CRUCIGRAMA:Foco del sistema|SOL;Trayectoria planetaria|ORBITA]",
+  "texto_deductivo": "Ahora que hemos recolectado pistas, debemos usar el rigor científico para formalizar nuestras conclusiones. El gran Isaac Newton, cuyas fórmulas sobrevivieron en fragmentos de libros antiguos, nos enseñó que la gravedad es la cadena invisible del universo. [JUEGO:ORDENAR_LETRAS:NEWTON]\n\n<table style='width:100%; border: 2px solid #27ae60; background-color: #f9f9f9; color: #2c3e50;'>\n  <tr style='background-color: #27ae60; color: white;'>\n    <th>Ley</th>\n    <th>Fórmula Matemática</th>\n    <th>Significado para el Superviviente</th>\n  </tr>\n  <tr>\n    <td>Gravitación Universal</td>\n    <td>F = G * (m1*m2) / r²</td>\n    <td>A más distancia, menos fuerza de atracción.</td>\n  </tr>\n  <tr>\n    <td>3ra Ley de Kepler</td>\n    <td>T² ∝ a³</td>\n    <td>El tiempo de órbita depende de la distancia al Sol.</td>\n  </tr>\n</table>\n\nEl mito decía que los planetas flotan sin razón. [JUEGO:ORDENAR_FRASE:LA GRAVEDAD ES UNA FUERZA DE ATRACCION] Pero nosotros sabemos que la aceleración centrípeta es lo que curva su camino. [JUEGO:ORDENAR_LETRAS:KEPLER] Sin esta aceleración, la Tierra saldría disparada en línea recta hacia el vacío frío. [JUEGO:SOPA_LETRAS:LEY,FISICA,CIENCIA]\n\n[ACTIVIDAD:CUADERNO:Dibuja un diagrama de bloques que explique la relación entre Masa, Distancia y Fuerza Gravitatoria.]\n\nmermaid\ngraph LR\n    A[Aumento de Masa] --> B(Más Fuerza)\n    C[Aumento de Distancia] --> D(Menos Fuerza)\n    B --> E[Estabilidad Orbital]\n    D --> E\n\n\nPara desmentir el mito de que los planetas se mueven igual, usamos la Tercera Ley. [JUEGO:ORDENAR_FRASE:LOS PLANETAS DESCRIBEN ORBITAS ELIPTICAS] Mercurio es un corredor veloz; Neptuno es un anciano lento. [JUEGO:ORDENAR_LETRAS:MASA] Si todos estuvieran pegados a una cúpula, sus periodos serían idénticos. [JUEGO:SOPA_LETRAS:CENTRO,RADIO,AREA]\n\n[ACTIVIDAD:CUADERNO:Diseña una infografía que muestre por qué los años en Marte son más largos que en la Tierra usando la 3ra Ley de Kepler.]\n\nmermaid\ngraph TD\n    Planeta_Cerca --> Orbita_Corta --> Año_Breve\n    Planeta_Lejos --> Orbita_Larga --> Año_Extenso\n    style Planeta_Cerca fill:#fcc\n    style Planeta_Lejos fill:#ccf\n\n\nLa cinemática nos da las herramientas finales. [JUEGO:ORDENAR_FRASE:LA ACELERACION ES PROPORCIONAL A LA FUERZA] La aceleración no solo es cambiar de rapidez, sino cambiar de dirección. [JUEGO:ORDENAR_LETRAS:RADIO] Cada curva que hace la Tierra es una prueba de que una fuerza (el Sol) actúa sobre ella. [JUEGO:SOPA_LETRAS:VECTOR,ESCALAR,MAGNITUD]\n\n[ACTIVIDAD:CUADERNO:Dibuja un esquema de un satélite artificial alrededor de la Tierra, indicando hacia dónde apunta la fuerza de gravedad y el vector de velocidad.]\n\nmermaid\ngraph TD\n    T(Tierra) -- Gravedad --> S(Satélite)\n    S -- Velocidad Tangencial --> V[Espacio]\n    style T fill:#3498db\n    style S fill:#bdc3c7\n\n\nEl mito ha sido desmantelado. [JUEGO:ORDENAR_FRASE:EL CUADRADO DEL PERIODO ES PROPORCIONAL AL CUBO] La ciencia no es solo teoría, es la brújula que nos permite entender el cosmos en ruinas. [JUEGO:ORDENAR_LETRAS:TIEMPO] Sin estas leyes, no podríamos predecir cuándo vendrá el próximo invierno nuclear o cuándo las mareas subirán. [JUEGO:SOPA_LETRAS:ENERGIA,TRABAJO,CALOR]\n\n[ACTIVIDAD:CUADERNO:Crea un mapa mental sobre las variables de la Ley de Gravitación Universal (Masa 1, Masa 2, Constante G, Distancia r).]\n\nmermaid\ngraph TD\n    Gravitacion --> G(Constante Universal)\n    Gravitacion --> Masas(M1 y M2)\n    Gravitacion --> Distancia(r al cuadrado)\n    Masas -- Directamente --> Fuerza\n    Distancia -- Inversamente --> Fuerza\n\n\nFinalmente, la ley de la inercia de Newton confirma que el movimiento es natural. [JUEGO:ORDENAR_FRASE:LA FUERZA DISMINUYE CON EL CUADRADO DE LA DISTANCIA] No necesitamos ángeles ni motores ocultos empujando los astros. [JUEGO:CRUCIGRAMA:Autor de las leyes orbitales|KEPLER;Unidad de fuerza|NEWTON] El universo es una máquina perfecta de precisión matemática. [JUEGO:SOPA_LETRAS:ESPACIO,TIEMPO,MATERIA] [JUEGO:CRUCIGRAMA:Punto mas cercano al sol|PERIHELIO;Cambio de velocidad|ACELERACION]",
   "preguntas_deductivas_pagina": [
     {
-      "pregunta": "¿Qué expresa matemáticamente la Segunda Ley de Kepler respecto al movimiento del planeta en distintos puntos de la órbita?",
-      "respuesta_esperada": "Expresa que la velocidad areolar es constante, por lo que el planeta se mueve a mayor velocidad lineal cerca del Sol (Perihelio) y a menor velocidad lejos de él (Afelio)."
+      "pregunta": "¿Qué relación matemática existe entre el periodo orbital y la distancia al Sol?",
+      "respuesta_esperada": "El cuadrado del periodo orbital es proporcional al cubo de la distancia media al Sol (T² ∝ r³)."
     },
     {
-      "pregunta": "¿Cuál es la fórmula de la Tercera Ley de Kepler y qué representan sus variables $T$ y $a$?",
-      "respuesta_esperada": "La fórmula es T^2 = K * a^3, donde T representa el periodo orbital (tiempo en dar una vuelta completa) y 'a' representa el semieje mayor de la elipse."
+      "pregunta": "Si la distancia entre dos astros se duplica, ¿qué ocurre con la fuerza de gravedad entre ellos?",
+      "respuesta_esperada": "La fuerza se reduce a la cuarta parte (1/2² = 1/4)."
     },
     {
-      "pregunta": "Según la física newtoniana, ¿por qué la fuerza de gravedad no 'desgasta' ni 'frena' la velocidad de traslación de la Tierra en su órbita?",
-      "respuesta_esperada": "Porque la fuerza gravitacional actúa perpendicularmente al vector de velocidad tangencial como una fuerza centrípeta, cambiando su dirección pero no realizando trabajo sobre la rapidez en una órbita circular aproximada."
+      "pregunta": "¿Por qué un planeta no se sale de su órbita si se mueve tan rápido?",
+      "respuesta_esperada": "Porque la fuerza de gravedad actúa como una fuerza centrípeta que equilibra su tendencia inercial de seguir en línea recta."
     },
     {
-      "pregunta": "Si la excentricidad $e$ de una órbita fuera igual a 0, ¿en qué figura geométrica se convertiría la elipse?",
-      "respuesta_esperada": "Se convertiría en una circunferencia o círculo perfecto."
+      "pregunta": "¿Qué constante científica representa la 'G' en la fórmula de Newton?",
+      "respuesta_esperada": "La Constante de Gravitación Universal."
     },
     {
-      "pregunta": "¿Por qué el ángulo de incidencia de la radiación solar genera mayor calor en un hemisferio inclinado hacia el Sol?",
-      "respuesta_esperada": "Porque los rayos caen de forma perpendicular, concentrando mayor cantidad de energía térmica por metro cuadrado en comparación con los rayos oblicuos."
+      "pregunta": "¿Cuál es la diferencia entre velocidad y aceleración en el contexto de una órbita circular?",
+      "respuesta_esperada": "La velocidad puede tener magnitud constante, pero la aceleración existe porque la dirección cambia continuamente hacia el centro."
     }
   ],
   "preguntas_deductivas_cuaderno": [
-    "Dibuja un diagrama vectorial detallado a escala que ilustre la Fuerza Gravitacional, la Aceleración Centrípeta y la Velocidad Tangencial de la Tierra en cuatro puntos clave de su órbita.",
-    "Elabora un mapa mental integrando las tres Leyes de Kepler, la Ley de Gravitación Universal de Newton y el desmentido del mito del culto del Yermo.",
-    "Realiza un dibujo explicativo paso a paso que muestre cómo la luz solar impacta la Tierra en el solsticio de junio versus el solsticio de diciembre, señalando los ángulos de radiación.",
-    "Crea una infografía artesanal titulada 'Manual de Física para Sobrevivientes: Desmontando el Mito Solar' donde sintetices las ecuaciones clave y su aplicación práctica."
+    "Realiza un diagrama detallado que explique cómo la aceleración centrípeta mantiene a la Luna en órbita alrededor de la Tierra.",
+    "Elabora un mapa mental sobre las Tres Leyes de Kepler, incluyendo una pequeña ilustración para cada una.",
+    "Dibuja un gráfico de Fuerza vs Distancia para mostrar cómo la gravedad cae rápidamente al alejarse de un planeta.",
+    "Crea una infografía artesanal que explique paso a paso por qué es imposible que la Tierra sea plana y estática basándote en la gravedad."
   ],
   "icfes": [
     {
       "competencia": "Explicación de Fenómenos",
-      "texto_introductorio": "En el Yermo Post-Apocalíptico, un grupo de exploradores registra los datos de velocidad y distancia de la Tierra al Sol en dos momentos del año. Ellos notan que la velocidad cinemática cambia significativamente según la posición orbital.",
-      "tabla_o_grafica_markdown": "| Posición | Distancia al Sol (km) | Velocidad Orbital (km/s) |\n|---|---|---|\n| Punto A (Enero) | 147,100,000 | 30.29 |\n| Punto B (Julio) | 152,100,000 | 29.29 |",
-      "pregunta": "Un líder de la tribu afirma que en el Punto B hace más calor en el Norte porque la velocidad menor 'acumula' la radiación. ¿Cuál es la explicación científica correcta frente a este mito?",
+      "texto_introductorio": "En el observatorio de la Zona Cero, un detective nota que un planeta tarda 8 años terrestres en dar una vuelta al Sol. Según la Tercera Ley de Kepler, la relación entre el periodo (T) y la distancia (a) es constante.",
+      "tabla_o_grafica_markdown": "| Planeta | Periodo (T en años) | Distancia (a en UA) |\n|---|---|---|\n| Tierra | 1 | 1 |\n| Misterioso | 8 | ? |",
+      "pregunta": "¿Cuál es la distancia aproximada del Planeta Misterioso al Sol en Unidades Astronómicas (UA)?",
       "opciones": [
-        "El mito es correcto, a menor velocidad el planeta absorbe más energía calorífica por segundo.",
-        "La variación de velocidad responde a la 2ª Ley de Kepler, pero el calor del verano en el Norte durante el Punto B se debe a que el hemisferio Norte está inclinado hacia el Sol.",
-        "En el Punto A hace más calor en todo el globo simultáneamente porque la distancia es menor y la velocidad es mayor.",
-        "El calor depende únicamente de la velocidad tangencial y no tiene ninguna relación con la radiación o el eje terrestre."
+        "2 UA",
+        "4 UA",
+        "8 UA",
+        "16 UA"
       ],
       "correcta": 1,
       "retroalimentacion": {
-        "0": "Incorrecto. La absorción de energía térmica no aumenta por reducir la velocidad orbital a esa escala.",
-        "1": "¡Correcto! La velocidad varía según la Ley de las Áreas de Kepler, pero las estaciones responden a la inclinación del eje terrestre de 23.5° y no a la distancia o velocidad orbital.",
-        "2": "Incorrecto. Cuando en el Norte es invierno (Punto A), en el Sur es verano, lo que desmiente que todo el globo se caliente a la vez.",
-        "3": "Incorrecto. La velocidad tangencial no genera el calor climático de las estaciones."
-      }
-    },
-    {
-      "competencia": "Uso Comprensivo del Conocimiento Científico",
-      "texto_introductorio": "Los cultistas del Yermo insisten en que si se detiene el 'impulso divino', los planetas se frenarán y caerán en línea recta al Sol. Un detective aplica la Ley de Inercia y la Gravitación Universal para evaluar la situación orbital.",
-      "tabla_o_grafica_markdown": "| Fuerza | Dirección | Efecto Cinemático |\n|---|---|---|\n| Gravitacional ($F_g$) | Hacia el Sol (Central) | Modifica la dirección del vector velocidad ($a_c$) |\n| Roce en el vacío | Nula ($0\\text{ N}$) | No existe desaceleración tangencial |",
-      "pregunta": "Si de forma hipotética la fuerza de atracción gravitacional del Sol desapareciera repentinamente, ¿qué trayectoria seguiría la Tierra según la primera ley de Newton?",
-      "opciones": [
-        "Caería inmediatamente hacia el centro donde estaba el Sol.",
-        "Continuaría moviéndose en una línea recta tangencial a la órbita con velocidad constante.",
-        "Se detendría de inmediato en el espacio al perder la atracción central.",
-        "Comenzaría a girar en espiral hacia el exterior aumentando su aceleración."
-      ],
-      "correcta": 1,
-      "retroalimentacion": {
-        "0": "Incorrecto. Sin gravedad no hay fuerza que la atraiga hacia la posición del Sol.",
-        "1": "¡Correcto! Por el principio de inercia, al desaparecer la fuerza centrípeta, el cuerpo mantiene su estado de movimiento rectilíneo uniforme a lo largo de la tangente de la trayectoria.",
-        "2": "Incorrecto. Los cuerpos en el vacío no se detienen en ausencia de fuerzas; mantienen su movimiento.",
-        "3": "Incorrecto. No hay ninguna fuerza que origine un movimiento en espiral."
+        "0": "Incorrecto. 2 al cubo es 8, pero buscamos que T al cuadrado (8²=64) sea igual a a al cubo (2³=8). No coincide.",
+        "1": "Correcto. T² = 8² = 64. a³ = 4³ = 64. Al ser iguales, 4 UA es la respuesta según la 3ra Ley de Kepler.",
+        "2": "Incorrecto. Si la distancia fuera 8, T² debería ser 8³ (512), lo cual no es 64.",
+        "3": "Incorrecto. Una distancia de 16 daría un periodo mucho mayor."
       }
     }
   ]

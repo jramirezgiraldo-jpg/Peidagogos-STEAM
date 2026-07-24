@@ -1,132 +1,113 @@
 {
   "saberes_previos": [
     {
-      "pregunta": "¿Qué forma tiene la trayectoria que sigue la Tierra alrededor del Sol según la ciencia moderna?",
+      "pregunta": "¿Cuál es el nombre de la fuerza que atrae a los objetos hacia el centro de la Tierra?",
       "opciones": [
-        "Un círculo perfecto e inalterable",
-        "Una elipse ligeramente achatada",
-        "Una línea recta sin fin",
-        "Una espiral que se acerca cada año"
-      ],
-      "correcta": 1
-    },
-    {
-      "pregunta": "¿Qué fuerza es la principal responsable de mantener a los planetas en su órbita alrededor del Sol?",
-      "opciones": [
-        "La fuerza magnética nuclear",
-        "El empuje del viento solar",
-        "La fuerza de gravitación",
-        "La fricción del éter espacial"
+        "Inercia",
+        "Magnetismo",
+        "Gravedad",
+        "Electricidad"
       ],
       "correcta": 2
     },
     {
-      "pregunta": "Si un objeto se mueve en el espacio exterior sin rozamiento ni fuerzas externas, ¿qué ocurre con su movimiento?",
+      "pregunta": "¿Qué forma crees que tiene el camino que recorren los planetas alrededor del Sol?",
       "opciones": [
-        "Se detiene de inmediato",
-        "Acelera hacia el infinito",
-        "Mantiene su velocidad constante en línea recta por inercia",
-        "Empieza a girar en círculos"
+        "Triangular",
+        "Círculo perfecto",
+        "Línea recta",
+        "Óvalo (Elipse)"
       ],
-      "correcta": 2
+      "correcta": 3
+    },
+    {
+      "pregunta": "Según tu intuición, ¿un planeta se mueve más rápido cuando está cerca o lejos del Sol?",
+      "opciones": [
+        "Más rápido cerca",
+        "Más rápido lejos",
+        "Siempre igual",
+        "No se mueven"
+      ],
+      "correcta": 0
     }
   ],
-  "texto_inductivo": "***¿Por qué los habitantes sobrevivientes de la Gran Catástrofe creían que los planetas requerían motores gigantescos para girar en círculos perfectos, y cómo las pistas de la física antigua demuestran que flotan en elipses por pura gravedad e inercia?***\n\nSaludos, recluta del Yermo. Soy el Detective Vance, especialista en resolver los enigmas del viejo mundo y desmantelar la desinformación que domina las ruinas de la civilización. [JUEGO:ORDENAR_LETRAS:PLANETA] Tras el colapso del año 2090, la secta de los 'Geómetras del Yermo' ha difundido un mito peligroso: afirman que la Tierra es fija y que el Sol y los planetas giran alrededor de ella en círculos perfectos impulsados por artefactos extraterrestres. [JUEGO:ORDENAR_FRASE:UN MITO POPULAR AFIRMA QUE SON CIRCULOS PERFECTOS] Para mantener a la población ignorante, venden 'combustibles sagrados' prometiendo que así evitarán que los astros se detengan en el cielo. [JUEGO:SOPA_LETRAS:MITO,CIENCIA,DATOS]\n\nNuestra misión detectivezca es examinar la evidencia cinemática y gravitacional para desmentir esta creencia. [JUEGO:CRUCIGRAMA:Idea falsa popular|MITO;Evidencia comprobada|CIENCIA] Primero, debemos analizar las trayectorias reales. Los datos recuperados de los satélites antiguos no muestran círculos perfectos. [JUEGO:ORDENAR_LETRAS:ORBITA] Observa la discrepancia visual entre la mentira de la secta y el mapa celeste real:\n\n<div style=\"display:flex; justify-content:center; align-items:center; background:#1e1e1e; padding:15px; border-radius:10px; margin:15px 0;\"><svg width=\"350\" height=\"180\" viewBox=\"0 0 350 180\"><circle cx=\"90\" cy=\"90\" r=\"60\" stroke=\"#ff4444\" stroke-width=\"2\" fill=\"none\" stroke-dasharray=\"4\"/><circle cx=\"90\" cy=\"90\" r=\"6\" fill=\"#ffff00\"/><circle cx=\"150\" cy=\"90\" r=\"5\" fill=\"#00ffff\"/><text x=\"35\" y=\"170\" fill=\"#ff4444\" font-family=\"sans-serif\" font-size=\"12\">Mito: Círculo Perfecto</text><ellipse cx=\"260\" cy=\"90\" rx=\"75\" ry=\"45\" stroke=\"#00ff00\" stroke-width=\"2\" fill=\"none\"/><circle cx=\"235\" cy=\"90\" r=\"8\" fill=\"#ffff00\"/><circle cx=\"335\" cy=\"90\" r=\"5\" fill=\"#00ff00\"/><text x=\"205\" y=\"170\" fill=\"#00ff00\" font-family=\"sans-serif\" font-size=\"12\">Realidad: Órbita Elíptica</text></svg></div>\n\nComo ves en el diagrama superior, la orbita real es ovalada. [JUEGO:ORDENAR_LETRAS:ELIPSE] Esta trayectoria se denomina elipse. El astro central no está en el medio geométrico, sino en uno de los puntos denominados 'focos'. [JUEGO:ORDENAR_FRASE:LAS ORBITAS PLANETARIAS SON ELIPSES] Si un objeto estuviera obligado a circular con motores artificiales, requeriría un gasto infinito de energía, algo físicamente imposible en el espacio post-apocalíptico. [JUEGO:SOPA_LETRAS:SOL,ORBITA,FOCO] En realidad, los planetas son proyectiles en caída libre perpetua. [JUEGO:CRUCIGRAMA:Astro central del sistema|SOL;Trayectoria de un planeta|ORBITA]\n\n¿Pero qué mantiene a estos gigantes en movimiento si no hay motores? [JUEGO:ORDENAR_LETRAS:INERCIA] Aquí interviene el principio de inercia y la aceleración gravitacional. [JUEGO:ORDENAR_FRASE:LA INERCIA MANTIENE EL MOVIMIENTO EN EL ESPACIO] Cuando investigamos los registros cinemáticos (posición, velocidad y aceleración), notamos que la velocidad cambia según la posición del planeta en su ruta. [JUEGO:SOPA_LETRAS:MASA,LUNA,RUTA] No hay una fuerza empujando hacia adelante; la gravedad jala hacia el Sol mientras la inercia intenta mantener el objeto en línea recta. [JUEGO:CRUCIGRAMA:Fuerza de atraccion|GRAVEDAD;Resistencia al cambio de movimiento|INERCIA]\n\n<table style=\"width:100%; border-collapse:collapse; background-color:#2a2a2a; color:#fff; font-family:sans-serif; text-align:left;\"><tr style=\"background-color:#444;\"><th style=\"padding:8px; border:1px solid #666;\">Concepto Detectado</th><th style=\"padding:8px; border:1px solid #666;\">Creencia Falsa del Yermo</th><th style=\"padding:8px; border:1px solid #666;\">Evidencia Científica Real</th></tr><tr><td style=\"padding:8px; border:1px solid #666;\">Geometría Orbital</td><td style=\"padding:8px; border:1px solid #666;\">Círculos perfectos perfectos</td><td style=\"padding:8px; border:1px solid #666;\">Elipses con el Sol en un foco</td></tr><tr><td style=\"padding:8px; border:1px solid #666;\">Causa del Movimiento</td><td style=\"padding:8px; border:1px solid #666;\">Propulsores/Motores continuos</td><td style=\"padding:8px; border:1px solid #666;\">Inercia + Aceleración Gravitacional</td></tr></table>\n\nAl analizar el caso, descubrimos que la atracción gravitatoria actúa como una aceleración centrípeta constante. [JUEGO:ORDENAR_LETRAS:GRAVEDAD] El planeta 'cae' hacia el Sol pero nunca lo golpea porque su velocidad lateral es lo suficientemente alta. [JUEGO:ORDENAR_FRASE:LA GRAVEDAD ATRAE A LOS PLANETAS AL SOL] Esta revelación desmantela por completo el mito de la secta. [JUEGO:SOPA_LETRAS:LEYES,KEPLER,NEWTON] El estudio científico demuestra que la naturaleza sigue patrones matemáticos elegantes y no mitos infundados. [JUEGO:CRUCIGRAMA:Forma de la orbita|ELIPSE;Creador de las leyes orbitales|KEPLER]\n\nPara cerrar el expediente de este caso inductivo, debemos recordar que la posición cambia continuamente en el tiempo, generando un vector de velocidad variable en dirección y magnitud. [JUEGO:ORDENAR_FRASE:EL SOL ESTA EN UNO DE LOS FOCOS] Los registros pre-colapso de Kepler y Newton confirman que la ciencia explica el cosmos sin necesidad de magia ni motores divinos. [JUEGO:SOPA_LETRAS:MUNDO,CASO,PISTA] ¡Hemos desmontado la primera gran mentira del Yermo! [JUEGO:CRUCIGRAMA:Cambio de velocidad|ACELERACION;Ubicacion en el espacio|POSICION]",
-  "recurso_visual": "| Variable / Aspecto | El Mito Popular del Yermo | La Realidad Científica (Leyes Físicas) |\n| :--- | :--- | :--- |\n| **Forma de la Órbita** | Círculo perfecto ajustado a mano | Elipse con excentricidad (Sol en un foco) |\n| **Mecanismo de Impulso** | Empuje frontal continuo (Motores) | Inercia (no requiere empuje frontal continuo) |\n| **Fuerza Principal** | Fuerza mística/móvil | Gravitacional (Aceleración hacia el centro) |\n| **Velocidad Orbital** | Constante e invariable | Variable (más rápida en el perihelio, más lenta en el afelio) |",
+  "texto_inductivo": "Saludos, aspirante a Detective. En este mundo post-apocalíptico donde las máquinas han callado, debemos recuperar la ciencia para entender el cielo. ***¿Si el motor del universo se apagara tras el cataclismo, por qué los planetas siguen danzando en el vacío sin detenerse jamás?*** Algunos supervivientes creen que son empujados por espíritus, pero nosotros buscaremos la verdad en las ruinas del Observatorio Kepler. [JUEGO:ORDENAR_LETRAS:KEPLER] Para investigar, primero debemos entender la forma del camino estelar. [JUEGO:ORDENAR_FRASE:EL CIELO GUARDA SECRETOS ANTIGUOS] \n\n<div style='background-color: #2c3e50; color: #ecf0f1; padding: 20px; border-radius: 10px; border: 2px solid #e67e22;'>\n<h3 style='text-align: center;'>REGISTRO DE OBSERVACIÓN: LA ELIPSE</h3>\n<svg viewBox='0 0 400 200' xmlns='http://www.w3.org/2000/svg'>\n  <ellipse cx='200' cy='100' rx='150' ry='70' style='fill:none;stroke:#e67e22;stroke-width:3' />\n  <circle cx='130' cy='100' r='10' fill='yellow' />\n  <text x='115' y='85' fill='white' font-size='12'>SOL (Foco)</text>\n  <circle cx='350' cy='100' r='6' fill='#3498db' />\n  <text x='330' y='120' fill='white' font-size='12'>PLANETA</text>\n  <line x1='50' x2='350' y1='100' y2='100' stroke='white' stroke-dasharray='5,5' />\n</svg>\n<p style='font-size: 0.9rem; text-align: center;'>Diagrama de una órbita elíptica: El Sol no está en el centro, sino a un lado.</p>\n</div>\n\nEncontramos diarios que mencionan que los planetas no giran en círculos perfectos. [JUEGO:SOPA_LETRAS:ASTRO,COSMOS,RADIO] Johannes Kepler descubrió que las órbitas son elipses. [JUEGO:CRUCIGRAMA:Trayectoria curva cerrada|ORBITA;Forma de huevo estirado|ELIPSE] Al observar el firmamento, notamos que el Sol ocupa uno de los focos de esta figura. [JUEGO:ORDENAR_LETRAS:ELIPSE] \n\n[ACTIVIDAD:CUADERNO:Dibuja en tu cuaderno una órbita elíptica señalando los focos y la posición del Sol según el siguiente esquema]\nmermaid\ngraph TD\n  A[Orbita Eliptica] --> B(Foco 1: El Sol)\n  A --> C(Foco 2: Vacio)\n  A --> D(Periferia: El Planeta)\n  D -- Recorre --> A\n\n\n¿Por qué importa esto? [JUEGO:ORDENAR_FRASE:LA DISTANCIA AL SOL CAMBIA] Porque cuando el planeta se acerca al Sol (perihelio), su velocidad aumenta misteriosamente. [JUEGO:ORDENAR_LETRAS:VELOCIDAD] [JUEGO:SOPA_LETRAS:LEYES,CIENCIA,DATOS] En las ruinas, este fenómeno se conoce como la Segunda Ley de Kepler. [JUEGO:CRUCIGRAMA:Punto más cercano al sol|PERIHELIO;Punto más lejano al sol|AFELIO] No necesitamos motores gigantes para que los planetas se muevan; su propia caída orbital dicta el ritmo. [JUEGO:ORDENAR_FRASE:LA CIENCIA EXPLICA EL MOVIMIENTO] \n\n| Concepto | Definición en el Mundo Antiguo | Realidad Científica |\n| :--- | :--- | :--- |\n| Trayectoria | Círculo divino perfecto | Elipse imperfecta |\n| Velocidad | Constante y eterna | Cambiante según la distancia |\n| Motor | Impulsado por ángeles | Gravedad y Momento Angular |\n\n[ACTIVIDAD:CUADERNO:Realiza un cuadro comparativo entre el Mito y la Realidad científica del movimiento planetario usando este mapa]\nmermaid\ngraph LR\n  Mito[Creencia Post-Apoc] --> M1(Motores Invisibles)\n  Mito --> M2(Circulos Perfectos)\n  Realidad[Ciencia Kepleriana] --> R1(Gravedad Natural)\n  Realidad --> R2(Orbitas Elipticas)\n\n\nSeguimos buscando pistas entre los escombros. [JUEGO:ORDENAR_LETRAS:PISTAS] [JUEGO:SOPA_LETRAS:CIELO,NOCHE,MAPA] El misterio se profundiza: si no hay motores, ¿qué evita que el planeta salga disparado hacia el vacío? [JUEGO:ORDENAR_FRASE:BUSCAMOS LA FUERZA INVISIBLE] \n\n[ACTIVIDAD:CUADERNO:Representa gráficamente un planeta en dos puntos de su órbita: cerca del sol con flechas de velocidad largas, y lejos con flechas cortas]\nmermaid\ngraph TD\n  S((SOL)) -- Cerca --> P1[Planeta Rapido]\n  S -- Lejos --> P2[Planeta Lento]\n  P1 -- Flecha Larga --> V1(Velocidad Maxima)\n  P2 -- Flecha Corta --> V2(Velocidad Minima)\n\n\n[JUEGO:ORDENAR_LETRAS:FORMA] [JUEGO:SOPA_LETRAS:FOCO,EJE,FORMA] El tercer hallazgo es el tiempo que tardan los planetas. Los que están más lejos tardan mucho más en dar la vuelta. [JUEGO:CRUCIGRAMA:Tiempo de una vuelta|PERIODO;Camino del planeta|TRAYECTORIA] [JUEGO:ORDENAR_FRASE:MAS DISTANCIA ES MAS TIEMPO] \n\n[ACTIVIDAD:CUADERNO:Crea un mapa mental sobre las 3 Leyes de Kepler basado en lo que hemos investigado]\nmermaid\ngraph TD\n  K[Leyes de Kepler] --> L1(1. Orbitas Elipticas)\n  K --> L2(2. Areas Iguales Velocidad)\n  K --> L3(3. Periodos y Distancia)\n\n\n[JUEGO:SOPA_LETRAS:MITO,VERDAD,PRUEBA] Concluiremos esta fase aceptando que el universo no necesita gasolina, sino geometría.",
+  "recurso_visual": "| Característica | Órbita Circular (Mito) | Órbita Elíptica (Kepler) |\n| :--- | :--- | :--- |\n| **Centro** | El Sol está en el centro exacto | El Sol está a un lado (en un foco) |\n| **Velocidad** | Siempre es la misma | Cambia (Más rápido cerca del Sol) |\n| **Distancia** | Siempre es la misma | Varía constantemente |\n| **Nombre Técnico** | Movimiento Circular Uniforme | Movimiento Orbital Kepleriano |",
   "preguntas_inductivas_pagina": [
     {
-      "pregunta": "¿Cuál es la forma geométrica real de las órbitas planetarias según la investigación?",
-      "respuesta_esperada": "La forma real de las órbitas planetarias es una elipse, no un círculo perfecto."
+      "pregunta": "¿Cuál es la forma real de las órbitas planetarias según Kepler?",
+      "respuesta_esperada": "La forma real es una elipse, no un círculo perfecto."
     },
     {
-      "pregunta": "¿Por qué los planetas no necesitan motores para seguir moviéndose en el espacio?",
-      "respuesta_esperada": "Porque en el vacío del espacio no hay fricción y, por el principio de inercia, mantienen su movimiento sin requerir empuje constante."
+      "pregunta": "¿En qué lugar de la elipse se encuentra el Sol?",
+      "respuesta_esperada": "El Sol se encuentra en uno de los dos focos de la elipse."
     },
     {
-      "pregunta": "¿Qué función cumple la fuerza de gravedad en la órbita de un planeta?",
-      "respuesta_esperada": "Actúa como una fuerza de atracción central que curva la trayectoria recta del planeta, provocando una aceleración centrípeta."
+      "pregunta": "¿Cómo cambia la velocidad del planeta cuando se acerca al Sol?",
+      "respuesta_esperada": "La velocidad del planeta aumenta a medida que se acerca al Sol (Perihelio)."
     },
     {
-      "pregunta": "¿Dónde se ubica el Sol dentro de la órbita elíptica de la Tierra?",
-      "respuesta_esperada": "El Sol se ubica en uno de los dos puntos llamados focos de la elipse, no en el centro geométrico."
+      "pregunta": "¿Qué ocurre con el tiempo que tarda un planeta en dar una vuelta si está más lejos del Sol?",
+      "respuesta_esperada": "A mayor distancia del Sol, el planeta tarda más tiempo en completar su órbita (Periodo orbital más largo)."
     },
     {
-      "pregunta": "¿Cómo cambia la velocidad de un planeta cuando se acerca o se aleja del Sol?",
-      "respuesta_esperada": "La velocidad aumenta cuando el planeta se acerca al Sol y disminuye cuando se aleja de él."
+      "pregunta": "¿Es necesario un 'motor' para que los planetas se muevan?",
+      "respuesta_esperada": "No, se mueven debido a las leyes de la física y la gravedad, no por motores externos."
     }
   ],
   "preguntas_inductivas_cuaderno": [
-    "Dibuja en tu cuaderno un esquema comparativo donde muestres la diferencia entre una órbita circular mítica y una órbita elíptica real con sus focos.",
-    "Elabora un cuadro comparativo entre el concepto de 'Inercia' y el concepto de 'Aceleración Gravitacional' usando ejemplos de la guía.",
-    "Escribe un texto reflexivo de dos párrafos explicando cómo el método científico ayudó al Detective Vance a desmentir la creencia de la secta.",
-    "Representa gráficamente mediante un vector la velocidad y la fuerza de gravedad sobre un planeta en dos puntos diferentes de su trayectoria elíptica."
+    "Dibuja una elipse y señala sus partes principales (focos, semieje mayor) comparándola con un círculo.",
+    "Realiza un cuadro comparativo entre el concepto de 'Perihelio' y 'Afelio'.",
+    "¿Por qué crees que en un mundo sin tecnología la gente podría pensar que los planetas son movidos por seres mágicos? Reflexiona sobre la importancia de la observación.",
+    "Representa mediante un dibujo cómo el área barrida por un planeta es igual en tiempos iguales aunque su velocidad cambie."
   ],
-  "texto_deductivo": "Ahora que hemos abierto el expediente con evidencias preliminares, es momento de profundizar en las leyes formales de la física planetaria para cerrar el caso con rigor matemático y conceptual. [JUEGO:ORDENAR_LETRAS:KEPLER] Johannes Kepler formuló tres leyes fundamentales que describen matemáticamente el movimiento planetario, desmintiendo de forma definitiva cualquier modelo circular perfecto impulsado artificialmente. [JUEGO:ORDENAR_FRASE:KEPLER DEMOSTRO QUE LAS ORBITAS SON ELIPTICAS] La Primera Ley establece formalmente que las órbitas son elipses en las cuales el Sol ocupa uno de los focos. [JUEGO:SOPA_LETRAS:AFELIO,PERIHELIO,AREA]\n\nAnalicemos el comportamiento cinemático detallado. [JUEGO:ORDENAR_LETRAS:VELOCIDAD] La posición $\\vec{r}$ del planeta varía respecto al origen ubicado en el Sol. [JUEGO:CRUCIGRAMA:Punto mas cercano al Sol|PERIHELIO;Punto mas lejano|AFELIO] La Segunda Ley de Kepler (Ley de las Áreas) dicta que el radio vector que une al Sol con el planeta barre áreas iguales en tiempos iguales. [JUEGO:ORDENAR_FRASE:LA VELOCIDAD CAMBIA SEGUN LA DISTANCIA AL SOL] Esto implica que la velocidad orbital no es uniforme: cuando el planeta está en el **perihelio** (punto más cercano), la velocidad aumenta; cuando está en el **afelio** (punto más lejano), la velocidad disminuye. [JUEGO:SOPA_LETRAS:RADIAL,SECTOR,TIEMPO]\n\n<div style=\"display:flex; justify-content:center; align-items:center; background:#111; padding:15px; border-radius:10px; margin:15px 0;\"><svg width=\"380\" height=\"160\" viewBox=\"0 0 380 160\"><ellipse cx=\"190\" cy=\"80\" rx=\"150\" ry=\"60\" stroke=\"#4a90e2\" stroke-width=\"2\" fill=\"none\"/><circle cx=\"100\" cy=\"80\" r=\"10\" fill=\"#ffcc00\"/><path d=\"M 100 80 L 340 80 A 150 60 0 0 0 326 50 Z\" fill=\"rgba(255,0,0,0.4)\"/><path d=\"M 100 80 L 40 80 A 150 60 0 0 1 45 60 Z\" fill=\"rgba(0,255,0,0.4)\"/><text x=\"20\" y=\"95\" fill=\"#00ff00\" font-family=\"sans-serif\" font-size=\"11\">Perihelio (Mayor V)</text><text x=\"280\" y=\"95\" fill=\"#ff4444\" font-family=\"sans-serif\" font-size=\"11\">Afelio (Menor V)</text><text x=\"85\" y=\"60\" fill=\"#ffcc00\" font-family=\"sans-serif\" font-size=\"11\">Sol (Foco)</text></svg></div>\n\nComo evidencia la figura anterior, el área barrida en el perihelio (área verde) es idéntica al área barrida en el afelio (área roja) durante el mismo intervalo de tiempo. [JUEGO:ORDENAR_LETRAS:FOCOS] [JUEGO:ORDENAR_FRASE:AFELIO ES EL PUNTO MAS LEJANO AL SOL] Esto demuestra que la cinemática del movimiento planetario incluye aceleración tangencial y centrípeta. [JUEGO:SOPA_LETRAS:ORBITAL,VECTOR,ESCALAR] No existe una 'fuerza impulsora' en la dirección de la trayectoria, lo que echa por tierra la hipótesis de la secta. [JUEGO:CRUCIGRAMA:Magnitud vectorial con direccion|VELOCIDAD;Rapidez del cambio de velocidad|ACELERACION]\n\nPosteriormente, Isaac Newton consolidó la explicación física unificando la cinemática con la dinámica a través de la Ley de Gravitación Universal: $F = G \\frac{m_1 m_2}{r^2}$. [JUEGO:ORDENAR_LETRAS:NEWTON] [JUEGO:ORDENAR_FRASE:LA FUERZA GRAVITATORIAL DEPENDE DE LA MASA] Esta ecuación demuestra que la fuerza es inversamente proporcional al cuadrado de la distancia $r$ e directamente proporcional al producto de las masas. [JUEGO:SOPA_LETRAS:FISICA,METODO,PRUEBA] Por lo tanto, la aceleración gravitacional experimentada por la Tierra en su órbita es $a = G \\frac{M_{sol}}{r^2}$. [JUEGO:CRUCIGRAMA:Cientifico de la gravitacion universal|NEWTON;Astronomo de las tres leyes|KEPLER]\n\n<table style=\"width:100%; border-collapse:collapse; background-color:#1e2836; color:#fff; font-family:sans-serif; margin:10px 0;\"><tr style=\"background-color:#2c3e50;\"><th style=\"padding:8px; border:1px solid #455a64;\">Punto Orbital</th><th style=\"padding:8px; border:1px solid #455a64;\">Distancia al Sol ($r$)</th><th style=\"padding:8px; border:1px solid #455a64;\">Fuerza Gravitacional ($F$)</th><th style=\"padding:8px; border:1px solid #455a64;\">Magnitud de la Velocidad ($v$)</th></tr><tr><td style=\"padding:8px; border:1px solid #455a64;\">Perihelio</td><td style=\"padding:8px; border:1px solid #455a64;\">Mínima</td><td style=\"padding:8px; border:1px solid #455a64;\">Máxima</td><td style=\"padding:8px; border:1px solid #455a64;\">Máxima</td></tr><tr><td style=\"padding:8px; border:1px solid #455a64;\">Afelio</td><td style=\"padding:8px; border:1px solid #455a64;\">Máxima</td><td style=\"padding:8px; border:1px solid #455a64;\">Mínima</td><td style=\"padding:8px; border:1px solid #455a64;\">Mínima</td></tr></table>\n\nEn conclusión, Detective, desmentir un mito popular requiere rigor conceptual. [JUEGO:ORDENAR_LETRAS:PERIHELIO] Los mitos nacen de la observación superficial; la ciencia se construye analizando variables cuantitativas como posición, velocidad, aceleración y fuerza. [JUEGO:ORDENAR_FRASE:DESMENTIR MITOS REQUIERE METODO CIENTIFICO] Los astros no son empujados: se mueven libremente en el espacio curvado por la gravedad. [JUEGO:SOPA_LETRAS:CENTRAL,CAMPO,MASAS] ¡Caso cerrado! [JUEGO:CRUCIGRAMA:Distancia recorrida por unidad de tiempo|RAPIDEZ;Lugar exacto|POSICION] [JUEGO:CRUCIGRAMA:Fuerza centrípeta en la órbita|GRAVEDAD;Curva abierta o cerrada|ELIPSE]",
+  "texto_deductivo": "¡Caso casi resuelto, Detective! [JUEGO:ORDENAR_LETRAS:NEWTON] Ahora que sabemos *cómo* se mueven (Kepler), debemos deducir *por qué*. [JUEGO:ORDENAR_FRASE:LA GRAVEDAD ATRAE LOS CUERPOS] El gran mito de que 'motores invisibles' empujan los planetas se desmorona ante la Ley de Gravitación Universal. \n\n<div style='border: 4px dashed #7f8c8d; padding: 15px; background-color: #fdf2e9;'>\n<h4 style='color: #d35400;'>EL VERDICTO DEL DETECTIVE:</h4>\n<p>La fuerza de gravedad actúa como un hilo invisible. Imagina que lanzas una piedra: ella quiere ir recto (Inercia), pero la Tierra la tira hacia abajo. Un planeta es como esa piedra, pero va tan rápido que al 'caer', siempre falla y termina rodeando al Sol.</p>\n<div style='display: flex; justify-content: space-around; align-items: center;'>\n  <div style='width: 100px; height: 100px; border-radius: 50%; background: radial-gradient(circle, yellow, orange); box-shadow: 0 0 20px yellow;'></div>\n  <span style='font-size: 3rem;'>&larr; Fg &larr;</span>\n  <div style='width: 40px; height: 40px; border-radius: 50%; background: blue;'></div>\n</div>\n<p style='text-align: center;'>Fuerza de Gravedad (Fg) = El pegamento del universo.</p>\n</div>\n\nLa masa es la clave. [JUEGO:ORDENAR_LETRAS:MASA] [JUEGO:SOPA_LETRAS:PESO,MASA,EMPUJE] Cuanta más masa tiene un objeto, más fuerte tira de los demás. [JUEGO:CRUCIGRAMA:Cantidad de materia|MASA;Atracción entre masas|GRAVEDAD] El Sol es tan pesado que domina a todos los planetas. [JUEGO:ORDENAR_FRASE:FUERZA ES IGUAL A MASA POR ACELERACION]\n\n[ACTIVIDAD:CUADERNO:Dibuja el vector de velocidad tangencial y el vector de fuerza centrípeta (gravedad) actuando sobre la Tierra]\nmermaid\ngraph LR\n  T((Tierra)) -- Direccion Recta --> V[Velocidad Inercial]\n  T -- Hacia el Sol --> G[Fuerza Gravedad]\n  G -- Resultado --> O(Orbita Curva)\n\n\nPero, ¿por qué no se detienen por la fricción? [JUEGO:ORDENAR_LETRAS:VACIO] [JUEGO:SOPA_LETRAS:VACIO,CAMPO,RADIO] ¡En el espacio no hay aire! [JUEGO:CRUCIGRAMA:Tendencia a seguir moviéndose|INERCIA;Falta de aire|VACIO] La Primera Ley de Newton dice que un objeto en movimiento seguirá así a menos que algo lo pare. [JUEGO:ORDENAR_FRASE:LA INERCIA MANTIENE EL MOVIMIENTO] Sin aire que los frene, los planetas son viajeros perpetuos. [JUEGO:ORDENAR_LETRAS:CAIDA]\n\n[ACTIVIDAD:CUADERNO:Elabora un mapa mental sobre por qué los planetas no se caen al Sol ni salen volando]\nmermaid\ngraph TD\n  Equilibrio --> Inercia(Quiere ir recto)\n  Equilibrio --> Gravedad(Quiere caer al Sol)\n  Inercia + Gravedad --> Orbita(Caida Perpetua)\n\n\n[JUEGO:SOPA_LETRAS:VECTOR,GIRO,PUNTO] [JUEGO:ORDENAR_LETRAS:FUERZA] El mito de los motores es FALSO. [JUEGO:ORDENAR_FRASE:EL UNIVERSO SIGUE LEYES FISICAS] La cinemática nos muestra la posición, velocidad y aceleración de estos cuerpos celestes sin necesidad de intervención mágica. [JUEGO:SOPA_LETRAS:ATRAER,CAER,HALAS] \n\n[ACTIVIDAD:CUADERNO:Dibuja un esquema que explique la Ley de Gravitación Universal: Dos masas y la distancia entre ellas]\nmermaid\ngraph LR\n  M1((Masa 1)) -- F1 --> D{Distancia}\n  D -- F2 --> M2((Masa 2))\n  M1 -. Atraccion .- M2\n\n\nFinalmente, desmentimos el mito: No hay motores, hay GRAVEDAD e INERCIA. [JUEGO:SOPA_LETRAS:MOTOR,FALSO,REAL] [JUEGO:ORDENAR_FRASE:LA MASA DE LOS PLANETAS IMPORTA] [JUEGO:CRUCIGRAMA:Punto central de atracción|FOCO;Aceleración hacia el centro|CENTRÍPETA] ¡Investigación cerrada! [JUEGO:ORDENAR_LETRAS:CAMPO]\n\n[ACTIVIDAD:CUADERNO:Crea una infografía artesanal que resuma el veredicto del detective: ¿Por qué se mueven los planetas?]\nmermaid\ngraph TD\n  Infografia --> Titulo(Veredicto Final)\n  Titulo --> Kepler(Como: Elipses)\n  Titulo --> Newton(Por que: Gravedad)\n  Titulo --> Conclusion(Mito Desmentido)\n",
   "preguntas_deductivas_pagina": [
     {
-      "pregunta": "¿Qué establece formalmente la Primera Ley de Kepler sobre la forma de las órbitas?",
-      "respuesta_esperada": "Establece que todos los planetas se mueven en órbitas elípticas con el Sol ubicado en uno de sus focos."
+      "pregunta": "¿Qué ley de Newton explica por qué los planetas no necesitan un motor para seguir moviéndose?",
+      "respuesta_esperada": "La Primera Ley de Newton o Ley de Inercia, que dice que un cuerpo en movimiento permanece en movimiento si no hay fricción."
     },
     {
-      "pregunta": "Según la Segunda Ley de Kepler, ¿en qué punto de la órbita un planeta se mueve más rápido y por qué?",
-      "respuesta_esperada": "Se mueve más rápido en el perihelio, porque al estar más cerca del Sol debe recorrer una mayor distancia en el mismo tiempo para barrer áreas iguales."
+      "pregunta": "¿Qué dos factores determinan la fuerza de gravedad entre dos objetos?",
+      "respuesta_esperada": "La masa de los objetos y la distancia que los separa."
     },
     {
-      "pregunta": "¿Qué ocurre con la fuerza gravitacional entre el Sol y la Tierra si la distancia entre ellos se duplica?",
-      "respuesta_esperada": "La fuerza gravitacional se reduce a la cuarta parte (1/4), debido a la ley del inverso del cuadrado de la distancia."
+      "pregunta": "¿Qué pasaría con un planeta si la gravedad del Sol desapareciera de repente?",
+      "respuesta_esperada": "El planeta saldría disparado en línea recta debido a su inercia."
     },
     {
-      "pregunta": "¿Cuál es la diferencia entre el Afelio y el Perihelio?",
-      "respuesta_esperada": "El Perihelio es el punto de la órbita más cercano al Sol, mientras que el Afelio es el punto más lejano."
+      "pregunta": "¿Por qué los planetas no chocan contra el Sol si este los atrae con tanta fuerza?",
+      "respuesta_esperada": "Porque tienen una velocidad lateral (tangencial) lo suficientemente alta como para que su 'caída' sea una curva orbital cerrada."
     },
     {
-      "pregunta": "¿Por qué la aceleración de un planeta en órbita no es cero aunque mantenga un ciclo constante?",
-      "respuesta_esperada": "Porque la dirección de su vector de velocidad cambia continuamente debido a la fuerza gravitacional centrípeta."
+      "pregunta": "¿Cómo se llama la fuerza que mantiene a un objeto en una trayectoria circular o elíptica?",
+      "respuesta_esperada": "Fuerza centrípeta (que en este caso es provista por la gravedad)."
     }
   ],
   "preguntas_deductivas_cuaderno": [
-    "Realiza un diagrama detallado anotando los vectores de velocidad y aceleración gravitacional en cuatro puntos clave de una órbita elíptica (perihelio, afelio y dos puntos intermedios).",
-    "Elabora un mapa mental ilustrado que relaciones la Primera y Segunda Ley de Kepler con la Ley de Gravitación Universal de Newton.",
-    "Dibuja de forma explicativa cómo la Segunda Ley de Kepler demuestra la variación de velocidad orbital usando el concepto de 'sectores de áreas iguales'.",
-    "Diseña una infografía artesanal en tu cuaderno para desmentir el mito: 'Los planetas giran en círculos perfectos impulsados por una fuerza constante hacia adelante'."
+    "Dibuja un diagrama de fuerzas para un planeta en órbita, usando flechas para representar la gravedad y la velocidad.",
+    "Elabora un mapa mental que conecte a Kepler con Newton: ¿Cómo las leyes de uno ayudaron al otro?",
+    "Realiza un dibujo explicativo del experimento mental: 'El cañón de Newton' para explicar las órbitas.",
+    "Diseña una infografía que explique por qué no hay aire en el espacio y cómo eso afecta el movimiento planetario."
   ],
   "icfes": [
     {
       "competencia": "Explicación de Fenómenos",
-      "texto_introductorio": "Un grupo de exploradores del Yermo encuentra una antigua bitácora astronómica con datos sobre el movimiento de un planeta alrededor de una estrella distante. La tabla registra la velocidad orbital en diferentes momentos de su trayectoria:",
-      "tabla_o_grafica_markdown": "| Posición Observada | Distancia a la Estrella ($10^6$ km) | Velocidad Orbital (km/s) |\n| :--- | :--- | :--- |\n| Punto P1 | 147 | 30.3 |\n| Punto P2 | 152 | 29.3 |\n| Punto P3 | 149 | 29.8 |",
-      "pregunta": "Un habitante del Yermo afirma que la estrella necesita motores para acelerar al planeta en el Punto P1. Basándote en las leyes de Kepler y Newton, la explicación científica correcta para el aumento de velocidad en P1 es:",
+      "texto_introductorio": "En el observatorio de la Ciudad de Cristal, un detective analiza los datos de un planeta que se mueve alrededor de una estrella. Se observa que el planeta tarda el mismo tiempo en ir del punto A al B, que del punto C al D, pero la distancia recorrida sobre la órbita es diferente.",
+      "tabla_o_grafica_markdown": "| Tramo | Distancia recorrida | Tiempo empleado |\n| :--- | :--- | :--- |\n| A -> B (Cerca del Sol) | 500.000 km | 10 días |\n| C -> D (Lejos del Sol) | 200.000 km | 10 días |",
+      "pregunta": "¿Cuál es la razón científica que explica por qué el planeta recorre más distancia en el mismo tiempo cuando está cerca del Sol?",
       "opciones": [
-        "El planeta experimenta una mayor fuerza de atracción gravitacional al estar a menor distancia, aumentando su aceleración y velocidad orbital.",
-        "Los motores planetarios se encienden únicamente al llegar al punto P1 para evitar caer dentro de la estrella.",
-        "La masa del planeta aumenta en el punto P1, lo que hace que se mueva más rápido por conservación de la energía.",
-        "La trayectoria es un círculo perfecto y la velocidad en realidad no cambia; es un error de medición."
+        "La gravedad de la estrella es más fuerte cerca, aumentando la velocidad del planeta.",
+        "Los motores del planeta se activan para evitar chocar contra la estrella.",
+        "El espacio se encoge cerca de las estrellas masivas.",
+        "El planeta tiene más masa cuando se acerca a su sol."
       ],
       "correcta": 0,
       "retroalimentacion": {
-        "0": "Correcto. Al estar a menor distancia (147 M km en P1 vs 152 M km en P2), la fuerza de gravedad es mayor, lo que incrementa la velocidad orbital en el perihelio según las leyes de Kepler y Newton.",
-        "1": "Incorrecto. No existen motores planetarios; el cambio de velocidad es natural debido a la conservación del momento angular y la fuerza gravitatoria.",
-        "2": "Incorrecto. La masa del planeta se mantiene constante a lo largo de toda su órbita.",
-        "3": "Incorrecto. Los datos muestran claramente variaciones en distancia y velocidad, lo que desmiente el mito del círculo perfecto."
-      }
-    },
-    {
-      "competencia": "Uso Comprensivo del Conocimiento Científico",
-      "texto_introductorio": "El Detective Vance evalúa dos modelos teóricos propuestos para explicar el movimiento orbital planetario en el sistema solar:",
-      "tabla_o_grafica_markdown": "mermaid\ngraph TD\n    A[Modelos Orbitales] --> B[Modelo A: Mito del Yermo]\n    A --> C[Modelo B: Kepler - Newton]\n    B --> B1[Órbita Circular Perfecto]\n    B --> B2[Requiere Fuerza Empuje Frontal]\n    C --> C1[Órbita Elíptica]\n    C --> C2[Fuerza Gravitacional Central]\n",
-      "pregunta": "¿Qué evidencia experimental desmiente de forma definitiva el Modelo A en favor del Modelo B?",
-      "opciones": [
-        "La observación de que los planetas cambian su velocidad escalar a lo largo de su trayectoria orbital.",
-        "El hecho de que el Sol brilla con luz propia durante el día.",
-        "La presencia de atmósfera protectora en la superficie de la Tierra.",
-        "El movimiento de rotación sobre el propio eje de los planetas."
-      ],
-      "correcta": 0,
-      "retroalimentacion": {
-        "0": "Correcto. En una órbita circular uniforme (Modelo A), la velocidad escalar sería constante. El cambio en la velocidad escalar según la distancia demuestra que la órbita es elíptica (Modelo B).",
-        "1": "Incorrecto. El brillo del Sol no provee información sobre la forma geométrica de la órbita ni las fuerzas orbitales.",
-        "2": "Incorrecto. La presencia de atmósfera es un fenómeno biológico/geológico local, no una prueba de la geometría orbital.",
-        "3": "Incorrecto. La rotación sobre el propio eje (día/noche) es distinta del movimiento de traslación orbital alrededor del Sol."
+        "0": "Correcto. Según la Segunda Ley de Kepler y la Gravitación de Newton, a menor distancia la fuerza es mayor y por tanto la velocidad aumenta.",
+        "1": "Incorrecto. Los planetas no poseen motores; se mueven por fuerzas naturales.",
+        "2": "Incorrecto. Aunque la relatividad habla de esto, en física clásica (Kepler/Newton) la explicación es la variación de velocidad por la fuerza gravitatoria.",
+        "3": "Incorrecto. La masa de un planeta es constante, no cambia por su posición en la órbita."
       }
     }
   ]

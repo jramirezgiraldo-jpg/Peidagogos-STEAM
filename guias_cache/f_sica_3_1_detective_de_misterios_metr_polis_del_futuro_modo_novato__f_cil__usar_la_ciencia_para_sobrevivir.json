@@ -1,0 +1,114 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Qué figura geométrica describe el camino que recorre un planeta alrededor del Sol?",
+      "opciones": [
+        "Un círculo perfecto",
+        "Una elipse",
+        "Un triángulo",
+        "Una línea recta"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Cuál es la fuerza invisible que atrae a los planetas hacia el Sol y evita que salgan volando al espacio?",
+      "opciones": [
+        "La fuerza magnética",
+        "La fuerza eléctrica",
+        "La fuerza de gravedad",
+        "La fuerza del viento solar"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "¿Quién fue el científico que formuló tres leyes fundamentales para explicar el movimiento de los planetas?",
+      "opciones": [
+        "Johannes Kepler",
+        "Albert Einstein",
+        "Nikola Tesla",
+        "Galileo Galilei"
+      ],
+      "correcta": 0
+    }
+  ],
+  "texto_inductivo": "# Expediente #001: El Misterio de la Órbita Perdida en Metrópolis del Futuro\n\n***¿Cómo puede la comprensión del movimiento de los astros y la gravedad salvarnos de una colisión inminente contra las plataformas orbitales fuera de control en Metrópolis del Futuro?***\n\n¡Atención, recluta! Soy el Detective Neo-X, investigador principal de la División de Crímenes Científicos de Metrópolis del Futuro. Año 2150. Las plataformas orbitales que sostienen nuestro escudo de defensa gravitacional han perdido su sincronización. [JUEGO:ORDENAR_LETRAS:ORBITA] Si no descubrimos el motivo físico detrás de este desvío, la plataforma 'Alfa-9' colisionará contra el domo central de la ciudad en cuestión de horas. Para sobrevivir, debemos aprender a usar la ciencia como nuestra mejor arma de investigación. [JUEGO:ORDENAR_FRASE:UN DETECTIVE USA LA CIENCIA PARA SOBREVIVIR]\n\n<div style=\"background-color:#1e1e2f; color:#00ffcc; padding:15px; border-radius:10px; border:2px solid #00ffcc; margin:15px 0;\">\n<h3 style=\"margin-top:0; color:#ff007f;\">🔍 EVIDENCIA N°1: LA TRAYECTORIA REAL DE LOS ASTROS</h3>\n<p>Durante siglos se creyó que los planetas se movían en círculos perfectos. Sin embargo, nuestras sondas en Metrópolis del Futuro reconfirman lo que Johannes Kepler descubrió: los planetas y satélites avanzan formando una <b>elipse</b>.</p>\n</div>\n\n[JUEGO:SOPA_LETRAS:ORBITA,FOCO,SOL]\n\n<svg viewBox=\"0 0 400 160\" width=\"100%\" height=\"160\" style=\"background:#0d1117; border-radius:8px;\">\n  <ellipse cx=\"200\" cy=\"80\" rx=\"150\" ry=\"60\" fill=\"none\" stroke=\"#00ffcc\" stroke-width=\"2\" stroke-dasharray=\"4\"/>\n  <circle cx=\"130\" cy=\"80\" r=\"16\" fill=\"#ffcc00\" />\n  <text x=\"120\" y=\"115\" fill=\"#ffffff\" font-size=\"12\">Sol (Foco 1)</text>\n  <circle cx=\"270\" cy=\"80\" r=\"3\" fill=\"#555555\" />\n  <text x=\"255\" y=\"100\" fill=\"#888888\" font-size=\"10\">Foco 2</text>\n  <circle cx=\"320\" cy=\"40\" r=\"8\" fill=\"#00aaff\" />\n  <text x=\"310\" y=\"25\" fill=\"#ffffff\" font-size=\"12\">Plataforma / Planeta</text>\n</svg>\n\nAl analizar los datos, notamos que la fuerza de atracción planetaria llamada gravedad [JUEGO:ORDENAR_LETRAS:GRAVEDAD] es la responsable directa de sostener esta danza cósmica. [JUEGO:ORDENAR_FRASE:LA GRAVEDAD MANTIENE LOS PLANETAS EN SU ORBITA] Si la masa de la plataforma no se equilibra con la atracción del Sol o del planeta central, la trayectoria cambia catastróficamente.\n\n[JUEGO:CRUCIGRAMA:Trayectoria curva de un astro|ORBITA;Astro central de nuestro sistema|SOL]\n\nJohannes Kepler [JUEGO:ORDENAR_LETRAS:KEPLER] dedujo que el Sol no está en el centro de la elipse, sino en uno de los puntos denominados \"focos\". [JUEGO:ORDENAR_FRASE:EL SOL ESTA EN UNO DE LOS FOCOS] Esto provoca que la distancia entre el astro y el planeta varíe constantemente a lo largo de su recorrido. [JUEGO:ORDENAR_LETRAS:ELIPSE]\n\n[JUEGO:SOPA_LETRAS:KEPLER,NEWTON,MASA]\n\n[ACTIVIDAD:CUADERNO:Dibuja un diagrama en tu cuaderno mostrando los componentes de una órbita elíptica según Kepler.] \nmermaid\ngraph TD\n    A[Órbita Elíptica] --> B[Foco 1: Sol / Centro Gravitacional]\n    A --> C[Foco 2: Punto Vacío Simétrico]\n    A --> D[Objeto en Órbita: Planeta o Plataforma]\n    A --> E[Eje Mayor y Eje Menor]\n\n\n[JUEGO:CRUCIGRAMA:Cientifico de las leyes planetarias|KEPLER;Figura geometrica ovalada|ELIPSE]\n\nEn nuestro caso policial, la plataforma Alfa-9 aceleró repentinamente al acercarse al punto focal. [JUEGO:ORDENAR_LETRAS:PLANETA] [JUEGO:ORDENAR_FRASE:LOS PLANETAS GIRAN EN FORMA DE ELIPSE] ¿Por qué cambia de rapidez un cuerpo en el espacio? La respuesta reside en las leyes físicas que gobiernan el cosmos. [JUEGO:ORDENAR_FRASE:KEPLER DESCUBRIO LAS LEYES DEL MOVIMIENTO]\n\n[JUEGO:SOPA_LETRAS:ELIPSE,RADIO,TIEMPO]\n\n[ACTIVIDAD:CUADERNO:Elabora un mapa mental sobre cómo la gravedad afecta la velocidad de un planeta.] \nmermaid\ngraph TD\n    G[Gravedad y Velocidad] --> C[Cerca del Sol / Mayor Atracción] --> VC[Mayor Velocidad / Perihelio]\n    G --> L[Lejos del Sol / Menor Atracción] --> VL[Menor Velocidad / Afelio]\n\n\n[JUEGO:CRUCIGRAMA:Fuerza de atraccion entre masas|GRAVEDAD;Cuerpo celeste que gira alrededor del Sol|PLANETA]\n\n| Concepto | Visión Antigua | Visión Científica Actual |\n|---|---|---|\n| Trayectoria | Círculo perfecto e inmutable | Elipse con diferentes velocidades |\n| Causa del movimiento | Capricho divino o divino motor | Fuerza de Gravedad e Inercia |\n| Centro de la órbita | La Tierra en el centro (Geocentrismo) | El Sol en uno de los focos (Heliocentrismo) |\n\n[JUEGO:SOPA_LETRAS:FUERZA,CAMPOS,LUNA]\n\n[ACTIVIDAD:CUADERNO:Diseña un cuadro esquemático de las diferencias entre la visión antigua y la visión científica del movimiento planetario.] \nmermaid\ngraph TD\n    A[Modelos Planetarios] --> B[Geocéntrico: Tierra Centro - Círculos]\n    A --> C[Heliocéntrico: Sol Centro - Elipses de Kepler]\n\n\n[JUEGO:CRUCIGRAMA:Punto fijo de una elipse|FOCO;Distancia recorrida en el tiempo|VELOCIDAD]\n\n[JUEGO:SOPA_LETRAS:VECTOR,VELOCIDAD,SOLAR]\n\n[ACTIVIDAD:CUADERNO:Realiza una ilustración paso a paso del caso de investigación de Metrópolis del Futuro en tu cuaderno.] \nmermaid\ngraph TD\n    Step1[1. Detectar alteración de órbita] --> Step2[2. Calcular distancia al Foco Central]\n    Step2 --> Step3[3. Aplicar Leyes de Kepler] --> Step4[4. Corregir trayectoria de la Plataforma Alfa-9]\n\n\n[JUEGO:CRUCIGRAMA:Cientifico de la gravitacion universal|NEWTON;Satelite natural de la Tierra|LUNA]",
+  "recurso_visual": "| Elemento del Movimiento | Descripción Científica | Aplicación en el Caso de Metrópolis |\n|---|---|---|\n| **Órbita Elíptica** | Trayectoria curva ovalada recorrida por un cuerpo alrededor de un foco. | La plataforma Alfa-9 sigue una elipse alterada. |\n| **Foco Gravitacional** | Punto donde se ubica el cuerpo de mayor masa (ej. el Sol). | El motor central de la ciudad actúa como foco gravitacional. |\n| **Gravedad** | Fuerza de atracción mutua entre masas. | Mantiene a las plataformas orbitales retenidas en su trayectoria. |",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "¿Qué figura geométrica describe realmente la órbita de una plataforma o planeta alrededor de su astro central?",
+      "respuesta_esperada": "Una elipse, que es una forma curva ovalada."
+    },
+    {
+      "pregunta": "¿En qué lugar de la elipse se encuentra ubicado el Sol o el centro de masa principal?",
+      "respuesta_esperada": "Se encuentra ubicado en uno de los focos de la elipse."
+    },
+    {
+      "pregunta": "¿Qué fuerza es la responsable de mantener a las plataformas en órbita sin que salgan despedidas al espacio profundo?",
+      "respuesta_esperada": "La fuerza de gravedad."
+    },
+    {
+      "pregunta": "¿Por qué varía la distancia entre un planeta y el Sol a lo largo de su recorrido?",
+      "respuesta_esperada": "Porque la órbita es una elipse y el Sol no está en el centro geométrico, sino en uno de sus focos."
+    },
+    {
+      "pregunta": "¿Cómo ayuda la ciencia a resolver el peligro de colisión en Metrópolis del Futuro?",
+      "respuesta_esperada": "Permite predecir y calcular exactamente la trayectoria elíptica y la velocidad de la plataforma para corregirla a tiempo."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja en tu cuaderno una elipse señalando el Eje Mayor, el Eje Menor, los dos Focos y la ubicación del Sol.",
+    "Elabora un cuadro comparativo entre el modelo geocéntrico (antiguo) y el modelo heliocéntrico (actual).",
+    "Escribe una reflexión de media página sobre por qué comprender la gravedad es vital para la supervivencia de las ciudades del futuro.",
+    "Representa gráficamente en tu cuaderno la plataforma Alfa-9 acercándose al foco de la órbita y explica qué pasa con su velocidad."
+  ],
+  "texto_deductivo": "# Análisis Forense de Física: Las Leyes del Movimiento Planetario\n\nBien hecho, agente. Hemos asegurado los perímetros iniciales. Ahora debemos profundizar en los principios matemáticos y físicos deductivos formulados por Johannes Kepler e Isaac Newton [JUEGO:ORDENAR_LETRAS:NEWTON] para tomar control de los propulsores del escudo orbital. [JUEGO:ORDENAR_FRASE:METROPOLIS DEL FUTURO DEPENDE DE LA FISICA]\n\n<div style=\"border:2px dashed #ff007f; padding:12px; background:#110022; border-radius:8px; margin:10px 0;\">\n<h4 style=\"color:#00ffcc; margin:0 0 8px 0;\">⚙️ LAS TRES LEYES DE KEPLER APLICADAS AL CASO</h4>\n<ol style=\"color:#ffffff; margin-bottom:0;\">\n  <li><b>Primera Ley (Órbitas):</b> Todos los planetas se mueven en órbitas elípticas con el Sol en un foco.</li>\n  <li><b>Segunda Ley (Áreas):</b> La línea que une al planeta con el Sol barre áreas iguales en tiempos iguales.</li>\n  <li><b>Tercera Ley (Periodos):</b> El cuadrado del tiempo orbital es proporcional al cubo de la distancia media al Sol.</li>\n</ol>\n</div>\n\n[JUEGO:SOPA_LETRAS:AFELIO,PERIHELIO,AREA]\n\nDe la Segunda Ley deducimos algo crítico para la supervivencia de la ciudad: cuando la plataforma Alfa-9 se encuentra en el punto más cercano al Sol o foco gravitacional, denominado **Perihelio** [JUEGO:ORDENAR_LETRAS:PERIHELIO], su velocidad es MÁXIMA. [JUEGO:ORDENAR_FRASE:EL PERIHELIO ES EL PUNTO MAS CERCANO AL SOL] En cambio, cuando está en el punto más lejano, llamado **Afelio** [JUEGO:ORDENAR_LETRAS:AFELIO], su velocidad es MÍNIMA. [JUEGO:ORDENAR_FRASE:EL AFELIO ES EL PUNTO MAS LEJANO]\n\n[JUEGO:CRUCIGRAMA:Punto orbital mas cercano al Sol|PERIHELIO;Punto orbital mas lejano al Sol|AFELIO]\n\n<div style=\"display:flex; justify-space:space-between; align-items:center; background:#1e1e2f; padding:10px; border-radius:8px; border-left:4px solid #ff007f;\">\n  <div style=\"flex:1; color:#00ffcc; font-weight:bold;\">PUNTO DE ORBITA</div>\n  <div style=\"flex:1; color:#ffffff;\">DISTANCIA AL SOL</div>\n  <div style=\"flex:1; color:#ffcc00;\">VELOCIDAD DEL ASTRO</div>\n</div>\n<div style=\"display:flex; justify-space:space-between; align-items:center; background:#0d1117; padding:10px; border-radius:8px; margin-top:4px;\">\n  <div style=\"flex:1; color:#00aaff;\">Perihelio</div>\n  <div style=\"flex:1; color:#ffffff;\">Mínima Distancia</div>\n  <div style=\"flex:1; color:#ff0055; font-weight:bold;\">Máxima Velocidad 🔥</div>\n</div>\n<div style=\"display:flex; justify-space:space-between; align-items:center; background:#0d1117; padding:10px; border-radius:8px; margin-top:4px;\">\n  <div style=\"flex:1; color:#00aaff;\">Afelio</div>\n  <div style=\"flex:1; color:#ffffff;\">Máxima Distancia</div>\n  <div style=\"flex:1; color:#00ffcc; font-weight:bold;\">Mínima Velocidad ❄️</div>\n</div>\n\n[JUEGO:SOPA_LETRAS:INERCIA,MASA,DISTANCIA]\n\n[ACTIVIDAD:CUADERNO:Dibuja el esquema comparativo entre Perihelio y Afelio mostrando la variación de velocidad.] \nmermaid\ngraph LR\n    A[Afelio: Lejos del Sol] -- Mínima Velocidad --> B[Recorrido Orbital] -- Aumenta Velocidad --> C[Perihelio: Cerca del Sol]\n    C -- Máxima Velocidad --> D[Recorrido Orbital] -- Disminuye Velocidad --> A\n\n\n[JUEGO:ORDENAR_FRASE:LA SEGUNDA LEY DE KEPLER BARRERA AREAS IGUALES]\n\n[JUEGO:CRUCIGRAMA:Resistencia al cambio de movimiento|INERCIA;Magnitud de materia de un cuerpo|MASA]\n\nNewton explicó por qué ocurre esto gracias a la Gravitación Universal: la fuerza es inversamente proporcional al cuadrado de la distancia. [JUEGO:ORDENAR_LETRAS:INERCIA] Si duplicamos la distancia, la fuerza se reduce a la cuarta parte. [JUEGO:ORDENAR_FRASE:A MAYOR DISTANCIA MENOR FUERZA DE GRAVEDAD]\n\n[JUEGO:SOPA_LETRAS:LEY,LEYES,FISICA]\n\n[ACTIVIDAD:CUADERNO:Elabora un mapa conceptual de la Ley de Gravitación Universal de Newton.] \nmermaid\ngraph TD\n    F[Ley de Gravitación Universal] --> M1[Masa Cuerpo 1]\n    F --> M2[Masa Cuerpo 2]\n    F --> D[Distancia entre cuerpos al cuadrado]\n    F --> G[Fuerza de Atracción Gravitacional]\n\n\n[JUEGO:CRUCIGRAMA:Region del espacio con masa centrada|CAMPO;Regla o principio cientifico|LEY]\n\nPara salvar la metrópolis, debemos programar el ordenador central del sistema [JUEGO:ORDENAR_LETRAS:SISTEMA] calculando exactamente las áreas barridas en el tiempo. [JUEGO:SOPA_LETRAS:CAMPO,ENERGIA,ESPACIO]\n\n[ACTIVIDAD:CUADERNO:Dibuja una infografía de supervivencia para ajustar las órbitas del Domo de Metrópolis.] \nmermaid\ngraph TD\n    P1[Paso 1: Medir distancia al Foco Central] --> P2[Paso 2: Calcular velocidad en Perihelio/Afelio]\n    P2 --> P3[Paso 3: Aplicar impulso de corrección] --> P4[Paso 4: Órbita estabilizada y Ciudad Salva]\n\n\n[JUEGO:CRUCIGRAMA:Ciudad futurista bajo amenaza|METROPOLIS;Investigador de misterios|DETECTIVE]\n\n[JUEGO:SOPA_LETRAS:METROPOLIS,DETECTIVE,PISTA]\n\n[ACTIVIDAD:CUADERNO:Crea un esquema de resolución de casos policiales científicos para el cuaderno.] \nmermaid\ngraph TD\n    Evidencia[Evidencia de Desvío] --> Teoria[Teoría Física: Kepler/Newton] --> Calculo[Cálculo Matemático] --> Solucion[Solución del Caso]\n\n\n[JUEGO:CRUCIGRAMA:Luz o trazo de evidencia|PISTA;Magnitud que mide la rapidez|VELOCIDAD]",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "¿Qué ocurre con la velocidad de una plataforma orbital cuando pasa por el Perihelio?",
+      "respuesta_esperada": "La velocidad alcanza su punto máximo porque está más cerca del astro central."
+    },
+    {
+      "pregunta": "¿Qué establece la Segunda Ley de Kepler sobre las áreas barridas por el radio vector de un planeta?",
+      "respuesta_esperada": "Establece que el radio vector barre áreas iguales en tiempos iguales."
+    },
+    {
+      "pregunta": "Si la distancia entre una plataforma orbital y el centro gravitacional aumenta al doble, ¿qué sucede con la fuerza de gravedad?",
+      "respuesta_esperada": "La fuerza de gravedad disminuye a la cuarta parte (1/4)."
+    },
+    {
+      "pregunta": "¿Cómo se llama el punto de la órbita elíptica más alejado del Sol?",
+      "respuesta_esperada": "Se llama Afelio."
+    },
+    {
+      "pregunta": "¿Cuál es la relación entre la masa de dos objetos y la fuerza gravitacional entre ellos según Newton?",
+      "respuesta_esperada": "A mayor masa de los objetos, mayor es la fuerza de atracción gravitacional entre ellos."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Diseña un diagrama detallado en tu cuaderno explicando la Segunda Ley de Kepler y cómo se cumple la igualdad de áreas barridas.",
+    "Elabora un mapa mental sobre el Perihelio y el Afelio, incluyendo ilustraciones de la variación de velocidad en cada punto.",
+    "Realiza un dibujo explicativo de la plataforma Alfa-9 corrigiendo su trayectoria alrededor del domo de Metrópolis del Futuro.",
+    "Crea una infografía artesanal titulada 'Manual de Supervivencia Orbital: Leyes de Kepler y Newton'."
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "En la estación de control orbital de Metrópolis del Futuro, los radares detectan que el satélite de vigilancia 'Guardián-1' se mueve a diferentes velocidades a lo largo de su órbita elíptica alrededor de la Tierra, como se muestra en la siguiente tabla:",
+      "tabla_o_grafica_markdown": "| Posición en la Órbita | Distancia a la Tierra (km) | Velocidad Registrada (km/s) |\n|---|---|---|\n| Posición A (Perihelio) | 6,600 | 10.2 |\n| Posición B | 10,000 | 7.8 |\n| Posición C (Afelio) | 15,000 | 5.1 |",
+      "pregunta": "Con base en la información anterior y las leyes del movimiento planetario de Kepler, ¿por qué la velocidad del satélite es mayor en la Posición A que en la Posición C?",
+      "opciones": [
+        "Porque en la Posición A la fuerza de atracción gravitacional de la Tierra es mayor debido a la menor distancia.",
+        "Porque en la Posición C la masa del satélite disminuye drásticamente debido a la distancia.",
+        "Porque en la Posición A el satélite barre menos área en el mismo intervalo de tiempo.",
+        "Porque la fuerza gravitacional desaparece por completo en el punto de Afelio."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "¡Correcto, Agente! A menor distancia (Perihelio), la fuerza de gravedad es más intensa, provocando una mayor aceleración y velocidad del satélite.",
+        "1": "Incorrecto. La masa del satélite se mantiene constante sin importar en qué punto de la órbita se encuentre.",
+        "2": "Incorrecto. Según la Segunda Ley de Kepler, la línea que une al planeta o satélite barre áreas iguales en tiempos iguales.",
+        "3": "Incorrecto. La gravedad nunca desaparece por completo en el Afelio, solo disminuye su intensidad con el cuadrado de la distancia."
+      }
+    }
+  ]
+}

@@ -1,113 +1,113 @@
 {
   "saberes_previos": [
     {
-      "pregunta": "¿Cuál es la forma aproximada de las órbitas de los planetas alrededor del Sol?",
+      "pregunta": "¿Qué fuerza es la responsable de mantener a los planetas girando en órbitas elípticas alrededor del Sol?",
       "opciones": [
-        "Circular perfecta",
-        "Elíptica",
-        "Cuadrada",
-        "Espiral"
+        "La fuerza magnética interplanetaria.",
+        "La fuerza de atracción gravitatoria.",
+        "La fricción del aire en el espacio exterior.",
+        "La fuerza centrífuga del vacío interestelar."
       ],
       "correcta": 1
     },
     {
-      "pregunta": "¿Qué fuerza mantiene a los planetas girando alrededor del Sol?",
+      "pregunta": "¿Qué ocurre con la velocidad de un planeta a medida que se acerca al Sol en su órbita?",
       "opciones": [
-        "Fuerza Magnética",
-        "Fuerza de Fricción",
-        "Fuerza Gravitacional",
-        "Fuerza Nuclear"
+        "Se mantiene completamente constante.",
+        "Disminuye gradualmente hasta detenerse.",
+        "Aumenta debido a la mayor fuerza gravitacional.",
+        "Varía de manera aleatoria según el clima espacial."
       ],
       "correcta": 2
     },
     {
-      "pregunta": "¿Qué sucede con la velocidad de un planeta cuando está más cerca del Sol?",
+      "pregunta": "Si nos perdemos en la selva y no tenemos brújula, ¿cómo nos puede ayudar la posición aparente del Sol?",
       "opciones": [
-        "Aumenta",
-        "Disminuye",
-        "Se mantiene constante",
-        "Se detiene"
+        "El Sol siempre sale por el Oeste y nos indica el polo magnético.",
+        "La trayectoria aparente del Sol nos permite identificar la dirección Este-Oeste y calcular la hora local.",
+        "El Sol calienta más el norte de los árboles, permitiéndonos encontrar el norte por el musgo.",
+        "No sirve de nada porque el movimiento solar cambia de dirección todos los días de forma impredecible."
       ],
-      "correcta": 0
+      "correcta": 1
     }
   ],
-  "texto_inductivo": "### El Misterio de las Luces Danzantes\n\nDetective, nos encontramos en lo profundo de la selva del Amazonas. Las copas de los árboles son tan densas que apenas dejan ver el cielo, pero al caer la noche, los antiguos grabados en las ruinas que hemos hallado parecen cobrar vida bajo la luz de las estrellas. ***¿Cómo puede la comprensión de las leyes invisibles que mueven los planetas salvarnos de morir perdidos en la densa selva amazónica sin tecnología moderna?*** [JUEGO:ORDENAR_FRASE:EL CIELO ES UN MAPA ETERNO] Entender el movimiento planetario no es solo astronomía; es nuestra brújula de supervivencia. [JUEGO:ORDENAR_LETRAS:ESTRELLA]\n\n<div style=\"background-color: #1a2a1a; padding: 20px; border: 2px solid #4CAF50; border-radius: 15px; color: white; font-family: 'Courier New', Courier, monospace;\">\n  <h4 style=\"text-align: center; color: #7FFF00;\">TABLERO DE OBSERVACIÓN SELVÁTICA</h4>\n  <table style=\"width: 100%; border-collapse: collapse;\">\n    <tr style=\"border-bottom: 2px solid #4CAF50;\">\n      <th>Observación</th>\n      <th>Pista Detectada</th>\n      <th>Fenómeno Físico</th>\n    </tr>\n    <tr>\n      <td>Brillo Errante</td>\n      <td>Planetas moviéndose</td>\n      <td>Cinemática Orbital</td>\n    </tr>\n    <tr>\n      <td>Ciclo Lunar</td>\n      <td>Mareas y Caza</td>\n      <td>Gravitación</td>\n    </tr>\n  </table>\n</div>\n\nLos antiguos pobladores de esta selva sabían que los planetas no se movían al azar. [JUEGO:SOPA_LETRAS:ORBITA,SOL,MOVIMIENTO] Johannes Kepler, un detective del pasado, descubrió tres leyes fundamentales. La primera nos dice que los planetas describen elipses. [JUEGO:CRUCIGRAMA:Curva cerrada ovalada|ELIPSE;Centro de luz|SOL] \n\n<svg viewBox=\"0 0 400 200\" xmlns=\"http://www.w3.org/2000/svg\" style=\"background: #000; border-radius: 10px;\">\n  <ellipse cx=\"200\" cy=\"100\" rx=\"150\" ry=\"70\" style=\"fill:none;stroke:#4CAF50;stroke-width:2;stroke-dasharray:5,5\" />\n  <circle cx=\"130\" cy=\"100\" r=\"20\" fill=\"yellow\" filter=\"drop-shadow(0 0 10px yellow)\" />\n  <circle cx=\"350\" cy=\"100\" r=\"8\" fill=\"#3498db\" />\n  <text x=\"110\" y=\"140\" fill=\"white\" font-size=\"12\">Sol (Foco)</text>\n  <text x=\"320\" y=\"80\" fill=\"white\" font-size=\"12\">Planeta</text>\n</svg>\n\nSi observamos Marte desde el suelo de la selva, notaremos que su posición cambia cada noche. [JUEGO:ORDENAR_FRASE:LOS PLANETAS SIGUEN RUMBOS FIJOS] Esta posición es una coordenada en un gran sistema de referencia universal. [JUEGO:ORDENAR_LETRAS:POSICION] La velocidad de estos cuerpos cambia según su distancia al foco solar. [JUEGO:SOPA_LETRAS:VELOCIDAD,FOCO,DISTANCIA] \n\n[JUEGO:ORDENAR_LETRAS:KEPLER] Mientras más cerca están, más rápido se mueven para no ser devorados por el Sol. [JUEGO:CRUCIGRAMA:Rapidez de cambio|VELOCIDAD;Lugar que ocupa|POSICION] \n\n[JUEGO:ORDENAR_FRASE:LA CIENCIA NOS DA DIRECCION] Debemos usar esta aceleración para predecir dónde estarán mañana. [JUEGO:ORDENAR_LETRAS:TIEMPO] La selva no perdona a quien no sabe mirar hacia arriba. [JUEGO:SOPA_LETRAS:SELVA,MAPA,CIELO]\n\n[JUEGO:CRUCIGRAMA:Cambio de velocidad|ACELERACION;Nuestro hogar|TIERRA] Cada planeta es un reloj en el cielo. [JUEGO:ORDENAR_FRASE:EL TIEMPO ES RELATIVO AL ASTRO] \n\n[JUEGO:ORDENAR_LETRAS:ORBITA] La segunda ley de Kepler nos dice que áreas iguales se barren en tiempos iguales. [JUEGO:SOPA_LETRAS:AREA,TIEMPO,IGUAL] \n\n[JUEGO:CRUCIGRAMA:Padre de la astronomia moderna|KEPLER;Figura de la orbita|ELIPSE] Finalmente, la tercera ley conecta el periodo con la distancia. [JUEGO:ORDENAR_FRASE:TODO ESTA CONECTADO EN EL COSMOS] \n\n[JUEGO:SOPA_LETRAS:LEY,ORDEN,ESPACIO] [JUEGO:CRUCIGRAMA:Recorrido espacial|TRAYECTORIA;Punto de partida|ORIGEN]",
-  "recurso_visual": "graph TD\n    A[Observación Estelar en la Selva] --> B[Leyes de Kepler]\n    B --> C[1. Órbitas Elípticas]\n    B --> D[2. Áreas Iguales]\n    B --> E[3. Armonía de los Mundos]\n    C --> F[Posición y Trayectoria]\n    D --> G[Velocidad Variable]\n    E --> H[Relación Periodo-Distancia]\n    F & G & H --> I[Supervivencia: Orientación sin GPS]",
+  "texto_inductivo": "# Expedición Selva de las Nieblas: El Misterio del Templo Planetario\n\n¡Saludos, aspirantes a detectives de la física! Soy su Guía e Investigador de Misterios. Nos encontramos en medio de la impenetrable Selva de las Nieblas. El helicóptero de la expedición nos ha dejado aquí, pero un pulso magnético anómalo ha averiado todas nuestras brújulas y GPS. No tenemos tecnología digital. Para sobrevivir y encontrar la salida de este laberinto verde, debemos descifrar el mecanismo de un templo antiguo que funciona alineándose con el movimiento de los astros. ¡La física de la gravitación y el movimiento planetario es nuestra única llave de escape!\n\n**_¿Cómo puede el conocimiento del movimiento de los astros y la gravedad salvarnos de perdernos para siempre en una selva inexplorada donde las brújulas magnéticas han dejado de funcionar?_**\n\nNuestra primera pista se encuentra tallada en una roca volcánica húmeda. Muestra la danza del planeta que habitamos. Para entender cómo orientarnos mirando al cielo, primero debemos entender la fuerza que gobierna todo lo que cae y se mueve arriba: la gravedad [JUEGO:ORDENAR_LETRAS:GRAVEDAD]. Esta fuerza de atracción es la que esculpe el camino de los cuerpos celestes.\n\n<svg viewBox=\"0 0 400 200\" style=\"background-color:#111; border-radius:8px; display:block; margin:20px auto; width:100%; max-width:400px;\">\n  <ellipse cx=\"200\" cy=\"100\" rx=\"150\" ry=\"80\" style=\"fill:none; stroke:#4caf50; stroke-width:3; stroke-dasharray:5,5;\" />\n  <circle cx=\"120\" cy=\"100\" r=\"15\" fill=\"#ffd700\" />\n  <text x=\"120\" y=\"75\" fill=\"#ffd700\" font-size=\"12\" font-family=\"sans-serif\" text-anchor=\"middle\">Sol (Foco 1)</text>\n  <circle cx=\"280\" cy=\"100\" r=\"4\" fill=\"#666\" />\n  <circle cx=\"50\" cy=\"100\" r=\"8\" fill=\"#00bcd4\" />\n  <text x=\"55\" y=\"125\" fill=\"#00bcd4\" font-size=\"11\" font-family=\"sans-serif\">Perihelio (Rápido)</text>\n  <path d=\"M 50 100 L 50 60\" stroke=\"#ff5722\" stroke-width=\"2\" />\n  <circle cx=\"350\" cy=\"100\" r=\"8\" fill=\"#00bcd4\" />\n  <text x=\"310\" y=\"125\" fill=\"#00bcd4\" font-size=\"11\" font-family=\"sans-serif\">Afelio (Lento)</text>\n  <path d=\"M 350 100 L 350 120\" stroke=\"#ff5722\" stroke-width=\"2\" />\n</svg>\n\nAl observar el firmamento nocturno a través de la densa copa de los árboles, notamos que las estrellas se desplazan siguiendo un orden matemático perfecto. Cada planeta describe una órbita [JUEGO:ORDENAR_LETRAS:ORBITA] particular. Hace siglos, Johannes Kepler descubrió que estas trayectorias no son círculos perfectos, sino una elipse [JUEGO:ORDENAR_LETRAS:ELIPSE]. Una elipse tiene dos puntos especiales llamados focos; el Sol está situado en uno de ellos. Esto significa que un planeta cambia constantemente su distancia con respecto al Sol durante su viaje espacial.\n\n[JUEGO:SOPA_LETRAS:SOL,TIERRA,LUNA]\n\nEsta variación de distancia produce cambios en la velocidad y en la aceleración [JUEGO:ORDENAR_LETRAS:ACELERACION] del planeta [JUEGO:ORDENAR_LETRAS:PLANETA]. En nuestra supervivencia, saber cómo cambia la velocidad y posición de los objetos celestes nos permite predecir con precisión matemática la hora exacta de la noche y nuestra posición geográfica exacta en la Tierra, simplemente midiendo ángulos estelares.\n\n[JUEGO:ORDENAR_FRASE:LA GRAVEDAD ATRAE A LOS CUERPOS]\n\nPara avanzar por el sendero, debemos dominar el concepto de cinemática planetaria. La posición es el lugar del espacio donde se encuentra el cuerpo, la velocidad es qué tan rápido cambia de posición y la aceleración es cómo varía esa velocidad. En el perihelio (punto más cercano al Sol), la velocidad es máxima; en el afelio (punto más lejano), es mínima. ¿Ven el misterio? ¡La gravedad actúa acelerando y frenando a los mundos!\n\n[JUEGO:CRUCIGRAMA:Camino cerrado que recorre un planeta|ORBITA;Estrella central del sistema|SOL]\n\n[ACTIVIDAD:CUADERNO:Dibuja el mapa de órbita elíptica identificando los focos, el Sol, el afelio y el perihelio. Rotula claramente dónde la velocidad es máxima y dónde es mínima.\n\nmermaid\ngraph TD\n  Sol((Sol en Foco 1)) -->|Fuerza Gravitacional| Planeta((Planeta en Órbita))\n  Foco2(Foco Vacío) -.-> Planeta\n  Planeta --> Perihelio(Perihelio: Cerca y Rápido)\n  Planeta --> Afelio(Afelio: Lejos y Lento)\n]\n\n[JUEGO:SOPA_LETRAS:FOCO,RADIO,EJE]\n\n[JUEGO:ORDENAR_FRASE:KEPLER EXPLICA EL MOVIMIENTO PLANETARIO]\n\nPara que la selva no nos consuma, debemos aprender a rastrear estos cambios cinemáticos en nuestro cuaderno de campo. \n\n[JUEGO:CRUCIGRAMA:Cientifico de las tres leyes|KEPLER;Forma de la orbita planetaria|ELIPSE]\n\n[ACTIVIDAD:CUADERNO:Crea un cuadro comparativo detallado entre el Perihelio y el Afelio en términos de distancia, velocidad y fuerza gravitacional ejercida.\n\nmermaid\ngraph TD\n  Comparacion --> Perihelio\n  Comparacion --> Afelio\n  Perihelio --> P1(Distancia: Mínima)\n  Perihelio --> P2(Velocidad: Máxima)\n  Perihelio --> P3(Fuerza Gravitatoria: Máxima)\n  Afelio --> A1(Distancia: Máxima)\n  Afelio --> A2(Velocidad: Mínima)\n  Afelio --> A3(Fuerza Gravitatoria: Mínima)\n]\n\n[JUEGO:ORDENAR_FRASE:EL SOL OCUPA UN FOCO DE LA ELIPSE]\n\nEl secreto del templo antiguo requiere que calculemos la variación de la gravedad según la distancia. La fuerza decae drásticamente al alejarnos. \n\n[JUEGO:SOPA_LETRAS:FUERZA,MASA,INERCIA]\n\n[JUEGO:CRUCIGRAMA:Cambio de posicion en el tiempo|MOVIMIENTO;Fuerza de atraccion mutua|GRAVEDAD]\n\n[ACTIVIDAD:CUADERNO:Diseña un diagrama que represente cómo cambia la fuerza de gravedad si duplicamos o triplicamos la distancia entre el Sol y un planeta.\n\nmermaid\ngraph TD\n  Distancia(Aumento de Distancia) -->|Duplica r| LeyCuadrada(Gravedad se reduce a un cuarto)\n  Distancia -->|Triplica r| LeyCuadrada2(Gravedad se reduce a un noveno)\n]\n\n[JUEGO:ORDENAR_FRASE:A MAYOR DISTANCIA MENOR VELOCIDAD]\n\n[JUEGO:SOPA_LETRAS:FISICA,CIENCIA,ORBITAS]\n\nFinalmente, la dirección del vector velocidad en una órbita siempre es tangente a la curva. Mientras que la aceleración siempre apunta directamente hacia el Sol debido a la atracción de la gravedad. \n\n[JUEGO:CRUCIGRAMA:Cambio de velocidad|ACELERACION;Rapidez en una direccion|VELOCIDAD]\n\n[ACTIVIDAD:CUADERNO:Dibuja el vector velocidad y el vector aceleración centrípeta en cuatro puntos diferentes de la elipse orbital.\n\nmermaid\ngraph TD\n  Planeta((Planeta)) -->|Tangencial| V(Vector Velocidad)\n  Planeta -->|Hacia el Sol| A(Aceleración Centripeta)\n  Sol((Sol)) --- A\n]\n\n[JUEGO:ORDENAR_FRASE:LA CINEMATICA ESTUDIA EL MOVIMIENTO]\n\n[JUEGO:SOPA_LETRAS:TIEMPO,ESPACIO,VECTOR]\n\n[JUEGO:CRUCIGRAMA:Punto mas cercano al Sol|PERIHELIO;Punto mas lejano al Sol|AFELIO]\n\n¡Gran trabajo, detectives! El primer nivel del misterio está descifrado. Ahora, miremos en detalle las leyes exactas para activar el mecanismo de escape.",
+  "recurso_visual": "| Característica del Movimiento | Cerca del Sol (Perihelio) | Lejos del Sol (Afelio) |\n| :--- | :--- | :--- |\n| **Distancia al Sol** | Mínima | Máxima |\n| **Velocidad Orbital** | Máxima | Mínima |\n| **Fuerza Gravitacional** | Extrema | Débil |\n| **Aceleración** | Máxima | Mínima |\n| **Efecto Visual** | Movimiento Rápido | Movimiento Lento |",
   "preguntas_inductivas_pagina": [
     {
-      "pregunta": "¿Qué figura geométrica describen los planetas según el texto?",
-      "respuesta_esperada": "Los planetas describen elipses, con el Sol situado en uno de sus focos."
+      "pregunta": "¿Qué forma geométrica describe la órbita de un planeta y dónde se sitúa el Sol?",
+      "respuesta_esperada": "Describe una elipse, y el Sol se sitúa exactamente en uno de sus dos focos."
     },
     {
-      "pregunta": "¿Por qué cambia la velocidad de un planeta en su órbita?",
-      "output": "Cambia porque, según la segunda ley de Kepler, los planetas barren áreas iguales en tiempos iguales, lo que implica ir más rápido cuando están cerca del Sol (perihelio)."
+      "pregunta": "¿Cómo varía la velocidad de un planeta al pasar del afelio al perihelio?",
+      "respuesta_esperada": "La velocidad aumenta de forma continua a medida que se acerca al perihelio debido al incremento de la fuerza de atracción gravitacional."
     },
     {
-      "pregunta": "¿Cómo ayuda la posición de los planetas a un náufrago en la selva?",
-      "respuesta_esperada": "Permite establecer un sistema de referencia y orientación temporal/espacial para determinar el rumbo."
+      "pregunta": "¿Hacia dónde apunta vectorialmente la aceleración de un planeta en órbita?",
+      "respuesta_esperada": "La aceleración apunta siempre hacia el centro de atracción, que es el Sol, actuando de forma centrípeta."
     },
     {
-      "pregunta": "¿Qué elemento ocupa uno de los focos de la elipse orbital?",
-      "respuesta_esperada": "El Sol ocupa uno de los focos de la elipse."
+      "pregunta": "¿Qué concepto físico estudia el movimiento sin importar las causas que lo producen, evaluando solo posición, velocidad y aceleración?",
+      "respuesta_esperada": "La cinemática."
     },
     {
-      "pregunta": "¿Qué relación establece la tercera ley de Kepler?",
-      "respuesta_esperada": "Establece una relación matemática entre el tiempo que tarda un planeta en dar la vuelta al Sol y su distancia promedio a este."
+      "pregunta": "¿Por qué las brújulas fallan en la selva pero el estudio del movimiento planetario sí nos permite orientarnos?",
+      "respuesta_esperada": "Porque los campos magnéticos locales pueden alterarse por minerales del suelo, pero el movimiento planetario es constante, predecible y depende de la ley universal de la gravedad, permitiendo una orientación astronómica confiable."
     }
   ],
   "preguntas_inductivas_cuaderno": [
-    "Dibuja un esquema de la selva vista desde arriba, integrando una elipse orbital en el cielo y señalando el perihelio y el afelio.",
-    "Realiza un cuadro comparativo entre el movimiento circular (ideal) y el movimiento elíptico (real) de los planetas.",
-    "Escribe una bitácora de detective de 10 líneas explicando cómo te sentirías al descubrir que las estrellas no son puntos fijos, sino mundos en movimiento acelerado.",
-    "Representa gráficamente mediante un dibujo cómo la gravedad actúa como una 'cuerda invisible' que mantiene al planeta en su trayectoria."
+    "Dibuja en tu cuaderno un esquema detallado de una órbita elíptica que incluya el Sol, un planeta en transición, y los vectores de velocidad (tangencial) y de fuerza de gravedad (dirigido al Sol) en al menos tres posiciones distintas.",
+    "Realiza un cuadro comparativo que clasifique los movimientos planetarios según su posición, velocidad, aceleración y distancia media, diferenciando el perihelio y el afelio.",
+    "Escribe una reflexión de una página sobre cómo los antiguos navegantes y exploradores de la selva usaban el movimiento planetario y las constelaciones para sobrevivir en entornos hostiles.",
+    "Representa gráficamente mediante un dibujo de tu propia invención cómo sería el movimiento de un planeta si la fuerza gravitacional del Sol desapareciera repentinamente de acuerdo con la primera ley del movimiento (inercia)."
   ],
-  "texto_deductivo": "### El Código Secreto de la Gravedad\n\nBien hecho, Detective. Hemos descifrado el *cómo* se mueven, pero ahora debemos entender el *por qué*. [JUEGO:ORDENAR_FRASE:LA MASA ATRAE A LA MASA] Para sobrevivir aquí, debemos calcular la fuerza con la que la Tierra nos atrae hacia su centro fangoso. [JUEGO:ORDENAR_LETRAS:FUERZA]\n\n<div style=\"border: 3px double #FFD700; background: #2c3e50; color: #ecf0f1; padding: 15px; margin: 10px;\">\n  <span style=\"font-size: 1.5rem; color: #f1c40f;\">F = G * (m1 * m2) / r²</span><br>\n  <hr>\n  <b>Donde:</b><br>\n  <ul>\n    <li><b>G:</b> Constante de Gravitación Universal</li>\n    <li><b>m:</b> Masas de los cuerpos (Kg)</li>\n    <li><b>r:</b> Distancia entre centros (m)</li>\n  </ul>\n</div>\n\nIsaac Newton, el gran detective de la física, dedujo que la misma fuerza que hace caer una fruta en esta selva es la que mantiene a la Luna en su sitio. [JUEGO:SOPA_LETRAS:NEWTON,MASA,GRAVEDAD] Esta fuerza genera una aceleración centrípeta. [JUEGO:CRUCIGRAMA:Atracción de la Tierra|GRAVEDAD;Unidad de masa|KILOGRAMO] \n\n[JUEGO:ORDENAR_LETRAS:MANZANA] Sin esta aceleración, los planetas saldrían disparados en línea recta por la inercia. [JUEGO:ORDENAR_FRASE:LA INERCIA ES PERSISTENCIA] \n\n<svg width=\"200\" height=\"200\" xmlns=\"http://www.w3.org/2000/svg\">\n  <circle cx=\"100\" cy=\"100\" r=\"40\" fill=\"#27ae60\" />\n  <circle cx=\"180\" cy=\"100\" r=\"10\" fill=\"#95a5a6\" />\n  <line x1=\"180\" y1=\"100\" x2=\"110\" y2=\"100\" stroke=\"red\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"red\" />\n    </marker>\n  </defs>\n  <text x=\"110\" y=\"90\" fill=\"red\" font-size=\"10\">Vector Fuerza</text>\n</svg>\n\nLa cinemática nos ayuda a rastrear la posición exacta de un astro. [JUEGO:SOPA_LETRAS:CINETICA,ASTRO,CALCULO] Si conocemos su velocidad inicial y su aceleración gravitatoria, podemos predecir su futuro. [JUEGO:ORDENAR_LETRAS:VECTOR] \n\n[JUEGO:ORDENAR_FRASE:LA CIENCIA PREDICE EL FUTURO] [JUEGO:CRUCIGRAMA:Espacio recorrido|DISTANCIA;Rapidez con direccion|VECTOR] El movimiento es relativo al observador en la selva. [JUEGO:ORDENAR_LETRAS:INERCIA] \n\n[JUEGO:SOPA_LETRAS:CIENCIA,LOGICA,DATOS] [JUEGO:CRUCIGRAMA:Cientifico de la gravedad|NEWTON;Fuerza hacia el centro|CENTRIPETA] Debemos medir el tiempo con precisión de cirujano. [JUEGO:ORDENAR_FRASE:CADA SEGUNDO CUENTA EN LA SELVA] \n\n[JUEGO:ORDENAR_LETRAS:FISICA] La gravedad es la ley suprema de esta expedición. [JUEGO:SOPA_LETRAS:LEYES,PODER,SOL] [JUEGO:CRUCIGRAMA:Vacio exterior|ESPACIO;Masa celeste|PLANETA] [JUEGO:ORDENAR_FRASE:SOMOS POLVO DE ESTRELLAS EN MOVIMIENTO]",
+  "texto_deductivo": "# El Descifrado Matemático de la Gravedad en la Selva\n\n¡Excelente! Hemos llegado al corazón del templo. Frente a nosotros se alza un monumental \"Gnomon\" de piedra (un poste indicador de sombras) rodeado de grabados matemáticos. Para abrir la compuerta de escape que nos sacará de la selva, debemos aplicar formalmente la ciencia física. El mecanismo exige que correlacionemos la masa del planeta, su velocidad cinemática [JUEGO:ORDENAR_LETRAS:CINEMATICA] y los períodos de traslación.\n\nRevisemos los pilares científicos de la cinemática de órbita y la gravitación. Isaac Newton se dio cuenta de que la misma fuerza de gravedad que atrae a una manzana hacia el suelo mantiene a los astros girando. Formuló la Ley de Gravitación Universal: la fuerza es directamente proporcional al producto de las masas e inversamente proporcional al cuadrado de la distancia.\n\n<svg viewBox=\"0 0 400 200\" style=\"background-color:#0d1b2a; border-radius:8px; display:block; margin:20px auto; width:100%; max-width:400px;\">\n  <circle cx=\"200\" cy=\"100\" r=\"8\" fill=\"#00b4d8\" />\n  <text x=\"200\" y=\"85\" fill=\"#00b4d8\" font-size=\"14\" font-family=\"sans-serif\" text-anchor=\"middle\">Planeta (Masa m)</text>\n  <line x1=\"200\" y1=\"100\" x2=\"280\" y2=\"100\" stroke=\"#4caf50\" stroke-width=\"3\" />\n  <polygon points=\"280,95 290,100 280,105\" fill=\"#4caf50\" />\n  <text x=\"250\" y=\"120\" fill=\"#4caf50\" font-size=\"12\" font-family=\"sans-serif\">Velocidad (v)</text>\n  <line x1=\"200\" y1=\"100\" x2=\"200\" y2=\"170\" stroke=\"#e63946\" stroke-width=\"3\" />\n  <polygon points=\"195,170 200,180 205,170\" fill=\"#e63946\" />\n  <text x=\"135\" y=\"150\" fill=\"#e63946\" font-size=\"12\" font-family=\"sans-serif\">Aceleración (g)</text>\n</svg>\n\nEsto nos permite calcular con precisión absoluta la velocidad [JUEGO:ORDENAR_LETRAS:VELOCIDAD] del planeta en cualquier tramo del espacio. A medida que un cuerpo se acerca al Sol, el pozo gravitatorio lo acelera. Cuando se aleja hacia el afelio [JUEGO:ORDENAR_LETRAS:AFELIO], la gravedad actúa en sentido contrario a su avance, frenándolo lentamente. \n\n[JUEGO:SOPA_LETRAS:NEWTON,LEY,FUERZA]\n\n[JUEGO:ORDENAR_FRASE:LA VELOCIDAD CAMBIA EN LA ORBITA]\n\nAnalicemos el Perihelio [JUEGO:ORDENAR_LETRAS:PERIHELIO]. En este punto, la atracción es colosal. Al estar en el punto de máxima aceleración gravitatoria, el planeta alcanza la mayor velocidad de su ciclo. \n\n[JUEGO:CRUCIGRAMA:Magnitud vectorial que mide la variacion de velocidad|ACELERACION;Unidad de fuerza en el SI|NEWTON]\n\n[ACTIVIDAD:CUADERNO:Dibuja un esquema del Gnomon de piedra del templo, mostrando cómo varía el largo y la dirección de su sombra a lo largo del día terrestre, lo cual nos sirve para deducir el movimiento de rotación y traslación de nuestro planeta.\n\nmermaid\ngraph TD\n  Sol((Sol)) -->|Rayos de Luz| Gnomon[Estaca Gnomon en la Selva]\n  Gnomon --> Sombra(Sombra proyectada)\n  Sombra --> Oriente(Mañana: Sombra apunta al Oeste)\n  Sombra --> Occidente(Tarde: Sombra apunta al Este)\n]\n\n[JUEGO:ORDENAR_FRASE:EL PERIHELIO ES EL PUNTO MAS CERCANO]\n\n[JUEGO:SOPA_LETRAS:PERIODO,AREA,IGUAL]\n\nPara resolver el acertijo final de la puerta del templo, debemos recurrir a la Tercera Ley de Kepler. Esta ley establece una proporción matemática exacta entre el tiempo de traslación del planeta y su distancia media al Sol. Cuanto más lejos está un cuerpo del centro gravitacional, más tiempo tardará en completar una vuelta.\n\n[JUEGO:CRUCIGRAMA:La tercera ley de Kepler relaciona el periodo y la|DISTANCIA;Primera ley de Kepler habla de la orbita|ELIPTICA]\n\n[ACTIVIDAD:CUADERNO:Crea un mapa conceptual que conecte las tres Leyes de Kepler con la Ley de Gravitación Universal de Newton.\n\nmermaid\ngraph TD\n  Newton(Ley de Gravitacion Universal) -->|Explica fisicamente a| Kepler(Leyes de Kepler)\n  Kepler --> L1(1ra Ley: Órbitas Elípticas)\n  Kepler --> L2(2da Ley: Áreas Iguales en Tiempos Iguales)\n  Kepler --> L3(3ra Ley: Periodos de Órbita)\n]\n\n[JUEGO:ORDENAR_FRASE:NEWTON COMPLETO EL TRABAJO DE KEPLER]\n\n[JUEGO:SOPA_LETRAS:POSICION,VECTOR,ORIGEN]\n\nEstudiar la gravitacion [JUEGO:ORDENAR_LETRAS:GRAVITACION] nos da el poder científico de predecir eclipses, solsticios e incluso calcular la gravedad de la Tierra usando un simple péndulo improvisado con una cuerda de liana de la selva y una piedra pesada.\n\n[JUEGO:CRUCIGRAMA:Segunda ley dice que areas barridas en tiempos iguales son|IGUALES;La energia en una orbita cerrada se|CONSERVA]\n\n[ACTIVIDAD:CUADERNO:Dibuja un sistema de referencia espacial e identifica los puntos cardinales (Norte, Sur, Este, Oeste) basándote únicamente en la observación estelar nocturna.\n\nmermaid\ngraph TD\n  Observador((Estudiante Detective)) -->|Cenit| Arriba(Punto directamente sobre la cabeza)\n  Observador -->|Horizonte| Norte(Estrella Polar / Cruz del Sur)\n  Observador -->|Punto Cardinal| Este(Lado donde sale el Sol)\n]\n\n[JUEGO:ORDENAR_FRASE:EL TIEMPO ES UNA VARIABLE CLAVE]\n\n[JUEGO:SOPA_LETRAS:MAPA,SELVA,SOLAR]\n\nPara poder graduar la apertura de la puerta mecánica, debemos alinear las pesas de piedra de acuerdo con la aceleración de la gravedad planetaria local.\n\n[JUEGO:CRUCIGRAMA:Instrumento antiguo para medir angulos de astros|ASTROLABIO;Aparato para orientarse sin iman|GNOMON]\n\n[ACTIVIDAD:CUADERNO:Representa gráficamente en un diagrama cómo cambia la fuerza gravitacional de un planeta si su masa aumenta pero su radio se mantiene constante.\n\nmermaid\ngraph TD\n  MasaPlaneta(Aumento de Masa del Planeta) -->|Relación Directa| GravedadSuperficial(Gravedad g aumenta)\n  RadioPlaneta(Radio Constante) -->|Sin cambios de distancia| GravedadSuperficial\n]\n\n[JUEGO:ORDENAR_FRASE:LA CIENCIA NOS PERMITE SOBREVIVIR]\n\n[JUEGO:SOPA_LETRAS:ALTURA,ANGULO,SOMBRA]\n\n[JUEGO:CRUCIGRAMA:La constante de gravitacion universal se representa por|G;La aceleracion de la gravedad terrestre promedio|NUEVEPUNTOOCHO]\n\n¡La puerta del templo se abre con un rugido de engranajes ancestrales! Hemos usado la física del universo para descifrar nuestro camino de regreso a casa. ¡Misión de supervivencia cumplida, detectives de la ciencia!",
   "preguntas_deductivas_pagina": [
     {
-      "pregunta": "¿Qué sucede con la fuerza gravitatoria si la distancia entre dos planetas se duplica?",
-      "respuesta_esperada": "La fuerza se reduce a la cuarta parte (1/4), debido a que es inversamente proporcional al cuadrado de la distancia."
+      "pregunta": "¿Cómo se enuncia matemáticamente la proporcionalidad de la fuerza gravitacional respecto a la distancia?",
+      "respuesta_esperada": "La fuerza gravitacional es inversamente proporcional al cuadrado de la distancia entre los centros de masa de ambos cuerpos."
     },
     {
-      "pregunta": "¿Cuál es la diferencia entre masa y peso según la física de Newton?",
-      "respuesta_esperada": "La masa es la cantidad de materia (constante), mientras que el peso es la fuerza con la que la gravedad atrae esa masa (variable según el planeta)."
+      "pregunta": "¿Qué ley describe que un planeta barre áreas iguales en tiempos iguales?",
+      "respuesta_esperada": "La Segunda Ley de Kepler."
     },
     {
-      "pregunta": "¿Por qué los planetas no caen directamente hacia el Sol?",
-      "respuesta_esperada": "Debido a su velocidad tangencial, que genera un equilibrio entre la atracción gravitatoria y la inercia, resultando en una órbita."
+      "pregunta": "¿Qué ocurre con la aceleración centrípeta de la Tierra a medida que se aleja en el afelio?",
+      "respuesta_esperada": "La aceleración disminuye debido a que la fuerza de atracción gravitatoria es menor al aumentar la distancia al Sol."
     },
     {
-      "pregunta": "¿Qué constante descubierta por Newton es universal?",
-      "respuesta_esperada": "La Constante de Gravitación Universal (G)."
+      "pregunta": "Si un planeta tiene el doble de la masa de la Tierra pero el mismo radio, ¿cómo afectaría esto a nuestro peso en su superficie?",
+      "respuesta_esperada": "Nuestro peso se duplicaría porque la fuerza gravitatoria es directamente proporcional a la masa del planeta."
     },
     {
-      "pregunta": "¿En qué dirección actúa la fuerza centrípeta en una órbita?",
-      "respuesta_esperada": "Actúa siempre hacia el centro de la trayectoria (hacia el Sol o el planeta central)."
+      "pregunta": "¿Cuál es el aporte principal de Newton para completar las leyes del movimiento planetario de Kepler?",
+      "respuesta_esperada": "Newton aportó la explicación física y matemática de la fuerza causante del movimiento (la gravedad), demostrando que las leyes empíricas de Kepler derivan directamente de los principios de la mecánica clásica."
     }
   ],
   "preguntas_deductivas_cuaderno": [
-    "Dibuja un diagrama detallado de un sistema Tierra-Luna, rotulando los vectores de fuerza gravitatoria y velocidad tangencial.",
-    "Elabora un mapa mental que conecte los conceptos: Masa, Distancia, Gravedad, Órbita y Supervivencia.",
-    "Realiza un dibujo explicativo de por qué un astronauta flota en la Estación Espacial (caída libre perpetua).",
-    "Diseña una infografía artesanal que explique la Ley de Gravitación Universal usando elementos de la selva (ej. cocos cayendo vs. satélites)."
+    "Dibuja un diagrama técnico de un péndulo de supervivencia en la selva, identificando todas las variables físicas que intervienen en su periodo para el cálculo de la aceleración de la gravedad local (longitud, masa, ángulo, gravedad).",
+    "Elabora un mapa mental sobre los conceptos fundamentales de la cinemática clásica aplicados a un planeta en órbita, incluyendo posición, velocidad tangencial, aceleración centrípeta y tiempo orbital.",
+    "Realiza un dibujo explicativo que represente la diferencia en las áreas barridas por el radio vector de un planeta en el perihelio en comparación con el afelio, explicando por qué los tiempos para recorrer dichas áreas son idénticos.",
+    "Diseña una infografía artesanal donde se expliquen los pasos científicos para determinar la hora solar y la latitud geográfica aproximada usando la sombra de un palo vertical (Gnomon) en el suelo de la selva."
   ],
   "icfes": [
     {
       "competencia": "Explicación de Fenómenos",
-      "texto_introductorio": "Un detective en la selva observa que un satélite artificial parece moverse más lento cuando se aleja de la Tierra en una órbita muy elíptica. Se registran los siguientes datos de su posición:",
-      "tabla_o_grafica_markdown": "| Punto | Distancia al Centro (km) | Velocidad (km/s) |\n|---|---|---|\n| A (Cercano) | 7,000 | 7.8 |\n| B (Lejano) | 42,000 | 1.3 |",
-      "pregunta": "¿Cuál de las leyes de Kepler explica mejor por qué la velocidad disminuye en el punto B?",
+      "texto_introductorio": "Durante la exploración de un sistema estelar binario en la selva de las ruinas, un grupo de estudiantes de supervivencia analiza los datos recopilados por un telescopio óptico manual sobre el movimiento de un exoplaneta bautizado como 'Gea-2'. Los estudiantes tabulan los datos cinemáticos en dos puntos específicos de su órbita alrededor de su estrella madre:",
+      "tabla_o_grafica_markdown": "| Punto en la Órbita | Distancia a la Estrella (UA) | Velocidad Orbital (km/s) | Fuerza Gravitacional Relativa |\n| :--- | :--- | :--- | :--- |\n| Punto A | 0.8 | 45 | Alta |\n| Punto B | 1.6 | 22.5 | Baja |",
+      "pregunta": "Teniendo en cuenta los datos de la tabla y los principios de la mecánica celeste, ¿cuál de las siguientes opciones describe correctamente la naturaleza del movimiento del exoplaneta?",
       "opciones": [
-        "La segunda ley: Áreas iguales en tiempos iguales implica menor velocidad a mayor distancia.",
-        "La primera ley: Todas las órbitas son circulares y la velocidad no debería cambiar.",
-        "La tercera ley: El cuadrado del periodo es proporcional al cubo de la distancia.",
-        "La ley de la selva: El objeto pierde energía por el rozamiento con el aire del espacio."
+        "El Punto A representa el perihelio de la órbita, donde el planeta se mueve más rápido debido a una mayor fuerza de atracción gravitacional de acuerdo con las leyes de Kepler y Newton.",
+        "El Punto B representa el perihelio porque a mayor distancia la inercia del vacío impulsa con más fuerza al exoplaneta para que no caiga a la estrella.",
+        "La velocidad orbital en el Punto A es mayor simplemente por las condiciones de temperatura del exoplaneta cerca de la estrella.",
+        "Los datos presentados contradicen las leyes de Kepler ya que un planeta real debe mantener la misma velocidad exacta en todos los puntos de su órbita circular."
       ],
       "correcta": 0,
       "retroalimentacion": {
-        "0": "Correcto. La segunda ley de Kepler dicta que para barrer áreas iguales, el objeto debe ir más lento cuando está lejos del centro de masa.",
-        "1": "Incorrecto. Las órbitas no son necesariamente circulares sino elípticas.",
-        "2": "Incorrecto. Aunque la tercera ley relaciona periodo y distancia, la segunda es la que explica el cambio de velocidad en una misma órbita.",
-        "3": "Incorrecto. En el espacio exterior no hay aire que genere ese tipo de rozamiento significativo para este fenómeno orbital."
+        "0": "Correcto. El Punto A tiene menor distancia y mayor velocidad orbital, lo cual define perfectamente al perihelio. Según la segunda ley de Kepler y la ley de gravitación de Newton, la velocidad debe ser máxima en este punto.",
+        "1": "Incorrecto. El Punto B está más alejado de la estrella, por lo tanto representa el afelio, no el perihelio.",
+        "2": "Incorrecto. La velocidad orbital está determinada por la fuerza gravitacional y la conservación del momento angular, no por las condiciones climatológicas o la temperatura de la atmósfera del exoplaneta.",
+        "3": "Incorrecto. Los datos confirman perfectamente las leyes de Kepler, específicamente la segunda ley, la cual describe que las velocidades orbitales varían según la distancia a la estrella en órbitas elípticas."
       }
     }
   ]

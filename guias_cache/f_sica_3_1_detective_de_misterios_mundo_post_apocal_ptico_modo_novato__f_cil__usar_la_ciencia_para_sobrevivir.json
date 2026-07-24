@@ -1,132 +1,142 @@
 {
   "saberes_previos": [
     {
-      "pregunta": "En nuestro refugio post-apocalíptico observamos el cielo nocturno. ¿Qué cuerpo celeste ocupa el centro de la órbita de los planetas en nuestro sistema solar?",
+      "pregunta": "¿Qué fuerza invisible mantiene a la Tierra orbitando alrededor del Sol y evita que salga disparada al espacio profundo?",
       "opciones": [
-        "La Luna",
-        "El Sol",
-        "La Tierra",
-        "Un asteroide perdido"
+        "La fuerza de la gravedad",
+        "La presión atmosférica",
+        "El campo magnético nuclear",
+        "La energía eólica del páramo"
+      ],
+      "correcta": 0
+    },
+    {
+      "pregunta": "¿Cuál es la forma geométrica real que describen los planetas al girar alrededor del Sol?",
+      "opciones": [
+        "Un círculo perfecto",
+        "Una línea recta",
+        "Una elipse ovalada",
+        "Un zigzag irregular"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "¿Qué ocurre con la velocidad de un objeto espacial a medida que se acerca al cuerpo masivo que lo atrae?",
+      "opciones": [
+        "Su velocidad disminuye a cero",
+        "Su velocidad aumenta",
+        "Su velocidad se mantiene exactamente igual",
+        "Invierte su dirección inmediatamente"
       ],
       "correcta": 1
     },
     {
-      "pregunta": "¿Qué fuerza invisible evita que la Tierra salga disparada hacia el espacio profundo congelado?",
+      "pregunta": "¿Cómo llamamos a la distancia recorrida por un objeto en una unidad de tiempo en una trayectoria orbital?",
       "opciones": [
-        "El viento atmosférico",
-        "La energía electromagnética de las ruinas",
-        "La fuerza de gravedad",
-        "La fricción del aire"
+        "Masa",
+        "Velocidad",
+        "Gravedad",
+        "Volumen"
       ],
-      "correcta": 2
-    },
-    {
-      "pregunta": "¿Cuál es la forma geométrica aproximada de la trayectoria que sigue un planeta alrededor del Sol?",
-      "opciones": [
-        "Un círculo perfecto",
-        "Una línea recta",
-        "Una elipse (ovalada)",
-        "Un triángulo"
-      ],
-      "correcta": 2
+      "correcta": 1
     }
   ],
-  "texto_inductivo": " Soy el Detective de las Ruinas. En este erial post-apocalíptico, la clave para nuestra supervivencia no está solo en encontrar enlatados viejos, sino en descifrar los cielos. ***¿Cómo puede el análisis del movimiento de los planetas y las estrellas perdidas revelarnos el momento exacto en que caerán los antiguos satélites de la civilización caída y cuándo debemos sembrar para sobrevivir al Gran Invierno Post-Apocalíptico?*** Para resolver este enigma, primero debemos mirar cómo los antiguos sabios pasaron de creer que éramos el centro del cosmos a entender el verdadero baile planetario. [JUEGO:ORDENAR_LETRAS:SOL] Antiguamente, la gente creía en el modelo geocéntrico: la Tierra inmóvil en el centro de todo. Pero los datos no encajaban con las observaciones de los recolectores del cielo. [JUEGO:ORDENAR_FRASE:EL SOL ES EL CENTRO DEL SISTEMA SOLAR] Fue Nicolás Copérnico quien revivió la idea heliocéntrica, colocando al Sol en el centro. [JUEGO:SOPA_LETRAS:SOL,TIERRA,LUNA] Más tarde, Johannes Kepler descubrió que las órbitas no son círculos perfectos, sino elipses. [JUEGO:CRUCIGRAMA:Astro central|SOL;Camino del planeta|ORBITA]\n\n<svg viewBox='0 0 500 200' width='100%' style='background-color:#1a1a2e; border-radius:8px; margin:15px 0;'><ellipse cx='250' cy='100' rx='180' ry='70' fill='none' stroke='#4e132c' stroke-width='3' stroke-dasharray='5,5'/><circle cx='180' cy='100' r='18' fill='#ffcc00'/><text x='170' y='75' fill='#ffcc00' font-size='12' font-weight='bold'>Sol (Foco)</text><circle cx='380' cy='100' r='10' fill='#00b4d8'/><text x='365' y='125' fill='#00b4d8' font-size='12'>Planeta</text><line x1='180' y1='100' x2='380' y2='100' stroke='#ff4d6d' stroke-width='1.5'/><text x='250' y='90' fill='#ff4d6d' font-size='11'>Distancia Variable</text></svg>\n\nObserva el diagrama superior rescatado de un antiguo archivo digital. [JUEGO:ORDENAR_LETRAS:ORBITA] La distancia entre el Sol y el planeta cambia constantemente. Cuando el planeta se acerca al Sol, la atracción gravitatoria se intensifica. [JUEGO:ORDENAR_FRASE:LA GRAVEDAD MANTIENE LOS PLANETAS EN SU LUGAR] Esto es fundamental para los detectives del erial: los satélites fuera de control sufren los mismos principios. [JUEGO:SOPA_LETRAS:GRAVEDAD,FOCO,ELIPSE] Si entendemos la elipse, sabremos cuándo un viejo satélite militar pasará sobre nuestro refugio. [JUEGO:CRUCIGRAMA:Fuerza de atraccion|GRAVEDAD;Forma ovalada|ELIPSE]\n\n<div style='background:#0f172a; padding:15px; border-left:4px solid #38bdf8; border-radius:5px; color:#e2e8f0; margin:15px 0;'><h4 style='color:#38bdf8; margin:0 0 10px 0;'>REGISTRO HISTÓRICO DE OBSERVACIÓN</h4><table style='width:100%; border-collapse:collapse; color:#e2e8f0;' border='1'>tr style='background:#1e293b;'><th>Modelo</th><th>Centro</th><th>Forma de Órbita</th></tr><tr><td>Geocéntrico</td><td>Tierra</td><td>Círculos con epiciclos</td></tr><tr><td>Heliocéntrico</td><td>Sol</td><td>Elíptica (Kepler)</td></tr></table></div>\n\nEl estudio del movimiento planetario nos da las herramientas cinemáticas básicas: posición, velocidad y aceleración. [JUEGO:ORDENAR_LETRAS:ELIPSE] Cuando el planeta viaja por la curva elíptica, su velocidad no es constante. [JUEGO:ORDENAR_FRASE:LAS ORBITAS PLANETARIAS SON ELIPTICAS] Aumenta al acercarse al foco donde está la estrella y disminuye al alejarse. [JUEGO:SOPA_LETRAS:KEPLER,NEWTON,FISICA] Este cambio continuo de velocidad implica que existe una aceleración provocada por la gravedad. [JUEGO:CRUCIGRAMA:Astro donde vivimos|TIERRA;Cientifico de orbitas|KEPLER]\n\nPara sobrevivir al invierno, debemos predecir la posición de la Tierra en el espacio. [JUEGO:ORDENAR_LETRAS:PLANETA] El ciclo de estaciones depende directamente de esta trayectoria elíptica y de la inclinación terrestre. [JUEGO:ORDENAR_FRASE:KEPLER DESCUBRIO LAS LEYES PLANETARIAS] Si fallamos en el cálculo por un solo día, los cultivos de los invernaderos subterráneos se congelarán. [JUEGO:SOPA_LETRAS:MALA,PUNTOS,MUNDO] Como detective, debes dominar estas leyes del movimiento celestial. [JUEGO:CRUCIGRAMA:Punto fijo de elipse|FOCO;Tiempo de una vuelta|ANO]\n\nLa ciencia no es un lujo del pasado; es nuestra única brújula en el presente. [JUEGO:ORDENAR_LETRAS:GRAVEDAD] Comprender el cosmos es el primer paso para reconstruir el mundo. [JUEGO:ORDENAR_FRASE:COMPRENDER LA FISICA AYUDA A SOBREVIVIR] Continuemos investigando las pistas que nos dejaron los astrofísicos del siglo XVII. [JUEGO:SOPA_LETRAS:LUZ,AÑO,VELOCIDAD] [JUEGO:CRUCIGRAMA:Satelite natural|LUNA;Materia de estudio|FISICA]",
-  "recurso_visual": "| Paradigma Planetario | Posición del Sol | Tipo de Trayectoria | Velocidad Planetaria |\n| :--- | :--- | :--- | :--- |\n| **Geocéntrico (Antiguo)** | En órbita circular alrededor de la Tierra | Circular | Constante (Supuesta) |\n| **Heliocéntrico (Científico)** | En uno de los focos de la elipse | Elíptica | Variable (Mayor cerca del Sol) |",
+  "texto_inductivo": "### Expediente Detective N° 301: El Enigma de los Satélites Caídos\n\n***¿Cómo podemos predecir el regreso de los satélites de suministros y las estaciones orbitales antiguas usando el movimiento de los planetas para no morir de hambre en el páramo?***\n\nBienvenido a la agencia de detectives del año 2145, recluta. El mundo colapsó hace décadas, pero en el cielo todavía giran viejas estaciones automatizadas con suministros médicos y alimentos sintetizados. [JUEGO:ORDENAR_LETRAS:PARAMO] Si queremos sobrevivir en esta tierra baldía, debemos usar la ciencia como nuestra única arma de rastreo. [JUEGO:ORDENAR_FRASE:LA CIENCIA NOS PERMITE SOBREVIVIR EN EL PARAMO] El primer misterio que debemos resolver es entender cómo se mueven los cuerpos en el espacio. [JUEGO:SOPA_LETRAS:SOL,ORBITA,FOCO]\n\n<div style='background-color:#1e1e2e; color:#a6adc8; padding:15px; border-radius:10px; border:2px solid #89b4fa; margin: 15px 0;'>\n<h4 style='color:#f9e2af; margin-top:0;'>📡 Manual del Detective: Geometría de una Órbita</h4>\n<svg viewBox='0 0 400 160' style='width:100%; height:auto; background:#11111b; border-radius:8px;'>\n  <ellipse cx='200' cy='80' rx='150' ry='60' fill='none' stroke='#89b4fa' stroke-width='2' stroke-dasharray='5,5'/>\n  <circle cx='130' cy='80' r='14' fill='#f9e2af'/>\n  <text x='120' y='110' fill='#f9e2af' font-size='10'>Sol (Foco 1)</text>\n  <circle cx='270' cy='80' r='4' fill='#585b70'/>\n  <text x='255' y='110' fill='#a6adc8' font-size='10'>Foco 2</text>\n  <circle cx='350' cy='80' r='8' fill='#a6e3a1'/>\n  <text x='330' y='60' fill='#a6e3a1' font-size='10'>Satélite/Planeta</text>\n  <path d='M 350 80 L 330 40' stroke='#f38ba8' stroke-width='2' marker-end='url(#arrow)'/>\n</svg>\n<p style='font-size:0.85rem; color:#cdd6f4; margin-top:8px;'>Las órbitas no son círculos perfectos; son <b>elipses</b> con dos puntos de origen llamados focos. El centro de atracción (como el Sol o la Tierra) se ubica en uno de estos focos.</p>\n</div>\n\nDurante siglos, los antiguos creyeron que los planetas se movían en círculos perfectos impulsados por fuerzas divinas. [JUEGO:ORDENAR_LETRAS:ORBITA] Sin embargo, el astrónomo Johannes Kepler descubrió la verdad tras analizar años de observaciones. [JUEGO:CRUCIGRAMA:Fuerza que atrae los cuerpos|GRAVEDAD;Forma de la orbita|ELIPSE] Los planetas trazan una trayectoria elíptica. [JUEGO:ORDENAR_FRASE:LAS ORBITAS PLANETARIAS SON ELIPSES NO CIRCULOS PERFECTOS] \n\n[ACTIVIDAD:CUADERNO:Dibuja las tres leyes de Kepler en tu cuaderno según el siguiente esquema:\nmermaid\ngraph TD\n    A[Leyes de Kepler] --> B[1. Primera Ley: Orbitas Elipticas]\n    A --> C[2. Segunda Ley: Areas Iguales en Tiempos Iguales]\n    A --> D[3. Tercera Ley: Ley de Periodos]\n]\n\nCuando una cápsula de suministros se aproxima al punto más cercano a la Tierra (perigeo) o al Sol (perihelio), experimenta mayor atracción. [JUEGO:ORDENAR_LETRAS:GRAVEDAD] [JUEGO:SOPA_LETRAS:KEPLER,NEWTON,MASA] En ese instante, su velocidad aumenta drásticamente para evitar estrellarse. [JUEGO:ORDENAR_FRASE:UN PLANETA SE MUEVE MAS RAPIDO CERCA DEL SOL] \n\n[ACTIVIDAD:CUADERNO:Crea un mapa de conceptos sobre la gravedad usando este esquema:\nmermaid\ngraph TD\n    A[Gravedad] --> B[Masa de Cuerpos]\n    A --> C[Distancia Entre Ellos]\n    B --> D[Mayor Masa Mayor Fuerza]\n]\n\n<table border='1' style='width:100%; border-collapse:collapse; color:#cdd6f4; background-color:#181825; border-color:#313244; font-size:0.9rem;'>\n<thead style='background-color:#313244; color:#f9e2af;'>\n<tr><th>Posición Orbital</th><th>Distancia al Centro</th><th>Velocidad Kinemática</th><th>Efecto en el Rastreo</th></tr>\n</thead>\n<tbody>\n<tr><td>Perihelio / Perigeo</td><td>Mínima (Cerca)</td><td>Máxima (Acelerado)</td><td>Difícil de capturar; ventana rápida</td></tr>\n<tr><td>Afelio / Apogeo</td><td>Máxima (Lejos)</td><td>Mínima (Lento)</td><td>Ideal para fijar coordenadas de radio</td></tr>\n</tbody>\n</table>\n\n[JUEGO:ORDENAR_LETRAS:ELIPSE] Para resolver el misterio del reabastecimiento, debemos calcular exactamente el tiempo que tarda la estación en dar una vuelta completa. [JUEGO:CRUCIGRAMA:Cientifico de las tres leyes|KEPLER;Centro del sistema|SOL] [JUEGO:SOPA_LETRAS:ELIPSE,RADIO,PERIODO] A este tiempo lo llamamos *periodo orbital*. [JUEGO:ORDENAR_FRASE:EL SOL OCUPA UNO DE LOS FOCOS DE LA ELIPSE]\n\n[ACTIVIDAD:CUADERNO:Representa el Perihelio y Afelio siguiendo esta estructura:\nmermaid\ngraph TD\n    A[Orbita Eliptica] --> B[Perihelio: Cerca y Rapido]\n    A --> C[Afelio: Lejos y Lento]\n]\n\n[JUEGO:ORDENAR_LETRAS:VELOCIDAD] Si entendemos la relación entre la distancia del satélite y su velocidad, podremos enviar señales de radio antes de que la estación desaparezca en el horizonte. [JUEGO:CRUCIGRAMA:Punto mas cercano al Sol|PERIHELIO;Punto mas lejano al Sol|AFELIO] [JUEGO:SOPA_LETRAS:FUERZA,CAMPOS,PENSAR] [JUEGO:ORDENAR_FRASE:LA GRAVEDAD ATRAE A LOS PLANETAS AL SOL] ¡Tu entrenamiento como detective científico penas comienza! [JUEGO:CRUCIGRAMA:Camino que sigue un planeta|ORBITA;Tiempo de una vuelta|PERIODO] [JUEGO:SOPA_LETRAS:SATELITE,RASTREO,PARAMO] [JUEGO:CRUCIGRAMA:Magnitud del cambio de posicion|VELOCIDAD;Lugar donde vivimos|TIERRA]\n\n[ACTIVIDAD:CUADERNO:Diseña un diagrama de rastreo de satélites post-apocalíptico:\nmermaid\ngraph TD\n    A[Rastreador] --> B[Calculo de Orbita]\n    B --> C[Prediccion de Caida de Suministros]\n]",
+  "recurso_visual": "| Concepto Orbital | Definición en el Páramo | Impacto en la Supervivencia |\n|---|---|---|\n| **1ª Ley (Elipses)** | Las órbitas no son redondas, son achatadas con el Sol/Tierra en un foco. | Determina las zonas del cielo donde buscar satélites. |\n| **2ª Ley (Áreas)** | El satélite barre áreas iguales en tiempos iguales (varía velocidad). | Permite saber cuándo acelerar los receptores de señal. |\n| **3ª Ley (Periodos)** | El cuadrado del periodo depende del cubo de la distancia media ($T^2 \\propto r^3$). | Ayuda a calcular el día exacto de llegada de pertrechos. |",
   "preguntas_inductivas_pagina": [
     {
-      "pregunta": "¿Qué modelo situaba a la Tierra en el centro del universo y por qué fue descartado?",
-      "respuesta_esperada": "El modelo geocéntrico. Fue descartado porque no explicaba con precisión el movimiento observado de los planetas y requería correcciones complejas no fundamentadas."
+      "pregunta": "¿Por qué las órbitas planetarias no son círculos perfectos según la Primera Ley de Kepler?",
+      "respuesta_esperada": "Porque son geométricas elípticas con el cuerpo de atracción ubicado en uno de sus focos."
     },
     {
-      "pregunta": "¿Cuál es la forma real de las órbitas planetarias según las investigaciones rescatadas?",
-      "respuesta_esperada": "Una elipse, que es una figura curva semejante a un círculo achatado u ovalado."
+      "pregunta": "¿En qué punto de su órbita se mueve más rápido un satélite o planeta y por qué?",
+      "respuesta_esperada": "En el perigeo/perihelio, porque al estar más cerca del centro de gravedad la fuerza de atracción es mayor y barre áreas iguales en tiempos iguales."
     },
     {
-      "pregunta": "¿Dónde se ubica el Sol en la órbita de un planeta?",
-      "respuesta_esperada": "El Sol se ubica en uno de los focos de la elipse que forma la órbita."
+      "pregunta": "¿Qué es el 'periodo orbital' dentro de nuestro sistema de rastreo?",
+      "respuesta_esperada": "Es el tiempo total que tarda un objeto celestial o satélite en dar una vuelta completa a su órbita."
     },
     {
-      "pregunta": "¿Qué ocurre con la velocidad de un planeta a medida que se acerca al Sol?",
-      "respuesta_esperada": "La velocidad del planeta aumenta a medida que se aproxima al Sol debido a la mayor atracción gravitatoria."
+      "pregunta": "Si un satélite está en su afelio (punto más lejano), ¿cómo es su velocidad en comparación con el perihelio?",
+      "respuesta_esperada": "Su velocidad es mínima (más lenta) debido a que está a la máxima distancia del centro gravitacional."
     },
     {
-      "pregunta": "¿Por qué es crucial entender la cinemática planetaria para la supervivencia en el refugio?",
-      "respuesta_esperada": "Permite predecir el cambio de estaciones para los cultivos y calcular la trayectoria de caída de viejos satélites o basura espacial."
+      "pregunta": "¿Cómo nos ayuda la ciencia del movimiento planetario a sobrevivir en el páramo?",
+      "respuesta_esperada": "Nos permite predecir con exactitud la trayectoria y hora de paso de estaciones automatizadas para interceptar suministros vitales."
     }
   ],
   "preguntas_inductivas_cuaderno": [
-    "Dibuja en tu cuaderno una elipse indicando la posición del Sol en uno de los focos, la posición de un planeta y la trayectoria orbital.",
-    "Elabora un cuadro comparativo entre el modelo geocéntrico y el modelo heliocéntrico indicando autores y características.",
-    "Redacta una reflexión de una página sobre cómo el conocimiento científico astronómico puede evitar desastres en una comunidad sobreviviente.",
-    "Representa gráficamente cómo cambia la velocidad de un planeta en los puntos más cercano y más lejano al Sol."
+    "Dibuja en tu cuaderno una órbita elíptica marcando sus dos focos, el perihelio, el afelio y dibuja al satélite en la posición de máxima velocidad.",
+    "Elabora un cuadro comparativo entre la visión antigua (órbitas circulares perfectas) y la visión científica de Kepler (órbitas elípticas).",
+    "Escribe una reflexión de 10 renglones sobre cómo el conocimiento científico reemplaza al pánico y la fe ciega en un entorno post-apocalíptico.",
+    "Representa gráficamente en una línea de tiempo el recorrido de una cápsula de suministros desde el afelio hasta el perihelio, anotando cómo cambia su aceleración y velocidad."
   ],
-  "texto_deductivo": "Bienvenido al archivo técnico, Detective. Para resolver la Gran Pregunta Problematizadora sobre la predicción de órbitas y caídas de satélites en nuestro mundo post-apocalíptico, debemos formalizar las Leyes de Kepler y la Ley de Gravitación Universal de Newton. [JUEGO:ORDENAR_LETRAS:KEPLER] La **Primera Ley de Kepler (Ley de las Órbitas)** establece que todos los planetas se mueven en órbitas elípticas con el Sol en uno de los focos. [JUEGO:ORDENAR_FRASE:LA PRIMERA LEY DEFINE ORBITAS ELIPTICAS] Matemáticamente, una elipse se define por sus semiejes y su excentricidad. [JUEGO:SOPA_LETRAS:KEPLER,LEY,ELIPSE] [JUEGO:CRUCIGRAMA:Punto cercano al Sol|PERIHELIO;Punto lejano al Sol|AFELIO]\n\n<svg viewBox='0 0 500 200' width='100%' style='background-color:#0f172a; border-radius:8px; margin:15px 0;'><path d='M 180,100 L 250,32 A 180 70 0 0 1 350,55 L 180,100 Z' fill='rgba(56, 189, 248, 0.3)' stroke='#38bdf8'/><path d='M 180,100 L 70,100 A 180 70 0 0 1 90,55 L 180,100 Z' fill='rgba(239, 68, 68, 0.4)' stroke='#ef4444'/><circle cx='180' cy='100' r='14' fill='#f59e0b'/><text x='170' y='130' fill='#f59e0b' font-size='10'>Sol</text><text x='250' y='70' fill='#38bdf8' font-size='11'>Área 1 (Lejos)</text><text x='95' y='80' fill='#ef4444' font-size='11'>Área 2 (Cerca)</text></svg>\n\nLa **Segunda Ley de Kepler (Ley de las Áreas)** sostiene que el radio vector que une a un planeta con el Sol barre áreas iguales en tiempos iguales. [JUEGO:ORDENAR_LETRAS:NEWTON] Como ves en la ilustración vectorial superior, el área del triángulo barrido en el punto lejano (**Afelio**) es igual al área barrida cerca del Sol (**Perihelio**) en el mismo intervalo de tiempo. [JUEGO:ORDENAR_FRASE:LA SEGUNDA LEY HABLA DE AREAS IGUALES] Por ende, la velocidad es máxima en el perihelio y mínima en el afelio. [JUEGO:SOPA_LETRAS:PERIHELIO,AFELIO,SOL] [JUEGO:CRUCIGRAMA:Primera ley|ELIPTICAS;Segunda ley|AREAS]\n\nLa **Tercera Ley de Kepler (Ley de los Períodos)** relaciona el tiempo que tarda un planeta en dar una vuelta completa ($T$) con su distancia media al Sol ($a$): $T^2 = k \\cdot a^3$. [JUEGO:ORDENAR_LETRAS:PERIHELIO] Esto implica que los planetas más alejados tardan mucho más tiempo en completar su año planetario. [JUEGO:ORDENAR_FRASE:EL PERIHELIO ES EL PUNTO MAS CERCANO AL SOL] [JUEGO:SOPA_LETRAS:NEWTON,MASA,DISTANCIA] [JUEGO:CRUCIGRAMA:Tercera ley|PERIODOS;Creador ley gravedad|NEWTON]\n\n<div style='background:#1e1b4b; padding:15px; border:2px solid #818cf8; border-radius:8px; margin:15px 0; text-align:center;'><h3 style='color:#a5b4fc; margin-top:0;'>LEY DE GRAVITACIÓN UNIVERSAL DE NEWTON</h3><p style='font-size:1.2rem; color:#ffffff;'>$$F = G \\frac{m_1 \\cdot m_2}{r^2}$$</p><div style='text-align:left; color:#cbd5e1; font-size:0.9rem;'><ul><li><b>F:</b> Fuerza de atracción gravitatoria (Newtons)</li><li><b>G:</b> Constante de gravitación universal</li><li><b>m1, m2:</b> Masas de los dos cuerpos (kg)</li><li><b>r:</b> Distancia entre los centros de masa (m)</li></ul></div></div>\n\nIsaac Newton unificó el cielo y la tierra al demostrar que la misma fuerza que hace caer una manzana en las ruinas de la ciudad es la que mantiene a la Luna y a los planetas en sus órbitas. [JUEGO:ORDENAR_LETRAS:AFELIO] La fuerza de gravedad es directamente proporcional al producto de las masas e inversamente proporcional al cuadrado de la distancia que los separa. [JUEGO:ORDENAR_FRASE:LA GRAVEDAD DEPENDE DE LA MASA Y DISTANCIA] [JUEGO:SOPA_LETRAS:AREA,TIEMPO,VELOCIDAD] [JUEGO:CRUCIGRAMA:Cantidad de materia|MASA;Separacion entre cuerpos|DISTANCIA]\n\nAl combinar la Ley de Newton con las de Kepler, nuestro equipo de detectives puede calcular con exactitud milimétrica cuándo un antiguo satélite de comunicaciones decaerá en su órbita por fricción atmosférica y caerá a la Tierra. [JUEGO:ORDENAR_LETRAS:MASA] Así resolvemos el enigma: usando la ciencia no solo como teoría, sino como herramienta de defensa y supervivencia. [JUEGO:ORDENAR_FRASE:EL AFELIO ES EL PUNTO MAS LEJANO DEL SOL] [JUEGO:SOPA_LETRAS:LEYES,ORBITAS,UNIVERSO] [JUEGO:CRUCIGRAMA:Movimiento en curva|ORBITA;Espacio exterior|UNIVERSO]",
+  "texto_deductivo": "### Lección de Deducción Avanzada: Leyes Gravitacionales e Inercia\n\nComo detective de física en este mundo destruido, no basta con saber *cómo* se mueven los satélites; debemos deducir *por qué* lo hacen. [JUEGO:ORDENAR_LETRAS:NEWTON] Isaac Newton unificó el cielo y la tierra al descubrir la Ley de Gravitación Universal. [JUEGO:SOPA_LETRAS:INERCIA,FUERZA,MASA] Todo cuerpo en el universo atrae a cualquier otro con una fuerza proporcional a sus masas e inversamente proporcional al cuadrado de la distancia que los separa. [JUEGO:ORDENAR_FRASE:LA FUERZA GRAVITACIONAL DEPENDE DE LAS MASAS]\n\n<div style='background-color:#11111b; padding:15px; border-radius:10px; border:2px solid #a6e3a1; margin:15px 0;'>\n<h4 style='color:#a6e3a1; margin-top:0;'>📐 Ecuación Fundamental del Rastreador</h4>\n<div style='text-align:center; font-size:1.2rem; color:#f9e2af; padding:10px;'>\n$$F_g = G \\frac{m_1 \\cdot m_2}{r^2}$$\n</div>\n<p style='color:#cdd6f4; font-size:0.85rem; margin-bottom:0;'>Donde <b>F_g</b> es la fuerza de atracción, <b>m1</b> y <b>m2</b> son las masas del planeta y satélite, y <b>r</b> es la distancia entre sus centros. Si duplicas la distancia, ¡la fuerza cae a la cuarta parte!</p>\n</div>\n\n[JUEGO:ORDENAR_LETRAS:INERCIA] Un satélite se mantiene volando por un delicado equilibrio entre dos factores: la atracción gravitacional que lo tira hacia abajo y su propia inercia que lo empuja a seguir en línea recta. [JUEGO:CRUCIGRAMA:Resistencia al cambio de movimiento|INERCIA;Leyes del movimiento celeste|KEPLER] [JUEGO:ORDENAR_FRASE:LOS SATELITES POST APOCALIPTICOS SIGUEN ORBITAS STABLES]\n\n[ACTIVIDAD:CUADERNO:Elabora una infografía en tu cuaderno sobre las fuerzas en el espacio basándote en este diagrama:\nmermaid\ngraph TD\n    A[Satelite en Orbita] --> B[Fuerza Gravitacional: Atrae al Centro]\n    A --> C[Inercia: Mantiene Movimiento Tangencial]\n]\n\n[JUEGO:ORDENAR_LETRAS:AFELIO] Analicemos matemáticamente la Tercera Ley de Kepler. [JUEGO:SOPA_LETRAS:AFELIO,DISTANCIA,TIEMPO] La razón entre el cuadrado del periodo orbital ($T^2$) y el cubo del radio medio de la órbita ($r^3$) es una constante universal para cualquier cuerpo que orbite el mismo centro. [JUEGO:ORDENAR_FRASE:EL PERIODO ORBITAL AL CUADRADO ES PROPORCIONAL AL RADIO] \n\n[ACTIVIDAD:CUADERNO:Dibuja una comparativa entre Afelio y Perihelio usando el esquema:\nmermaid\ngraph TD\n    A[Posicion en Orbita] --> B[Perihelio: Mas cerca, Mayor Fuerza, Mas Rapido]\n    A --> C[Afelio: Mas lejos, Menor Fuerza, Mas Lento]\n]\n\n[JUEGO:ORDENAR_LETRAS:PERIHELIO] Si una estación meteorológica antigua está 4 veces más lejos que un satélite espía, tardará mucho más en dar la vuelta a la Tierra. [JUEGO:CRUCIGRAMA:Cientifico que unifico el cielo y la tierra|NEWTON;Distancia media al Sol|RADIO] [JUEGO:SOPA_LETRAS:FISICA,Leyes,CIENCIA] Deducir esto nos evita gastar energía de nuestras baterías buscando señales en momentos equivocados. [JUEGO:ORDENAR_FRASE:LA TERCERA LEY DE KEPLER RELACIONA TIEMPO Y DISTANCIA]\n\n[ACTIVIDAD:CUADERNO:Construye un esquema conceptual del calculo orbital:\nmermaid\ngraph TD\n    A[Ecuacion de Kepler] --> B[Distancia R]\n    A --> C[Periodo T]\n    B & C --> D[Prediccion de Posicion de la Capsula]\n]\n\n[JUEGO:ORDENAR_LETRAS:SATELITE] En conclusión, el detective del páramo aplica la cinemática (posición, velocidad, aceleración) junto a las leyes de Newton y Kepler para sobrevivir. [JUEGO:CRUCIGRAMA:Tiempo para completar orbita|PERIODO;Espacio vacio alrededor|COSMOS] [JUEGO:SOPA_LETRAS:SISTEMA,PLANETA,PARAMO] [JUEGO:CRUCIGRAMA:Fuerza invisible de atraccion|GRAVEDAD;Cuerpo orbital artificial|SATELITE] El caos del páramo desaparece cuando comprendes el orden de las ecuaciones celestes. [JUEGO:ORDENAR_FRASE:UN DETECTIVE USA LA FISICA PARA INTERPRETAR EL CIELO] [JUEGO:CRUCIGRAMA:Punto lejano de la orbita|AFELIO;Punto cercano de la orbita|PERIHELIO] [JUEGO:SOPA_LETRAS:DETECTIVE,RUTAS,SUMINISTROS]\n\n[ACTIVIDAD:CUADERNO:Crea una mapa mental para la supervivencia en el páramo con física:\nmermaid\ngraph TD\n    A[Detective del Paramo] --> B[Observacion de Estrellas]\n    A --> C[Matematicas de Orbita]\n    A --> D[Recuperacion de Suministros]\n]",
   "preguntas_deductivas_pagina": [
     {
-      "pregunta": "¿Qué expresa matemáticamente la Tercera Ley de Kepler sobre los períodos planetarios?",
-      "respuesta_esperada": "Expresa que el cuadrado del período orbital (T²) es directamente proporcional al cubo de la distancia media al Sol (a³)."
+      "pregunta": "Según la Ley de Gravitación Universal, ¿qué le ocurre a la fuerza gravitacional si duplicamos la distancia entre dos objetos?",
+      "respuesta_esperada": "La fuerza se reduce a una cuarta parte de su valor original ($1/2^2 = 1/4$)."
     },
     {
-      "pregunta": "¿Cómo se denominan los puntos de máxima y mínima cercanía de un planeta al Sol?",
-      "respuesta_esperada": "El punto más cercano es el Perihelio y el punto más lejano es el Afelio."
+      "pregunta": "¿Qué dos factores equilibrados evitan que un satélite caiga en picado hacia la Tierra o se pierda en el espacio?",
+      "respuesta_esperada": "La fuerza de atracción gravitacional dirigida al centro y la inercia (movimiento tangencial) del satélite."
     },
     {
-      "pregunta": "¿Qué le ocurre a la fuerza de atracción gravitatoria si la distancia entre dos cuerpos se duplica?",
-      "respuesta_esperada": "La fuerza gravitatoria se reduce a la cuarta parte (1/4), porque es inversamente proporcional al cuadrado de la distancia."
+      "pregunta": "Si conocemos el radio medio de la órbita de un satélite, ¿qué ley nos permite deducir el tiempo exacto de su periodo orbital?",
+      "respuesta_esperada": "La Tercera Ley de Kepler ($T^2 = k \\cdot r^3$)."
     },
     {
-      "pregunta": "Según la Segunda Ley de Kepler, ¿en qué punto de la órbita se desplaza un planeta a mayor velocidad?",
-      "respuesta_esperada": "Se desplaza a mayor velocidad en el Perihelio, el punto más cercano al Sol."
+      "pregunta": "¿Qué magnitud cinemática cambia continuamente cuando un satélite recorre una órbita elíptica?",
+      "respuesta_esperada": "La velocidad orbital (y por ende la aceleración centripeta y tangencial)."
     },
     {
-      "pregunta": "¿Cómo nos ayuda la Ley de Gravitación Universal de Newton a predecir la caída de viejos satélites?",
-      "respuesta_esperada": "Permite calcular la fuerza de atracción entre la Tierra y el satélite a medida que cambia su distancia y masa, determinando su aceleración y trayectoria final."
+      "pregunta": "Si un satélite $A$ tiene un radio orbital menor que un satélite $B$, ¿cuál de los dos completa su vuelta más rápido?",
+      "respuesta_esperada": "El satélite $A$, porque al estar más cerca tiene un periodo orbital más corto y mayor velocidad."
     }
   ],
   "preguntas_deductivas_cuaderno": [
-    "Diseña un diagrama detallado de la Segunda Ley de Kepler representando dos sectores de áreas iguales 'A1' y 'A2' y explicando la variación de velocidad.",
-    "Elabora un mapa mental que conecte las 3 Leyes de Kepler con la Ley de Gravitación Universal de Newton y sus aplicaciones de supervivencia.",
-    "Dibuja un esquema explicativo de la fórmula de Gravitación Universal mostrando dos masas (m1 y m2), la distancia (r) y los vectores de fuerza (F).",
-    "Crea una infografía artesanal titulada 'Física para la Supervivencia: Descifrando las Órbitas Terrestres'."
+    "Diseña un diagrama detallado en tu cuaderno representando la Ley de Gravitación Universal, ilustrando dos masas, la distancia $r$ y los vectores de fuerza.",
+    "Elabora un mapa mental que conecte los conceptos de Cinemática (Posición, Velocidad, Aceleración) con las tres Leyes de Kepler.",
+    "Dibuja un gráfico hipotético de Velocidad vs. Tiempo para un satélite que se desplaza desde el Perihelio hasta el Afelio y regresa al Perihelio.",
+    "Diseña una infografía artesanal titulada 'Manual de Supervivencia Orbital' donde expliques a un novato cómo rastrear una cápsula de provisiones usando $T^2 \\propto r^3$."
   ],
   "icfes": [
     {
-      "competencia": "Usar la ciencia para sobrevivir / Explicación de Fenómenos",
-      "texto_introductorio": "En el refugio post-apocalíptico 'Alfa', los radares detectan la trayectoria de una antigua nave de suministros sin propulsión que orbita la Tierra. Los analistas notan que la nave se encuentra en su punto de máxima cercanía al planeta (Perigeo).",
-      "tabla_o_grafica_markdown": "| Posición Orbital | Distancia a la Tierra (km) | Velocidad Registrada (km/s) |\n| :--- | :--- | :--- |\n| Perigeo (Cercano) | 350 | 8.2 |\n| Apogeo (Lejano) | 700 | 6.1 |",
-      "pregunta": "Con base en la Segunda Ley de Kepler adaptada a satélites terrestres, ¿por qué la velocidad es mayor en el Perigeo que en el Apogeo?",
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "Un grupo de supervivientes del páramo encuentra un terminal con datos del satélite 'Astra-1' que envía agua purificada. Los registros muestran los datos cinemáticos en dos puntos distintos de su órbita alrededor de la Tierra:",
+      "tabla_o_grafica_markdown": "| Punto en la Órbita | Distancia al centro de la Tierra (km) | Velocidad orbital (km/s) |\n|---|---|---|\n| Punto X | 7.000 | 9,2 |\n| Punto Y | 14.000 | 5,1 |",
+      "pregunta": "Teniendo en cuenta las leyes de Kepler y de la gravitación, ¿cuál es la interpretación correcta de estos datos?",
       "opciones": [
-        "Porque en el Perigeo el planeta ejerce una menor fuerza de atracción sobre la nave.",
-        "Porque para barrer áreas iguales en tiempos iguales, la nave debe recorrer una distancia de arco mayor cuando está más cerca de la Tierra.",
-        "Porque la masa del satélite aumenta considerablemente al acercarse al planeta.",
-        "Porque la atmósfera terrestre impulsa activamente al satélite en el punto más lejano."
+        "El Punto X corresponde al apogeo y el Punto Y al perigeo.",
+        "El Punto X corresponde al perigeo (más cercano), donde la atracción es mayor y la velocidad es más alta.",
+        "El satélite experimenta mayor aceleración en el Punto Y porque está más lejos de la Tierra.",
+        "La velocidad cambia debido a la fricción del aire en el espacio exterior en el Punto Y."
       ],
       "correcta": 1,
       "retroalimentacion": {
-        "0": "Incorrecto. A menor distancia, la fuerza de atracción es mayor, no menor.",
-        "1": "Correcto. Al estar más cerca del centro de atracción, el radio vector es más corto, por lo que el satélite debe recorrer mayor longitud de arco en el mismo tiempo para barrer la misma área, aumentando su velocidad.",
-        "2": "Incorrecto. La masa del satélite se mantiene constante a lo largo de la órbita.",
-        "3": "Incorrecto. La atmósfera genera fricción que frena, no impulsos en el apogeo."
+        "0": "Incorrecto. El apogeo es el punto más lejano (14.000 km) y allí la velocidad es menor, no mayor.",
+        "1": "Correcto. En el perigeo (menor distancia, 7.000 km), la fuerza de gravedad es mayor y según la 2ª Ley de Kepler, el cuerpo se mueve a mayor velocidad.",
+        "2": "Incorrecto. A mayor distancia (14.000 km), la fuerza gravitacional es menor y por tanto la aceleración gravitacional es menor.",
+        "3": "Incorrecto. En el espacio exterior orbital no hay fricción significativa de aire que reduzca la velocidad; el cambio se debe a la conversión entre energía potencial y cinemática orbital."
       }
     },
     {
-      "competencia": "Usar la ciencia para sobrevivir / Indagación",
-      "texto_introductorio": "Un grupo de exploradores necesita predecir la fuerza de atracción entre la Tierra y dos fragmentos de satélites (Fragmento A y Fragmento B) de diferente masa que están a la misma distancia de la estación espacial en ruinas.",
-      "tabla_o_grafica_markdown": "| Cúmulo de Basura | Masa (kg) | Distancia a la Estación (m) |\n| :--- | :--- | :--- |\n| Fragmento A | 500 | 100 |\n| Fragmento B | 1500 | 100 |",
-      "pregunta": "¿Cuál de los dos fragmentos experimentará una mayor fuerza de atracción gravitatoria hacia la estación espacial y por qué?",
+      "competencia": "Uso Comprensivo del Conocimiento Científico",
+      "texto_introductorio": "Un detective del páramo necesita rastrear dos satélites antiguos: el Satélite 'Alfa' con un radio orbital de $R$ y el Satélite 'Beta' con un radio orbital de $4R$.",
+      "tabla_o_grafica_markdown": "| Satélite | Radio Orbital Medio | Relación de Periodo ($T^2 \\propto R^3$) |\n|---|---|---|\n| Alfa | $R$ | $T_{Alfa}^2 \\propto R^3$ |\n| Beta | $4R$ | $T_{Beta}^2 \\propto (4R)^3 = 64R^3$ |",
+      "pregunta": "¿Cómo se compara el tiempo (periodo orbital) que tarda el Satélite Beta en dar una vuelta completa frente al Satélite Alfa?",
       "opciones": [
-        "El Fragmento A, porque a menor masa la fuerza de gravedad se multiplica.",
-        "Ambos experimentan la misma fuerza porque están a la misma distancia.",
-        "El Fragmento B, porque la fuerza gravitatoria es directamente proporcional al producto de las masas.",
-        "Ninguno experimenta fuerza ya que en el espacio no existe gravedad."
+        "El Satélite Beta tarda 8 veces más tiempo en dar una vuelta que el Satélite Alfa.",
+        "El Satélite Beta tarda 4 veces más tiempo en dar una vuelta que el Satélite Alfa.",
+        "El Satélite Beta tarda la mitad del tiempo que el Satélite Alfa.",
+        "Ambos satélites tardan exactamente el mismo tiempo por estar en el mismo planeta."
       ],
-      "correcta": 2,
+      "correcta": 0,
       "retroalimentacion": {
-        "0": "Incorrecto. La fuerza es directamente proporcional a la masa, no inversamente.",
-        "1": "Incorrecto. Aunque la distancia sea igual, la masa influye directamente en la magnitud de la fuerza.",
-        "2": "Correcto. Según la Ley de Gravitación Universal (F = G*m1*m2/r²), al aumentar la masa de uno de los cuerpos manteniendo la distancia constante, la fuerza de atracción aumenta proporcionalmente.",
-        "3": "Incorrecto. La gravedad actúa en todo el universo acorde a la distancia y las masas."
+        "0": "Correcto. Aplicando la 3ª Ley de Kepler ($T^2 \\propto R^3$), si el radio es 4 veces mayor, $T^2$ aumenta por $4^3 = 64$. Al sacar la raíz cuadrada de 64, obtenemos $T_{Beta} = 8 \\cdot T_{Alfa}$.",
+        "1": "Incorrecto. No es una relación directa lineal ($T \\propto R$), sino que $T^2 \\propto R^3$.",
+        "2": "Incorrecto. A mayor distancia orbital, el periodo siempre es mayor, nunca menor.",
+        "3": "Incorrecto. El periodo orbital depende de la distancia media al centro de masa, no solo del planeta orbitado."
       }
     }
   ]
