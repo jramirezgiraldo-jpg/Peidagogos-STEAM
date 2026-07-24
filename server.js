@@ -260,7 +260,7 @@ app.post('/api/login', (req, res) => {
     let nombre = "", grado = "", grupo = "", asignatura = "", rol_asignado = "";
 
     if (rol === 'admin') {
-        if ((usuario === 'jramirezgiraldo' && clave === 'Biologia2008%') || (usuario === 'admin' && clave === 'admin')) {
+        if ((usuario === 'jramirezgiraldo' && clave === 'Biol2008%') || (usuario === 'admin' && clave === 'admin')) {
             encontrado = true; nombre = "Administrador"; rol_asignado = "admin";
         }
     } else if (rol === 'docente') {

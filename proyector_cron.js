@@ -107,7 +107,7 @@ Estructura de cada objeto:
   "sub": "Subttulo orientador",
   "content": "Instrucciones de la actividad en HTML bsico (<br> permitidos).",
   "icon": "Nombre de icono Phosphor (ej: ph-planet, ph-pencil-line, ph-table, etc)",
-  "customHtml": "OPCIONAL. Solo si necesitas proyectar un grfico, esquema, o diagrama visual hecho con HTML/CSS/SVG. No lo pongas si no hace falta.",
+  "customHtml": "OPCIONAL PERO MUY RECOMENDADO. Si la actividad pide dibujar esquemas, diseos o diagramas, DEBES usar notacin de bloques Mermaid encerrados en <div class='mermaid'>...</div>. Si es msica (pentagramas, notas), usa formato ABC encerrado en <div class='abc-music'>...</div>. Si no hay dibujo, djalo vaco.",
   "timer": (Nmero, 120 o 300)
 }
 
@@ -121,7 +121,7 @@ Devuelve SOLO el array de 10 objetos JSON vlido, sin bloques \`\`\`json y sin ex
 
     try {
         const response = await ai.models.generateContent({
-            model: "gemini-2.5-pro",
+            model: "gemini-2.5-flash",
             contents: prompt,
             config: {
                 temperature: 0.2

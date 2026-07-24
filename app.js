@@ -128,7 +128,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     loginView.style.display = "none";
                     if (errorMsg) errorMsg.style.display = "none";
                     
-                    usuario_actual = data.usuario; // Guardar ID del usuario actual
+                    window.rol_actual = data.rol; usuario_actual = data.usuario; // Guardar ID del usuario actual
 
                     if (data.rol === 'admin') {
                         if (dashboardView) dashboardView.style.display = "block";
@@ -1273,7 +1273,14 @@ function renderizarGuiaProfesor(guideData, asignatura, periodo, semanaStr) {
     }
     
     htmlRenderizado += `</div>`;
-    innerContent.innerHTML = htmlRenderizado;
+    innerContent.innerHTML = htmlRenderizado;\n    if(window.renderizarBloquesEspeciales) window.renderizarBloquesEspeciales(innerContent);
+    
+    setTimeout(() => {
+        if (window.juegosPendientes && window.juegosPendientes.length > 0) {
+            window.juegosPendientes.forEach(j => j());
+            window.juegosPendientes = [];
+        }
+    }, 200);
     
     if (window.MathJax) {
         window.MathJax.typesetPromise().catch((err) => console.log('MathJax error: ', err));
@@ -1307,7 +1314,7 @@ window.aplicarRestriccionesProgreso = function() {
     const asignatura = subjectTitle.innerText.replace('Aula de ', '').trim();
     
     const key = `prog_${window.usuario_actual || 'default'}_${asignatura}_p${periodo}`;
-    let maxSemanaUnlocked = parseInt(localStorage.getItem(key)) || 1;
+    let maxSemanaUnlocked = parseInt(localStorage.getItem(key)) || 1; if (window.rol_actual === "admin" || window.rol_actual === "docente") { maxSemanaUnlocked = 8; }
     
     const selectSemana = document.getElementById("student-select-semana");
     if (!selectSemana) return;
@@ -1337,7 +1344,7 @@ window.completarMisionActual = function() {
     const asignatura = subjectTitle.innerText.replace('Aula de ', '').trim();
     
     const key = `prog_${window.usuario_actual || 'default'}_${asignatura}_p${periodo}`;
-    let maxSemanaUnlocked = parseInt(localStorage.getItem(key)) || 1;
+    let maxSemanaUnlocked = parseInt(localStorage.getItem(key)) || 1; if (window.rol_actual === "admin" || window.rol_actual === "docente") { maxSemanaUnlocked = 8; }
     let semanaActual = parseInt(semanaStr);
     
     if (semanaActual === maxSemanaUnlocked) {
@@ -1772,7 +1779,14 @@ window.ingresarAGuia = async function() {
             </div>
         </div>`;
 
-        innerContent.innerHTML = htmlRenderizado;
+        innerContent.innerHTML = htmlRenderizado;\n    if(window.renderizarBloquesEspeciales) window.renderizarBloquesEspeciales(innerContent);
+    
+    setTimeout(() => {
+        if (window.juegosPendientes && window.juegosPendientes.length > 0) {
+            window.juegosPendientes.forEach(j => j());
+            window.juegosPendientes = [];
+        }
+    }, 200);
         
         if (window.MathJax) {
             window.MathJax.typesetPromise().catch((err) => console.log('MathJax error: ', err));
@@ -2452,7 +2466,7 @@ window.renderizarCrucigrama = function(containerId, datosCrucigrama) {
 };
 
 // ==========================================
-// HISTORY API INTERCEPTOR (NAVEGACIÓN BOTÓN ATRÁS)
+// HISTORY API INTERCEPTOR (NAVEGACIï¿½N BOTï¿½N ATRï¿½S)
 // ==========================================
 let subviewsDepth = 0;
 
@@ -2497,3 +2511,60 @@ window.addEventListener('popstate', (e) => {
         location.reload();
     }
 });
+
+// ==========================================
+// RENDERIZADO DE BLOQUES ESPECIALES (MERMAID Y ABC)
+// ==========================================
+window.renderizarBloquesEspeciales = function(containerElement) {
+    if (!containerElement) return;
+
+    // Renderizar Mermaid
+    const mermaidBlocks = containerElement.querySelectorAll('pre code.language-mermaid');
+    mermaidBlocks.forEach((block, index) => {
+        const text = block.textContent;
+        const pre = block.parentElement;
+        const div = document.createElement('div');
+        div.className = 'mermaid';
+        div.style.background = 'white';
+        div.style.padding = '20px';
+        div.style.borderRadius = '8px';
+        div.style.marginBottom = '20px';
+        div.style.textAlign = 'center';
+        div.style.overflowX = 'auto';
+        div.textContent = text;
+        pre.parentNode.replaceChild(div, pre);
+    });
+    
+    if (mermaidBlocks.length > 0 && window.mermaid) {
+        try {
+            mermaid.init(undefined, containerElement.querySelectorAll('.mermaid'));
+        } catch (e) {
+            console.error("Error renderizando mermaid:", e);
+        }
+    }
+
+    // Renderizar ABC
+    const abcBlocks = containerElement.querySelectorAll('pre code.language-abc');
+    abcBlocks.forEach((block, index) => {
+        const text = block.textContent;
+        const pre = block.parentElement;
+        const div = document.createElement('div');
+        const uniqueId = 'abc-render-' + Date.now() + '-' + index;
+        div.id = uniqueId;
+        div.className = 'abcjs-container';
+        div.style.background = 'white';
+        div.style.padding = '20px';
+        div.style.borderRadius = '8px';
+        div.style.marginBottom = '20px';
+        div.style.overflowX = 'auto';
+        pre.parentNode.replaceChild(div, pre);
+        
+        if (window.ABCJS) {
+            try {
+                ABCJS.renderAbc(uniqueId, text, { responsive: 'resize' });
+            } catch (e) {
+                console.error("Error renderizando abc:", e);
+            }
+        }
+    });
+};
