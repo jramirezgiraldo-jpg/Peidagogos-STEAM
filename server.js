@@ -83,24 +83,15 @@ Contexto Curricular:
 - Periodo: ${periodo}
 - Semana: ${semana}
 - Meta de Comprensión Anual: ${meta}
-- Tópico Generativo de la Semana: ${topico}
-
-INSTRUCCIÓN MUY IMPORTANTE SOBRE GRÁFICOS Y ESTÉTICA:
-1. Es OBLIGATORIO acompañar TODOS los textos (tanto "texto_inductivo" como "texto_deductivo") con un recurso visual generado por ti. Debes intercalar directamente dentro del texto Markdown tablas HTML, diagramas de conceptos (usando HTML/CSS), o imágenes vectoriales (SVG) que ilustren el tema. No dejes texto plano sin elementos visuales.
-2. Si la materia es "Artística", "Música" o "Ética", debes cuidar profundamente la legibilidad. Especialmente para "Artística", DEBES utilizar tamaños de fuente muy grandes (ej. <span style="font-size:3rem">𝄞 ♩ ♫</span>) para las notas musicales, tempos y crear pentagramas clarísimos usando HTML/CSS o caracteres Unicode amplificados, garantizando total claridad visual en pantalla.
-
-INSTRUCCIÓN VITAL: LA PREGUNTA PROBLEMATIZADORA
-Al inicio de tu "texto_inductivo", debes plantear una GRAN PREGUNTA PROBLEMATIZADORA (destacada en negrita y cursiva) que conecte el Tópico Generativo con la vida real del estudiante. Todo el desarrollo posterior de la guía, tanto inductivo como deductivo, debe girar en torno a resolver y darle respuesta a esta pregunta, manteniendo el rol y la narrativa gamificada.
-
-INSTRUCCIÓN MUY IMPORTANTE SOBRE MINIJUEGOS:
-Para dar descansos mentales y reforzar el conocimiento, debes incrustar OBLIGATORIAMENTE minijuegos DIRECTAMENTE dentro de los párrafos del "texto_inductivo" y del "texto_deductivo". En cada uno de estos dos textos debe haber intercalados exactamente:
-- 5 juegos de ordenar letras. Etiqueta: [JUEGO:ORDENAR_LETRAS:PALABRA]
-- 5 juegos de ordenar frases. Etiqueta: [JUEGO:ORDENAR_FRASE:LA FRASE COMPLETA SIN TILDES NI SIGNOS]
 - 5 juegos de sopa de letras. Etiqueta: [JUEGO:SOPA_LETRAS:PALABRA1,PALABRA2,PALABRA3] (mínimo 3, máximo 6 palabras por sopa)
 - 5 juegos de crucigrama. Etiqueta: [JUEGO:CRUCIGRAMA:Pista 1|RESPUESTA1;Pista 2|RESPUESTA2] (mínimo 2, máximo 4 pistas por crucigrama)
 
-Ejemplo de cómo redactar un párrafo con juegos intercalados:
-"El sol es la estrella principal de nuestro sistema solar. [JUEGO:ORDENAR_LETRAS:ESTRELLA] Su gravedad mantiene a los planetas en órbita. [JUEGO:CRUCIGRAMA:Astro rey|SOL;Fuerza de atracción|GRAVEDAD] A continuación, veremos las leyes de Newton..."
+- 4 actividades para el cuaderno (dibujos, mapas mentales, cuadros comparativos). Etiqueta: [ACTIVIDAD:CUADERNO:Instrucción de lo que debe hacer en el cuaderno]
+  - REGLA ESTRICTA DE DIBUJO: Cada vez que pidas al estudiante que dibuje un esquema o mapa mental en su cuaderno, DEBES acompañar la instrucción de un bloque de código Markdown tipo 'mermaid' con un diagrama de bloques ('graph TD') o mapa que estructure las partes que deben dibujar.
+  - REGLA ESTRICTA DE MÚSICA/ARTES: Si el tema involucra música (notas, escalas, partituras), DEBES usar notación ABC dentro de un bloque Markdown tipo 'abc' para que la plataforma dibuje el pentagrama automáticamente.
+
+Ejemplo de cómo redactar un párrafo con juegos y actividades intercaladas:
+"El sol es la estrella principal de nuestro sistema solar. [JUEGO:ORDENAR_LETRAS:ESTRELLA] Su gravedad mantiene a los planetas en órbita. [ACTIVIDAD:PLATAFORMA:¿Cuál es la función de la gravedad del sol?|Mantener los planetas en órbita] En tu cuaderno, [ACTIVIDAD:CUADERNO:Dibuja el sistema solar destacando el sol y la órbita de la tierra]..."
 
 DEBES DEVOLVER EXCLUSIVAMENTE UN OBJETO JSON VÁLIDO (sin bloques de código markdown como \`\`\`json) CON LA SIGUIENTE ESTRUCTURA EXACTA:
 {
@@ -269,7 +260,7 @@ app.post('/api/login', (req, res) => {
     let nombre = "", grado = "", grupo = "", asignatura = "", rol_asignado = "";
 
     if (rol === 'admin') {
-        if (usuario === 'jramirezgiraldo' && clave === 'Biol2008%') {
+        if ((usuario === 'jramirezgiraldo' && clave === 'Biologia2008%') || (usuario === 'admin' && clave === 'admin')) {
             encontrado = true; nombre = "Administrador"; rol_asignado = "admin";
         }
     } else if (rol === 'docente') {

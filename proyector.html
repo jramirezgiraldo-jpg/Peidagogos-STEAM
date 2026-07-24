@@ -43,6 +43,8 @@
         .btn-nav-outline:hover { background: #F1F5F9; color: #1E293B; border-color: #94A3B8; }
         
         .controls-bottom { margin-top: 40px; display: flex; gap: 20px; }
+        .controls-top { display: flex; justify-content: center; gap: 15px; margin-bottom: 20px; width: 100%; flex-wrap: wrap; align-items: center; z-index: 10;}
+        .btn-sm { padding: 8px 16px; font-size: 1rem; }
         .btn-close { position: absolute; top: 30px; right: 30px; background: #FEE2E2; border: 1px solid #EF4444; color: #EF4444; width: 50px; height: 50px; border-radius: 50%; cursor: pointer; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; transition: 0.2s; box-shadow: 0 4px 6px rgba(239,68,68,0.2);}
         .btn-close:hover { background: #EF4444; color: white; }
 
@@ -61,6 +63,17 @@
         .notebook-icon { font-size: 6rem; color: #059669; margin-bottom: 20px; animation: float 3s ease-in-out infinite; }
         @keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-20px); } 100% { transform: translateY(0px); } }
     </style>
+
+    <!-- Mermaid & ABCJS for visual schemas -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@9.4.3/dist/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/abcjs/6.2.2/abcjs-basic-min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            if (window.mermaid) {
+                mermaid.initialize({ startOnLoad: false, theme: 'default' });
+            }
+        });
+    </script>
 </head>
 <body>
 
@@ -105,6 +118,12 @@
     <!-- PANTALLA GENÉRICA DE CLASE -->
     <div id="screen-slide" class="screen">
         <button class="btn-close" onclick="backToMenu()"><i class="ph ph-house"></i></button>
+
+        <div class="controls-top">
+            <button class="btn-nav btn-nav-outline btn-sm" onclick="prevSlide()"><i class="ph ph-arrow-left"></i> Anterior</button>
+            <button class="btn-nav btn-nav-outline btn-sm" onclick="startTimerGlobal()" id="btn-start-timer" style="display:none;"><i class="ph ph-play"></i> Iniciar Tiempo</button>
+            <button class="btn-nav btn-sm" onclick="nextSlide()">Siguiente <i class="ph ph-arrow-right"></i></button>
+        </div>
         
         <div id="slide-icon" class="notebook-icon"><i class="ph ph-notebook"></i></div>
         <h1 id="slide-title">Título</h1>
@@ -115,13 +134,8 @@
 
         <div id="timer-container" style="display:none; flex-direction: column; align-items: center;">
             <div id="timer-text" class="timer-display">00:00</div>
-            <button class="btn-nav btn-nav-outline" onclick="startTimerGlobal()" id="btn-start-timer"><i class="ph ph-play"></i> Iniciar Tiempo</button>
         </div>
 
-        <div class="controls-bottom">
-            <button class="btn-nav btn-nav-outline" onclick="prevSlide()"><i class="ph ph-arrow-left"></i> Anterior</button>
-            <button class="btn-nav" onclick="nextSlide()">Siguiente <i class="ph ph-arrow-right"></i></button>
-        </div>
     </div>
 
     <script>
@@ -222,6 +236,69 @@
             
             const customArea = document.getElementById('slide-custom-area');
             customArea.innerHTML = slide.customHtml || "";
+            
+            // Re-render Mermaid
+            if (window.mermaid) {
+                // Check if there is raw mermaid in the main content and wrap it
+                let contentEl = document.getElementById('slide-content');
+                if (contentEl && (contentEl.innerHTML.includes('graph TD') || contentEl.innerHTML.includes('graph LR'))) {
+                    contentEl.innerHTML = contentEl.innerHTML.replace(/(graph (?:TD|LR)[\s\S]*?)(?=<br>|<\/p>|<div|$)/g, function(match) {
+                        return "<div class='mermaid'>" + match + "</div>";
+                    });
+                }
+
+                // Process all mermaid divs
+                const mermaidDivs = document.querySelectorAll('.mermaid');
+                if (mermaidDivs.length > 0) {
+                    // First pass: format text and assign IDs
+                    mermaidDivs.forEach((div, idx) => {
+                        let content = div.innerHTML;
+                        content = content.replace(/<br\s*[\/]?>/gi, '\n');
+                        const txt = document.createElement("textarea");
+                        txt.innerHTML = content;
+                        let rawText = txt.value;
+                        
+                        // Fix common AI formatting issues for Mermaid
+                        rawText = rawText.replace(/;\s*/g, ';\n'); // Ensure newlines after semicolons
+                        
+                        // Fix nested parens (e.g. O(Origen (0,0)))
+                        rawText = rawText.replace(/\(([^)]*\([^)]*\)[^)]*)\)/g, '("$1")');
+                        
+                        // Fix arrows/symbols inside parens (e.g. F(V5 --> <-- V6))
+                        rawText = rawText.replace(/\((.*?(?:--|<|<--|-->).*?)\)/g, '("$1")');
+                        
+                        div.textContent = rawText;
+                        div.removeAttribute('data-processed');
+                        div.id = 'mermaid-diagram-' + Date.now() + '-' + idx;
+                    });
+                    
+                    // Second pass: render each one individually using a CSS selector
+                    mermaidDivs.forEach((div) => {
+                        try {
+                            mermaid.init(undefined, "#" + div.id);
+                        } catch (e) {
+                            console.error("Error rendering mermaid:", e);
+                            div.innerHTML = `<div style="color:red; background:#ffebeb; border:1px solid red; padding:10px; font-size:12px; margin-top:10px; border-radius:8px;"><b>Error renderizando esquema:</b> ${e.message || e}</div><pre style="font-size:10px; text-align:left; background:#eee; padding:10px; overflow-x:auto;">${div.textContent}</pre>`;
+                        }
+                    });
+                }
+            }
+            
+            // Re-render ABCJS
+            if (window.ABCJS) {
+                const abcDivs = customArea.querySelectorAll('.abc-music');
+                abcDivs.forEach((div, idx) => {
+                    const uniqueId = 'abc-proyector-' + Date.now() + '-' + idx;
+                    const code = div.innerText.trim();
+                    div.id = uniqueId;
+                    div.innerText = "";
+                    try {
+                        ABCJS.renderAbc(uniqueId, code, { responsive: 'resize' });
+                    } catch(e) {
+                        console.error("Error rendering abcjs:", e);
+                    }
+                });
+            }
 
             const timerContainer = document.getElementById('timer-container');
             const timerText = document.getElementById('timer-text');
@@ -236,6 +313,7 @@
                 timerText.style.color = '#FBBF24';
             } else {
                 timerContainer.style.display = 'none';
+                btnTimer.style.display = 'none';
             }
         }
 

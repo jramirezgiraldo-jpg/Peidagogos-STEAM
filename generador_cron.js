@@ -73,13 +73,7 @@ const mallasCurriculares = {
 };
 
 function getDynamicDelay() {
-    const currentHour = new Date().getHours();
-    // 2:00 AM - 7:59 AM -> 20 segundos
-    if (currentHour >= 2 && currentHour < 8) {
-        return { ms: 20000, desc: "20s (Horario Nocturno)" };
-    }
-    // 8:00 AM - 1:59 AM -> 120 segundos (2 minutos)
-    return { ms: 120000, desc: "2m (Horario Diurno)" };
+    return { ms: 3000, desc: "3s (Velocidad rǭpida Flash)" };
 }
 
 async function generarGuia(asignatura, grado, periodo, semanaData, rol, ambiente, nivel, enfoque) {
@@ -112,8 +106,8 @@ Contexto Curricular:
 INSTRUCCIÓN MUY IMPORTANTE SOBRE GRÁFICOS Y ESTÉTICA:
 1. Es OBLIGATORIO acompañar TODOS los textos con un recurso visual. Intercala tablas HTML o SVG que ilustren el tema. No dejes texto plano.
 
-INSTRUCCIÓN VITAL: LA PREGUNTA PROBLEMATIZADORA
-Al inicio de tu "texto_inductivo", debes plantear una GRAN PREGUNTA PROBLEMATIZADORA (destacada en negrita y cursiva) que conecte el Tópico Generativo con la vida real del estudiante en la IE Instituto Montenegro. Todo el desarrollo de la guía debe girar en torno a resolver esta pregunta, manteniendo el rol y narrativa.
+INSTRUCCIÓN VITAL Y OBLIGATORIA: LA PREGUNTA PROBLEMATIZADORA
+Es OBLIGATORIO que tu "texto_inductivo" EMPIECE SIEMPRE con una GRAN PREGUNTA PROBLEMATIZADORA (destacada en negrita y cursiva) como el PRIMER PÁRRAFO absoluto del texto. Esta pregunta debe conectar el Tópico Generativo con la vida real del estudiante en la IE Instituto Montenegro. Todo el desarrollo de la guía debe girar en torno a resolver esta pregunta, manteniendo el rol y narrativa.
 
 INSTRUCCIÓN MINIJUEGOS:
 Incrusta OBLIGATORIAMENTE en "texto_inductivo" y "texto_deductivo":
@@ -135,7 +129,7 @@ DEBES DEVOLVER EXCLUSIVAMENTE UN OBJETO JSON VÁLIDO CON ESTA ESTRUCTURA EXACTA:
   "icfes": [{ "competencia": "Evaluación", "texto_introductorio": "...", "tabla_o_grafica_markdown": "...", "pregunta": "¿...?", "opciones": ["1", "2", "3", "4"], "correcta": 0, "retroalimentacion": { "0": "...", "1": "...", "2": "...", "3": "..." } }]
 }`;
 
-    const modelos = ['gemini-3.5-flash', 'gemini-flash-latest', 'gemini-1.5-flash'];
+    const modelos = ['gemini-2.5-flash'];
     let responseText = "";
     let maxRetries = 15;
     let baseDelay = 5000;
