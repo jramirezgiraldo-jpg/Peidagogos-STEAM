@@ -1780,7 +1780,8 @@ window.ingresarAGuia = async function() {
             </div>
         </div>`;
 
-        innerContent.innerHTML = htmlRenderizado;\n    if(window.renderizarBloquesEspeciales) window.renderizarBloquesEspeciales(innerContent);
+        innerContent.innerHTML = htmlRenderizado;
+    if(window.renderizarBloquesEspeciales) window.renderizarBloquesEspeciales(innerContent);
     
     setTimeout(() => {
         if (window.juegosPendientes && window.juegosPendientes.length > 0) {
