@@ -43,9 +43,15 @@
         .btn-nav-outline:hover { background: #F1F5F9; color: #1E293B; border-color: #94A3B8; }
         
         .controls-bottom { margin-top: 40px; display: flex; gap: 20px; }
-        .controls-top { display: flex; justify-content: center; gap: 15px; margin-bottom: 20px; width: 100%; flex-wrap: wrap; align-items: center; z-index: 10;}
+        .controls-top { 
+            position: fixed; top: 0; left: 0; width: 100%; 
+            background: #ffffff; box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
+            display: flex; justify-content: space-between; align-items: center; 
+            padding: 10px 30px; z-index: 1000; box-sizing: border-box;
+            margin-bottom: 0;
+        }
         .btn-sm { padding: 8px 16px; font-size: 1rem; }
-        .btn-close { position: absolute; top: 30px; right: 30px; background: #FEE2E2; border: 1px solid #EF4444; color: #EF4444; width: 50px; height: 50px; border-radius: 50%; cursor: pointer; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; transition: 0.2s; box-shadow: 0 4px 6px rgba(239,68,68,0.2);}
+        .btn-close { background: #FEE2E2; border: 1px solid #EF4444; color: #EF4444; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 1.2rem; display: flex; align-items: center; justify-content: center; transition: 0.2s; box-shadow: 0 4px 6px rgba(239,68,68,0.2);}
         .btn-close:hover { background: #EF4444; color: white; }
 
         /* Timer */
@@ -116,13 +122,18 @@
     </div>
 
     <!-- PANTALLA GENÉRICA DE CLASE -->
-    <div id="screen-slide" class="screen">
-        <button class="btn-close" onclick="backToMenu()"><i class="ph ph-house"></i></button>
-
+    <div id="screen-slide" class="screen" style="padding-top: 80px;">
         <div class="controls-top">
-            <button class="btn-nav btn-nav-outline btn-sm" onclick="prevSlide()"><i class="ph ph-arrow-left"></i> Anterior</button>
-            <button class="btn-nav btn-nav-outline btn-sm" onclick="startTimerGlobal()" id="btn-start-timer" style="display:none;"><i class="ph ph-play"></i> Iniciar Tiempo</button>
-            <button class="btn-nav btn-sm" onclick="nextSlide()">Siguiente <i class="ph ph-arrow-right"></i></button>
+            <div style="display: flex; gap: 10px; align-items: center;">
+                <button class="btn-close" onclick="backToMenu()"><i class="ph ph-house"></i></button>
+                <button class="btn-nav btn-nav-outline btn-sm" onclick="prevSlide()"><i class="ph ph-arrow-left"></i> Anterior</button>
+                <button class="btn-nav btn-sm" onclick="nextSlide()">Siguiente <i class="ph ph-arrow-right"></i></button>
+            </div>
+            
+            <div style="display: flex; gap: 15px; align-items: center;">
+                <button class="btn-nav btn-nav-outline btn-sm" onclick="startTimerGlobal()" id="btn-start-timer" style="display:none; border-color: #D97706; color: #D97706;"><i class="ph ph-play"></i> Iniciar Tiempo</button>
+                <div id="timer-text-mini" style="display: none; font-size: 1.5rem; font-weight: bold; font-variant-numeric: tabular-nums; color: #D97706;">00:00</div>
+            </div>
         </div>
         
         <div id="slide-icon" class="notebook-icon"><i class="ph ph-notebook"></i></div>
@@ -321,6 +332,12 @@
             const m = Math.floor(currentTimerSeconds / 60).toString().padStart(2, '0');
             const s = (currentTimerSeconds % 60).toString().padStart(2, '0');
             document.getElementById('timer-text').innerText = `${m}:${s}`;
+            
+            const miniTimer = document.getElementById('timer-text-mini');
+            if (miniTimer) {
+                miniTimer.innerText = `${m}:${s}`;
+                miniTimer.style.display = 'block';
+            }
         }
 
         function startTimerGlobal() {
@@ -337,6 +354,13 @@
                     document.getElementById('timer-text').style.color = '#EF4444';
                     document.getElementById('timer-text').innerText = "¡TIEMPO!";
                     document.getElementById('timer-text').classList.remove('timer-pulse');
+                    
+                    const miniTimer = document.getElementById('timer-text-mini');
+                    if(miniTimer) {
+                        miniTimer.style.color = '#EF4444';
+                        miniTimer.innerText = "¡TIEMPO!";
+                        miniTimer.classList.remove('timer-pulse');
+                    }
                     // Play a soft beep if needed
                 }
             }, 1000);
