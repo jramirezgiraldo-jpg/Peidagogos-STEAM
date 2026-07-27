@@ -1334,7 +1334,7 @@ window.aplicarRestriccionesProgreso = function() {
     const asignatura = subjectTitle.innerText.replace('Aula de ', '').trim();
     
     const key = `prog_${window.usuario_actual || 'default'}_${asignatura}_p${periodo}`;
-    let maxSemanaUnlocked = parseInt(localStorage.getItem(key)) || 1; if (window.rol_actual === "admin" || window.rol_actual === "docente") { maxSemanaUnlocked = 8; }
+    let maxSemanaUnlocked = 8; // Desbloqueo total solicitado por el usuario
     
     const selectSemana = document.getElementById("student-select-semana");
     if (!selectSemana) return;
@@ -1364,7 +1364,7 @@ window.completarMisionActual = function() {
     const asignatura = subjectTitle.innerText.replace('Aula de ', '').trim();
     
     const key = `prog_${window.usuario_actual || 'default'}_${asignatura}_p${periodo}`;
-    let maxSemanaUnlocked = parseInt(localStorage.getItem(key)) || 1; if (window.rol_actual === "admin" || window.rol_actual === "docente") { maxSemanaUnlocked = 8; }
+    let maxSemanaUnlocked = 8; // Desbloqueo total solicitado por el usuario
     let semanaActual = parseInt(semanaStr);
     
     if (semanaActual === maxSemanaUnlocked) {
