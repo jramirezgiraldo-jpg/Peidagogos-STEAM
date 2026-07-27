@@ -1226,7 +1226,20 @@ function renderizarGuiaProfesor(guideData, asignatura, periodo, semanaStr) {
     if (guideData.recurso_visual) {
         htmlRenderizado += `<h4 style="color: #4F46E5; margin-top: 20px;">📊 Recurso Visual</h4>`;
         if (guideData.recurso_visual.includes('graph TD') || guideData.recurso_visual.includes('graph LR') || guideData.recurso_visual.includes('pie') || guideData.recurso_visual.includes('flowchart') || guideData.recurso_visual.includes('mermaid')) {
-            htmlRenderizado += `<div style="text-align:center; padding:20px; border: 2px dashed #94A3B8; border-radius: 8px; color: #475569; background: #F8FAFC; margin-bottom: 20px;"><i>📝 <b>Actividad Práctica:</b> Reflexiona sobre el texto anterior e imagina cómo dibujarías este concepto en tu cuaderno usando un esquema.</i></div>`;
+            let concepts = [];
+            let regex = /[\[\(\{]([^\]\)\}]+)[\]\)\}]/g;
+            let match;
+            while ((match = regex.exec(guideData.recurso_visual)) !== null) {
+                if(match[1] && match[1].trim().length > 3 && !match[1].includes('#') && !match[1].includes('mermaid') && !match[1].includes('graph')) {
+                    concepts.push(match[1].trim().replace(/['"]/g, ''));
+                }
+            }
+            let uniqueConcepts = [...new Set(concepts)];
+            let instructionText = "Elabora en tu cuaderno un esquema, mapa mental o tabla que resuma la información del texto.";
+            if (uniqueConcepts.length > 0) {
+                instructionText = "Elabora en tu cuaderno un gráfico, mapa mental o tabla que conecte y organice los siguientes conceptos clave:<br><br><div style='text-align:left; display:inline-block;'><b>• " + uniqueConcepts.join("</b><br><b>• ") + "</b></div>";
+            }
+            htmlRenderizado += `<div style="text-align:center; padding:20px; border: 2px dashed #94A3B8; border-radius: 8px; color: #475569; background: #F8FAFC; margin-bottom: 20px;"><i>📝 <b>Instrucción para tu cuaderno:</b><br><br>${instructionText}</i></div>`;
         } else {
             htmlRenderizado += `<div class="markdown-body" style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px; overflow-x: auto;">${marked.parse(guideData.recurso_visual)}</div>`;
         }
@@ -1693,7 +1706,20 @@ window.ingresarAGuia = async function() {
         if (guideData.recurso_visual) {
             htmlRenderizado += `<h4 style="color: #4F46E5; margin-top: 20px;">📊 Recurso Visual</h4>`;
             if (guideData.recurso_visual.includes('graph TD') || guideData.recurso_visual.includes('graph LR') || guideData.recurso_visual.includes('pie') || guideData.recurso_visual.includes('flowchart') || guideData.recurso_visual.includes('mermaid')) {
-                htmlRenderizado += `<div style="text-align:center; padding:20px; border: 2px dashed #94A3B8; border-radius: 8px; color: #475569; background: #F8FAFC; margin-bottom: 20px;"><i>📝 <b>Actividad Práctica:</b> Reflexiona sobre el texto anterior e imagina cómo dibujarías este concepto en tu cuaderno usando un esquema.</i></div>`;
+                let concepts = [];
+                let regex = /[\[\(\{]([^\]\)\}]+)[\]\)\}]/g;
+                let match;
+                while ((match = regex.exec(guideData.recurso_visual)) !== null) {
+                    if(match[1] && match[1].trim().length > 3 && !match[1].includes('#') && !match[1].includes('mermaid') && !match[1].includes('graph')) {
+                        concepts.push(match[1].trim().replace(/['"]/g, ''));
+                    }
+                }
+                let uniqueConcepts = [...new Set(concepts)];
+                let instructionText = "Elabora en tu cuaderno un esquema, mapa mental o tabla que resuma la información del texto.";
+                if (uniqueConcepts.length > 0) {
+                    instructionText = "Elabora en tu cuaderno un gráfico, mapa mental o tabla que conecte y organice los siguientes conceptos clave:<br><br><div style='text-align:left; display:inline-block;'><b>• " + uniqueConcepts.join("</b><br><b>• ") + "</b></div>";
+                }
+                htmlRenderizado += `<div style="text-align:center; padding:20px; border: 2px dashed #94A3B8; border-radius: 8px; color: #475569; background: #F8FAFC; margin-bottom: 20px;"><i>📝 <b>Instrucción para tu cuaderno:</b><br><br>${instructionText}</i></div>`;
             } else {
                 htmlRenderizado += `<div class="markdown-body" style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px; overflow-x: auto;">${marked.parse(guideData.recurso_visual)}</div>`;
             }
@@ -2519,9 +2545,23 @@ window.renderizarBloquesEspeciales = function(containerElement) {
     // Reemplazar bloques de Mermaid generados por markdown con un mensaje didáctico
     const mermaidBlocks = containerElement.querySelectorAll('pre code.language-mermaid');
     mermaidBlocks.forEach((block, index) => {
+        let code = block.textContent;
+        let concepts = [];
+        let regex = /[\[\(\{]([^\]\)\}]+)[\]\)\}]/g;
+        let match;
+        while ((match = regex.exec(code)) !== null) {
+            if(match[1] && match[1].trim().length > 3 && !match[1].includes('#') && !match[1].includes('mermaid') && !match[1].includes('graph')) {
+                concepts.push(match[1].trim().replace(/['"]/g, ''));
+            }
+        }
+        let uniqueConcepts = [...new Set(concepts)];
+        let instructionText = "Elabora en tu cuaderno un esquema, mapa mental o tabla que resuma la información del texto.";
+        if (uniqueConcepts.length > 0) {
+            instructionText = "Elabora en tu cuaderno un gráfico, mapa mental o tabla que conecte y organice los siguientes conceptos clave:<br><br><div style='text-align:left; display:inline-block;'><b>• " + uniqueConcepts.join("</b><br><b>• ") + "</b></div>";
+        }
         const divMsg = document.createElement('div');
         divMsg.style.cssText = "text-align:center; padding:20px; border: 2px dashed #94A3B8; border-radius: 8px; color: #475569; background: #F8FAFC; margin-bottom: 20px;";
-        divMsg.innerHTML = "<i>📝 <b>Actividad Práctica:</b> Reflexiona sobre el texto anterior e imagina cómo dibujarías este concepto en tu cuaderno usando un esquema.</i>";
+        divMsg.innerHTML = "<i>📝 <b>Instrucción para tu cuaderno:</b><br><br>" + instructionText + "</i>";
         block.parentElement.parentNode.replaceChild(divMsg, block.parentElement);
     });
 
