@@ -258,9 +258,16 @@
                             }
                         }
                         let uniqueConcepts = [...new Set(concepts)];
-                        let instructionText = "Elabora en tu cuaderno un esquema, mapa mental o tabla que resuma la información del texto.";
+                        let instructionText = "Elabora en tu cuaderno un esquema, mapa mental o dibujo que resuma la información del texto.";
                         if (uniqueConcepts.length > 0) {
-                            instructionText = "Elabora en tu cuaderno un gráfico, mapa mental o tabla que conecte y organice los siguientes conceptos clave:<br><br><div style='text-align:left; display:inline-block;'><b>• " + uniqueConcepts.join("</b><br><b>• ") + "</b></div>";
+                            let instructionsList = [
+                                "🎨 <b>Misión de Mapa Mental:</b> Toma tu cuaderno de forma horizontal. En el centro, escribe el concepto principal de esta lista y enciérralo en una nube. Luego, saca flechas (ramificaciones) hacia los demás conceptos. Usa un color diferente para cada rama.",
+                                "📏 <b>Misión de Tabla Organizadora:</b> Usa tu regla para dibujar una tabla amplia en tu cuaderno. En la primera columna, escribe cada uno de los conceptos de la lista. En la segunda columna, explica con tus propias palabras qué significa cada uno. En la tercera columna, da un ejemplo de la vida real.",
+                                "🔗 <b>Misión de Esquema de Conectores:</b> Escribe los conceptos de la lista distribuidos por toda la página de tu cuaderno. Ahora, el reto es conectarlos con líneas. Sobre cada línea que dibujes, escribe una palabra de enlace (ej: 'sirve para', 'se divide en', 'produce').",
+                                "🖍️ <b>Misión de Dibujo Explicativo:</b> Haz un dibujo grande y detallado en tu cuaderno donde aparezcan y se relacionen los conceptos de esta lista. Usa flechas y etiquetas para señalar dónde está cada concepto dentro de tu dibujo. ¡Ponle colores para que destaque!"
+                            ];
+                            let randIndex = Math.floor(Math.random() * instructionsList.length);
+                            instructionText = instructionsList[randIndex] + "<br><br><div style='background: #e2e8f0; padding: 10px; border-radius: 6px; display:inline-block; text-align:left; margin-top: 5px;'><b>Conceptos a incluir obligatoriamente:</b><br>• " + uniqueConcepts.join("<br>• ") + "</div>";
                         }
                         div.style.cssText = "text-align:center; padding:20px; border: 2px dashed #94A3B8; border-radius: 8px; color: #475569; background: #F8FAFC; margin-bottom: 20px;";
                         div.innerHTML = "<i>📝 <b>Instrucción para tu cuaderno:</b><br><br>" + instructionText + "</i>";
