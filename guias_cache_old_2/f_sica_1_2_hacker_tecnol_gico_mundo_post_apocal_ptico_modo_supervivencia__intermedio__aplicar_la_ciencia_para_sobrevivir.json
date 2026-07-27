@@ -1,0 +1,78 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "Si estás escapando de un recolector mutante y corres en círculos volviendo al mismo salón de la IE Instituto Montenegro, ¿cuánto espacio real avanzaste desde tu punto inicial?",
+      "opciones": [
+        "A) Muchísimo, porque corrí muy rápido.",
+        "B) Cero, porque terminé en el mismo lugar donde inicié.",
+        "C) Depende del tamaño del salón.",
+        "D) La mitad de la distancia total recorrida."
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "Para indicarle a tu equipo de hackers dónde encontrar una batería de fusión oculta, ¿qué datos mínimos necesitas proporcionar?",
+      "opciones": [
+        "A) Solo la hora del día.",
+        "B) Un punto de referencia y la distancia/dirección desde allí.",
+        "C) El color de la batería.",
+        "D) Ninguno, ellos la encontrarán por intuición."
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "En un mapa de supervivencia, ¿qué representa la línea curva real que dibujas con tus pasos para evitar la radiación?",
+      "opciones": [
+        "A) El desplazamiento directo.",
+        "B) La velocidad constante.",
+        "C) La trayectoria del movimiento.",
+        "D) El sistema de referencia absoluto."
+      ],
+      "correcta": 2
+    }
+  ],
+  "texto_inductivo": "# 💻 HACKEANDO EL ESPACIO-TIEMPO: DIAGNÓSTICO EN EL REFUGIO MONTENEGRO\n\n¡Atención, reclutas del **Refugio Montenegro-06**! Soy su Tecno-Hacker de confianza. Las defensas perimetrales de la antigua *IE Instituto Montenegro* han sido comprometidas por los drones patrulla de la IA central. Si queremos sobrevivir hoy, no basta con correr; necesitamos dominar el arte de la **cinemática clandestina**.\n\n***¿Cómo podemos hackear las rutas de suministro desde las ruinas de la IE Instituto Montenegro para evadir los drones patrulla automáticos, sabiendo exactamente dónde estamos y qué camino tomamos antes de que se agote nuestra batería de soporte vital?***\n\nPara burlar los sensores infrarrojos, primero debemos entender dónde estamos parados. Un hacker físico no mira el suelo, mira las variables de su interfaz de supervivencia.\n\n<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 600 300\" width=\"100%\" style=\"background-color:#0d1117; border-radius:8px; border: 2px solid #00ff66;\">\n  <g stroke=\"#00ff66\" stroke-opacity=\"0.2\" stroke-width=\"1\">\n    <line x1=\"50\" y1=\"50\" x2=\"550\" y2=\"50\" />\n    <line x1=\"50\" y1=\"100\" x2=\"550\" y2=\"100\" />\n    <line x1=\"50\" y1=\"150\" x2=\"550\" y2=\"150\" />\n    <line x1=\"50\" y1=\"200\" x2=\"550\" y2=\"200\" />\n    <line x1=\"50\" y1=\"250\" x2=\"550\" y2=\"250\" />\n    <line x1=\"100\" y1=\"50\" x2=\"100\" y2=\"250\" />\n    <line x1=\"200\" y1=\"50\" x2=\"200\" y2=\"250\" />\n    <line x1=\"300\" y1=\"50\" x2=\"300\" y2=\"250\" />\n    <line x1=\"400\" y1=\"50\" x2=\"400\" y2=\"250\" />\n    <line x1=\"500\" y1=\"50\" x2=\"500\" y2=\"250\" />\n  </g>\n  <line x1=\"300\" y1=\"30\" x2=\"300\" y2=\"270\" stroke=\"#00ff66\" stroke-width=\"3\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"150\" x2=\"550\" y2=\"150\" stroke=\"#00ff66\" stroke-width=\"3\" marker-end=\"url(#arrow)\" />\n  <circle cx=\"300\" cy=\"150\" r=\"8\" fill=\"#ff3333\" />\n  <text x=\"315\" y=\"145\" fill=\"#ff3333\" font-family=\"monospace\" font-size=\"12\" font-weight=\"bold\">Refugio Montenegro (0,0)</text>\n  <circle cx=\"450\" cy=\"80\" r=\"6\" fill=\"#00ffff\" />\n  <text x=\"460\" y=\"75\" fill=\"#00ffff\" font-family=\"monospace\" font-size=\"11\">Antena WiFi (+150m, +70m)</text>\n  <path d=\"M 300 150 Q 380 200 400 110 T 450 80\" fill=\"none\" stroke=\"#ffcc00\" stroke-width=\"3\" stroke-dasharray=\"5,5\" />\n  <text x=\"310\" y=\"220\" fill=\"#ffcc00\" font-family=\"monospace\" font-size=\"11\">¡Ruta Clandestina (Trayectoria)!</text>\n</svg>\n\n### 🔁 INICIANDO PROTOCOLOS DE ENCRIPTACIÓN\nDescifra los siguientes conceptos de seguridad antes de que el firewall del enemigo bloquee tu terminal:\n\n[JUEGO:ORDENAR_LETRAS:POSICION]\n\n[JUEGO:ORDENAR_LETRAS:TRAYECTORIA]\n\n[JUEGO:ORDENAR_FRASE:EL PUNTO DE REFERENCIA DETERMINA MI POSICION]\n\n[JUEGO:ORDENAR_FRASE:LA TRAYECTORIA ES EL CAMINO DIBUJADO]\n\n### 🔍 RASTREO DE DATOS\nEncuentra las palabras clave ocultas en la matriz de física del refugio:\n\n[JUEGO:SOPA_LETRAS:ORIGEN,COORDENADA,EJE]\n\n[JUEGO:SOPA_LETRAS:MOVIMIENTO,REPOSO,FISICA]\n\n### 🧠 DESCIFRADO DE SEGURIDAD\nResuelve este acceso criptográfico para desbloquear los mapas:\n\n[JUEGO:CRUCIGRAMA:Punto que se toma como base para medir|ORIGEN;Lugar donde se encuentra un cuerpo|POSICION]\n\n[JUEGO:CRUCIGRAMA:Cambio de posicion de un cuerpo|MOVIMIENTO;Camino que sigue un objeto|TRAYECTORIA]",
+  "recurso_visual": "| Variable Cinemática | Símbolo Hacking | Definición en Supervivencia | Unidad (S.I.) |\n| :--- | :--- | :--- | :--- |\n| **Posición** | $\\vec{r}$ | Ubicación exacta respecto al servidor central (Origen). | Metros [m] |\n| **Trayectoria** | Línea discontinua | El rastro físico dejado en el suelo para esquivar minas. | No tiene fórmula |\n| **Distancia** | $d$ | La energía total gastada al caminar (escala real). | Metros [m] |\n| **Desplazamiento** | $\\Delta\\vec{x}$ | Atajo en línea recta desde la base al objetivo. | Metros [m] |",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "¿Por qué es vital definir un punto de origen (0,0) antes de enviar coordenadas a tus compañeros de resistencia?",
+      "respuesta_esperada": "Porque sin un punto de referencia (origen), las coordenadas no tienen sentido físico y los demás sobrevivientes podrían terminar en zonas de radiación letal al interpretar mal la posición."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un mapa de la IE Instituto Montenegro hoy destruida. Ubica el Laboratorio de Química como tu origen (0,0) y calcula visualmente la posición de la cafetería usando coordenadas aproximadas en metros.",
+    "Si un dron patrulla viaja en una trayectoria perfectamente circular alrededor del patio central del refugio y da una vuelta completa, ¿cuál fue su desplazamiento neto?"
+  ],
+  "texto_deductivo": "# 🟢 MANUAL DE CINEMÁTICA DE COMBATE: CONCEPTOS DE SUPERVIVENCIA\n\nHackers, para no ser detectados por la IA, debemos diferenciar con precisión científica cómo nos movemos. La mayoría de las víctimas en el yermo mueren porque confunden la **Distancia Recorrida** con el **Desplazamiento**.\n\n### 1. Sistema de Referencia (El Servidor Base)\nEs el punto físico (por ejemplo, la entrada principal de la *IE Instituto Montenegro*) y los ejes coordenados que usamos para medir dónde estamos. Sin esto, estás perdido en el vacío.\n\n### 2. Posición (Tu IP Física)\nEs el vector que va desde el Origen hasta donde tú estás en un segundo exacto. Se representa con coordenadas $(x, y)$.\n\n### 3. Trayectoria vs Desplazamiento (El Camino Real vs El Atajo Láser)\n- **Trayectoria:** Es la línea caprichosa que dibujas al caminar (curvas, desvíos para esquivar escombros). Es un valor escalar.\n- **Desplazamiento:** Es la línea recta que une tu punto de partida con tu punto de llegada. ¡No le importa qué curvas hiciste en el medio! Es un vector rápido.\n\n<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 600 250\" width=\"100%\" style=\"background-color:#111; border: 2px dashed #00ffff; border-radius: 8px;\">\n  <!-- Origen y Destino -->\n  <circle cx=\"100\" cy=\"150\" r=\"8\" fill=\"#00ff66\" />\n  <text x=\"80\" y=\"180\" fill=\"#00ff66\" font-family=\"monospace\" font-size=\"12\">Inicio (A)</text>\n  \n  <circle cx=\"500\" cy=\"100\" r=\"8\" fill=\"#ff0055\" />\n  <text x=\"480\" y=\"130\" fill=\"#ff0055\" font-family=\"monospace\" font-size=\"12\">Destino (B)</text>\n  \n  <!-- Trayectoria curva -->\n  <path d=\"M 100 150 C 200 50, 250 250, 350 150 S 450 50, 500 100\" fill=\"none\" stroke=\"#ffcc00\" stroke-width=\"4\" stroke-dasharray=\"4\" />\n  <text x=\"260\" y=\"70\" fill=\"#ffcc00\" font-family=\"monospace\" font-size=\"12\">Trayectoria (Longitud = d)</text>\n  \n  <!-- Desplazamiento Vectorial -->\n  <line x1=\"100\" y1=\"150\" x2=\"492\" y2=\"101\" stroke=\"#00ffff\" stroke-width=\"4\" />\n  <polygon points=\"490,96 500,100 492,106\" fill=\"#00ffff\" />\n  <text x=\"250\" y=\"140\" fill=\"#00ffff\" font-family=\"monospace\" font-size=\"12\">Desplazamiento (Δx)</text>\n</svg>\n\n### 🔑 EVASIÓN DE SEÑAL: MINIJUEGOS AVANZADOS\nCompleta este software de desencriptación para limpiar tu rastro del radar central:\n\n[JUEGO:ORDENAR_LETRAS:DISTANCIA]\n\n[JUEGO:ORDENAR_LETRAS:DESPLAZAMIENTO]\n\n[JUEGO:ORDENAR_LETRAS:VECTOR]\n\n[JUEGO:ORDENAR_FRASE:EL DESPLAZAMIENTO ES LA LINEA RECTA ENTRE INICIO Y FIN]\n\n[JUEGO:ORDENAR_FRASE:LA DISTANCIA MEDIDA SIEMPRE ES UN ESCALAR POSITIVO]\n\n[JUEGO:ORDENAR_FRASE:HACKEA EL MOVIMIENTO PARA EVITAR LOS DRONES]\n\n### 📊 ANÁLISIS DE RED\nDespeja estas fórmulas de la matriz cinemática:\n\n[JUEGO:SOPA_LETRAS:METRO,TIEMPO,RAPIDEZ]\n\n[JUEGO:SOPA_LETRAS:SENSOR,RELOJ,LINEA]\n\n[JUEGO:SOPA_LETRAS:RUTA,MAPA,ESCAPE]\n\n[JUEGO:CRUCIGRAMA:Medida de la longitud de la trayectoria|DISTANCIA;Cambio de posicion en linea recta|DESPLAZAMIENTO]\n\n[JUEGO:CRUCIGRAMA:Magnitud que solo tiene numero y unidad|ESCALAR;Magnitud que tiene direccion y sentido|VECTORIAL]\n\n[JUEGO:CRUCIGRAMA:Dispositivo que detecta intrusos|SENSOR;Unidad de medida de longitud en el SI|METRO]",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "¿Cuál es la diferencia física clave entre la trayectoria y el desplazamiento en términos de vectores?",
+      "respuesta_esperada": "La trayectoria es una magnitud escalar que representa la longitud total de la ruta seguida, mientras que el desplazamiento es una magnitud vectorial que mide la distancia mínima en línea recta entre las posiciones inicial y final junto con su dirección."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Un recluta del refugio corre 12 metros al Norte buscando chatarra y luego se devuelve 8 metros al Sur para huir de una nube tóxica. En tu cuaderno, calcula la distancia total recorrida y su desplazamiento resultante respecto a la base.",
+    "Explica por qué los sensores láser automáticos de las murallas calculan solo el desplazamiento lineal para disparar sus proyectiles electromagnéticos."
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de fenómenos",
+      "texto_introductorio": "Durante un asalto de exploración desde la base de la IE Instituto Montenegro, dos hackers toman caminos distintos para llegar a la misma central de energía geotérmica (Punto B) partiendo del mismo búnker de transmisiones (Punto A). El Hacker 1 utiliza un túnel directo en línea recta de 50 metros. El Hacker 2 camina por la superficie haciendo zigzag entre vehículos oxidados, recorriendo un total de 120 metros.",
+      "tabla_o_grafica_markdown": "| Hacker | Ruta Tomada | Distancia Recorrida | Módulo del Desplazamiento |\n| :--- | :--- | :--- | :--- |\n| **Hacker 1** | Túnel Recto | 50 m | 50 m |\n| **Hacker 2** | Superficie Zigzag | 120 m | 50 m |",
+      "pregunta": "Teniendo en cuenta los datos de telemetría de la tabla, ¿cuál de las siguientes afirmaciones sobre los movimientos de los hackers es correcta?",
+      "opciones": [
+        "A) Ambos hackers tuvieron el mismo desplazamiento, pero la trayectoria del Hacker 2 fue de mayor longitud.",
+        "B) El Hacker 2 se desplazó más metros que el Hacker 1 porque su camino tuvo más curvas.",
+        "C) La trayectoria de ambos hackers es exactamente igual debido a que salieron y llegaron al mismo punto.",
+        "D) El desplazamiento del Hacker 1 es menor porque tardó menos tiempo bajo tierra."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "¡Excelente hack! El desplazamiento solo toma en cuenta los puntos inicial y final, los cuales son idénticos para ambos (50 metros en línea recta). Sin embargo, el camino real dibujado (trayectoria) por el Hacker 2 fue mucho más largo (120 m).",
+        "1": "Error de calibración. El desplazamiento no depende de las curvas del camino, solo de la distancia final de línea recta entre inicio y fin.",
+        "2": "Señal perdida. Las trayectorias son diferentes porque uno fue en línea recta y el otro en zigzag.",
+        "3": "Cortocircuito. El tiempo de viaje no define la magnitud del desplazamiento geométrico."
+      }
+    }
+  ]
+}

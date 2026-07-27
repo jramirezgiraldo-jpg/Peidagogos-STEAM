@@ -104,7 +104,7 @@ Contexto Curricular:
 - Tópico Generativo: ${semanaData.topico}
 
 INSTRUCCIÓN MUY IMPORTANTE SOBRE GRÁFICOS Y ESTÉTICA:
-1. Es OBLIGATORIO acompañar TODOS los textos con un recurso visual. Intercala tablas HTML o SVG que ilustren el tema. No dejes texto plano.
+1. NO generes imágenes, diagramas Mermaid, SVG ni tablas HTML complejas. Cuando sea necesario ilustrar algo, proporciona INDICACIONES TEXTUALES CLARAS para que el estudiante dibuje o imagine el concepto en su cuaderno.
 
 INSTRUCCIÓN VITAL Y OBLIGATORIA: LA PREGUNTA PROBLEMATIZADORA
 Es OBLIGATORIO que tu "texto_inductivo" EMPIECE SIEMPRE con una GRAN PREGUNTA PROBLEMATIZADORA (destacada en negrita y cursiva) como el PRIMER PÁRRAFO absoluto del texto. Esta pregunta debe conectar el Tópico Generativo con la vida real del estudiante en la IE Instituto Montenegro. Todo el desarrollo de la guía debe girar en torno a resolver esta pregunta, manteniendo el rol y narrativa.
@@ -119,11 +119,11 @@ Incrusta OBLIGATORIAMENTE en "texto_inductivo" y "texto_deductivo":
 DEBES DEVOLVER EXCLUSIVAMENTE UN OBJETO JSON VÁLIDO CON ESTA ESTRUCTURA EXACTA:
 {
   "saberes_previos": [{ "pregunta": "¿...?", "opciones": ["A", "B", "C", "D"], "correcta": 0 }],
-  "texto_inductivo": "Markdown largo con PREGUNTA PROBLEMATIZADORA, MINIJUEGOS y GRAFICOS SVG/HTML...",
-  "recurso_visual": "Tabla markdown o Mermaid...",
+  "texto_inductivo": "Markdown largo con PREGUNTA PROBLEMATIZADORA, MINIJUEGOS e indicaciones textuales para dibujar...",
+  "recurso_visual": "Texto descriptivo detallado dando indicaciones al estudiante de qué debe dibujar en su cuaderno.",
   "preguntas_inductivas_pagina": [{ "pregunta": "¿P1?", "respuesta_esperada": "R1" }],
   "preguntas_inductivas_cuaderno": ["Reto 1", "Reto 2"],
-  "texto_deductivo": "Markdown largo con teoría, MINIJUEGOS y GRAFICOS...",
+  "texto_deductivo": "Markdown largo con teoría, MINIJUEGOS e indicaciones para dibujar...",
   "preguntas_deductivas_pagina": [{ "pregunta": "¿P1?", "respuesta_esperada": "R1" }],
   "preguntas_deductivas_cuaderno": ["Reto 1", "Reto 2"],
   "icfes": [{ "competencia": "Evaluación", "texto_introductorio": "...", "tabla_o_grafica_markdown": "...", "pregunta": "¿...?", "opciones": ["1", "2", "3", "4"], "correcta": 0, "retroalimentacion": { "0": "...", "1": "...", "2": "...", "3": "..." } }]

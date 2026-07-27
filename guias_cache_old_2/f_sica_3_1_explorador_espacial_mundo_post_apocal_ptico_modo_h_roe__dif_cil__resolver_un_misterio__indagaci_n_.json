@@ -1,0 +1,134 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Cuál es la forma geométrica que mejor describe la órbita de los planetas alrededor del Sol?",
+      "opciones": [
+        "Círculo perfecto",
+        "Elipse",
+        "Parábola",
+        "Línea recta"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Quién propuso las tres leyes del movimiento planetario basándose en las observaciones de Tycho Brahe?",
+      "opciones": [
+        "Isaac Newton",
+        "Galileo Galilei",
+        "Johannes Kepler",
+        "Albert Einstein"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "¿Qué sucede con la velocidad de un planeta cuando está más cerca del Sol (perihelio)?",
+      "opciones": [
+        "Aumenta",
+        "Disminuye",
+        "Se mantiene constante",
+        "Se detiene"
+      ],
+      "correcta": 0
+    },
+    {
+      "pregunta": "¿Qué fuerza es responsable de mantener a los planetas en su órbita?",
+      "opciones": [
+        "Fuerza Electromagnética",
+        "Fuerza de Fricción",
+        "Fuerza Gravitacional",
+        "Fuerza Nuclear"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "En el vacío del espacio post-apocalíptico, si un objeto no tiene fuerzas actuando sobre él, ¿qué hace?",
+      "opciones": [
+        "Se detiene inmediatamente",
+        "Explota",
+        "Mantiene su estado de movimiento",
+        "Cae hacia el centro de la galaxia"
+      ],
+      "correcta": 2
+    }
+  ],
+  "texto_inductivo": "Saludos, recluta. Soy el Comandante de la nave de exploración 'Ecos del Vacío'. Han pasado siglos desde que la Tierra dejó de ser habitable, y nuestra misión es entender por qué los remanentes de nuestro sistema solar se comportan de forma errática. Para sobrevivir en este entorno hostil, debemos dominar las leyes que rigen el cosmos. ***¿Podríamos restaurar el equilibrio de un sistema solar en colapso si las leyes que rigen el movimiento de los planetas fueran alteradas por una fuerza desconocida, o estamos condenados a vagar por el vacío eterno?*** \n\n<div style='background-color: #1a1a1a; padding: 20px; border: 2px solid #00ff00; border-radius: 10px; color: #00ff00; font-family: monospace;'>\n<svg viewBox='0 0 400 200' xmlns='http://www.w3.org/2000/svg'>\n  <ellipse cx='200' cy='100' rx='150' ry='80' style='fill:none;stroke:#555;stroke-width:2' />\n  <circle cx='120' cy='100' r='15' style='fill:#ffcc00' />\n  <text x='110' y='80' fill='white' font-size='12'>SOL (Foco)</text>\n  <circle cx='350' cy='100' r='8' style='fill:#4488ff' />\n  <text x='310' y='125' fill='white' font-size='12'>PLANETA (Afelio)</text>\n  <path d='M 120 100 L 350 100' stroke='red' stroke-dasharray='5,5' />\n  <text x='200' y='115' fill='red' font-size='10'>Radio Vector</text>\n</svg>\n<p align='center'>DIAGRAMA 1: Órbita Elíptica y Posición del Sol</p>\n</div>\n\nEl primer misterio que debemos resolver es la trayectoria. Los antiguos creían en círculos perfectos, pero la realidad es más compleja. [JUEGO:ORDENAR_LETRAS:ORBITA] Johannes Kepler descubrió que los planetas se mueven en elipses. [JUEGO:ORDENAR_FRASE:LA ELIPSE TIENE DOS FOCOS] Esta es la Primera Ley de Kepler. En uno de los focos reside nuestra estrella moribunda. [JUEGO:CRUCIGRAMA:Camino de un planeta|ORBITA;Punto central|FOCO] \n\nNo todos los puntos de la trayectoria son iguales. [JUEGO:ORDENAR_LETRAS:ELIPSE] Cuando el planeta se acerca al Sol, barre la misma área en el mismo tiempo que cuando está lejos. [JUEGO:ORDENAR_FRASE:EL SOL ESTA EN UN FOCO] Esto significa que su velocidad no es constante. [JUEGO:SOPA_LETRAS:ORBITA,FOCO,KEPLER] Necesitamos estos datos para calcular nuestras maniobras de evasión de asteroides. [JUEGO:CRUCIGRAMA:Ley de las áreas|KEPLER;Cerca del sol|PERIHELIO]\n\n¿Cómo medimos el tiempo en el vacío? [JUEGO:ORDENAR_LETRAS:FOCO] La Tercera Ley vincula el periodo orbital con la distancia media al Sol. [JUEGO:ORDENAR_FRASE:KEPLER DESCUBRIO LAS ORBITAS] Si nuestra estación espacial se aleja, los años se vuelven más largos. [JUEGO:SOPA_LETRAS:ELIPSE,RADIO,AREA] Analiza esta relación: el cuadrado del periodo es proporcional al cubo de la distancia. [JUEGO:CRUCIGRAMA:Forma orbital|ELIPSE;Estrella central|SOL] \n\n[JUEGO:ORDENAR_LETRAS:PLANETA] La observación de los cielos desde las ruinas de la Luna nos mostró que nada es estático. [JUEGO:ORDENAR_FRASE:EL RADIO VECTOR BARRE AREAS] Cada movimiento está calculado por la naturaleza. [JUEGO:SOPA_LETRAS:TIEMPO,SOL,ASTRO] Sin esta precisión, nuestra nave colisionaría contra los restos de Júpiter. [JUEGO:CRUCIGRAMA:Unidad de tiempo|SEGUNDO;Distancia al sol|RADIO] \n\n[JUEGO:ORDENAR_LETRAS:PERIODO] Finalmente, el movimiento planetario es la danza de la inercia y la caída constante. [JUEGO:ORDENAR_FRASE:EL TIEMPO DEPENDE DE LA DISTANCIA] Entender a Kepler es entender el mapa del tesoro del universo. [JUEGO:SOPA_LETRAS:AFELIO,PERIHELIO,LEY] ¿Estás listo para el siguiente nivel de complejidad? [JUEGO:SOPA_LETRAS:CIENCIA,DATOS,MODELO] [JUEGO:CRUCIGRAMA:Descubridor|KEPLER;Gran masa|PLANETA]",
+  "recurso_visual": "graph TD\n    A[Leyes de Kepler] --> B[1ra Ley: Elipses]\n    A --> C[2da Ley: Áreas Iguales]\n    A --> D[3ra Ley: Armónica]\n    B --> B1[Sol en un foco]\n    C --> C1[Velocidad variable]\n    D --> D1[T^2 proporcional a R^3]",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "Según la Primera Ley de Kepler, ¿en qué lugar de la elipse se encuentra el Sol?",
+      "respuesta_esperada": "El Sol se encuentra en uno de los dos focos de la elipse orbital."
+    },
+    {
+      "pregunta": "Si un planeta se mueve del Perihelio al Afelio, ¿su velocidad aumenta o disminuye?",
+      "respuesta_esperada": "Su velocidad disminuye, ya que está barriendo áreas iguales en tiempos iguales y se encuentra más lejos del centro de atracción."
+    },
+    {
+      "pregunta": "¿Qué relación matemática establece la Tercera Ley de Kepler?",
+      "respuesta_esperada": "Establece que el cuadrado del periodo orbital (T²) es directamente proporcional al cubo de la distancia media al Sol (r³)."
+    },
+    {
+      "pregunta": "En el contexto de la Segunda Ley, ¿qué significa que se 'barren áreas iguales en tiempos iguales'?",
+      "respuesta_esperada": "Significa que la velocidad sectorial es constante, lo que implica que el planeta se mueve más rápido cuando está cerca del Sol y más lento cuando está lejos."
+    },
+    {
+      "pregunta": "¿Por qué es importante para un explorador espacial conocer estas leyes en un mundo post-apocalíptico?",
+      "respuesta_esperada": "Para calcular trayectorias de navegación, predecir la posición de planetas para reabastecimiento y entender la mecánica del sistema solar tras alteraciones externas."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja una elipse indicando los dos focos, el perihelio, el afelio y sombrea dos áreas iguales que representen tiempos iguales de viaje.",
+    "Realiza un cuadro comparativo entre la visión geocéntrica (círculos) y la visión de Kepler (elipses), destacando ventajas científicas.",
+    "Escribe un informe de exploración de 10 líneas explicando cómo la Tercera Ley de Kepler te ayudaría a calcular cuánto tardaría un dron en llegar de Marte a un cinturón de asteroides.",
+    "Representa gráficamente la relación T² vs R³ en un plano cartesiano simple, explicando qué sucede si el radio se duplica."
+  ],
+  "texto_deductivo": "Ahora que dominamos la cinemática de las órbitas, debemos preguntarnos: ¿Qué es lo que realmente 'empuja' a los planetas? [JUEGO:ORDENAR_LETRAS:NEWTON] Isaac Newton, el genio del viejo mundo, nos dio la respuesta con su Ley de Gravitación Universal. [JUEGO:ORDENAR_FRASE:LA MASA ATRAE A LA MASA] No es solo que los planetas se muevan; es que son atraídos. \n\n<table style='width:100%; border: 2px solid #ff0000; background-color: #222; color: white;'>\n  <tr style='background-color: #ff0000;'>\n    <th>Variable</th>\n    <th>Significado</th>\n    <th>Impacto en la Fuerza</th>\n  </tr>\n  <tr>\n    <td>M1, M2</td>\n    <td>Masas de los cuerpos</td>\n    <td>A mayor masa, mayor atracción (Directa)</td>\n  </tr>\n  <tr>\n    <td>r</td>\n    <td>Distancia entre centros</td>\n    <td>A mayor distancia, mucha menor fuerza (Inversa al cuadrado)</td>\n  </tr>\n  <tr>\n    <td>G</td>\n    <td>Constante Gravitacional</td>\n    <td>Valor universal: 6.674x10^-11 Nm²/kg²</td>\n  </tr>\n</table>\n\n[JUEGO:ORDENAR_LETRAS:MASA] La fuerza gravitatoria actúa a distancia, cruzando el vacío que nos rodea. [JUEGO:ORDENAR_FRASE:NEWTON EXPLICO LA GRAVEDAD] Si la masa de nuestra estrella colapsada aumentara, la fuerza nos atraería con violencia hacia el centro. [JUEGO:SOPA_LETRAS:NEWTON,MASA,PESO] Esta fuerza es la que mantiene el tejido de la realidad unido. [JUEGO:CRUCIGRAMA:Fuerza de atracción|GRAVEDAD;Científico inglés|NEWTON]\n\n[JUEGO:ORDENAR_LETRAS:FUERZA] Observa la fórmula fundamental: F = G * (m1 * m2) / r². [JUEGO:ORDENAR_FRASE:EL CUADRADO DE LA DISTANCIA] Nota que la distancia está al cuadrado; esto es crítico. [JUEGO:SOPA_LETRAS:FUERZA,RADIO,VALOR] Si duplicamos nuestra distancia al Sol, la atracción no cae a la mitad, ¡cae a una cuarta parte! [JUEGO:CRUCIGRAMA:Cantidad de materia|MASA;Distancia|RADIO]\n\n[JUEGO:ORDENAR_LETRAS:GRAVEDAD] Esta ley unifica la caída de una manzana con la órbita de la Luna. [JUEGO:ORDENAR_FRASE:LA FUERZA ES INVERSA] En nuestro mundo post-apocalíptico, las anomalías gravitatorias podrían ser causadas por concentraciones de materia oscura. [JUEGO:SOPA_LETRAS:INERCIA,ACCION,LEY] Debemos calibrar los sensores de la nave constantemente. [JUEGO:CRUCIGRAMA:Aceleración terrestre|G;Constante universal|GMAYUSCULA]\n\n[JUEGO:ORDENAR_LETRAS:ATRACCION] La gravedad es el motor de la cinemática que estudiamos antes. [JUEGO:ORDENAR_FRASE:TODO LO QUE SUBE BAJA] Kepler describió el 'cómo', pero Newton explicó el 'por qué'. [JUEGO:SOPA_LETRAS:TIERRA,LUNA,ESPACIO] Sin la gravedad, los planetas saldrían disparados en línea recta por inercia. [JUEGO:CRUCIGRAMA:Satélite natural|LUNA;Planeta azul|TIERRA]\n\n[JUEGO:SOPA_LETRAS:FISICA,CIENCIA,DATOS] Para resolver el misterio de las órbitas alteradas, debemos buscar cambios en las masas o la presencia de una fuerza externa. [JUEGO:CRUCIGRAMA:Empuje o tirón|FUERZA;Lugar sin aire|VACIO]",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "Si la distancia entre dos naves espaciales se triplica, ¿cómo cambia la fuerza de atracción entre ellas?",
+      "respuesta_esperada": "La fuerza se reduce a una novena parte (1/3²) de la fuerza original."
+    },
+    {
+      "pregunta": "¿Qué pasaría con la órbita de la Tierra si el Sol desapareciera instantáneamente?",
+      "respuesta_esperada": "La Tierra dejaría de orbitar y se movería en línea recta (tangente a la órbita) debido a la inercia, al desaparecer la fuerza centrípeta gravitatoria."
+    },
+    {
+      "pregunta": "¿Cuál es la diferencia entre la constante 'g' y la constante 'G'?",
+      "respuesta_esperada": "'G' es la constante de gravitación universal (válida en todo el universo), mientras que 'g' es la aceleración de la gravedad específica en la superficie de un cuerpo (como la Tierra, 9.8 m/s²)."
+    },
+    {
+      "pregunta": "Si un planeta tiene el doble de la masa de la Tierra pero el mismo radio, ¿cuánto pesaría un astronauta allí?",
+      "respuesta_esperada": "Pesaría el doble, ya que la fuerza gravitatoria es directamente proporcional a la masa del planeta."
+    },
+    {
+      "pregunta": "¿Cómo explican las Leyes de Newton las Leyes de Kepler?",
+      "respuesta_esperada": "Newton demostró matemáticamente que una fuerza inversa al cuadrado de la distancia (gravedad) produce necesariamente órbitas elípticas, validando así las observaciones de Kepler."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Diseña un diagrama detallado de fuerzas para un satélite en órbita, mostrando el vector velocidad y el vector fuerza gravitatoria.",
+    "Elabora un mapa mental que conecte los conceptos de: Masa, Distancia, Fuerza Gravitatoria, Inercia y Elipse.",
+    "Dibuja un esquema explicativo que muestre por qué los astronautas en la Estación Espacial parecen flotar, relacionándolo con la caída libre y la velocidad tangencial.",
+    "Crea una infografía artesanal que compare la gravedad en la Tierra, la Luna y un asteroide pequeño, usando la fórmula de Newton para justificar las diferencias."
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "En una región del espacio post-apocalíptico, se descubre un planeta cuya masa es 4 veces la de la Tierra, pero su radio es el doble (2R). Un explorador desea saber cómo afectará esto a su peso en comparación con la Tierra.",
+      "tabla_o_grafica_markdown": "| Cuerpo | Masa | Radio | Gravedad (g) |\n|---|---|---|---|\n| Tierra | M | R | g |\n| Planeta X | 4M | 2R | ? |",
+      "pregunta": "¿Cuál será la aceleración de la gravedad en el Planeta X en términos de la gravedad terrestre (g)?",
+      "options": [
+        "Igual a g",
+        "El doble (2g)",
+        "La mitad (0.5g)",
+        "Cuatro veces (4g)"
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. Usando la fórmula g = G*M/R², para el Planeta X tenemos g' = G*(4M)/(2R)² = G*4M/4R² = G*M/R² = g.",
+        "1": "Incorrecto. Olvidaste elevar el radio al cuadrado en el denominador.",
+        "2": "Incorrecto. El aumento de masa compensa exactamente el aumento del radio al cuadrado.",
+        "3": "Incorrecto. Solo consideraste el aumento de masa y no el del radio."
+      }
+    }
+  ]
+}

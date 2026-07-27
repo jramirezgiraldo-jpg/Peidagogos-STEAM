@@ -1,0 +1,94 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "En nuestra Metrópolis del Futuro, una nave se queda sin combustible en el espacio profundo. ¿Qué pasará con su movimiento según lo que sabes de inercia?",
+      "opciones": [
+        "Se detendrá inmediatamente al no tener motores.",
+        "Continuará moviéndose en línea recta a velocidad constante.",
+        "Empezará a caer hacia el planeta más cercano inmediatamente.",
+        "Se moverá en círculos hasta encontrar una estación."
+      ],
+      "correcta": 1
+    }
+  ],
+  "texto_inductivo": "# Expediente 001: El Misterio de la Caída que Nunca Llega\n\nSaludos, Detectives de la Metrópolis. Se nos ha asignado un caso crítico. Un grupo de ciudadanos cree en un mito peligroso: *'Los planetas flotan en el vacío porque en el espacio la gravedad es cero y no hay fuerzas actuando'*. Nuestra misión es desmentir esto usando la ciencia del movimiento. \n\n***¿Si la gravedad es una fuerza de atracción que hace que las manzanas caigan, por qué la Luna no se estrella contra la Metrópolis del Futuro y los planetas no caen hacia el Sol?*** \n\nPara resolver esto, primero observemos el rastro del movimiento. [JUEGO:ORDENAR_LETRAS:GRAVEDAD] Los planetas no están simplemente suspendidos. Se desplazan a velocidades increíbles. [JUEGO:ORDENAR_FRASE:LA LUNA CAE HACIA LA TIERRA] Si la Tierra se detuviera, el Sol nos tragaría en un instante. [JUEGO:SOPA_LETRAS:ORBITA,VACIO,INERCIA] \n\n<div style='background: #1a1a2e; padding: 20px; border-radius: 10px; border: 2px solid #0f3460; color: #e94560; font-family: monospace;'>\n  <h3>Diagrama de Rastro Orbital (Sensor Térmico)</h3>\n  <svg viewBox='0 0 200 100' xmlns='http://www.w3.org/2000/svg'>\n    <circle cx='100' cy='50' r='10' fill='yellow' />\n    <ellipse cx='100' cy='50' rx='80' ry='40' fill='none' stroke='cyan' stroke-width='1' stroke-dasharray='5,5' />\n    <circle cx='20' cy='50' r='5' fill='blue'>\n      <animateMotion dur='5s' repeatCount='indefinite' path='M 0,0 a 80,40 0 1,0 160,0 a 80,40 0 1,0 -160,0' />\n    </circle>\n    <text x='85' y='45' fill='white' font-size='5'>SOL (FOCO)</text>\n    <text x='10' y='40' fill='white' font-size='5'>PLANETA EN CAÍDA LIBRE</text>\n  </svg>\n  <p style='font-size: 0.8rem;'>Nota: El planeta 'cae' hacia el sol, pero su velocidad lateral es tan alta que 'falla' el suelo constantemente.</p>\n</div>\n\nImaginen lanzar una pelota en la Metrópolis. [JUEGO:CRUCIGRAMA:Fuerza que nos pega al suelo|GRAVEDAD;Trayectoria curva|PARABOLA] Entre más fuerte la lanzas, más lejos llega. [JUEGO:ORDENAR_LETRAS:VELOCIDAD] Si la lanzas tan rápido que la curvatura de su caída coincide con la curvatura del planeta, habrás entrado en órbita. [JUEGO:ORDENAR_FRASE:EL MOVIMIENTO ES RELATIVO AL OBSERVADOR] \n\n[JUEGO:SOPA_LETRAS:MASA,PESO,FUERZA] La clave del misterio es que el espacio no está vacío de fuerzas. [JUEGO:CRUCIGRAMA:Atracción entre masas|GRAVITACION;Resistencia al cambio|INERCIA] Newton descubrió que la misma fuerza que hace caer una moneda en el Metro de la Metrópolis es la que mantiene a Marte en su sitio. [JUEGO:ORDENAR_LETRAS:NEWTON] \n\n<table style='width:100%; border-collapse: collapse; background: #16213e; color: white; margin: 10px 0;'>\n  <tr style='background: #0f3460;'>\n    <th style='padding: 10px; border: 1px solid #533483;'>Concepto de Campo</th>\n    <th style='padding: 10px; border: 1px solid #533483;'>Evidencia Detectivesca</th>\n  </tr>\n  <tr>\n    <td style='padding: 10px; border: 1px solid #533483;'>Posición (r)</td>\n    <td style='padding: 10px; border: 1px solid #533483;'>Distancia desde el centro del Sol.</td>\n  </tr>\n  <tr>\n    <td style='padding: 10px; border: 1px solid #533483;'>Velocidad Tangencial (v)</td>\n    <td style='padding: 10px; border: 1px solid #533483;'>Evita que el planeta colapse hacia el centro.</td>\n  </tr>\n</table>\n\n[JUEGO:ORDENAR_FRASE:LA GRAVEDAD NO DESAPARECE EN EL ESPACIO] Sin esta fuerza, los planetas saldrían disparados en línea recta. [JUEGO:ORDENAR_LETRAS:RECTA] [JUEGO:SOPA_LETRAS:CENTRIPETA,GALAXIA,ASTRO] Estamos ante una caída perpetua. [JUEGO:CRUCIGRAMA:Unidad de fuerza|NEWTON;Sinónimo de trayectoria|CAMINO] \n\n[JUEGO:ORDENAR_FRASE:TODOS LOS CUERPOS SE ATRAEN] El mito de la gravedad cero es solo una ilusión causada por la caída libre. [JUEGO:ORDENAR_LETRAS:ILUSION] [JUEGO:SOPA_LETRAS:FISICA,CIENCIA,DATOS] [JUEGO:CRUCIGRAMA:Cero absoluto de movimiento|ESTATICO;Cambio de velocidad|ACELERACION] El caso está lejos de cerrarse, necesitamos leyes más precisas. [JUEGO:ORDENAR_FRASE:INVESTIGUEMOS LAS LEYES DE KEPLER]",
+  "recurso_visual": "| Variable | Influencia en el Movimiento Planetario |\n| :--- | :--- |\n| **Masa del Sol** | Determina la intensidad del tirón gravitatorio central. |\n| **Distancia** | A mayor distancia, la fuerza de atracción disminuye al cuadrado. |\n| **Velocidad** | Debe ser exacta para mantener una órbita estable (equilibrio). |\n| **Aceleración** | Siempre apunta hacia el Sol (aceleración centrípeta). |",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "¿Por qué el texto afirma que un planeta está en 'caída libre'?",
+      "respuesta_esperada": "Porque la única fuerza significativa que actúa sobre él es la gravedad, que lo atrae constantemente hacia el centro (el Sol), aunque su velocidad lateral evita el choque."
+    },
+    {
+      "pregunta": "¿Qué sucedería con la trayectoria de un planeta si, de repente, desapareciera la gravedad del Sol?",
+      "respuesta_esperada": "El planeta seguiría una trayectoria rectilínea y uniforme en la dirección de su velocidad tangencial en ese momento, debido a la inercia."
+    },
+    {
+      "pregunta": "¿Cómo desmiente el texto el mito de que 'en el espacio no hay gravedad'?",
+      "respuesta_esperada": "Explicando que la gravedad es la que mantiene las órbitas y que la sensación de 'flotar' es en realidad el resultado de estar en caída libre perpetua."
+    },
+    {
+      "pregunta": "En la analogía de la pelota lanzada en la Metrópolis, ¿qué factor permite que la pelota entre en órbita?",
+      "respuesta_esperada": "La velocidad lateral o tangencial, que debe ser lo suficientemente alta para que la curva de caída coincida con la curvatura de la superficie terrestre."
+    },
+    {
+      "pregunta": "¿Hacia dónde apunta siempre la aceleración de un planeta en órbita?",
+      "respuesta_esperada": "Hacia el centro de la órbita (hacia el Sol), ya que es una aceleración centrípeta causada por la fuerza gravitatoria."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema de la Metrópolis del Futuro y representa con vectores de diferentes colores la velocidad tangencial y la fuerza gravitatoria de un satélite artificial.",
+    "Realiza un cuadro comparativo entre el movimiento de una manzana que cae al suelo y el movimiento de la Luna alrededor de la Tierra.",
+    "Escribe un informe de detective (mínimo 10 líneas) explicando por qué la frase 'los astronautas flotan porque no hay gravedad' es un error científico.",
+    "Representa gráficamente, mediante una serie de dibujos (tipo cómic), qué pasaría si un planeta aumentara o disminuyera drásticamente su velocidad tangencial."
+  ],
+  "texto_deductivo": "# Análisis Forense: Las Leyes del Movimiento Planetario\n\nDetectives, para cerrar el caso contra el mito de la 'ingravidez', debemos aplicar las leyes del pasado que rigen nuestro futuro. [JUEGO:ORDENAR_LETRAS:KEPLER] Johannes Kepler analizó los datos y descubrió que las órbitas no son círculos perfectos, sino elipses. [JUEGO:ORDENAR_FRASE:EL SOL ESTA EN UN FOCO] \n\n<div style='border: 3px double #e94560; padding: 15px; background: black; font-family: sans-serif;'>\n  <h2 style='color: #00d2ff; text-align: center;'>Leyes de la Mecánica Celeste</h2>\n  <div style='display: flex; justify-content: space-around;'>\n    <div style='width: 30%; border: 1px solid white; padding: 5px; text-align: center;'>\n       <b style='color: #fbff00;'>1ª Ley</b><br>Órbitas Elípticas\n    </div>\n    <div style='width: 30%; border: 1px solid white; padding: 5px; text-align: center;'>\n       <b style='color: #fbff00;'>2ª Ley</b><br>Áreas Iguales en Tiempos Iguales\n    </div>\n    <div style='width: 30%; border: 1px solid white; padding: 5px; text-align: center;'>\n       <b style='color: #fbff00;'>3ª Ley</b><br>Armonía de los Periodos\n    </div>\n  </div>\n</div>\n\nEsto significa que un planeta cambia su velocidad según su posición. [JUEGO:ORDENAR_LETRAS:AFELIO] Cuando está cerca del sol (perihelio), se mueve más rápido. [JUEGO:ORDENAR_FRASE:LA VELOCIDAD VARIA EN LA ORBITA] [JUEGO:SOPA_LETRAS:PERIHELIO,ELIPSE,FOCOS] \n\nNewton llevó esto más allá con la Ley de Gravitación Universal. [JUEGO:CRUCIGRAMA:Forma de la órbita|ELIPSE;Punto más lejano al Sol|AFELIO] La fuerza (F) es proporcional al producto de las masas e inversamente proporcional al cuadrado de la distancia (r²). [JUEGO:ORDENAR_LETRAS:CUADRADO] \n\n<div style='background: #333; color: #0f0; padding: 10px; font-family: \"Courier New\"; border: 2px solid #0f0;'>\n  F = G * (m1 * m2) / r² <br>\n  ----------------------- <br>\n  Donde G es la constante universal. \n</div>\n\n[JUEGO:ORDENAR_FRASE:A MAYOR DISTANCIA MENOR FUERZA] El mito se cae por su propio peso (literalmente). [JUEGO:SOPA_LETRAS:DISTANCIA,MASA,UNIVERSO] Los planetas están en un equilibrio dinámico entre su inercia (querer irse recto) y la gravedad (querer caer al sol). [JUEGO:ORDENAR_LETRAS:DINAMICO] \n\n[JUEGO:CRUCIGRAMA:Científico de la gravedad|NEWTON;Camino de un planeta|ORBITA] Si la gravedad fuera cero, no habría órbitas, solo caos en la Metrópolis. [JUEGO:SOPA_LETRAS:EQUILIBRIO,ESPACIO,CIENCIA] [JUEGO:ORDENAR_FRASE:LAS LEYES FISICAS SON UNIVERSALES] \n\nFinalmente, la aceleración centrípeta es la evidencia física de que hay una fuerza actuando. [JUEGO:ORDENAR_LETRAS:CENTRIPETA] [JUEGO:CRUCIGRAMA:Punto más cercano al sol|PERIHELIO;Estrella central|SOL] Sin aceleración, no hay cambio de dirección. [JUEGO:SOPA_LETRAS:VECTOR,RADIO,TIEMPO] [JUEGO:ORDENAR_FRASE:EL MITO HA SIDO DESMENTIDO] El caso ha sido resuelto por la ciencia. [JUEGO:ORDENAR_LETRAS:RESUELTO]",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "¿Qué establece la primera ley de Kepler sobre la forma de las órbitas?",
+      "respuesta_esperada": "Establece que todos los planetas se mueven en órbitas elípticas, con el Sol situado en uno de los focos de la elipse."
+    },
+    {
+      "pregunta": "Según la segunda ley de Kepler, ¿dónde se mueve más rápido un planeta y por qué?",
+      "respuesta_esperada": "Se mueve más rápido en el perihelio (punto más cercano al Sol) para barrer áreas iguales en tiempos iguales, compensando la menor distancia con mayor velocidad."
+    },
+    {
+      "pregunta": "¿Cómo afecta la distancia (r) a la fuerza gravitatoria según Newton?",
+      "respuesta_esperada": "La fuerza es inversamente proporcional al cuadrado de la distancia; si la distancia se duplica, la fuerza se reduce a la cuarta parte."
+    },
+    {
+      "pregunta": "¿Qué papel juega la inercia en el movimiento planetario?",
+      "respuesta_esperada": "La inercia es la tendencia del planeta a seguir en línea recta; combinada con la fuerza centrípeta de la gravedad, resulta en una órbita curva."
+    },
+    {
+      "pregunta": "¿Por qué es incorrecto decir que un satélite en órbita no tiene aceleración?",
+      "respuesta_esperada": "Es incorrecto porque, aunque su rapidez sea constante (en órbita circular), su dirección cambia continuamente, lo cual implica una aceleración centrípeta."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Dibuja una elipse detallada identificando los focos, el semieje mayor, el perihelio y el afelio.",
+    "Elabora un mapa mental que conecte las 3 leyes de Kepler con la Ley de Gravitación Universal de Newton.",
+    "Realiza un dibujo explicativo que muestre la 'Parábola de Newton' (el cañón disparando desde una montaña) para explicar cómo se logra una órbita.",
+    "Crea una infografía artesanal que compare la gravedad en la superficie de la Tierra frente a la gravedad en la órbita de la Estación Espacial Internacional (ISS)."
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "En la Metrópolis del Futuro, los científicos observan dos planetas, A y B, que orbitan la misma estrella. El planeta A está a una distancia 'd' y el planeta B está a una distancia '2d'.",
+      "tabla_o_grafica_markdown": "| Planeta | Distancia al Sol | Masa |\n| :--- | :--- | :--- |\n| A | d | M |\n| B | 2d | M |",
+      "pregunta": "Si ambos planetas tienen la misma masa, ¿cuál es la relación entre la fuerza gravitatoria que siente el planeta A (Fa) y la que siente el planeta B (Fb)?",
+      "opciones": [
+        "Fa es cuatro veces mayor que Fb.",
+        "Fa es el doble de Fb.",
+        "Fa es igual a Fb.",
+        "Fb es cuatro veces mayor que Fa."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. Según la ley de Newton, la fuerza es inversamente proporcional al cuadrado de la distancia (1/2² = 1/4).",
+        "1": "Incorrecto. La relación no es lineal, sino cuadrática inversa.",
+        "2": "Incorrecto. La distancia afecta drásticamente la fuerza gravitatoria.",
+        "3": "Incorrecto. Al estar más lejos, el planeta B siente mucha menos fuerza, no más."
+      }
+    }
+  ]
+}

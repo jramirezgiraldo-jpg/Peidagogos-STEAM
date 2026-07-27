@@ -1,0 +1,96 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Qué fuerza es la principal responsable de que los planetas orbiten alrededor del Sol?",
+      "opciones": [
+        "Magnetismo",
+        "Gravedad",
+        "Fricción",
+        "Presión atmosférica"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Cuál es la forma de la trayectoria que describen los planetas?",
+      "opciones": [
+        "Círculo perfecto",
+        "Línea recta",
+        "Elipse",
+        "Parábola"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "Si un planeta se aleja del Sol en su órbita, ¿qué sucede con su velocidad?",
+      "opciones": [
+        "Aumenta",
+        "Disminuye",
+        "Se mantiene constante",
+        "Se detiene"
+      ],
+      "correcta": 1
+    }
+  ],
+  "texto_inductivo": "# 🌿 Bitácora de Exploración: El Misterio de las Lianas Invisibles\n\n¡Saludos, Cadetes del Espacio! Soy su Comandante de Expedición. Hemos aterrizado en el **Sector Selvático X-42**, un sistema planetario donde la vegetación cósmica es tan densa que parece atrapar a los astros. \n\n***¿Cómo es posible que los colosales cuerpos celestes dancen en el vacío sin colisionar ni perderse en la espesura del cosmos, y qué leyes ocultas actúan como las lianas invisibles que sostienen este equilibrio perfecto?***\n\nAl observar el cielo desde esta selva, notamos que los planetas no se mueven al azar. [JUEGO:ORDENAR_LETRAS:ORBITA] Siguen rutas precisas. [ACTIVIDAD:PLATAFORMA:¿Por qué crees que los planetas no salen disparados al espacio?|Por la fuerza de atracción gravitacional del Sol] Para entenderlo, debemos imaginar que el Sol es un gran árbol central y la gravedad son lianas que mantienen a los planetas sujetos. [JUEGO:ORDENAR_FRASE:LA GRAVEDAD ES UNA FUERZA INVISIBLE]\n\n<div style=\"background-color: #0d1b2a; padding: 20px; border-radius: 15px; border: 2px solid #00ff41; text-align: center;\">\n  <svg width=\"400\" height=\"200\">\n    <ellipse cx=\"200\" cy=\"100\" rx=\"150\" ry=\"70\" style=\"fill:none;stroke:#00ff41;stroke-width:2\" />\n    <circle cx=\"140\" cy=\"100\" r=\"20\" fill=\"yellow\" />\n    <text x=\"130\" y=\"70\" fill=\"white\" font-family=\"Arial\">Sol (Foco)</text>\n    <circle cx=\"350\" cy=\"100\" r=\"10\" fill=\"#4cc9f0\" />\n    <text x=\"330\" y=\"130\" fill=\"white\" font-family=\"Arial\">Planeta</text>\n    <line x1=\"140\" y1=\"100\" x2=\"350\" y2=\"100\" stroke=\"red\" stroke-dasharray=\"5,5\" />\n  </svg>\n  <p style=\"color: #00ff41; font-family: monospace;\">Representación de la órbita elíptica en la Nebulosa de la Selva</p>\n</div>\n\nJohannes Kepler, un antiguo explorador de la Tierra, descubrió que los planetas viajan en elipses. [JUEGO:ORDENAR_LETRAS:ELIPSE] Esto significa que a veces están cerca del sol (perihelio) y otras lejos (afelio). [ACTIVIDAD:CUADERNO:Dibuja una elipse y marca los dos focos, colocando al Sol en uno de ellos] Al estar más cerca, el planeta acelera como si bajara por una pendiente de musgo resbaladizo. [JUEGO:ORDENAR_FRASE:EL SOL ATRAE A LOS PLANETAS]\n\n[JUEGO:SOPA_LETRAS:SOL,LUNA,ASTRO,MASA,PESO,FUERZA,ELIPSE,FOCO,RADIO,LEYES]\n\n[ACTIVIDAD:PLATAFORMA:¿En qué punto de la órbita un planeta se mueve más rápido?|En el perihelio, cuando está más cerca del Sol]\n\nLa cinemática nos ayuda a medir este viaje. La **posición** del planeta cambia constantemente, su **velocidad** aumenta al acercarse al sol y su **aceleración** centrípeta lo mantiene girando. [ACTIVIDAD:CUADERNO:Realiza un cuadro comparativo entre Posición, Velocidad y Aceleración aplicado a un planeta] Sin esta aceleración, el planeta escaparía hacia la oscuridad eterna. [JUEGO:ORDENAR_LETRAS:CIENCIA]\n\n[JUEGO:ORDENAR_FRASE:EL ESPACIO ES MUY GRANDE]\n\n[ACTIVIDAD:PLATAFORMA:¿Qué pasaría con la velocidad si la órbita fuera un círculo perfecto?|La velocidad orbital sería constante en magnitud]\n\n[JUEGO:CRUCIGRAMA:Punto más cercano al sol|PERIHELIO;Fuerza que atrae masas|GRAVEDAD;Científico de las órbitas|KEPLER;Trayectoria curva|ORBITA;Punto más lejano al sol|AFELIO;Cambio de velocidad|ACELERACION;Forma de la órbita|ELIPSE;Leyes del movimiento|NEWTON;Masa central del sistema|SOL;Resistencia al cambio de movimiento|INERCIA]\n\n[ACTIVIDAD:PLATAFORMA:¿Quién propuso que las órbitas son elípticas?|Johannes Kepler]\n\nPara sobrevivir en esta selva cósmica, debemos calcular bien nuestras trayectorias. [ACTIVIDAD:CUADERNO:Escribe una breve historia donde uses los términos 'Gravedad' y 'Aceleración' para escapar de un depredador espacial] \n\n[ACTIVIDAD:PLATAFORMA:¿Qué propiedad de un planeta determina cuánta fuerza de gravedad siente?|Su masa y la distancia al Sol]\n\n[ACTIVIDAD:CUADERNO:Dibuja un mapa mental que conecte el Sol con los conceptos de Gravedad, Órbita y Elipse]",
+  "recurso_visual": "graph TD\n    A[Movimiento Planetario] --> B(Leyes de Kepler)\n    A --> C(Ley de Gravitación Universal)\n    B --> B1[1. Órbitas Elípticas]\n    B --> B2[2. Áreas Iguales]\n    B --> B3[3. Periodos]\n    C --> D[Fuerza depende de Masa y Distancia]\n    D --> E{Cinemática}\n    E --> E1[Posición]\n    E --> E2[Velocidad variable]\n    E --> E3[Aceleración centrípeta]",
+  "texto_deductivo": "# 🏹 La Ciencia de la Cacería Orbital: Newton y el Equilibrio\n\nDespués de abrirnos paso con nuestros machetes láser, hemos llegado al centro de la verdad. Isaac Newton descubrió que la misma fuerza que hace caer una fruta en esta selva es la que mantiene a la Luna en su lugar. [JUEGO:ORDENAR_LETRAS:NEWTON] Esta es la Ley de Gravitación Universal. \n\n<table style=\"width:100%; border: 2px solid #ffd700; background-color: #1a1a1a; color: white;\">\n  <tr style=\"background-color: #ffd700; color: black;\">\n    <th>Concepto</th>\n    <th>Definición en la Selva Espacial</th>\n    <th>Ecuación Simbólica</th>\n  </tr>\n  <tr>\n    <td>Masa (m)</td>\n    <td>Cantidad de 'materia vegetal' cósmica</td>\n    <td>kg</td>\n  </tr>\n  <tr>\n    <td>Distancia (r)</td>\n    <td>Largo de la liana invisible</td>\n    <td>metros</td>\n  </tr>\n  <tr>\n    <td>Fuerza (F)</td>\n    <td>Tensión de la liana que atrae</td>\n    <td>F = G * (m1*m2)/r²</td>\n  </tr>\n</table>\n\n[ACTIVIDAD:PLATAFORMA:Si duplicamos la distancia entre dos planetas, ¿qué pasa con la fuerza?|Se reduce a la cuarta parte (1/4)]\n\nNewton explicó el fenómeno extraño: los planetas están en una **caída libre perpetua**. [JUEGO:ORDENAR_LETRAS:MASA] Tienen tanta velocidad lateral que, aunque la gravedad los jala hacia adentro, nunca chocan con el Sol. [ACTIVIDAD:CUADERNO:Dibuja un diagrama de vectores mostrando la velocidad tangencial y la fuerza de gravedad de un planeta] \n\n[JUEGO:ORDENAR_FRASE:CADA ACCION TIENE UNA REACCION]\n\nLa cinemática orbital nos dice que la aceleración es $a = v^2/r$. [JUEGO:ORDENAR_LETRAS:VECTOR] Si un planeta perdiera velocidad, caería hacia el sol como un fruto maduro. [ACTIVIDAD:PLATAFORMA:¿Cómo se llama la aceleración que apunta al centro del círculo?|Aceleración centrípeta]\n\n[JUEGO:SOPA_LETRAS:INERCIA,EMPUJE,VECTOR,RAPIDEZ,TIEMPO,CIENCIA,FISICA,GALAXIA,ESTRELLA,COMETA]\n\n[JUEGO:ORDENAR_FRASE:EL AREA ES CONSTANTE EN TIEMPOS IGUALES]\n\n[ACTIVIDAD:CUADERNO:Investiga y escribe los valores de la gravedad en Marte, Júpiter y la Tierra. Compáralos en una tabla] En Júpiter, sentirías que la selva te aplasta, mientras que en Marte saltarías como un saltamontes. [JUEGO:ORDENAR_FRASE:LA ACELERACION DEPENDE DE LA FUERZA]\n\n[ACTIVIDAD:PLATAFORMA:¿Qué objeto tiene más gravedad: una estrella o un asteroide?|Una estrella, debido a su mayor masa]\n\n[JUEGO:CRUCIGRAMA:Resistencia al movimiento|INERCIA;Unidad de fuerza|NEWTON;Atracción de masas|GRAVITACION;Camino del planeta|TRAYECTORIA;Rapidez con dirección|VELOCIDAD;Espacio recorrido por tiempo|RAPIDEZ;Masa por aceleración|FUERZA;Lugar sin aire|VACIO;Centro de atracción|FOCO;Instrumento de observación|TELESCOPIO]\n\n[ACTIVIDAD:PLATAFORMA:¿Qué sucede con la fuerza de gravedad si aumentamos la masa de los cuerpos?|La fuerza de gravedad aumenta proporcionalmente]\n\n[ACTIVIDAD:CUADERNO:Crea un poster publicitario para un 'Tour por el Afelio', explicando por qué hace más frío y por qué el viaje es más lento allí] \n\n[ACTIVIDAD:PLATAFORMA:¿Cuál es la forma de la Tierra según la física planetaria?|Geoide (esfera achatada en los polos)]\n\n[ACTIVIDAD:CUADERNO:Resuelve: Si un explorador pesa 600N en la Tierra, ¿cuánto pesará en un planeta con la mitad de la gravedad terrestre? (Muestra el cálculo)]",
+  "icfes": [
+    {
+      "competencia": "Uso Comprensivo del Conocimiento Científico",
+      "texto_introductorio": "En la expedición, observamos dos planetas, 'Verde' y 'Rojo'. El planeta Verde está a una distancia 'D' del sol y el Rojo a una distancia '2D'.",
+      "tabla_o_grafica_markdown": "| Planeta | Distancia al Sol | Masa |\n|---|---|---|\n| Verde | D | M |\n| Rojo | 2D | M |",
+      "pregunta": "Según la Ley de Gravitación Universal de Newton, ¿cuál es la relación de la fuerza de atracción entre los planetas y el Sol?",
+      "opciones": [
+        "La fuerza sobre el planeta Rojo es 1/4 de la fuerza sobre el Verde",
+        "La fuerza sobre el planeta Rojo es la mitad que sobre el Verde",
+        "Ambos planetas sienten la misma fuerza porque tienen la misma masa",
+        "La fuerza sobre el planeta Rojo es el doble que sobre el Verde"
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. La fuerza de gravedad es inversamente proporcional al cuadrado de la distancia.",
+        "1": "Incorrecto. No es una relación lineal, sino cuadrática inversa.",
+        "2": "Incorrecto. Aunque la masa es igual, la distancia es un factor determinante.",
+        "3": "Incorrecto. A mayor distancia, la fuerza disminuye, no aumenta."
+      }
+    },
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "Durante el paso por el perihelio (punto más cercano), el sensor de velocidad de nuestra nave detecta un aumento significativo en la rapidez orbital del planeta Selva-9.",
+      "tabla_o_grafica_markdown": "| Posición | Distancia (UA) | Velocidad (km/s) |\n|---|---|---|\n| Perihelio | 0.98 | 30.3 |\n| Afelio | 1.02 | 29.3 |",
+      "pregunta": "¿Cuál es la explicación científica para el aumento de velocidad en el perihelio?",
+      "opciones": [
+        "El planeta tiene más masa en ese punto",
+        "La segunda ley de Kepler dicta que debe barrer áreas iguales en tiempos iguales, por lo que debe ir más rápido al estar cerca",
+        "El Sol empuja al planeta con sus vientos solares en ese punto",
+        "La fricción con la atmósfera solar lo acelera"
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. La masa de un planeta es constante en su órbita.",
+        "1": "Correcto. Para mantener la conservación del momento angular (áreas iguales), la velocidad debe aumentar cuando el radio disminuye.",
+        "2": "Incorrecto. El viento solar genera presión, pero no es la causa de la aceleración orbital según Kepler.",
+        "3": "Incorrecto. En el espacio casi vacío no hay fricción que acelere el planeta de esa forma."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "Un estudiante de la academia de exploradores propone la hipótesis de que si un planeta se detuviera instantáneamente en su órbita (velocidad = 0), este se quedaría flotando estático en el espacio.",
+      "tabla_o_grafica_markdown": "| Estado | Velocidad Tangencial | Resultado Esperado |\n|---|---|---|\n| En Órbita | V > 0 | Trayectoria Elíptica |\n| Detenido | V = 0 | ? |",
+      "pregunta": "Basado en las leyes de Newton, ¿qué ocurriría realmente?",
+      "opciones": [
+        "El planeta se quedaría estático porque no hay aire",
+        "El planeta caería en línea recta hacia el Sol debido a la fuerza gravitacional",
+        "El planeta saldría disparado en dirección opuesta al Sol",
+        "El planeta empezaría a girar sobre su propio eje sin moverse de su lugar"
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. La gravedad sigue actuando aunque no haya movimiento lateral.",
+        "1": "Correcto. Sin la velocidad tangencial que genera la 'fuerza centrífuga' aparente, la gravedad jalaría el objeto directamente hacia el centro de masa (el Sol).",
+        "2": "Incorrecto. No hay ninguna fuerza que lo empuje hacia afuera.",
+        "3": "Incorrecto. El movimiento de rotación no impide la atracción gravitacional hacia el Sol."
+      }
+    }
+  ]
+}

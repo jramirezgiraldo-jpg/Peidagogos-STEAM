@@ -1,0 +1,94 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "Desde el mirador de la Metrópolis, observas un satélite moviéndose. ¿Qué crees que lo mantiene en su lugar sin caerse ni salir volando al vacío?",
+      "opciones": [
+        "No hay gravedad en el espacio, por eso flota.",
+        "Unos motores gigantes lo empujan constantemente en círculos.",
+        "La gravedad de la Tierra lo atrae, pero su velocidad lo mantiene en órbita.",
+        "Está pegado a una red invisible de cables espaciales."
+      ],
+      "correcta": 2
+    }
+  ],
+  "texto_inductivo": "# 🕵️‍♂️ Expediente 001: El Engaño de la Gravedad Cero\n\nBienvenidos, cadetes de la división de Misterios Científicos de Neo-City. Mi nombre es el Detective Neutrón y hoy debemos resolver un crimen contra el conocimiento. Los ciudadanos de nuestra metrópolis del futuro creen en un mito peligroso: 'En el espacio no hay gravedad'. \n\n**_¿Si en el espacio no hay gravedad, por qué los planetas de nuestra Metrópolis Galáctica no salen disparados al vacío en línea recta?_** [JUEGO:ORDENAR_LETRAS:ORBITA]\n\nPara empezar nuestra investigación, observemos el cielo. Si no hubiera una fuerza actuando sobre los planetas, estos se moverían en línea recta para siempre, perdiéndose en la oscuridad del cosmos. [JUEGO:ORDENAR_FRASE:EL MITO ES FALSO] Sin embargo, vemos que describen trayectorias cerradas. [JUEGO:SOPA_LETRAS:SOL,LUNA,ASTRO] \n\n<div style='background-color: #1a1a2e; border: 2px solid #0f3460; padding: 15px; border-radius: 10px; color: #e94560; text-align: center;'>\n  <h3>Visualización de Atracción</h3>\n  <svg width='200' height='200' viewBox='0 0 100 100'>\n    <circle cx='50' cy='50' r='15' fill='yellow' />\n    <circle cx='80' cy='50' r='5' fill='cyan'>\n      <animateTransform attributeName='transform' type='rotate' from='0 50 50' to='360 50 50' dur='5s' repeatCount='indefinite' />\n    </circle>\n    <line x1='50' y1='50' x2='80' y2='50' stroke='white' stroke-dasharray='2' opacity='0.5'>\n      <animateTransform attributeName='transform' type='rotate' from='0 50 50' to='360 50 50' dur='5s' repeatCount='indefinite' />\n    </line>\n  </svg>\n  <p>El Sol (Amarillo) 'sujeta' a la Tierra (Cian) con una soga invisible: La Gravedad.</p>\n</div>\n\nAnalicemos la posición de los cuerpos celestes. [JUEGO:CRUCIGRAMA:Astro Rey|SOL;Satelite natural|LUNA] Un planeta es una masa enorme en movimiento. [JUEGO:ORDENAR_LETRAS:PLANETA] Si la gravedad desapareciera, la ciudad lunar saldría despedida. [JUEGO:ORDENAR_FRASE:NADA SE QUEDA QUIETO] \n\nMuchos confunden la 'caída libre' con la 'ausencia de gravedad'. [JUEGO:SOPA_LETRAS:CASO,PISTA,MAPA] Los astronautas no flotan porque no haya gravedad, sino porque están cayendo constantemente alrededor de la Tierra. [JUEGO:CRUCIGRAMA:Fuerza invisible|GRAVEDAD;Espacio sin aire|VACIO] \n\nDebemos recolectar evidencia: la gravedad existe en todo el universo. [JUEGO:ORDENAR_LETRAS:VACIO] Sin ella, no habría atmósfera en Neo-City. [JUEGO:ORDENAR_FRASE:LA CIENCIA ES LUZ] Es la fuerza que define la posición de cada estrella. [JUEGO:SOPA_LETRAS:LEY,DATO,MODO] \n\nCada movimiento planetario es una pista de una ley más grande. [JUEGO:CRUCIGRAMA:Planeta rojo|MARTE;Nuestra casa|TIERRA] El espacio no es un lugar vacío de reglas. [JUEGO:ORDENAR_LETRAS:MASA] Es un campo de juego lleno de fuerzas. [JUEGO:ORDENAR_FRASE:BUSCAMOS LA VERDAD] \n\nSigamos buscando pruebas en los registros de los antiguos científicos. [JUEGO:SOPA_LETRAS:GAS,LUZ,MARTE] La velocidad es lo que evita que colisionemos contra el Sol. [JUEGO:CRUCIGRAMA:Lo que pesa|MASA;Hacia abajo|CAER] Si el planeta se detuviera, caería directo al fuego solar. [JUEGO:ORDENAR_LETRAS:FUERZA] \n\nLa aceleración hacia el centro es constante. [JUEGO:ORDENAR_FRASE:EL SOL NOS ATRAE] Estamos atrapados en un baile cósmico perfecto. [JUEGO:SOPA_LETRAS:OJO,VER,FIN] La verdad está cerca, detective. [JUEGO:CRUCIGRAMA:Camino estelar|RUTA;Signo de luz|RAYO]",
+  "recurso_visual": "graph TD\n    A[Mito: No hay Gravedad en el Espacio] --> B{Evidencia Detective}\n    B --> C[Planetas no se mueven en linea recta]\n    B --> D[Astronautas estan en Caida Libre]\n    C --> E[Existe una fuerza central: Gravedad]\n    D --> E\n    E --> F[Veredicto: El Mito es FALSO]",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "¿Qué sucedería con la Tierra si, de repente, el Sol desapareciera y con él su gravedad?",
+      "respuesta_esperada": "La Tierra dejaría de orbitar y se movería en línea recta a través del espacio con velocidad constante, siguiendo la ley de inercia."
+    },
+    {
+      "pregunta": "¿Por qué se dice que los astronautas en la Estación Espacial están en 'caída libre'?",
+      "respuesta_esperada": "Porque están cayendo hacia la Tierra debido a la gravedad, pero como se mueven lateralmente tan rápido, la superficie de la Tierra 'se curva' debajo de ellos y nunca llegan a chocar, manteniéndose en órbita."
+    },
+    {
+      "pregunta": "Según el texto, ¿cuál es el factor que evita que los planetas caigan directamente hacia el Sol?",
+      "respuesta_esperada": "Su velocidad lateral o tangencial es lo que genera la inercia necesaria para contrarrestar la atracción directa y mantener la órbita."
+    },
+    {
+      "pregunta": "¿Cómo desmiente el detective el mito de que 'en el espacio no hay gravedad'?",
+      "respuesta_esperada": "Explicando que sin gravedad los planetas se moverían en línea recta y no habría órbitas ni atmósferas."
+    },
+    {
+      "pregunta": "¿Qué conceptos de cinemática menciona el detective como pistas clave?",
+      "respuesta_esperada": "Menciona la posición, la velocidad (que evita la caída) y la aceleración (hacia el centro de la órbita)."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema de Neo-City y la Luna, marcando con flechas de colores la fuerza de gravedad y la dirección de la velocidad del satélite.",
+    "Realiza un cuadro comparativo entre el 'Mito Popular' y la 'Realidad Científica' explicada por el Detective.",
+    "Escribe un informe de detective (mínimo 10 líneas) explicando por qué un satélite de comunicaciones de la Metrópolis no necesita combustible para mantenerse en órbita una vez alcanzada su velocidad.",
+    "Representa gráficamente la diferencia entre un movimiento rectilíneo (sin gravedad) y un movimiento orbital (con gravedad)."
+  ],
+  "texto_deductivo": "# 🔍 El Laboratorio de Kepler: Analizando las Elipses\n\nYa hemos desmentido el mito, cadetes. Ahora, analicemos los datos técnicos de nuestra Metrópolis Galáctica. Johannes Kepler, un antiguo detective del cielo, descubrió que las órbitas no son círculos perfectos, sino elipses. [JUEGO:ORDENAR_LETRAS:KEPLER]\n\nEn una elipse, la posición del planeta cambia y su distancia al Sol no es siempre la misma. [JUEGO:ORDENAR_FRASE:LAS ORBITAS SON ELIPSES] Esto significa que la velocidad del planeta no es constante: ¡se acelera cuando está más cerca del Sol! [JUEGO:SOPA_LETRAS:FOCO,AREA,TIEMPO]\n\n<table style='width:100%; border: 2px solid #4ecdc4; border-collapse: collapse; background-color: #2f2f2f; color: white;'>\n  <tr style='background-color: #4ecdc4; color: black;'>\n    <th style='padding: 10px; border: 1px solid white;'>Concepto</th>\n    <th style='padding: 10px; border: 1px solid white;'>Definición Científica</th>\n    <th style='padding: 10px; border: 1px solid white;'>Efecto en el Planeta</th>\n  </tr>\n  <tr>\n    <td style='padding: 10px; border: 1px solid white;'>Posición</td>\n    <td>Coordenadas respecto al Sol.</td>\n    <td>Determina la intensidad de la gravedad.</td>\n  </tr>\n  <tr>\n    <td style='padding: 10px; border: 1px solid white;'>Velocidad</td>\n    <td>Magnitud y dirección del movimiento.</td>\n    <td>Aumenta en el Perihelio (cerca del Sol).</td>\n  </tr>\n  <tr>\n    <td style='padding: 10px; border: 1px solid white;'>Aceleración</td>\n    <td>Cambio de velocidad en el tiempo.</td>\n    <td>Causada por la fuerza gravitacional.</td>\n  </tr>\n</table>\n\nEl Sol se ubica en uno de los focos de la elipse. [JUEGO:ORDENAR_LETRAS:ELIPSE] Esta es la Primera Ley de Kepler. [JUEGO:ORDENAR_FRASE:LA VELOCIDAD CAMBIA SIEMPRE] A medida que el planeta recorre su camino, barre áreas iguales en tiempos iguales. [JUEGO:SOPA_LETRAS:ACELERACION,METRO,SEG]\n\nPara que la Metrópolis funcione, debemos entender la inercia. [JUEGO:CRUCIGRAMA:Punto mas cercano|PERIHELIO;Punto mas lejano|AFELIO] Un cuerpo en movimiento tiende a seguir en movimiento. [JUEGO:ORDENAR_LETRAS:INERCIA] La gravedad curva esa tendencia. [JUEGO:ORDENAR_FRASE:EL SOL ESTA EN UN FOCO] \n\nLa cinemática nos da las herramientas para predecir dónde estará un planeta en el futuro. [JUEGO:SOPA_LETRAS:RADIO,GIRO,PUNTO] No es magia, es física pura. [JUEGO:CRUCIGRAMA:Cambio de posicion|MOVIMIENTO;Fuerza que atrae|GRAVEDAD] La aceleración centrípeta apunta siempre al centro. [JUEGO:ORDENAR_LETRAS:VELOZ] \n\nSin estos cálculos, los viajes entre colonias espaciales serían imposibles. [JUEGO:ORDENAR_FRASE:NEWTON EXPLICO EL MOVIMIENTO] Newton luego demostró que esta fuerza es la misma que hace caer una manzana en la Tierra. [JUEGO:SOPA_LETRAS:FISICA,ORDEN,REGLA] La ley de gravitación universal conecta lo pequeño con lo gigante. [JUEGO:CRUCIGRAMA:Forma de huevo|ELIPSE;Camino seguido|ORBITA] \n\nEl detective científico no solo observa, sino que mide. [JUEGO:ORDENAR_LETRAS:CENTRO] Usamos vectores para representar la dirección del movimiento. [JUEGO:ORDENAR_FRASE:TODO SIGUE UNA TRAYECTORIA] [JUEGO:SOPA_LETRAS:VECTOR,VALOR,SUMA] La verdad ha sido revelada. [JUEGO:CRUCIGRAMA:Unidad de tiempo|SEGUNDO;Unidad de distancia|METRO]",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "¿Qué forma tienen las órbitas de los planetas según la Primera Ley de Kepler?",
+      "respuesta_esperada": "Tienen forma de elipse, con el Sol ubicado en uno de sus focos."
+    },
+    {
+      "pregunta": "¿Cómo cambia la velocidad de un planeta cuando se acerca al Sol en su órbita?",
+      "respuesta_esperada": "La velocidad del planeta aumenta a medida que se acerca al Sol (Perihelio) debido a que la fuerza gravitatoria es mayor."
+    },
+    {
+      "pregunta": "¿Qué ocurre con el área barrida por el vector de posición de un planeta en intervalos de tiempo iguales?",
+      "respuesta_esperada": "Según la Segunda Ley de Kepler, el vector de posición barre áreas iguales en tiempos iguales, lo que implica que el planeta se mueve más rápido cuando está cerca del Sol."
+    },
+    {
+      "pregunta": "¿Cuál es la relación entre la fuerza de gravedad y la aceleración planetaria?",
+      "respuesta_esperada": "La gravedad actúa como la fuerza neta que produce una aceleración centrípeta, la cual cambia constantemente la dirección de la velocidad del planeta, manteniéndolo en su órbita elíptica."
+    },
+    {
+      "pregunta": "¿Qué científico unificó las leyes de Kepler con el concepto de fuerza?",
+      "respuesta_esperada": "Isaac Newton, quien formuló la Ley de Gravitación Universal para explicar por qué los planetas siguen las leyes de Kepler."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Dibuja una elipse detallada, señalando los dos focos, el Sol en uno de ellos, el planeta, el perihelio y el afelio.",
+    "Elabora un mapa mental que conecte los conceptos de Inercia, Gravedad, Elipse y Velocidad Orbital.",
+    "Realiza un dibujo explicativo que muestre por qué un planeta se mueve más rápido en el perihelio que en el afelio usando el concepto de 'barrido de áreas'.",
+    "Crea una infografía artesanal sobre Johannes Kepler y sus tres leyes del movimiento planetario para los ciudadanos de Neo-City."
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "En la Metrópolis del Futuro, una nave de suministros viaja desde el Afelio (punto más lejano) hacia el Perihelio (punto más cercano) de una órbita elíptica alrededor de un planeta.",
+      "tabla_o_grafica_markdown": "| Posición | Distancia al Centro | Velocidad Orbital |\n|---|---|---|\n| Afelio | Máxima | Mínima |\n| Perihelio | Mínima | Máxima |",
+      "pregunta": "Teniendo en cuenta las leyes de Kepler y la gravitación, ¿qué le sucede a la fuerza de atracción gravitacional y a la aceleración de la nave mientras se acerca al Perihelio?",
+      "opciones": [
+        "La fuerza de atracción aumenta y la aceleración también aumenta.",
+        "La fuerza de atracción disminuye y la aceleración aumenta.",
+        "Ambas se mantienen constantes porque la masa de la nave no cambia.",
+        "La fuerza de atracción aumenta pero la aceleración disminuye por la inercia."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. Según la ley de gravitación de Newton, a menor distancia, mayor es la fuerza, y por la segunda ley de Newton, a mayor fuerza, mayor aceleración.",
+        "1": "Incorrecto. La fuerza no disminuye al acercarse, al contrario, aumenta al reducirse la distancia.",
+        "2": "Incorrecto. Aunque la masa sea constante, la distancia cambia, lo cual modifica la fuerza y la aceleración.",
+        "3": "Incorrecto. La aceleración es directamente proporcional a la fuerza; si la fuerza aumenta, la aceleración también debe hacerlo."
+      }
+    }
+  ]
+}

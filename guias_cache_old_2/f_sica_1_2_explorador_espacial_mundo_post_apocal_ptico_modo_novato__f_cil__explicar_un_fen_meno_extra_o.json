@@ -1,0 +1,105 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "Imaginas que estás huyendo de una tormenta ácida y necesitas decirle a tu equipo dónde estás exactamente. ¿Qué información es la más importante para que te encuentren?",
+      "opciones": [
+        "A) Decirles que estás cerca de un árbol inclinado, sin dar más detalles.",
+        "B) Dar un punto de referencia claro (como la entrada de la base militar) y la distancia y dirección desde allí.",
+        "C) Gritar muy fuerte esperando que el sonido viaje por el viento post-apocalíptico.",
+        "D) Correr en círculos para dejar huellas en el suelo radioactivo."
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "Si lanzas una bengala de auxilio al cielo y esta sube en línea recta y luego cae en una curva suave por el viento, ¿cómo se llama el camino o dibujo que trazó en el aire?",
+      "opciones": [
+        "A) Desplazamiento absoluto.",
+        "B) Punto de origen orbital.",
+        "C) Trayectoria.",
+        "D) Velocidad de escape."
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "Un dron de reconocimiento vuela desde la torre de control de la IE Instituto Montenegro hasta el hangar de suministros. Si el dron vuela en línea recta, ¿cuál de los siguientes elementos define su posición final?",
+      "opciones": [
+        "A) El tiempo que tardó en despegar.",
+        "B) La distancia, dirección y el punto de referencia (torre de control).",
+        "C) El color de las luces de navegación del dron.",
+        "D) La velocidad máxima que puede alcanzar en el vacío."
+      ],
+      "correcta": 1
+    }
+  ],
+  "texto_inductivo": "# 🌌 ¡Bitácora de Vuelo: El Misterio de los Ecos de Plasma en el Montenegro Ruinoso!\n\n¡Saludos, valientes cadetes! Les habla el **Capitán Orion**, explorador del sector estelar 4. He aterrizado mi fragata de reconocimiento en lo que alguna vez fue el hermoso departamento del Quindío, Colombia. Hoy, en el año 2142, la Tierra es un desierto tecnológico cubierto de extrañas anomalías de energía.\n\nAl explorar las ruinas de su antigua institución educativa, he descubierto algo fascinante y alarmante en el patio principal de la **IE Instituto Montenegro**...\n\n**_¿Cómo podemos los sobrevivientes de la IE Instituto Montenegro mapear y predecir el avance de las anomalías de plasma usando coordenadas espaciales para trazar una ruta de escape segura que salve a nuestra comunidad de la radiación cósmica?_**\n\nObservemos con atención el mapa de radar que ha dibujado mi computadora de a bordo. Las anomalías de plasma (esferas de color púrpura) se están moviendo por el colegio:\n\n<svg viewBox=\"0 0 400 200\" width=\"100%\" style=\"background-color:#0d1117; border-radius: 8px; border: 2px solid #58a6ff;\">\n  <!-- Cuadrícula de coordenadas -->\n  <defs>\n    <pattern id=\"grid\" width=\"20\" height=\"20\" patternUnits=\"userSpaceOnUse\">\n      <path d=\"M 20 0 L 0 0 0 20\" fill=\"none\" stroke=\"#30363d\" stroke-width=\"1\"/>\n    </pattern>\n  </defs>\n  <rect width=\"100%\" height=\"100%\" fill=\"url(#grid)\" />\n  \n  <!-- Ejes -->\n  <line x1=\"40\" y1=\"160\" x2=\"360\" y2=\"160\" stroke=\"#8b949e\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"20\" x2=\"40\" y2=\"160\" stroke=\"#8b949e\" stroke-width=\"2\" />\n  <text x=\"350\" y=\"180\" fill=\"#8b949e\" font-size=\"10\">Eje X (Metros)</text>\n  <text x=\"10\" y=\"30\" fill=\"#8b949e\" font-size=\"10\" transform=\"rotate(-90 10 30)\">Eje Y (Metros)</text>\n  \n  <!-- Punto de Referencia: Entrada del Colegio -->\n  <circle cx=\"40\" cy=\"160\" r=\"8\" fill=\"#58a6ff\" />\n  <text x=\"45\" y=\"150\" fill=\"#58a6ff\" font-size=\"11\" font-weight=\"bold\">Punto de Referencia (Origen: Entrada)</text>\n  \n  <!-- Trayectoria del Eco de Plasma -->\n  <path d=\"M 40 160 Q 150 50 300 100\" fill=\"none\" stroke=\"#ff7b72\" stroke-width=\"3\" stroke-dasharray=\"5,5\" />\n  \n  <!-- Posición Actual de la Anomalía -->\n  <circle cx=\"300\" cy=\"100\" r=\"10\" fill=\"#bc8cff\" />\n  <circle cx=\"300\" cy=\"100\" r=\"15\" fill=\"none\" stroke=\"#bc8cff\" stroke-width=\"2\">\n    <animate attributeName=\"r\" values=\"10;25;10\" dur=\"2s\" repeatCount=\"indefinite\" />\n  </circle>\n  <text x=\"260\" y=\"85\" fill=\"#bc8cff\" font-size=\"12\" font-weight=\"bold\">Eco de Plasma (Anomalía)</text>\n</svg>\n\n### 🧭 El Enigma del Movimiento Fantasma\n\nPara poder sobrevivir aquí, debemos entender un concepto fundamental. No podemos simplemente correr a ciegas. Si miramos el mapa superior, la entrada del colegio (el punto azul) es nuestro **Punto de Referencia**. Desde allí medimos todo.\n\nLa esfera de plasma se encontraba inicialmente en la entrada, pero ahora se ha movido a una nueva **posición**. El rastro de luz intermitente que dejó atrás en el aire (la línea punteada roja) es lo que en física llamamos **trayectoria**. \n\n¡Cadetes, pongamos a prueba sus procesadores cognitivos con este primer desafío de descifrado antes de que la anomalía se expanda!\n\n[JUEGO:ORDENAR_LETRAS:POSICION]\n\n[JUEGO:ORDENAR_LETRAS:TRAYECTORIA]\n\nAl descifrar estas palabras, habrán desbloqueado la capacidad de comprender que un cuerpo no se mueve por arte de magia; siempre deja un rastro en el espacio-tiempo. \n\nIntentemos ordenar estas comunicaciones de radio que interceptamos de otros exploradores que intentaron cruzar el patio de la IE Instituto Montenegro:\n\n[JUEGO:ORDENAR_FRASE:EL PUNTO DE REFERENCIA ES CLAVE]\n\n[JUEGO:ORDENAR_FRASE:LA TRAYECTORIA ES EL CAMINO]\n\nExcelente trabajo. Ahora, busquemos palabras clave de supervivencia en este módulo de datos de nuestra computadora de exploración:\n\n[JUEGO:SOPA_LETRAS:CAMINO,ORIGEN,LINEA]\n\n[JUEGO:SOPA_LETRAS:METRO,SENSOR,MAPA]\n\nAntes de continuar con la teoría avanzada de cinemática, aseguremos la compuerta de la esclusa resolviendo este sistema de seguridad cuántico encriptado:\n\n[JUEGO:CRUCIGRAMA:Lugar donde se encuentra un objeto en un momento dado|POSICION;El camino que dibuja un cuerpo al moverse|TRAYECTORIA]\n\n[JUEGO:CRUCIGRAMA:Instrumento para medir longitudes|METRO;Magnitud que solo tiene numero y unidad|ESCALAR]\n\n¡Alerta! La radiación está disminuyendo temporalmente gracias a su excelente trabajo de descifrado. Estamos listos para analizar la ciencia exacta detrás de este fenómeno espantoso.",
+  "recurso_visual": "| Variable Cinemática | Definición en el Espacio | Unidad de Medida (SI) | Ejemplo en el Apocalipsis |\n| :--- | :--- | :--- | :--- |\n| **Punto de Referencia** | Lugar físico fijo que elegimos para saber si algo se mueve. | No aplica (Punto coordenado) | La estatua del fundador en la plaza central de Montenegro. |\n| **Posición** | Lugar exacto donde se encuentra un objeto respecto al punto de referencia. | Metros ($m$) | El refugio alfa está a $50\\text{ m}$ al norte de la entrada. |\n| **Trayectoria** | La línea imaginaria que dibuja un cuerpo al desplazarse de un punto a otro. | No tiene unidad (Es geométrica) | El camino curvo que hace un dron esquivando nubes tóxicas. |\n| **Distancia** | La longitud total de la trayectoria recorrida. | Metros ($m$) | Caminamos $120\\text{ m}$ por todo el laberinto de escombros. |",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "¿Qué elemento visual del mapa de radar nos permite saber que la anomalía se ha movido de lugar?",
+      "respuesta_esperada": "La línea punteada roja (trayectoria) que parte desde el origen azul (punto de referencia) hasta la esfera de plasma púrpura en su posición actual."
+    },
+    {
+      "pregunta": "Si cambiamos el punto de referencia de la entrada de la escuela al techo del gimnasio, ¿cambia la posición medida de la anomalía?",
+      "respuesta_esperada": "Sí, la posición cambia porque la distancia y la dirección medidas dependen enteramente del lugar que escojamos como punto de referencia."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja en tu cuaderno un mapa esquemático de la IE Instituto Montenegro (o de tu salón de clase si estuviera abandonado) y ubica tres posibles puntos de referencia que usarías para esconder un cofre de suministros.",
+    "Traza con color verde una trayectoria recta y con color naranja una trayectoria curva que unan la entrada del colegio con el laboratorio de física abandonado. Explica cuál camino crees que sea más largo y por qué."
+  ],
+  "texto_deductivo": "# 📐 La Ciencia de la Ubicación: Posición, Sistemas de Referencia y Trayectorias\n\n¡Atención, tripulación! Para dominar el **Modo Novato** de exploración, debemos formalizar nuestros conocimientos científicos. En la física del siglo XXI, el estudio del movimiento sin importar qué lo causa se llama **Cinemática**. \n\nPara que un explorador espacial no se pierda en los páramos radioactivos del Quindío, debe dominar tres variables fundamentales:\n\n### 1. El Sistema de Referencia (SR)\nEs el observador o el objeto físico que decidimos dejar completamente **inmóvil** para medir el movimiento de otros cuerpos. En nuestro caso, usamos las ruinas de la IE Instituto Montenegro.\n\n### 2. La Posición ($\\vec{x}$)\nEs el vector que localiza a un cuerpo dentro del espacio respecto a nuestro sistema de referencia. No basta con decir \"estoy a $20\\text{ metros}$\", debemos decir \"estoy a $20\\text{ metros}$ al **Este** de la entrada\".\n\n### 3. La Trayectoria y la Distancia Recorrida ($d$)\nLa trayectoria es el camino geométrico que dibuja el cuerpo al moverse. Puede ser:\n* **Rectilínea**: Una línea recta perfecta (ej. una bala de cañón de plasma en el vacío).\n* **Curvilínea**: Un camino curvo (ej. una mariposa mutante volando entre las ruinas).\n\nObservemos detalladamente la diferencia geométrica entre las trayectorias de dos patrullas de rescate en el siguiente diagrama:\n\n<svg viewBox=\"0 0 400 180\" width=\"100%\" style=\"background-color:#0d1117; border-radius: 8px; border: 2px solid #238636;\">\n  <!-- Fondo y rejilla -->\n  <rect width=\"100%\" height=\"100%\" fill=\"#0d1117\" />\n  \n  <!-- Base de operaciones (Inicio) -->\n  <rect x=\"20\" y=\"70\" width=\"40\" height=\"40\" rx=\"5\" fill=\"#238636\" />\n  <text x=\"25\" y=\"95\" fill=\"#ffffff\" font-size=\"10\" font-weight=\"bold\">BASE</text>\n  \n  <!-- Refugio Seguro (Fin) -->\n  <rect x=\"330\" y=\"70\" width=\"50\" height=\"40\" rx=\"5\" fill=\"#1f6feb\" />\n  <text x=\"335\" y=\"95\" fill=\"#ffffff\" font-size=\"10\" font-weight=\"bold\">REFUGIO</text>\n  \n  <!-- Trayectoria Rectilínea (Camino Seguro y Corto) -->\n  <line x1=\"60\" y1=\"90\" x2=\"330\" y2=\"90\" stroke=\"#58a6ff\" stroke-width=\"3\" />\n  <text x=\"130\" y=\"80\" fill=\"#58a6ff\" font-size=\"10\">Trayectoria Rectilínea (Distancia = 100m)</text>\n  \n  <!-- Trayectoria Curvilínea (Esquivando Anomalías) -->\n  <path d=\"M 60 90 C 130 10, 200 170, 330 90\" fill=\"none\" stroke=\"#da3633\" stroke-width=\"3\" stroke-dasharray=\"4,4\" />\n  <text x=\"100\" y=\"145\" fill=\"#da3633\" font-size=\"10\">Trayectoria Curvilínea (Distancia = 180m)</text>\n</svg>\n\nComo habrán notado, la patrulla que tomó el camino curvo (rojo) tuvo que recorrer una **distancia** mucho mayor ($180\\text{ metros}$) para llegar al mismo refugio que la patrulla que usó el camino recto ($100\\text{ metros}$). ¡Planificar la trayectoria adecuada puede ser la diferencia entre la vida y la muerte!\n\nVamos a purificar el núcleo de nuestro generador de antimateria resolviendo estos tres divertidos minijuegos de ordenamiento:\n\n[JUEGO:ORDENAR_LETRAS:DISTANCIA]\n\n[JUEGO:ORDENAR_LETRAS:MOVIMIENTO]\n\n[JUEGO:ORDENAR_LETRAS:REFERENCIA]\n\n¡Atención! Hemos recibido transmisiones codificadas encriptadas por las computadoras del siglo pasado. Ordenemos estas frases científicas vitales:\n\n[JUEGO:ORDENAR_FRASE:LA FISICA NOS SALVARA DEL APOCALIPSIS]\n\n[JUEGO:ORDENAR_FRASE:CUIDADO CON LAS ANOMALIAS DEL CAMINO]\n\n[JUEGO:ORDENAR_FRASE:MIDAMOS LA DISTANCIA CON CUIDADO]\n\nExcelente. Ahora, para calibrar los sensores ópticos de nuestros cascos espaciales, resolvamos las siguientes sopas de letras de alta frecuencia:\n\n[JUEGO:SOPA_LETRAS:FISICA,ESPACIO,TIEMPO]\n\n[JUEGO:SOPA_LETRAS:ANOMALIA,PUNTO,RUTA]\n\n[JUEGO:SOPA_LETRAS:VECTOR,CURVA,RETA]\n\nPor último, aseguremos el computador de navegación de la nave bloqueando los intrusos cibernéticos con estas respuestas correctas:\n\n[JUEGO:CRUCIGRAMA:Punto desde donde se observa el movimiento|REFERENCIA;Cambio de posicion de un cuerpo|MOVIMIENTO]\n\n[JUEGO:CRUCIGRAMA:Longitud de la trayectoria recorrida|DISTANCIA;Estado de un cuerpo que no cambia de posicion|REPOSO]\n\n[JUEGO:CRUCIGRAMA:Trayectoria en forma de linea recta|RECTILINEO;Trayectoria en forma de circulo|CIRCULAR]\n\n¡Fantástico! Hemos asegurado la base de datos cinemáticos. Ahora podemos predecir con total exactitud cualquier movimiento en este sector.",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "¿Cuál es la diferencia fundamental entre trayectoria y distancia recorrida según lo aprendido?",
+      "respuesta_esperada": "La trayectoria es la forma o dibujo del camino (sea recto o curvo), mientras que la distancia es el número con su unidad que mide qué tan largo fue ese camino en metros."
+    },
+    {
+      "pregunta": "Si un explorador camina en círculos regresando exactamente al mismo punto de partida, ¿cuál fue su posición final con respecto al punto de partida?",
+      "respuesta_esperada": "Su posición final es exactamente la misma que la inicial (cero metros de cambio de posición), a pesar de haber recorrido una distancia considerable."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Redacta un párrafo corto donde expliques, usando tus propias palabras, por qué un árbol o un poste de luz destruido en Montenegro sirven perfectamente como un 'Sistema de Referencia'.",
+    "Supón que un robot recolector viaja desde el laboratorio escolar en línea recta hacia el norte por 15 metros, y luego gira al este y avanza 10 metros en línea recta. Dibuja esta trayectoria compuesta en tu cuaderno y calcula de forma aproximada el valor de la distancia total recorrida."
+  ],
+  "icfes": [
+    {
+      "competencia": "Uso comprensivo del conocimiento científico",
+      "texto_introductorio": "Durante una misión de reconocimiento en las ruinas de la IE Instituto Montenegro, dos jóvenes cadetes, Sofía y Mateo, rastrean el movimiento de una sonda robótica aliada. Sofía decide colocar su detector en la estatua central del colegio (Punto A) y registra que la sonda se encuentra a 10 metros al norte. Mateo, por el contrario, coloca su detector en la puerta de la cafetería destruida (Punto B) y registra que la sonda está a 5 metros al sur. La sonda espacial se encuentra inmóvil en un solo lugar.",
+      "tabla_o_grafica_markdown": "| Observador | Punto de Referencia | Registro de Posición |\n| :--- | :--- | :--- |\n| **Sofía** | Estatua Central (Punto A) | $10\\text{ metros al Norte}$ |\n| **Mateo** | Cafetería (Punto B) | $5\\text{ metros al Sur}$ |\n| **Sonda** | Único Lugar Fijo | *Inmóvil* |",
+      "pregunta": "Teniendo en cuenta que la sonda no se ha movido de su sitio, ¿por qué Sofía y Mateo obtienen mediciones de posición diferentes?",
+      "opciones": [
+        "1) Porque uno de los dos detectores de los cadetes se encuentra dañado por la radiación electromagnética.",
+        "2) Porque la posición de un objeto depende enteramente del sistema de referencia seleccionado por cada observador.",
+        "3) Porque la sonda robótica se mueve tan rápido que engaña a los ojos de los exploradores.",
+        "4) Porque el norte y el sur cambian constantemente de orientación en este planeta post-apocalíptico."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. Los dispositivos funcionan perfectamente; la diferencia se debe a un concepto puramente físico.",
+        "1": "¡Correcto! En física, la posición es una magnitud relativa que se define en función del punto o sistema de referencia elegido. Cambiar el punto de origen cambia las coordenadas de posición de un cuerpo aunque este no se mueva.",
+        "2": "Incorrecto. El texto indica explícitamente que la sonda está inmóvil.",
+        "3": "Incorrecto. Los puntos cardinales de la Tierra se mantienen estables a pesar del apocalipsis cósmico."
+      }
+    },
+    {
+      "competencia": "Explicación de fenómenos",
+      "texto_introductorio": "Un grupo de sobrevivientes huye de un enjambre de avispas cibernéticas en el patio principal. Para escapar, deben moverse desde la biblioteca hasta el búnker subterráneo. Tienen dos opciones de ruta representadas en la siguiente tabla de telemetría táctica:",
+      "tabla_o_grafica_markdown": "| Ruta | Forma del Camino | Distancia Recorrida |\n| :--- | :--- | :--- |\n| **Ruta Alfa** | Curva cerrada en zigzag para evitar escombros | $120\\text{ metros}$ |\n| **Ruta Beta** | Línea recta directa a través de una puerta abierta | $45\\text{ metros}$ |",
+      "pregunta": "Si las avispas cibernéticas viajan a la misma velocidad en cualquier dirección, ¿cuál de las siguientes afirmaciones explica correctamente la mejor opción de escape basándose en las trayectorias?",
+      "options": [
+        "1) La Ruta Alfa es mejor porque al hacer zigzag se confunde el sistema de referencia de las avispas cibernéticas.",
+        "2) La Ruta Beta es mejor porque su trayectoria rectilínea representa la distancia más corta posible entre dos puntos, reduciendo el tiempo de exposición al peligro.",
+        "3) Ambas rutas son idénticas porque la posición inicial y la posición final de los sobrevivientes no cambian en ningún caso.",
+        "4) La Ruta Alfa es mejor porque caminar más metros desgasta la energía térmica de los trajes espaciales."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. Aunque el zigzag ayuda a evadir proyectiles, en términos cinemáticos de tiempo y distancia, recorrer casi el triple de la distancia los deja expuestos por más tiempo.",
+        "1": "¡Correcto! La línea recta es la trayectoria que produce la menor distancia posible entre un punto de inicio y un punto final, garantizando que el grupo recorra solo 45 metros en lugar de 120 metros.",
+        "2": "Incorrecto. Aunque los puntos de salida y llegada son los mismos, la distancia recorrida es críticamente diferente, afectando directamente su seguridad.",
+        "3": "Incorrecto. Desgastar la energía del traje no es una ventaja de supervivencia."
+      }
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Qué forma geométrica crees que tienen las trayectorias de los planetas alrededor del Sol?",
+      "opciones": [
+        "Círculos perfectos",
+        "Elipses (óvalos)",
+        "Líneas rectas",
+        "Espirales descendentes"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Cuál es la fuerza responsable de mantener a la Luna en órbita alrededor de la Tierra?",
+      "opciones": [
+        "La fuerza magnética",
+        "La presión atmosférica",
+        "La fuerza de gravedad",
+        "La energía solar"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "Si un planeta se aleja del Sol, ¿qué crees que le ocurre a su velocidad en órbita?",
+      "opciones": [
+        "Aumenta significativamente",
+        "Disminuye",
+        "Se mantiene exactamente igual",
+        "Se detiene por completo"
+      ],
+      "correcta": 1
+    }
+  ],
+  "texto_inductivo": "¡Saludos, recluta! Soy el Detective de Misterios del Espacio, y te doy la bienvenida a la Estación Espacial Internacional (EEI). Tenemos un misterio de proporciones cósmicas: una cápsula de suministros parece haberse desviado de su trayectoria programada. Para resolver este caso, primero debemos entender el escenario. [JUEGO:ORDENAR_LETRAS:ORBITA] ¿Cómo se mueven los objetos aquí arriba? Kepler fue el primero en notar que los planetas no giran en círculos perfectos. Las órbitas tienen una forma geométrica muy especial. [JUEGO:SOPA_LETRAS:SOL,TIERRA,MARTE]\n\nAl analizar las pantallas de control, vemos que la trayectoria de la cápsula sigue una curva elíptica. [JUEGO:ORDENAR_FRASE:LAS ORBITAS SON ELIPTICAS] Esto nos lleva a nuestra primera pista: la primera ley de Kepler. Esta ley nos dice que los planetas se mueven en elipses, con el Sol en uno de los focos. [JUEGO:CRUCIGRAMA:Forma ovalada|ELIPSE;Punto central de elipse|FOCO] La gravedad actúa constantemente sobre ellos. [JUEGO:ORDENAR_LETRAS:GRAVEDAD] ¿Por qué no caen directamente hacia el Sol? Esa es la clave del movimiento planetario. [JUEGO:ORDENAR_FRASE:EL SOL ATRAE A LOS PLANETAS]\n\nPara descifrar este enigma, debemos mirar los datos históricos del observatorio de la EEI. [JUEGO:SOPA_LETRAS:KEPLER,NEWTON,COPERNICO] Los antiguos astrónomos creían que la Tierra era el centro, pero la física demostró lo contrario. [JUEGO:CRUCIGRAMA:Estrella central|SOL;Camino de un planeta|ORBITA] Cuando un cuerpo celeste se mueve, su velocidad cambia según su distancia al centro de masa. [JUEGO:ORDENAR_LETRAS:ELIPSE] La segunda ley de Kepler nos dice que una línea que une al planeta con el Sol barre áreas iguales en tiempos iguales. [JUEGO:ORDENAR_FRASE:EL MOVIMIENTO PLANETARIO ES CONSTANTE]\n\nObservemos los sensores de la estación. [JUEGO:SOPA_LETRAS:ESPACIO,FISICA,CIENCIA] Nos indican que la velocidad de nuestro módulo varía en su recorrido. [JUEGO:CRUCIGRAMA:Cientifico de las orbitas|KEPLER;Fuerza invisible|GRAVEDAD] Esto se debe a que la gravedad es una fuerza que atrae masas. [JUEGO:ORDENAR_LETRAS:FUERZA] Sin esta fuerza de atracción constante, los planetas saldrían disparados en línea recta hacia el vacío infinito. [JUEGO:ORDENAR_FRASE:LA GRAVEDAD NOS MANTIENE EN ORBITA] Es fascinante cómo la física matemática explica el cosmos. [JUEGO:SOPA_LETRAS:FOCO,RADIO,EJE]\n\nFinalmente, examinamos la tercera ley de Kepler. Esta relaciona el tiempo que tarda un planeta en dar una vuelta completa con su distancia promedio al Sol. [JUEGO:CRUCIGRAMA:Atractora universal|MASA;Tiempo de una orbita|PERIODO] Cuanto más lejos está el planeta, más lento viaja y más tarda en completar su viaje. [JUEGO:ORDENAR_LETRAS:PLANETA] Esta armonía matemática es la llave para recuperar nuestra cápsula perdida en el espacio. [JUEGO:ORDENAR_FRASE:KEPLER DESCUBRIO LAS LEYES] Con esta información, podemos calcular exactamente dónde buscarla en el firmamento infinito. [JUEGO:SOPA_LETRAS:MASA,VELOCIDAD,TIEMPO] [JUEGO:CRUCIGRAMA:Satelite natural de la Tierra|LUNA;Planeta rojo|MARTE]",
+  "recurso_visual": "mermaid\ngraph TD\n    A[Movimiento Planetario] --> B[1a Ley: Órbitas Elípticas]\n    A --> C[2a Ley: Áreas Iguales]\n    A --> D[3a Ley: Período y Distancia]\n    B --> B1(El Sol se ubica en uno de los focos de la elipse)\n    C --> C1(El planeta se mueve más rápido al estar cerca del Sol)\n    D --> D1(A mayor distancia media, mayor tiempo en dar la vuelta)\n",
+  "preguntas_inductivas_pagina": [
+    "¿Cuál es la forma real de la órbita de un planeta según Kepler?",
+    "¿Qué ocurre con la velocidad de un cuerpo en órbita cuando se acerca al astro que lo atrae?",
+    "¿Quién descubrió matemáticamente las tres leyes del movimiento de los planetas?",
+    "¿Cómo cambia el período orbital de un planeta si su distancia al Sol es muy grande?",
+    "¿Qué fuerza impide que los planetas salgan despedidos en línea recta hacia el espacio?"
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja en tu cuaderno una elipse señalando detalladamente sus dos focos, el semieje mayor, y posiciona al Sol en uno de los focos junto a un planeta orbitando.",
+    "Realiza un cuadro comparativo entre el modelo Geocéntrico de Ptolomeo y el modelo Heliocéntrico perfeccionado por las leyes de Kepler.",
+    "Escribe una reflexión de tres párrafos explicando por qué fue difícil para la humanidad aceptar que los planetas no se movían en círculos perfectos.",
+    "Representa gráficamente el concepto de la Segunda Ley de Kepler (áreas iguales en tiempos iguales) usando colores diferentes para los sectores de la elipse."
+  ],
+  "texto_deductivo": "Ahora pasamos a la deducción lógica de nuestro misterio en la EEI. Si la cápsula de suministros cambió de rumbo, debe existir una explicación física y matemática rigurosa para ello. [JUEGO:ORDENAR_LETRAS:FISICA] Isaac Newton unificó el cielo y la Tierra al deducir por qué los planetas siguen las leyes de Kepler. Newton descubrió que la misma fuerza que hace caer una manzana en la Tierra mantiene a la Luna en su órbita. [JUEGO:SOPA_LETRAS:ASTRO,METRO,SEGUNDO]\n\nLa clave matemática del misterio reside en la Ley de Gravitación Universal. [JUEGO:ORDENAR_FRASE:LA GRAVEDAD DISMINUYE CON LA DISTANCIA] Esta ley establece que la fuerza de atracción entre dos cuerpos es directamente proporcional al producto de sus masas e inversamente proporcional al cuadrado de la distancia que los separa. [JUEGO:CRUCIGRAMA:Propuso la ley de gravitacion|NEWTON;Fuerza hacia el centro|CENTRIPETA] Si la distancia se duplica, la fuerza disminuye a la cuarta parte. [JUEGO:ORDENAR_LETRAS:MATEMATICA]\n\nAnalizando la órbita de nuestra cápsula con estas ecuaciones, deducimos que una pequeña alteración de masa o velocidad cambia la trayectoria completa de inmediato. [JUEGO:SOPA_LETRAS:FUERZA,ATRACCION,MASAS] Newton utilizó el cálculo para demostrar que una fuerza central inversamente proporcional al cuadrado de la distancia resulta en órbitas elípticas perfectas. [JUEGO:ORDENAR_FRASE:NEWTON COMPLETO EL TRABAJO DE KEPLER] De esta forma, la teoría deductiva valida todas las observaciones hechas por nuestro equipo de detectives. [JUEGO:CRUCIGRAMA:Unidad de fuerza|NEWTON;Resistencia al cambio|INERCIA]\n\nLa inercia empuja al cuerpo hacia adelante, mientras que la gravedad lo jala constantemente hacia el centro del astro atractor. [JUEGO:ORDENAR_LETRAS:INERCIA] El equilibrio perfecto entre ambas genera una órbita estable y predecible. [JUEGO:ORDENAR_FRASE:UNA FUERZA CENTRAL CAUSA LA ORBITA] Si la velocidad orbital cae por debajo de cierto límite, la órbita decae y el objeto cae hacia la atmósfera. [JUEGO:SOPA_LETRAS:CONSTANTE,ORBITAL,SISTEMA] Esto es vital para entender nuestro caso científico en el cosmos. [JUEGO:CRUCIGRAMA:Punto mas cercano al sol|PERIHELIO;Punto mas lejano|AFELIO]\n\nHemos resuelto el enigma gracias a la ciencia deductiva. [JUEGO:ORDENAR_LETRAS:UNIVERSO] La cápsula perdió velocidad por un micro-impacto de desecho espacial, reduciendo su radio de órbita. [JUEGO:ORDENAR_FRASE:A MAYOR DISTANCIA MENOR VELOCIDAD] Usando las ecuaciones de la gravitación de Newton, podemos predecir su nueva posición exacta en la bóveda celeste. [JUEGO:SOPA_LETRAS:TEORIA,PRUEBA,LOGICA] Todo encaja perfectamente en el gran diseño del sistema solar. [JUEGO:CRUCIGRAMA:Espacio que nos rodeas|COSMOS;Trayectoria cerrada|LAZO]\n\nFelicidades, detective júnior de la estación espacial. [JUEGO:ORDENAR_LETRAS:SATELITE] Hemos descifrado el misterio usando el método científico deductivo. [JUEGO:ORDENAR_FRASE:EL CASO ESTA CASI RESUELTO] La física espacial ya no es un secreto indescifrable para ti. [JUEGO:SOPA_LETRAS:VECTORES,MODELO,DATOS] Ahora estás listo para afrontar los exámenes de vuelo orbital de la academia espacial. [JUEGO:CRUCIGRAMA:Instrumento para ver estrellas|TELESCOPIO;Masa que orbita|SATELITE]",
+  "preguntas_deductivas_pagina": [
+    "¿Qué le sucede a la fuerza de gravedad si la distancia entre dos cuerpos se triplica?",
+    "¿Cuál es el enunciado matemático básico de la Ley de Gravitación Universal de Newton?",
+    "¿Qué dos propiedades de un cuerpo celeste determinan la fuerza de atracción que ejerce sobre otros?",
+    "¿Por qué un satélite en órbita no cae inmediatamente a la superficie de la Tierra?",
+    "¿Qué físico demostró matemáticamente que las leyes de Kepler se derivan de una fuerza central?"
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Elabora un diagrama de cuerpo libre detallado de la Tierra orbitando alrededor del Sol, dibujando y nombrando los vectores de velocidad tangencial y fuerza de gravedad.",
+    "Diseña un mapa mental conceptual que relacione los siguientes términos: Fuerza Gravitacional, Masa, Distancia, Inercia, Kepler y Órbita Elíptica.",
+    "Dibuja un esquema del experimento del cañón de Newton en una montaña, mostrando cómo diferentes velocidades de lanzamiento determinan trayectorias parabólicas u orbitales.",
+    "Crea una infografía artesanal a doble página que explique la diferencia entre la cinemática de las órbitas (Kepler) y la dinámica de las órbitas (Newton)."
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "En la Estación Espacial Internacional se analizan los datos orbitales de la Tierra en su movimiento alrededor del Sol. Los astrofísicos presentan la siguiente tabla que registra la velocidad orbital en los dos puntos extremos de su trayectoria elíptica (perihelio y afelio):",
+      "tabla_o_grafica_markdown": "| Posición de la Tierra | Distancia promedio al Sol (Millones de km) | Velocidad orbital promedio (km/s) |\n|---|---|---|\n| Perihelio (Punto más cercano) | 147 | 30.3 |\n| Afelio (Punto más lejano) | 152 | 29.3 |",
+      "pregunta": "Teniendo en cuenta los datos de la tabla y los principios físicos del movimiento planetario desarrollados por Kepler y Newton, ¿cuál es la explicación científica correcta del comportamiento de la Tierra en estos puntos?",
+      "opciones": [
+        "En el perihelio la velocidad es mayor porque la menor distancia al Sol incrementa la fuerza de atracción gravitacional, acelerando el planeta.",
+        "En el perihelio la velocidad es mayor porque el Sol ejerce un empuje magnético adicional cuando los planetas se sitúan en sus focos secundarios.",
+        "En el afelio la velocidad es menor porque a mayor distancia la inercia del planeta disminuye drásticamente debido al vacío del espacio.",
+        "La velocidad varía debido a los cambios de masa que experimenta la Tierra a lo largo del año solar por efecto de la radiación directa."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. Según la Segunda Ley de Kepler y la Ley de Gravitación de Newton, a menor distancia la fuerza gravitacional es más intensa, lo que genera una mayor aceleración y por ende una mayor velocidad orbital (perihelio).",
+        "1": "Incorrecto. La fuerza responsable es puramente gravitatoria debido a las masas, no magnética, y el Sol está en uno de los focos reales, no en focos secundarios ficticios.",
+        "2": "Incorrecto. La inercia es una propiedad intrínseca de la masa y no se reduce por la distancia al Sol ni por el vacío espacial.",
+        "3": "Incorrecto. La masa de la Tierra permanece prácticamente constante a lo largo de su órbita; el cambio de velocidad se debe exclusivamente a la variación de la distancia respecto al centro de gravedad solar."
+      }
+    }
+  ]
+}

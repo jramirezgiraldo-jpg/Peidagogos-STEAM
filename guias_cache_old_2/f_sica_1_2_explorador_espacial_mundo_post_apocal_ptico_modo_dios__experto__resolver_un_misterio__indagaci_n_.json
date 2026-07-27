@@ -1,0 +1,124 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "Para determinar si el rover de exploración de la IE Instituto Montenegro se está moviendo a través de las ruinas, ¿qué elemento del entorno es fundamental establecer primero?",
+      "opciones": [
+        "Un sistema de referencia fijo respecto al cual medir el cambio de lugar.",
+        "La velocidad máxima que el motor de fusión del rover puede alcanzar.",
+        "La masa total de los escombros acumulados en el patio central.",
+        "La temperatura ambiente de las ruinas radiactivas."
+      ],
+      "correcta": 0
+    },
+    {
+      "pregunta": "Si un dron explorador parte desde la entrada de la biblioteca escolar, vuela 5 metros hacia el norte buscando suministros y luego regresa exactamente al mismo punto de partida, ¿cuál ha sido su cambio neto de posición?",
+      "opciones": [
+        "10 metros hacia el norte.",
+        "0 metros, pues su posición inicial y final coinciden.",
+        "5 metros de distancia absoluta.",
+        "No se puede determinar sin conocer el tiempo de vuelo."
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "Al observar la estela de humo ionizado que deja un transbordador de escape en el cielo electromagnético de Montenegro, ¿a qué concepto físico nos referimos cuando analizamos la forma geométrica de ese camino trazado?",
+      "opciones": [
+        "Al vector desplazamiento instantáneo.",
+        "A la trayectoria descrita por el transbordador.",
+        "A la velocidad media de escape planetario.",
+        "Al origen del sistema de coordenadas cartesianas."
+      ],
+      "correcta": 2
+    }
+  ],
+  "texto_inductivo": "# BITÁCORA DE EXPLORACIÓN: LAS RUINAS TEMPORALES DEL INSTITUTO MONTENEGRO\n\n¡Atención, cadetes de la Flota de Salvamento de la Tierra Media! Soy el Astro-Explorador Nova. Nos encontramos orbitando el sector Quindío post-apocalíptico. Nuestro radar cuántico ha detectado una señal de auxilio proveniente de la antigua **IE Instituto Montenegro**. El campus está cubierto de anomalías espaciotemporales llamadas *Cronolitos*. Si damos un paso en falso sin entender cómo medir nuestro espacio, quedaremos atrapados en un bucle temporal infinito.\n\n***¿Cómo pueden los sobrevivientes de la IE Instituto Montenegro trazar una ruta de escape segura y predecir la posición exacta de un artefacto de energía oculto en las ruinas del colegio, sin caer en las anomalías gravitacionales que distorsionan el espacio-tiempo del Quindío post-apocalíptico?***\n\nPara resolver este misterio, primero debemos entender la diferencia entre dónde estamos (Posición) y el camino que recorremos (Trayectoria).\n\n<svg width='100%' height='260' viewBox='0 0 500 260' style='background-color:#121824; border: 2px solid #00ffcc; border-radius: 8px; font-family: monospace;'>\n  <defs>\n    <pattern id='grid' width='25' height='25' patternUnits='userSpaceOnUse'>\n      <path d='M 25 0 L 0 0 0 25' fill='none' stroke='#1f2d3d' stroke-width='1'/>\n    </pattern>\n  </defs>\n  <rect width='100%' height='100%' fill='url(#grid)' />\n  <line x1='50' y1='210' x2='450' y2='210' stroke='#ff0055' stroke-width='2' />\n  <line x1='50' y1='20' x2='50' y2='220' stroke='#ff0055' stroke-width='2' />\n  <text x='440' y='225' fill='#ff0055' font-size='10'>X (Metros)</text>\n  <text x='20' y='30' fill='#ff0055' font-size='10'>Y (m)</text>\n  <circle cx='50' cy='210' r='6' fill='#00ffcc' />\n  <text x='40' y='225' fill='#00ffcc' font-size='9'>Origen (Entrada Principal)</text>\n  <path d='M 50 210 Q 180 60 280 160 T 420 80' fill='none' stroke='#ffff00' stroke-dasharray='4' stroke-width='2' />\n  <circle cx='50' cy='210' r='4' fill='#ffff00' />\n  <circle cx='420' cy='80' r='6' fill='#ff0000' />\n  <text x='350' y='70' fill='#ff0000' font-size='10'>Faro de Energía (Fin)</text>\n  <circle cx='200' cy='120' r='35' fill='#ff00ff' fill-opacity='0.2' stroke='#ff00ff' stroke-dasharray='2' />\n  <text x='160' y='125' fill='#ff00ff' font-size='9'>ANOMALÍA TEMPORAL</text>\n</svg>\n\nComo observan en el radar holográfico superior, para llegar al *Faro de Energía* desde la *Entrada Principal* (nuestro Punto de Origen), no podemos caminar en línea recta debido a la perturbación gravitacional. Debemos describir una ruta curva. ¿Cuál es la diferencia entre el punto exacto donde nos paramos en cada segundo y toda la línea amarilla punteada?\n\n¡Descifremos la terminología técnica antes de que la anomalía colapse!\n\n[JUEGO:ORDENAR_LETRAS:POSICION]\n\n[JUEGO:ORDENAR_LETRAS:TRAYECTORIA]\n\nPara movernos de manera inteligente en este desierto tecnológico, cada explorador debe comprender que todo reporte cinemático requiere un lenguaje preciso:\n\n[JUEGO:ORDENAR_FRASE:La posicion depende del sistema de referencia seleccionado]\n\n[JUEGO:ORDENAR_FRASE:La trayectoria es el camino que dibuja un cuerpo al moverse]\n\n¡Excelente trabajo descifrando códigos! Ahora, utilicemos el escáner de espectro electromagnético para hallar términos ocultos en los archivos dañados de la base de datos de la IE Instituto Montenegro.\n\n[JUEGO:SOPA_LETRAS:ORIGEN,COORDENADA,MOVIMIENTO]\n\n[JUEGO:SOPA_LETRAS:CINEMATICA,FISICA,SISTEMA]\n\nPara asegurar nuestro avance por los pasillos abandonados del bloque de laboratorios, debemos activar el puente de datos resolviendo estos dos acertijos de coordenadas:\n\n[JUEGO:CRUCIGRAMA:Punto que sirve de guia para medir distancias|ORIGEN;Lugar donde se encuentra un objeto|POSICION]\n\n[JUEGO:CRUCIGRAMA:Linea invisible que deja un cuerpo al moverse|TRAYECTORIA;Medida del camino recorrido|DISTANCIA]",
+  "recurso_visual": "| Variable Cinemática | Símbolo | Unidad de Medida (S.I.) | Definición en el Contexto de Exploración | Instrumento de Medición de la Nave |\n| :--- | :---: | :---: | :--- | :--- |\n| **Posición** | $\\vec{r}$ | Metro ($m$) | Lugar exacto donde se halla el explorador respecto al origen del radar. | GPS cuántico de pulso electromagnético |\n| **Trayectoria** | N/A | Adimensional (Curva geométrica) | La línea imaginaria continua que une todos los puntos por donde pasa la nave. | Trazador de haz de partículas láser |\n| **Distancia Recorrida**| $d$ | Metro ($m$) | Longitud total del camino recorrido sobre la trayectoria (escalar). | Odómetro mecánico de exploración terrestre |\n| **Desplazamiento** | $\\Delta\\vec{r}$ | Metro ($m$) | Cambio de posición neto. Vector que va directo del inicio al final. | Computador vectorial de navegación diferencial |",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "¿Por qué es de vital importancia acordar de manera unánime el punto de origen (0,0) en las ruinas de la IE Instituto Montenegro antes de enviar un equipo de rescate a buscar recursos?",
+      "respuesta_esperada": "Porque la posición es un valor relativo. Si cada explorador utiliza un punto de origen diferente (por ejemplo, uno la entrada y otro la cancha de fútbol), las coordenadas GPS de los recursos serán totalmente diferentes, lo que provocaría que los rescatistas se pierdan o entren por error en las anomalías temporales."
+    },
+    {
+      "pregunta": "Observando el mapa del radar, ¿el camino curvo (línea amarilla) representa la distancia más corta posible entre la Entrada y el Faro de Energía? Explica matemáticamente qué representa físicamente esa curva.",
+      "respuesta_esperada": "No, no es la distancia más corta. La curva amarilla representa la trayectoria, que es el camino real que debe seguir el explorador para evitar el obstáculo (el Cronolito). La distancia más corta sería el vector desplazamiento en línea recta, pero físicamente es intransitable debido a la anomalía de gravedad."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja en tu cuaderno de navegación un plano cartesiano simple que represente el patio central de la IE Instituto Montenegro. Ubica un punto de origen en la 'Cafetería Arruinada' y traza una trayectoria curva que esquive un pozo de gravedad ubicado en la coordenada (3,4) metros hasta llegar a un contenedor de medicinas en el punto (6,2) metros.",
+    "Imagina que eres el cartógrafo de la misión. Redacta un párrafo en el que expliques a tus compañeros sobrevivientes por qué un objeto puede estarse moviendo para un explorador a bordo de un helicóptero de rescate, pero al mismo tiempo estar completamente en reposo para un explorador que está sentado junto a dicho objeto en tierra firme."
+  ],
+  "texto_deductivo": "# COMPENDIO CIENTÍFICO DE CINEMÁTICA ESTELAR: MODO DIOS\n\nSaludos, mentes brillantes. Hemos estabilizado los sistemas de soporte de vida de la nave. Es momento de aplicar el rigor de la física de partículas a nuestro escape. En cinemática (la rama de la física clásica que describe el movimiento sin atender a las fuerzas que lo causan), debemos matematizar de forma rigurosa la realidad espacial.\n\nPara definir la **Posición ($\\vec{r}$)** de un cuerpo en el espacio bidimensional de nuestras ruinas, empleamos un par ordenado de coordenadas cartesianas $(x, y)$. El vector de posición inicial se representa como $\\vec{r}_i$ y el vector de posición final como $\\vec{r}_f$. \n\n<svg width='100%' height='260' viewBox='0 0 500 260' style='background-color:#0d1117; border: 2px solid #ff0055; border-radius: 8px; font-family: monospace;'>\n  <line x1='60' y1='210' x2='440' y2='210' stroke='#8b949e' stroke-width='1.5' />\n  <line x1='60' y1='30' x2='60' y2='210' stroke='#8b949e' stroke-width='1.5' />\n  <text x='430' y='225' fill='#8b949e' font-size='10'>Eje X (Este)</text>\n  <text x='15' y='40' fill='#8b949e' font-size='10'>Eje Y (Norte)</text>\n  <circle cx='60' cy='210' r='5' fill='#00ffcc' />\n  <text x='45' y='225' fill='#00ffcc' font-size='10'>O(0,0)</text>\n  <line x1='60' y1='210' x2='160' y2='110' stroke='#58a6ff' stroke-width='2.5' />\n  <polygon points='160,110 152,112 157,117' fill='#58a6ff' />\n  <circle cx='160' cy='110' r='4' fill='#58a6ff' />\n  <text x='105' y='145' fill='#58a6ff' font-size='10'>r_i (Inicio)</text>\n  <line x1='60' y1='210' x2='380' y2='90' stroke='#ff7b72' stroke-width='2.5' />\n  <polygon points='380,90 371,94 375,100' fill='#ff7b72' />\n  <circle cx='380' cy='90' r='4' fill='#ff7b72' />\n  <text x='250' y='165' fill='#ff7b72' font-size='10'>r_f (Destino)</text>\n  <line x1='160' y1='110' x2='380' y2='90' stroke='#3fb950' stroke-width='3' stroke-dasharray='4' />\n  <text x='230' y='80' fill='#3fb950' font-size='11' font-weight='bold'>Desplazamiento (Δr)</text>\n  <path d='M 160 110 C 200 170, 300 40, 380 90' fill='none' stroke='#ffff00' stroke-width='2' />\n  <text x='230' y='125' fill='#ffff00' font-size='10' font-style='italic'>Trayectoria (Distancia s)</text>\n</svg>\n\nLa ecuación matemática que modela el cambio neto de nuestro viaje (el **Desplazamiento**, denotado como $\\Delta\\vec{r}$) es la diferencia vectorial básica:\n\n$$\\Delta\\vec{r} = \\vec{r}_f - \\vec{r}_i$$\n\nMientras que el **desplazamiento** es una magnitud vectorial (tiene dirección, sentido y longitud en línea recta), la **distancia recorrida** ($s$) es una magnitud escalar que mide la longitud real de la curva de la trayectoria sobre el terreno.\n\nPara dominar la navegación en este nivel Experto, descifremos los siguientes núcleos de datos de física fundamental:\n\n[JUEGO:ORDENAR_LETRAS:DISTANCIA]\n\n[JUEGO:ORDENAR_LETRAS:DESPLAZAMIENTO]\n\n[JUEGO:ORDENAR_LETRAS:VECTOR]\n\nLa geometría del universo responde a leyes implacables. Al analizar trayectorias de drones, debemos dominar el comportamiento de los cuerpos en movimiento:\n\n[JUEGO:ORDENAR_FRASE:El desplazamiento es la linea recta entre dos puntos]\n\n[JUEGO:ORDENAR_FRASE:El espacio recorrido es una magnitud escalar siempre positiva]\n\n[JUEGO:ORDENAR_FRASE:Un cuerpo en movimiento cambia su posicion con el tiempo]\n\n¡La computadora central requiere coordenadas lingüísticas para liberar la energía de los laboratorios! Resuelve las sopas de letras cuánticas y los crucigramas avanzados:\n\n[JUEGO:SOPA_LETRAS:LINEAL,CURVILINEO,RECTA]\n\n[JUEGO:SOPA_LETRAS:TIEMPO,METROS,MEDIDA]\n\n[JUEGO:SOPA_LETRAS:RAPIDEZ,VELOCIDAD,CAMINO]\n\n[JUEGO:CRUCIGRAMA:Cambio de posicion de un objeto|MOVIMIENTO;Fisica que estudia el movimiento sin atender sus causas|CINEMATICA]\n\n[JUEGO:CRUCIGRAMA:Flecha matematica que indica direccion y magnitud|VECTOR;Magnitud que solo tiene valor numerico y unidad|ESCALAR]\n\n[JUEGO:CRUCIGRAMA:Trayectoria en forma de circulo|CIRCULAR;Trayectoria en linea recta|RECTILINEO]\n\n¡La base de datos de la IE Instituto Montenegro se ha restablecido por completo! Ahora podemos calcular con precisión nanométrica cada uno de nuestros movimientos para esquivar las singularidades.",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "¿En qué única circunstancia física geométrica el valor numérico (magnitud) del desplazamiento de un explorador será exactamente idéntico a la distancia recorrida sobre el terreno?",
+      "respuesta_esperada": "Únicamente cuando el movimiento ocurre en una sola dirección y sentido a lo largo de una trayectoria perfectamente rectilínea, sin experimentar ningún tipo de retroceso."
+    },
+    {
+      "pregunta": "Si un dron espacial de reconocimiento se desplaza desde la posición inicial de coordenadas A(2m, 3m) hasta la posición final de coordenadas B(10m, 3m), ¿cuál es el valor matemático y la dirección de su vector desplazamiento?",
+      "respuesta_esperada": "El vector desplazamiento es la diferencia de posiciones: final menos inicial. En el eje X: 10m - 2m = 8m. En el eje Y: 3m - 3m = 0m. Por lo tanto, el desplazamiento es de exactamente 8 metros dirigidos horizontalmente hacia el este (eje X positivo)."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Un vehículo explorador todoterreno recorre una pista circular de pruebas de 100 metros de diámetro dentro del coliseo arruinado del Instituto Montenegro. Si el vehículo da una vuelta exacta y media, calcula detalladamente en tu cuaderno: a) La distancia total recorrida sobre la trayectoria. b) La magnitud de su vector desplazamiento respecto al punto de partida original.",
+    "Elabora en tu cuaderno una matriz de comparación conceptual de tres columnas. En la primera columna describe los criterios de comparación (Dimensión, Carácter vectorial/escalar, Posibilidad de ser cero al moverse). En la segunda columna detalla las propiedades del Desplazamiento, y en la tercera detalla las de la Distancia Recorrida."
+  ],
+  "icfes": [
+    {
+      "competencia": "Uso comprensivo del conocimiento científico",
+      "texto_introductorio": "Durante una expedición en los terrenos abandonados de la IE Instituto Montenegro, un grupo de estudiantes de grado sexto rastrea el movimiento de un robot explorador que analiza muestras de suelo contaminado. El robot sigue un patrón de movimiento rectilíneo en un solo sentido para evitar minas magnéticas inactivas. El siguiente gráfico representa los registros de posición obtenidos por el sistema de telemetría del robot a lo largo del tiempo:",
+      "tabla_o_grafica_markdown": "| Intervalo de Tiempo (s) | Posición del Robot en el Eje X (m) |\n| :---: | :---: |\n| $t_0 = 0$ | $x_0 = 2$ |\n| $t_1 = 5$ | $x_1 = 12$ |\n| $t_2 = 10$ | $x_2 = 22$ |\n| $t_3 = 15$ | $x_3 = 32$ |",
+      "pregunta": "Teniendo en cuenta los datos de telemetría presentados, ¿cuál fue el valor del desplazamiento del robot en el intervalo de tiempo comprendido entre los $t = 5$ segundos y los $t = 15$ segundos?",
+      "opciones": [
+        "32 metros hacia el este.",
+        "20 metros en dirección positiva del eje X.",
+        "30 metros en dirección negativa del eje X.",
+        "10 metros hacia el origen."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. 32 metros corresponde a la posición final absoluta medida desde el origen a los 15 segundos, pero no al cambio de posición que ocurrió específicamente a partir de los 5 segundos.",
+        "1": "¡Correcto, cadete! El desplazamiento es la posición final en el intervalo seleccionado menos la posición inicial en dicho intervalo: $\\Delta x = x(15s) - x(5s) = 32m - 12m = 20m$. Como el valor es positivo, indica que se desplaza en sentido positivo del eje X.",
+        "2": "Incorrecto. Este valor se obtiene al confundir los límites de tiempo o realizar una resta errónea de las coordenadas del sistema de telemetría.",
+        "3": "Incorrecto. 10 metros representa el cambio de posición en un solo intervalo de 5 segundos, no el desplazamiento total neto ocurrido durante el intervalo solicitado de 10 segundos (desde $t=5$ hasta $t=15$)."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "El equipo de exploración espacial de la IE Instituto Montenegro debe enviar un dron sonda para rescatar un chip de memoria histórica de la secretaría del colegio. Debido a los escombros acumulados de las vigas colapsadas, el dron no puede viajar en línea recta. Debe volar siguiendo la trayectoria curva planificada por los estudiantes en la siguiente tabla:",
+      "tabla_o_grafica_markdown": "| Tramo de Vuelo | Tipo de Trayectoria Realizada | Distancia Recorrida (m) |\n| :---: | :---: | :---: |\n| Tramo A | Semicírculo alrededor de un muro | $15$ |\n| Tramo B | Recta a lo largo del pasillo | $25$ |\n| Tramo C | Curva en S para esquivar cableado | $10$ |\n\nAl finalizar la misión, la telemetría del dron calcula que la línea recta que une la base de lanzamiento con la secretaría mide exactamente 30 metros.",
+      "pregunta": "A partir del análisis de la tabla de vuelo y de las especificaciones cinemáticas, ¿cuáles son los valores correspondientes a la distancia total recorrida por el dron sonda y a la magnitud de su desplazamiento neto?",
+      "opciones": [
+        "Distancia recorrida = 50 m; Desplazamiento = 30 m.",
+        "Distancia recorrida = 30 m; Desplazamiento = 50 m.",
+        "Distancia recorrida = 50 m; Desplazamiento = 50 m.",
+        "Distancia recorrida = 30 m; Desplazamiento = 30 m."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "¡Correcto! La distancia recorrida es la suma escalar de todas las longitudes de los tramos que componen la trayectoria del dron ($15m + 25m + 10m = 50m$). El desplazamiento es la longitud del segmento rectilíneo directo entre el origen y el destino final, que equivale a 30 metros según el reporte del dron.",
+        "1": "Incorrecto. Confundes las definiciones físicas: la distancia recorrida siempre corresponde al camino largo real y el desplazamiento representa el cambio de posición directo en línea recta.",
+        "2": "Incorrecto. El desplazamiento no puede ser de 50 metros debido a que el dron no terminó su movimiento en una línea recta que coincidiera exactamente en longitud con la distancia total de los tramos curvos.",
+        "3": "Incorrecto. La distancia recorrida no puede ser igual a 30 metros porque el dron tuvo que tomar una ruta curva de esquive mucho más larga para evitar los obstáculos del derrumbe."
+      }
+    },
+    {
+      "competencia": "Explicación de fenómenos",
+      "texto_introductorio": "En el Quindío post-apocalíptico, un explorador novato afirma que un rover terrestre de exploración de la IE Instituto Montenegro se encuentra 'en reposo absoluto y no se mueve en absoluto'. Sin embargo, un observador estelar que monitoriza la superficie del planeta desde la estación espacial orbital 'Libertad' sostiene que el rover se mueve a una velocidad asombrosa de miles de kilómetros por hora a través del espacio cósmico.",
+      "tabla_o_grafica_markdown": "| Observador | Estado del Rover Reportado | Sistema de Referencia Utilizado |\n| :--- | :--- | :--- |\n| Explorador en Tierra | Reposo total | La corteza terrestre de las ruinas del colegio |\n| Observador Estelar | En movimiento rápido | El centro de masa del Sol (Sistema Solar) |",
+      "pregunta": "Considerando las dos observaciones científicas presentadas en la tabla, ¿cuál de las siguientes afirmaciones explica científicamente esta aparente contradicción?",
+      "opciones": [
+        "El observador estelar comete un error de cálculo debido a que la atmósfera interfiere con los radares de la estación espacial.",
+        "El movimiento es un concepto relativo que depende estrictamente del sistema de referencia seleccionado por el observador.",
+        "El explorador novato tiene la razón absoluta porque la Tierra es el único origen de coordenadas que existe en la física clásica.",
+        "Ambos observadores están equivocados porque los Cronolitos alteran la percepción visual del espacio en todo el Quindío."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. El observador de la estación espacial no comete un error de telemetría; está reportando con precisión matemática el movimiento natural de rotación y traslación de la Tierra alrededor del Sol.",
+        "1": "¡Excelente deducción, comandante! La descripción de la posición y el movimiento no es absoluta. Depende enteramente del sistema de referencia elegido. Con respecto a la Tierra, el rover no cambia su posición (reposo); con respecto al Sol, se desplaza junto a todo el planeta a gran velocidad.",
+        "2": "Incorrecto. Ningún sistema de referencia es absoluto en la física de Galileo o Einstein. La Tierra no es el centro inmóvil del universo, por lo que su marco de referencia no es el único válido.",
+        "3": "Incorrecto. Aunque la narrativa de ficción plantea la presencia de Cronolitos, las leyes de la relatividad clásica del movimiento explican perfectamente esta diferencia sin necesidad de recurrir a distorsiones ópticas o errores de percepción."
+      }
+    }
+  ]
+}

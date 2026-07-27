@@ -1,0 +1,86 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "Si estás flotando en la Estación Espacial Internacional (ISS) con los ojos cerrados, ¿cómo puedes saber si te estás moviendo o estás quieto?",
+      "opciones": [
+        "A) Siempre lo sé porque la gravedad me empuja hacia el suelo de la estación.",
+        "B) Es imposible saberlo sin mirar un objeto externo que sirva como punto de referencia.",
+        "C) Siento el viento espacial soplando a través de las paredes de metal.",
+        "D) El traje espacial vibra automáticamente cada vez que avanzo un metro."
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "Un astronauta deja flotando su destornillador en el módulo Columbus. Al regresar dos horas después, el destornillador sigue en el mismo lugar exacto con respecto a la mesa. ¿Qué podemos decir de su posición?",
+      "opciones": [
+        "A) Su posición cambió porque la ISS se desplaza alrededor de la Tierra.",
+        "B) Su posición no cambió con respecto a la ISS, que es nuestro punto de referencia.",
+        "C) El destornillador se desintegró por la falta de gravedad.",
+        "D) Su trayectoria fue circular con respecto a la mesa de trabajo."
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "Si dibujas con un marcador invisible el camino que hace una mosca flotando en la cabina de la ISS, ¿cómo se llama técnicamente a esa línea imaginaria?",
+      "opciones": [
+        "A) Desplazamiento absoluto.",
+        "B) Vector de posición espacial.",
+        "C) Trayectoria.",
+        "D) Punto de origen orbital."
+      ],
+      "correcta": 2
+    }
+  ],
+  "texto_inductivo": "# 🕵️‍♂️ EL MISTERIO DEL MÓDULO COLUMBUS: CASO 01\n\n¡Un saludo, Cadete! Soy el Detective de Misterios de la Estación Espacial Internacional (ISS). Hoy tu entrenamiento de física de Grado 6 se traslada a la órbita terrestre. No hay tiempo que perder: un fallo en el sistema de filtros de aire del Módulo Científico Columbus ha dejado a la Comandante Rodríguez atrapada en la oscuridad. Las comunicaciones fallan y solo nos queda un canal de balizas de emergencia para rastrearla.\n\n***¿Cómo puede un detective espacial usar mapas, posiciones y trayectorias para rescatar a un astronauta perdido en los laberintos flotantes de la ISS, de la misma forma en que un estudiante de la IE Instituto Montenegro se orienta entre la neblina quindiana para llegar a su salón de clases?***\n\nPara resolver este misterio y salvar vidas, debemos dominar el arte de la **localización**. En el espacio no hay un \"arriba\" ni un \"abajo\". Todo depende de dónde decidas mirar.\n\n<svg width='100%' height='220' viewBox='0 0 600 220' style='background-color:#0d1117; border-radius:8px; font-family:sans-serif;'>\n  <!-- Grid lines -->\n  <defs>\n    <pattern id='grid' width='40' height='40' patternUnits='userSpaceOnUse'>\n      <path d='M 40 0 L 0 0 0 40' fill='none' stroke='#21262d' stroke-width='1'/>\n    </pattern>\n  </defs>\n  <rect width='100%' height='100%' fill='url(#grid)' />\n  \n  <!-- ISS Modules Outline -->\n  <rect x='100' y='80' width='400' height='60' rx='10' fill='#30363d' stroke='#58a6ff' stroke-width='2' opacity='0.7' />\n  <rect x='220' y='40' width='80' height='140' rx='5' fill='#21262d' stroke='#8b949e' stroke-width='2' />\n  \n  <!-- Coordinates Reference -->\n  <circle cx='100' cy='110' r='6' fill='#ff7b72' />\n  <text x='90' y='135' fill='#ff7b72' font-size='11' font-weight='bold'>ORIGEN (X=0, Y=0)</text>\n  \n  <!-- Lost Astronaut -->\n  <circle cx='380' cy='110' r='10' fill='#f2ca30' />\n  <circle cx='380' cy='107' r='6' fill='#1f6feb' />\n  <path d='M 374 115 Q 380 120 386 115' stroke='#ffffff' stroke-width='2' fill='none' />\n  <text x='340' y='90' fill='#f2ca30' font-size='12' font-weight='bold'>🔍 ¿DÓNDE ESTÁ?</text>\n  \n  <text x='20' y='30' fill='#ffffff' font-size='14' font-weight='bold'>MAPA DE LA ISS: SISTEMA DE COORDENADAS COLUMBUS</text>\n</svg>\n\n## 🔎 PISTA 1: ¿DÓNDE COMENSAMOS?\n\nPara encontrar a la comandante, lo primero que necesitamos es un **Punto de Referencia**. En Montenegro, Quindío, cuando buscas la IE Instituto Montenegro, puedes usar como referencia la Plaza Principal o la salida hacia Armenia. Aquí en la ISS, nuestro punto de referencia es la escotilla de entrada del Módulo Columbus (X=0, Y=0).\n\n[JUEGO:ORDENAR_LETRAS:POSICION]\n\nCuando decimos que la Comandante está a +5 metros en el eje horizontal, estamos dando su **posición** con respecto a esa escotilla. Si cambiamos el punto de referencia, ¡los números cambian por completo y nos perderíamos en el vacío del espacio!\n\n[JUEGO:ORDENAR_FRASE:LA POSICION ES EL PUNTO DE PARTIDA]\n\n<table border='1' style='width:100%; border-collapse:collapse; background-color:#161b22; color:#c9d1d9; border-color:#30363d; font-family:sans-serif;'>\n  <thead>\n    <tr style='background-color:#21262d;'>\n      <th style='padding:10px;'>Punto de Referencia</th>\n      <th style='padding:10px;'>Posición de la Comandante</th>\n      <th style='padding:10px;'>Estado del Detective</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td style='padding:10px; text-align:center;'>Escotilla Principal (0m)</td>\n      <td style='padding:10px; text-align:center;'>A la derecha (+6 metros)</td>\n      <td style='padding:10px; text-align:center;'>Listo para avanzar</td>\n    </tr>\n    <tr>\n      <td style='padding:10px; text-align:center;'>Laboratorio de Biología (+3m)</td>\n      <td style='padding:10px; text-align:center;'>A la derecha (+3 metros)</td>\n      <td style='padding:10px; text-align:center;'>Buscando huellas</td>\n    </tr>\n  </tbody>\n</table>\n\n[JUEGO:SOPA_LETRAS:COHETE,ORBITA,FISICA]\n\n## 🚀 PISTA 2: EL CAMINO DE HUELLAS FLOTANTES\n\nLa Comandante Rodríguez no se teletransportó. Para llegar a su posición actual, tuvo que flotar esquivando cables, tanques de oxígeno y computadoras. Todo ese recorrido curvo que realizó se conoce en la física como **trayectoria**.\n\n[JUEGO:CRUCIGRAMA:Lugar exacto en el espacio|POSICION;Linea imaginaria del movimiento|TRAYECTORIA]\n\n¿Ha ido en línea recta o dando vueltas como una mariposa? Si su trayectoria fue una curva compleja, la distancia que recorrió flotando será mucho mayor que la distancia en línea recta desde la escotilla.\n\n[JUEGO:ORDENAR_LETRAS:TRAYECTORIA]\n\n[JUEGO:ORDENAR_FRASE:LA TRAYECTORIA DIBUJA EL CAMINO]\n\n[JUEGO:SOPA_LETRAS:MAPA,PUNTO,LINEA]\n\n[JUEGO:CRUCIGRAMA:Punto desde donde mido|REFERENCIA;Unidad de medida de longitud|METRO]",
+  "recurso_visual": "<svg width='100%' height='160' viewBox='0 0 600 160' style='background-color:#0d1117; border-radius:8px; font-family:sans-serif;'>\n  <!-- Trajectory Path -->\n  <path d='M 100 110 Q 200 20 350 130 T 500 80' fill='none' stroke='#ff7b72' stroke-width='3' stroke-dasharray='5,5' />\n  \n  <!-- Straight Line (Displacement) -->\n  <line x1='100' y1='110' x2='500' y2='80' stroke='#58a6ff' stroke-width='2' />\n  \n  <!-- Start & End Points -->\n  <circle cx='100' cy='110' r='8' fill='#238636' />\n  <text x='80' y='140' fill='#58a6ff' font-size='12' font-weight='bold'>Escotilla (Inicio)</text>\n  \n  <circle cx='500' cy='80' r='8' fill='#da3633' />\n  <text x='470' y='60' fill='#ff7b72' font-size='12' font-weight='bold'>Objetivo (Final)</text>\n  \n  <!-- Labels -->\n  <text x='210' y='50' fill='#ff7b72' font-size='12' font-style='italic'>Trayectoria (Camino real)</text>\n  <text x='250' y='115' fill='#58a6ff' font-size='12'>Cambio de Posición</text>\n  \n  <text x='20' y='25' fill='#ffffff' font-size='13' font-weight='bold'>DIFERENCIA ENTRE CAMINO (TRAYECTORIA) Y POSICIÓN FINAL</text>\n</svg>",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "Si la Comandante te envía un mensaje diciendo 'Estoy a 4 metros', ¿por qué esta información está incompleta para rescatarla?",
+      "respuesta_esperada": "Está incompleta porque no especifica la dirección (izquierda, derecha, arriba, abajo) ni el punto de referencia desde el cual está midiendo esos 4 metros."
+    },
+    {
+      "pregunta": "Observando el último gráfico, ¿cuál de las dos líneas (la punteada roja o la azul recta) representa la trayectoria real que siguió la astronauta?",
+      "respuesta_esperada": "La línea punteada roja representa la trayectoria real, que es el camino o ruta física que siguió la astronauta a través de la cabina."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Reto Detective 1: Dibuja en tu cuaderno un mapa del salón de clases de Grado 6 del Instituto Montenegro. Define la puerta como tu Punto de Referencia (X=0, Y=0). Ubica tu pupitre y traza dos trayectorias diferentes para llegar a él: una recta y otra curva esquivando los puestos de tus compañeros.",
+    "Reto Detective 2: Explica con tus palabras por qué para un detective espacial es de vida o muerte conocer tanto la trayectoria que tomó un sospechoso como su posición final."
+  ],
+  "texto_deductivo": "# 📐 EL MANUAL CIENTÍFICO DEL DETECTIVE: POSICIÓN Y TRAYECTORIA\n\n¡Felicidades, Cadete! Has superado el análisis inicial. Ahora debemos estructurar la ciencia detrás de las pistas para redactar el informe oficial de rescate. En física elemental, para describir el movimiento de cualquier objeto (o astronauta), requerimos tres conceptos fundamentales y rigurosos:\n\n### 1. Sistema de Referencia\nEs un punto del espacio o un conjunto de objetos que consideramos fijos. Nos sirve para realizar mediciones de distancia y dirección. En nuestro caso de la ISS, usamos la esquina del módulo de soporte vital como nuestro **Origen**.\n\n[JUEGO:ORDENAR_LETRAS:ORIGEN]\n\n[JUEGO:ORDENAR_FRASE:EL DETECTIVE SIGUE LAS PISTAS]\n\n[JUEGO:SOPA_LETRAS:SENSOR,COORDENADA,CIENCIA]\n\n### 2. Posición ($x$)\nEs la ubicación exacta que ocupa un cuerpo en el espacio con respecto a nuestro Sistema de Referencia. Se mide en metros ($m$) en el Sistema Internacional. Puede ser positiva o negativa dependiendo de la dirección escogida.\n\n[JUEGO:CRUCIGRAMA:Cuerpo celeste donde orbita la ISS|TIERRA;Fuerza que nos atrae|GRAVEDAD]\n\n[JUEGO:ORDENAR_LETRAS:ESPACIO]\n\n<svg width='100%' height='140' viewBox='0 0 600 140' style='background-color:#0d1117; border-radius:8px; font-family:sans-serif;'>\n  <!-- Axis Line -->\n  <line x1='50' y1='80' x2='550' y2='80' stroke='#8b949e' stroke-width='3' />\n  \n  <!-- Ticks -->\n  <line x1='150' y1='70' x2='150' y2='90' stroke='#ffffff' stroke-width='2' />\n  <text x='140' y='115' fill='#ffffff' font-size='12'>-2m</text>\n  \n  <line x1='300' y1='70' x2='300' y2='90' stroke='#ff7b72' stroke-width='3' />\n  <text x='285' y='115' fill='#ff7b72' font-size='12' font-weight='bold'>0m (Origen)</text>\n  \n  <line x1='450' y1='70' x2='450' y2='90' stroke='#ffffff' stroke-width='2' />\n  <text x='440' y='115' fill='#ffffff' font-size='12'>+2m</text>\n  \n  <!-- Astronaut marker at +2m -->\n  <circle cx='450' cy='60' r='8' fill='#58a6ff' />\n  <line x1='450' y1='68' x2='450' y2='80' stroke='#58a6ff' stroke-width='2' />\n  <text x='400' y='40' fill='#58a6ff' font-size='12' font-weight='bold'>Posición = +2 metros</text>\n  \n  <text x='20' y='25' fill='#ffffff' font-size='13' font-weight='bold'>EJE DE POSICIÓN UNIDIMENSIONAL EN LA ISS</text>\n</svg>\n\n### 3. Trayectoria\nEs la línea geométrica continua que describe un cuerpo al moverse. Es el \"camino\" que deja marcado. Las trayectorias pueden ser:\n*   **Rectilíneas**: Cuando el movimiento se realiza en línea recta (como un rayo de luz láser flotando en la ISS).\n*   **Curvilíneas**: Cuando el camino es curvo (como la ISS orbitando de forma elíptica y circular alrededor de la Tierra).\n\n[JUEGO:ORDENAR_FRASE:EL PUNTO DE REFERENCIA ES CLAVE]\n\n[JUEGO:SOPA_LETRAS:METRO,TIEMPO,DISTANCIA]\n\n[JUEGO:CRUCIGRAMA:Estacion Espacial Internacional|ISS;Persona que investiga un caso|DETECTIVE]\n\n[JUEGO:ORDENAR_LETRAS:CAMINO]\n\n[JUEGO:ORDENAR_FRASE:SOBREVIVIR EN EL ESPACIO EXIGE CIENCIA]\n\n[JUEGO:SOPA_LETRAS:MISTERIO,PISTA,DETECTOR]\n\n[JUEGO:CRUCIGRAMA:Espacio recorrido por unidad de tiempo|RAPIDEZ;Cambio de posicion|MOVIMIENTO]\n\n<table border='1' style='width:100%; border-collapse:collapse; background-color:#161b22; color:#c9d1d9; border-color:#30363d; font-family:sans-serif;'>\n  <thead>\n    <tr style='background-color:#21262d;'>\n      <th style='padding:10px;'>Concepto</th>\n      <th style='padding:10px;'>¿Qué responde?</th>\n      <th style='padding:10px;'>Unidad (S.I.)</th>\n      <th style='padding:10px;'>Ejemplo en Montenegro</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td style='padding:10px; font-weight:bold; color:#58a6ff;'>Posición ($x$)</td>\n      <td style='padding:10px;'>¿Dónde está exactamente?</td>\n      <td style='padding:10px; text-align:center;'>Metro ($m$)</td>\n      <td style='padding:10px;'>A 30 metros al norte de la Parroquia de Montenegro.</td>\n    </tr>\n    <tr>\n      <td style='padding:10px; font-weight:bold; color:#ff7b72;'>Trayectoria</td>\n      <td style='padding:10px;'>¿Qué forma tiene el camino seguido?</td>\n      <td style='padding:10px; text-align:center;'>No tiene unidad (es una forma)</td>\n      <td style='padding:10px;'>Las calles curvas que suben por la cordillera quindiana.</td>\n    </tr>\n  </tbody>\n</table>",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "¿Cuál es la diferencia fundamental entre el término 'Posición' y el término 'Trayectoria'?",
+      "text": "La diferencia es que la posición es un punto único y específico en el espacio en un momento dado con respecto a un origen, mientras que la trayectoria es la colección o conjunto de todos los puntos por los que pasó el objeto durante su movimiento."
+    },
+    {
+      "pregunta": "Si un astronauta camina en línea recta hacia adelante 5 metros y luego regresa sobre sus pasos exactamente 5 metros hasta el punto inicial, ¿su posición final cambió? ¿Qué forma tuvo su trayectoria?",
+      "respuesta_esperada": "Su posición final no cambió (sigue siendo la inicial, por lo tanto su cambio neto de posición es cero), y su trayectoria fue una línea recta de ida y vuelta (rectilínea)."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Reto Teórico 1: Elabora un cuadro comparativo entre movimiento rectilíneo y curvilíneo. Da un ejemplo de cada uno aplicados a actividades diarias en la IE Instituto Montenegro.",
+    "Reto Teórico 2: Imagina que eres el Detective de la ISS. Redacta el informe oficial de rescate de la Comandante Rodríguez utilizando los siguientes conceptos clave: Sistema de Referencia, Posición Inicial, Trayectoria, Posición Final."
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "Durante una misión de mantenimiento exterior en la Estación Espacial Internacional (ISS), un detective espacial monitorea a dos robots de carga, R1 y R2. El siguiente mapa cartesiano muestra sus posiciones en metros con respecto al centro de mando (0,0) de la estación en un momento determinado:",
+      "tabla_o_grafica_markdown": "| Robot | Coordenada X (metros) | Coordenada Y (metros) | Tipo de Trayectoria Realizada |\n| :---: | :---: | :---: | :---: |\n| **Robot R1** | +15 m | 0 m | Línea recta desde el origen |\n| **Robot R2** | 0 m | -15 m | Curva en forma de espiral desde el origen |",
+      "pregunta": "Teniendo en cuenta los datos de la tabla, ¿cuál de las siguientes afirmaciones sobre los robots R1 y R2 es físicamente correcta?",
+      "opciones": [
+        "A) Ambos robots recorrieron exactamente la misma distancia porque sus posiciones tienen el mismo valor numérico de distancia al origen.",
+        "B) El robot R1 tiene una posición en el eje horizontal, mientras que R2 tiene su posición en el eje vertical negativo.",
+        "C) El robot R2 realizó una trayectoria rectilínea porque comenzó su movimiento en el origen exacto.",
+        "D) El robot R1 no cambió su posición con respecto al centro de mando durante todo el movimiento."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. Aunque el valor absoluto de sus coordenadas finales es de 15 metros respecto al origen, la trayectoria de R2 fue en espiral (curva), lo que significa que el camino recorrido por R2 fue mucho más largo que el de R1.",
+        "1": "¡Correcto! R1 está a X = +15 m (eje horizontal positivo) e Y = 0. R2 está a X = 0 e Y = -15 m (eje vertical negativo con respecto al origen).",
+        "2": "Incorrecto. La tabla indica explícitamente que R2 realizó una trayectoria curva en forma de espiral.",
+        "3": "Incorrecto. R1 se encuentra en la posición +15 m habiendo partido del origen, lo que demuestra que sí cambió su posición."
+      }
+    }
+  ]
+}

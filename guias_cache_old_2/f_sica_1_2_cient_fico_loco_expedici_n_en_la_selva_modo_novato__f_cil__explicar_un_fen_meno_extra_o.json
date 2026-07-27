@@ -1,0 +1,86 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "Imaginas que estás en el patio de recreo de la IE Instituto Montenegro y quieres decirle a tu mejor amigo dónde estás escondido. ¿Qué información obligatoria necesitas darle para que te encuentre?",
+      "opciones": [
+        "El color de mi camiseta y la hora que es.",
+        "Un punto de referencia (como la cooperativa) y qué tan lejos estoy de él.",
+        "La velocidad con la que corrí para esconderme.",
+        "El ruido que hacen los pájaros en los árboles de la selva."
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "Si un mono travieso salta de árbol en árbol haciendo piruetas y curvas en el aire hasta llegar a un árbol de mangos, ¿cómo llamamos a la línea imaginaria de todo su recorrido?",
+      "opciones": [
+        "Línea de velocidad extrema.",
+        "Posición final.",
+        "Trayectoria.",
+        "Punto de partida misterioso."
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "Un explorador camina en línea recta por un sendero de la selva y luego se regresa al mismo punto de inicio. ¿Qué podemos decir de su posición final?",
+      "opciones": [
+        "Su posición final es la misma que la posición inicial.",
+        "Su posición final es el doble de lejos.",
+        "No tiene posición porque se movió en círculo.",
+        "La selva borró su posición para siempre."
+      ],
+      "correcta": 0
+    }
+  ],
+  "texto_inductivo": "# ¡ALERTA CIENTÍFICA EN LA SELVA DE QUIMBAYA!\n\n¡MUAJAJAJA! ¡Bienvenidos, mis jóvenes mentes brillantes de la **IE Instituto Montenegro**! Soy el Dr. Nitro, su científico loco de cabecera. Dejemos atrás los aburridos pupitres porque nos hemos adentrado en la selva más enigmática de la región. \n\nHemos encontrado huellas de energía brillante de una criatura legendaria: ¡el *Jaguar de Fuego*! Pero hay un problema... las huellas aparecen y desaparecen de forma caótica. Para resolver este misterio, primero debemos responder nuestra gran pregunta de investigación:\n\n***¿Cómo podemos usar las pistas del misterioso 'Jaguar de Fuego' en la selva para guiar a los excursionistas perdidos del Instituto Montenegro y calcular su ubicación exacta sin perdernos en el intento?***\n\n<div style='text-align:center; margin: 20px 0;'>\n  <svg width='320' height='220' style='background-color:#0d1b2a; border: 3px solid #00f0ff; border-radius: 12px;'>\n    <line x1='30' y1='190' x2='290' y2='190' stroke='#3e5c76' stroke-width='2'/>\n    <line x1='30' y1='190' x2='30' y2='20' stroke='#3e5c76' stroke-width='2'/>\n    <text x='15' y='195' fill='#e0e1dd' font-size='10'>0</text>\n    <text x='280' y='205' fill='#e0e1dd' font-size='10'>X (Metros)</text>\n    <text x='10' y='25' fill='#e0e1dd' font-size='10'>Y (Metros)</text>\n    <circle cx='60' cy='150' r='8' fill='#ffb703'/>\n    <text x='70' y='155' fill='#ffb703' font-size='11'>Paso 1 (60, 150)</text>\n    <path d='M 60 150 Q 150 40 240 120' stroke='#ff007f' stroke-width='3' stroke-dasharray='5,5' fill='none'/>\n    <circle cx='240' cy='120' r='8' fill='#fb5607'/>\n    <text x='110' y='70' fill='#00f0ff' font-size='10'>Trayectoria del Jaguar</text>\n    <text x='180' y='140' fill='#fb5607' font-size='11'>Paso 2 (240, 120)</text>\n  </svg>\n  <p style='font-size:11px; color:#555;'>Figura 1: Representación de las coordenadas de las huellas luminosas en nuestro radar de la selva.</p>\n</div>\n\n¡Miren el radar! El jaguar comenzó en un punto y se movió haciendo una curva espectacular para evitar los árboles espinosos. Para entender esto, descifremos las primeras palabras clave en nuestro diario de campo:\n\n[JUEGO:ORDENAR_LETRAS:POSICION]\n\n[JUEGO:ORDENAR_LETRAS:TRAYECTORIA]\n\n¡Excelente! Ahora, si observamos el comportamiento de los animales de la selva para entender cómo se mueven, podemos notar que no todos siguen el mismo camino.\n\n[JUEGO:ORDENAR_FRASE:EL MONO SE MUEVE RAPIDO]\n\nPara no perder el rumbo en esta expedición, necesitamos mantener activa la brújula y el mapa que diseñamos en clase.\n\n[JUEGO:ORDENAR_FRASE:LA BRUJULA MARCA EL NORTE]\n\n¡Cuidado! Hay insectos gigantes en la sopa de letras científica. Encuentren los conceptos antes de que nos piquen:\n\n[JUEGO:SOPA_LETRAS:CIENCIA,FISICA,SELVA]\n\n[JUEGO:SOPA_LETRAS:CAMINO,PUNTO,RELOJ]\n\nResolvamos este primer acertijo de la selva para activar el decodificador de coordenadas:\n\n[JUEGO:CRUCIGRAMA:Lugar donde estas|POSICION;Linea que dejas al caminar|TRAYECTORIA]\n\n[JUEGO:CRUCIGRAMA:Punto de partida|ORIGEN;Un paso largo|METRO]",
+  "recurso_visual": "| Estación de Control | Coordenada X (Metros) | Coordenada Y (Metros) | Tipo de Terreno |\n| :---: | :---: | :---: | :---: |\n| **Entrada IE Montenegro (Origen)** | 0 | 0 | Pavimento seguro |\n| **Árbol de Mangos Gigante** | 30 | 40 | Pasto húmedo con lodo |\n| **Cueva del Jaguar de Fuego** | 80 | -20 | Rocoso y resbaladizo |\n| **Río Tempestad (Meta)** | 120 | 50 | Agua rápida |",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "Observando el mapa del radar, si el Jaguar de Fuego corre en zigzag para esquivar un árbol, ¿su trayectoria es una línea recta o curva?",
+      "respuesta_esperada": "Su trayectoria es curva (o poligonal/zigzag), ya que cambia constantemente de dirección al esquivar obstáculos."
+    },
+    {
+      "pregunta": "Si un estudiante de la IE Instituto Montenegro se queda parado en el árbol de mangos gigante sin moverse, ¿cambia su posición a lo largo del tiempo?",
+      "respuesta_esperada": "No cambia su posición, ya que sus coordenadas con respecto al origen siguen siendo las mismas."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja en tu cuaderno un mapa creativo de la selva donde representes el camino (trayectoria) que harías desde la entrada de la IE Instituto Montenegro hasta el árbol de mangos, usando flechas rojas para marcar tres posiciones diferentes.",
+    "Explica con tus propias palabras la diferencia entre el camino recorrido (línea pintada en el suelo) y el punto exacto donde te detienes a descansar."
+  ],
+  "texto_deductivo": "# LA CIENCIA DETRÁS DEL MISTERIO: CONCEPTOS DE MOVIMIENTO\n\n¡Ajá! Mis queridos investigadores del laboratorio. Hemos recolectado suficientes muestras. Ahora es momento de usar nuestro súper cerebro científico para formalizar lo que hemos aprendido bajo las leyes de la física clásica. ¡La física es la clave para sobrevivir en la selva!\n\nPara definir el movimiento de cualquier objeto (o jaguares fantásticos), necesitamos tres variables cinemáticas fundamentales:\n\n1. **Sistema de Referencia:** Es el punto físico que elegimos para medir todo. En nuestro caso, la entrada de la **IE Instituto Montenegro** es nuestro origen (punto cero).\n2. **Posición ($r$):** Es el punto exacto del espacio donde se encuentra el cuerpo en un momento determinado, medido desde el origen.\n3. **Trayectoria:** Es la línea imaginaria que une todos los puntos por donde pasa el objeto. Puede ser recta, curva o circular.\n\n<table style='width:100%; border-collapse: collapse; border: 2px solid #8338ec; background-color: #f8f9fa; font-family: sans-serif; margin: 15px 0;'>\n  <tr style='background-color: #8338ec; color: white;'>\n    <th style='padding: 10px;'>Variable Cinemática</th>\n    <th style='padding: 10px;'>Definición del Científico Loco</th>\n    <th style='padding: 10px;'>Ejemplo en la Selva de Quimbaya</th>\n  </tr>\n  <tr style='background-color: #f1ecf9;'>\n    <td style='padding: 10px; font-weight: bold;'>Posición</td>\n    <td style='padding: 10px;'>El lugar exacto donde te paras a temblar frente al jaguar.</td>\n    <td style='padding: 10px;'>A 50 metros al Norte de la entrada.</td>\n  </tr>\n  <tr>\n    <td style='padding: 10px; font-weight: bold;'>Trayectoria</td>\n    <td style='padding: 10px;'>La línea de huellas brillantes que dejas al correr asustado.</td>\n    <td style='padding: 10px;'>Un camino con curvas esquivando serpientes.</td>\n  </tr>\n</table>\n\n¡No bajen la guardia! Para dominar estos conceptos, primero debemos limpiar nuestro laboratorio de la selva resolviendo estos pequeños desafíos interactivos:\n\n[JUEGO:ORDENAR_LETRAS:SELVA]\n\n[JUEGO:ORDENAR_LETRAS:CAMINO]\n\n[JUEGO:ORDENAR_LETRAS:MOVIMIENTO]\n\n¡La física es una aventura estructurada paso a paso! Organicemos estas verdades científicas:\n\n[JUEGO:ORDENAR_FRASE:CADA PASO TIENE UNA POSICION]\n\n[JUEGO:ORDENAR_FRASE:EL CAMINO RECTO ES MEJOR]\n\n[JUEGO:ORDENAR_FRASE:LA TRAYECTORIA ES EL DIBUJO]\n\nBusquemos las variables ocultas en el follaje de los árboles:\n\n[JUEGO:SOPA_LETRAS:MAPA,PASO,NORTE]\n\n[JUEGO:SOPA_LETRAS:VECTOR,LINEA,DISTANCIA]\n\n[JUEGO:SOPA_LETRAS:ORIGEN,META,RAPIDEZ]\n\n¡Llegó la hora del examen definitivo de supervivencia física! Completen estos crucigramas para abrir el candado de la jaula científica:\n\n[JUEGO:CRUCIGRAMA:Instrumento para medir el tiempo|CRONOMETRO;El que estudia la fisica|FISICO]\n\n[JUEGO:CRUCIGRAMA:El rey de la selva|LEON;Lugar con muchos arboles|SELVA]\n\n[JUEGO:CRUCIGRAMA:Medida de longitud|METRO;Camino curvo|CURVA]",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "¿Por qué es absolutamente necesario definir un 'Sistema de Referencia' antes de decir cuál es nuestra posición en la selva?",
+      "respuesta_esperada": "Porque sin un punto de referencia (origen), decir 'estoy a 10 metros' no tiene sentido, ya que nadie sabría desde dónde se miden esos 10 metros."
+    },
+    {
+      "pregunta": "Si un excursionista va de la Estación A a la Estación B por un camino con curvas, ¿la longitud de su trayectoria es mayor, menor o igual que la línea recta que une ambos puntos?",
+      "respuesta_esperada": "Es mayor, porque el camino con curvas (trayectoria) da rodeos, haciendo el recorrido más largo que la línea recta directa."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Escribe en tu cuaderno una lista de 3 sistemas de referencia diferentes que uses en tu vida diaria cuando vas desde tu casa hasta la IE Instituto Montenegro.",
+    "Dibuja un plano de coordenadas simple (Ejes X e Y), ubica un punto de inicio en (0,0) y representa un camino ondulado que termine en la posición (5,4)."
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de fenómenos",
+      "texto_introductorio": "Durante la expedición de la IE Instituto Montenegro por la selva, un estudiante registra en una tabla las diferentes posiciones de un perezoso que se mueve lentamente por una rama recta de un árbol, tomando como origen (0 metros) el tronco del árbol.",
+      "tabla_o_grafica_markdown": "| Tiempo (segundos) | Posición (metros) |\n| :---: | :---: |\n| 0 | 1 |\n| 10 | 2 |\n| 20 | 3 |\n| 30 | 3 |",
+      "pregunta": "A partir de los datos registrados en la tabla, ¿cuál de las siguientes afirmaciones describe correctamente el movimiento del perezoso entre los 20 y los 30 segundos?",
+      "opciones": [
+        "El perezoso avanzó un metro más alejándose del tronco del árbol.",
+        "El perezoso regresó rápidamente al tronco del árbol (posición cero).",
+        "El perezoso se mantuvo en la misma posición, es decir, se quedó quieto en la rama.",
+        "El perezoso cambió de trayectoria y empezó a subir en dirección vertical."
+      ],
+      "correcta": 2,
+      "retroalimentacion": {
+        "0": "Incorrecto. A los 20 segundos estaba en la posición 3 metros y a los 30 segundos sigue en los 3 metros. No avanzó ningún metro.",
+        "1": "Incorrecto. Si hubiera regresado al tronco, su posición final a los 30 segundos debería ser 0 metros, pero registra 3 metros.",
+        "2": "¡Excelente, mi pequeño científico! Al no cambiar su coordenada de posición (sigue en 3 metros) mientras transcurre el tiempo (de 20 a 30 segundos), significa que el perezoso no se movió.",
+        "3": "Incorrecto. La tabla muestra un movimiento en una sola dimensión recta, y al no variar el valor de la posición, no hay evidencia de cambio de dirección vertical."
+      }
+    }
+  ]
+}

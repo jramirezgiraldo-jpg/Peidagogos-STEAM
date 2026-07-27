@@ -1,0 +1,114 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Qué forma crees que tiene la trayectoria de los planetas alrededor del Sol?",
+      "opciones": [
+        "Círculo perfecto",
+        "Cuadrado con esquinas redondeadas",
+        "Elipse (óvalo)",
+        "Línea recta infinita"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "En Neo-Metrópolis, un dron se mueve de un punto A a un punto B. ¿Cómo llamamos al cambio de posición en el tiempo?",
+      "opciones": [
+        "Masa",
+        "Velocidad",
+        "Gravedad",
+        "Energía"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Quién es el científico famoso por la manzana y la ley de gravitación?",
+      "opciones": [
+        "Albert Einstein",
+        "Nikola Tesla",
+        "Isaac Newton",
+        "Johannes Kepler"
+      ],
+      "correcta": 2
+    }
+  ],
+  "texto_inductivo": "Saludos, Agente. Bienvenido a la Unidad de Inteligencia de Neo-Metrópolis. Como detective de misterios cósmicos, tu primera misión es estabilizar los reactores de navegación de la ciudad. Pero antes, debemos resolver el enigma del cielo. ***¿Cómo podemos predecir el destino de nuestra civilización en las estrellas si no comprendemos las fuerzas invisibles que gobiernan el baile de los mundos?*** Para sobrevivir en esta metrópolis, debemos entender que nada se mueve por azar. [JUEGO:ORDENAR_LETRAS:KEPLER] Johannes Kepler, un detective del pasado, descubrió que los planetas no giran en círculos perfectos. [JUEGO:ORDENAR_FRASE:LA ORBITA ES ELIPTICA] Sus tres leyes son el código fuente del sistema solar. <div style='background: #1a1a1a; color: #00ffcc; padding: 20px; border: 2px solid #00ffcc; border-radius: 10px; font-family: monospace;'> <h3 style='text-align: center;'>ARCHIVO SECRETO: LAS 3 LEYES DE KEPLER</h3> <table style='width:100%; border-collapse: collapse;'> <tr style='border-bottom: 1px solid #00ffcc;'> <th>Ley</th> <th>Descripción</th> <th>Concepto Clave</th> </tr> <tr> <td>1ª Ley</td> <td>Órbitas Elípticas</td> <td>El Sol está en un <b>foco</b>.</td> </tr> <tr> <td>2ª Ley</td> <td>Áreas Iguales</td> <td>Bariis iguales en tiempos iguales.</td> </tr> <tr> <td>3ª Ley</td> <td>Armonía</td> <td>El periodo al cuadrado es proporcional al radio al cubo.</td> </tr> </table> </div> La primera ley nos dice que la trayectoria es una elipse. [JUEGO:ORDENAR_LETRAS:ELIPSE] Esto significa que hay momentos donde estamos más cerca del Sol. [JUEGO:CRUCIGRAMA:Astrónomo alemán|KEPLER;Curva cerrada|ELIPSE] En la segunda ley, vemos que los planetas 'barren' áreas iguales. [JUEGO:SOPA_LETRAS:GRAVEDAD,ASTRO,MASA] Esto implica que el planeta acelera cuando está cerca del sol. [JUEGO:ORDENAR_FRASE:EL SOL ES UN FOCO] [JUEGO:ORDENAR_LETRAS:FOCO] <svg width='200' height='100' style='display:block; margin:auto;'> <ellipse cx='100' cy='50' rx='80' ry='40' style='fill:none;stroke:#00ffcc;stroke-width:2' /> <circle cx='70' cy='50' r='5' fill='yellow' /> <text x='65' y='40' fill='white' font-size='10'>Sol</text> <circle cx='180' cy='50' r='3' fill='blue' /> </svg> La tercera ley es pura matemática: relaciona el tiempo que tarda un planeta en dar la vuelta con su distancia. [JUEGO:CRUCIGRAMA:Estrella central|SOL;Unidad de tiempo|SEGUNDO] [JUEGO:SOPA_LETRAS:LEYES,FISICA,CIENCIA] [JUEGO:ORDENAR_FRASE:EL TIEMPO ES IGUAL] Si no calculamos esto bien, los satélites de la metrópolis chocarán. [JUEGO:ORDENAR_LETRAS:AREA] Debemos ser precisos. [JUEGO:CRUCIGRAMA:Fuerza invisible|GRAVEDAD;Trayectoria|ORBITA] [JUEGO:SOPA_LETRAS:RADIO,VECTOR,GIRO] [JUEGO:ORDENAR_FRASE:AREAS IGUALES EN TIEMPO] La observación es tu mejor herramienta, detective. [JUEGO:ORDENAR_LETRAS:SOL] [JUEGO:CRUCIGRAMA:Punto de la elipse|FOCO;Magnitud|AREA] [JUEGO:SOPA_LETRAS:FOCO,ELIPSE,CURVA] [JUEGO:ORDENAR_FRASE:PLANETAS GIRAN LENTO] Analiza los datos antes de que el sistema colapse. [JUEGO:CRUCIGRAMA:Velocidad|RAPIDEZ;Camino|RUTA] [JUEGO:SOPA_LETRAS:MUNDO,CIELO,ESPACIO]",
+  "recurso_visual": "graph TD\n    A[Movimiento Planetario] --> B[1ra Ley: Elipses]\n    A --> C[2da Ley: Velocidad Variable]\n    A --> D[3ra Ley: Periodos y Radios]\n    B --> B1[El Sol en un foco]\n    C --> C1[Áreas iguales en tiempos iguales]\n    D --> D1[T^2 proporcional a R^3]",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "¿Qué figura geométrica define la 1ra ley de Kepler?",
+      "respuesta_esperada": "La elipse, que es una curva cerrada con dos focos."
+    },
+    {
+      "pregunta": "Según la 2da ley, ¿cuándo se mueve más rápido un planeta?",
+      "respuesta_esperada": "Se mueve más rápido cuando está más cerca del Sol (perihelio) para barrer la misma área."
+    },
+    {
+      "pregunta": "¿Qué relación establece la 3ra ley de Kepler?",
+      "respuesta_esperada": "Relaciona el periodo orbital (tiempo) con la distancia media al Sol (radio)."
+    },
+    {
+      "pregunta": "¿Por qué no usamos círculos perfectos para describir las órbitas?",
+      "respuesta_esperada": "Porque las observaciones astronómicas de Kepler demostraron que las órbitas tienen una ligera excentricidad elíptica."
+    },
+    {
+      "pregunta": "Si un satélite de Neo-Metrópolis se aleja de la Tierra, ¿su velocidad aumentará o disminuirá?",
+      "respuesta_esperada": "Disminuirá, siguiendo la lógica de la segunda ley de Kepler."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja una elipse detallada, ubicando el Sol en uno de los focos y un planeta en dos posiciones diferentes (lejos y cerca).",
+    "Realiza un cuadro comparativo entre lo que creían los antiguos (círculos) y lo que propuso Kepler (elipses).",
+    "Escribe un informe de detective sobre cómo la 2da ley de Kepler afecta la velocidad de una nave de reconocimiento.",
+    "Representa gráficamente mediante un esquema la relación matemática de la 3ra Ley (T² vs R³)."
+  ],
+  "texto_deductivo": "Ahora que entendemos el 'cómo' se mueven, debemos entender el 'porqué'. Entra en escena Isaac Newton. [JUEGO:ORDENAR_LETRAS:NEWTON] En Neo-Metrópolis, la gravedad es lo que mantiene tus botas pegadas al suelo de metal. [JUEGO:ORDENAR_FRASE:TODO CUERPO CAE] La Ley de Gravitación Universal explica que todos los objetos con masa se atraen. [JUEGO:ORDENAR_LETRAS:MASA] <div style='border: 3px dashed #ff00ff; padding: 15px; background: #000; color: #ff00ff; font-family: sans-serif;'> <h2 style='text-align: center;'>⚠️ ALERTA DE CINEMÁTICA ⚠️</h2> <p style='font-size: 1.2rem;'>Para navegar la ciudad, usa estos vectores:</p> <ul> <li><b>Posición (r):</b> Tu lugar en el mapa.</li> <li><b>Velocidad (v):</b> Qué tan rápido cambias de lugar.</li> <li><b>Aceleración (a):</b> Qué tan rápido cambias de velocidad.</li> </ul> </div> La cinemática nos da las herramientas para medir el movimiento. [JUEGO:CRUCIGRAMA:Genio inglés|NEWTON;Falta de movimiento|INERCIA] [JUEGO:SOPA_LETRAS:MOVIMIENTO,VELOCIDAD,RITMO] La fuerza es el motor del cambio. [JUEGO:ORDENAR_FRASE:LA FUERZA ES MASA] [JUEGO:ORDENAR_LETRAS:FUERZA] Sin fuerza, un objeto en movimiento seguirá en línea recta por siempre; a esto lo llamamos inercia. [JUEGO:CRUCIGRAMA:Magnitud vectorial|VELOCIDAD;Cambio de velocidad|ACELERACION] [JUEGO:SOPA_LETRAS:CAIDA,LIBRE,SUELO] [JUEGO:ORDENAR_FRASE:NEWTON ENTENDIO TODO] En el espacio, la gravedad actúa como un cable invisible que tira de los planetas, generando una aceleración constante hacia el Sol. [JUEGO:ORDENAR_LETRAS:VECTOR] [JUEGO:CRUCIGRAMA:Suma de fuerzas|NETA;Unidad de masa|KILO] [JUEGO:SOPA_LETRAS:SISTEMA,SOLAR,ORDER] [JUEGO:ORDENAR_FRASE:GRAVEDAD ES UNIVERSAL] ¿Ves la conexión, Agente? [JUEGO:ORDENAR_LETRAS:INERCIA] La aceleración centrípeta es la que mantiene la órbita. [JUEGO:CRUCIGRAMA:Atracción planetaria|GRAVEDAD;Espacio recorrido|DISTANCIA] [JUEGO:SOPA_LETRAS:LOGICA,CALCULOS,DATOS] [JUEGO:ORDENAR_FRASE:DISTANCIA IMPORTA MUCHO] Si la velocidad es demasiada, la nave escapa; si es poca, cae hacia el sol. [JUEGO:CRUCIGRAMA:Punto inicial|ORIGEN;Tiempo transcurrido|LAPSO] [JUEGO:SOPA_LETRAS:METRO,SEGUNDO,HORA] Tu misión es calcular el equilibrio perfecto para que Neo-Metrópolis no caiga en el abismo.",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "¿Cuál es la diferencia entre velocidad y aceleración?",
+      "respuesta_esperada": "La velocidad es el cambio de posición por tiempo, y la aceleración es el cambio de velocidad por tiempo."
+    },
+    {
+      "pregunta": "¿Qué sucede con la fuerza de gravedad si duplicamos la distancia entre dos planetas?",
+      "respuesta_esperada": "La fuerza se reduce a la cuarta parte (ley del inverso del cuadrado)."
+    },
+    {
+      "pregunta": "¿Qué es la inercia según el contexto de cinemática?",
+      "respuesta_esperada": "Es la tendencia de un cuerpo a mantener su estado de reposo o movimiento rectilíneo uniforme."
+    },
+    {
+      "pregunta": "¿Por qué un planeta no sale volando en línea recta al espacio?",
+      "respuesta_esperada": "Debido a la fuerza de gravedad del Sol que actúa como fuerza centrípeta."
+    },
+    {
+      "pregunta": "¿Cómo se define la posición en un plano bidimensional?",
+      "respuesta_esperada": "Mediante un vector que indica coordenadas (x, y) respecto a un origen."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Dibuja un diagrama de cuerpo libre para un planeta en órbita, mostrando los vectores de velocidad y fuerza gravitacional.",
+    "Elabora un mapa mental que conecte la Cinemática (posición, velocidad) con la Dinámica (fuerzas, gravedad).",
+    "Realiza un dibujo explicativo de la Ley de Gravitación Universal usando dos masas M1 y M2.",
+    "Crea una infografía artesanal sobre 'Cómo sobrevivir a un fallo gravitacional en Neo-Metrópolis' usando los conceptos aprendidos."
+  ],
+  "icfes": [
+    {
+      "competence": "Explicación de Fenómenos",
+      "texto_introductorio": "En el sistema de defensa de Neo-Metrópolis, se observa que un satélite artificial mantiene una órbita estable. Según las leyes de Kepler y Newton, la velocidad del satélite depende de su distancia al centro del planeta.",
+      "tabla_o_grafica_markdown": "| Posición | Distancia (km) | Velocidad (km/s) |\n|---|---|---|\n| Perigeo (Cerca) | 7,000 | 7.8 |\n| Apogeo (Lejos) | 10,000 | 5.5 |",
+      "pregunta": "Si un motor externo aumenta la velocidad del satélite en el apogeo sin cambiar su masa, ¿qué efecto físico es más probable que ocurra?",
+      "opciones": [
+        "La órbita se vuelve más grande o el satélite escapa.",
+        "La gravedad del planeta aumentará para compensar.",
+        "El satélite se detendrá inmediatamente por la inercia.",
+        "La trayectoria se volverá un círculo perfecto instantáneamente."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. Al aumentar la energía cinética (velocidad), el satélite puede alcanzar una órbita más alta o superar la velocidad de escape.",
+        "1": "Incorrecto. La gravedad depende de la masa y la distancia, no de la velocidad del satélite.",
+        "2": "Incorrecto. La inercia mantiene el movimiento, no lo detiene.",
+        "3": "Incorrecto. Cambiar a una órbita circular requiere un ajuste preciso de velocidad y dirección, no ocurre de forma mágica."
+      }
+    }
+  ]
+}

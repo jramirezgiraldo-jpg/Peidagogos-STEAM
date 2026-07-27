@@ -1,0 +1,76 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "Si un astronauta permanece sentado en su módulo sin moverse durante 10 segundos, ¿cómo cambia su posición con respecto al tiempo?",
+      "opciones": [
+        "Aumenta constantemente a cada segundo.",
+        "Disminuye rápidamente hasta cero.",
+        "Permanence exactamente igual en todo el intervalo de tiempo.",
+        "Cambia de forma aleatoria sin patrón alguno."
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "¿En cuál eje de un plano cartesiano tradicional se suele ubicar el tiempo (t) cuando graficamos el movimiento?",
+      "opciones": [
+        "En el eje vertical (Y).",
+        "En el eje horizontal (X).",
+        "En diagonal hacia la derecha.",
+        "No se puede graficar el tiempo."
+      ],
+      "correcta": 1
+    }
+  ],
+  "texto_inductivo": "***¿Cómo podemos usar las gráficas de Posición vs Tiempo para resolver el misterio de un fantasma en el módulo de microgravedad de la EEI y comparar su movimiento con el recorrido diario de un estudiante desde el portón de la IE Instituto Montenegro hasta su salón de clase?***\n\n### Bitácora del Detective Espacial - Caso #002: El Espectro del Módulo Kibo\n\n¡Atención, recluta! Soy el Detective Espacial de la Estación Espacial Internacional (EEI). Anoche, los sensores de movimiento detectaron un objeto desconocido flotando por el corredor principal. Los tripulantes juran que vieron 'un fantasma', pero como científicos detectives, sabemos que todo movimiento deja una huella digital: **la gráfica de Posición vs Tiempo ($x-t$)**.\n\n<svg width='100%' height='180' viewBox='0 0 400 180' xmlns='http://www.w3.org/2000/svg' style='background-color: #0b0e14; border-radius: 8px;'>  <line x1='50' y1='140' x2='350' y2='140' stroke='#00ffcc' stroke-width='2'/>  <line x1='50' y1='140' x2='50' y2='20' stroke='#00ffcc' stroke-width='2'/>  <text x='350' y='165' fill='#00ffcc' font-size='12'>Tiempo t (s)</text>  <text x='10' y='25' fill='#00ffcc' font-size='12'>Posición x (m)</text>  <path d='M50,140 L120,80 L220,80 L320,20' stroke='#ff007f' stroke-width='3' fill='none'/>  <circle cx='50' cy='140' r='5' fill='#ffff00'/>  <circle cx='120' cy='80' r='5' fill='#ffff00'/>  <circle cx='220' cy='80' r='5' fill='#ffff00'/>  <circle cx='320' cy='20' r='5' fill='#ffff00'/>  <text x='70' y='100' fill='#ffffff' font-size='10'>Tramo A: Avance</text>  <text x='140' y='70' fill='#ffffff' font-size='10'>Tramo B: Detenido</text>  <text x='240' y='40' fill='#ffffff' font-size='10'>Tramo C: Escape</text></svg>\n\nImagina que este corredor es como el pasillo principal de tu colegio, la **IE Instituto Montenegro**. Si sales del portón ($x = 0\\text{ m}$) y te mueves hacia la cafetería, tu posición cambia conforme el reloj avanza. \n\nAnalicemos los datos telemétricos recuperados del sensor nocturno:\n\n<table border='1' style='width:100%; border-collapse: collapse; text-align: center; background-color: #1a1f2c; color: #ffffff;'>  <tr style='background-color: #00ffcc; color: #000000;'>    <th>Tiempo $t$ (segundos)</th>    <th>Posición $x$ (metros)</th>    <th>Estado del Objeto Anómalo</th>  </tr>  <tr><td>0 s</td><td>0 m</td><td>Inicio en la escotilla</td>  </tr>  <tr><td>4 s</td><td>8 m</td><td>Desplazamiento constante</td>  </tr>  <tr><td>8 s</td><td>8 m</td><td>¿Inmóvil en el aire?</td>  </tr>  <tr><td>12 s</td><td>16 m</td><td>Aceleración de huida</td>  </tr></table>\n\n¿Ves lo que ocurrió entre los segundos 4 y 8? ¡La posición no cambió! Estaba flotando en el mismo punto. Para resolver este enigma, debes entrenar tu mente detectora con los siguientes desafíos de código cibernético:\n\n[JUEGO:ORDENAR_LETRAS:TIEMPO]\n\n[JUEGO:ORDENAR_LETRAS:POSICION]\n\n[JUEGO:ORDENAR_FRASE:LA POSICION CAMBIA CON EL TIEMPO]\n\n[JUEGO:ORDENAR_FRASE:UNA LINEA HORIZONTAL INDICA REPOSO]\n\n[JUEGO:SOPA_LETRAS:METRO,SEGUNDO,TIEMPO]\n\n[JUEGO:SOPA_LETRAS:GRAFICA,ORIGEN,RECTA]\n\n[JUEGO:CRUCIGRAMA:Lugar que ocupa un cuerpo|POSICION;Duracion de un evento|TIEMPO]\n\n[JUEGO:CRUCIGRAMA:Eje horizontal en la grafica|TIEMPO;Eje vertical en la grafica|POSICION]",
+  "recurso_visual": "| Tramo de la Gráfica $x-t$ | Forma de la Línea | Significado Físico en la EEI | Significado en IE Instituto Montenegro |\n| :--- | :--- | :--- | :--- |\n| **Inclinada hacia arriba** | Diagonal ascendente | El objeto avanza alejándose del origen | Caminas desde la entrada hacia el salón |\n| **Completamente Plana** | Horizontal | El objeto está en reposo (detenido) | Te detienes a hablar con un compañero |\n| **Inclinada hacia abajo** | Diagonal descendente | El objeto regresa hacia el origen | Te devuelves a la entrada a buscar la maleta |",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "Según la tabla de telemetría, ¿cuántos metros se desplazó el objeto anómalo en los primeros 4 segundos?",
+      "respuesta_esperada": "Se desplazó 8 metros (pasó de 0 m a 8 m)."
+    },
+    {
+      "pregunta": "¿Qué figura o línea se forma en la gráfica cuando el objeto se queda quieto entre los 4 y los 8 segundos?",
+      "respuesta_esperada": "Se forma una línea recta horizontal."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja en tu cuaderno una ruta hipotética desde el portón de la IE Instituto Montenegro hasta la tienda escolar y señala dos momentos donde te detendrías.",
+    "Explica con tus palabras por qué el tiempo nunca puede 'retroceder' o ir hacia la izquierda en una gráfica $x-t$."
+  ],
+  "texto_deductivo": "### Revelación del Misterio: La Física tras las Gráficas $x-t$\n\nComo Detective de la EEI, has descubierto que el 'fantasma' era simplemente un módulo de suministros que se había soltado de su anclaje. Pero lo más importante es cómo desciframos su patrón usando la física del movimiento.\n\nEn una gráfica de **Posición vs Tiempo ($x-t$)**:\n1. **Eje Horizontal (Eje X):** Representa el **Tiempo ($t$)**, medido en segundos ($s$). El tiempo siempre avanza hacia la derecha.\n2. **Eje Vertical (Eje Y):** Representa la **Posición ($x$)**, medida en metros ($m$). Muestra qué tan lejos está el objeto del punto de referencia u origen ($0\\text{ m}$).\n\n<svg width='100%' height='160' viewBox='0 0 400 160' xmlns='http://www.w3.org/2000/svg' style='background-color: #121824; border-radius: 8px;'>  <grid opacity='0.2'/>  <line x1='40' y1='130' x2='360' y2='130' stroke='#ff007f' stroke-width='2'/>  <line x1='40' y1='130' x2='40' y2='20' stroke='#ff007f' stroke-width='2'/>  <!-- Linea de Reposo -->  <line x1='40' y1='80' x2='180' y2='80' stroke='#00ffcc' stroke-width='3' stroke-dasharray='4'/>  <text x='60' y='70' fill='#00ffcc' font-size='11'>Línea Horizontal = Reposo ($v = 0$)</text>  <!-- Linea de Inclinacion -->  <line x1='180' y1='80' x2='320' y2='30' stroke='#ffff00' stroke-width='3'/>  <text x='200' y='40' fill='#ffff00' font-size='11'>Línea Inclinada = Movimiento</text></svg>\n\n#### Concepto Clave: La Pendiente de la Recta\nLa inclinación de la línea en la gráfica nos indica qué tan rápido se mueve el objeto (su velocidad):\n- **Línea muy inclinada:** Movimiento rápido.\n- **Línea poco inclinada:** Movimiento lento.\n- **Línea horizontal:** Sin movimiento (Velocidad = 0).\n\nSi aplicas esto a tu día a día en la **IE Instituto Montenegro**, sabrás exactamente a qué velocidad debes caminar para llegar a tiempo al timbre de la mañana antes de que cierren la puerta.\n\nCompleta los siguientes descodificadores teóricos para cerrar la investigación:\n\n[JUEGO:ORDENAR_LETRAS:GRAFICA]\n\n[JUEGO:ORDENAR_LETRAS:PENDIENTE]\n\n[JUEGO:ORDENAR_LETRAS:VELOCIDAD]\n\n[JUEGO:ORDENAR_FRASE:LA PENDIENTE MUESTRA LA VELOCIDAD]\n\n[JUEGO:ORDENAR_FRASE:EL DETECTIVE ANALIZA LOS DATOS]\n\n[JUEGO:ORDENAR_FRASE:LA ESTACION ESPACIAL REGISTRA MOVIMIENTO]\n\n[JUEGO:SOPA_LETRAS:SENSOR,ORBITA,DATOS]\n\n[JUEGO:SOPA_LETRAS:REPOSO,AVANCE,PAUSA]\n\n[JUEGO:SOPA_LETRAS:EJE,PUNTO,LINEA]\n\n[JUEGO:CRUCIGRAMA:Estado de un objeto sin movimiento|REPOSO;Inclinacion de una linea|PENDIENTE]\n\n[JUEGO:CRUCIGRAMA:Unidad de medida de distancia|METRO;Unidad de medida del tiempo|SEGUNDO]\n\n[JUEGO:CRUCIGRAMA:Modulo espacial habitado|ESTACION;Lugar del misterio|LABORATORIO]",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "¿Qué significa que la recta en una gráfica $x-t$ esté completamente horizontal?",
+      "respuesta_esperada": "Significa que el objeto está en reposo, es decir, su posición no cambia con el paso del tiempo."
+    },
+    {
+      "pregunta": "Si en una gráfica $x-t$ ves dos líneas ascendentes, una muy empinada y otra casi plana, ¿cuál representa mayor velocidad?",
+      "respuesta_esperada": "La línea más empinada representa mayor velocidad porque recorre más distancia en menos tiempo."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Diseña una gráfica $x-t$ que muestre el recorrido de un astronauta que camina 5 metros en 2 segundos, se detiene 3 segundos a reparar un panel y regresa a la posición inicial en 2 segundos.",
+    "Escribe un breve informe de detective explicando cómo la gráfica $x-t$ ayudó a descifrar que el 'fantasma' no era un ser paranormal sino un objeto flotante en la EEI."
+  ],
+  "icfes": [
+    {
+      "competencia": "Evaluación e Interpretación de Gráficas",
+      "texto_introductorio": "Un grupo de estudiantes de la IE Instituto Montenegro analiza el registro del sensor de rastreo de un dron de inspección en la Estación Espacial Internacional. El registro generó la siguiente tabla de datos sobre su movimiento en un pasillo recto:",
+      "tabla_o_grafica_markdown": "| Tiempo $t$ (s) | Posición $x$ (m) |\n| :---: | :---: |\n| 0 | 2 |\n| 2 | 6 |\n| 4 | 6 |\n| 6 | 10 |",
+      "pregunta": "De acuerdo con los datos, ¿en cuál intervalo de tiempo el dron permaneció totalmente detenido en el pasillo?",
+      "opciones": [
+        "De $t = 0\\text{ s}$ a $t = 2\\text{ s}$",
+        "De $t = 2\\text{ s}$ a $t = 4\\text{ s}$",
+        "De $t = 4\\text{ s}$ a $t = 6\\text{ s}$",
+        "En ningún momento, el dron estuvo en movimiento constante todo el tiempo."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. Entre 0 y 2 segundos la posición cambia de 2 m a 6 m, lo que indica que el dron se estaba moviendo.",
+        "1": "¡Correcto, detective! Entre los 2 s y los 4 s la posición se mantiene en 6 metros. Como la posición no cambió en ese intervalo de 2 segundos, el dron estuvo detenido.",
+        "2": "Incorrecto. Entre 4 y 6 segundos la posición cambia de 6 m a 10 m, por lo que el dron avanzó 4 metros.",
+        "3": "Incorrecto. Observa que entre t=2s y t=4s el valor de la posición es exactamente el mismo (6 m)."
+      }
+    }
+  ]
+}

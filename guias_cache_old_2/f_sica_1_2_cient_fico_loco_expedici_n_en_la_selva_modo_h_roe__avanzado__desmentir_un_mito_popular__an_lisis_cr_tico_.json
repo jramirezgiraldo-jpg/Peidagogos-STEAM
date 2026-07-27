@@ -1,0 +1,86 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "Si estás parado junto al árbol de mangos de la IE Instituto Montenegro y decides no moverte, ¿cómo describirías tu movimiento respecto al árbol?",
+      "opciones": [
+        "Estoy en movimiento acelerado porque la Tierra gira.",
+        "Estoy en reposo absoluto porque el árbol tampoco se mueve respecto a mí.",
+        "Estoy en reposo relativo, tomando el árbol como mi punto de referencia.",
+        "Mi trayectoria es una línea recta hacia el árbol."
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "Un explorador corre en línea recta por la selva durante 10 metros, se da la vuelta y regresa al punto de partida. ¿Cuál fue su desplazamiento final?",
+      "opciones": [
+        "20 metros.",
+        "0 metros, porque volvió a su posición inicial.",
+        "10 metros hacia adelante.",
+        "No se puede calcular sin saber el tiempo."
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "En un mapa de coordenadas, ¿qué herramienta necesitas definir primero para saber la posición exacta de un jaguar?",
+      "opciones": [
+        "Un cronómetro digital.",
+        "Un sistema de referencia u origen (0,0).",
+        "La velocidad media del felino.",
+        "Una regla de tres simple."
+      ],
+      "correcta": 1
+    }
+  ],
+  "texto_inductivo": "# ¡ALERTA EN LA JUNGLE! LA FANTÁSTICA EXPEDICIÓN DEL DR. VON SPURN\n\n¡Salpicaduras de lodo radiactivo! ¡Bienvenidos, mis jóvenes e intrépidos reclutas de la **IE Instituto Montenegro**! Soy el Dr. Von Spurn, su Científico Loco de cabecera. Hemos cruzado un portal dimensional y caímos justo en la densa, húmeda y peligrosa selva del patio trasero de su institución. \n\n¡Escuchen ese rugido! Un jaguar hambriento nos acecha desde la maleza. Los mitos populares que leen en internet dicen: *\"¡Si te persigue un depredador, corre en zig-zag para confundirlo!\"* ¡JA! ¡Pamplinas pseudocientíficas! Hoy destruiremos ese mito usando la implacable lógica de la Física de Modo Héroe. Pero antes, debemos responder la gran pregunta que salvará sus pellejos escolares:\n\n**_¿Cómo puede un estudiante de la IE Instituto Montenegro, perdido en la selva, predecir si un jaguar lo atrapará analizando la diferencia real entre dónde está parado (posición) y el camino que recorre (trayectoria), desmintiendo el mito de que correr en zig-zag es siempre la mejor opción de escape?_**\n\nPara empezar a decodificar este misterio cinemático, organicemos nuestras neuronas alteradas por el miedo. ¡Resuelvan estos acertijos de inmediato antes de que el jaguar nos huela!\n\n[JUEGO:ORDENAR_LETRAS:POSICION]\n\n[JUEGO:ORDENAR_FRASE:EL PUNTO DE REFERENCIA SELECCIONADO DETERMINA TU POSICION ACTUAL]\n\n### El Mapa del Escape en el Plano de Coordenadas\n\nObserven este radar holográfico que he construido con restos de un videoproyector de la IE Instituto Montenegro y lianas conductoras de electricidad:\n\n<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 600 350\" style=\"background-color:#0d1b2a; border-radius:10px; border: 3px solid #00f5d4;\">\n  <!-- Cuadrícula de la Selva -->\n  <defs>\n    <pattern id=\"grid\" width=\"40\" height=\"40\" patternUnits=\"userSpaceOnUse\">\n      <path d=\"M 40 0 L 0 0 0 40\" fill=\"none\" stroke=\"#1f2421\" stroke-width=\"1\"/>\n    </pattern>\n  </defs>\n  <rect width=\"100%\" height=\"100%\" fill=\"#0b132b\" />\n  <rect width=\"100%\" height=\"100%\" fill=\"url(#grid)\" />\n  \n  <!-- Ejes Coordenados -->\n  <line x1=\"50\" y1=\"300\" x2=\"550\" y2=\"300\" stroke=\"#a9d6e5\" stroke-width=\"3\" marker-end=\"url(#arrow)\" />\n  <line x1=\"80\" y1=\"320\" x2=\"80\" y2=\"30\" stroke=\"#a9d6e5\" stroke-width=\"3\" />\n  \n  <!-- Etiquetas Ejes -->\n  <text x=\"540\" y=\"320\" fill=\"#00f5d4\" font-family=\"Courier New\" font-weight=\"bold\">X (Metros)</text>\n  <text x=\"40\" y=\"45\" fill=\"#00f5d4\" font-family=\"Courier New\" font-weight=\"bold\">Y (Metros)</text>\n  \n  <!-- Trayectorias -->\n  <!-- Trayectoria Rectilinea (Escape Directo) -->\n  <path d=\"M 120 260 L 480 100\" fill=\"none\" stroke=\"#390099\" stroke-width=\"4\" stroke-dasharray=\"5,5\" id=\"recta\"/>\n  <text x=\"300\" y=\"160\" fill=\"#9e0059\" font-family=\"Courier New\" font-size=\"12\" font-weight=\"bold\">Trayectoria A (Recta: 15m)</text>\n  \n  <!-- Trayectoria Zig-Zag -->\n  <path d=\"M 120 260 L 200 120 L 280 280 L 360 100 L 440 240 L 480 100\" fill=\"none\" stroke=\"#ff5400\" stroke-width=\"4\" id=\"zigzag\"/>\n  <text x=\"200\" y=\"80\" fill=\"#ff5400\" font-family=\"Courier New\" font-size=\"12\" font-weight=\"bold\">Trayectoria B (Zig-Zag: 45m!)</text>\n  \n  <!-- Puntos Clave -->\n  <!-- Origen / Tu Posición Inicial -->\n  <circle cx=\"120\" cy=\"260\" r=\"8\" fill=\"#00f5d4\" />\n  <text x=\"100\" y=\"290\" fill=\"#00f5d4\" font-family=\"Courier\" font-weight=\"bold\" font-size=\"14\">Tú (12, 4)</text>\n  \n  <!-- Posición del Refugio -->\n  <circle cx=\"480\" cy=\"100\" r=\"10\" fill=\"#ff007f\" />\n  <text x=\"450\" y=\"80\" fill=\"#ff007f\" font-family=\"Courier\" font-weight=\"bold\" font-size=\"14\">Refugio (48, 20)</text>\n</svg>\n\n¿Ven la abismal diferencia? Al correr en zig-zag, tu **trayectoria** se vuelve una pesadilla geométrica que triplica la distancia que debes recorrer, mientras que tu **posición** final deseada (el refugio seguro de la IE) sigue estando exactamente en el mismo punto del espacio.\n\n¡Rápido! Despejen la maleza mental resolviendo este crucigrama de campo y buscando estos conceptos ocultos en la sopa de selva:\n\n[JUEGO:CRUCIGRAMA:Lugar en el espacio respecto a un origen|POSICION;Camino real seguido por el cuerpo|TRAYECTORIA]\n\n[JUEGO:SOPA_LETRAS:VECTOR,ORIGEN,TIEMPO]\n\n[JUEGO:ORDENAR_LETRAS:TRAYECTORIA]\n\n[JUEGO:ORDENAR_FRASE:LA TRAYECTORIA ES LA LINEA QUE DIBUJA UN CUERPO AL MOVERSE]\n\n[JUEGO:SOPA_LETRAS:SELVA,JAGUAR,LINEA]\n\nSi no logran distinguir entre el vector de posición y la línea sinuosa de su escape, ¡serán la cena del felino! Pasemos al laboratorio de análisis formal.",
+  "recurso_visual": "| Variable Cinemática | Definición Científica | ¿Tiene Dirección? (Vectorial) | Unidad de Medida (SI) | Aplicación en la Selva de Montenegro |\n| :--- | :--- | :--- | :--- | :--- |\n| **Posición ($\\vec{r}$)** | Ubicación exacta de un cuerpo respecto a un origen cartográfico. | **Sí** (Vector) | Metros ($m$) | Tu coordenada exacta frente al árbol de mangos (ej. $x = 3m, y = 4m$). |\n| **Trayectoria** | El camino geométrico que describe un móvil durante su movimiento. | **No** (Es una línea/silueta geométrica) | No aplica directamente (forma) | La línea curva o zig-zag que dibujas en el fango mientras corres. |\n| **Distancia ($d$)** | Longitud total recorrida a lo largo de la trayectoria. | **No** (Escalar) | Metros ($m$) | Los extenuantes $45\\text{ metros}$ totales que corriste dando vueltas. |\n| **Desplazamiento ($\\Delta\\vec{r}$)**| Vector que une la posición inicial directamente con la posición final. | **Sí** (Vector) | Metros ($m$) | La línea recta de apenas $15\\text{ metros}$ que te separaba de la salvación. |",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "¿Qué diferencia visual notas en el radar entre la Trayectoria A (recta) y la Trayectoria B (zig-zag)?",
+      "respuesta_esperada": "La Trayectoria A es una línea recta directa que representa la menor distancia posible entre las dos posiciones, mientras que la Trayectoria B (zig-zag) es un camino que cambia constantemente de dirección, alargando notablemente la longitud real del recorrido sin cambiar los puntos de inicio y llegada."
+    },
+    {
+      "pregunta": "Si el jaguar corre en línea recta y tú corres en zig-zag para llegar al mismo refugio, ¿quién recorre físicamente más metros?",
+      "respuesta_esperada": "Yo recorro más metros físicamente debido a que la longitud de mi trayectoria (zig-zag) es mucho mayor que la del jaguar (línea recta), dándole al depredador una ventaja física inmensa a pesar de que ambos iniciemos y terminemos en las mismas posiciones."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja en tu cuaderno un plano cartesiano simple. Coloca un árbol en el punto (0,0) como origen. Ubica tu salón de clases en el punto (5,5). Dibuja una trayectoria curva y calcula aproximadamente cuántas cuadriculas recorres frente a si fueras en línea recta.",
+    "Explica con tus propias palabras por qué el 'Punto de Referencia' es el concepto más importante para el Dr. Von Spurn antes de empezar a medir cualquier movimiento en la selva."
+  ],
+  "texto_deductivo": "# LA FÓRMULA DE LA VERDAD: DESMINTIENDO EL MITO DEL ZIG-ZAG\n\n¡Mis mentes brillantes de la **IE Instituto Montenegro**! Es hora de sacar la artillería pesada de la física teórica. El mito urbano reza: *\"El zig-zag confunde los sistemas ópticos de los depredadores\"*. Pero analicemos la biomecánica y la cinemática vectorial. \n\nUn jaguar (*Panthera onca*) tiene articulaciones superflexibles y garras retráctiles diseñadas para un agarre extremo. Si corres en zig-zag, estás haciendo dos cosas físicamente desastrosas:\n1. **Reduces tu velocidad efectiva:** En cada esquina de tu zig-zag, tu velocidad instantánea debe caer a cero por una fracción de segundo para poder cambiar de dirección. ¡La inercia juega en tu contra!\n2. **Aumentas tu distancia recorrida:** Mientras tú recorres la hipotenusa de múltiples triángulos imaginarios, el jaguar simplemente ajusta su trayectoria describiendo una curva suave de menor longitud.\n\nVisualicemos matemáticamente este desastre físico en nuestro tablero de física salvaje:\n\n<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 600 350\" style=\"background-color:#141923; border-radius:10px; border: 3px solid #ff007f;\">\n  <!-- Fondo de cuadrícula científica -->\n  <defs>\n    <pattern id=\"scigrid\" width=\"20\" height=\"20\" patternUnits=\"userSpaceOnUse\">\n      <path d=\"M 20 0 L 0 0 0 20\" fill=\"none\" stroke=\"#1f2d3d\" stroke-width=\"0.5\"/>\n    </pattern>\n  </defs>\n  <rect width=\"100%\" height=\"100%\" fill=\"#0d1117\" />\n  <rect width=\"100%\" height=\"100%\" fill=\"url(#scigrid)\" />\n  \n  <!-- Vectores de Posición -->\n  <!-- Posición Inicial R1 -->\n  <line x1=\"80\" y1=\"300\" x2=\"200\" y2=\"220\" stroke=\"#00f5d4\" stroke-width=\"3\" marker-end=\"url(#arrow)\" />\n  <path d=\"M 195 215 L 200 220 L 190 225\" fill=\"none\" stroke=\"#00f5d4\" stroke-width=\"3\"/>\n  <text x=\"90\" y=\"240\" fill=\"#00f5d4\" font-family=\"Courier New\" font-size=\"14\" font-weight=\"bold\">Vector r₁ (Inicial)</text>\n  \n  <!-- Posición Final R2 -->\n  <line x1=\"80\" y1=\"300\" x2=\"450\" y2=\"100\" stroke=\"#9e0059\" stroke-width=\"3\" />\n  <path d=\"M 442 103 L 450 100 L 445 110\" fill=\"none\" stroke=\"#9e0059\" stroke-width=\"3\"/>\n  <text x=\"280\" y=\"220\" fill=\"#9e0059\" font-family=\"Courier New\" font-size=\"14\" font-weight=\"bold\">Vector r₂ (Final)</text>\n  \n  <!-- Vector Desplazamiento (Línea recta real) -->\n  <line x1=\"200\" y1=\"220\" x2=\"450\" y2=\"100\" stroke=\"#ffeb3b\" stroke-width=\"4\" stroke-dasharray=\"10,5\" />\n  <path d=\"M 440 105 L 450 100 L 443 112\" fill=\"none\" stroke=\"#ffeb3b\" stroke-width=\"4\"/>\n  <text x=\"270\" y=\"140\" fill=\"#ffeb3b\" font-family=\"Courier New\" font-size=\"16\" font-weight=\"bold\">Desplazamiento (Δr)</text>\n  \n  <!-- Ejes e Identificadores -->\n  <circle cx=\"80\" cy=\"300\" r=\"6\" fill=\"#ff5400\" />\n  <text x=\"50\" y=\"325\" fill=\"#ff5400\" font-family=\"Courier\" font-weight=\"bold\">ORIGEN (0,0)</text>\n</svg>\n\n### Definiciones Clave para el Modo Héroe:\n* **Posición ($\\vec{r}$):** Es el vector que va desde el origen de coordenadas seleccionado hasta el punto exacto donde te encuentras parado.\n* **Trayectoria:** El conjunto de puntos sucesivos por los que pasa un móvil. Puede ser rectilínea, curvilínea o el caótico zig-zag.\n* **Desplazamiento ($\\Delta\\vec{r}$):** Es el cambio neto de posición. Matemáticamente: \n  $$\\Delta\\vec{r} = \\vec{r}_2 - \\vec{r}_1$$\n  ¡Solo le importa el principio y el fin! No le importa lo que sufriste en el camino.\n\nDemostremos que sus cerebros procesan esto más rápido que el supercomputador del Dr. Von Spurn con estos minijuegos de consolidación:\n\n[JUEGO:ORDENAR_LETRAS:CINEMATICA]\n\n[JUEGO:ORDENAR_FRASE:EL CAMINO MAS CORTO ENTRE DOS PUNTOS ES LA LINEA RECTA]\n\n[JUEGO:CRUCIGRAMA:Magnitud que une inicio y fin en linea recta|DESPLAZAMIENTO;Punto desde donde se mide todo|ORIGEN]\n\n[JUEGO:SOPA_LETRAS:METRO,CURVA,MOVIL]\n\n[JUEGO:ORDENAR_LETRAS:DESPLAZAMIENTO]\n\n[JUEGO:ORDENAR_FRASE:EL MITO DEL ZIG ZAG TE HACE MAS LENTO QUE EL DEPREDADOR]\n\n[JUEGO:CRUCIGRAMA:Cambio de posicion de un cuerpo|MOVIMIENTO;Unidad de medida de longitud en SI|METRO]\n\n[JUEGO:SOPA_LETRAS:RAPIDEZ,FISICA,PUNTO]\n\n[JUEGO:ORDENAR_LETRAS:COORDENADAS]\n\n[JUEGO:ORDENAR_FRASE:LA DISTANCIA RECORRIDA SIEMPRE ES MAYOR O IGUAL AL DESPLAZAMIENTO]\n\n[JUEGO:CRUCIGRAMA:Linea con flecha que representa posicion|VECTOR;Trayectoria que parece una circunferencia|CIRCULAR]\n\n[JUEGO:CRUCIGRAMA:Animal rapido de la selva|JAGUAR;Mito que desmentimos hoy|ZIGZAG]\n\n[JUEGO:SOPA_LETRAS:SISTEMA,MARCO,PLANO]\n\n**Conclusión Científica:** El mito del zig-zag queda ¡COMPLETAMENTE DESMENTIDO! Correr de forma errática solo disminuye tu velocidad promedio y aumenta drásticamente la distancia recorrida. Tu mejor opción física frente a un depredador real (que no tenga problemas de giro, como un cocodrilo gigante, el cual sí tiene un radio de giro limitado por su columna rígida) es correr en línea recta hacia el punto seguro más cercano usando la trayectoria que minimice tu distancia recorrida.",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "¿Por qué el vector de desplazamiento no cambia aunque decidas correr haciendo círculos en la selva?",
+      "respuesta_esperada": "Porque el desplazamiento depende única y exclusivamente de la posición inicial y de la posición final del móvil. Sin importar qué tan complicada o larga sea la trayectoria, la línea recta que une el punto de partida con el de llegada sigue siendo exactamente la misma."
+    },
+    {
+      "pregunta": "¿En qué único caso físico la distancia recorrida es exactamente igual al módulo del desplazamiento?",
+      "respuesta_esperada": "Únicamente cuando el movimiento es rectilíneo y no se presentan cambios de sentido, es decir, cuando el móvil se desplaza en una línea recta perfecta sin devolverse jamás."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Plantea un argumento biomecánico basado en la inercia para explicar por qué un estudiante de grado sexto pierde velocidad cada vez que cambia bruscamente de dirección al huir.",
+    "Diseña una estrategia física para escapar de un cocodrilo en la orilla del río de la selva de Montenegro, justificando detalladamente por qué en este caso particular el zig-zag sí podría funcionar a diferencia de un jaguar."
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de fenómenos",
+      "texto_introductorio": "Durante la Expedición Científica de la IE Instituto Montenegro, dos estudiantes, Sofía y Carlos, huyen de una nube de avispas mutantes desde un árbol (punto O) hasta la entrada del laboratorio de física (punto L). Sofía decide correr en línea recta directa, mientras Carlos decide correr bordeando un río cercano en un camino semicircular. El mapa del terreno se representa en la siguiente tabla:",
+      "tabla_o_grafica_markdown": "| Estudiante | Posición Inicial (O) | Posición Final (L) | Tipo de Trayectoria | Distancia Recorridal ($d$) |\n| :--- | :--- | :--- | :--- | :--- |\n| **Sofía** | $(0,0)\\text{ m}$ | $(30, 40)\\text{ m}$ | Rectilínea | $50\\text{ metros}$ |\n| **Carlos** | $(0,0)\\text{ m}$ | $(30, 40)\\text{ m}$ | Curvilínea (Semicírculo) | $78.5\\text{ metros}$ |",
+      "pregunta": "Teniendo en cuenta los datos de la tabla, ¿cuál de las siguientes afirmaciones sobre el desplazamiento de ambos estudiantes es correcta?",
+      "opciones": [
+        "El desplazamiento de Carlos es mayor porque su trayectoria curvilínea tiene una longitud física de 78.5 metros.",
+        "Ambos estudiantes realizaron el mismo desplazamiento de 50 metros con la misma dirección, porque sus posiciones iniciales y finales son idénticas.",
+        "Sofía realizó un desplazamiento mayor porque llegó primero al laboratorio que Carlos.",
+        "El desplazamiento no puede determinarse porque no se conoce el tiempo empleado por cada estudiante en huir de las avispas."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "¡Falso! Estás confundiendo distancia recorrida con desplazamiento. El desplazamiento no es la longitud de la curva, sino la recta que une los puntos extremos.",
+        "1": "¡Excelente, mi héroe cinemático! Como ambos iniciaron en (0,0) y terminaron en (30,40), el cambio de posición neto (desplazamiento) es exactamente igual para ambos, midiendo 50 metros en línea recta.",
+        "2": "¡Incorrecto! La velocidad o el orden de llegada no alteran la geometría espacial del vector de desplazamiento.",
+        "3": "¡Pamplinas! El tiempo no es una variable requerida para calcular el cambio de posición espacial pura (desplazamiento)."
+      }
+    }
+  ]
+}

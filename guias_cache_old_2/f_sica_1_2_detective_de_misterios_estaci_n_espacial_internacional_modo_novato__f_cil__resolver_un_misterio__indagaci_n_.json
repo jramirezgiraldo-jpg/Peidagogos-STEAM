@@ -1,0 +1,87 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "Si estás flotando dentro de la Estación Espacial Internacional (ISS) sin moverte respecto a las paredes, ¿estás realmente inmóvil?",
+      "opciones": [
+        "A) Sí, porque tu distancia a las paredes de la ISS no cambia.",
+        "B) No, porque la ISS se mueve a gran velocidad alrededor de la Tierra y tú te mueves con ella.",
+        "C) Sí, porque en el espacio no existe el movimiento.",
+        "D) No, porque tus compañeros te ven correr por los pasillos."
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Qué necesitas definir primero para poder decirle a otro astronauta dónde se encuentra una herramienta perdida?",
+      "opciones": [
+        "A) La velocidad a la que se mueve la herramienta.",
+        "B) Un punto de referencia fijo, como la escotilla principal.",
+        "C) El color de la herramienta.",
+        "D) El tiempo que lleva perdida."
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "Si un astronauta dibuja con un marcador láser su camino desde el laboratorio hasta la cabina, esa línea dibujada representa:",
+      "opciones": [
+        "A) Su posición final.",
+        "B) Su punto de referencia.",
+        "C) Su trayectoria.",
+        "D) Su velocidad de escape."
+      ],
+      "correcta": 2
+    }
+  ],
+  "texto_inductivo": "¡Saludos, Cadete! Te habla el Detective de Misterios Espaciales. Hemos sido asignados a un caso de alta prioridad en la **Estación Espacial Internacional (ISS)**. El astronauta Leo reportó la pérdida de la *Llave Cuántica*, una herramienta vital para reparar los paneles solares. Si no la encontramos, la ISS perderá energía en menos de 24 horas. Para resolver este enigma, primero debemos entender cómo localizar objetos en el espacio.\n\nAntes de iniciar el rastreo, quiero que reflexiones sobre esta gran incógnita que conecta nuestro misterio espacial con tu vida cotidiana:\n\n*__¿De qué manera saber la posición exacta y el camino que sigue un astronauta perdido en el espacio exterior nos puede ayudar a trazar la ruta diaria más rápida para llegar desde la entrada de la IE Instituto Montenegro hasta el salón del grado sexto, superando los obstáculos del patio de recreo?__*\n\nPara comenzar nuestra investigación, analicemos el mapa del sector de la ISS donde Leo estuvo trabajando:\n\n<svg viewBox='0 0 800 400' xmlns='http://www.w3.org/2000/svg' style='background-color:#0b0f19; border-radius: 8px; width:100%; height:auto;'>\n  <defs>\n    <marker id='arrow' viewBox='0 0 10 10' refX='5' refY='5' markerWidth='6' markerHeight='6' orient='auto-start-reverse'>\n      <path d='M 0 0 L 10 5 L 0 10 z' fill='#00ffcc'/>\n    </marker>\n  </defs>\n  <!-- Fondo de estrellas -->\n  <circle cx='50' cy='50' r='1' fill='#fff' opacity='0.8'/>\n  <circle cx='150' cy='80' r='1.5' fill='#fff' opacity='0.5'/>\n  <circle cx='300' cy='40' r='1' fill='#fff' opacity='0.9'/>\n  <circle cx='450' cy='90' r='2' fill='#fff' opacity='0.6'/>\n  <circle cx='600' cy='30' r='1' fill='#fff' opacity='0.7'/>\n  <circle cx='700' cy='120' r='1.5' fill='#fff' opacity='0.4'/>\n  <circle cx='100' cy='300' r='1' fill='#fff' opacity='0.8'/>\n  <circle cx='500' cy='320' r='1' fill='#fff' opacity='0.5'/>\n  \n  <!-- Estación Espacial (Esquema simple) -->\n  <rect x='100' y='180' width='120' height='40' fill='#2c3e50' stroke='#7f8c8d' stroke-width='3' rx='5'/>\n  <text x='160' y='205' fill='#fff' font-family='sans-serif' font-size='12' text-anchor='middle'>Módulo Core</text>\n  \n  <rect x='300' y='150' width='80' height='100' fill='#34495e' stroke='#95a5a6' stroke-width='3' rx='5'/>\n  <text x='340' y='205' fill='#fff' font-family='sans-serif' font-size='12' text-anchor='middle'>Laboratorio</text>\n  \n  <!-- Tubos conectores -->\n  <rect x='220' y='195' width='80' height='10' fill='#7f8c8d'/>\n  <rect x='380' y='195' width='100' height='10' fill='#7f8c8d'/>\n  \n  <!-- Paneles Solares -->\n  <rect x='325' y='50' width='30' height='100' fill='#1a252f' stroke='#3498db' stroke-width='2' opacity='0.8'/>\n  <line x1='340' y1='150' x2='340' y2='50' stroke='#3498db' stroke-width='4'/>\n  \n  <!-- Trayectoria de la llave perdida -->\n  <path d='M 160 180 C 200 100, 280 80, 340 150 C 400 220, 500 250, 550 180' fill='none' stroke='#ff0055' stroke-dasharray='5,5' stroke-width='3' marker-end='url(#arrow)'/>\n  \n  <!-- Puntos Clave -->\n  <circle cx='160' cy='180' r='6' fill='#00ffcc'/>\n  <text x='160' y='165' fill='#00ffcc' font-family='sans-serif' font-size='11' text-anchor='middle' font-weight='bold'>Punto A: Inicio</text>\n  \n  <circle cx='340' cy='150' r='6' fill='#f1c40f'/>\n  <text x='340' y='135' fill='#f1c40f' font-family='sans-serif' font-size='11' text-anchor='middle' font-weight='bold'>Punto B: Panel</text>\n  \n  <circle cx='550' cy='180' r='6' fill='#e74c3c'/>\n  <text x='550' y='165' fill='#e74c3c' font-family='sans-serif' font-size='11' text-anchor='middle' font-weight='bold'>Punto C: Llave ?</text>\n  \n  <!-- Leyenda -->\n  <rect x='520' y='20' width='250' height='80' fill='rgba(0,0,0,0.7)' stroke='#00ffcc' stroke-width='1.5' rx='5'/>\n  <circle cx='540' cy='40' r='4' fill='#ff0055'/>\n  <text x='555' y='44' fill='#fff' font-family='sans-serif' font-size='11'>Trayectoria de la Llave</text>\n  <circle cx='540' cy='60' r='4' fill='#00ffcc'/>\n  <text x='555' y='64' fill='#fff' font-family='sans-serif' font-size='11'>Punto de Referencia (A)</text>\n  <text x='535' y='85' fill='#00ffcc' font-family='sans-serif' font-size='10' font-style='italic'>Mapa de la ISS - Sector 4</text>\n</svg>\n\nComo detective, debes inspeccionar el mapa. Para descifrar el primer mensaje cifrado que dejó el sistema de seguridad automática de la ISS, completa las siguientes misiones de entrenamiento:\n\n[JUEGO:ORDENAR_LETRAS:POSICION]\n\n[JUEGO:ORDENAR_LETRAS:TRAYECTORIA]\n\n[JUEGO:ORDENAR_LETRAS:ESPACIO]\n\nUna vez descifradas las palabras clave, analicemos el diario de navegación de Leo. Él escribió:\n\n*\"Salí del módulo principal (Punto A) hacia el panel solar (Punto B). A mitad de camino, sentí un leve golpe en mi traje. Al llegar a mi destino, noté que la llave ya no estaba en mi cinturón. Creo que se soltó y continuó flotando en la misma dirección.\"*\n\n[JUEGO:ORDENAR_FRASE:EL MOVIMIENTO DEPENDE DEL OBSERVADOR]\n\n[JUEGO:ORDENAR_FRASE:LA TRAYECTORIA ES EL CAMINO RECORRIDO]\n\nPara avanzar con nuestra investigación criminal, busca estas palabras clave que la computadora de la ISS bloqueó bajo un protocolo de seguridad cifrado:\n\n[JUEGO:SOPA_LETRAS:PUNTO,ORIGEN,LINEA]\n\n[JUEGO:SOPA_LETRAS:VELOZ,LUGAR,RUTAS]\n\n¡Excelente trabajo de desencriptación, Cadete! Ahora resolvamos este crucigrama de seguridad para abrir la escotilla del laboratorio:\n\n[JUEGO:CRUCIGRAMA:Lugar ocupado por un objeto|POSICION;Camino que sigue un cuerpo|TRAYECTORIA]\n\n[JUEGO:CRUCIGRAMA:Punto desde donde se observa|REFERENCIA;Medida del camino|DISTANCIA]",
+  "recurso_visual": "| Variable Cinemática | Definición en el Espacio | Ejemplo en la ISS |\n| :--- | :--- | :--- |\n| **Punto de Referencia** | Lugar físico fijo que usamos para medir distancias. | La escotilla de salida del Módulo Core. |\n| **Posición** | Lugar exacto donde se encuentra el objeto en un instante. | La llave se encuentra a 15 metros al norte de la escotilla. |\n| **Trayectoria** | La línea imaginaria que dibuja el cuerpo al moverse. | La curva que hizo la llave flotando hacia el espacio exterior. |\n| **Distancia Recorrida** | La longitud total del camino recorrido por el objeto. | Los 45 metros totales que flotó la herramienta. |",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "¿Qué diferencia observas entre la línea punteada roja (camino real) y la línea recta imaginaria que une el Punto A con el Punto C?",
+      "respuesta_esperada": "La línea punteada roja es curva y muestra el recorrido real (trayectoria), mientras que la línea recta representa la distancia directa más corta (desplazamiento) entre el punto de inicio y de fin."
+    },
+    {
+      "pregunta": "Si cambiamos nuestro Punto de Referencia del 'Módulo Core' al 'Laboratorio', ¿cambiaría la posición registrada de la herramienta?",
+      "respuesta_esperada": "Sí, la posición cambia porque ahora mediríamos la distancia y la dirección tomando como punto de inicio el Laboratorio, aunque la herramienta no se haya movido físicamente."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "RETO DETECTIVE 1: Dibuja en tu cuaderno un mapa simple de tu habitación. Elige la puerta como 'Punto de Referencia (0,0)'. Señala la 'Posición' de tu cama y la 'Trayectoria' que sigues para llegar a ella desde la puerta.",
+    "RETO DETECTIVE 2: Si un astronauta camina dando círculos alrededor de la ISS y regresa al mismo punto de partida, ¿cuál fue su trayectoria y qué tan lejos terminó de su punto de referencia?"
+  ],
+  "texto_deductivo": "¡Excelente deducción, Cadete! Hemos abierto la escotilla del laboratorio de física de la ISS. Ahora es momento de consolidar nuestros conocimientos científicos para predecir con total precisión matemática el paradero de la *Llave Cuántica*.\n\nPara definir la ubicación de cualquier cuerpo en el universo, la física utiliza las **Variables Cinemáticas**. Estudiemos formalmente sus componentes usando un plano cartesiano tridimensional simplificado para el espacio exterior:\n\n<svg viewBox='0 0 800 400' xmlns='http://www.w3.org/2000/svg' style='background-color:#0f1423; border-radius: 8px; width:100%; height:auto;'>\n  <!-- Rejilla de Coordenadas -->\n  <defs>\n    <pattern id='grid' width='40' height='40' patternUnits='userSpaceOnUse'>\n      <path d='M 40 0 L 0 0 0 40' fill='none' stroke='rgba(255,255,255,0.07)' stroke-width='1'/>\n    </pattern>\n  </defs>\n  <rect width='100%' height='100%' fill='url(#grid)'/>\n  \n  <!-- Ejes de Coordenadas -->\n  <line x1='80' y1='320' x2='720' y2='320' stroke='#3498db' stroke-width='3' marker-end='url(#arrow)'/>\n  <line x1='80' y1='320' x2='80' y2='40' stroke='#3498db' stroke-width='3' marker-end='url(#arrow)'/>\n  \n  <text x='730' y='325' fill='#3498db' font-family='sans-serif' font-weight='bold' font-size='14'>Eje X (Metros)</text>\n  <text x='70' y='30' fill='#3498db' font-family='sans-serif' font-weight='bold' font-size='14'>Eje Y (Metros)</text>\n  \n  <!-- Punto de Referencia: Escotilla -->\n  <circle cx='80' cy='320' r='8' fill='#e67e22'/>\n  <text x='95' y='340' fill='#e67e22' font-family='sans-serif' font-weight='bold' font-size='12'>Origen (0,0) - Escotilla Principal</text>\n  \n  <!-- Posición de la llave en T=1 -->\n  <circle cx='280' cy='200' r='6' fill='#00ffcc'/>\n  <line x1='280' y1='320' x2='280' y2='200' stroke='#fff' stroke-dasharray='4,4'/>\n  <line x1='80' y1='200' x2='280' y2='200' stroke='#fff' stroke-dasharray='4,4'/>\n  <text x='290' y='190' fill='#00ffcc' font-family='sans-serif' font-size='12' font-weight='bold'>Posición 1: (200m , 120m)</text>\n  \n  <!-- Posición de la llave en T=2 -->\n  <circle cx='520' cy='120' r='6' fill='#ff0055'/>\n  <line x1='520' y1='320' x2='520' y2='120' stroke='#fff' stroke-dasharray='4,4'/>\n  <line x1='80' y1='120' x2='520' y2='120' stroke='#fff' stroke-dasharray='4,4'/>\n  <text x='530' y='110' fill='#ff0055' font-family='sans-serif' font-size='12' font-weight='bold'>Posición 2: (440m , 200m)</text>\n  \n  <!-- Trayectoria Real -->\n  <path d='M 80 320 Q 200 160, 280 200 T 520 120' fill='none' stroke='#f1c40f' stroke-width='3' stroke-dasharray='3'/>\n  <text x='350' y='250' fill='#f1c40f' font-family='sans-serif' font-size='13' font-weight='bold'>Trayectoria Curvilínea</text>\n</svg>\n\nPara dominar la física detrás del movimiento de la llave cuántica, debemos comprender tres conceptos cruciales:\n\n1. **Punto de Referencia (o Sistema de Referencia):** Es el origen de nuestro plano (0,0). Sin él, decir 'la llave está a 5 metros' no tiene sentido. ¿A 5 metros de qué? ¿De la Tierra, de la ISS o del sol?\n2. **Posición ($\\vec{r}$):** Es el vector que va desde el Punto de Referencia hasta donde está el objeto en un instante determinado. Cambia a medida que pasa el tiempo.\n3. **Trayectoria:** Es el conjunto de todos los puntos del espacio que el objeto va ocupando sucesivamente. Puede ser rectilínea (en línea recta) o curvilínea (parabólica, circular o irregular).\n\nConsolidemos estos conceptos claves resolviendo estos desafíos del manual técnico:\n\n[JUEGO:ORDENAR_LETRAS:MOVIMIENTO]\n\n[JUEGO:ORDENAR_LETRAS:DISTANCIA]\n\n[JUEGO:ORDENAR_FRASE:LA POSICION SE MIDE DESDE EL ORIGEN]\n\n[JUEGO:ORDENAR_FRASE:EL CAMINO RECTO ES EL MAS CORTO]\n\n[JUEGO:ORDENAR_FRASE:TODO MOVIMIENTO TIENE UN PUNTO DE REFERENCIA]\n\nPara desbloquear las coordenadas finales de la llave cuántica en el radar de largo alcance, supera los últimos módulos criptográficos:\n\n[JUEGO:SOPA_LETRAS:FISICA,CIENCIA,MAPA]\n\n[JUEGO:SOPA_LETRAS:TIEMPO,METRO,LINEAL]\n\n[JUEGO:SOPA_LETRAS:RETO,LLAVE,PISTA]\n\n[JUEGO:CRUCIGRAMA:Línea recta entre inicio y fin|DESPLAZAMIENTO;Cambio de posición|MOVIMIENTO]\n\n[JUEGO:CRUCIGRAMA:Unidad de medida de longitud|METRO;Instrumento para medir tiempo|CRONOMETRO]\n\n[JUEGO:CRUCIGRAMA:Siglas de la Estación Espacial Internacional|ISS;Cuerpo celeste donde vivimos|TIERRA]\n\n¡Increíble! Hemos determinado que la llave cuántica ha seguido una trayectoria parabólica debido a la gravedad de la Tierra y la inercia de la ISS. ¡Ya podemos enviar un dron de recuperación a la Posición 2 exacta antes de que entre a la atmósfera terrestre!",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "Si un objeto se mueve del punto (0,0) al punto (10,0) metros y luego regresa al punto (0,0), ¿cuál fue su posición final respecto al origen?",
+      "answer_esperada": "Su posición final es cero (0,0) ya que regresó exactamente al punto de referencia original.",
+      "respuesta_esperada": "Su posición final es cero (0,0) ya que regresó exactamente al punto de referencia de inicio."
+    },
+    {
+      "pregunta": "¿Por qué un astronauta flotando en el espacio exterior vería la trayectoria de un objeto de forma diferente a un científico que lo observa desde la Tierra?",
+      "respuesta_esperada": "Porque el astronauta y el científico terrestre tienen diferentes puntos de referencia que se mueven a distintas velocidades relativas entre sí."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "RETO DE INVESTIGACIÓN: Explica en un párrafo cómo se aplica el concepto de 'Punto de Referencia' cuando el chofer de un bus escolar en el municipio de Montenegro ve a los estudiantes sentados sin moverse, pero un campesino en la carretera los ve pasar a toda velocidad.",
+    "RETO MATEMÁTICO: Un astronauta recorre un pasillo recto de la ISS que mide 30 metros de largo. Va desde el laboratorio hasta el comedor, y luego regresa 10 metros para recoger su libreta. ¿Cuál es su posición final respecto al laboratorio y qué distancia total recorrió?"
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de fenómenos",
+      "texto_introductorio": "Durante una misión de rescate en los exteriores de la Estación Espacial Internacional (ISS), el Detective Espacial registra el movimiento de una baliza de emergencia que se soltó del fuselaje. El radar registró las siguientes posiciones de la baliza en intervalos de 2 segundos tomando la escotilla de descompresión como punto de referencia (0,0).",
+      "tabla_o_grafica_markdown": "| Tiempo (s) | Posición en el eje X (metros) | Posición en el eje Y (metros) |\n| :---: | :---: | :---: |\n| 0 | 0 | 0 |\n| 2 | 5 | 2 |\n| 4 | 10 | 4 |\n| 6 | 15 | 6 |\n| 8 | 20 | 8 |",
+      "pregunta": "Con base en los datos de la tabla, ¿qué tipo de trayectoria describe la baliza de emergencia a medida que se aleja del punto de referencia?",
+      "opciones": [
+        "A) Una trayectoria curvilínea, porque los valores de X e Y varían de forma caótica sin un patrón definido.",
+        "B) Una trayectoria rectilínea, porque por cada aumento constante en el eje X, hay un aumento proporcional y constante en el eje Y, manteniendo una dirección fija.",
+        "C) La baliza permanece inmóvil porque el tiempo cambia pero el punto de referencia siempre es la escotilla.",
+        "D) Una trayectoria circular, porque la ISS está orbitando alrededor de la Tierra y todo objeto imita su giro inmediato."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. Los datos muestran un incremento perfectamente constante (5 metros en X por cada 2 metros en Y), lo cual describe una línea recta perfecta, no una curva caótica.",
+        "1": "¡Correcto! Como la relación de cambio entre el eje X y el eje Y es constante (por cada 5 metros horizontales se avanza 2 metros verticales), la trayectoria descrita es una línea recta perfecta (rectilínea).",
+        "2": "Incorrecto. La posición de la baliza claramente está cambiando en cada registro de tiempo; no está inmóvil.",
+        "3": "Incorrecto. Aunque la ISS orbita la Tierra en una órbita circular/elíptica, el movimiento de la baliza respecto al sistema de referencia local de la estación es lineal e independiente en este tramo medido."
+      }
+    }
+  ]
+}

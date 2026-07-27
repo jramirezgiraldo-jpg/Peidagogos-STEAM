@@ -2520,30 +2520,13 @@ window.addEventListener('popstate', (e) => {
 window.renderizarBloquesEspeciales = function(containerElement) {
     if (!containerElement) return;
 
-    // Renderizar Mermaid
+    // Renderizar Mermaid (Desactivado para mostrar indicaciones textuales en su lugar)
     const mermaidBlocks = containerElement.querySelectorAll('pre code.language-mermaid');
     mermaidBlocks.forEach((block, index) => {
-        const text = block.textContent;
-        const pre = block.parentElement;
-        const div = document.createElement('div');
-        div.className = 'mermaid';
-        div.style.background = 'white';
-        div.style.padding = '20px';
-        div.style.borderRadius = '8px';
-        div.style.marginBottom = '20px';
-        div.style.textAlign = 'center';
-        div.style.overflowX = 'auto';
-        div.textContent = text;
-        pre.parentNode.replaceChild(div, pre);
+        // En lugar de intentar renderizar, solo lo mostramos como texto
+        block.parentElement.style.background = '#f4f4f4';
+        block.parentElement.style.padding = '10px';
     });
-    
-    if (mermaidBlocks.length > 0 && window.mermaid) {
-        try {
-            mermaid.init(undefined, containerElement.querySelectorAll('.mermaid'));
-        } catch (e) {
-            console.error("Error renderizando mermaid:", e);
-        }
-    }
 
     // Renderizar ABC
     const abcBlocks = containerElement.querySelectorAll('pre code.language-abc');

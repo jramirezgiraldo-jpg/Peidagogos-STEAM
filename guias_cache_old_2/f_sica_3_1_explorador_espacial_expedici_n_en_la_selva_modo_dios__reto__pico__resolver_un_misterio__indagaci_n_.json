@@ -1,0 +1,99 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Cuál de estos científicos propuso que los planetas se mueven en órbitas elípticas y no circulares?",
+      "opciones": [
+        "Isaac Newton",
+        "Johannes Kepler",
+        "Galileo Galilei",
+        "Nicolás Copérnico"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Qué fuerza mantiene a los planetas "
+    },
+    {
+      "pregunta": "En términos de cinemática, ¿qué representa el cambio de posición de un objeto en el tiempo?",
+      "opciones": [
+        "Masa",
+        "Velocidad",
+        "Gravedad",
+        "Fuerza"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Qué ocurre con la velocidad de un planeta cuando está más cerca del Sol (perihelio)?",
+      "opciones": [
+        "Disminuye",
+        "Se detiene",
+        "Aumenta",
+        "Permanece igual"
+      ],
+      "correcta": 2
+    }
+  ],
+  "texto_inductivo": "# 🌿 Bitácora de Exploración: Los Secretos de Xylos-4\n\n¡Saludos, cadetes! Soy su Comandante de Exploración. Hemos aterrizado en **Xylos-4**, un planeta donde la selva es tan densa que las raíces parecen alcanzar las estrellas. Pero hay un misterio: nuestras brújulas astronómicas detectan que el sol de este sistema no se mueve como el de la Tierra. Para sobrevivir y despegar de nuevo, debemos descifrar el baile de los astros.\n\n***¿Cómo es posible que objetos tan masivos como los planetas floten y se muevan en el vacío del espacio sin caerse ni detenerse, y de qué manera este conocimiento nos permite sobrevivir en la selva gravitatoria de un mundo desconocido?***\n\nAl observar el cielo de Xylos-4, notamos que los planetas no trazan círculos perfectos. Johannes Kepler, un antiguo sabio de la Tierra, descubrió esto hace siglos. [JUEGO:ORDENAR_LETRAS:SEELPI] Las órbitas son elipses. En tu cuaderno, [ACTIVIDAD:CUADERNO:Dibuja una elipse y ubica dos puntos llamados focos, dibuja un sol en uno de ellos]. \n\n<div style=\"text-align: center; background: #001f3f; padding: 20px; border-radius: 15px;\">\n  <svg width=\"300\" height=\"150\">\n    <ellipse cx=\"150\" cy=\"75\" rx=\"120\" ry=\"60\" style=\"fill:none;stroke:#00ff00;stroke-width:3\" />\n    <circle cx=\"100\" cy=\"75\" r=\"15\" fill=\"#ffcc00\" />\n    <text x=\"85\" y=\"55\" fill=\"white\">SOL</text>\n    <circle cx=\"270\" cy=\"75\" r=\"8\" fill=\"#00ccff\" />\n    <text x=\"240\" y=\"105\" fill=\"white\">PLANETA</text>\n  </svg>\n  <p style=\"color: #00ff00; font-family: monospace;\">Esquema de Órbita Elíptica en Xylos-4</p>\n</div>\n\nKepler nos enseñó tres leyes fundamentales. La primera dice que el sol ocupa uno de los focos. [JUEGO:ORDENAR_FRASE:EL SOL ESTA EN UN FOCO] [ACTIVIDAD:PLATAFORMA:¿Qué forma tienen las órbitas planetarias según Kepler?|Elípticas] \n\nLa segunda ley es vital para nuestra navegación: los planetas barren áreas iguales en tiempos iguales. Esto significa que cuando el planeta está cerca del sol, vuela como un halcón selvático. [JUEGO:ORDENAR_LETRAS:COFO] [ACTIVIDAD:PLATAFORMA:¿En qué punto de la órbita un planeta se mueve más rápido?|En el perihelio o cerca del sol] En tu cuaderno, [ACTIVIDAD:CUADERNO:Realiza un cuadro comparativo entre el perihelio (cerca del sol) y el afelio (lejos del sol)].\n\nFinalmente, la tercera ley relaciona el tiempo que tarda un planeta en dar la vuelta con su distancia al sol. [JUEGO:ORDENAR_LETRAS:BITORA] [JUEGO:ORDENAR_FRASE:KEPLER DESCRIBIO LAS ORBITAS] [ACTIVIDAD:PLATAFORMA:¿A mayor distancia del sol el periodo orbital es mayor o menor?|Mayor] \n\nPara entender esto mejor, busquemos las palabras clave en la maleza: [JUEGO:SOPA_LETRAS:ELIPSE,FOCO,KEPLER,SOL,PLANETA,ORBITA,PERIODO,LEYES,ESPACIO,SELVA]\n\n[JUEGO:ORDENAR_FRASE:AREAS IGUALES EN TIEMPOS IGUALES]\n\n[ACTIVIDAD:PLATAFORMA:¿Quién propuso las tres leyes del movimiento planetario?|Johannes Kepler]\n\nEn tu cuaderno, [ACTIVIDAD:CUADERNO:Crea un mapa mental sobre las tres Leyes de Kepler usando colores neón como la vegetación de Xylos-4].\n\nPara descifrar el código de acceso a la nave, resuelve este acertijo: [JUEGO:CRUCIGRAMA:Científico de las órbitas|KEPLER;Forma de la órbita|ELIPSE;Centro de calor del sistema|SOL;Camino de un planeta|ORBITA;Punto de la elipse|FOCO;Tiempo de una vuelta|PERIODO;Distancia del centro|RADIO;Ciencia de los astros|ASTRONOMIA;Cuerpo que orbita|PLANETA;Reglas de la naturaleza|LEYES]\n\n[ACTIVIDAD:PLATAFORMA:¿Qué ley de Kepler relaciona el periodo con la distancia?|La tercera ley]\n\nEn tu cuaderno, [ACTIVIDAD:CUADERNO:Dibuja el sistema planetario de Xylos-4 con 3 planetas en diferentes distancias y anota cuál tardaría más en dar la vuelta completa].",
+  "recurso_visual": "| Ley de Kepler | Nombre | Descripción Visual/Física |\n| :--- | :--- | :--- |\n| **1ra Ley** | Órbitas | Los planetas describen elipses con el Sol en un foco. |\n| **2da Ley** | Áreas | El radio vector barre áreas iguales en tiempos iguales (Velocidad variable). |\n| **3ra Ley** | Armónica | El cuadrado del periodo es proporcional al cubo de la distancia media (T² ∝ r³). |",
+  "texto_deductivo": "# 🛰️ Análisis de Datos: La Mecánica de la Selva Cósmica\n\n¡Excelente trabajo identificando los patrones, exploradores! Pero saber *cómo* se mueven no es suficiente. Debemos entender *por qué*. ¿Qué hilos invisibles tiran de los planetas en Xylos-4? [JUEGO:ORDENAR_LETRAS:ICINER] Aquí entra Isaac Newton, el guerrero de la física. \n\nNewton descubrió que la **Gravedad** es la fuerza de atracción entre masas. [JUEGO:ORDENAR_FRASE:LA GRAVEDAD ES UNA FUERZA] Esta fuerza es la que genera la aceleración centrípeta que mantiene al planeta en su órbita. Sin ella, los planetas saldrían disparados en línea recta por la **Inercia**. [JUEGO:ORDENAR_LETRAS:ROTCEV] \n\n<div style=\"background: #222; border: 2px solid #ff00ff; padding: 15px; font-family: 'Courier New', Courier, monospace; color: #ff00ff;\">\n  <h3 style=\"text-align:center\">ECUACIÓN MAESTRA DE GRAVITACIÓN</h3>\n  <p style=\"font-size: 1.5rem; text-align: center;\">F = G * (m₁ * m₂) / r²</p>\n  <hr style=\"border: 1px solid #ff00ff;\">\n  <p>F: Fuerza de Atracción | G: Constante Universal | m: Masas | r: Distancia</p>\n</div>\n\nLa cinemática nos ayuda a medir este movimiento. La **Posición** del planeta cambia constantemente, creando un **Vector** de velocidad que siempre es tangente a la curva. [JUEGO:ORDENAR_LETRAS:SAMAA] [ACTIVIDAD:PLATAFORMA:¿Hacia dónde apunta la fuerza gravitatoria en un planeta?|Hacia el centro de la órbita o hacia el sol] En tu cuaderno, [ACTIVIDAD:CUADERNO:Dibuja un planeta en órbita y representa con flechas de colores el vector velocidad (tangente) y el vector fuerza (hacia el sol)].\n\nSi la distancia (r) aumenta, la fuerza disminuye drásticamente. [JUEGO:ORDENAR_FRASE:MAS DISTANCIA MENOS ATRACCION] [ACTIVIDAD:PLATAFORMA:Si duplicamos la distancia entre dos planetas, ¿qué pasa con la fuerza?|Disminuye a la cuarta parte] \n\nAnalicemos los componentes del movimiento: [JUEGO:SOPA_LETRAS:NEWTON,GRAVEDAD,MASA,FUERZA,VECTOR,INERCIA,DISTANCIA,FISICA,CIENCIA,DINAMICA]\n\n[JUEGO:ORDENAR_FRASE:LA ACELERACION ES HACIA EL CENTRO]\n\n[ACTIVIDAD:PLATAFORMA:¿Cómo se llama la tendencia de un cuerpo a mantener su estado de movimiento?|Inercia]\n\nEn tu cuaderno, [ACTIVIDAD:CUADERNO:Escribe la fórmula de la gravitación universal y explica qué significa cada letra con tus propias palabras].\n\nResolvamos el misterio de la propulsión: [JUEGO:CRUCIGRAMA:Descubridor de la gravedad|NEWTON;Atracción entre masas|GRAVEDAD;Cantidad de materia|MASA;Resistencia al cambio|INERCIA;Empuje o atracción|FUERZA;Aceleración hacia el centro|CENTRIPETA;Rapidez y dirección|VELOCIDAD;Flecha que indica magnitud|VECTOR;Cambio de velocidad|ACELERACION;Valor que no cambia|CONSTANTE]\n\n[ACTIVIDAD:PLATAFORMA:¿Qué sucede con la aceleración si la fuerza neta aumenta?|Aumenta] \n\nEn tu cuaderno, [ACTIVIDAD:CUADERNO:Crea un gráfico de barras comparando la gravedad en la Tierra (9.8 m/s²) con la de Xylos-4 (supón que es de 15 m/s²)].\n\nFinalmente, entendemos que el movimiento planetario es un equilibrio perfecto entre la caída constante (gravedad) y el escape constante (inercia). [ACTIVIDAD:PLATAFORMA:¿Qué concepto explica que un planeta no choque contra el sol a pesar de ser atraído?|La velocidad orbital o inercia]\n\nEn tu cuaderno, [ACTIVIDAD:CUADERNO:Realiza una reflexión de 5 renglones sobre cómo la física nos ayuda a predecir el futuro de los planetas].",
+  "icfes": [
+    {
+      "competencia": "Uso Comprensivo del Conocimiento Científico",
+      "texto_introductorio": "En la exploración de Xylos-4, se observa que un satélite artificial tarda 8 días en completar una órbita a una distancia R. Si queremos que otro satélite tarde 64 días en su órbita alrededor del mismo planeta, debemos ajustar su distancia.",
+      "tabla_o_grafica_markdown": "| Satélite | Periodo (T) | Distancia (R) |\n|---|---|---|\n| A | 8 días | R |\n| B | 64 días | ? |",
+      "pregunta": "Según la Tercera Ley de Kepler (T² ∝ r³), ¿cuál debería ser la nueva distancia del satélite B?",
+      "opciones": [
+        "2R",
+        "4R",
+        "8R",
+        "16R"
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. 2R elevado al cubo es 8, no coincide con el aumento del periodo al cuadrado.",
+        "1": "Correcto. Si la distancia aumenta 4 veces (4R), el cubo es 64. El periodo de 8 a 64 aumentó 8 veces, y 8 al cuadrado es 64. La relación se mantiene.",
+        "2": "Incorrecto. 8R al cubo es un valor mucho más alto.",
+        "3": "Incorrecto. El cálculo no sigue la proporción T² ∝ r³."
+      }
+    },
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "Durante el despegue de la selva de Xylos-4, los astronautas notan que la fuerza de atracción entre la nave y el planeta disminuye a medida que ganan altura.",
+      "tabla_o_grafica_markdown": "| Altura (km) | Fuerza (N) |\n|---|---|\n| 0 | 10000 |\n| 1000 | 8000 |\n| 5000 | 2000 |",
+      "pregunta": "¿Qué concepto físico explica mejor por qué la fuerza disminuye con la distancia?",
+      "opciones": [
+        "La ley de la inercia de Newton",
+        "La ley de gravitación universal (relación inversa al cuadrado)",
+        "La segunda ley de Kepler sobre áreas iguales",
+        "El principio de conservación de la energía"
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. La inercia habla de la resistencia al cambio de movimiento, no de la fuerza gravitatoria.",
+        "1": "Correcto. La ley de Newton establece que la fuerza es inversamente proporcional al cuadrado de la distancia.",
+        "2": "Incorrecto. Kepler describe el movimiento, pero Newton explica la fuerza que lo causa.",
+        "3": "Incorrecto. Aunque la energía se conserva, la disminución de la fuerza específica se debe a la distancia gravitatoria."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "Se descubre una anomalía en la órbita de la luna de Xylos-4: en una sección de su trayectoria, su velocidad aumenta sin estar cerca del sol del sistema. Se plantean varias hipótesis para investigar este misterio.",
+      "tabla_o_grafica_markdown": "| Tramo de Órbita | Velocidad Observada | Velocidad Esperada |\n|---|---|---|\n| Sector A | 45 km/s | 45 km/s |\n| Sector B (Anomalía) | 70 km/s | 42 km/s |\n| Sector C | 40 km/s | 40 km/s |",
+      "pregunta": "¿Cuál de las siguientes hipótesis es la más coherente para iniciar una investigación científica sobre este fenómeno?",
+      "opciones": [
+        "La luna está rompiendo las leyes de la física espontáneamente.",
+        "Existe un cuerpo masivo invisible (agujero negro o planeta errante) cerca del Sector B que ejerce una fuerza gravitacional adicional.",
+        "La luna tiene motores internos que se encendieron en ese sector.",
+        "El sol de Xylos-4 se apagó momentáneamente en el sector B."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. Las leyes de la física son universales; las anomalías sugieren factores no vistos, no la ruptura de las leyes.",
+        "1": "Correcto. Un aumento de velocidad implica una mayor aceleración, probablemente causada por una masa no detectada según la ley de gravitación.",
+        "2": "Incorrecto. Es una explicación poco probable en el contexto de cuerpos celestes naturales.",
+        "3": "Incorrecto. Si el sol se apagara, la gravedad disminuiría y la luna tendería a salir de la órbita, no a acelerar en una curva cerrada."
+      }
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "Si vas sentado en un bus escolar en movimiento y miras a tu compañero de al lado, ¿él se está moviendo respecto a ti?",
+      "opciones": [
+        "Sí, porque el bus va muy rápido por la carretera.",
+        "No, porque la distancia entre tú y tu compañero no cambia.",
+        "Sí, porque ambos están cambiando de lugar constantemente.",
+        "No, porque las personas nunca se mueven cuando están sentadas."
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Qué objeto de los siguientes consideras que está en reposo absoluto (totalmente quieto) en todo el universo?",
+      "opciones": [
+        "Una roca gigante en la cima de una montaña en Montenegro.",
+        "El sol en el centro del sistema solar.",
+        "Ninguno, porque todo en el universo se mueve respecto a algo.",
+        "Una casa construida con cimientos de concreto muy fuertes."
+      ],
+      "correcta": 2
+    }
+  ],
+  "texto_inductivo": "¡Hola, recluta de física de 6º grado de la IE Instituto Montenegro! 🚀 Te saluda el Comandante Leo desde la cúpula de observación de la Estación Espacial Internacional (EEI). Hoy nos convertiremos en investigadores espaciales para resolver un enigma fascinante que desafía nuestro sentido común...\n\n***¿Cómo es posible que una taza de café en una mesa del IE Instituto Montenegro y un destornillador flotando en la Estación Espacial Internacional estén moviéndose a miles de kilómetros por hora y, al mismo tiempo, completamente quietos?***\n\nAquí en la EEI, los objetos flotan de forma muy curiosa. Observa el siguiente mapa visual de nuestra cabina de mando:\n\n<svg width='100%' height='160' style='background:#0a0f24; border: 2px solid #00f0ff; border-radius:10px;'>\n  <rect x='10' y='10' width='480' height='140' rx='15' fill='#161b33' stroke='#00f0ff' stroke-width='2'/>\n  <circle cx='80' cy='80' r='30' fill='#203a43'/>\n  <text x='80' y='85' fill='#00f0ff' font-size='10' text-anchor='middle'>Astronauta</text>\n  <rect x='220' y='70' width='40' height='15' fill='#ff007f' rx='3'/>\n  <text x='240' y='82' fill='#ffffff' font-size='8' text-anchor='middle'>Herramienta</text>\n  <line x1='80' y1='80' x2='220' y2='77' stroke='#00f0ff' stroke-width='1' stroke-dasharray='4'/>\n  <text x='150' y='65' fill='#00f0ff' font-size='10' text-anchor='middle'>Distancia Fija</text>\n  <circle cx='410' cy='80' r='35' fill='#0052d4'/>\n  <text x='410' y='85' fill='#ffffff' font-size='9' text-anchor='middle'>Tierra</text>\n</svg>\n\n¿Te das cuenta? Si mido la distancia entre mi mano y el destornillador flotante, la regla marca exactamente lo mismo todo el tiempo. ¡Para mí está totalmente quieto! Pero si miramos por el gran ventanal de la cúpula, la Tierra se desplaza velozmente debajo de nosotros: ¡la EEI viaja en órbita a 27.600 km/h! Si tú estuvieras de pie en el patio de tu colegio en Montenegro apuntando al cielo con un telescopio, verías pasar el destornillador (y a mí) como un destello ultra veloz.\n\nPara comenzar a descifrar este misterio, juguemos con nuestras primeras pistas:\n\n[JUEGO:ORDENAR_LETRAS:REPOSO]\n\n[JUEGO:SOPA_LETRAS:MOVIMIENTO,REPOSO,ESPACIO]\n\n[JUEGO:ORDENAR_FRASE:TODO SE MUEVE DEPENDIENDO DEL OBSERVADOR]\n\nComparemos ahora ambos escenarios en esta tabla de observación física:\n\n<table border='1' style='width:100%; border-collapse:collapse; background-color:#0d1117; color:#c9d1d9; border: 1px solid #30363d; margin: 15px 0;'>\n  <tr style='background-color:#161b22; color:#58a6ff;'>\n    <th style='padding:8px;'>Escenario Real</th>\n    <th style='padding:8px;'>Objeto Analizado</th>\n    <th style='padding:8px;'>¿Está en Movimiento?</th>\n    <th style='padding:8px;'>¿Está en Reposo?</th>\n  </tr>\n  <tr>\n    <td style='padding:8px;'><b>Estación Espacial (EEI)</b></td>\n    <td style='padding:8px;'>Destornillador flotante</td>\n    <td style='padding:8px;'>Sí (visto desde el planeta Tierra)</td>\n    <td style='padding:8px;'>Sí (visto desde el astronauta)</td>\n  </tr>\n  <tr>\n    <td style='padding:8px;'><b>IE Instituto Montenegro</b></td>\n    <td style='padding:8px;'>Taza de café sobre la mesa</td>\n    <td style='padding:8px;'>Sí (visto desde nuestra estación orbital)</td>\n    <td style='padding:8px;'>Sí (visto por el estudiante en su pupitre)</td>\n  </tr>\n</table>\n\n¡Qué paradoja tan maravillosa! ¿Cómo es posible que un mismo objeto esté moviéndose a gran velocidad y al mismo tiempo no se mueva nada? Sigamos reuniendo pistas e indagando a través de los siguientes desafíos espaciales:\n\n[JUEGO:ORDENAR_LETRAS:MOVIMIENTO]\n\n[JUEGO:ORDENAR_LETRAS:ESPACIO]\n\n[JUEGO:ORDENAR_FRASE:LA TAZA DE CAFE NO SE MUEVE RESPECTO A LA MESA]\n\n[JUEGO:SOPA_LETRAS:PLANETA,ORBITA,GRAVEDAD]\n\n[JUEGO:SOPA_LETRAS:ESTACION,TIERRA,TIEMPO]\n\n[JUEGO:CRUCIGRAMA:Punto desde donde observamos|REFERENCIA;Camino que sigue un cuerpo|TRAYECTORIA]\n\n[JUEGO:CRUCIGRAMA:Astronauta que comanda la mision|EXPLORADOR;Nuestra casa en el espacio|ESTACION]\n\n¡Fantástico! Has logrado reunir la evidencia inicial para formular tu hipótesis científica. ¡Continuemos para descubrir la verdad!",
+  "recurso_visual": "| Sistema de Referencia | Observador Físico | Objeto Observado | Estado de Movimiento | Explicación Científica |\n| :--- | :--- | :--- | :--- | :--- |\n| **Cabina de la EEI** | Astronauta flotando | Destornillador espacial | **Reposo** | Su distancia al astronauta no cambia en el tiempo. |\n| **Centro de la Tierra** | Científico con telescopio | Destornillador espacial | **Movimiento** | Se desplaza en órbita a 27.600 km/h. |\n| **Salón de Sexto Grado** | Estudiante en Montenegro | Taza de café sobre mesa | **Reposo** | No cambia su posición respecto a las paredes del aula. |\n| **Espacio Exterior (Sol)** | Observador cósmico | Taza de café sobre mesa | **Movimiento** | Gira junto con el planeta Tierra en su órbita solar. |",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "¿Por qué el destornillador parece estar quieto para el astronauta dentro de la estación?",
+      "pregunta_inductiva_pagina": "Porque se encuentra dentro de la misma estación y viaja a su misma velocidad, por lo que la distancia entre el astronauta y la herramienta se mantiene constante."
+    },
+    {
+      "pregunta": "¿Cómo vería un astronauta de la ISS la taza de café que reposa en el IE Instituto Montenegro?",
+      "pregunta_inductiva_pagina": "La vería moviéndose a gran velocidad debido a que la Tierra gira constantemente sobre su eje y se desplaza por el espacio."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja en tu cuaderno la Estación Espacial Internacional y representa con flechas de color azul cómo se mueve un destornillador para ti en la Tierra, y con color rojo cómo lo ve el astronauta flotando junto a él.",
+    "Conversa con tu compañero de clase: si ambos están sentados en el aula de la IE Instituto Montenegro, ¿se están moviendo con respecto al Sol? Explica su conclusión en tres renglones."
+  ],
+  "texto_deductivo": "¡Excelente trabajo de investigación, Cadete! Ahora vamos a formalizar estas asombrosas observaciones con la rama de la física que estudia el movimiento: la **Cinemática**.\n\nLa respuesta científica a nuestro misterio cósmico se reduce a una herramienta mental indispensable:\n\n### El Sistema de Referencia 📍\n\nUn **sistema de referencia** es el punto o lugar físico, elegido por el observador, desde el cual se mide la posición y el cambio de lugar de un cuerpo. En la física del universo, **no existe un reposo absoluto ni un movimiento absoluto**; todo depende de dónde nos ubiquemos para mirar.\n\nObservemos la representación gráfica del movimiento utilizando un punto de referencia en el espacio:\n\n<svg width='100%' height='150' style='background:#121212; border: 2px solid #00ff87; border-radius:10px;'>\n  <line x1='50' y1='120' x2='450' y2='120' stroke='#888' stroke-width='2' stroke-dasharray='4'/>\n  <line x1='100' y1='120' x2='100' y2='20' stroke='#00ff87' stroke-width='2'/>\n  <circle cx='100' cy='120' r='5' fill='#ff3e3e'/>\n  <text x='100' y='135' fill='#00ff87' font-size='10' text-anchor='middle'>Punto de Referencia (X=0)</text>\n  <circle cx='250' cy='70' r='8' fill='#00ff87'/>\n  <text x='250' y='60' fill='#ffffff' font-size='9' text-anchor='middle'>Objeto (Hora 1)</text>\n  <circle cx='380' cy='70' r='8' fill='#ff3e3e'/>\n  <text x='380' y='60' fill='#ffffff' font-size='9' text-anchor='middle'>Objeto (Hora 2)</text>\n  <path d='M 258,70 L 372,70' stroke='#ff00ff' stroke-width='2'/>\n  <text x='315' y='85' fill='#ff00ff' font-size='10' text-anchor='middle'>Cambio de Posición</text>\n</svg>\n\nPara comprender mejor las leyes del espacio y de la Tierra, resolvamos estos desafíos teóricos:\n\n[JUEGO:ORDENAR_LETRAS:REFERENCIA]\n\n[JUEGO:ORDENAR_LETRAS:DISTANCIA]\n\n[JUEGO:ORDENAR_FRASE:EL SISTEMA DE REFERENCIA ES CLAVE]\n\nAhora, sinteticemos las definiciones que todo explorador espacial debe dominar en nuestro cuadro de conceptos básicos:\n\n<table border='1' style='width:100%; border-collapse:collapse; background-color:#1e1e24; color:#e0e0e0; border: 1px solid #444; margin:15px 0;'>\n  <tr style='background-color:#2e2e38; color:#00ff87;'>\n    <th style='padding:8px;'>Concepto</th>\n    <th style='padding:8px;'>Definición Sencilla</th>\n    <th style='padding:8px;'>Unidad de Medida estándar</th>\n  </tr>\n  <tr>\n    <td style='padding:8px;'><b>Movimiento</b></td>\n    <td style='padding:8px;'>Cuando un objeto cambia de posición respecto a un punto de referencia al pasar el tiempo.</td>\n    <td style='padding:8px;'>Metros (m), Kilómetros (km)</td>\n  </tr>\n  <tr>\n    <td style='padding:8px;'><b>Reposo</b></td>\n    <td style='padding:8px;'>Cuando la posición del objeto permanece constante y no varía respecto al sistema de referencia.</td>\n    <td style='padding:8px;'>No aplica (Sin cambio)</td>\n  </tr>\n</table>\n\n¡La física nos permite comprender el Universo entero! Demuestra que eres un gran científico completando estos últimos retos del conocimiento:\n\n[JUEGO:ORDENAR_FRASE:NADA ESTA EN REPOSO ABSOLUTO]\n\n[JUEGO:ORDENAR_FRASE:LA FISICA ESTUDIA LA NATURALEZA]\n\n[JUEGO:SOPA_LETRAS:RAPIDEZ,VELOCIDAD,CAMBIO]\n\n[JUEGO:SOPA_LETRAS:METRO,SEGUNDO,MEDIDA]\n\n[JUEGO:CRUCIGRAMA:Estado de un objeto que cambia de posicion|MOVIMIENTO;Fisica que estudia el movimiento sin importar sus causas|CINEMATICA]\n\n[JUEGO:CRUCIGRAMA:Lugar de Colombia donde estudias|MONTENEGRO;Fuerza que nos mantiene unidos a la Tierra|GRAVEDAD]\n\n[JUEGO:CRUCIGRAMA:Siglas de la Estacion Espacial Internacional|EEI;Aparato para medir el tiempo|RELOJ]",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "¿Qué elemento determina fundamentalmente si un cuerpo está en reposo o en movimiento?",
+      "preguntas_deductivas_pagina": "El sistema de referencia adoptado por el observador."
+    },
+    {
+      "pregunta": "¿Por qué decimos que no existe el reposo absoluto en la naturaleza?",
+      "preguntas_deductivas_pagina": "Porque incluso si algo está quieto en la Tierra, la Tierra se desplaza en el espacio alrededor del Sol, y el Sol gira alrededor de la galaxia."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Escribe en tu cuaderno una definición propia de 'Sistema de Referencia' usando el ejemplo del bus escolar.",
+    "Imagina que viajas en un cohete de la ISS a Marte. Describe un objeto que esté en reposo con respecto a ti dentro del cohete, y en movimiento con respecto al planeta Tierra."
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de fenómenos",
+      "texto_introductorio": "Durante una expedición científica en la Estación Espacial Internacional (EEI), un investigador observa una cámara fotográfica flotando de forma constante a un metro del panel de control de la cabina. Paralelamente, un observador ubicado en el patio de la IE Instituto Montenegro registra el paso de la estación espacial en el firmamento mediante un telescopio de alta precisión.",
+      "tabla_o_grafica_markdown": "| Observador de la Medida | Estado de la Cámara | Justificación Física |\n| :--- | :--- | :--- |\n| Astronauta dentro de la EEI | Reposo | La distancia entre la cámara y el panel de control no cambia en el tiempo. |\n| Estudiante en el patio del colegio | Movimiento | La estación y la cámara se desplazan juntas a 27.600 km/h respecto al suelo. |",
+      "pregunta": "De acuerdo con el texto y la información del cuadro comparativo, ¿cuál de las siguientes afirmaciones explica correctamente por qué el estado de la cámara es diferente para cada observador?",
+      "opciones": [
+        "El movimiento y el reposo son conceptos relativos que dependen del sistema de referencia seleccionado.",
+        "La cámara está en reposo absoluto debido a que la gravedad en el espacio es igual a cero.",
+        "El estudiante en Montenegro percibe un movimiento ilusorio por la distorsión del telescopio.",
+        "La cámara cambia de estado constantemente porque la velocidad de la estación fluctúa aleatoriamente."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "¡Excelente elección! El estado de reposo o movimiento de un objeto siempre depende del punto o sistema de referencia elegido por el observador.",
+        "1": "Incorrecto. En física no existe el reposo absoluto en el universo, y la gravedad en la órbita de la EEI no es cero.",
+        "2": "Incorrecto. El movimiento registrado por el telescopio es real con respecto a la superficie de la Tierra.",
+        "3": "Incorrecto. La velocidad orbital de la EEI es prácticamente constante y la diferencia de estado se debe estrictamente al sistema de referencia."
+      }
+    }
+  ]
+}

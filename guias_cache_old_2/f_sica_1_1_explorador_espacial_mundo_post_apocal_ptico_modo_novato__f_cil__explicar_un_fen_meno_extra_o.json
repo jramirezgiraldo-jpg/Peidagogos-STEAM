@@ -1,0 +1,87 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "Si estás sentado en una nave espacial que viaja a toda velocidad por el espacio exterior, ¿te estás moviendo con respecto a tu asiento?",
+      "opciones": [
+        "Sí, porque la nave va muy rápido.",
+        "No, porque tu posición respecto al asiento no cambia.",
+        "Sí, porque el espacio siempre está en movimiento.",
+        "Depende de si tienes el cinturón de seguridad puesto."
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "Para saber si un dron de exploración se está moviendo hacia las ruinas de la IE Instituto Montenegro, ¿qué necesitamos establecer primero?",
+      "opciones": [
+        "La velocidad del viento apocalíptico.",
+        "El combustible restante del dron.",
+        "Un punto de referencia fijo en el suelo.",
+        "La hora exacta del día."
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "¿Qué significa que un cuerpo esté en 'reposo' en física?",
+      "opciones": [
+        "Que está durmiendo para recuperar energía.",
+        "Que su posición no cambia al compararlo con un punto de referencia.",
+        "Que se mueve muy despacio.",
+        "Que ha sido destruido por la radiación cósmica."
+      ],
+      "correcta": 1
+    }
+  ],
+  "texto_inductivo": "# Bitácora de Vuelo: El Misterio de la Ceniza Estática en Montenegro\n\n¡Saludos, jóvenes sobrevivientes del refugio de la **IE Instituto Montenegro**! Aquí su Capitán del Explorador Espacial *Fénix-X*. Al descender en las coordenadas de su institución educativa en el departamento del Quindío, mi radar detectó una anomalía física sin precedentes tras el Gran Cataclismo. El aire está lleno de una ceniza brillante suspendida en la atmósfera.\n\n***¿Cómo podemos explicarles a los sobrevivientes del refugio de la IE Instituto Montenegro si las misteriosas ruinas flotantes y la ceniza tóxica se están moviendo realmente hacia nosotros, o si somos nosotros quienes nos movemos hacia ellas en este mundo devastado?***\n\nPara resolver este misterio, primero debemos agudizar nuestras mentes con este primer desafío espacial:\n\n[JUEGO:ORDENAR_LETRAS:REPOSO]\n\n<svg viewBox=\"0 0 400 200\" width=\"100%\" xmlns=\"http://www.w3.org/2000/svg\" style=\"background:#1a1a1a; border-radius:8px; margin: 15px 0;\">\n  <rect width=\"400\" height=\"200\" fill=\"#2d2d2d\"/>\n  <path d=\"M 50 150 L 50 100 L 150 100 L 150 150 Z\" fill=\"#4f5d75\" stroke=\"#ef8354\" stroke-width=\"2\"/>\n  <text x=\"55\" y=\"125\" fill=\"#fff\" font-size=\"10\" font-family=\"sans-serif\">IE MONTENEGRO (Refugio)</text>\n  <line x1=\"10\" y1=\"150\" x2=\"390\" y2=\"150\" stroke=\"#ef8354\" stroke-width=\"3\"/>\n  <circle cx=\"220\" cy=\"80\" r=\"6\" fill=\"#00ffcc\"/>\n  <text x=\"230\" y=\"85\" fill=\"#00ffcc\" font-size=\"9\" font-family=\"sans-serif\">[REPOSO] Ceniza Estática</text>\n  <path d=\"M 280 120 Q 310 90 340 120 T 380 120\" fill=\"none\" stroke=\"#ff0055\" stroke-dasharray=\"4\" stroke-width=\"2\"/>\n  <circle cx=\"340\" cy=\"120\" r=\"6\" fill=\"#ff0055\"/>\n  <text x=\"300\" y=\"145\" fill=\"#ff0055\" font-size=\"9\" font-family=\"sans-serif\">[MOVIMIENTO] Torbellino</text>\n</svg>\n\nObserven el holograma anterior. Si nos paramos firmes en la entrada de la destruida escuela, algunas cenizas verdes parecen congeladas en el tiempo, mientras que las cenizas rojas giran en torbellinos. Para descifrar este patrón de comportamiento de las partículas, organicemos nuestro primer postulado científico:\n\n[JUEGO:ORDENAR_FRASE:EL MOVIMIENTO DEPENDE DEL OBSERVADOR]\n\n¿Por qué ocurre esto? Si caminamos hacia la ceniza estática verde, parecerá que ella viene hacia nosotros. Pero si nos quedamos quietos junto al muro de la escuela, no cambia de posición. Esto nos lleva a entender que el movimiento es una ilusión si no definimos desde dónde estamos observando.\n\nDemuestra tus dotes de explorador resolviendo este misterio de palabras ocultas sobre los estados físicos:\n\n[JUEGO:SOPA_LETRAS:REPOSO,MOVIMIENTO,SISTEMA]\n\nSi logramos entender cómo cambian de posición los objetos con respecto a las ruinas del Instituto, podremos predecir cuándo caerá una roca flotante sobre el refugio.\n\n[JUEGO:ORDENAR_LETRAS:MOVIMIENTO]\n\n[JUEGO:ORDENAR_FRASE:LA CENIZA PARECE ESTAR QUIETA]\n\nPara terminar esta fase de observación, resuelve este sistema de coordenadas encriptado:\n\n[JUEGO:CRUCIGRAMA:Punto de referencia para medir el movimiento|ORIGEN;Estado de un cuerpo que no cambia de posicion|REPOSO]\n\n[JUEGO:CRUCIGRAMA:Cambio de posicion de un cuerpo|MOVIMIENTO;Lugar de estudio en ruinas|INSTITUTO]\n\n[JUEGO:SOPA_LETRAS:FISICA,CIENCIA,ESPACIO]",
+  "recurso_visual": "| Estado del Objeto | ¿Cambia de posición? | Ejemplo en el Mundo Post-Apocalíptico | Punto de Referencia Recomendado |\n| :--- | :--- | :--- | :--- |\n| **Reposo (Quieto)** | No | El tanque de agua de la IE Instituto Montenegro | El suelo del patio escolar |\n| **Movimiento** | Sí | Un dron de rescate volando sobre la zona de peligro | El portal de entrada de la escuela |",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "Si estás parado al lado del tanque de agua de la IE Instituto Montenegro, ¿este se mueve con respecto a ti?",
+      "respuesta_esperada": "No, porque la distancia y posición entre tú y el tanque de agua no cambian a lo largo del tiempo."
+    },
+    {
+      "pregunta": "Si un sobreviviente corre hacia la entrada de la escuela, ¿está en reposo o en movimiento con respecto al edificio?",
+      "respuesta_esperada": "Está en movimiento, porque su posición está cambiando a cada segundo con respecto al edificio que actúa como punto de referencia."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja en tu cuaderno una escena del patio devastado de la IE Instituto Montenegro. Ubica un objeto que consideres en reposo y un ser (humano, dron o criatura) en movimiento. Señala cuál es tu punto de referencia.",
+    "Escribe una hipótesis corta: si la Tierra gira sobre su propio eje a gran velocidad, ¿por qué sentimos que la escuela de Montenegro está en reposo absoluto bajo nuestros pies?"
+  ],
+  "texto_deductivo": "# El Manifiesto de la Cinemática Espacial\n\nBienvenidos a la base teórica de la misión. Para dominar la física del movimiento (a la que los antiguos científicos llamaban **Cinemática**), debemos formalizar nuestros descubrimientos. En este universo devastado, las leyes de la física siguen siendo nuestro mapa de navegación más confiable.\n\nTodo objeto del universo se encuentra en un estado físico específico determinado por un **Sistema de Referencia**. Este sistema consiste en un origen (un punto elegido a conveniencia) y un conjunto de ejes para medir distancias.\n\n[JUEGO:ORDENAR_LETRAS:SISTEMA]\n\n<svg viewBox=\"0 0 400 220\" width=\"100%\" xmlns=\"http://www.w3.org/2000/svg\" style=\"background:#1e1e24; border-radius:8px; margin: 15px 0;\">\n  <line x1=\"50\" y1=\"170\" x2=\"350\" y2=\"170\" stroke=\"#fff\" stroke-width=\"2\"/>\n  <line x1=\"50\" y1=\"30\" x2=\"50\" y2=\"170\" stroke=\"#fff\" stroke-width=\"2\"/>\n  <path d=\"M 350 165 L 360 170 L 350 175 Z\" fill=\"#fff\"/>\n  <path d=\"M 45 30 L 50 20 L 55 30 Z\" fill=\"#fff\"/>\n  <text x=\"365\" y=\"175\" fill=\"#fff\" font-size=\"12\" font-family=\"sans-serif\">Eje X</text>\n  <text x=\"45\" y=\"15\" fill=\"#fff\" font-size=\"12\" font-family=\"sans-serif\">Eje Y</text>\n  <circle cx=\"50\" cy=\"170\" r=\"5\" fill=\"#ff9f1c\"/>\n  <text x=\"25\" y=\"190\" fill=\"#ff9f1c\" font-size=\"10\" font-weight=\"bold\" font-family=\"sans-serif\">Origen (IE Montenegro)</text>\n  <circle cx=\"250\" cy=\"80\" r=\"8\" fill=\"#e71d36\"/>\n  <line x1=\"50\" y1=\"170\" x2=\"250\" y2=\"80\" stroke=\"#00ffff\" stroke-dasharray=\"5\" stroke-width=\"1.5\"/>\n  <text x=\"260\" y=\"85\" fill=\"#e71d36\" font-size=\"11\" font-weight=\"bold\" font-family=\"sans-serif\">Dron Explorador</text>\n  <text x=\"110\" y=\"110\" fill=\"#00ffff\" font-size=\"10\" font-family=\"sans-serif\">Vector Posición</text>\n</svg>\n\nComo vemos en el analizador de trayectorias tácticas de arriba:\n1. **El Origen** es el punto cero (en este caso, la IE Montenegro).\n2. **La Posición** es el lugar preciso en el espacio que ocupa el dron de reconocimiento.\n3. **El Movimiento** se define formalmente como el cambio de posición de un cuerpo a lo largo del tiempo respecto al origen establecido.\n\nCompleta este principio vital con el ordenador de oraciones espaciales:\n\n[JUEGO:ORDENAR_FRASE:EL PUNTO DE REFERENCIA ES CLAVE]\n\n[JUEGO:ORDENAR_LETRAS:POSICION]\n\nSi el vector de posición del dron cambia de longitud o de dirección a medida que pasan los segundos de nuestro reloj atómico, ¡el dron se está moviendo! Si se mantiene igual, está en un reposo estratégico.\n\nPon a prueba tu radar descifrando estas palabras clave del movimiento:\n\n[JUEGO:SOPA_LETRAS:DISTANCIA,TIEMPO,RAPIDEZ]\n\n[JUEGO:ORDENAR_LETRAS:DISTANCIA]\n\n[JUEGO:ORDENAR_FRASE:TODO SE MUEVE EN EL UNIVERSO]\n\n[JUEGO:ORDENAR_FRASE:LA FISICA EXPLICA LA REALIDAD]\n\nEn la física de sexto grado, comprender que la posición depende del ojo del observador nos protege de caer en falsas alarmas de ataques de asteroides o de nubes tóxicas espaciales. ¡Ningún estado de movimiento es absoluto!\n\nUtiliza tu analizador lógico para decodificar los últimos crucigramas y sopas de letras de la guía:\n\n[JUEGO:CRUCIGRAMA:Camino recorrido por un objeto|TRAYECTORIA;Magnitud escalar del movimiento|DISTANCIA]\n\n[JUEGO:CRUCIGRAMA:Unidad de medida del tiempo|SEGUNDO;Instrumento para medir el tiempo|RELOJ]\n\n[JUEGO:CRUCIGRAMA:Estudio del movimiento sin atender sus causas|CINEMATICA;Lugar donde se ubica un objeto|POSICION]\n\n[JUEGO:SOPA_LETRAS:TRAYECTORIA,VALOR,REPOSO]\n\n[JUEGO:SOPA_LETRAS:UNIVERSO,ESTRELLA,PLANETA]",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "¿Por qué se afirma en física que el reposo absoluto no existe?",
+      "respuesta_esperada": "Porque aunque estemos quietos sobre la Tierra, el planeta entero gira y se traslada por el espacio exterior a velocidades increíbles con respecto al Sol."
+    },
+    {
+      "pregunta": "Si un astronauta camina dentro de su nave espacial a 2 m/s, ¿cuál es su estado respecto a la nave y respecto a las estrellas lejanas?",
+      "call": "ayuda",
+      "respuesta_esperada": "Respecto a la nave está en movimiento, pero respecto a una estrella muy lejana su movimiento combina su velocidad con la altísima velocidad de la nave espacial completa."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Explica en un párrafo cómo le demostrarías a un sobreviviente desconfiado que la ceniza verde realmente no se está moviendo hacia el campamento de la IE Instituto Montenegro.",
+    "Define con tus propias palabras qué es un 'Sistema de Referencia' y por qué los exploradores espaciales lo necesitan para trazar mapas estelares seguros."
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de fenómenos",
+      "texto_introductorio": "Durante una expedición científica en los alrededores de la IE Instituto Montenegro, un grupo de estudiantes observa un extraño fenómeno: un fragmento de roca alienígena parece flotar inmóvil en el aire. Sin embargo, un estudiante que viaja a gran velocidad en un vehículo explorador afirma que la roca se mueve rápidamente hacia atrás.",
+      "tabla_o_grafica_markdown": "| Observador | Estado reportado de la roca | Condición del Observador |\n| :--- | :--- | :--- |\n| Estudiante A (en el refugio) | Reposo | Estacionario en el suelo |\n| Estudiante B (en el vehículo) | En Movimiento | Desplazándose a 60 km/h |\n",
+      "pregunta": "¿A qué se debe la diferencia en las observaciones de los dos estudiantes respecto al estado de la roca?",
+      "opciones": [
+        "A que el estudiante B tiene una mejor visión tecnológica gracias a su vehículo espacial.",
+        "A que el estado de movimiento o reposo depende directamente del sistema de referencia seleccionado por cada observador.",
+        "A que la gravedad post-apocalíptica afecta de manera diferente a las personas según su peso.",
+        "A que la roca se asustó por el ruido del motor del vehículo explorador y comenzó a moverse."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. Los ojos o la tecnología del observador no cambian las leyes fundamentales de la física respecto a la posición espacial.",
+        "1": "¡Correcto! El movimiento es relativo. Para el estudiante A en el suelo, la posición de la roca no cambia. Para el estudiante B en el vehículo, la distancia y posición de la roca cambian constantemente a medida que se desplaza.",
+        "2": "Incorrecto. La gravedad influye en la caída de los cuerpos, pero la aparente discrepancia en el movimiento se explica puramente por la cinemática y los sistemas de referencia.",
+        "3": "Incorrecto. Los objetos inertes no alteran su estado físico debido a estímulos emocionales como el miedo."
+      }
+    }
+  ]
+}

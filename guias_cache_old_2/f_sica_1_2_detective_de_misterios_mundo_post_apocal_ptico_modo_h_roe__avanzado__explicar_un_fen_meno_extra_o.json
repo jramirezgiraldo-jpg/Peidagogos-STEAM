@@ -1,0 +1,86 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "Estás escondido tras los escombros de la antigua biblioteca de la IE Instituto Montenegro. Observas un dron explorador flotando en el aire. Para reportar su ubicación exacta a los demás detectives, ¿qué es lo primero que debes establecer de manera obligatoria?",
+      "opciones": [
+        "A) La velocidad constante del viento radiactivo.",
+        "B) Un punto de referencia fijo y conocido, como la puerta principal de metal.",
+        "C) El color y el material del que está hecho el dron.",
+        "D) El tiempo total de autonomía de las baterías de tu linterna de dinamo."
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "Un mutante rastreador camina desde el laboratorio de química hasta el laboratorio de física dando vueltas en círculos por los pasillos rotos. ¿Cómo se conoce matemáticamente la línea curva continua que dibuja su recorrido completo?",
+      "opciones": [
+        "A) Desplazamiento neto.",
+        "B) Vector de origen cero.",
+        "C) Trayectoria.",
+        "D) Intervalo de aceleración máxima."
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "Si un artefacto misterioso es lanzado desde la torre de vigilancia del colegio y cae en línea recta vertical hasta el suelo del patio central, ¿cuál de las siguientes afirmaciones sobre su movimiento es correcta?",
+      "opciones": [
+        "A) Su trayectoria es una línea curva parabólica.",
+        "B) La distancia recorrida es mayor que la magnitud de su desplazamiento.",
+        "C) Su trayectoria es rectilínea y coincide en longitud con su desplazamiento.",
+        "D) El objeto carece de posición inicial por haber caído libremente."
+      ],
+      "correcta": 2
+    }
+  ],
+  "texto_inductivo": "# CASO DETECTIVESCO 002: EL MISTERIO DEL ESPECTRO ERRANTE\n\n¡Atención, Reclutas Científicos de la **IE Instituto Montenegro**! Soy el Detective Principal del Páramo. Nos enfrentamos a un fenómeno que desafía la lógica de la supervivencia. En el patio central de nuestro colegio en ruinas, una masa de energía luminosa de color cian brillante —bautizada como el *Espectro Errante*— patrulla el área todas las noches. Si un scout pisa su zona de recorrido, la anomalía altera la gravedad local y lo lanza por los aires. \n\nPara sobrevivir, debemos aprender a rastrear sus movimientos con precisión milimétrica usando la física cinemática. Aquí es donde comienza nuestra investigación de campo:\n\n***¿Cómo podemos predecir y esquivar la letal trayectoria de la anomalía \"Espectro Errante\" en el patio de nuestra IE Instituto Montenegro, usando las coordenadas y los puntos de referencia de las ruinas del colegio para no ser desintegrados en el intento?***\n\n<svg width=\"400\" height=\"250\" viewBox=\"0 0 400 250\" style=\"background:#0f172a; border:3px solid #3b82f6; border-radius:8px; display:block; margin: 15px auto;\">\n  <rect width=\"400\" height=\"250\" fill=\"#0f172a\"/>\n  <grid width=\"400\" height=\"250\" />\n  <!-- Croquis del Patio -->\n  <rect x=\"40\" y=\"40\" width=\"320\" height=\"170\" fill=\"none\" stroke=\"#475569\" stroke-width=\"2\" stroke-dasharray=\"4,4\"/>\n  <circle cx=\"60\" cy=\"200\" r=\"8\" fill=\"#ef4444\"/>\n  <text x=\"75\" y=\"205\" fill=\"#ef4444\" font-family=\"monospace\" font-size=\"12\" font-weight=\"bold\">ORIGEN (Estatua)</text>\n  <!-- Espectro Anómalo -->\n  <path d=\"M 60 200 Q 180 60, 300 120 T 360 80\" fill=\"none\" stroke=\"#06b6d4\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-dasharray=\"5,5\"/>\n  <circle cx=\"360\" cy=\"80\" r=\"10\" fill=\"#22d3ee\" opacity=\"0.8\">\n    <animate attributeName=\"r\" values=\"8;12;8\" dur=\"2s\" repeatCount=\"indefinite\"/>\n  </circle>\n  <!-- Detalles -->\n  <text x=\"160\" y=\"110\" fill=\"#22d3ee\" font-family=\"monospace\" font-size=\"11\">Trayectoria Curva</text>\n  <text x=\"10\" y=\"25\" fill=\"#94a3b8\" font-family=\"monospace\" font-size=\"10\">Plano Radar: Patio IE Instituto Montenegro</text>\n</svg>\n\n### Primer Misterio: ¿Dónde estamos realmente?\n\nPara atrapar una anomalía, un detective no puede decir simplemente \"está allí\". Debe ser exacto. ¿Qué significa estar \"allí\"? En física de grado 6, esto lo resolvemos con la **posición**. La posición es la ubicación exacta de un objeto en el espacio respecto a un punto de referencia que llamamos **origen**.\n\n[JUEGO:ORDENAR_LETRAS:POSICION]\n\nSi elegimos como origen la vieja estatua derribada en el patio de nuestra institución, podemos trazar un sistema de coordenadas. Sin ese punto de partida, cualquier número que midamos carece de sentido.\n\n[JUEGO:ORDENAR_FRASE:EL PUNTO DE REFERENCIA DEFINE EL MOVIMIENTO]\n\n### El Camino Marcado en las Cenizas\n\nEl *Espectro Errante* no se teletransporta; viaja dejando una estela electromagnética visible en la niebla. Esa línea continua que une todos los puntos por donde pasa nuestro misterioso objetivo es la **trayectoria**.\n\n[JUEGO:ORDENAR_LETRAS:TRAYECTORIA]\n\n[JUEGO:ORDENAR_FRASE:LA TRAYECTORIA ES EL CAMINO DIBUJADO]\n\n¡Manos a la obra, reclutas! Resuelvan este primer análisis de espectro oculto en nuestra base de datos para habilitar los decodificadores cinemáticos:\n\n[JUEGO:SOPA_LETRAS:VECTOR,ORIGEN,LINEA]\n\n[JUEGO:SOPA_LETRAS:COORDENADA,FISICA,METRO]\n\n[JUEGO:CRUCIGRAMA:Lugar que ocupa un cuerpo respecto a un origen|POSICION;Línea imaginaria que describe un cuerpo al moverse|TRAYECTORIA]\n\n[JUEGO:CRUCIGRAMA:Punto que sirve para definir la posición de un objeto|REFERENCIA;Magnitud que mide la longitud recorrida|DISTANCIA]",
+  "recurso_visual": "| Variable Cinemática | Definición Clave | Tipo de Magnitud | Símbolo Típico | Instrumento de Medición |\n| :--- | :--- | :--- | :--- | :--- |\n| **Posición** | Ubicación exacta con respecto a un origen. | Vectorial | $\\vec{x}$ | Cinta métrica / Radar Láser |\n| **Trayectoria** | Línea geométrica descrita por el móvil. | Geométrica / Visual | Curva o Recta | Registro fotográfico |\n| **Distancia Recorrida** | Longitud total medida a lo largo del camino. | Escalar | $d$ | Odómetro / Cuentapasos |\n| **Desplazamiento** | Cambio neto entre posición final e inicial. | Vectorial | $\\Delta \\vec{x}$ | Brújula táctica y Regla |",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "Si un scout de la IE Instituto Montenegro camina 10 metros al norte desde la estatua y luego regresa exactamente a la estatua, ¿cuál es su posición final respecto al origen?",
+      "respuesta_esperada": "Su posición final es cero metros (0 m), es decir, se encuentra exactamente sobre el punto de origen de nuestro sistema de referencia táctico."
+    },
+    {
+      "pregunta": "¿Por qué un mapa de radar del patio del colegio necesita obligatoriamente un sistema de coordenadas cartesianas para poder registrar el movimiento de la anomalía?",
+      "respuesta_esperada": "Porque las coordenadas permiten asignar valores numéricos exactos (ejes X e Y) a la posición de la anomalía, eliminando la ambigüedad de las indicaciones subjetivas como 'allá' o 'cerca'."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "RETO CIENTÍFICO 1: Dibuja un plano de tu salón de clases en la IE Instituto Montenegro en ruinas. Elige tu pupitre como el origen (0,0) y localiza la posición de tres objetos de supervivencia (un botiquín, una botella de agua purificada y una linterna) usando coordenadas aproximadas en pasos.",
+    "RETO CIENTÍFICO 2: Si el Espectro Errante se mueve en una trayectoria perfectamente circular alrededor de la cancha de fútbol del colegio, explica por escrito por qué su distancia recorrida tras dar una vuelta completa es muy diferente a su desplazamiento neto."
+  ],
+  "texto_deductivo": "# MARCO TEÓRICO DEL DETECTIVE: APRENDIENDO A PREDECIR EL MOVIMIENTO\n\nPara sobrevivir en el Modo Héroe, debemos dominar las ecuaciones cinemáticas fundamentales. El movimiento no es absoluto; es relativo y depende completamente del **Sistema de Referencia (SR)** que seleccionemos. Un observador parado en el techo de la IE Instituto Montenegro verá la anomalía moverse de forma diferente a un detective que corre despavorido en dirección contraria.\n\n<svg width=\"400\" height=\"200\" viewBox=\"0 0 400 200\" style=\"background:#111827; border:2px dashed #10b981; border-radius:8px; display:block; margin:15px auto;\">\n  <!-- Ejes coordenados -->\n  <line x1=\"50\" y1=\"150\" x2=\"350\" y2=\"150\" stroke=\"#10b981\" stroke-width=\"2\" marker-end=\"url(#arrow)\"/>\n  <line x1=\"50\" y1=\"150\" x2=\"50\" y2=\"20\" stroke=\"#10b981\" stroke-width=\"2\" marker-end=\"url(#arrow)\"/>\n  <!-- Origen -->\n  <circle cx=\"50\" cy=\"150\" r=\"5\" fill=\"#10b981\"/>\n  <text x=\"35\" y=\"165\" fill=\"#10b981\" font-family=\"monospace\" font-size=\"12\">O (0,0)</text>\n  <!-- Posición A y B -->\n  <circle cx=\"120\" cy=\"80\" r=\"6\" fill=\"#f59e0b\"/>\n  <text x=\"110\" y=\"70\" fill=\"#f59e0b\" font-family=\"monospace\" font-size=\"11\">Posición Inicial (A)</text>\n  <circle cx=\"300\" cy=\"80\" r=\"6\" fill=\"#ef4444\"/>\n  <text x=\"280\" y=\"70\" fill=\"#ef4444\" font-family=\"monospace\" font-size=\"11\">Posición Final (B)</text>\n  <!-- Desplazamiento Vector -->\n  <line x1=\"120\" y1=\"80\" x2=\"294\" y2=\"80\" stroke=\"#3b82f6\" stroke-width=\"3\" marker-end=\"url(#blue-arrow)\"/>\n  <path d=\"M 120 80 Q 210 130 300 80\" fill=\"none\" stroke=\"#f59e0b\" stroke-width=\"2\" stroke-dasharray=\"3,3\"/>\n  <!-- Etiquetas -->\n  <text x=\"190\" y=\"65\" fill=\"#3b82f6\" font-family=\"monospace\" font-size=\"10\">Desplazamiento (Línea Recta)</text>\n  <text x=\"180\" y=\"130\" fill=\"#f59e0b\" font-family=\"monospace\" font-size=\"10\">Trayectoria (Camino Real)</text>\n  <!-- Definición Marcadores -->\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#10b981\"/>\n    </marker>\n    <marker id=\"blue-arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#3b82f6\"/>\n    </marker>\n  </defs>\n</svg>\n\n### Diferencia Crucial: Distancia vs Desplazamiento\n\nAquí radica la diferencia entre la vida y la desintegración cuántica en nuestro mundo post-apocalíptico:\n\n1. **Distancia ($d$):** Es la longitud real de la trayectoria que recorremos para esquivar los cráteres radiactivos. Es una magnitud escalar (siempre positiva).\n[JUEGO:ORDENAR_LETRAS:DISTANCIA]\n\n2. **Desplazamiento ($\\Delta \\vec{x}$):** Es el cambio de posición en línea recta desde el inicio hasta el final, sin importar el camino intermedio. Es una magnitud vectorial.\n[JUEGO:ORDENAR_FRASE:EL DESPLAZAMIENTO ES LA LINEA RECTA FINAL]\n\n[JUEGO:ORDENAR_LETRAS:MOVIMIENTO]\n\n### Tipos de Trayectorias de Anomalías Detectadas\n\nEn la cinemática avanzada del Instituto Montenegro, clasificamos los movimientos del enemigo en dos grandes grupos:\n\n| Tipo de Trayectoria | Descripción Científica | Comportamiento del Peligro |\n| :--- | :--- | :--- |\n| **Rectilínea** | El objeto se desplaza en una línea recta perfecta. | Fácil de esquivar si se conoce la dirección de avance. |\n| **Curvilínea** | El camino describe curvas (parabólicas, circulares o irregulares). | Extremadamente impredecible; requiere análisis vectorial de radar. |\n\n[JUEGO:ORDENAR_LETRAS:SISTEMA]\n\n[JUEGO:ORDENAR_FRASE:LA POSICION DEPENDE DEL ORIGEN ELEGIDO]\n\n[JUEGO:ORDENAR_FRASE:DETECTIVE ENCUENTRA LA PISTA EN EL MAPA]\n\nPara desbloquear las compuertas de seguridad del búnker principal, debes resolver estos acertijos analíticos avanzados:\n\n[JUEGO:SOPA_LETRAS:DISTANCIA,PUNTO,CAMINO]\n\n[JUEGO:SOPA_LETRAS:CINEMATICA,REGLA,MAPA]\n\n[JUEGO:SOPA_LETRAS:TIEMPO,CAMBIO,GRAVEDAD]\n\n[JUEGO:CRUCIGRAMA:Línea recta que une la posición inicial con la final|DESPLAZAMIENTO;Instrumento para medir el tiempo|CRONOMETRO]\n\n[JUEGO:CRUCIGRAMA:Rama de la física que estudia el movimiento sin atender sus causas|CINEMATICA;Unidad fundamental de longitud en el Sistema Internacional|METRO]\n\n[JUEGO:CRUCIGRAMA:Cambio de posición que experimenta un cuerpo|MOVIMIENTO;Fuerza invisible que atrae los cuerpos hacia la tierra|GRAVEDAD]",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "Un scout militar camina recorriendo una trayectoria semicircular de 20 metros para evitar una mina de plasma, terminando a solo 10 metros del punto donde inició. ¿Cuál fue el valor de la distancia recorrida y de cuánto fue su desplazamiento?",
+      "respuesta_esperada": "La distancia recorrida (longitud del camino real) fue de 20 metros, mientras que la magnitud de su desplazamiento (distancia recta entre el punto inicial y final) fue de 10 metros."
+    },
+    {
+      "pregunta": "¿Por qué se dice que el movimiento es relativo? Dé un ejemplo con el búnker de la IE Instituto Montenegro.",
+      "respuesta_esperada": "Es relativo porque depende del observador. Si un scout duerme dentro del búnker, está en reposo respecto a la cama (origen 1), pero está en rápido movimiento respecto a un satélite que observa la Tierra girar desde el espacio (origen 2)."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "DIARIO DE CAMPO: Un proyectil electromagnético es detectado en la posición inicial x = +5 metros respecto a la puerta del laboratorio. Tres segundos después, se ubica en x = -12 metros. Dibuja el eje numérico unidimensional y calcula la magnitud y el sentido de su vector desplazamiento.",
+    "INFORME TÁCTICO: Explica por qué es teóricamente imposible que un objeto en movimiento presente una distancia recorrida menor que el módulo de su vector desplazamiento. Usa esquemas cinemáticos en tu argumentación."
+  ],
+  "icfes": [
+    {
+      "competencia": "Uso comprensivo del conocimiento científico",
+      "texto_introductorio": "Durante un patrullaje nocturno en el patio de la IE Instituto Montenegro, el equipo de detectives rastrea un Espectro Errante que realiza el recorrido que se muestra en el siguiente croquis de radar.",
+      "tabla_o_grafica_markdown": "| Intervalo de Tiempo | Posición Inicial (x) | Posición Final (x) | Tipo de Camino Recorrido |\n| :--- | :--- | :--- | :--- |\n| Tramo 1 (0s a 10s) | 0 metros | +30 metros | Línea Recta |\n| Tramo 2 (10s a 20s) | +30 metros | +10 metros | Semicírculo de 40 metros |\n| Tramo 3 (20s a 30s) | +10 metros | +10 metros | Estático (Sin movimiento) |",
+      "pregunta": "Teniendo en cuenta los datos suministrados por el radar táctico, ¿cuál fue la distancia total recorrida y el desplazamiento neto de la anomalía al finalizar los 30 segundos?",
+      "opciones": [
+        "A) Distancia recorrida: 70 metros. Desplazamiento neto: +10 metros.",
+        "B) Distancia recorrida: 30 metros. Desplazamiento neto: 0 metros.",
+        "C) Distancia recorrida: 40 metros. Desplazamiento neto: +30 metros.",
+        "D) Distancia recorrida: 70 metros. Desplazamiento neto: +70 metros."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "¡Excelente detective! La distancia recorrida es la suma de todas las longitudes del camino real (30 m en línea recta + 40 m en semicírculo + 0 m quieto = 70 m). El desplazamiento neto solo compara la posición final extrema (+10 m) con la inicial original (0 m), dando como resultado un vector de +10 metros.",
+        "1": "Incorrecto. Has confundido el desplazamiento neto con los valores individuales de un solo tramo, omitiendo la trayectoria semicircular registrada en el Tramo 2.",
+        "2": "Incorrecto. Este valor no corresponde al análisis cinemático de los tres intervalos. Recuerda que la distancia siempre acumula longitud positiva recorrida.",
+        "3": "Incorrecto. El desplazamiento no puede ser igual a la distancia en este caso porque la trayectoria no fue rectilínea en todo el recorrido (hubo un semicírculo y un retroceso)."
+      }
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "Si te pierdes en la selva del Quindío y caminas durante dos horas para terminar en el mismo árbol donde empezaste, ¿cuánto fue tu cambio neto de posición?",
+      "opciones": [
+        "Cero, porque volví al punto de partida.",
+        "Igual a la distancia total que caminé.",
+        "Depende de la velocidad a la que caminé.",
+        "No se puede saber sin una brújula."
+      ],
+      "correcta": 0
+    },
+    {
+      "pregunta": "¿Qué herramienta básica necesitas para definir con precisión si un objeto se ha movido o sigue en el mismo lugar?",
+      "opciones": [
+        "Un termómetro ambiental.",
+        "Un punto de referencia fijo.",
+        "Un velocímetro de alta precisión.",
+        "Una balanza digital."
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "Si un mono se desplaza por las ramas dibujando un camino curvo, la longitud de la línea curva que dibujó se conoce en física como:",
+      "opciones": [
+        "Desplazamiento directo.",
+        "Trayectoria.",
+        "Posición final.",
+        "Punto de origen."
+      ],
+      "correcta": 1
+    }
+  ],
+  "texto_inductivo": "# 🔎 Expedición Quindío: El Misterio del Caminante en Círculos\n\n¡Atención, Detectives de la Física! Soy el Inspector Kinemático. Nos encontramos en una misión de rescate en la espesura de la selva nublada que rodea a nuestro municipio. Un grupo de exploradores de la **IE Instituto Montenegro** ha desaparecido temporalmente tras seguir una antigua creencia popular.\n\n***¿Cómo puede un estudiante del IE Instituto Montenegro atrapado en la densa selva del Quindío demostrar, usando la física de la posición y la trayectoria, que el mito de 'caminar en línea recta sin mirar una referencia' es una trampa mortal que solo nos hace dar vueltas en círculos?***\n\nAnalicemos las pistas que dejaron en su campamento abandonado. ¡Prepara tu lupa y tu libreta de campo!\n\n<div style=\"text-align: center; margin: 20px 0;\">\n  <svg width=\"350\" height=\"250\" viewBox=\"0 0 350 250\" style=\"background-color:#0d1b2a; border-radius: 10px;\">\n    <!-- Cuadrícula de coordenadas -->\n    <defs>\n      <pattern id=\"grid\" width=\"20\" height=\"20\" patternUnits=\"userSpaceOnUse\">\n        <path d=\"M 20 0 L 0 0 0 20\" fill=\"none\" stroke=\"#1b4332\" stroke-width=\"0.5\"/>\n      </pattern>\n    </defs>\n    <rect width=\"100%\" height=\"100%\" fill=\"url(#grid)\" />\n    <!-- Ejes de Coordenadas -->\n    <line x1=\"30\" y1=\"220\" x2=\"320\" y2=\"220\" stroke=\"#aacc00\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n    <line x1=\"30\" y1=\"220\" x2=\"30\" y2=\"20\" stroke=\"#aacc00\" stroke-width=\"2\" />\n    <text x=\"310\" y=\"240\" fill=\"#aacc00\" font-size=\"12\" font-family=\"monospace\">Eje X (Este)</text>\n    <text x=\"10\" y=\"15\" fill=\"#aacc00\" font-size=\"12\" font-family=\"monospace\" transform=\"rotate(90 10,15)\">Eje Y (Norte)</text>\n    <!-- Punto de Referencia (IE Instituto Montenegro Camp) -->\n    <circle cx=\"100\" cy=\"150\" r=\"8\" fill=\"#d90429\" />\n    <text x=\"115\" y=\"155\" fill=\"#fff\" font-size=\"11\" font-family=\"sans-serif\" font-weight=\"bold\">Punto A (Campamento)</text>\n    <!-- Trayectoria circular de los perdidos -->\n    <path d=\"M 100 150 C 180 50, 280 120, 220 200 C 160 260, 80 200, 102 154\" fill=\"none\" stroke=\"#ffb703\" stroke-width=\"3\" stroke-dasharray=\"5,5\" />\n    <text x=\"210\" y=\"80\" fill=\"#ffb703\" font-size=\"10\" font-family=\"sans-serif\">Trayectoria Real (Mito)</text>\n    <!-- Desplazamiento aparente deseado -->\n    <line x1=\"100\" y1=\"150\" x2=\"280\" y2=\"150\" stroke=\"#00b4d8\" stroke-width=\"3\" marker-end=\"url(#arrow-blue)\" stroke-dasharray=\"10, 5\" />\n    <text x=\"150\" y=\"140\" fill=\"#00b4d8\" font-size=\"10\" font-family=\"sans-serif\">Línea Recta Deseada</text>\n  </svg>\n</div>\n\n### 🧩 Desafío Detective 1: Ordenar los Conceptos Clave\nPara descifrar el mapa de los exploradores perdidos, primero debemos organizar las palabras del vocabulario científico que el viento de la selva ha desordenado.\n\n[JUEGO:ORDENAR_LETRAS:POSICION]\n\n[JUEGO:ORDENAR_LETRAS:TRAYECTORIA]\n\n### 🗃️ Registro de Observaciones del Terreno\nLos detectives del grado 6º recolectaron los siguientes datos de posición de tres exploradores diferentes en un intervalo de 10 minutos:\n\n<table border=\"1\" style=\"width:100%; border-collapse: collapse; text-align : center; background-color: #1a1a1a; color: white;\">\n  <thead>\n    <tr style=\"background-color: #2d6a4f;\">\n      <th>Explorador</th>\n      <th>Punto de Referencia Inicial</th>\n      <th>Trayectoria Descrita</th>\n      <th>Distancia Total Recorrida</th>\n      <th>Posición Final Relativa</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>Explorador A (Creyente del Mito)</td>\n      <td>Árbol de Ceiba (0,0)</td>\n      <td>Curva cerrada (Círculo irregular)</td>\n      <td>450 metros</td>\n      <td>A solo 3 metros de la Ceiba</td>\n    </tr>\n    <tr>\n      <td>Explorador B (Usa Brújula)</td>\n      <td>Árbol de Ceiba (0,0)</td>\n      <td>Línea recta perfecta (Norte)</td>\n      <td>450 metros</td>\n      <td>A 450 metros al Norte de la Ceiba</td>\n    </tr>\n  </tbody>\n</table>\n\n<br>\n\n[JUEGO:ORDENAR_FRASE:LA TRAYECTORIA ES EL CAMINO RECORRIDO]\n\n[JUEGO:ORDENAR_FRASE:EL DESPLAZAMIENTO ES LA LINEA RECTA]\n\n### 🔍 En Busca de Pistas en la Sopa de Letras\nBusquemos las herramientas que nos salvarán en esta expedición dentro de esta maraña de letras:\n\n[JUEGO:SOPA_LETRAS:BRUJULA,MAPA,SELVA]\n\n[JUEGO:SOPA_LETRAS:METRO,TIEMPO,MOVIL]\n\n### 🗝️ El Crucigrama del Rastreador\nCompleta este pequeño enigma para abrir el cofre con los apuntes científicos del Inspector.\n\n[JUEGO:CRUCIGRAMA:Punto que sirve para saber si algo se mueve|REFERENCIA;Camino que describe un cuerpo al moverse|TRAYECTORIA]\n\n[JUEGO:CRUCIGRAMA:Lugar donde se encuentra un objeto en un momento dado|POSICION;Distancia en linea recta entre inicio y fin|DESPLAZAMIENTO]",
+  "recurso_visual": "| Variable Cinemática | Definición Operacional | ¿Cómo se mide en la Selva? | Representación Gráfica |\n| :--- | :--- | :--- | :--- |\n| **Posición** | Ubicación exacta de un objeto respecto a un punto de referencia espacial. | Usando coordenadas GPS o pasos desde un árbol conocido. | Un punto en un plano cartesiano (X, Y). |\n| **Trayectoria** | El camino geométrico real recorrido por el cuerpo en movimiento. | Marcando las huellas físicas dejadas sobre el lodo. | Una línea continua (recta, curva o quebrada). |\n| **Desplazamiento** | Cambio neto de posición (línea recta que une punto inicial con final). | Con una cuerda tensa desde el punto de inicio al final. | Una flecha (vector) apuntando del inicio al fin. |",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "¿Por qué crees que el Explorador A, a pesar de caminar 450 metros, terminó casi en el mismo punto de partida?",
+      "respuesta_esperada": "Porque al no tener un punto de referencia visual constante, sus pasos se desviaron inconscientemente hacia un lado, haciendo que su trayectoria fuera circular y que su posición final coincidiera casi por completo con su posición inicial."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Reto Detective 1: Dibuja en tu cuaderno el mapa de la selva. Dibuja el camino de un explorador que camina en zigzag y el de uno que va en línea recta. ¿Cuál de los dos recorrió más distancia?",
+    "Reto Detective 2: Explica con tus palabras por qué caminar sin mirar puntos de referencia (como el sol, una montaña o una brújula) nos hace dar vueltas. ¿Qué tiene que ver esto con la 'Posición'?"
+  ],
+  "texto_deductivo": "# 🗺️ El Veredicto de la Física: Desmintiendo el Mito de la Línea Recta\n\n¡La ciencia de la cinemática ha resuelto el misterio, Detectives! El mito de que *\"nuestro sentido de la orientación nos guía en línea recta por la selva\"* es **completamente falso**.\n\nLos seres humanos poseemos pequeñas asimetrías en nuestras piernas (una es milímetros más corta o fuerte que la otra). Sin un **Punto de Referencia** externo visible (el Sol, una estrella, o una brújula), nuestro cerebro cree que caminamos recto, pero en realidad describimos una **trayectoria curva** en forma de espiral o círculo.\n\n<div style=\"text-align: center; margin: 20px 0;\">\n  <svg width=\"350\" height=\"200\" viewBox=\"0 0 350 200\" style=\"background-color:#1e1e24; border-radius: 10px;\">\n    <!-- Dibujo explicativo de Distancia vs Desplazamiento -->\n    <!-- Inicio -->\n    <circle cx=\"50\" cy=\"100\" r=\"6\" fill=\"#4cc9f0\" />\n    <text x=\"40\" y=\"85\" fill=\"#4cc9f0\" font-size=\"12\" font-family=\"sans-serif\" font-weight=\"bold\">Inicio (X₀)</text>\n    <!-- Fin -->\n    <circle cx=\"300\" cy=\"100\" r=\"6\" fill=\"#f72585\" />\n    <text x=\"290\" y=\"85\" fill=\"#f72585\" font-size=\"12\" font-family=\"sans-serif\" font-weight=\"bold\">Fin (Xf)</text>\n    <!-- Desplazamiento (Línea Recta) -->\n    <line x1=\"50\" y1=\"100\" x2=\"294\" y2=\"100\" stroke=\"#4cc9f0\" stroke-width=\"4\" />\n    <path d=\"M 294 100 L 284 95 L 284 105 Z\" fill=\"#4cc9f0\" />\n    <text x=\"130\" y=\"120\" fill=\"#4cc9f0\" font-size=\"12\" font-family=\"sans-serif\">Desplazamiento (Vector)</text>\n    <!-- Trayectoria (Línea Curva real) -->\n    <path d=\"M 50 100 Q 120 20, 175 100 T 300 100\" fill=\"none\" stroke=\"#f72585\" stroke-width=\"3\" stroke-dasharray=\"4,4\" />\n    <text x=\"130\" y=\"45\" fill=\"#f72585\" font-size=\"12\" font-family=\"sans-serif\">Trayectoria (Distancia total)</text>\n  </svg>\n</div>\n\n### ⚖️ Conceptos Clave que debes dominar para Sobrevivir:\n1. **Sistema de Referencia:** Es el objeto o punto desde el cual medimos las posiciones. En la IE Instituto Montenegro, por ejemplo, el punto de referencia para ubicar tu salón puede ser la Rectoría.\n2. **Posición ($\\vec{x}$):** El lugar que ocupa un cuerpo respecto al sistema de referencia.\n3. **Trayectoria:** La línea imaginaria que dibuja un cuerpo mientras se mueve.\n4. **Desplazamiento ($\\Delta x$):** La línea recta física que mide la distancia más corta desde donde empezaste hasta donde terminaste.\n\nOrganiza estas herramientas fundamentales para que no te pierdas en el examen final:\n\n[JUEGO:ORDENAR_LETRAS:DISTANCIA]\n\n[JUEGO:ORDENAR_LETRAS:DESPLAZAMIENTO]\n\n[JUEGO:ORDENAR_LETRAS:COORDENADA]\n\n[JUEGO:ORDENAR_FRASE:LA POSICION DEPENDE DEL PUNTO DE REFERENCIA]\n\n### 🕵️‍♂️ Análisis Científico del Movimiento en la Selva\n¿Cómo se relacionan estas variables en un viaje real? Analicemos la tabla de comparación cinemática:\n\n<table border=\"1\" style=\"width:100%; border-collapse: collapse; text-align : center; background-color: #1a1a1a; color: white;\">\n  <thead>\n    <tr style=\"background-color: #3f37c9;\">\n      <th>¿La Trayectoria puede ser igual al Desplazamiento?</th>\n      <th>Condición Física Requerida</th>\n      <th>Ejemplo Práctico</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td><b>SÍ</b></td>\n      <td>Cuando el movimiento ocurre estrictamente en línea recta sin devolverse.</td>\n      <td>Una flecha lanzada directamente hacia un árbol de rescate.</td>\n    </tr>\n    <tr>\n      <td><b>NO (La trayectoria es mayor)</b></td>\n      <td>Cuando hay curvas, desvíos o el camino es irregular.</td>\n      <td>Caminar esquivando lodo y plantas espinosas en la selva.</td>\n    </tr>\n  </tbody>\n</table>\n\n<br>\n\n[JUEGO:ORDENAR_FRASE:EL DETECTIVE USA LA FISICA EN LA SELVA]\n\n[JUEGO:ORDENAR_FRASE:EL MITO DE LA LINEA RECTA ES FALSO]\n\n### 🔍 Sopa de Letras Avanzada\nBusca los elementos geométricos de la cinemática antes de que caiga la noche en la selva:\n\n[JUEGO:SOPA_LETRAS:PUNTO,ORIGEN,EJE]\n\n[JUEGO:SOPA_LETRAS:CAMINO,RECTA,CURVA]\n\n[JUEGO:SOPA_LETRAS:FISICA,DETECCION,MISTERIO]\n\n### 🗝️ Los Últimos Códigos del Inspector\nResuelve los acertijos finales del cuaderno de notas para consagrarte como un Detective Científico de Grado 6.\n\n[JUEGO:CRUCIGRAMA:Unidad de medida de longitud en el Sistema Internacional|METRO;Magnitud que solo tiene numero y unidad|ESCALAR]\n\n[JUEGO:CRUCIGRAMA:Instrumento para orientarse en la selva|BRUJULA;Magnitud que tiene direccion y sentido|VECTORIAL]\n\n[JUEGO:CRUCIGRAMA:Ciencia que estudia las propiedades de la materia y energia|FISICA;Espacio recorrido total|DISTANCIA]",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "¿Qué magnitud cinemática mide el kilometraje (odómetro) de una camioneta de rescate que da vueltas por Montenegro?",
+      "respuesta_esperada": "Mide la distancia recorrida (longitud de la trayectoria descrita), ya que acumula todo el camino transitado sin importar los giros o si vuelve al punto de inicio."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Desafío Matemático: Si sales de la portería de la IE Instituto Montenegro, caminas 20 metros al Norte y luego regresas exactamente 20 metros al Sur, ¿cuál fue la distancia total que recorriste y cuál fue tu desplazamiento final?",
+    "Análisis de Casos: Un explorador asegura que su trayectoria fue de 10 metros pero su desplazamiento total fue de 15 metros. Explica por qué científicamente esta afirmación es una mentira imposible."
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de fenómenos",
+      "texto_introductorio": "Durante una práctica de laboratorio al aire libre de la IE Instituto Montenegro en el Valle de Cocora, dos estudiantes analizan el vuelo de una mariposa que vuela desde una flor roja (Posición Inicial) hasta una flor amarilla (Posición Final). La mariposa revolotea en círculos antes de posarse en la flor amarilla.",
+      "tabla_o_grafica_markdown": "| Tipo de Medida | Valor Medido |\n| :--- | :--- |\n| Distancia en línea recta entre flores | 2 metros |\n| Longitud del vuelo completo de la mariposa | 8 metros |",
+      "pregunta": "Teniendo en cuenta los datos de la tabla, ¿cuáles son los valores del desplazamiento y de la distancia de la trayectoria de la mariposa?",
+      "opciones": [
+        "Desplazamiento = 2 metros; Distancia de la trayectoria = 8 metros.",
+        "Desplazamiento = 8 metros; Distancia de la trayectoria = 2 metros.",
+        "Desplazamiento = 10 metros; Distancia de la trayectoria = 6 metros.",
+        "Desplazamiento = 0 metros; Distancia de la trayectoria = 8 metros."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "¡Excelente Detective! El desplazamiento es la distancia directa (línea recta) entre los puntos inicial y final (2 metros), mientras que la trayectoria es la longitud total de su vuelo real (8 metros).",
+        "1": "Incorrecto. Recuerda que el desplazamiento siempre corresponde a la distancia más corta (línea recta) y no al camino largo con curvas.",
+        "2": "Incorrecto. No debes sumar ni restar los valores; cada variable cinemática representa una propiedad diferente del movimiento.",
+        "3": "Incorrecto. El desplazamiento solo sería cero si la mariposa hubiera regresado a la flor roja de inicio."
+      }
+    }
+  ]
+}

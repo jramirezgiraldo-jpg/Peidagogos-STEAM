@@ -1,0 +1,86 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "Imaginas que te encuentras perdido en las ruinas del patio principal de la IE Instituto Montenegro. Para indicarle a tu equipo de rescate dónde te encuentras exactamente en el mapa, ¿qué es lo primero que necesitas definir?",
+      "opciones": [
+        "A) La velocidad a la que puedes correr para escapar.",
+        "B) Un punto de referencia fijo (como la estatua del patio) desde el cual medir tu ubicación.",
+        "C) El color de la mochila que llevas puesta.",
+        "D) La cantidad de pasos totales que has dado desde que amaneció."
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "Un rastreador de la Resistencia sigue las huellas de una criatura mutante. Las huellas dan vueltas en zigzag alrededor del Bloque A, pero finalmente la criatura se detiene a solo 10 metros del punto inicial. Al camino sinuoso que dibujó la criatura en el suelo lo llamamos:",
+      "opciones": [
+        "A) Desplazamiento lineal.",
+        "B) Punto de origen.",
+        "C) Trayectoria.",
+        "D) Posición final."
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "Si caminas desde el laboratorio de química de la escuela 5 metros hacia el norte y luego 5 metros de regreso hacia el sur, regresando exactamente al mismo punto de partida, tu desplazamiento neto es:",
+      "opciones": [
+        "A) 10 metros.",
+        "B) 5 metros.",
+        "C) 0 metros.",
+        "D) -5 metros."
+      ],
+      "correcta": 2
+    }
+  ],
+  "texto_inductivo": "# Expediente de Investigación: El Enigma del Suministro Perdido\n\nSaludos, recluta del páramo. Soy el Detective de la Zona Cero. La niebla ácida ha bajado y la **IE Instituto Montenegro** ya no es el colegio lleno de risas que solía ser; ahora es nuestro fortín de supervivencia. Esta mañana, una caja con filtros de agua purificada desapareció del búnker del Bloque B. Solo nos quedan unas huellas de pisadas en el polvo radiactivo y un mapa arrugado.\n\n***¿Cómo podemos rastrear los suministros perdidos en las ruinas radioactivas de la IE Instituto Montenegro usando solo un mapa deteriorado, sabiendo que el camino tomado (trayectoria) cambia drásticamente nuestra posición final y nuestra seguridad ante las amenazas del páramo?***\n\nPara resolver este misterio, primero debemos entender dónde estamos y hacia dónde nos dirigimos. No podemos permitirnos dar pasos en falso; el sector norte está plagado de anomalías cinéticas.\n\n<svg width='100%' height='200' viewBox='0 0 500 200' style='background-color:#1e1e1e; border:3px solid #ff5555; border-radius:10px; font-family:monospace;'>\n  <!-- Grid de fondo -->\n  <defs>\n    <pattern id='grid' width='20' height='20' patternUnits='userSpaceOnUse'>\n      <path d='M 20 0 L 0 0 0 20' fill='none' stroke='#333333' stroke-width='1'/>\n    </pattern>\n  </defs>\n  <rect width='100%' height='100%' fill='url(#grid)' />\n  \n  <!-- Puntos del mapa -->\n  <circle cx='80' cy='150' r='8' fill='#ffcc00' />\n  <text x='95' y='155' fill='#ffcc00' font-size='12' font-weight='bold'>ORIGEN: Búnker Bloque B (0,0)</text>\n  \n  <!-- Trayectoria sinuosa -->\n  <path d='M 80 150 Q 150 50 250 120 T 400 60' fill='none' stroke='#ff5555' stroke-width='3' stroke-dasharray='5,5' />\n  \n  <!-- Punto Final -->\n  <circle cx='400' cy='60' r='8' fill='#00ffcc' />\n  <text x='320' y='50' fill='#00ffcc' font-size='12' font-weight='bold'>DESTINO DE CLAVE (X)</text>\n  \n  <!-- Desplazamiento -->\n  <line x1='80' y1='150' x2='400' y2='60' stroke='#3b82f6' stroke-width='2' />\n  \n  <text x='180' y='185' fill='#ffffff' font-size='11'>Línea azul: Desplazamiento | Línea roja discontinua: Trayectoria</text>\n</svg>\n\nAntes de salir a explorar las ruinas del laboratorio, descifra los siguientes códigos ocultos dejados por el saboteador en las paredes del pasillo:\n\n[JUEGO:ORDENAR_LETRAS:POSICION]\n\n[JUEGO:ORDENAR_LETRAS:SISTEMA]\n\nEl saboteador no usó un camino recto para evitar los sensores térmicos de la IE Instituto Montenegro. Su camino serpenteó por toda la cancha sintética. Analiza el siguiente reporte de pasos recolectado por nuestras patrullas:\n\n| Tramo de Vigilancia | Punto Inicial (Coordenada) | Dirección Tomada | Distancia Recorrida | Posición Registrada |\n| :--- | :---: | :---: | :---: | :---: |\n| **Tramo Alfa (Pasillo de Sexto)** | (0,0) - Entrada | Este | 15 metros | (15, 0) |\n| **Tramo Beta (Zona de Cafetería)** | (15,0) | Norte | 10 metros | (15, 10) |\n| **Tramo Gamma (Cancha Sintética)** | (15,10) | Oeste | 8 metros | (7, 10) |\n\n[JUEGO:ORDENAR_FRASE:EL MOVIMIENTO ES CAMBIO DE POSICION]\n\n[JUEGO:ORDENAR_FRASE:CUIDADO CON LAS ANOMALIAS DEL CAMINO]\n\nPara no perdernos en la oscuridad del páramo, completa estas actividades de rastreo rápido utilizando tu agudeza visual de detective:\n\n[JUEGO:SOPA_LETRAS:FISICA,MAPA,RETO]\n\n[JUEGO:SOPA_LETRAS:PUNTO,ORIGEN,LINEA]\n\nPara abrir la primera compuerta blindada que nos lleva al sótano de la escuela, debes resolver este acertijo de la terminal de seguridad:\n\n[JUEGO:CRUCIGRAMA:Lugar exacto en el espacio donde se encuentra un cuerpo|POSICION;Camino o huella que deja un cuerpo al moverse|TRAYECTORIA]\n\n[JUEGO:CRUCIGRAMA:Punto de partida o sistema de referencia|ORIGEN;Magnitud de la longitud del camino recorrido|DISTANCIA]",
+  "recurso_visual": "<div style='background-color:#111; color:#fff; padding:15px; border-radius:8px; border:2px solid #00ffcc;'>\n<h4 style='color:#00ffcc; margin-top:0;'>PLANILLA DE RUTA DEL DETECTIVE: ANÁLISIS DE MOVIMIENTO</h4>\n<table style='width:100%; border-collapse: collapse; font-family:monospace; font-size:12px;'>\n  <thead>\n    <tr style='background-color:#222; color:#ffcc00;'>\n      <th style='border:1px solid #444; padding:8px;'>Variable Cinemática</th>\n      <th style='border:1px solid #444; padding:8px;'>Símbolo Común</th>\n      <th style='border:1px solid #444; padding:8px;'>Definición del Páramo</th>\n      <th style='border:1px solid #444; padding:8px;'>¿Cómo se mide en el mapa?</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td style='border:1px solid #444; padding:8px; color:#ff5555; font-weight:bold;'>Posición</td>\n      <td style='border:1px solid #444; padding:8px;'>x, y (vectores)</td>\n      <td>El lugar preciso donde se esconde el botín respecto al búnker central.</td>\n      <td>Coordenadas cartesianas usando pasos o metros.</td>\n    </tr>\n    <tr style='background-color:#1a1a1a;'>\n      <td style='border:1px solid #444; padding:8px; color:#3b82f6; font-weight:bold;'>Trayectoria</td>\n      <td style='border:1px solid #444; padding:8px;'>Línea / Curva</td>\n      <td>La forma del camino completo (curvo, recto, zig-zag) recorrido en la huida.</td>\n      <td>Dibujando el rastro total sobre el mapa de la IE Instituto Montenegro.</td>\n    </tr>\n    <tr>\n      <td style='border:1px solid #444; padding:8px; color:#00ffcc; font-weight:bold;'>Desplazamiento</td>\n      <td style='border:1px solid #444; padding:8px;'>Δx</td>\n      <td>La distancia en línea recta más corta desde el búnker hasta la posición final.</td>\n      <td>Trazando una flecha directa de principio a fin.</td>\n    </tr>\n  </tbody>\n</table>\n</div>",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "¿Por qué crees que el ladrón prefirió una trayectoria curva y compleja en lugar de un desplazamiento directo en línea recta por el patio del colegio?",
+      "respuesta_esperada": "Para evadir los sistemas de seguridad, obstáculos físicos de las ruinas y zonas de radiación que se encuentran en el camino directo."
+    },
+    {
+      "pregunta": "Si sabemos que el búnker de la IE Instituto Montenegro es nuestro origen (0,0), ¿qué datos mínimos necesitamos para describir la posición final del ladrón?",
+      "respuesta_esperada": "Necesitamos una distancia medida desde el origen, una dirección específica (norte, sur, este u oeste) y un ángulo o par de coordenadas."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "RETO DETECTIVE 1: Dibuja un plano de la IE Instituto Montenegro en tu cuaderno. Elige tu salón de clases como (0,0) (Punto de Referencia). Traza con lápiz rojo una trayectoria sinuosa para llegar a la rectoría y con lápiz azul el desplazamiento directo.",
+    "RETO DETECTIVE 2: Si caminas 12 metros al Norte buscando suministros y luego te devuelves 15 metros al Sur porque escuchaste un mutante, calcula tu posición final respecto al punto de inicio. Explica si tu posición final está adelante o atrás del origen."
+  ],
+  "texto_deductivo": "# El Manual de Campo del Detective: Fundamentos de la Cinemática\n\nAtención, investigadores de la IE Instituto Montenegro. Para no perderse en las tierras baldías, un detective no puede confiar en corazonadas; necesita la precisión de la **Física**. Vamos a formalizar los conceptos cinemáticos que salvarán nuestras vidas al calcular rutas de escape.\n\n### 1. Sistema de Referencia: El Corazón del Mapa\nPara decir que algo se mueve, necesitamos un observador inmóvil. En nuestro búnker, usamos la **Estatua del Fundador** en el patio principal como nuestro punto de origen $O(0,0)$. Sin un punto de referencia, la palabra \"posición\" no tiene sentido científico.\n\n<svg width='100%' height='160' viewBox='0 0 400 160' style='background-color:#111; border:2px solid #00ffcc; border-radius:8px;'>\n  <!-- Eje Y -->\n  <line x1='50' y1='10' x2='50' y2='140' stroke='#555' stroke-width='2' />\n  <!-- Eje X -->\n  <line x1='40' y1='130' x2='380' y2='130' stroke='#555' stroke-width='2' />\n  \n  <!-- Flechas de ejes -->\n  <polygon points='50,5 45,15 55,15' fill='#555' />\n  <polygon points='385,130 375,125 375,135' fill='#555' />\n  \n  <!-- Origen (Búnker) -->\n  <circle cx='50' cy='130' r='6' fill='#ff0055' />\n  <text x='60' y='145' fill='#ff0055' font-family='monospace' font-size='10'>Origen (0,0) Estatua</text>\n  \n  <!-- Punto de búsqueda -->\n  <circle cx='250' cy='50' r='6' fill='#00ffcc' />\n  <line x1='50' y1='130' x2='250' y2='50' stroke='#3b82f6' stroke-width='2' stroke-dasharray='4' />\n  <text x='260' y='55' fill='#00ffcc' font-family='monospace' font-size='11'>Pista Encontrada (X=200m, Y=80m)</text>\n</svg>\n\nDescifra estas palabras claves necesarias para calibrar nuestros visores de localización antes de avanzar:\n\n[JUEGO:ORDENAR_LETRAS:TRAYECTORIA]\n\n[JUEGO:ORDENAR_LETRAS:DISTANCIA]\n\n[JUEGO:ORDENAR_LETRAS:ORIGEN]\n\n### 2. Diferencia Crucial: Trayectoria vs. Desplazamiento\nNo confundas estos términos si quieres sobrevivir a una emboscada:\n*   **Trayectoria:** Es el camino real, la línea imaginaria geométrica que describe el cuerpo en movimiento. Puede ser rectilínea, curvilínea o caótica.\n*   **Desplazamiento:** Es una magnitud vectorial. Es el cambio neto de posición. Solo le importa el punto inicial y el punto final, conectados por la línea recta más corta.\n\n[JUEGO:ORDENAR_FRASE:LA POSICION DEPENDE DEL PUNTO DE REFERENCIA]\n\n[JUEGO:ORDENAR_FRASE:LA TRAYECTORIA ES EL CAMINO DIBUJADO]\n\n[JUEGO:ORDENAR_FRASE:EL DESPLAZAMIENTO ES LA LINEA RECTA]\n\nUsa tus herramientas de escaneo digital para identificar conceptos en esta red de datos encriptados:\n\n[JUEGO:SOPA_LETRAS:RUTAS,MISION,CAOS]\n\n[JUEGO:SOPA_LETRAS:PISTAS,VECTOR,METRO]\n\n[JUEGO:SOPA_LETRAS:BUSQUEDA,DATOS,GUIA]\n\nPara desbloquear la caja de herramientas de medición de precisión (cinta métrica y odómetros láser), ingresa las claves correctas:\n\n[JUEGO:CRUCIGRAMA:Cambio de posición de un cuerpo|MOVIMIENTO;Instrumento para medir la distancia|METRO]\n\n[JUEGO:CRUCIGRAMA:Flecha que une el punto inicial con el final|DESPLAZAMIENTO;Estudio del movimiento sin importar sus causas|CINEMATICA]\n\n[JUEGO:CRUCIGRAMA:Conjunto de coordenadas para medir|SISTEMA;Ciencia que estudia el universo físico|FISICA]",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "¿Es posible que un estudiante de la IE Instituto Montenegro camine una distancia de 100 metros y, sin embargo, su desplazamiento sea de cero metros? Justifica.",
+      "respuesta_esperada": "Sí, es completamente posible si realiza una trayectoria cerrada (por ejemplo, dar una vuelta completa a la cancha de fútbol del colegio) y regresa exactamente al mismo punto de partida."
+    },
+    {
+      "pregunta": "¿Qué tipo de trayectoria describe una bala de cañón defensiva disparada desde el techo de la escuela si es afectada por la gravedad del páramo?",
+      "respuesta_esperada": "Una trayectoria parabólica (curvilínea), debido a que avanza horizontalmente mientras cae verticalmente por acción de la gravedad."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "DIARIO DE CAMPO - DESAFÍO 1: Un dron de vigilancia vuela desde el búnker central (0,0) hasta el laboratorio de física en la posición (4m, 3m). Dibuja el plano cartesiano a escala y calcula la longitud del vector desplazamiento (puedes usar el teorema de Pitágoras si lo recuerdas).",
+    "DIARIO DE CAMPO - DESAFÍO 2: Explica con tus propias palabras la diferencia entre un escalar (como la distancia recorrida) y un vector (como el desplazamiento) usando el ejemplo de escapar de un peligro inminente."
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de fenómenos",
+      "texto_introductorio": "Durante una misión de reconocimiento en las afueras de la IE Instituto Montenegro, un detective científico analiza el movimiento de dos robots recolectores de chatarra (Robot A y Robot B). Ambos inician su búsqueda en la puerta principal del colegio (Origen) y terminan su jornada en el mismo almacén de víveres abandonado. El Robot A viajó en línea recta por la autopista destruida, mientras que el Robot B dio varias vueltas por calles secundarias para esquivar la radiación antes de llegar al almacén.",
+      "tabla_o_grafica_markdown": "| Robot | Trayectoria de Viaje | Tiempo Empleado | Distancia Recorrida (m) | Magnitud del Desplazamiento (m) |\n| :---: | :---: | :---: | :---: | :---: |\n| **Robot A** | Rectilínea directa | 10 min | 500 m | 500 m |\n| **Robot B** | Curvilínea sinuosa | 25 min | 1200 m | 500 m |",
+      "pregunta": "Con base en la información de la tabla de control, ¿cuál de las siguientes afirmaciones describe de manera correcta el movimiento de los dos robots?",
+      "opciones": [
+        "A) Ambos robots recorrieron la misma distancia total, pero el desplazamiento del Robot B fue mayor debido al tiempo extra.",
+        "B) El Robot A y el Robot B tuvieron el mismo desplazamiento porque ambos iniciaron y terminaron en los mismos puntos espaciales.",
+        "C) El Robot B se desplazó más que el Robot A porque su trayectoria tiene curvas y una longitud física mayor.",
+        "D) La trayectoria de un cuerpo siempre debe ser igual en magnitud a la del desplazamiento sin importar el camino tomado."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. La distancia recorrida fue diferente (500m vs 1200m). El desplazamiento neto depende únicamente de las posiciones inicial y final, que son idénticas para ambos.",
+        "1": "¡Correcto, detective! Al salir del mismo punto de partida y llegar al mismo destino, el cambio neto de posición (desplazamiento) es exactamente igual para ambos robots (500 metros), independientemente de que las trayectorias y distancias sean muy distintas.",
+        "2": "Incorrecto. Confundes trayectoria (el camino recorrido, que sí fue mayor para el Robot B) con el desplazamiento (la diferencia directa entre la posición final e inicial).",
+        "3": "Incorrecto. La trayectoria solo coincide en valor numérico con el desplazamiento cuando el movimiento es estrictamente rectilíneo y en un solo sentido, como ocurrió con el Robot A, pero no en general."
+      }
+    }
+  ]
+}

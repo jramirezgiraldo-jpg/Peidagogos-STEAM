@@ -1,0 +1,84 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Cuál es la forma del camino que recorren los planetas alrededor del Sol?",
+      "opciones": [
+        "Un círculo perfecto",
+        "Una línea recta",
+        "Una elipse (curva ovalada)",
+        "Un espiral infinito"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "¿Qué fuerza invisible evita que la Luna salga volando lejos de la Tierra?",
+      "opciones": [
+        "La fuerza magnética",
+        "La gravedad",
+        "La presión del aire",
+        "La fuerza de fricción"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Quién propuso por primera vez de forma matemática que las órbitas de los planetas no son circulares sino elípticas?",
+      "opciones": [
+        "Johannes Kepler",
+        "Galileo Galilei",
+        "Albert Einstein",
+        "Isaac Newton"
+      ],
+      "correcta": 0
+    }
+  ],
+  "texto_inductivo": "¡Hola, recluta! Te saluda tu Comandante desde la Estación Espacial Internacional (ISS). Hoy iniciamos una misión increíble: entender cómo se mueven los mundos allá afuera. Cuando miras por nuestra escotilla Cupola, ves la inmensidad del universo. Desde tiempos antiguos, los humanos miraban al cielo y veían al rey brillante del día. [JUEGO:ORDENAR_LETRAS:SOL] Al principio, pensaban que todo daba vueltas perfectas alrededor de nosotros. Pero luego descubrimos la verdad matemática de nuestro vecindario estelar. [JUEGO:SOPA_LETRAS:LUNA,SOL,TIERRA] Cada planeta sigue una ruta única. [JUEGO:ORDENAR_LETRAS:ORBITA]\n\nAcompáñame en este recorrido histórico y científico. El modelo antiguo ponía a la Tierra en el medio, pero el científico Copérnico cambió las reglas del juego. [JUEGO:ORDENAR_FRASE:LA TIERRA GIRA ALREDEDOR DEL SOL] No era un capricho divino, sino leyes físicas las que dominaban. [JUEGO:CRUCIGRAMA:Estrella central|SOL;Camino del planeta|ORBITA] Para comprender esto, debemos ver que cada masa espacial interactúa con las demás. [JUEGO:SOPA_LETRAS:FUERZA,MASA,PESO] La gravedad actúa en silencio, pero con puño de hierro. [JUEGO:ORDENAR_FRASE:LA GRAVEDAD ATRAE LOS CUERPOS]\n\nJohannes Kepler, un astrónomo brillante, analizó datos acumulados por años y descubrió que el movimiento no se daba en círculos perfectos. Cada gran roca del cosmos que llamamos planeta [JUEGO:ORDENAR_LETRAS:PLANETA] viaja siguiendo una curva alargada. Esta forma geométrica se conoce como órbita elíptica. [JUEGO:ORDENAR_LETRAS:ELIPSE] ¿Quién diría que la geometría del espacio fuera tan elegante? [JUEGO:ORDENAR_FRASE:EL ESPACIO ES MARAVILLOSO] En las órbitas, el Sol no está en el centro exacto, sino en uno de los puntos especiales llamados focos. [JUEGO:SOPA_LETRAS:KEPLER,NEWTON,FISICA]\n\nGracias a este descubrimiento, la humanidad dio un salto gigante. [JUEGO:CRUCIGRAMA:Atracción de masas|GRAVEDAD;Cuerpo celeste natural|SATELITE] El movimiento planetario ya no era un misterio mágico. Podíamos calcular cuándo volvería un cometa o cómo se movería Marte. [JUEGO:ORDENAR_FRASE:LA ORBITA ES UNA ELIPSE] De hecho, la ISS en la que me encuentro ahora mismo obedece a estas mismas reglas orbitales fundamentales. [JUEGO:SOPA_LETRAS:ESPACIO,ASTRO,COSMOS] Los astrónomos rompieron el mito del geocentrismo usando solo matemáticas y observación rigurosa. [JUEGO:CRUCIGRAMA:Astrónomo de las elipses|KEPLER;Físico de la manzana|NEWTON]\n\nSin embargo, quedaba una gran pregunta: ¿qué mantiene a estos cuerpos celestes atrapados en sus caminos? Aquí es donde entra la fuerza invisible que nos mantiene unidos al suelo en la Tierra, pero que a nosotros nos hace flotar aquí arriba. [JUEGO:ORDENAR_LETRAS:GRAVEDAD] Es fascinante cómo cambia nuestra perspectiva cuando salimos de la atmósfera. [JUEGO:ORDENAR_FRASE:FLOTAMOS EN CAIDA LIBRE] Para nosotros, experimentar esta caída constante es el día a día. [JUEGO:SOPA_LETRAS:ELIPSE,FOCO,RADIO] Los secretos de las órbitas se revelan paso a paso en nuestra bitácora de vuelo. [JUEGO:CRUCIGRAMA:Forma de órbita|ELIPSE;Centro orbital|FOCO] La gravedad dibuja el mapa del cosmos y nosotros somos los navegantes. [JUEGO:CRUCIGRAMA:Falta de gravedad percibida|MICROGRAVEDAD;Estación internacional|ISS]",
+  "recurso_visual": "mermaid\ngraph TD\n    A[Modelos del Movimiento Planetario] --> B[Modelo Geocéntrico - Antiguo]\n    A --> C[Modelo Heliocéntrico - Copérnico/Kepler]\n    B --> B1[Tierra estática en el centro]\n    B --> B2[Órbitas circulares artificiales]\n    C --> C1[Sol estático en uno de los focos]\n    C --> C2[Órbitas Elípticas de Kepler]\n    C2 --> C3[Velocidad variable según distancia]\n",
+  "preguntas_inductivas_pagina": [
+    "¿Quién descubrió que las órbitas celestes no son circulares perfectas sino elípticas?",
+    "¿Dónde se ubica exactamente el Sol dentro de la órbita de un planeta de acuerdo con Kepler?",
+    "¿Qué planeta se usó históricamente como referencia principal para deducir estas leyes?",
+    "¿Qué cambio fundamental trajo la teoría heliocéntrica comparada con la geocéntrica?",
+    "¿Qué forma geométrica tiene una elipse comparada con un círculo?"
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema completo de una órbita elíptica donde indiques de manera clara la posición del Sol en uno de sus focos, el perihelio (punto más cercano) y el afelio (punto más lejano).",
+    "Elabora un cuadro comparativo entre el Modelo Geocéntrico y el Modelo Heliocéntrico, resaltando sus principales diferencias científicas y sus autores.",
+    "Escribe una reflexión de dos párrafos explicando cómo la transición del pensamiento místico al pensamiento matemático de Kepler ayudó a cambiar el rumbo de la ciencia espacial.",
+    "Representa mediante un dibujo creativo cómo crees que se ve la Tierra orbitando alrededor del Sol vista desde nuestra cabina de observación en la ISS."
+  ],
+  "texto_deductivo": "¡Excelente trabajo analizando la historia, recluta! Ahora bajemos de las nubes y entremos en los números y las leyes de la física que gobiernan el universo. Para entender por qué los planetas orbitan sin escapar al espacio profundo, necesitamos estudiar la causa física: la interacción gravitatoria. Isaac Newton se dio cuenta de que para desviar un cuerpo de su trayectoria rectilínea se requiere una acción externa. [JUEGO:ORDENAR_LETRAS:FUERZA] Esta acción cambia el estado de movimiento del objeto. [JUEGO:CRUCIGRAMA:Resistencia al cambio de movimiento|INERCIA;Cambio de velocidad|ACELERACION] Newton unificó el cielo y la tierra bajo las mismas leyes de la ciencia. [JUEGO:ORDENAR_LETRAS:FISICA]\n\nLa Ley de Gravitación Universal nos dice que dos objetos se atraen con una intensidad que depende de sus cantidades de materia. [JUEGO:ORDENAR_LETRAS:MASAS] Esta fuerza es la responsable de mantener a la Luna atada a la Tierra y a la Tierra atada al Sol. [JUEGO:SOPA_LETRAS:INERCIA,ACELERACION,VELOCIDAD] Un hecho curioso es que, si empujas un objeto en el espacio, este seguirá viajando indefinidamente a menos que algo lo detenga. [JUEGO:ORDENAR_FRASE:LA INERCIA MANTIENE EL MOVIMIENTO] Esta tendencia a mantener el movimiento es fundamental en la mecánica celeste. [JUEGO:SOPA_LETRAS:PERIODO,DISTANCIA,LEY] De igual manera, todo par de cuerpos experimenta fuerzas opuestas e iguales. [JUEGO:ORDENAR_FRASE:TODA ACCION TIENE REACCION]\n\n¿Pero qué pasa con la distancia? La atracción se debilita rápidamente a medida que nos alejamos de un astro. [JUEGO:ORDENAR_FRASE:LA GRAVEDAD DISMINUYE CON LA DISTANCIA] Esto explica por qué los planetas más lejanos tardan muchísimo más tiempo en completar una sola vuelta alrededor de su estrella. [JUEGO:CRUCIGRAMA:Tiempo de una vuelta|PERIODO;Punto más lejano al Sol|AFELIO] Cada órbita requiere un equilibrio perfecto entre la velocidad de caída y la inercia del planeta. [JUEGO:ORDENAR_LETRAS:CAIDA] Si la Tierra se detuviera de golpe, caería directamente hacia el Sol en una caída libre catastrófica. [JUEGO:SOPA_LETRAS:ATRACCION,REPULSION,CAMPO]\n\nKepler también descubrió algo asombroso sobre la velocidad de los planetas: no es constante. Cuando un planeta está más cerca del Sol, viaja mucho más rápido que cuando está lejos. [JUEGO:ORDENAR_FRASE:LOS PLANETAS BARREN AREAS IGUALES] Esto se debe a la conservación del momento angular. [JUEGO:CRUCIGRAMA:Punto más cercano al Sol|PERIHELIO;Fuerza hacia el centro|CENTRIPETA] Los científicos usan estas relaciones exactas para calcular trayectorias de satélites artificiales y sondas de exploración. [JUEGO:ORDENAR_FRASE:LA VELOCIDAD VARIA EN LA ORBITA] Para que un objeto orbite, su aceleración debe apuntar siempre hacia el centro del giro. [JUEGO:SOPA_LETRAS:CENTRIPETA,VECTOR,TRAYECTORIA]\n\nPor lo tanto, la física destruyó los viejos modelos que ponían límites artificiales al universo. [JUEGO:CRUCIGRAMA:Modelo con la Tierra al centro|GEOCENTRICO;Modelo con el Sol al centro|HELIOCENTRICO] Hoy comprendemos que el universo es un vasto escenario dinámico interconectado por la gravedad. [JUEGO:ORDENAR_LETRAS:INERCIA] Cada estrella en nuestra galaxia sigue estas mismas leyes matemáticas riguras. [JUEGO:SOPA_LETRAS:GALAXIA,ESTRELLA,NEBULA] Al final, la aparente ausencia de peso aquí arriba no es falta de gravedad, sino el resultado directo de la geometría del espacio-tiempo curvada por la masa de la Tierra. [JUEGO:CRUCIGRAMA:Tercera ley de Newton|ACCION;Resultado de la gravedad en órbitas|CURVATURA] ¡Ahora estás listo para resolver cualquier misterio gravitatorio!",
+  "preguntas_deductivas_pagina": [
+    "¿Qué ocurre con la fuerza de gravedad entre dos cuerpos si la distancia entre ellos aumenta al doble?",
+    "¿Qué ley física explica por qué los planetas se mueven más rápido en el perihelio que en el afelio?",
+    "¿Por qué un satélite artificial en órbita no cae de golpe a estrellarse contra la superficie terrestre?",
+    "¿Qué papel juega la masa de una estrella en el periodo de traslación de sus planetas según la gravedad de Newton?",
+    "¿Cuál es el valor aproximado de la gravedad que experimentamos aquí arriba en la órbita de la ISS?"
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Realiza un diagrama de fuerzas detallado para un planeta en órbita alrededor del Sol, identificando el vector de la fuerza gravitacional centripeta, la velocidad lineal inercial y la aceleración resultante.",
+    "Elabora un mapa mental que conecte de manera organizada las tres leyes de Kepler con la Ley de Gravitación Universal de Isaac Newton.",
+    "Dibuja una infografía explicativa que revele el 'Misterio de la ingravidez en la ISS': demuestra gráficamente por qué flotamos a pesar de tener un 90% de gravedad terrestre a nuestra altitud.",
+    "Representa de forma artesanal y limpia un gráfico comparativo de la velocidad orbital de los planetas de nuestro sistema solar según su distancia promedio al Sol."
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "Durante una videoconferencia en vivo con estudiantes de secundaria, un tripulante de la Estación Espacial Internacional (ISS) suelta una manzana en medio del módulo científico. Ante los ojos sorprendidos de los jóvenes, el fruto se queda suspendido flotando en el aire. Uno de los alumnos, buscando una respuesta basada en datos, consulta la siguiente tabla científica que describe la fuerza de gravedad relativa y la aceleración a diferentes altitudes terrestres:",
+      "tabla_o_grafica_markdown": "| Ubicación / Entorno | Altitud aproximada (km) | Aceleración gravitatoria ($g$) en m/s² | % de Gravedad respecto al suelo |\n| :--- | :---: | :---: | :---: |\n| Superficie de la Tierra | 0 | 9.81 | 100% |\n| Vuelo comercial de pasajeros | 11 | 9.77 | 99.6% |\n| Órbita operativa de la ISS | 400 | 8.70 | 88.6% |\n| Satélite de clima geoestacionario | 35,786 | 0.22 | 2.2% |",
+      "pregunta": "Con base en la información de la tabla y los principios fundamentales de la física orbital, ¿cuál es la explicación científica real de por qué la manzana y el astronauta flotan dentro de la estación espacial?",
+      "opciones": [
+        "Flotan porque la ISS y la manzana se encuentran cayendo libremente y de forma constante hacia la Tierra, viajando a gran velocidad horizontal, por lo que nunca impactan el suelo.",
+        "Flotan porque a una altitud de 400 kilómetros, la fuerza de atracción de la gravedad disminuye drásticamente a cero debido a la ausencia de atmósfera.",
+        "Flotan porque la estructura metálica y los sistemas magnéticos de la ISS bloquean activamente el campo de gravedad exterior, permitiendo la ingravidez en su interior.",
+        "Flotan porque la enorme densidad del viento solar a 400 km de altitud genera una fuerza vertical ascendente que contrarresta la gravedad terrestre."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "¡Excelente análisis, recluta! Como lo indica la tabla, la gravedad a la altura de la ISS sigue activa con un poderoso 88.6% (8.7 m/s²). El aparente estado de flotabilidad se debe a que la estación y todo en su interior se desplazan horizontalmente a una velocidad tan alta que caen alrededor de la curvatura de la Tierra a la misma velocidad (caída libre perpetua).",
+        "1": "Incorrecto. Si observas con atención la tabla, la aceleración de la gravedad a la altitud de la ISS es de 8.70 m/s² (88.6% de la gravedad terrestre). Por ende, la gravedad está muy lejos de ser cero.",
+        "2": "Incorrecto. No existen campos o metales capaces de bloquear la gravedad en el universo conocido; la gravedad penetra cualquier material sin excepciones.",
+        "3": "Incorrecto. El viento solar es sumamente tenue a esa altitud y su empuje es infinitesimal, totalmente insuficiente para contrarrestar los 8.70 m/s² de aceleración hacia el centro de la Tierra."
+      }
+    }
+  ]
+}

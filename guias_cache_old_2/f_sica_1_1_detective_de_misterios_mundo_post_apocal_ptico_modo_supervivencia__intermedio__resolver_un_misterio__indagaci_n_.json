@@ -1,0 +1,99 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "Estás sentado en un vagón de tren de la IE Instituto Montenegro sin ventanas y el viaje es perfectamente suave. ¿Cómo puedes saber con certeza si te estás moviendo o estás en reposo?",
+      "opciones": [
+        "Es imposible saberlo sin mirar un punto de referencia externo.",
+        "Lanzando un objeto al aire; si cae detrás de mí, me estoy moviendo.",
+        "Sintiendo la gravedad de la Tierra, que cambia al movernos.",
+        "Por el sonido del viento que siempre se escucha al viajar."
+      ],
+      "correcta": 0
+    }
+  ],
+  "texto_inductivo": "# CASO DETECTIVESCO: El Vagón Fantasma de Montenegro\n\nSaludos, aspirantes a Detectives de la Física. Soy el Detective de Misterios de la Zona Cero de Quindío. Nos encontramos en los restos fortificados de lo que alguna vez fue la prestigiosa **IE Instituto Montenegro**. El mundo exterior ha cambiado tras el Gran Colapso, pero las leyes del universo siguen intactas. Hoy nos enfrentamos a un dilema de vida o muerte para nuestra colonia de sobrevivientes.\n\n***¿Cómo podemos demostrar a los sobrevivientes de la IE Instituto Montenegro si el vagón del antiguo tren que usamos como refugio se está moviendo realmente hacia el abismo o si es solo una ilusión óptica causada por las nubes de ceniza ácida que pasan a su alrededor?***\n\nPara resolver este misterio, primero debemos entender la naturaleza del reposo y del movimiento.\n\n<div style=\"text-align: center; margin: 20px 0;\">\n  <svg width=\"100%\" height=\"160\" viewBox=\"0 0 400 160\" style=\"background-color:#1a1a1a; border-radius:8px; border: 2px solid #ff3333;\" xmlns=\"http://www.w3.org/2000/svg\">\n    <!-- El abismo -->\n    <path d=\"M 280 160 L 280 90 L 400 90\" stroke=\"#8b0000\" stroke-width=\"4\" fill=\"none\"/>\n    <text x=\"340\" y=\"80\" fill=\"#ff3333\" font-family=\"sans-serif\" font-size=\"12\" text-anchor=\"middle\">EL ABISMO</text>\n    \n    <!-- Vagón Refugio -->\n    <rect x=\"40\" y=\"80\" width=\"140\" height=\"50\" fill=\"#4a4a4a\" rx=\"6\" stroke=\"#888\" stroke-width=\"2\"/>\n    <circle cx=\"70\" cy=\"135\" r=\"10\" fill=\"#2b2b2b\" stroke=\"#555\"/>\n    <circle cx=\"150\" cy=\"135\" r=\"10\" fill=\"#2b2b2b\" stroke=\"#555\"/>\n    <text x=\"110\" y=\"110\" fill=\"#ffffff\" font-family=\"sans-serif\" font-size=\"10\" text-anchor=\"middle\">VAGÓN REFUGIO</text>\n    \n    <!-- Nubes tóxicas en movimiento -->\n    <path d=\"M 20 30 Q 50 10 80 30 T 140 30\" stroke=\"#888\" stroke-width=\"3\" fill=\"none\" stroke-dasharray=\"4\"/>\n    <path d=\"M 180 40 Q 210 20 240 40 T 300 40\" stroke=\"#666\" stroke-width=\"3\" fill=\"none\" stroke-dasharray=\"4\"/>\n    <text x=\"240\" y=\"15\" fill=\"#00ffcc\" font-family=\"sans-serif\" font-size=\"10\">Dirección de la Ceniza (Viento)</text>\n  </svg>\n</div>\n\n## Indagación de Campo: Observando las Pistas\n\nNuestros centinelas reportan pánico: afirman que las nubes de ceniza viajan hacia el norte a gran velocidad, y que al mirar por las rendijas, el vagón parece deslizarse en dirección contraria, directo hacia el desfiladero. Sin embargo, los sensores de suelo no reportan vibraciones mecánicas. \n\nPara empezar a organizar nuestros pensamientos de detective, descifra estos conceptos clave que el tiempo ha borrado de los libros:\n\n*   [JUEGO:ORDENAR_LETRAS:REPOSO]\n*   [JUEGO:ORDENAR_LETRAS:MOVIMIENTO]\n\n¿Estaremos realmente al borde de la caída? Analicemos los testimonios mediante una tabla de observaciones recopiladas por los estudiantes de grado sexto:\n\n<table border=\"1\" style=\"width:100%; border-collapse: collapse; background-color:#2a2a2a; color:#fff; text-align:center;\">\n  <thead>\n    <tr style=\"background-color:#444;\">\n      <th>Observador</th>\n      <th>Punto de Referencia Elegido</th>\n      <th>Estado Percibido del Vagón</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>Centinela Interno (Vagón)</td>\n      <td>Nubes de Ceniza</td>\n      <td>En Movimiento (hacia atrás)</td>\n    </tr>\n    <tr>\n      <td>Explorador Externo (Roca del Suelo)</td>\n      <td>Pared del Vagón</td>\n      <td>En Reposo (Inmóvil)</td>\n    </tr>\n  </tbody>\n</table>\n\n*   [JUEGO:ORDENAR_FRASE:EL MOVIMIENTO ES RELATIVO]\n*   [JUEGO:ORDENAR_FRASE:TODO DEPENDE DEL PUNTO DE REFERENCIA]\n\nPara profundizar en estas pistas, juguemos un poco con la terminología de supervivencia:\n\n*   [JUEGO:SOPA_LETRAS:CINEMATICA,REPOSO,SISTEMA]\n*   [JUEGO:SOPA_LETRAS:MOVIMIENTO,OBSERVADOR,DISTANCIA]\n\n¿Logras ver la contradicción? Dos observadores entrenados ven cosas completamente distintas del mismo vagón. Resolvamos esto usando la lógica deductiva.\n\n*   [JUEGO:CRUCIGRAMA:Lugar desde donde se observa|REFERENCIA;Estado de no movimiento|REPOSO]\n*   [JUEGO:CRUCIGRAMA:Cambio de posicion|MOVIMIENTO;Camino recorrido|TRAYECTORIA]",
+  "recurso_visual": "mermaid\ngraph TD\n    A[¿El Vagón se Mueve?] --> B{¿Qué punto de referencia usas?}\n    B -->|Las Nubes de Ceniza| C[Sí se mueve - Movimiento Relativo]\n    B -->|El Suelo Rocoso| D[No se mueve - Reposo Relativo]\n    C --> E[Ilusión Óptica: El aire se desplaza, no el vagón]\n    D --> F[Seguridad: El refugio está a salvo]\n",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "¿Por qué es difícil determinar el movimiento del vagón usando solo las nubes como referencia?",
+      "respuesta_esperada": "Porque las nubes también están en movimiento constante respecto al suelo, lo que confunde al observador al no tener un punto fijo real."
+    },
+    {
+      "pregunta": "Si un árbol seco en el abismo está quieto respecto al suelo, ¿cómo nos ayuda a resolver el misterio?",
+      "respuesta_esperada": "Sirve como un punto de referencia fijo y confiable para comprobar si la distancia entre el vagón y el árbol cambia con el tiempo."
+    },
+    {
+      "pregunta": "¿Qué ocurre con la posición de un objeto en reposo respecto a su observador a lo largo del tiempo?",
+      "respuesta_esperada": "Su posición no cambia, se mantiene constante en todas las coordenadas del sistema de referencia adoptado."
+    },
+    {
+      "pregunta": "¿Cómo definirías 'movimiento' con tus propias palabras tras analizar el caso del vagón?",
+      "respuesta_esperada": "Es el cambio de posición que experimenta un cuerpo a lo largo del tiempo respecto a un punto de referencia que se considera fijo."
+    },
+    {
+      "pregunta": "Si caminas dentro del vagón mientras este se desplaza, ¿estás en reposo o en movimiento? Explica.",
+      "respuesta_esperada": "Depende. Estás en movimiento respecto al suelo exterior, pero en reposo respecto al vagón si te sientas, o en movimiento relativo dentro de él si caminas."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "RETO 1: Dibuja el vagón de la IE Instituto Montenegro desde la perspectiva de alguien que está adentro (viendo pasar las cenizas) y de alguien que está afuera en una roca firme.",
+    "RETO 2: Explica de forma escrita por qué dos personas honestas pueden tener opiniones opuestas sobre si el vagón se está cayendo al abismo.",
+    "RETO 3: Escribe un micro-relato de suspenso post-apocalíptico donde uses la física del movimiento para calmar a los habitantes del refugio.",
+    "RETO 4: Diseña un experimento simple usando un péndulo casero colgado en el techo del vagón para detectar aceleraciones físicas reales."
+  ],
+  "texto_deductivo": "# El Marco Teórico del Detective de la Física\n\nPara certificar científicamente que nuestro refugio en la **IE Instituto Montenegro** está a salvo, debemos formalizar nuestros conocimientos de cinemática elemental. El misterio se resuelve utilizando el concepto fundamental de **Sistema de Referencia**.\n\n<div style=\"text-align: center; margin: 20px 0;\">\n  <svg width=\"100%\" height=\"160\" viewBox=\"0 0 500 160\" style=\"background-color:#111216; border-radius:8px; border: 1px solid #00ffcc;\" xmlns=\"http://www.w3.org/2000/svg\">\n    <!-- Ejes coordenados -->\n    <line x1=\"50\" y1=\"130\" x2=\"250\" y2=\"130\" stroke=\"#00ffcc\" stroke-width=\"2\" marker-end=\"url(#arrow)\"/>\n    <line x1=\"50\" y1=\"130\" x2=\"50\" y2=\"20\" stroke=\"#00ffcc\" stroke-width=\"2\"/>\n    <text x=\"245\" y=\"145\" fill=\"#00ffcc\" font-family=\"sans-serif\" font-size=\"10\">Eje X (Distancia)</text>\n    <text x=\"25\" y=\"30\" fill=\"#00ffcc\" font-family=\"sans-serif\" font-size=\"10\">Eje Y</text>\n    \n    <!-- Observador en el origen -->\n    <circle cx=\"50\" cy=\"130\" r=\"8\" fill=\"#ff5555\"/>\n    <text x=\"65\" y=\"125\" fill=\"#ff5555\" font-family=\"sans-serif\" font-size=\"9\">Punto de Referencia (Suelo)</text>\n    \n    <!-- Trayectoria y Posición -->\n    <path d=\"M 90 100 Q 140 50 200 80\" stroke=\"#ffff55\" stroke-width=\"2\" fill=\"none\" stroke-dasharray=\"3\"/>\n    <circle cx=\"200\" cy=\"80\" r=\"6\" fill=\"#00ff00\"/>\n    <text x=\"200\" y=\"70\" fill=\"#00ff00\" font-family=\"sans-serif\" font-size=\"10\">Posición Final (Vagón)</text>\n    <text x=\"130\" y=\"60\" fill=\"#ffff55\" font-family=\"sans-serif\" font-size=\"9\">Trayectoria de la Ceniza</text>\n  </svg>\n</div>\n\n## Conceptos Fundamentales de Cinemática\n\n1.  **Movimiento**: Es el cambio de posición de un cuerpo a lo largo del tiempo respecto a un sistema de referencia seleccionado.\n2.  **Reposo**: Estado en el cual la posición de un cuerpo no varía respecto al marco de referencia en un intervalo de tiempo.\n3.  **Sistema de Referencia**: Objeto o conjunto de objetos que consideramos fijos para poder realizar mediciones de posición y distancia.\n\nCompletemos las fichas técnicas del manual del detective con estos conceptos ordenados:\n\n*   [JUEGO:ORDENAR_LETRAS:REFERENCIA]\n*   [JUEGO:ORDENAR_LETRAS:TRAYECTORIA]\n*   [JUEGO:ORDENAR_LETRAS:POSICION]\n\n*   [JUEGO:ORDENAR_FRASE:EL PUNTO DE REFERENCIA ES CLAVE]\n*   [JUEGO:ORDENAR_FRASE:NADA ESTA EN REPOSO ABSOLUTO]\n*   [JUEGO:ORDENAR_FRASE:LA CINEMATICA ESTUDIA EL MOVIMIENTO]\n\n## La Solución Científica al Misterio\n\nEl vagón está en **reposo absoluto** respecto a la corteza terrestre del municipio de Montenegro, pero está en **movimiento relativo** respecto a las densas nubes de ceniza ácida que viajan arrastradas por el viento post-apocalíptico.\n\nPara consolidar este descubrimiento científico, resuelve los siguientes acertijos del laboratorio:\n\n*   [JUEGO:SOPA_LETRAS:TIEMPO,ESPACIO,VELOCIDAD]\n*   [JUEGO:SOPA_LETRAS:POSICION,TRAYECTORIA,DESPLAZAMIENTO]\n*   [JUEGO:SOPA_LETRAS:FISICA,DINAMICA,ESTATICA]\n\n*   [JUEGO:CRUCIGRAMA:Magnitud que mide la duracion|TIEMPO;Espacio entre dos puntos|DISTANCIA]\n*   [JUEGO:CRUCIGRAMA:El que mira el suceso|OBSERVADOR;Lugar del espacio|POSICION]\n*   [JUEGO:CRUCIGRAMA:Ciencia que estudia la materia|FISICA;Rama de la fisica que estudia el movimiento sin sus causas|CINEMATICA]\n\nCon esta evidencia, podemos certificar que nuestro refugio de la **IE Instituto Montenegro** es estructuralmente seguro y que la caída al abismo fue una falsa alarma sensorial.",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "¿Qué es un sistema de referencia y por qué es indispensable en la cinemática?",
+      "notes_detective": "Recuerda el vagón.",
+      "respuesta_esperada": "Es un punto físico o coordenado desde el cual se realizan mediciones y observaciones. Sin él, es imposible definir si un objeto está quieto o moviéndose."
+    },
+    {
+      "pregunta": "¿Cuál es la diferencia matemática y conceptual entre reposo absoluto y reposo relativo?",
+      "notes_detective": "La Tierra gira en el espacio.",
+      "respuesta_esperada": "El reposo absoluto no existe en el universo porque todo se mueve a nivel estelar. El reposo relativo es aquel medido respecto a un punto de referencia local específico."
+    },
+    {
+      "pregunta": "Si la Tierra rota constantemente, ¿por qué afirmamos que el tablero de la clase está en reposo?",
+      "notes_detective": "Analiza nuestro marco de referencia diario.",
+      "respuesta_esperada": "Porque nuestro sistema de referencia es el edificio de la institución educativa, respecto al cual el tablero no cambia de posición en el tiempo."
+    },
+    {
+      "pregunta": "¿Qué papel juega el tiempo en la definición formal de cambio de posición?",
+      "notes_detective": "El tiempo avanza sin detenerse.",
+      "respuesta_esperada": "El tiempo actúa como la variable independiente que nos permite verificar si las coordenadas de posición varían secuencialmente."
+    },
+    {
+      "pregunta": "Describe un ejemplo cotidiano de la IE Instituto Montenegro donde un cuerpo cambie de posición pero no de trayectoria.",
+      "notes_detective": "Piensa en un ascensor de carga o una cuerda.",
+      "respuesta_esperada": "Una polea de rescate subiendo en línea recta vertical; cambia su coordenada de altura pero su trayectoria lineal se mantiene fija sobre el eje Y."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "DESAFÍO 1: Elabora un mapa conceptual detallado que relacione los términos: Posición, Movimiento, Reposo, Observador, Tiempo y Sistema de Referencia.",
+    "DESAFÍO 2: Plantea un problema matemático hipotético donde calcules el cambio de posición del vagón si este deslizara 2 metros cada segundo respecto a un acantilado.",
+    "DESAFÍO 3: Redacta un informe pericial formal (de una página) dirigido al consejo de supervivencia de la IE Instituto Montenegro, explicando los hallazgos del caso.",
+    "DESAFÍO 4: Explica mediante un ejemplo astronómico por qué el sol parece moverse en el cielo de Montenegro a pesar de estar fijo en el centro del sistema solar."
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de fenómenos",
+      "texto_introductorio": "Durante una exploración de control físico en el patio de la IE Instituto Montenegro, un estudiante arroja una linterna verticalmente hacia arriba mientras corre a velocidad constante hacia el refugio. Desde la distancia, un centinela inmóvil en una torre de guardia observa todo el proceso bajo la luz de la luna ácida.",
+      "tabla_o_grafica_markdown": "| Observador | Trayectoria Observada de la Linterna |\n| :--- | :--- |\n| Estudiante en carrera | Línea recta vertical (sube y baja) |\n| Centinela en la torre | Curva parabólica (hacia adelante) |",
+      "pregunta": "De acuerdo con los principios de la cinemática analizados por el Detective de Misterios, ¿cuál de las siguientes afirmaciones explica correctamente la diferencia entre las observaciones?",
+      "opciones": [
+        "El centinela tiene la razón absoluta porque se encuentra en un sistema de referencia fijo sobre la superficie terrestre.",
+        "Ambos observadores describen correctamente el fenómeno físico, ya que la trayectoria medida depende del sistema de referencia seleccionado.",
+        "El estudiante comete un error de percepción óptica debido al cansancio físico de correr en terreno inclinado.",
+        "La linterna experimenta dos fuerzas gravitacionales distintas que deforman el espacio en diferentes puntos del patio de recreo."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. No existen sistemas de referencia absolutos en la física mecánica.",
+        "1": "¡Correcto detective! El movimiento y la trayectoria son propiedades relativas al sistema de referencia de cada observador.",
+        "2": "Incorrecto. No es una distorsión por fatiga física, es un principio geométrico y físico fundamental de la cinemática.",
+        "3": "Incorrecto. La gravedad actúa de igual forma para ambos; la diferencia en la trayectoria es meramente geométrica y de referencia."
+      }
+    }
+  ]
+}

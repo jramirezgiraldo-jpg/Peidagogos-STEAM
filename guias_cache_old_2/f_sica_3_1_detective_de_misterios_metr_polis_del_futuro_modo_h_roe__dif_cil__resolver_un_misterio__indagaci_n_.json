@@ -1,0 +1,114 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "En la Metrópolis del Futuro, un dron de vigilancia se queda sin energía. ¿Qué determina la forma de su caída hacia la superficie?",
+      "opciones": [
+        "La presión atmosférica únicamente.",
+        "La fuerza de gravedad y su velocidad tangencial.",
+        "El color del chasis del dron.",
+        "La voluntad de la Inteligencia Artificial Central."
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Quién fue el primer 'detective espacial' en proponer que las órbitas no son círculos perfectos sino elipses?",
+      "opciones": [
+        "Isaac Newton",
+        "Albert Einstein",
+        "Johannes Kepler",
+        "Galileo Galilei"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "Si un satélite aumenta su distancia respecto al planeta, ¿qué sucede con su velocidad orbital para mantenerse estable?",
+      "opciones": [
+        "Aumenta proporcionalmente.",
+        "Se mantiene exactamente igual.",
+        "Disminuye según las leyes de la mecánica celeste.",
+        "Se vuelve errática."
+      ],
+      "correcta": 2
+    }
+  ],
+  "texto_inductivo": "### Expediente 001: El Enigma de las Esferas Errantes\n\nSaludos, Cadete del Escuadrón de Investigación. Te encuentras en la Metrópolis del Futuro, un lugar donde los rascacielos rozan la ionosfera y los satélites de transporte son nuestras arterias. Sin embargo, algo va mal. Los sensores indican que las estaciones orbitales están desviándose de sus rutas previstas. ***¿Si la gravedad es una fuerza de atracción constante, por qué los satélites de la Metrópolis del Futuro no caen instantáneamente hacia el núcleo del planeta, y qué pistas nos dejaron los antiguos astrónomos para predecir sus trayectorias exactas?*** [JUEGO:ORDENAR_LETRAS:GRAVEDAD]\n\nPara resolver este misterio, debemos consultar los Archivos Prohibidos de Johannes Kepler. Él descubrió que los planetas no bailan en círculos perfectos. [JUEGO:ORDENAR_FRASE:LAS ORBITAS SON ELIPTICAS] Su Primera Ley nos dice que los planetas describen elipses. [JUEGO:SOPA_LETRAS:ELIPSE,FOCO,SOL] \n\n<div style='background-color: #1a1a1a; padding: 20px; border-radius: 10px; border: 2px solid #00ffcc; color: white; text-align: center;'>\n  <h4>Diagrama de Órbita Elíptica (Sector Kepler)</h4>\n  <svg viewBox='0 0 400 200' width='100%' height='200'>\n    <ellipse cx='200' cy='100' rx='150' ry='70' style='fill:none;stroke:#00ffcc;stroke-width:2' />\n    <circle cx='130' cy='100' r='15' style='fill:#ffcc00' />\n    <text x='115' y='135' fill='white' font-size='12'>Foco (Sol/Núcleo)</text>\n    <circle cx='350' cy='100' r='8' style='fill:#00ccff' />\n    <text x='320' y='85' fill='white' font-size='12'>Estación Orbital</text>\n    <line x1='130' y1='100' x2='350' y2='100' style='stroke:red;stroke-dasharray:4' />\n    <text x='210' y='115' fill='red' font-size='10'>Radio Vector</text>\n  </svg>\n  <p><i>La Estación se mueve más rápido cuando está cerca del Foco (Perihelio) y más lento cuando está lejos (Afelio).</i></p>\n</div>\n\nSiguiendo con la investigación, la Segunda Ley de Kepler es vital: el radio vector que une al planeta con el sol barre áreas iguales en tiempos iguales. [JUEGO:ORDENAR_FRASE:RADIO VECTOR BARRE AREAS IGUALES] Esto significa que la velocidad no es constante. [JUEGO:CRUCIGRAMA:Astro central|SOL;Trayectoria curva|ORBITA] Si nuestra estación orbital se ralentiza en el punto equivocado, ¡colapsará! [JUEGO:ORDENAR_LETRAS:PLANETA] \n\nLa Tercera Ley nos da la fórmula maestra: el cuadrado del periodo orbital es proporcional al cubo de la distancia media al Sol. [JUEGO:SOPA_LETRAS:TIEMPO,RADIO,CUBO] [JUEGO:CRUCIGRAMA:Forma de huevo|ELIPSE;Punto de enfoque|FOCO] Es una danza matemática de precisión absoluta. [JUEGO:ORDENAR_LETRAS:KEPLER]\n\n<table style='width:100%; border-collapse: collapse; background-color: #222; color: #00ffcc;'>\n  <thead>\n    <tr style='border-bottom: 2px solid #00ffcc;'>\n      <th style='padding: 10px;'>Ley de Kepler</th>\n      <th style='padding: 10px;'>Concepto Clave</th>\n      <th style='padding: 10px;'>Evidencia Visual</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td style='padding: 10px;'>Primera</td>\n      <td style='padding: 10px;'>Órbitas Elípticas</td>\n      <td style='padding: 10px;'>Elipses no círculos</td>\n    </tr>\n    <tr>\n      <td style='padding: 10px;'>Segunda</td>\n      <td style='padding: 10px;'>Áreas Iguales</td>\n      <td style='padding: 10px;'>Velocidad variable</td>\n    </tr>\n    <tr>\n      <td style='padding: 10px;'>Tercera</td>\n      <td style='padding: 10px;'>Armonía de Distancias</td>\n      <td style='padding: 10px;'>T² es proporcional a R³</td>\n    </tr>\n  </tbody>\n</table>\n\nAgente, ordena estas ideas antes de que el sistema falle. [JUEGO:ORDENAR_FRASE:EL SOL OCUPA UN FOCO] El tiempo corre. [JUEGO:SOPA_LETRAS:MASA,PESO,FUERZA] Necesitamos entender cómo la posición afecta la aceleración de estas moles de metal. [JUEGO:CRUCIGRAMA:Cuerpo celeste|PLANETA;Centro magnetico|NUCLEO] [JUEGO:ORDENAR_LETRAS:ORBITA] [JUEGO:ORDENAR_FRASE:TODO CUERPO PERMANECE EN REPOSO] [JUEGO:SOPA_LETRAS:ESPACIO,VACIO,LUZ] [JUEGO:CRUCIGRAMA:Atraccion|GRAVEDAD;Masa|MATERIA] [JUEGO:ORDENAR_LETRAS:ELIPSE] [JUEGO:ORDENAR_FRASE:EL CUADRADO DEL PERIODO ES PROPORCIONAL] [JUEGO:SOPA_LETRAS:LEYES,FISICA,CIENCIA] [JUEGO:CRUCIGRAMA:Trayecto|CAMINO;Tiempo|PERIODO]",
+  "recurso_visual": "graph TD\n    A[Movimiento Planetario] --> B[Leyes de Kepler]\n    B --> C[1. Ley de Orbitas: Elipses]\n    B --> D[2. Ley de Áreas: Velocidad Variable]\n    B --> E[3. Ley de Periodos: T^2 / R^3 = K]\n    A --> F[Cinemática Estelar]\n    F --> G[Posición]\n    F --> H[Velocidad]\n    F --> I[Aceleración Centripeta]",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "¿Por qué Kepler descartó el modelo de órbitas circulares perfectas?",
+      "respuesta_esperada": "Porque los datos observacionales (especialmente de Marte) no encajaban con círculos perfectos, mostrando que las órbitas son elípticas."
+    },
+    {
+      "pregunta": "Si un satélite está en el 'Afelio' (punto más lejano), ¿su velocidad es máxima o mínima?",
+      "respuesta_esperada": "Su velocidad es mínima, ya que según la segunda ley de Kepler, al estar más lejos debe cubrir un arco menor para barrer la misma área."
+    },
+    {
+      "pregunta": "¿Qué elemento ocupa uno de los focos en la elipse de los planetas del Sistema Solar?",
+      "respuesta_esperada": "El Sol ocupa uno de los focos de la elipse."
+    },
+    {
+      "pregunta": "Si la distancia media de un planeta al Sol se triplica, ¿qué sucede con su periodo orbital?",
+      "respuesta_esperada": "El periodo orbital aumenta significativamente, ya que el cuadrado del periodo es proporcional al cubo de la distancia (T² ∝ R³)."
+    },
+    {
+      "pregunta": "¿Cómo ayuda la cinemática a describir el movimiento de los satélites en la Metrópolis?",
+      "respuesta_esperada": "Permite definir su posición exacta en la elipse, su velocidad tangencial cambiante y la aceleración necesaria para mantener la órbita."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema detallado de una órbita elíptica, señalando los focos, el perihelio, el afelio y sombreando dos sectores de 'áreas iguales' según la Segunda Ley de Kepler.",
+    "Realiza un cuadro comparativo entre el modelo geocéntrico (antiguo) y el modelo de Kepler, destacando la forma de las órbitas y la posición de los astros.",
+    "Redacta un informe de detective de 10 líneas explicando cómo la Tercera Ley de Kepler permite a los ingenieros de la Metrópolis predecir la posición de un satélite lejano.",
+    "Representa gráficamente mediante un vector la velocidad de un planeta en tres puntos diferentes de su órbita elíptica, variando la longitud del vector según la velocidad."
+  ],
+  "texto_deductivo": "### El Informe Newton: La Mecánica Detrás del Misterio\n\nBien hecho, Cadete. Ya sabemos *cómo* se mueven, pero ahora debemos entender *por qué*. Isaac Newton, el gran detective de la física clásica, conectó las leyes de Kepler con la caída de una manzana. [JUEGO:ORDENAR_LETRAS:NEWTON] La respuesta a nuestra pregunta problematizadora reside en la **Ley de Gravitación Universal**. [JUEGO:SOPA_LETRAS:METER,KILO,SEGUNDO] \n\n<div style='background-color: #001a33; border: 3px double #00ffcc; padding: 15px; font-family: monospace; color: #00ffcc;'>\n  <h2 style='text-align: center;'>F = G * (m1 * m2) / r²</h2>\n  <p style='font-size: 1.2rem;'>Donde:</p>\n  <ul>\n    <li><b>F:</b> Fuerza de atracción (Newtons)</li>\n    <li><b>G:</b> Constante gravitacional</li>\n    <li><b>m1, m2:</b> Masas de los cuerpos</li>\n    <li><b>r:</b> Distancia entre centros</li>\n  </ul>\n</div>\n\nNewton explicó que los satélites de nuestra Metrópolis están en una 'caída libre perpetua'. [JUEGO:ORDENAR_FRASE:FUERZA ES IGUAL A MASA POR ACELERACION] Tienen tanta velocidad tangencial que, mientras caen por la gravedad, la superficie de la Tierra se curva debajo de ellos. [JUEGO:SOPA_LETRAS:NORMA,VECTOR,ESCUALAR] \n\nPara que un satélite no se estrelle, su **aceleración centrípeta** debe ser provista exactamente por la gravedad. [JUEGO:ORDENAR_LETRAS:ACELERACION] [JUEGO:CRUCIGRAMA:Cambio v|ACELERACION;Distancia sobre tiempo|VELOCIDAD] Si la velocidad disminuye, la inercia no es suficiente y el misterio termina en catástrofe. [JUEGO:ORDENAR_LETRAS:INERCIA] [JUEGO:ORDENAR_FRASE:LA VELOCIDAD ES CAMBIO DE POSICION]\n\nEn la cinemática de la Metrópolis, la posición se define mediante vectores. [JUEGO:SOPA_LETRAS:RECTA,CURVA,PUNTO] [JUEGO:CRUCIGRAMA:Lugar exacto|POSICION;Magnitud con direccion|VECTOR] La velocidad es la derivada de la posición respecto al tiempo. [JUEGO:ORDENAR_LETRAS:VELOCIDAD] [JUEGO:ORDENAR_FRASE:A TODA ACCION UNA REACCION] \n\nFinalmente, la aceleración es el cambio de esa velocidad. [JUEGO:SOPA_LETRAS:CAIDA,LIBRE,AIRE] [JUEGO:CRUCIGRAMA:Inercia autor|NEWTON;Fuerza planetaria|GRAVEDAD] Todo en el universo sigue estas leyes inquebrantables. [JUEGO:ORDENAR_LETRAS:POSICION] [JUEGO:ORDENAR_FRASE:LA ACELERACION ES CAMBIO DE VELOCIDAD] [JUEGO:SOPA_LETRAS:ALTA,BAJA,MEDIA] [JUEGO:CRUCIGRAMA:Rapidez|VELOCIDAD;Energia movimiento|CINETICA] Si dominas la ecuación, dominas el futuro de la Metrópolis. [JUEGO:ORDENAR_FRASE:LA TIERRA GIRA ALREDEDOR DEL SOL] [JUEGO:SOPA_LETRAS:MASA,PESO,FUERZA] [JUEGO:CRUCIGRAMA:Energia reposo|POTENCIAL;Cuerpo|PLANETA]",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "¿Qué sucedería con la fuerza de atracción si la distancia entre dos planetas se duplica?",
+      "restpuesta_esperada": "La fuerza se reduciría a la cuarta parte (1/4), ya que la fuerza es inversamente proporcional al cuadrado de la distancia."
+    },
+    {
+      "pregunta": "¿Qué es lo que mantiene a un satélite en órbita en lugar de salir disparado al espacio?",
+      "respuesta_esperada": "La fuerza de gravedad actúa como una fuerza centrípeta que curva constantemente su trayectoria."
+    },
+    {
+      "pregunta": "¿En qué se diferencia la masa del peso en el contexto de la Metrópolis del Futuro?",
+      "respuesta_esperada": "La masa es la cantidad de materia (constante), mientras que el peso es la fuerza gravitatoria ejercida sobre esa masa (varía según la gravedad del lugar)."
+    },
+    {
+      "pregunta": "Si un objeto se mueve con velocidad constante en una órbita circular, ¿tiene aceleración?",
+      "respuesta_esperada": "Sí, tiene aceleración centrípeta, porque aunque su rapidez es constante, la dirección de su velocidad cambia continuamente."
+    },
+    {
+      "pregunta": "¿Cuál es la relación entre la Segunda Ley de Newton (F=ma) y la gravitación?",
+      "respuesta_esperada": "La fuerza de gravitación es la 'F' que produce la aceleración centrípeta 'a' necesaria para mantener el movimiento circular o elíptico."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Realiza un diagrama detallado que muestre un satélite en órbita, dibujando y etiquetando los vectores de Velocidad Tangencial, Fuerza Gravitatoria y Aceleración Centrípeta.",
+    "Elabora un mapa mental que conecte los conceptos de: Masa, Distancia, Fuerza Gravitatoria, Velocidad Orbital y Periodo.",
+    "Dibuja una infografía artesanal que explique por qué un satélite no se cae a la Tierra, usando el concepto de 'caída libre circular'.",
+    "Crea un gráfico comparativo de Posición vs. Tiempo para un objeto en Movimiento Rectilíneo Uniforme frente a un objeto en órbita (Movimiento Curvilíneo)."
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "En la Estación Espacial de la Metrópolis, los ingenieros observan que un satélite de comunicaciones ha perdido velocidad tangencial debido a un choque con basura espacial. Los datos actuales son:",
+      "tabla_o_grafica_markdown": "| Variable | Estado Antes del Choque | Estado Después |\n|---|---|---|\n| Radio Orbital | 42,000 km | 42,000 km |\n| Velocidad Tangencial | 3.07 km/s | 2.50 km/s |\n| Fuerza Gravitacional | F | F |",
+      "pregunta": "¿Cuál es la consecuencia más probable de esta pérdida de velocidad si no se activan los propulsores?",
+      "opciones": [
+        "El satélite mantendrá su órbita actual porque la gravedad no ha cambiado.",
+        "El satélite describirá una espiral descendente hacia el planeta porque la fuerza centrípeta requerida es mayor a la velocidad actual.",
+        "El satélite saldrá disparado hacia el espacio exterior por la inercia.",
+        "El satélite se detendrá en seco en el espacio."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. La gravedad ahora es más fuerte que la inercia necesaria para mantener ese radio orbital.",
+        "1": "Correcto. Al disminuir la velocidad tangencial, la gravedad domina y atrae al satélite hacia el centro, iniciando un reingreso atmosférico.",
+        "2": "Incorrecto. Para salir disparado necesitaría aumentar su velocidad (velocidad de escape).",
+        "3": "Incorrecto. En el espacio no hay fricción que detenga un objeto instantáneamente; la gravedad seguirá actuando."
+      }
+    }
+  ]
+}

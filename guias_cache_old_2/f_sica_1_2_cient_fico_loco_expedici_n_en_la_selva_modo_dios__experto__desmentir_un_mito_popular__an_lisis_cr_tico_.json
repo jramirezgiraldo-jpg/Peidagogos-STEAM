@@ -1,0 +1,87 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "Vas en el bus escolar del Instituto Montenegro y dejas caer tu manzana. Para ti, cae recta. Para alguien en la carretera, la manzana se mueve en una curva. ¿Quién tiene la razón científica?",
+      "opciones": [
+        "Ambos, porque el movimiento depende del punto de vista (Sistema de Referencia).",
+        "El del bus, porque la gravedad solo funciona de forma vertical perfecta.",
+        "El de la carretera, porque él no se está moviendo en absoluto.",
+        "Ninguno, la manzana entra en un estado cuántico de flotación selvática."
+      ],
+      "correcta": 0
+    },
+    {
+      "pregunta": "Si un jaguar de la selva da una vuelta completa alrededor de un árbol gigante de Ceiba de 5 metros de diámetro y regresa al mismo punto de partida, su desplazamiento final es:",
+      "opciones": [
+        "Exactamente 15.7 metros (el perímetro del árbol).",
+        "Cero, porque su posición inicial y final son idénticas.",
+        "Depende de la velocidad a la que corrió el jaguar.",
+        "Infinito, porque el espacio-tiempo en la selva se curva."
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "Para localizar la posición exacta de una ruina arqueológica oculta en la selva, ¿qué conjunto de datos mínimos necesitas obligatoriamente?",
+      "opciones": [
+        "Un punto de origen (referencia), una distancia y una dirección.",
+        "Solo la distancia desde la entrada de la selva.",
+        "La hora del día y la temperatura del suelo.",
+        "La trayectoria que siguieron los antiguos exploradores."
+      ],
+      "correcta": 0
+    }
+  ],
+  "texto_inductivo": "¡MUAHAHAHA! ¡Bienvenidos, mis jóvenes especímenes de laboratorio del grado sexto de la IE Instituto Montenegro! Soy el Doctor Newton Von Krafft, su guía científico loco en esta demencial expedición por la selva húmeda tropical. ¡Preparen sus brújulas de precisión, sus cuadernos impermeables y sus cerebros hiperactivos! \n\nHoy vamos a destrozar una de las leyendas urbanas más absurdas que los guías supersticiosos repiten en los cafetales y selvas del Quindío: *\"El Mito del Camino de la Cascabel\"*. Dicen los lugareños que este sendero cambia de longitud según el miedo que le tengas a las serpientes, y que su posición en el mapa se altera mágicamente si caminas de noche. ¡Qué soberana tontería pseudocientífica! \n\nPara pulverizar este mito, debemos responder a nuestra gran pregunta de investigación:\n\n**_¿Cómo puede un estudiante de la IE Instituto Montenegro demostrar científicamente que el 'Atajo de la Cascabel' en la selva del Quindío no mide kilómetros infinitos, desmitificando la leyenda urbana de que la distancia recorrida y la trayectoria cambian según el miedo del caminante, usando únicamente un sistema de referencia físico?_**\n\n<svg viewBox=\"0 0 600 250\" width=\"100%\" height=\"250\" style=\"background-color:#112211; border: 3px solid #00ff66; border-radius: 8px; font-family: monospace;\">\n  <!-- Cuadrícula del mapa de la selva -->\n  <defs>\n    <pattern id=\"grid\" width=\"30\" height=\"30\" patternUnits=\"userSpaceOnUse\">\n      <path d=\"M 30 0 L 0 0 0 30\" fill=\"none\" stroke=\"#004411\" stroke-width=\"1\"/>\n    </pattern>\n  </defs>\n  <rect width=\"100%\" height=\"100%\" fill=\"url(#grid)\" />\n  \n  <!-- Camino de la Cascabel (Trayectoria) -->\n  <path d=\"M 50 180 Q 150 50 300 180 T 550 80\" fill=\"none\" stroke=\"#ffcc00\" stroke-width=\"4\" stroke-dasharray=\"5,5\" id=\"trayectoria\"/>\n  \n  <!-- Vector Desplazamiento (Línea Recta) -->\n  <line x1=\"50\" y1=\"180\" x2=\"550\" y2=\"80\" stroke=\"#00ff66\" stroke-width=\"3\" marker-end=\"url(#arrow)\"/>\n  \n  <!-- Puntos Clave -->\n  <circle cx=\"50\" cy=\"180\" r=\"8\" fill=\"#ff3333\" />\n  <text x=\"40\" y=\"210\" fill=\"#ff3333\" font-size=\"12\" font-weight=\"bold\">CAMPAMENTO (Origen: Xi)</text>\n  \n  <circle cx=\"550\" cy=\"80\" r=\"8\" fill=\"#3333ff\" />\n  <text x=\"460\" y=\"60\" fill=\"#3333ff\" font-size=\"12\" font-weight=\"bold\">RUINAS (Fin: Xf)</text>\n  \n  <!-- Marcador de flecha -->\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#00ff66\" />\n    </marker>\n  </defs>\n  \n  <!-- Leyenda del Científico Loco -->\n  <rect x=\"180\" y=\"10\" width=\"240\" height=\"40\" fill=\"#000000\" stroke=\"#00ff66\" rx=\"5\"/>\n  <text x=\"190\" y=\"33\" fill=\"#00ff66\" font-size=\"11\">Línea Amarilla = Trayectoria Real</text>\n  <text x=\"190\" y=\"45\" fill=\"#ffcc00\" font-size=\"9\"></text>\n</svg>\n\n¡Miren el mapa holográfico de arriba! Los guías tiemblan porque la serpiente Cascabel se arrastra por la línea curva amarilla (la **Trayectoria**). Pero nosotros, armados con la física rigurosa, sabemos que la distancia real entre el Campamento Base y las Ruinas de la Ceiba es un vector directo (el **Desplazamiento**, la línea verde). ¡No hay magia, solo geometría vectorial!\n\nResolvamos algunos desafíos mentales antes de que los mosquitos mutantes nos devoren los apuntes:\n\n[JUEGO:ORDENAR_LETRAS:POSICION]\n\n[JUEGO:ORDENAR_LETRAS:TRAYECTORIA]\n\n[JUEGO:ORDENAR_FRASE:EL PUNTO DE REFERENCIA ES CLAVE]\n\n[JUEGO:ORDENAR_FRASE:LA DISTANCIA NO ES EL DESPLAZAMIENTO]\n\n[JUEGO:SOPA_LETRAS:ORIGEN,EJE,MAPA]\n\n[JUEGO:SOPA_LETRAS:SELVA,FISICA,METRO]\n\n[JUEGO:CRUCIGRAMA:Punto donde inicias tu medición|ORIGEN;Línea imaginaria que describe un cuerpo al moverse|TRAYECTORIA]\n\n[JUEGO:CRUCIGRAMA:Distancia en línea recta entre inicio y fin|DESPLAZAMIENTO;Lugar en el espacio respecto a un origen|POSICION]\n\n¡La selva no es un laberinto místico infinito! Es simplemente un plano coordenado esperando ser medido y dominado por nuestras mentes científicas superiores. ¡Sigamos adelante antes de que mi generador de plasma se sobrecaliente!",
+  "recurso_visual": "| Variable Cinemática | ¿Qué es en realidad? (Física) | ¿Cómo se mide en la Selva? | Tipo de Magnitud |\n| :--- | :--- | :--- | :--- |\n| **Posición ($\\vec{r}$)** | Ubicación exacta de un objeto respecto a un punto cero de referencia. | Coordenadas GPS del nido del jaguar usando el árbol de Ceiba como origen (0,0). | Vectorial (Requiere dirección) |\n| **Trayectoria** | La línea imaginaria que dibuja un cuerpo al moverse por el espacio. | El rastro ondulado que deja una serpiente al arrastrarse sobre el lodo selvático. | Geométrica (Es la forma del camino) |\n| **Distancia ($d$)** | La longitud total del camino recorrido medido sobre la trayectoria. | Los metros marcados por un podómetro mientras esquivas árboles y lianas. | Escalar (Solo un número y unidad) |\n| **Desplazamiento ($\\Delta \\vec{x}$)** | El cambio neto de posición. La línea recta que une el inicio y el final. | La distancia aérea medida en línea recta por un dron desde el punto de inicio al final. | Vectorial (Tiene dirección y sentido) |",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "¿Por qué el mito de que el sendero mide diferente según el miedo de la persona no tiene sustento científico?",
+      "respuesta_esperada": "Porque la distancia recorrida sobre una trayectoria física depende únicamente de la geometría del camino y la posición espacial de los puntos, los cuales son independientes del estado emocional del observador."
+    },
+    {
+      "pregunta": "Si un explorador de Montenegro camina de un punto A a un punto B esquivando lianas en zigzag, ¿qué será mayor: la distancia medida con cinta o la magnitud del desplazamiento?",
+      "respuesta_esperada": "La distancia medida sobre la trayectoria siempre será mayor que la magnitud del desplazamiento, ya que esta última representa el camino más corto posible en línea recta entre ambos puntos."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un plano coordenado en tu cuaderno donde el origen (0,0) sea el salón de física del Instituto Montenegro. Ubica la cafetería y traza dos trayectorias diferentes para llegar a ella. Calcula de forma cualitativa cuál tiene mayor distancia.",
+    "Explica con tus propias palabras la locura matemática de cómo un explorador puede caminar 5 kilómetros por la selva buscando provisiones y terminar con un desplazamiento neto de cero metros."
+  ],
+  "texto_deductivo": "¡Silencio, especímenes! Entramos en la cámara secreta de las leyes matemáticas. Saquen sus calibradores y escuchen con atención científica: para aniquilar el mito de la subjetividad de la selva, debemos matematizar el espacio.\n\nLa **Posición** de cualquier objeto (ya sea un perezoso colgado de una liana o un estudiante de Montenegro corriendo de un enjambre de avispas) se define matemáticamente mediante un vector que apunta desde el **Origen del Sistema de Referencia** hasta el lugar exacto del objeto:\n\n$$\\vec{r} = x\\hat{i} + y\\hat{j}$$\n\nSi cambias el origen del sistema de referencia, cambias la posición matemática, ¡pero no la realidad física del objeto! He aquí el origen del mito: los exploradores perdidos cambian constantemente de punto de referencia mental, creyendo erróneamente que la selva se mueve a su alrededor.\n\n<svg viewBox=\"0 0 600 200\" width=\"100%\" height=\"200\" style=\"background-color:#0f172a; border: 2px dashed #00e5ff; border-radius: 8px; font-family: sans-serif;\">\n  <!-- Eje X de Coordenadas -->\n  <line x1=\"50\" y1=\"120\" x2=\"550\" y2=\"120\" stroke=\"#00e5ff\" stroke-width=\"2\" />\n  <polygon points=\"550,115 560,120 550,125\" fill=\"#00e5ff\" />\n  <text x=\"545\" y=\"145\" fill=\"#00e5ff\" font-size=\"12\">Eje X (Metros)</text>\n\n  <!-- Origen (Árbol Ceiba) -->\n  <line x1=\"200\" y1=\"100\" x2=\"200\" y2=\"140\" stroke=\"#ff0055\" stroke-width=\"3\" />\n  <circle cx=\"200\" cy=\"120\" r=\"6\" fill=\"#ff0055\" />\n  <text x=\"165\" y=\"85\" fill=\"#ff0055\" font-size=\"11\" font-weight=\"bold\">ORIGEN (x = 0m)</text>\n  \n  <!-- Explorador A -->\n  <circle cx=\"80\" cy=\"120\" r=\"5\" fill=\"#ffcc00\" />\n  <line x1=\"200\" y1=\"120\" x2=\"80\" y2=\"120\" stroke=\"#ffcc00\" stroke-width=\"1.5\" stroke-dasharray=\"3,3\" />\n  <text x=\"50\" y=\"150\" fill=\"#ffcc00\" font-size=\"11\">Explorador A (x = -120m)</text>\n\n  <!-- Mono en la rama -->\n  <circle cx=\"420\" cy=\"120\" r=\"5\" fill=\"#00ff66\" />\n  <line x1=\"200\" y1=\"120\" x2=\"420\" y2=\"120\" stroke=\"#00ff66\" stroke-width=\"1.5\" stroke-dasharray=\"3,3\" />\n  <text x=\"380\" y=\"150\" fill=\"#00ff66\" font-size=\"11\">Mono ruidoso (x = +220m)</text>\n  \n  <text x=\"10\" y=\"30\" fill=\"#ffffff\" font-size=\"13\" font-weight=\"bold\">Esquema de Posición Unidimensional en la Selva</text>\n</svg>\n\nAhora, analicemos matemáticamente el movimiento. Si el mono ruidoso salta del punto $x_i = +220\\text{ m}$ al punto $x_f = +120\\text{ m}$, su **Desplazamiento** ($\\Delta x$) es:\n\n$$\\Delta x = x_f - x_i = 120\\text{ m} - 220\\text{ m} = -100\\text{ m}$$\n\n¡Ese signo negativo simplemente significa que se movió hacia la izquierda del árbol de Ceiba! No hay espectros, no hay fuerzas místicas del Quindío; es simple física vectorial de grado sexto.\n\nDemuestren su inmunidad a los virus del pensamiento primitivo completando estos ejercicios lógicos aceleradores de neuronas:\n\n[JUEGO:ORDENAR_LETRAS:SISTEMA]\n\n[JUEGO:ORDENAR_LETRAS:DISTANCIA]\n\n[JUEGO:ORDENAR_LETRAS:VECTOR]\n\n[JUEGO:ORDENAR_FRASE:EL DESPLAZAMIENTO PUEDE SER CERO]\n\n[JUEGO:ORDENAR_FRASE:LA TRAYECTORIA ES EL CAMINO REAL]\n\n[JUEGO:ORDENAR_FRASE:TODO MOVIMIENTO ES RELATIVO]\n\n[JUEGO:SOPA_LETRAS:VECTOR,CINEMATICA,CAMINO]\n\n[JUEGO:SOPA_LETRAS:MEDIDA,GRAFICA,COORDENADA]\n\n[JUEGO:SOPA_LETRAS:RAPIDEZ,TIEMPO,MOVIL]\n\n[JUEGO:CRUCIGRAMA:Magnitud física que solo tiene número y unidad|ESCALAR;Magnitud que tiene dirección y sentido|VECTORIAL]\n\n[JUEGO:CRUCIGRAMA:Unidad patrón de longitud en el SI|METRO;Rama de la física que estudia el movimiento sin atender sus causas|CINEMATICA]\n\n[JUEGO:CRUCIGRAMA:Cambio de posición de un cuerpo|MOVIMIENTO]\n\n¡Excelente! Con este conocimiento de acero templado, hemos demostrado de manera incontestable que el \"Camino de la Cascabel\" tiene dimensiones fijas, constantes y perfectamente mensurables. Los mitos caen de rodillas ante la luz de la cinemática experimental. ¡MUAHAHAHA!",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "¿Cuál es la diferencia fundamental entre una magnitud escalar como la distancia y una magnitud vectorial como el desplazamiento?",
+      "text_introductorio": "Considera un explorador perdido que camina en círculos.",
+      "respuesta_esperada": "La distancia (escalar) solo indica la longitud total del trayecto recorrido sin importar la dirección, mientras que el desplazamiento (vectorial) indica el cambio neto de posición desde el origen e incluye dirección y sentido de dicho cambio."
+    },
+    {
+      "pregunta": "Si un sensor de movimiento láser detecta que una pantera se mueve de la coordenada x = -10m a la coordenada x = -50m, ¿cuál fue su desplazamiento escalar neto?",
+      "respuesta_esperada": "El desplazamiento es de -40 metros, indicando que la pantera se desplazó 40 metros en sentido negativo de nuestro eje coordenado de referencia."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Un grupo de investigación de grado sexto del Instituto Montenegro utiliza un GPS para registrar la ruta de una expedición. Al final del día, el GPS marca 'Distancia recorrida: 8.4 km', pero 'Distancia al campamento base: 0.1 km'. Explica detalladamente la diferencia matemática entre estos dos valores basándote en los conceptos de Trayectoria y Desplazamiento.",
+    "Diseña un experimento físico realizable en el patio del Instituto Montenegro para demostrar a tus compañeros de otros grados que la trayectoria que elijan para ir del arco norte al arco sur de la cancha no afecta la magnitud de su desplazamiento final."
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de fenómenos",
+      "texto_introductorio": "En la selva circundante a la IE Instituto Montenegro, dos grupos de estudiantes mapean el nido de una serpiente coral utilizando diferentes árboles centenarios como origen de su sistema de coordenadas cartesianas. El Grupo A ubica el nido en la posición rA = (12m, 5m), mientras que el Grupo B lo ubica en rB = (-3m, 20m). Un guía local afirma que la serpiente altera mágicamente la física espacial del terreno distorsionando las distancias reales.",
+      "tabla_o_grafica_markdown": "| Grupo de Estudio | Punto de Origen Elegido | Coordenada del Nido Detectada | Distancia Física Real al Nido |\n| :--- | :--- | :--- | :--- |\n| **Grupo A** | Árbol Ceiba Gigante | (12m, 5m) | 13.0 metros |\n| **Grupo B** | Árbol Caracolí Alto | (-3m, 20m) | 20.2 metros |\n| **Guía de Selva** | Creencia popular | Variable espiritual | Desconocida / Mística |",
+      "pregunta": "De acuerdo con las leyes de la cinemática, la diferencia en las coordenadas registradas por ambos grupos de investigación se debe científicamente a que:",
+      "opciones": [
+        "La posición es una magnitud relativa que depende de la ubicación del origen del Sistema de Referencia elegido por cada grupo.",
+        "La serpiente coral tiene la capacidad biológica de modificar la estructura geométrica del plano terrestre a voluntad.",
+        "El Grupo B cometió un error grave de medición instrumental ya que la posición de un objeto en el espacio debe ser siempre idéntica.",
+        "La selva húmeda del Quindío altera los campos electromagnéticos de las cintas métricas, invalidando los cálculos vectoriales."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "¡Brillante, mi joven colega! La posición es intrínsecamente dependiente del origen coordenado. Cambiar de origen cambia las coordenadas matemáticas del vector de posición, sin alterar la existencia física del objeto medido.",
+        "1": "¡Por todos los rayos gamma! Las serpientes son reptiles asombrosos, pero no poseen poderes de distorsión espacio-temporal cuántica. ¡Regresa al laboratorio!",
+        "2": "Incorrecto. Ambos grupos midieron perfectamente. No comprender que el origen define la coordenada es el error fundamental que sostiene los mitos supersticiosos que intentamos destruir.",
+        "3": "¡Absurdo! La física no se destruye en el departamento del Quindío. El electromagnetismo y la geometría euclidiana funcionan igual aquí que en mi laboratorio de alta seguridad."
+      }
+    }
+  ]
+}

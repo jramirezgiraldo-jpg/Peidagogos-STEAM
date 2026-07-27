@@ -51,7 +51,7 @@ Contexto Curricular:
 - Tópico Generativo de la Semana: ${topico}
 
 INSTRUCCIÓN MUY IMPORTANTE SOBRE GRÁFICOS Y ESTÉTICA:
-1. Es OBLIGATORIO acompañar TODOS los textos (tanto "texto_inductivo" como "texto_deductivo") con un recurso visual generado por ti. Debes intercalar directamente dentro del texto Markdown tablas HTML, diagramas de conceptos (usando HTML/CSS), o imágenes vectoriales (SVG) que ilustren el tema. No dejes texto plano sin elementos visuales.
+1. NO generes imágenes, diagramas Mermaid, SVG ni tablas HTML complejas. Cuando sea necesario ilustrar algo, proporciona INDICACIONES TEXTUALES CLARAS para que el estudiante dibuje o imagine el concepto en su cuaderno. No dejes texto plano sin indicaciones visuales.
 
 INSTRUCCIÓN VITAL Y OBLIGATORIA: LA PREGUNTA PROBLEMATIZADORA
 Es OBLIGATORIO que tu "texto_inductivo" EMPIECE SIEMPRE con una GRAN PREGUNTA PROBLEMATIZADORA (destacada en negrita y cursiva) como el PRIMER PÁRRAFO absoluto del texto. Esta pregunta debe conectar el Tópico Generativo con la vida real del estudiante en la IE Instituto Montenegro. Todo el desarrollo posterior de la guía, tanto inductivo como deductivo, debe girar en torno a resolver y darle respuesta a esta pregunta, manteniendo el rol y la narrativa gamificada.
@@ -68,8 +68,8 @@ DEBES DEVOLVER EXCLUSIVAMENTE UN OBJETO JSON VÁLIDO (sin bloques de código mar
   "saberes_previos": [
     { "pregunta": "¿...?", "opciones": ["A", "B", "C", "D"], "correcta": 0 }
   ],
-  "texto_inductivo": "Texto largo en formato Markdown. OBLIGATORIAMENTE debes incrustar aquí los 5 juegos de cada tipo, así como los GRÁFICOS (SVG, Tablas, CSS) explicados en la instrucción visual...",
-  "recurso_visual": "Genera una tabla en formato Markdown o un código de diagrama Mermaid (graph TD...) que resuma el texto inductivo.",
+  "texto_inductivo": "Texto largo en formato Markdown. OBLIGATORIAMENTE debes incrustar aquí los 5 juegos de cada tipo, así como indicaciones para que el estudiante dibuje explicados en la instrucción visual...",
+  "recurso_visual": "Texto descriptivo detallado dando indicaciones al estudiante de qué debe dibujar en su cuaderno que resuma el texto inductivo.",
   "preguntas_inductivas_pagina": [
     { "pregunta": "¿P1?", "respuesta_esperada": "Respuesta ideal a P1" },
     { "pregunta": "¿P2?", "respuesta_esperada": "Respuesta ideal a P2" },
@@ -83,7 +83,7 @@ DEBES DEVOLVER EXCLUSIVAMENTE UN OBJETO JSON VÁLIDO (sin bloques de código mar
       "Pregunta reflexiva extensa sobre el texto",
       "Pregunta que exija representar gráficamente una idea"
   ],
-  "texto_deductivo": "Texto deductivo largo en formato Markdown. OBLIGATORIAMENTE debes incrustar aquí también los 5 juegos de cada tipo y nuevos GRÁFICOS explicativos...",
+  "texto_deductivo": "Texto deductivo largo en formato Markdown. OBLIGATORIAMENTE debes incrustar aquí también los 5 juegos de cada tipo y nuevas indicaciones explicativas...",
   "preguntas_deductivas_pagina": [
     { "pregunta": "¿P1?", "respuesta_esperada": "Respuesta ideal a P1" },
     { "pregunta": "¿P2?", "respuesta_esperada": "Respuesta ideal a P2" },

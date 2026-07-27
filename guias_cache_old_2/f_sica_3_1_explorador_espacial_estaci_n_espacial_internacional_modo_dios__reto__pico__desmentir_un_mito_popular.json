@@ -1,0 +1,96 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Cuál es la causa principal por la que los planetas se mantienen girando en órbita alrededor del Sol?",
+      "opciones": [
+        "La ausencia total de fuerza en el vacío del espacio",
+        "La fuerza de atracción gravitacional ejercida por el Sol",
+        "El empuje constante producido por el viento solar",
+        "El campo magnético generado por el núcleo de los planetas"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Qué trayectoria describe un planeta al orbitar alrededor de una estrella según la primera ley de Kepler?",
+      "opciones": [
+        "Una trayectoria circular perfecta con la estrella en el centro",
+        "Una línea recta hacia el centro de masa de la galaxia",
+        "Una elipse con la estrella ubicada en uno de sus focos",
+        "Una parábola abierta que nunca se vuelve a cerrar"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "Si dejamos caer un lápiz dentro de la Estación Espacial Internacional (EEI), ¿qué le ocurre?",
+      "opciones": [
+        "Cae rápidamente al suelo del módulo espacial impulsado por la gravedad",
+        "Sale disparado hacia la ventana debido a la fuerza centrífuga",
+        "Permanece flotando junto al astronauta porque ambos están en caída libre",
+        "Desaparece debido a la falta de presión atmosférica en la órbita"
+      ],
+      "correcta": 2
+    }
+  ],
+  "texto_inductivo": "# Bitácora del Explorador Espacial: El Gran Mito de la Gravedad Cero\n\n¡Salud, Cadete! Te saluda el Comandante de la Estación Espacial Internacional (EEI), orbitando a 400 kilómetros de la superficie terrestre a una velocidad de 27.600 km/h.\n\n***¿Por qué los astronautas flotamos en la Estación Espacial Internacional si la fuerza de gravedad de la Tierra a esta altitud es casi tan fuerte como en la superficie?***\n\nExiste un mito popular muy extendido en transmisiones de holovisión y series de ciencia ficción: la creencia de que en el espacio *'no hay gravedad'*. ¡Falso! A la altitud de nuestra estación, la atracción gravitacional de la Tierra equivale aproximadamente al **89%** de la que sientes tú al estar de pie en el suelo. [JUEGO:ORDENAR_LETRAS:GRAVEDAD]\n\n<div style=\"background-color: #0b1d3a; color: #ffffff; border: 2px solid #00d2ff; padding: 15px; border-radius: 10px; margin: 15px 0;\"><h3 style=\"color: #00d2ff; margin-top:0;\">📡 Transmisión Visual desde el Módulo Módulo Cúpula</h3><svg viewBox=\"0 0 500 200\" width=\"100%\" height=\"200\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"250\" cy=\"350\" r=\"220\" fill=\"#1e5799\" stroke=\"#4a90e2\" stroke-width=\"4\"/><circle cx=\"250\" cy=\"80\" r=\"12\" fill=\"#00d2ff\"/><line x1=\"250\" y1=\"80\" x2=\"250\" y2=\"160\" stroke=\"#ff4d4d\" stroke-width=\"3\" marker-end=\"url(#arrow)\"/><line x1=\"250\" y1=\"80\" x2=\"340\" y2=\"80\" stroke=\"#00ff88\" stroke-width=\"3\"/><text x=\"255\" y=\"130\" fill=\"#ff4d4d\" font-size=\"12\" font-weight=\"bold\">Fuerza Gravitacional (Fg)</text><text x=\"260\" y=\"75\" fill=\"#00ff88\" font-size=\"12\" font-weight=\"bold\">Velocidad Tangencial (Vt)</text><text x=\"210\" y=\"60\" fill=\"#ffffff\" font-size=\"13\">EEI (400 km)</text><text x=\"200\" y=\"190\" fill=\"#ffffff\" font-size=\"14\">Planeta Tierra</text></svg></div>\n\n[JUEGO:ORDENAR_FRASE:LA GRAVEDAD EN LA ESTACION ESPACIAL NO ES CERO]\n\nEntonces, si la gravedad nos atrae hacia el centro del planeta casi con la misma fuerza, ¿por qué flotamos? La respuesta es que la EEI y nosotros estamos en **caída libre continua**. [ACTIVIDAD:PLATAFORMA:¿A qué altitud promedio orbita la ISS sobre la Tierra?|Aproximadamente 400 kilómetros] Nos movemos hacia adelante tan rápido que, mientras caemos hacia la Tierra, la superficie del planeta se curva exactamente al mismo ritmo debajo de nosotros. [ACTIVIDAD:CUADERNO:Dibuja la Tierra y la ISS, representando los vectores de velocidad tangencial y fuerza gravitacional]\n\nIsaac Newton explicó este fenómeno mediante el célebre experimento mental del *Cañón de Newton*. [JUEGO:ORDENAR_LETRAS:ORBITA] Si disparas una bala de cañón horizontalmente, la gravedad la arrastra hacia el suelo. [ACTIVIDAD:PLATAFORMA:¿Qué científico propuso el experimento del cañón orbital?|Isaac Newton] Si aumentas la potencia del disparo, la bala llegará más lejos antes de impactar. Pero si la disparas con una velocidad tangencial crítica (unos 7.9 km/s), la trayectoria curva de la bala coincidirá con la curvatura de la Tierra. [JUEGO:ORDENAR_FRASE:LOS ASTRONAUTAS CAEN CONSTANTEMENTE HACIA LA TIERRA] La bala nunca toca el suelo: ¡ha entrado en órbita! [ACTIVIDAD:CUADERNO:Diseña una infografía explicando el experimento del cañón de Newton]\n\n<div style=\"background:#111; padding:10px; border-left:4px solid #00ff88; margin:10px 0;\"><table style=\"width:100%; color:white;\"><tr style=\"background:#222;\"><th>Concepto Clave</th><th>Mito Popular</th><th>Realidad Científica</th></tr><tr><td>Gravedad en la EEI</td><td>0% (Cero Gravedad)</td><td>~89% de la gravedad terrestre (8.9 m/s²)</td></tr><tr><td>Estado de los astronautas</td><td>Flotan por falta de gravedad</td><td>Flotan por estar en caída libre perpetua</td></tr></table></div>\n\n[JUEGO:ORDENAR_LETRAS:SATELITE]\n\nEste estado de caída libre donde la gravedad no se siente se denomina técnicamente **microgravedad**. [ACTIVIDAD:PLATAFORMA:¿Cuál es el valor aproximado de la gravedad a la altitud de la ISS?|Alrededor de 8.9 m/s²] Por esta razón, todos los objetos dentro del módulo caen juntos a la misma velocidad acelerada. [JUEGO:ORDENAR_FRASE:LA VELOCIDAD TANGENCIAL EVITA EL IMPACTO DIRECTO] [ACTIVIDAD:PLATAFORMA:¿Qué término científico describe la sensación de 'cero gravedad'?|Microgravedad o caída libre]\n\n[ACTIVIDAD:CUADERNO:Escribe un mapa conceptual sobre la diferencia entre ausencia de gravedad y estado de caída libre]\n\nPara poner a prueba tus habilidades de reconocimiento en esta estación espacial, resuelve los siguientes desafíos interactivos instalados en la consola principal de comando:\n\n[JUEGO:SOPA_LETRAS:GRAVEDAD,ORBITA,ESTACION,KEPLER,NEWTON,TRAYECTORIA,VELOCIDAD,CAIDA,LIBRE,ESPACIO]\n\n[ACTIVIDAD:PLATAFORMA:¿Por qué la ISS no cae directo a la Tierra?|Por su alta velocidad tangencial constante]\n\n[ACTIVIDAD:CUADERNO:Realiza un cuadro comparativo entre las ideas de Aristóteles, Kepler y Newton sobre el movimiento planetario]\n\n[JUEGO:CRUCIGRAMA:Fuerza de atraccion entre masas|GRAVEDAD;Trayectoria de un cuerpo alrededor de otro|ORBITA;Estado donde no se siente el peso|MICROGRAVEDAD;Cientifico que formuló las tres leyes del movimiento planetario|KEPLER;Cientifico que unifico la gravedad terrestre y celeste|NEWTON;Velocidad en direccion perpendicular a la gravedad|TANGENCIAL;Estado de caer sin resistencia de aire|CAIDALIBRE;Modulo habitacional orbital|ESTACION;Punto mas cercano a la Tierra en orbitas|PERIGEO;Punto mas lejano a la Tierra en orbitas|APOGEO]",
+  "recurso_visual": "| Fenómeno Analizado | Explicación del Mito | Explicación Científica (Mecánica Orbital) |\n|---|---|---|\n| Flotación en la EEI | Ausencia total de fuerza de gravedad en el espacio. | Estado de caída libre a g ≈ 8.9 m/s² con velocidad tangencial constante. |\n| Mantenimiento de la órbita | Motores encendidos todo el tiempo empujando hacia adelante. | Inercia combinada con la aceleración centrípeta generada por la gravedad. |\n| Trayectoria planetaria | Círculos perfectos impulsados por la 'naturaleza divina'. | Elipses gobernadas por la Ley de Gravitación Universal de Newton y Leyes de Kepler. |",
+  "texto_deductivo": "# Análisis Formal: Cinemática y Dinámica del Movimiento Planetario\n\nPara desmantelar rigurosamente el mito de la cero gravedad, debemos recurrir a los modelos matemáticos enunciados por Johannes Kepler e Isaac Newton. [JUEGO:ORDENAR_LETRAS:ELIPSE]\n\nLa **Ley de Gravitación Universal** de Newton establece que dos cuerpos cualesquiera con masas $m_1$ y $m_2$, separados por una distancia $r$, se atraen mutuamente con una fuerza proporcional al producto de sus masas e inversamente proporcional al cuadrado de la distancia que los separa:\n\n$$\nF = G \\frac{m_1 \\cdot m_2}{r^2}\n$$\n\nDonde $G = 6.674 \\times 10^{-11} \\text{ N}\\cdot\\text{m}^2/\\text{kg}^2$ es la Constante de Gravitación Universal. [ACTIVIDAD:PLATAFORMA:¿Cuál es la fórmula de la Ley de Gravitación Universal de Newton?|F = G * (m1 * m2) / r^2]\n\n<div style=\"background-color: #151922; border: 1px solid #00ff88; padding: 15px; border-radius: 8px; margin: 15px 0;\"><h4 style=\"color:#00ff88; margin-top:0;\">📐 Diagrama Vectorial de Órbita Circular Equivalente</h4><svg viewBox=\"0 0 400 160\" width=\"100%\" height=\"160\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"200\" cy=\"80\" r=\"60\" fill=\"none\" stroke=\"#555\" stroke-dasharray=\"4\"/><circle cx=\"200\" cy=\"80\" r=\"25\" fill=\"#357abd\"/><circle cx=\"260\" cy=\"80\" r=\"6\" fill=\"#ffcc00\"/><line x1=\"260\" y1=\"80\" x2=\"200\" y2=\"80\" stroke=\"#ff4d4d\" stroke-width=\"2\"/><text x=\"215\" y=\"75\" fill=\"#ff4d4d\" font-size=\"10\">Fc = Fg</text><line x1=\"260\" y1=\"80\" x2=\"260\" y2=\"30\" stroke=\"#00ff88\" stroke-width=\"2\"/><text x=\"265\" y=\"50\" fill=\"#00ff88\" font-size=\"10\">v</text></svg></div>\n\n[JUEGO:ORDENAR_FRASE:LA FUERZA GRAVITACIONAL DISMINUYE CON EL CUADRADO DE LA DISTANCIA]\n\nAl igualar la fuerza gravitacional con la ecuación de fuerza centrípeta ($F_c = m_2 \\cdot \\frac{v^2}{r}$), obtenemos la velocidad orbital necesaria para mantener una órbita circular estable:\n\n$$\n\\frac{G \\cdot M_T \\cdot m}{r^2} = \\frac{m \\cdot v^2}{r} \\implies v = \\sqrt{\\frac{G \\cdot M_T}{r}}\n$$\n\n[ACTIVIDAD:PLATAFORMA:¿Qué fuerza actúa como fuerza centrípeta en la órbita de la ISS?|La fuerza gravitacional terrestre] [ACTIVIDAD:CUADERNO:Escribe la fórmula de Gravitación Universal de Newton y define cada una de sus variables]\n\n[JUEGO:ORDENAR_LETRAS:ACELERACION]\n\nPor otro lado, Johannes Kepler sistematizó el movimiento cinemático de los cuerpos celestes en tres leyes fundamentales:\n1. **Primera Ley (Órbitas Elípticas):** Los planetas se mueven en elipses, con el Sol en uno de los focos.\n2. **Segunda Ley (Áreas Iguales):** El vector de posición de cualquier planeta barre áreas iguales en tiempos iguales ($A_1 = A_2$). Por tanto, la velocidad orbital aumenta cerca del perihelio.\n3. **Tercera Ley (Ley Armónica):** El cuadrado del período orbital ($T^2$) es directamente proporcional al cubo del semieje mayor ($a^3$) de la órbita: $T^2 = k \\cdot a^3$.\n\n[JUEGO:ORDENAR_FRASE:LAS ORBITAS PLANETARIAS SON ELIPSES CON EL SOL EN UN FOCO] [ACTIVIDAD:PLATAFORMA:¿Qué dice la primera ley de Kepler sobre las órbitas planetarias?|Que las órbitas son elípticas con el Sol en uno de los focos]\n\n[ACTIVIDAD:CUADERNO:Dibuja una elipse indicando sus focos, semieje mayor y la posición del Sol según la Primera Ley de Kepler]\n\n[JUEGO:ORDENAR_LETRAS:INERCIA]\n\n[ACTIVIDAD:PLATAFORMA:¿Qué ocurre con la velocidad de un planeta cuando se acerca al perihelio?|Aumenta]\n\n[JUEGO:ORDENAR_FRASE:LA ACELERACION CENTRIPETA MANTIENE AL SATELITE EN ORBITA]\n\n[ACTIVIDAD:PLATAFORMA:¿Cómo cambia la fuerza gravitacional si la distancia entre dos cuerpos se duplica?|Se reduce a la cuarta parte]\n\n[ACTIVIDAD:CUADERNO:Calcula en tu cuaderno la aceleración de la gravedad a 400 km de altitud usando la masa y radio terrestres]\n\n[ACTIVIDAD:CUADERNO:Crea un diagrama esquemático que explique la Segunda Ley de Kepler y la conservación del momento angular]\n\nResuelve los acertijos finales de la supercomputadora de a bordo:\n\n[JUEGO:SOPA_LETRAS:CENTRIPETA,ELIPSE,INERCIA,RADIO,MASA,PERIODO,FOCO,VECTOR,FUERZA,CONSTANTE]\n\n[JUEGO:CRUCIGRAMA:Ley que indica que las orbitas son elipses|PRIMERAKEPLER;Ley del barredor de areas iguales en tiempos iguales|SEGUNDAKEPLER;Relacion entre el periodo y el semieje mayor|TERCERAKEPLER;Fuerza dirigida hacia el centro del circulo u orbita|CENTRIPETA;Resistencia de un cuerpo a cambiar su estado de movimiento|INERCIA;Simbolo de la constante de gravitacion universal|G;Unidad de medida de la fuerza en el sistema internacional|NEWTON;Distancia desde el centro de la Tierra al satelite|RADIO;Magnitud que mide la cantidad de materia|MASA;Cambio de velocidad en el tiempo|ACELERACION]",
+  "icfes": [
+    {
+      "competencia": "Uso Comprensivo del Conocimiento Científico",
+      "texto_introductorio": "Un grupo de estudiantes observa un video promocional en el que se afirma que dentro de la Estación Espacial Internacional (EEI) las cosas flotan porque 'se ha salido por completo del campo de atracción gravitacional de la Tierra'. Para analizar la veracidad de la información, los estudiantes consultan la siguiente tabla con datos sobre el campo gravitacional terrestre a distintas altitudes:",
+      "tabla_o_grafica_markdown": "| Altitud desde el nivel del mar (km) | Aceleración de la gravedad $g$ ($\text{m/s}^2$) | Porcentaje respecto a la superficie |\n|---|---|---|\n| 0 (Superficie terrestre) | 9.81 | 100% |\n| 100 (Línea de Kármán) | 9.51 | 97% |\n| 400 (Órbita de la EEI) | 8.83 | 90% |\n| 360,000 (Órbita Luna) | 0.0027 | 0.03% |",
+      "pregunta": "Teniendo en cuenta los datos de la tabla, ¿cuál de las siguientes afirmaciones refuta de manera científicamente correcta el mito difundido en el video?",
+      "opciones": [
+        "El mito es falso porque a 400 km de altitud la fuerza de gravedad se conserva en un 90% y la flotación se debe al estado de caída libre continuo.",
+        "El mito es verdadero porque a partir de los 100 km de altitud la aceleración de la gravedad se reduce a cero exactamente.",
+        "El mito es falso porque la gravedad en la EEI es incluso mayor que en la superficie de la Tierra debido al movimiento de rotación.",
+        "El mito es verdadero porque la única forma de orbitar es estar en un espacio con ausencia absoluta de masa e inercia."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "¡Correcto! La tabla demuestra que a 400 km la aceleración gravitacional sigue siendo de 8.83 m/s² (90% respecto a la superficie). La flotación ocurre porque la estación y los astronautas caen libremente con la misma aceleración a una velocidad tangencial muy alta.",
+        "1": "Incorrecto. La tabla indica claramente que a 100 km la gravedad es de 9.51 m/s², no de cero.",
+        "2": "Incorrecto. La gravedad disminuye gradualmente con la altura (pasa de 9.81 m/s² a 8.83 m/s²), por lo que no es mayor que en la superficie.",
+        "3": "Incorrecto. La presencia de masa e inercia es requerida para el movimiento orbital; además, la gravedad no es cero a esa altitud."
+      }
+    },
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "El célebre experimento del cañón de Newton analiza el lanzamiento horizontal de un proyectil desde una cima muy alta por encima de la atmósfera. Si el proyectil se dispara con velocidad $v_1$, cae a la Tierra a cierta distancia. Si se dispara a una velocidad $v_2 > v_1$, llega más lejos. Existe una velocidad crítica $v_o$ en la que la curvatura de la caída del proyectil coincide exactamente con la curvatura de la superficie terrestre.",
+      "tabla_o_grafica_markdown": "| Caso | Velocidad Horizontal ($v$) | Trayectoria Resultante |\n|---|---|---|\n| Caso A | $v < 7.9 \\text{ km/s}$ | Caída parabólica con impacto en la Tierra |\n| Caso B | $v = 7.9 \\text{ km/s}$ | Órbita circular en caída libre continua |\n| Caso C | $v > 11.2 \\text{ km/s}$ | Trayectoria parabólica o hiperbólica de escape |",
+      "pregunta": "¿Por qué un satélite en el Caso B permanece en órbita sin necesitar motores encendidos que lo propulsen todo el tiempo hacia adelante?",
+      "opciones": [
+        "Porque la fuerza gravitacional desaparece por completo al alcanzar los 7.9 km/s.",
+        "Porque la inercia mantiene la velocidad horizontal, mientras la gravedad desvía continuamente la trayectoria curvándola alrededor de la Tierra.",
+        "Porque el roce con el aire en el espacio crea un empuje de sustentación aerodinámica constante.",
+        "Porque el satélite es atraído con la misma intensidad por el Sol y la Luna anulando la fuerza de la Tierra."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. La gravedad no desaparece por la velocidad del objeto; la fuerza gravitacional es la que actúa como fuerza centrípeta.",
+        "1": "¡Correcto! En el vacío espacial no hay fricción apreciable que frene la velocidad horizontal (por Primera Ley de Newton/Inercia), y la gravedad actúa como aceleración centrípeta permanente desviando la trayectoria sin frenarla.",
+        "2": "Incorrecto. A esas altitudes la atmósfera es prácticamente inexistente, por lo que no hay resistencia ni sustentación aerodinámica.",
+        "3": "Incorrecto. La atracción principal a esa altitud sigue siendo la fuerza gravitacional terrestre."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "Un grupo de astrónomos analiza la velocidad orbital de un sonda espacial en una órbita elíptica altamente excéntrica alrededor del Sol, midiendo la distancia al Sol y la velocidad en cuatro puntos de su trayectoria.",
+      "tabla_o_grafica_markdown": "| Punto de Medición | Distancia al Sol ($10^6 \\text{ km}$) | Velocidad Orbital (km/s) |\n|---|---|---|\n| P1 (Perihelio) | 46 | 58.9 |\n| P2 | 58 | 48.2 |\n| P3 | 64 | 43.1 |\n| P4 (Afelio) | 70 | 38.8 |",
+      "pregunta": "De acuerdo con los datos recopilados en la tabla y las leyes del movimiento planetario de Kepler, ¿cuál es la hipótesis explicativa de la variación de la velocidad orbital?",
+      "opciones": [
+        "La velocidad aumenta al alejarse del Sol porque la fuerza de gravedad solar pierde intensidad.",
+        "El planeta se frena cerca del Sol debido a la mayor presión ejercida por el campo magnético solar.",
+        "Al acercarse al Sol (Perihelio), la fuerza de atracción gravitacional es mayor, aumentando la aceleración e incrementando la velocidad para barrer áreas iguales en tiempos iguales.",
+        "La velocidad se mantiene astronómicamente constante en toda la órbita, los cambios medidos son producto de errores instrumentales."
+      ],
+      "correcta": 2,
+      "retroalimentacion": {
+        "0": "Incorrecto. La tabla muestra que la velocidad disminuye (pasa de 58.9 a 38.8 km/s) a medida que aumenta la distancia al Sol.",
+        "1": "Incorrecto. Cerca del Sol la velocidad es máxima (58.9 km/s), no mínima.",
+        "2": "¡Correcto! Según la Segunda Ley de Kepler (y la conservación del momento angular), un cuerpo acelera cuando se reduce su distancia al centro de atracción gravitacional (perihelio), alcanzando su velocidad máxima.",
+        "3": "Incorrecto. Los datos muestran una clara tendencia física inversamente proporcional entre distancia y velocidad, correspondiente a las leyes de Kepler."
+      }
+    }
+  ]
+}

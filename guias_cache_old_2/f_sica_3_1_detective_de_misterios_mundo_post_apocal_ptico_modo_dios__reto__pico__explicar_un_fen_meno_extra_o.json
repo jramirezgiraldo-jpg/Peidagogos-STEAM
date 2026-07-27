@@ -1,0 +1,133 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Qué figura geométrica describe exactamente la trayectoria de un planeta alrededor del Sol según el modelo heliocéntrico moderno?",
+      "opciones": [
+        "Un círculo perfecto",
+        "Una elipse con el Sol en uno de sus focos",
+        "Una parábola abierta e infinita",
+        "Una espiral helicoidal concéntrica"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "Cuando un planeta se encuentra en la posición de su órbita más cercana al Sol (perihelio), ¿qué ocurre con su velocidad orbital?",
+      "opciones": [
+        "Disminuye hasta casi detenerse",
+        "Se mantiene exactamente constante sin importar la posición",
+        "Alcanza su valor máximo",
+        "Se invierte el sentido del movimiento"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "¿Qué fuerza es la responsable principal de mantener a los planetas en sus órbitas alrededor del Sol?",
+      "opciones": [
+        "La fuerza magnética dipolar",
+        "La fuerza gravitacional",
+        "La fuerza de fricción espacial",
+        "La fuerza nuclear fuerte"
+      ],
+      "correcta": 1
+    }
+  ],
+  "texto_inductivo": "# Expediente de Investigación #099: El Misterio del Firmamento Oscuro\n\n**Informe de Campo:** *Detective Vance, Sector Bunker 7, Era Post-Colapso (Año 2145).*\n\n***¿Por qué los antiguos satélites de la 'Era del Gran Silencio' no caen en línea recta hacia la Tierra devastada, y qué anomalía en la velocidad orbital provocó la desviación de la Estación Éter-9 antes del Gran Cataclismo?***\n\nMis botas resuenan sobre la chapa oxidada del antiguo observatorio de montaña. [JUEGO:ORDENAR_LETRAS:ORBITA] Tras la caída de la red global de energía, el cielo nocturno ya no posee la luz de las megaciudades, sino un tapiz de escombros espaciales y astros que parecen desafiar la lógica de los antiguos. [JUEGO:ORDENAR_FRASE:LOS PLANETAS SE MUEVEN EN ORBITAS ELIPTICAS] Al revisar los diarios de bitácora del astrónomo Kepler, guardados en un terminal de fósforo verde, descubro que la trayectoria de los cuerpos celestes jamás fue circular, sino una elipse imperfecta y elegante. [JUEGO:SOPA_LETRAS:FOCO,ORBITA,SOL]\n\n<div style=\"background-color:#1e1e2e; border:2px solid #ff79c6; border-radius:8px; padding:15px; color:#f8f8f2; margin:15px 0;\">\n<h4 style=\"color:#8be9fd; text-align:center; margin-top:0;\">ESQUEMA DE CAMPO: ANATOMÍA DE LA ÓRBITA ELÍPTICA</h4>\n<svg viewBox=\"0 0 500 200\" width=\"100%\" height=\"200\" style=\"background:#111;\">\n  <ellipse cx=\"250\" cy=\"100\" rx=\"200\" ry=\"70\" fill=\"none\" stroke=\"#50fa7b\" stroke-width=\"2\" stroke-dasharray=\"5,5\"/>\n  <circle cx=\"170\" cy=\"100\" r=\"18\" fill=\"#ffb86c\" stroke=\"#ff79c6\" stroke-width=\"2\"/>\n  <text x=\"160\" y=\"105\" fill=\"#282a36\" font-weight=\"bold\" font-size=\"12\">SOL</text>\n  <circle cx=\"450\" cy=\"100\" r=\"8\" fill=\"#8be9fd\"/>\n  <text x=\"430\" y=\"85\" fill=\"#8be9fd\" font-size=\"10\">PERIHELIO (V. Máx)</text>\n  <circle cx=\"50\" cy=\"100\" r=\"8\" fill=\"#bd93f9\"/>\n  <text x=\"30\" y=\"85\" fill=\"#bd93f9\" font-size=\"10\">AFELIO (V. Mín)</text>\n  <line x1=\"50\" y1=\"100\" x2=\"450\" y2=\"100\" stroke=\"#6272a4\" stroke-width=\"1\"/>\n  <line x1=\"170\" y1=\"100\" x2=\"450\" y2=\"100\" stroke=\"#ff5555\" stroke-width=\"1.5\" marker-end=\"url(#arrow)\"/>\n</svg>\n<p style=\"font-size:0.85rem; text-align:center; color:#bd93f9;\">Diagrama de archivo recuperado: Intersección del vector velocidad y distancia focal orbital.</p>\n</div>\n\nInvestigando las ruinas de la Estación Éter-9, hallé que los artefactos en el espacio parecen ser atraídos por una mano invisible. [JUEGO:CRUCIGRAMA:Punto mas cercano al sol|PERIHELIO;Punto mas lejano|AFELIO] No caen directo porque su movimiento de avance hacia adelante compensa la caída constante hacia el centro de masa de la Tierra. [JUEGO:ORDENAR_LETRAS:KEPLER] Johannes Kepler descifró este patrón examinando los datos de Tycho Brahe durante años de encierro. [JUEGO:ORDENAR_FRASE:LA GRAVEDAD MANTIENE LA ORBITA BARRIDA] La velocidad con la que un objeto barre áreas en el espacio no es constante en distancia, sino en tiempo. [JUEGO:SOPA_LETRAS:RADIO,PERIODO,MASA]\n\n[JUEGO:CRUCIGRAMA:Cientifico de las leyes planetarias|KEPLER;Fuerza atrayente|GRAVEDAD] ¿Por qué la estación aceleró súbitamente antes de perderse en el vacío? [JUEGO:ORDENAR_LETRAS:ELIPSE] La clave está en el área que la línea Sol-Planeta barre. [JUEGO:ORDENAR_FRASE:EL SOL OCUPA UNO DE LOS FOCOS] Cuando un planeta se aproxima al astro central, la atracción gravitatoria aumenta la aceleración tangencial, incrementando su rapidez orbital. [JUEGO:SOPA_LETRAS:COMETA,SATELITE,POLO]\n\n<table style=\"width:100%; border-collapse:collapse; margin:15px 0; background:#282a36; color:#f8f8f2; font-size:0.9rem;\">\n<thead>\n<tr style=\"background:#44475a; color:#50fa7b;\">\n<th style=\"border:1px solid #6272a4; padding:8px;\">Posición Orbital</th>\n<th style=\"border:1px solid #6272a4; padding:8px;\">Distancia al Foco</th>\n<th style=\"border:1px solid #6272a4; padding:8px;\">Velocidad Orbital</th>\n<th style=\"border:1px solid #6272a4; padding:8px;\">Energía Cinética</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td style=\"border:1px solid #6272a4; padding:8px;\">Perihelio</td>\n<td style=\"border:1px solid #6272a4; padding:8px;\">Mínima ($r_{min}$)</td>\n<td style=\"border:1px solid #6272a4; padding:8px;\">Máxima ($v_{máx}$)</td>\n<td style=\"border:1px solid #6272a4; padding:8px;\">Pico Máximo</td>\n</tr>\n<tr>\n<td style=\"border:1px solid #6272a4; padding:8px;\">Afelio</td>\n<td style=\"border:1px solid #6272a4; padding:8px;\">Máxima ($r_{máx}$)</td>\n<td style=\"border:1px solid #6272a4; padding:8px;\">Mínima ($v_{mín}$)</td>\n<td style=\"border:1px solid #6272a4; padding:8px;\">Pico Mínimo</td>\n</tr>\n</tbody>\n</table>\n\nAl rastrear las lecturas del telescopio de apertura electromagnética, notamos que el tiempo empleado en completar una vuelta depende exclusivamente de la distancia media al Sol. [JUEGO:CRUCIGRAMA:Forma de la orbita|ELIPSE;Centro del sistema|SOL] [JUEGO:ORDENAR_LETRAS:GRAVEDAD] [JUEGO:ORDENAR_FRASE:LA VELOCIDAD ORBITAL CAMBIA EN EL PERIHELIO] Si la masa del sol no cambiara, las órbitas mantendrían un orden matemáticamente perfecto. [JUEGO:SOPA_LETRAS:VELOCIDAD,VECTOR,TIEMPO] Pero las lecturas del Colapso muestran un cambio sutil en el eje semimayor de la Tierra. [JUEGO:CRUCIGRAMA:Tiempo de una vuelta|PERIODO;Distancia al centro|RADIO] [JUEGO:ORDENAR_LETRAS:PLANETA] [JUEGO:ORDENAR_FRASE:EL DETECTIVE ANALIZA LOS REGISTROS DE LAS ESTRELLAS] [JUEGO:SOPA_LETRAS:ANOMALIA,ECLIPSE,INERCIA] [JUEGO:CRUCIGRAMA:Estacion espacial del pasado|ETER;Trayectoria curva|ORBITA] Como detective de este mundo en ruinas, mi deber es usar estas tres leyes ancestrales para reconstruir la trayectoria de la Estación Éter-9 y determinar si volverá a cruzar nuestro cielo o si se ha convertido en un fantasma vagabundo en el vacío interestelar.",
+  "recurso_visual": "| Ley de Kepler | Formulación Visual / Propiedad | Consecuencia Física Directa |\n| :--- | :--- | :--- |\n| **1ª Ley (Órbitas)** | Elipse con Sol en un Foco ($F_1, F_2$) | Distancia variable Tierra-Sol durante el año. |\n| **2ª Ley (Áreas)** | $\\frac{dA}{dt} = \\text{Constante}$ | El planeta acelera cerca del Sol (Perihelio) y desacelera lejos (Afelio). |\n| **3ª Ley (Armónica)** | $T^2 \\propto a^3$ | Planetas más lejanos tardan exponencialmente más tiempo en dar una órbita completa. |",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "¿Por qué los antiguos creían que las órbitas planetarias eran círculos perfectos y qué evidencia cambió esa visión?",
+      "respuesta_esperada": "Se creía por ideales filosóficos de perfección geométrica cosmológica. Cambió cuando Johannes Kepler analizó las minuciosas observaciones astronómicas de Tycho Brahe sobre el movimiento de Marte, las cuales no encajaban en un modelo circular pero sí perfectamente en una elipse."
+    },
+    {
+      "pregunta": "¿Qué ocurre con la velocidad de la Estación Éter-9 a medida que se desplaza del afelio hacia el perihelio?",
+      "respuesta_esperada": "Su velocidad aumenta progresivamente debido a que la atracción gravitatoria ejerce una componente de aceleración en la dirección de su movimiento conforme se reduce la distancia al centro del cuerpo masivo."
+    },
+    {
+      "pregunta": "¿Qué representa un 'foco' en el contexto de una órbita planetaria elíptica?",
+      "respuesta_esperada": "Es uno de los dos puntos fijos interiores sobre el eje mayor de la elipse; el Sol se ubica exactamente en uno de estos focos, mientras que el otro permanece vacío."
+    },
+    {
+      "pregunta": "¿Cómo explica la Segunda Ley de Kepler que el tiempo transcurrido en recorrer dos arcos orbitales de diferente longitud sea el mismo?",
+      "respuesta_esperada": "Explica que el vector de posición del planeta barre áreas iguales en tiempos iguales. Para barrer un área igual cuando está más lejos (arco más corto), se mueve más lento; cuando está cerca (arco más largo), se mueve más rápido."
+    },
+    {
+      "pregunta": "¿Qué relación existe entre el período orbital de un satélite recuperado en el erial y el tamaño de su semieje mayor?",
+      "respuesta_esperada": "El cuadrado del período orbital es directamente proporcional al cubo del semieje mayor ($T^2 = k \\cdot a^3$). A mayor distancia media, el período aumenta enormemente."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja en tu cuaderno una elipse detallada con sus dos focos, el eje mayor, el eje menor, ubicando al Sol en un foco, a un planeta en el perihelio y en el afelio, y traza los vectores de velocidad cualitativos en ambos puntos.",
+    "Elabora un cuadro comparativo entre el Modelo Geocéntrico, el Modelo Heliocéntrico Circular de Copérnico y el Modelo Heliocéntrico Elíptico de Kepler, detallando forma de órbita, posición del Sol/Tierra y variación de velocidad.",
+    "Escribe un ensayo reflexivo de dos páginas desde la perspectiva del Detective Vance, analizando cómo el olvido de la física básica condujo a la pérdida de control de los satélites en el mundo post-apocalíptico.",
+    "Representa gráficamente en un diagrama vectorial cómo se distribuyen las áreas 'barridas' por un planeta en tres intervalos de tiempo idénticos a lo largo de una trayectoria elíptica muy excéntrica."
+  ],
+  "texto_deductivo": "# Informe Deductivo: Leyes de Gravitación y Dinámica Orbital\n\n**Para:** *Sobrevivientes de la Red de Investigadores del Erial.*\n**De:** *Detective Vance, Especialista en Análisis de Fenómenos Físicos.*\n\nPara explicar el fenómeno extraño de la Estación Éter-9, debemos pasar de la mera observación empírica a las leyes rigurosas de la Mecánica Celeste. [JUEGO:ORDENAR_LETRAS:NEWTON] Isaac Newton demostró que las leyes empíricas de Kepler son una consecuencia matemática directa de la Ley de Gravitación Universal y de las leyes del movimiento. [JUEGO:ORDENAR_FRASE:LA FUERZA ES INVERSAMENTE PROPORCIONAL AL CUADRADO] La fuerza gravitacional entre dos cuerpos de masas $m_1$ y $m_2$ separados por una distancia $r$ viene dada por: $$F = G \\frac{m_1 m_2}{r^2}$$ [JUEGO:SOPA_LETRAS:NEWTON,FUERZA,MASA]\n\n<div style=\"background-color:#181825; border:2px solid #50fa7b; border-radius:8px; padding:15px; margin:15px 0;\">\n<h4 style=\"color:#50fa7b; text-align:center;\">DESCOMPOSICIÓN VECTORIAL Y FUERZA CENTRÍPETA</h4>\n<div style=\"display:flex; justify-content:space-around; align-items:center; flex-wrap:wrap;\">\n  <div style=\"text-align:center; padding:10px;\">\n    <span style=\"font-size:1.2rem; color:#ff79c6;\"><b>Ecuación Orbital:</b></span><br/>\n    <code style=\"color:#f1fa8c;\">v = √(G·M / r)</code>\n  </div>\n  <div style=\"text-align:center; padding:10px;\">\n    <span style=\"font-size:1.2rem; color:#8be9fd;\"><b>Aceleración Centrípeta:</b></span><br/>\n    <code style=\"color:#f1fa8c;\">a_c = v² / r = G·M / r²</code>\n  </div>\n</div>\n</div>\n\nEsta fuerza actúa como la fuerza centrípeta necesaria para curvar la trayectoria de los cuerpos en el espacio. [JUEGO:CRUCIGRAMA:Unidad de fuerza|NEWTON;Masa por aceleracion|FUERZA] Si la trayectoria es aproximadamente circular, igualamos la fuerza gravitacional a la fuerza centrípeta $m \\frac{v^2}{r}$, deduciendo que la velocidad orbital es $v = \\sqrt{\\frac{GM}{r}}$. [JUEGO:ORDENAR_LETRAS:AFELIO] Esto revela un hecho crucial para nuestro enigma post-apocalíptico: la velocidad orbital no depende de la masa del objeto que orbita (la estación), sino únicamente de la masa del cuerpo central (la Tierra o el Sol) y de la distancia radial. [JUEGO:ORDENAR_FRASE:EL AREA BARRIDA POR UNIDAD DE TIEMPO ES CONSTANTE] [JUEGO:SOPA_LETRAS:ACELERACION,CENTRIPETA,CUADRADO]\n\n[JUEGO:CRUCIGRAMA:Constante gravitacional|G;Distancia al cuadrado|INVERSO] Cuando analizamos el movimiento elíptico completo, la conservación del momento angular orbital $L = m \\cdot r \\cdot v \\cdot \\sin(\\theta)$ garantiza que cuando la distancia $r$ disminuye, la velocidad $v$ debe aumentar de forma estrictamente proporcional para mantener $L$ constante. [JUEGO:ORDENAR_LETRAS:INERCIA] Por tanto, las anomalías detectadas en la Estación Éter-9 no eran producto de fallos místico-tecnológicos, sino del paso por su perihelio orbital a una altitud de degradación atmosférica. [JUEGO:ORDENAR_FRASE:EL CUADRADO DEL PERIODO ES PROPORCIONAL AL CUBO DEL RADIO] [JUEGO:SOPA_LETRAS:INVERSO,CONSTANTE,PROPORCION]\n\n<div style=\"background:#282a36; padding:12px; border-left:4px solid #f1fa8c; margin:15px 0; font-family:monospace; color:#f8f8f2;\">\n<p>[CÁLCULO DEDUCTIVO DE ANOMALÍA]:</p>\n<p>Si r_perihelio = r_afelio / 2  ==>  v_perihelio = 2 * v_afelio</p>\n<p>Conclusión: La aceleración centrípeta en el perihelio es 8 VECES MAYOR que en el afelio debido a la ley del inverso del cuadrado (a_c ∝ 1/r²).</p>\n</div>\n\n[JUEGO:CRUCIGRAMA:Tercera ley de Kepler|ARMONICA;Segunda ley|AREAS] La Tercera Ley de Kepler se deduce analíticamente combinando la Ley de Gravitación con la velocidad circular: al sustituir $v = \\frac{2\\pi r}{T}$ en la ecuación de equilibrio de fuerzas, obtenemos $T^2 = \\left(\\frac{4\\pi^2}{GM}\\right) r^3$. [JUEGO:ORDENAR_LETRAS:PERIODO] Esto demuestra matemáticamente que la constante de proporcionalidad depende única y exclusivamente de la masa del astro central. [JUEGO:ORDENAR_FRASE:LA ACELERACION CENTRIPETA MANTIENE EL MOVIMIENTO CIRCULAR] [JUEGO:SOPA_LETRAS:UNIVERSAL,VECTOR,ESCALAR]\n\n[JUEGO:CRUCIGRAMA:Aceleracion hacia el centro|CENTRIPETA;Velocidad tangencial|ORBITAL] [JUEGO:ORDENAR_LETRAS:CENTRIPETA] [JUEGO:ORDENAR_FRASE:EL MISTERIO APOCALIPTICO SE RESUELVE CON LA FISICA] [JUEGO:SOPA_LETRAS:PERIHELIO,AFELIO,FOCOS] [JUEGO:CRUCIGRAMA:Trayectoria sin fin|CIRCULAR;Linea Foco a Foco|EJE] En conclusión, el fenómeno de la Estación Éter-9 queda resuelto: la estación no cayó en línea recta porque poseía velocidad tangencial inercial; sin embargo, debido al choque paulatino con partículas en el afelio, su semieje mayor se redujo gradualmente, acortando su período $T$ e incrementando su velocidad en el perihelio hasta hacerla reingresar de forma abrasadora en la atmósfera inferior del erial.",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "Escribe la fórmula de la Ley de Gravitación Universal de Newton y define cada una de sus variables junto con sus unidades en el Sistema Internacional.",
+      "respuesta_esperada": "$F = G \\frac{m_1 m_2}{r^2}$. $F$ es la fuerza gravitacional en Newtons (N); $G$ es la constante de gravitación universal ($6.674 \\times 10^{-11} \\text{ N}\\cdot\\text{m}^2/\\text{kg}^2$); $m_1$ y $m_2$ son las masas de los dos cuerpos en kilogramos (kg); y $r$ es la distancia entre los centros de masa en metros (m)."
+    },
+    {
+      "pregunta": "A partir de la igualdad entre la fuerza gravitacional y la fuerza centrípeta, demuestra cómo se obtiene la ecuación para la velocidad orbital $v = \\sqrt{\\frac{GM}{r}}$.",
+      "respuesta_esperada": "Igualando $G\\frac{M m}{r^2} = m\\frac{v^2}{r}$. Se cancela la masa del objeto que orbita ($m$) en ambos lados y se simplifica un factor de radio ($r$), quedando $v^2 = \\frac{GM}{r}$. Al extraer la raíz cuadrada a ambos lados, se obtiene $v = \\sqrt{\\frac{GM}{r}}$."
+    },
+    {
+      "pregunta": "Si la distancia entre la Tierra y un satélite post-apocalíptico se reduce a la mitad, ¿por qué factor se multiplica la fuerza gravitacional entre ellos?",
+      "respuesta_esperada": "Como la fuerza gravitacional es inversamente proporcional al cuadrado de la distancia ($F \\propto 1/r^2$), al reducir la distancia a la mitad ($r/2$), la fuerza aumenta por un factor de $1/(1/2)^2 = 4$. La fuerza aumenta 4 veces."
+    },
+    {
+      "pregunta": "¿Por qué un astronauta dentro de la Estación Éter-9 experimenta una sensación de 'ingravidez' aunque la fuerza de gravedad en esa altitud no sea cero?",
+      "respuesta_esperada": "Porque tanto la estación como el astronauta están cayendo libremente hacia la Tierra a la misma tasa de aceleración gravitacional centrípeta. Al no haber una fuerza normal de contacto que se oponga a su peso dentro de la nave, experimentan caída libre continua o ingravidez apparente."
+    },
+    {
+      "pregunta": "¿Cómo dedujo Isaac Newton la constante de proporcionalidad $k = \\frac{4\\pi^2}{GM}$ de la Tercera Ley de Kepler?",
+      "respuesta_esperada": "Sustituyó la velocidad de un movimiento circular uniforme $v = \\frac{2\\pi r}{T}$ en la fórmula de velocidad orbital al cuadrado $v^2 = \\frac{GM}{r}$, obteniendo $\\frac{4\\pi^2 r^2}{T^2} = \\frac{GM}{r}$. Despejando $T^2$, obtuvo $T^2 = \\left(\\frac{4\\pi^2}{GM}\\right) r^3$."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Diseña un diagrama vectorial detallado a página completa que muestre la Luna orbitando la Tierra, dibujando los vectores de velocidad tangencial, fuerza gravitacional y aceleración centrípeta en 4 posiciones distintas de la órbita.",
+    "Elabora un mapa mental sobre las tres leyes del movimiento planetario de Kepler y su fundamentación newtoniana, usando códigos de color, conectores lógicos y ecuaciones clave.",
+    "Realiza un dibujo explicativo paso a paso de la 'Experiencia del Cañón de Newton', mostrando cómo el incremento de la velocidad horizontal de un proyectil lo lleva desde un tiro parabólico hasta una órbita circular y finalmente a una trayectoria de escape.",
+    "Crea una infografía artesanal sobre el 'Cataclismo de la Estación Éter-9', combinando estética de archivo post-apocalíptico con esquemas de cambio de radio, velocidad orbital e incremento de fricción atmosférica."
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "Durante una expedición en el erial, los analistas del Búnker 7 detectaron dos antiguos satélites de telecomunicaciones (Satélite Alfa y Satélite Beta) orbitando la Tierra en trayectorias circulares. Los datos de rastreo recuperados se resumen en la siguiente tabla:",
+      "tabla_o_grafica_markdown": "| Satélite | Masa del Satélite ($kg$) | Radio de Órbita ($km$) | Velocidad Orbital ($km/s$) |\n| :--- | :--- | :--- | :--- |\n| **Alfa** | $1200$ | $7000$ | $7.5$ |\n| **Beta** | $2400$ | $28000$ | $3.75$ |",
+      "pregunta": "Un analista afirma que el Satélite Beta se mueve más lento porque es dos veces más pesado que el Satélite Alfa. Según las leyes de la física clásica, ¿es correcta la afirmación del analista?",
+      "opciones": [
+        "Sí, porque a mayor masa de un objeto en el espacio, mayor es la inercia que lo frena en su órbita.",
+        "No, porque la velocidad orbital no depende de la masa del satélite, sino de la masa del cuerpo central y es inversamente proporcional a la raíz cuadrada del radio orbital.",
+        "Sí, porque la fuerza gravitacional sobre el Satélite Beta es el doble, lo que reduce su velocidad lineal.",
+        "No, porque los objetos en el espacio no experimentan ninguna aceleración y sus velocidades son completamente aleatorias."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. La masa del objeto que orbita se simplifica al igualar la fuerza gravitacional con la fuerza centrípeta; la masa del satélite no determina su velocidad orbital.",
+        "1": "Correcto. De la ecuación $v = \\sqrt{\\frac{GM}{r}}$, se evidencia que la velocidad depende únicamente de la masa del cuerpo atrayente ($M$) y del radio ($r$), independientemente de la masa del satélite.",
+        "2": "Incorrecto. Aunque la fuerza es proporcional a la masa, la aceleración ($F/m$) resulta ser independiente de la masa del satélite, por lo que no causa una disminución de velocidad.",
+        "3": "Incorrecto. Los objetos en órbita están sometidos continuamente a la aceleración gravitacional centrípeta; su movimiento no es aleatorio sino rígidamente determinado por las leyes de la física."
+      }
+    },
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "Un grupo de científicos del erial estudia el movimiento de un asteroide excéntrico que cruza el sistema solar interno. Su órbita se ilustra en el siguiente esquema, mostrando las áreas $A_1$ y $A_2$ recorridas en un intervalo de tiempo idéntico $\\Delta t = 30\\text{ días}$:",
+      "tabla_o_grafica_markdown": "| Tramo Orbital | Distancia Media al Sol | Área Barredura ($A$) | Tiempo empleado ($\\Delta t$) |\n| :--- | :--- | :--- | :--- |\n| **Tramo 1 (Cerca del Sol)** | $0.8\\text{ UA}$ | $A_1$ | $30\\text{ días}$ |\n| **Tramo 2 (Lejos del Sol)** | $2.4\\text{ UA}$ | $A_2$ | $30\\text{ días}$ |",
+      "pregunta": "Teniendo en cuenta la Segunda Ley de Kepler (Ley de las Áreas), ¿qué relación existe entre las áreas $A_1$ y $A_2$, y cómo es la velocidad del asteroide en el Tramo 1 comparada con el Tramo 2?",
+      "opciones": [
+        "Las áreas son iguales ($A_1 = A_2$), y la velocidad en el Tramo 1 es mayor que en el Tramo 2.",
+        "El área $A_1$ es tres veces mayor que $A_2$, y las velocidades son exactamente idénticas.",
+        "El área $A_2$ es mayor que $A_1$, pero el asteroide se mueve más rápido en el Tramo 2.",
+        "Las áreas son diferentes porque la distancia varía, pero la velocidad tangencial permanece constante."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. La Segunda Ley de Kepler establece que el radio vector barre áreas iguales en tiempos iguales ($A_1 = A_2$). Para barrer un área igual a una distancia menor, el arco recorrido y por ende la velocidad en el Tramo 1 (perihelio) debe ser mayor.",
+        "1": "Incorrecto. Kepler demostró que las áreas barridas en tiempos iguales son idénticas, no proporcionales al radio.",
+        "2": "Incorrecto. Las áreas barridas son iguales para tiempos iguales, y en el perihelio la velocidad aumenta, no disminuye.",
+        "3": "Incorrecto. La velocidad tangencial varía continuamente a lo largo de una órbita elíptica, alcanzando su máximo en el perihelio y su mínimo en el afelio."
+      }
+    }
+  ]
+}

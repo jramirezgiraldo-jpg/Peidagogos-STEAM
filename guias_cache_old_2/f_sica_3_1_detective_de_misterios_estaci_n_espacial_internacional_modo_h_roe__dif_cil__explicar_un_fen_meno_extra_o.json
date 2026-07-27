@@ -1,0 +1,114 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Cuál es la forma de la órbita de los planetas según Johannes Kepler?",
+      "opciones": [
+        "Circular perfecta",
+        "Elíptica con el Sol en un foco",
+        "Parabólica",
+        "Rectilínea"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "En el vacío del espacio, si un objeto no tiene fuerzas actuando sobre él, ¿qué sucede con su movimiento?",
+      "opciones": [
+        "Se detiene inmediatamente",
+        "Sigue en línea recta a velocidad constante",
+        "Empieza a girar en círculos",
+        "Cae hacia el planeta más cercano"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Qué magnitud física mide el cambio de velocidad en el tiempo?",
+      "opciones": [
+        "Posición",
+        "Masa",
+        "Aceleración",
+        "Energía"
+      ],
+      "correcta": 2
+    }
+  ],
+  "texto_inductivo": "Saludos, Cadetes de la ISS. Soy su Detective de Misterios asignado a la Sección de Astrofísica. Tenemos un enigma en el sector 4: un satélite de suministros ha perdido su propulsión y, extrañamente, en lugar de alejarse, ha quedado atrapado en una trayectoria curva. ***¿Por qué los cuerpos celestes y los satélites en la Estación Espacial Internacional persisten en un baile eterno de curvas y elipses en lugar de escapar hacia el vacío infinito del espacio?*** Para resolver esto, debemos invocar el fantasma de Johannes Kepler. [JUEGO:ORDENAR_LETRAS:KEPLER] Kepler descubrió que los planetas no se mueven en círculos perfectos. [JUEGO:ORDENAR_FRASE:LOS PLANETAS GIRAN EN ELIPSES] Esta es la Primera Ley de Kepler. Una elipse tiene dos puntos llamados focos. [JUEGO:ORDENAR_LETRAS:ELIPSE] <div style='border: 2px solid #00ff00; padding: 10px; background: #001a00; border-radius: 15px; text-align: center;'><svg width='200' height='100'><ellipse cx='100' cy='50' rx='80' ry='40' style='fill:none;stroke:#00ff00;stroke-width:2' /><circle cx='60' cy='50' r='5' fill='yellow' /><text x='55' y='40' fill='white' font-size='10'>Sol (Foco)</text><circle cx='180' cy='50' r='4' fill='blue' /><text x='150' y='80' fill='white' font-size='10'>Planeta</text></svg><p style='color:#00ff00; font-family: monospace;'>Diagrama 1: Órbita Elíptica</p></div> Al observar el cielo, notamos que la velocidad no es constante. [JUEGO:ORDENAR_LETRAS:ORBITA] [JUEGO:CRUCIGRAMA:Primera Ley|ELIPSE;Punto central|FOCO] La Segunda Ley nos dice que el radio vector que une al Sol con el planeta barre áreas iguales en tiempos iguales. [JUEGO:ORDENAR_FRASE:AREAS IGUALES EN TIEMPOS IGUALES] Esto implica que el planeta corre más rápido cuando está cerca del Sol (perihelio). [JUEGO:SOPA_LETRAS:GRAVEDAD,FOCO,ELIPSE] [JUEGO:ORDENAR_LETRAS:FOCO] El misterio se profundiza al analizar la relación entre la distancia y el tiempo que tarda en dar una vuelta. [JUEGO:ORDENAR_FRASE:EL RADIO VECTOR BARRE AREAS] [JUEGO:CRUCIGRAMA:Segunda Ley|AREAS;Velocidad|CAMBIANTE] La Tercera Ley establece una proporción matemática entre el periodo orbital y la distancia media. [JUEGO:SOPA_LETRAS:SOL,ORBITA,AREA] [JUEGO:ORDENAR_LETRAS:PLANETA] El movimiento planetario es un equilibrio de fuerzas invisibles. [JUEGO:ORDENAR_FRASE:EL MOVIMIENTO NO ES UNIFORME] [JUEGO:CRUCIGRAMA:Tercera Ley|PERIODOS;Distancia|CUBICA] <table style='width:100%; border-collapse: collapse; color: white; background: #1a1a1a;'><thead><tr style='background: #333;'><th style='border: 1px solid #555; padding: 8px;'>Ley</th><th style='border: 1px solid #555; padding: 8px;'>Concepto Clave</th></tr></thead><tbody><tr><td style='border: 1px solid #555; padding: 8px;'>1ra Ley</td><td style='border: 1px solid #555; padding: 8px;'>Trayectoria Elíptica</td></tr><tr><td style='border: 1px solid #555; padding: 8px;'>2da Ley</td><td style='border: 1px solid #555; padding: 8px;'>Conservación del momento (Áreas)</td></tr><tr><td style='border: 1px solid #555; padding: 8px;'>3ra Ley</td><td style='border: 1px solid #555; padding: 8px;'>Relación T² ∝ a³</td></tr></tbody></table> [JUEGO:SOPA_LETRAS:TIEMPO,RADIO,LEY] [JUEGO:ORDENAR_FRASE:EL SOL OCUPA UN FOCO] [JUEGO:CRUCIGRAMA:Astro Rey|SOL;Trayectoria|CURVA] El vacío no está vacío, está lleno de geometría. [JUEGO:SOPA_LETRAS:CINETICA,INERCIA,MASA] [JUEGO:CRUCIGRAMA:Atracción|GRAVEDAD;Cuerpo|MASA] [JUEGO:SOPA_LETRAS:ESPACIO,VACIO,FUERZA]",
+  "recurso_visual": "| Ley de Kepler | Descripción Científica | Aplicación en la ISS |\n| :--- | :--- | :--- |\n| 1. Órbitas | Los planetas se mueven en elipses. | La ISS orbita la Tierra en una elipse casi circular. |\n| 2. Áreas | Áreas iguales en tiempos iguales. | El satélite acelera al acercarse al centro de masa. |\n| 3. Periodos | Relación constante entre periodo y distancia. | Determina a qué altura debemos colocar satélites GPS. |",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "¿Qué forma geométrica describe la trayectoria de un planeta según la primera ley de Kepler?",
+      "respuesta_esperada": "Una elipse, la cual tiene dos focos, siendo el Sol uno de ellos."
+    },
+    {
+      "pregunta": "Según la segunda ley, ¿en qué punto de la órbita un planeta se mueve más rápido?",
+      "respuesta_esperada": "En el perihelio, que es el punto más cercano al Sol o al centro de masa que orbita."
+    },
+    {
+      "pregunta": "¿Qué ocurre con el área barrida por el radio vector en intervalos de tiempo idénticos?",
+      "respuesta_esperada": "El área barrida es siempre la misma, independientemente de la posición del planeta."
+    },
+    {
+      "pregunta": "¿Cómo se relaciona el periodo orbital con la distancia media al Sol en la tercera ley?",
+      "respuesta_esperada": "El cuadrado del periodo orbital es proporcional al cubo de la distancia media (semieje mayor)."
+    },
+    {
+      "pregunta": "Si un satélite está en una órbita muy alta, ¿su periodo será mayor o menor que uno en órbita baja?",
+      "respuesta_esperada": "Su periodo será mayor, ya que a mayor distancia, mayor es el tiempo necesario para completar una órbita."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja una elipse indicando sus focos, el eje mayor y representa un satélite en perihelio y afelio.",
+    "Realiza un cuadro comparativo entre las tres leyes de Kepler, destacando la magnitud física que cada una analiza.",
+    "¿Por qué crees que Kepler necesitó los datos de Tycho Brahe para llegar a estas conclusiones? Reflexiona sobre el papel de la observación.",
+    "Representa gráficamente la Segunda Ley de Kepler mediante un esquema de 'rebanadas de pizza' orbitales con áreas sombreadas iguales."
+  ],
+  "texto_deductivo": "Para cerrar el caso, Cadetes, debemos aplicar la mecánica de Newton a nuestro satélite. [JUEGO:ORDENAR_LETRAS:NEWTON] La cinemática nos explica el 'cómo': posición, velocidad y aceleración. [JUEGO:ORDENAR_FRASE:LA POSICION CAMBIA CON EL TIEMPO] En la ISS, la posición se mide respecto al centro de la Tierra. [JUEGO:ORDENAR_LETRAS:INERCIA] La velocidad no es solo un número; es un vector que apunta tangencialmente a la órbita. [JUEGO:ORDENAR_FRASE:LA VELOCIDAD ES UN VECTOR] [JUEGO:CRUCIGRAMA:Cambio de posición|DESPLAZAMIENTO;Tiempo|INTERVALO] <div style='background: #000; padding: 20px; border: 3px dashed #ff0000;'><svg width='300' height='200'><circle cx='150' cy='100' r='40' fill='#4444ff' /><circle cx='250' cy='100' r='10' fill='#ccc' /><line x1='250' y1='100' x2='250' y2='30' stroke='#ff0000' stroke-width='3' marker-end='url(#arrow)' /><text x='255' y='50' fill='#ff0000' font-size='14'>V (Velocidad)</text><line x1='250' y1='100' x2='150' y2='100' stroke='#ffff00' stroke-width='2' /><text x='180' y='90' fill='#ffff00' font-size='14'>F_g (Gravedad)</text></svg><p style='color:red; text-align:center;'>Vectores en Órbita</p></div> Si la velocidad cambia de dirección, hay aceleración, incluso si la rapidez es constante. [JUEGO:ORDENAR_LETRAS:VELOCIDAD] [JUEGO:ORDENAR_FRASE:LA ACELERACION ES HACIA EL CENTRO] Esta es la aceleración centrípeta provocada por la gravedad. [JUEGO:SOPA_LETRAS:VECTOR,ESCALAR,CAMBIO] [JUEGO:CRUCIGRAMA:Magnitud vectorial|VELOCIDAD;Cambio de velocidad|ACELERACION] Newton dedujo que la fuerza gravitatoria depende de las masas y la distancia. [JUEGO:ORDENAR_LETRAS:VECTOR] [JUEGO:ORDENAR_FRASE:LA FUERZA DEPENDE DE LA MASA] [JUEGO:CRUCIGRAMA:Leyes de|NEWTON;Acción y|REACCION] Cuanto más lejos está el satélite, menor es la fuerza. [JUEGO:ORDENAR_LETRAS:ACELERACION] [JUEGO:ORDENAR_FRASE:EL RADIO AL CUADRADO DIVIDE] [JUEGO:SOPA_LETRAS:RAPIDEZ,DIRECCION,SENTIDO] La constante de gravitación universal G une todo el cosmos. [JUEGO:SOPA_LETRAS:METRO,SEGUNDO,NEWTON] [JUEGO:CRUCIGRAMA:Masa por aceleración|FUERZA;Resistencia al cambio|INERCIA] Así resolvemos el misterio: el satélite no escapa porque la gravedad lo acelera constantemente hacia la Tierra, curvando su trayectoria de inercia. [JUEGO:SOPA_LETRAS:UNIVERSAL,CONSTANTE,GIGANTE] [JUEGO:CRUCIGRAMA:Fuerza central|GRAVEDAD;Camino seguido|TRAYECTORIA] [JUEGO:SOPA_LETRAS:DINAMICA,ESTATICA,FISICA]",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "¿Por qué un satélite en órbita circular tiene aceleración si su rapidez es constante?",
+      "respuesta_esperada": "Porque su vector velocidad cambia continuamente de dirección, lo que implica una aceleración centrípeta hacia el centro de la órbita."
+    },
+    {
+      "pregunta": "¿Qué sucede con la fuerza de gravedad si duplicamos la distancia entre dos objetos?",
+      "respuesta_esperada": "La fuerza se reduce a la cuarta parte (1/4), debido a la relación del inverso del cuadrado de la distancia."
+    },
+    {
+      "pregunta": "En términos de vectores, ¿hacia dónde apunta la fuerza gravitatoria sobre la ISS?",
+      "respuesta_esperada": "Apunta radialmente hacia el centro de la Tierra."
+    },
+    {
+      "pregunta": "¿Cuál es la diferencia entre rapidez y velocidad en el contexto orbital?",
+      "respuesta_esperada": "La rapidez es la magnitud del movimiento (ej. 28,000 km/h), mientras que la velocidad incluye la dirección tangente a la trayectoria."
+    },
+    {
+      "pregunta": "¿Cómo define Newton la inercia en relación con el movimiento de los planetas?",
+      "respuesta_esperada": "Es la tendencia de los planetas a seguir en línea recta, la cual es contrarrestada por la fuerza de gravedad para crear una órbita."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Dibuja un diagrama de cuerpo libre para la ISS, mostrando los vectores de velocidad tangencial y fuerza gravitatoria.",
+    "Elabora un mapa mental que conecte la Cinemática (posición, velocidad, aceleración) con la Ley de Gravitación Universal.",
+    "Realiza un dibujo explicativo que muestre qué pasaría con la trayectoria de la Luna si la gravedad de la Tierra desapareciera súbitamente.",
+    "Crea una infografía artesanal que explique la fórmula F = G * (m1*m2)/r², detallando qué significa cada variable."
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "En la Estación Espacial Internacional, los astronautas observan que para mantener una órbita estable a una altura fija, la ISS debe mantener una velocidad específica. Si la velocidad aumentara significativamente sin cambiar la altura, el objeto describiría una trayectoria diferente.",
+      "tabla_o_grafica_markdown": "| Parámetro | Relación con la Fuerza Gravitatoria |\n| :--- | :--- |\n| Masa (m) | Proporcional (Directa) |\n| Distancia (r) | Inversa al cuadrado (1/r²) |\n| Velocidad (v) | Determina el tipo de curva orbital |",
+      "pregunta": "Si un satélite experimental en la ISS duplica su masa manteniendo la misma distancia a la Tierra, ¿qué ocurre con la fuerza de atracción gravitatoria sobre él?",
+      "opciones": [
+        "La fuerza de atracción se duplica.",
+        "La fuerza de atracción se reduce a la mitad.",
+        "La fuerza de atracción aumenta cuatro veces.",
+        "La fuerza de atracción permanece constante."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. Según la Ley de Gravitación Universal, la fuerza es directamente proporcional al producto de las masas.",
+        "1": "Incorrecto. La relación con la masa es directa, no inversa.",
+        "2": "Incorrecto. La fuerza aumentaría cuatro veces solo si se duplicaran ambas masas o se redujera la distancia a la mitad.",
+        "3": "Incorrecto. Un cambio en la masa altera directamente la magnitud de la fuerza gravitatoria."
+      }
+    }
+  ]
+}

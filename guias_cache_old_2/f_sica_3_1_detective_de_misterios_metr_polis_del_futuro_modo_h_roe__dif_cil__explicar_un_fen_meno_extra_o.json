@@ -1,0 +1,114 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "En Neon City, un dron de vigilancia sigue una trayectoria elíptica alrededor del núcleo central. Según la observación científica, ¿qué sucede con su velocidad cuando se acerca al núcleo?",
+      "opciones": [
+        "La velocidad aumenta debido a la conservación del momento angular.",
+        "La velocidad disminuye para evitar colisionar con el núcleo.",
+        "La velocidad se mantiene constante en toda la elipse.",
+        "La velocidad se anula en el punto más cercano."
+      ],
+      "correcta": 0
+    },
+    {
+      "pregunta": "Si la masa del núcleo central de la metrópolis se duplicara repentinamente, ¿qué ocurriría con la fuerza de atracción sobre los vehículos voladores?",
+      "opciones": [
+        "Se reduciría a la mitad.",
+        "Se mantendría igual.",
+        "Se duplicaría siguiendo la ley de gravitación.",
+        "Se cuadruplicaría por la inercia."
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "¿Cuál es la forma geométrica que describen los planetas en su movimiento alrededor del Sol, según las leyes de Kepler?",
+      "opciones": [
+        "Círculos perfectos.",
+        "Elipses con el Sol en uno de los focos.",
+        "Espirales descendentes.",
+        "Líneas rectas curvas."
+      ],
+      "correcta": 1
+    }
+  ],
+  "texto_inductivo": "Saludos, Agente de la División de Misterios de Metrópolis 2145. Soy tu instructor jefe. Tenemos un caso crítico: las estaciones espaciales de la Red Sigma han reportado una desviación en sus trayectorias habituales. Para resolver este enigma, primero debemos entender las reglas fundamentales que rigen el cosmos. ***¿Cómo es posible que un objeto masivo como un planeta o una estación orbital se mantenga en una trayectoria cerrada y predecible sin un motor que lo impulse constantemente a través del vacío?*** Esta es la pregunta que guiará nuestra investigación. [JUEGO:ORDENAR_LETRAS:ORBITA] Observa la arquitectura de nuestro sistema solar; no es un caos, sino un mecanismo de precisión relojera. [JUEGO:ORDENAR_FRASE:EL SOL ES UNA ESTRELLA] Históricamente, Johannes Kepler analizó los datos del detective astronómico Tycho Brahe para descubrir que los mundos no se mueven en círculos perfectos, sino en elipses. [JUEGO:SOPA_LETRAS:NEWTON,FUERZA,MASA] En el Sector de Datos Beta, encontramos que un planeta barre áreas iguales en tiempos iguales. [JUEGO:CRUCIGRAMA:Trayectoria circular o eliptica|ORBITA;Estrella central|SOL] Esto implica que el movimiento planetario no es uniforme. <div style='background-color: #1a1a1a; border: 2px solid #00ffcc; padding: 10px; border-radius: 10px; color: #00ffcc; font-family: monospace;'><svg viewBox='0 0 400 200' xmlns='http://www.w3.org/2000/svg'><ellipse cx='200' cy='100' rx='150' ry='70' style='fill:none;stroke:#00ffcc;stroke-width:2' /><circle cx='100' cy='100' r='10' fill='#ffcc00' /><text x='85' y='85' fill='#ffcc00' font-size='12'>SOL (FOCO)</text><circle cx='350' cy='100' r='5' fill='#00ccff' /><text x='310' y='120' fill='#00ccff' font-size='10'>PLANETA (AFELIO)</text></svg><p style='text-align:center'>Figura 1: Representación de la 1ra Ley de Kepler en el Vacío de Sigma.</p></div> [JUEGO:ORDENAR_LETRAS:ELIPSE] Cuando el planeta está cerca del foco (Perihelio), su velocidad es máxima; cuando está lejos (Afelio), es mínima. [JUEGO:ORDENAR_FRASE:LA TIERRA TIENE MASA] Este cambio de velocidad es la clave para entender por qué la estación Sigma no ha colapsado. [JUEGO:SOPA_LETRAS:KEPLER,ELIPSE,FOCO] Si el área barrida es constante, la física nos dicta una relación matemática profunda. [JUEGO:CRUCIGRAMA:Cientifico aleman|KEPLER;Segunda ley|AREAS] Investigar esta 'danza' geométrica es tu primera misión. [JUEGO:ORDENAR_LETRAS:FOCO] ¿Cómo se relacionan el tiempo y la distancia? Kepler nos dio la pista con su tercera ley: el cuadrado del periodo es proporcional al cubo de la distancia media. [JUEGO:ORDENAR_FRASE:LOS PLANETAS SE MUEVEN] Esto significa que los planetas más lejanos tardan muchísimo más en completar su ciclo. [JUEGO:SOPA_LETRAS:RADIO,AREA,TIEMPO] En Metrópolis, aplicamos esto para sincronizar los satélites de baja y alta órbita. [JUEGO:CRUCIGRAMA:Unidad de tiempo|SEGUNDO;Punto de una elipse|FOCO] [JUEGO:ORDENAR_LETRAS:SOL] La precisión es vital; un error de un decimal y la estación Sigma se perdería en el olvido interestelar. [JUEGO:ORDENAR_FRASE:KEPLER ESTUDIO LOS ASTROS] [JUEGO:SOPA_LETRAS:CIENCIA,METODO,DATOS] [JUEGO:CRUCIGRAMA:Espacio entre focos|EXCENTRICIDAD;Curva cerrada|ELIPSE] [JUEGO:ORDENAR_LETRAS:LEY] [JUEGO:ORDENAR_FRASE:LA CIENCIA BUSCA LA VERDAD] [JUEGO:SOPA_LETRAS:ESPACIO,VACIO,LUZ]",
+  "recurso_visual": "graph TD\n    A[Observación Científica] --> B[1ra Ley: Órbitas Elípticas]\n    A --> C[2da Ley: Áreas Iguales - Velocidad Variable]\n    A --> D[3ra Ley: T^2 proporcional a R^3]\n    B --> E[Sol en uno de los focos]\n    C --> F[Perihelio: Rápido / Afelio: Lento]\n    D --> G[Relación Armónica del Sistema Solar]",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "¿Qué forma tienen las órbitas de los planetas según el texto?",
+      "respuesta_esperada": "Tienen forma de elipses, con el Sol ubicado en uno de sus focos."
+    },
+    {
+      "pregunta": "¿Qué ocurre con la velocidad de un planeta cuando se encuentra en el perihelio?",
+      "respuesta_esperada": "La velocidad es máxima debido a que debe barrer áreas iguales en tiempos iguales estando más cerca del Sol."
+    },
+    {
+      "pregunta": "¿Qué relación establece la tercera ley de Kepler?",
+      "respuesta_esperada": "Establece que el cuadrado del periodo orbital (T) es directamente proporcional al cubo de la distancia media al Sol (R)."
+    },
+    {
+      "pregunta": "¿Quién proporcionó los datos que Kepler utilizó para sus descubrimientos?",
+      "respuesta_esperada": "El astrónomo Tycho Brahe."
+    },
+    {
+      "pregunta": "¿Por qué es importante la precisión en el cálculo de órbitas en Metrópolis 2145?",
+      "respuesta_esperada": "Porque un pequeño error decimal puede causar que una estación orbital se pierda en el espacio o colapse."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja una elipse detallada identificando los focos, el semieje mayor, el perihelio y el afelio, explicando dónde se mueve más rápido el planeta.",
+    "Realiza un cuadro comparativo entre el movimiento circular uniforme y el movimiento elíptico de los planetas.",
+    "¿Por qué crees que Kepler tardó tanto tiempo en aceptar que las órbitas no eran círculos perfectos? Reflexiona sobre la influencia de las ideas de la época.",
+    "Representa gráficamente la 2da Ley de Kepler (Ley de las Áreas) usando colores para diferenciar dos sectores barridos en el mismo tiempo."
+  ],
+  "texto_deductivo": "Ahora que hemos observado el comportamiento, debemos deducir la fuerza invisible que mueve los hilos en esta Metrópolis galáctica. [JUEGO:ORDENAR_LETRAS:MASA] Isaac Newton, el gran arquitecto de la física clásica, dedujo que la causa de las elipses de Kepler era una fuerza de atracción universal. [JUEGO:ORDENAR_FRASE:LA GRAVEDAD ES UNIVERSAL] Esta fuerza, la Gravedad, actúa entre dos masas cualesquiera en el universo. [JUEGO:SOPA_LETRAS:INVERSO,CUADRADO,RADIO] La ecuación que rige el destino de Sigma es F = G * (m1 * m2) / r². [JUEGO:CRUCIGRAMA:Fuerza hacia el centro|CENTRIPETA;Lo que Newton vio caer|MANZANA] <div style='border: 3px double #ff0055; padding: 15px; margin: 10px; font-family: serif; background-color: #2b0000; color: #ff9999;'> <h2 style='text-align:center; font-size: 2rem;'>LEY DE GRAVITACIÓN UNIVERSAL</h2> <table style='width:100%; border-collapse: collapse;'> <tr style='border-bottom: 2px solid #ff9999;'> <th>Variable</th> <th>Significado</th> <th>Unidad (SI)</th> </tr> <tr> <td>F</td> <td>Fuerza Gravitatoria</td> <td>Newton (N)</td> </tr> <tr> <td>G</td> <td>Constante Universal</td> <td>6.67x10⁻¹¹ N·m²/kg²</td> </tr> <tr> <td>m1, m2</td> <td>Masas de los cuerpos</td> <td>Kilogramos (kg)</td> </tr> <tr> <td>r</td> <td>Distancia entre centros</td> <td>Metros (m)</td> </tr> </table> </div> [JUEGO:ORDENAR_LETRAS:PESO] Nota que la fuerza es inversamente proporcional al cuadrado de la distancia. Si la distancia se duplica, la fuerza se reduce a la cuarta parte. [JUEGO:ORDENAR_FRASE:LA MASA ATRAE MASA] Esta deducción nos permite explicar por qué los planetas exteriores se mueven tan lentamente. [JUEGO:SOPA_LETRAS:MASA,KILOGRAMO,PESO] La gravedad actúa como una cuerda invisible que proporciona la aceleración centrípeta necesaria para curvar la trayectoria. [JUEGO:CRUCIGRAMA:G mayuscula es una|CONSTANTE;Relacion matematica|ECUACION] [JUEGO:ORDENAR_LETRAS:RADIO] Sin esta fuerza, los objetos seguirían una línea recta hacia el infinito debido a la inercia. [JUEGO:ORDENAR_FRASE:EL PERIODO DEPENDE DEL RADIO] [JUEGO:SOPA_LETRAS:FUERZA,NEWTON,DINAMICA] La masa de la Metrópolis central genera una curvatura en el tejido del espacio-tiempo que obliga a los drones a seguir elipses. [JUEGO:CRUCIGRAMA:Tercera ley|ARMONICA;Cambio de velocidad|ACELERACION] [JUEGO:ORDENAR_LETRAS:LEY] [JUEGO:ORDENAR_FRASE:LA VELOCIDAD ES CONSTANTE NO] [JUEGO:SOPA_LETRAS:ORBITA,PERIODO,TIEMPO] La cinemática nos da la posición y velocidad, pero la dinámica nos da el 'por qué'. [JUEGO:CRUCIGRAMA:Fuerza de atraccion|GRAVEDAD;Cantidad de materia|MASA] [JUEGO:ORDENAR_LETRAS:CONSTANTE] [JUEGO:ORDENAR_FRASE:NEWTON EXPLICO LA ORBITA] [JUEGO:SOPA_LETRAS:ACCION,REACCION,LEYES]",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "¿Cómo varía la fuerza gravitatoria si la distancia entre dos cuerpos se triplica?",
+      "answer_expected": "La fuerza disminuye a la novena parte (1/9) de su valor original."
+    },
+    {
+      "pregunta": "¿Qué papel juega la 'G' en la ecuación de Newton?",
+      "answer_expected": "Es la constante de gravitación universal que permite cuantificar la intensidad de la fuerza de atracción."
+    },
+    {
+      "pregunta": "¿Qué sucedería con el movimiento de los planetas si la gravedad desapareciera repentinamente?",
+      "answer_expected": "Saldrían disparados en línea recta, tangencial a su órbita, debido a la inercia."
+    },
+    {
+      "pregunta": "¿Por qué se dice que la gravedad es una fuerza de largo alcance?",
+      "answer_expected": "Porque su influencia se extiende por todo el espacio, aunque disminuya con la distancia, nunca llega a cero."
+    },
+    {
+      "pregunta": "¿En qué se diferencia la masa del peso según la ley de gravitación?",
+      "answer_expected": "La masa es la cantidad de materia (constante), mientras que el peso es la fuerza gravitatoria ejercida sobre esa masa (variable según el lugar)."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Diseña un diagrama de fuerzas detallado para un satélite en órbita, mostrando los vectores de velocidad, aceleración centrípeta y fuerza gravitacional.",
+    "Elabora un mapa mental que conecte las Leyes de Kepler con la Ley de Gravitación Universal de Newton.",
+    "Realiza un dibujo explicativo que compare cómo sería la órbita de un planeta en un sistema con un sol mucho más masivo que el nuestro.",
+    "Crea una infografía artesanal que explique por qué los astronautas en la estación espacial Sigma sienten 'ingravidez' aunque la gravedad allí sea casi el 90% de la terrestre."
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "En la periferia de Metrópolis 2145, un satélite de comunicaciones se desplaza desde el punto A (Afelio) al punto B (Perihelio) en su órbita elíptica alrededor del planeta. Los ingenieros detectan cambios en su energía y velocidad.",
+      "tabla_o_grafica_markdown": "| Punto | Distancia al Centro (km) | Velocidad (km/s) |\n|---|---|---|\n| Afelio | 450,000 | 1.02 |\n| Perihelio | 150,000 | 3.06 |",
+      "pregunta": "¿Cuál es la razón física que explica por qué la velocidad en el perihelio es tres veces mayor que en el afelio?",
+      "opciones": [
+        "Porque para barrer áreas iguales en tiempos iguales, al ser la distancia menor, el arco recorrido debe ser mayor.",
+        "Porque la fricción con la atmósfera del planeta es menor en el perihelio.",
+        "Porque la masa del satélite aumenta cuando se acerca al planeta central.",
+        "Porque la constante de gravitación G aumenta en las zonas cercanas a grandes masas."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. Según la segunda ley de Kepler, la conservación del momento angular exige que a menor radio, mayor velocidad para mantener constante el área barrida.",
+        "1": "Incorrecto. La fricción atmosférica generalmente reduciría la energía total y no explica el aumento de velocidad orbital natural.",
+        "2": "Incorrecto. La masa es una propiedad intrínseca y no cambia con la posición orbital.",
+        "3": "Incorrecto. G es una constante universal y su valor no depende de la posición en el espacio."
+      }
+    }
+  ]
+}

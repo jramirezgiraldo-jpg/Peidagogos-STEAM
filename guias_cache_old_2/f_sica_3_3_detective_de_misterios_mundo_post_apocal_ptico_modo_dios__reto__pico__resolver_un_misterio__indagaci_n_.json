@@ -1,0 +1,96 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Qué ocurre con la fuerza de atracción gravitacional entre dos cuerpos si la masa de uno de ellos se duplica?",
+      "opciones": [
+        "La fuerza se duplica.",
+        "La fuerza se reduce a la mitad.",
+        "La fuerza se cuadruplica.",
+        "La fuerza no cambia."
+      ],
+      "correcta": 0
+    },
+    {
+      "pregunta": "¿Cuál es la unidad de medida de la fuerza en el Sistema Internacional de Unidades (SI)?",
+      "opciones": [
+        "Joule (J)",
+        "Newton (N)",
+        "Kilogramo (kg)",
+        "Pascal (Pa)"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "Si la distancia entre dos objetos celestes se incrementa, la fuerza de atracción entre ellos:",
+      "opciones": [
+        "Aumenta proporcionalmente.",
+        "Permanecerá constante.",
+        "Disminuye según la ley del inverso del cuadrado.",
+        "Se vuelve cero de forma instantánea."
+      ],
+      "correcta": 2
+    }
+  ],
+  "texto_inductivo": "# Expediente N° 303: El Enigma del Asteroide Devorador\n\n***¿Cómo podemos calcular la fuerza gravitacional exacta de un satélite descarriado para evitar que aplaste nuestra colonia sobreviviente antes del amanecer?***\n\nAño 2184. Bienvenidos al Sector Ceniza, el último bastión de la humanidad tras 'La Gran Ruptura'. Soy el Detective Vance, investigador de anomalías físicas. [JUEGO:ORDENAR_LETRAS:GRAVEDAD] Los sensores del bunker detectan una alteración masiva en la órbita de las ruinas de la estación espacial *Titán-9*. La estación se aproxima peligrosamente a nuestro Domo Principal. [ACTIVIDAD:PLATAFORMA:¿Cuál es el nombre de la estación espacial que amenaza la colonia?|Titán-9] En tu cuaderno de detective, [ACTIVIDAD:CUADERNO:Dibuja el domo de la colonia y la estación Titán-9 en aproximación, señalando la trayectoria estimada] para registrar las pruebas visuales.\n\n<svg viewBox=\"0 0 600 200\" xmlns=\"http://www.w3.org/2000/svg\" style=\"background-color:#111; border-radius:8px; margin:15px 0;\"><circle cx=\"100\" cy=\"100\" r=\"50\" fill=\"#3498db\"/><text x=\"100\" y=\"105\" text-anchor=\"middle\" fill=\"white\" font-family=\"sans-serif\" font-size=\"12\">Aethelgard (M1)</text><line x1=\"150\" y1=\"100\" x2=\"450\" y2=\"100\" stroke=\"#e74c3c\" stroke-width=\"2\" stroke-dasharray=\"5,5\"/><circle cx=\"450\" cy=\"100\" r=\"20\" fill=\"#e67e22\"/><text x=\"450\" y=\"105\" text-anchor=\"middle\" fill=\"white\" font-family=\"sans-serif\" font-size=\"10\">Titán-9 (M2)</text><text x=\"300\" y=\"85\" text-anchor=\"middle\" fill=\"#f1c40f\" font-family=\"sans-serif\" font-size=\"14\">Distancia (r)</text><text x=\"200\" y=\"130\" fill=\"#2ecc71\" font-family=\"sans-serif\" font-size=\"12\">Fuerza Atracción ➔</text><text x=\"380\" y=\"130\" fill=\"#2ecc71\" font-family=\"sans-serif\" font-size=\"12\">← Fuerza Atracción</text></svg>\n\nPara detener esta catástrofe debemos inspeccionar la masa residual del fragmento. [JUEGO:ORDENAR_LETRAS:MASA] Si calculamos mal su valor, las cargas de propulsión de interferencia fallarán y el domo colapsará. [JUEGO:ORDENAR_FRASE:LA GRAVEDAD ATRAE A TODOS LOS CUERPOS] [ACTIVIDAD:PLATAFORMA:¿Por qué es crítico calcular bien la masa de la estación?|Para evitar que las cargas de propulsión de interferencia fallen y el domo colapse]\n\n<div style=\"background-color:#1e272e; border-left:5px solid #ff3838; padding:10px; color:#dcdde1; margin:15px 0;\"><h4 style=\"margin:0; color:#ff4d4d;\">REGISTRO DE EVIDENCIA #1</h4><p style=\"margin:5px 0;\">Nivel de degradación orbital: 14% por hora. La fuerza invisible tira con mayor intensidad a medida que r (distancia) disminuye.</p></div>\n\n[JUEGO:ORDENAR_LETRAS:ORBITA] Observa la relación entre la distancia y la intensidad gravitatoria en la bitácora del observatorio. [ACTIVIDAD:PLATAFORMA:¿Qué ocurre con la fuerza a medida que la distancia r disminuye?|La fuerza gravitacional aumenta] Elabora un gráfico en tu libreta [ACTIVIDAD:CUADERNO:Crea un mapa mental comparando Masa, Distancia y Fuerza Gravitacional según las pistas del caso] para proyectar las deducciones iniciales.\n\n[JUEGO:ORDENAR_FRASE:LA DISTANCIA REDUCE LA FUERZA GRAVITACIONAL] Nos damos cuenta de que el tirón no es lineal. [ACTIVIDAD:PLATAFORMA:¿La relación de la distancia con la fuerza es de tipo lineal o cuadrática inversa?|Cuadrática inversa] Si acercamos la estación a la mitad de la distancia original, la atracción no se duplica, ¡se cuadruplica! [JUEGO:ORDENAR_FRASE:EL DETECTIVE RESUELVE EL MISTERIO ESPACIAL]\n\n<table style=\"width:100%; border-collapse:collapse; color:white; background:#2c3e50; margin:15px 0;\"><tr style=\"background:#16a085;\"><th>Estado</th><th>Distancia (r)</th><th>Fuerza de Atracción Relative (F)</th></tr><tr><td>Inicial</td><td>d</td><td>F</td></tr><tr><td>Fase Crítica</td><td>d / 2</td><td>4F</td></tr><tr><td>Impacto Inminente</td><td>d / 3</td><td>9F</td></tr></table>\n\n[ACTIVIDAD:PLATAFORMA:¿Cuántas veces aumenta la fuerza si la distancia se reduce a un tercio?|Aumenta 9 veces]\nRealiza en tu cuaderno un análisis comparativo [ACTIVIDAD:CUADERNO:Diseña una tabla comparativa en tu cuaderno con tres columnas: Distancia, Fuerza Relativa y Efecto en la Colonia].\n\n[JUEGO:SOPA_LETRAS:GRAVEDAD,MASA,DISTANCIA,NEWTON,FUERZA,ORBITA,SATELITE,CONSTANTE,RADIAL,CAMPOS]\n\nResuelve el siguiente crucigrama para desbloquear la consola central del observatorio abandonado:\n[JUEGO:CRUCIGRAMA:Fuerza de atraccion entre masas|GRAVEDAD;Cientifico que formuló la ley|NEWTON;Distancia entre centros|RADIO;Cantidad de materia|MASA;Unidad de fuerza en el SI|NEWTONIO;Aceleracion de la tierra|GRAVEDAD;Unidad de masa|KILOGRAMO;Trayectoria de un satelite|ORBITA;Aparato de medicion|BALANZA;Efecto de la distancia|INVERSO]\n\nPor último, dibuja la escena final de investigación [ACTIVIDAD:CUADERNO:Dibuja al detective Vance operando la consola de cálculo orbital para enviar el impulso defensivo].",
+  "recurso_visual": "| Variable Fisíca | Símbolo | Unidad SI | Rol en la Ecuación del Misterio |\n|---|---|---|---|\n| Fuerza Gravitacional | $F$ | Newton ($N$) | Magnitud de la atracción entre los cuerpos |\n| Constante Gravitacional | $G$ | $N\\cdot m^2/kg^2$ | Valor universal ($6.674 \\times 10^{-11}$) |\n| Masa 1 (Colonia) | $m_1$ | Kilogramos ($kg$) | Masa atractora principal |\n| Masa 2 (Titán-9) | $m_2$ | Kilogramos ($kg$) | Masa del cuerpo en colisión |\n| Distancia | $r$ | Metros ($m$) | Separación entre centros de masa |",
+  "texto_deductivo": "# Informe Deductivo: La Ley de Gravitación Universal de Newton\n\nPara cerrar el caso de *Titán-9*, debemos aplicar el rigor matemático formal desarrollado por Sir Isaac Newton en 1687. [JUEGO:ORDENAR_LETRAS:NEWTON] La Ley de Gravitación Universal establece que dos cuerpos cualesquiera con masa se atraen mutuamente con una fuerza directamente proporcional al producto de sus masas e inversamente proporcional al cuadrado de la distancia que los separa. [ACTIVIDAD:PLATAFORMA:¿A qué es directamente proporcional la fuerza de atracción gravitacional?|Al producto de sus masas] En tu libreta de campo, [ACTIVIDAD:CUADERNO:Escribe la fórmula matemática de la Ley de Gravitación Universal y encierra en un círculo la constante G].\n\n<div style=\"text-align:center; background:#222; padding:15px; border-radius:10px; color:#00d2d3; margin:15px 0;\"><span style=\"font-size:1.8rem; font-weight:bold;\">F = G · (m₁ · m₂) / r²</span></div>\n\nDonde $G$ es la Constante de Gravitación Universal, equivalente a $6.674 \\times 10^{-11} \\text{ N}\\cdot\\text{m}^2/\\text{kg}^2$. [JUEGO:ORDENAR_LETRAS:FUERZA] Esta fuerza $F$ actúa a lo largo de la línea que une el centro de ambos objetos. [ACTIVIDAD:PLATAFORMA:¿Cuál es el valor numérico exacto de la constante G?|6.674x10^-11 N m^2/kg^2] Realiza en tu libreta [ACTIVIDAD:CUADERNO:Escribe una explicación paso a paso de por qué el valor de G es tan pequeño y qué significa para objetos cotidianos].\n\n<svg viewBox=\"0 0 500 120\" xmlns=\"http://www.w3.org/2000/svg\" style=\"background:#1e1e1e; border-radius:8px; margin:15px 0;\"><circle cx=\"80\" cy=\"60\" r=\"35\" fill=\"#9b59b6\"/><circle cx=\"400\" cy=\"60\" r=\"20\" fill=\"#e74c3c\"/><line x1=\"80\" y1=\"60\" x2=\"400\" y2=\"60\" stroke=\"#7f8c8d\" stroke-width=\"2\" stroke-dasharray=\"4\"/><polygon points=\"125,60 155,50 155,70\" fill=\"#2ecc71\"/><polygon points=\"370,60 340,50 340,70\" fill=\"#2ecc71\"/><text x=\"80\" y=\"65\" text-anchor=\"middle\" fill=\"white\" font-size=\"12\">m1</text><text x=\"400\" y=\"65\" text-anchor=\"middle\" fill=\"white\" font-size=\"12\">m2</text><text x=\"240\" y=\"45\" text-anchor=\"middle\" fill=\"#f39c12\" font-size=\"12\">r (Radio de separación)</text></svg>\n\n[JUEGO:ORDENAR_LETRAS:RADIO] [JUEGO:ORDENAR_FRASE:LA CONSTANTE DE GRAVITACION ES UNIVERSAL] Analicemos el término $r^2$ en el denominador. Esta dependencia del 'inverso del cuadrado' implica que la gravedad disminuye drásticamente a medida que los cuerpos se alejan. [ACTIVIDAD:PLATAFORMA:Si la distancia entre dos cuerpos se triplica, ¿en qué factor disminuye la fuerza?|En un factor de 9 (1/9)] [JUEGO:ORDENAR_FRASE:A MAYOR MASA MAYOR FUERZA DE ATRACCION]\n\n<div style=\"display:flex; justify-content:space-around; background:#34495e; padding:10px; border-radius:5px; margin:15px 0; color:white;\"><div><strong>Caso A:</strong> Distancia r ➔ Fuerza F</div><div><strong>Caso B:</strong> Distancia 2r ➔ Fuerza F/4</div><div><strong>Caso C:</strong> Distancia 3r ➔ Fuerza F/9</div></div>\n\n[JUEGO:ORDENAR_FRASE:EL CUADRADO DE LA DISTANCIA DISMINUYE LA FUERZA] [ACTIVIDAD:PLATAFORMA:¿Qué le ocurre a la fuerza gravitacional si duplicamos ambas masas m1 y m2 manteniendo la distancia constante?|La fuerza aumenta 4 veces]\nRepresenta en tu cuaderno este comportamiento [ACTIVIDAD:CUADERNO:Dibuja un gráfico cartesiano cualitativo donde el eje Y sea la Fuerza F y el eje X sea la distancia r, mostrando la curva decreciente].\n\nAsimismo, podemos deducir la aceleración de la gravedad $g$ de un planeta o cuerpo celeste utilizando la expresión $g = G \\frac{M}{R^2}$. [ACTIVIDAD:PLATAFORMA:¿Cuál es la fórmula para calcular la aceleración de la gravedad en la superficie de un planeta?|g = G * M / R^2] Diseña en tu libreta [ACTIVIDAD:CUADERNO:Elabora un esquema gráfico resolviendo la aceleración gravitacional de un asteroide imaginario dada su masa y su radio].\n\n[JUEGO:SOPA_LETRAS:UNIVERSAL,CONSTANTE,ACELERACION,PESO,ATRACCION,VECTOR,CENTRIPETA,KEPLER,CENTRO,EQUILIBRIO]\n\nIngresa los códigos finales en el panel del laboratorio utilizando el crucigrama deductivo:\n[JUEGO:CRUCIGRAMA:Valor constante de gravitacion|VALOR;Propiedad de la materia que atrae|MASA;Ley del inverso del|CUADRADO;Simbolo de la constante universal|G;Forma de la orbita planetaria|ELIPSE;Magnitud con direccion y sentido|VECTOR;Fuerza por unidad de masa|CAMPO;Punto central de atraccion|CENTRO;Cambio de velocidad en el tiempo|ACELERACION;Resistencia al cambio de movimiento|INERCIA]",
+  "icfes": [
+    {
+      "competencia": "Uso Comprensivo del Conocimiento Científico",
+      "texto_introductorio": "El Detective Vance analiza los registros orbitales del fragmento de la estación Titán-9 y de un segundo objeto de masa desconocida que interactúa con la colonia Aethelgard. Desea comprender cómo cambia la fuerza de atracción entre dos cuerpos masivos cuando varían sus masas y distancias.",
+      "tabla_o_grafica_markdown": "| Caso | Masa Cuerpo 1 ($m_1$) | Masa Cuerpo 2 ($m_2$) | Distancia ($r$) | Fuerza Gravitacional Resultante ($F$) |\n|---|---|---|---|---|\n| Control | $M$ | $M$ | $R$ | $F_0$ |\n| Modificado | $2M$ | $2M$ | $2R$ | $F_x$ |",
+      "pregunta": "Con base en la Ley de Gravitación Universal $F = G \\frac{m_1 m_2}{r^2}$, ¿cuál es el valor de la fuerza $F_x$ en comparación con la fuerza original $F_0$?",
+      "opciones": [
+        "$F_x = F_0$",
+        "$F_x = 2 F_0$",
+        "$F_x = 4 F_0$",
+        "$F_x = \\frac{1}{2} F_0$"
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "¡Correcto! Al duplicar ambas masas el numerador se multiplica por $2 \\times 2 = 4$. Al duplicar la distancia, el denominador se convierte en $(2R)^2 = 4R^2$. El factor 4 en el numerador y denominador se simplifica, haciendo que $F_x = F_0$.",
+        "1": "Incorrecto. Olvidas elevar al cuadrado la distancia en el denominador $(2R)^2 = 4R^2$.",
+        "2": "Incorrecto. Este resultado ocurriría si solo se duplicaran las masas sin cambiar la distancia.",
+        "3": "Incorrecto. Revisa el procedimiento algebraico: $(2 \\cdot 2) / (2^2) = 4 / 4 = 1$."
+      }
+    },
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "Durante la investigación post-apocalíptica, Vance descubre que la aceleración de la gravedad en la superficie de un planeta lejano del sector destruido es cuatro veces mayor que la de la Tierra ($g_{planeta} = 4 g_{Tierra}$). Los datos de masa indican que dicho planeta tiene exactamente la misma masa que la Tierra.",
+      "tabla_o_grafica_markdown": "| Cuerpo Celeste | Masa | Aceleración Superficial de Gravedad ($g$) |\n|---|---|---|\n| Tierra | $M_T$ | $g_T = 9.8 \\text{ m/s}^2$ |\n| Planeta X | $M_T$ | $4 g_T$ |",
+      "pregunta": "¿Qué relación debe existir entre el radio del Planeta X ($R_X$) y el radio de la Tierra ($R_T$)?",
+      "opciones": [
+        "$R_X = R_T / 2$",
+        "$R_X = 2 R_T$",
+        "$R_X = R_T / 4$",
+        "$R_X = 4 R_T$"
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "¡Correcto! Dado que $g = G \\frac{M}{R^2}$, para que $g$ sea 4 veces mayor con la misma masa $M$, el denominador debe ser 4 veces menor. Como $(R_T / 2)^2 = R_T^2 / 4$, al estar en el denominador, pasa multiplicando por 4 arriba.",
+        "1": "Incorrecto. Si el radio fuera el doble, la gravedad sería $1/4$ de la terrestre, no 4 veces mayor.",
+        "2": "Incorrecto. Si el radio se reduce a $1/4$, la gravedad se incrementaría en 16 veces debido al cuadrado.",
+        "3": "Incorrecto. Aumentar el radio disminuye la aceleración de la gravedad."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "El equipo de detectives de la colonia realiza un experimento registrando la fuerza de atracción entre dos esferas de plomo a diferentes distancias dentro del laboratorio blindado. Obtienen la siguiente tabla de datos:",
+      "tabla_o_grafica_markdown": "| Medición | Distancia $r$ (m) | Fuerza $F$ ($10^{-9}$ N) |\n|---|---|---|\n| 1 | 1.0 | 66.7 |\n| 2 | 2.0 | 16.7 |\n| 3 | 3.0 | 7.41 |\n| 4 | 4.0 | 4.17 |",
+      "pregunta": "¿Qué hipótesis invalida o confirma de manera directa la tendencia de los datos recolectados por el detective Vance?",
+      "opciones": [
+        "Confirma que la fuerza gravitacional disminuye con el cuadrado de la distancia.",
+        "Invalida la hipótesis de que existe una constante de gravitación universal.",
+        "Confirma que la fuerza gravitacional es directamente proporcional a la distancia.",
+        "Invalida la primera ley de Newton sobre la inercia de los cuerpos."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "¡Correcto! Al duplicar la distancia (de 1.0 m a 2.0 m), la fuerza disminuye a un cuarto ($66.7 / 4 \\approx 16.7$). Al triplicarla (3.0 m), disminuye a un noveno ($66.7 / 9 \\approx 7.41$). Esto confirma experimentalmente el modelo de la ley del inverso del cuadrado.",
+        "1": "Incorrecto. Los datos confirman el modelo teórico que requiere de la constante universal $G$.",
+        "2": "Incorrecto. La tendencia muestra un decrecimiento no lineal con la distancia, no una proporcionalidad directa.",
+        "3": "Incorrecto. El experimento mide fuerzas estáticas gravitacionales, no está orientado a probar el estado de inercia directamente."
+      }
+    }
+  ]
+}

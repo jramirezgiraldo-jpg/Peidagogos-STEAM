@@ -1,0 +1,96 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "Si un dron de reconocimiento de la vieja era se queda sin energía y cae desde el cielo, ¿qué tipo de trayectoria describe si inicialmente se movía de forma horizontal?",
+      "opciones": [
+        "Una línea recta completamente vertical.",
+        "Una trayectoria parabólica combinando movimiento horizontal y caída libre.",
+        "Una trayectoria hiperbólica de escape orbital.",
+        "Permanecerá suspendido indefinidamente por inercia."
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Qué magnitud física mide la oposición de un cuerpo (como un satélite colapsado) a cambiar su estado de reposo o movimiento?",
+      "opciones": [
+        "El peso.",
+        "La aceleración.",
+        "La masa.",
+        "La fuerza gravitacional."
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "¿Cuál es la principal diferencia entre masa y peso en el contexto de la exploración espacial de suministros?",
+      "opciones": [
+        "La masa varía según la gravedad del planeta, mientras que el peso es constante.",
+        "El peso es una fuerza que depende de la gravedad local, mientras que la masa es la cantidad de materia constante.",
+        "Ambas magnitudes representan exactamente lo mismo y se miden en Newtons.",
+        "La masa se mide con un dinamómetro y el peso con una balanza analítica."
+      ],
+      "correcta": 1
+    }
+  ],
+  "texto_inductivo": "Saludos, aspirantes a Detectives del Colapso. Soy el Detective Isaac, encargado del sector de Vigilancia de Órbitas Muertas. El cielo ya no es un lugar pacífico; es un vertedero de tecnología de la antigua civilización que, poco a poco, va perdiendo altura. Para sobrevivir en este páramo, dependemos de los suministros médicos y alimentos deshidratados que caen de los satélites en desintegración orbital. Pero cuidado: si calculamos mal, estas cajas de metal de varias toneladas no nos abastecerán, sino que aplastarán nuestro refugio.\n\n***¿Cómo podemos predecir la caída de los satélites de la vieja era para evitar que aplasten nuestro refugio o, mejor aún, para interceptar sus suministros usando las leyes de la atracción invisible?***\n\nComencemos observando el firmamento con nuestros telescopios improvisados. Los satélites no flotan porque no haya gravedad en el espacio; al contrario, están en una constante caída libre hacia la Tierra. [JUEGO:ORDENAR_LETRAS:GRAVEDAD] Sin embargo, se mueven tan rápido horizontalmente que la curvatura de su caída coincide perfectamente con la curvatura de nuestro planeta. Esta caída perpetua es lo que llamamos órbita. [JUEGO:ORDENAR_LETRAS:ORBITA] Para comprender cómo interactúan estos colosos metálicos con la Tierra, debemos analizar la misteriosa fuerza [JUEGO:ORDENAR_LETRAS:FUERZA] de atracción que actúa a distancia sin necesidad de contacto físico.\n\n<svg viewBox=\"0 0 400 200\" width=\"100%\" style=\"background-color:#1e1e1e; border-radius:8px; margin: 15px 0;\">\n  <circle cx=\"80\" cy=\"100\" r=\"40\" fill=\"#4a90e2\" />\n  <text x=\"80\" y=\"105\" fill=\"white\" font-size=\"12\" text-anchor=\"middle\">Tierra (M)</text>\n  <circle cx=\"320\" cy=\"100\" r=\"10\" fill=\"#e24a4a\" />\n  <text x=\"320\" y=\"85\" fill=\"white\" font-size=\"10\" text-anchor=\"middle\">Satélite (m)</text>\n  <line x1=\"120\" y1=\"100\" x2=\"310\" y2=\"100\" stroke=\"#ffcc00\" stroke-width=\"2\" stroke-dasharray=\"5,5\" />\n  <path d=\"M 120 100 L 150 95 L 150 105 Z\" fill=\"#ffcc00\" />\n  <path d=\"M 310 100 L 280 95 L 280 105 Z\" fill=\"#ffcc00\" />\n  <text x=\"200\" y=\"85\" fill=\"#ffcc00\" font-size=\"12\" text-anchor=\"middle\">Fuerza de Atracción (Fg)</text>\n  <text x=\"200\" y=\"130\" fill=\"white\" font-size=\"10\" text-anchor=\"middle\">Distancia (r)</text>\n</svg>\n\nNuestras observaciones revelan algo vital: [JUEGO:ORDENAR_FRASE:LA GRAVEDAD ATRAE LOS CUERPOS] sin importar cuán alejados estén en el espacio profundo. No obstante, la intensidad de esta atracción varía drásticamente. Al estudiar las bitácoras científicas previas al cataclismo, descubrimos que [JUEGO:ORDENAR_FRASE:LA MASA DE LA TIERRA ES ENORME] en comparación con la de cualquier satélite, lo que provoca que sea el satélite el que modifique su trayectoria de forma evidente, cayendo hacia nosotros. Debemos darnos prisa en calcular sus trayectorias, porque [JUEGO:ORDENAR_FRASE:LOS SATELITES CAEN CONSTANTEMENTE] debido al rozamiento con las capas superiores de la atmósfera remanente.\n\n[JUEGO:SOPA_LETRAS:DETECTIVE,APOCALIPSIS,GRAVEDAD,ORBITA,MASA,DISTANCIA,FUERZA,SATELITE,CAIDA,FISICA]\n\nPara decodificar este misterio, debemos familiarizarnos con los términos clave que nos mantendrán con vida un día más. Resuelve este crucigrama de supervivencia orbital antes de pasar al búnker de cálculo matemático:\n\n[JUEGO:CRUCIGRAMA:Fuerza que nos une al suelo|GRAVEDAD;Camino cerrado alrededor de un planeta|ORBITA;Cantidad de materia de un cuerpo|MASA;Creador de la ley de gravitacion|NEWTON;Unidad de fuerza en el SI|NEWTONS;Separacion entre dos cuerpos|DISTANCIA;Objeto artificial en el espacio|SATELITE;Lugar donde vivimos despues del colapso|REFUGIO;Constante de gravitacion|CONSTANTE;Ausencia de soporte que produce descenso|CAIDA]\n\nComo detectives, no podemos basarnos en simples suposiciones. Necesito que reportes tus hallazgos iniciales en la base de datos de nuestro refugio:\n\n[ACTIVIDAD:PLATAFORMA:¿Quién formuló la ley de la gravitación universal?|Isaac Newton]\n[ACTIVIDAD:PLATAFORMA:Si la distancia entre dos cuerpos aumenta, ¿la fuerza de gravedad aumenta o disminuye?|Disminuye]\n[ACTIVIDAD:PLATAFORMA:¿Qué unidad mide la masa en el Sistema Internacional?|El kilogramo]\n[ACTIVIDAD:PLATAFORMA:¿Cómo llamamos a la trayectoria de un satélite alrededor de la Tierra?|Órbita]\n[ACTIVIDAD:PLATAFORMA:¿Qué fuerza mantiene a la Luna cerca de la Tierra?|La fuerza de gravedad]\n\nPara consolidar tu entrenamiento en este campamento de supervivencia, realiza las siguientes misiones de registro en tu bitácora de campo:\n\n[ACTIVIDAD:CUADERNO:Dibuja un diagrama del refugio y un satélite en el cielo, representando con flechas de colores las fuerzas de atracción mutua.]\n[ACTIVIDAD:CUADERNO:Escribe un párrafo narrativo donde expliques cómo cambiaría la vida en el refugio si la gravedad de la Tierra fuera la mitad de la actual.]\n[ACTIVIDAD:CUADERNO:Diseña un mapa mental sobre los saberes previos que tiene tu comunidad sobre la caída de objetos desde el cielo.]\n[ACTIVIDAD:CUADERNO:Construye una tabla comparativa en tu cuaderno entre la caída libre ordinaria y el movimiento orbital de un satélite artificial.]",
+  "recurso_visual": "mermaid\ngraph TD;\n    Earth[Tierra: Masa M] <-- Atracción Gravitacional Fg --> Satellite[Satélite: Masa m];\n    Earth -- Distancia r --> Satellite;\n    Gravity[Fuerza de Gravedad Fg] -->|Directamente Proporcional| MassProd[Producto de Masas M * m];\n    Gravity -->|Inversamente Proporcional| DistSq[Distancia al cuadrado r²];\n",
+  "texto_deductivo": "Ahora que comprendemos la naturaleza de la caída, es hora de usar el poder absoluto de las matemáticas para predecir con precisión milimétrica dónde impactarán los contenedores de suministros. Newton descubrió que la fuerza de atracción gravitatoria ($F_g$) entre dos cuerpos de masas $M$ y $m$, separados por una distancia $r$, se rige por una proporción matemática exacta. Esta relación requiere de una constante universal de proporcionalidad, una [JUEGO:ORDENAR_LETRAS:CONSTANTE] extremadamente pequeña denominada $G$. Sin ella, la fuerza de [JUEGO:ORDENAR_LETRAS:ATRACCION] mutua entre toda la [JUEGO:ORDENAR_LETRAS:MATERIA] del cosmos no podría ser calculada de manera precisa.\n\nLa ecuación fundamental que rige nuestro destino y el de los satélites es:\n\n$$F_g = G \\frac{M \\cdot m}{r^2}$$\n\nDonde $G = 6.674 \\times 10^{-11} \\text{ N}\\cdot\\text{m}^2/\\text{kg}^2$. Observen con atención el denominador. El hecho de que la distancia esté elevada al cuadrado significa que [JUEGO:ORDENAR_FRASE:LA FUERZA DISMINUYE CON LA DISTANCIA] de una forma extremadamente rápida. Si el satélite se aleja al doble de la distancia original, la fuerza se reduce a la cuarta parte. Además, deben recordar que [JUEGO:ORDENAR_FRASE:LA CONSTANTE G ES MUY PEQUENA] por lo que se necesitan masas colosales, como la de la Tierra, para que esta fuerza sea apreciable en nuestra vida diaria. Esto confirma que [JUEGO:ORDENAR_FRASE:LAS MASAS SE ATRAEN MUTUAMENTE] de forma constante y sin interrupciones.\n\n<svg viewBox=\"0 0 400 200\" width=\"100%\" style=\"background-color:#111; border-radius:8px; margin: 15px 0;\">\n  <line x1=\"50\" y1=\"20\" x2=\"50\" y2=\"170\" stroke=\"white\" stroke-width=\"2\"/>\n  <line x1=\"50\" y1=\"170\" x2=\"380\" y2=\"170\" stroke=\"white\" stroke-width=\"2\"/>\n  <text x=\"40\" y=\"20\" fill=\"white\" font-size=\"10\" text-anchor=\"end\">Fuerza (Fg)</text>\n  <text x=\"380\" y=\"185\" fill=\"white\" font-size=\"10\" text-anchor=\"end\">Distancia (r)</text>\n  <path d=\"M 60 30 Q 80 150 360 165\" fill=\"none\" stroke=\"#e24a4a\" stroke-width=\"3\" />\n  <text x=\"180\" y=\"80\" fill=\"#e24a4a\" font-size=\"12\" text-anchor=\"middle\">Fg ∝ 1 / r²</text>\n</svg>\n\n[JUEGO:SOPA_LETRAS:FORMULA,CUADRADO,INVERSO,CONSTANTE,METRO,KILOGRAMO,ATRACCION,DINAMOMETRO,ACELERACION,TRAYECTORIA]\n\nUtilicemos las ecuaciones para descifrar las frecuencias orbitales de los satélites espía que aún transmiten coordenadas de búnkeres enemigos. Completa este crucigrama analítico para verificar que tus circuitos lógicos estén operando sin errores de radiación:\n\n[JUEGO:CRUCIGRAMA:Nombre de la constante G|GRAVITACIONAL;Relacion inversa con el radio al|CUADRADO;Unidad de distancia en el SI|METRO;Aparato para medir la fuerza|DINAMOMETRO;Accion de tirar hacia si|ATRACCION;Rapidez de cambio de velocidad|ACELERACION;Modelo del universo de Copernico|HELIOCENTRICO;Cientifico que midio G por primera vez|CAVENDISH;Letra que representa la constante universal|G;Fuerza neta que produce movimiento circular|CENTRIPETA]\n\nReporta tus cálculos numéricos directamente al procesador central de la comunidad:\n\n[ACTIVIDAD:PLATAFORMA:¿Cuál es el valor numérico aproximado de la constante G?|6.674e-11 N m^2 / kg^2]\n[ACTIVIDAD:PLATAFORMA:Si la distancia entre dos masas se duplica, ¿por qué factor se reduce la fuerza gravitacional?|Por un factor de cuatro]\n[ACTIVIDAD:PLATAFORMA:¿Qué le ocurre a la fuerza gravitacional si triplicamos una de las masas?|Se triplica]\n[ACTIVIDAD:PLATAFORMA:¿Qué tipo de relación matemática existe entre la fuerza de gravedad y la distancia?|Relación cuadrática inversa]\n[ACTIVIDAD:PLATAFORMA:¿Quién midió por primera vez de forma experimental la constante G?|Henry Cavendish]\n\nPara consolidar tu rango de Héroe Científico del Apocalipsis, completa estos desafíos analíticos en tu cuaderno de detective:\n\n[ACTIVIDAD:CUADERNO:Realiza el cálculo numérico para hallar la fuerza de atracción entre un satélite de 500 kg y la Tierra a una altura de 400 km sobre la superficie.]\n[ACTIVIDAD:CUADERNO:Dibuja un gráfico de Fuerza versus Distancia que demuestre visualmente cómo decae la gravedad a medida que nos alejamos de un planeta.]\n[ACTIVIDAD:CUADERNO:Escribe un reporte de detective donde expliques cómo usar la ley de gravitación para desviar un asteroide usando una nave 'tractor de gravedad'.]\n[ACTIVIDAD:CUADERNO:Haz un cuadro comparativo entre el concepto de 'masa' y el concepto de 'peso' basándote en la ley de gravitación de Newton.]",
+  "icfes": [
+    {
+      "competencia": "Uso Comprensivo del Conocimiento Científico",
+      "texto_introductorio": "El Detective Isaac identifica dos drones de suministros de la vieja era. El primer dron tiene una masa m y orbita a una distancia R del centro de la Tierra. El segundo dron, de tecnología militar pesada, tiene una masa de 3m y orbita exactamente a la misma distancia R.",
+      "tabla_o_grafica_markdown": "| Parámetro | Dron de Suministros (1) | Dron Militar (2) |\n|---|---|---|\n| Masa | m | 3m |\n| Distancia orbital | R | R |\n| Fuerza de atracción | F1 | F2 |",
+      "pregunta": "¿Cuál es la relación matemática exacta entre las fuerzas de atracción gravitatoria que ejerce la Tierra sobre ambos drones?",
+      "options": [
+        "F2 es tres veces F1.",
+        "F2 es la tercera parte de F1.",
+        "F2 es igual a F1 debido a que orbitan a la misma distancia.",
+        "F2 es nueve veces F1."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. La fuerza gravitacional es directamente proporcional al producto de las masas. Al triplicar la masa del dron, la fuerza gravitatoria sobre él se triplica.",
+        "1": "Incorrecto. Si la masa aumenta, la fuerza gravitatoria debe aumentar, no disminuir.",
+        "2": "Incorrecto. Aunque la distancia sea la misma, la masa de los objetos influye de manera directamente proporcional en la fuerza de atracción.",
+        "3": "Incorrecto. La fuerza es directamente proporcional al producto de las masas (factor de 3), no al cuadrado de la masa (factor de 9)."
+      }
+    },
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "Un satélite de comunicaciones sufre un decaimiento orbital severo debido a la fricción con la atmósfera residual del planeta, reduciendo su distancia al centro de la Tierra a la mitad (R/2) en solo unas pocas semanas.",
+      "tabla_o_grafica_markdown": "| Estado | Distancia orbital | Fuerza Gravitacional |\n|---|---|---|\n| Inicial | R | F |\n| Final | R/2 | F' |",
+      "pregunta": "¿Qué ocurre con la fuerza de atracción gravitatoria que la Tierra ejerce sobre el satélite en su nueva posición?",
+      "options": [
+        "Se cuadruplica (4F).",
+        "Se duplica (2F).",
+        "Se reduce a la cuarta parte (F/4).",
+        "Permanece constante (F)."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. Dado que la fuerza es inversamente proporcional al cuadrado de la distancia, al reducir la distancia a la mitad (1/2), la fuerza aumenta por un factor de 1/(1/2)² = 4.",
+        "1": "Incorrecto. La relación no es lineal inversa, sino cuadrática inversa, por lo que no se duplica.",
+        "2": "Incorrecto. Al acercarse a la Tierra, la fuerza gravitacional debe aumentar considerablemente, no disminuir.",
+        "3": "Incorrecto. La gravedad depende fuertemente de la distancia orbital, por lo que varía significativamente al cambiar el radio de la órbita."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "En las ruinas de una estación espacial en la superficie, el detective mide la fuerza gravitatoria entre dos esferas de plomo masivas utilizadas para calibrar instrumentos antiguos. Al variar la distancia entre ellas, recopila la siguiente información en su bitácora:",
+      "tabla_o_grafica_markdown": "| Distancia r (m) | Fuerza Gravitatoria Fg (N) |\n|---|---|\n| 1.0 | 100 |\n| 2.0 | 25 |\n| 4.0 | 6.25 |",
+      "pregunta": "¿Qué hipótesis describe con total precisión la relación experimental obtenida entre la fuerza y la distancia de separación?",
+      "options": [
+        "La fuerza es inversamente proporcional al cuadrado de la distancia.",
+        "La fuerza disminuye de manera lineal y constante respecto a la distancia.",
+        "La fuerza es directamente proporcional a la distancia de separación.",
+        "La distancia entre los cuerpos no genera variaciones significativas en la fuerza."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. Al duplicar la distancia (de 1m a 2m), la fuerza disminuye a la cuarta parte (de 100N a 25N), lo que demuestra la relación cuadrática inversa.",
+        "1": "Incorrecto. Si fuera lineal, al pasar de 1m a 2m la fuerza disminuiría en un valor constante, pero la reducción no es lineal sino exponencialmente decreciente.",
+        "2": "Incorrecto. Los datos muestran que a mayor distancia, menor es la fuerza, lo que contradice una relación de proporcionalidad directa.",
+        "3": "Incorrecto. Se observa una drástica reducción de la fuerza al variar la distancia, lo que demuestra su gran dependencia."
+      }
+    }
+  ]
+}

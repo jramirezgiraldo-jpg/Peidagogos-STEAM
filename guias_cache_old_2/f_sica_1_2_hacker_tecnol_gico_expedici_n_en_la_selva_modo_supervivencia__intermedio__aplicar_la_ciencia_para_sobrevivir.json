@@ -1,0 +1,76 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "Si te encuentras perdido en la selva y le dices a tu compañero 'estoy a 50 metros del árbol gigante hacia el norte', ¿qué elemento usaste para definir tu ubicación?",
+      "opciones": [
+        "Un sistema de coordenadas imaginario sin valor.",
+        "Un punto de referencia y una posición.",
+        "Una trayectoria en línea recta únicamente.",
+        "Un cálculo de velocidad instantánea."
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "Un mono se mueve de una rama a otra haciendo piruetas en el aire hasta llegar al mismo punto de partida. ¿Qué se puede afirmar sobre su trayectoria?",
+      "opciones": [
+        "Fue totalmente recta.",
+        "Fue igual a cero porque no se movió.",
+        "Es la curva dibujada por el recorrido que realizó en el aire.",
+        "Es idéntica al desplazamiento neto realizado."
+      ],
+      "correcta": 2
+    }
+  ],
+  "texto_inductivo": "# 🚨 MODO SUPERVIVENCIA: INFILTRACIÓN EN LA SELVA DEL QUINDÍO\n\n***¿Cómo podríamos los estudiantes del IE Instituto Montenegro usar sensores cinemáticos caseros para mapear y escapar de una zona de peligro en la selva amazónica calculando exactamente nuestra posición y trayectoria sin señal de GPS?***\n\n<svg viewBox='0 0 600 200' width='100%' style='background:#0d1117; border-radius:8px; border:1px solid #00ff66;'><text x='20' y='30' fill='#00ff66' font-family='monospace' font-size='14'>[RADAR_HACKER_v2.4] - INICIANDOESCANEO_SECTOR_MONTENEGRO</text><circle cx='300' cy='110' r='70' fill='none' stroke='#00ff66' stroke-dasharray='4' /><line x1='300' y1='30' x2='300' y2='190' stroke='#003311' stroke-width='2'/><line x1='200' y1='110' x2='400' y2='110' stroke='#003311' stroke-width='2'/><circle cx='300' cy='110' r='4' fill='#ff0055'/><text x='310' y='115' fill='#ff0055' font-size='10' font-family='monospace'>ORIGEN (0,0) IE Montenegro</text><circle cx='340' cy='80' r='6' fill='#00ff66'/><text x='350' y='80' fill='#00ff66' font-size='10' font-family='monospace'>SOBREVIVIENTE (X=+40m, Y=+30m)</text><path d='M 300 110 Q 320 120 340 80' fill='none' stroke='#ffff00' stroke-width='2' stroke-dasharray='2'/><text x='230' y='160' fill='#ffff00' font-size='10' font-family='monospace'>Trayectoria Evasiva</text></svg>\n\n¡Atención, reclutas del **Instituto Montenegro**! Nuestros sistemas de navegación satelital han colapsado en medio de la espesura tropical. Como Hacker Tecnológico de la expedición, mi deber es enseñarte a hackear la física clásica para sobrevivir. Para desplazarte sin perderte, debes dominar dos conceptos clave: **Posición** y **Trayectoria**.\n\n[JUEGO:ORDENAR_LETRAS:POSICION]\n\nCuando estamos en el campo de operaciones, no basta con decir \"estoy lejos\". Necesitamos coordenadas exactas respecto a una referencia fija (como la entrada principal de nuestro colegio). La posición es el vector que nos sitúa en el mapa.\n\n[JUEGO:ORDENAR_FRASE:LA POSICION DEPENDE DEL PUNTO DE REFERENCIA]\n\n<table border='1' style='width:100%; border-collapse:collapse; background-color:#161b22; color:#c9d1d9; border-color:#30363d; text-align:center;'><tr style='background-color:#21262d; color:#58a6ff;'><th>Punto de Control</th><th>Coordenada (X, Y) en metros</th><th>Estado de Amenaza</th></tr><tr><td>Base Instituto Montenegro</td><td>(0, 0)</td><td>Seguro</td></tr><tr><td>Cascada Jaguar</td><td>(+15, +45)</td><td>Precaución</td></tr><tr><td>Refugio Hacker</td><td>(-30, +10)</td><td>Zona Evacuación</td></tr></table>\n\n visualiza el camino que sigues al esquivar depredadores y vegetación. No siempre caminamos en línea recta; el camino real que dibujas al moverte es tu trayectoria.\n\n[JUEGO:SOPA_LETRAS:POSICION,ORIGEN,VECTOR]\n\n[JUEGO:CRUCIGRAMA:Lugar donde te encuentras respecto al origen|POSICION;Camino recorrido por un objeto|TRAYECTORIA]\n\n[JUEGO:ORDENAR_LETRAS:TRAYECTORIA]\n\n[JUEGO:ORDENAR_FRASE:SOBREVIVIR EN LA SELVA REQUIERE MAPEAR EL TERRITORIO]\n\n[JUEGO:SOPA_LETRAS:CAMINO,CURVA,RECTA]\n\n[JUEGO:CRUCIGRAMA:Punto que se usa de base para medir|REFERENCIA;Unidad standard de distancia|METRO]",
+  "recurso_visual": "<svg viewBox='0 0 500 220' width='100%' style='background:#0f172a; border-radius:8px;'><style>.label{font-family:sans-serif;font-size:12px;fill:#f8fafc;}</style><line x1='50' y1='180' x2='450' y2='180' stroke='#64748b' stroke-width='2' stroke-dasharray='4'/><line x1='50' y1='180' x2='50' y2='20' stroke='#64748b' stroke-width='2' stroke-dasharray='4'/><circle cx='100' cy='140' r='8' fill='#ef4444'/><text x='80' y='165' class='label'>Inicio A (10, 20)</text><circle cx='380' cy='60' r='8' fill='#22c55e'/><text x='360' y='45' class='label'>Fin B (80, 70)</text><path d='M 100 140 C 150 40, 250 200, 380 60' fill='none' stroke='#38bdf8' stroke-width='4'/><text x='200' y='100' fill='#38bdf8' font-family='sans-serif' font-weight='bold' font-size='14'>TRAYECTORIA (Camino Real)</text><line x1='100' y1='140' x2='380' y2='60' stroke='#f59e0b' stroke-width='2' stroke-dasharray='5'/><text x='240' y='130' fill='#f59e0b' font-family='sans-serif' font-size='12'>DESPLAZAMIENTO (Línea Recta)</text></svg>",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "¿Por qué es imposible determinar la posición de un campamento si no definimos un origen de referencia?",
+      "respuesta_esperada": "Porque la posición es una medida relativa. Sin un punto de origen (0,0), los números o distancias no indican una ubicación concreta en el espacio."
+    },
+    {
+      "pregunta": "Si caminas en círculos buscando agua en la selva y regresas exactamente al mismo punto, ¿tu trayectoria fue cero?",
+      "respuesta_esperada": "No, la trayectoria es la longitud total del camino recorrido (que es mayor a cero). Lo que sería cero es el desplazamiento neto."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja en tu cuaderno un mapa del IE Instituto Montenegro y establece un sistema de ejes cartesiano (X,Y) donde la entrada sea el punto (0,0). Ubica la posición de tu salón.",
+    "Toma una cuerda o hilo, simula en tu mesa el recorrido curvo de una serpiente y compara su longitud (trayectoria) midiéndola estirada contra una regla recta (desplazamiento)."
+  ],
+  "texto_deductivo": "# 🛠️ HACKING TEÓRICO: SISTEMAS DE REFERENCIA Y CINEMÁTICA DE CAMPO\n\nPara sobrevivir como un verdadero hacker cinemático, debemos operacionalizar los conceptos matemáticos. Todo sistema de rastreo físico requiere fijar variables claras.\n\n<table border='1' style='width:100%; border-collapse:collapse; background-color:#0d1117; color:#c9d1d9; border-color:#30363d;'><tr style='background-color:#161b22; color:#79c0ff;'><th>Variable Cinemática</th><th>Definición Física</th><th>Tipo de Magnitud</th><th>Ejemplo en la Selva</th></tr><tr><td><b>Posición (r)</b></td><td>Lugar que ocupa un móvil respecto a un marco de referencia.</td><td>Vectorial</td><td>A 50m al Este del río.</td></tr><tr><td><b>Trayectoria</b></td><td>Conjunto de puntos geométricos que pasa el móvil al desplazarse.</td><td>Escalar (Línea/Curva)</td><td>El camino zigzagueante del jaguar.</td></tr><tr><td><b>Desplazamiento (Δr)</b></td><td>Línea recta que une la posición inicial con la final.</td><td>Vectorial</td><td>30m en dirección 45° Norte.</td></tr></table>\n\n[JUEGO:ORDENAR_LETRAS:COORDENADA]\n\n[JUEGO:ORDENAR_FRASE:LA TRAYECTORIA ES EL CAMINO QUE DIBUJA EL MOVILES]\n\n[JUEGO:SOPA_LETRAS:SISTEMA,NORTE,ESTE]\n\n[JUEGO:CRUCIGRAMA:Objeto que se mueve en el espacio|MOVIL;Linea mas corta entre dos puntos|DESPLAZAMIENTO]\n\n<svg viewBox='0 0 500 150' width='100%' style='background:#1f2937; border-radius:8px;'><text x='10' y='25' fill='#10b981' font-family='monospace' font-size='12'>>>> TIPOS DE TRAYECTORIA EN EXPEDICIÓN</text><path d='M 30 80 L 130 80' stroke='#ef4444' stroke-width='3'/><text x='30' y='110' fill='#f3f4f6' font-size='11' font-family='sans-serif'>1. Rectilínia (Flecha)</text><path d='M 180 80 Q 220 30 260 80 T 340 80' fill='none' stroke='#3b82f6' stroke-width='3'/><text x='180' y='110' fill='#f3f4f6' font-size='11' font-family='sans-serif'>2. Curvilínea (Río)</text><circle cx='420' cy='70' r='25' fill='none' stroke='#f59e0b' stroke-width='3'/><text x='380' y='110' fill='#f3f4f6' font-size='11' font-family='sans-serif'>3. Circular (Buitre)</text></svg>\n\n[JUEGO:ORDENAR_LETRAS:DISTANCIA]\n\n[JUEGO:ORDENAR_FRASE:UN HACKER SIEMPRE CALCULA SU UBICACION RECURSIVAMENTE]\n\n[JUEGO:SOPA_LETRAS:RADAR,TIEMPO,MOVIL]\n\n[JUEGO:CRUCIGRAMA:Direccion hacia donde nace el sol|ESTE;Instrumento para medir angulos y orientacion|BRUJULA]\n\n[JUEGO:ORDENAR_LETRAS:REFERENCIA]\n\n[JUEGO:ORDENAR_FRASE:EL DESPLAZAMIENTO ES LA LINEA RECTA ENTRE INICIO Y FIN]\n\n[JUEGO:SOPA_LETRAS:HACKER,PUNTO,METRO]\n\n[JUEGO:CRUCIGRAMA:Dispositivo GPS o radar del hacker|SENSOR;Cambio de lugar respecto al tiempo|MOVIMIENTO]",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "Si la trayectoria de un dron de rescate fue una circunferencia completa de 100 metros de perímetro, ¿cuál es la magnitud de su desplazamiento?",
+      "respuesta_esperada": "El desplazamiento es cero (0 metros), ya que el punto de partida y el punto final son exactamente el mismo."
+    },
+    {
+      "pregunta": "¿Qué parámetro cinemático cambia si decides cambiar el punto de origen de tu mapa de supervivencia?",
+      "respuesta_esperada": "Cambian las coordenadas del vector de Posición de todos los objetos, aunque la distancia física entre ellos siga siendo la misma."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Escribe una ecuación informal o algoritmo paso a paso para que un compañero perdido encuentre tu refugio sabiendo únicamente su posición actual y el marco de referencia.",
+    "Representa en un plano cartesiano los siguientes puntos de ruta de un explorador: A(0,0), B(3,4), C(-2,4) y une los puntos para dibujar la trayectoria."
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de fenómenos",
+      "texto_introductorio": "Un grupo de estudiantes de la IE Instituto Montenegro explora un sendero ecológico en la selva. Utilizan un sensor de movimiento para registrar su ruta desde el campamento base.",
+      "tabla_o_grafica_markdown": "| Tiempo (s) | Posición X (m) | Posición Y (m) | Tipo de Terreno |\n|---|---|---|---|\n| 0 | 0 | 0 | Campamento |\n| 10 | 5 | 0 | Sendero plano |\n| 20 | 5 | 10 | Evitando pantano |\n| 30 | 0 | 10 | Retorno parcial |",
+      "pregunta": "A partir de la tabla de datos registrada por el sensor, ¿cuál fue la trayectoria descrita por los estudiantes durante los 30 segundos?",
+      "opciones": [
+        "Una trayectoria en línea recta continua a lo largo del eje X.",
+        "Una trayectoria curvilínea o en tramos rectos formando un camino quebrado.",
+        "Una trayectoria perfectamente circular de radio 10 metros.",
+        "Los estudiantes no tuvieron trayectoria porque regresaron al eje Y."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. Los valores de Y cambian de 0 a 10, lo que indica que no se movieron solo en una línea recta sobre el eje X.",
+        "1": "¡Correcto! Los cambios independientes en X e Y demuestran un recorrido por tramos rectos/quebrados para esquivar obstáculos.",
+        "2": "Incorrecto. Para ser una trayectoria circular perfecta, la distancia al origen debería permanecer constante, lo cual no ocurre.",
+        "3": "Incorrecto. Siempre que hay un cambio de posición a lo largo del tiempo existe una trayectoria recorrida."
+      }
+    }
+  ]
+}

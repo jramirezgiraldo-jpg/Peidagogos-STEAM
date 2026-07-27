@@ -1,0 +1,134 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Qué fuerza mantiene a los planetas girando alrededor del Sol?",
+      "opciones": [
+        "Fuerza Electromagnética",
+        "Fuerza de Fricción",
+        "Fuerza de Gravitación",
+        "Fuerza Nuclear Fuerte"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "Si un astronauta suelta una herramienta en la ISS, ¿qué sucede?",
+      "opciones": [
+        "Cae al suelo de la estación inmediatamente",
+        "Flota respecto a la estación porque ambos caen a la misma velocidad",
+        "Sale disparada hacia el espacio exterior",
+        "Se desintegra por la radiación"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Cuál es la unidad de medida de la aceleración en el Sistema Internacional?",
+      "opciones": [
+        "m/s",
+        "km/h",
+        "m/s²",
+        "Newtons"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "Según la cinemática, ¿qué es la posición?",
+      "opciones": [
+        "La rapidez de un cuerpo",
+        "El lugar que ocupa un objeto en un sistema de referencia",
+        "La fuerza que mueve al objeto",
+        "El tiempo transcurrido"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Quién propuso que las órbitas de los planetas son elípticas?",
+      "opciones": [
+        "Isaac Newton",
+        "Johannes Kepler",
+        "Galileo Galilei",
+        "Albert Einstein"
+      ],
+      "correcta": 1
+    }
+  ],
+  "texto_inductivo": "### EXPEDIENTE 001: LA ANOMALÍA DE LA ÓRBITA FANTASMA\n\nSaludos, Agentes Especiales de la Estación Espacial Internacional (ISS). Soy su Detective Jefe de Misterios Físicos. Se nos ha encomendado un reto de nivel **Modo Dios**. ***¿Cómo es posible que un objeto tan masivo como la ISS flote sobre nuestras cabezas sin caerse, y qué pasaría si las leyes que rigen el movimiento de los planetas dejaran de ser constantes por un solo segundo?*** Esta es la pregunta que guiará nuestra investigación. [JUEGO:ORDENAR_LETRAS:CINETICA]\n\nObserven los monitores de telemetría. La ISS se desplaza a unos 28,000 km/h. Si la velocidad fuera menor, la gravedad terrestre nos arrastraría a una muerte ardiente en la atmósfera. [JUEGO:ORDENAR_FRASE:LA TIERRA ATRAE A LA LUNA] Si fuera mayor, escaparíamos de la órbita hacia el vacío infinito. [JUEGO:SOPA_LETRAS:ESPACIO,VACIO,RUTA]\n\n<div style='background-color:#1a1a1a; color:#00ff00; border: 2px solid #00ff00; padding: 20px; font-family: monospace;'>\n  <h3>VISUALIZADOR DE TRAYECTORIA ISS</h3>\n  <svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>\n    <circle cx='100' cy='100' r='40' fill='#4444ff' />\n    <ellipse cx='100' cy='100' rx='80' ry='70' fill='none' stroke='#00ff00' stroke-width='1' stroke-dasharray='5,5' />\n    <rect x='175' y='95' width='10' height='10' fill='#ffffff'>\n      <animateMotion dur='5s' repeatCount='indefinite' path='M 0,0 m -80,0 a 80,70 0 1,0 160,0 a 80,70 0 1,0 -160,0' />\n    </rect>\n  </svg>\n  <p style='text-align:center'>Punto Azul: Tierra | Línea Verde: Órbita Elíptica ISS</p>\n</div>\n\nEl misterio comienza cuando notamos que la ISS no sigue un círculo perfecto. [JUEGO:CRUCIGRAMA:Trayectoria circular|ORBITA;Fuerza invisible|GRAVEDAD] Johannes Kepler, un detective del pasado, descubrió que los planetas (y nuestra estación) se mueven en elipses. [JUEGO:ORDENAR_LETRAS:ORBITA] Pero, ¿qué define nuestra posición exacta en el vacío? [JUEGO:ORDENAR_FRASE:EL MOVIMIENTO ES RELATIVO] Necesitamos definir nuestro sistema de referencia. [JUEGO:SOPA_LETRAS:VELOZ,LENTO,RITMO]\n\nEn cinemática, la **posición** es nuestro 'dónde', la **velocidad** es nuestro 'qué tan rápido y hacia dónde' y la **aceleración** es el cambio en esa voluntad de movimiento. [JUEGO:CRUCIGRAMA:Donde estamos|ESPACIO;Sin aire|VACIO] Sin embargo, algo está alterando nuestros sensores. [JUEGO:ORDENAR_LETRAS:GRAVEDAD] Los datos muestran una fluctuación en la velocidad orbital que no debería existir según las tablas clásicas. [JUEGO:ORDENAR_FRASE:KEPLER DESCUBRIO LAS ELIPSES] \n\n<table style='width:100%; border-collapse: collapse; border: 2px solid white; color: white;'>\n<tr style='background-color: #333;'><th>Concepto</th><th>Definición en la ISS</th><th>Variable</th></tr>\n<tr><td>Posición</td><td>Coordenadas respecto al centro de la Tierra</td><td>r(t)</td></tr>\n<tr><td>Velocidad</td><td>Tangente a la trayectoria elíptica</td><td>v(t)</td></tr>\n<tr><td>Aceleración</td><td>Centrípeta (hacia el centro de masa)</td><td>a(t)</td></tr>\n</table>\n\n¿Es un error de los instrumentos o hemos descubierto una nueva fuerza? [JUEGO:SOPA_LETRAS:FOCO,EJE,AREA] El misterio se profundiza al analizar el movimiento planetario. [JUEGO:CRUCIGRAMA:Lugar en el espacio|POSICION;Cambio de lugar|MOVIMIENTO] ¿Por qué la Tierra no se detiene? [JUEGO:ORDENAR_LETRAS:ELIPSE] ¿Por qué no cae al Sol? [JUEGO:ORDENAR_FRASE:LA INERCIA NOS MANTIENE EN MOVIMIENTO] La respuesta reside en la cinemática de las órbitas. [JUEGO:SOPA_LETRAS:TIEMPO,RELOJ,LAPSO]\n\nPara resolver este misterio, debemos entender que el movimiento planetario no es estático; es una caída libre perpetua. [JUEGO:CRUCIGRAMA:Cero gravedad|MICROGRAVEDAD;Estación|ISS] La ISS está cayendo constantemente hacia la Tierra, pero se mueve tan rápido hacia los lados que 'falla' el suelo y sigue de largo. [JUEGO:ORDENAR_LETRAS:MASAS] Es el equilibrio perfecto entre la caída y la huida. [JUEGO:ORDENAR_FRASE:LA FUERZA ES IGUAL A LA MASA POR ACELERACION] [JUEGO:SOPA_LETRAS:BASE,DATO,PRUEBA] [JUEGO:CRUCIGRAMA:Planeta azul|TIERRA;Satélite|LUNA]",
+  "recurso_visual": "| Variable | Definición | Relación con la ISS |\n| :--- | :--- | :--- |\n| **Posición** | Vector desde el origen (Tierra) al objeto. | Determina si estamos en el perigeo o apogeo. |\n| **Velocidad** | Cambio de posición por unidad de tiempo. | Debe ser de ~7.66 km/s para mantener la órbita. |\n| **Aceleración** | Cambio de velocidad; en órbita es centrípeta. | Producida por la gravedad terrestre. |\n| **Gravedad** | Fuerza de atracción entre masas. | Es el \"motor\" invisible que curva nuestra trayectoria. |",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "Según el texto, ¿qué sucedería si la velocidad de la ISS fuera significativamente menor a 28,000 km/h?",
+      "respuesta_esperada": "La fuerza de gravedad de la Tierra arrastraría a la estación hacia la atmósfera, donde se desintegraría por la fricción."
+    },
+    {
+      "pregunta": "¿Por qué se dice que la ISS está en una 'caída libre perpetua'?",
+      "respuesta_esperada": "Porque está siendo atraída constantemente por la gravedad terrestre, pero su alta velocidad lateral hace que su trayectoria se curve alrededor del planeta en lugar de chocar con él."
+    },
+    {
+      "pregunta": "¿Qué forma tienen las órbitas de los planetas según el detective Kepler?",
+      "respuesta_esperada": "Tienen forma elíptica, no circular perfecta."
+    },
+    {
+      "pregunta": "¿Cuál es la diferencia entre posición y velocidad en el contexto de la ISS?",
+      "respuesta_esperada": "La posición indica dónde está la ISS respecto a la Tierra en un momento dado, mientras que la velocidad indica la rapidez y dirección de su desplazamiento orbital."
+    },
+    {
+      "pregunta": "En el visualizador de trayectoria, ¿qué representa el punto azul y qué la línea verde?",
+      "respuesta_esperada": "El punto azul representa la Tierra y la línea verde representa la trayectoria elíptica de la órbita de la ISS."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema de la Tierra y la ISS, representando con flechas (vectores) la fuerza de gravedad y la velocidad tangencial.",
+    "Realiza un cuadro comparativo entre los conceptos de Posición, Velocidad y Aceleración aplicados a un auto en la calle vs. la ISS en el espacio.",
+    "Escribe una reflexión de una página sobre cómo cambiaría la vida humana si la gravedad terrestre fuera un 50% más débil.",
+    "Representa gráficamente, mediante una serie de dibujos (tipo cómic), el concepto de 'caerse y fallar el suelo' que explica la órbita."
+  ],
+  "texto_deductivo": "### EL CÓDIGO KEPLER Y LA MANZANA DE NEWTON\n\n¡Atención! Hemos recuperado los datos del 'Caja Negra' estelar. Para resolver la anomalía, debemos aplicar el razonamiento deductivo de los grandes maestros. [JUEGO:ORDENAR_LETRAS:NEWTON] Kepler nos dejó tres leyes que son las reglas del juego. La primera dice que los planetas describen órbitas elípticas con el Sol en uno de sus focos. [JUEGO:ORDENAR_FRASE:LAS LEYES DE KEPLER SON TRES] \n\n<div style='border: 4px double gold; padding: 15px; margin: 10px; background: #000; color: #ffd700; text-align: center;'>\n  <h2 style='font-size: 2rem;'>LEYES DE KEPLER: EL MAPA DEL TESORO</h2>\n  <div style='display: flex; justify-content: space-around; font-weight: bold;'>\n    <div style='border: 1px solid gold; padding: 5px;'>1ª LEY<br>Órbitas Elípticas</div>\n    <div style='border: 1px solid gold; padding: 5px;'>2ª LEY<br>Áreas Iguales</div>\n    <div style='border: 1px solid gold; padding: 5px;'>3ª LEY<br>Periodo^2 / Radio^3</div>\n  </div>\n</div>\n\nLa segunda ley de Kepler revela por qué nuestra velocidad fluctúa: el radio vector que une al Sol (o la Tierra) con el objeto barre áreas iguales en tiempos iguales. [JUEGO:SOPA_LETRAS:FISICA,LEY,CIENCIA] Esto significa que cuando la ISS está más cerca de la Tierra (perigeo), se mueve más rápido que cuando está lejos (apogeo). [JUEGO:CRUCIGRAMA:Científico de la manzana|NEWTON;Primera ley|INERCIA] ¡Aquí está la clave de nuestra anomalía! [JUEGO:ORDENAR_LETRAS:INERCIA] Los sensores detectan cambios de velocidad porque no estamos en un círculo, sino en una elipse. [JUEGO:ORDENAR_FRASE:LA GRAVEDAD DEPENDE DE LA DISTANCIA] \n\nPero Kepler no sabía *por qué* ocurría esto. Fue Newton quien dedujo la **Ley de Gravitación Universal**. [JUEGO:SOPA_LETRAS:MASA,PESO,KILO] La fuerza es directamente proporcional al producto de las masas e inversamente proporcional al cuadrado de la distancia. [JUEGO:CRUCIGRAMA:Camino del planeta|ORBITA;Forma de huevo|ELIPSE] \n\n<div style='background-color: #222; padding: 20px; border-radius: 10px;'>\n  <p style='color: #00ffff; font-family: serif; font-size: 1.5rem; text-align: center;'>\n    F = G * (m1 * m2) / r²\n  </p>\n</div>\n\nSi la masa de la Tierra es inmensa, y la ISS está 'cerca', la fuerza de atracción es poderosa. [JUEGO:ORDENAR_LETRAS:VECTOR] Para no colisionar, la aceleración centrípeta debe compensar esta fuerza. [JUEGO:ORDENAR_FRASE:CADA ACCION TIENE UNA REACCION] [JUEGO:SOPA_LETRAS:RADIO,CUBO,LEY] Si la distancia 'r' aumenta, la fuerza disminuye drásticamente. [JUEGO:CRUCIGRAMA:Rapidez con dirección|VELOCIDAD;Cambio de velocidad|ACCELERACION] \n\nAhora, unamos los hilos. [JUEGO:ORDENAR_LETRAS:FOCO] La ISS mantiene su órbita debido a la inercia (primera ley de Newton) y es curvada por la gravedad. [JUEGO:ORDENAR_FRASE:EL SOL ESTA EN UN FOCO] Si un cuerpo celeste masivo pasara cerca de nosotros, alteraría la 'r' en la ecuación de Newton, cambiando nuestra velocidad y posición. [JUEGO:SOPA_LETRAS:SOL,ASTRO,CALOR] [JUEGO:CRUCIGRAMA:Fuerza de Newton|GRAVITACION;Constante G|UNIVERSAL] \n\nConcluimos: la 'anomalía' no es más que la danza natural de la cinemática bajo la batuta de la gravedad. [JUEGO:ORDENAR_LETRAS:PERIODO] Estamos resolviendo el misterio entendiendo que la aceleración no es solo ir 'más rápido', sino también cambiar de dirección para cerrar la elipse. [JUEGO:ORDENAR_FRASE:LA TERCERA LEY HABLA DEL PERIODO] [JUEGO:SOPA_LETRAS:MAPA,RUTA,GUIA] [JUEGO:CRUCIGRAMA:Planeta rojo|MARTE;El más grande|JUPITER]",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "¿Qué establece la segunda ley de Kepler sobre la velocidad de un objeto en órbita?",
+      "respuesta_esperada": "Establece que el objeto se mueve más rápido cuando está más cerca del centro de atracción (perigeo) y más lento cuando está más lejos (apogeo), barriendo áreas iguales en tiempos iguales."
+    },
+    {
+      "pregunta": "Según la Ley de Gravitación Universal de Newton, ¿qué sucede con la fuerza de atracción si la distancia entre dos objetos se duplica?",
+      "respuesta_esperada": "La fuerza de atracción se reduce a la cuarta parte (1/2²), ya que es inversamente proporcional al cuadrado de la distancia."
+    },
+    {
+      "pregunta": "¿Cuál es la función de la Inercia en el movimiento de la ISS?",
+      "respuesta_esperada": "La inercia es la tendencia de la ISS a seguir moviéndose en línea recta; la gravedad es la que constantemente curva ese movimiento para formar una órbita."
+    },
+    {
+      "pregunta": "¿Dónde se sitúa el Sol en el modelo elíptico de Kepler?",
+      "respuesta_esperada": "Se sitúa en uno de los dos focos de la elipse."
+    },
+    {
+      "pregunta": "¿Por qué es fundamental la constante 'G' en la ecuación de Newton?",
+      "respuesta_esperada": "Porque es la constante de proporcionalidad que permite calcular la magnitud exacta de la fuerza gravitatoria en todo el universo."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Diseña un diagrama detallado de una elipse, identificando los focos, el semieje mayor, el semieje menor, el perihelio y el afelio.",
+    "Elabora un mapa mental que conecte las 3 leyes de Kepler con la Ley de Gravitación Universal de Newton.",
+    "Realiza un dibujo explicativo que muestre qué pasaría con la ISS si, de repente, la Tierra perdiera toda su masa.",
+    "Crea una infografía artesanal que explique la fórmula F = G * (m1 * m2) / r², usando ejemplos de la vida cotidiana para ilustrar la masa y la distancia."
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "Un satélite de comunicaciones se encuentra en una órbita circular alrededor de la Tierra. Los ingenieros deciden duplicar la distancia del satélite respecto al centro de la Tierra para mejorar la cobertura.",
+      "tabla_o_grafica_markdown": "| Parámetro | Estado Inicial | Estado Final |\n| :--- | :--- | :--- |\n| Masa Tierra (M) | M | M |\n| Distancia (r) | R | 2R |\n| Fuerza Gravitacional | F | ? |",
+      "pregunta": "¿Cómo cambia la fuerza de atracción gravitacional sobre el satélite tras el cambio de distancia?",
+      "opciones": [
+        "La fuerza se reduce a la cuarta parte (F/4)",
+        "La fuerza se reduce a la mitad (F/2)",
+        "La fuerza se duplica (2F)",
+        "La fuerza se mantiene igual"
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. Según la Ley de Newton, la fuerza es inversamente proporcional al cuadrado de la distancia (1/2² = 1/4).",
+        "1": "Incorrecto. La relación no es lineal, sino cuadrática inversa.",
+        "2": "Incorrecto. Al aumentar la distancia, la fuerza debe disminuir, no aumentar.",
+        "3": "Incorrecto. La distancia es un factor crítico en la magnitud de la fuerza gravitatoria."
+      }
+    }
+  ]
+}

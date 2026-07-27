@@ -1,0 +1,86 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "Si un jaguar en la selva se encuentra a 20 metros de tu campamento a las 10:00 a.m. y sigue a 20 metros a las 10:05 a.m., ¿cuál es su estado de movimiento?",
+      "opciones": [
+        "A) Se mueve a velocidad constante muy rápida.",
+        "B) Está en reposo respecto al campamento.",
+        "C) Está acelerando hacia la expedición.",
+        "D) Regresa a su guarida a velocidad negativa."
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Qué representa el eje horizontal (eje X) en una gráfica de Posición vs Tiempo (x-t)?",
+      "opciones": [
+        "A) La distancia recorrida en metros.",
+        "B) La velocidad del explorador.",
+        "C) El tiempo transcurrido en segundos o minutos.",
+        "D) La aceleración del terreno."
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "Si en una gráfica x-t observas una línea recta inclinada hacia arriba, esto significa que el objeto:",
+      "opciones": [
+        "A) Se aleja del punto de origen a velocidad constante.",
+        "B) Se acerca al punto de origen frenando.",
+        "C) Está completamente detenido.",
+        "D) Se cayó a un barranco."
+      ],
+      "correcta": 0
+    }
+  ],
+  "texto_inductivo": " absolute_narrative_start\n\n***¿Cómo puede un estudiante de la IE Instituto Montenegro usar el rastreo gráfico de posición contra tiempo para predecir emboscadas de depredadores en la selva amazónica y calcular la velocidad de fuga exacta para salvar a su equipo de expedición?***\n\nSoy el Detective de Misterios de la expedición 'Selva Negra'. Nos encontramos perdidos en el sector más denso de la Amazonía, lejos de los pasillos tranquilos de la **IE Instituto Montenegro**. Un agente hostil ha alterado nuestro GPS, pero logramos recuperar un registrador de datos táctico. Para sobrevivir, debemos descifrar los patrones de movimiento de las bestias y de los rastreadores enemigos analizando las gráficas $x-t$.\n\n<svg width='100%' height='180' viewBox='0 0 500 180' style='background-color:#0d1117; border-radius:8px; border: 2px solid #238636;'><text x='20' y='30' fill='#7ee787' font-family='monospace' font-size='14'>[SISTEMA DE RASTREO TÁCTICO - MODO DIOS]</text><path d='M 50 140 L 150 40 L 250 40 L 350 140 L 450 140' stroke='#3fb950' stroke-width='4' fill='none'/><circle cx='150' cy='40' r='6' fill='#ff7b72'/><circle cx='250' cy='40' r='6' fill='#ffa657'/><line x1='50' y1='140' x2='450' y2='140' stroke='#8b949e' stroke-width='2'/><line x1='50' y1='20' x2='50' y2='140' stroke='#8b949e' stroke-width='2'/><text x='460' y='145' fill='#c9d1d9' font-size='12'>t (s)</text><text x='35' y='25' fill='#c9d1d9' font-size='12'>x (m)</text><text x='80' y='80' fill='#7ee787' font-size='11'>Avanza rápido</text><text x='180' y='30' fill='#ffa657' font-size='11'>Reposo (Acecho)</text><text x='280' y='80' fill='#ff7b72' font-size='11'>Retroceso/Ataque</text></svg>\n\nObserva con atención el bio-escáner de arriba. Entre el segundo 0 y el 10, la línea verde asciende en diagonal: la criatura se aleja rápidamente de la base. Del segundo 10 al 20, la línea permanece horizontal: ¡la bestia se ha detenido a acechar en la maleza! Si no interpretamos la pendiente, seremos emboscados.\n\nDemuestra tus dotes de detective resolviendo los siguientes enigmas de la selva:\n\n[JUEGO:ORDENAR_LETRAS:POSICION]\n\n[JUEGO:ORDENAR_FRASE:LA PENDIENTE INDICA LA VELOCIDAD]\n\n[JUEGO:SOPA_LETRAS:TIEMPO,DISTANCIA,ORIGEN]\n\n[JUEGO:CRUCIGRAMA:Punto de referencia inicial|ORIGEN;Cambio de posición en el tiempo|VELOCIDAD]\n\n<table border='1' style='width:100%; border-collapse:collapse; background-color:#161b22; color:#c9d1d9; border-color:#30363d;'><thead><tr style='background-color:#21262d;'><th style='padding:8px;'>Tramo del Gráfico</th><th style='padding:8px;'>Comportamiento visual de la línea</th><th style='padding:8px;'>Interpretación de Supervivencia</th></tr></thead><tbody><tr><td style='padding:8px;'>Tramo 1 (0-10s)</td><td style='padding:8px;'>Diagonal Ascendente</td><td style='padding:8px;'>El objetivo se aleja a velocidad constante. Zone Segura.</td></tr><tr><td style='padding:8px;'>Tramo 2 (10-20s)</td><td style='padding:8px;'>Línea Horizontal Superior</td><td style='padding:8px;'>¡ALERTA! El objetivo se detuvo a $x=100m$. Posible emboscada.</td></tr><tr><td style='padding:8px;'>Tramo 3 (20-30s)</td><td style='padding:8px;'>Diagonal Descendente</td><td style='padding:8px;'>¡PELIGRO EXTREMO! El objetivo regresa hacia el origen a alta velocidad.</td></tr></tbody></table>\n\n[JUEGO:ORDENAR_LETRAS:DESPLAZAMIENTO]\n\n[JUEGO:ORDENAR_FRASE:EL REPOSO ES UNA LINEA HORIZONTAL]",
+  "recurso_visual": "<svg width='100%' height='200' viewBox='0 0 600 200' style='background-color:#0d1117; border-radius:8px;'><grid opacity='0.1'><line x1='0' y1='50' x2='600' y2='50' stroke='#fff'/><line x1='0' y1='100' x2='600' y2='100' stroke='#fff'/><line x1='0' y1='150' x2='600' y2='150' stroke='#fff'/></grid><path d='M 50 160 L 200 60 L 350 60 L 550 160' stroke='#58a6ff' stroke-width='4' fill='none'/><text x='100' y='100' fill='#58a6ff' font-weight='bold'>v > 0 (Positiva)</text><text x='250' y='50' fill='#79c0ff' font-weight='bold'>v = 0 (Reposo)</text><text x='420' y='100' fill='#ff7b72' font-weight='bold'>v < 0 (Negativa)</text><circle cx='200' cy='60' r='5' fill='#f0883e'/><circle cx='350' cy='60' r='5' fill='#f0883e'/></svg>",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "¿Qué ocurre con la posición del depredador en el intervalo donde la gráfica se vuelve completamente horizontal?",
+      "respuesta_esperada": "La posición no cambia con el paso del tiempo; por lo tanto, el depredador permanece inmóvil (en reposo) a una distancia fija."
+    },
+    {
+      "pregunta": "Si la línea vuelve a descender hacia el eje del tiempo, ¿el objetivo se aleja o regresa al punto cero?",
+      "respuesta_esperada": "El objetivo está regresando hacia el punto de origen (posición x = 0)."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja en tu cuaderno de la IE Instituto Montenegro un plano cartesiano (x vs t) y traza la ruta de un explorador que camina 50 m en 5 min, descansa 2 min y corre de regreso 50 m en 1 min.",
+    "Calcula la pendiente visual del primer tramo del gráfico del bio-escáner táctico y deduce si la velocidad fue constante o variable."
+  ],
+  "texto_deductivo": "### MANUAL TÁCTICO DE FÍSICA: Nivel Modo Dios\n\nPara sobrevivir en la expedición y resolver el misterio, debemos formalizar las matemáticas detrás de la gráfica **Posición vs Tiempo ($x-t$)**.\n\n#### 1. La Ecuación Fundamental de la Pendiente\nEn toda gráfica $x-t$, la inclinación o **pendiente ($m$)** de la recta representa la **Velocidad ($v$)** del cuerpo:\n\n$$v = \\frac{\\Delta x}{\\Delta t} = \\frac{x_f - x_i}{t_f - t_i}$$\n\n<table border='1' style='width:100%; border-collapse:collapse; background-color:#0d1117; color:#c9d1d9; border-color:#30363d;'><thead><tr style='background-color:#161b22;'><th style='padding:8px;'>Tipo de Pendiente</th><th style='padding:8px;'>Valor Matemático</th><th style='padding:8px;'>Significado Físico Operativo</th></tr></thead><tbody><tr><td style='padding:8px; color:#7ee787;'>Inclinada hacia arriba (/)</td><td style='padding:8px;'>$v > 0$ (Positiva)</td><td style='padding:8px;'>El objeto se desplaza hacia adelante (aumenta su coordenada de posición).</td></tr><tr><td style='padding:8px; color:#79c0ff;'>Totalmente Horizontal (—)</td><td style='padding:8px;'>$v = 0$ (Nula)</td><td style='padding:8px;'>El objeto está en **Reposo**. No hay cambio de posición.</td></tr><tr><td style='padding:8px; color:#ff7b72;'>Inclinada hacia abajo (\\)</td><td style='padding:8px;'>$v < 0$ (Negativa)</td><td style='padding:8px;'>El objeto retrocede hacia el origen de coordenadas.</td></tr></tbody></table>\n\n[JUEGO:SOPA_LETRAS:PENDIENTE,REPOSO,VELOCIDAD]\n\n[JUEGO:CRUCIGRAMA:Inclinación de la línea en gráfica x-t|PENDIENTE;Magnitud escalar del tiempo transcurrido|INTERVALO;Estado de velocidad cero|REPOSO]\n\n<svg width='100%' height='160' viewBox='0 0 500 160' style='background-color:#161b22; border-radius:8px;'><text x='20' y='30' fill='#e6edf3' font-family='sans-serif' font-size='12'>CÁLCULO DE VELOCIDAD DE HUIDA TÁCTICA:</text><path d='M 60 130 L 260 30' stroke='#d2a8ff' stroke-width='3' stroke-dasharray='5,5'/><path d='M 60 130 L 260 130 L 260 30' stroke='#79c0ff' stroke-width='2' fill='none'/><text x='150' y='145' fill='#79c0ff' font-size='11'>Δt = 10 s</text><text x='270' y='80' fill='#d2a8ff' font-size='11'>Δx = 100 m</text><text x='120' y='70' fill='#7ee787' font-weight='bold' font-size='13'>v = 100m / 10s = 10 m/s</text></svg>\n\n[JUEGO:ORDENAR_LETRAS:PENDIENTE]\n\n[JUEGO:ORDENAR_FRASE:LA VELOCIDAD ES EL CAMBIO DE POSICION]\n\n[JUEGO:ORDENAR_LETRAS:TIEMPO]\n\n[JUEGO:ORDENAR_FRASE:UNA PENDIENTE MAYOR INDICA MAYOR VELOCIDAD]\n\n[JUEGO:SOPA_LETRAS:VECTOR,ESCALAR,TRACTO]\n\n[JUEGO:CRUCIGRAMA:Unidad SI de la posición|METROS;Unidad SI del tiempo|SEGUNDOS]",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "Un dron de rescate parte de $x_i = 10\\text{ m}$ a $t_i = 0\\text{ s}$ y llega a $x_f = 90\\text{ m}$ a $t_f = 8\\text{ s}$. ¿Cuál es su velocidad?",
+      "respuesta_esperada": "v = (90 m - 10 m) / (8 s - 0 s) = 80 m / 8 s = 10 m/s."
+    },
+    {
+      "pregunta": "¿Qué diferencia existe entre una línea inclinada a 30° y una inclinada a 60° en una gráfica x-t?",
+      "respuesta_esperada": "La línea inclinada a 60° tiene mayor pendiente, lo que significa que el objeto se desplaza a una velocidad mayor."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Resuelve en tu cuaderno: Un reptil gigante se desplaza según la ecuación gráfica con puntos P1=(2s, 4m) y P2=(6s, 20m). Halla la velocidad del reptil.",
+    "Redacta un informe detective explicándole a la comunidad de la IE Instituto Montenegro por qué una línea vertical perfecta en una gráfica x-t es físicamente imposible en el universo real."
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de fenómenos",
+      "texto_introductorio": "Durante la expedición en la selva amazónica, el equipo del Detective de Misterios registra el avance de un vehículo de suministros hostil mediante el siguiente registro de posición contra tiempo:",
+      "tabla_o_grafica_markdown": "| Tiempo (s) | Posición (m) |\n| :---: | :---: |\n| 0 | 0 |\n| 4 | 20 |\n| 8 | 20 |\n| 12 | 50 |",
+      "pregunta": "A partir de la tabla, ¿cuál fue el comportamiento del vehículo hostil entre los segundos 4 y 8?",
+      "opciones": [
+        "Se desplazó a una velocidad constante de 5 m/s.",
+        "Permaneció completamente detenido en la posición 20 m.",
+        "Retrocedió 20 metros hacia el punto de partida.",
+        "Aceleró alcanzando una velocidad de 20 m/s."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. Entre t=4s y t=8s la posición sigue siendo 20m, por lo que no hubo recorrido (v = 0 m/s).",
+        "1": "¡Correcto, Detective! La posición no cambió durante esos 4 segundos (x = 20 m constante), lo que indica que la velocidad fue 0 m/s (reposo).",
+        "2": "Incorrecto. Para retroceder, la posición tendría que haber disminuido hacia 0m.",
+        "3": "Incorrecto. No hay cambio de posición, por ende la velocidad es nula, no aceleró."
+      }
+    }
+  ]
+}

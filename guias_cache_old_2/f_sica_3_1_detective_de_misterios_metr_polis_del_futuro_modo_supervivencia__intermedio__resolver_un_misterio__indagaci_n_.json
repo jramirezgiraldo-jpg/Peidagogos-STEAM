@@ -1,0 +1,114 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Cuál de los siguientes científicos propuso que los planetas se mueven en órbitas elípticas y no circulares?",
+      "opciones": [
+        "Isaac Newton",
+        "Johannes Kepler",
+        "Galileo Galilei",
+        "Albert Einstein"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "Si un objeto se aleja del centro de un planeta, ¿qué sucede con la fuerza de gravedad que experimenta?",
+      "opciones": [
+        "Aumenta",
+        "Se mantiene igual",
+        "Disminuye",
+        "Desaparece instantáneamente"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "En cinemática, ¿qué concepto describe el cambio de velocidad en un intervalo de tiempo?",
+      "opciones": [
+        "Posición",
+        "Rapidez",
+        "Aceleración",
+        "Desplazamiento"
+      ],
+      "correcta": 2
+    }
+  ],
+  "texto_inductivo": "### Expediente 001: El Desvío de la Estación Nova\n\nSaludos, Agente. Bienvenido a la Unidad de Inteligencia Gravitatoria de Metrópolis. Mi nombre es el Detective Kepleriano y hoy nos enfrentamos a un misterio de proporciones astronómicas. La Estación de Suministros 'Nova-7' ha perdido su curso habitual. [JUEGO:ORDENAR_LETRAS:MISTERIO] Los informes indican que su trayectoria ya no es una curva cerrada perfecta. ¿Sabotaje? ¿O simplemente hemos olvidado las leyes que rigen el cosmos? [JUEGO:ORDENAR_FRASE:EL MISTERIO COMIENZA EN EL CIELO]\n\n***¿Cómo es posible que en una civilización que habita en las estrellas, un pequeño cambio en la velocidad de un satélite pueda desencadenar el colapso total de la logística de Metrópolis, y qué papel juegan las leyes invisibles de la gravedad en este caos?***\n\nPara resolver este caso, debemos analizar la primera pista: las órbitas. [JUEGO:SOPA_LETRAS:ORBITA,ELIPSE,FOCO] Johannes Kepler, un detective del pasado, descubrió que los planetas no giran en círculos perfectos, sino en elipses. [JUEGO:CRUCIGRAMA:Forma de la orbita|ELIPSE;Punto central de calor|SOL] Observa el siguiente diagrama del motor de trayectoria de la Nova-7:\n\n<div style=\"background-color:#001f3f; padding:20px; border-radius:15px; border: 2px solid #0074D9; text-align:center;\">\n  <svg viewBox=\"0 0 400 200\" xmlns=\"http://www.w3.org/2000/svg\">\n    <!-- Elipse de la órbita -->\n    <ellipse cx=\"200\" cy=\"100\" rx=\"150\" ry=\"70\" style=\"fill:none;stroke:#39CCCC;stroke-width:3;stroke-dasharray:5,5\" />\n    <!-- Foco 1 (Sol/Planeta) -->\n    <circle cx=\"280\" cy=\"100\" r=\"20\" fill=\"#FFDC00\" />\n    <text x=\"265\" y=\"140\" fill=\"white\" font-family=\"sans-serif\" font-size=\"12\">FOCO (Masa)</text>\n    <!-- Satélite -->\n    <circle cx=\"65\" cy=\"75\" r=\"8\" fill=\"#FF4136\">\n      <animateMotion path=\"M 135 -25 A 150 70 0 1 1 135.1 -25\" dur=\"5s\" repeatCount=\"indefinite\" />\n    </circle>\n    <text x=\"20\" y=\"20\" fill=\"#39CCCC\" font-family=\"monospace\" font-size=\"14\">MODELO ORBITAL K-01</text>\n  </svg>\n</div>\n\nKepler nos dejó tres leyes fundamentales. La primera dice que el sol ocupa uno de los focos. [JUEGO:ORDENAR_LETRAS:FOCOS] La segunda afirma que el satélite barre áreas iguales en tiempos iguales. [JUEGO:ORDENAR_FRASE:AREAS IGUALES EN TIEMPOS IGUALES] Esto significa que cuando la estación está cerca del planeta, se mueve más rápido. [JUEGO:SOPA_LETRAS:VELOCIDAD,AREAS,TIEMPO] Si la velocidad de la Nova-7 varió, su 'posición' respecto al foco cambió drásticamente. [JUEGO:CRUCIGRAMA:Cambio de posicion|MOVIMIENTO;Lugar en el espacio|POSICION]\n\nEn Metrópolis, usamos el 'Periodo Orbital' para sincronizar los relojes de transporte. [JUEGO:ORDENAR_LETRAS:PERIODO] La tercera ley de Kepler relaciona el tiempo que tarda en dar una vuelta con su distancia media. [JUEGO:ORDENAR_FRASE:EL TIEMPO DEPENDE DE LA DISTANCIA] Si la Nova-7 se alejó, su año se hizo más largo. [JUEGO:SOPA_LETRAS:DISTANCIA,RADIO,AÑO] Debemos recalcular su cinemática. [JUEGO:CRUCIGRAMA:Segunda ley|KEPLER;Unidad de tiempo|SEGUNDO]\n\nRevisemos los registros de aceleración. [JUEGO:ORDENAR_LETRAS:ACELERACION] Una anomalía en la aceleración centrípeta podría ser la causa del desvío. [JUEGO:ORDENAR_FRASE:LA ACELERACION CAMBIA LA TRAYECTORIA] El sistema de navegación está confundido. [JUEGO:SOPA_LETRAS:SISTEMA,DATOS,CAOS] Necesitamos comparar los datos teóricos con los reales en el cuaderno de bitácora. [JUEGO:CRUCIGRAMA:Fuerza central|CENTRIPETA;Registro de vuelo|BITACORA]\n\nFinalmente, Agente, recuerde que la cinemática es la clave para predecir dónde estará la estación en el siguiente ciclo. [JUEGO:ORDENAR_LETRAS:CINEMATICA] Sin una velocidad constante en la órbita circular teórica, el caos reina. [JUEGO:ORDENAR_FRASE:SIN CIENCIA NO HAY ORDEN] Analice los residuos de energía en los propulsores. [JUEGO:SOPA_LETRAS:ENERGIA,MOTOR,FLUJO] El misterio se resolverá si aplicamos las leyes del movimiento planetario. [JUEGO:CRUCIGRAMA:Padre de la astronomia|KEPLER;Hacia el centro|CENTRIPETO]",
+  "recurso_visual": "graph TD\n    A[Misterio Nova-7] --> B{Leyes de Kepler}\n    B --> C[1. Orbitas Elípticas]\n    B --> D[2. Áreas Iguales - Velocidad Variable]\n    B --> E[3. Periodo y Distancia]\n    C --> F[Cinemática: Posición]\n    D --> G[Cinemática: Velocidad]\n    E --> H[Cinemática: Aceleración]",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "¿Qué forma geométrica tienen las órbitas de los planetas según la primera ley de Kepler?",
+      "respuesta_esperada": "Tienen forma de elipse, donde el Sol (o el cuerpo central) ocupa uno de los focos."
+    },
+    {
+      "pregunta": "¿En qué punto de su órbita se mueve más rápido un satélite?",
+      "respuesta_esperada": "Se mueve más rápido cuando está más cerca del cuerpo central (perihelio), para barrer áreas iguales en tiempos iguales."
+    },
+    {
+      "pregunta": "¿Qué relación establece la tercera ley de Kepler?",
+      "respuesta_esperada": "Relaciona el cuadrado del periodo orbital con el cubo de la distancia media al Sol (T² ∝ r³)."
+    },
+    {
+      "pregunta": "¿Cómo se define la cinemática en el contexto del movimiento planetario?",
+      "respuesta_esperada": "Es el estudio de la posición, velocidad y aceleración de los planetas sin considerar inicialmente las fuerzas que lo causan."
+    },
+    {
+      "pregunta": "¿Por qué es importante el concepto de 'foco' en este misterio?",
+      "respuesta_esperada": "Porque determina el centro de atracción y la forma de la trayectoria; si el foco cambia o la posición respecto a él varía, la órbita se altera."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja una elipse detallada identificando sus focos, el eje mayor y la posición de un planeta en dos momentos diferentes (cerca y lejos del sol).",
+    "Realiza un cuadro comparativo entre una órbita circular teórica y una órbita elíptica real, destacando diferencias en velocidad.",
+    "Escribe una reflexión de 10 renglones sobre cómo la tecnología de Metrópolis del Futuro depende de leyes físicas descubiertas hace siglos.",
+    "Representa mediante un esquema de flechas (vectores) cómo cambia la velocidad de un planeta mientras recorre su órbita elíptica."
+  ],
+  "texto_deductivo": "### Análisis Técnico: El Código Newton\n\nBien hecho, Agente. Hemos identificado que la Nova-7 sigue las leyes de Kepler, pero ¿qué 'fuerza' la mantiene allí? [JUEGO:ORDENAR_LETRAS:FUERZA] Para resolver este enigma, debemos invocar a Isaac Newton. Él dedujo que existe una fuerza invisible llamada Gravitación Universal. [JUEGO:ORDENAR_FRASE:LA GRAVEDAD UNE AL UNIVERSO]\n\n<table style=\"width:100%; border: 2px solid #39CCCC; color: white; background-color: #111; border-collapse: collapse;\">\n  <tr style=\"background-color: #0074D9;\">\n    <th style=\"padding:10px; border: 1px solid #39CCCC;\">Concepto</th>\n    <th style=\"padding:10px; border: 1px solid #39CCCC;\">Ecuación Maestría</th>\n    <th style=\"padding:10px; border: 1px solid #39CCCC;\">Efecto en Metrópolis</th>\n  </tr>\n  <tr>\n    <td style=\"padding:10px; border: 1px solid #39CCCC;\">Ley de Gravitación</td>\n    <td style=\"padding:10px; border: 1px solid #39CCCC;\">F = G * (m1*m2) / r²</td>\n    <td style=\"padding:10px; border: 1px solid #39CCCC;\">Mantiene los edificios flotantes en órbita.</td>\n  </tr>\n  <tr>\n    <td style=\"padding:10px; border: 1px solid #39CCCC;\">Aceleración Gravitatoria</td>\n    <td style=\"padding:10px; border: 1px solid #39CCCC;\">g = G * M / r²</td>\n    <td style=\"padding:10px; border: 1px solid #39CCCC;\">Define el peso de los ciudadanos.</td>\n  </tr>\n</table>\n\nLa fuerza de gravedad depende de dos factores: la masa de los cuerpos y la distancia que los separa. [JUEGO:SOPA_LETRAS:MASA,GRAVEDAD,DISTANCIA] Si la masa de la Nova-7 aumentó por un cargamento ilegal, la fuerza de atracción cambió. [JUEGO:CRUCIGRAMA:Cantidad de materia|MASA;Atraccion de mundos|GRAVEDAD] A mayor distancia, menor es la fuerza, siguiendo el cuadrado inverso. [JUEGO:ORDENAR_LETRAS:INVERSO]\n\nEl misterio se profundiza al analizar la aceleración. [JUEGO:ORDENAR_FRASE:A MAYOR DISTANCIA MENOR FUERZA] En Metrópolis, cada satélite tiene una 'aceleración centrípeta' que lo mantiene girando. [JUEGO:SOPA_LETRAS:CENTRO,GIRO,CURVA] Si esta aceleración falla, el satélite escapa al espacio profundo o se estrella contra la ciudad. [JUEGO:CRUCIGRAMA:Hacia afuera|FUGA;Hacia adentro|CAIDA]\n\n<div style=\"text-align:center; margin: 20px;\">\n  <svg width=\"200\" height=\"200\" viewBox=\"0 0 200 200\">\n    <circle cx=\"100\" cy=\"100\" r=\"40\" fill=\"#0074D9\" />\n    <circle cx=\"100\" cy=\"20\" r=\"10\" fill=\"#AAAAAA\" />\n    <line x1=\"100\" y1=\"30\" x2=\"100\" y2=\"60\" stroke=\"#FF4136\" stroke-width=\"3\" marker-end=\"url(#arrowhead)\" />\n    <defs>\n      <marker id=\"arrowhead\" markerWidth=\"10\" markerHeight=\"7\" refX=\"0\" refY=\"3.5\" orient=\"auto\">\n        <polygon points=\"0 0, 10 3.5, 0 7\" fill=\"#FF4136\" />\n      </marker>\n    </defs>\n    <text x=\"110\" y=\"45\" fill=\"#FF4136\" font-size=\"10\">Fuerza G</text>\n  </svg>\n</div>\n\nAnalicemos la velocidad orbital. [JUEGO:ORDENAR_LETRAS:ORBITAL] Para que un cuerpo se mantenga en órbita circular, su velocidad debe ser exacta. [JUEGO:ORDENAR_FRASE:LA VELOCIDAD DEBE SER EXACTA] Un error de un metro por segundo y la trayectoria se vuelve inestable. [JUEGO:SOPA_LETRAS:METRO,SEGUNDO,ERROR] Esto es cinemática pura aplicada a la supervivencia. [JUEGO:CRUCIGRAMA:Rapidez con direccion|VELOCIDAD;Cambio de velocidad|ACELERACION]\n\nLa constante de gravitación universal (G) es la llave del candado. [JUEGO:ORDENAR_LETRAS:CONSTANTE] Es un valor pequeñísimo, pero sostiene galaxias enteras. [JUEGO:ORDENAR_FRASE:LA CONSTANTE G ES UNIVERSAL] Newton unificó el cielo y la tierra con esta fórmula. [JUEGO:SOPA_LETRAS:NEWTON,CIELO,TIERRA] El culpable del desvío de la Nova-7 ha manipulado los sensores de distancia 'r'. [JUEGO:CRUCIGRAMA:Letra de la distancia|R;Cientifico de la manzana|NEWTON]\n\nConcluyamos la investigación: el movimiento planetario es un equilibrio delicado entre la inercia del satélite y la garra de la gravedad. [JUEGO:ORDENAR_LETRAS:INERCIA] Si comprendemos la posición, velocidad y aceleración, podemos predecir el futuro de Metrópolis. [JUEGO:ORDENAR_FRASE:LA FISICA PREDICE EL FUTURO] Agente, el caso está casi cerrado. [JUEGO:SOPA_LETRAS:FINAL,EXITO,ORDEN] Solo falta su reporte final. [JUEGO:CRUCIGRAMA:Estado de reposo|INERCIA;Lugar de vida|PLANETA]",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "¿Qué sucede con la fuerza de atracción si la distancia entre dos cuerpos se duplica?",
+      "respuesta_esperada": "La fuerza disminuye a la cuarta parte (1/2²), debido a la ley del inverso del cuadrado de la distancia."
+    },
+    {
+      "pregunta": "¿Cuál es la diferencia fundamental entre las leyes de Kepler y la ley de Newton?",
+      "respuesta_esperada": "Kepler describe 'cómo' se mueven los planetas (cinemática), mientras que Newton explica 'por qué' se mueven (dinámica/fuerza)."
+    },
+    {
+      "pregunta": "¿Qué papel juega la masa en la aceleración gravitatoria de un planeta?",
+      "respuesta_esperada": "A mayor masa del planeta, mayor será la aceleración gravitatoria que ejerce sobre los objetos a su alrededor."
+    },
+    {
+      "pregunta": "¿Qué es la aceleración centrípeta en una órbita?",
+      "respuesta_esperada": "Es la aceleración dirigida hacia el centro de la órbita que cambia la dirección de la velocidad del satélite, manteniéndolo en su trayectoria curva."
+    },
+    {
+      "pregunta": "Si un satélite quiere estar en una órbita más lejana, ¿su velocidad debe ser mayor o menor?",
+      "respuesta_esperada": "Debe ser menor, ya que a mayor distancia la fuerza de gravedad es más débil y se requiere menos velocidad para equilibrar la caída libre."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Realiza un diagrama detallado que muestre las fuerzas que actúan sobre un satélite de Metrópolis, diferenciando entre velocidad tangencial y fuerza centrípeta.",
+    "Elabora un mapa mental que conecte la Constante G, la Masa, la Distancia y la Fuerza Gravitatoria con ejemplos de la vida diaria.",
+    "Dibuja una infografía explicativa que muestre cómo un astronauta en la Metrópolis del Futuro pesaría diferente en distintos planetas debido a la gravedad.",
+    "Crea un dibujo explicativo del concepto de 'Caída Libre Orbital', donde expliques por qué un satélite no se cae contra el suelo a pesar de ser atraído por la gravedad."
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "En la Metrópolis del Futuro, un ingeniero observa que un satélite de comunicaciones ha duplicado su distancia respecto al centro del planeta para evitar basura espacial.",
+      "tabla_o_grafica_markdown": "| Variable | Valor Inicial | Valor Final |\n|---|---|---|\n| Distancia (r) | D | 2D |\n| Fuerza (F) | F1 | ? |",
+      "pregunta": "¿Cuál será la nueva fuerza de atracción gravitatoria sobre el satélite?",
+      "opciones": [
+        "La mitad de la fuerza inicial (F1/2)",
+        "La cuarta parte de la fuerza inicial (F1/4)",
+        "El doble de la fuerza inicial (2F1)",
+        "Se mantiene igual"
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. La relación no es lineal, sino cuadrática inversa.",
+        "1": "Correcto. Según la Ley de Newton, la fuerza es inversamente proporcional al cuadrado de la distancia (1/2² = 1/4).",
+        "2": "Incorrecto. Al aumentar la distancia, la fuerza debe disminuir, no aumentar.",
+        "3": "Incorrecto. La gravedad cambia significativamente con la distancia."
+      }
+    }
+  ]
+}

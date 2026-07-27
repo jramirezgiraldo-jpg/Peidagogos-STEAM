@@ -1,0 +1,86 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "Si te encuentras en las ruinas de la IE Instituto Montenegro y quieres describir exactamente dónde estás a otro sobreviviente, ¿cuál es el elemento más importante que necesitas?",
+      "opciones": [
+        "Un punto de referencia conocido (como la entrada principal) y una distancia.",
+        "Un reloj de arena para contar los segundos.",
+        "Tu nivel de energía y la cantidad de agua restante.",
+        "Un termómetro para medir la radiación ambiental."
+      ],
+      "correcta": 0
+    },
+    {
+      "pregunta": "Un explorador dice que corrió de manera desordenada esquivando escombros y otro dice que caminó en línea recta. Ambos iniciaron en el mismo punto y terminaron en el mismo refugio. ¿Qué podemos afirmar?",
+      "opciones": [
+        "Ambos recorrieron exactamente la misma distancia.",
+        "Tuvieron la misma posición inicial y final, pero diferentes trayectorias.",
+        "El que esquivó escombros no cambió de posición.",
+        "El que caminó en línea recta no se movió."
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "En la física del fin del mundo, si dibujas la línea del camino real que pisaste sobre la ceniza tóxica, estás dibujando la:",
+      "opciones": [
+        "Velocidad",
+        "Aceleración",
+        "Trayectoria",
+        "Posición"
+      ],
+      "correcta": 2
+    }
+  ],
+  "texto_inductivo": "# REPORTE DETECTIVESCO: EL MISTERIO DE LAS RUTAS FANTASMA\n\n¡Atención, reclutas de la **IE Instituto Montenegro**! Soy el Detective de Misterios Cinemáticos. Nos encontramos en el Periodo 1, Semana 2 de nuestro entrenamiento de supervivencia. El mundo exterior está cubierto por ceniza ácida y anomalías gravitatorias, pero la física sigue siendo nuestra mejor brújula. \n\nRecientemente, un mito muy peligroso se ha extendido entre los recolectores de chatarra del Quindío. Dicen que *\"da igual el camino que tomes; si dos rutas empiezan y terminan en el mismo lugar, has recorrido la misma distancia y corres el mismo peligro\"*. Este mito ha llevado a decenas de valientes a adentrarse directamente en nidos de mutantes porque 'la línea recta del mapa es igual a cualquier curva'. Hoy vamos a usar el análisis crítico para desmentir este mito mortal.\n\n***¿Cómo puede un estudiante de la IE Instituto Montenegro mapear una ruta segura de escape a través de las ruinas radiactivas del pueblo si el mito de las 'Rutas Fantasma' afirma que dar vueltas (trayectoria) te devuelve siempre al mismo peligro (posición) sin importar cómo te muevas?***\n\n<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 200\" style=\"background:#1a1a1a; border-radius:8px; border:2px solid #00ffcc; max-width:100%; margin: 15px 0;\">\n  <line x1=\"50\" y1=\"10\" x2=\"50\" y2=\"190\" stroke=\"#333\" stroke-dasharray=\"2\" />\n  <line x1=\"150\" y1=\"10\" x2=\"150\" y2=\"190\" stroke=\"#333\" stroke-dasharray=\"2\" />\n  <line x1=\"250\" y1=\"10\" x2=\"250\" y2=\"190\" stroke=\"#333\" stroke-dasharray=\"2\" />\n  <line x1=\"350\" y1=\"10\" x2=\"350\" y2=\"190\" stroke=\"#333\" stroke-dasharray=\"2\" />\n  <line x1=\"10\" y1=\"50\" x2=\"390\" y2=\"50\" stroke=\"#333\" stroke-dasharray=\"2\" />\n  <line x1=\"10\" y1=\"100\" x2=\"390\" y2=\"100\" stroke=\"#333\" stroke-dasharray=\"2\" />\n  <line x1=\"10\" y1=\"150\" x2=\"390\" y2=\"150\" stroke=\"#333\" stroke-dasharray=\"2\" />\n  <line x1=\"50\" y1=\"150\" x2=\"350\" y2=\"150\" stroke=\"#00ffcc\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"50\" x2=\"50\" y2=\"150\" stroke=\"#00ffcc\" stroke-width=\"2\" />\n  <circle cx=\"50\" cy=\"150\" r=\"8\" fill=\"#ff3300\" />\n  <text x=\"60\" y=\"145\" fill=\"#ff3300\" font-family=\"monospace\" font-size=\"10\">IE Montenegro (Inicio)</text>\n  <circle cx=\"250\" cy=\"50\" r=\"8\" fill=\"#00ffcc\" />\n  <text x=\"260\" y=\"45\" fill=\"#00ffcc\" font-family=\"monospace\" font-size=\"10\">Refugio Seguro (Fin)</text>\n  <line x1=\"50\" y1=\"150\" x2=\"250\" y2=\"50\" stroke=\"#ff3300\" stroke-width=\"2\" stroke-dasharray=\"4\" />\n  <text x=\"110\" y=\"105\" fill=\"#ff3300\" font-family=\"monospace\" font-size=\"9\" transform=\"rotate(-26, 120, 90)\">Ruta Directa (TÓXICA)</text>\n  <path d=\"M 50,150 Q 50,50 250,50\" fill=\"none\" stroke=\"#00ffcc\" stroke-width=\"3\" />\n  <text x=\"90\" y=\"40\" fill=\"#00ffcc\" font-family=\"monospace\" font-size=\"9\">Ruta Curva (SEGURA)</text>\n</svg>\n\nPara resolver este misterio, primero debemos descifrar el lenguaje de los antiguos ingenieros. Si no ordenamos estos conceptos, caminaremos a ciegas.\n\n[JUEGO:ORDENAR_LETRAS:POSICION]\n\n[JUEGO:ORDENAR_LETRAS:TRAYECTORIA]\n\n[JUEGO:ORDENAR_LETRAS:DISTANCIA]\n\nLos sabios del búnker nos dejaron pistas en frases desordenadas sobre cómo funciona el espacio tridimensional en ruinas:\n\n[JUEGO:ORDENAR_FRASE:LA POSICION DEPENDE DEL SISTEMA DE REFERENCIA]\n\n[JUEGO:ORDENAR_FRASE:LA TRAYECTORIA ES EL CAMINO RECORRIDO]\n\n[JUEGO:ORDENAR_FRASE:EL CAMINO RECTO NO SIEMPRE ES EL MAS SEGURO]\n\n¿Lograste descifrarlas? Ahora busquemos los tres pilares del mapa en esta sopa de letras de emergencia:\n\n[JUEGO:SOPA_LETRAS:MAPA,RUTA,ORIGEN]\n\n[JUEGO:SOPA_LETRAS:CINEMATICA,CAMINO,PUNTO]\n\n[JUEGO:SOPA_LETRAS:COORDENADA,FISICA,METRO]\n\nPara cerrar esta fase de investigación inductiva, resolvamos este crucigrama detectivesco de campo que nos dará acceso a las herramientas del laboratorio:\n\n[JUEGO:CRUCIGRAMA:Punto de inicio del movimiento|ORIGEN;Línea imaginaria que describe un cuerpo al moverse|TRAYECTORIA]\n\n[JUEGO:CRUCIGRAMA:Lugar que ocupa un cuerpo en el espacio respecto a un origen|POSICION;Cambio de posición de un cuerpo|MOVIMIENTO]\n\n[JUEGO:CRUCIGRAMA:Instrumento para medir la distancia recorrida|ODOMETRO;Medida de la trayectoria|DISTANCIA]",
+  "recurso_visual": "| Ruta de Exploración | Posición Inicial (IE Montenegro) | Posición Final (Plaza de Bolívar) | Tipo de Trayectoria | Distancia Real Recorrida | Nivel de Peligro |\n| :--- | :--- | :--- | :--- | :--- | :--- |\n| **Ruta Alfa (Directa)** | $$(0, 0)$$ metros | $$(300, 400)$$ metros | Rectilínea | $$500$$ metros | **Extremo** (Anomalía nuclear) |\n| **Ruta Beta (Desvío)** | $$(0, 0)$$ metros | $$(300, 400)$$ metros | Curvilínea (Sinuosa) | $$850$$ metros | **Bajo** (Zonas protegidas) |\n| **Ruta Gamma (Retorno)** | $$(0, 0)$$ metros | $$(0, 0)$$ metros (Retorno) | Cerrada (Bucle) | $$400$$ metros | **Moderado** (Patrullaje mutante) |",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "¿Por qué el mito de que 'todos los caminos con el mismo fin son iguales' es falso para un sobreviviente que mide el peligro?",
+      "respuesta_esperada": "Porque aunque la posición inicial y final sean idénticas, las trayectorias curvas pueden evadir zonas de alta radiación u obstáculos que una trayectoria recta cruzaría directamente."
+    },
+    {
+      "pregunta": "Si un explorador sale de la IE Instituto Montenegro, camina 1 kilómetro buscando comida y regresa al mismo punto de inicio, ¿cuál fue su cambio de posición real?",
+      "respuesta_esperada": "Su cambio de posición es cero, ya que terminó exactamente en el mismo punto donde inició, aunque su trayectoria fue de 1 kilómetro."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja en tu cuaderno un plano cartesiano simple donde la IE Instituto Montenegro esté en el origen (0,0). Traza dos trayectorias diferentes para llegar al punto (4,3): una recta y una curva. Explica cuál requiere más pasos.",
+    "Escribe una hipótesis de por qué los recolectores de chatarra crearon el mito de que las trayectorias curvas 'distorsionan el espacio'. ¿Qué error de medición física cometieron?"
+  ],
+  "texto_deductivo": "# MARCO TEÓRICO DETECTIVESCO: DESENMASCARANDO LA CINEMÁTICA\n\n¡Felicidades por sobrevivir a la primera fase, investigadores! Ahora entraremos al laboratorio para analizar la matemática detrás del movimiento. Para desmentir el mito de una vez por todas, necesitamos dominar las **variables cinemáticas** con precisión milimétrica.\n\n<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 200\" style=\"background:#111; border-radius:8px; border:2px solid #ffcc00; max-width:100%; margin: 15px 0;\">\n  <rect x=\"10\" y=\"10\" width=\"380\" height=\"180\" rx=\"10\" fill=\"#1e1e1e\" />\n  <text x=\"20\" y=\"35\" fill=\"#ffcc00\" font-family=\"monospace\" font-size=\"14\" font-weight=\"bold\">Variables Cinemáticas Clave</text>\n  <rect x=\"20\" y=\"55\" width=\"105\" height=\"110\" rx=\"5\" fill=\"#2b2b2b\" stroke=\"#00ffcc\" />\n  <text x=\"30\" y=\"80\" fill=\"#00ffcc\" font-family=\"monospace\" font-size=\"12\" font-weight=\"bold\">POSICIÓN</text>\n  <text x=\"30\" y=\"105\" fill=\"#fff\" font-family=\"monospace\" font-size=\"9\">¿Dónde estás?</text>\n  <text x=\"30\" y=\"125\" fill=\"#fff\" font-family=\"monospace\" font-size=\"9\">Punto exacto</text>\n  <text x=\"30\" y=\"145\" fill=\"#00ffcc\" font-family=\"monospace\" font-size=\"9\">Ej: (x=50m, y=150m)</text>\n  <rect x=\"145\" y=\"55\" width=\"105\" height=\"110\" rx=\"5\" fill=\"#2b2b2b\" stroke=\"#ff3300\" />\n  <text x=\"150\" y=\"80\" fill=\"#ff3300\" font-family=\"monospace\" font-size=\"11\" font-weight=\"bold\">TRAYECTORIA</text>\n  <text x=\"155\" y=\"105\" fill=\"#fff\" font-family=\"monospace\" font-size=\"9\">¿Qué camino sigues?</text>\n  <text x=\"155\" y=\"125\" fill=\"#fff\" font-family=\"monospace\" font-size=\"9\">La huella/ruta</text>\n  <text x=\"155\" y=\"145\" fill=\"#ff3300\" font-family=\"monospace\" font-size=\"9\">Ej: Recta o Curva</text>\n  <rect x=\"270\" y=\"55\" width=\"105\" height=\"110\" rx=\"5\" fill=\"#2b2b2b\" stroke=\"#ffcc00\" />\n  <text x=\"280\" y=\"80\" fill=\"#ffcc00\" font-family=\"monospace\" font-size=\"12\" font-weight=\"bold\">DISTANCIA</text>\n  <text x=\"280\" y=\"105\" fill=\"#fff\" font-family=\"monospace\" font-size=\"9\">¿Cuánto mediste?</text>\n  <text x=\"280\" y=\"125\" fill=\"#fff\" font-family=\"monospace\" font-size=\"9\">Longitud total</text>\n  <text x=\"280\" y=\"145\" fill=\"#ffcc00\" font-family=\"monospace\" font-size=\"9\">Ej: d = 350 metros</text>\n</svg>\n\n### 1. Sistema de Referencia\nEs el punto físico (un poste, la puerta de la IE Instituto Montenegro) desde donde medimos el movimiento. Sin un sistema de referencia, es imposible definir la **posición**.\n\n### 2. Posición (Vectorial)\nEs la ubicación exacta de un cuerpo en el espacio respecto al sistema de referencia. Se representa con coordenadas $$(x, y)$$.\n\n### 3. Trayectoria (Geométrica)\nEs la línea continua e imaginaria que describe un cuerpo al moverse. Puede ser rectilínea (una línea recta directa) o curvilínea (curvas, zig-zag para esquivar radiación).\n\n### Desmintiendo el Mito con Rigor Científico\nEl mito dice: *\"Si llegas al mismo lugar, hiciste lo mismo\"*. \n**¡FALSO!** Observa la tabla de nuestro recurso visual. La **Ruta Alfa** y la **Ruta Beta** tienen la misma posición inicial $$(0,0)$$ y final $$(300, 400)$$. Sin embargo, la trayectoria de la Ruta Alfa es rectilínea de $$500\\text{ m}$$, cruzando un nido de monstruos, mientras que la Ruta Beta es una trayectoria curva de $$850\\text{ m}$$ completamente segura. \n\n¡La trayectoria define tu supervivencia, no solo la posición final!\n\nResolvamos los últimos acertijos teóricos para asegurar nuestro conocimiento en el diario de campo:\n\n[JUEGO:ORDENAR_LETRAS:VECTOR]\n\n[JUEGO:ORDENAR_LETRAS:SISTEMA]\n\n[JUEGO:ORDENAR_FRASE:LA TRAYECTORIA PUEDE SER CURVA O RECTA]\n\n[JUEGO:ORDENAR_FRASE:EL DETECTIVE ANALIZA TODAS LAS VARIABLES]\n\nEncuentra las palabras clave de la física cuántica aplicada a la supervivencia:\n\n[JUEGO:SOPA_LETRAS:VECTOR,CURVA,RECTA]\n\n[JUEGO:SOPA_LETRAS:SISTEMA,RECURSO,PUNTAJE]\n\nCompleta las bitácoras finales con este crucigrama avanzado:\n\n[JUEGO:CRUCIGRAMA:Magnitud que solo tiene número y unidad|ESCALAR;Magnitud con dirección y sentido|VECTOR]\n\n[JUEGO:CRUCIGRAMA:Lugar donde te encuentras a salvo|REFUGIO;Línea recta entre la posición inicial y final|DESPLAZAMIENTO]",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "¿Qué diferencia fundamental hay entre la distancia recorrida y el cambio de posición (desplazamiento)?",
+      "respuesta_esperada": "La distancia recorrida es la longitud total de la trayectoria (un escalar siempre positivo), mientras que el cambio de posición es la línea recta que une el punto inicial con el final, sin importar las curvas del camino."
+    },
+    {
+      "pregunta": "Si un sobreviviente da 3 vueltas completas a una pista circular de 100 metros de circunferencia para entrenar sus piernas, ¿cuál es su posición final respecto al punto de partida?",
+      "respuesta_esperada": "Su posición final es idéntica a su posición inicial (cambio de posición = 0 metros), aunque la distancia total recorrida fue de 300 metros."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Diseña un ejercicio numérico donde un explorador camina 30 metros al Norte y luego 40 metros al Este. Calcula la distancia recorrida total (trayectoria) y compárala con la distancia en línea recta desde el origen.",
+    "Escribe un ensayo de un párrafo argumentando por qué el concepto de 'Sistema de Referencia' salvó vidas al mapear las ruinas de Montenegro, Quindío."
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de fenómenos (Análisis de gráficas cinemáticas bajo condiciones de riesgo)",
+      "texto_introductorio": "En las afueras de la IE Instituto Montenegro, un dron de reconocimiento registra el movimiento de dos recolectores de agua, Juan y Sofía, que parten del mismo punto A y llegan al pozo de agua B.",
+      "tabla_o_grafica_markdown": "| Explorador | Posición Inicial | Posición Final | Trayectoria Registrada | Tiempo Empleado | Distancia total |\n| :--- | :--- | :--- | :--- | :--- | :--- |\n| **Juan** | Entrada Principal | Pozo de agua | Sinuosa (esquivando escombros) | 12 minutos | 650 metros |\n| **Sofía** | Entrada Principal | Pozo de agua | Rectilínea (directo por el peligro) | 4 minutos | 350 metros |",
+      "pregunta": "Teniendo en cuenta los datos de la tabla, ¿cuál de las siguientes afirmaciones describe de manera correcta y científica el movimiento de ambos exploradores?",
+      "opciones": [
+        "Juan y Sofía tuvieron trayectorias diferentes pero compartieron las mismas posiciones inicial y final.",
+        "Sofía recorrió una distancia mayor que Juan porque su velocidad fue más alta.",
+        "Como llegaron al mismo pozo de agua, las trayectorias de Juan y Sofía deben ser idénticas.",
+        "Juan no cambió su posición porque su camino tuvo demasiadas curvas."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "¡Excelente detective! Identificaste correctamente que la posición inicial y final son idénticas (puntos A y B), pero la forma de su camino (trayectoria) y la distancia real recorrida fueron totalmente distintas.",
+        "1": "Incorrecto. Sofía recorrió 350 metros, que es menor que los 650 metros de Juan. Confundes velocidad con distancia.",
+        "2": "Incorrecto. Llegar al mismo destino no obliga a que el camino seguido sea el mismo; esta es la base del mito que desmentimos.",
+        "3": "Incorrecto. Juan sí cambió su posición, ya que terminó en un lugar físicamente diferente de donde empezó (del punto A al punto B)."
+      }
+    }
+  ]
+}

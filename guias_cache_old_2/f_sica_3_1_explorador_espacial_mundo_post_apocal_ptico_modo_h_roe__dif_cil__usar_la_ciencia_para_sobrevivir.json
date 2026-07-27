@@ -1,0 +1,96 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Qué forma geométrica describe la trayectoria de un planeta alrededor del Sol según el modelo heliocéntrico moderno?",
+      "opciones": [
+        "Un círculo perfecto",
+        "Una elipse",
+        "Una parábola continua",
+        "Una espiral descendente"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "Si un satélite en ruinas reduce su distancia al centro de la Tierra a la mitad, la fuerza gravitacional sobre él:",
+      "opciones": [
+        "Se reduce a la mitad",
+        "Se mantiene igual",
+        "Se duplica",
+        "Se cuadruplica"
+      ],
+      "correcta": 3
+    },
+    {
+      "pregunta": "¿Cuál de las siguientes magnitudes vectoriales indica el cambio de velocidad en la unidad de tiempo de una nave en órbita?",
+      "opciones": [
+        "Posición",
+        "Aceleración",
+        "Masa",
+        "Periodo orbital"
+      ],
+      "correcta": 1
+    }
+  ],
+  "texto_inductivo": "### INFORME DE MISÓN: ESTACIÓ́N ORBITAL ESPERANZA-9\n\n***¿Cómo nos permite la comprensión de las leyes matemáticas del movimiento planetario predecir la trayectoria de refugios orbitales y desechos cósmicos para garantizar la supervivencia de la colonia tras el Gran Colapso?***\n\nAtención, Cadete del Escuadrón de Exploración. Tras el Gran Colapso de 2088, la superficie terrestre quedó en ruinas e inhabitable debido a las tormentas de radiación. [JUEGO:ORDENAR_LETRAS:COLAPSO] Nuestra única vía de supervivencia es mantener estabilizados los domos orbitales. Sin embargo, los antiguos satélites de combate están colisionando y cayendo en espiral. Para evitar la destrucción de la estación Esperanza-9, debemos reaprender las leyes fundamentales que rigen el cosmos. [ACTIVIDAD:PLATAFORMA:¿Por qué es vital comprender el movimiento planetario en la estación Esperanza-9?|Para predecir trayectorias de desechos y mantener estabilizados los domos orbitales para sobrevivir.]\n\n<svg viewBox=\"0 0 500 200\" width=\"100%\" height=\"200\" style=\"background-color:#0b0d17; border-radius:8px;\"><ellipse cx=\"250\" cy=\"100\" rx=\"180\" ry=\"70\" fill=\"none\" stroke=\"#4cc9f0\" stroke-width=\"2\" stroke-dasharray=\"5,5\"/><circle cx=\"150\" cy=\"100\" r=\"18\" fill=\"#ffbd59\"/><text x=\"140\" y=\"135\" fill=\"#ffffff\" font-size=\"12\">Sol (Foco 1)</text><circle cx=\"350\" cy=\"100\" r=\"4\" fill=\"#555555\"/><text x=\"335\" y=\"120\" fill=\"#888888\" font-size=\"10\">Foco 2</text><circle cx=\"430\" cy=\"100\" r=\"10\" fill=\"#4895ef\"/><text x=\"410\" y=\"80\" fill=\"#ffffff\" font-size=\"11\">Afelio (Lento)</text><circle cx=\"70\" cy=\"100\" r=\"10\" fill=\"#4895ef\"/><text x=\"40\" y=\"80\" fill=\"#ffffff\" font-size=\"11\">Perihelio (Rápido)</text></svg>\n\nEl astrónomo Johannes Kepler descubrió que los planetas no se mueven en círculos perfectos como creían los antiguos eruditos. [JUEGO:ORDENAR_FRASE:EL SOL OCUPA UNO DE LOS FOCOS DE LA ELIPSE] La Primera Ley de Kepler establece que las órbitas son elípticas. [JUEGO:ORDENAR_LETRAS:ELIPSE] En una elipse, la distancia entre el cuerpo central y el objeto en órbita varía constantemente. [ACTIVIDAD:CUADERNO:Dibuja en tu cuaderno una elipse indicando sus dos focos, el perihelio, el afelio y la posición del Sol en uno de los focos.]\n\nCuando nuestro transbordador de rescate se aproxima al punto más cercano al Sol o planeta central, llamado **perihelio**, experimenta una aceleración notable. [ACTIVIDAD:PLATAFORMA:¿Cómo se llama el punto de la órbita más cercano al centro de atracción gravitacional?|Perihelio] Por el contrario, en el **afelio**, el punto más lejano, la velocidad disminuye. Esto responde a la Segunda Ley de Kepler: el radio vector que une al planeta con el Sol barre áreas iguales en tiempos iguales. [JUEGO:ORDENAR_FRASE:LA VELOCIDAD AUMENTA CUANDO EL PLANETA ESTA CERCA DEL SOL]\n\n<div style=\"background:#161b22; padding:15px; border-left:4px solid #f72585; border-radius:4px; margin:10px 0;\"><h4 style=\"color:#f72585; margin:0 0 10px 0;\">ALERTAS RADAR DE TRÁFICO ORBITAL</h4><p style=\"color:#c9d1d9; font-size:14px;\">Los escáners muestran desechos espaciales desplazándose a diferentes distancias r. A mayor semieje mayor (a), mayor es el periodo orbital (T). Esta es la Tercera Ley de Kepler: <b>T² = k · a³</b>.</p></div>\n\n[ACTIVIDAD:CUADERNO:Escribe la fórmula de la Tercera Ley de Kepler y elabora una tabla comparativa entre Perihelio y Afelio resaltando distancia y velocidad.]\n\n[JUEGO:ORDENAR_LETRAS:GRAVEDAD] La fuerza subyacente que unifica estas observaciones fue explicada por Isaac Newton. La gravitación universal es la soga invisible que mantiene unida la estación. [ACTIVIDAD:PLATAFORMA:¿Qué científico unificó las leyes de Kepler mediante la ley de gravitación universal?|Isaac Newton] Si no calculamos con precisión los vectores de posición y velocidad, la fuerza de gravedad arrastrará nuestros refugios hacia una reentrada destructiva. [JUEGO:ORDENAR_FRASE:LA GRAVEDAD ATRAE A TODOS LOS CUERPOS CON MASA]\n\n[ACTIVIDAD:PLATAFORMA:¿Qué ocurre con el área barriada por el radio vector de un planeta según la Segunda Ley de Kepler?|Barre áreas iguales en tiempos iguales.]\n\n[ACTIVIDAD:PLATAFORMA:Si un planeta aumenta su distancia media al Sol, ¿qué sucede con su periodo orbital?|Aumenta el periodo orbital.]\n\n[ACTIVIDAD:CUADERNO:Realiza un esquema de la Estación Esperanza-9 orbital indicando los vectores de fuerza gravitacional y la velocidad tangencial requerida para no caer.]\n\n[ACTIVIDAD:CUADERNO:Diseña un mapa mental sobre el desarrollo histórico del movimiento planetario desde Copérnico hasta Newton.]\n\n[JUEGO:SOPA_LETRAS:KEPLER,NEWTON,ELIPSE,FOCO,PERIHELIO,AFELIO,GRAVEDAD,ORBITA,MASA,RADIO]\n\n[JUEGO:CRUCIGRAMA:Punto más cercano al Sol en una órbita|PERIHELIO;Punto más lejano al Sol en una órbita|AFELIO;Figura geométrica de las órbitas planetarias|ELIPSE;Científico que enunció las tres leyes del movimiento planetario|KEPLER;Fuerza de atracción entre dos masas|GRAVEDAD;Científico que formuló la Ley de Gravitación Universal|NEWTON;Tiempo que tarda un cuerpo en completar una órbita|PERIODO;Línea recta que une el centro del Sol con el planeta|RADIOVECTOR;Centro geométrico doble de una elipse|FOCOS;Trayectoria que describe un cuerpo alrededor de otro|ORBITA]",
+  "recurso_visual": "| Ley de Kepler / Newton | Formulación Matemática | Significado Físico / Aplicación en Supervivencia |\n|---|---|---|\n| **Primera Ley (Órbitas)** | $r = \\frac{p}{1 + e \\cos\\theta}$ | Los planetas y domos se mueven en elipses con el Sol en un foco. |\n| **Segunda Ley (Áreas)** | $\\frac{dA}{dt} = \\text{Constante}$ | La velocidad orbital cambia: máxima en el perihelio, mínima en el afelio. |\n| **Tercera Ley (Periodos)** | $T^2 = K \\cdot a^3$ | Cuanto más alejado esté un refugio, mayor será el tiempo de su órbita. |\n| **Gravitación Universal** | $F = G \\frac{m_1 m_2}{r^2}$ | La fuerza gravitacional mantiene la atracción necesaria para la órbita centripeta. |",
+  "texto_deductivo": "### DIAGNÓSTICO CINEMÁTICO Y GRAVITATORIO DE SOBREVIVENCIA\n\nPara ejecutar maniobras de evasión cinemática en tiempo real, debemos formalizar matemáticamente el movimiento planetario. La cinemática nos proporciona tres variables esenciales: la posición $\\vec{r}(t)$, la velocidad $\\vec{v}(t)$ y la aceleración $\\vec{a}(t)$. [JUEGO:ORDENAR_LETRAS:VELOCIDAD] En una órbita circular simplificada, la fuerza de gravedad actúa como una fuerza centrípeta que cambia continuamente la dirección del vector velocidad sin cambiar necesariamente su rapidez orbital. [ACTIVIDAD:PLATAFORMA:¿Qué tipo de aceleración experimenta un cuerpo en órbita circular uniforme?|Aceleración centrípeta.]\n\n<div style=\"display:flex; justify-content:center; align-items:center; gap:20px; background:#0d1117; padding:15px; border-radius:8px;\"><div style=\"border:2px solid #39d353; padding:10px; border-radius:5px; color:#39d353;\"><b>Órbita Circular:</b><br>v = √(G·M / r)<br>a_c = v² / r</div><div style=\"font-size:24px; color:#ffffff;\">➔</div><div style=\"border:2px solid #f72585; padding:10px; border-radius:5px; color:#f72585;\"><b>Órbita Elíptica:</b><br>v_varía(r)<br>a_total = a_c + a_t</div></div>\n\nIgualando la fuerza gravitacional de Newton $F_g = G \\frac{M m}{r^2}$ con la fuerza centrípeta $F_c = \\frac{m v^2}{r}$, obtenemos la velocidad orbital crítica: $$v = \\sqrt{\\frac{G M}{r}}$$ donde $G = 6.674 \\times 10^{-11} \\text{ N}\\cdot\\text{m}^2/\\text{kg}^2$ es la constante de gravitación universal, $M$ es la masa del cuerpo central y $r$ es el radio de la órbita. [JUEGO:ORDENAR_FRASE:LA VELOCIDAD ORBITAL DEPENDE DE LA MASA CENTRAL] [ACTIVIDAD:PLATAFORMA:Si el radio orbital r aumenta, ¿qué ocurre con la velocidad orbital v necesaria para mantener la órbita?|La velocidad orbital disminuye.]\n\n[JUEGO:ORDENAR_LETRAS:PERIODO] Al sustituir $v = \\frac{2\\pi r}{T}$ en la ecuación anterior, deducimos rigurosamente la Tercera Ley de Kepler para órbitas circulares: $$T^2 = \\left(\\frac{4\\pi^2}{G M}\\right) r^3$$ [JUEGO:ORDENAR_FRASE:EL PERIODO AL CUADRADO ES PROPORCIONAL AL RADIO AL CUBICO]\n\n[ACTIVIDAD:CUADERNO:Demuestra algebraicamente la Tercera Ley de Kepler partiendo de la igualdad entre la fuerza de gravedad y la fuerza centrípeta.]\n\n[JUEGO:ORDENAR_LETRAS:ACELERACION] Cuando recalculamos el vector aceleración $\\vec{a}$, este apunta directamente hacia el centro de masa del planeta. Sin esta aceleración gravitatoria constante, los refugios orbitales saldrían disparados en línea recta por la Primera Ley de Newton (inercia). [ACTIVIDAD:PLATAFORMA:¿Hacia dónde apunta la aceleración centrípeta de una nave en órbita circular?|Hacia el centro de masa del cuerpo atraído / centro de la órbita.]\n\n[ACTIVIDAD:PLATAFORMA:¿Cuál es el valor de la constante G de gravitación universal en unidades del sistema internacional?|6.674 x 10^-11 N m^2 / kg^2]\n\n[ACTIVIDAD:CUADERNO:Resuelve: Calcula la velocidad orbital de un satélite a 400 km de la superficie terrestre (Radio Tierra = 6371 km, Masa Tierra = 5.972 x 10^24 kg).] \n\n[ACTIVIDAD:CUADERNO:Dibuja un diagrama vectorial que muestre la fuerza de gravedad, la velocidad tangencial y la aceleración centrípeta para un punto en la órbita.]\n\n[ACTIVIDAD:CUADERNO:Crea un cuadro comparativo entre el Movimiento Rectilíneo Uniforme y el Movimiento Circular Uniforme aplicado a satélites.]\n\n[JUEGO:SOPA_LETRAS:VELOCIDAD,ACELERACION,PERIODO,CENTRIPETA,FUERZA,LEYES,PLANETA,DISTANCIA,TIEMPO,VECTOR]\n\n[JUEGO:CRUCIGRAMA:Cambio de velocidad en el tiempo|ACELERACION;Fuerza dirigida hacia el centro de la trayectoria circular|CENTRIPETA;Magnitud vectorial que mide el ritmo de cambio de posición|VELOCIDAD;Constante de proporcionalidad gravitacional|GRAVITACIONAL;Propiedad de los cuerpos de mantener su estado de movimiento|INERCIA;Masa del objeto que ejerce la mayor atracción|MASACENTRAL;Unidad de medida del periodo en el Sistema Internacional|SEGUNDOS;Magnitud que no cambia en el MCU|RAPIDEZ;Distancia desde el centro hasta la trayectoria|RADIO;Dirección perpendicular al radio en la trayectoria circular|TANGENCIAL]",
+  "icfes": [
+    {
+      "competencia": "Uso Comprensivo del Conocimiento Científico",
+      "texto_introductorio": "Un grupo de exploradores espaciales analiza la trayectoria de un módulo de suministros que orbita una estrella distante. El módulo se desplaza en una órbita elíptica altamente excéntrica. Los sensores registran la velocidad cinemática en dos puntos clave de su trayectoria: el Perihelio ($r_1 = 1.2 \\times 10^6 \\text{ km}$) y el Afelio ($r_2 = 4.8 \\times 10^6 \\text{ km}$).",
+      "tabla_o_grafica_markdown": "| Posición Orbital | Distancia al Centro ($10^6$ km) | Velocidad Registrada (km/s) |\n|---|---|---|\n| Perihelio | 1.2 | 80 |\n| Afelio | 4.8 | 20 |",
+      "pregunta": "Con base en la Segunda Ley de Kepler y la conservación del momento angular, ¿cuál es la razón física por la cual la velocidad es mayor en el perihelio que en el afelio?",
+      "opciones": [
+        "Porque la masa del módulo de suministros aumenta al acercarse a la estrella.",
+        "Porque el radio vector barre áreas iguales en tiempos iguales, exigiendo mayor velocidad lineal a menor distancia.",
+        "Porque la fuerza de gravedad desaparece en el afelio anulando la velocidad de la nave.",
+        "Porque en el afelio la aceleración centrípeta se vuelve infinita frenando la nave."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. La masa del módulo permanece constante a lo largo de toda su trayectoria orbital.",
+        "1": "¡Correcto! De acuerdo con la Segunda Ley de Kepler, para barrer áreas iguales en tiempos iguales, la velocidad debe ser mayor cuando el radio vector es menor (perihelio).",
+        "2": "Incorrecto. La fuerza de gravedad disminuye con la distancia, pero nunca se anula por completo en el afelio.",
+        "3": "Incorrecto. La aceleración centrípeta depende inversamente del radio, por lo que no se vuelve infinita en el afelio."
+      }
+    },
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "Tras una colisión de asteroides, un depósito de combustible espacial de masa $m$ es expulsado y se sitúa a una distancia $R$ de un refugio orbital de masa $M$. La fuerza de atracción gravitacional entre ambos cuerpos es $F$. Si la distancia entre el depósito y el refugio aumenta al triple ($3R$), los exploradores deben predecir el impacto de este cambio en la fuerza gravitacional.",
+      "tabla_o_grafica_markdown": "| Caso | Distancia | Fuerza Gravitacional |\n|---|---|---|\n| Inicial | $R$ | $F$ |\n| Final | $3R$ | $F_{nueva}$ |",
+      "pregunta": "¿Cuál será el valor de la nueva fuerza de atracción gravitacional $F_{nueva}$ entre los dos objetos?",
+      "opciones": [
+        "F / 3",
+        "F / 6",
+        "F / 9",
+        "3 F"
+      ],
+      "correcta": 2,
+      "retroalimentacion": {
+        "0": "Incorrecto. La fuerza gravitacional depende del cuadrado de la distancia, no de la distancia de forma lineal.",
+        "1": "Incorrecto. El cuadrado de 3 es 9, no 6.",
+        "2": "¡Correcto! Según la Ley de Gravitación Universal $F = G\\frac{M m}{r^2}$, si la distancia se triplica ($3R$), la fuerza disminuye por un factor de $3^2 = 9$, resultando en $F/9$.",
+        "3": "Incorrecto. Al aumentar la distancia, la fuerza de atracción disminuye, no se triplica."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "Los científicos del escuadrón espacial recopilan datos del periodo de revolución ($T$) y del semieje mayor ($a$) de cuatro satélites naturales que orbitan un exoplaneta gigante para verificar experimentalmente la Tercera Ley de Kepler.",
+      "tabla_o_grafica_markdown": "| Satélite | Semieje mayor $a$ (UA) | Periodo $T$ (años) | $a^3$ | $T^2$ |\n|---|---|---|---|---|\n| Alpha | 1 | 1 | 1 | 1 |\n| Beta | 4 | 8 | 64 | 64 |\n| Gamma | 9 | 27 | 729 | 729 |\n| Delta | 16 | 64 | 4096 | 4096 |",
+      "pregunta": "A partir de los datos recolectados en la tabla, ¿qué conclusión válida puede enunciar el escuadrón sobre la relación entre el periodo de revolución y la distancia media al planeta?",
+      "opciones": [
+        "El periodo de revolución es directamente proporcional al semieje mayor ($T \\propto a$).",
+        "El cuadrado del periodo orbital es directamente proporcional al cubo del semieje mayor ($T^2 = k \\cdot a^3$).",
+        "El periodo orbital decrece de forma exponencial a medida que aumenta la distancia al centro de atracción.",
+        "El cubo del periodo orbital es igual al cuadrado del semieje mayor de la órbita."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. La relación no es lineal simple, ya que $1/1 \\neq 8/4 \\neq 27/9$.",
+        "1": "¡Correcto! La columna $a^3$ coincide exactamente con la columna $T^2$ en todos los satélites (constante $k = 1$), demostrando la Tercera Ley de Kepler.",
+        "2": "Incorrecto. Los datos muestran que a mayor distancia, el periodo incrementa, no decrece.",
+        "3": "Incorrecto. La ley establece el cuadrado del periodo ($T^2$) y el cubo del semieje mayor ($a^3$), no al revés."
+      }
+    }
+  ]
+}

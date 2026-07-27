@@ -1,0 +1,78 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "Si un astronauta da 5 pasos hacia adelante y luego 5 pasos hacia atrás en la plataforma de la ISS, ¿cuál es su desplazamiento neto final?",
+      "opciones": [
+        "10 pasos hacia adelante",
+        "0 pasos, ya que regresó al punto de partida",
+        "5 pasos hacia la izquierda",
+        "No se puede determinar sin la gravedad"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Qué herramienta terrestre utilizamos para orientarnos usando puntos cardinales (Norte, Sur, Este, Oeste)?",
+      "opciones": [
+        "Un termómetro",
+        "Una balanza",
+        "Una brújula",
+        "Un barómetro"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "En un plano cartesiano, ¿cómo se llaman los dos ejes principales que usamos para ubicar una coordenada (x, y)?",
+      "opciones": [
+        "Eje de la gravedad y eje del tiempo",
+        "Eje de las abscisas (X) y eje de las ordenadas (Y)",
+        "Eje polar y eje ecuatorial",
+        "Eje de velocidad y eje de aceleración"
+      ],
+      "correcta": 1
+    }
+  ],
+  "texto_inductivo": "# 🚀 ¡Emergencia en la Estación Espacial Internacional! El Misterio del Módulo a la Deriva\n\n¡Atención, cadetes de la **IE Instituto Montenegro**! Aquí el Comandante de la ISS reportando una anomalía de nivel crítico. Mientras orbitábamos a 400 kilómetros de altura, un micro-meteorito ha impactado el brazo robótico *Canadarm2*. El impacto ha soltado un contenedor de suministros vitales que ahora flota a la deriva en el vacío del espacio exterior.\n\nPara recuperarlo, nuestro dron de rescate *Astro-Bee* debe encender sus propulsores y viajar exactamente hacia la posición del contenedor. No podemos adivinar la ruta; en el espacio, un error de un solo grado te lanzará al vacío infinito. Necesitamos usar **vectores en dos dimensiones (2D)** para trazar la trayectoria exacta.\n\n<svg width='100%' height='220' viewBox='0 0 400 220' style='background-color:#070b19; border-radius:8px; display:block; margin:auto;'>\n  <!-- Cuadrícula espacial -->\n  <defs>\n    <pattern id='grid' width='20' height='20' patternUnits='userSpaceOnUse'>\n      <path d='M 20 0 L 0 0 0 20' fill='none' stroke='#1e293b' stroke-width='0.5'/>\n    </pattern>\n  </defs>\n  <rect width='100%' height='100%' fill='url(#grid)' />\n  <!-- Ejes coordenados -->\n  <line x1='40' y1='180' x2='360' y2='180' stroke='#475569' stroke-width='1.5' />\n  <line x1='60' y1='20' x2='60' y2='200' stroke='#475569' stroke-width='1.5' />\n  <!-- Origen (ISS) -->\n  <circle cx='60' cy='180' r='6' fill='#0ea5e9' />\n  <text x='50' y='195' fill='#0ea5e9' font-size='10' font-family='sans-serif'>ISS (Origen)</text>\n  <!-- Vector de rescate -->\n  <line x1='60' y1='180' x2='280' y2='60' stroke='#10b981' stroke-width='3' stroke-dasharray='5,5' />\n  <line x1='60' y1='180' x2='280' y2='60' stroke='#10b981' stroke-width='2' />\n  <polygon points='280,60 270,68 274,58' fill='#10b981' />\n  <!-- Contenedor -->\n  <rect x='275' y='45' width='20' height='20' rx='3' fill='#f59e0b' />\n  <text x='275' y='40' fill='#f59e0b' font-size='10' font-family='sans-serif' font-weight='bold'>Módulo</text>\n  <!-- Ángulo y Componentes -->\n  <path d='M 100 180 A 40 40 0 0 0 95 160' fill='none' stroke='#f43f5e' stroke-width='2' />\n  <text x='110' y='170' fill='#f43f5e' font-size='11' font-family='sans-serif'>θ</text>\n  <!-- Leyendas -->\n  <text x='180' y='130' fill='#10b981' font-size='11' font-family='sans-serif' transform='rotate(-28, 180, 130)'>Vector Desplazamiento (D)</text>\n</svg>\n\nAquí es donde nuestra misión se conecta con tu realidad en el departamento del Quindío:\n\n***¿Cómo puede un astronauta perdido en el espacio exterior de la ISS calcular su retorno seguro usando solo coordenadas vectoriales, de la misma forma en que un estudiante del Instituto Montenegro traza la ruta más rápida esquivando las pendientes de la cordillera del Quindío?***\n\n¡Resolvamos este misterio! Primero, organicemos nuestros conceptos básicos para que el software de navegación de la ISS no colapse.\n\n[JUEGO:ORDENAR_LETRAS:VECTOR]\n\n[JUEGO:ORDENAR_LETRAS:DIRECCION]\n\n[JUEGO:ORDENAR_LETRAS:MAGNITUD]\n\n## 🛰️ El Desafío de la Deriva Espacial\n\nEl contenedor se desplaza debido al impacto. En física de supervivencia, no basta con decir \"el contenedor está lejos\". Debemos indicar **cuánto** se alejó, **hacia dónde** se dirige y con qué **inclinación**. Si fallamos en uno de estos datos, el dron Astro-Bee se perderá en la oscuridad.\n\nComencemos descifrando este mensaje codificado que llegó a la pantalla de control:\n\n[JUEGO:ORDENAR_FRASE:EL VECTOR TIENE MAGNITUD Y DIRECCION]\n\n[JUEGO:ORDENAR_FRASE:EL MOVIMIENTO SE REPRESENTA CON FLECHAS]\n\nPara iniciar la búsqueda en nuestra base de datos, resuelve este rastreo de palabras clave espaciales:\n\n[JUEGO:SOPA_LETRAS:PLANO,EJES,ORIGEN]\n\n[JUEGO:SOPA_LETRAS:METRO,GRADO,PUNTO]\n\n[JUEGO:SOPA_LETRAS:ESPACIO,FUERZA,NAVE]\n\nFinalmente, abre la consola de comandos de navegación resolviendo estas dos primeras llaves de acceso:\n\n[JUEGO:CRUCIGRAMA:Segmento de recta dirigido con origen y extremo|VECTOR;Eje horizontal del plano cartesiano|EJEX]\n\n[JUEGO:CRUCIGRAMA:Tamaño o longitud de un vector|MAGNITUD;Eje vertical del plano cartesiano|EJEY]",
+  "recurso_visual": "| Símbolo del Vector | Componente en X ($V_x$) | Componente en Y ($V_y$) | Dirección (Ángulo $\\theta$) | Estado del Objeto |\n| :---: | :---: | :---: | :---: | :---: |\n| $\\vec{D}_{dron}$ | $+8\\text{ m}$ (Derecha/Este) | $+6\\text{ m}$ (Arriba/Norte) | $36.87^\\circ$ | En trayectoria de interceptación |\n| $\\vec{D}_{modulo}$ | $+12\\text{ m}$ (Derecha/Este) | $-5\\text{ m}$ (Abajo/Sur) | $-22.62^\\circ$ | Derivando al vacío |",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "¿Por qué crees que no es suficiente decirle al dron espacial que viaje '10 metros' para encontrar el módulo perdido?",
+      "respuesta_esperada": "Porque 10 metros representa solo la magnitud (distancia). Sin una dirección o ángulo específico, el dron podría viajar en cualquiera de las infinitas direcciones de la ISS en un plano 2D y perderse."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja en tu cuaderno una situación cotidiana en el Instituto Montenegro donde caminar en línea recta no sea suficiente debido a un obstáculo (como una casa o una ladera) y requieras hacer dos movimientos en direcciones distintas (Norte y Este).",
+    "Explica con tus propias palabras qué diferencia hay entre decir 'corro a 5 km/h' y 'corro a 5 km/h hacia el norte por la vía a Armenia'."
+  ],
+  "texto_deductivo": "# 📐 El Lenguaje de los Vectores: Modo Supervivencia Activado\n\n¡Excelente trabajo desbloqueando los sistemas básicos, exploradores del Montenegro! Ahora debemos aplicar la matemática rigurosa de vectores en 2D para calcular la ruta exacta de rescate.\n\nUn **vector en 2D** es una herramienta matemática que representa magnitudes donde la dirección es vital. Se compone de:\n1. **Magnitud:** La longitud del vector (qué tan lejos o rápido).\n2. **Dirección:** El ángulo $\\theta$ respecto al eje positivo X.\n3. **Sentido:** Indicado por la cabeza de la flecha.\n\n<svg width='100%' height='200' viewBox='0 0 400 200' style='background-color:#0b0f19; border-radius:8px; display:block; margin:auto;'>\n  <!-- Ejes -->\n  <line x1='50' y1='150' x2='350' y2='150' stroke='#475569' stroke-width='2' />\n  <line x1='100' y1='20' x2='100' y2='180' stroke='#475569' stroke-width='2' />\n  <!-- Vector principal -->\n  <line x1='100' y1='150' x2='280' y2='50' stroke='#38bdf8' stroke-width='3' />\n  <polygon points='280,50 270,58 274,48' fill='#38bdf8' />\n  <!-- Proyecciones (Componentes) -->\n  <line x1='100' y1='150' x2='280' y2='150' stroke='#f43f5e' stroke-width='2' stroke-dasharray='4,4' />\n  <line x1='280' y1='150' x2='280' y2='50' stroke='#10b981' stroke-width='2' stroke-dasharray='4,4' />\n  <!-- Textos -->\n  <text x='180' y='80' fill='#38bdf8' font-size='12' font-family='sans-serif' font-weight='bold'>Vector V</text>\n  <text x='160' y='170' fill='#f43f5e' font-size='11' font-family='sans-serif'>Componente Vx (Horizontal)</text>\n  <text x='290' y='100' fill='#10b981' font-size='11' font-family='sans-serif'>Componente Vy (Vertical)</text>\n  <!-- Origen -->\n  <circle cx='100' cy='150' r='4' fill='#ffffff' />\n</svg>\n\nPara descomponer cualquier vector en el plano cartesiano de la ISS, usamos las funciones trigonométricas:\n- Componente horizontal: $V_x = V \\cdot \\cos(\\theta)$\n- Componente vertical: $V_y = V \\cdot \\sin(\\theta)$\n\n¡Ordenemos los nombres de estas componentes clave antes de que la batería del traje se agote!\n\n[JUEGO:ORDENAR_LETRAS:COMPONENTE]\n\n[JUEGO:ORDENAR_LETRAS:SENTIDO]\n\nAl igual que planificas un viaje desde la Plaza de Montenegro hasta el Parque del Café usando calles (X) y carreras (Y), en el espacio sumamos vectores sumando sus componentes respectivas:\n\n$$\\vec{R}_x = \\vec{A}_x + \\vec{B}_x$$\n$$\\vec{R}_y = \\vec{A}_y + \\vec{B}_y$$\n\nOrdena estas leyes físicas fundamentales en tu pantalla:\n\n[JUEGO:ORDENAR_FRASE:LA SUMA DE VECTORES DA UN VECTOR RESULTANTE]\n\n[JUEGO:ORDENAR_FRASE:LAS COORDENADAS TIENEN EJES X Y]\n\n[JUEGO:ORDENAR_FRASE:EL METODO DEL TRIANGULO ES UTIL]\n\nEncuentra las funciones de cálculo trigonométrico vectorial en esta sopa de letras:\n\n[JUEGO:SOPA_LETRAS:SENO,COSENO,TANGENTE]\n\n[JUEGO:SOPA_LETRAS:DESPLAZAMIENTO,RAPIDEZ,FISICA]\n\nPara finalizar la calibración del giroscopio del traje espacial, responde este comando de seguridad del sistema:\n\n[JUEGO:CRUCIGRAMA:Angulo que forma el vector con el eje positivo x|DIRECCION;Punto donde se cruzan los ejes|ORIGEN]\n\n[JUEGO:CRUCIGRAMA:Proyeccion de un vector sobre un eje|COMPONENTE;Indicación de hacia dónde se dirige la flecha|SENTIDO]\n\n[JUEGO:CRUCIGRAMA:Resultado de sumar dos o mas vectores|RESULTANTE;Instrumento para medir angulos|TRANSPORTADOR]",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "Si un astronauta en la ISS se desplaza con un vector de componentes Vx = 3 metros y Vy = 4 metros, ¿cuál es la magnitud total (hipotenusa) de su desplazamiento?",
+      "respuesta_esperada": "La magnitud es de 5 metros, calculada mediante el Teorema de Pitágoras: √(3² + 4²) = √(9 + 16) = √25 = 5 metros."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Un dron realiza dos movimientos sucesivos en el plano de la ISS: Vector A = (4, 2) metros y Vector B = (2, 5) metros. Dibuja a escala ambos vectores unidos cabeza-cola en una cuadrícula y calcula analíticamente el vector resultante.",
+    "Si un vector tiene una magnitud de 10 metros y un ángulo de 60 grados, calcula sus componentes Vx y Vy usando las funciones trigonométricas correspondientes (puedes usar calculadora)."
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de fenómenos",
+      "texto_introductorio": "En la ISS, un astronauta realiza una caminata espacial para reparar una antena de comunicaciones dañada. Para llegar a ella, debe realizar dos desplazamientos consecutivos representados por los vectores de la tabla.",
+      "tabla_o_grafica_markdown": "| Desplazamiento | Componente X ($m$) | Componente Y ($m$) |\n| :--- | :---: | :---: |\n| Primer Vector ($\\vec{A}$) | $+5$ | $+2$ |\n| Segundo Vector ($\\vec{B}$) | $-2$ | $+6$ |",
+      "pregunta": "¿Cuáles son las componentes cartesianas del vector desplazamiento total resultante (\\vec{R}) que debe registrar el computador de la ISS?",
+      "opciones": [
+        "R = (+3, +8) metros",
+        "R = (+7, +8) metros",
+        "R = (+3, -4) metros",
+        "R = (-7, -4) metros"
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "¡Excelente navegación! Al sumar componente a componente: Rx = 5 + (-2) = 3 m, y Ry = 2 + 6 = 8 m. El vector resultante es efectivamente (3, 8).",
+        "1": "Incorrecto. Recuerda que la componente X del segundo vector es negativa (-2), por lo tanto debes restar en lugar de sumar directamente sus valores absolutos.",
+        "2": "Incorrecto. Revisaste correctamente la componente X pero restaste incorrectamente las componentes en Y (2 + 6 = 8, no -4).",
+        "3": "Incorrecto. Has cambiado erróneamente los signos de la operación matemática de componentes."
+      }
+    }
+  ]
+}

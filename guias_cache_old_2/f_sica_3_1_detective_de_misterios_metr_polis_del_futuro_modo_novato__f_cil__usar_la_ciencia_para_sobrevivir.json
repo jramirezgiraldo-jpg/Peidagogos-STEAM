@@ -1,0 +1,94 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Cuál de estos científicos es famoso por proponer que los planetas se mueven en elipses y no en círculos perfectos?",
+      "opciones": [
+        "Johannes Kepler",
+        "Isaac Newton",
+        "Albert Einstein",
+        "Galileo Galilei"
+      ],
+      "correcta": 0
+    }
+  ],
+  "texto_inductivo": "¡Saludos, Cadete de Neo-Ark! Soy el Detective de Misterios Cosmicos. Las luces de neón de nuestra metrópolis están parpadeando y los escudos de gravedad fallan. Para salvar la ciudad, debemos entender cómo se mueven los gigantes de arriba. ***¿Cómo podemos predecir el camino de los gigantes celestes para evitar que nuestra ciudad flote a la deriva en el vacío del espacio?*** \n\n<div style='background-color: #000; color: #0ff; padding: 15px; border: 2px solid #0ff; font-family: monospace;'>\n<svg width='300' height='200' viewBox='0 0 300 200'>\n  <ellipse cx='150' cy='100' rx='120' ry='70' style='fill:none;stroke:#0ff;stroke-width:2' />\n  <circle cx='100' cy='100' r='15' fill='yellow' />\n  <circle cx='250' cy='100' r='8' fill='red' />\n  <text x='90' y='80' fill='#0ff' font-size='12'>SOL (FOCO)</text>\n  <text x='230' y='85' fill='#0ff' font-size='12'>PLANETA</text>\n</svg>\n<p align='center'>Representación de una Órbita Elíptica (Ley de Kepler)</p>\n</div>\n\nPrimero, investigamos a Kepler. Él descubrió que los planetas no giran en círculos perfectos. [JUEGO:ORDENAR_LETRAS:ELIPSE] La forma de sus caminos es un óvalo estirado. [JUEGO:ORDENAR_FRASE:LA TIERRA GIRA ALREDEDOR DEL SOL] En un rincón del cosmos, el sol ocupa uno de los puntos focales. [JUEGO:SOPA_LETRAS:KEPLER,ORBITA,SOL] Si no entendemos esto, nuestros satélites de comunicación chocarán contra los rascacielos. [JUEGO:CRUCIGRAMA:Forma de la orbita|ELIPSE;Estrella central|SOL]\n\nLa investigación nos lleva al segundo misterio: la velocidad. [JUEGO:ORDENAR_LETRAS:FOCO] Un planeta se mueve más rápido cuando está cerca del sol. [JUEGO:ORDENAR_FRASE:EL SOL ESTA EN UN FOCO] Esto se llama 'barrer áreas iguales en tiempos iguales'. [JUEGO:SOPA_LETRAS:MARTE,VENUS,TIERRA] Es vital para calcular el combustible de nuestras naves de escape. [JUEGO:CRUCIGRAMA:Segunda ley|AREAS;Tercer ley|PERIODOS]\n\nEn Neo-Ark, el tiempo es oro. [JUEGO:ORDENAR_LETRAS:RADIO] La tercera pista de Kepler relaciona el tiempo que tarda un planeta en dar la vuelta con su distancia. [JUEGO:ORDENAR_FRASE:LAS AREAS SON IGUALES] Cuanto más lejos está el planeta, más largo es su 'año'. [JUEGO:SOPA_LETRAS:ESPACIO,VACIO,NEBULA] Sin este cálculo, la red eléctrica de la metrópolis colapsará por falta de sincronía planetaria. [JUEGO:CRUCIGRAMA:Padre de la gravedad|NEWTON;Masa grande|SOL]\n\n¿Ves ese brillo? Es un cometa. [JUEGO:ORDENAR_LETRAS:ASTRO] Para un detective, cada luz es una evidencia de la física en acción. [JUEGO:ORDENAR_FRASE:EL TIEMPO ES RELATIVO] Debemos mapear cada trayectoria para sobrevivir. [JUEGO:SOPA_LETRAS:GALAXIA,COSMOS,CIELO] La supervivencia depende de tu precisión, cadete. [JUEGO:CRUCIGRAMA:Viene del latin|ORBITA;Giro total|AÑO]\n\nFinalmente, recuerda que la masa es la que dicta las reglas. [JUEGO:ORDENAR_LETRAS:MASA] Los grandes objetos atraen a los pequeños con hilos invisibles de fuerza. [JUEGO:ORDENAR_FRASE:TODO LO QUE SUBE BAJA] El vacío no es solo nada; es un campo de juego de fuerzas. [JUEGO:SOPA_LETRAS:FUERZA,PESO,CAIDA] Si la gravedad falla, Neo-Ark se perderá. [JUEGO:CRUCIGRAMA:Sin peso|VACIO;Atrae masa|GRAVEDAD]",
+  "recurso_visual": "| Concepto | Descripción Detective | Impacto en Neo-Ark |\n|---|---|---|\n| **Órbita Elíptica** | El camino no es redondo, es un óvalo. | Evita colisiones de satélites. |\n| **Foco** | Posición donde reside el Sol. | Punto de anclaje de la red de energía. |\n| **Velocidad Variable** | Más rápido cerca del Sol, lento lejos. | Cálculo de propulsión de drones. |\n| **Periodo** | El tiempo de una vuelta completa. | Sincronización de los relojes de la ciudad. |",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "¿Qué forma tienen las órbitas según Kepler?",
+      "respuesta_esperada": "Tienen forma de elipse (óvalo)."
+    },
+    {
+      "pregunta": "¿Dónde se ubica el Sol en la órbita de un planeta?",
+      "respuesta_esperada": "Se ubica en uno de los focos de la elipse."
+    },
+    {
+      "pregunta": "¿Cuándo se mueve un planeta con mayor velocidad?",
+      "respuesta_esperada": "Cuando está más cerca del Sol (perihelio)."
+    },
+    {
+      "pregunta": "¿Qué ocurre con el tiempo de órbita si un planeta está muy lejos?",
+      "respuesta_esperada": "El tiempo que tarda en completar la órbita (periodo) es mayor."
+    },
+    {
+      "pregunta": "¿Por qué es importante para la ciudad conocer estas leyes?",
+      "respuesta_esperada": "Para predecir trayectorias de satélites y naves y asegurar la supervivencia."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema de una órbita elíptica señalando los focos y la posición del Sol en Neo-Ark.",
+    "Realiza un cuadro comparativo entre una órbita circular imaginaria y una elíptica real.",
+    "Escribe un informe de detective explicando qué pasaría si un planeta se detuviera de repente.",
+    "Representa gráficamente cómo cambia la velocidad de un dron espacial al acercarse al sol de la ciudad."
+  ],
+  "texto_deductivo": "Ahora, cadete, pasemos a los datos fríos. Isaac Newton es el cerebro detrás de los cables. Él nos dio la Ley de Gravitación Universal. [JUEGO:ORDENAR_LETRAS:NEWTON] La fuerza que mantiene tus pies en el asfalto de Neo-Ark es la misma que mantiene a la Luna en su sitio. [JUEGO:ORDENAR_FRASE:LA GRAVEDAD ES UNA FUERZA]\n\n<table style='width:100%; border: 1px solid #0ff; color: #0ff; background: #111;'>\n<tr><th>Variable</th><th>Significado Cinético</th></tr>\n<tr><td>Posición</td><td>Ubicación en el mapa estelar</td></tr>\n<tr><td>Velocidad</td><td>Rapidez y dirección del vuelo</td></tr>\n<tr><td>Aceleración</td><td>Cambio en el empuje de los motores</td></tr>\n</table>\n\nLa gravedad depende de dos cosas: masa y distancia. [JUEGO:SOPA_LETRAS:METROS,SEGUNDOS,MASA] A mayor masa, mayor atracción; a mayor distancia, menos fuerza. [JUEGO:CRUCIGRAMA:Unidad de fuerza|NEWTON;Distancia recorrida|POSICION] Por eso los edificios de Neo-Ark necesitan cimientos cuánticos. [JUEGO:ORDENAR_LETRAS:VELOCIDAD] Si duplicamos la distancia, la fuerza se reduce a la cuarta parte. [JUEGO:ORDENAR_FRASE:EL CAMBIO DE VELOCIDAD ES ACELERACION]\n\nEn la cinemática de la metrópolis, estudiamos la posición de los astros. [JUEGO:SOPA_LETRAS:INERCIA,ACCION,REACCION] Un vector nos indica hacia dónde va el peligro. [JUEGO:CRUCIGRAMA:Resistencia al cambio|INERCIA;Fuerza hacia abajo|PESO] El tiempo fluye mientras las órbitas se ejecutan como código de computadora. [JUEGO:ORDENAR_LETRAS:TIEMPO] La aceleración centrípeta es lo que nos mantiene girando y no saliendo disparados al vacío. [JUEGO:ORDENAR_FRASE:LA ACELERACION ES CONSTANTE]\n\nAnalicemos los datos del radar. [JUEGO:SOPA_LETRAS:VECTOR,MAGNITUD,SENTIDO] Cada planeta tiene una magnitud de velocidad que cambia. [JUEGO:CRUCIGRAMA:Tiene direccion|VECTOR;Valor numerico|MAGNITUD] Este sistema solar es una máquina compleja. [JUEGO:ORDENAR_LETRAS:SISTEMA] Sin las leyes de la cinemática, no podríamos aterrizar los suministros de medicina en la base lunar. [JUEGO:ORDENAR_FRASE:LA MASA NO CAMBIA]\n\nLa ciencia es nuestra mejor herramienta de supervivencia. [JUEGO:SOPA_LETRAS:ORBITA,ELIPSE,FOCO] Si la ley de la inversa del cuadrado falla, la gravedad se desvanece. [JUEGO:CRUCIGRAMA:Ley de orbitas|KEPLER;Ley de fuerza|NEWTON] Entender la relación entre masa y aceleración es el código para desbloquear el futuro. [JUEGO:ORDENAR_LETRAS:INVERSA] [JUEGO:ORDENAR_FRASE:A MAS DISTANCIA MENOS FUERZA] [JUEGO:SOPA_LETRAS:TIERRA,LUNA,MAREA] [JUEGO:CRUCIGRAMA:Satelite natural|LUNA;Subida del mar|MAREA]",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "¿De qué factores depende la fuerza de gravedad entre dos cuerpos?",
+      "answer_esperada": "Depende de sus masas y de la distancia que los separa."
+    },
+    {
+      "pregunta": "¿Qué ocurre con la fuerza gravitatoria si la distancia entre dos planetas aumenta?",
+      "respuesta_esperada": "La fuerza gravitatoria disminuye drásticamente."
+    },
+    {
+      "pregunta": "¿Cuál es la diferencia entre masa y peso en Neo-Ark?",
+      "respuesta_esperada": "La masa es la cantidad de materia (no cambia) y el peso es la fuerza de gravedad actuando sobre ella."
+    },
+    {
+      "pregunta": "¿Qué es la aceleración en el contexto del movimiento planetario?",
+      "respuesta_esperada": "Es el cambio de la velocidad del planeta, causada principalmente por la fuerza gravitatoria."
+    },
+    {
+      "pregunta": "¿Cómo se define la posición de un astro?",
+      "respuesta_esperada": "Se define mediante coordenadas o un vector respecto a un punto de referencia (como el Sol)."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Dibuja un diagrama detallado que muestre la fuerza de atracción entre Neo-Ark y su Luna, usando vectores.",
+    "Elabora un mapa mental que conecte las Leyes de Kepler con la Ley de Gravitación de Newton.",
+    "Dibuja una escena de la ciudad donde se vea el efecto de la gravedad (o su falta) en los objetos cotidianos.",
+    "Diseña una infografía artesanal que explique por qué un astronauta pesa menos en la Luna que en la metrópolis."
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "Un detective de Neo-Ark observa que un satélite de vigilancia se ha alejado al doble de la distancia original desde el centro de la ciudad. Según la Ley de Gravitación Universal de Newton, se desea saber qué impacto tiene esto en la fuerza de atracción.",
+      "tabla_o_grafica_markdown": "| Situación | Distancia (r) | Fuerza (F) |\n|---|---|---|\n| Inicial | d | F |\n| Final | 2d | ? |",
+      "pregunta": "¿Cuál será la nueva fuerza de atracción gravitacional sobre el satélite?",
+      "opciones": [
+        "La cuarta parte de la fuerza inicial (F/4)",
+        "La mitad de la fuerza inicial (F/2)",
+        "El doble de la fuerza inicial (2F)",
+        "Se mantiene igual (F)"
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. Según la ley de la inversa del cuadrado, si la distancia se duplica, la fuerza disminuye por el cuadrado de ese factor (2² = 4).",
+        "1": "Incorrecto. La relación no es lineal, sino inversamente proporcional al cuadrado de la distancia.",
+        "2": "Incorrecto. Al aumentar la distancia, la fuerza de atracción siempre disminuye, no aumenta.",
+        "3": "Incorrecto. La gravedad cambia con la distancia; no puede permanecer igual si el satélite se aleja."
+      }
+    }
+  ]
+}

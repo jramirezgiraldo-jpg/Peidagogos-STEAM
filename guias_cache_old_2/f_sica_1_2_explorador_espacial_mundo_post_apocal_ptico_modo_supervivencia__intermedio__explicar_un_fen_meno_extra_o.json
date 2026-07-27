@@ -1,0 +1,86 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "Imaginas que debes guiar a tu tripulación hacia la entrada secreta del laboratorio de la IE Instituto Montenegro en ruinas. ¿Qué es lo primero que necesitas definir para que no se pierdan en el páramo?",
+      "opciones": [
+        "Un punto de partida o referencia conocido por todos.",
+        "La velocidad a la que deben correr los exploradores.",
+        "El color de los trajes de protección espacial.",
+        "La cantidad de provisiones que llevan en sus mochilas."
+      ],
+      "correcta": 0
+    },
+    {
+      "pregunta": "Si un dron explorador vuela dando vueltas en círculos sobre la plaza principal antes de aterrizar en línea recta, ¿cuál fue el camino real que recorrió?",
+      "opciones": [
+        "Solo la línea recta final.",
+        "Toda la ruta circular más la línea de aterrizaje.",
+        "Ninguno, porque el aire del apocalipsis altera el espacio.",
+        "Un punto fijo en el mapa estelar."
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "En un mapa unidimensional de supervivencia (una sola línea recta), si tu refugio está en el metro cero y caminas 5 metros al este y luego devuelves 5 metros al oeste, ¿cuál es tu posición final?",
+      "opciones": [
+        "10 metros.",
+        "5 metros al este.",
+        "-5 metros al oeste.",
+        "0 metros, estás de nuevo en el refugio."
+      ],
+      "correcta": 3
+    }
+  ],
+  "texto_inductivo": "# Bitácora de Exploración: Anomalía en el Bloque C\n\nSaludos, jóvenes supervivientes de la **IE Instituto Montenegro**. Soy el Explorador de la Flota Estelar *Aura*. Mi nave se estrelló en el Quindío post-apocalíptico y he detectado extrañas perturbaciones en su antiguo colegio. \n\n***¿Cómo podemos mapear la extraña trayectoria de la 'Anomalía de Café-Plasma' que ronda las ruinas del bloque C de la IE Instituto Montenegro para que nuestros recolectores de chatarra espacial eviten ser desintegrados al cruzar de la entrada principal al laboratorio de química?***\n\nPara resolver este misterio, debemos entender cómo se mueven los objetos en este universo alterado.\n\n<svg width='100%' height='220' style='background-color:#111; border:3px solid #0f0; border-radius:8px; font-family:monospace;'>\n  <!-- Cuadrícula de coordenadas -->\n  <defs>\n    <pattern id='grid' width='20' height='20' patternUnits='userSpaceOnUse'>\n      <path d='M 20 0 L 0 0 0 20' fill='none' stroke='#003300' stroke-width='1'/>\n    </pattern>\n  </defs>\n  <rect width='100%' height='100%' fill='url(#grid)' />\n  \n  <!-- Ejes de Coordenadas -->\n  <line x1='50' y1='180' x2='350' y2='180' stroke='#0f0' stroke-width='2' />\n  <line x1='50' y1='30' x2='50' y2='180' stroke='#0f0' stroke-width='2' />\n  \n  <!-- Etiquetas -->\n  <text x='40' y='195' fill='#0f0' font-size='12'>Origen (0,0)</text>\n  <text x='330' y='195' fill='#0f0' font-size='12'>X (Eje Horizontal)</text>\n  <text x='10' y='25' fill='#0f0' font-size='12'>Y (Eje Vertical)</text>\n  \n  <!-- Trayectoria de la Anomalía -->\n  <path d='M 50 150 Q 150 20 250 150 T 350 80' fill='none' stroke='#ff00ff' stroke-width='3' stroke-dasharray='5,5' />\n  <circle cx='350' cy='80' r='8' fill='#ff00ff' />\n  <text x='230' y='60' fill='#ff00ff' font-size='11'>Trayectoria de Plasma</text>\n  \n  <!-- Puntos Clave -->\n  <circle cx='50' cy='150' r='5' fill='#00ffff' />\n  <text x='55' y='145' fill='#00ffff' font-size='11'>Refugio A (Inicio)</text>\n</svg>\n\nLa anomalía flota y emite destellos púrpura. Para registrar sus movimientos, he instalado sensores ópticos a lo largo del patio destruido. Necesitamos definir con precisión su **posición** en cada segundo y describir su **trayectoria** para trazar una ruta de escape segura.\n\n[JUEGO:ORDENAR_LETRAS:POSICION]\n\nCuando observamos el patio de la escuela, notamos que la anomalía no se mueve de forma aleatoria; sigue curvas suaves que esquivan los viejos árboles de café mutante. \n\n[JUEGO:ORDENAR_FRASE:LA TRAYECTORIA ES EL CAMINO RECORRIDO]\n\n¿Por qué es vital identificar estas variables cinemáticas? Si nuestros recolectores cruzan en línea recta sin conocer el camino que recorre la anomalía, chocarán inevitablemente con ella en el punto de intersección.\n\n[JUEGO:SOPA_LETRAS:ORBITA,RUTAS,LINEA]\n\nAnalicemos el siguiente mapa táctico de exploración del Bloque C:\n\n[JUEGO:CRUCIGRAMA:Punto desde donde mides todo|ORIGEN;Lugar exacto en el espacio|POSICION]\n\nAl igual que en nuestras misiones espaciales, cada paso debe calcularse meticulosamente. El destino del Instituto Montenegro depende de nuestra precisión física.\n\n[JUEGO:ORDENAR_LETRAS:TRAYECTORIA]\n\n[JUEGO:SOPA_LETRAS:METRO,TIEMPO,PLASMAS]\n\n[JUEGO:ORDENAR_FRASE:LA POSICION SE MIDE DESDE UN PUNTO DE REFERENCIA]\n\n[JUEGO:CRUCIGRAMA:Camino que dibuja un cuerpo|TRAYECTORIA;Medida de longitud en el SI|METRO]",
+  "recurso_visual": "| Punto de Control | Distancia desde el Refugio (m) | Estado del Sector | Peligro de Radiación |\n| :--- | :---: | :---: | :---: |\n| **A (Entrada)** | 0 | Despejado | Bajo |\n| **B (Estatua)** | 15 | Anomalías detectadas | Medio |\n| **C (Pasillo C)** | 32 | Bloqueado por escombros | Alto |\n| **D (Laboratorio)**| 48 | Destino final | Crítico |",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "¿Qué diferencia observas entre el camino curvo que sigue la anomalía y la línea recta que desearían tomar los recolectores de chatarra?",
+      "respuesta_esperada": "El camino curvo representa la trayectoria real del objeto en movimiento (más largo), mientras que la línea recta es la distancia directa (desplazamiento) entre el punto de inicio y el final."
+    },
+    {
+      "pregunta": "¿Por qué crees que necesitamos establecer un 'Origen' o punto cero en el patio antes de medir las distancias?",
+      "respuesta_esperada": "Porque sin un punto de referencia no podemos definir el valor de la posición de la anomalía ni saber con certeza en qué dirección se está moviendo."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja en tu cuaderno un mapa del patio de tu escuela (o tu habitación) y traza la trayectoria que sigues desde la entrada hasta tu pupitre o cama. Marca el punto de referencia con una 'X'.",
+    "Explica por qué un observador parado en el laboratorio vería que la anomalía se acerca, mientras que un explorador que huye de ella en un vehículo diría que la anomalía está en reposo relativo respecto a él si van a la misma velocidad."
+  ],
+  "texto_deductivo": "# El Manifiesto de la Cinemática de Supervivencia\n\nAtención, cadetes de Montenegro. Para dominar el movimiento en este páramo, debemos consolidar los conceptos fundamentales de la **Cinemática**: la rama de la física que describe cómo se mueven las cosas, sin importar las fuerzas que causan dicho movimiento.\n\n<svg width='100%' height='180' style='background-color:#1a1a2e; border:2px solid #e94560; border-radius:8px; font-family:monospace;'>\n  <!-- Línea de posición unidimensional -->\n  <line x1='30' y1='100' x2='370' y2='100' stroke='#e94560' stroke-width='3' />\n  \n  <!-- Puntos en la recta -->\n  <circle cx='50' cy='100' r='6' fill='#0f8' />\n  <text x='45' y='80' fill='#0f8' font-size='12'>X0 = 0m</text>\n  <text x='40' y='125' fill='#fff' font-size='10'>(Refugio)</text>\n\n  <circle cx='200' cy='100' r='6' fill='#ff0' />\n  <text x='185' y='80' fill='#ff0' font-size='12'>X1 = 15m</text>\n  <text x='180' y='125' fill='#fff' font-size='10'>(Estatua)</text>\n\n  <circle cx='350' cy='100' r='6' fill='#f0f' />\n  <text x='335' y='80' fill='#f0f' font-size='12'>X2 = 30m</text>\n  <text x='325' y='125' fill='#fff' font-size='10'>(Laboratorio)</text>\n\n  <!-- Vectores de movimiento -->\n  <path d='M 55 100 L 195 100' stroke='#ff0' stroke-width='2' marker-end='url(#arrow)' />\n  <path d='M 205 100 L 345 100' stroke='#f0f' stroke-width='2' marker-end='url(#arrow)' />\n</svg>\n\n## Conceptos Clave en el Modo Supervivencia\n\n1. **Sistema de Referencia:** Es el punto físico (coordenadas) desde el cual el explorador realiza las mediciones de posición. ¡Si tu punto de referencia cambia, los números de tu mapa también cambian!\n2. **Posición ($x$):** Es la ubicación exacta de un cuerpo respecto a nuestro sistema de referencia. Se mide en metros ($m$).\n3. **Trayectoria:** Es la línea imaginaria que une todos los puntos por los que pasa un objeto en movimiento. Puede ser rectilínea (en línea recta) o curvilínea.\n\n[JUEGO:ORDENAR_LETRAS:DISTANCIA]\n\n4. **Desplazamiento ($\\Delta x$):** Es la diferencia entre la posición final y la posición inicial. No importa las vueltas que des; solo importa el punto de partida y el punto de llegada.\n\n$$\\Delta x = x_{final} - x_{inicial}$$\n\n[JUEGO:ORDENAR_FRASE:EL DESPLAZAMIENTO ES LA LINEA RECTA ENTRE DOS PUNTOS]\n\n5. **Distancia Recorrida ($d$):** Es la longitud total medida sobre la trayectoria. ¡Siempre es positiva y suele ser mayor o igual que el desplazamiento!\n\n[JUEGO:SOPA_LETRAS:ORIGEN,PUNTO,ESPACIO]\n\n[JUEGO:CRUCIGRAMA:Cambio de posicion|DESPLAZAMIENTO;Magnitud que solo tiene valor numerico|ESCALAR]\n\nSi la anomalía viaja desde el refugio ($x=0\\text{ m}$) hasta la estatua ($x=15\\text{ m}$), y luego regresa al refugio, su **desplazamiento** total es $0\\text{ m}$ porque regresó al mismo punto, pero la **distancia total recorrida** por su energía de plasma fue de $30\\text{ m}$.\n\n[JUEGO:ORDENAR_LETRAS:VECTOR]\n\n[JUEGO:SOPA_LETRAS:ANOMALIA,FISICA,MARCA]\n\n[JUEGO:ORDENAR_FRASE:EL MOVIMIENTO DEPENDE DEL OBSERVADOR]\n\n[JUEGO:CRUCIGRAMA:El que mira el movimiento|OBSERVADOR;Línea recta de inicio a fin|VECTOR]\n\n[JUEGO:ORDENAR_LETRAS:MOVIMIENTO]\n\n[JUEGO:SOPA_LETRAS:RUMBO,CURVA,DATOS]\n\n[JUEGO:ORDENAR_FRASE:LA DISTANCIA SIEMPRE ES POSITIVA]\n\n[JUEGO:CRUCIGRAMA:Línea que no es recta|CURVA;Estado de no moverse|REPOSO]",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "Si un recolector de la IE Instituto Montenegro camina 12 metros al este y luego se devuelve 4 metros al oeste, ¿cuál es su desplazamiento final y qué distancia recorrió?",
+      "respuesta_esperada": "Su desplazamiento es de 8 metros al este (12m - 4m), mientras que la distancia total recorrida es de 16 metros (12m + 4m)."
+    },
+    {
+      "pregunta": "¿Bajo qué única condición el valor del desplazamiento de un objeto es exactamente igual a la distancia recorrida?",
+      "respuesta_esperada": "Únicamente cuando el movimiento ocurre en una línea recta y en una sola dirección, sin devolverse jamás."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Resuelve en tu cuaderno de supervivencia: Un dron de reconocimiento despega del punto x = 2 metros, vuela hasta x = 20 metros para escanear escombros y luego retrocede hasta x = 10 metros debido a un fallo eléctrico. Calcula paso a paso su posición inicial, su posición final, su desplazamiento total y la distancia recorrida.",
+    "Explica por qué un astronauta en órbita alrededor de la Tierra tiene un desplazamiento de cero cada vez que completa una vuelta entera, a pesar de haber viajado miles de kilómetros."
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de fenómenos",
+      "texto_introductorio": "Durante una patrulla en las inmediaciones de la IE Instituto Montenegro, un grupo de exploradores espaciales registra el movimiento de una sonda automatizada que analiza la toxicidad del aire. El registro de las posiciones de la sonda a lo largo del tiempo se presenta en la siguiente tabla de datos unidimensionales:",
+      "tabla_o_grafica_markdown": "| Tiempo (s) | Posición (m) |\n| :---: | :---: |\n| 0 | 2 |\n| 2 | 8 |\n| 4 | 14 |\n| 6 | 8 |\n| 8 | 2 |",
+      "pregunta": "A partir de los datos registrados, los exploradores concluyen correctamente que entre el segundo 0 y el segundo 8 de la misión:",
+      "options": [
+        "El desplazamiento total de la sonda fue de 0 metros y la distancia total recorrida fue de 24 metros.",
+        "El desplazamiento total de la sonda fue de 2 metros y la distancia total recorrida fue de 12 metros.",
+        "El desplazamiento total de la sonda fue de 12 metros y la distancia total recorrida fue de 12 metros.",
+        "El desplazamiento total de la sonda fue de 0 metros y la distancia total recorrida fue de 12 metros."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "¡Excelente análisis, cadete! Como la posición final en t=8s es de 2m y la posición inicial en t=0s es de 2m, el desplazamiento es nulo (2m - 2m = 0m). La sonda avanzó 12 metros (de 2m a 14m) y luego retrocedió otros 12 metros (de 14m a 2m), sumando una distancia recorrida total de 24 metros.",
+        "1": "Incorrecto. Recuerda calcular el desplazamiento como la posición final menos la inicial, y la distancia como la suma de todos los trayectos recorridos.",
+        "2": "Incorrecto. Confundiste el desplazamiento con el punto máximo alcanzado por la sonda en el segundo 4.",
+        "3": "Incorrecto. Aunque el desplazamiento es de 0 metros, la distancia total recorrida se calculó de forma incompleta sin sumar la ruta de regreso de la sonda."
+      }
+    }
+  ]
+}

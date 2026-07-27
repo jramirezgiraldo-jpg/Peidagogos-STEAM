@@ -1,0 +1,114 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "En el año 2142, la Estación Espacial 'Ícaro' deja de sentir la atracción de la Tierra. ¿Qué concepto físico describe la fuerza que mantiene a los astros en su lugar?",
+      "opciones": [
+        "Inercia Galáctica",
+        "Gravitación Universal",
+        "Electromagnetismo",
+        "Presión Atmosférica"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "Si un dron de vigilancia en Neo-Chronos describe una trayectoria circular a velocidad constante, ¿qué podemos decir de su aceleración?",
+      "opciones": [
+        "Es cero porque la velocidad no cambia.",
+        "Es constante hacia afuera del círculo.",
+        "Es una aceleración centrípeta dirigida al centro.",
+        "Depende del color del dron."
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "¿Quién propuso que las órbitas de los planetas no son círculos perfectos, sino elipses?",
+      "opciones": [
+        "Isaac Newton",
+        "Galileo Galilei",
+        "Johannes Kepler",
+        "Albert Einstein"
+      ],
+      "correcta": 2
+    }
+  ],
+  "texto_inductivo": "# Informe del Detective de Misterios: El Caso de las Órbitas Desviadas\n\nSaludos, Agente de la Unidad de Ciencias de Neo-Chronos. Se nos ha asignado un **Reto Épico**. Los sensores de la ciudad han detectado que los planetas del sistema exterior están ignorando sus rutas programadas. Para salvar la Metrópolis del Futuro, debemos descifrar el código del cosmos.\n\n***¿Cómo podrías predecir la posición exacta de una estación espacial en un sistema planetario inestable si las leyes que rigen el cosmos dejaran de funcionar tal como las conocemos?***\n\nTodo comenzó con Johannes Kepler, un detective del siglo XVII que, sin computadoras cuánticas, descubrió que los planetas bailan en elipses. [JUEGO:ORDENAR_LETRAS:ELIPSE] En una elipse, el Sol no está en el centro, sino en un punto llamado foco. [JUEGO:SOPA_LETRAS:SOL,FOCO,EJE] El misterio aumenta cuando observamos que los planetas no mantienen una velocidad constante. [JUEGO:ORDENAR_FRASE:LAS ORBITAS SON ELIPTICAS] \n\n<div style='text-align: center; background-color: #0d1117; padding: 20px; border-radius: 10px; border: 2px solid #00ffcc;'>\n<svg width='300' height='200' viewBox='0 0 300 200'>\n  <ellipse cx='150' cy='100' rx='120' ry='70' style='fill:none;stroke:#00ffcc;stroke-width:2' />\n  <circle cx='100' cy='100' r='15' fill='#ffcc00' />\n  <text x='90' y='80' fill='#ffffff' font-family='Arial' font-size='12'>Sol (Foco)</text>\n  <circle cx='270' cy='100' r='8' fill='#3399ff' />\n  <text x='240' y='125' fill='#ffffff' font-family='Arial' font-size='12'>Planeta</text>\n  <line x1='100' y1='100' x2='270' y2='100' stroke='#ff3300' stroke-dasharray='4' />\n</svg>\n<p style='color: #00ffcc;'>Diagrama 1.1: Representación de la Primera Ley de Kepler</p>\n</div>\n\nCuando un planeta se acerca al sol (perihelio), acelera como un deslizador de plasma en una autopista de luz. [JUEGO:CRUCIGRAMA:Punto mas cercano al sol|PERIHELIO;Punto mas lejano|AFELIO] Pero al alejarse (afelio), su velocidad disminuye. [JUEGO:ORDENAR_LETRAS:ASTRO] Kepler notó que el radio vector barre áreas iguales en tiempos iguales. [JUEGO:ORDENAR_FRASE:EL SOL ESTA EN EL FOCO] \n\nEn la metrópolis, los ingenieros usan esta ley para ahorrar combustible. [JUEGO:SOPA_LETRAS:MARTE,VENUS,RADIO] Si entendemos el periodo orbital, podemos predecir el futuro. [JUEGO:ORDENAR_LETRAS:ORBITA] La Tercera Ley dice que el cuadrado del periodo es proporcional al cubo de la distancia media. [JUEGO:CRUCIGRAMA:Tiempo de una vuelta|PERIODO;Espacio recorrido|DISTANCIA] \n\n[JUEGO:ORDENAR_FRASE:KEPLER DESCUBRIO LAS LEYES] Las piezas del rompecabezas empiezan a encajar. [JUEGO:ORDENAR_LETRAS:PLANETA] Pero, ¿qué fuerza invisible tira de estos mundos? [JUEGO:SOPA_LETRAS:FOCO,LEY,DATOS] Newton, el gran arquitecto, nos dio la respuesta con la Gravitación Universal. [JUEGO:CRUCIGRAMA:Fuerza de atraccion|GRAVEDAD;Cuerpo masivo|MASA] \n\n[JUEGO:ORDENAR_FRASE:LA GRAVEDAD NOS UNE] Sin esta fuerza, Neo-Chronos saldría disparada al vacío. [JUEGO:SOPA_LETRAS:MASA,PESO,FUERZA] Para resolver este misterio, debemos analizar cómo la masa y la distancia alteran esta danza cósmica. [JUEGO:ORDENAR_LETRAS:FISICA] La justicia espacial depende de tu precisión. [JUEGO:CRUCIGRAMA:Cero gravedad|VACIO;Centro de masa|NUCLEO] [JUEGO:ORDENAR_FRASE:EL TIEMPO ES RELATIVO] [JUEGO:SOPA_LETRAS:LUNA,TIERRA,CIENCIA]",
+  "recurso_visual": "| Ley de Kepler | Nombre | Concepto Clave | Implicación en Neo-Chronos |\n| :--- | :--- | :--- | :--- |\n| 1ra Ley | Ley de las Órbitas | Órbitas elípticas con el Sol en un foco. | Las rutas de naves no son círculos perfectos. |\n| 2da Ley | Ley de las Áreas | Áreas iguales en tiempos iguales. | Los drones aceleran al acercarse al centro gravitatorio. |\n| 3ra Ley | Ley de los Periodos | $T^2 \\propto a^3$ | Permite programar los ciclos de luz de la ciudad. |",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "¿Por qué un planeta se mueve más rápido en el perihelio que en el afelio?",
+      "respuesta_esperada": "Debido a la Segunda Ley de Kepler, para barrer áreas iguales en tiempos iguales, el planeta debe recorrer una mayor distancia en su órbita cuando está más cerca del Sol, lo que implica una mayor velocidad."
+    },
+    {
+      "pregunta": "Si descubrimos un nuevo planeta a una distancia de 4 unidades astronómicas, ¿cuál sería su periodo orbital comparado con la Tierra?",
+      "respuesta_esperada": "Usando la Tercera Ley de Kepler ($T^2 = a^3$), si $a=4$, entonces $T^2 = 4^3 = 64$. Por lo tanto, $T = 8$ años terrestres."
+    },
+    {
+      "pregunta": "¿Qué sucedería con la órbita de un satélite si el planeta central perdiera la mitad de su masa repentinamente?",
+      "respuesta_esperada": "La fuerza de atracción gravitatoria disminuiría a la mitad, lo que haría que la órbita se volviera mucho más excéntrica o que el satélite escapara de la influencia gravitatoria si superara la velocidad de escape."
+    },
+    {
+      "pregunta": "En la Metrópolis del Futuro, ¿cómo ayuda la comprensión de las elipses a la navegación?",
+      "respuesta_esperada": "Permite calcular trayectorias de transferencia (como la de Hohmann) de manera eficiente, optimizando el uso de energía al aprovechar los focos gravitatorios."
+    },
+    {
+      "pregunta": "¿Qué diferencia hay entre la posición y el desplazamiento de un planeta en una órbita cerrada después de un periodo completo?",
+      "respuesta_esperada": "La posición cambia constantemente a lo largo del tiempo, pero el desplazamiento después de un periodo completo es cero, ya que regresa al mismo punto inicial."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema de una órbita elíptica marcando el Perihelio, el Afelio, los Focos y sombreando dos áreas iguales según la Segunda Ley de Kepler.",
+    "Realiza un cuadro comparativo entre el modelo geocéntrico (antiguo) y el modelo heliocéntrico (Kepler/Newton) usado en Neo-Chronos.",
+    "Escribe una bitácora de detective (mínimo 10 líneas) explicando por qué las leyes de la cinemática son vitales para evitar colisiones en una metrópolis futurista.",
+    "Representa gráficamente cómo varía la velocidad de un planeta en diferentes puntos de su órbita usando vectores (flechas de diferentes tamaños)."
+  ],
+  "texto_deductivo": "# Análisis de Evidencia: Cinemática del Sistema Central\n\nDetective, hemos llegado al núcleo del procesador de Neo-Chronos. Para estabilizar el sistema, debemos aplicar las ecuaciones de la cinemática a la escala planetaria. [JUEGO:ORDENAR_LETRAS:VECTOR] El movimiento no es solo una palabra; es un cambio de posición respecto al tiempo. [JUEGO:SOPA_LETRAS:METRO,SEGUNDO,HORA]\n\nEn esta metrópolis, la velocidad es un vector que nos indica hacia dónde se dirige la amenaza. [JUEGO:ORDENAR_FRASE:LA VELOCIDAD ES UN VECTOR] \n\n<table style='width:100%; border: 1px solid #ff00ff; color: white; background: black;'>\n  <tr style='background: #330033;'>\n    <th>Variable</th>\n    <th>Símbolo</th>\n    <th>Unidad (SI)</th>\n    <th>Función en el Misterio</th>\n  </tr>\n  <tr>\n    <td>Posición</td>\n    <td>r</td>\n    <td>Metros (m)</td>\n    <td>Coordenadas del sospechoso espacial.</td>\n  </tr>\n  <tr>\n    <td>Velocidad</td>\n    <td>v</td>\n    <td>m/s</td>\n    <td>Rapidez y dirección de escape.</td>\n  </tr>\n  <tr>\n    <td>Aceleración</td>\n    <td>a</td>\n    <td>m/s²</td>\n    <td>Cambio de ritmo por la gravedad.</td>\n  </tr>\n</table>\n\nSi la aceleración es constante, hablamos de un movimiento rectilíneo uniformemente acelerado, pero en el espacio, la aceleración cambia con la distancia. [JUEGO:ORDENAR_LETRAS:TIEMPO] [JUEGO:CRUCIGRAMA:Rapidez en un instante|VELOCIDAD;Cambio de velocidad|ACELERACION] La inercia es la tendencia de los objetos a mantener su estado de movimiento. [JUEGO:SOPA_LETRAS:NORTE,SUR,ESTE] [JUEGO:ORDENAR_FRASE:TODO CUERPO TIENE MASA]\n\nCuando un planeta gira, experimenta una aceleración centrípeta. [JUEGO:ORDENAR_LETRAS:RAPIDEZ] Sin ella, el planeta seguiría una línea recta hacia el vacío profundo. [JUEGO:CRUCIGRAMA:Hacia el centro|CENTRIPETA;Camino curvo|TRAYECTORIA] [JUEGO:ORDENAR_FRASE:LA ACELERACION CAMBIA EL RUMBO]\n\n[JUEGO:SOPA_LETRAS:VELOZ,LENTO,PARADO] La energía cinética de un mundo depende de su masa y del cuadrado de su velocidad. [JUEGO:ORDENAR_LETRAS:CINETICA] [JUEGO:ORDENAR_FRASE:LA TIERRA GIRA SIEMPRE] Para recalibrar los motores de la ciudad, necesitamos calcular la aceleración gravitacional exacta. [JUEGO:CRUCIGRAMA:Fuerza por masa|PESO;Lugar en el espacio|POSICION] \n\n[JUEGO:SOPA_LETRAS:RECTA,CURVA,PUNTO] [JUEGO:ORDENAR_LETRAS:INERCIA] El misterio se resuelve cuando entendemos que la gravedad es la aceleración que mantiene el equilibrio. [JUEGO:ORDENAR_FRASE:EL MOVIMIENTO ES CONSTANTE] [JUEGO:SOPA_LETRAS:MOTOR,ENERGIA,DATOS]",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "¿Cuál es la diferencia fundamental entre rapidez y velocidad en una órbita circular?",
+      "respuesta_esperada": "La rapidez es el módulo (valor numérico) y puede ser constante, mientras que la velocidad es un vector que cambia de dirección en cada punto de la órbita."
+    },
+    {
+      "pregunta": "Si un satélite de Neo-Chronos aumenta su distancia al planeta al doble, ¿qué sucede con la fuerza gravitatoria?",
+      "respuesta_esperada": "Según la Ley de Gravitación Universal ($F = G \\cdot m1 \\cdot m2 / r^2$), la fuerza se reduce a la cuarta parte ($1/2^2$)."
+    },
+    {
+      "pregunta": "¿Qué componente de la aceleración es responsable de que un planeta cambie su dirección?",
+      "respuesta_esperada": "La aceleración centrípeta (o normal), que actúa perpendicularmente a la velocidad tangencial."
+    },
+    {
+      "pregunta": "En términos de cinemática, ¿qué significa que un planeta esté en equilibrio orbital?",
+      "respuesta_esperada": "Significa que la fuerza gravitatoria proporciona exactamente la aceleración centrípeta necesaria para mantener la trayectoria curva a una velocidad determinada."
+    },
+    {
+      "pregunta": "¿Por qué no sentimos la aceleración de la Tierra mientras nos movemos con ella?",
+      "respuesta_esperada": "Porque es un marco de referencia en movimiento casi uniforme para nosotros y la aceleración centrípeta es muy pequeña comparada con la gravedad superficial."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Elabora un diagrama detallado de un objeto en movimiento circular uniforme, dibujando los vectores de velocidad tangencial y aceleración centrípeta en cuatro puntos diferentes.",
+    "Crea un mapa mental que conecte los conceptos de Masa, Fuerza Gravitatoria, Aceleración y Radio Orbital.",
+    "Realiza un dibujo explicativo de la 'Caída Libre' de la Luna alrededor de la Tierra, explicando por qué nunca llega a chocar.",
+    "Diseña una infografía artesanal sobre 'Las Leyes de Newton en el Espacio' usando recortes o dibujos que representen situaciones en la Metrópolis del Futuro."
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "En la estación espacial Neo-Génesis, un grupo de científicos observa que un asteroide se acerca a un planeta. Registran los siguientes datos de velocidad en diferentes puntos de su trayectoria antes de entrar en órbita:",
+      "tabla_o_grafica_markdown": "| Posición | Distancia al Centro (km) | Velocidad (km/s) |\n| :--- | :--- | :--- |\n| A | 10.000 | 5 |\n| B | 5.000 | 10 |\n| C | 2.500 | 20 |",
+      "pregunta": "De acuerdo con los datos y las leyes de Kepler, ¿qué se puede concluir sobre el movimiento del asteroide?",
+      "opciones": [
+        "A medida que la distancia disminuye a la mitad, la velocidad se duplica para conservar el momento angular (Ley de las áreas).",
+        "El asteroide se mueve con movimiento rectilíneo uniforme porque su aceleración es cero.",
+        "La velocidad disminuye porque hay más fricción con el espacio a medida que se acerca al planeta.",
+        "El periodo orbital del asteroide es independiente de su distancia al planeta."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. Según la Segunda Ley de Kepler, la velocidad orbital es inversamente proporcional a la distancia en puntos específicos para barrer áreas iguales.",
+        "1": "Incorrecto. Existe una fuerza gravitatoria, por lo que hay aceleración.",
+        "2": "Incorrecto. En el espacio exterior (vacío) no hay fricción significativa que cause este efecto.",
+        "3": "Incorrecto. La Tercera Ley de Kepler establece que el periodo depende directamente de la distancia media (semieje mayor)."
+      }
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "Si un satélite deja de funcionar en el espacio post-apocalíptico, ¿qué le sucede según la física clásica?",
+      "opciones": [
+        "Flota eternamente en el mismo punto porque no hay aire.",
+        "Cae inmediatamente en línea recta hacia el centro de la Tierra.",
+        "Sigue en su órbita debido a su velocidad tangencial, aunque eventualmente podría decaer por rozamiento residual.",
+        "Sale disparado hacia el sol porque la Tierra pierde su magnetismo."
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "¿Qué factor influye más en la fuerza de atracción gravitacional entre dos búnkeres espaciales?",
+      "opciones": [
+        "El color de sus paredes reforzadas.",
+        "El producto de sus masas y la distancia que los separa.",
+        "La cantidad de oxígeno que contienen.",
+        "La velocidad a la que giran sobre su propio eje."
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "En el vacío del yermo, si sueltas una pluma y un martillo de guerra al mismo tiempo:",
+      "opciones": [
+        "El martillo cae primero por ser más pesado.",
+        "La pluma vuela por las corrientes térmicas.",
+        "Ambos caen con la misma aceleración.",
+        "La gravedad no actúa sobre objetos pequeños."
+      ],
+      "correcta": 2
+    }
+  ],
+  "texto_inductivo": "Saludos, reclutas del Yermo. Soy el Detective de Misterios Newtonianos. Nos encontramos en el año 2142, tras el Gran Colapso. Los mitos corren más rápido que los mutantes: los supervivientes del Sector 7 dicen que la Luna nos va a aplastar porque 'ya no hay máquinas que la sostengan'. Mi misión es enseñarles que las leyes del universo no necesitan electricidad para funcionar. ***¿Es posible que la Luna caiga sobre la Tierra si la tecnología que la mantenía en órbita falló durante el Colapso, o existe una fuerza invisible e inquebrantable que dicta el destino de los astros sin importar nuestra presencia?***\n\nEmpecemos analizando la escena del crimen: el espacio. [JUEGO:ORDENAR_LETRAS:GRAVEDAD] La gravedad no es un motor, es una propiedad de la materia. [ACTIVIDAD:PLATAFORMA:¿Es la gravedad una fuerza que se puede apagar con un interruptor?|No, es una propiedad intrínseca de la masa] Observen este diagrama de la interacción de masas:\n\n<div style='background-color:#1a1a1a; padding:20px; border-radius:10px; border: 2px solid #00ff00; text-align:center;'>\n<svg width='400' height='200' viewBox='0 0 400 200'>\n  <circle cx='80' cy='100' r='40' fill='#4444ff' />\n  <text x='65' y='105' fill='white' font-weight='bold'>M1</text>\n  <circle cx='320' cy='100' r='20' fill='#888888' />\n  <text x='310' y='105' fill='white' font-weight='bold'>M2</text>\n  <line x1='120' y1='100' x2='300' y2='100' stroke='#00ff00' stroke-width='2' stroke-dasharray='5,5' />\n  <path d='M 130 90 L 160 100 L 130 110 Z' fill='#ff0000' />\n  <path d='M 270 90 L 240 100 L 270 110 Z' fill='#ff0000' />\n  <text x='180' y='120' fill='#00ff00' font-size='12'>Distancia (r)</text>\n  <text x='150' y='80' fill='#ff0000' font-size='14' font-weight='bold'>Fuerza de Atracción</text>\n</svg>\n<p style='color:#00ff00; font-family:monospace;'>Figura 1: Representación de la Ley de Gravitación Universal entre la Tierra y la Luna.</p>\n</div>\n\nTodo lo que tiene masa atrae a lo demás. [JUEGO:ORDENAR_FRASE:TODO LO QUE SUBE TIENE QUE BAJAR] Pero, ¿por qué la Luna no choca? Los antiguos creían que ángeles la empujaban. [ACTIVIDAD:CUADERNO:Dibuja un diagrama donde representes la Tierra, la Luna y las flechas de fuerza que crees que actúan entre ellas] La masa es la clave del misterio. [JUEGO:ORDENAR_LETRAS:MASA] Si la masa aumenta, la fuerza aumenta. [ACTIVIDAD:PLATAFORMA:¿Qué sucede con la fuerza si duplicamos la masa de uno de los cuerpos?|La fuerza de atracción se duplica]\n\nEn este mundo post-apocalíptico, debemos ser precisos. [JUEGO:ORDENAR_FRASE:LA FUERZA ES PROPORCIONAL A LA MASA] Isaac Newton, el detective original, descubrió que la fuerza disminuye rápidamente con la distancia. [ACTIVIDAD:CUADERNO:Realiza un cuadro comparativo entre el concepto de Masa y el concepto de Peso en un entorno de gravedad variable] Si nos alejamos, el agarre se debilita. [JUEGO:ORDENAR_LETRAS:DISTANCIA] \n\n[JUEGO:SOPA_LETRAS:GRAVEDAD,MASA,DISTANCIA,NEWTON,UNIVERSAL,FUERZA,ORBITA,ATRACCION,CUERPO,CONSTANTE]\n\n[ACTIVIDAD:PLATAFORMA:¿Quién formuló la ley de la Gravitación Universal?|Isaac Newton] Para entender esto, hay que ver que el vacío no detiene nada. [JUEGO:ORDENAR_FRASE:EL VACIO NO DETIENE LA GRAVEDAD] [ACTIVIDAD:CUADERNO:Escribe una breve historia sobre un detective que viaja a la Luna y nota que su peso ha cambiado, pero su masa no] La gravedad es el pegamento del cosmos. [ACTIVIDAD:PLATAFORMA:¿La gravedad existe en el vacío del espacio?|Sí, la gravedad actúa a través del vacío] \n\n[JUEGO:CRUCIGRAMA:Fuerza que atrae cuerpos|GRAVEDAD;Científico que descubrió la gravitación|NEWTON;Cantidad de materia|MASA;Espacio entre dos cuerpos|DISTANCIA;Trayectoria de un astro|ORBITA;Lugar sin aire|VACIO;Lo opuesto a repulsión|ATRACCION;Fuerza con la que la Tierra atrae un cuerpo|PESO;Unidad de masa en el SI|KILOGRAMO;Valor que no cambia|CONSTANTE]\n\n[ACTIVIDAD:CUADERNO:Crea un mapa mental sobre los elementos de la fórmula de Gravitación Universal (G, m1, m2, r)] [ACTIVIDAD:PLATAFORMA:¿Qué representa la letra G en la fórmula gravitatoria?|La constante de gravitación universal]",
+  "recurso_visual": "| Variable | Símbolo | Influencia en la Fuerza | Relación Matemática |\n| :--- | :---: | :--- | :--- |\n| Masa 1 | $m_1$ | A mayor masa, mayor fuerza | Directamente Proporcional |\n| Masa 2 | $m_2$ | A mayor masa, mayor fuerza | Directamente Proporcional |\n| Distancia | $r$ | A mayor distancia, menor fuerza | Inversamente Proporcional al cuadrado |\n| Constante G | $G$ | Mantiene la escala del universo | Valor constante ($6.67 \\times 10^{-11}$) |",
+  "texto_deductivo": "Reclutas, hemos recolectado las pistas suficientes para desmentir el mito de la 'Luna Caída'. La respuesta no está en motores ocultos, sino en la cinemática. [JUEGO:ORDENAR_LETRAS:INERCIA] La Luna está, de hecho, cayendo constantemente hacia la Tierra, pero su velocidad es tan alta que 'falla' el suelo y sigue de largo, creando una órbita. [ACTIVIDAD:PLATAFORMA:¿Por qué la Luna no cae directamente sobre nosotros si la gravedad la atrae?|Debido a su alta velocidad tangencial que genera un equilibrio orbital]\n\nObserven la lógica del sistema en este flujo de datos:\n\n<div style='background-color:#2a2a2a; color:#f1c40f; padding:15px; border:3px double #f1c40f; font-family:Courier New;'>\n<pre>\nGRAVEDAD + VELOCIDAD TANGENCIAL = ÓRBITA ESTABLE\n\nSi V = 0  => Colisión inminente (Caída libre)\nSi V > V_escape => El objeto se pierde en el Yermo Espacial\nSi V = V_orbital => El mito queda desmentido\n</pre>\n</div>\n\n[JUEGO:ORDENAR_FRASE:LA LUNA ESTA CAYENDO SIEMPRE] El peso que sienten en sus búnkeres es el resultado de esta misma ley aplicada a su masa y la de la Tierra. [JUEGO:ORDENAR_LETRAS:VELOCIDAD] [ACTIVIDAD:PLATAFORMA:¿Qué pasaría con tu peso si la Tierra tuviera el doble de masa pero el mismo tamaño?|Mi peso se duplicaría] \n\n[ACTIVIDAD:CUADERNO:Dibuja un diagrama de un cañón disparando una bala tan fuerte que da la vuelta a la Tierra, explicando el concepto de órbita de Newton] \n\nLa aceleración de la gravedad no es igual en todo el sistema solar destruido. [JUEGO:ORDENAR_LETRAS:ACELERACION] [ACTIVIDAD:PLATAFORMA:¿Cuál es el valor aproximado de la gravedad en la superficie terrestre?|9.8 m/s²] El peso depende del lugar donde estés. [JUEGO:ORDENAR_FRASE:EL PESO DEPENDE DEL PLANETA] \n\n<div style='margin: 20px 0;'>\n<table style='width:100%; border-collapse: collapse; background-color: #333; color: white;'>\n  <tr style='background-color: #555;'>\n    <th style='padding: 10px; border: 1px solid #777;'>Lugar</th>\n    <th style='padding: 10px; border: 1px solid #777;'>Gravedad (m/s²)</th>\n    <th style='padding: 10px; border: 1px solid #777;'>Tu Peso (si pesas 60kg)</th>\n  </tr>\n  <tr>\n    <td style='padding: 10px; border: 1px solid #777;'>Tierra Baldía</td>\n    <td style='padding: 10px; border: 1px solid #777;'>9.8</td>\n    <td style='padding: 10px; border: 1px solid #777;'>588 N</td>\n  </tr>\n  <tr>\n    <td style='padding: 10px; border: 1px solid #777;'>Luna Gris</td>\n    <td style='padding: 10px; border: 1px solid #777;'>1.6</td>\n    <td style='padding: 10px; border: 1px solid #777;'>96 N</td>\n  </tr>\n  <tr>\n    <td style='padding: 10px; border: 1px solid #777;'>Marte Rojo</td>\n    <td style='padding: 10px; border: 1px solid #777;'>3.7</td>\n    <td style='padding: 10px; border: 1px solid #777;'>222 N</td>\n  </tr>\n</table>\n</div>\n\n[JUEGO:SOPA_LETRAS:INERCIA,PESO,ACELERACION,VELOCIDAD,CAIDA,LIBRE,TIERRA,LUNA,KILOGRAMO,METRO]\n\n[ACTIVIDAD:CUADERNO:Calcula tu propio peso en Newtons en la Tierra y en la Luna usando los datos de la tabla] La ciencia es nuestra mejor arma contra el miedo. [JUEGO:ORDENAR_FRASE:LA CIENCIA DESMIENTE LOS MITOS] [ACTIVIDAD:PLATAFORMA:¿Cómo cambia la masa de un objeto si lo llevamos de la Tierra a la Luna?|La masa permanece igual, solo cambia el peso] \n\n[JUEGO:CRUCIGRAMA:Resistencia al cambio de movimiento|INERCIA;Cambio de posición en el tiempo|VELOCIDAD;Unidad de fuerza|NEWTON;Distancia sobre tiempo al cuadrado|ACELERACION;Movimiento bajo solo gravedad|CAIDALIBRE;Satélite natural|LUNA;Atracción entre masas|GRAVITACION;Instrumento para medir peso|DINAMOMETRO;Donde vivimos|TIERRA;Cien décimas de metro|METRO]\n\n[ACTIVIDAD:CUADERNO:Diseña un cartel para el Sector 7 que explique a los supervivientes por qué la Luna no caerá, usando conceptos de velocidad y gravedad] [ACTIVIDAD:PLATAFORMA:¿Qué sucede con la fuerza de gravedad si la distancia entre dos cuerpos se triplica?|La fuerza se reduce a una novena parte (1/9)] [ACTIVIDAD:CUADERNO:Resume en tres frases por qué el mito de la caída de la luna es falso según lo aprendido]",
+  "icfes": [
+    {
+      "competencia": "Uso Comprensivo del Conocimiento Científico",
+      "texto_introductorio": "En una expedición al Sector Norte, un detective encuentra dos esferas de metal denso. La Esfera A tiene una masa de 100 kg y la Esfera B una masa de 400 kg. Están separadas por una distancia fija.",
+      "tabla_o_grafica_markdown": "| Cuerpo | Masa (kg) | Distancia a B (m) |\n|---|---|---|\n| Esfera A | 100 | r |\n| Esfera B | 400 | r |",
+      "pregunta": "¿Cómo es la fuerza que la Esfera A ejerce sobre la Esfera B en comparación con la fuerza que la B ejerce sobre la A?",
+      "opciones": [
+        "La fuerza de B sobre A es cuatro veces mayor porque tiene más masa.",
+        "La fuerza de A sobre B es cuatro veces mayor para compensar su menor masa.",
+        "Ambas fuerzas son iguales en magnitud pero opuestas en dirección, según la tercera ley de Newton y la ley de gravitación.",
+        "No existe fuerza de atracción porque son objetos inertes y no planetas."
+      ],
+      "correcta": 2,
+      "retroalimentacion": {
+        "0": "Incorrecto. La fuerza gravitatoria es mutua e igual para ambos cuerpos.",
+        "1": "Incorrecto. La masa menor no compensa la fuerza; la ley de gravitación calcula una única fuerza compartida.",
+        "2": "Correcto. Por la Ley de Gravitación Universal y la Tercera Ley de Newton, las fuerzas de acción y reacción son iguales en magnitud.",
+        "3": "Incorrecto. La gravedad actúa sobre toda pareja de cuerpos con masa."
+      }
+    },
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "Los científicos del búnker observan que un satélite de comunicaciones antiguo ha duplicado su distancia respecto al centro de la Tierra debido a una anomalía orbital.",
+      "tabla_o_grafica_markdown": "| Situación | Distancia | Fuerza Gravitacional |\n|---|---|---|\n| Inicial | R | F |\n| Final | 2R | ¿ ? |",
+      "pregunta": "¿Qué ocurre con la fuerza de atracción gravitacional sobre el satélite?",
+      "opciones": [
+        "Se reduce a la mitad (F/2).",
+        "Se reduce a la cuarta parte (F/4).",
+        "Se duplica (2F).",
+        "Se mantiene igual porque la masa no cambió."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. La relación es con el cuadrado de la distancia.",
+        "1": "Correcto. Al duplicar la distancia (2²), la fuerza se reduce por un factor de 4.",
+        "2": "Incorrecto. A mayor distancia, la fuerza debe disminuir, no aumentar.",
+        "3": "Incorrecto. La distancia es un factor crucial en la ley de gravitación."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "Un detective recupera un sensor que midió el peso de un objeto de 10 kg en diferentes regiones del sistema solar antes del Colapso.",
+      "tabla_o_grafica_markdown": "| Región | Masa del Objeto (kg) | Peso Medido (N) |\n|---|---|---|\n| Planeta X | 10 | 50 |\n| Planeta Y | 10 | 120 |\n| Planeta Z | 10 | 25 |",
+      "pregunta": "¿Cuál es la conclusión correcta sobre la gravedad en estas regiones basándose en los datos?",
+      "opciones": [
+        "La gravedad en el Planeta Y es la mayor de las tres regiones.",
+        "La gravedad en el Planeta Z es de 9.8 m/s².",
+        "La gravedad es la misma en todos, lo que cambia es el sensor.",
+        "El Planeta X tiene más masa que el Planeta Y."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. A mayor peso para la misma masa, mayor es la aceleración de la gravedad (g = P/m).",
+        "1": "Incorrecto. En Z, g = 25/10 = 2.5 m/s².",
+        "2": "Incorrecto. Los datos muestran pesos distintos, lo que implica gravedades distintas.",
+        "3": "No se puede concluir directamente sin conocer el radio de los planetas, pero los datos de peso apuntan a la intensidad del campo gravitatorio."
+      }
+    }
+  ]
+}

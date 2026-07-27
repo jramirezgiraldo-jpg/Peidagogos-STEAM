@@ -1,0 +1,114 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "Si lanzas una piedra en el vacío del espacio, lejos de cualquier planeta, ¿qué crees que pasará con su movimiento?",
+      "opciones": [
+        "Se detendrá inmediatamente por falta de aire.",
+        "Seguirá moviéndose en línea recta a velocidad constante para siempre.",
+        "Dará vueltas en círculos automáticamente.",
+        "Explotará por la presión del vacío."
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Qué forma crees que tiene la trayectoria de la Tierra alrededor del Sol?",
+      "opciones": [
+        "Un cuadrado perfecto.",
+        "Un círculo exacto.",
+        "Una elipse (como un círculo estirado).",
+        "Una línea zigzagueante."
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "¿Por qué los astronautas flotan en la Estación Espacial Internacional?",
+      "opciones": [
+        "Porque no hay gravedad en el espacio.",
+        "Porque están en caída libre perpetua junto con la estación.",
+        "Porque usan trajes especiales magnéticos.",
+        "Porque el aire es muy denso allí arriba."
+      ],
+      "correcta": 1
+    }
+  ],
+  "texto_inductivo": "¡Saludos, cadetes del Páramo Estelar! Soy el Explorador X-7, y he recuperado estos archivos de una antigua base lunar. El mundo que conocieron nuestros ancestros ha cambiado, pero las leyes de los cielos siguen siendo las mismas. Para reconstruir nuestra red de satélites y encontrar un nuevo hogar, debemos dominar el movimiento planetario. ***¿Cómo podemos predecir la posición de un refugio orbital si las leyes que rigen su movimiento son invisibles ante nuestros ojos en medio del caos del fin del mundo?***\n\nPrimero, debemos entender que los planetas no vagan sin rumbo. Siguen caminos llamados órbitas. [JUEGO:ORDENAR_LETRAS:ORBITA] Imaginen una cuerda invisible que ata a la Tierra con el Sol. [JUEGO:ORDENAR_FRASE:LA TIERRA GIRA AL SOL] Johannes Kepler, un sabio de la antigüedad, descubrió que estas rutas no son círculos perfectos, sino elipses. [JUEGO:ORDENAR_LETRAS:ELIPSE] Una elipse tiene dos puntos especiales llamados focos. [JUEGO:ORDENAR_LETRAS:FOCO] En uno de ellos reside nuestro Sol. [JUEGO:ORDENAR_FRASE:EL SOL ESTA EN UN FOCO]\n\n<div style='background: #1a1a1a; padding: 20px; border: 2px solid #00ff00; border-radius: 10px; text-align: center;'>\n  <svg width='300' height='200' viewBox='0 0 300 200'>\n    <ellipse cx='150' cy='100' rx='120' ry='70' style='fill:none;stroke:#00ff00;stroke-width:3' />\n    <circle cx='100' cy='100' r='15' fill='yellow' />\n    <text x='85' y='130' fill='white' font-family='Arial' font-size='12'>Sol (Foco)</text>\n    <circle cx='270' cy='100' r='8' fill='#3366ff' />\n    <text x='240' y='130' fill='white' font-family='Arial' font-size='12'>Planeta</text>\n    <line x1='100' y1='100' x2='270' y2='100' stroke='gray' stroke-dasharray='4' />\n  </svg>\n  <p style='color: #00ff00; font-family: monospace;'>Esquema de Orbita Eliptica - Recuperado de Base Lunar Alpha</p>\n</div>\n\nPara sobrevivir, debemos mapear los astros. [JUEGO:SOPA_LETRAS:ASTRO,CIELO,MUNDO] El movimiento es constante y predecible. [JUEGO:ORDENAR_LETRAS:MOVIMIENTO] Kepler formuló leyes que nos dicen que cuando un planeta está cerca del sol, se mueve más rápido. [JUEGO:CRUCIGRAMA:Centro del sistema|SOL;Trayectoria curva|ORBITA] [JUEGO:SOPA_LETRAS:RUTAS,MAPA,VIAJE] Necesitamos captar las señales de radio antiguas para triangular nuestra posición. [JUEGO:SOPA_LETRAS:RADAR,ANTENA,SENAL] [JUEGO:ORDENAR_FRASE:KEPLER DESCUBRIO LAS LEYES] No podemos permitir que el polvo oscurezca nuestra visión. [JUEGO:SOPA_LETRAS:POLVO,GAS,FUEGO] [JUEGO:CRUCIGRAMA:Punto de la elipse|FOCO;Forma de la orbita|ELIPSE] La ciencia es nuestra única brújula en este sistema solar. [JUEGO:ORDENAR_LETRAS:SOLAR] [JUEGO:ORDENAR_FRASE:LAS ORBITAS SON ELIPTICAS] Debemos observar otros mundos para entender el nuestro. [JUEGO:SOPA_LETRAS:LUNA,MARTE,TIERRA] [JUEGO:CRUCIGRAMA:Primer ley|KEPLER;Fuerza invisible|GRAVEDAD] Cada astro tiene un periodo de rotación específico. [JUEGO:CRUCIGRAMA:Donde vivimos|TIERRA;Satélite natural|LUNA] [JUEGO:ORDENAR_FRASE:EL ESPACIO ES MUY OSCURO] La duración de un año depende de la distancia al Sol. [JUEGO:CRUCIGRAMA:Tiempo de un giro|PERIODO;Distancia recorrida|CAMINO]",
+  "recurso_visual": "| Característica | Órbita Circular (Teórica) | Órbita Elíptica (Real) |\n| :--- | :--- | :--- |\n| **Centro** | Un solo punto central | Dos focos (Sol en uno) |\n| **Distancia al Sol** | Siempre constante | Varía (Perihelio/Afelio) |\n| **Velocidad** | Constante | Cambia según la distancia |\n| **Científico** | Creencia Antigua | Johannes Kepler |",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "Según la narrativa, ¿qué forma tienen realmente las órbitas de los planetas?",
+      "respuesta_esperada": "Tienen forma de elipse, que es como un círculo estirado o achatado."
+    },
+    {
+      "pregunta": "¿En qué lugar de la elipse se encuentra el Sol?",
+      "respuesta_expected": "Se encuentra en uno de los puntos llamados focos."
+    },
+    {
+      "pregunta": "¿Qué sucede con la velocidad de un planeta cuando se acerca al Sol?",
+      "respuesta_esperada": "El planeta se mueve más rápido cuando está más cerca del Sol."
+    },
+    {
+      "pregunta": "¿Por qué es importante para un sobreviviente entender estas leyes?",
+      "respuesta_esperada": "Para predecir posiciones, reconstruir satélites y navegar en el espacio para sobrevivir."
+    },
+    {
+      "pregunta": "¿Quién fue el científico mencionado que descubrió estas leyes?",
+      "respuesta_esperada": "Johannes Kepler."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja una elipse en tu cuaderno marcando los dos focos y coloca al Sol en uno de ellos. Traza la ruta de un planeta.",
+    "Realiza un cuadro comparativo entre lo que se creía antes (órbitas circulares) y lo que Kepler descubrió (órbitas elípticas).",
+    "Escribe una reflexión de media página sobre cómo la ciencia ayuda a un explorador en un mundo sin tecnología moderna.",
+    "Representa gráficamente, mediante flechas de diferentes tamaños, cómo cambia la velocidad de un planeta en diferentes puntos de su órbita."
+  ],
+  "texto_deductivo": "Ahora que entendemos la forma del camino, debemos entender la fuerza que nos mantiene unidos: la Gravitación Universal. [JUEGO:ORDENAR_LETRAS:GRAVEDAD] Isaac Newton, otro gigante de la ciencia, dedujo que todos los cuerpos con masa se atraen. [JUEGO:ORDENAR_LETRAS:MASA] [JUEGO:ORDENAR_FRASE:LA MASA ATRAE LA MASA] Esta fuerza invisible es la que hace que la manzana caiga y que la Luna no salga disparada hacia el vacío. [JUEGO:ORDENAR_FRASE:NEWTON EXPLICO LA CAIDA]\n\n<div style='background: #000; border: 5px double #ff0000; padding: 15px; margin: 10px; color: #fff; font-family: sans-serif;'>\n  <h3 style='color: #ff4444;'>Ecuación de Supervivencia: Ley de Gravitación</h3>\n  <p style='font-size: 1.5rem; text-align: center;'>\n    F = G &middot; (m<sub>1</sub> &middot; m<sub>2</sub>) / r<sup>2</sup>\n  </p>\n  <table style='width: 100%; border-collapse: collapse; color: white;'>\n    <tr style='border-bottom: 1px solid red;'><td>F</td><td>Fuerza de atracción</td></tr>\n    <tr style='border-bottom: 1px solid red;'><td>m</td><td>Masa de los cuerpos</td></tr>\n    <tr style='border-bottom: 1px solid red;'><td>r</td><td>Distancia entre centros</td></tr>\n  </table>\n</div>\n\nCuanto más pesado sea un objeto, más fuerte tira de los demás. [JUEGO:ORDENAR_LETRAS:FUERZA] Pero si los objetos se alejan, la fuerza disminuye rápidamente. [JUEGO:ORDENAR_FRASE:MAS DISTANCIA MENOS FUERZA] [JUEGO:SOPA_LETRAS:VECTOR,SENTIDO,VALOR] La cinemática nos ayuda a describir este baile cósmico con tres conceptos clave: posición, velocidad y aceleración. [JUEGO:ORDENAR_LETRAS:VELOCIDAD] [JUEGO:ORDENAR_LETRAS:ACELERACION] [JUEGO:ORDENAR_FRASE:EL PESO ES UNA FUERZA] Un cambio en la dirección, aunque la rapidez sea la misma, implica una aceleración. [JUEGO:SOPA_LETRAS:CAIDA,LIBRE,SALTO] [JUEGO:CRUCIGRAMA:Cambio de posicion|MOVIMIENTO;Lugar ocupado|POSICION] En el espacio, sin aire que nos frene, la inercia es nuestra aliada. [JUEGO:SOPA_LETRAS:INERCIA,REPOSO,ACCION] [JUEGO:CRUCIGRAMA:Rapidez con direccion|VELOCIDAD;Cambio de velocidad|ACELERACION] [JUEGO:ORDENAR_FRASE:LA CIENCIA NOS SALVARA] Debemos calcular con precisión para que nuestras naves de escape no se pierdan. [JUEGO:SOPA_LETRAS:CIENCIA,DATOS,LOGICA] [JUEGO:CRUCIGRAMA:Unidad de fuerza|NEWTON;Atrae objetos|IMAN] Usamos metros y segundos para nuestras mediciones. [JUEGO:SOPA_LETRAS:KILOS,METROS,TIEMPO] [JUEGO:CRUCIGRAMA:Espacio vacio|VACIO;Sin aire|ATMOSFERA] Sin atmósfera que nos proteja, cada cálculo es vida o muerte. [JUEGO:CRUCIGRAMA:Energia solar|LUZ;Cuerpo celeste|PLANETA]",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "¿Qué dos factores determinan la fuerza de gravedad entre dos cuerpos?",
+      "respuesta_esperada": "La masa de los cuerpos y la distancia que los separa."
+    },
+    {
+      "pregunta": "¿Qué sucede con la fuerza de gravedad si alejamos dos objetos al doble de distancia?",
+      "respuesta_esperada": "La fuerza disminuye, específicamente se reduce a la cuarta parte según la ley del cuadrado inverso."
+    },
+    {
+      "pregunta": "En cinemática, ¿cómo se define la aceleración?",
+      "respuesta_esperada": "Como el cambio de velocidad en un periodo de tiempo determinado."
+    },
+    {
+      "pregunta": "¿Por qué un planeta que gira en círculo tiene aceleración si su rapidez es constante?",
+      "respuesta_esperada": "Porque su dirección está cambiando continuamente, y un cambio de dirección es un tipo de aceleración (centrípeta)."
+    },
+    {
+      "pregunta": "¿Quién propuso la Ley de Gravitación Universal?",
+      "respuesta_esperada": "Isaac Newton."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Dibuja un diagrama detallado que muestre la Tierra y la Luna, y usa vectores (flechas) para representar la fuerza de atracción mutua.",
+    "Elabora un mapa mental que conecte los conceptos de Masa, Distancia, Fuerza de Gravedad, Velocidad y Órbita.",
+    "Dibuja una escena post-apocalíptica donde un grupo de supervivientes usa una balanza para entender que su peso cambiaría en otro planeta.",
+    "Crea una infografía artesanal que explique la diferencia entre masa (cantidad de materia) y peso (fuerza de gravedad)."
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "Un grupo de exploradores encuentra una antigua tabla con datos sobre la gravedad en diferentes sectores del sistema solar diezmado.",
+      "tabla_o_grafica_markdown": "| Planeta/Sector | Masa (Relativa a Tierra) | Radio (Relativo a Tierra) | Gravedad (m/s²) |\n| :--- | :--- | :--- | :--- |\n| Tierra Antigua | 1.0 | 1.0 | 9.8 |\n| Marte Rojo | 0.11 | 0.53 | 3.7 |\n| Júpiter Oscuro | 318.0 | 11.2 | 24.8 |",
+      "pregunta": "Si un explorador necesita saltar un muro de 3 metros para escapar de una tormenta de arena, ¿en qué lugar le resultaría más fácil realizar esta hazaña basándose en la gravedad?",
+      "opciones": [
+        "En Marte Rojo, porque la gravedad es menor y su peso disminuye.",
+        "En Júpiter Oscuro, porque hay más fuerza para impulsarse.",
+        "En la Tierra Antigua, porque es el lugar de origen humano.",
+        "En todos los lugares es igual de difícil porque la masa del explorador no cambia."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. A menor gravedad, menor es la fuerza que tira del explorador hacia abajo, permitiéndole saltar más alto con el mismo esfuerzo.",
+        "1": "Incorrecto. En Júpiter la gravedad es mucho mayor, lo que haría que el explorador se sintiera mucho más pesado y difícilmente pudiera saltar.",
+        "2": "Incorrecto. La facilidad para saltar depende de la física local (gravedad), no de la historia del lugar.",
+        "3": "Incorrecto. Aunque la masa no cambia, el peso (fuerza de gravedad) sí varía, afectando la capacidad de salto."
+      }
+    }
+  ]
+}

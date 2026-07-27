@@ -1,0 +1,105 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "Si vas sentado sin moverte en un Jeep Willys en movimiento por las calles de Montenegro, ¿te estás moviendo?",
+      "opciones": [
+        "No, porque tu cuerpo está completamente quieto en el asiento.",
+        "Sí, porque la Tierra gira alrededor del Sol.",
+        "Depende de tu punto de referencia: estás quieto respecto al chofer, pero en movimiento respecto a la carretera.",
+        "Sí, porque siempre nos estamos moviendo sin importar el punto de referencia."
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "¿Cuál es la diferencia más notable entre caminar en el patio de la IE Instituto Montenegro y flotar en la Estación Espacial Internacional (ISS)?",
+      "opciones": [
+        "En la ISS no hay aire para respirar en ninguna parte.",
+        "En la ISS la gravedad es casi nula (microgravedad), lo que hace que los objetos floten y no caigan al suelo en línea recta.",
+        "En Montenegro el tiempo pasa el doble de rápido.",
+        "En el espacio la luz no se propaga y todo está siempre oscuro."
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "Si dibujas el camino que recorre una hormiga sobre una mesa desde que sale de su nido hasta que encuentra una miga de pan, estás dibujando su:",
+      "opciones": [
+        "Velocidad",
+        "Fuerza",
+        "Trayectoria",
+        "Tiempo de viaje"
+      ],
+      "correcta": 2
+    }
+  ],
+  "texto_inductivo": "# ¡Bitácora del Explorador Espacial: El Misterio de la Cúpula! \n\n¡Hola, valientes cadetes y futuros astrofísicos de la **IE Instituto Montenegro**! Bienvenidos a bordo de la Estación Espacial Internacional (ISS). Les habla el Comandante de la misión. Hoy nos enfrentamos a un misterio científico en nuestro módulo de observación más espectacular: la Cúpula. \n\n***¿Cómo es posible que el recorrido de un Jeep Willys por las empinadas calles de Montenegro y la misteriosa ruta flotante de una burbuja de jugo en la Estación Espacial Internacional se puedan describir exactamente con las mismas reglas de la física?***\n\nAquí arriba, las cosas se mueven de formas muy extrañas. Ayer, mientras desayunaba, una burbuja de jugo de naranja se escapó de mi bolsa de alimentos. En lugar de caer al suelo como lo haría en el patio de su colegio en Quindío, la burbuja comenzó a flotar perezosamente por toda la cabina, dibujando un camino curvo y caprichoso en el aire antes de chocar contra el panel de control.\n\nPara resolver este misterio y aprender a describir cómo se mueven las cosas, primero debemos calentar nuestros cerebros espaciales con unos pequeños desafíos de entrenamiento:\n\n[JUEGO:ORDENAR_LETRAS:POSICION]\n\n[JUEGO:ORDENAR_LETRAS:TRAYECTORIA]\n\n<div style='text-align: center; margin: 20px 0;'>\n  <svg viewBox='0 0 500 250' width='100%' style='background-color:#0d1117; border-radius:8px;'>\n    <defs>\n      <pattern id='grid1' width='25' height='25' patternUnits='userSpaceOnUse'>\n        <path d='M 25 0 L 0 0 0 25' fill='none' stroke='#21262d' stroke-width='1'/>\n      </pattern>\n    </defs>\n    <rect width='100%' height='100%' fill='#0d1117'/>\n    <rect width='100%' height='100%' fill='url(#grid1)'/>\n    <circle cx='250' cy='125' r='100' fill='none' stroke='#30363d' stroke-width='4' stroke-dasharray='10,10'/>\n    <path d='M 100 180 Q 150 50 250 150 T 400 80' fill='none' stroke='#ff7b72' stroke-width='3' stroke-dasharray='5,5'/>\n    <circle cx='100' cy='180' r='8' fill='#58a6ff'/>\n    <text x='85' y='205' fill='#58a6ff' font-family='sans-serif' font-size='12' font-weight='bold'>Inicio (A)</text>\n    <circle cx='250' cy='150' r='12' fill='#ff9e3b' opacity='0.8'/>\n    <circle cx='246' cy='146' r='4' fill='#fff' opacity='0.6'/>\n    <text x='230' y='180' fill='#ff9e3b' font-family='sans-serif' font-size='12'>Burbuja de Jugo</text>\n    <circle cx='400' cy='80' r='8' fill='#3fb950'/>\n    <text x='385' y='65' fill='#3fb950' font-family='sans-serif' font-size='12' font-weight='bold'>Final (B)</text>\n    <text x='130' y='30' fill='#c9d1d9' font-family='sans-serif' font-size='14' font-weight='bold'>Ruta del Fenómeno Extraño en la ISS</text>\n  </svg>\n</div>\n\n¿Vieron la línea de puntos que dejó nuestra burbuja en el mapa de arriba? Ese camino que dibuja un cuerpo al moverse es lo que llamamos en física la **trayectoria**. ¡Pero ojo! Para saber si se está moviendo, primero necesitamos definir desde dónde la estamos mirando.\n\nDemuestren su agilidad mental ordenando las siguientes ideas espaciales:\n\n[JUEGO:ORDENAR_FRASE:LA POSICION DEPENDE DEL OBSERVADOR]\n\n[JUEGO:ORDENAR_FRASE:LA TRAYECTORIA ES EL CAMINO RECORRIDO]\n\n¡Excelente! Ahora, busquemos algunas palabras clave que se han escondido en los sistemas de comunicación de la ISS. ¿Podrán encontrarlas?\n\n[JUEGO:SOPA_LETRAS:FISICA,ESPACIO,RUTA]\n\n[JUEGO:SOPA_LETRAS:PUNTO,LINEA,ORBITA]\n\nPara cerrar esta fase de reconocimiento de nuestra misión, descifren este criptograma de comunicaciones antes de pasar a la teoría formal:\n\n[JUEGO:CRUCIGRAMA:Lugar que ocupa un objeto|POSICION;Camino seguido por un movil|TRAYECTORIA]\n\n[JUEGO:CRUCIGRAMA:Punto de partida|ORIGEN;Unidad de medida de distancia|METRO]",
+  "recurso_visual": "| Variable Cinemática | Definición Terrestre (IE Instituto Montenegro) | Definición Espacial (ISS) | ¿Cómo se mide? |\n| :--- | :--- | :--- | :--- |\n| **Punto de Referencia** | La entrada principal del colegio o la plaza de Montenegro. | El centro de mandos de la Cúpula de la ISS. | Coordenadas $(x, y)$ |\n| **Posición** | El salón de sexto grado ubicado a 30 metros del patio de entrada. | La burbuja de jugo flotando a 2 metros del computador principal. | Metros (m) desde el origen |\n| **Trayectoria** | El camino curvo que toma el Willys esquivando baches en la vía a la vereda. | La curva flotante tridimensional descrita por la burbuja. | Dibujo de la ruta o línea de movimiento |",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "¿Por qué crees que la burbuja de jugo no cayó directamente al suelo dentro de la ISS como lo haría un vaso de jugo derramado en Montenegro?",
+      "respuesta_esperada": "Porque en la ISS las condiciones de caída libre constante crean un estado de microgravedad, lo que hace que los objetos parezcan flotar y mantengan su movimiento sin ser atraídos fuertemente hacia un 'suelo' de referencia inmediata."
+    },
+    {
+      "pregunta": "Si nos quedamos completamente inmóviles dentro de la ISS, ¿cómo describiría nuestra posición un habitante de Montenegro que nos observa con un telescopio superpotente?",
+      "respuesta_esperada": "Nos describiría en constante movimiento a gran velocidad (unos 27,600 km/h), ya que la estación completa está orbitando alrededor de la Tierra."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja en tu cuaderno una comparación entre la trayectoria de un balón de fútbol pateado en la cancha de tu colegio y la trayectoria del mismo balón pateado con la misma fuerza dentro de la ISS.",
+    "Escribe un breve diario de navegación espacial (de 5 renglones) imaginando que eres el copiloto de un Jeep Willys volador que viaja desde la IE Instituto Montenegro hasta la Luna. Define cuál sería tu punto de referencia inicial."
+  ],
+  "texto_deductivo": "# La Física detrás del Misterio: Posición, Trayectoria y Sistemas de Referencia\n\n¡Atención, tripulación! Ahora que hemos observado el comportamiento de nuestro misterioso fenómeno, es hora de analizarlo con la rigurosidad de un verdadero científico espacial. \n\nPara describir científicamente el movimiento de cualquier objeto (ya sea el Jeep Willys de Montenegro o nuestra burbuja flotante), la física utiliza tres herramientas fundamentales llamadas **Variables Cinemáticas**:\n\n1. **Punto de Referencia:** Es el lugar físico que elegimos como 'cero' para empezar a medir. Si no elegimos un punto de referencia, es imposible decir si algo se mueve o no.\n2. **Posición ($r$):** Es la ubicación exacta de un objeto en un momento determinado con respecto al punto de referencia.\n3. **Trayectoria:** Es la línea imaginaria que une todos los puntos por los que pasa el objeto durante su movimiento. Puede ser rectilínea (en línea recta) o curvilínea (curvada, circular o elíptica).\n\nPara fijar estos conceptos en nuestros ordenadores de a bordo, completemos los siguientes retos de codificación:\n\n[JUEGO:ORDENAR_LETRAS:ORIGEN]\n\n[JUEGO:ORDENAR_LETRAS:DISTANCIA]\n\n[JUEGO:ORDENAR_LETRAS:MOVIMIENTO]\n\n<div style='text-align: center; margin: 20px 0;'>\n  <svg viewBox='0 0 500 250' width='100%' style='background-color:#0d1117; border-radius:8px;'>\n    <rect width='100%' height='100%' fill='#0d1117'/>\n    <line x1='50' y1='200' x2='450' y2='200' stroke='#8b949e' stroke-width='2'/>\n    <line x1='50' y1='50' x2='50' y2='220' stroke='#8b949e' stroke-width='2'/>\n    <text x='430' y='220' fill='#8b949e' font-family='sans-serif' font-size='11'>Eje X (Metros)</text>\n    <text x='20' y='45' fill='#8b949e' font-family='sans-serif' font-size='11'>Eje Y</text>\n    <circle cx='50' cy='200' r='6' fill='#ff7b72'/>\n    <text x='40' y='215' fill='#ff7b72' font-family='sans-serif' font-size='10' font-weight='bold'>Referencia (0,0)</text>\n    <path d='M 120 150 C 180 50, 300 50, 400 150' fill='none' stroke='#ff9e3b' stroke-width='3'/>\n    <text x='220' y='80' fill='#ff9e3b' font-family='sans-serif' font-size='12'>Trayectoria (Camino Real)</text>\n    <line x1='120' y1='150' x2='400' y2='150' stroke='#58a6ff' stroke-width='3' stroke-dasharray='5,5'/>\n    <polygon points='395,145 405,150 395,155' fill='#58a6ff'/>\n    <text x='210' y='170' fill='#58a6ff' font-family='sans-serif' font-size='12'>Desplazamiento (Línea Recta)</text>\n    <circle cx='120' cy='150' r='6' fill='#fff'/>\n    <text x='110' y='140' fill='#fff' font-family='sans-serif' font-size='12'>A (Inicio)</text>\n    <circle cx='400' cy='150' r='6' fill='#fff'/>\n    <text x='390' y='140' fill='#fff' font-family='sans-serif' font-size='12'>B (Fin)</text>\n  </svg>\n</div>\n\nExiste una gran diferencia entre la **Trayectoria** (el camino con curvas que recorre la burbuja de jugo) y el **Desplazamiento** (la flecha directa que va desde donde inició hasta donde terminó).\n\nOrdenemos las siguientes afirmaciones de nuestros manuales de astrofísica:\n\n[JUEGO:ORDENAR_FRASE:TODO MOVIMIENTO TIENE UN PUNTO DE REFERENCIA]\n\n[JUEGO:ORDENAR_FRASE:EL ESPACIO ES ALUCINANTE Y DIVERTIDO]\n\n[JUEGO:ORDENAR_FRASE:MEDIMOS LA DISTANCIA EN METROS]\n\nSincronicemos los comunicadores con una búsqueda rápida de frecuencias:\n\n[JUEGO:SOPA_LETRAS:METRO,TIEMPO,MOVIL]\n\n[JUEGO:SOPA_LETRAS:SISTEMA,MARCO,COORDENADA]\n\n[JUEGO:SOPA_LETRAS:GRAVEDAD,FLOTAR,VECTOR]\n\nFinalmente, asegurémonos de que el procesador central comprenda perfectamente los términos clave antes del examen final:\n\n[JUEGO:CRUCIGRAMA:Objeto que se mueve|MOVIL;Ausencia de peso aparente|MICROGRAVEDAD]\n\n[JUEGO:CRUCIGRAMA:Cambio de posicion|MOVIMIENTO;Fuerza que nos atrae al suelo|GRAVEDAD]\n\n[JUEGO:CRUCIGRAMA:Estacion Espacial Internacional|ISS;Linea recta entre dos puntos|DESPLAZAMIENTO]",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "¿Cuál es la diferencia fundamental entre trayectoria y desplazamiento?",
+      "respuesta_esperada": "La trayectoria es todo el camino recorrido por el móvil (con curvas, desvíos y giros), mientras que el desplazamiento es únicamente la línea recta y la distancia directa medida desde el punto inicial hasta el punto final."
+    },
+    {
+      "pregunta": "Si un Jeep Willys viaja de Montenegro a Armenia recorriendo 10 km por una carretera con muchas curvas, pero en línea recta la distancia es de solo 6 km, ¿cuánto vale su distancia recorrida y cuánto su desplazamiento?",
+      "respuesta_esperada": "La distancia recorrida (trayectoria) es de 10 km, y el desplazamiento (línea recta) es de 6 km."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Un astronauta da 3 vueltas completas alrededor de la ISS flotando y regresa exactamente al mismo punto donde empezó. Explica en tu cuaderno por qué su trayectoria fue muy larga pero su desplazamiento final fue de cero metros.",
+    "Crea un plano cartesiano simple en tu cuaderno donde el punto (0,0) sea la puerta de tu salón en el Instituto Montenegro. Dibuja la trayectoria de un estudiante que va a la cafetería y regresa."
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de fenómenos",
+      "texto_introductorio": "Durante una misión científica en la ISS, los astronautas observan un comportamiento curioso. Un astronauta de pie dentro del módulo espacial suelta una bola de metal. Para él, la bola no cae al suelo; se queda flotando en la misma posición relativa a su mano. Sin embargo, un telescopio de la IE Instituto Montenegro observa la estación pasar rápidamente por el cielo.",
+      "tabla_o_grafica_markdown": "| Observador | Punto de Referencia | Movimiento de la Bola Detectado |\n| :--- | :--- | :--- |\n| Astronauta | Cabina del Módulo | En reposo (sin movimiento) |\n| Estudiante en Tierra | El Municipio de Montenegro | Movimiento rápido orbital |\n",
+      "pregunta": "¿Cuál de las siguientes afirmaciones explica correctamente por qué ambos observadores tienen razón respecto al movimiento de la bola?",
+      "opciones": [
+        "El movimiento es absoluto; la bola realmente está en movimiento porque la Tierra siempre se mueve.",
+        "El astronauta se equivoca porque está sometido a una ilusión óptica en el espacio.",
+        "El movimiento es relativo y depende completamente del sistema de referencia seleccionado por cada observador.",
+        "El estudiante se equivoca porque la ISS está demasiado lejos para ver si la bola se mueve."
+      ],
+      "correcta": 2,
+      "retroalimentacion": {
+        "0": "Incorrecto. En física clásica, el movimiento no es absoluto sino relativo; requiere siempre de un marco de referencia.",
+        "1": "Incorrecto. El astronauta no sufre una ilusión; respecto a la cabina, la bola verdaderamente mantiene una posición fija.",
+        "2": "¡Correcto! Ambos observadores tienen razón porque el movimiento depende del punto de referencia. Respecto a la ISS, la bola está quieta; respecto a la Tierra, se mueve con la velocidad de la órbita de la estación.",
+        "3": "Incorrecto. La distancia no invalida la realidad de la cinemática del satélite observado desde la Tierra."
+      }
+    },
+    {
+      "competencia": "Uso comprensivo del conocimiento científico",
+      "texto_introductorio": "Un Jeep Willys sale de la plaza principal de Montenegro con destino a una finca cafetera. Debido a la geografía montañosa del Quindío, el vehículo debe seguir una carretera llena de curvas para llegar a su destino, como se representa en el siguiente mapa cinemático.",
+      "tabla_o_grafica_markdown": "\n[Plaza de Montenegro]  ~~~~~ (Carretera Curva: 8 km) ~~~~~> [Finca Cafetera]\n  |                                                                   ^\n  +----------------- (Línea Recta Directa: 3 km) ---------------------+\n",
+      "pregunta": "Con base en la información del mapa, los valores correctos para la distancia recorrida (trayectoria) y la magnitud del desplazamiento del Willys son, respectivamente:",
+      "opciones": [
+        "Distancia recorrida = 3 km; Desplazamiento = 8 km.",
+        "Distancia recorrida = 8 km; Desplazamiento = 3 km.",
+        "Distancia recorrida = 11 km; Desplazamiento = 5 km.",
+        "Distancia recorrida = 8 km; Desplazamiento = 8 km."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. Has confundido los términos; la distancia recorrida es la longitud del camino real y el desplazamiento es la línea recta.",
+        "1": "¡Correcto! La distancia recorrida corresponde a la longitud de la trayectoria (carretera real de 8 km), mientras que la magnitud del desplazamiento es la medida de la línea recta de inicio a fin (3 km).",
+        "2": "Incorrecto. Estos valores no corresponden a las medidas de los caminos dados en el mapa cinemático.",
+        "3": "Incorrecto. La distancia recorrida y el desplazamiento solo serían iguales si el camino hubiera sido una línea completamente recta."
+      }
+    }
+  ]
+}

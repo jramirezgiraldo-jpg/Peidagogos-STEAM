@@ -1,0 +1,114 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "Si estás perdido en la selva y observas que un planeta se mueve más rápido en un punto de su trayectoria que en otro, ¿qué podrías deducir sobre su órbita?",
+      "opciones": [
+        "Que la órbita es un círculo perfecto.",
+        "Que se encuentra más cerca del Sol en ese momento.",
+        "Que la gravedad del planeta está disminuyendo.",
+        "Que el planeta está perdiendo masa."
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Qué fuerza es la responsable de que los planetas no salgan disparados en línea recta a través del espacio?",
+      "opciones": [
+        "Fuerza Electromagnética.",
+        "Fuerza de Fricción Espacial.",
+        "Fuerza de Gravitación Universal.",
+        "Fuerza de Empuje Térmico."
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "En el contexto de la cinemática, ¿qué representa la aceleración de un cuerpo celeste?",
+      "opciones": [
+        "La distancia total recorrida.",
+        "La posición exacta en el cielo.",
+        "El cambio de la velocidad respecto al tiempo.",
+        "La masa del cuerpo multiplicada por su brillo."
+      ],
+      "correcta": 2
+    }
+  ],
+  "texto_inductivo": "### El Diario del Astrónomo Perdido\n\n¡Atención, equipo de expedición! Soy el Detective de Misterios y hemos encontrado un refugio abandonado en el corazón de la Amazonía. Entre los restos, hay un diario que describe cómo antiguos exploradores usaban el movimiento de los astros para no perecer. Pero hay un problema: el diario está codificado. ***¿Cómo es posible que el mismo orden matemático que rige el baile de los planetas en el cosmos sea nuestra única herramienta para calcular una ruta de escape en medio de esta selva impenetrable?***\n\nPara sobrevivir, debemos entender que el cielo no es un caos. Los planetas siguen patrones estrictos. [JUEGO:ORDENAR_LETRAS:PLANETA] Johannes Kepler, un detective del cielo antes que yo, descubrió que las órbitas no son círculos, sino elipses. [JUEGO:ORDENAR_FRASE:LOS PLANETAS SE MUEVEN EN ELIPSES] \n\n<div style=\"text-align:center; background-color:#f0f7f4; padding:20px; border:2px solid #2d5a27; border-radius:15px;\">\n<svg width=\"300\" height=\"150\" viewBox=\"0 0 300 150\">\n  <ellipse cx=\"150\" cy=\"75\" rx=\"120\" ry=\"60\" style=\"fill:none;stroke:#2d5a27;stroke-width:2\" />\n  <circle cx=\"100\" cy=\"75\" r=\"10\" fill=\"#ffcc00\" />\n  <text x=\"90\" y=\"60\" font-family=\"Arial\" font-size=\"12\" fill=\"#000\">Sol (Foco)</text>\n  <circle cx=\"270\" cy=\"75\" r=\"5\" fill=\"#3366ff\" />\n  <text x=\"240\" y=\"95\" font-family=\"Arial\" font-size=\"12\" fill=\"#000\">Planeta</text>\n  <line x1=\"100\" y1=\"75\" x2=\"270\" y2=\"75\" stroke=\"red\" stroke-dasharray=\"4\" />\n</svg>\n<p><i>Diagrama 1: Órbita Elíptica y el Sol en uno de los focos.</i></p>\n</div>\n\nObserven la órbita. [JUEGO:SOPA_LETRAS:KEPLER,SOL,FOCO] Cuando el planeta está más cerca del Sol, su velocidad aumenta para barrer áreas iguales en tiempos iguales. [JUEGO:CRUCIGRAMA:Trayectoria cerrada|ELIPSE;Estrella central|SOL] Esto es vital: si podemos medir el tiempo que tarda un astro en cruzar cierta región del cielo selvático, sabremos nuestra posición relativa. [JUEGO:ORDENAR_LETRAS:ORBITA] \n\nEl misterio se profundiza al notar que el periodo de un planeta depende de su distancia media al Sol. [JUEGO:ORDENAR_FRASE:EL SOL ESTA EN UN FOCO] Si no comprendemos esta relación, nuestras mediciones de tiempo en la selva serán erróneas. [JUEGO:SOPA_LETRAS:ELIPSE,ORBITA,RADIO] \n\n<table style=\"width:100%; border-collapse: collapse; margin: 20px 0; font-family: sans-serif;\">\n  <tr style=\"background-color: #2d5a27; color: white;\">\n    <th style=\"border: 1px solid #ddd; padding: 8px;\">Ley de Kepler</th>\n    <th style=\"border: 1px solid #ddd; padding: 8px;\">Nombre</th>\n    <th style=\"border: 1px solid #ddd; padding: 8px;\">Significado de Supervivencia</th>\n  </tr>\n  <tr>\n    <td style=\"border: 1px solid #ddd; padding: 8px;\">1ª Ley</td>\n    <td style=\"border: 1px solid #ddd; padding: 8px;\">Órbitas</td>\n    <td style=\"border: 1px solid #ddd; padding: 8px;\">Saber que el camino no es una línea recta.</td>\n  </tr>\n  <tr style=\"background-color: #f2f2f2;\">\n    <td style=\"border: 1px solid #ddd; padding: 8px;\">2ª Ley</td>\n    <td style=\"border: 1px solid #ddd; padding: 8px;\">Áreas</td>\n    <td style=\"border: 1px solid #ddd; padding: 8px;\">Calcular la velocidad según la cercanía al centro.</td>\n  </tr>\n  <tr>\n    <td style=\"border: 1px solid #ddd; padding: 8px;\">3ª Ley</td>\n    <td style=\"border: 1px solid #ddd; padding: 8px;\">Periodos</td>\n    <td style=\"border: 1px solid #ddd; padding: 8px;\">Predecir ciclos de luz y oscuridad.</td>\n  </tr>\n</table>\n\n¿Lo ven? El cielo es un mapa de engranajes. [JUEGO:ORDENAR_LETRAS:ELIPSE] Si una pieza falla, nos perdemos. [JUEGO:ORDENAR_FRASE:AREAS IGUALES EN TIEMPOS IGUALES] Necesitamos descifrar el ritmo de los astros para orientar nuestra brújula científica. [JUEGO:SOPA_LETRAS:PERIODO,AREA,TIEMPO] \n\n[JUEGO:CRUCIGRAMA:Punto de orbita|FOCO;Tiempo de giro|PERIODO] El tercer secreto de Kepler nos dice que el cuadrado del periodo orbital es proporcional al cubo de la distancia media. [JUEGO:ORDENAR_LETRAS:FOCO] Es una relación geométrica perfecta. [JUEGO:ORDENAR_FRASE:LA TIERRA GIRA HACIA EL ESTE] \n\n[JUEGO:SOPA_LETRAS:ASTRO,MASA,CIELO] Finalmente, para salir de aquí, debemos recordar que la cinemática estudia el movimiento sin preocuparse por las causas (por ahora). [JUEGO:CRUCIGRAMA:Cientifico aleman|KEPLER;Ruta espacial|ORBITA] Pero en la selva, la causa de nuestra salvación es el conocimiento. [JUEGO:ORDENAR_LETRAS:PERIODO] La posición del planeta en el cielo es nuestra coordenada X. [JUEGO:ORDENAR_FRASE:EL CIELO ES NUESTRO MAPA] [JUEGO:SOPA_LETRAS:MAPA,RUTA,NUBES] [JUEGO:CRUCIGRAMA:Centro de masa|SOL;Forma de huevo|ELIPSE]",
+  "recurso_visual": "graph TD\n    A[Movimiento Planetario] --> B[Leyes de Kepler]\n    B --> C[1. Orbitas Elípticas]\n    B --> D[2. Áreas Iguales]\n    B --> E[3. Ley de los Periodos]\n    C --> F[Posición Variable]\n    D --> G[Velocidad Variable]\n    E --> H[Cálculo de Distancia]",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "¿Por qué es incorrecto decir que los planetas se mueven en círculos perfectos?",
+      "pregunta_esperada": "Porque según la primera ley de Kepler, las órbitas son elípticas, lo que implica que la distancia entre el planeta y el Sol cambia constantemente."
+    },
+    {
+      "pregunta": "Si un planeta está en su 'perihelio' (punto más cercano al Sol), ¿cómo es su velocidad comparada con el resto de la órbita?",
+      "pregunta_esperada": "Su velocidad es máxima en ese punto para cumplir con la segunda ley de Kepler (barrer áreas iguales en tiempos iguales)."
+    },
+    {
+      "pregunta": "¿Qué relación establece la tercera ley de Kepler entre el tiempo y la distancia?",
+      "pregunta_esperada": "Establece que cuanto más lejos está un planeta del Sol, más tiempo tarda en completar una órbita (T² es proporcional a a³)."
+    },
+    {
+      "pregunta": "¿Cómo ayuda el concepto de foco a entender la posición del Sol?",
+      "pregunta_esperada": "El Sol no está en el centro de la elipse, sino desplazado hacia uno de los focos, lo que genera la asimetría en la distancia orbital."
+    },
+    {
+      "pregunta": "En términos de supervivencia, ¿para qué sirve conocer el periodo orbital de un astro?",
+      "pregunta_esperada": "Sirve para predecir eventos astronómicos cíclicos que permitan la navegación y la gestión del tiempo de la expedición."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema de una órbita elíptica, marcando el Sol en uno de los focos y sombreando dos 'sectores de área' que representen tiempos iguales de recorrido.",
+    "Realiza un cuadro comparativo entre el modelo geocéntrico (la Tierra en el centro) y el heliocéntrico (basado en las leyes de Kepler).",
+    "Escribe una reflexión de 10 líneas sobre cómo la precisión matemática de Kepler cambió la forma en que los humanos entendemos nuestra posición en el universo.",
+    "Representa gráficamente mediante un diagrama de barras cómo cambiaría la velocidad de un planeta en cuatro puntos diferentes de su órbita elíptica."
+  ],
+  "texto_deductivo": "### El Código de Newton y la Gravedad Selvática\n\nHemos avanzado, pero la selva nos pone una trampa física: la gravedad. No basta con saber *cómo* se mueven los planetas; necesitamos saber *por qué*. [JUEGO:ORDENAR_LETRAS:FUERZA] Isaac Newton, el detective supremo, descubrió que una fuerza invisible nos mantiene unidos al suelo y a los planetas en sus rutas. [JUEGO:ORDENAR_FRASE:LA GRAVEDAD ATRAE LAS MASAS] \n\nLa Ley de Gravitación Universal dice que la fuerza es proporcional al producto de las masas e inversamente proporcional al cuadrado de la distancia. [JUEGO:SOPA_LETRAS:NEWTON,PESO,CAIDA] Si la masa de la Tierra cambiara, nuestra capacidad para saltar obstáculos en la selva sería distinta. [JUEGO:CRUCIGRAMA:Atraccion mutua|GRAVEDAD;Cientifico ingles|NEWTON] \n\n<div style=\"border: 3px dashed #8b4513; padding: 15px; background-color: #fff8dc;\">\n<p style=\"font-family: 'Courier New', Courier, monospace; font-weight: bold; color: #8b4513;\">\nF = G * (m1 * m2) / r²\n</p>\n<hr>\n<p><b>F:</b> Fuerza de atracción (Newtons)<br>\n<b>G:</b> Constante universal<br>\n<b>m:</b> Masas involucradas<br>\n<b>r:</b> Distancia que las separa</p>\n</div>\n\n[JUEGO:ORDENAR_LETRAS:GRAVEDAD] La cinemática entra en juego cuando analizamos la aceleración. [JUEGO:ORDENAR_FRASE:NEWTON DESCUBRIO LA LEY] Un objeto que cae en la selva acelera a 9.8 m/s². [JUEGO:SOPA_LETRAS:MASA,FUERZA,LEYES] Si lanzamos una bengala de auxilio, su posición y velocidad dependerán totalmente de esta aceleración constante. [JUEGO:CRUCIGRAMA:Cantidad de materia|MASA;Cambio de velocidad|ACELERACION] \n\nPara calcular nuestra salida, debemos considerar que la Tierra es un sistema de referencia. [JUEGO:ORDENAR_LETRAS:MASA] La velocidad es el cambio de posición. [JUEGO:ORDENAR_FRASE:LA FUERZA DISMINUYE CON LA DISTANCIA] Si nuestra velocidad de escape es nula, nos quedaremos atrapados bajo el follaje para siempre. [JUEGO:SOPA_LETRAS:INERCIA,ACCION,VACIO] \n\n<svg width=\"400\" height=\"100\">\n  <rect width=\"400\" height=\"100\" style=\"fill:#eef\" />\n  <circle cx=\"50\" cy=\"50\" r=\"20\" fill=\"brown\" />\n  <circle cx=\"350\" cy=\"50\" r=\"10\" fill=\"gray\" />\n  <line x1=\"70\" y1=\"50\" x2=\"150\" y2=\"50\" stroke=\"black\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"330\" y1=\"50\" x2=\"250\" y2=\"50\" stroke=\"black\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" />\n    </marker>\n  </defs>\n  <text x=\"160\" y=\"45\" font-size=\"12\">Fuerza Gravitacional (Atractiva)</text>\n</svg>\n\n[JUEGO:ORDENAR_LETRAS:DISTANCIA] El movimiento planetario es, en esencia, una caída libre perpetua. [JUEGO:ORDENAR_FRASE:LA ACELERACION DEPENDE DE LA FUERZA] La Luna cae hacia la Tierra, pero su velocidad lateral es tan alta que nunca choca. [JUEGO:SOPA_LETRAS:GRAVEDAD,DISTANCIA,CONSTANTE] [JUEGO:CRUCIGRAMA:Resistencia al cambio|INERCIA;Vuelo de planeta|ORBITA] \n\n[JUEGO:ORDENAR_LETRAS:ACELERACION] Entender la cinemática del cielo nos permite entender la dinámica de la Tierra. [JUEGO:ORDENAR_FRASE:TODO CUERPO SE ATRAE] Sin estas leyes, la física sería un misterio sin resolver, y nosotros, simples exploradores perdidos. [JUEGO:SOPA_LETRAS:VECTOR,VALOR,RITMO] [JUEGO:CRUCIGRAMA:Espacio entre cuerpos|DISTANCIA;Unidad de fuerza|NEWTON]",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "Si duplicamos la distancia entre dos astros, ¿qué sucede con la fuerza de atracción entre ellos?",
+      "pregunta_esperada": "La fuerza se reduce a la cuarta parte (1/4), debido a que es inversamente proporcional al cuadrado de la distancia."
+    },
+    {
+      "pregunta": "¿Qué diferencia hay entre masa y peso en el contexto de un viaje a otro planeta?",
+      "pregunta_esperada": "La masa es la cantidad de materia y no cambia; el peso es la fuerza gravitacional ejercida sobre esa masa y varía según la gravedad del planeta."
+    },
+    {
+      "pregunta": "¿Por qué un planeta en órbita no cae directamente hacia el Sol a pesar de la gravedad?",
+      "pregunta_esperada": "Porque posee una velocidad tangencial (cinemática) suficiente que compensa la atracción gravitatoria, manteniéndolo en órbita constante."
+    },
+    {
+      "pregunta": "En términos de cinemática, ¿qué le ocurre a la aceleración de un cuerpo si la fuerza neta sobre él se triplica?",
+      "pregunta_esperada": "Según la segunda ley de Newton, la aceleración también se triplicaría, ya que son directamente proporcionales."
+    },
+    {
+      "pregunta": "¿Cómo define la gravitación universal la relación entre la masa de los objetos y la fuerza?",
+      "pregunta_esperada": "Define que a mayor masa de los cuerpos, mayor será la fuerza de atracción entre ellos de forma directamente proporcional."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Realiza un diagrama detallado que muestre un objeto en la selva (una mochila) y todas las fuerzas vectoriales que actúan sobre ella (peso, normal, etc.).",
+    "Elabora un mapa mental que conecte los conceptos de Cinemática (Posición, Velocidad, Aceleración) con las causas explicadas por la Dinámica (Fuerza, Masa).",
+    "Dibuja una escena de la expedición donde se aplique la Ley de Gravitación para resolver un problema (ej. usar una polea o predecir la caída de un fruto).",
+    "Crea una infografía artesanal en tu cuaderno sobre Isaac Newton, destacando la fórmula de la gravitación y su aplicación en el movimiento de los planetas."
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "En la selva, un grupo de científicos observa que un satélite artificial parece moverse más lento cuando se aleja de la Tierra hacia una órbita más alta. Analizan los siguientes datos:",
+      "tabla_o_grafica_markdown": "| Altitud (km) | Velocidad Orbital (km/s) | Fuerza Gravitacional (N) |\n|---|---|---|\n| 500 | 7.6 | 8900 |\n| 1000 | 7.3 | 7500 |\n| 2000 | 6.9 | 5600 |",
+      "pregunta": "Basándose en las leyes de Newton y Kepler, ¿cuál es la razón científica por la cual la velocidad disminuye al aumentar la altitud?",
+      "opciones": [
+        "A mayor distancia, la fuerza de atracción gravitacional disminuye, requiriendo menos velocidad para mantener el equilibrio orbital.",
+        "La fricción con el aire en la selva frena al satélite cuando intenta subir.",
+        "La masa del satélite disminuye a medida que se aleja del centro de la Tierra.",
+        "El tiempo se detiene en órbitas más altas, haciendo que parezca más lento."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. Al aumentar la distancia (r), la fuerza gravitatoria disminuye (Ley de Newton) y, por tanto, la velocidad necesaria para mantener la órbita es menor.",
+        "1": "Incorrecto. A esas altitudes (500 km o más) la resistencia del aire es prácticamente nula.",
+        "2": "Incorrecto. La masa es una propiedad intrínseca y no cambia con la altitud.",
+        "3": "Incorrecto. Aunque existe la dilatación temporal, no explica el cambio de velocidad orbital en este contexto clásico."
+      }
+    }
+  ]
+}

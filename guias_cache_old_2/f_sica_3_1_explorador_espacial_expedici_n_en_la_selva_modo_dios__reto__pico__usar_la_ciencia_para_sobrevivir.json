@@ -1,0 +1,96 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Cuál de las siguientes afirmaciones describe mejor la forma de las órbitas planetarias según Johannes Kepler?",
+      "opciones": [
+        "Círculos perfectos con el Sol en el centro.",
+        "Elipses con el Sol en uno de los focos.",
+        "Espirales que se acercan gradualmente al Sol.",
+        "Líneas rectas que cambian de dirección bruscamente."
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Qué fuerza es responsable de mantener a los planetas en su órbita alrededor del Sol?",
+      "opciones": [
+        "Fuerza Electromagnética",
+        "Fuerza Nuclear Fuerte",
+        "Fuerza de Gravedad",
+        "Fuerza de Fricción Espacial"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "Si un planeta se encuentra en su 'perihelio', ¿qué podemos decir sobre su distancia al Sol?",
+      "opciones": [
+        "Está en el punto más lejano.",
+        "Está en el punto más cercano.",
+        "Está a la misma distancia que en el afelio.",
+        "Se ha detenido por completo."
+      ],
+      "correcta": 1
+    }
+  ],
+  "texto_inductivo": "¡Saludos, cadetes de la expedición! Soy su Comandante de Exploración Espacial. Hemos aterrizado de emergencia en la **Selva de Xylos-4**, un mundo denso y peligroso. Para encontrar nuestra baliza de rescate, debemos entender cómo se mueve este planeta y los astros que lo rodean. Nuestra supervivencia depende de la precisión científica. ***¿Cómo puede el conocimiento de las leyes de Kepler y el movimiento planetario darnos la clave para predecir los ciclos de luz y sombra en esta selva hostil y asegurar nuestro escape?***\n\nPrimero, debemos observar el cielo de Xylos-4. Los planetas no vagan al azar; siguen leyes matemáticas estrictas descubiertas por Johannes Kepler. [JUEGO:ORDENAR_LETRAS:KEPLER] La primera ley nos dice que las órbitas no son círculos, sino elipses. [ACTIVIDAD:PLATAFORMA:¿Cuál es la forma de la órbita de un planeta según la primera ley de Kepler?|Elíptica] \n\n<div style='background-color: #0b3d91; padding: 20px; border-radius: 15px; border: 2px solid #ffffff; color: white; text-align: center;'>\n  <h3 style='color: #ffcc00;'>Diagrama de la Órbita Elíptica</h3>\n  <svg viewBox='0 0 200 100' xmlns='http://www.w3.org/2000/svg'>\n    <ellipse cx='100' cy='50' rx='80' ry='40' style='fill:none;stroke:white;stroke-width:2' />\n    <circle cx='60' cy='50' r='8' style='fill:yellow' />\n    <text x='55' y='65' fill='yellow' font-size='8'>Sol (Foco)</text>\n    <circle cx='180' cy='50' r='4' style='fill:cyan' />\n    <text x='150' y='45' fill='cyan' font-size='8'>Xylos-4</text>\n  </svg>\n  <p>En una elipse, el Sol ocupa uno de los dos focos.</p>\n</div>\n\n[ACTIVIDAD:CUADERNO:Dibuja una elipse en tu cuaderno marcando los dos focos y la posición del Sol en uno de ellos.]\n\nLa segunda ley nos habla de la velocidad. Un planeta barre áreas iguales en tiempos iguales. [JUEGO:ORDENAR_FRASE:AREAS IGUALES EN TIEMPOS IGUALES] Esto significa que cuando Xylos-4 está cerca de su estrella, se mueve más rápido. [ACTIVIDAD:PLATAFORMA:¿En qué punto de la órbita se mueve más rápido un planeta?|En el perihelio] [JUEGO:ORDENAR_LETRAS:ELIPSE] \n\n| Ley de Kepler | Nombre | Descripción |\n| :--- | :--- | :--- |\n| Primera | Ley de las Órbitas | Los planetas se mueven en elipses con el Sol en un foco. |\n| Segunda | Ley de las Áreas | El radio vector barre áreas iguales en tiempos iguales. |\n| Tercera | Ley de los Periodos | El cuadrado del periodo es proporcional al cubo de la distancia media. |\n\n[ACTIVIDAD:CUADERNO:Copia la tabla de las leyes de Kepler y explica con tus palabras qué significa que un planeta 'barra áreas iguales'.]\n\nFinalmente, la tercera ley nos permite calcular cuánto dura un año en este planeta. [JUEGO:ORDENAR_FRASE:EL SOL ESTA EN UN FOCO] [JUEGO:ORDENAR_LETRAS:ORBITA] [ACTIVIDAD:PLATAFORMA:¿Qué relación matemática establece la tercera ley de Kepler?|El cuadrado del periodo es proporcional al cubo de la distancia media]\n\n[ACTIVIDAD:CUADERNO:Calcula: Si un planeta está a 4 unidades astronómicas del Sol, ¿cuánto dura su periodo orbital en años terrestres? (Usa T²=R³)]\n\nNecesitamos identificar los elementos clave del terreno. [JUEGO:SOPA_LETRAS:GRAVEDAD,KEPLER,ELIPSE,FOCO,PERIODO,AFELIO,PERIHELIO,PLANETA,ORBITA,ESPACIO]\n\nPara avanzar, resuelve este enigma de supervivencia: [JUEGO:CRUCIGRAMA:Punto más alejado del Sol|AFELIO;Científico que formuló las leyes del movimiento planetario|KEPLER;Forma geométrica de la órbita|ELIPSE;Punto más cercano al Sol|PERIHELIO;Tiempo que tarda un planeta en dar una vuelta|PERIODO;Fuerza que mantiene los planetas unidos al Sol|GRAVEDAD;Unidad de medida de distancia en el espacio|UA;Segunda ley trata sobre áreas...|IGUALES;Lugar donde se ubica el sol en la elipse|FOCO;Cuerpo celeste que orbita una estrella|PLANETA]\n\n[ACTIVIDAD:PLATAFORMA:Si el periodo orbital de Xylos-4 aumenta, ¿qué sucede con su distancia media al Sol?|Aumenta] [JUEGO:ORDENAR_FRASE:LOS PLANETAS SE MUEVEN EN ELIPSES] [ACTIVIDAD:PLATAFORMA:¿Cómo se llama el punto de la órbita más alejado de la estrella?|Afelio] [ACTIVIDAD:CUADERNO:Realiza un cuadro comparativo entre el Perihelio y el Afelio, indicando distancia y velocidad relativa.]",
+  "recurso_visual": "graph TD\n    A[Movimiento Planetario] --> B[1ra Ley: Órbitas Elípticas]\n    A --> C[2da Ley: Áreas Iguales - Velocidad Variable]\n    A --> D[3ra Ley: T^2 proporcional a R^3]\n    B --> B1[Sol en un Foco]\n    C --> C1[Más rápido en Perihelio]\n    D --> D1[Relaciona Tiempo y Distancia]",
+  "texto_deductivo": "¡Excelente trabajo, equipo! Hemos descifrado las rutas celestes. Pero para salir de esta selva, debemos entender la fuerza invisible que tira de nosotros hacia el suelo y de los planetas hacia su estrella: La Gravedad. Isaac Newton, inspirado por el trabajo de Kepler, unificó el cielo y la tierra. [JUEGO:ORDENAR_LETRAS:NEWTON] \n\nLa Ley de Gravitación Universal nos dice que la fuerza depende de las masas y la distancia. [ACTIVIDAD:PLATAFORMA:¿De qué dos factores depende la fuerza de gravedad?|Masa y distancia] [JUEGO:ORDENAR_FRASE:LA GRAVEDAD ATRAE LA MATERIA]\n\n<div style='background-color: #1a1a1a; padding: 20px; border: 3px solid #00ff00; font-family: monospace; color: #00ff00; text-align: center;'>\n  <span style='font-size: 2rem;'>F = G * (m₁ * m₂) / r²</span>\n  <p>Donde F es la Fuerza, G es la constante universal, m son las masas y r es la distancia.</p>\n</div>\n\n[ACTIVIDAD:CUADERNO:Escribe la fórmula de gravitación universal y define qué significa cada letra.]\n\nPara movernos por la selva, usamos la Cinemática. Debemos conocer nuestra **posición**, **velocidad** y **aceleración**. [JUEGO:ORDENAR_LETRAS:FUERZA] La aceleración en Xylos-4 es diferente a la de la Tierra. [ACTIVIDAD:PLATAFORMA:¿Cómo se define la aceleración en física?|Cambio de velocidad en el tiempo]\n\n| Concepto | Definición | Símbolo |\n| :--- | :--- | :--- |\n| Posición | Ubicación en el espacio | x |\n| Velocidad | Cambio de posición por tiempo | v |\n| Aceleración | Cambio de velocidad por tiempo | a |\n\n[ACTIVIDAD:CUADERNO:Dibuja un mapa de la selva y traza un vector de posición desde nuestro campamento hasta la baliza de rescate.]\n\n[JUEGO:ORDENAR_FRASE:VELOCIDAD ES CAMBIO DE POSICION] [JUEGO:ORDENAR_LETRAS:INERCIA] La inercia es la resistencia al cambio. Si nuestra nave no aplica fuerza, no cambiará su estado de movimiento. [ACTIVIDAD:PLATAFORMA:¿Qué ley de Newton se relaciona con la inercia?|Primera Ley de Newton]\n\nBusca las herramientas ocultas en la maleza: [JUEGO:SOPA_LETRAS:NEWTON,MASA,FUERZA,DISTANCIA,INERCIA,VELOCIDAD,TIEMPO,POSICION,ACELERACION,FISICA]\n\nDesbloquea el código de despegue: [JUEGO:CRUCIGRAMA:Fuerza que atrae los cuerpos|GRAVEDAD;Resistencia al cambio de movimiento|INERCIA;Magnitud que mide la rapidez y dirección|VELOCIDAD;Lugar que ocupa un cuerpo|POSICION;Científico de la manzana|NEWTON;Unidad de fuerza|NEWTON;Cambio de velocidad|ACELERACION;Cantidad de materia|MASA;Espacio entre dos puntos|DISTANCIA;Lo que se opone al movimiento|FRICCION]\n\n[ACTIVIDAD:PLATAFORMA:Si la distancia entre dos cuerpos se duplica, ¿qué pasa con la fuerza de gravedad?|Se reduce a la cuarta parte] [JUEGO:ORDENAR_FRASE:ACCION REACCION EN EL ESPACIO] [ACTIVIDAD:PLATAFORMA:¿Cuál es la unidad de medida de la aceleración en el SI?|m/s^2] [ACTIVIDAD:CUADERNO:Realiza un mapa mental que conecte la Gravedad de Newton con las leyes de Kepler.]\n\n[ACTIVIDAD:PLATAFORMA:¿Qué sucede con la velocidad de un objeto si su aceleración es cero?|Se mantiene constante] [ACTIVIDAD:CUADERNO:Diseña un gráfico de Velocidad vs Tiempo para un objeto que se mueve a velocidad constante en la selva.]",
+  "icfes": [
+    {
+      "competencia": "Uso Comprensivo del Conocimiento Científico",
+      "texto_introductorio": "Durante la exploración, observamos que Xylos-4 tiene una órbita muy elíptica. Un científico del equipo presenta los siguientes datos sobre la velocidad del planeta en diferentes puntos de su órbita:",
+      "tabla_o_grafica_markdown": "| Punto | Distancia al Sol (UA) | Velocidad (km/s) |\n|---|---|---|\n| A | 0.8 | 45 |\n| B | 1.5 | 24 |\n| C | 2.1 | 18 |",
+      "pregunta": "¿Cuál de las leyes de Kepler explica por qué la velocidad es mayor en el Punto A?",
+      "opciones": [
+        "La Primera Ley, porque el Sol está en un foco.",
+        "La Segunda Ley, porque el radio vector debe barrer áreas iguales en tiempos iguales.",
+        "La Tercera Ley, porque el periodo depende de la distancia media.",
+        "La Ley de Gravitación, porque la masa del planeta no cambia."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. La primera ley describe la forma de la órbita, no la variación de la velocidad.",
+        "1": "Correcto. La segunda ley de Kepler implica que para barrer áreas iguales, el planeta debe ir más rápido cuando está más cerca del sol.",
+        "2": "Incorrecto. La tercera ley relaciona periodos y distancias medias de diferentes planetas.",
+        "3": "Incorrecto. Aunque la gravedad es la causa, la ley de Kepler que describe específicamente este fenómeno cinemático es la segunda."
+      }
+    },
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "Al intentar despegar de la selva, notamos que la gravedad de Xylos-4 es mayor que la de la Tierra. Si la masa de Xylos-4 es el doble que la de la Tierra y su radio es el mismo:",
+      "tabla_o_grafica_markdown": "| Planeta | Masa (M_tierra) | Radio (R_tierra) |\n|---|---|---|\n| Tierra | 1 | 1 |\n| Xylos-4 | 2 | 1 |",
+      "pregunta": "¿Cómo afectará esto al peso de un astronauta de 80 kg en la superficie de Xylos-4?",
+      "opciones": [
+        "Su peso será el mismo que en la Tierra.",
+        "Su peso será la mitad que en la Tierra.",
+        "Su peso será el doble que en la Tierra.",
+        "Su peso será cuatro veces mayor que en la Tierra."
+      ],
+      "correcta": 2,
+      "retroalimentacion": {
+        "0": "Incorrecto. Al cambiar la masa del planeta, la fuerza de atracción cambia.",
+        "1": "Incorrecto. Esto sucedería si la masa fuera la mitad o el radio fuera mayor.",
+        "2": "Correcto. Según la ley de Newton, la fuerza es directamente proporcional a la masa del planeta.",
+        "3": "Incorrecto. Esto ocurriría si el radio fuera la mitad del de la Tierra (debido al cuadrado de la distancia)."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "Un grupo de estudiantes observa el movimiento de un pequeño robot explorador en línea recta a través de un claro de la selva. Registran los siguientes datos de posición y tiempo:",
+      "tabla_o_grafica_markdown": "| Tiempo (s) | Posición (m) |\n|---|---|\n| 0 | 0 |\n| 1 | 2 |\n| 2 | 4 |\n| 3 | 6 |",
+      "pregunta": "¿Qué hipótesis describe mejor el movimiento del robot basándose en los datos?",
+      "opciones": [
+        "El robot tiene una aceleración constante de 2 m/s².",
+        "El robot se mueve con velocidad constante de 2 m/s.",
+        "El robot está en reposo.",
+        "El robot está frenando gradualmente."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. Si tuviera aceleración, la posición no aumentaría de forma lineal.",
+        "1": "Correcto. El cambio de posición es de 2 metros por cada segundo constante, lo que define una velocidad constante.",
+        "2": "Incorrecto. Su posición cambia en cada intervalo de tiempo.",
+        "3": "Incorrecto. No hay evidencia de que la distancia recorrida por segundo esté disminuyendo."
+      }
+    }
+  ]
+}

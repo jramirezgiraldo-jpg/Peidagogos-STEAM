@@ -1,0 +1,96 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "Un explorador en la Tierra observa que la Luna tarda aproximadamente 27.3 días en dar una vuelta completa alrededor de nuestro planeta. ¿Qué magnitud física describe este intervalo de tiempo?",
+      "opciones": [
+        "Periodo orbital",
+        "Frecuencia angular",
+        "Aceleración tangencial",
+        "Velocidad lineal"
+      ],
+      "correcta": 0
+    },
+    {
+      "pregunta": "Si la masa de una nave espacial en la selva de un exoplaneta se duplica, ¿qué ocurre con la fuerza de atracción gravitacional ejercida por el planeta sobre la nave?",
+      "opciones": [
+        "Se reduce a la mitad",
+        "Se mantiene igual",
+        "Se duplica",
+        "Se cuadruplica"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "Según la primera ley de Kepler, las órbitas de los cuerpos celestes alrededor de una estrella no son círculos perfectos, sino:",
+      "opciones": [
+        "Parábolas abiertas",
+        "Elipses con la estrella en uno de sus focos",
+        "Líneas espirales descendentes",
+        "Hipérbolas parabólicas"
+      ],
+      "correcta": 1
+    }
+  ],
+  "texto_inductivo": "# Bitácora de Campo: Expedición a la Selva de Xylos Prime\n\n***¿Cómo puede el análisis cinemático y gravitacional de la órbita de un planeta alienígena explicar las drásticas variaciones del clima y los hábitos nocturnos de las especies bioluminiscentes en la selva de Xylos Prime?***\n\n¡Atención, cadetes de la flota exploradora! Les habla el Comandante de la Expedición Astronómica en el planeta **Xylos Prime**. Nos encontramos sumergidos en una selva denso-bioluminiscente rodeada de vegetación gigante y criaturas exóticas. [JUEGO:ORDENAR_LETRAS:ORBITA] Durante nuestro patrullaje aéreo, el escáner de telemetría de nuestra nave descendió para registrar las variaciones de luminosidad del sol primario, *Xylos Alpha*. Hemos descubierto una anomalía perturbadora: la velocidad a la que la selva pasa del día a la noche cambia radicalmente según la época del año alienígena.\n\n<div style=\"display:flex; justify-content:center; margin:20px 0;\"><svg width=\"350\" height=\"180\" style=\"background:#0b132b; border-radius:10px;\"><ellipse cx=\"175\" cy=\"90\" rx=\"140\" ry=\"60\" fill=\"none\" stroke=\"#4cc9f0\" stroke-width=\"2\" stroke-dasharray=\"5,5\"/><circle cx=\"110\" cy=\"90\" r=\"18\" fill=\"#ffbe0b\"/><text x=\"102\" y=\"60\" fill=\"#ffbe0b\" font-size=\"12\" font-family=\"sans-serif\">Xylos Alpha (Foco)</text><circle cx=\"315\" cy=\"90\" r=\"10\" fill=\"#06d6a0\"/><text x=\"290\" y=\"120\" fill=\"#06d6a0\" font-size=\"12\" font-family=\"sans-serif\">Xylos Prime (Planeta)</text><line x1=\"110\" y1=\"90\" x2=\"315\" y2=\"90\" stroke=\"#ef476f\" stroke-width=\"2\"/><text x=\"190\" y=\"85\" fill=\"#ef476f\" font-size=\"11\" font-family=\"sans-serif\">Afelio (Lento)</text></svg></div>\n\n[ACTIVIDAD:PLATAFORMA:¿Qué forma geométrica describe la órbita de Xylos?|Una elipse con la estrella en uno de sus focos]\n\nAl medir el movimiento del planeta alrededor de su estrella focal, confirmamos que el planeta describe una trayectoria elíptica. [JUEGO:ORDENAR_LETRAS:ELIPSE] Cuando Xylos Prime transita por el punto de máxima cercanía a *Xylos Alpha* (denominado **perihelio**), la selva experimenta un calor sofocante y un desplazamiento orbital extremadamente veloz. [ACTIVIDAD:CUADERNO:Dibuja un esquema de la órbita elíptica marcando el Perihelio, Afelio y los Focos]\n\n[JUEGO:ORDENAR_FRASE:LA GRAVEDAD MANTIENE LOS PLANETAS EN SU ORBITA]\n\nPor el contrario, cuando la expedición se adentra en la fase lejana (denominada **afelio**), las sombras selváticas se congelan durante semanas terrestres y el planeta parece desacelerar bruscamente. [JUEGO:ORDENAR_LETRAS:GRAVEDAD] Esta variación constante del vector velocidad es la manifestación directa de la **Segunda Ley de Kepler**: el radio vector que une al planeta con la estrella barre áreas iguales en tiempos iguales. [ACTIVIDAD:PLATAFORMA:¿Por qué cambia la velocidad orbital de un planeta según Kepler?|Porque barre áreas iguales en tiempos iguales, acelerando cerca del foco]\n\n<div style=\"background-color:#1c2541; padding:15px; border-radius:8px; border-left:5px solid #4cc9f0; margin:15px 0;\"><h4 style=\"color:#4cc9f0; margin:0 0 10px 0;\">Registro Bioclimático de la Selva</h4><table style=\"width:100%; color:white; font-family:sans-serif; border-collapse:collapse;\"><tr style=\"border-bottom:1px solid #3a506b;\"><th style=\"padding:8px; text-align:left;\">Posición Orbital</th><th style=\"padding:8px; text-align:left;\">Distancia a la Estrella</th><th style=\"padding:8px; text-align:left;\">Velocidad Tangencial</th><th style=\"padding:8px; text-align:left;\">Efecto en la Selva</th></tr><tr style=\"border-bottom:1px solid #3a506b;\"><td style=\"padding:8px;\">Perihelio</td><td style=\"padding:8px;\">0.8 UA</td><td style=\"padding:8px;\">42 km/s</td><td style=\"padding:8px;\">Días ultrarápidos, alta actividad depredadora</td></tr><tr><td style=\"padding:8px;\">Afelio</td><td style=\"padding:8px;\">1.4 UA</td><td style=\"padding:8px;\">24 km/s</td><td style=\"padding:8px;\">Noches prolongadas, hibernación bioluminiscente</td></tr></table></div>\n\n[ACTIVIDAD:PLATAFORMA:¿Cómo influye la distancia a la estrella en el periodo orbital?|A mayor distancia orbital, el periodo orbital es mayor]\n\n[JUEGO:ORDENAR_FRASE:KEPLER EXPLICA EL MOVIMIENTO PLANETARIO SEGUN TRES LEYES]\n\n[ACTIVIDAD:CUADERNO:Crea un cuadro comparativo entre el modelo geocéntrico y el modelo heliocéntrico]\n\nPara comprender este extraño fenómeno, debemos recordar cómo los científicos primitivos de la Tierra pasaron del modelo geocéntrico al heliocéntrico. Sir Isaac Newton más tarde unificó las observaciones de Kepler demostrando que la causa de este baile orbital es la **Fuerza Gravitacional**. [ACTIVIDAD:PLATAFORMA:¿Quién unificó las leyes empíricas de Kepler con la mecánica de fuerzas?|Isaac Newton]\n\n[JUEGO:ORDENAR_FRASE:EN EL PERIHELIO LA VELOCIDAD DE UN PLANETA ES MAXIMA]\n\n[ACTIVIDAD:PLATAFORMA:¿Qué ocurre con la atracción gravitacional al duplicar la distancia?|Se reduce a la cuarta parte según la ley del cuadrado inverso]\n\n[ACTIVIDAD:CUADERNO:Diseña un mapa mental sobre las tres Leyes de Kepler aplicadas al planeta Xylos]\n\n[ACTIVIDAD:CUADERNO:Representa vectorialmente la aceleración centripeta y la velocidad tangencial de un planeta en su órbita]\n\n[JUEGO:SOPA_LETRAS:ORBITA,ELIPSE,FOCO,PERIHELIO,AFELIO,KEPLER,NEWTON,GRAVEDAD,MASA,PERIODO]\n\n[JUEGO:CRUCIGRAMA:Punto mas cercano al sol|PERIHELIO;Punto mas lejano al sol|AFELIO;Forma de la orbita planetaria|ELIPSE;Cientifico de las tres leyes|KEPLER;Fuerza de atraccion entre masas|GRAVEDAD;Cientifico de la gravitacion universal|NEWTON;Tiempo en dar una vuelta|PERIODO;Distancia del centro a la curva|RADIO;Fuerza centrípeta en orbita|GRAVITACIONAL;Magnitud de desplazamiento por tiempo|VELOCIDAD]",
+  "recurso_visual": "| Ley Orbital | Enunciado Científico | Manifestación en la Selva de Xylos Prime |\n|---|---|---|\n| **1ª Ley (Órbitas Elípticas)** | Los planetas se mueven en elipses con la estrella en uno de sus focos. | Variación de la distancia planetaria generando estaciones extremas. |\n| **2ª Ley (Áreas Iguales)** | El radio vector barre áreas iguales en tiempos iguales ($dA/dt = Constante$). | Velocidad acelerada en el perihelio (días cortos) y reducida en el afelio (noches largas). |\n| **3ª Ley (Periodo y Distancia)** | El cuadrado del periodo orbital es proporcional al cubo del semieje mayor ($T^2 = K \\cdot a^3$). | Planetas selváticos más alejados tardan años terrestres completos en completar su ciclo. |",
+  "texto_deductivo": "# Análisis Físico-Deductivo: Mecánica Orbital y Leyes Universales\n\nPara justificar cuantitativamente el extraño fenómeno bioclimático que observamos desde nuestro campamento base en la selva alienígena, debemos recurrir a la formulación rigurosa de la física clásica. [JUEGO:ORDENAR_LETRAS:ACELERACION] La masa de la estrella *Xylos Alpha* ($M$) deforma el espacio-tiempo e impone una fuerza central sobre la masa de Xylos Prime ($m$).\n\n<div style=\"display:flex; justify-content:center; margin:20px 0;\"><svg width=\"380\" height=\"150\" style=\"background:#0f172a; border-radius:10px;\"><circle cx=\"70\" cy=\"75\" r=\"25\" fill=\"#f59e0b\"/><text x=\"58\" y=\"80\" fill=\"#ffffff\" font-weight=\"bold\">M</text><circle cx=\"280\" cy=\"75\" r=\"12\" fill=\"#10b981\"/><text x=\"276\" y=\"79\" fill=\"#ffffff\" font-weight=\"bold\" font-size=\"10\">m</text><line x1=\"95\" y1=\"75\" x2=\"268\" y2=\"75\" stroke=\"#94a3b8\" stroke-width=\"2\" stroke-dasharray=\"4\"/><text x=\"175\" y=\"65\" fill=\"#94a3b8\" font-size=\"12\" font-family=\"sans-serif\">r</text><path d=\"M 268 75 L 210 75\" stroke=\"#ef476f\" stroke-width=\"3\" marker-end=\"url(#arrow)\"/><text x=\"220\" y=\"95\" fill=\"#ef476f\" font-size=\"12\" font-family=\"sans-serif\">Fg (Atracción)</text><path d=\"M 280 63 L 280 20\" stroke=\"#3b82f6\" stroke-width=\"3\"/><text x=\"290\" y=\"40\" fill=\"#3b82f6\" font-size=\"12\" font-family=\"sans-serif\">v (Tangencial)</text></svg></div>\n\n[ACTIVIDAD:PLATAFORMA:¿Cuál es la fórmula de la Ley de Gravitación Universal de Newton?|F = G * (m1 * m2) / r^2]\n\nLa **Ley de Gravitación Universal** se expresa matemáticamente como:\n\n$$F_g = G \\frac{M \\cdot m}{r^2}$$\n\nEsta fuerza actúa como una **fuerza centrípeta** ($F_c = m \\cdot a_c$), obligando al planeta a cambiar continuamente la dirección de su vector velocidad. [JUEGO:ORDENAR_LETRAS:CENTRIPETA] Puesto que la trayectoria es una elipse, la aceleración no es puramente radial fuera de los ápices, lo que genera componentes de aceleración tangencial que aumentan o disminuyen el módulo de la velocidad. [ACTIVIDAD:PLATAFORMA:¿Qué fuerza actúa como fuerza centrípeta en el movimiento planetario?|La fuerza de atracción gravitacional]\n\n[JUEGO:ORDENAR_FRASE:LA FUERZA GRAVITATORIA PROPORCIONA LA ACELERACION CENTRIPETA]\n\n[ACTIVIDAD:CUADERNO:Escribe la demostración matemática paso a paso de la tercera ley de Kepler combinando Newton y fuerza centrípeta]\n\nAl igualar la fuerza gravitatoria con la fuerza centrípeta en una órbita circular simplificada de radio $r$:\n\n$$G \\frac{M \\cdot m}{r^2} = m \\frac{v^2}{r} \\implies v = \\sqrt{\\frac{G \\cdot M}{r}}$$\n\nEsta deducción demuestra que a menor distancia $r$, la velocidad orbital $v$ debe ser necesariamente mayor para evitar el colapso sobre la estrella. [ACTIVIDAD:PLATAFORMA:¿Por qué un planeta no cae directamente hacia su estrella?|Por su velocidad tangencial e inercia que contrarrestan la atracción gravitacional]\n\n[JUEGO:ORDENAR_LETRAS:INERCIA]\n\n[JUEGO:ORDENAR_FRASE:EL CUADRADO DEL PERIODO ES PROPORCIONAL AL CUBO DEL RADIO]\n\n<div style=\"background-color:#0f172a; border:1px solid #334155; padding:15px; border-radius:8px; margin:15px 0;\"><p style=\"color:#38bdf8; font-weight:bold; margin:0 0 8px 0;\">Demostración de la 3ra Ley de Kepler:</p><p style=\"color:#e2e8f0; font-family:monospace; margin:0;\">Como v = (2 * π * r) / T, sustituyendo en la ecuación orbital:<br/>(2 * π * r / T)² = G * M / r<br/>4 * π² * r² / T² = G * M / r<br/><b>T² = (4 * π² / (G * M)) * r³</b></p></div>\n\n[ACTIVIDAD:PLATAFORMA:¿Qué representa la constante K en la tercera ley de Kepler T^2 = K * r^3?|K es igual a 4*pi^2 / (G*M)]\n\n[ACTIVIDAD:CUADERNO:Dibuja los vectores de velocidad y fuerza en el perihelio y afelio observados en la selva alienígena]\n\nAdemás, la conservación del **momento angular** ($L = m \\cdot v \\cdot r \\cdot \\sin\\theta$) exige que cuando el radio disminuye, la velocidad aumente obligatoriamente. [ACTIVIDAD:PLATAFORMA:¿Qué ley física fundamenta matemáticamente la Segunda Ley de Kepler?|La conservación del momento angular]\n\n[JUEGO:ORDENAR_FRASE:LAS AREAS BARREDAS SON IGUALES EN TIEMPOS IGUALES]\n\n[ACTIVIDAD:CUADERNO:Elabora una tabla resumen con la constante G, unidades de medida y variables orbitales]\n\n[ACTIVIDAD:CUADERNO:Escribe una hipótesis científica para explicar la anomalía de aceleración en la selva de Xylos usando cinemática]\n\n[JUEGO:SOPA_LETRAS:VECTOR,ACELERACION,CENTRIPETA,INERCIA,CONSTANTE,TORQUE,MOMENTO,ANGULAR,ENERGIA,CINETICA]\n\n[JUEGO:CRUCIGRAMA:Aceleración dirigida hacia el centro|CENTRIPETA;Resistencia a cambiar el estado de movimiento|INERCIA;Conservación que explica la 2da ley|MOMENTOANGULAR;Unidad de fuerza en el SI|NEWTON;Fórmula GMm/r2|GRAVITACION;Magnitud vectorial del cambio de velocidad|ACELERACION;Energía asociada al movimiento orbital|CINETICA;Camino cerrado de un astro|ORBITA;Línea del foco al planeta|RADIOPOSICION;Cientifico que formalizo el momento angular|EULER]",
+  "icfes": [
+    {
+      "competencia": "Uso Comprensivo del Conocimiento Científico",
+      "texto_introductorio": "Durante la exploración cinemática de la selva de Xylos Prime, la sonda de telemetría recopiló datos astronómicos del movimiento del planeta alrededor de su estrella *Xylos Alpha*. Los científicos registraron los valores de la velocidad en cuatro puntos clave de la trayectoria orbital elíptica.",
+      "tabla_o_grafica_markdown": "| Punto de Registro | Distancia a la Estrella ($10^6$ km) | Velocidad Tangencial (km/s) |\n|---|---|---|\n| P1 | 120 | 45 |\n| P2 | 150 | 36 |\n| P3 | 180 | 30 |\n| P4 | 210 | 25 |",
+      "pregunta": "¿Cuál de las siguientes afirmaciones explica correctamente la relación cinemática y dinámica entre la distancia a la estrella y la velocidad tangencial observada en Xylos Prime?",
+      "opciones": [
+        "A medida que el planeta se aleja de la estrella, la fuerza de atracción gravitacional disminuye, reduciendo la aceleración centrípeta y disminuyendo la velocidad tangencial.",
+        "La velocidad del planeta aumenta a mayor distancia porque el área que debe barrer el vector de posición requiere mayor rapidez según Kepler.",
+        "La energía cinética se mantiene constante en toda la órbita sin importar la distancia, por lo que las variaciones de velocidad corresponden a la fricción de la selva.",
+        "La fuerza gravitacional permanece constante en toda la órbita, pero la aceleración tangencial se vuelve nula en los puntos lejanos."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "¡Correcto! Según la Ley de Gravitación Universal, a mayor distancia (r), la fuerza de atracción disminuye cuadráticamente. Esto reduce la velocidad orbital necesaria para mantener el equilibrio dinámico.",
+        "1": "Incorrecto. De acuerdo con la Segunda Ley de Kepler, al aumentar la distancia el planeta se mueve más lento, no más rápido.",
+        "2": "Incorrecto. La energía cinética no es constante; cambia a medida que la energía potencial gravitatoria se transforma durante la órbita elíptica.",
+        "3": "Incorrecto. La fuerza gravitacional no es constante; varía de forma inversamente proporcional al cuadrado de la distancia."
+      }
+    },
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "Los exploradores descubrieron que las especies vegetales de la selva bioluminiscente entran en un estado de 'dormancia fotosintética' únicamente cuando el planeta pasa por el afelio. Un grupo de estudiantes analiza este fenómeno relacionándolo con la Segunda Ley de Kepler.",
+      "tabla_o_grafica_markdown": "| Estado Planetario | Posición Orbital | Rapidez de Barrido de Área ($dA/dt$) | Duración del Período de Iluminación |\n|---|---|---|---|\n| Fase A | Perihelio | Constante ($K$) | Corta (Días acelerados) |\n| Fase B | Afelio | Constante ($K$) | Larga (Noches prolongadas) |",
+      "pregunta": "¿Qué hipótesis científica explica de forma consistente por qué la fase de 'dormancia fotosintética' dura más tiempo en la selva cuando el planeta se encuentra en el afelio?",
+      "opciones": [
+        "En el afelio, la velocidad angular y lineal del planeta es mínima, por lo que el planeta tarda más tiempo en recorrer ese tramo orbital, prolongando las condiciones climáticas de esa región.",
+        "En el afelio, el radio vector barre menos área en el mismo tiempo, haciendo que el planeta se detenga por completo sobre su eje de rotación.",
+        "La constante de Kepler disminuye drásticamente en el afelio, haciendo que la gravedad se anule y los ciclos de luz se detengan.",
+        "La aceleración centrípeta en el afelio es máxima, provocando que la estrella expulse menos energía hacia la selva alienígena."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "¡Correcto! Al estar más alejado (afelio), la velocidad tangencial del planeta es menor según la 2da ley de Kepler. Por ende, el planeta pasa más tiempo transitando esa sección de la órbita, extendiendo la duración del fenómeno climático.",
+        "1": "Incorrecto. El radio vector barre ÁREAS IGUALES en tiempos iguales; el planeta no se detiene sobre su eje.",
+        "2": "Incorrecto. La constante gravitacional y las leyes mecánicas no cambian ni anulan la gravedad en el afelio.",
+        "3": "Incorrecto. La aceleración centrípeta en el afelio es MÍNIMA, no máxima, debido a la mayor distancia."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "El equipo de astrónomos de la expedición desea determinar la masa de la estrella *Xylos Alpha* sin viajar hasta su centro. Para ello, midieron el semieje mayor ($r$) y el periodo orbital ($T$) de tres exoplanetas que orbitan el mismo sistema selvático.",
+      "tabla_o_grafica_markdown": "| Planeta Explorado | Semieje Mayor ($r$ en UA) | Periodo Orbital ($T$ en años terrestres) | $T^2 / r^3$ |\n|---|---|---|---|\n| Xylos Alpha-1 | 0.5 | 0.353 | 1.00 |\n| Xylos Prime | 1.0 | 1.000 | 1.00 |\n| Xylos Alpha-3 | 2.0 | 2.828 | 1.00 |",
+      "pregunta": "Si los exploradores descubren un cuarto planeta selvático situado a una distancia de $r = 4.0\\text{ UA}$ de la estrella, ¿cuál será su periodo orbital estimado basándose en el patrón de la Tercera Ley de Kepler demostrado en la tabla?",
+      "opciones": [
+        "8.0 años terrestres",
+        "16.0 años terrestres",
+        "4.0 años terrestres",
+        "64.0 años terrestres"
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "¡Correcto! Según la relación $T^2 / r^3 = 1.0$, si $r = 4.0$, entonces $r^3 = 64$. Por lo tanto, $T^2 = 64 \\implies T = \\sqrt{64} = 8.0$ años terrestres.",
+        "1": "Incorrecto. 16 sería $T^2$ si $r^3$ fuera 256, lo cual no corresponde a $4^3$.",
+        "2": "Incorrecto. 4.0 años no cumple la relación proporcional de la tercera ley de Kepler ($4^2 / 4^3 = 16/64 = 0.25 \\neq 1.0$).",
+        "3": "Incorrecto. 64 es el valor de $T^2$, no el valor del periodo $T$. Se debe extraer la raíz cuadrada."
+      }
+    }
+  ]
+}

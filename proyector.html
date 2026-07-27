@@ -248,49 +248,14 @@
             const customArea = document.getElementById('slide-custom-area');
             customArea.innerHTML = slide.customHtml || "";
             
-            // Re-render Mermaid
+            // Re-render Mermaid (Desactivado para mostrar solo texto)
             if (window.mermaid) {
-                // Check if there is raw mermaid in the main content and wrap it
-                let contentEl = document.getElementById('slide-content');
-                if (contentEl && (contentEl.innerHTML.includes('graph TD') || contentEl.innerHTML.includes('graph LR'))) {
-                    contentEl.innerHTML = contentEl.innerHTML.replace(/(graph (?:TD|LR)[\s\S]*?)(?=<br>|<\/p>|<div|$)/g, function(match) {
-                        return "<div class='mermaid'>" + match + "</div>";
-                    });
-                }
-
-                // Process all mermaid divs
                 const mermaidDivs = document.querySelectorAll('.mermaid');
                 if (mermaidDivs.length > 0) {
-                    // First pass: format text and assign IDs
-                    mermaidDivs.forEach((div, idx) => {
-                        let content = div.innerHTML;
-                        content = content.replace(/<br\s*[\/]?>/gi, '\n');
-                        const txt = document.createElement("textarea");
-                        txt.innerHTML = content;
-                        let rawText = txt.value;
-                        
-                        // Fix common AI formatting issues for Mermaid
-                        rawText = rawText.replace(/;\s*/g, ';\n'); // Ensure newlines after semicolons
-                        
-                        // Fix nested parens (e.g. O(Origen (0,0)))
-                        rawText = rawText.replace(/\(([^)]*\([^)]*\)[^)]*)\)/g, '("$1")');
-                        
-                        // Fix arrows/symbols inside parens (e.g. F(V5 --> <-- V6))
-                        rawText = rawText.replace(/\((.*?(?:--|<|<--|-->).*?)\)/g, '("$1")');
-                        
-                        div.textContent = rawText;
-                        div.removeAttribute('data-processed');
-                        div.id = 'mermaid-diagram-' + Date.now() + '-' + idx;
-                    });
-                    
-                    // Second pass: render each one individually using a CSS selector
                     mermaidDivs.forEach((div) => {
-                        try {
-                            mermaid.init(undefined, "#" + div.id);
-                        } catch (e) {
-                            console.error("Error rendering mermaid:", e);
-                            div.innerHTML = `<div style="color:red; background:#ffebeb; border:1px solid red; padding:10px; font-size:12px; margin-top:10px; border-radius:8px;"><b>Error renderizando esquema:</b> ${e.message || e}</div><pre style="font-size:10px; text-align:left; background:#eee; padding:10px; overflow-x:auto;">${div.textContent}</pre>`;
-                        }
+                        div.style.background = '#f4f4f4';
+                        div.style.padding = '10px';
+                        div.style.borderRadius = '8px';
                     });
                 }
             }

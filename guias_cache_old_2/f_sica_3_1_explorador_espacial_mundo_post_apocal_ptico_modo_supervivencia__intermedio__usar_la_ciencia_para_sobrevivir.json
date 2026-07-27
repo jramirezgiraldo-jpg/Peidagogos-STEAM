@@ -1,0 +1,134 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Cuál es la forma aproximada de la trayectoria de los planetas alrededor del Sol?",
+      "opciones": [
+        "Circular perfecta",
+        "Cuadrangular",
+        "Elíptica",
+        "Lineal"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "¿Qué fuerza mantiene a los planetas en su órbita?",
+      "opciones": [
+        "Magnetismo",
+        "Gravedad",
+        "Fricción",
+        "Presión atmosférica"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Quién propuso que la Tierra gira alrededor del Sol?",
+      "opciones": [
+        "Ptolomeo",
+        "Aristóteles",
+        "Copérnico",
+        "Newton"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "¿Qué sucede con la velocidad de un planeta cuando se acerca al Sol?",
+      "opciones": [
+        "Aumenta",
+        "Disminuye",
+        "Se detiene",
+        "Permanece igual"
+      ],
+      "correcta": 0
+    },
+    {
+      "pregunta": "¿Cuál es la unidad de medida del tiempo en el Sistema Internacional?",
+      "opciones": [
+        "Horas",
+        "Días",
+        "Segundos",
+        "Años"
+      ],
+      "correcta": 2
+    }
+  ],
+  "texto_inductivo": "# Bitácora de Exploración: El Mapa del Firmamento Herido\n\nSaludos, supervivientes del Sector 7. Soy su guía en este páramo. Tras el Gran Colapso, nuestras brújulas electrónicas son basura y los satélites de GPS han caído. Para interceptar los suministros que aún orbitan la Tierra, debemos volver a lo básico: la mecánica celeste. ***¿Cómo podemos predecir el regreso de los satélites de suministros si las brújulas han fallado y solo nos queda la observación de las estrellas para calcular sus órbitas?*** [JUEGO:ORDENAR_LETRAS:ORBITA]\n\nAntiguamente, los hombres creían que éramos el centro del universo. [JUEGO:ORDENAR_FRASE:EL SOL ESTA EN EL FOCO] Pero en el siglo XVII, Johannes Kepler descubrió que el movimiento no era circular. [JUEGO:SOPA_LETRAS:KEPLER,MARTE,SOL] Observando el planeta Marte, notó que las órbitas son elipses. [JUEGO:ORDENAR_LETRAS:ELIPSE]\n\n<div style='background-color:#2a2a2a; padding:20px; border:2px solid #00ff00; border-radius:10px; color:#00ff00; font-family:monospace;'>\n<svg viewBox='0 0 400 200' xmlns='http://www.w3.org/2000/svg'>\n  <ellipse cx='200' cy='100' rx='150' ry='70' style='fill:none;stroke:#00ff00;stroke-width:2' />\n  <circle cx='130' cy='100' r='15' fill='yellow' />\n  <text x='115' y='130' fill='yellow' font-size='12'>SOL (Foco)</text>\n  <circle cx='350' cy='100' r='8' fill='cyan' />\n  <text x='330' y='90' fill='cyan' font-size='12'>PLANETA</text>\n  <line x1='130' y1='100' x2='350' y2='100' stroke='white' stroke-dasharray='5,5' />\n  <text x='210' y='115' fill='white' font-size='10'>Radio Vector</text>\n</svg>\n<p align='center'>DIAGRAMA DE LA PRIMERA LEY DE KEPLER: LA ÓRBITA ELÍPTICA</p>\n</div>\n\nEl Sol ocupa uno de los puntos llamados focos. [JUEGO:CRUCIGRAMA:Punto fijo de la elipse|FOCO;Astro central|SOL] Esto significa que el satélite que esperamos no siempre estará a la misma distancia. [JUEGO:ORDENAR_FRASE:LA TIERRA GIRA SIEMPRE] Al entender la geometría del cielo, recuperamos el poder de la previsión. [JUEGO:SOPA_LETRAS:FOCO,ELIPSE,LEY]\n\nLa observación es nuestra única arma. [JUEGO:ORDENAR_LETRAS:FOCO] Si vemos que un objeto se mueve entre las constelaciones, su trayectoria nos dirá si es un cometa o un envío de comida. [JUEGO:ORDENAR_FRASE:KEPLER DESCUBRIO LAS LEYES] No podemos permitirnos fallar el cálculo. [JUEGO:SOPA_LETRAS:ASTRONOMIA,RADAR,CIELO]\n\n[JUEGO:CRUCIGRAMA:Trayectoria curva|ORBITA;Forma de huevo|ELIPSE] Cuando el satélite está en el perihelio (más cerca del Sol), su velocidad es máxima. [JUEGO:ORDENAR_LETRAS:PLANETA] Por el contrario, en el afelio, se mueve con pereza. [JUEGO:ORDENAR_FRASE:TODO SE MUEVE RAPIDO] El tiempo es oro en el apocalipsis. [JUEGO:SOPA_LETRAS:VECTOR,RADIO,AREA]\n\n[JUEGO:CRUCIGRAMA:Científico alemán|KEPLER;Fuerza de atracción|GRAVEDAD] Debemos mapear cada parpadeo en el cielo. [JUEGO:ORDENAR_LETRAS:ASTRO] Solo así sabremos cuándo salir del refugio. [JUEGO:ORDENAR_FRASE:MIRAMOS HACIA EL CIELO] [JUEGO:SOPA_LETRAS:GRAVEDAD,MASA,PESO] [JUEGO:CRUCIGRAMA:Astro nocturno|LUNA;Espacio vacío|VACIO]",
+  "recurso_visual": "graph TD\n    A[Movimiento Planetario] --> B[Primera Ley: Elipses]\n    A --> C[Segunda Ley: Áreas Iguales]\n    A --> D[Tercera Ley: Armonía de Periodos]\n    B --> B1[El Sol está en un foco]\n    C --> C1[Velocidad variable según distancia]\n    D --> D1[Relación Tiempo vs Distancia]",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "¿Qué forma tienen las órbitas según Kepler?",
+      "respuesta_esperada": "Tienen forma de elipse, no de círculo perfecto."
+    },
+    {
+      "pregunta": "¿En qué parte de la elipse se encuentra el Sol?",
+      "respuesta_esperada": "Se encuentra en uno de los focos de la elipse."
+    },
+    {
+      "pregunta": "¿Por qué es importante para un superviviente conocer la órbita de un satélite?",
+      "respuesta_esperada": "Para predecir su posición y saber cuándo pasará sobre el refugio para recoger suministros."
+    },
+    {
+      "pregunta": "¿Qué sucede con la distancia entre el planeta y el Sol durante su órbita?",
+      "respuesta_esperada": "La distancia cambia constantemente debido a la forma elíptica de la trayectoria."
+    },
+    {
+      "pregunta": "¿Cuál es la diferencia entre el modelo geocéntrico y el que describe Kepler?",
+      "respuesta_esperada": "El geocéntrico ponía a la Tierra en el centro, mientras que el de Kepler sitúa al Sol en un foco de la elipse orbital planetaria."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema de una órbita elíptica marcando los focos, el perihelio y el afelio.",
+    "Realiza un cuadro comparativo entre el modelo de órbitas circulares y el modelo de órbitas elípticas de Kepler.",
+    "Escribe una reflexión de 10 renglones sobre cómo la ciencia ayuda a un explorador espacial a no morir en un planeta desconocido.",
+    "Representa gráficamente mediante un dibujo cómo se vería el cielo nocturno si pudiéramos ver las líneas de las órbitas elípticas."
+  ],
+  "texto_deductivo": "## La Matemática de la Supervivencia: Cinemática Orbital\n\nAhora, cadetes, pasemos a los números. [JUEGO:ORDENAR_LETRAS:TIEMPO] La posición de un objeto en el espacio se define por su vector radio. [JUEGO:ORDENAR_FRASE:LA VELOCIDAD NO ES CONSTANTE] La Segunda Ley de Kepler nos dice que el radio vector que une al Sol con el planeta barre áreas iguales en tiempos iguales. [JUEGO:SOPA_LETRAS:CINEMATICA,VELOCIDAD,ACELERACION] Esto explica por qué el satélite acelera al acercarse a la Tierra. [JUEGO:ORDENAR_LETRAS:RADIO]\n\n<table style='width:100%; border:3px solid #ff4500; background-color:#1a1a1a; color:white;'>\n  <tr style='background-color:#ff4500;'>\n    <th>Planeta / Satélite</th>\n    <th>Periodo (T en años)</th>\n    <th>Distancia (r en UA)</th>\n    <th>Constante (T²/r³)</th>\n  </tr>\n  <tr>\n    <td>Tierra</td>\n    <td>1.00</td>\n    <td>1.00</td>\n    <td>1.00</td>\n  </tr>\n  <tr>\n    <td>Marte</td>\n    <td>1.88</td>\n    <td>1.52</td>\n    <td>~1.00</td>\n  </tr>\n  <tr>\n    <td>Satélite S-01</td>\n    <td>0.50</td>\n    <td>0.63</td>\n    <td>~1.00</td>\n  </tr>\n</table>\n<p align='center'>TABLA DE DATOS: LA TERCERA LEY (LEY DE LA ARMONÍA)</p>\n\nLa Tercera Ley es la más útil para nosotros. [JUEGO:ORDENAR_FRASE:EL RADIO VECTOR BARRE AREAS] Establece que el cuadrado del periodo orbital (T) es proporcional al cubo de la distancia media (r). [JUEGO:SOPA_LETRAS:PERIODO,CUADRADO,CUBO] Si sabemos a qué distancia está el satélite, sabemos cuánto tarda en dar la vuelta. [JUEGO:ORDENAR_LETRAS:FUERZA]\n\n[JUEGO:CRUCIGRAMA:Cambio de posición|MOVIMIENTO;Espacio recorrido|DISTANCIA] Newton más tarde dedujo que esto se debe a la Ley de Gravitación Universal. [JUEGO:ORDENAR_FRASE:EL PERIODO DEPENDE DEL RADIO] La aceleración centrípeta es lo que mantiene al cuerpo cayendo eternamente sin tocar el suelo. [JUEGO:SOPA_LETRAS:NEWTON,FUERZA,ORBITA] [JUEGO:ORDENAR_LETRAS:MASAS]\n\n[JUEGO:CRUCIGRAMA:Magnitud vectorial|VELOCIDAD;Fuerza de caída|GRAVEDAD] Para calcular la velocidad en cualquier punto, usamos la cinemática. [JUEGO:ORDENAR_FRASE:NEWTON EXPLICO LA GRAVEDAD] La aceleración no es solo cambiar de rapidez, es cambiar de dirección. [JUEGO:SOPA_LETRAS:DISTANCIA,TIEMPO,RAPIDEZ] En una órbita elíptica, la aceleración siempre apunta hacia el foco donde está la masa mayor. [JUEGO:ORDENAR_LETRAS:LEYES]\n\n[JUEGO:ORDENAR_FRASE:LOS CUERPOS CAEN SIEMPRE] Entender esto nos permite apuntar nuestros cañones de señales al lugar exacto antes de que el satélite desaparezca tras el horizonte. [JUEGO:SOPA_LETRAS:INERCIA,VECTOR,ESCALAR] [JUEGO:CRUCIGRAMA:Unidad de tiempo|SEGUNDO;Lugar del sol|FOCO] Sin estas leyes, estaríamos ciegos en la oscuridad del post-apocalipsis.",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "¿Qué relación matemática establece la Tercera Ley de Kepler?",
+      "respuesta_esperada": "Establece que T² / r³ = K, donde T es el periodo y r es la distancia media."
+    },
+    {
+      "pregunta": "¿Por qué un satélite se mueve más rápido en el perihelio?",
+      "respuesta_esperada": "Debido a la Segunda Ley de Kepler, para barrer áreas iguales en tiempos iguales, al estar más cerca (radio menor) debe recorrer un arco mayor (velocidad mayor)."
+    },
+    {
+      "pregunta": "¿Qué magnitud física se mantiene constante según la Segunda Ley?",
+      "respuesta_esperada": "La velocidad del área o momento angular del planeta respecto al Sol."
+    },
+    {
+      "pregunta": "¿Cuál es la diferencia entre velocidad y aceleración en una órbita?",
+      "respuesta_esperada": "La velocidad es tangente a la trayectoria, mientras que la aceleración (centrípeta) apunta hacia el foco gravitatorio."
+    },
+    {
+      "pregunta": "Si un satélite duplica su distancia media al planeta, ¿qué pasa con su periodo?",
+      "respuesta_esperada": "Su periodo aumenta, ya que el cuadrado del periodo es proporcional al cubo de la distancia."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Realiza un diagrama detallado que muestre los vectores de velocidad y aceleración en cuatro puntos diferentes de una órbita elíptica.",
+    "Elabora un mapa mental que conecte las tres Leyes de Kepler con la Ley de Gravitación de Newton.",
+    "Dibuja un esquema explicativo del concepto de 'barrer áreas iguales' de la Segunda Ley de Kepler.",
+    "Diseña una infografía artesanal que explique a otros supervivientes cómo calcular el tiempo de llegada de un satélite usando la Tercera Ley."
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "En el refugio 'Alfa', los exploradores observan que un satélite de suministros tarda exactamente 8 días en completar una órbita a una distancia R. Se detecta un segundo satélite a una distancia 4R del centro de la Tierra.",
+      "tabla_o_grafica_markdown": "| Satélite | Distancia (r) | Periodo (T) |\n|---|---|---|\n| S1 | R | 8 días |\n| S2 | 4R | ? |",
+      "pregunta": "Aplicando la Tercera Ley de Kepler (T² ∝ r³), ¿cuál será el periodo orbital del segundo satélite?",
+      "opciones": [
+        "16 días",
+        "32 días",
+        "64 días",
+        "128 días"
+      ],
+      "correcta": 2,
+      "retroalimentacion": {
+        "0": "Incorrecto. No es una relación lineal directa.",
+        "1": "Incorrecto. Has olvidado elevar al cubo la relación de distancias.",
+        "2": "Correcto. Si r aumenta 4 veces, r³ aumenta 64 veces. Como T² es proporcional a r³, T debe ser la raíz cuadrada de 64 multiplicado por el periodo original (8 * 8 = 64).",
+        "3": "Incorrecto. Este valor excedería la proporción cuadrática-cúbica."
+      }
+    }
+  ]
+}

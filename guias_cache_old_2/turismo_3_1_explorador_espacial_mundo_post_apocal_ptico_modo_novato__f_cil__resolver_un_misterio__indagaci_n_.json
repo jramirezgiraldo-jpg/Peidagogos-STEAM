@@ -1,0 +1,84 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Cuál de los siguientes departamentos forma parte tradicionalmente del Eje Cafetero de Colombia?",
+      "opciones": [
+        "Caldas",
+        "Amazonas",
+        "Antioquia",
+        "Cundinamarca"
+      ],
+      "correcta": 0
+    },
+    {
+      "pregunta": "¿Qué significa que una región sea declarada Patrimonio de la Humanidad por la UNESCO?",
+      "opciones": [
+        "Que pertenece exclusivamente a un gobierno extranjero.",
+        "Que su valor cultural y natural es de importancia universal para la humanidad.",
+        "Que está prohibida la entrada de cualquier turista o visitante.",
+        "Que ha sido destruida por completo y no se puede recuperar."
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "En el contexto de los viajes y el turismo, ¿qué es el 'turismo sostenible'?",
+      "opciones": [
+        "Viajar muy rápido utilizando naves espaciales de alta gama.",
+        "Un turismo que destruye los recursos naturales para generar ganancias rápidas.",
+        "Una forma de turismo que respeta la naturaleza, la economía local y la cultura del lugar.",
+        "Hospedarse únicamente en hoteles de lujo dentro de las grandes ciudades ruinosas."
+      ],
+      "correcta": 2
+    }
+  ],
+  "texto_inductivo": "¡Saludos, valientes reclutas del espacio! Aquí el Capitán Estelar Orion reportando desde la órbita de la Tierra post-apocalíptica. [JUEGO:ORDENAR_LETRAS:TURISMO] Hemos descendido en un planeta devastado por el Antiguo Colapso, pero en medio de la ceniza y los vientos estelares, nuestros escáneres biológicos detectaron un increíble oasis de color verde esmeralda que resiste en Sudamérica. [JUEGO:ORDENAR_FRASE:LA TIERRA TIENE MEMORIA] Bienvenidos al misterioso sector del Eje Cafetero, un milagro ecológico que hoy analizaremos. El enigma que debemos resolver en esta misión es el siguiente: ¿cómo logró este territorio montañoso preservar su biodiversidad y convertirse en un bastión de esperanza y turismo cultural para los supervivientes del cosmos? Para descifrarlo, debemos estudiar la geografía de los tres departamentos principales que componen esta biosfera: Caldas, Quindío y Risaralda. [JUEGO:SOPA_LETRAS:CALDAS,QUINDIO,RISARALDA] Los antiguos terrícolas llamaban a este santuario el Paisaje Cultural Cafetero. \n\nNuestra primera parada técnica es en el sector norte de la cordillera, una zona montañosa escarpada conocida en las cartas de navegación como el departamento de Caldas. [JUEGO:ORDENAR_LETRAS:CALDAS] Aquí, las cenizas del imponente Volcán Nevado del Ruiz crearon en el pasado los suelos más ricos y fértiles del planeta, ideales para el florecimiento de una planta milagrosa. [JUEGO:CRUCIGRAMA:Capital de Caldas|MANIZALES;Bebida estimulante|CAFE] Los supervivientes locales nos explican que el cultivo de este grano no es solo agricultura; es un escudo biológico que mantuvo la cohesión de su civilización cuando todo lo demás caía. [JUEGO:ORDENAR_FRASE:EL CAFETO ES UNA PLANTA] Este arbusto florece a altitudes perfectas gracias al sombrío de los árboles nativos, enseñando a las nuevas generaciones cómo la vegetación protege el suelo de la erosión cósmica. [JUEGO:SOPA_LETRAS:CAFE,CULTURA,PAISAJE]\n\nSiguiendo el vector de viento hacia el sur, entramos en las coordenadas de Risaralda. Su capital, un nodo de comercio sobreviviente llamado Pereira, conecta los ríos más puros de la región, como el río Otún. [JUEGO:CRUCIGRAMA:Capital de Risaralda|PEREIRA;Rio importante|OTUN] En Risaralda descubrimos que el ecoturismo post-apocalíptico no es un simple viaje de placer, sino un método de exploración científica y conservación activa. [JUEGO:ORDENAR_FRASE:EL TURISMO SALVA VIDAS] Aquí, los viajeros espaciales aprenden que cuidar cada cuenca hidrográfica es vital para mantener activos los cultivos de café que alimentan el comercio intergaláctico. [JUEGO:SOPA_LETRAS:MONTAÑA,SEMILLA,TIERRA]\n\nFinalmente, descendemos en el micro-sector de Quindío, el corazón geográfico y el más pequeño de los tres departamentos del Eje. [JUEGO:ORDENAR_LETRAS:QUINDIO] Este territorio es famoso en la galaxia por albergar a los gigantes verdes de la Tierra: palmas de cera que tocan las nubes y resistieron milagrosamente la radiación del colapso. [JUEGO:CRUCIGRAMA:Arbol nacional|PALMA;Valle famoso|COCORA] Los guías locales utilizan estas inmensas palmeras como puntos de referencia para orientar a los exploradores perdidos en la espesura de la niebla. [JUEGO:ORDENAR_FRASE:CUIDEMOS NUESTRO PAISAJE] El turismo en Quindío se ha convertido en una valiosa herramienta de reconocimiento cultural, donde cada viajero aprende el valor de la resiliencia ambiental de estas especies únicas. [JUEGO:SOPA_LETRAS:PALMA,VALLE,NIEBLA]\n\nPara resolver por completo el misterio del Eje Cafetero, debemos comprender que su riqueza no radica en la extracción de metales preciosos del viejo mundo, sino en la perfecta armonía entre el ser humano y la montaña. [JUEGO:ORDENAR_LETRAS:PAISAJE] Cada grano cosechado manualmente en estas empinadas laderas cuenta una historia de adaptación y supervivencia humana. [JUEGO:CRUCIGRAMA:Fruto rojo del cafeto|CEREZA;Grano tostado|SEMILLA] El Paisaje Cultural Cafetero es un ejemplo viviente de cómo la identidad de un pueblo puede salvar un ecosistema entero de la extinción. [JUEGO:ORDENAR_FRASE:EL AGUA ES VIDA] Su misión, jóvenes cadetes, es mapear estos recursos y aprender cómo el turismo patrimonial puede reconstruir economías locales con mentalidad emprendedora y sostenible. [JUEGO:SOPA_LETRAS:TURISTA,GUIA,VIAJE] ¡La exploración apenas comienza! [JUEGO:ORDENAR_LETRAS:CAFE] [JUEGO:CRUCIGRAMA:Visitante del espacio|EXPLORADOR;Planeta de origen|TIERRA]",
+  "recurso_visual": "graph TD\n    A[Eje Cafetero: Santuario del PCC] --> B(Caldas)\n    A --> C(Risaralda)\n    A --> D(Quindío)\n    \n    B --> B1(Capital: Manizales)\n    B --> B2(Atractivo: Aguas Termales y Volcanes)\n    B --> B3(Suelos: Ceniza Volcánica Fértil)\n    \n    C --> C1(Capital: Pereira)\n    C --> C2(Atractivo: Conservación y Cuenca del Río Otún)\n    C --> C3(Enfoque: Ecoturismo de Conservación)\n    \n    D --> D1(Capital: Armenia)\n    D --> D2(Atractivo: Valle de Cocora y Palmas de Cera)\n    D --> D3(Enfoque: Turismo de Aventura y Resiliencia)",
+  "preguntas_inductivas_pagina": [
+    "¿Cuáles son los tres departamentos principales que conforman la región del Eje Cafetero analizados en nuestra bitácora?",
+    "¿Qué fenómeno natural o elemento geográfico enriqueció los suelos del departamento de Caldas para hacerlos tan fértiles?",
+    "Según la bitácora de exploración, ¿por qué el ecoturismo en Risaralda no es solo una actividad de ocio sino de supervivencia?",
+    "¿Cuál es el nombre de los gigantes vegetales del departamento de Quindío que sirven de guía a los exploradores espaciales?",
+    "¿En qué reside el verdadero misterio de la supervivencia y riqueza del Eje Cafetero tras el colapso de la Tierra?"
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un mapa estelar en tu cuaderno que conecte los tres departamentos del Eje Cafetero con sus respectivas capitales terrícolas.",
+    "Realiza un cuadro comparativo en el que clasifiques los principales atractivos naturales y las características geográficas de Caldas, Risaralda y Quindío.",
+    "Redacta una hipótesis de tres párrafos en tu bitácora sobre cómo la cultura del café ayudó a las comunidades locales a mantener la cohesión social durante el apocalipsis.",
+    "Representa gráficamente mediante un dibujo detallado el Valle de Cocora con sus palmas de cera gigantes, integrando tu nave de exploración espacial en el paisaje."
+  ],
+  "texto_deductivo": "Atención, cadetes de la flota espacial. Ahora que hemos recopilado las pistas y muestras de nuestro viaje de campo, es momento de aplicar el riguroso Método de Deducción Científica para estructurar nuestro conocimiento sobre el Paisaje Cultural Cafetero (PCC) de Colombia. [JUEGO:ORDENAR_LETRAS:UNESCO] La UNESCO no declaró a esta región como Patrimonio de la Humanidad por simple azar; lo hizo porque representa un esfuerzo humano excepcional de adaptación a condiciones geográficas sumamente difíciles de laderas andinas. [JUEGO:ORDENAR_FRASE:EL PATRIMONIO SE PROTEGE] En nuestro contexto post-apocalíptico, esto nos demuestra que la preservación de las costumbres agrícolas y arquitectónicas es la base para edificar un modelo de turismo sostenible y emprendedor de primer nivel. [JUEGO:SOPA_LETRAS:PCC,UNESCO,COLOMBIA]\n\nEl turismo cultural y de naturaleza es la clave de oro para la reactivación socioeconómica de los asentamientos humanos en la Tierra. [JUEGO:ORDENAR_LETRAS:EMPRENDER] Como futuros estrategas del turismo espacial, debemos aprender a diseñar rutas que no desgasten los recursos naturales del Eje. [JUEGO:ORDENAR_FRASE:VIAJAR ENRIQUECE EL ALMA] Para estructurar una idea de negocio viable en este sector, es imperativo dominar la geografía y la especialización turística de cada uno de los tres departamentos principales del triángulo cafetero. [JUEGO:SOPA_LETRAS:MANIZALES,ARMENIA,PEREIRA] Cada entidad territorial posee una vocación única orientada al desarrollo local. [JUEGO:CRUCIGRAMA:Siglas del Paisaje Cultural Cafetero|PCC;Entidad de patrimonio mundial|UNESCO]\n\nCaldas, por ejemplo, ofrece un turismo enfocado en la salud, la ciencia y el bienestar gracias a sus fuentes de aguas termales y su cercanía al Nevado del Ruiz. [JUEGO:ORDENAR_LETRAS:RISARALDA] Quindío, por su parte, es el centro de gravedad del turismo de aventura y los parques temáticos agrícolas que enseñan la historia de la reconstrucción de la Tierra. [JUEGO:CRUCIGRAMA:Departamento del cafe y volcanes|CALDAS;Nevado famoso|RUIZ] Risaralda destaca a nivel intergaláctico por su infraestructura de conectividad y su liderazgo en el turismo de observación de aves exóticas y senderos ecológicos de montaña. [JUEGO:ORDENAR_FRASE:LOS DEPARTAMENTOS SON TRES] Estos tres enfoques se complementan para construir un ecosistema económico diversificado y altamente productivo. [JUEGO:SOPA_LETRAS:ECOLOGIA,PLANETA,FUTURO] El desarrollo de hostales ecológicos y redes de guías locales representa una oportunidad magnífica de emprendimiento. [JUEGO:ORDENAR_LETRAS:SOSTENIBLE]\n\nPara que un proyecto turístico en el Eje Cafetero sea exitoso, debe fundamentarse en la sostenibilidad, lo que significa equilibrar tres pilares: viabilidad económica, equidad social y regeneración ambiental. [JUEGO:CRUCIGRAMA:Accion de crear negocio|EMPRENDER;Persona que emprende|EMPRENDEDOR] Si los operadores turísticos de la región descuidan la herencia cultural o permiten la contaminación de los nacimientos de agua, el paisaje perderá su valor único y los turistas espaciales buscarán otros mundos que visitar. [JUEGO:ORDENAR_FRASE:EL CULTIVO REQUIERE AMOR] Por ello, el café tradicional de montaña sigue siendo el corazón y el motor de la identidad de la comunidad. [JUEGO:SOPA_LETRAS:HOSPEDAJE,AVENTURA,RUTA] Proteger esta herencia es garantizar la supervivencia de la memoria terrestre. [JUEGO:ORDENAR_LETRAS:CULTURA]\n\nEn conclusión, el misterio de la resiliencia del Eje Cafetero nos revela que el verdadero tesoro de la Tierra no estaba sepultado en depósitos de metales, sino cultivado con amor en la laderas andinas por familias de arrieros y caficultores. [JUEGO:ORDENAR_FRASE:EL TURISMO TRAE ESPERANZA] La fuerza cultural de estas comunidades nos inspira a emprender proyectos turísticos que honren la geografía local y promuevan el orgullo nacional. [JUEGO:CRUCIGRAMA:Actividad de viajar por placer|TURISMO;Lugar para quedarse|HOTEL] Como exploradores estelares, nuestra misión final es asimilar esta lección de sostenibilidad y replicar su modelo de éxito en los nuevos mundos que colonicemos en el cosmos. [JUEGO:SOPA_LETRAS:PATRIMONIO,HISTORIA,IDENTIDAD] ¡Mantengan sus sensores encendidos y sus mentes abiertas al aprendizaje de la Tierra! [JUEGO:CRUCIGRAMA:Fruto verde antes de madurar|VERDE;Color del cafe maduro|ROJO]",
+  "preguntas_deductivas_pagina": [
+    "¿Por qué el Paisaje Cultural Cafetero (PCC) fue declarado Patrimonio de la Humanidad por la UNESCO?",
+    "¿Cuáles son las tres dimensiones o pilares fundamentales que componen el desarrollo sostenible de un emprendimiento turístico?",
+    "¿En qué tipo de turismo especializado se destaca el departamento de Caldas debido a sus condiciones geológicas?",
+    "¿De qué manera el departamento de Risaralda aprovecha su biodiversidad para atraer visitantes interesados en la ciencia y la naturaleza?",
+    "¿Por qué se considera al café de montaña como el eje central de la identidad regional y del éxito del turismo patrimonial?"
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Diseña en tu cuaderno un diagrama de flujo detallado que muestre el ciclo de vida de un proyecto de turismo sostenible, desde la concepción de la idea ecológica hasta su comercialización con viajeros intergalácticos.",
+    "Elabora un mapa mental ilustrado que relacione los términos 'Patrimonio de la Humanidad', 'Sostenibilidad', 'Cultura Cafetera' y las oportunidades de emprendimiento en los departamentos del Eje.",
+    "Realiza un dibujo técnico-explicativo en una página de tu cuaderno que ilustre el proceso de recolección selectiva y manual del café en laderas empinadas, explicando por qué este método protege la capa vegetal de la montaña.",
+    "Crea una infografía artesanal a todo color que funcione como un folleto publicitario de la 'Ruta de la Esperanza Cafetera' para atraer turistas espaciales, destacando las capitales de Caldas, Risaralda y Quindío."
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "Durante una misión de reconocimiento en el Eje Cafetero, los exploradores espaciales recolectaron datos sobre las preferencias de los turistas que visitan la región en busca de experiencias sostenibles. El siguiente cuadro resume los porcentajes de interés según las actividades seleccionadas por los viajeros en los tres departamentos principales:",
+      "tabla_o_grafica_markdown": "| Departamento | Ecoturismo y Senderismo | Turismo de Bienestar (Termales) | Avistamiento de Aves |\n| :--- | :---: | :---: | :---: |\n| **Caldas** | 15% | 70% | 15% |\n| **Risaralda** | 30% | 10% | 60% |\n| **Quindío** | 65% | 5% | 30% |",
+      "pregunta": "Si un grupo de emprendedores post-apocalípticos planea financiar una reserva ecológica destinada a la conservación y avistamiento de aves endémicas de la cordillera, ¿en cuál de los departamentos tendría una mayor probabilidad de éxito comercial basándose en la demanda de los turistas actuales registrados en la tabla?",
+      "opciones": [
+        "En Caldas, porque el turismo de bienestar atrae personas que buscan silencio, lo cual favorece de forma directa la presencia de aves silvestres.",
+        "En Risaralda, ya que cuenta con la mayor preferencia de los turistas en la actividad específica de avistamiento de aves, con un 60% de interés.",
+        "En Quindío, debido a que el 65% de los turistas prefiere el ecoturismo y senderismo, lo cual abarca implícitamente todas las formas de vida animal de la reserva.",
+        "En cualquiera de los tres departamentos por igual, dado que el Paisaje Cultural Cafetero fue declarado Patrimonio de la Humanidad de forma homogénea por la UNESCO."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. Aunque el turismo de bienestar en Caldas es muy alto (70%), esto no garantiza que los clientes de dicho sector estén interesados en pagar por actividades de observación científica de aves.",
+        "1": "¡Correcto! Los datos estadísticos muestran claramente que Risaralda lidera la preferencia en el nicho específico de avistamiento de aves con un 60%, lo que reduce el riesgo financiero de los emprendedores al apuntar a un mercado con alta demanda demostrada.",
+        "2": "Incorrecto. Si bien el ecoturismo en Quindío es sumamente popular (65%), la categoría específica y especializada de avistamiento de aves tiene su mayor concentración de demanda en Risaralda.",
+        "3": "Incorrecto. Aunque la declaración de la UNESCO cobija a toda la región, los datos de mercado demuestran que las preferencias de los turistas están altamente especializadas y diferenciadas según el departamento."
+      }
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "Si estás huyendo de una tormenta ácida y te dicen que el refugio está a '50 metros', ¿por qué esta información es insuficiente para salvarte?",
+      "opciones": [
+        "Porque 50 metros es una distancia muy larga para correr bajo la lluvia.",
+        "Porque falta conocer la dirección y el sentido (norte, sur, arriba, etc.) para saber hacia dónde caminar.",
+        "Porque el refugio podría estar destruido por la radiación cósmica.",
+        "Porque los metros no se pueden medir en un entorno post-apocalíptico."
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "Un dron explorador dibuja una línea curva en el aire para esquivar las ruinas de la IE Instituto Montenegro. El rastro físico de su vuelo representa:",
+      "opciones": [
+        "El desplazamiento final del dron.",
+        "La trayectoria que describió el dron.",
+        "La posición absoluta del dron en reposo.",
+        "La velocidad instantánea del dron."
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "Para establecer la posición de un campamento de supervivientes en un mapa, lo primero que necesitamos definir es:",
+      "opciones": [
+        "Un punto de referencia u origen del sistema de coordenadas.",
+        "La velocidad máxima a la que se puede correr hacia el campamento.",
+        "La masa total de los supervivientes del campamento.",
+        "El tiempo que tardará en llegar la noche espacial."
+      ],
+      "correcta": 0
+    }
+  ],
+  "texto_inductivo": "# Bitácora del Explorador: El Misterio del Sector Montenegro\n\n***¿Cómo podríamos los supervivientes de la IE Instituto Montenegro trazar una ruta de escape segura y predecir el punto de encuentro exacto con una nave de rescate si los antiguos mapas satelitales fallan y solo contamos con señales de radio intermitentes?***\n\n¡Saludos, jóvenes cadetes de la **IE Instituto Montenegro**! Soy el Explorador Estelar Orion. He aterrizado de emergencia en las ruinas de su antigua institución. El polvo cósmico y el colapso atmosférico han borrado nuestros mapas digitales, pero la señal de un viejo localizador de la Flota de Exploración ha comenzado a emitir un pulso débil desde el Sector Delta. \n\nPara rescatar los suministros médicos y decodificar el mensaje del localizador, debemos aprender a rastrearlo usando la física del movimiento. El dispositivo emite señales intermitentes, dándonos puntos aislados en el espacio. ¿Cómo podemos determinar dónde está en cada instante y qué camino recorrió para llegar allí? ¡Su supervivencia depende de resolver este misterio!\n\n<svg width='100%' height='250' style='background-color:#0d1117; border-radius:8px;' viewBox='0 0 500 250' xmlns='http://www.w3.org/2000/svg'><defs><pattern id='grid' width='25' height='25' patternUnits='userSpaceOnUse'><path d='M 25 0 L 0 0 0 25' fill='none' stroke='#1f242c' stroke-width='1'/></pattern></defs><rect width='100%' height='100%' fill='#0d1117'/><rect width='100%' height='100%' fill='url(#grid)'/><line x1='50' y1='125' x2='450' y2='125' stroke='#58a6ff' stroke-width='2' stroke-dasharray='4'/><line x1='250' y1='25' x2='250' y2='225' stroke='#58a6ff' stroke-width='2' stroke-dasharray='4'/><circle cx='250' cy='125' r='6' fill='#ff7b72'/><text x='260' y='120' fill='#ff7b72' font-family='sans-serif' font-size='10' font-weight='bold'>Rectoría (0,0)</text><circle cx='150' cy='75' r='5' fill='#f0883e'/><text x='110' y='70' fill='#f0883e' font-family='sans-serif' font-size='10'>Punto A (-4, 2)</text><circle cx='350' cy='75' r='5' fill='#f0883e'/><text x='360' y='70' fill='#f0883e' font-family='sans-serif' font-size='10'>Punto B (4, 2)</text><circle cx='350' cy='175' r='5' fill='#f0883e'/><text x='360' y='190' fill='#f0883e' font-family='sans-serif' font-size='10'>Punto C (4, -2)</text><path d='M 150 75 L 350 75 L 350 175' fill='none' stroke='#388bfd' stroke-width='3' stroke-linecap='round'/></svg>\n\n### Actividad de Descifrado Inicial\nPara iniciar la búsqueda, debemos calibrar nuestros traductores de datos encriptados. Completa los siguientes minijuegos de comunicaciones:\n\n[JUEGO:ORDENAR_LETRAS:POSICION]\n\n[JUEGO:ORDENAR_LETRAS:TRAYECTORIA]\n\n[JUEGO:ORDENAR_FRASE:LA TRAYECTORIA ES EL CAMINO SEGUIDO]\n\n[JUEGO:ORDENAR_FRASE:EL PUNTO DE REFERENCIA ES VITAL]\n\n[JUEGO:SOPA_LETRAS:MOVIMIENTO,ORIGEN,LINEA]\n\n[JUEGO:SOPA_LETRAS:COORDENADA,ESPACIO,TIEMPO]\n\n[JUEGO:CRUCIGRAMA:Lugar donde se encuentra un objeto respecto al origen|POSICION;Linea imaginaria que describe un cuerpo al moverse|TRAYECTORIA]\n\n[JUEGO:CRUCIGRAMA:Punto que sirve para medir la posicion|ORIGEN;Rama de la fisica que estudia el movimiento|CINEMATICA]",
+  "recurso_visual": "### Registro de Telemetría de la Señal Encontrada\n\n| Tiempo de Captura ($s$) | Coordenada X ($m$) | Coordenada Y ($m$) | Zona del Colegio Asociada |\n| :---: | :---: | :---: | :---: |\n| $t = 0$ (Inicio) | $-4$ | $2$ | Entrada Principal de la IE |\n| $t = 5$ | $4$ | $2$ | Canchas Deportivas |\n| $t = 10$ (Final) | $4$ | $-2$ | Bloque de Laboratorios (Refugio) |",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "¿Qué crees que representan los números de coordenadas de la tabla al compararlos con la Rectoría (0,0)?",
+      "respuesta_esperada": "Representan la posición del objeto en el espacio bidimensional utilizando la Rectoría de la IE Instituto Montenegro como el origen (0,0) del sistema de referencia."
+    },
+    {
+      "pregunta": "Si trazamos una línea que una los puntos A, B y C directamente en orden, ¿qué concepto físico estaríamos dibujando?",
+      "respuesta_esperada": "Estaríamos representando la trayectoria del objeto emisor de la señal."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja en tu cuaderno un plano cartesiano simple y ubica las tres posiciones registradas por la sonda usando la Rectoría como el centro del plano.",
+    "Describe con tus propias palabras qué diferencia hay entre decir 'la sonda está en las canchas' y 'la sonda está a 4 metros al este y 2 metros al norte de la Rectoría'. ¿Cuál información es más exacta para un superviviente?"
+  ],
+  "texto_deductivo": "# Teoría de Supervivencia: Las Coordenadas del Movimiento\n\n¡Excelente trabajo decodificando las señales iniciales! Ahora debemos formalizar estos conceptos científicos en nuestra base de datos. En el estudio de la **Cinemática** (la rama de la física que describe cómo se mueven las cosas sin importar qué causa ese movimiento), necesitamos dos conceptos fundamentales para no perdernos en el páramo post-apocalíptico:\n\n### 1. Sistema de Referencia e Inicio del Mapa\nPara decir dónde está algo, primero debemos ponernos de acuerdo en un \"punto cero\" u **Origen**. En nuestro caso, la **Rectoría de la IE Instituto Montenegro** es nuestro Punto de Referencia. Sin este punto, las posiciones no tienen sentido.\n\n### 2. Posición ($\\vec{x}$)\nEs la localización exacta de un objeto en el espacio con respecto a un sistema de referencia seleccionado. Se representa mediante coordenadas (como $(x, y)$ en un plano) y tiene una dirección.\n\n### 3. Trayectoria y Distancia Recorrida\nLa **trayectoria** es el camino real (la línea imaginaria) que une todos los puntos por donde pasa el objeto en movimiento. Puede ser rectilínea (en línea recta) o curvilínea. La longitud de esa trayectoria se llama **distancia**.\n\n<svg width='100%' height='250' style='background-color:#0d1117; border-radius:8px;' viewBox='0 0 500 250' xmlns='http://www.w3.org/2000/svg'><rect width='100%' height='100%' fill='#0d1117'/><circle cx='100' cy='150' r='8' fill='#56b4e9'/><text x='80' y='135' fill='#56b4e9' font-family='sans-serif' font-size='12' font-weight='bold'>Inicio (A)</text><circle cx='400' cy='100' r='8' fill='#009e73'/><text x='400' y='85' fill='#009e73' font-family='sans-serif' font-size='12' font-weight='bold'>Fin (B)</text><path d='M 100 150 Q 200 50 300 200 T 400 100' fill='none' stroke='#f0883e' stroke-width='4' stroke-dasharray='5'/><text x='220' y='90' fill='#f0883e' font-family='sans-serif' font-size='12' font-style='italic'>Trayectoria (Distancia recorrida)</text><line x1='100' y1='150' x2='390' y2='102' stroke='#58a6ff' stroke-width='3' marker-end='url(#arrow)'/><text x='200' y='170' fill='#58a6ff' font-family='sans-serif' font-size='12' font-weight='bold'>Desplazamiento (Línea Recta)</text><defs><marker id='arrow' viewBox='0 0 10 10' refX='5' refY='5' markerWidth='6' markerHeight='6' orient='auto-start-reverse'><path d='M 0 0 L 10 5 L 0 10 z' fill='#58a6ff'/></marker></defs></svg>\n\n### Desafío Teórico Final\nConsolida tus conocimientos y repara el sistema de navegación resolviendo los siguientes códigos cinemáticos:\n\n[JUEGO:ORDENAR_LETRAS:SISTEMA]\n\n[JUEGO:ORDENAR_LETRAS:DISTANCIA]\n\n[JUEGO:ORDENAR_LETRAS:CINEMATICA]\n\n[JUEGO:ORDENAR_FRASE:LA POSICION DEPENDE DEL ORIGEN]\n\n[JUEGO:ORDENAR_FRASE:EL MOVIMIENTO ES CAMBIO DE POSICION]\n\n[JUEGO:ORDENAR_FRASE:LA DISTANCIA ES UNA MEDIDA ESCALAR]\n\n[JUEGO:SOPA_LETRAS:RECTA,CURVA,PUNTO]\n\n[JUEGO:SOPA_LETRAS:VECTOR,MEDIDA,CINEMATICA]\n\n[JUEGO:SOPA_LETRAS:SEÑAL,RADIO,EXPLORADOR]\n\n[JUEGO:CRUCIGRAMA:Magnitud de la trayectoria recorrida|DISTANCIA;Cambio de posicion de un cuerpo|MOVIMIENTO]\n\n[JUEGO:CRUCIGRAMA:Longitud de la linea recta entre inicio y fin|DESPLAZAMIENTO;Sistema para medir coordenadas|REFERENCIA]\n\n[JUEGO:CRUCIGRAMA:Trayectoria en forma de linea recta|RECTILINEO;Trayectoria en forma de circulo|CIRCULAR]",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "¿Cuál es la diferencia principal entre la Trayectoria y el Desplazamiento según los mapas físicos analizados?",
+      "respuesta_esperada": "La trayectoria es la forma o el camino detallado del recorrido, mientras que el desplazamiento es únicamente el vector de línea recta que conecta el punto de inicio con el punto de llegada."
+    },
+    {
+      "pregunta": "Si un explorador sale de la Rectoría, camina 50 metros buscando agua y regresa al mismo punto de inicio, ¿cuál fue su desplazamiento total?",
+      "respuesta_esperada": "Su desplazamiento total es cero (0), porque su posición inicial y final son idénticas, aunque haya recorrido una distancia de 100 metros."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Dibuja en tu cuaderno tres tipos diferentes de trayectoria para ir de tu salón de clases al baño del colegio en un escenario de evacuación de emergencia.",
+    "Escribe un breve informe científico de supervivencia explicando por qué es un error fatal confundir la distancia recorrida con el desplazamiento al calcular el combustible de un cohete o vehículo terrestre."
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de fenómenos",
+      "texto_introductorio": "En la IE Instituto Montenegro, los estudiantes sobrevivientes analizan el movimiento de un dron defensivo. El dron parte del Laboratorio (Punto A), vuela describiendo un semicírculo perfecto para evitar una torre colapsada y aterriza en la Portería (Punto B) que está a 10 metros de distancia en línea recta hacia el Este.",
+      "tabla_o_grafica_markdown": "| Variable Cinemática | Descripción del Movimiento del Dron |\n| :--- | :--- |\n| **Posición Inicial** | Laboratorio (Punto A) |\n| **Trayectoria** | Semicircular de longitud $15.7$ metros |\n| **Posición Final** | Portería (Punto B), 10 metros al Este del Laboratorio |",
+      "pregunta": "De acuerdo con la información anterior, ¿cuál es el valor de la distancia recorrida y del desplazamiento del dron?",
+      "options": [
+        "La distancia recorrida es de 10 metros y el desplazamiento es de 15.7 metros al Este.",
+        "La distancia recorrida es de 15.7 metros y el desplazamiento es de 10 metros al Este.",
+        "Tanto la distancia recorrida como el desplazamiento tienen un valor idéntico de 10 metros.",
+        "Tanto la distancia recorrida como el desplazamiento tienen un valor de 25.7 metros."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. Has intercambiado los conceptos. La distancia corresponde a la longitud de la trayectoria (15.7 m), y el desplazamiento es la línea recta final (10 m).",
+        "1": "¡Excelente! Comprendes que la distancia es la medida del camino real realizado (15.7 m, curva) y el desplazamiento mide el cambio neto de posición en línea recta (10 m al Este).",
+        "2": "Incorrecto. Esto solo sería verdad si la trayectoria fuera completamente rectilínea, pero el dron realizó un semicírculo.",
+        "3": "Incorrecto. Has sumado ambos valores de manera errónea. La distancia y el desplazamiento son conceptos diferentes que no deben sumarse así."
+      }
+    }
+  ]
+}

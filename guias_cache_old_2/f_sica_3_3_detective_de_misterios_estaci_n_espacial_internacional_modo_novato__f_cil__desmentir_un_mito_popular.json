@@ -1,0 +1,96 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Qué sucede con el peso de una persona cuando se aleja de la superficie terrestre?",
+      "opciones": [
+        "Aumenta exponencialmente",
+        "Disminuye progresivamente a medida que aumenta la distancia",
+        "Permanence exactamente igual sin importar la distancia",
+        "Se convierte en cero al salir a la atmósfera"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "Si sueltas una manzana y una pluma dentro de una cámara de vacío en la Tierra, ¿cuál cae primero?",
+      "opciones": [
+        "La manzana por ser más pesada",
+        "La pluma por ofrecer menor resistencia",
+        "Ambas caen al mismo tiempo",
+        "Ninguna cae porque el vacío elimina la gravedad"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "¿Qué científico formuló la Ley de Gravitación Universal?",
+      "opciones": [
+        "Albert Einstein",
+        "Galileo Galilei",
+        "Isaac Newton",
+        "Nikola Tesla"
+      ],
+      "correcta": 2
+    }
+  ],
+  "texto_inductivo": "# Expediente N° 303: El Caso de la 'Gravedad Cero' Fantasma\n\nBienvenido al servicio de detectives de la Estación Espacial Internacional (EEI), novato. Soy el Detective Principal Newton-Holmes y hoy investigaremos uno de los engaños más extendidos del siglo XXI. \n\n***¿Es verdad que la gravedad desaparece por completo en el espacio o nos han estado engañando todo este tiempo en las películas de ciencia ficción?***\n\nNuestra misión es resolver esta encrucijada y desmentir un mito popular que confunde a millones de personas en la Tierra. [JUEGO:ORDENAR_LETRAS:GRAVEDAD] A menudo escuchamos que los astronautas en la EEI 'flotan porque allá afuera no hay gravedad'. [ACTIVIDAD:PLATAFORMA:¿Cuál es el mito popular sobre la gravedad en la EEI que debemos investigar?|Que en la Estación Espacial Internacional no existe gravedad y por eso los astronautas flotan.] En tu cuaderno, [ACTIVIDAD:CUADERNO:Escribe el título 'Caso #303: El Mito de la Gravedad Cero' y dibuja una escena de ciencia ficción que represente el mito popular versus la realidad física.]\n\n<div style=\"background-color: #1e1e2e; border: 2px solid #89b4fa; padding: 15px; border-radius: 10px; color: #cdd6f4; margin: 15px 0;\">\n<h3 style=\"color: #f9e2af; text-align: center; margin-top: 0;\">🔍 Evidencia Visual N° 1: Trayectoria de Caída Libre Permanente</h3>\n<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 500 220\" style=\"width: 100%; height: auto;\">\n  <defs>\n    <radialGradient id=\"earthGrad\" cx=\"50%\" cy=\"50%\" r=\"50%\">\n      <stop offset=\"0%\" stop-color=\"#89b4fa\" />\n      <stop offset=\"100%\" stop-color=\"#11111b\" />\n    </radialGradient>\n  </defs>\n  <circle cx=\"250\" cy=\"110\" r=\"70\" fill=\"url(#earthGrad)\" stroke=\"#b4befe\" stroke-width=\"2\"/>\n  <text x=\"250\" y=\"115\" fill=\"#ffffff\" font-size=\"14\" text-anchor=\"middle\" font-weight=\"bold\">TIERRA</text>\n  <circle cx=\"250\" cy=\"110\" r=\"95\" fill=\"none\" stroke=\"#f38ba8\" stroke-dasharray=\"4,4\" stroke-width=\"2\"/>\n  <rect x=\"240\" y=\"10\" width=\"20\" height=\"10\" fill=\"#a6e3a1\" rx=\"2\"/>\n  <text x=\"250\" y=\"8\" fill=\"#a6e3a1\" font-size=\"11\" text-anchor=\"middle\">EEI (Orbita a 400 km)</text>\n  <path d=\"M 250 15 L 290 15\" stroke=\"#fab387\" stroke-width=\"2\" marker-end=\"url(#arrow)\"/>\n  <text x=\"320\" y=\"18\" fill=\"#fab387\" font-size=\"10\">Velocidad Tangencial</text>\n  <path d=\"M 250 15 L 250 45\" stroke=\"#f38ba8\" stroke-width=\"2\"/>\n  <text x=\"180\" y=\"35\" fill=\"#f38ba8\" font-size=\"10\">Atracción Gravitatoria (~90%)</text>\n</svg>\n</div>\n\nAnalicemos las pruebas. La EEI se encuentra a solo 400 kilómetros sobre la superficie de la Tierra. [JUEGO:ORDENAR_LETRAS:ORBITA] Si consideramos que el radio terrestre es de aproximadamente 6,371 km, ¡400 km es una distancia sorprendentemente pequeña! [ACTIVIDAD:PLATAFORMA:¿A qué distancia aproximada de la superficie terrestre orbita la EEI?|Aproximadamente a 400 kilómetros.] En tu cuaderno, [ACTIVIDAD:CUADERNO:Dibuja un diagrama a escala donde muestres el radio de la Tierra y la distancia a la que se ubica la EEI.]\n\n[JUEGO:ORDENAR_FRASE:LA GRAVEDAD ATRAE A LOS CUERPOS EN EL ESPACIO]\n\n¿Por qué flotan entonces? La respuesta detectivesca es sencilla pero impactante: la EEI y los astronautas no están libres de la fuerza gravitatoria; están cayendo. [JUEGO:ORDENAR_LETRAS:ESPACIO] Están en un estado constante de **caída libre**. [ACTIVIDAD:PLATAFORMA:¿Cuál es la razón real por la que los astronautas 'flotan' en la EEI?|Porque se encuentran en un estado continuo de caída libre alrededor de la Tierra.] La estación se desplaza lateralmente a más de 27,000 km/h. [JUEGO:ORDENAR_FRASE:LOS ASTRONAUTAS CAEN CONSTANTEMENTE ALREDEDOR DE LA TIERRA] Mientras cae hacia la Tierra, la superficie terrestre se curva al mismo ritmo, lo que provoca que nunca 'impacte' contra el suelo. [ACTIVIDAD:PLATAFORMA:¿Qué evita que la EEI choque contra la Tierra mientras cae?|Su gran velocidad lateral constante que acompaña la curvatura de la Tierra.]\n\n[JUEGO:ORDENAR_FRASE:LA ESTACION ESPACIAL ESTA EN CAIDA LIBRE]\n\nPara consolidar los hallazgos de este primer interrogatorio, realiza el siguiente registro en tu cuaderno de evidencias. [ACTIVIDAD:CUADERNO:Elabora una tabla comparativa de dos columnas: 'Lo que dice el Mito (Gravedad Cero)' vs 'Lo que demuestra la Física (Caída Libre y Microgravedad)'.]\n\nResuelve los acertijos de la escena del crimen antes de avanzar al análisis cuantitativo:\n\n[JUEGO:SOPA_LETRAS:GRAVEDAD,MASAS,DISTANCIA,FUERZA,NEWTON,ORBITA,CAIDA,LIBRE,ATRAER,TIERRA]\n\n[JUEGO:CRUCIGRAMA:Fuerza invisible de atracción|GRAVEDAD;Estado de descenso sin resistencia|CAIDA LIBRE;Trayectoria alrededor de un planeta|ORBITA;Sigla de la Estación Espacial Internacional|EEI;Científico clave de la gravitación universal|NEWTON;Distancia de la EEI a la Tierra en km|CUATROCIENTOS; Sensación de falta de peso|MICROGRAVEDAD;Planeta donde operamos|TIERRA;Magnitud de la masa o aceleración centrípeta|FUERZA;Lo que los astronautas parecen hacer|FLOTAR]\n\nFinalmente, responde la última inquietud de esta sección. [ACTIVIDAD:PLATAFORMA:¿Afecta la gravedad a los objetos dentro de la estación espacial?|Sí, la gravedad actúa por igual sobre la estación y sobre todos los objetos dentro de ella.] En tu cuaderno, [ACTIVIDAD:CUADERNO:Escribe una reflexión de 5 líneas explicando cómo le explicarías a un amigo que en el espacio sí hay gravedad.]",
+  "recurso_visual": "| Concepto | Mito Popular | Realidad Científica en la EEI |\n| :--- | :--- | :--- |\n| **Fuerza Gravitatoria** | Es 0% (Inexistente) | Es ~88% - 90% respecto a la superficie |\n| **Causa del Flotamiento** | Ausencia total de fuerza de atracción | Caída libre continua a alta velocidad lateral |\n| **Movimiento Orbital** | Estático o flotación pura | Caída constante siguiendo la curva terrestre |\n| **Término Correcto** | Gravedad Cero | Microgravedad / Caída Libre |",
+  "texto_deductivo": "# Informe de Deducción Física: La Ecuación Universal de Newton\n\nDetective, ha llegado el momento de sustentar nuestro caso con matemáticas irrefutables. La Ley de Gravitación Universal enunciada por Sir Isaac Newton señala que dos cuerpos cualesquiera se atraen con una fuerza directamente proporcional al producto de sus masas e inversamente proporcional al cuadrado de la distancia que los separa. [JUEGO:ORDENAR_LETRAS:MASA]\n\n<div style=\"background-color: #11111b; border: 2px solid #a6e3a1; border-radius: 10px; padding: 15px; margin: 15px 0;\">\n<h4 style=\"color: #a6e3a1; text-align: center; margin: 0 0 10px 0;\">Ecuación Fundamental del Detective Espacial</h4>\n<div style=\"text-align: center; font-size: 1.4rem; color: #f9e2af; font-family: monospace;\">\n  F = G · (m₁ · m₂) / r²\n</div>\n<hr style=\"border-color: #313244; margin: 10px 0;\">\n<table style=\"width: 100%; color: #cdd6f4; font-size: 0.85rem; border-collapse: collapse;\">\n  <tr style=\"background-color: #181825;\"><th style=\"padding: 5px; border: 1px solid #313244;\">Variable</th><th style=\"padding: 5px; border: 1px solid #313244;\">Significado</th><th style=\"padding: 5px; border: 1px solid #313244;\">Valor en el Caso EEI</th></tr>\n  <tr><td style=\"padding: 5px; border: 1px solid #313244;\"><b>G</b></td><td style=\"padding: 5px; border: 1px solid #313244;\">Constante de Gravitación Universal</td><td style=\"padding: 5px; border: 1px solid #313244;\">6.674 × 10⁻¹¹ N·m²/kg²</td></tr>\n  <tr><td style=\"padding: 5px; border: 1px solid #313244;\"><b>m₁</b></td><td style=\"padding: 5px; border: 1px solid #313244;\">Masa de la Tierra</td><td style=\"padding: 5px; border: 1px solid #313244;\">5.972 × 10²⁴ kg</td></tr>\n  <tr><td style=\"padding: 5px; border: 1px solid #313244;\"><b>r</b></td><td style=\"padding: 5px; border: 1px solid #313244;\">Distancia al centro terrestre</td><td style=\"padding: 5px; border: 1px solid #313244;\">R_Tierra (6371 km) + h (400 km)</td></tr>\n</table>\n</div>\n\n[ACTIVIDAD:PLATAFORMA:¿Cómo varía la fuerza de gravedad si duplicamos la distancia entre dos objetos?|La fuerza de gravedad se reduce a la cuarta parte (1/4) del valor original.] En tu cuaderno, [ACTIVIDAD:CUADERNO:Copia la fórmula de la Ley de Gravitación Universal y encierra en un círculo de color rojo la variable que representa la distancia.]\n\n[JUEGO:ORDENAR_LETRAS:DISTANCIA]\n\n[JUEGO:ORDENAR_FRASE:LA FUERZA GRAVITATORIA DEPENDE DE LAS MASAS]\n\nRealicemos la deducción del valor de la aceleración de la gravedad ($g$) a la altura de la EEI (400 km). [JUEGO:ORDENAR_LETRAS:CONSTANTE] En la superficie de la Tierra, la aceleración es aproximadamente de $9.8 \\text{ m/s}^2$. A $400 \\text{ km}$ de altura, el radio total es $r = 6771 \\text{ km} = 6.771 \\text{ x } 10^6 \\text{ m}$. Al calcular $g = G \\cdot M / r^2$, obtenemos aproximádamente $8.7 \\text{ m/s}^2$. [ACTIVIDAD:PLATAFORMA:¿Cuál es el valor aproximado de la aceleración de la gravedad en la EEI?|Aproximadamente 8.7 m/s².] En tu cuaderno, [ACTIVIDAD:CUADERNO:Escribe el paso a paso del cálculo comparativo entre la gravedad en la superficie (9.8 m/s²) y en la EEI (8.7 m/s²).]\n\n[JUEGO:ORDENAR_FRASE:A MAYOR DISTANCIA DISMINUYE LA ATRACCION GRAVITATORIA]\n\n¡Eureka! $8.7 \\text{ m/s}^2$ representa cerca del **89%** de la gravedad que sentimos en el suelo. [ACTIVIDAD:PLATAFORMA:¿Qué porcentaje aproximado de la gravedad terrestre experimenta la EEI en comparación con la superficie?|Aproximadamente el 89% o 90% de la gravedad terrestre.] Esto demuestra matemáticamente que la fuerza de atracción está muy lejos de ser cero. [JUEGO:ORDENAR_FRASE:LA CONSTANTE DE NEWTON ES MUY PEQUEÑA EN EL UNIVERSO] El término técnico correcto para describir el entorno interior es **microgravedad aparente**, pues la aceleración aparente respecto al marco de referencia de la nave cae a cero debido al estado de caída libre simultáneo de la nave y sus ocupantes. [ACTIVIDAD:PLATAFORMA:¿Qué término científico correcto sustituye a la expresión errónea 'gravedad cero'?|Microgravedad o entorno de caída libre aparente.] En tu cuaderno, [ACTIVIDAD:CUADERNO:Diseña un mapa mental sintetizando los conceptos: Masa, Distancia, Caída Libre, Fuerza Gravitatoria y Microgravedad.]\n\nAfianza los conocimientos deductorios con estos pasatiempos finales de la investigación:\n\n[JUEGO:SOPA_LETRAS:FORMULA,KILOGRAMOS,METROS,NEWTONS,CONSTANTE,CALCULO,PESO,MASA,ALTURA,RADIO]\n\n[JUEGO:CRUCIGRAMA:Unidad de medida de la fuerza en el S.I.|NEWTONS;Magnitud que representa la cantidad de materia|MASA;Distancia desde el centro hasta la superficie de la esfera|RADIO;Valor constante G descubierto en experimentos|CONSTANTE;Abreviatura del Sistema Internacional|SI;Fuerza ejercida por la gravedad sobre una masa|PESO;Unidad base de la masa en el S.I.|KILOGRAMOS;Distancia vertical sobre la superficie terrestre|ALTURA;Operación deductiva para hallar la gravedad|CALCULO;Expresión matemática de una ley física|FORMULA]\n\nFinaliza el informe policial en tu cuaderno de casos. [ACTIVIDAD:CUADERNO:Escribe una conclusión formal redactada como Detective Científico, declarando resuelto el Caso #303 y desmintiendo el mito con evidencias numéricas.]",
+  "icfes": [
+    {
+      "competencia": "Uso Comprensivo del Conocimiento Científico",
+      "texto_introductorio": "Un grupo de estudiantes de secundaria debate sobre los viajes espaciales. Uno de ellos afirma: 'Los astronautas en la Estación Espacial Internacional se flotan porque la fuerza de gravedad de la Tierra no alcanza las alturas del espacio'. Para evaluar esta afirmación, consultan la tabla de datos sobre la masa terrestre y la distancia orbital.",
+      "tabla_o_grafica_markdown": "| Ubicación | Distancia al centro de la Tierra (km) | Aceleración de la gravedad $g$ (m/s²) |\n| :--- | :--- | :--- |\n| Superficie Terrestre | 6,371 | 9.8 |\n| Estación Espacial (EEI) | 6,771 | 8.7 |\n| Órbita Geoestacionaria | 42,164 | 0.22 |",
+      "pregunta": "Con base en la información suministrada, ¿cuál es la explicación científica que desmiente la afirmación del estudiante?",
+      "opciones": [
+        "A 400 km de altura la fuerza gravitatoria disminuye solo un 11%, por lo que la flotación se debe a un estado continuo de caída libre orbital.",
+        "La gravedad en la EEI es exactamente cero debido a que la atmósfera terrestre desaparece por completo.",
+        "La fuerza gravitatoria aumenta a 8.7 m/s², empujando a los astronautas hacia el techo del módulo espacial.",
+        "La masa de la Tierra deja de ejercer atracción sobre objetos que se mueven a más de 10,000 km/h."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. La tabla demuestra que a 6,771 km del centro (400 km de altura) g es de 8.7 m/s² (89% de la gravedad terrestre). El flotamiento ocurre por caída libre orbital.",
+        "1": "Incorrecto. La tabla demuestra explícitamente que la aceleración de la gravedad es 8.7 m/s², no cero.",
+        "2": "Incorrecto. El valor de g disminuye de 9.8 a 8.7 m/s², no aumenta, y atrae hacia el centro de la Tierra, no empuja hacia arriba.",
+        "3": "Incorrecto. La fuerza gravitatoria actúa a cualquier distancia según la ley de Newton, independiente de la velocidad del objeto."
+      }
+    },
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "Durante una videoconferencia con la EEI, un astronauta deja suelto un bolígrafo en el aire y este permanece suspendido a su lado sin caer al suelo de la cabina. Un observador en la Tierra intenta replicar la experiencia en su habitación, pero el bolígrafo cae inmediatamente al suelo.",
+      "tabla_o_grafica_markdown": "| Sistema de Referencia | Aceleración del Objeto (m/s²) | Aceleración de la Cabina/Entorno (m/s²) |\n| :--- | :--- | :--- |\n| Habitación en la Tierra | 9.8 (hacia abajo) | 0.0 (en reposo) |\n| Estación Espacial (EEI) | 8.7 (hacia la Tierra) | 8.7 (hacia la Tierra) |",
+      "pregunta": "¿Qué causa la diferencia observada en el comportamiento del bolígrafo dentro de la EEI en comparación con la habitación terrestre?",
+      "opciones": [
+        "En la EEI la fuerza de gravedad no existe sobre el bolígrafo.",
+        "Tanto el astronauta, la cabina de la EEI y el bolígrafo están cayendo juntos con la misma aceleración hacia la Tierra.",
+        "El aire dentro de la estación espacial es más denso y sostiene los objetos pesados.",
+        "El magnetismo de los motores de la nave anula el efecto de la gravedad sobre materiales plásticos."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. Existe atracción gravitatoria (8.7 m/s²).",
+        "1": "Correcto. Al estar todo el marco de referencia (nave, astronauta, objeto) en caída libre simultánea con la misma aceleración, no hay aceleración relativa entre ellos.",
+        "2": "Incorrecto. La densidad del aire no provoca la ingravidez aparente en este contexto.",
+        "3": "Incorrecto. El fenómeno es puramente gravitacional y mecánico, no magnético."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "Un equipo de detectives científicos desea probar experimentalmente la Ley de Gravitación Universal en una simulación informática. Varían únicamente la distancia $r$ entre dos satélites idénticos y miden la fuerza de atracción gravitacional entre ellos.",
+      "tabla_o_grafica_markdown": "| Experimento | Distancia $r$ (unidades) | Fuerza Gravitacional $F$ (Newtons) |\n| :--- | :--- | :--- |\n| Prueba 1 | 1 | 100 |\n| Prueba 2 | 2 | 25 |\n| Prueba 3 | 3 | 11.1 |\n| Prueba 4 | 4 | 6.25 |",
+      "pregunta": "¿Qué hipótesis queda confirmada analizando las tendencias de la tabla de datos obtenida?",
+      "opciones": [
+        "La fuerza gravitacional disminuye inversamente con el cuadrado de la distancia ($F \\propto 1/r^2$).",
+        "La fuerza gravitacional disminuye de manera lineal respecto al aumento de la distancia.",
+        "La distancia no ejerce ningún impacto apreciable sobre la magnitud de la fuerza.",
+        "Al duplicar la distancia, la fuerza gravitacional se duplica en una relación directamente proporcional."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. Al duplicar la distancia (de 1 a 2), la fuerza se reduce a la cuarta parte (de 100 N a 25 N = 100/2²), cumpliendo la regla del inverso del cuadrado.",
+        "1": "Incorrecto. Si fuera una relación lineal, al duplicar la distancia la fuerza se reduciría a la mitad (50 N), no a 25 N.",
+        "2": "Incorrecto. Los datos muestran variaciones drásticas de 100 N a 6.25 N.",
+        "3": "Incorrecto. La fuerza disminuye drásticamente al aumentar la distancia, no se duplica."
+      }
+    }
+  ]
+}

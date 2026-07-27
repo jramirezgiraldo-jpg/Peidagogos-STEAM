@@ -1,0 +1,114 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Qué forma tiene la órbita de los planetas según el modelo heliocéntrico actual?",
+      "opciones": [
+        "Circular perfecta",
+        "Elíptica",
+        "Parabólica",
+        "Rectilínea"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Cuál es la fuerza responsable de que los planetas no salgan disparados al espacio profundo?",
+      "opciones": [
+        "Fuerza Magnética",
+        "Fuerza de Fricción",
+        "Fuerza Gravitacional",
+        "Fuerza Eléctrica"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "¿Quién propuso las tres leyes que describen el movimiento de los planetas?",
+      "opciones": [
+        "Isaac Newton",
+        "Albert Einstein",
+        "Johannes Kepler",
+        "Galileo Galilei"
+      ],
+      "correcta": 2
+    }
+  ],
+  "texto_inductivo": "# Expedición en la Selva de las Sombras Estelares\n\n¡Atención, reclutas! Soy el Detective Kepler. Nos encontramos perdidos en la espesura de la Selva del Olvido. Nuestras brújulas electrónicas han muerto y solo nos queda el cielo nocturno para orientarnos. Pero hay un problema: las estrellas y los planetas no se mueven como simples puntos en un círculo. Si queremos salir de aquí con vida, debemos descifrar el código del cosmos.\n\n***¿Cómo podrías calcular tu posición exacta y predecir el momento de tu rescate si los astros que guían tu brújula estelar no se movieran en círculos perfectos, sino en trayectorias que desafían la intuición?***\n\nPara sobrevivir, primero debemos entender que los planetas trazan una [JUEGO:ORDENAR_LETRAS:ELIPSE]. <div style='border: 2px solid #2ecc71; padding: 10px; background: #f0fff4;'> <svg width='200' height='100'> <ellipse cx='100' cy='50' rx='80' ry='40' style='fill:none;stroke:purple;stroke-width:2' /> <circle cx='60' cy='50' r='5' fill='yellow' /> <text x='55' y='40' font-size='12' fill='black'>Sol (Foco)</text> <circle cx='180' cy='50' r='4' fill='blue' /> <text x='150' y='80' font-size='10' fill='blue'>Planeta</text> </svg> </div> [JUEGO:ORDENAR_FRASE:LA TIERRA GIRA ALREDEDOR DEL SOL] Esta figura tiene dos puntos clave llamados focos. [JUEGO:SOPA_LETRAS:PLANETA,ASTRO,MASA] En uno de ellos reside nuestra fuente de energía. [JUEGO:CRUCIGRAMA:Trayectoria de un astro|ORBITA;Fuerza de atraccion|GRAVEDAD]\n\nCuando el planeta está cerca del sol, su velocidad aumenta de forma frenética. [JUEGO:ORDENAR_LETRAS:ORBITA] Es como si la selva intentara atraparnos más rápido. [JUEGO:ORDENAR_FRASE:LAS ORBITAS SON ELIPTICAS] Kepler notó que una línea imaginaria que conecta al planeta con el sol barre áreas iguales en tiempos iguales. [JUEGO:SOPA_LETRAS:LEY,FISICA,FUERZA] Esto significa que el tiempo es nuestra moneda de cambio en esta expedición. [JUEGO:CRUCIGRAMA:Punto mas alejado|AFELIO;Punto mas cercano|PERIHELIO]\n\n| Fase de la Órbita | Velocidad | Distancia al Sol |\n|-------------------|-----------|------------------|\n| Perihelio         | Máxima    | Mínima           |\n| Afelio            | Mínima    | Máxima           |\n\nEl tercer misterio es el más profundo: el cuadrado del periodo orbital es proporcional al cubo de la distancia media. [JUEGO:ORDENAR_LETRAS:FOCO] [JUEGO:ORDENAR_FRASE:KEPLER DESCUBRIO LAS LEYES] Si sabemos cuánto tarda un planeta en dar la vuelta, sabemos a qué distancia está de su estrella. [JUEGO:SOPA_LETRAS:ESPACIO,VACIO,LUZ] Esta es la clave para sintonizar nuestra radio de rescate con los satélites. [JUEGO:CRUCIGRAMA:Tiempo de una vuelta|PERIODO;Distancia al sol|RADIO]\n\n[JUEGO:ORDENAR_LETRAS:SOL] La selva nos observa, y el cielo nos guía. [JUEGO:ORDENAR_FRASE:EL SOL ESTA EN UN FOCO] No podemos permitirnos errores de cálculo. [JUEGO:SOPA_LETRAS:CIENCIA,METODO,LOGICA] Cada observación astronómica es una pista para nuestra libertad. [JUEGO:CRUCIGRAMA:Gran astronomo|KEPLER;Su mentor|TYCHO]\n\n[JUEGO:ORDENAR_LETRAS:RADIO] El movimiento no es azaroso, es una danza matemática. [JUEGO:ORDENAR_FRASE:EL AREA ES CONSTANTE] ¿Están listos para usar la ciencia como su único machete en esta selva? [JUEGO:SOPA_LETRAS:MAPA,SELVA,RUTA] [JUEGO:CRUCIGRAMA:Astro central|SOL;Acompañante nocturno|LUNA]",
+  "recurso_visual": "| Concepto | Descripción | Aplicación en Supervivencia |\n|---|---|---|\n| 1ra Ley (Órbitas) | Elipses con el Sol en un foco. | Mapear la trayectoria de satélites de rescate. |\n| 2da Ley (Áreas) | Áreas iguales en tiempos iguales. | Predecir cuándo un objeto pasará sobre nosotros. |\n| 3ra Ley (Periodos) | T² ∝ a³ | Calcular la altitud de objetos en el cielo. |",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "¿Por qué el sol no está en el centro exacto de la elipse?",
+      "respuesta_esperada": "Porque según la primera ley de Kepler, el Sol ocupa uno de los dos focos de la trayectoria elíptica, no el centro geométrico."
+    },
+    {
+      "pregunta": "¿En qué punto de la órbita un planeta se mueve más lento?",
+      "respuesta_esperada": "En el afelio, que es el punto más alejado del Sol, debido a la conservación del momento angular (segunda ley)."
+    },
+    {
+      "pregunta": "¿Qué relación matemática existe entre el tiempo de órbita y la distancia?",
+      "respuesta_esperada": "El cuadrado del periodo (T²) es directamente proporcional al cubo de la distancia media (a³)."
+    },
+    {
+      "pregunta": "¿Qué pasaría con las áreas barridas si el planeta se moviera a velocidad constante?",
+      "respuesta_esperada": "No se cumpliría la segunda ley de Kepler, ya que las áreas barridas en tiempos iguales solo son iguales si la velocidad varía inversamente a la distancia."
+    },
+    {
+      "pregunta": "¿Cómo nos ayuda la 3ra ley a identificar satélites en la selva?",
+      "respuesta_esperada": "Si medimos el tiempo que tarda un satélite en cruzar el cielo, podemos deducir a qué distancia se encuentra de la Tierra."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja una elipse detallada, marca los dos focos, el perihelio, el afelio y sombrea dos sectores circulares que representen la 2da Ley de Kepler.",
+    "Realiza un cuadro comparativo entre el modelo de órbitas circulares (antiguo) y el modelo elíptico de Kepler.",
+    "Escribe una bitácora de detective de 10 líneas explicando cómo usarías la 2da ley de Kepler para cronometrar la llegada de un avión de suministros.",
+    "Representa gráficamente mediante un diagrama de barras cómo cambia la velocidad de un planeta en cuatro puntos diferentes de su órbita."
+  ],
+  "texto_deductivo": "# El Código Secreto de Newton: La Gravedad\n\n¡Bien hecho! Hemos identificado las trayectorias, pero ¿qué encadena a los mundos en este baile? [JUEGO:ORDENAR_LETRAS:FUERZA] La respuesta es la Gravitación Universal. [JUEGO:ORDENAR_FRASE:LA MASA ATRAE A LA MASA] Newton descubrió que la fuerza es proporcional al producto de las masas e inversamente proporcional al cuadrado de la distancia. [JUEGO:SOPA_LETRAS:NEWTON,MANZANA,CAIDA] <div style='background-color: #2c3e50; color: white; padding: 20px; border-radius: 10px; font-family: monospace;'> F = G * (m1 * m2) / r² </div>\n\nEn la selva, si lanzas un objeto, este describe una parábola. [JUEGO:ORDENAR_LETRAS:MASA] [JUEGO:ORDENAR_FRASE:LA GRAVEDAD NOS MANTIENE UNIDOS] Pero si lo lanzas lo suficientemente rápido, entrará en caída libre perpetua: una órbita. [JUEGO:SOPA_LETRAS:TIERRA,MUNDO,ESFERA] [JUEGO:CRUCIGRAMA:Constante universal|G;Unidad de fuerza|NEWTON]\n\nLa aceleración centrípeta es la que mantiene al planeta en su curva. [JUEGO:ORDENAR_LETRAS:VACIO] [JUEGO:ORDENAR_FRASE:LA DISTANCIA AFECTA LA FUERZA] Sin esta aceleración, el planeta seguiría una línea recta por inercia. [JUEGO:SOPA_LETRAS:INERCIA,CAMBIO,CURVA] La cinemática nos dice que la velocidad orbital depende de la masa del astro central. [JUEGO:CRUCIGRAMA:Hacia el centro|CENTRIPETA;Resistencia al cambio|INERCIA]\n\n<div style='display: flex; justify-content: space-around;'> <div style='border: 1px solid black; width: 45%; text-align: center;'> <b>Cinemática Orbital</b><br>v = sqrt(G*M/r) </div> <div style='border: 1px solid black; width: 45%; text-align: center;'> <b>Dinámica</b><br>F = m*a </div> </div>\n\n[JUEGO:ORDENAR_LETRAS:VALOR] Debemos calcular la velocidad de escape para enviar nuestra señal de auxilio al espacio. [JUEGO:ORDENAR_FRASE:LA VELOCIDAD DEPENDE DEL RADIO] [JUEGO:SOPA_LETRAS:ESCAPE,COHETE,CIELO] Si la velocidad es insuficiente, la señal caerá de nuevo en la densa selva. [JUEGO:CRUCIGRAMA:Atraccion terrestre|GRAVEDAD;Espacio sin aire|VACIO]\n\n[JUEGO:ORDENAR_LETRAS:UNIDAD] Finalmente, entendemos que el movimiento planetario es el resultado de una caída constante que nunca toca el suelo. [JUEGO:ORDENAR_FRASE:EL PESO VARIA CON LA ALTURA] [JUEGO:SOPA_LETRAS:ALTURA,PESO,DATO] ¡Preparen sus equipos, el rescate está cerca si los cálculos son precisos! [JUEGO:CRUCIGRAMA:Masa muy grande|ESTRELLA;Trayectoria curva|PARABOLA]",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "¿Qué sucede con la fuerza de atracción si duplicamos la distancia entre dos cuerpos?",
+      "answer_esperada": "La fuerza se reduce a la cuarta parte (1/4), debido a la relación de la inversa del cuadrado de la distancia."
+    },
+    {
+      "pregunta": "¿Por qué los astronautas flotan si todavía hay gravedad en la órbita?",
+      "respuesta_esperada": "Porque están en un estado de caída libre perpetua junto con su nave, donde la fuerza centrípeta es provista por la gravedad."
+    },
+    {
+      "pregunta": "¿Cómo se relaciona la Segunda Ley de Newton (F=ma) con la gravitación?",
+      "respuesta_esperada": "La fuerza gravitacional actúa como la fuerza neta que produce la aceleración centrípeta necesaria para mantener el movimiento circular u elíptico."
+    },
+    {
+      "pregunta": "¿De qué factores depende la velocidad necesaria para mantener un satélite en órbita circular?",
+      "respuesta_esperada": "Depende de la constante gravitacional (G), la masa del planeta (M) y el radio de la órbita (r)."
+    },
+    {
+      "pregunta": "¿Qué pasaría con la órbita de la Tierra si el Sol desapareciera instantáneamente?",
+      "respuesta_esperada": "La Tierra saldría disparada en línea recta siguiendo la dirección de su velocidad tangencial en ese momento, debido a la inercia."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Diseña un diagrama de cuerpo libre para un planeta en órbita, mostrando los vectores de velocidad tangencial y fuerza gravitacional.",
+    "Crea un mapa mental que conecte las 3 Leyes de Kepler con la Ley de Gravitación Universal de Newton.",
+    "Dibuja una escena de la expedición donde expliques mediante un esquema por qué una señal de radio debe alcanzar una 'velocidad de escape' para salir de la atmósfera.",
+    "Realiza una infografía artesanal que compare cómo sería tu peso en la Tierra frente a un planeta con el doble de masa pero el mismo radio."
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "Un grupo de exploradores en la selva observa que un satélite de comunicaciones tarda exactamente 24 horas en dar una vuelta completa a la Tierra, manteniéndose siempre sobre el mismo punto del horizonte (órbita geoestacionaria). Según la tercera ley de Kepler y la ley de gravitación de Newton:",
+      "tabla_o_grafica_markdown": "| Variable | Relación con el Radio (r) |\n|---|---|\n| Velocidad Orbital | Inversamente proporcional a √r |\n| Periodo Orbital | Proporcional a √r³ |",
+      "pregunta": "Si los exploradores necesitan un satélite que se mueva más rápido para cubrir más terreno en menos tiempo, ¿qué debería ocurrir con su altitud?",
+      "opciones": [
+        "El satélite debe estar en una órbita más baja (menor radio).",
+        "El satélite debe estar en una órbita más alta (mayor radio).",
+        "La altitud no afecta la velocidad, solo la masa del satélite.",
+        "El satélite debe alejarse del Sol para aumentar su inercia."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. A menor radio orbital, mayor es la velocidad necesaria para equilibrar la fuerza gravitacional.",
+        "1": "Incorrecto. A mayor altura, la velocidad orbital requerida es menor.",
+        "2": "Incorrecto. La velocidad orbital es independiente de la masa del objeto que orbita.",
+        "3": "Incorrecto. La posición respecto al Sol no determina la velocidad de un satélite terrestre de esta manera."
+      }
+    }
+  ]
+}

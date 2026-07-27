@@ -1,0 +1,86 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "Si estás huyendo de un clon mutante dentro del Instituto Montenegro y te quedas inmóvil detrás de una pared rota, ¿cómo sabe un rescatista dónde encontrarte exactamente?",
+      "opciones": [
+        "A) No importa dónde estés, la física cuántica te teletransportará mágicamente.",
+        "B) Necesita saber tu posición exacta medida desde un punto de referencia conocido, como la entrada principal.",
+        "C) Solo necesita saber cuántos pasos diste en total desde que te levantaste por la mañana.",
+        "D) Solo necesita saber el color de tus botas de supervivencia."
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Qué nombre recibe el camino real, curvo o lleno de desvíos, que dibujas en el suelo polvoriento mientras esquivas los escombros radiactivos?",
+      "opciones": [
+        "A) Desplazamiento absoluto",
+        "B) Posición instantánea",
+        "C) Trayectoria",
+        "D) Velocidad de escape"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "Si sales corriendo del salón de clases, das una vuelta completa a la cancha de fútbol destruida y regresas exactamente al mismo pupitre, ¿cuánto cambió tu posición final respecto a la inicial?",
+      "opciones": [
+        "A) Cambió muchísimo, tantos metros como corriste en total.",
+        "B) No cambió en absoluto; tu cambio de posición (desplazamiento) es cero.",
+        "C) Cambió el doble de la distancia que recorriste.",
+        "D) Depende de cuánta energía gastaste al correr."
+      ],
+      "correcta": 1
+    }
+  ],
+  "texto_inductivo": "¡MUAJAJAJA! ¡Bienvenidos, mis queridos y asustadizos neófitos del yermo, a los restos sobrevivientes de la **Institución Educativa Instituto Montenegro**! Soy el Dr. Kilovatio, su científico loco de cabecera en este bello pero tóxico mundo post-apocalíptico del año 2087.\n\nHoy vamos a desintegrar un mito absurdo que la gente común repite antes de ser devorada por las dantas mutantes de la cordillera del Quindío. El mito dice: *'Si corres una distancia de 200 metros esquivando escombros, quedarás exactamente a 200 metros de distancia del peligro'*. ¡QUÉ SOBERANA TONTERÍA RADIACTIVA! \n\nAntes de activar mis bobinas de Tesla para demostrarlo, piensen en esto:\n\n***¿Cómo es posible que un estudiante de la IE Instituto Montenegro, huyendo de una horda de dantas mutantes desde la cancha de fútbol hasta el bloque administrativo, pueda correr 100 metros esquivando escombros y aun así terminar a solo 10 metros en línea recta de donde empezó?***\n\n¡La respuesta está oculta en las leyes de la cinemática que hoy descifraremos para que no terminen siendo el almuerzo de la fauna local!\n\n<svg width='100%' height='220' viewBox='0 0 500 220' style='background-color:#1e1e1e; border: 3px solid #ff0055; border-radius: 8px;'>\n  <text x='20' y='30' fill='#00ffcc' font-family='monospace' font-size='14' font-weight='bold'>MAPA TÁCTICO: IE INSTITUTO MONTENEGRO (ROOKIE MODE)</text>\n  <rect x='30' y='80' width='90' height='50' fill='#22c55e' rx='5'/>\n  <text x='40' y='110' fill='white' font-family='sans-serif' font-size='10' font-weight='bold'>CANCHA (Inicio)</text>\n  <rect x='380' y='80' width='95' height='50' fill='#3b82f6' rx='5'/>\n  <text x='390' y='110' fill='white' font-family='sans-serif' font-size='10' font-weight='bold'>ADMINISTRATIVO</text>\n  <circle cx='230' cy='105' r='20' fill='#ef4444' opacity='0.8'/>\n  <text x='210' y='110' fill='white' font-family='sans-serif' font-size='8' font-weight='bold'>NIDO DANTA</text>\n  <path d='M 120,105 Q 160,25 240,40 T 380,105' fill='none' stroke='#ffcc00' stroke-width='4' stroke-dasharray='5'/>\n  <text x='170' y='50' fill='#ffcc00' font-family='sans-serif' font-size='11' font-weight='bold'>Trayectoria Curva (100 metros)</text>\n  <line x1='120' y1='105' x2='380' y2='105' stroke='#38bdf8' stroke-width='4'/>\n  <polygon points='380,105 370,100 370,110' fill='#38bdf8'/>\n  <text x='180' y='130' fill='#38bdf8' font-family='sans-serif' font-size='11' font-weight='bold'>Desplazamiento Recto (10 metros)</text>\n</svg>\n\n¡Por todos los transistores fundidos! Miren el mapa de arriba. Si caminas esquivando el nido de la danta mutante, tu **trayectoria** es esa línea amarilla curva y larguísima de 100 metros. Pero tu cambio de **posición** real (el vector azul de **desplazamiento**) es de apenas 10 metros en línea recta hacia el Bloque Administrativo. ¡La distancia y el desplazamiento NO son lo mismo! ¡Mito desmentido!\n\n¡Para entrenar sus cerebros antes de que se derritan, resuelvan estos minijuegos de supervivencia física!\n\n[JUEGO:ORDENAR_LETRAS:POSICION]\n\n[JUEGO:ORDENAR_LETRAS:TRAYECTORIA]\n\n[JUEGO:ORDENAR_FRASE:EL PUNTO DE REFERENCIA ES VITAL]\n\n[JUEGO:ORDENAR_FRASE:LA TRAYECTORIA ES EL CAMINO]\n\n[JUEGO:SOPA_LETRAS:ORIGEN,DISTANCIA,CAMINO]\n\n[JUEGO:SOPA_LETRAS:METRO,RUINAS,MAPA]\n\n[JUEGO:CRUCIGRAMA:Lugar desde donde mides todo el movimiento|ORIGEN;Camino físico que dejas dibujado al correr|TRAYECTORIA]\n\n[JUEGO:CRUCIGRAMA:Línea imaginaria de ruta transitable|RUTA;Espacio o coordenadas que ocupas en el yermo|POSICION]",
+  "recurso_visual": "| Variable Cinemática | ¿Qué es en el Yermo de Montenegro? | ¿Cómo se mide en Modo Novato? | Símbolo Común |\n| :--- | :--- | :--- | :--- |\n| **Punto de Referencia** | La entrada destruida de la IE Instituto Montenegro desde donde medimos todo. | Un punto fijo que todos acuerdan usar. | $O$ (Origen) |\n| **Posición** | Dónde estás parado exactamente respecto a la entrada. | Con coordenadas en metros (ej. 5 metros al Norte). | $\\vec{x}$ |\n| **Trayectoria** | El camino retorcido y lleno de escombros que pisas para salvar tu vida. | Dibujando la línea de tus huellas sobre el mapa. | Línea/Curva |\n| **Distancia Recorrida** | Todo el camino que caminaste sumando paso a paso (siempre aumenta). | Con un podómetro o contando pasos. | $d$ |\n| **Desplazamiento** | La flecha directa y recta que une tu punto de salida con tu punto de llegada. | Midiendo solo la línea recta final entre inicio y fin. | $\\Delta\\vec{x}$ |",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "Si corres esquivando cráteres y terminas exactamente en el mismo lugar de donde saliste corriendo, ¿cuál fue tu desplazamiento final?",
+      "respuesta_esperada": "Tu desplazamiento es cero metros, porque tu posición final es idéntica a tu posición inicial, sin importar que hayas corrido kilómetros."
+    },
+    {
+      "pregunta": "¿Por qué es peligroso decirle a un rescatista del Instituto Montenegro 'estoy a 50 metros' sin darle un punto de referencia?",
+      "respuesta_esperada": "Porque estar a 50 metros puede ser en cualquier dirección (un círculo de 50 metros de radio); sin un punto de referencia (ej. la biblioteca), no sabrán dónde empezar a buscarte."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja en tu cuaderno un mapa de escape de la IE Instituto Montenegro. Marca un punto de inicio (A) y fin (B). Traza con color rojo una trayectoria curva de supervivencia de 30 centímetros y con azul el vector de desplazamiento directo. Explica por qué el camino rojo es más largo que el azul.",
+    "Escribe un breve relato de ciencia ficción post-apocalíptica donde un explorador confunda 'distancia' con 'desplazamiento' y termine perdiéndose en el Quindío debido a este error de física básica."
+  ],
+  "texto_deductivo": "¡Excelente, mis pequeños mutantes en entrenamiento! Sus cerebros no se han licuado todavía. Ahora que hemos destruido el mito de la línea recta con pura observación de campo, es hora de ponernos la bata de laboratorio y formalizar estos conceptos para que su conocimiento sea indestructible como el acero de los viejos bunkers.\n\nEn física, para describir el movimiento de cualquier cuerpo en el yermo, necesitamos definir estrictamente las siguientes variables:\n\n1. **Punto de Referencia (Origen)**: Es el punto fijo del espacio que elegimos para medir la posición. Si no tenemos un punto de partida acordado, ¡los números no significan nada!\n2. **Posición ($\\vec{x}$)**: Es la localización de un cuerpo en el espacio con respecto a nuestro punto de referencia. Se expresa con un valor numérico y una dirección (ejemplo: +10 metros, que significa 10 metros a la derecha del origen).\n3. **Trayectoria**: Es la línea geométrica imaginaria (o física, si dejas huellas) que describe el cuerpo durante su movimiento. Puede ser rectilínea, elíptica, circular o completamente caótica.\n4. **Distancia ($d$)**: Es la longitud total medida a lo largo de la trayectoria. Siempre es una cantidad positiva y nunca disminuye mientras te muevas.\n5. **Desplazamiento ($\\Delta\\vec{x}$)**: Es el cambio de posición que experimenta el cuerpo. Matemáticamente se define como:\n   $$\\Delta\\vec{x} = x_{final} - x_{inicial}$$\n   Al desplazamiento solo le interesa dónde empezaste y dónde terminaste. ¡No le importa qué tan loco fue el camino intermedio!\n\n<svg width='100%' height='200' viewBox='0 0 500 200' style='background-color:#0f172a; border: 3px solid #3b82f6; border-radius: 8px;'>\n  <text x='20' y='30' fill='#38bdf8' font-family='monospace' font-size='14' font-weight='bold'>SISTEMA DE COORDENADAS RECTILÍNEO</text>\n  <line x1='50' y1='120' x2='450' y2='120' stroke='#94a3b8' stroke-width='3'/>\n  <!-- Ticks -->\n  <line x1='100' y1='110' x2='100' y2='130' stroke='#f43f5e' stroke-width='3'/>\n  <text x='90' y='150' fill='#f43f5e' font-family='sans-serif' font-size='11' font-weight='bold'>0m (Origen)</text>\n  <line x1='250' y1='110' x2='250' y2='130' stroke='#fbbf24' stroke-width='3'/>\n  <text x='230' y='150' fill='#fbbf24' font-family='sans-serif' font-size='11' font-weight='bold'>X1 = +15m</text>\n  <line x1='400' y1='110' x2='400' y2='130' stroke='#10b981' stroke-width='3'/>\n  <text x='380' y='150' fill='#10b981' font-family='sans-serif' font-size='11' font-weight='bold'>X2 = +30m</text>\n  <!-- Vector -->\n  <path d='M 250,90 L 392,90' fill='none' stroke='#10b981' stroke-width='3'/>\n  <polygon points='400,90 390,85 390,95' fill='#10b981'/>\n  <text x='260' y='80' fill='#10b981' font-family='sans-serif' font-size='10' font-weight='bold'>Desplazamiento = +15m</text>\n</svg>\n\nObserven este sistema unidimensional. Si un recolector de chatarra inicia en la posición $x_1 = +15\\text{ m}$ (marcada en amarillo) y se mueve en línea recta hasta $x_2 = +30\\text{ m}$ (marcada en verde), su desplazamiento es:\n$$\\Delta\\vec{x} = 30\\text{ m} - 15\\text{ m} = +15\\text{ m}$$\n¡Sencillo y hermoso, como una explosión de protones controlada!\n\nAhora, pongan a prueba su intelecto con la segunda tanda de minijuegos tácticos:\n\n[JUEGO:ORDENAR_LETRAS:DISTANCIA]\n\n[JUEGO:ORDENAR_LETRAS:MEDIDA]\n\n[JUEGO:ORDENAR_LETRAS:COORDENADA]\n\n[JUEGO:ORDENAR_FRASE:EL DESPLAZAMIENTO NO DEPENDE DEL CAMINO]\n\n[JUEGO:ORDENAR_FRASE:LA DISTANCIA SIEMPRE ES POSITIVA]\n\n[JUEGO:ORDENAR_FRASE:EL VECTOR UNE INICIO Y FIN]\n\n[JUEGO:SOPA_LETRAS:VECTOR,SENTIDO,NORTE]\n\n[JUEGO:SOPA_LETRAS:FISICA,CIENCIA,LINEA]\n\n[JUEGO:SOPA_LETRAS:REGLA,MARCO,PLANO]\n\n[JUEGO:CRUCIGRAMA:Cambio neto de posición entre origen y destino final|DESPLAZAMIENTO;Longitud total sumada del camino recorrido|DISTANCIA]\n\n[JUEGO:CRUCIGRAMA:Instrumento de medida fundamental de longitud|METRO;Dirección cardinal que apunta hacia arriba en un mapa convencional|NORTE]\n\n[JUEGO:CRUCIGRAMA:Punto geométrico donde inicia el movimiento estudiado|INICIO;Lugar físico final que representa tu salvación en el yermo|META]",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "Si un estudiante de la IE Instituto Montenegro camina 12 metros al Norte y luego se devuelve 12 metros al Sur, ¿cuál es su distancia recorrida y cuál es su desplazamiento final?",
+      "respuesta_esperada": "La distancia recorrida es de 24 metros (12 + 12 metros), pero su desplazamiento final es de 0 metros, ya que regresó exactamente al punto de inicio."
+    },
+    {
+      "pregunta": "¿Por qué el desplazamiento puede ser negativo (ejemplo: -5 metros), mientras que la distancia recorrida nunca puede ser negativa?",
+      "respuesta_esperada": "Porque el desplazamiento tiene dirección (el signo menos indica que se movió a la izquierda o atrás del punto de referencia), mientras que la distancia solo mide la longitud del camino recorrido acumulado, que siempre suma."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Plantea un ejercicio matemático simple en tu cuaderno donde demuestres que dos trayectorias diferentes que inician en el mismo salón y terminan en la portería del colegio producen exactamente el mismo desplazamiento final.",
+    "Explica en un párrafo por qué el velocímetro y odómetro de un carro del yermo miden 'distancia' y no 'desplazamiento' mientras viaja por las carreteras destruidas de Quindío."
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de fenómenos",
+      "texto_introductorio": "En la IE Instituto Montenegro, durante un simulacro de evacuación por tormentas ácidas, un estudiante registra el movimiento de su grupo de rescate utilizando un sensor de posición de corto alcance. Los datos obtenidos sobre la posición respecto al centro de mando (Punto de Referencia $0\\text{ m}$) se registran en la siguiente tabla de datos cinemáticos:",
+      "tabla_o_grafica_markdown": "| Tiempo ($t$) | Posición ($x$) | Estado del Grupo |\n| :--- | :--- | :--- |\n| $0\\text{ s}$ | $0\\text{ m}$ | Inicio del escape en el laboratorio |\n| $10\\text{ s}$ | $+20\\text{ m}$ | Avanzando por el pasillo principal |\n| $20\\text{ s}$ | $+20\\text{ m}$ | Detenidos por un derrumbe de rocas |\n| $30\\text{ s}$ | $+5\\text{ m}$ | Retrocediendo a buscar una salida alterna |",
+      "pregunta": "Con base en la información suministrada, ¿cuál fue la distancia total recorrida por el grupo de rescate y cuál fue su desplazamiento neto al finalizar los 30 segundos?",
+      "options": [
+        "A) Distancia recorrida = 20 m; Desplazamiento neto = +20 m.",
+        "B) Distancia recorrida = 35 m; Desplazamiento neto = +5 m.",
+        "C) Distancia recorrida = 25 m; Desplazamiento neto = +5 m.",
+        "D) Distancia recorrida = 5 m; Desplazamiento neto = +35 m."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. Confundes los datos del segundo 10 con los totales, omitiendo el retroceso de 15 metros que aumenta la distancia recorrida.",
+        "1": "¡CORRECTO, MI PEQUEÑO CIENTÍFICO! Para la distancia total, sumamos los tramos: de 0m a 20m se recorren 20m. De 20m a 20m se recorren 0m. De 20m a 5m se recorren 15m adicionales hacia atrás. Distancia = 20m + 15m = 35m. El desplazamiento neto es la posición final menos la inicial: 5m - 0m = +5m.",
+        "2": "Incorrecto. Calculaste mal la distancia de retroceso de +20m a +5m, la cual es de 15 metros reales de camino recorrido y no de 5 metros.",
+        "3": "Incorrecto. Intercambiaste los valores de distancia y desplazamiento por completo. Recuerda que la distancia siempre es mayor o igual al módulo del desplazamiento."
+      }
+    }
+  ]
+}

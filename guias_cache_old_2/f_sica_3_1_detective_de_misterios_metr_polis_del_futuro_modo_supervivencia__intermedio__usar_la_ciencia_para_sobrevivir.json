@@ -1,0 +1,104 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Qué fuerza mantiene a la Luna girando alrededor de la Tierra en nuestra Metrópolis?",
+      "opciones": [
+        "La fuerza magnética de los edificios",
+        "La fuerza de gravedad",
+        "El viento solar",
+        "La propulsión de motores iónicos"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "Si un vehículo de transporte orbital se mueve a velocidad constante, ¿qué podemos decir de su aceleración?",
+      "opciones": [
+        "Es infinita",
+        "Es igual a la velocidad",
+        "Es cero",
+        "Está aumentando"
+      ],
+      "correcta": 2
+    }
+  ],
+  "texto_inductivo": "# Informe del Detective: El Misterio de los Distritos a la Deriva\n\nSaludos, Cadetes de la Metrópolis. Soy el Detective de Misterios Planetarios. El Núcleo de Energía de la ciudad está fallando y los Distritos Flotantes han comenzado a vibrar de forma inusual. ***¿Cómo podemos predecir la trayectoria de los distritos flotantes de la Metrópolis para evitar una colisión orbital catastrófica usando las leyes que rigen el cosmos?*** [JUEGO:ORDENAR_FRASE:LA CIENCIA PARA SOBREVIVIR] Para resolver este enigma, debemos mirar hacia las estrellas y entender cómo se mueven los mundos. [JUEGO:ORDENAR_LETRAS:ORBITA] \n\nHistóricamente, Johannes Kepler descubrió que los planetas no se mueven en círculos perfectos, sino en elipses. [JUEGO:SOPA_LETRAS:SOL,TIERRA,MARTE] Esta es nuestra primera pista para entender el desvío de los distritos. \n\n<div style=\"border: 2px solid #00ff00; padding: 10px; background: #001100; color: #00ff00; font-family: monospace;\">\n  <h3 style=\"text-align:center\">DIAGRAMA DE ÓRBITA ELÍPTICA (DISTRICT 9)</h3>\n  <svg viewBox=\"0 0 400 200\" xmlns=\"http://www.w3.org/2000/svg\">\n    <ellipse cx=\"200\" cy=\"100\" rx=\"150\" ry=\"80\" style=\"fill:none;stroke:#00ff00;stroke-width:2\" />\n    <circle cx=\"120\" cy=\"100\" r=\"15\" style=\"fill:#ffff00\" />\n    <text x=\"100\" y=\"80\" fill=\"#ffff00\">Sol (Foco)</text>\n    <circle cx=\"350\" cy=\"100\" r=\"8\" style=\"fill:#0000ff\" />\n    <text x=\"320\" y=\"120\" fill=\"#0000ff\">Planeta/Distrito</text>\n    <line x1=\"120\" y1=\"100\" x2=\"350\" y2=\"100\" stroke=\"#ff0000\" stroke-dasharray=\"4\" />\n    <text x=\"200\" y=\"90\" fill=\"#ff0000\">Radio Vector</text>\n  </svg>\n  <p style=\"font-size: 0.8rem; text-align: center;\">Figura 1: Representación de la 1ra Ley de Kepler en el sector orbital de la Metrópolis.</p>\n</div>\n\nKepler nos enseñó que un planeta barre áreas iguales en tiempos iguales. [JUEGO:ORDENAR_LETRAS:ELIPSE] Esto significa que cuando un distrito está más cerca del sol, se mueve más rápido. [JUEGO:CRUCIGRAMA:Cerca del sol|PERIHELIO;Lejos del sol|AFELIO] Si el sistema de propulsión falla, el distrito seguirá esta ley de forma natural. [JUEGO:SOPA_LETRAS:RADIO,ORBITA,FOCO] \n\n[JUEGO:ORDENAR_FRASE:KEPLER DESCUBRIO LAS LEYES] Isaac Newton luego unificó estos conceptos con la Ley de Gravitación Universal. [JUEGO:ORDENAR_LETRAS:FOCO] La fuerza depende de la masa y la distancia. [JUEGO:CRUCIGRAMA:Atraccion|GRAVEDAD;Cientifico|NEWTON] \n\n<table style=\"width:100%; border-collapse: collapse; border: 1px solid #00ff00; color: white; background-color: black;\">\n  <tr style=\"background-color: #004400;\">\n    <th style=\"border: 1px solid #00ff00; padding: 8px;\">Ley de Kepler</th>\n    <th style=\"border: 1px solid #00ff00; padding: 8px;\">Concepto Detectivesco</th>\n  </tr>\n  <tr>\n    <td style=\"border: 1px solid #00ff00; padding: 8px;\">1. Ley de Órbitas</td>\n    <td style=\"border: 1px solid #00ff00; padding: 8px;\">Los distritos se mueven en elipses, no círculos.</td>\n  </tr>\n  <tr>\n    <td style=\"border: 1px solid #00ff00; padding: 8px;\">2. Ley de Áreas</td>\n    <td style=\"border: 1px solid #00ff00; padding: 8px;\">Más rápido cerca del foco, más lento lejos.</td>\n  </tr>\n  <tr>\n    <td style=\"border: 1px solid #00ff00; padding: 8px;\">3. Ley de Periodos</td>\n    <td style=\"border: 1px solid #00ff00; padding: 8px;\">Relación entre tiempo de órbita y distancia.</td>\n  </tr>\n</table>\n\n[JUEGO:ORDENAR_FRASE:EL SOL ESTA EN EL FOCO] Debemos medir la masa de los distritos. [JUEGO:SOPA_LETRAS:MASA,PESO,FUERZA] La inercia es nuestra resistencia al cambio. [JUEGO:ORDENAR_LETRAS:INERCIA] \n\n[JUEGO:CRUCIGRAMA:Trayectoria|ORBITA;Forma|ELIPSE] ¿Están los distritos acelerando sin permiso? [JUEGO:ORDENAR_FRASE:LOS PLANETAS SE MUEVEN] La gravedad es la cadena invisible que nos mantiene unidos. [JUEGO:ORDENAR_LETRAS:MASA] [JUEGO:SOPA_LETRAS:ELIPSE,CURVA,PLANO] Por último, recuerden que la armonía del cosmos es matemática pura. [JUEGO:CRUCIGRAMA:Tiempo|PERIODO;Espacio|DISTANCIA] [JUEGO:ORDENAR_FRASE:AREAS IGUALES EN TIEMPOS IGUALES] [JUEGO:SOPA_LETRAS:LEY,NEWTON,FISICA] [JUEGO:CRUCIGRAMA:Rapidez|VELOCIDAD;Cambio|ACELERACION]",
+  "recurso_visual": "graph TD\n    A[Movimiento Planetario] --> B[Leyes de Kepler]\n    B --> B1[1. Orbitas Elípticas]\n    B --> B2[2. Áreas Iguales]\n    B --> B3[3. Armonía de los Periodos]\n    A --> C[Gravitación de Newton]\n    C --> C1[Fuerza de Atracción]\n    C1 --> D[Depende de Masa y Distancia]",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "¿Qué forma tienen las órbitas según la primera ley de Kepler?",
+      "respuesta_esperada": "Tienen forma de elipse, donde el Sol (o el cuerpo central) ocupa uno de los focos."
+    },
+    {
+      "pregunta": "¿En qué punto de su órbita se mueve más rápido un Distrito Flotante?",
+      "respuesta_esperada": "Se mueve más rápido en el perihelio, que es el punto más cercano al Sol o cuerpo central."
+    },
+    {
+      "pregunta": "¿De qué factores depende la fuerza de gravedad según Newton?",
+      "respuesta_esperada": "Depende directamente del producto de las masas de los cuerpos e inversamente del cuadrado de la distancia que los separa."
+    },
+    {
+      "pregunta": "¿Qué establece la segunda ley de Kepler sobre las áreas barridas?",
+      "respuesta_esperada": "Establece que el radio vector que une al planeta con el Sol barre áreas iguales en tiempos iguales."
+    },
+    {
+      "pregunta": "¿Por qué es importante la inercia en el movimiento de los distritos?",
+      "respuesta_esperada": "Porque es la tendencia de los distritos a mantener su estado de movimiento a menos que una fuerza externa (como la gravedad o motores) actúe sobre ellos."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja una elipse detallada identificando sus focos, el eje mayor y la posición de un distrito en el afelio y perihelio.",
+    "Realiza un cuadro comparativo entre el modelo geocéntrico (antiguo) y el modelo heliocéntrico (Kepler/Newton).",
+    "Escribe una bitácora de detective explicando cómo la segunda ley de Kepler afectaría el consumo de combustible de un distrito si este tuviera que mantener una velocidad constante.",
+    "Representa gráficamente mediante un diagrama de fuerzas cómo la gravedad de la Tierra atrae a un satélite artificial en la Metrópolis."
+  ],
+  "texto_deductivo": "# Análisis Forense de Movimiento: Cinemática en el Vacío\n\nComo sus guías en esta Metrópolis, debemos analizar los datos de los sensores de posición. [JUEGO:ORDENAR_LETRAS:POSICION] El movimiento de los distritos no es solo cuestión de gravedad, es cinemática pura. [JUEGO:SOPA_LETRAS:METRO,SEGUNDO,HORA] La posición nos dice dónde estamos en el mapa holográfico de la ciudad. [JUEGO:ORDENAR_FRASE:LA VELOCIDAD ES UN VECTOR] \n\n<div style=\"background-color: #000; color: #00ffff; padding: 15px; border: 3px double #00ffff; border-radius: 10px;\">\n  <h2 style=\"text-align: center; color: #00ffff;\">SCANNER DE VECTORES</h2>\n  <div style=\"display: flex; justify-content: space-around;\">\n    <div style=\"text-align: center;\">\n      <span style=\"font-size: 2rem;\">→</span><br><b>Posición (r)</b><br>Coordenadas (x, y)\n    </div>\n    <div style=\"text-align: center;\">\n      <span style=\"font-size: 2rem;\">⇉</span><br><b>Velocidad (v)</b><br>Δr / Δt\n    </div>\n    <div style=\"text-align: center;\">\n      <span style=\"font-size: 2rem;\">⇶</span><br><b>Aceleración (a)</b><br>Δv / Δt\n    </div>\n  </div>\n</div>\n\nLa velocidad es el cambio de posición en el tiempo. [JUEGO:ORDENAR_LETRAS:RAPIDEZ] No olviden que la velocidad es un vector: tiene dirección. [JUEGO:CRUCIGRAMA:Lugar|POSICION;Desplazamiento|VECTOR] [JUEGO:ORDENAR_FRASE:POSICION EN EL ESPACIO] Si el Distrito 7 cambia de dirección, aunque su rapidez sea la misma, hay una aceleración actuando. [JUEGO:SOPA_LETRAS:NORTE,SUR,ESTE] \n\n[JUEGO:CRUCIGRAMA:Rapidez con direccion|VELOCIDAD;Cambio de velocidad|ACELERACION] La aceleración mide qué tan rápido cambia la velocidad. [JUEGO:ORDENAR_LETRAS:CAMBIO] \n\n<table style=\"width:100%; border: 1px solid #00ffff; text-align: center; background: #002222; color: white;\">\n  <tr>\n    <th>Concepto</th>\n    <th>Fórmula Básica</th>\n    <th>Unidad (SI)</th>\n  </tr>\n  <tr>\n    <td>Velocidad Media</td>\n    <td>v = Δx / Δt</td>\n    <td>m/s</td>\n  </tr>\n  <tr>\n    <td>Aceleración Media</td>\n    <td>a = Δv / Δt</td>\n    <td>m/s²</td>\n  </tr>\n</table>\n\n[JUEGO:ORDENAR_FRASE:ACELERACION ES CAMBIO] Si detectamos una aceleración negativa, el distrito está frenando. [JUEGO:ORDENAR_LETRAS:VECTOR] [JUEGO:SOPA_LETRAS:RECTA,CURVA,PUNTO] \n\n[JUEGO:CRUCIGRAMA:Unidad de tiempo|SEGUNDO;Unidad de longitud|METRO] El movimiento es relativo al observador en la Torre Central. [JUEGO:ORDENAR_FRASE:MOVIMIENTO ES RELATIVO] [JUEGO:SOPA_LETRAS:CINEMATICA,CIENCIA,DATOS] \n\n[JUEGO:ORDENAR_LETRAS:TIEMPO] [JUEGO:CRUCIGRAMA:Camino seguido|TRAYECTORIA;Longitud total|DISTANCIA] Debemos calcular la trayectoria exacta. [JUEGO:SOPA_LETRAS:INICIAL,FINAL,TOTAL] [JUEGO:ORDENAR_FRASE:CIENCIA PARA SOBREVIVIR] [JUEGO:CRUCIGRAMA:Estado de reposo|ESTATICO;Estado de movimiento|DINAMICO] Sin estos cálculos, la Metrópolis caerá en el caos.",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "¿Qué diferencia hay entre distancia y desplazamiento en la navegación de distritos?",
+      "respuesta_esperada": "La distancia es la longitud total del camino recorrido (escalar), mientras que el desplazamiento es el cambio neto de posición desde el punto inicial al final (vector)."
+    },
+    {
+      "pregunta": "Si un dron de vigilancia mantiene una rapidez constante de 50 m/s en una curva, ¿existe aceleración?",
+      "respuesta_esperada": "Sí, existe una aceleración centrípeta porque la dirección del vector velocidad está cambiando constantemente."
+    },
+    {
+      "pregunta": "¿Cómo se calcula la velocidad media de un transporte orbital?",
+      "respuesta_esperada": "Dividiendo el vector desplazamiento total entre el intervalo de tiempo transcurrido."
+    },
+    {
+      "pregunta": "¿Qué significa una aceleración de 9.8 m/s² en términos de cambio de velocidad?",
+      "respuesta_esperada": "Significa que la velocidad del objeto cambia en 9.8 m/s cada segundo que pasa."
+    },
+    {
+      "pregunta": "¿Por qué decimos que la velocidad es una magnitud vectorial?",
+      "respuesta_esperada": "Porque para estar completamente definida requiere no solo de un valor numérico (rapidez) y unidad, sino también de una dirección y sentido."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Dibuja un diagrama de vectores que represente la velocidad y la aceleración de un distrito que se mueve en una trayectoria circular.",
+    "Elabora un mapa mental que conecte la cinemática (posición, velocidad, aceleración) con las Leyes de Newton.",
+    "Realiza un dibujo explicativo de la Metrópolis del Futuro donde señales un sistema de referencia (ejes X e Y) y la posición de tres distritos distintos.",
+    "Diseña una infografía artesanal que explique las unidades de medida del Sistema Internacional para la longitud, el tiempo, la velocidad y la aceleración."
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "En la Metrópolis, un ingeniero observa que el Distrito Flotante Alpha está aumentando su distancia respecto al sol de forma constante, pero su velocidad orbital disminuye gradualmente siguiendo una trayectoria elíptica.",
+      "tabla_o_grafica_markdown": "| Punto en la Órbita | Distancia al Sol (UA) | Velocidad (km/s) |\n| :--- | :--- | :--- |\n| Perihelio | 0.8 | 45 |\n| Afelio | 1.2 | 30 |",
+      "pregunta": "De acuerdo con la Segunda Ley de Kepler y los datos de la tabla, ¿cuál es la razón por la cual la velocidad disminuye en el Afelio?",
+      "opciones": [
+        "Porque al aumentar la distancia, el radio vector debe barrer la misma área en el mismo tiempo, lo que requiere menor velocidad.",
+        "Porque la gravedad del sol se vuelve nula en el punto más lejano.",
+        "Porque el distrito pierde masa al alejarse del centro de energía.",
+        "Porque la fricción con el espacio exterior frena el distrito en el punto más alejado."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. Según la ley de áreas de Kepler, para que el área barrida sea constante, a mayor distancia (radio), la velocidad debe ser menor.",
+        "1": "Incorrecto. La gravedad disminuye con la distancia pero nunca es nula.",
+        "2": "Incorrecto. La masa del distrito se considera constante en este análisis cinemático.",
+        "3": "Incorrecto. En el vacío del espacio no hay fricción significativa que cause este fenómeno cíclico."
+      }
+    }
+  ]
+}

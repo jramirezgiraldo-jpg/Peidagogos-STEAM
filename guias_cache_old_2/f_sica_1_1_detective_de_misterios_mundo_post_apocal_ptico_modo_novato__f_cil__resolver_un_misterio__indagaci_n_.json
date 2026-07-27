@@ -1,0 +1,114 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "Vas sentado en el vagón de un tren que viaja a velocidad constante. Miras a un compañero de viaje sentado frente a ti. ¿Cuál es su estado de movimiento con respecto a ti?",
+      "opciones": [
+        "Está en movimiento rápido porque el tren se mueve.",
+        "Está en reposo absoluto, sin importar quién lo mire.",
+        "Está en reposo relativo a mí, pero en movimiento respecto a alguien fuera del tren.",
+        "No se puede determinar sin usar un GPS."
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "¿Qué elemento es fundamental para definir si un objeto está en reposo o en movimiento?",
+      "opciones": [
+        "Un cronómetro digital de alta precisión.",
+        "Un Punto o Sistema de Referencia.",
+        "La masa total del objeto observado.",
+        "La temperatura del ambiente."
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "Si estás parado en el patio de la IE Instituto Montenegro y ves caer una hoja de un árbol, ¿por qué afirmas que la hoja se mueve?",
+      "opciones": [
+        "Porque cambia su posición respecto al suelo y a ti a medida que pasa el tiempo.",
+        "Porque las hojas siempre están vivas y tienen energía.",
+        "Porque el viento hace que todo se mueva al mismo tiempo.",
+        "Porque el color de la hoja cambia de verde a amarillo."
+      ],
+      "correcta": 0
+    }
+  ],
+  "texto_inductivo": "# Expediente de Investigación: El Enigma del Pabellón Deslizante\n\n### **_¿Cómo podemos demostrarle al Consejo de Sobrevivientes de la IE Instituto Montenegro que el refugio subterráneo realmente se está deslizando colina abajo si, al mirar a nuestro alrededor dentro de las aulas en ruinas, todo parece estar en absoluto reposo?_**\n\n¡Atención, Recluta! Soy el Detective de las Sombras del sector Montenegro. El mundo exterior colapsó tras las Tormentas de Ceniza, y ahora nuestra amada **IE Instituto Montenegro** es el último bastión de esperanza. Pero nos enfrentamos a un misterio físico alarmante. \n\nEl Consejo de Ancianos insiste en que el Bloque B (nuestro refugio principal) es 100% seguro y está firme. Sin embargo, mis sensores ópticos externos indican que toda la estructura se desliza lentamente hacia el cañón de la *Quebrada de las Sombras* a razón de 5 centímetros por día. Los estudiantes que habitan allí dicen que estoy loco, porque al sentarse en sus pupitres oxidados, **no sienten absolutamente nada de movimiento**; las mesas, el tablero y los cuadernos no cambian de lugar. \n\n¿Quién tiene la razón? Para resolver este misterio, primero debemos descifrar los conceptos más básicos de la cinemática. ¡Manos a la obra!\n\n<div style=\"text-align: center; margin: 20px 0;\">\n<svg viewBox=\"0 0 400 160\" width=\"100%\" style=\"background-color:#141923; border-radius:12px; border: 2px solid #00ffcc;\" xmlns=\"http://www.w3.org/2000/svg\">\n  <rect x=\"10\" y=\"110\" width=\"380\" height=\"40\" fill=\"#222b35\" />\n  <line x1=\"10\" y1=\"110\" x2=\"390\" y2=\"110\" stroke=\"#00ffcc\" stroke-width=\"2\" stroke-dasharray=\"5,5\" />\n  \n  <!-- El Árbol Mutante Fijo -->\n  <rect x=\"40\" y=\"60\" width=\"10\" height=\"50\" fill=\"#5c677d\" />\n  <circle cx=\"45\" cy=\"45\" r=\"20\" fill=\"#38b000\" opacity=\"0.8\" />\n  <text x=\"20\" y=\"20\" fill=\"#38b000\" font-family=\"monospace\" font-size=\"10\" font-weight=\"bold\">[ÁRBOL FIJO - REF. EXTERNA]</text>\n\n  <!-- Bloque B Deslizándose -->\n  <rect x=\"180\" y=\"50\" width=\"140\" height=\"60\" fill=\"#cf1b1b\" rx=\"6\" opacity=\"0.9\" />\n  <rect x=\"190\" y=\"60\" width=\"35\" height=\"20\" fill=\"#141923\" />\n  <rect x=\"240\" y=\"60\" width=\"35\" height=\"20\" fill=\"#141923\" />\n  \n  <!-- Estudiante dentro -->\n  <circle cx=\"207\" cy=\"70\" r=\"5\" fill=\"#ffca3a\" />\n  <line x1=\"207\" y1=\"75\" x2=\"207\" y2=\"90\" stroke=\"#ffca3a\" stroke-width=\"1.5\" />\n  \n  <!-- Movimiento del Bloque -->\n  <path d=\"M 330 80 L 360 80\" stroke=\"#00ffcc\" stroke-width=\"3\" fill=\"none\" />\n  <polygon points=\"360,75 370,80 360,85\" fill=\"#00ffcc\" />\n  <text x=\"190\" y=\"135\" fill=\"#ffca3a\" font-family=\"monospace\" font-size=\"9\">Estudiante dentro se siente quieto</text>\n  <text x=\"190\" y=\"148\" fill=\"#00ffcc\" font-family=\"monospace\" font-size=\"9\">¡Pero el bloque se desplaza!</text>\n</svg>\n<p style=\"color: #00ffcc; font-size: 0.9em; font-family: monospace;\">Esquema 1.1: Relatividad del Movimiento en el Refugio IE Montenegro.</p>\n</div>\n\nPara empezar a organizar nuestras pistas, resolvamos este primer acertijo mental. ¿Cómo llamamos al cambio de posición que experimenta un cuerpo? ¡Ordena las letras para descubrirlo!\n\n[JUEGO:ORDENAR_LETRAS:MOVIMIENTO]\n\nCuando las cosas parecen congeladas en el tiempo, como el antiguo reloj de pared de la rectoría, decimos que están en:\n\n[JUEGO:ORDENAR_LETRAS:REPOSO]\n\n¡Excelente! Pero cuidado, no te dejes engañar por las apariencias. En física, nada es lo que parece a simple vista. Para poder describir este fenómeno con precisión científica a los asustados sobrevivientes, necesitamos un elemento fundamental para orientar nuestra investigación:\n\n[JUEGO:ORDENAR_LETRAS:SISTEMA]\n\n## Las Reglas del Observador\n\nPara el estudiante atrapado dentro del búnker, la distancia entre su silla y la pizarra siempre es de 3 metros. No cambia. Por lo tanto, para él, la pizarra está en reposo. Sin embargo, para mí, que estoy parado afuera junto al árbol mutante seco del patio central, la distancia entre el árbol y esa misma pizarra disminuye cada hora. ¡Para mí la pizarra se mueve! \n\nDescifra esta regla de oro de nuestra investigación de campo:\n\n[JUEGO:ORDENAR_FRASE:EL MOVIMIENTO DEPENDE DEL OBSERVADOR]\n\nPara entender esto, realicemos una búsqueda rápida de conceptos clave ocultos entre los escombros radiactivos de la biblioteca escolar:\n\n[JUEGO:SOPA_LETRAS:SISTEMA,REFERENCIA,OBSERVADOR]\n\nUn detective no trabaja con suposiciones, trabaja con la ciencia. La física es nuestra linterna en la oscuridad de este páramo:\n\n[JUEGO:SOPA_LETRAS:FISICA,DETECTIVE,PISTAS]\n\nResolvamos ahora este pequeño enigma cruzado para afianzar los conceptos antes de ir a interrogar al Consejo de Sobrevivientes:\n\n[JUEGO:CRUCIGRAMA:Lugar desde donde miras el movimiento|REFERENCIA;Estado donde nada cambia de posicion|REPOSO]\n\n[JUEGO:CRUCIGRAMA:Cambio de posicion al pasar el tiempo|MOVIMIENTO;Unidad de medida del tiempo|SEGUNDO]\n\nPara terminar esta primera fase de recolección de pruebas, debemos recordar que en el espacio sideral, la Tierra también gira. Así que, ¿realmente existe algo completamente quieto?\n\n[JUEGO:ORDENAR_FRASE:TODO SE MUEVE EN EL ESPACIO]\n\n[JUEGO:ORDENAR_FRASE:NADA ESTA REALMENTE DETENIDO]",
+  "recurso_visual": "<table style=\"width:100%; border-collapse: collapse; margin: 15px 0; background-color: #141923; color: #edf2f4; font-family: monospace; border: 2px solid #00ffcc;\">\n  <thead>\n    <tr style=\"background-color: #00ffcc; color: #141923;\">\n      <th style=\"padding: 10px; border: 1px solid #343a40;\">Punto de Referencia</th>\n      <th style=\"padding: 10px; border: 1px solid #343a40;\">Objeto Observado</th>\n      <th style=\"padding: 10px; border: 1px solid #343a40;\">¿Se Mueve?</th>\n      <th style=\"padding: 10px; border: 1px solid #343a40;\">Explicación Física</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td style=\"padding: 10px; border: 1px solid #343a40; font-weight: bold;\">Estudiante dentro del aula</td>\n      <td style=\"padding: 10px; border: 1px solid #343a40;\">Pupitre escolar</td>\n      <td style=\"padding: 10px; border: 1px solid #343a40; color: #ff3333;\">NO (Reposo)</td>\n      <td style=\"padding: 10px; border: 1px solid #343a40;\">La distancia entre el estudiante y el pupitre no varía con el tiempo.</td>\n    </tr>\n    <tr>\n      <td style=\"padding: 10px; border: 1px solid #343a40; font-weight: bold;\">Árbol Seco del Patio Central</td>\n      <td style=\"padding: 10px; border: 1px solid #343a40;\">Pupitre escolar</td>\n      <td style=\"padding: 10px; border: 1px solid #343a40; color: #00ffcc;\">SÍ (Movimiento)</td>\n      <td style=\"padding: 10px; border: 1px solid #343a40;\">El bloque entero se desliza, por lo que el pupitre se acerca al árbol.</td>\n    </tr>\n    <tr>\n      <td style=\"padding: 10px; border: 1px solid #343a40; font-weight: bold;\">El Sol</td>\n      <td style=\"padding: 10px; border: 1px solid #343a40;\">Árbol Seco</td>\n      <td style=\"padding: 10px; border: 1px solid #343a40; color: #00ffcc;\">SÍ (Movimiento)</td>\n      <td style=\"padding: 10px; border: 1px solid #343a40;\">La Tierra gira sobre su eje y orbita alrededor del Sol.</td>\n    </tr>\n  </tbody>\n</table>",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "¿Por qué el estudiante que está dentro del bloque deslizante afirma que su pupitre no se mueve?",
+      "respueta_esperada": "Porque utiliza como punto de referencia el suelo o las paredes del mismo salón, y su distancia con respecto a ellos no cambia."
+    },
+    {
+      "pregunta": "¿Por qué el Detective de las Sombras, que está fuera, sí ve el movimiento del bloque?",
+      "respueta_esperada": "Porque utiliza un punto de referencia externo y fijo, que es el árbol del patio central, observando que la distancia entre el bloque y el árbol cambia con el tiempo."
+    },
+    {
+      "pregunta": "¿Qué elemento físico de la cinemática cambia para que podamos decir que un cuerpo está en movimiento?",
+      "respueta_esperada": "La posición del objeto respecto a un punto de referencia a medida que transcurre el tiempo."
+    },
+    {
+      "pregunta": "Si un sobreviviente duerme toda la noche en su litera dentro de la IE Instituto Montenegro, ¿se movió durante la noche con respecto a la Tierra?",
+      "respueta_esperada": "No, con respecto al edificio y a la Tierra estuvo en reposo, pues su posición relativa no cambió."
+    },
+    {
+      "pregunta": "¿Existe el reposo absoluto en el universo conocido?",
+      "respueta_esperada": "No, porque todo en el universo (planetas, estrellas, galaxias) está en constante movimiento relativo."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja en tu cuaderno de detective un mapa de la IE Instituto Montenegro. Señala un punto de referencia que consideres 'completamente fijo' para medir el movimiento de los escombros.",
+    "Imagina que viajas en una balsa flotante por la Quebrada de las Sombras. Describe dos situaciones: una donde te sientas en reposo y otra donde te sientas en movimiento.",
+    "¿Por qué es vital para un detective definir con precisión el punto de referencia antes de acusar a alguien de 'moverse de la escena del crimen'?",
+    "Explica con tus propias palabras la paradoja del Pabellón Deslizante a un compañero de clase que no entienda de física."
+  ],
+  "texto_deductivo": "# Manual Científico del Detective: Cinemática del Páramo\n\n¡Bienvenido al laboratorio de análisis, Recluta! Ahora que hemos recolectado la evidencia física en el terreno, es momento de formalizar nuestros conocimientos técnicos. En física, la rama que estudia el movimiento de los cuerpos sin preocuparse por las fuerzas que lo causan se conoce como **Cinemática**.\n\nPara presentar nuestro informe final de peritaje técnico ante el Consejo de la IE Instituto Montenegro, debemos dominar tres conceptos fundamentales:\n\n1. **Cuerpo o Móvil:** El objeto que se desplaza (en nuestro caso, el Bloque B de la escuela).\n2. **Sistema de Referencia (SR):** Un objeto o conjunto de coordenadas físicas que consideramos inmóviles para poder realizar nuestras mediciones.\n3. **Posición:** El lugar exacto en el espacio donde se encuentra el móvil en un instante determinado de tiempo.\n\n<div style=\"text-align: center; margin: 20px 0;\">\n<svg viewBox=\"0 0 400 130\" width=\"100%\" style=\"background-color:#1c1a27; border-radius:12px; border: 2px solid #ffbc42;\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- Eje de Coordenadas X -->\n  <line x1=\"30\" y1=\"80\" x2=\"370\" y2=\"80\" stroke=\"#ffbc42\" stroke-width=\"2\" />\n  <polygon points=\"370,75 380,80 370,85\" fill=\"#ffbc42\" />\n  <text x=\"365\" y=\"98\" fill=\"#ffbc42\" font-family=\"monospace\" font-size=\"10\">Eje X (metros)</text>\n  \n  <!-- Origen (0) -->\n  <line x1=\"100\" y1=\"75\" x2=\"100\" y2=\"85\" stroke=\"#ffffff\" stroke-width=\"2\" />\n  <text x=\"92\" y=\"100\" fill=\"#ffffff\" font-family=\"monospace\" font-size=\"10\">X = 0m (Árbol)</text>\n  \n  <!-- Posición Inicial x1 -->\n  <circle cx=\"180\" cy=\"80\" r=\"6\" fill=\"#ff3333\" />\n  <text x=\"160\" y=\"65\" fill=\"#ff3333\" font-family=\"monospace\" font-size=\"10\">x1 = 20m (Lunes)</text>\n  \n  <!-- Posición Final x2 -->\n  <circle cx=\"300\" cy=\"80\" r=\"6\" fill=\"#00ffcc\" />\n  <text x=\"280\" y=\"65\" fill=\"#00ffcc\" font-family=\"monospace\" font-size=\"10\">x2 = 50m (Sábado)</text>\n  \n  <!-- Desplazamiento Vector -->\n  <path d=\"M 185 45 L 295 45\" stroke=\"#ffbc42\" stroke-width=\"2\" stroke-dasharray=\"4\" fill=\"none\" />\n  <polygon points=\"295,41 303,45 295,49\" fill=\"#ffbc42\" />\n  <text x=\"210\" y=\"35\" fill=\"#ffbc42\" font-family=\"monospace\" font-size=\"9\">Desplazamiento</text>\n</svg>\n<p style=\"color: #ffbc42; font-size: 0.9em; font-family: monospace;\">Esquema 2.1: Representación matemática del cambio de posición en una dimensión.</p>\n</div>\n\nIdentifiquemos el término que representa el lugar geométrico donde se sitúa el móvil:\n\n[JUEGO:ORDENAR_LETRAS:POSICION]\n\nY el camino o ruta que va dejando un objeto al moverse en el aire:\n\n[JUEGO:ORDENAR_LETRAS:TRAYECTORIA]\n\n## La Ley del Reposo Relativo\n\nComo detectives astutos, debemos comprender que un cuerpo puede estar en movimiento y en reposo **al mismo tiempo**, dependiendo de los ojos de quien lo mire. Esta asombrosa verdad científica es la clave para salvar al Consejo:\n\n[JUEGO:ORDENAR_FRASE:EL REPOSO ES SOLO RELATIVO]\n\n[JUEGO:ORDENAR_FRASE:LA CINEMATICA ESTUDIA EL MOVIMIENTO]\n\nAhora, busquemos los factores clave del movimiento continuo en nuestro escáner de espectro electromagnético portátil:\n\n[JUEGO:SOPA_LETRAS:VELOCIDAD,TIEMPO,DISTANCIA]\n\n[JUEGO:SOPA_LETRAS:ESPACIO,LINEA,CURVA]\n\n[JUEGO:SOPA_LETRAS:RUINAS,REFUGIO,MISTERIO]\n\nPara certificar oficialmente nuestra investigación, completa el informe técnico resolviendo los siguientes crucigramas físicos:\n\n[JUEGO:CRUCIGRAMA:Camino imaginario que deja un cuerpo|TRAYECTORIA;La distancia mas corta entre dos puntos|DESPLAZAMIENTO]\n\n[JUEGO:CRUCIGRAMA:Magnitud que mide la duracion de un evento|TIEMPO;Lo que cambia cuando te mueves|POSICION]\n\n[JUEGO:CRUCIGRAMA:Punto que consideras inmovil para medir|ORIGEN;Aparato para medir el tiempo|RELOJ]\n\nCon esta sólida evidencia científica, podemos presentarnos formalmente ante los líderes de la IE Instituto Montenegro. Hemos demostrado con ecuaciones de posición y marcos de referencia que el bloque de clases se está deslizando sin lugar a dudas. ¡Caso resuelto, Detective!",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "¿Cuál es el objeto de estudio de la Cinemática?",
+      "respueta_esperada": "Estudia el movimiento de los cuerpos en el espacio sin analizar las causas (fuerzas) que lo producen."
+    },
+    {
+      "pregunta": "En nuestro misterio del pabellón, ¿cuál es el 'móvil'?",
+      "respueta_esperada": "El pabellón escolar entero (Bloque B) que se desplaza hacia el cañón."
+    },
+    {
+      "pregunta": "¿Qué se necesita para definir la posición de un objeto de forma precisa?",
+      "respueta_esperada": "Un punto de origen (0,0) en nuestro sistema de referencia y una distancia o dirección medida desde allí."
+    },
+    {
+      "pregunta": "Si un cuerpo no cambia de posición con respecto a un origen a lo largo del tiempo, ¿cuál es su estado?",
+      "respueta_esperada": "Se encuentra en estado de reposo con respecto a ese sistema de referencia."
+    },
+    {
+      "pregunta": "¿Por qué dos observadores pueden estar en desacuerdo sobre el movimiento de un mismo cuerpo y ambos tener razón?",
+      "respueta_esperada": "Porque cada observador utiliza un sistema de referencia diferente, y el movimiento es relativo al sistema de referencia elegido."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Define detalladamente en tu cuaderno: Reposo Relativo, Movimiento, Trayectoria y Sistema de Referencia.",
+    "Si caminas por el pasillo de la IE Instituto Montenegro a 1 m/s, describe tu estado respecto a un compañero que camina a tu lado a tu misma velocidad y dirección.",
+    "Crea un problema hipotético donde un detective deba usar la relatividad del movimiento para probar la inocencia de un sobreviviente acusado de robo nocturno.",
+    "Escribe un breve ensayo de tres párrafos titulado: 'El movimiento: una ilusión del punto de vista'."
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de fenómenos",
+      "texto_introductorio": "En la IE Instituto Montenegro, un grupo de estudiantes de grado sexto realiza un experimento utilizando un dron detector de radiación. El dron vuela en línea recta a una velocidad constante justo por encima de un pasillo en ruinas, mientras un estudiante camina exactamente debajo del dron a su misma velocidad y dirección. Un detective observa el experimento inmóvil desde el tejado del bloque opuesto.",
+      "tabla_o_grafica_markdown": "<table style=\"width:100%; border-collapse: collapse; margin: 10px 0; background-color: #1e1e24; color: #ffffff; font-family: monospace; border: 1px solid #ffbc42;\">\n  <thead>\n    <tr style=\"background-color: #ffbc42; color: #1e1e24;\">\n      <th style=\"padding: 8px; border: 1px solid #ffbc42;\">Observador</th>\n      <th style=\"padding: 8px; border: 1px solid #ffbc42;\">Estado Percibido del Dron</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td style=\"padding: 8px; border: 1px solid #ffbc42;\">Estudiante en movimiento</td>\n      <td style=\"padding: 8px; border: 1px solid #ffbc42;\">¿?</td>\n    </tr>\n    <tr>\n      <td style=\"padding: 8px; border: 1px solid #ffbc42;\">Detective en el tejado</td>\n      <td style=\"padding: 8px; border: 1px solid #ffbc42;\">En Movimiento</td>\n    </tr>\n  </tbody>\n</table>",
+      "pregunta": "De acuerdo con el texto y la física del movimiento relativo, ¿cuál de las siguientes opciones describe correctamente el estado del dron percibido por el estudiante en movimiento?",
+      "opciones": [
+        "En reposo, porque la distancia horizontal entre el dron y el estudiante se mantiene constante a lo largo del tiempo.",
+        "En movimiento acelerado, porque el dron vuela alto en el aire y la gravedad siempre altera su velocidad.",
+        "En reposo absoluto, porque el dron no posee motores térmicos de combustión interna encendidos.",
+        "En movimiento relativo rápido, porque el detective desde el tejado lo ve alejarse a gran velocidad."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "¡Correcto! Como el estudiante y el dron se desplazan en la misma dirección y a la misma velocidad, la distancia relativa entre ambos no varía con el tiempo. Por tanto, para el estudiante, el dron está en reposo relativo.",
+        "1": "Incorrecto. El problema describe que el dron vuela a velocidad constante y no hay cambio de altura que justifique una aceleración gravitacional visible para el estudiante.",
+        "2": "Incorrecto. El reposo absoluto no existe en física elemental, y la propulsión del dron no determina directamente su estado de movimiento cinemático.",
+        "3": "Incorrecto. Aunque el detective en el tejado lo vea moverse, el estudiante tiene su propio sistema de referencia, y desde su punto de vista el dron no cambia de posición."
+      }
+    }
+  ]
+}

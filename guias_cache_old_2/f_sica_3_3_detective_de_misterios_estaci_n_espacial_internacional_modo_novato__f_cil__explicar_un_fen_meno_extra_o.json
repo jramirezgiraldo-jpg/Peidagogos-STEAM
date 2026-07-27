@@ -1,0 +1,96 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Qué ocurre con la fuerza de gravedad entre dos objetos si la masa de uno de ellos aumenta?",
+      "opciones": [
+        "La fuerza de gravedad aumenta.",
+        "La fuerza de gravedad disminuye.",
+        "La fuerza de gravedad desaparece por completo.",
+        "La fuerza de gravedad se mantiene exactamente igual."
+      ],
+      "correcta": 0
+    },
+    {
+      "pregunta": "¿Por qué los astronautas en la Estación Espacial Internacional (ISS) parecen no tener peso?",
+      "opciones": [
+        "Porque en la ISS no existe la fuerza de gravedad de la Tierra.",
+        "Porque están en constante estado de caída libre junto con la estación.",
+        "Porque los trajes espaciales repelen magnéticamente la Tierra.",
+        "Porque el espacio exterior cancela la masa de los objetos."
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "Si alejamos dos satélites al doble de la distancia que los separaba originalmente, ¿qué sucede con la fuerza de atracción gravitacional entre ellos?",
+      "opciones": [
+        "Aumenta al doble.",
+        "Se reduce a la mitad.",
+        "Se reduce a la cuarta parte.",
+        "Aumenta cuatro veces."
+      ],
+      "correcta": 2
+    }
+  ],
+  "texto_inductivo": "### 🕵️‍♂️ Expediente de Investigación: El Caso del Objeto Flotante en el Módulo Zvezda\n\n¡Atención, Detective Orbital! Soy el Comandante de la Estación Espacial Internacional (ISS). Te hemos convocado porque ha ocurrido un fenómeno sumamente extraño a 400 kilómetros sobre la superficie terrestre. Hace unas horas, una llave inglesa de 2 kg y un pequeño tornillo de 10 gramos quedaron flotando juntos fuera de la escotilla. Lo desconcertante no es que floen, sino que **ambos permanecen exactamente al lado de la estación sin salir disparados al espacio ni caer en picado hacia la Tierra**.\n\n***¿Por qué si la gravedad de la Tierra nos atrae hacia el suelo a todos nosotros, la Estación Espacial Internacional y sus astronautas flotan en el espacio sin estrellarse jamás contra nuestro planeta?***\n\nPara resolver este misterio, debemos analizar cómo actúa la fuerza invisible que une al cosmos. [JUEGO:ORDENAR_LETRAS:GRAVEDAD] Muchos novatos creen erróneamente que en la altura de la ISS 'no hay gravedad'. ¡Falso! A 400 km de altura, la gravedad terrestre es casi el 90% de la que sentimos en el suelo. [ACTIVIDAD:PLATAFORMA:¿A qué porcentaje aproximado equivale la gravedad en la ISS en comparación con la superficie terrestre?|Al 90% aproximado de la gravedad terrestre.] En tu libreta de campo, [ACTIVIDAD:CUADERNO:Dibuja la Tierra y la ISS orbitando a su alrededor. Señala con una flecha roja hacia dónde apunta la fuerza de gravedad.]\n\n<div style='background-color: #0b3d91; color: white; padding: 15px; border-radius: 10px; margin: 15px 0;'>\n  <h4 style='color: #4cc9f0; margin-top:0;'>📡 Diagrama de Campo: Caída Libre Orbital</h4>\n  <svg viewBox='0 0 400 160' width='100%' height='160' style='background:#050b14; border-radius:8px;'>\n    <circle cx='80' cy='180' r='120' fill='#2b5c8f' stroke='#4cc9f0' stroke-width='2'/>\n    <text x='55' y='100' fill='white' font-size='12'>Tierra</text>\n    <path d='M 80 60 A 120 120 0 0 1 320 120' fill='none' stroke='#ffd166' stroke-width='2' stroke-dasharray='4'/>\n    <rect x='220' y='63' width='20' height='12' fill='#e76f51' rx='2'/>\n    <text x='210' y='55' fill='#ffd166' font-size='10'>ISS en Órbita</text>\n    <line x1='230' y1='75' x2='150' y2='120' stroke='#ef476f' stroke-width='2' marker-end='url(#arrow)'/>\n    <text x='180' y='110' fill='#ef476f' font-size='10'>Fuerza Gravedad</text>\n  </svg>\n</div>\n\n¿Cómo es posible entonces que la estación no caiga? La respuesta está en su velocidad. [JUEGO:ORDENAR_LETRAS:ORBITA] La ISS avanza horizontalmente a la impresionante velocidad de 27,600 km/h. Mientras la gravedad la atrae hacia abajo, la estación 'se mueve hacia adelante tan rápido' que la curvatura de la Tierra se aleja por debajo de ella a la misma velocidad con la que cae. [JUEGO:ORDENAR_FRASE:LA ESTACION ESPACIAL ESTA EN CAIDA LIBRE PERPETUA] [ACTIVIDAD:PLATAFORMA:¿Cuál es la velocidad aproximada a la que se mueve la ISS para mantenerse en órbita?|Aproximadamente 27600 km/h.]\n\nObservemos la relación entre los cuerpos en la estación: [JUEGO:ORDENAR_LETRAS:MASA] [JUEGO:ORDENAR_FRASE:LA GRAVEDAD ATRAE A TODOS LOS CUERPOS CON MASA]\n\n| Objeto en Investigación | Masa Estimada | Comportamiento Detectado |\n| :--- | :--- | :--- |\n| Estación Espacial (ISS) | 420,000 kg | Cae continuamente rodeando la curvatura terrestre. |\n| Llave Inglesa Perdida | 2.0 kg | Flota en paralelo a la ISS a su misma velocidad. |\n| Tornillo Suelto | 0.01 kg | Flota exactamente igual que la llave inglesa. |\n\n[ACTIVIDAD:CUADERNO:Crea un cuadro comparativo entre el concepto de Masa y el concepto de Peso según lo observado en el espacio.]\n\nComo detective de laboratorio, notas que la masa de los objetos no altera su ritmo de caída en el vacío orbital. [JUEGO:ORDENAR_FRASE:NEWTON EXPLICA EL MOVIMIENTO DE LOS PLANETAS] [ACTIVIDAD:PLATAFORMA:¿Afecta la masa de un objeto su aceleración de caída en el vacío orbital?|No, en el vacío todos los objetos caen con la misma aceleración independientemente de su masa.] En tu cuaderno, [ACTIVIDAD:CUADERNO:Escribe una hipótesis detectivesca respondiendo por qué la llave de 2kg y el tornillo de 10g no se separan mientras flotan.]\n\nPara desbloquear las pistas secretas del panel orbital, resuelve la siguiente sopa de letras y el crucigrama del panel técnico:\n\n[JUEGO:SOPA_LETRAS:GRAVEDAD,MASA,DISTANCIA,ORBITA,NEWTON,FUERZA,ESPACIO,TIERRA,ATRAER,CAIDA]\n\n[JUEGO:CRUCIGRAMA:Fuerza de atraccion entre masas|GRAVEDAD;Cientifico que descubrio la ley universal|NEWTON;Trayectoria de un cuerpo alrededor de otro|ORBITA;Cantidad de materia de un objeto|MASA;Estacion espacial donde vivimos el misterio|ISS;Distancia del centro de la tierra al objeto|RADIO;Sensacion de no tener peso|MICROGRAVEDAD;Fuerza hacia el centro de rotacion|CENTRIPETA;Lugar sin atmosfera fuera de la tierra|ESPACIO;Velocidad necesaria para no caer|ORBITAL]\n\n[ACTIVIDAD:PLATAFORMA:¿Qué científico formuló la ley que explica el movimiento de los planetas y la gravedad?|Isaac Newton.]\n[ACTIVIDAD:CUADERNO:Dibuja un mapa mental que conecte las palabras Gravedad, Masa, Distancia y Órbita.]\n[ACTIVIDAD:PLATAFORMA:¿Cómo se denomina al estado en el que la ISS cae continuamente sin tocar la superficie?|Caída libre perpetua o microgravedad.]",
+  "recurso_visual": "| Fenómeno Observado | Causa Física Científica | Conclusión del Detective |\n| :--- | :--- | :--- |\n| Objetos flotando en la ISS | Caída libre simultánea de la nave y los objetos | No es ausencia de gravedad, es microgravedad por caída libre. |\n| Trayectoria circular alrededor de la Tierra | Velocidad orbital horizontal (27,600 km/h) balanceada con la atracción gravitacional | La curvatura de la caída coincide con la curvatura de la Tierra. |\n| Llave y tornillo caen juntos | La aceleración gravitacional en el vacío no depende de la masa del objeto | Todos los objetos caen al mismo ritmo sin resistencia de aire. |",
+  "texto_deductivo": "### 🔬 Análisis Deductivo: La Ley de Gravitación Universal de Newton\n\n¡Excelente trabajo recopilando pistas! Ahora aplicaremos el rigor matemático formulado por Sir Isaac Newton para resolver formalmente el expediente. [JUEGO:ORDENAR_LETRAS:NEWTON] La Ley de Gravitación Universal establece que dos cuerpos cualesquiera con masa se atraen mutuamente con una fuerza directamente proporcional al producto de sus masas e inversamente proporcional al cuadrado de la distancia que los separa. [JUEGO:ORDENAR_LETRAS:FUERZA]\n\n<div style='background-color: #1a1a2e; color: #e0e0e0; padding: 20px; border-left: 5px solid #4e54c8; border-radius: 8px; margin: 15px 0;'>\n  <h4 style='color: #8f94fb; margin-top:0;'>🧮 Ecuación del Misterio Gravitacional</h4>\n  <p style='font-size: 1.2rem; text-align: center;'><b>F = G · (m₁ · m₂) / r²</b></p>\n  <ul style='font-size: 0.95rem;'>\n    <li><b>F:</b> Fuerza de atracción gravitacional (Newtons, N)</li>\n    <li><b>G:</b> Constante de gravitación universal (6.674 × 10⁻¹¹ N·m²/kg²)</li>\n    <li><b>m₁, m₂:</b> Masas de los dos cuerpos (kg)</li>\n    <li><b>r:</b> Distancia entre los centros de masa (m)</li>\n  </ul>\n</div>\n\nAnalicemos detenidamente las variables del fenómeno. [JUEGO:ORDENAR_LETRAS:DISTANCIA] Si duplicamos la masa de uno de los objetos, la fuerza gravitacional se duplica. [JUEGO:ORDENAR_FRASE:A MAYOR MASA MAYOR FUERZA DE GRAVEDAD] [ACTIVIDAD:PLATAFORMA:Si la masa de un satélite se triplica, ¿qué le ocurre a la fuerza de atracción gravitacional con la Tierra?|La fuerza gravitacional también se triplica.] En tu libreta, [ACTIVIDAD:CUADERNO:Escribe la fórmula de la Ley de Gravitación Universal y encierra en un círculo verde la constante G y en azul la distancia r.]\n\nPero ¡atención detective! El factor más sensible del misterio es la distancia ($r$). Al estar en el denominador elevado al cuadrado, [JUEGO:ORDENAR_FRASE:A MAYOR DISTANCIA MENOR FUERZA GRAVITACIONAL] si alejamos la ISS al doble de distancia del centro de la Tierra, la fuerza no se reduce a la mitad, ¡se reduce a la cuarta parte ($2^2 = 4$)!\n\n[ACTIVIDAD:PLATAFORMA:Si la distancia entre dos cuerpos se multiplica por 3, ¿en cuánto disminuye la fuerza gravitacional?|Disminuye a la novena parte (1/9).] [ACTIVIDAD:CUADERNO:Elabora un gráfico sencillo que muestre cómo disminuye la fuerza de gravedad a medida que aumenta la distancia.]\n\n[JUEGO:ORDENAR_FRASE:LA CONSTANTE DE GRAVITACION ES UNIVERSAL]\n\n| Variable | Efecto al Duplicar la Variable | Razón Matemática |\n| :--- | :--- | :--- |\n| Masa 1 ($m_1$) | La Fuerza se DUPLICA ($2\\times$) | Proporción Directa ($F \\propto m$) |\n| Distancia ($r$) | La Fuerza se REDUCE a $1/4$ | Inverso del Cuadrado ($F \\propto 1/r^2$) |\n\n[ACTIVIDAD:PLATAFORMA:¿Por qué la fuerza gravitacional entre dos estudiantes en el aula no hace que se peguen físicamente?|Porque la constante G es extremadamente pequeña y las masas de los estudiantes son muy reducidas.]\n[ACTIVIDAD:CUADERNO:Redacta la solución final del misterio explicando por qué la llave de 2 kg y el tornillo de 10 g permanecen flotando juntos en la ISS.]\n\nPara certificar tu rango de Detective Orbital de Nivel Novato, resuelve las herramientas finales del panel interactivo:\n\n[JUEGO:SOPA_LETRAS:FORMULA,CONSTANTE,INVERSO,CUADRADO,MULTIPLICAR,DIVIDIR,EQUILIBRO,ACELERACION,VELOCIDAD,VECTOR]\n\n[JUEGO:CRUCIGRAMA:Letra que representa la constante gravitacional|G;Exponente de la distancia en la formula|DOS;Propiedad que se mide en kilogramos|MASA;Unidad de medida de la fuerza en SI|NEWTON;Tipo de relacion entre distancia y fuerza|INVERSA;Ley enunciada por Isaac Newton|GRAVITACION;Nombre de nuestro planeta|TIERRA;Causal del cambio de velocidad|ACELERACION;Magnitud de giro orbital|VELOCIDAD;Efecto visible de flotar|FLOTACION]\n\n[ACTIVIDAD:PLATAFORMA:¿Cuál es la unidad de medida de la fuerza de gravedad en el Sistema Internacional?|El Newton (N).]\n[ACTIVIDAD:CUADERNO:Diseña una infografía resumen con tres reglas clave de la gravedad universal para futuros detectives espaciales.]",
+  "icfes": [
+    {
+      "competencia": "Uso Comprensivo del Conocimiento Científico",
+      "texto_introductorio": "Un equipo de investigadores en la Estación Espacial Internacional analiza la fuerza de atracción entre la Tierra (masa $M$) y dos satélites de investigación, $S_1$ (masa $m$) y $S_2$ (masa $2m$), ubicados exactamente a la misma distancia $R$ del centro de la Tierra.",
+      "tabla_o_grafica_markdown": "| Satélite | Masa del Satélite | Distancia al centro de la Tierra |\n| :--- | :--- | :--- |\n| Satélite $S_1$ | $m$ | $R$ |\n| Satélite $S_2$ | $2m$ | $R$ |",
+      "pregunta": "¿Cómo es la fuerza gravitacional que ejerce la Tierra sobre el Satélite $S_2$ en comparación con la que ejerce sobre el Satélite $S_1$?",
+      "opciones": [
+        "Es el doble de la fuerza ejercida sobre $S_1$.",
+        "Es igual a la fuerza ejercida sobre $S_1$.",
+        "Es la mitad de la fuerza ejercida sobre $S_1$.",
+        "Es cuatro veces mayor que la fuerza ejercida sobre $S_1$."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "¡Correcto, Detective! Según la Ley de Gravitación Universal ($F = G \\cdot M \\cdot m / r^2$), la fuerza es directamente proporcional a la masa del objeto. Al tener $S_2$ el doble de masa ($2m$), la fuerza gravitacional resultante es exactamente el doble.",
+        "1": "Incorrecto. La fuerza depende directamente de la masa de los objetos. Al cambiar la masa, la fuerza no puede permanecer igual.",
+        "2": "Incorrecto. Si la masa aumenta al doble, la fuerza de atracción aumenta, no disminuye a la mitad.",
+        "3": "Incorrecto. La fuerza se multiplicaría por cuatro si la distancia se hubiera reducido a la mitad, pero las masas guardan una relación lineal directa."
+      }
+    },
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "Durante una reparación exterior en la ISS, a un astronauta se le sueltan simultáneamente dos herramientas: un martillo pesado de 3 kg y un destornillador ligero de 0.2 kg. El astronauta observa con asombro que ambas herramientas permanecen flotando juntas a la misma distancia de la estación espacial sin alejarse una de la otra.",
+      "tabla_o_grafica_markdown": "| Objeto | Masa | Aceleración en el vacío de la órbita |\n| :--- | :--- | :--- |\n| Martillo | 3.0 kg | $g_{orbital} = 8.7 \\text{ m/s}^2$ |\n| Destornillador | 0.2 kg | $g_{orbital} = 8.7 \\text{ m/s}^2$ |",
+      "pregunta": "¿Cuál es la explicación científica correcta de por qué el martillo y el destornillador se mueven juntos en el espacio?",
+      "opciones": [
+        "Porque en la órbita terrestre la gravedad es cero para todos los objetos.",
+        "Porque en el vacío la aceleración de caída libre depende únicamente de la masa de la Tierra y la distancia, no de la masa de los objetos.",
+        "Porque el destornillador se magnetiza al martillo debido al campo magnético espacial.",
+        "Porque la fuerza de atracción sobre el martillo es menor que sobre el destornillador."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. En la ISS sí hay gravedad (aproximadamente 8.7 m/s²); lo que sucede es un estado de caída libre continuo.",
+        "1": "¡Excelente deducción! Al aplicar la segunda ley de Newton ($F = m \\cdot a$) a la ley gravitacional, la masa del objeto se cancela, demostrando que la aceleración de caída $a = G \\cdot M / r^2$ es exactamente la misma para cualquier objeto sin importar su masa.",
+        "2": "Incorrecto. No se trata de un fenómeno magnético, sino puramente gravitacional y cinemático.",
+        "3": "Incorrecto. La fuerza sobre el martillo es mayor por tener más masa, pero al requerir más fuerza para acelerar la misma cantidad (inercia), la aceleración final resulta idéntica."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "Un grupo de estudiantes analiza los datos orbitales de cuatro sondas idénticas enviadas a explorar distintas altitudes alrededor de un planeta desconocido. Registran los datos en la siguiente tabla de mediciones:",
+      "tabla_o_grafica_markdown": "| Sonda | Distancia al centro del planeta ($r$) | Fuerza Gravitacional ($F$) |\n| :--- | :--- | :--- |\n| Alfa | $10,000 \\text{ km}$ | $400 \\text{ N}$ |\n| Beta | $20,000 \\text{ km}$ | $100 \\text{ N}$ |\n| Gamma | $30,000 \\text{ km}$ | $44.4 \\text{ N}$ |\n| Delta | $40,000 \\text{ km}$ | $25 \\text{ N}$ |",
+      "pregunta": "¿Qué hipótesis queda confirmada con los datos de la tabla sobre el comportamiento de la fuerza de gravedad respecto a la distancia?",
+      "opciones": [
+        "La fuerza gravitacional disminuye de manera inversamente proporcional al cuadrado de la distancia.",
+        "La fuerza gravitacional disminuye de forma directamente proporcional a la distancia.",
+        "La fuerza de gravedad se mantiene constante sin importar la distancia recorrida.",
+        "La fuerza de gravedad aumenta a medida que la sonda se aleja del planeta."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "¡Caso resuelto, Detective! Al duplicar la distancia de 10,000 km a 20,000 km ($2\\times$), la fuerza se divide entre $2^2 = 4$ ($400 \\text{ N} / 4 = 100 \\text{ N}$). Al cuadruplicar la distancia a 40,000 km ($4\\times$), la fuerza se divide entre $4^2 = 16$ ($400 \\text{ N} / 16 = 25 \\text{ N}$). Esto confirma la ley del inverso del cuadrado.",
+        "1": "Incorrecto. Si fuera inversamente proporcional simple, al duplicar la distancia la fuerza se reduciría a la mitad (200 N), pero se reduce a 100 N.",
+        "2": "Incorrecto. Los datos muestran claramente una variación decreciente de la fuerza de 400 N a 25 N.",
+        "3": "Incorrecto. La tabla evidencia que al aumentar la distancia la fuerza disminuye, no aumenta."
+      }
+    }
+  ]
+}

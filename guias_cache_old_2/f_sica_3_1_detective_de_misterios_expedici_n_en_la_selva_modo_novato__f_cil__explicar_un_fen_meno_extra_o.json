@@ -1,0 +1,114 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "En nuestra expedición, notamos que las estrellas parecen moverse juntas. ¿Qué forma crees que tiene el camino que recorre un planeta alrededor del Sol?",
+      "opciones": [
+        "Un cuadrado perfecto",
+        "Un círculo exacto",
+        "Una elipse (como un círculo aplastado)",
+        "Una línea recta hacia el infinito"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "Si lanzas una brújula al aire en la selva, ¿por qué regresa a tu mano en lugar de flotar hacia el espacio?",
+      "opciones": [
+        "Por el magnetismo de la selva",
+        "Por la fuerza de gravedad de la Tierra",
+        "Porque el aire la empuja hacia abajo",
+        "Por el peso de la humedad"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Quién fue el científico que usó las leyes de Kepler para explicar por qué caen las manzanas?",
+      "opciones": [
+        "Isaac Newton",
+        "Albert Einstein",
+        "Galileo Galilei",
+        "Sherlock Holmes"
+      ],
+      "correcta": 0
+    }
+  ],
+  "texto_inductivo": "¡Bienvenidos, jóvenes detectives de la naturaleza! Soy su guía en esta **Expedición en la Selva**. Mientras despejamos la maleza con nuestros machetes, hemos encontrado un antiguo templo astronómico oculto por la vegetación. En sus paredes, hay glifos que muestran el cielo. Pero hay un misterio: ***¿Por qué los planetas gigantes que vemos sobre el dosel de los árboles no se pierden en la inmensidad del espacio y mantienen siempre el mismo ritmo de baile?*** [JUEGO:ORDENAR_LETRAS:SELVA] Para resolver este enigma, primero debemos observar el cielo nocturno. [JUEGO:SOPA_LETRAS:SOL,LUNA,MARTE] Los antiguos sabios de esta selva sabían que el sol es el corazón de todo. [JUEGO:ORDENAR_FRASE:EL SOL ES EL CENTRO] \n\n<div style='background-color: #e0f2f1; padding: 20px; border-radius: 10px; border: 2px solid #00695c;'>\n  <h3 style='color: #004d40; text-align: center;'>Mapa de Observación Estelar</h3>\n  <svg width='100%' height='200' viewBox='0 0 400 200' xmlns='http://www.w3.org/2000/svg'>\n    <ellipse cx='200' cy='100' rx='150' ry='70' style='fill:none;stroke:#00695c;stroke-width:2' />\n    <circle cx='100' cy='100' r='15' fill='yellow' />\n    <text x='85' y='80' font-family='Arial' font-size='12' fill='#004d40'>Sol (Foco)</text>\n    <circle cx='300' cy='60' r='8' fill='blue' />\n    <text x='290' y='50' font-family='Arial' font-size='12' fill='#004d40'>Planeta</text>\n    <line x1='100' y1='100' x2='300' y2='60' stroke='red' stroke-dasharray='4' />\n  </svg>\n  <p style='text-align: center; font-style: italic;'>Trayectoria observada desde el campamento.</p>\n</div>\n\nAl mirar por nuestro telescopio, notamos que los planetas no viajan en círculos perfectos, sino en óvalos llamados elipses. [JUEGO:ORDENAR_LETRAS:ELIPSE] Es como si el camino estuviera trazado por un gigante. [JUEGO:CRUCIGRAMA:Camino de un astro|ORBITA;Centro de luz|SOL] En la selva, cada criatura tiene su territorio; en el cielo, cada astro tiene su ruta. [JUEGO:ORDENAR_FRASE:LOS PLANETAS SE MUEVEN] [JUEGO:SOPA_LETRAS:FOCO,EJE,AREA] El misterio crece cuando vemos que, al acercarse al Sol, el planeta parece tener más prisa. [JUEGO:ORDENAR_LETRAS:ASTRO] [JUEGO:CRUCIGRAMA:Espacio vacio|ESPACIO;Astro brillante|PLANETA] \n\n| Fase de Observación | Fenómeno Detectado | Velocidad Percibida |\n| :--- | :--- | :--- |\n| Cerca del Sol | Perihelio | Muy Rápida |\n| Lejos del Sol | Afelio | Más Lenta |\n\n¿Será que el Sol tiene un lazo invisible que nos jala? [JUEGO:ORDENAR_FRASE:LA GRAVEDAD NOS UNE] [JUEGO:SOPA_LETRAS:ORBITA,MASA,PESO] Los detectives debemos anotar que el tiempo que tarda un planeta en dar la vuelta depende de qué tan lejos esté. [JUEGO:ORDENAR_LETRAS:CIELO] [JUEGO:CRUCIGRAMA:Fuerza invisible|GRAVEDAD;Atraccion fuerte|IMAN] No es magia, es orden natural. [JUEGO:ORDENAR_FRASE:MIRA HACIA EL CIELO] [JUEGO:SOPA_LETRAS:TIEMPO,ESPACIO,LUZ] Estamos descubriendo las huellas de Kepler en el barro de la selva. [JUEGO:ORDENAR_LETRAS:RUTA] [JUEGO:CRUCIGRAMA:Figura circular|CIRCULO;Ovalado|ELIPSE] Todo en el universo está conectado por hilos que no vemos. [JUEGO:ORDENAR_FRASE:SOMOS POLVO DE ESTRELLAS] [JUEGO:SOPA_LETRAS:NOCHE,DIA,SOL] [JUEGO:CRUCIGRAMA:Mucha rapidez|VELOCIDAD;Sin movimiento|REPOSO]",
+  "recurso_visual": "graph TD\n    A[Observación en la Selva] --> B[Trayectorias de los Planetas]\n    B --> C{¿Son Círculos?}\n    C -- No --> D[Son Elipses - 1ra Ley de Kepler]\n    B --> E[Velocidad Variable]\n    E --> F[Más rápido cerca del Sol - 2da Ley de Kepler]\n    B --> G[Relación Tiempo y Distancia]\n    G --> H[Más lejos, más tiempo - 3ra Ley de Kepler]",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "Según lo observado en el templo, ¿cuál es la forma real de las órbitas planetarias?",
+      "respuesta_esperada": "Las órbitas tienen forma de elipse, que es como un círculo ligeramente alargado u ovalado."
+    },
+    {
+      "pregunta": "¿Qué sucede con la velocidad de un planeta cuando se encuentra más cerca del Sol?",
+      "respuesta_esperada": "El planeta se mueve más rápido cuando está en el punto más cercano al Sol (perihelio)."
+    },
+    {
+      "pregunta": "En el diagrama del templo, ¿qué nombre recibe el punto donde se encuentra el Sol dentro de la elipse?",
+      "respuesta_esperada": "El Sol se ubica en uno de los focos de la elipse."
+    },
+    {
+      "pregunta": "Si un planeta está muy lejos del Sol, ¿tardará más o menos tiempo en completar su vuelta?",
+      "respuesta_esperada": "Tardará más tiempo, ya que a mayor distancia, mayor es el periodo orbital."
+    },
+    {
+      "pregunta": "¿Por qué crees que los antiguos comparaban el movimiento planetario con un 'baile'?",
+      "respuesta_esperada": "Porque es un movimiento rítmico, repetitivo y sigue leyes armoniosas que mantienen el orden del sistema."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja una elipse en tu cuaderno e identifica dónde colocarías al Sol y al planeta según lo visto en el templo.",
+    "Realiza un cuadro comparativo entre el movimiento de un planeta cuando está en el 'Perihelio' vs el 'Afelio'.",
+    "Escribe una reflexión de 10 renglones sobre cómo te sentirías observando el cielo desde una selva sin luces de ciudad.",
+    "Representa gráficamente mediante un dibujo cómo te imaginas el 'lazo invisible' que une al Sol con los planetas."
+  ],
+  "texto_deductivo": "Ahora, detectives, es momento de usar nuestras lupas de laboratorio para analizar los datos científicos. El gran investigador Isaac Newton descubrió que la razón de este baile es la **Gravedad**. [JUEGO:ORDENAR_LETRAS:NEWTON] Es una fuerza de atracción que depende de la masa de los objetos. [JUEGO:ORDENAR_FRASE:TODO LO QUE SUBE BAJA] [JUEGO:SOPA_LETRAS:FUERZA,ACCION,LEY] Imaginen que el Sol es una gran fogata en el centro de nuestra expedición que atrae a todo a su alrededor. [JUEGO:ORDENAR_LETRAS:MASA] \n\n<div style='border: 3px dashed #795548; padding: 15px; background-color: #efebe9;'>\n  <h4 style='color: #5d4037;'>Fórmula del Misterio Gravitacional</h4>\n  <div style='font-size: 1.5rem; text-align: center; padding: 20px; font-weight: bold;'>\n    F = G * (m₁ * m₂) / r²\n  </div>\n  <p style='font-size: 0.9rem;'>Donde <b>F</b> es la fuerza, <b>m</b> son las masas y <b>r</b> es la distancia entre ellas.</p>\n</div>\n\nJohannes Kepler, otro detective del pasado, nos dejó tres pistas (leyes) fundamentales. [JUEGO:ORDENAR_LETRAS:KEPLER] La primera pista dice que los planetas no se salen de su carril elíptico. [JUEGO:ORDENAR_FRASE:LA MASA ATRAE MASA] [JUEGO:SOPA_LETRAS:FISICA,CIENCIA,DATOS] La segunda pista explica que el 'barrido' de áreas es igual en tiempos iguales; por eso la aceleración cambia. [JUEGO:ORDENAR_LETRAS:VECTOR] [JUEGO:CRUCIGRAMA:Cientifico famoso|NEWTON;Fisico aleman|EINSTEIN] La tercera pista vincula el tiempo del año planetario con su distancia al Sol. [JUEGO:ORDENAR_FRASE:KEPLER DESCUBRIO LAS ELIPSES] [JUEGO:SOPA_LETRAS:VELOZ,CALCULO,RADIO] \n\nEn la cinemática de los astros, la posición y la velocidad son claves para no chocar. [JUEGO:ORDENAR_LETRAS:INERCIA] [JUEGO:CRUCIGRAMA:Distancia al centro|RADIO;Camino total|TRAYECTORIA] Si un planeta se detuviera, caería directo al Sol. [JUEGO:ORDENAR_FRASE:LA FUERZA ES MAGICA] [JUEGO:SOPA_LETRAS:NEWTON,KEPLER,TYCHO] Pero su velocidad (inercia) lo mantiene girando perpetuamente. [JUEGO:CRUCIGRAMA:Fuerza que cae|GRAVEDAD;Empuje fuerte|FUERZA] Entender esto es como entender cómo fluye el río en la selva. [JUEGO:ORDENAR_FRASE:EL UNIVERSO ES GRANDE] [JUEGO:SOPA_LETRAS:CENTRO,MASA,TIERRA] [JUEGO:CRUCIGRAMA:Tiempo de vuelta|PERIODO;Giro completo|ORBITA] [JUEGO:CRUCIGRAMA:Cambio de rapidez|ACELERACION;Rapidez pura|VELOCIDAD]",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "¿Qué dos factores determinan la fuerza de atracción gravitacional entre dos cuerpos?",
+      "respuesta_esperada": "La masa de los cuerpos y la distancia que los separa."
+    },
+    {
+      "pregunta": "Según la Ley de Gravitación, si la distancia entre el Sol y la Tierra aumentara, ¿qué pasaría con la fuerza de atracción?",
+      "respuesta_esperada": "La fuerza de atracción disminuiría."
+    },
+    {
+      "pregunta": "¿Qué evita que la Tierra caiga directamente hacia el Sol debido a la gravedad?",
+      "respuesta_esperada": "Su velocidad tangencial o inercia orbital, que la mantiene en movimiento perpetuo alrededor del Sol."
+    },
+    {
+      "pregunta": "¿A qué se refiere la frase 'áreas iguales en tiempos iguales' de la Segunda Ley de Kepler?",
+      "respuesta_esperada": "Significa que la línea imaginaria que une al Sol con el planeta barre la misma superficie en el mismo intervalo de tiempo, sin importar en qué parte de la órbita esté."
+    },
+    {
+      "pregunta": "¿Cómo se define el 'Periodo Orbital' en la física planetaria?",
+      "respuesta_esperada": "Es el tiempo que tarda un objeto astronómico en completar una órbita completa alrededor de otro objeto."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Crea un diagrama detallado que muestre las fuerzas actuando sobre un planeta (Fuerza de gravedad y vector de velocidad).",
+    "Elabora un mapa mental que conecte a Newton con las tres leyes de Kepler.",
+    "Realiza un dibujo explicativo de por qué un satélite no se cae a la Tierra usando el concepto de 'caída libre perpetua'.",
+    "Diseña una infografía artesanal donde expliques las tres leyes de Kepler de forma sencilla para otros exploradores."
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "Durante la expedición, observamos que Marte tarda mucho más tiempo que la Tierra en dar una vuelta completa al Sol. Consultando nuestros registros, obtenemos la siguiente tabla:",
+      "tabla_o_grafica_markdown": "| Planeta | Distancia Media al Sol (UA) | Periodo Orbital (Años) |\n| :--- | :--- | :--- |\n| Mercurio | 0.39 | 0.24 |\n| Tierra | 1.00 | 1.00 |\n| Marte | 1.52 | 1.88 |\n| Júpiter | 5.20 | 11.86 |",
+      "pregunta": "De acuerdo con la información de la tabla y la Tercera Ley de Kepler, ¿cuál es la relación correcta entre la distancia al Sol y el tiempo que tarda un planeta en orbitar?",
+      "opciones": [
+        "A mayor distancia del Sol, el planeta tarda más tiempo en completar su órbita.",
+        "A mayor distancia del Sol, el planeta se mueve más rápido y tarda menos tiempo.",
+        "La distancia no influye en el tiempo que tarda el planeta en orbitar.",
+        "Todos los planetas tardan lo mismo, pero algunos son más grandes."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. La Tercera Ley de Kepler establece que el cuadrado del periodo es proporcional al cubo de la distancia; a más distancia, más tiempo.",
+        "1": "Incorrecto. A mayor distancia, la velocidad orbital es menor y el camino es más largo.",
+        "2": "Incorrecto. La tabla muestra claramente que a medida que aumenta la distancia (UA), aumenta el periodo.",
+        "3": "Incorrecto. Los datos de la tabla demuestran que los periodos son muy diferentes entre sí."
+      }
+    }
+  ]
+}

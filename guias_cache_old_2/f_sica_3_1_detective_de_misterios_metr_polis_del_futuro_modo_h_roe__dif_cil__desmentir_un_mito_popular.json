@@ -1,0 +1,114 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "En la Metrópolis del Futuro, un dron de carga se desplaza a velocidad constante. ¿Qué se puede afirmar de su aceleración?",
+      "opciones": [
+        "Es máxima debido al movimiento",
+        "Es nula ya que no hay cambio en la velocidad",
+        "Depende de la masa del dron",
+        "Aumenta proporcionalmente a la posición"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "Según la leyenda de los Antiguos Astrónomos, ¿cuál es la forma real de las órbitas planetarias?",
+      "opciones": [
+        "Círculos perfectos",
+        "Líneas rectas infinitas",
+        "Elipses con el Sol en un foco",
+        "Triángulos equiláteros"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "Si un detective lanza un rastro localizador en el espacio profundo lejos de cualquier estrella, ¿qué pasará con su trayectoria?",
+      "opciones": [
+        "Se detendrá inmediatamente",
+        "Seguirá en línea recta a velocidad constante",
+        "Empezará a girar en círculos",
+        "Regresará al punto de origen"
+      ],
+      "correcta": 1
+    }
+  ],
+  "texto_inductivo": "Saludos, Cadete del Sector 7. Soy el Detective de Misterios Orbitales. Se nos ha asignado un caso crítico: los ciudadanos de la Metrópolis Neón creen en el mito de que los planetas 'flotan' porque no hay gravedad en el espacio. ¡Falso! Si no hubiera gravedad, el caos reinaría. ***¿Si la gravedad de la Tierra desapareciera por un segundo mientras la Luna orbita, saldría esta disparada en línea recta debido a su velocidad o seguiría una trayectoria curva por la inercia del movimiento previo?*** [JUEGO:ORDENAR_LETRAS:GRAVEDAD] Para resolver esto, debemos analizar la cinemática. La posición de un cuerpo en nuestra red de sensores se define por coordenadas espaciales. [JUEGO:ORDENAR_FRASE:LA POSICION DEPENDE DEL SISTEMA DE REFERENCIA] \n\n <div style='border: 2px solid #00ffcc; padding: 10px; background-color: #001a1a; color: #00ffcc; font-family: monospace;'> <h3 style='text-align:center;'>REPORTE DE SENSORES: VECTOR POSICIÓN</h3> <svg width='300' height='200' viewBox='0 0 300 200'> <line x1='20' y1='180' x2='280' y2='180' stroke='#00ffcc' stroke-width='2' marker-end='url(#arrow)' /> <line x1='20' y1='180' x2='20' y2='20' stroke='#00ffcc' stroke-width='2' /> <circle cx='150' cy='100' r='10' fill='#ff0055' /> <text x='165' y='105' fill='#00ffcc'>Objeto P(x,y)</text> <path d='M 20 180 L 145 105' stroke='#ff0055' stroke-width='2' stroke-dasharray='5,5' /> <defs> <marker id='arrow' viewBox='0 0 10 10' refX='5' refY='5' markerWidth='6' markerHeight='6' orient='auto-start-reverse'> <path d='M 0 0 L 10 5 L 0 10 z' fill='#00ffcc' /> </marker> </defs> </svg> </div> \n\n Observa el diagrama superior. El objeto P tiene una posición. [JUEGO:SOPA_LETRAS:POSICION,VECTOR,COORDENADA] Si el objeto se mueve, cambia su posición respecto al tiempo, lo que llamamos velocidad. [JUEGO:CRUCIGRAMA:Cambio de posicion|VELOCIDAD;Punto de origen|REFERENCIA] Pero cuidado, la velocidad no es solo rapidez; tiene dirección. [JUEGO:ORDENAR_LETRAS:CINEMATICA] En el espacio, un planeta siempre está 'cayendo' hacia su estrella, pero su velocidad lateral es tan alta que nunca choca. [JUEGO:ORDENAR_FRASE:LA VELOCIDAD TIENE MAGNITUD Y DIRECCION] \n\n | Concepto | Símbolo | Unidad (SI) | \n | :--- | :---: | :---: | \n | Posición | r | metros (m) | \n | Velocidad | v | m/s | \n | Aceleración | a | m/s² | \n\n [JUEGO:SOPA_LETRAS:METRO,TIEMPO,MOVIMIENTO] La aceleración aparece cuando el detective cambia el rumbo de su nave o su rapidez. [JUEGO:CRUCIGRAMA:Cambio de velocidad|ACELERACION;Segundos de viaje|TIEMPO] En una órbita circular, aunque la rapidez sea constante, la dirección cambia todo el tiempo, ¡por lo tanto hay aceleración! [JUEGO:ORDENAR_LETRAS:VECTOR] [JUEGO:ORDENAR_FRASE:LA ACELERACION CAMBIA EL VECTOR VELOCIDAD] Esta aceleración es causada por la gravedad, el pegamento invisible del cosmos. [JUEGO:SOPA_LETRAS:FUERZA,MASA,COSMOS] Para desmentir el mito, entiende que 'caer' y 'orbitar' son casi lo mismo en física. [JUEGO:CRUCIGRAMA:Atraer objetos|GRAVEDAD;Camino cerrado|ORBITA] [JUEGO:ORDENAR_LETRAS:ORBITA] [JUEGO:ORDENAR_FRASE:LOS PLANETAS NO FLOTAN ELLOS CAEN] Si la velocidad fuera cero, el planeta colapsaría hacia el Sol. [JUEGO:SOPA_LETRAS:SOL,CAIDA,PLANETA] [JUEGO:CRUCIGRAMA:Estrella central|SOL;Espacio vacio|VACIO] [JUEGO:ORDENAR_LETRAS:ESPACIO] [JUEGO:ORDENAR_FRASE:TODO MOVIMIENTO REQUIERE UN OBSERVADOR] [JUEGO:SOPA_LETRAS:CIENCIA,DATOS,METODO]",
+  "recurso_visual": "graph TD\n    A[Cinemática Planetaria] --> B[Posición: Ubicación en el mapa estelar]\n    A --> C[Velocidad: Rapidez y Dirección de la nave]\n    A --> D[Aceleración: Cambio en el vector velocidad]\n    C --> E[Tangencial a la órbita]\n    D --> F[Centrípeta hacia el Sol]\n    B --> G[Sistema de Referencia]",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "¿Por qué un planeta en órbita circular tiene aceleración si su rapidez no cambia?",
+      "respuesta_esperada": "Porque la aceleración es el cambio del vector velocidad, y aunque la rapidez sea constante, la dirección del vector cambia continuamente para mantener la trayectoria curva."
+    },
+    {
+      "pregunta": "Según la narrativa, ¿qué ocurriría si un planeta perdiera su velocidad lateral?",
+      "respuesta_esperada": "El planeta dejaría de orbitar y caería directamente hacia el Sol debido a la fuerza de atracción gravitacional."
+    },
+    {
+      "pregunta": "¿Qué diferencia hay entre posición y distancia recorrida para un detective espacial?",
+      "respuesta_esperada": "La posición es un vector que indica la ubicación exacta respecto a un origen, mientras que la distancia es la medida total del camino recorrido sin importar la dirección."
+    },
+    {
+      "pregunta": "En el reporte de sensores, ¿qué representa la flecha punteada roja?",
+      "respuesta_esperada": "Representa el vector posición que une el origen del sistema de referencia con la ubicación actual del objeto P."
+    },
+    {
+      "pregunta": "¿Cómo desmiente la cinemática el mito de que los planetas 'flotan'?",
+      "respuesta_esperada": "Explicando que están en un estado de caída libre perpetua, donde la gravedad actúa como fuerza centrípeta que genera aceleración constante."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema de la Metrópolis del Futuro donde señales un sistema de coordenadas (X, Y) y ubiques tres naves en diferentes vectores de posición.",
+    "Realiza un cuadro comparativo entre Magnitudes Escalares (como el tiempo) y Magnitudes Vectoriales (como la velocidad y aceleración), dando ejemplos del contexto de la guía.",
+    "Escribe una reflexión de media página sobre cómo cambiaría la vida en la Metrópolis si la aceleración de la gravedad fuera el doble de la actual.",
+    "Representa gráficamente mediante flechas (vectores) qué le sucede a la velocidad de una nave cuando frena para entrar en un puerto espacial."
+  ],
+  "texto_deductivo": "Ahora, Cadete, usemos la lógica deductiva para desmantelar el núcleo del mito: 'Las órbitas son círculos perfectos'. [JUEGO:ORDENAR_LETRAS:ELIPSE] Johannes Kepler, el antiguo descifrador, descubrió que los planetas se mueven en elipses. [JUEGO:ORDENAR_FRASE:LAS ORBITAS SON ELIPTICAS NO CIRCULARES] Esto significa que la distancia al Sol cambia, y por ende, la velocidad también. [JUEGO:CRUCIGRAMA:Punto lejano|AFELIO;Punto cercano|PERIHELIO] Cuando el planeta está más cerca del Sol (Perihelio), la gravedad es más fuerte y el planeta acelera. [JUEGO:SOPA_LETRAS:FUERZA,FOCO,ELIPSE] \n\n <div style='background: #111; color: #0f0; padding: 15px; border-radius: 10px; border: 1px solid #0f0;'> <h4 style='margin-top:0;'>ESQUEMA DEDUCTIVO: LEY DE LAS ÁREAS</h4> <svg width='300' height='150'> <ellipse cx='150' cy='75' rx='100' ry='50' style='fill:none;stroke:#0f0;stroke-width:2' /> <circle cx='110' cy='75' r='8' fill='#ffcc00' /> <path d='M 110 75 L 250 75 A 100 50 0 0 0 210 30 Z' fill='rgba(0,255,0,0.3)' /> <text x='105' y='100' fill='#ffcc00' font-size='10'>Sol (Foco)</text> <text x='250' y='85' fill='#0f0' font-size='10'>A1</text> </svg> <p style='font-size: 0.8rem'>El planeta barre áreas iguales en tiempos iguales. Deducción: a menor distancia, mayor velocidad.</p> </div> \n\n Isaac Newton dedujo que esta danza elíptica es causada por una fuerza que es inversamente proporcional al cuadrado de la distancia. [JUEGO:ORDENAR_LETRAS:NEWTON] [JUEGO:ORDENAR_FRASE:LA MATERIA ATRAE A LA MATERIA] Si duplicas la distancia, la fuerza cae a la cuarta parte. [JUEGO:SOPA_LETRAS:MASA,RADIO,CUADRADO] Por lo tanto, el mito de la 'ingravidez' es solo una ilusión de la caída libre. [JUEGO:CRUCIGRAMA:Atraer cuerpos|GRAVITACION;Sin peso aparente|INGRAVIDEZ] [JUEGO:ORDENAR_LETRAS:INERCIA] En la Metrópolis, si saltas de un edificio, te sientes 'sin peso', pero la gravedad te está acelerando a 9.8 m/s². [JUEGO:ORDENAR_FRASE:LA CAIDA LIBRE ES UNA ACELERACION] \n\n <table style='width:100%; border-collapse: collapse; background: #000; color: #fff; border: 1px solid #555;'> <thead> <tr style='background: #333;'> <th>Mito Urbano</th> <th>Verdad Científica (Deducción)</th> </tr> </thead> <tbody> <tr> <td>No hay gravedad en el espacio.</td> <td>La gravedad tiene alcance infinito y mantiene las galaxias unidas.</td> </tr> <tr> <td>Los astronautas flotan porque no hay aire.</td> <td>Flotan porque caen a la misma velocidad que su nave.</td> </tr> </tbody> </table> \n\n [JUEGO:SOPA_LETRAS:GALAXIA,LEYES,FISICA] [JUEGO:CRUCIGRAMA:Padre de la gravedad|NEWTON;Astrónomo de elipses|KEPLER] [JUEGO:ORDENAR_LETRAS:KEPLER] [JUEGO:ORDENAR_FRASE:LA CIENCIA DESMIENTE LOS MITOS] La aceleración centrípeta es la clave del caso. [JUEGO:SOPA_LETRAS:CENTRIPETA,RADIO,MASA] Sin ella, el movimiento sería rectilíneo uniforme según la Primera Ley de Newton. [JUEGO:CRUCIGRAMA:Resistencia al cambio|INERCIA;Fuerza total|NETA] [JUEGO:ORDENAR_LETRAS:ACCION] [JUEGO:ORDENAR_FRASE:TODA ACCION TIENE UNA REACCION] El caso está cerrado, Cadete. La gravedad es el motor del universo. [JUEGO:SOPA_LETRAS:MOTOR,UNIVERSO,DATOS]",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "¿Qué establece la Segunda Ley de Kepler sobre la velocidad de un planeta?",
+      "respuesta_esperada": "Establece que el planeta no se mueve a velocidad constante; se mueve más rápido cuando está cerca del Sol (perihelio) y más lento cuando está lejos (afelio), barriendo áreas iguales en tiempos iguales."
+    },
+    {
+      "pregunta": "Si la distancia entre dos lunas en la Metrópolis se triplica, ¿qué ocurre con la fuerza gravitacional entre ellas?",
+      "respuesta_esperada": "La fuerza gravitacional se reduce a una novena parte (1/3²) de su valor original, según la Ley de Gravitación Universal."
+    },
+    {
+      "pregunta": "Deduce: ¿Por qué una estación espacial no se cae hacia la Tierra si la gravedad la atrae?",
+      "respuesta_esperada": "Porque tiene una velocidad tangencial tan alta que, mientras cae hacia la Tierra, la curvatura de la Tierra 'se aleja' debajo de ella, manteniéndola en una caída libre circular perpetua u órbita."
+    },
+    {
+      "pregunta": "¿Cuál es la diferencia fundamental entre una órbita circular y una elíptica en términos de velocidad?",
+      "respuesta_esperada": "En la circular la rapidez es constante (aunque la dirección cambie), mientras que en la elíptica tanto la rapidez como la dirección cambian a lo largo de la trayectoria."
+    },
+    {
+      "pregunta": "¿Cómo explicarías el concepto de 'ingravidez' a un ciudadano que cree que no hay gravedad en la estación espacial?",
+      "respuesta_esperada": "Explicaría que la gravedad sí existe y es muy fuerte, pero no se siente porque tanto el ciudadano como la estación caen juntos con la misma aceleración, eliminando la fuerza normal del suelo."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Diseña un diagrama detallado de una órbita elíptica marcando el Sol en un foco, el afelio, el perihelio y dos vectores de velocidad de distinto tamaño.",
+    "Elabora un mapa mental que conecte las Tres Leyes de Kepler con la Ley de Gravitación Universal de Newton.",
+    "Realiza un dibujo explicativo que compare el movimiento de una bala de cañón lanzada a baja velocidad vs. una lanzada a velocidad orbital (Experimento de Newton).",
+    "Crea una infografía artesanal titulada 'El Mito de la Flotación' donde desmientas con datos físicos por qué los astronautas parecen no tener peso."
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "En la Metrópolis del Futuro, se registra el movimiento de un satélite de vigilancia. Los datos de su velocidad tangencial en dos puntos de su órbita elíptica se muestran en la siguiente tabla:",
+      "tabla_o_grafica_markdown": "| Punto de la Órbita | Distancia al Centro (km) | Velocidad (km/s) |\n| :--- | :---: | :---: |\n| A (Perihelio) | 147,000,000 | 30.3 |\n| B (Afelio) | 152,000,000 | 29.3 |",
+      "pregunta": "Con base en la información de la tabla y las leyes de la física planetaria, ¿cuál es la razón por la cual la velocidad es mayor en el punto A?",
+      "opciones": [
+        "Debido a que en A la fuerza de atracción gravitacional es mayor al estar a menor distancia.",
+        "Porque en el punto B el vacío del espacio ejerce una fricción que frena al satélite.",
+        "A que el satélite consume más combustible cuando está cerca de la estrella.",
+        "Porque la aceleración centrípeta desaparece en el punto B."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. Según la deducción de Newton y la 2da ley de Kepler, a menor distancia la fuerza gravitacional es más intensa, provocando una mayor aceleración y velocidad.",
+        "1": "Incorrecto. En el espacio no hay aire para generar fricción significativa que cambie la velocidad de esa manera.",
+        "2": "Incorrecto. Las órbitas se mantienen por inercia y gravedad, no por consumo de combustible constante.",
+        "3": "Incorrecto. La aceleración centrípeta nunca desaparece mientras exista una órbita; solo cambia su magnitud."
+      }
+    }
+  ]
+}

@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kit de Marketing Digital | Peidagogos</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            900: '#064e3b',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+        
+        function copyText(elementId) {
+            const text = document.getElementById(elementId).innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                alert('¡Texto copiado al portapapeles!');
+            });
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; scroll-behavior: smooth; }
+        .glass-card { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2); }
+    </style>
+</head>
+<body class="text-slate-800 antialiased min-h-screen pb-12 relative">
+
+    <!-- Sticky Navigation Bar -->
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-sm border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-3">
+                    <img src="./images/logo.png" alt="Peidagogos Logo" class="h-10 w-10 object-cover rounded-md shadow-sm border border-slate-100">
+                    <span class="font-bold text-xl tracking-tight text-slate-800">Peidagogos <span class="text-brand-600">Marketing</span></span>
+                </div>
+                <div class="flex space-x-4">
+                    <a href="#anuncios" class="text-slate-600 hover:text-brand-600 font-medium text-sm transition-colors pt-2">5 Ángulos de Venta</a>
+                    <a href="#estrategia" class="text-slate-600 hover:text-brand-600 font-medium text-sm transition-colors pt-2">Plan de Inversión ($5M)</a>
+                    <a href="http://localhost:3000" target="_blank" class="bg-brand-600 hover:bg-brand-700 text-white px-4 py-2 rounded-lg font-medium text-sm shadow-md transition-transform transform hover:-translate-y-0.5">
+                        <i class="fas fa-external-link-alt mr-1"></i> Ir a la Plataforma
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-slate-900 to-slate-800 text-white shadow-xl">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="md:w-2/3">
+                    <span class="inline-block py-1 px-3 rounded-full bg-brand-500/20 text-brand-400 text-xs font-bold uppercase tracking-wider mb-3 border border-brand-500/30">Lanzamiento Agosto 2026</span>
+                    <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">La Revolución del Homeschooling</h1>
+                    <p class="text-slate-300 text-lg max-w-2xl">Imágenes listas para pautar (con Logo de marca y Link integrado), copy persuasivo enfocado en constructivismo y gamificación, y estrategia para invertir tus primeros $5 Millones COP.</p>
+                </div>
+                <div class="mt-8 md:mt-0 md:w-1/3 flex justify-center">
+                    <img src="./images/logo.png" alt="Peidagogos Logo Grande" class="w-48 rounded-2xl shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-300 ring-4 ring-white/10">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12">
+        
+        <!-- SECCIÓN 0: VIDEO PROMOCIONAL -->
+        <div id="video-ad" class="mb-12 pt-8">
+            <div class="flex items-center space-x-3 mb-6">
+                <div class="h-10 w-10 bg-purple-100 rounded-full flex items-center justify-center text-purple-600"><i class="fas fa-video"></i></div>
+                <h2 class="text-3xl font-bold text-slate-800">1. Anuncios en Video (100% Funcionales)</h2>
+            </div>
+            <p class="text-slate-500 mb-8 max-w-3xl">Estos videos (formato MP4 H.264) han sido generados localmente utilizando IA para combinar imágenes y efectos. Están diseñados para usarse como Reels o Historias en Instagram/Facebook Ads. Dale play para previsualizarlos o descárgalos desde los controles.</p>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- VIDEO 1: AVATAR MATH & SCIENCE -->
+                <div class="glass-card rounded-2xl shadow-lg overflow-hidden border border-slate-200">
+                    <div class="p-4 bg-slate-900 flex justify-center">
+                        <video controls class="w-full rounded-xl shadow-md border border-slate-700" poster="./images/avatar_math.png">
+                            <source src="video_avatar1.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold text-slate-900 mb-1">Avatar - Ciencias y Matemáticas</h3>
+                        <p class="text-sm text-slate-600">Animación con personajes 3D ideal para atraer a niños y padres por igual destacando la gamificación.</p>
+                    </div>
+                </div>
+
+                <!-- VIDEO 2: AVATAR GAMIFICATION -->
+                <div class="glass-card rounded-2xl shadow-lg overflow-hidden border border-slate-200">
+                    <div class="p-4 bg-slate-900 flex justify-center">
+                        <video controls class="w-full rounded-xl shadow-md border border-slate-700" poster="./images/avatar_mascot.png">
+                            <source src="video_avatar2.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold text-slate-900 mb-1">Avatar - IA y Logros</h3>
+                        <p class="text-sm text-slate-600">Video con mascota 3D enfocado en medallas, tecnología y acompañamiento constructivista.</p>
+                    </div>
+                </div>
+
+                <!-- VIDEO 3: ORIGINAL PROMO -->
+                <div class="glass-card rounded-2xl shadow-lg overflow-hidden border border-slate-200 md:col-span-2">
+                    <div class="p-4 bg-slate-900 flex justify-center">
+                        <video controls class="w-full max-w-3xl rounded-xl shadow-md border border-slate-700" poster="./images/wm_family.png">
+                            <source src="video_promo.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold text-slate-900 mb-1">Trailer Oficial de Lanzamiento</h3>
+                        <p class="text-sm text-slate-600">Resumen completo de 17 segundos con todos los ángulos de venta. (Corregido a códec H.264 Universal).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN 1: MATERIAL CREATIVO ESTATICO -->
+        <div id="anuncios" class="mb-12 pt-8 border-t border-slate-200">
+            <div class="flex items-center space-x-3 mb-6">
+                <div class="h-10 w-10 bg-brand-100 rounded-full flex items-center justify-center text-brand-600"><i class="fas fa-images"></i></div>
+                <h2 class="text-3xl font-bold text-slate-800">2. Banners Estáticos (5 Ángulos)</h2>
+            </div>
+            <p class="text-slate-500 mb-8 max-w-3xl">Las siguientes imágenes ya incluyen automáticamente el logotipo de Peidagogos y la dirección de la página web como marca de agua para proteger tu pauta. (Clic derecho > Guardar imagen como).</p>
+
+            <!-- ANGULO 1: EMOCIONAL -->
+            <div class="glass-card rounded-2xl shadow-sm overflow-hidden mb-8 border border-slate-200 hover:shadow-md transition-shadow">
+                <div class="md:flex">
+                    <div class="md:w-1/3 bg-slate-100 relative group cursor-pointer" onclick="window.open('./images/wm_family.png')">
+                        <img src="./images/wm_family.png" alt="Familia feliz" class="h-full w-full object-cover">
+                        <div class="absolute top-4 left-4 bg-white/95 backdrop-blur px-3 py-1 rounded-md text-xs font-bold text-brand-700 uppercase tracking-wider shadow-sm">Ángulo 1: Emocional</div>
+                        <div class="absolute inset-0 bg-black/40 hidden group-hover:flex items-center justify-center text-white"><i class="fas fa-search-plus text-3xl"></i></div>
+                    </div>
+                    <div class="md:w-2/3 p-6">
+                        <h3 class="text-xl font-bold text-slate-900 mb-2"><i class="fas fa-heart text-rose-500 mr-2"></i>Recupera el tiempo con tus hijos</h3>
+                        
+                        <div class="space-y-4 mt-4">
+                            <div>
+                                <span class="text-xs font-bold text-slate-400 uppercase">Texto Principal (Primary Text)</span>
+                                <div class="mt-1 relative bg-slate-50 p-4 rounded-lg border border-slate-200">
+                                    <p id="copy-1-main" class="text-sm text-slate-700 whitespace-pre-line">¿El momento de hacer tareas se ha convertido en una batalla diaria en casa? 😫
+
+Sabemos que después de trabajar todo el día, lo único que quieres es disfrutar tiempo de calidad con tus hijos, no obligarlos a memorizar libros aburridos. ❤️
+
+Con Peidagogos, la educación en casa se convierte en un JUEGO. A través de un aprendizaje 100% personalizado y gamificado, tu hijo dominará Matemáticas, Ciencias Naturales, Ciencias Sociales y Humanidades.
+
+✨ Ellos aprenden jugando gracias a nuestra IA.
+✨ Tú recuperas la paz en el hogar.
+
+Descubre cómo el Aprendizaje Basado en Juegos transforma familias. 👇</p>
+                                    <button onclick="copyText('copy-1-main')" class="absolute top-2 right-2 text-slate-400 hover:text-brand-600"><i class="fas fa-copy"></i> Copiar</button>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <span class="text-xs font-bold text-slate-400 uppercase">Titular</span>
+                                    <div class="relative bg-slate-50 p-3 rounded-lg border border-slate-200">
+                                        <p id="copy-1-head" class="text-sm font-semibold">Tus hijos juegan, aprenden y tú descansas. 🎮👨‍👩‍👧</p>
+                                        <button onclick="copyText('copy-1-head')" class="absolute top-2 right-2 text-slate-400 hover:text-brand-600"><i class="fas fa-copy"></i></button>
+                                    </div>
+                                </div>
+                                <div>
+                                    <span class="text-xs font-bold text-slate-400 uppercase">Descripción</span>
+                                    <div class="relative bg-slate-50 p-3 rounded-lg border border-slate-200">
+                                        <p id="copy-1-desc" class="text-sm">Homeschooling Gamificado.</p>
+                                        <button onclick="copyText('copy-1-desc')" class="absolute top-2 right-2 text-slate-400 hover:text-brand-600"><i class="fas fa-copy"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ANGULO 2: AUTORIDAD / FUTURO -->
+            <div class="glass-card rounded-2xl shadow-sm overflow-hidden mb-8 border border-slate-200 hover:shadow-md transition-shadow">
+                <div class="md:flex flex-row-reverse">
+                    <div class="md:w-1/3 bg-slate-100 relative group cursor-pointer" onclick="window.open('./images/wm_ai_tablet.png')">
+                        <img src="./images/wm_ai_tablet.png" alt="Niño con tablet IA" class="h-full w-full object-cover">
+                        <div class="absolute top-4 right-4 bg-white/95 backdrop-blur px-3 py-1 rounded-md text-xs font-bold text-blue-700 uppercase tracking-wider shadow-sm">Ángulo 2: IA / Futuro</div>
+                        <div class="absolute inset-0 bg-black/40 hidden group-hover:flex items-center justify-center text-white"><i class="fas fa-search-plus text-3xl"></i></div>
+                    </div>
+                    <div class="md:w-2/3 p-6">
+                        <h3 class="text-xl font-bold text-slate-900 mb-2"><i class="fas fa-robot text-blue-500 mr-2"></i>Educación Constructivista con IA</h3>
+                        
+                        <div class="space-y-4 mt-4">
+                            <div>
+                                <span class="text-xs font-bold text-slate-400 uppercase">Texto Principal</span>
+                                <div class="mt-1 relative bg-slate-50 p-4 rounded-lg border border-slate-200">
+                                    <p id="copy-2-main" class="text-sm text-slate-700 whitespace-pre-line">El mundo cambió. La educación tradicional se quedó atrás. 🚀
+
+¿Sigues forzando a tus hijos a memorizar en lugar de COMPRENDER? 
+
+En Peidagogos unimos el potente Modelo Constructivista con la Inteligencia Artificial. A través del Aprendizaje Basado en Juegos (Gamificación), construyen su propio conocimiento en las 4 áreas fundamentales. 🧠💡
+
+✅ Guías 100% personalizadas que se adaptan a su ritmo.
+✅ Sistema de medallas y logros que los motiva diariamente.
+✅ Entendimiento profundo sobre la simple repetición.
+
+Dale a tu hijo la ventaja competitiva que necesita para el mañana. 💻</p>
+                                    <button onclick="copyText('copy-2-main')" class="absolute top-2 right-2 text-slate-400 hover:text-brand-600"><i class="fas fa-copy"></i> Copiar</button>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <span class="text-xs font-bold text-slate-400 uppercase">Titular</span>
+                                    <div class="relative bg-slate-50 p-3 rounded-lg border border-slate-200">
+                                        <p id="copy-2-head" class="text-sm font-semibold">El Homeschooling del futuro, hoy.</p>
+                                        <button onclick="copyText('copy-2-head')" class="absolute top-2 right-2 text-slate-400 hover:text-brand-600"><i class="fas fa-copy"></i></button>
+                                    </div>
+                                </div>
+                                <div>
+                                    <span class="text-xs font-bold text-slate-400 uppercase">Descripción</span>
+                                    <div class="relative bg-slate-50 p-3 rounded-lg border border-slate-200">
+                                        <p id="copy-2-desc" class="text-sm">IA + Gamificación en Casa.</p>
+                                        <button onclick="copyText('copy-2-desc')" class="absolute top-2 right-2 text-slate-400 hover:text-brand-600"><i class="fas fa-copy"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ANGULO 3: AFILIADOS / INGRESO EXTRA -->
+            <div class="glass-card rounded-2xl shadow-sm overflow-hidden mb-8 border border-slate-200 hover:shadow-md transition-shadow">
+                <div class="md:flex">
+                    <div class="md:w-1/3 bg-slate-100 relative group cursor-pointer" onclick="window.open('./images/wm_growth.png')">
+                        <img src="./images/wm_growth.png" alt="Ingresos extra afiliados" class="h-full w-full object-cover">
+                        <div class="absolute top-4 left-4 bg-white/95 backdrop-blur px-3 py-1 rounded-md text-xs font-bold text-amber-600 uppercase tracking-wider shadow-sm">Ángulo 3: Afiliados</div>
+                        <div class="absolute inset-0 bg-black/40 hidden group-hover:flex items-center justify-center text-white"><i class="fas fa-search-plus text-3xl"></i></div>
+                    </div>
+                    <div class="md:w-2/3 p-6">
+                        <h3 class="text-xl font-bold text-slate-900 mb-2"><i class="fas fa-coins text-amber-500 mr-2"></i>La Comunidad que te Paga por Aprender</h3>
+                        
+                        <div class="space-y-4 mt-4">
+                            <div>
+                                <span class="text-xs font-bold text-slate-400 uppercase">Texto Principal</span>
+                                <div class="mt-1 relative bg-slate-50 p-4 rounded-lg border border-slate-200">
+                                    <p id="copy-3-main" class="text-sm text-slate-700 whitespace-pre-line">¿Y si la educación de tus hijos se pagara sola? 💸🎓
+
+Peidagogos es mucho más que una plataforma de Homeschooling basada en gamificación. Es una comunidad que empodera la economía de los padres.
+
+Por cada amigo o familiar que invites para que sus hijos dominen las Ciencias y Matemáticas de forma divertida, te pagamos una comisión directa de $30,000 COP. ¡Sin límites! 🤝
+
+Con solo 3 amigos referidos, la suscripción mensual de tu hijo te sale GRATIS. Y si invitas a más, generas un ingreso extra mensual para tu hogar. 📈</p>
+                                    <button onclick="copyText('copy-3-main')" class="absolute top-2 right-2 text-slate-400 hover:text-brand-600"><i class="fas fa-copy"></i> Copiar</button>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <span class="text-xs font-bold text-slate-400 uppercase">Titular</span>
+                                    <div class="relative bg-slate-50 p-3 rounded-lg border border-slate-200">
+                                        <p id="copy-3-head" class="text-sm font-semibold">Gana $30.000 por recomendar Peidagogos. 💰</p>
+                                        <button onclick="copyText('copy-3-head')" class="absolute top-2 right-2 text-slate-400 hover:text-brand-600"><i class="fas fa-copy"></i></button>
+                                    </div>
+                                </div>
+                                <div>
+                                    <span class="text-xs font-bold text-slate-400 uppercase">Descripción</span>
+                                    <div class="relative bg-slate-50 p-3 rounded-lg border border-slate-200">
+                                        <p id="copy-3-desc" class="text-sm">Educación gamificada que premia.</p>
+                                        <button onclick="copyText('copy-3-desc')" class="absolute top-2 right-2 text-slate-400 hover:text-brand-600"><i class="fas fa-copy"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ANGULO 4: PERSONALIZACIÓN -->
+            <div class="glass-card rounded-2xl shadow-sm overflow-hidden mb-8 border border-slate-200 hover:shadow-md transition-shadow">
+                <div class="md:flex flex-row-reverse">
+                    <div class="md:w-1/3 bg-slate-100 relative group cursor-pointer" onclick="window.open('./images/wm_personalization.png')">
+                        <img src="./images/wm_personalization.png" alt="Aprendizaje Personalizado" class="h-full w-full object-cover">
+                        <div class="absolute top-4 right-4 bg-white/95 backdrop-blur px-3 py-1 rounded-md text-xs font-bold text-purple-700 uppercase tracking-wider shadow-sm">Ángulo 4: Personalización</div>
+                        <div class="absolute inset-0 bg-black/40 hidden group-hover:flex items-center justify-center text-white"><i class="fas fa-search-plus text-3xl"></i></div>
+                    </div>
+                    <div class="md:w-2/3 p-6">
+                        <h3 class="text-xl font-bold text-slate-900 mb-2"><i class="fas fa-user-check text-purple-500 mr-2"></i>El Sistema que se Adapta a TU Hijo</h3>
+                        
+                        <div class="space-y-4 mt-4">
+                            <div>
+                                <span class="text-xs font-bold text-slate-400 uppercase">Texto Principal</span>
+                                <div class="mt-1 relative bg-slate-50 p-4 rounded-lg border border-slate-200">
+                                    <p id="copy-4-main" class="text-sm text-slate-700 whitespace-pre-line">En el colegio tradicional, si un niño no entiende algo, se queda atrás. 😞
+
+¡Eso se acabó! En Peidagogos creemos que cada cerebro es único. 
+Por eso creamos un modelo de Aprendizaje 100% Personalizado.
+
+Nuestra Inteligencia Artificial detecta en tiempo real las fortalezas y debilidades de tu hijo, adaptando las misiones, los retos y las lecturas a su propio ritmo. Si le cuestan las matemáticas, el sistema le dará el tiempo y las guías gamificadas exactas para que las domine sin estrés. 🧗‍♂️✨
+
+Nunca más un niño "quedado". Tu hijo merece brillar a su propia velocidad. 🌟</p>
+                                    <button onclick="copyText('copy-4-main')" class="absolute top-2 right-2 text-slate-400 hover:text-brand-600"><i class="fas fa-copy"></i> Copiar</button>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <span class="text-xs font-bold text-slate-400 uppercase">Titular</span>
+                                    <div class="relative bg-slate-50 p-3 rounded-lg border border-slate-200">
+                                        <p id="copy-4-head" class="text-sm font-semibold">Educación que se adapta a su ritmo. 🏃‍♂️</p>
+                                        <button onclick="copyText('copy-4-head')" class="absolute top-2 right-2 text-slate-400 hover:text-brand-600"><i class="fas fa-copy"></i></button>
+                                    </div>
+                                </div>
+                                <div>
+                                    <span class="text-xs font-bold text-slate-400 uppercase">Descripción</span>
+                                    <div class="relative bg-slate-50 p-3 rounded-lg border border-slate-200">
+                                        <p id="copy-4-desc" class="text-sm">Personalización total con IA.</p>
+                                        <button onclick="copyText('copy-4-desc')" class="absolute top-2 right-2 text-slate-400 hover:text-brand-600"><i class="fas fa-copy"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ANGULO 5: LAS 4 ÁREAS (MATERIAS) -->
+            <div class="glass-card rounded-2xl shadow-sm overflow-hidden mb-8 border border-slate-200 hover:shadow-md transition-shadow">
+                <div class="md:flex">
+                    <div class="md:w-1/3 bg-slate-100 relative group cursor-pointer" onclick="window.open('./images/wm_subjects.png')">
+                        <img src="./images/wm_subjects.png" alt="Áreas fundamentales gamificadas" class="h-full w-full object-cover">
+                        <div class="absolute top-4 left-4 bg-white/95 backdrop-blur px-3 py-1 rounded-md text-xs font-bold text-emerald-700 uppercase tracking-wider shadow-sm">Ángulo 5: Áreas Core</div>
+                        <div class="absolute inset-0 bg-black/40 hidden group-hover:flex items-center justify-center text-white"><i class="fas fa-search-plus text-3xl"></i></div>
+                    </div>
+                    <div class="md:w-2/3 p-6">
+                        <h3 class="text-xl font-bold text-slate-900 mb-2"><i class="fas fa-book-reader text-emerald-500 mr-2"></i>Las 4 Áreas Fundamentales, Dominadas</h3>
+                        
+                        <div class="space-y-4 mt-4">
+                            <div>
+                                <span class="text-xs font-bold text-slate-400 uppercase">Texto Principal</span>
+                                <div class="mt-1 relative bg-slate-50 p-4 rounded-lg border border-slate-200">
+                                    <p id="copy-5-main" class="text-sm text-slate-700 whitespace-pre-line">¿Te preocupa que tu hijo se aburra estudiando en casa? 🤔
+
+Con Peidagogos, hemos convertido el conocimiento duro en la mejor aventura interactiva. Hemos diseñado un sistema gamificado que hace que tus hijos amen aprender las 4 áreas fundamentales:
+
+📐 Matemáticas
+🧬 Ciencias Naturales
+🌍 Ciencias Sociales
+📖 Humanidades (Castellano)
+
+Ganarán medallas, subirán de nivel y, lo más importante, comprenderán el mundo que los rodea usando un modelo pedagógico constructivista. 
+
+Transforma su computadora en el colegio más divertido del mundo. 🚀</p>
+                                    <button onclick="copyText('copy-5-main')" class="absolute top-2 right-2 text-slate-400 hover:text-brand-600"><i class="fas fa-copy"></i> Copiar</button>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <span class="text-xs font-bold text-slate-400 uppercase">Titular</span>
+                                    <div class="relative bg-slate-50 p-3 rounded-lg border border-slate-200">
+                                        <p id="copy-5-head" class="text-sm font-semibold">Mates, Ciencias y Humanidades como Juego.</p>
+                                        <button onclick="copyText('copy-5-head')" class="absolute top-2 right-2 text-slate-400 hover:text-brand-600"><i class="fas fa-copy"></i></button>
+                                    </div>
+                                </div>
+                                <div>
+                                    <span class="text-xs font-bold text-slate-400 uppercase">Descripción</span>
+                                    <div class="relative bg-slate-50 p-3 rounded-lg border border-slate-200">
+                                        <p id="copy-5-desc" class="text-sm">4 Áreas Fundamentales 100% Gamificadas.</p>
+                                        <button onclick="copyText('copy-5-desc')" class="absolute top-2 right-2 text-slate-400 hover:text-brand-600"><i class="fas fa-copy"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- SECCIÓN 2: ESTRATEGIA Y PLAN DE MEDIOS -->
+        <div id="estrategia" class="mb-12 pt-8 border-t border-slate-200">
+            <div class="flex items-center space-x-3 mb-6">
+                <div class="h-10 w-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-600"><i class="fas fa-chart-pie"></i></div>
+                <h2 class="text-3xl font-bold text-slate-800">2. Plan de Inversión y Paso a Paso ($5 Millones)</h2>
+            </div>
+            
+            <p class="text-lg text-slate-600 mb-8">Para maximizar tu presupuesto de $5,000,000 COP del Mes 1 ahorrando dinero y garantizando un alcance masivo, dividiremos el presupuesto en dos redes fundamentales: <strong>Meta Ads</strong> y <strong>Google Ads</strong>.</p>
+
+            <div class="grid md:grid-cols-2 gap-8 mb-10">
+                <!-- META ADS -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-blue-100 hover:shadow-md transition">
+                    <div class="flex items-center mb-4">
+                        <i class="fab fa-meta text-blue-600 text-3xl mr-3"></i>
+                        <div>
+                            <h3 class="text-xl font-bold">Meta Ads (Facebook/Instagram)</h3>
+                            <p class="text-slate-500 font-medium">Presupuesto Sugerido: $3,500,000 COP</p>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <span class="inline-block bg-blue-50 text-blue-700 px-2 py-1 rounded text-xs font-bold uppercase mr-2">Objetivo: Tráfico/Ventas</span>
+                        <span class="inline-block bg-green-50 text-green-700 px-2 py-1 rounded text-xs font-bold uppercase">Costo por Clic: Bajo</span>
+                    </div>
+                    <p class="text-sm text-slate-600 mb-4">Meta Ads despertará el deseo en padres que ni siquiera sabían que existía una solución así. Pondremos a competir las 5 imágenes con sus textos para ver cuál vende más barato.</p>
+                    
+                    <h4 class="font-bold text-sm text-slate-800 mb-2 border-b pb-1">Paso a Paso en Meta Ads:</h4>
+                    <ol class="list-decimal list-inside text-sm text-slate-600 space-y-2">
+                        <li>Entra a <a href="https://adsmanager.facebook.com" target="_blank" class="text-blue-500 font-bold hover:underline">Ads Manager</a> y crea una campaña de "Ventas" o "Tráfico".</li>
+                        <li><strong>Segmentación Ahorradora:</strong> Países (Colombia). Rango de edad: 25-50 años. Activa la función <strong>Advantage+</strong> para que Facebook optimice. Excluye intereses como "colegio público" si buscas mercado premium.</li>
+                        <li>Ajusta el presupuesto diario a <strong>$115,000 COP/día</strong> (~3.5M al mes).</li>
+                        <li>Crea un "Anuncio Dinámico" y sube las 5 imágenes del kit. Añade los 5 "Textos Principales", los 5 "Titulares" y pon la URL de Peidagogos (<i>www.peidagogosteam.com</i>).</li>
+                        <li>La Inteligencia Artificial de Meta combinará automáticamente las imágenes y textos, y le dará más presupuesto a la combinación ganadora que te traiga clientes más baratos.</li>
+                    </ol>
+                </div>
+
+                <!-- GOOGLE ADS -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-red-100 hover:shadow-md transition">
+                    <div class="flex items-center mb-4">
+                        <i class="fab fa-google text-red-500 text-3xl mr-3"></i>
+                        <div>
+                            <h3 class="text-xl font-bold">Google Ads (Red de Búsqueda)</h3>
+                            <p class="text-slate-500 font-medium">Presupuesto Sugerido: $1,500,000 COP</p>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <span class="inline-block bg-red-50 text-red-700 px-2 py-1 rounded text-xs font-bold uppercase mr-2">Objetivo: Intención Alta</span>
+                        <span class="inline-block bg-yellow-50 text-yellow-700 px-2 py-1 rounded text-xs font-bold uppercase">Calidad de Lead: Premium</span>
+                    </div>
+                    <p class="text-sm text-slate-600 mb-4">Google captura a quienes tienen el problema HOY y están desesperados buscando una solución. Su tarjeta de crédito está lista.</p>
+                    
+                    <h4 class="font-bold text-sm text-slate-800 mb-2 border-b pb-1">Paso a Paso en Google Ads:</h4>
+                    <ol class="list-decimal list-inside text-sm text-slate-600 space-y-2">
+                        <li>Entra a <a href="https://ads.google.com" target="_blank" class="text-red-500 font-bold hover:underline">Google Ads</a> y crea una campaña de "Búsqueda" (Search).</li>
+                        <li><strong>Palabras Clave (El secreto para ahorrar):</strong> Usa "Concordancia de Frase" (palabras entre comillas). Ej: "homeschooling colombia", "educacion gamificada primaria", "plataforma aprendizaje constructivista".</li>
+                        <li><strong>Palabras Negativas CRÍTICAS:</strong> Añade palabras como "-gratis", "-pdf", "-sena", "-universidad", "-juegos pc", "-juegos consola". ¡Así evitas pagar por clics basura!</li>
+                        <li>Configura un presupuesto de <strong>$50,000 COP/día</strong>.</li>
+                        <li>En el anuncio de texto, resalta: "Homeschooling Gamificado. Ciencias, Matemáticas y Humanidades. $90,000/mes."</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="bg-slate-900 text-slate-400 py-10 mt-16 border-t-4 border-brand-500">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <img src="./images/logo.png" alt="Logo Peidagogos" class="h-8 mx-auto opacity-50 grayscale mb-4">
+            <p class="text-sm font-medium tracking-wide">Creado por Antigravity IA (Director de Marketing) para Peidagogos.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

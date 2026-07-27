@@ -1,0 +1,86 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "Si estás sentado en el bus escolar rumbo a la IE Instituto Montenegro, ¿te estás moviendo?",
+      "opciones": [
+        "No, porque tu cuerpo está quieto en el asiento.",
+        "Sí, pero solo si miras las nubes.",
+        "Depende del punto de referencia: sí para alguien en la calle, no para quien va sentado a tu lado.",
+        "No, el movimiento solo ocurre si caminas por el pasillo."
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "Para indicarle a un compañero de expedición dónde encontraste agua en la selva, ¿qué es lo más importante que debes definir?",
+      "opciones": [
+        "La hora exacta en que descubriste el agua.",
+        "Un punto de referencia (ej. 'a 10 metros del árbol gigante de cacao').",
+        "El color de las hojas del entorno.",
+        "La velocidad con la que estabas corriendo."
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Qué representa la línea continua que deja un caracol cuando avanza sobre una hoja húmeda?",
+      "opciones": [
+        "Su velocidad máxima.",
+        "Su posición inicial.",
+        "Su trayectoria.",
+        "Su aceleración constante."
+      ],
+      "correcta": 2
+    }
+  ],
+  "texto_inductivo": "# 🌌 ¡Bitácora de Vuelo: Aterrizaje Forzoso en la Selva de Centauri-6! 🚀\n\n¡Hola, valientes cadetes espaciales de la **IE Instituto Montenegro**! Soy el Capitán Cosmo. Mi nave exploradora ha sufrido un desperfecto y he tenido que realizar un aterrizaje de emergencia en medio de una selva alienígena densa y misteriosa. Para poder rescatarme y cartografiar este nuevo mundo, necesitamos dominar las leyes de la física del movimiento. ¡Ustedes serán mi equipo de control desde la Tierra!\n\n<div style='text-align: center;'>\n  <svg width='320' height='180' viewBox='0 0 320 180' xmlns='http://www.w3.org/2000/svg' style='background-color:#0d1b2a; border-radius: 8px; border: 2px solid #00f0ff;'>\n    <!-- Cielo estrellado -->\n    <circle cx='30' cy='30' r='1' fill='#fff' />\n    <circle cx='150' cy='20' r='1.5' fill='#fff' />\n    <circle cx='280' cy='40' r='1' fill='#fff' />\n    <circle cx='80' cy='140' r='1' fill='#fff' />\n    <!-- Planeta alienígena -->\n    <circle cx='250' cy='60' r='25' fill='#ff5e62' />\n    <!-- Selva exótica -->\n    <path d='M0 180 L40 120 L80 180 L120 110 L160 180 L200 130 L240 180 L280 100 L320 180 Z' fill='#0f9b0f' opacity='0.8'/>\n    <path d='M20 180 L70 140 L110 180 L170 130 L210 180 L250 140 L300 180 Z' fill='#054a05'/>\n    <!-- Nave espacial caída -->\n    <g transform='translate(130, 145) rotate(15)'>\n      <ellipse cx='30' cy='15' rx='25' ry='10' fill='#a0a0a0' stroke='#00f0ff' stroke-width='2'/>\n      <path d='M10 15 Q30 5 50 15' fill='none' stroke='#ff0055' stroke-width='2'/>\n      <circle cx='30' cy='12' r='4' fill='#00f0ff'/>\n    </g>\n    <!-- Texto de alerta -->\n    <text x='10' y='25' fill='#00f0ff' font-family='sans-serif' font-size='10' font-weight='bold'>MISION: LOCALIZAR CAPITÁN</text>\n  </svg>\n</div>\n\nAntes de empezar a caminar entre lianas luminosas y árboles gigantes, debemos resolver un misterio fundamental que confunde a muchos viajeros espaciales:\n\n***¿Cómo es posible que un estudiante sentado en las gradas de la IE Instituto Montenegro se mueva a miles de kilómetros por hora por el espacio exterior mientras jura estar completamente inmóvil, y cómo cambia la trayectoria de un balón de fútbol si lo miras desde la cancha o desde una nave espacial en órbita?***\n\n¡Sí! Existe el mito popular de que si no sientes el viento en tu cara o si tus pies no se mueven, estás en \"reposo absoluto\" y tu posición no cambia en absoluto. ¡Hoy vamos a desmentir científicamente este mito!\n\n### 🗺️ El Reto de la Coordenada Perdida\nPara comunicarme con ustedes, debo enviar mi **posición**. Pero aquí en la selva no hay calles ni carreras como alrededor de la plaza de Montenegro. ¿Cómo puedo decirles exactamente dónde estoy?\n\n[JUEGO:ORDENAR_LETRAS:POSICION]\n\nNecesitamos un mapa de coordenadas. Imaginemos que el punto donde cayó mi cápsula es el origen (0,0). Cada paso que doy hacia el norte o hacia el este cambia mis variables cinemáticas.\n\n<div style='text-align: center;'>\n  <svg width='300' height='200' viewBox='0 0 300 200' xmlns='http://www.w3.org/2000/svg' style='background:#111; border: 1px solid #333;'>\n    <grid>-->\n    <defs>\n      <pattern id='grid' width='20' height='20' patternUnits='userSpaceOnUse'>\n        <path d='M 20 0 L 0 0 0 20' fill='none' stroke='#333' stroke-width='1'/>\n      </pattern>\n    </defs>\n    <rect width='100%' height='100%' fill='url(#grid)' />\n    <!-- Ejes de Coordenadas -->\n    <line x1='30' y1='170' x2='280' y2='170' stroke='#888' stroke-width='2' marker-end='url(#arrow)'/>\n    <line x1='30' y1='20' x2='30' y2='170' stroke='#888' stroke-width='2'/>\n    <!-- Etiquetas de Ejes -->\n    <text x='270' y='185' fill='#888' font-size='10'>Eje X (Este)</text>\n    <text x='35' y='30' fill='#888' font-size='10' transform='rotate(90, 35, 30)'>Eje Y (Norte)</text>\n    <!-- Trayectoria curva del explorador -->\n    <path d='M 30 170 Q 100 80 180 130 T 250 50' fill='none' stroke='#ffff00' stroke-width='3' stroke-dasharray='5,5'/>\n    <!-- Posiciones -->\n    <circle cx='30' cy='170' r='5' fill='#ff0000'/>\n    <text x='40' y='165' fill='#ff0000' font-size='10' font-weight='bold'>Inicio (Nave)</text>\n    <circle cx='250' cy='50' r='5' fill='#00ff00'/>\n    <text x='160' y='45' fill='#00ff00' font-size='10' font-weight='bold'>Capitán Cosmo (Fin)</text>\n  </svg>\n</div>\n\n[JUEGO:ORDENAR_FRASE:EL MOVIMIENTO DEPENDE DEL OBSERVADOR]\n\nCuando camino esquivando plantas carnívoras gigantes, el sendero que dibujo en el suelo es curvo. ¡Ese camino real es mi trayectoria!\n\n[JUEGO:SOPA_LETRAS:PUNTO,ORIGEN,LINEA]\n\n[JUEGO:ORDENAR_LETRAS:TRAYECTORIA]\n\n[JUEGO:CRUCIGRAMA:Lugar donde se encuentra un objeto|POSICION;Camino que sigue un cuerpo|TRAYECTORIA]\n\n[JUEGO:ORDENAR_FRASE:LA TRAYECTORIA ES EL CAMINO RECORRIDO]\n\n[JUEGO:SOPA_LETRAS:SELVA,MAPA,COORDENADA]\n\n[JUEGO:CRUCIGRAMA:Objeto que se mueve en el espacio|MOVIL;Punto de partida|ORIGEN]",
+  "recurso_visual": "| Variable Cinemática | Definición Sencilla | ¿Cómo se mide en la Selva? | Mito Relacionado |\n| :--- | :--- | :--- | :--- |\n| **Posición** | El lugar exacto donde te encuentras respecto a un punto de referencia. | Usando un GPS espacial o un plano cartesiano (X, Y) desde la base. | *\"Tu posición es fija y única para todos los seres del universo.\"* (FALSO) |\n| **Trayectoria** | La forma del camino imaginario o real que dejas al moverte. | Dibujando la línea de tus pasos (curva, recta, zig-zag) en el mapa de la selva. | *\"El camino más corto entre dos puntos siempre es el único que puedes ver.\"* (FALSO) |\n| **Sistema de Referencia** | El objeto o lugar fijo que eliges para decidir si algo se mueve o no. | El árbol de coco gigante donde instalamos la antena de rescate. | *\"El suelo siempre está en reposo absoluto.\"* (FALSO) |",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "¿Qué ocurre con la trayectoria de una fruta que cae de un árbol de la selva si la miras mientras corres rápidamente a su lado?",
+      "respuesta_esperada": "La trayectoria ya no parecerá una línea recta vertical, sino una línea curva inclinada debido a tu propio movimiento."
+    },
+    {
+      "pregunta": "¿Por qué necesitamos establecer un origen de coordenadas antes de describir la posición de la nave del Capitán Cosmo?",
+      "respuesta_esperada": "Porque la posición es un concepto relativo; sin un punto de origen (0,0) de referencia, los números o las indicaciones de distancia no tienen ningún sentido."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja en tu cuaderno el mapa de la IE Instituto Montenegro. Elige la puerta principal como el 'Punto de Referencia (0,0)'. Ahora localiza tu salón de clases y describe su posición usando pasos hacia adelante y hacia los lados.",
+    "Si un astronauta nos observa con un telescopio superpotente desde la Estación Espacial Internacional mientras estamos sentados en clase de física, ¿él nos verá quietos o en movimiento? Justifica tu respuesta usando el concepto de Sistema de Referencia."
+  ],
+  "texto_deductivo": "# 🎓 Explicación Científica: El Mito de la Inmovilidad Absoluta\n\n¡Bienvenidos al laboratorio de análisis, cadetes! Vamos a profundizar en la teoría de la **Cinemática** (la rama de la física que describe el movimiento sin importar qué lo causa) para desmontar el mito de que un cuerpo puede estar en un estado de quietud absoluta.\n\n### 🕵️‍♂️ Desmentido Científico del Mito\n\nEl mito dice: *\"Si me quedo perfectamente quieto en una silla de la IE Instituto Montenegro, mi velocidad es cero y mi posición en el universo no cambia\"*.\n\n**¿Por qué es FALSO?**\nPorque la física nos enseña que **todo movimiento es relativo**. Depende enteramente del **Sistema de Referencia** elegido.\n\n1. **Referencia: El salón de clase.** Si tu pupitre es el punto de referencia, tu posición no cambia. Estás en reposo relativo.\n2. **Referencia: El Sol.** La Tierra gira sobre su propio eje a unos $1670\\text{ km/h}$ en el ecuador, y además viaja alrededor del Sol a una velocidad increíble de unos $107\\,000\\text{ km/h}$. ¡Así que mientras crees estar quieto en clase, estás viajando por el espacio a velocidades astronómicas!\n\n<div style='text-align: center;'>\n  <svg width='320' height='200' viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg' style='background-color:#020813; border-radius: 8px;'>\n    <!-- Órbita de la Tierra -->\n    <ellipse cx='160' cy='100' rx='120' ry='60' fill='none' stroke='#3a3a3a' stroke-dasharray='4,4'/>\n    <!-- El Sol -->\n    <circle cx='160' cy='100' r='20' fill='#ffcc00' filter='drop-shadow(0px 0px 8px #ffcc00)'/>\n    <text x='150' y='105' fill='#000' font-size='8' font-weight='bold'>SOL</text>\n    <!-- La Tierra en órbita -->\n    <circle cx='260' cy='70' r='10' fill='#0088ff'/>\n    <!-- Estudiante diminuto sobre la Tierra -->\n    <circle cx='260' cy='60' r='2' fill='#ffffff'/>\n    <!-- Vectores de velocidad del movimiento de traslación -->\n    <path d='M 260 70 L 290 50' fill='none' stroke='#00ffcc' stroke-width='2' marker-end='url(#arrow)'/>\n    <!-- Textos explicativos -->\n    <text x='180' y='45' fill='#00ffcc' font-size='9' font-weight='bold'>V ≈ 107,000 km/h</text>\n    <text x='15' y='180' fill='#ffffff' font-size='9'>¡La Tierra se mueve y tú con ella!</text>\n  </svg>\n</div>\n\n[JUEGO:ORDENAR_LETRAS:DISTANCIA]\n\n[JUEGO:ORDENAR_FRASE:LA POSICION SE MIDE DESDE EL ORIGEN]\n\n### 📐 Conceptos Clave de la Cinemática:\n\n* **Posición ($x$):** Es el vector que va desde el origen de coordenadas elegido hasta el lugar donde se encuentra el móvil en un instante dado.\n* **Trayectoria:** Es la línea continua que une todas las posiciones sucesivas por las que pasa un cuerpo en movimiento. Puede ser rectilínea (una línea recta) o curvilínea (circular, parabólica, irregular).\n\n<div style='text-align: center;'>\n  <svg width='320' height='160' viewBox='0 0 320 160' xmlns='http://www.w3.org/2000/svg' style='background-color:#fff; border: 1px solid #ddd; border-radius: 8px;'>\n    <!-- Ejes -->\n    <line x1='30' y1='130' x2='290' y2='130' stroke='#333' stroke-width='1.5'/>\n    <line x1='30' y1='20' x2='30' y2='130' stroke='#333' stroke-width='1.5'/>\n    <!-- Puntos A y B -->\n    <circle cx='60' cy='100' r='6' fill='#0055ff'/>\n    <text x='55' y='90' font-weight='bold' fill='#0055ff'>A</text>\n    <circle cx='260' cy='40' r='6' fill='#ff2200'/>\n    <text x='255' y='30' font-weight='bold' fill='#ff2200'>B</text>\n    <!-- Trayectoria curvilínea -->\n    <path d='M 60 100 C 120 150, 180 10, 260 40' fill='none' stroke='#00aa00' stroke-width='3'/>\n    <text x='140' y='110' fill='#00aa00' font-weight='bold' font-size='11'>Trayectoria (Camino real)</text>\n    <!-- Desplazamiento (línea recta) -->\n    <line x1='60' y1='100' x2='255' y2='42' stroke='#333' stroke-dasharray='4,4' stroke-width='2'/>\n    <text x='120' y='60' fill='#333' font-size='10' transform='rotate(-16, 120, 60)'>Distancia línea recta</text>\n  </svg>\n</div>\n\n[JUEGO:SOPA_LETRAS:CAMINO,CURVA,RECTA]\n\n[JUEGO:ORDENAR_LETRAS:MOVIMIENTO]\n\n[JUEGO:CRUCIGRAMA:Sistema de ejes para medir|COORDENADAS;Espacio recorrido entre dos puntos|DISTANCIA]\n\n[JUEGO:ORDENAR_FRASE:NADA EN EL UNIVERSO ESTA QUIETO]\n\n[JUEGO:SOPA_LETRAS:SISTEMA,FISICA,METROS]\n\n[JUEGO:ORDENAR_LETRAS:REFERENCIA]\n\n[JUEGO:CRUCIGRAMA:Persona que mira el movimiento|OBSERVADOR;Lo contrario de movimiento|REPOSO]\n\n[JUEGO:ORDENAR_FRASE:EL PUNTO DE REFERENCIA ES CLAVE]\n\n[JUEGO:SOPA_LETRAS:VELOZ,MITO,TIEMPO]\n\n[JUEGO:CRUCIGRAMA:Unidad de medida de longitud|METRO;Planeta donde estamos atrapados|CENTAURI]",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "¿Puede un cuerpo cambiar de posición sin cambiar su distancia respecto al origen?",
+      "respuesta_esperada": "Sí, si se mueve describiendo una trayectoria circular perfecta alrededor del origen, su distancia (el radio del círculo) se mantiene igual, pero su posición (dirección y coordenadas) cambia continuamente."
+    },
+    {
+      "pregunta": "¿Por qué dos observadores diferentes pueden ver trayectorias distintas para un mismo objeto en movimiento?",
+      "respuesta_esperada": "Porque cada observador utiliza un sistema de referencia diferente (uno puede estar quieto en el suelo y el otro moviéndose a velocidad constante)."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Explica con tus propias palabras el 'Mito de la Inmovilidad Absoluta'. ¿Por qué es un error decir que la torre de la iglesia del municipio de Montenegro está completamente inmóvil?",
+    "Diseña un experimento mental: Un explorador deja caer una linterna desde lo alto del mástil de una nave espacial en movimiento. Dibuja la trayectoria de la linterna según la ve el piloto de la nave, y según la ve un nativo de la selva parado en el suelo."
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de fenómenos",
+      "texto_introductorio": "Durante una expedición en la selva de Centauri-6, el Capitán Cosmo y su robot explorador observan cómo un fruto exótico cae verticalmente desde una rama alta. El robot realiza un análisis del movimiento estando inmóvil junto al tronco del árbol, mientras que el Capitán Cosmo analiza la misma caída mientras camina rápidamente hacia el este para atrapar el fruto antes de que toque el suelo.",
+      "tabla_o_grafica_markdown": "| Observador | Estado de movimiento del observador | Trayectoria descrita por el fruto observada | Dos variables clave identificadas |\n| :--- | :--- | :--- | :--- |\n| **Robot** | En reposo en el suelo de la selva | Línea recta vertical | Posición inicial y Trayectoria recta |\n| **Capitán Cosmo** | En movimiento uniforme hacia el Este | Línea curva inclinada | Posición relativa y Trayectoria curva |",
+      "pregunta": "Teniendo en cuenta la información anterior y los conceptos de la cinemática, ¿cuál de las siguientes afirmaciones explica correctamente por qué los dos personajes registran trayectorias diferentes para el mismo fruto en caída?",
+      "opciones": [
+        "El fruto cae en dos direcciones distintas al mismo tiempo porque las leyes de la física cambian en planetas extraños.",
+        "La trayectoria depende enteramente del sistema de referencia del observador; para el robot en reposo la caída es vertical, mientras que para Cosmo en movimiento, el fruto se desplaza horizontalmente respecto a él a medida que desciende.",
+        "El robot se equivoca en su medición porque los sensores de movimiento siempre fallan debido a la interferencia magnética de la selva centauriana.",
+        "Cosmo ve una trayectoria curva porque la gravedad de la selva afecta más fuertemente a los seres humanos que a las máquinas robóticas de metal."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. Las leyes de la física se aplican uniformemente; el cambio en la forma del camino observado se debe a la cinemática clásica y la relatividad del movimiento, no a un fenómeno mágico del planeta.",
+        "1": "¡Correcto! El movimiento y la trayectoria descrita son relativos. Dado que el Capitán Cosmo está en movimiento respecto al árbol, la combinación de la caída del fruto y su propio desplazamiento horizontal genera visualmente una trayectoria curva inclinada.",
+        "2": "Incorrecto. El robot mide con precisión la trayectoria rectilínea desde su sistema de referencia en reposo terrestre. Ninguno de los dos observadores está cometiendo un error técnico.",
+        "3": "Incorrecto. La gravedad actúa de igual forma sobre todos los cuerpos en caída libre; la forma curva de la trayectoria se explica únicamente por la velocidad relativa del observador y el cambio continuo de sus coordenadas de posición."
+      }
+    }
+  ]
+}

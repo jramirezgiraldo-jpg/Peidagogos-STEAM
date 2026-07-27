@@ -1,0 +1,96 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Qué fuerza es la responsable de que las cosas caigan hacia el suelo en la Tierra?",
+      "opciones": [
+        "La fuerza magnética",
+        "La fuerza de gravedad",
+        "La fricción del aire",
+        "La fuerza centrífuga"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Qué forma tiene el camino (órbita) que recorre la Tierra alrededor del Sol?",
+      "opciones": [
+        "Un círculo perfecto",
+        "Una línea recta",
+        "Una elipse (curva ligeramente ovalada)",
+        "Un triángulo curvo"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "Si un vehículo espacial viaja por el vacío a velocidad constante y sin cambiar de dirección, su aceleración es:",
+      "opciones": [
+        "Cero",
+        "Máxima",
+        "Variable",
+        "Negativa"
+      ],
+      "correcta": 0
+    }
+  ],
+  "texto_inductivo": "# ¡Bitácora de Vuelo: Aterrizaje en el Planeta Silvano!\n\n¡Saludos, Cadete de la Flota de Exploración! Te habla tu Comandante. Hemos aterrizado nuestra nave en la densa y húmeda selva de Kepler-186f, un planeta alienígena cubierto por árboles colosales que tocan las nubes. [JUEGO:ORDENAR_LETRAS:PLANETA] Al abrirnos paso con nuestros machetes de plasma, hemos descubierto unas ruinas ancestrales cubiertas de musgo luminiscente. Las leyendas locales dicen que esta antigua civilización adoraba a los astros y conocía los secretos de la danza cósmica. \n\nPara avanzar por este templo vegetal y resolver el misterio de los antiguos constructores, debemos hacernos una pregunta crucial:\n\n***¿Cómo es posible que los planetas y las lunas floten en el espacio y se muevan eternamente sin que un motor gigante los empuje o los sostenga?***\n\n[JUEGO:ORDENAR_FRASE:LA GRAVEDAD ATRAE LOS CUERPOS]\n\nAl mirar las paredes del templo, vemos tallado un mapa celeste interactivo. El mapa muestra plantas exóticas que crecen en órbitas elípticas alrededor de un sol dorado central. Esto nos demuestra que el movimiento en el cosmos sigue un orden específico. [JUEGO:ORDENAR_LETRAS:ORBITA] Para comprender cómo se mueven estos cuerpos celestes en la realidad, primero debemos observar este diagrama vectorial que representa el sistema solar de la selva:\n\n<div style='text-align: center; margin: 20px 0;'>\n  <svg width='100%' height='280' style='background: #0d1b2a; border-radius: 10px; border: 2px solid #2ec4b6;'>\n    <!-- Sol Central -->\n    <circle cx='50%' cy='50%' r='30' fill='#ffb703' filter='drop-shadow(0px 0px 15px #ffb703)' />\n    <text x='50%' y='53%' font-family='sans-serif' font-size='12' fill='#000' font-weight='bold' text-anchor='middle'>Sol</text>\n    \n    <!-- Órbita elíptica -->\n    <ellipse cx='50%' cy='50%' rx='180' ry='90' fill='none' stroke='#2ec4b6' stroke-width='2' stroke-dasharray='5,5' />\n    \n    <!-- Planeta Silvano -->\n    <circle cx='70%' cy='28%' r='15' fill='#2a9d8f' />\n    <text x='70%' y='21%' font-family='sans-serif' font-size='10' fill='#fff' text-anchor='middle'>Kepler-186f</text>\n    \n    <!-- Vector Velocidad -->\n    <line x1='70%' y1='28%' x2='82%' y2='20%' stroke='#e76f51' stroke-width='3' marker-end='url(#arrow)' />\n    <text x='84%' y='18%' font-family='sans-serif' font-size='12' fill='#e76f51' font-weight='bold'>Velocidad (v)</text>\n    \n    <!-- Vector Fuerza de Gravedad -->\n    <line x1='70%' y1='28%' x2='53%' y2='45%' stroke='#e9c46a' stroke-width='3' marker-end='url(#arrow)' />\n    <text x='62%' y='43%' font-family='sans-serif' font-size='12' fill='#e9c46a' font-weight='bold'>Gravedad (Fg)</text>\n    \n    <!-- Definición de marcadores de flecha -->\n    <defs>\n      <marker id='arrow' viewBox='0 0 10 10' refX='5' refY='5' markerWidth='6' markerHeight='6' orient='auto-start-reverse'>\n        <path d='M 0 0 L 10 5 L 0 10 z' fill='#fff' />\n      </marker>\n    </defs>\n  </svg>\n  <p style='color: #2ec4b6; font-style: italic; font-size: 13px;'>Figura 1: Representación de las fuerzas físicas en una órbita selvática planetaria.</p>\n</div>\n\n¡La gravedad es el motor invisible! [ACTIVIDAD:PLATAFORMA:¿Qué fuerza mantiene a los planetas girando alrededor del Sol?|La fuerza de gravedad] En tu cuaderno de explorador, registra este primer hallazgo. [ACTIVIDAD:CUADERNO:Dibuja un mapa de la selva cósmica mostrando al Sol en el centro y tres órbitas elípticas de diferentes colores.]\n\nLos sabios de esta selva sabían que los astros no caen directamente hacia el sol porque tienen una velocidad lateral constante. Esta velocidad tangencial, combinada con el tirón gravitacional, crea una caída libre infinita llamada órbita. [JUEGO:ORDENAR_FRASE:LA ORBITA ES UNA CURVA] ¡Es un equilibrio perfecto! \n\n[ACTIVIDAD:PLATAFORMA:¿Qué forma tienen las órbitas planetarias según Kepler?|Elípticas]\n\n[JUEGO:SOPA_LETRAS:SOL,ORBITA,GRAVEDAD,PLANETA,FUERZA,ESPACIO,JUNGLA,MISTERIO,LEYES,FISICA]\n\n[JUEGO:ORDENAR_LETRAS:GRAVEDAD]\n\n¿Cómo descubrieron los humanos esto? En nuestro planeta de origen, científicos como Johannes Kepler e Isaac Newton usaron la observación y las matemáticas para descifrar el cosmos sin salir de casa. [ACTIVIDAD:PLATAFORMA:¿Quién descubrió que la gravedad atrae las manzanas y los planetas?|Isaac Newton] \n\n[ACTIVIDAD:CUADERNO:Escribe un breve relato sobre cómo un explorador espacial mide la gravedad en un planeta desconocido.]\n\n[JUEGO:CRUCIGRAMA:Fuerza de atraccion entre masas|GRAVEDAD;Cuerpo celeste que gira alrededor de una estrella|PLANETA;Camino que sigue un planeta|ORBITA;Estrella central del sistema solar|SOL;Espacio lleno de vegetacion densa|SELVA;Instrumento para observar el cielo|TELESCOPIO;Cambio de posicion en el tiempo|MOVIMIENTO;Fisico que formulo las leyes del movimiento|NEWTON;Astronomo que describio las orbitas elipticas|KEPLER;Rapidez con una direccion determinada|VELOCIDAD]\n\n[JUEGO:ORDENAR_FRASE:EL SOL ESTA EN EL CENTRO]\n\nPara adentrarnos más en el templo, debemos comparar cómo pensaban los antiguos sobre el cosmos versus la realidad de la ciencia moderna. [ACTIVIDAD:PLATAFORMA:¿Cuál es la estrella central que visitamos en este sistema de la selva estelar?|El Sol]\n\n[ACTIVIDAD:CUADERNO:Crea un cuadro comparativo entre el movimiento circular y el movimiento elíptico basándote en lo observado en la selva.]\n\n[ACTIVIDAD:PLATAFORMA:¿Qué concepto describe el cambio de posición de un planeta a lo largo del tiempo?|El movimiento]\n\n[ACTIVIDAD:CUADERNO:Dibuja el vector de velocidad de un planeta en cuatro puntos diferentes de su órbita alrededor del Sol.]",
+  "recurso_visual": "mermaid\ngraph TD\n    A[Gravedad del Sol] -->|Produce| B(Aceleración Centrípeta)\n    B -->|Cambia la dirección de| C(Velocidad del Planeta)\n    C -->|Determina la nueva| D(Posición en la Órbita)\n    D -->|Define la distancia al Sol| E{¿Cerca o Lejos?}\n    E -->|Cerca: Perihelio| F[Fuerza Fuerte: Mayor Velocidad]\n    E -->|Lejos: Afelio| G[Fuerza Débil: Menor Velocidad]\n",
+  "texto_deductivo": "# ¡El Descifrado de la Cámara del Tesoro Científico!\n\n¡Excelente trabajo, explorador! Hemos accedido al altar central de las ruinas. Ante nosotros se alza un ordenador holográfico alienígena que pide códigos cinemáticos para revelarnos el tesoro del planeta silvano. Para resolver el misterio, necesitamos aplicar de manera exacta las definiciones de la cinemática: posición, velocidad y aceleración en el contexto del movimiento planetario. [JUEGO:ORDENAR_LETRAS:POSICION]\n\nPrimero, definamos la **posición ($\\vec{r}$)**. Es el lugar exacto en el espacio donde se encuentra nuestro planeta o nuestra nave en un tiempo dado, medido desde el sol como punto de origen. [ACTIVIDAD:PLATAFORMA:¿Qué variable cinemática nos indica hacia dónde se mueve el explorador en la selva?|La velocidad] La **velocidad ($\\vec{v}$)** es qué tan rápido cambia de posición el planeta y en qué dirección se dirige. [JUEGO:ORDENAR_LETRAS:VELOCIDAD]\n\nFinalmente, la **aceleración ($\\vec{a}$)** es la tasa de cambio de esa velocidad. ¡Ojo! Aunque un planeta se mueva con rapidez casi constante, el simple hecho de que su dirección cambie continuamente para formar una órbita significa que está sufriendo una **aceleración centrípeta** provocada directamente por la gravedad del Sol. [JUEGO:ORDENAR_FRASE:LA ACELERACION CAMBIA LA VELOCIDAD]\n\nObservemos con atención el mapa de vectores cinemáticos que proyecta el holograma alienígena:\n\n<div style='text-align: center; margin: 20px 0;'>\n  <svg width='100%' height='280' style='background: #1a0f2e; border-radius: 10px; border: 2px solid #ff70a6;'>\n    <!-- Elipse de Órbita -->\n    <ellipse cx='50%' cy='50%' rx='200' ry='100' fill='none' stroke='#ff70a6' stroke-width='2' />\n    \n    <!-- Foco 1: Sol -->\n    <circle cx='40%' cy='50%' r='25' fill='#ffbc42' filter='drop-shadow(0px 0px 10px #ffbc42)' />\n    <text x='40%' y='54%' font-family='sans-serif' font-size='10' fill='#000' font-weight='bold' text-anchor='middle'>Sol (Foco)</text>\n    \n    <!-- Planeta en Perihelio (Cerca del Sol - Rápido) -->\n    <circle cx='18%' cy='50%' r='12' fill='#70e000' />\n    <text x='18%' y='40%' font-family='sans-serif' font-size='10' fill='#70e000' font-weight='bold' text-anchor='middle'>Perihelio</text>\n    <!-- Flecha de Velocidad en Perihelio (Larga) -->\n    <line x1='18%' y1='50%' x2='18%' y2='20%' stroke='#00f5d4' stroke-width='4' marker-end='url(#arrow-deduct)' />\n    <text x='21%' y='25%' font-family='sans-serif' font-size='11' fill='#00f5d4'>v máxima</text>\n    \n    <!-- Planeta en Afelio (Lejos del Sol - Lento) -->\n    <circle cx='82%' cy='50%' r='12' fill='#70e000' />\n    <text x='82%' y='40%' font-family='sans-serif' font-size='10' fill='#70e000' font-weight='bold' text-anchor='middle'>Afelio</text>\n    <!-- Flecha de Velocidad en Afelio (Corta) -->\n    <line x1='82%' y1='50%' x2='82%' y2='65%' stroke='#00f5d4' stroke-width='2' marker-end='url(#arrow-deduct)' />\n    <text x='84%' y='68%' font-family='sans-serif' font-size='11' fill='#00f5d4'>v mínima</text>\n    \n    <!-- Definición de marcadores de flecha -->\n    <defs>\n      <marker id='arrow-deduct' viewBox='0 0 10 10' refX='5' refY='5' markerWidth='6' markerHeight='6' orient='auto-start-reverse'>\n        <path d='M 0 0 L 10 5 L 0 10 z' fill='#fff' />\n      </marker>\n    </defs>\n  </svg>\n  <p style='color: #ff70a6; font-style: italic; font-size: 13px;'>Figura 2: Leyes de Kepler aplicadas al movimiento. Velocidades extremas en el perihelio y afelio.</p>\n</div>\n\n¡Increíble! El holograma nos revela las Leyes de Kepler. [ACTIVIDAD:PLATAFORMA:¿Cuál es la primera ley de Kepler?|La ley de las órbitas elípticas] La velocidad orbital no es constante en todo el recorrido. [JUEGO:ORDENAR_FRASE:LA ELIPSE TIENE DOS FOCOS] Cuando el planeta se acerca a su sol (punto llamado **Perihelio**), la gravedad tira con más fuerza, provocando una aceleración que aumenta la velocidad al máximo. Al alejarse (punto llamado **Afelio**), la fuerza disminuye y el planeta se frena, alcanzando su velocidad mínima. \n\n[JUEGO:ORDENAR_LETRAS:ACELERACION]\n\n[ACTIVIDAD:PLATAFORMA:¿Qué ocurre con la velocidad de un planeta cuando se acerca al Sol?|Aumenta]\n\n[ACTIVIDAD:CUADERNO:Dibuja una elipse marcando sus dos focos, el Sol en uno de ellos, y rotula el perihelio y el afelio.]\n\n[JUEGO:SOPA_LETRAS:ACELERACION,VELOCIDAD,POSICION,ELIPSE,FOCO,KEPLER,NEWTON,CINEMATICA,TIEMPO,MASA]\n\n[JUEGO:ORDENAR_FRASE:KEPLER DESCUBRIO LAS TRES LEYES]\n\n[ACTIVIDAD:CUADERNO:Escribe las fórmulas sencillas de velocidad media y aceleración, explicando qué significa cada variable.]\n\n[ACTIVIDAD:PLATAFORMA:¿Qué tipo de aceleración mantiene a un planeta en su órbita curva?|Aceleración centrípeta]\n\n[ACTIVIDAD:CUADERNO:Realiza un mapa mental que conecte los conceptos de Cinemática (Posición, Velocidad, Aceleración) con la Gravedad.]\n\n[ACTIVIDAD:PLATAFORMA:¿Cómo se llama el punto más lejano de un planeta al Sol?|Afelio]\n\n[JUEGO:CRUCIGRAMA:Lugar que ocupa un cuerpo en el espacio|POSICION;Razon de cambio de la posicion con el tiempo|VELOCIDAD;Cambio de velocidad en el tiempo|ACELERACION;Curva ovalada con dos focos|ELIPSE;Puntos fijos dentro de una elipse|FOCOS;Punto de la orbita mas cercano al Sol|PERIHELIO;Punto de la orbita mas lejano al Sol|AFELIO;Estudio del movimiento sin importar sus causas|CINEMATICA;Magnitud que mide la duracion de un evento|TIEMPO;Cantidad de materia de un cuerpo|MASA]\n\n[ACTIVIDAD:CUADERNO:Diseña un emblema de explorador espacial que represente la unión entre la selva y las leyes de Kepler.]\n\nCon estos conocimientos científicos en mano, ¡hemos resuelto el misterio de la órbita de Kepler-186f! El panel se ilumina en verde brillante y nos otorga las coordenadas de regreso a la Tierra. ¡Misión cumplida, Cadete! Prepárate para la evaluación de la Flota.",
+  "icfes": [
+    {
+      "competencia": "Uso Comprensivo del Conocimiento Científico",
+      "texto_introductorio": "Durante la exploración en Kepler-186f, la nave registró variaciones en la velocidad de traslación del planeta mientras completaba una vuelta alrededor de su estrella. Los científicos de la Flota Espacial organizaron los datos en la siguiente tabla para analizar cómo varía la velocidad con la distancia al foco estelar:",
+      "tabla_o_grafica_markdown": "| Posición en la Órbita | Distancia a la Estrella (U.A.) | Velocidad de Traslación (km/s) |\n|---|---|---|\n| Punto A (Perihelio) | 0.35 | 47.8 |\n| Punto B | 0.72 | 35.0 |\n| Punto C (Afelio) | 1.00 | 29.8 |",
+      "pregunta": "Con base en la información de la tabla y las leyes del movimiento planetario revisadas por Kepler, ¿cuál es la explicación del cambio en la velocidad del planeta?",
+      "opciones": [
+        "A medida que el planeta se aleja del Sol, la fuerza de atracción gravitacional disminuye, produciendo una desaceleración que reduce su velocidad.",
+        "El Sol empuja al planeta con más fuerza cuando está lejos para evitar que escape de su órbita, aumentando su velocidad en el afelio.",
+        "La fricción con la atmósfera del planeta silvano hace que se acelere cuando está en el punto más cercano.",
+        "La velocidad varía debido a que los motores térmicos del planeta se apagan al estar muy cerca de la radiación solar extrema."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. De acuerdo con la Segunda Ley de Kepler y la gravitación universal, la fuerza de gravedad es más débil en el punto más lejano (Afelio), lo que explica que la velocidad sea mínima allí y aumente en el Perihelio.",
+        "1": "Incorrecto. En el afelio, la velocidad es menor, no mayor, debido a la menor fuerza gravitacional del Sol.",
+        "2": "Incorrecto. En el espacio exterior no hay atmósfera que cause fricción de ese tipo para acelerar el planeta.",
+        "3": "Incorrecto. Los planetas no poseen motores térmicos para su movimiento orbital; este se rige por la cinemática de caída libre orbital."
+      }
+    },
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "En las ruinas, se activó una simulación en la que el Sol desaparecía de forma instantánea. Se le pide al cadete de exploración que anticipe qué tipo de movimiento realizaría Kepler-186f inmediatamente después de apagarse el centro de gravedad del sistema.",
+      "tabla_o_grafica_markdown": "| Fuerza de Gravedad Inicial | Velocidad de Órbita Inicial | Comportamiento Posterior del Planeta |\n|---|---|---|\n| Activa (F_g) | Tangencial constante | Órbita Elíptica Estable |\n| Nula (F_g = 0) | Tangencial constante | ¿Movimiento Rectilíneo Uniforme? |",
+      "pregunta": "¿Cuál es el comportamiento cinemático correcto que describirá el planeta tras desaparecer la fuerza gravitacional del Sol?",
+      "opciones": [
+        "Continuará girando en un círculo perfecto debido a la inercia del movimiento circular previo.",
+        "Saldrá despedido en línea recta tangencial a la órbita, manteniendo velocidad constante (MRU) por inercia.",
+        "Se detendrá de inmediato de forma repentina debido a la ausencia de un motor que lo impulse.",
+        "Caerá en espiral hacia donde se encontraba anteriormente el centro del sol."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. Sin una fuerza centrípeta (gravedad) que curve la trayectoria, el cuerpo no puede mantener un movimiento circular u orbital.",
+        "1": "Correcto. De acuerdo con la Primera Ley de Newton (Inercia), un cuerpo en movimiento continuará en línea recta a velocidad constante a menos que actúe una fuerza neta sobre él.",
+        "2": "Incorrecto. En el espacio vacío no hay fuerzas de frenado inmediato; el cuerpo continúa moviéndose por inercia.",
+        "3": "Incorrecto. Sin masa solar que atraiga al planeta, no hay razón física para que caiga al centro vacío."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "Para comprobar el misterio del templo sobre órbitas equilibradas, los exploradores lanzaron una sonda de prueba a diferentes distancias del Sol silvano y midieron la aceleración centrípeta necesaria para mantener una trayectoria estable a una velocidad constante preestablecida. Los datos se resumen a continuación:",
+      "tabla_o_grafica_markdown": "| Radio de Órbita de Prueba (km) | Velocidad programada (km/h) | Aceleración Centrípeta requerida (m/s²) |\n|---|---|---|\n| 10,000 | 1,000 | 2.5 |\n| 20,000 | 1,000 | 1.2 |\n| 40,000 | 1,000 | 0.6 |",
+      "pregunta": "¿Qué conclusión o hipótesis científica se puede extraer al analizar la relación entre el radio orbital y la aceleración requerida según la tabla de datos?",
+      "opciones": [
+        "A mayor distancia orbital de la sonda, se requiere una menor aceleración centrípeta para mantener la órbita con esa velocidad constante.",
+        "A menor distancia de órbita, menor es la fuerza y la aceleración necesarias para guiar la sonda.",
+        "La aceleración centrípeta requerida es directamente proporcional a la distancia del planeta al sol.",
+        "El cambio en el radio no afecta el valor de la aceleración gravitacional de la sonda."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. Los datos demuestran que a medida que el radio se duplica (de 10k a 20k y a 40k), la aceleración se reduce a la mitad (de 2.5 a 1.2 y a 0.6), evidenciando una relación inversamente proporcional.",
+        "1": "Incorrecto. A menor distancia (10,000 km), la aceleración es mayor (2.5 m/s²), lo que requiere más fuerza, no menos.",
+        "2": "Incorrecto. La relación es inversa, no directa (si fuera directa, al aumentar el radio aumentaría la aceleración).",
+        "3": "Incorrecto. La tabla evidencia claramente que al cambiar la distancia (radio), el valor de la aceleración se modifica drásticamente."
+      }
+    }
+  ]
+}

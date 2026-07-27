@@ -1,0 +1,96 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Qué mantiene a los planetas y satélites girando en órbitas estables en lugar de salir disparados en línea recta?",
+      "opciones": [
+        "El equilibrio entre la inercia de su movimiento y la fuerza de atracción gravitatoria.",
+        "La presión constante generada por la radiación estelar.",
+        "La fuerza magnética que se genera entre los núcleos de hierro planetarios.",
+        "La ausencia total de rozamiento térmico en el vacío espacial."
+      ],
+      "correcta": 0
+    },
+    {
+      "pregunta": "¿Cuál es la forma geométrica real que describen las órbitas de los planetas del sistema solar alrededor del Sol?",
+      "opciones": [
+        "Círculos perfectos con el Sol situado en el centro exacto.",
+        "Espirales continuas que se aproximan lentamente hacia el Sol.",
+        "Órbitas elípticas donde el Sol se ubica en uno de los focos de la elipse.",
+        "Trayectorias sinusoidales debido a la atracción de otros planetas."
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "¿Por qué flotan los astronautas dentro de la Estación Espacial Internacional (ISS) si a su altura todavía actúa cerca del 90% de la gravedad terrestre?",
+      "opciones": [
+        "Porque el fuselaje de la estación bloquea las ondas gravitacionales de la Tierra.",
+        "Porque la estación y los astronautas están cayendo continuamente en un estado de caída libre.",
+        "Porque la fuerza centrífuga espacial supera por completo a la fuerza de gravedad.",
+        "Debido a que el traje espacial genera un campo de repulsión electromagnética antipodal."
+      ],
+      "correcta": 1
+    }
+  ],
+  "texto_inductivo": "¡Alerta Roja en la Estación Espacial Internacional (ISS)! Soy tu Comandante de Misión y Explorador Espacial de cabecera. Un objeto desconocido de gran masa ha alterado la trayectoria de un cúmulo de basura espacial, y ahora se dirige directo hacia nuestra órbita. Para salvarnos, debemos usar la ciencia como nuestro único escudo de supervivencia. **_¿Cómo puede la humanidad predecir y manipular las órbitas de objetos celestes y estaciones espaciales para evitar una catástrofe global utilizando únicamente las leyes del movimiento y la gravedad?_**\n\nPrimero, analicemos el comportamiento de los mundos que nos rodean. Johannes Kepler, un matemático del siglo XVII, descifró el movimiento de los planetas sin salir de la Tierra. Observando datos precisos, rompió con el dogma de los círculos perfectos y propuso las elipses. \n\n<svg width='100%' height='220' style='background:#0f172a; border-radius:8px; border:2px solid #38bdf8; display:block; margin:20px auto;'>\n  <ellipse cx='200' cy='110' rx='140' ry='70' style='fill:none;stroke:#38bdf8;stroke-width:2;stroke-dasharray:5,5' />\n  <circle cx='120' cy='110' r='18' style='fill:#fbbf24;filter:drop-shadow(0 0 8px #fbbf24);' />\n  <circle cx='340' cy='110' r='8' style='fill:#60a5fa;' />\n  <path d='M 120,110 L 340,110' style='stroke:#f472b6;stroke-width:1;stroke-dasharray:2,2' />\n  <text x='120' y='85' fill='#fbbf24' font-family='sans-serif' font-size='12' font-weight='bold'>Foco 1: Sol</text>\n  <text x='290' y='135' fill='#60a5fa' font-family='sans-serif' font-size='12' font-weight='bold'>Planeta (Afelio)</text>\n  <circle cx='60' cy='110' r='8' style='fill:#60a5fa;' />\n  <text x='20' y='135' fill='#60a5fa' font-family='sans-serif' font-size='12' font-weight='bold'>Planeta (Perihelio)</text>\n</svg>\n\nEste movimiento elíptico se rige por tres leyes fundamentales. La primera ley nos enseña sobre la elipse [JUEGO:ORDENAR_LETRAS:ELIPSE]. Una elipse tiene dos focos. El Sol ocupa uno de ellos, dejando el otro vacío. [ACTIVIDAD:PLATAFORMA:¿Qué forma geométrica tienen las órbitas planetarias según la primera ley de Kepler?|Elipse] En tu cuaderno, realiza tu primer mapa visual: [ACTIVIDAD:CUADERNO:Dibuja una órbita elíptica marcando el Sol en uno de los focos, el perihelio y el afelio.]\n\nLa segunda ley de Kepler establece que una línea imaginaria que conecta al Sol con un planeta barre áreas iguales en tiempos iguales. Esto significa que los astros varían su velocidad según su distancia al centro. [JUEGO:ORDENAR_FRASE:LA VELOCIDAD EN EL AFELIO ES MINIMA] El punto más cercano al Sol se denomina perihelio, y allí la velocidad es máxima. El más alejado se llama afelio. [JUEGO:ORDENAR_LETRAS:GRAVEDAD] Para asegurar que captas esta dinámica, responde en la plataforma: [ACTIVIDAD:PLATAFORMA:¿En qué punto de la órbita un planeta se mueve más rápido?|Perihelio] Ahora, pon en marcha tu cuaderno: [ACTIVIDAD:CUADERNO:Diseña un cuadro comparativo entre el movimiento circular uniforme y el movimiento elíptico en términos de velocidad y aceleración.]\n\nLa tercera ley relaciona los períodos orbitales con sus distancias medias. El cuadrado del período es proporcional al cubo de la distancia media al Sol. [JUEGO:ORDENAR_FRASE:KEPLER DESCRIBIO EL MOVIMIENTO DE LOS PLANETAS] Esto significa que los planetas más lejanos tardan muchísimo más en completar una vuelta completa. [ACTIVIDAD:PLATAFORMA:¿Cómo cambia el período orbital si aumentamos la distancia al Sol?|Aumenta]\n\nPara sobrevivir, debemos dominar el vocabulario cósmico de navegación. Encuentra los términos clave en el siguiente panel de control: [JUEGO:SOPA_LETRAS:GRAVEDAD,ORBITA,ELIPSE,KEPLER,NEWTON,INERCIA,VELOCIDAD,ACELERACION,PERIHELIO,AFELIO]\n\nLa inercia juega un papel crucial en mantenernos en órbita. [JUEGO:ORDENAR_LETRAS:ORBITA] Si la gravedad desapareciera, saldríamos disparados en línea recta debido a la inercia cósmica. [JUEGO:ORDENAR_FRASE:LA GRAVEDAD MANTIENE LOS PLANETAS EN ORBITA] Para comprender mejor esta batalla gravitatoria, responde: [ACTIVIDAD:PLATAFORMA:¿Qué fuerza proporciona la aceleración centrípeta en una órbita?|Fuerza gravitacional] y trabaja en tu cuaderno de a bordo: [ACTIVIDAD:CUADERNO:Escribe un breve ensayo de un párrafo explicando cómo la inercia y la gravedad compiten para mantener a la ISS en órbita.]\n\nFinalmente, resuelve este crucigrama táctico para desbloquear los propulsores primarios de la ISS: [JUEGO:CRUCIGRAMA:Cientifico que descubrio las leyes orbitales|KEPLER;Punto mas cercano al Sol en una orbita|PERIHELIO;Punto mas lejano del Sol en una orbita|AFELIO;Fuerza de atraccion entre masas|GRAVEDAD;Curva cerrada que describe una orbita|ELIPSE;Resistencia al cambio de movimiento|INERCIA;Tasa de cambio de la velocidad|ACELERACION;Distancia recorrida por unidad de tiempo con direccion|VELOCIDAD;Cientifico de la gravitacion universal|NEWTON;Trayectoria de un cuerpo celeste|ORBITA]\n\nComo última prueba inductiva, responde en la plataforma: [ACTIVIDAD:PLATAFORMA:¿Quién formuló las tres leyes del movimiento planetario?|Johannes Kepler] y consolida tus notas: [ACTIVIDAD:CUADERNO:Crea un mapa mental que conecte las tres leyes de Kepler con la ley de Gravitación Universal de Newton.]",
+  "recurso_visual": "graph TD\n\tA[Movimiento Planetario] --> B[Leyes de Kepler]\n\tB --> B1[1a Ley: Orbitas elípticas con Sol en un foco]\n\tB --> B2[2a Ley: Áreas iguales en tiempos iguales]\n\tB --> B3[3a Ley: T^2 proporcional a R^3]\n\tA --> C[Gravedad Newtoniana]\n\tC --> C1[Fuerza centrípeta en órbita]\n\tC1 --> D[Estabilidad orbital de la ISS]",
+  "texto_deductivo": "¡Excelente trabajo asegurando la telemetría, cadete! Ahora debemos calcular los impulsos exactos de los propulsores para elevar nuestra órbita y esquivar los fragmentos espaciales. Para deducir la física detrás de nuestra salvación, debemos recurrir a Isaac Newton y su Ley de Gravitación Universal. La masa de la Tierra y nuestra propia masa entran en juego en esta ecuación matemática de supervivencia. [JUEGO:ORDENAR_LETRAS:MASA]\n\nNewton descubrió que dos cuerpos se atraen con una fuerza directamente proporcional al producto de sus masas e inversamente proporcional al cuadrado de la distancia que los separa. [JUEGO:ORDENAR_FRASE:LA FUERZA ES INVERSAMENTE PROPORCIONAL AL CUADRADO DE LA DISTANCIA]\n\n<svg width='100%' height='220' style='background:#0f172a; border-radius:8px; border:2px solid #10b981; display:block; margin:20px auto;'>\n  <circle cx='200' cy='110' r='45' style='fill:#3b82f6;filter:drop-shadow(0 0 10px #3b82f6);' />\n  <text x='175' y='115' fill='#ffffff' font-family='sans-serif' font-weight='bold' font-size='14'>Tierra</text>\n  <ellipse cx='200' cy='110' rx='120' ry='80' style='fill:none;stroke:#10b981;stroke-width:1.5;stroke-dasharray:4,4' />\n  <circle cx='200' cy='30' r='10' style='fill:#e2e8f0;' />\n  <path d='M 200,30 L 200,75' style='stroke:#ef4444;stroke-width:3;stroke-dasharray:0' />\n  <path d='M 200,30 L 280,30' style='stroke:#10b981;stroke-width:3;stroke-dasharray:0' />\n  <text x='210' y='60' fill='#ef4444' font-family='sans-serif' font-size='11' font-weight='bold'>Fg (Gravedad)</text>\n  <text x='240' y='25' fill='#10b981' font-family='sans-serif' font-size='11' font-weight='bold'>v (Velocidad Tangencial)</text>\n  <text x='170' y='20' fill='#e2e8f0' font-family='sans-serif' font-size='11' font-weight='bold'>ISS</text>\n</svg>\n\nEsta fuerza de atracción gravitatoria actúa como la fuerza centrípeta que desvía continuamente la trayectoria de la ISS hacia una órbita estable alrededor de la Tierra. [JUEGO:ORDENAR_LETRAS:FUERZA] Igualando matemáticamente estas fuerzas (Fuerza gravitatoria = Fuerza centrípeta), podemos deducir la velocidad exacta necesaria para mantener la órbita. [ACTIVIDAD:PLATAFORMA:¿Cuál es la fórmula de la Fuerza de Gravitación Universal?|F = G * M * m / r^2] Demuestra tus habilidades algebraicas en tu cuaderno: [ACTIVIDAD:CUADERNO:Demuestra matemáticamente la velocidad orbital igualando la fuerza centrípeta y la fuerza gravitatoria.]\n\nLa constante de gravitación universal G (6.674e-11 N m²/kg²) es el factor clave en nuestra ecuación. [JUEGO:ORDENAR_FRASE:LA CONSTANTE DE GRAVITACION ES UNIVERSAL] Responde en la terminal: [ACTIVIDAD:PLATAFORMA:¿Cuál es el valor aproximado de la constante G?|6.674e-11 N m^2/kg^2] ¿Cómo afectaría un cambio masivo a nuestro planeta? Resuelve en tu diario: [ACTIVIDAD:CUADERNO:Elabora un cuadro que muestre cómo cambiaría la órbita de la ISS si la masa de la Tierra se duplicara repentinamente.]\n\nAl resolver para la velocidad orbital, obtenemos v = √(G*M / r), donde M es la masa de la Tierra y r es la distancia desde el centro de la Tierra. ¡La masa del objeto orbital no influye en la velocidad orbital requerida! [ACTIVIDAD:PLATAFORMA:¿De qué depende la velocidad orbital de un satélite?|De la masa del planeta y del radio orbital] Dibuja la física en acción: [ACTIVIDAD:CUADERNO:Dibuja un diagrama vectorial mostrando la velocidad tangencial y la aceleración centrípeta de la ISS.]\n\nEsta velocidad determina el período, que es el tiempo necesario para completar una órbita. [JUEGO:ORDENAR_LETRAS:PERIODO] Al relacionar el período y la distancia, deducimos de manera directa la Tercera Ley de Kepler en su forma newtoniana: T² = (4π² / G*M) * r³. [JUEGO:ORDENAR_FRASE:EL PERIODO AL CUADRADO ES PROPORCIONAL AL RADIO AL CUBO] Resuelve nuestro dilema cinemático real en tu cuaderno: [ACTIVIDAD:CUADERNO:Resuelve el siguiente problema: Calcula la velocidad de un satélite a 400 km sobre la superficie de la Tierra (Radio terrestre = 6371 km, Masa terrestre = 5.97e24 kg).]\n\nPara desbloquear el algoritmo de navegación fina de los propulsores, descifra esta sopa de letras técnica: [JUEGO:SOPA_LETRAS:MASA,DISTANCIA,CONSTANTE,PERIODO,RADIO,FUERZA,DINAMICA,CENTRIPETA,MATEMATICA,DERIVACION]\n\nA pesar de estar flotando, la gravedad de la Tierra sobre la ISS es casi idéntica a la terrestre. La sensación de ingravidez se debe a que la estación y los astronautas caen libremente alrededor del planeta. [ACTIVIDAD:PLATAFORMA:¿Qué aceleración experimenta un astronauta en órbita debido a la gravedad terrestre?|Aproximadamente 8.7 m/s^2]\n\nFinalmente, resolvamos las ecuaciones maestras de nuestro ordenador central mediante este crucigrama de deducción orbital: [JUEGO:CRUCIGRAMA:Medida de la inercia de un cuerpo|MASA;Separacion entre dos centros de masa|DISTANCIA;Simbolo G en la ecuacion de Newton|CONSTANTE;Tiempo requerido para completar una orbita|PERIODO;Mitad del diametro de una orbita circular|RADIO;Accion capaz de cambiar el estado de movimiento|FUERZA;Rama de la fisica que estudia las causas del movimiento|DINAMICA;Aceleracion dirigida hacia el centro del circulo|CENTRIPETA;Ciencia de los numeros y ecuaciones|MATEMATICA;Obtencion de una formula a partir de otras|DERIVACION]\n\nCon estos cálculos completados de manera heróica, responde la última pregunta de seguridad de la misión: [ACTIVIDAD:PLATAFORMA:Si la distancia entre dos cuerpos se duplica, ¿qué pasa con la fuerza gravitacional?|Se reduce a la cuarta parte]",
+  "icfes": [
+    {
+      "competencia": "Uso Comprensivo del Conocimiento Científico",
+      "texto_introductorio": "La Estación Espacial Internacional se encuentra en una órbita circular casi perfecta a una altura promedio de 400 km sobre la superficie terrestre, viajando a una velocidad constante de aproximadamente 7.66 km/s.",
+      "tabla_o_grafica_markdown": "| Variable | Valor Aproximado |\n|---|---|\n| Altura sobre la superficie ($h$) | $400 \\text{ km}$ |\n| Radio de la Tierra ($R_T$) | $6371 \\text{ km}$ |\n| Velocidad Tangencial ($v$) | $7660 \\text{ m/s}$ |",
+      "pregunta": "¿Cuál de las siguientes afirmaciones explica correctamente el estado cinemático y dinámico de la ISS y los astronautas en órbita?",
+      "opciones": [
+        "La ISS experimenta una aceleración centrípeta hacia el centro de la Tierra, y la flotabilidad de los astronautas se debe a un estado de caída libre constante.",
+        "La fuerza neta sobre la ISS es cero, por lo cual se mueve con velocidad constante y no experimenta aceleraciones.",
+        "La aceleración gravitatoria a esa altura es nula, por lo que tanto la ISS como los astronautas flotan sin fuerzas que actúen sobre ellos.",
+        "La velocidad tangencial de la ISS es impulsada continuamente por motores de combustión constantes para vencer la inercia."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. La gravedad terrestre sigue actuando de forma significativa a esa altitud proporcionando la aceleración centrípeta necesaria para la órbita. La aparente ingravidez es el resultado de la caída libre continua de la estación junto con sus ocupantes.",
+        "1": "Incorrecto. Si la fuerza neta fuera cero, la ISS se movería en línea recta hacia el espacio profundo debido a la primera ley de Newton.",
+        "2": "Incorrecto. La gravedad a 400 km de altura es aproximadamente el 89% de la gravedad superficial, por lo que está lejos de ser nula.",
+        "3": "Incorrecto. La velocidad se mantiene por inercia en el vacío del espacio y los propulsores solo se usan para correcciones orbitales ocasionales, no de manera continua."
+      }
+    },
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "Un satélite de comunicaciones pasivo se traslada de una órbita geoestacionaria baja a una órbita tres veces más alejada del centro de la Tierra para evitar colisiones con basura espacial de baja altura.",
+      "tabla_o_grafica_markdown": "| Órbita | Radio Orbital ($r$) | Fuerza Gravitacional ($F_g$) |\n|---|---|---|\n| Órbita Inicial | $R_1$ | $F_1$ |\n| Órbita Final | $3 \\cdot R_1$ | $F_2$ |",
+      "pregunta": "¿Cómo cambia la fuerza de atracción gravitatoria que la Tierra ejerce sobre el satélite al cambiar de órbita?",
+      "opciones": [
+        "La fuerza de atracción gravitatoria disminuye a la novena parte de su valor original (F1 / 9).",
+        "La fuerza de atracción gravitatoria se reduce a la tercera parte de su valor original (F1 / 3).",
+        "La fuerza de atracción gravitatoria aumenta nueve veces debido al incremento en la energía potencial orbital.",
+        "La fuerza de atracción gravitatoria permanece constante porque la masa de la Tierra y la del satélite no han cambiado."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. Según la Ley de Gravitación Universal de Newton, la fuerza es inversamente proporcional al cuadrado de la distancia. Si la distancia se triplica, la fuerza se divide por 3^2 = 9.",
+        "1": "Incorrecto. Esto ocurriría si la fuerza fuera linealmente inversa a la distancia, pero es inversamente proporcional al cuadrado de la distancia.",
+        "2": "Incorrecto. La fuerza gravitatoria disminuye al aumentar la distancia orbital, no aumenta.",
+        "3": "Incorrecto. La fuerza gravitatoria depende fuertemente de la distancia entre los centros de masa, por lo que no puede permanecer constante."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "Un grupo de astrofísicos estudia la relación entre el período de revolución orbital (T) y el radio medio (r) de varios satélites de investigación científica alrededor del planeta Marte. Recolectan los siguientes datos experimentales:",
+      "tabla_o_grafica_markdown": "| Satélite | Radio Medio $r$ (u.a.) | Período $T$ (horas) | Relación $T^2/r^3$ |\n|---|---|---|---|\n| Ares-A | 2 | 2.82 | ~1.00 |\n| Ares-B | 4 | 8.00 | ~1.00 |\n| Ares-C | 8 | 22.62 | ~1.00 |",
+      "pregunta": "¿Qué hipótesis explica mejor los datos obtenidos y valida el comportamiento de los satélites de Marte con respecto a las leyes conocidas del movimiento celeste?",
+      "opciones": [
+        "La relación constante T²/r³ ≈ 1.0 demuestra de manera directa la Tercera Ley de Kepler para órbitas en Marte.",
+        "El período orbital aumenta de forma estrictamente lineal con respecto al radio medio de la órbita.",
+        "La masa de los satélites influye directamente en el cociente orbital, provocando variaciones significativas en la constante obtenida.",
+        "La constante de proporcionalidad depende exclusivamente del diámetro físico de los satélites en estudio."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. El cociente constante T²/r³ valida empíricamente la Tercera Ley de Kepler, la cual establece que el cuadrado del período es proporcional al cubo del radio medio de la órbita.",
+        "1": "Incorrecto. La relación no es lineal, ya que al duplicar el radio de 2 a 4, el período aumenta casi tres veces.",
+        "2": "Incorrecto. La masa del satélite es insignificante comparada con la masa de Marte y se cancela en la deducción matemática de la ley, no afectando el cociente.",
+        "3": "Incorrecto. Las propiedades orbitales dependen de la masa del cuerpo central (Marte) y de la gravedad, no del tamaño de los satélites individuales."
+      }
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Qué forma crees que tienen las órbitas o caminos que siguen los planetas alrededor del Sol?",
+      "opciones": [
+        "Círculos perfectos",
+        "Líneas rectas de ida y vuelta",
+        "Forma de óvalo o elipse",
+        "Trayectorias en forma de espiral sin fin"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "¿Cuál es la fuerza responsable de mantener nuestros pies pegados al suelo y a los planetas en órbita?",
+      "opciones": [
+        "La fuerza magnética",
+        "La fuerza de gravedad",
+        "La presión atmosférica",
+        "La energía solar"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "Antes de que la ciencia moderna demostrara lo contrario, ¿qué astro creía la gente antigua que estaba en el centro del universo?",
+      "opciones": [
+        "El Sol",
+        "La Luna",
+        "Júpiter",
+        "La Tierra"
+      ],
+      "correcta": 3
+    }
+  ],
+  "texto_inductivo": "¡Hola, cadetes del Refugio Alpha-7! Soy su instructor, el Explorador Espacial Logan. En este mundo post-apocalíptico, donde la ceniza bloquea el cielo, comprender el cosmos es vital para nuestra supervivencia. Hoy resolveremos un gran misterio: el Satélite Épsilon-3, que nos provee de agua purificada, ha perdido comunicación con nuestra base. Para hallarlo, debemos entender cómo se mueven los cuerpos en el espacio profundo. Antes del colapso de la civilización, los antiguos creían que la Tierra era el centro inmóvil de todo, un modelo geocéntrico erróneo. [JUEGO:SOPA_LETRAS:ASTRO,GRAVEDAD,SOL] Nicolás Copérnico cambió el rumbo de la historia demostrando que la Tierra y los planetas giran alrededor de una estrella central. [JUEGO:ORDENAR_LETRAS:SOL] Esto sentó las bases científicas para el estudio moderno del movimiento planetario. [JUEGO:CRUCIGRAMA:Modelo con el Sol en el centro|HELIOCENTRICO;Modelo con la Tierra en el centro|GEOCENTRICO] [JUEGO:CRUCIGRAMA:Estrella central de nuestro sistema|SOL;Trayectoria curva de un planeta|ORBITA]\n\nJohannes Kepler, usando los datos precisos recopilados por el astrónomo Tycho Brahe, descubrió que los planetas no se mueven en círculos perfectos, sino en curvas geométricas cerradas llamadas elipses. [JUEGO:ORDENAR_LETRAS:ELIPSE] Una elipse es como un círculo estirado que cuenta con dos puntos internos clave conocidos como focos. [JUEGO:SOPA_LETRAS:FOCO,ORBITA,ELIPSE] Esta es la célebre Primera Ley de Kepler: los planetas describen órbitas elípticas alrededor del Sol, el cual se ubica en uno de sus focos. [JUEGO:ORDENAR_FRASE:LOS PLANETAS GIRAN EN ELIPSES]\n\n¿Por qué es esto crucial para encontrar el Épsilon-3? Porque su órbita también es una elipse. [JUEGO:ORDENAR_LETRAS:ORBITA] Si logramos reconstruir la forma de su trayectoria elíptica, sabremos exactamente en qué punto del oscuro cielo dirigir nuestras antenas de rastreo. [JUEGO:CRUCIGRAMA:Forma de la orbita|ELIPSE;Punto interno de la elipse|FOCO]\n\nLa Segunda Ley de Kepler nos revela un aspecto fascinante: la línea imaginaria que une a un planeta con el Sol barre áreas iguales en tiempos iguales. [JUEGO:ORDENAR_FRASE:BARREN AREAS IGUALES EN TIEMPOS IGUALES] Esto significa físicamente que cuando el planeta está más cerca de la estrella se mueve a su máxima velocidad, y cuando está más lejano se desplaza mucho más lento. [JUEGO:SOPA_LETRAS:TIEMPO,DISTANCIA,VELOCIDAD] ¿Logran ver el patrón, cadetes? Nuestro satélite perdido cambiará constantemente de velocidad a lo largo de su órbita según la distancia que lo separe de nuestro planeta. [JUEGO:CRUCIGRAMA:Cientifico de las tres leyes|KEPLER;Cientifico de la ley de gravedad|NEWTON]\n\nFinalmente, la Tercera Ley de Kepler relaciona directamente el tiempo que tarda un planeta en dar una vuelta completa con su distancia promedio al Sol. [JUEGO:ORDENAR_LETRAS:PLANETA] Cuanto más lejos está un cuerpo del centro de atracción, más tiempo tardará en completar su viaje orbital. [JUEGO:ORDENAR_FRASE:EL SOL ESTA EN EL FOCO] Gracias a esta ley matemática, si logramos calcular el tiempo que tarda el Épsilon-3 en dar una vuelta, conoceremos con precisión matemática su distancia promedio de la Tierra. [JUEGO:SOPA_LETRAS:COPERNICO,KEPLER,NEWTON]\n\nPero Kepler solo describió *cómo* se mueven los planetas. Faltaba una pieza fundamental en nuestro misterio: ¿*por qué* se mueven de esa manera? [JUEGO:ORDENAR_LETRAS:GRAVEDAD] Ahí es donde entra la gravedad, la fuerza invisible que une al universo. [JUEGO:ORDENAR_FRASE:LA GRAVEDAD ES ATRACCION] Isaac Newton descubrió que todos los objetos con masa en el cosmos se atraen mutuamente de forma proporcional a su tamaño y cercanía. [JUEGO:SOPA_LETRAS:MASA,ATRACCION,FUERZA] Esta atracción invisible mantiene a la Luna orbitando la Tierra y a nuestro satélite Épsilon-3 en su trayectoria segura. [JUEGO:CRUCIGRAMA:Fuerza que nos mantiene unidos al suelo|GRAVEDAD;Cantidad de materia|MASA] Sin la presencia de la gravedad, el satélite simplemente saldría disparado en línea recta hacia el vacío infinito del espacio profundo. [JUEGO:ORDENAR_FRASE:LA CIENCIA NOS SALVA]",
+  "recurso_visual": "mermaid\ngraph TD\n    A[Movimiento Planetario] --> B[Leyes de Kepler]\n    A --> C[Ley de Newton]\n    B --> B1[1ra Ley: Órbitas elípticas con el Sol en un foco]\n    B --> B2[2da Ley: Áreas iguales en tiempos iguales]\n    B --> B3[3ra Ley: Periodos de órbita relacionados con distancia]\n    C --> C1[Gravitación Universal: Fuerza que atrae las masas]\n",
+  "preguntas_inductivas_pagina": [
+    "¿Qué forma geométrica tienen las órbitas de los planetas según la Primera Ley de Kepler?",
+    "¿En qué parte o punto específico de la elipse se ubica el Sol en el modelo heliocéntrico?",
+    "¿Qué ocurre con la velocidad de un satélite a medida que se acerca al cuerpo que está orbitando?",
+    "¿Qué astrónomo propuso originalmente que la Tierra y los demás planetas giran alrededor del Sol?",
+    "¿Cuál es la fuerza física que mantiene a los astros girando en sus órbitas en lugar de salir despedidos al espacio?"
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema detallado de una elipse orbital en tu cuaderno de supervivencia, señalando el Sol en uno de los focos, un planeta y los puntos donde la velocidad es máxima y mínima.",
+    "Realiza un cuadro comparativo entre el obsoleto modelo Geocéntrico y el modelo Heliocéntrico, detallando cuál de los dos es correcto y por qué.",
+    "Escribe una reflexión de dos párrafos explicando cómo el conocimiento de la gravedad de Newton nos ayuda a comprender el porqué de las órbitas elípticas de Kepler.",
+    "Representa gráficamente mediante un dibujo geométrico la Segunda Ley de Kepler, simulando las porciones de área de igual medida barridas por el satélite Épsilon-3."
+  ],
+  "texto_deductivo": "Ahora, cadetes de Alpha-7, es momento de aplicar el rigor de la deducción científica para encontrar el receptor del satélite Épsilon-3. [JUEGO:ORDENAR_LETRAS:LEY] Sabemos que el satélite sigue las reglas inflexibles del movimiento planetario descritas por Kepler y fundamentadas por la gravitación de Newton. [JUEGO:SOPA_LETRAS:TERCERA,SEGUNDA,PRIMERA] Deduzcamos las consecuencias físicas de estas leyes para resolver nuestro misterio de supervivencia.\n\nPrimero, analicemos detalladamente la trayectoria de su órbita. Dado que la Tierra está ubicada en uno de los focos de su recorrido elíptico, [JUEGO:ORDENAR_LETRAS:FOCO] el satélite pasará cíclicamente por dos posiciones extremas: el perigeo (punto más cercano a nuestro planeta) y el apogeo (punto más lejano). [JUEGO:SOPA_LETRAS:PERIHELIO,AFELIO,RADIO] Kepler demostró que la velocidad cambia drásticamente en estos puntos. [JUEGO:CRUCIGRAMA:Punto mas cercano|PERIHELIO;Punto mas lejano|AFELIO] Deducimos entonces que, al aproximarse a la Tierra, el Épsilon-3 acelerará notablemente debido a una atracción gravitatoria más intensa. [JUEGO:ORDENAR_FRASE:A MAYOR DISTANCIA MENOR VELOCIDAD]\n\nSegundo, al estudiar los registros de la antena receptora, deducimos que el satélite requiere exactamente de 24 horas terrestres para completar una órbita entera. [JUEGO:ORDENAR_LETRAS:TIEMPO] Este intervalo de tiempo se define formalmente como su periodo orbital. [JUEGO:SOPA_LETRAS:SATELITE,RECEPTOR,MISTERIO] Utilizando la Tercera Ley de Kepler, podemos calcular con precisión matemática que para mantener este periodo constante su distancia media debe ser exactamente de 42,164 kilómetros desde el centro de la Tierra. [JUEGO:ORDENAR_LETRAS:PERIODO] Si su órbita se estuviera deteriorando y se encontrara más cerca de la superficie, su periodo orbital sería menor a las 24 horas. [JUEGO:CRUCIGRAMA:Tiempo en una vuelta|PERIODO;Distancia media al centro|SEMIEJE]\n\nTercero, integremos la Ley de Gravitación Universal de Isaac Newton para deducir la estabilidad orbital del Épsilon-3. [JUEGO:SOPA_LETRAS:LEYES,INERCIA,ACCION] Newton postuló matemáticamente que la atracción de la gravedad depende de la masa de ambos cuerpos, disminuyendo drásticamente a medida que la distancia entre ellos aumenta al cuadrado. [JUEGO:ORDENAR_LETRAS:FUERZA] De esta forma, mientras Kepler nos explicó detalladamente la geometría del movimiento celestial, Newton determinó la causa física exacta que lo produce. [JUEGO:ORDENAR_FRASE:KEPLER EXPLICO EL COMO] [JUEGO:ORDENAR_FRASE:NEWTON EXPLICO EL PORQUE] [JUEGO:CRUCIGRAMA:Atraccion del universo|GRAVEDAD;Unidad de medida de fuerza|NEWTON]\n\n¿Cuál es la conclusión lógica del misterio? El satélite Épsilon-3 no ha caído a la Tierra. Lo que ocurrió es que una densa nube de polvo espacial post-apocalíptico bloqueó sus paneles solares justo cuando pasaba por su apogeo. [JUEGO:SOPA_LETRAS:UNIVERSAL,CONSTANTE,COSMOS] En este punto más lejano, el satélite se desplaza con su menor velocidad y pasa más tiempo expuesto a la sombra terrestre. [JUEGO:ORDENAR_FRASE:LA GRAVEDAD UNE AL COSMOS] Sabiendo esto, podemos dirigir de inmediato nuestras ondas de radio directamente a las coordenadas del apogeo calculadas con las leyes de Kepler para reactivar sus baterías. [JUEGO:CRUCIGRAMA:Instrumento para ver el cosmos|TELESCOPIO;Cuerpo que orbita la Tierra|SATELITE]\n\n¡Felicidades, cadetes de Alpha-7! El conocimiento de la física y el análisis deductivo han salvado una vez más a nuestro refugio de la escasez de agua purificada. [JUEGO:ORDENAR_FRASE:DESCUBRAMOS EL SATELITE PERDIDO] Mantengan siempre encendida la llama del razonamiento científico frente a la oscuridad del páramo. [JUEGO:CRUCIGRAMA:Camino que recorre el astro|TRAYECTORIA;Atraccion mutua de las masas|GRAVITACION]",
+  "preguntas_deductivas_pagina": [
+    "¿Qué es físicamente el periodo orbital de un cuerpo celeste?",
+    "¿Cómo se llaman los puntos extremos donde la órbita de un satélite está más cerca y más lejos de la Tierra?",
+    "¿Por qué un satélite se desplaza con menor velocidad cuando se encuentra en su apogeo?",
+    "Según la ley formulada por Newton, ¿cómo afecta el cambio de distancia a la fuerza de gravedad entre dos masas?",
+    "¿Cómo ayudó el periodo orbital de 24 horas del satélite a determinar la distancia a la que se encontraba del planeta?"
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Dibuja un diagrama físico detallado que muestre al satélite Épsilon-3 en su apogeo y perigeo, representando con flechas (vectores) la fuerza de gravedad y la velocidad en cada caso.",
+    "Elabora un mapa mental creativo que conecte de forma estructurada las Tres Leyes de Kepler con la Ley de Gravitación Universal de Isaac Newton.",
+    "Haz un dibujo explicativo que ilustre cómo la nube de polvo y la sombra terrestre en el apogeo bloquearon temporalmente los paneles solares de nuestro satélite.",
+    "Diseña una infografía artesanal en una página completa de tu cuaderno que sirva como manual de instrucciones rápido para rastrear satélites perdidos usando las leyes físicas explicadas."
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "Un satélite meteorológico de la antigua era espacial órbita alrededor de la Tierra describiendo una trayectoria elíptica como se muestra en los registros antiguos de telecomunicaciones. Los ingenieros del Refugio miden la velocidad orbital en diferentes puntos.",
+      "tabla_o_grafica_markdown": "| Posición en la Órbita | Distancia a la Tierra (km) | Velocidad Registrada (km/s) |\n|---|---|---|\n| Punto A (Perigeo) | 6,500 | 8.2 |\n| Punto B (Apogeo) | 42,000 | 1.6 |",
+      "pregunta": "¿Qué ley física explica por qué la velocidad del satélite en el Punto A es considerablemente mayor que en el Punto B?",
+      "opciones": [
+        "La Segunda Ley de Kepler, ya que el satélite debe barrer áreas iguales en tiempos iguales, aumentando su velocidad al estar cerca del centro gravitacional.",
+        "La Primera Ley de Kepler, la cual exige que las elipses siempre aceleren a los cuerpos en sus puntos focales vacíos.",
+        "La Ley de Inercia de Newton, ya que al no haber gravedad en el perigeo, el satélite gana velocidad de forma libre.",
+        "La Tercera Ley de Kepler, la cual afirma que el periodo orbital de los cuerpos es inversamente proporcional a su velocidad máxima."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. La Segunda Ley de Kepler establece que el radio vector barre áreas iguales en tiempos iguales, lo cual requiere que el cuerpo se mueva más rápido en el perihelio/perigeo y más lento en el afelio/apogeo.",
+        "1": "Incorrecto. La Primera Ley solo describe la forma elíptica de las órbitas, mas no la variación de la velocidad orbital.",
+        "2": "Incorrecto. La inercia no causa el incremento de velocidad; es la fuerza gravitatoria variable la responsable del cambio de aceleración.",
+        "3": "Incorrecto. La Tercera Ley relaciona los periodos de revolución al cuadrado con los semiejes mayores al cubo, no las velocidades puntuales de manera directa."
+      }
+    },
+    {
+      "competencia": "Uso Comprensivo del Conocimiento Científico",
+      "texto_introductorio": "De acuerdo con la Ley de Gravitación Universal propuesta por Isaac Newton, la fuerza de atracción entre dos cuerpos masivos en el espacio está descrita por la ecuación matemática fundamental de la física clásica.",
+      "tabla_o_grafica_markdown": "| Parámetro Físico | Relación con la Fuerza de Gravedad |\n|---|---|\n| Masa de los cuerpos | Directamente proporcional |\n| Distancia entre centros | Inversamente proporcional al cuadrado |",
+      "pregunta": "Si los sobrevivientes deciden mover el satélite Épsilon-3 al doble de la distancia promedio que tiene con respecto a la Tierra, ¿cómo se verá afectada la fuerza de atracción gravitatoria sobre él?",
+      "opciones": [
+        "La fuerza gravitatoria se reducirá a la cuarta parte de su valor original.",
+        "La fuerza gravitatoria aumentará al doble debido al aumento de altura.",
+        "La fuerza gravitatoria se reducirá exactamente a la mitad.",
+        "La fuerza gravitatoria permanecerá constante para mantener la estabilidad."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. Al ser la fuerza inversamente proporcional al cuadrado de la distancia, si la distancia se duplica (2d), la fuerza disminuye por un factor de 2 al cuadrado, es decir, se reduce a la cuarta parte (1/4).",
+        "1": "Incorrecto. La fuerza gravitatoria disminuye con la distancia, nunca aumenta al alejarse del centro de masa.",
+        "2": "Incorrecto. No se reduce a la mitad, ya que la relación depende del cuadrado de la distancia, no de la distancia lineal.",
+        "3": "Incorrecto. La fuerza cambia drásticamente con la distancia según el principio físico de la gravitación universal."
+      }
+    }
+  ]
+}

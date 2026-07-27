@@ -1,0 +1,86 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "Si estás ubicado en la cancha de la IE Instituto Montenegro y caminas 5 metros al norte y luego 5 metros al sur, ¿cuál es tu ubicación final con respecto al punto inicial?",
+      "opciones": [
+        "A) A 10 metros al norte",
+        "B) En el mismo punto de origen (0 metros)",
+        "C) A 5 metros al sur",
+        "D) A 10 metros al sur"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Qué elemento es fundamental para definir si un objeto en la selva se está moviendo o está en reposo?",
+      "opciones": [
+        "A) Un sensor de velocidad máxima",
+        "B) Un Marco o Sistema de Referencia",
+        "C) La masa del objeto",
+        "D) La temperatura del ambiente"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Cuál es la diferencia principal entre el camino curvilíneo que recorre un explorador en la vegetación y la línea recta que une su inicio y su final?",
+      "opciones": [
+        "A) No hay diferencia, son exactamente iguales",
+        "B) El camino recorrido es la trayectoria y la línea recta final es el desplazamiento",
+        "C) La línea recta es la trayectoria y el camino curvilíneo es la aceleración",
+        "D) El camino recorrido es el tiempo y la línea recta es la posición"
+      ],
+      "correcta": 1
+    }
+  ],
+  "texto_inductivo": "# 🛰️ MISIÓN HACKER: INFILTRACIÓN EN LA SELVA NEGRA\n\n**_¿Cómo podemos rastrear y predecir la trayectoria del dron de exploración cibernética desde la cancha central de la IE Instituto Montenegro hasta el templo antiguo oculto en la selva del Quindío, utilizando únicamente coordenadas cartesiana-vectoriales para evitar las interferencias electromagnéticas enemigas?_**\n\n<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 300' style='background-color:#0d1117; border-radius:8px;'> <defs> <pattern id='grid' width='30' height='30' patternUnits='userSpaceOnUse'> <path d='M 30 0 L 0 0 0 30' fill='none' stroke='#00ff66' stroke-width='0.5' stroke-opacity='0.2'/> </pattern> </defs> <rect width='100%' height='100%' fill='#0d1117'/> <rect width='100%' height='100%' fill='url(#grid)'/> <line x1='50' y1='250' x2='550' y2='250' stroke='#00ff66' stroke-width='2' marker-end='url(#arrow)'/> <line x1='50' y1='250' x2='50' y2='30' stroke='#00ff66' stroke-width='2'/> <text x='560' y='255' fill='#00ff66' font-family='monospace' font-size='12'>Eje X (m)</text> <text x='35' y='20' fill='#00ff66' font-family='monospace' font-size='12'>Eje Y (m)</text> <circle cx='50' cy='250' r='6' fill='#ff0055'/> <text x='60' y='265' fill='#ff0055' font-family='monospace' font-size='12'>Origen: IE Instituto Montenegro (0,0)</text> <path d='M 50 250 Q 150 50, 300 180 T 500 70' fill='none' stroke='#ffcc00' stroke-width='3' stroke-dasharray='5,5'/> <text x='250' y='100' fill='#ffcc00' font-family='monospace' font-size='12'>Trayectoria del Dron (Camino Real)</text> <line x1='50' y1='250' x2='500' y2='70' stroke='#00e5ff' stroke-width='2'/> <text x='280' y='180' fill='#00e5ff' font-family='monospace' font-size='12'>Vector Desplazamiento (Δr)</text> <circle cx='500' cy='70' r='8' fill='#00e5ff'/> <text x='420' y='55' fill='#00e5ff' font-family='monospace' font-size='12'>Templo Oculto (150, 180)</text> </svg>\n\n¡Atención, recluta ciber-físico! Hemos interceptado una señal anómala proveniente del denso follaje. Nuestro mainframe central ubicado en la **IE Instituto Montenegro** requiere rastrear un dron rebelde. Para descifrar su posición exacta en cada instante, debes dominar el sistema de coordenadas de la selva.\n\nAnaliza la telemetría del primer tramo de vuelo interceptado:\n\n<table border='1' style='width:100%; border-collapse:collapse; background-color:#161b22; color:#c9d1d9; border-color:#30363d;'> <tr style='background-color:#21262d; color:#58a6ff;'> <th>Punto de Control</th> <th>Tiempo (s)</th> <th>Coordenada X (m)</th> <th>Coordenada Y (m)</th> <th>Estado de Señal</th> </tr> <tr> <td>Alpha (IE Montenegro)</td> <td>0</td> <td>0</td> <td>0</td> <td>Estable</td> </tr> <tr> <td>Bravo (Rio Roble)</td> <td>10</td> <td>40</td> <td>30</td> <td>Infiltrado</td> </tr> <tr> <td>Charlie (Templo)</td> <td>25</td> <td>150</td> <td>180</td> <td>Alerta Máxima</td> </tr> </table>\n\n[JUEGO:ORDENAR_LETRAS:POSICION]\n\nPara avanzar a través del cortafuegos de la selva, resuelve las siguientes verificaciones encriptadas:\n\n[JUEGO:ORDENAR_FRASE:LA POSICION DEPENDE DEL SISTEMA DE REFERENCIA]\n\n[JUEGO:SOPA_LETRAS:ORIGEN,EJE,PUNTO]\n\n[JUEGO:CRUCIGRAMA:Lugar exacto en el espacio|POSICION;Punto de partida de la mision|ORIGEN]",
+  "recurso_visual": "| Variable Cinemática | Símbolo | Tipo de Magnitud | Descripción Hacker en Selva |\n| :--- | :---: | :---: | :--- |\n| **Posición** | $\\vec{r}$ | Vectorial | Coordenadas exactas $(x,y)$ respecto al servidor central (IE Instituto Montenegro). |\n| **Trayectoria** | $s$ | Escalar | La huella o línea continua dejada por el dron al esquivar árboles. |\n| **Desplazamiento** | $\\Delta\\vec{r}$ | Vectorial | Flecha en línea recta desde el punto de despegue hasta la meta. |\n| **Distancia** | $d$ | Escalar | Longitud total recorrida en metros sobre la trayectoria. |",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "¿Por qué la trayectoria seguida por el dron en el mapa SVG es curva mientras que el desplazamiento es una línea recta?",
+      "respuesta_esperada": "Porque la trayectoria representa el camino real recorrido esquivando obstáculos en la selva, mientras que el desplazamiento mide únicamente el cambio neto de posición mediante un vector directo entre el inicio y el final."
+    },
+    {
+      "pregunta": "Si el dron sale de la IE Instituto Montenegro, explora el templo y regresa exactamente al mismo punto en la cancha, ¿cuál es su desplazamiento total?",
+      "respuesta_esperada": "El desplazamiento total es cero (0 metros), ya que la posición final es idéntica a la posición inicial."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "RETO HACKER 1: Dibuja en tu cuaderno un plano cartesiano tomando como punto (0,0) la entrada principal de la IE Instituto Montenegro. Traza una trayectoria curva hacia la cafetería y marca el vector desplazamiento con un color resaltante.",
+    "RETO HACKER 2: Explica con tus palabras por qué dos ciberexploradores pueden reportar diferentes posiciones de un mismo árbol si eligen sistemas de referencia distintos."
+  ],
+  "texto_deductivo": "# 💻 NÚCLEO DE TEORÍA CINEMÁTICA: MODO HÉROE\n\nPara hackear el sistema de navegación de la selva, debemos formalizar las variables cinemáticas fundamentales utilizando rigor matemático y análisis vectorial.\n\n<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 200' style='background-color:#111; border:1px solid #00ff66;'> <style> .label { font-family: monospace; font-size: 12px; fill: #00ff66; } </style> <circle cx='80' cy='150' r='5' fill='#ff0055'/> <text x='60' y='170' class='label'>P1 (r1)</text> <circle cx='400' cy='50' r='5' fill='#00e5ff'/> <text x='410' y='50' class='label'>P2 (r2)</text> <path d='M 80 150 C 150 20, 300 180, 400 50' fill='none' stroke='#ffcc00' stroke-width='2' stroke-dasharray='4'/> <text x='200' y='70' fill='#ffcc00' font-family='monospace' font-size='11'>Trayectoria s(t)</text> <line x1='80' y1='150' x2='400' y2='50' stroke='#00e5ff' stroke-width='3' marker-end='url(#arrow2)'/> <text x='230' y='120' fill='#00e5ff' font-family='monospace' font-size='12'>Δr = r2 - r1</text> </svg>\n\n### 1. Sistema de Referencia (SR)\nUn SR es un conjunto de ejes coordenados $(X,Y)$ acoplados a un reloj. En nuestra misión, fijamos el origen $(0,0)$ en el patio de la **IE Instituto Montenegro**.\n\n### 2. Vector de Posición ($\\vec{r}$)\nUbicación de un objeto en un instante determinado. Se expresa en dos dimensiones como:\n$$\\vec{r} = x\\hat{i} + y\\hat{j}$$\n\n### 3. Trayectoria vs. Desplazamiento\n- **Trayectoria:** Es la función geométrica $s(t)$ que describe la ruta continua del móvil. Puede ser rectilínea, curvilínea o errática.\n- **Desplazamiento ($\\Delta\\vec{r}$):** Cambio neto de posición. Se calcula como:\n$$\\Delta\\vec{r} = \\vec{r}_f - \\vec{r}_i$$\n\nDesbloquea los siguientes subsistemas mediante la resolución de código:\n\n[JUEGO:ORDENAR_LETRAS:TRAYECTORIA]\n[JUEGO:ORDENAR_LETRAS:VECTOR]\n[JUEGO:ORDENAR_LETRAS:DESPLAZAMIENTO]\n[JUEGO:ORDENAR_LETRAS:DISTANCIA]\n\n[JUEGO:ORDENAR_FRASE:LA TRAYECTORIA ES EL CAMINO RECORRIDO]\n[JUEGO:ORDENAR_FRASE:EL DESPLAZAMIENTO ES UN VECTOR DIRECTO]\n[JUEGO:ORDENAR_FRASE:EL ORIGEN DE COORDENADAS DEFINE EL PUNTO ZERO]\n[JUEGO:ORDENAR_FRASE:HACKEAMOS EL MAPA CON CINEMATICA AVANZADA]\n\n[JUEGO:SOPA_LETRAS:VECTOR,MAGNITUD,DIRECCION]\n[JUEGO:SOPA_LETRAS:TRAYECTORIA,CURVA,RECTA]\n[JUEGO:SOPA_LETRAS:TIEMPO,CAMINO,DISTANCIA]\n[JUEGO:SOPA_LETRAS:SENSOR,DRON,SELVA]\n\n[JUEGO:CRUCIGRAMA:Camino completo seguido por un cuerpo|TRAYECTORIA;Línea recta del inicio al fin|DESPLAZAMIENTO]\n[JUEGO:CRUCIGRAMA:Segmento con flecha y dirección|VECTOR;Marco desde el que se mide|REFERENCIA]\n[JUEGO:CRUCIGRAMA:Magnitud escalar del camino|DISTANCIA;Artefacto volador de infiltración|DRON]\n[JUEGO:CRUCIGRAMA:Cambio de posición|MOVIMIENTO;Lugar de misión tecnológica|SELVA]",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "Si un dron se mueve desde $\\vec{r}_i = (2, 3)\\text{ m}$ hasta $\\vec{r}_f = (8, 11)\\text{ m}$, ¿cuál es el vector desplazamiento $\\Delta\\vec{r}$?",
+      "respuesta_esperada": "El vector desplazamiento es Δr = (8 - 2)i + (11 - 3)j = 6i + 8j metros."
+    },
+    {
+      "pregunta": "¿En qué condición la magnitud del desplazamiento es exactamente igual a la distancia recorrida sobre la trayectoria?",
+      "respuesta_esperada": "Únicamente cuando el movimiento es en línea recta y en un solo sentido sin efectuar giros ni retornos."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "DEMOSTRACIÓN VECTORIAL: Un agente camina en la selva 3 km al Este y 4 km al Norte desde el campamento base. Calcula la magnitud del vector desplazamiento utilizando el Teorema de Pitágoras.",
+    "ANÁLISIS CRÍTICO: Diseña un escenario narrativo donde un hacker en la IE Instituto Montenegro deba engañar a un radar haciendo que la trayectoria sea de 1000 metros pero el desplazamiento sea 0 metros. Describe la ruta."
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "Un grupo de estudiantes de la IE Instituto Montenegro programa un robot explorador para analizar el terreno selvático del Quindío. El robot parte del punto O(0,0), avanza en línea recta hasta A(4,0) m, luego gira 90° hacia el norte hasta B(4,3) m y finalmente regresa en línea recta al origen O(0,0).",
+      "tabla_o_grafica_markdown": "| Tramo del Recorrido | Punto Inicial | Punto Final | Distancia Recorrida (m) |\n| :--- | :---: | :---: | :---: |\n| 1 | (0,0) | (4,0) | 4 |\n| 2 | (4,0) | (4,3) | 3 |\n| 3 | (4,3) | (0,0) | 5 |\n| **Total** | **(0,0)** | **(0,0)** | **12** |",
+      "pregunta": "Al analizar la totalidad del recorrido del robot explorador desde que sale de O hasta que regresa a O, un estudiante afirma que 'la distancia total recorrida y el desplazamiento son iguales porque el robot volvió al inicio'. Esta afirmación es:",
+      "opciones": [
+        "A) Correcta, porque al completar la figura geométrica la distancia recorrida equivale al valor del vector nulo.",
+        "B) Incorrecta, porque la distancia total recorrida fue de 12 metros, mientras que el desplazamiento total fue de 0 metros.",
+        "C) Correcta, porque el punto de origen y el punto final coinciden en el plano cartesiano.",
+        "D) Incorrecta, porque la trayectoria siempre debe ser una línea curva para poder calcular la distancia."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. La distancia recorrida es la suma de las longitudes del camino (12 m) y nunca es nula si hubo movimiento.",
+        "1": "¡Correcto! Hackeo exitoso. La distancia es la suma escalar del camino (4 + 3 + 5 = 12 m), mientras que el desplazamiento mide el cambio neto entre el inicio y el final; como volvió al punto de partida (0,0), el desplazamiento final es 0 metros.",
+        "2": "Incorrecto. Que coincidan el punto final e inicial hace que el desplazamiento sea cero, pero la distancia sigue siendo 12 metros.",
+        "3": "Incorrecto. La trayectoria puede ser rectilínea o formada por segmentos rectos, no requiere ser curva para medir la distancia."
+      }
+    }
+  ]
+}

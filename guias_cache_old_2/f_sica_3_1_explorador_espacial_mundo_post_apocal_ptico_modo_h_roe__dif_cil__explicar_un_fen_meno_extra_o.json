@@ -1,0 +1,114 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Cuál es la forma real de la trayectoria que describen los planetas alrededor del Sol?",
+      "opciones": [
+        "Círculo perfecto",
+        "Elipse",
+        "Línea recta",
+        "Espiral"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Qué fuerza es la responsable de mantener a los planetas en su órbita?",
+      "opciones": [
+        "Fuerza Electromagnética",
+        "Fuerza Nuclear Fuerte",
+        "Fuerza de Gravedad",
+        "Fuerza de Fricción"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "Si un planeta se aleja del Sol, su velocidad orbital...",
+      "opciones": [
+        "Aumenta",
+        "Disminuye",
+        "Permanece constante",
+        "Se detiene"
+      ],
+      "correcta": 1
+    }
+  ],
+  "texto_inductivo": "# BITÁCORA DE EXPLORACIÓN: EL ENIGMA DE LAS ESFERAS ERRANTES\n\nSaludos, recluta. Te habla el Capitán Solaris desde los restos de la Estación Espacial 'Chronos'. La Tierra que conocimos es ceniza, y nuestra supervivencia depende de entender los cielos. ***¿Si las leyes de la física que rigen el movimiento de los planetas colapsaran mañana, cómo podríamos predecir nuestra trayectoria de escape hacia un nuevo hogar seguro?*** [JUEGO:ORDENAR_FRASE:SI LAS LEYES DE LA FISICA COLAPSARAN] \n\n<div style='border: 2px solid #00ff00; background: #0a0a0a; color: #00ff00; padding: 15px; font-family: monospace;'>\n  <h3>SISTEMA DE ESCANEO DE RUINAS</h3>\n  <svg viewBox='0 0 200 100' xmlns='http://www.w3.org/2000/svg'>\n    <circle cx='100' cy='50' r='40' stroke='#00ff00' fill='none' stroke-dasharray='5,5' />\n    <circle cx='60' cy='50' r='5' fill='#ff0000'>\n      <animate attributeName='cx' values='60;140;60' dur='4s' repeatCount='indefinite' />\n    </circle>\n    <text x='70' y='20' fill='#00ff00' font-size='8'>MODELO HELIOCÉNTRICO</text>\n  </svg>\n  <p>ESTADO: BUSCANDO COORDENADAS DE KEPLER...</p>\n</div>\n\nEn los días antiguos, los hombres creían que la Tierra era el centro de todo. [JUEGO:ORDENAR_LETRAS:TIERRA] Observaban que algunos puntos de luz retrocedían en el cielo, un fenómeno extraño llamado 'movimiento retrógrado'. [JUEGO:CRUCIGRAMA:Planeta que parece retroceder|MARTE;Centro del universo antiguo|TIERRA] No podían explicar por qué estos errantes (planetas) no seguían caminos circulares perfectos. [JUEGO:SOPA_LETRAS:MARTE,CIELO,LUZ] \n\nNicolás Copérnico desafió el dogma. Propuso que el Sol era el centro. [JUEGO:ORDENAR_FRASE:EL SOL ES EL CENTRO DEL SISTEMA] Sin embargo, sus órbitas eran círculos, y los cálculos no encajaban con la precisión necesaria para un salto hiperespacial. [JUEGO:ORDENAR_LETRAS:SOL] \n\n<table style='width:100%; border-collapse: collapse; border: 2px solid #ffcc00;'>\n  <tr style='background-color: #333; color: white;'>\n    <th style='border: 1px solid #ffcc00; padding: 10px;'>Modelo</th>\n    <th style='border: 1px solid #ffcc00; padding: 10px;'>Postulado</th>\n    <th style='border: 1px solid #ffcc00; padding: 10px;'>Error Detectado</th>\n  </tr>\n  <tr>\n    <td style='border: 1px solid #ffcc00; padding: 10px;'>Geocéntrico</td>\n    <td style='border: 1px solid #ffcc00; padding: 10px;'>Tierra inmóvil en el centro.</td>\n    <td style='border: 1px solid #ffcc00; padding: 10px;'>No explica órbitas retrógradas sin epiciclos complejos.</td>\n  </tr>\n  <tr>\n    <td style='border: 1px solid #ffcc00; padding: 10px;'>Heliocéntrico (Copérnico)</td>\n    <td style='border: 1px solid #ffcc00; padding: 10px;'>Planetas giran alrededor del Sol.</td>\n    <td style='border: 1px solid #ffcc00; padding: 10px;'>Uso de órbitas circulares (imprecisión).</td>\n  </tr>\n</table>\n\nJohannes Kepler, usando los datos de Tycho Brahe, descubrió la verdad que salvará nuestra misión. [JUEGO:SOPA_LETRAS:KEPLER,DATOS,VERDAD] Los planetas no dibujan círculos, sino elipses. [JUEGO:ORDENAR_LETRAS:ELIPSE] ¿Qué impulsa este baile cósmico? [JUEGO:CRUCIGRAMA:Trayectoria elíptica|ORBITA;Astrónomo danés|BRAHE] Para escapar de la radiación post-apocalíptica, debemos entender la primera ley de Kepler: los planetas se mueven en elipses con el Sol en uno de sus focos. [JUEGO:ORDENAR_FRASE:LOS PLANETAS SE MUEVEN EN ELIPSES] \n\nEste descubrimiento cambió la cinemática para siempre. [JUEGO:SOPA_LETRAS:FOCO,LEY,ORDEN] Ya no buscamos la perfección divina, sino la precisión matemática. [JUEGO:ORDENAR_LETRAS:MAPA] Sin la elipse, nuestra nave chocaría contra un cinturón de asteroides. [JUEGO:CRUCIGRAMA:Forma de huevo|ELIPSE;Punto de apoyo orbital|FOCO] La velocidad no es constante; varía según la posición del planeta en su danza macabra. [JUEGO:ORDENAR_FRASE:LA VELOCIDAD VARIA SEGUN LA POSICION] \n\n[JUEGO:ORDENAR_LETRAS:DANZA] [JUEGO:SOPA_LETRAS:NAVE,ESPACIO,DATO] [JUEGO:CRUCIGRAMA:Distancia recorrida|POSICION;Cambio de lugar|MOVIMIENTO] [JUEGO:ORDENAR_FRASE:PRECISION MATEMATICA PARA ESCAPAR] [JUEGO:SOPA_LETRAS:ELIPSE,FOCO,SOL]",
+  "recurso_visual": "graph TD\n    A[Observación del Movimiento Planetario] --> B{¿Quién es el Centro?}\n    B -->|Geocentrismo| C[Ptolomeo: Tierra en el Centro - Error]\n    B -->|Heliocentrismo| D[Copérnico: Sol en el Centro - Círculos]\n    D --> E[Kepler: Leyes del Movimiento Planetario]\n    E --> F[1. Órbitas Elípticas]\n    E --> G[2. Áreas Iguales - Velocidad Variable]\n    E --> H[3. Relación Periodo y Radio]",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "¿Cuál era la principal falla del modelo geocéntrico para explicar el movimiento de los planetas?",
+      "respuesta_esperada": "No podía explicar de forma sencilla el movimiento retrógrado de los planetas (el aparente retroceso en el cielo) sin recurrir a sistemas geométricos extremadamente complejos llamados epiciclos."
+    },
+    {
+      "pregunta": "¿Qué diferencia fundamental introdujo Kepler al modelo de Copérnico?",
+      "respuesta_esperada": "Kepler reemplazó las órbitas circulares perfectas de Copérnico por órbitas elípticas, demostrando que el Sol no está en el centro exacto, sino en uno de los focos de la elipse."
+    },
+    {
+      "pregunta": "Según la narrativa, ¿por qué es vital entender las elipses para el explorador espacial?",
+      "respuesta_esperada": "Para calcular con precisión las trayectorias de escape y navegación, evitando colisiones y aprovechando la mecánica orbital para ahorrar combustible o tiempo."
+    },
+    {
+      "pregunta": "¿Qué ocurre con la velocidad de un planeta cuando se acerca al foco donde está el Sol?",
+      "respuesta_esperada": "La velocidad del planeta aumenta a medida que se acerca al perihelio (el punto más cercano al Sol) para barrer áreas iguales en tiempos iguales."
+    },
+    {
+      "pregunta": "¿Cómo definirías el 'movimiento retrógrado' basándote en el texto?",
+      "respuesta_esperada": "Es un fenómeno óptico donde un planeta parece moverse hacia atrás en el cielo debido a la diferencia de velocidades orbitales entre la Tierra y el planeta observado."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema comparativo entre el modelo Geocéntrico y el Heliocéntrico, señalando dónde se ubica el Sol en cada uno.",
+    "Realiza un cuadro comparativo entre Copérnico y Kepler, destacando sus aportes y las formas geométricas de sus órbitas.",
+    "Escribe una reflexión de 10 líneas sobre cómo el cambio de una mentalidad religiosa (perfección circular) a una científica (datos de Brahe) permitió salvar la navegación espacial en nuestra narrativa.",
+    "Representa gráficamente una elipse, identifica sus dos focos y sitúa al Sol en uno de ellos, dibujando un planeta en su órbita."
+  ],
+  "texto_deductivo": "# MANUAL DE NAVEGACIÓN CUÁNTICA: LAS LEYES DE HIERRO\n\nAtención, cadete. Para que nuestra nave 'Phoenix' alcance la velocidad de escape, debemos codificar las tres Leyes de Kepler en la computadora de a bordo. [JUEGO:ORDENAR_LETRAS:HIERRO] No son sugerencias, son la estructura del tejido espacial. [JUEGO:ORDENAR_FRASE:LAS LEYES SON LA ESTRUCTURA ESPACIAL] \n\n<div style='background: #1a1a1a; padding: 20px; border-left: 5px solid #ff0000;'>\n  <h2 style='color: #ff0000;'>1. LEY DE LAS ÓRBITAS</h2>\n  <svg width='300' height='150' viewBox='0 0 300 150'>\n    <ellipse cx='150' cy='75' rx='120' ry='60' stroke='#ffffff' fill='none' stroke-width='2' />\n    <circle cx='80' cy='75' r='10' fill='#ffcc00' />\n    <text x='70' y='60' fill='#ffcc00' font-size='12'>SOL (FOCO 1)</text>\n    <circle cx='220' cy='75' r='3' fill='#555' />\n    <text x='200' y='60' fill='#555' font-size='10'>FOCO 2</text>\n    <circle cx='270' cy='75' r='5' fill='#00ccff'>\n       <animateMotion path='M 0,0 a 120,60 0 1,0 -240,0 a 120,60 0 1,0 240,0' dur='6s' repeatCount='indefinite' />\n    </circle>\n  </svg>\n  <p>Toda órbita es una elipse. El Sol no es el centro, es un <strong>foco</strong>.</p>\n</div>\n\n[JUEGO:SOPA_LETRAS:ORBITA,ELIPSE,SOL] La segunda ley, o Ley de las Áreas, dicta nuestra aceleración. [JUEGO:ORDENAR_LETRAS:AREAS] El radio vector que une al Sol con el planeta barre áreas iguales en tiempos iguales. [JUEGO:CRUCIGRAMA:Punto más cercano al Sol|PERIHELIO;Punto más lejano al Sol|AFELIO] Esto significa que en el perihelio volamos como un rayo, y en el afelio, nos movemos con cautela. [JUEGO:ORDENAR_FRASE:BARRE AREAS IGUALES EN TIEMPOS IGUALES] \n\nLa tercera ley es la matemática de la armonía: el cuadrado del periodo orbital (T) es proporcional al cubo de la distancia media (a). [JUEGO:ORDENAR_LETRAS:TIEMPO] T²/a³ = K. [JUEGO:SOPA_LETRAS:RADIO,CUBO,PLAZO] Si conocemos la distancia al nuevo planeta, sabremos cuánto durará un año allí. [JUEGO:CRUCIGRAMA:Tiempo de una órbita|PERIODO;Constante de Kepler|K] \n\nIsaac Newton luego unificaría esto con su Ley de Gravitación Universal. [JUEGO:ORDENAR_LETRAS:MASA] F = G * (m1 * m2) / r². [JUEGO:ORDENAR_FRASE:LA GRAVEDAD DEPENDE DE LA MASA] La gravedad es el pegamento que evita que salgamos disparados al vacío infinito. [JUEGO:SOPA_LETRAS:FUERZA,MASA,RADIO] Sin masa, no hay atracción; sin atracción, no hay hogar. [JUEGO:CRUCIGRAMA:Fuerza de atracción|GRAVEDAD;Científico de la manzana|NEWTON] \n\n[JUEGO:ORDENAR_LETRAS:VACIO] [JUEGO:ORDENAR_FRASE:SIN ATRACCION NO HAY HOGAR] [JUEGO:SOPA_LETRAS:NEWTON,PEGLAMENTO,MUNDO] [JUEGO:CRUCIGRAMA:Unidad de fuerza|NEWTON;Distancia al cuadrado|RADIO] [JUEGO:ORDENAR_FRASE:ESTO ES LA MECANICA CELESTE]",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "Si un planeta tiene un radio orbital mayor que el de la Tierra, ¿su periodo orbital será mayor o menor?",
+      "answer_expected": "Será mayor. Según la Tercera Ley de Kepler (T²/a³ = K), a mayor distancia media (a), mayor será el tiempo necesario para completar una órbita (T)."
+    },
+    {
+      "pregunta": "¿En qué punto de la elipse un planeta experimenta su máxima velocidad cinemática?",
+      "answer_expected": "En el perihelio, que es el punto más cercano al Sol, debido a que la fuerza de gravedad es mayor y debe compensar barriendo la misma área en el mismo tiempo."
+    },
+    {
+      "pregunta": "Escribe la fórmula de la Gravitación Universal de Newton y explica qué significa la 'r'.",
+      "answer_expected": "F = G * (m1 * m2) / r². La 'r' representa la distancia que separa los centros de masa de los dos cuerpos."
+    },
+    {
+      "pregunta": "¿Qué pasaría con la fuerza de atracción si duplicamos la distancia entre dos planetas?",
+      "answer_expected": "La fuerza se reduciría a la cuarta parte (1/4), ya que la fuerza es inversamente proporcional al cuadrado de la distancia."
+    },
+    {
+      "pregunta": "¿Por qué Kepler necesitó los datos de Tycho Brahe para formular sus leyes?",
+      "answer_expected": "Porque Brahe realizó las observaciones astronómicas más precisas de la época sin telescopio, proporcionando los datos empíricos necesarios para notar las desviaciones de las órbitas circulares."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Dibuja un diagrama detallado de una órbita elíptica señalando: Focos, Perihelio, Afelio, Semieje mayor y el vector velocidad en dos puntos diferentes.",
+    "Elabora un mapa mental que conecte las 3 Leyes de Kepler con la Ley de Gravitación Universal de Newton.",
+    "Realiza un dibujo explicativo de la Segunda Ley de Kepler (Ley de las Áreas), sombreando dos sectores de la elipse que tengan la misma área pero diferentes longitudes de arco.",
+    "Crea una infografía artesanal titulada 'Las Reglas del Cosmos' donde expliques cómo calcularías la duración de un año en un planeta post-apocalíptico si supieras su distancia al Sol."
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "En la estación espacial, los científicos observan dos planetas, Alfa y Beta. Alfa está a una distancia 'd' del sol y Beta está a una distancia '4d'. Al analizar sus movimientos, se dan cuenta de que sus velocidades no son constantes durante su recorrido.",
+      "tabla_o_grafica_markdown": "| Planeta | Distancia Media (UA) | Periodo Orbital (Años) |\n|---|---|---|\n| Alfa | 1 | 1 |\n| Beta | 4 | ? |",
+      "pregunta": "Basándose en la Tercera Ley de Kepler, si el planeta Beta está 4 veces más lejos del Sol que el planeta Alfa, ¿cuál será el periodo orbital de Beta en relación con el de Alfa?",
+      "opciones": [
+        "8 años",
+        "4 años",
+        "16 años",
+        "64 años"
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. Según T² ∝ a³, si la distancia se multiplica por 4, el cubo es 64. La raíz cuadrada de 64 es 8.",
+        "1": "Incorrecto. Olvidaste elevar la distancia al cubo y sacar la raíz cuadrada del periodo.",
+        "2": "Incorrecto. Esto sería si el periodo fuera proporcional al cuadrado de la distancia, pero es el cuadrado del periodo al cubo de la distancia.",
+        "3": "Incorrecto. Este es el valor del cubo de la distancia (4³), pero falta calcular la raíz cuadrada para hallar T."
+      }
+    }
+  ]
+}

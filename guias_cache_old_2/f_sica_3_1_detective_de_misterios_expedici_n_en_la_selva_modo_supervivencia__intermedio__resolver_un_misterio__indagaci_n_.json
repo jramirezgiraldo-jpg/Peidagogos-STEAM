@@ -1,0 +1,114 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "Desde tu posición en la selva, ves el Sol salir por el Este y ocultarse por el Oeste. ¿Qué modelo explicaba esto inicialmente?",
+      "opciones": [
+        "Modelo Heliocéntrico",
+        "Modelo Geocéntrico",
+        "Modelo Galáctico",
+        "Modelo Estático"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Qué fuerza crees que mantiene a los planetas 'atados' al Sol sin que salgan disparados al espacio?",
+      "opciones": [
+        "Magnetismo",
+        "Fricción espacial",
+        "Gravedad",
+        "Inercia pura"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "Si un planeta está más lejos del Sol, ¿cómo crees que sea su año en comparación con el de la Tierra?",
+      "opciones": [
+        "Más corto",
+        "Igual",
+        "Más largo",
+        "No tiene año"
+      ],
+      "correcta": 2
+    }
+  ],
+  "texto_inductivo": "¡Bienvenidos, cadetes de la selva! Soy su Detective de Misterios. En medio de esta espesa vegetación, hemos hallado un astrolabio antiguo. Para salir de aquí, debemos entender cómo se mueven los mundos sobre nosotros. ***¿Cómo es posible que, aunque sintamos la Tierra quieta bajo nuestros pies en la selva, nos estemos moviendo a miles de kilómetros por hora a través del espacio siguiendo leyes matemáticas precisas?*** [JUEGO:ORDENAR_LETRAS:TIERRA] El primer misterio es la posición. Antiguamente, los exploradores creían que éramos el centro de todo. [JUEGO:ORDENAR_FRASE:EL SOL ES EL CENTRO] Pero un planeta [JUEGO:ORDENAR_LETRAS:PLANETA] no es una isla quieta. Imaginen la selva como el sistema solar; hay astros moviéndose en patrones. [JUEGO:SOPA_LETRAS:SOL,LUNA,ASTRO] \n\n<div style='background: #1a1a1a; color: #00ff00; padding: 20px; border-radius: 10px; font-family: monospace; border: 2px solid #00ff00;'>\n<h3 style='text-align:center;'>REGISTRO DEL EXPLORADOR: MODELOS DEL CIELO</h3>\n<table style='width:100%; border-collapse: collapse; color: white;'>\n<tr style='background: #333;'><th>Modelo</th><th>Centro</th><th>Propuesto por</th></tr>\n<tr><td>Geocéntrico</td><td>Tierra</td><td>Ptolomeo</td></tr>\n<tr style='background: #222;'><td>Heliocéntrico</td><td>Sol</td><td>Copérnico</td></tr>\n</table>\n</div>\n\nAl mirar al cielo, vemos que la Tierra gira siempre. [JUEGO:ORDENAR_FRASE:LA TIERRA GIRA SIEMPRE] Este movimiento de rotación nos da el día y la noche en la jungla. [JUEGO:SOPA_LETRAS:NOCHE,DIA,LUZ] Copérnico tenía la razón [JUEGO:ORDENAR_FRASE:COPERNICO TENIA LA RAZON] al decir que el Sol es el centro [JUEGO:ORDENAR_LETRAS:SOL]. Para orientarnos, necesitamos un mapa. [JUEGO:SOPA_LETRAS:MAPA,RUTA,NORTE] La órbita [JUEGO:ORDENAR_LETRAS:ORBITA] es el camino que seguimos. [JUEGO:CRUCIGRAMA:Centro|SOL;Giro|ROTACION] Los planetas se mueven [JUEGO:ORDENAR_FRASE:LOS PLANETAS SE MUEVEN] constantemente en el vacío. [JUEGO:CRUCIGRAMA:Ruta|ORBITA;Forma|ELIPSE] Desde aquí, vemos las estrellas [JUEGO:ORDENAR_FRASE:VEMOS LAS ESTRELLAS] fijas, pero nosotros viajamos. [JUEGO:SOPA_LETRAS:MARTE,VENUS,JUPITER] Es vital entender el eje de la Tierra. [JUEGO:SOPA_LETRAS:EJE,POLO,GIRO] El cielo [JUEGO:ORDENAR_LETRAS:CIELO] es inmenso. [JUEGO:CRUCIGRAMA:Fuerza|GRAVEDAD;Masa|MATERIA] Necesitamos observar con cuidado. [JUEGO:CRUCIGRAMA:Astro|LUNA;Satelite|NATURAL] El espacio nos observa. [JUEGO:CRUCIGRAMA:Cielo|ESPACIO;Mirar|OBSERVAR]",
+  "recurso_visual": "graph TD\n    A[Misterio del Movimiento] --> B[Geocentrismo]\n    A --> C[Heliocentrismo]\n    B --> B1[Tierra en el centro]\n    B --> B2[Ptolomeo]\n    C --> C1[Sol en el centro]\n    C --> C2[Copérnico]\n    C1 --> D[Kepler: Órbitas Elípticas]\n    D --> E[Newton: Gravedad]",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "¿Cuál es la principal diferencia entre el modelo de Ptolomeo y el de Copérnico?",
+      "respuesta_esperada": "El modelo de Ptolomeo sitúa a la Tierra en el centro del universo (geocéntrico), mientras que el de Copérnico sitúa al Sol en el centro (heliocéntrico)."
+    },
+    {
+      "pregunta": "Según el texto, ¿por qué sentimos que la Tierra está quieta aunque se mueva?",
+      "respuesta_esperada": "Porque nos movemos junto con ella y con la atmósfera a una velocidad constante, similar a ir en un avión sin turbulencia."
+    },
+    {
+      "pregunta": "¿Qué fenómeno diario en la selva se explica mediante la rotación de la Tierra?",
+      "respuesta_esperada": "La sucesión del día y la noche."
+    },
+    {
+      "pregunta": "¿Qué importancia tiene el Sol en el modelo heliocéntrico?",
+      "respuesta_esperada": "Actúa como el centro del sistema, alrededor del cual orbitan todos los planetas."
+    },
+    {
+      "pregunta": "¿Cómo describirías una 'órbita' basándote en la narrativa de la expedición?",
+      "respuesta_esperada": "Es el camino o ruta matemática que sigue un planeta alrededor del Sol, similar a un sendero marcado en la selva."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema que compare el modelo geocéntrico y el heliocéntrico, usando elementos de la selva (árboles, animales) para representar los astros.",
+    "Realiza un cuadro comparativo entre los conceptos de Rotación y Traslación terrestres.",
+    "Escribe un breve relato de 10 líneas sobre cómo un explorador antiguo cambiaría su forma de navegar al descubrir que la Tierra no es el centro del universo.",
+    "Representa gráficamente mediante un dibujo cómo se vería la órbita de la Tierra desde un punto muy alto en el espacio exterior."
+  ],
+  "texto_deductivo": "Ahora que sabemos que el Sol es el centro, debemos descifrar las leyes que rigen este baile cósmico para resolver el misterio de la expedición. Johannes Kepler, un detective del cielo, descubrió que las órbitas son elipses. [JUEGO:ORDENAR_FRASE:LAS ORBITAS SON ELIPSES] [JUEGO:ORDENAR_LETRAS:KEPLER] Una elipse [JUEGO:ORDENAR_LETRAS:ELIPSE] no es un círculo perfecto; tiene dos puntos llamados focos. [JUEGO:SOPA_LETRAS:FOCO,AREA,LEY] Kepler usó los datos [JUEGO:ORDENAR_FRASE:KEPLER USO LOS DATOS] de Tycho Brahe para entender que el área es constante [JUEGO:ORDENAR_FRASE:EL AREA ES CONSTANTE] en tiempos iguales. \n\n<svg width='300' height='200' viewBox='0 0 300 200' xmlns='http://www.w3.org/2000/svg'>\n  <ellipse cx='150' cy='100' rx='120' ry='70' style='fill:none;stroke:#ffcc00;stroke-width:2' />\n  <circle cx='100' cy='100' r='10' style='fill:#ffff00' />\n  <text x='90' y='85' fill='white' font-size='12'>Sol (Foco)</text>\n  <circle cx='270' cy='100' r='5' style='fill:#00aaff' />\n  <text x='240' y='120' fill='white' font-size='10'>Planeta</text>\n</svg>\n\nIsaac Newton [JUEGO:ORDENAR_LETRAS:NEWTON] luego explicó que la gravedad es el motor de todo. [JUEGO:ORDENAR_FRASE:NEWTON EXPLICO LA FUERZA] La masa [JUEGO:SOPA_LETRAS:MASA,PESO,LEY] de los cuerpos determina la atracción. [JUEGO:CRUCIGRAMA:Segunda ley|AREAS;Cientifico|KEPLER] Notamos que la distancia influye mucho [JUEGO:ORDENAR_FRASE:LA DISTANCIA INFLUYE MUCHO] en la fuerza. [JUEGO:SOPA_LETRAS:SIGLO,FISICA,GENIO] El radio [JUEGO:ORDENAR_LETRAS:RADIO] de la órbita dicta la velocidad. [JUEGO:CRUCIGRAMA:Fuerza|GRAVITACION;Ley|NEWTON] Un planeta es más veloz o lento [JUEGO:SOPA_LETRAS:VELOZ,LENTO,TIEMPO] según su posición al foco [JUEGO:ORDENAR_LETRAS:FOCO]. [JUEGO:CRUCIGRAMA:Forma|ELIPTICA;Centro|SOL] Necesitamos datos para medir. [JUEGO:SOPA_LETRAS:DATOS,TABLA,MEDIR] La velocidad orbital [JUEGO:CRUCIGRAMA:Velocidad|ORBITAL;Curva|TRAYECTORIA] cambia en la trayectoria curva. [JUEGO:CRUCIGRAMA:Relacion|PERIODO;Tiempo|AÑO] El misterio se resuelve al ver que la física une el suelo de la selva con las estrellas lejanas.",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "¿Qué forma tienen las órbitas planetarias según la Primera Ley de Kepler?",
+      "respuesta_esperada": "Tienen forma de elipse, con el Sol ubicado en uno de los focos."
+    },
+    {
+      "pregunta": "¿Qué sucede con la velocidad de un planeta cuando se acerca al Sol?",
+      "respuesta_esperada": "La velocidad del planeta aumenta (Segunda Ley de Kepler o ley de las áreas)."
+    },
+    {
+      "pregunta": "¿Cómo explicó Newton lo que Kepler solo describió?",
+      "respuesta_esperada": "Newton explicó que el movimiento se debe a la fuerza de gravitación universal, una atracción entre masas."
+    },
+    {
+      "pregunta": "¿Qué es un 'foco' en el contexto de una órbita elíptica?",
+      "respuesta_esperada": "Es uno de los dos puntos internos fijos que definen la elipse; el Sol siempre ocupa uno de ellos."
+    },
+    {
+      "pregunta": "Si la distancia entre dos astros aumenta, ¿qué ocurre con la fuerza de gravedad entre ellos?",
+      "respuesta_esperada": "La fuerza de gravedad disminuye proporcionalmente al cuadrado de la distancia."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Dibuja una elipse detallada marcando los dos focos, el semieje mayor y la posición del Sol según Kepler.",
+    "Elabora un mapa mental que conecte a Kepler (desarrollo matemático/geométrico) con Newton (desarrollo físico/fuerzas).",
+    "Realiza un dibujo explicativo de la Segunda Ley de Kepler, sombreando dos áreas iguales recorridas en tiempos iguales.",
+    "Crea una infografía artesanal que explique por qué la Tierra no cae hacia el Sol a pesar de la gravedad (introduciendo el concepto de velocidad orbital)."
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "Un grupo de exploradores en la selva observa que Marte parece moverse 'hacia atrás' en el cielo en ciertas épocas (movimiento retrógrado). Este fenómeno fue un dolor de cabeza para el modelo geocéntrico, pero el modelo heliocéntrico lo explica fácilmente mediante las velocidades orbitales.",
+      "tabla_o_grafica_markdown": "| Planeta | Radio Orbital Medio (UA) | Periodo (Años) |\n|---|---|---|\n| Tierra | 1.0 | 1.0 |\n| Marte | 1.52 | 1.88 |",
+      "pregunta": "De acuerdo con la tabla y las leyes de Kepler, ¿por qué la Tierra 'adelanta' a Marte en su órbita?",
+      "opciones": [
+        "Porque la Tierra tiene un radio orbital menor y su velocidad orbital es mayor.",
+        "Porque Marte es más grande y la fricción espacial lo frena.",
+        "Porque el Sol atrae con más fuerza a Marte por estar más lejos.",
+        "Porque la Tierra no sigue una elipse sino un círculo perfecto."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. A menor radio orbital, el planeta debe moverse más rápido para mantener su órbita y su periodo es más corto.",
+        "1": "Incorrecto. No existe fricción en el vacío del espacio.",
+        "2": "Incorrecto. La fuerza de gravedad disminuye con la distancia, no aumenta.",
+        "3": "Incorrecto. Todos los planetas siguen órbitas elípticas según Kepler."
+      }
+    }
+  ]
+}

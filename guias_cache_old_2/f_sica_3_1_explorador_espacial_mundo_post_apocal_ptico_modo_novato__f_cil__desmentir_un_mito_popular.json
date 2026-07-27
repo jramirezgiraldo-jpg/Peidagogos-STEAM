@@ -1,0 +1,114 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "En medio de las ruinas, lanzas una piedra hacia el horizonte. ¿Qué fuerza la hace caer al suelo?",
+      "opciones": [
+        "La inercia",
+        "La fuerza de fricción",
+        "La gravedad",
+        "La velocidad"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "¿Qué palabra describe el cambio de posición de un objeto en el tiempo?",
+      "opciones": [
+        "Masa",
+        "Movimiento",
+        "Volumen",
+        "Energía"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "Si un vehículo de exploración viaja siempre a 20 km/h sin frenar ni acelerar, su velocidad es:",
+      "opciones": [
+        "Variable",
+        "Nula",
+        "Constante",
+        "Inexistente"
+      ],
+      "correcta": 2
+    }
+  ],
+  "texto_inductivo": "¡Saludos, reclutas del Sector 7! Soy su Explorador Espacial asignado. En este mundo post-apocalíptico, entender cómo se mueven los astros no es solo ciencia, es supervivencia. Muchos en los refugios creen en mitos antiguos sobre el cielo. ***¿Si los planetas se mueven por el espacio 'vacío', por qué no salen disparados en línea recta hacia el olvido, y qué nos dice esto sobre la verdadera forma de sus caminos?*** [JUEGO:ORDENAR_FRASE:EL ESPACIO ES GRANDE] Para empezar, debemos entender la **posición**. [JUEGO:ORDENAR_LETRAS:CAMINO] En nuestros mapas estelares, la posición es el lugar exacto donde se encuentra un cuerpo celeste respecto a nosotros. [JUEGO:SOPA_LETRAS:CIELO,ASTRO,MAPA] <div style='border: 2px solid #00ff00; padding: 10px; background: #001100; color: #00ff00; font-family: monospace;'> <svg viewBox='0 0 200 100' xmlns='http://www.w3.org/2000/svg'> <line x1='10' y1='90' x2='190' y2='90' stroke='#00ff00' stroke-width='2'/> <line x1='10' y1='10' x2='10' y2='90' stroke='#00ff00' stroke-width='2'/> <circle cx='100' cy='50' r='5' fill='red'/> <text x='110' y='55' fill='#00ff00' font-size='10'>Planeta (X,Y)</text> </svg> <p style='text-align:center'>Representación de Posición en el Plano</p> </div> Cuando un planeta cambia su posición, hablamos de movimiento. [JUEGO:CRUCIGRAMA:Lugar|ESPACIO;Trayectoria|ORBITA] La **velocidad** no es solo 'ir rápido', es saber hacia dónde vas. [JUEGO:ORDENAR_FRASE:LA TIERRA SE MUEVE] Si la velocidad cambia, aparece la **aceleración**. [JUEGO:ORDENAR_LETRAS:VACIO] En las ruinas de la NASA, encontramos datos que sugieren que nada en el cielo es estático. [JUEGO:SOPA_LETRAS:NAVE,MOTOR,RUTA] [JUEGO:CRUCIGRAMA:Astro|SOL;Cerca|PERIHELIO] El mito dice que los planetas flotan sin rumbo, pero la cinemática nos dice que siguen reglas estrictas. [JUEGO:ORDENAR_FRASE:TODO TIENE GRAVEDAD] La rapidez con la que se mueven define si pueden escapar de una estrella o quedar atrapados. [JUEGO:ORDENAR_LETRAS:ORBITA] [JUEGO:SOPA_LETRAS:NOCHE,LUZ,SOL] Entender la relación entre distancia y tiempo es vital para calcular trayectorias de escape de este planeta moribundo. [JUEGO:CRUCIGRAMA:Rapido|VELOCIDAD;Lento|CALMA] [JUEGO:ORDENAR_FRASE:VELOCIDAD ES CAMBIO POSICION] Usamos sensores para medir estos cambios. [JUEGO:ORDENAR_LETRAS:ELIPSE] [JUEGO:SOPA_LETRAS:FUERZA,MASA,LEY] [JUEGO:CRUCIGRAMA:Masa|MATERIA;Peso|FUERZA] Sin estos conceptos, estaríamos perdidos en la negrura del cosmos. [JUEGO:ORDENAR_FRASE:EL SOL ATRAE PLANETAS] [JUEGO:ORDENAR_LETRAS:RAPIDEZ] [JUEGO:SOPA_LETRAS:FISICA,CIENCIA,DATOS] [JUEGO:CRUCIGRAMA:Planeta|TIERRA;Luna|SATELITE] Observen el cielo: lo que parece un punto fijo es en realidad un viajero a miles de kilómetros por hora.",
+  "recurso_visual": "| Concepto | Definición en el Yermo | Aplicación de Supervivencia |\n|---|---|---|\n| **Posición** | Ubicación exacta en el mapa estelar. | Saber dónde está nuestra ruta de escape. |\n| **Velocidad** | Cambio de posición por cada hora solar. | Calcular cuánto tardaremos en salir de la atmósfera. |\n| **Aceleración** | Cambio en el ritmo del movimiento. | Evitar que la gravedad del Sol nos absorba. |\n| **Trayectoria** | El camino dibujado en el vacío. | Desmentir que los planetas se mueven al azar. |",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "¿Qué necesitamos definir primero para saber si un planeta se ha movido?",
+      "answer_esperada": "Necesitamos definir un punto de referencia y su posición inicial."
+    },
+    {
+      "pregunta": "¿Es lo mismo rapidez que velocidad en el contexto de navegación espacial?",
+      "answer_esperada": "No, la velocidad incluye la dirección y el sentido, mientras que la rapidez es solo la magnitud."
+    },
+    {
+      "pregunta": "Según el texto, ¿qué sucede cuando la velocidad de un astro cambia?",
+      "answer_esperada": "Se produce un fenómeno llamado aceleración."
+    },
+    {
+      "pregunta": "¿Por qué es importante medir el tiempo en el estudio del movimiento planetario?",
+      "answer_esperada": "Porque la velocidad y la aceleración dependen de cuánto cambia la posición en un intervalo de tiempo determinado."
+    },
+    {
+      "pregunta": "¿Cuál es el mito que el explorador intenta desmentir inicialmente?",
+      "answer_esperada": "Que los planetas flotan sin rumbo o son estáticos en el cielo."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema de un sistema de coordenadas (X, Y) y ubica tres 'Chatarras Espaciales' en diferentes posiciones.",
+    "Crea un cuadro comparativo entre el concepto de Movimiento en la Vieja Tierra vs. el Movimiento Planetario.",
+    "Escribe una reflexión de 10 líneas sobre por qué un explorador necesita la física para no perderse en el espacio.",
+    "Representa gráficamente, mediante flechas (vectores), la diferencia entre un planeta moviéndose lento y uno moviéndose rápido."
+  ],
+  "texto_deductivo": "Ahora, soldados, profundicemos en la mecánica de los cielos para desmentir el gran mito: **'Las órbitas son círculos perfectos'**. [JUEGO:ORDENAR_FRASE:LAS ORBITAS SON ELIPSES] Johannes Kepler, un antiguo sabio, descubrió que los planetas se mueven en **elipses**. [JUEGO:ORDENAR_LETRAS:KEPLER] <div style='background: white; padding: 20px; border-radius: 50%; width: 200px; height: 120px; border: 5px dashed black; margin: auto;'> <div style='width: 20px; height: 20px; background: orange; border-radius: 50%; position: relative; left: 40px; top: 40px;'></div> <div style='width: 10px; height: 10px; background: blue; border-radius: 50%; position: relative; left: 160px; top: 10px;'></div> </div> <p style='text-align:center; color: #fff;'>Esquema de Órbita Elíptica (El Sol no está en el centro, sino en un foco)</p> [JUEGO:ORDENAR_LETRAS:FOCO] En una elipse, el Sol no está en el centro, sino en uno de los focos. [JUEGO:SOPA_LETRAS:LEYES,FOCO,RADIO] Esto significa que la distancia entre el planeta y el Sol cambia constantemente. [JUEGO:CRUCIGRAMA:Cientifico|KEPLER;Ovalado|ELIPSE] Isaac Newton luego explicó el 'porqué': la **Gravitación Universal**. [JUEGO:ORDENAR_LETRAS:NEWTON] [JUEGO:ORDENAR_FRASE:NEWTON DESCUBRIO GRAVEDAD] La fuerza de gravedad depende de la masa de los cuerpos y la distancia. [JUEGO:SOPA_LETRAS:VECTOR,TIEMPO,GIRO] [JUEGO:CRUCIGRAMA:Atraer|GRAVEDAD;Cuerpo|MASA] A mayor masa, mayor atracción. [JUEGO:ORDENAR_FRASE:EL SOL ESTA EN UN FOCO] [JUEGO:ORDENAR_LETRAS:INERCIA] La inercia quiere que el planeta siga recto, pero la gravedad lo curva. [JUEGO:SOPA_LETRAS:NEWTON,KEPLER,FISICA] [JUEGO:CRUCIGRAMA:Rapidez|VELOCIDAD;Direccion|SENTIDO] Por eso, cuando un planeta está más cerca del Sol, viaja más rápido. [JUEGO:ORDENAR_FRASE:MAS MASA MAS FUERZA] [JUEGO:ORDENAR_LETRAS:CAIDA] ¡El mito de la velocidad constante también es falso! [JUEGO:SOPA_LETRAS:INERCIA,ACCION,REACCION] [JUEGO:CRUCIGRAMA:Empuje|FUERZA;Cambio|ACELERACION] Los planetas aceleran y frenan en su danza eterna. [JUEGO:ORDENAR_FRASE:KEPLER ESTUDIO LOS CIELOS] [JUEGO:SOPA_LETRAS:MUNDO,ORBITA,MASA] [JUEGO:CRUCIGRAMA:Antiguo|PASADO;Futuro|DESTINO] Sin esta gravedad, nuestra atmósfera se habría dispersado hace eones.",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "¿Qué forma tienen realmente las órbitas planetarias según Kepler?",
+      "answer_esperada": "Tienen forma de elipse, no de círculo perfecto."
+    },
+    {
+      "pregunta": "¿Dónde se ubica el Sol en la órbita de un planeta?",
+      "answer_esperada": "Se ubica en uno de los dos focos de la elipse."
+    },
+    {
+      "pregunta": "¿De qué factores depende la fuerza de gravedad entre dos cuerpos?",
+      "answer_esperada": "Depende de la masa de los cuerpos y de la distancia que los separa."
+    },
+    {
+      "pregunta": "¿Qué le ocurriría a un planeta si la gravedad del Sol desapareciera de repente?",
+      "answer_esperada": "Se movería en línea recta hacia el espacio debido a su inercia."
+    },
+    {
+      "pregunta": "¿Cuándo se mueve más rápido un planeta en su órbita?",
+      "answer_esperada": "Cuando está más cerca del Sol (perihelio)."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Realiza un diagrama detallado de una órbita elíptica señalando los focos, el Sol y el planeta en perihelio y afelio.",
+    "Elabora un mapa mental que conecte a Newton, Kepler, la Gravedad y las Elipses.",
+    "Dibuja una historieta de 4 viñetas donde un personaje del futuro desmiente el mito de las 'órbitas circulares' a un habitante del yermo.",
+    "Crea una infografía artesanal que explique por qué la velocidad de la Tierra no es constante durante todo el año."
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "En la estación espacial 'Esperanza', los científicos observan dos cuerpos celestes, A y B. El cuerpo A tiene el doble de masa que el cuerpo B, pero ambos están a la misma distancia de una estrella central.",
+      "tabla_o_grafica_markdown": "| Cuerpo | Masa (kg) | Distancia a la Estrella (UA) |\n|---|---|---|\n| A | 2M | 1 |\n| B | M | 1 |",
+      "pregunta": "De acuerdo con la Ley de Gravitación Universal de Newton, ¿cuál de las siguientes afirmaciones es correcta?",
+      "opciones": [
+        "La estrella atrae con más fuerza al cuerpo A por tener más masa.",
+        "La estrella atrae con más fuerza al cuerpo B por ser más ligero.",
+        "Ambos cuerpos son atraídos con la misma fuerza porque están a la misma distancia.",
+        "Ninguno es atraído porque en el espacio no hay gravedad."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. La fuerza de gravedad es directamente proporcional al producto de las masas.",
+        "1": "Incorrecto. A menor masa, menor es la fuerza de atracción gravitatoria.",
+        "2": "Incorrecto. Aunque la distancia es igual, la masa influye directamente en la magnitud de la fuerza.",
+        "3": "Incorrecto. Este es un mito; la gravedad existe en todo el universo y mantiene las órbitas."
+      }
+    }
+  ]
+}

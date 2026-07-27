@@ -1,0 +1,124 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "Si un vehículo espacial en Neo-Veridia se mueve en línea recta a velocidad constante, ¿qué podemos decir de su aceleración?",
+      "opciones": [
+        "Es positiva",
+        "Es negativa",
+        "Es igual a cero",
+        "Está aumentando"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "¿Qué fuerza mantiene a los satélites de vigilancia en órbita alrededor de nuestra metrópolis?",
+      "opciones": [
+        "Magnetismo",
+        "Fricción",
+        "Gravedad",
+        "Presión atmosférica"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "En un mapa estelar, si un planeta está más lejos del sol, su 'año' u órbita completa suele ser:",
+      "opciones": [
+        "Más corto",
+        "Más largo",
+        "Igual",
+        "No tiene órbita"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Quién es el detective científico que propuso que las órbitas no son círculos perfectos, sino elipses?",
+      "opciones": [
+        "Isaac Newton",
+        "Johannes Kepler",
+        "Galileo Galilei",
+        "Albert Einstein"
+      ],
+      "correcta": 1
+    }
+  ],
+  "texto_inductivo": "Saludos, recluta del Departamento de Misterios de Neo-Veridia. Soy tu Detective Jefe y hoy investigaremos un caso que ha desconcertado a los ciudadanos de la cúpula central. ***¿Por qué, a pesar de la inmensa velocidad a la que viajan los planetas y la falta de 'rieles' en el espacio, Neo-Veridia y el resto de los mundos no salen disparados hacia el vacío infinito del cosmos?*** [JUEGO:ORDENAR_FRASE:POR QUE LOS PLANETAS NO SE ESCAPAN] Para resolver esto, debemos analizar las pistas dejadas por Johannes Kepler. Él descubrió que los planetas, como nuestro hogar [JUEGO:ORDENAR_LETRAS:PLANETA], no se mueven en círculos perfectos. \n\n<div style='background:#001f3f; padding:20px; border:2px solid #0074D9; border-radius:10px; color:white; font-family:sans-serif;'> <h3 style='text-align:center; color:#7FDBFF;'>Evidencia 1: La Geometría del Cielo</h3> <svg width='100%' height='150' viewBox='0 0 400 150'> <ellipse cx='200' cy='75' rx='150' ry='60' style='fill:none; stroke:#7FDBFF; stroke-width:3; stroke-dasharray:5,5' /> <circle cx='260' cy='75' r='10' fill='#FFDC00' /> <text x='250' y='60' fill='yellow' font-size='12'>Foco (Sol)</text> <circle cx='100' cy='35' r='6' fill='#0074D9' /> <text x='60' y='30' fill='white' font-size='12'>Planeta</text> <line x1='50' y1='75' x2='350' y2='75' stroke='white' stroke-width='1' /> </svg> <p style='font-size:0.9rem; text-align:center;'>Diagrama de la Primera Ley: La órbita es una elipse con el Sol en uno de sus focos.</p> </div>\n\nKepler notó que el camino u [JUEGO:ORDENAR_LETRAS:ORBITA] es una elipse. [JUEGO:CRUCIGRAMA:Forma ovalada de la orbita|ELIPSE;Punto central donde esta el Sol|FOCO] En nuestra base de datos, esto se conoce como la Primera Ley. [JUEGO:SOPA_LETRAS:SOL,LEY,CIELO] Pero hay más; los planetas no mantienen la misma rapidez todo el tiempo. [JUEGO:ORDENAR_FRASE:LOS PLANETAS SE MUEVEN RAPIDO] Al estar cerca del Sol, parecen tener prisa. [JUEGO:ORDENAR_LETRAS:ELIPSE] Esto es la Segunda Ley: áreas iguales en tiempos iguales. [JUEGO:SOPA_LETRAS:FOCO,EJE,PAR] \n\n[JUEGO:ORDENAR_FRASE:EL SOL OCUPA UN FOCO] Imagina que barres el espacio con una línea invisible. [JUEGO:CRUCIGRAMA:Astrónomo de las leyes|KEPLER;Centro de la elipse|FOCO] Si el tiempo es el mismo, el área barrida es idéntica. [JUEGO:ORDENAR_LETRAS:FOCO] ¿Cómo es posible que algo tan grande se mueva así? [JUEGO:SOPA_LETRAS:TIEMPO,AREA,LUNA] \n\nFinalmente, la Tercera Ley conecta la distancia con el tiempo de viaje. [JUEGO:ORDENAR_FRASE:AREAS IGUALES EN TIEMPOS IGUALES] El cuadrado del periodo es proporcional al cubo de la distancia media. [JUEGO:ORDENAR_LETRAS:KEPLER] ¡Es matemática pura en el motor del universo! [JUEGO:SOPA_LETRAS:RADIO,CUBO,SOL] Analiza la siguiente tabla de sospechosos planetarios: [JUEGO:CRUCIGRAMA:Tiempo de una vuelta|PERIODO;Cuerpos celestes|PLANETAS] \n\n| Planeta Sospechoso | Distancia al Sol (UA) | Periodo Orbital (Años) |\n| :--- | :---: | :---: |\n| Mercurio-X | 0.39 | 0.24 |\n| Neo-Veridia | 1.00 | 1.00 |\n| Marte-Prime | 1.52 | 1.88 |\n\n[JUEGO:ORDENAR_FRASE:KEPLER DESCUBRIO LAS TRES LEYES] Esta armonía nos permite predecir dónde estará un mundo en el futuro. [JUEGO:SOPA_LETRAS:ASTRONOMO,MARTE,JUPITER] [JUEGO:CRUCIGRAMA:Segunda ley|AREAS;Camino del planeta|TRAYECTORIA] Sin estas leyes, nuestro sistema de navegación en Neo-Veridia colapsaría. [JUEGO:CRUCIGRAMA:Movimiento|CINETICA;Cambio de posicion|DINAMICA]",
+  "recurso_visual": "graph TD\n    A[Leyes de Kepler] --> B[1ra Ley: Elipses]\n    A --> C[2da Ley: Áreas Iguales]\n    A --> D[3ra Ley: Armonía/Periodos]\n    B --> B1[El Sol está en un foco]\n    C --> C1[Velocidad variable: Más rápido cerca del sol]\n    D --> D1[T^2 proporcional a R^3]",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "¿Qué forma geométrica tienen las órbitas según Kepler?",
+      "respuesta_esperada": "Tienen forma de elipse, no de círculos perfectos."
+    },
+    {
+      "pregunta": "¿En qué parte de la elipse se encuentra el Sol?",
+      "respuesta_esperada": "El Sol se encuentra en uno de los dos focos de la elipse."
+    },
+    {
+      "pregunta": "¿Qué ocurre con la velocidad de un planeta cuando se acerca al Sol?",
+      "output": "Aumenta su velocidad para poder barrer áreas iguales en tiempos iguales."
+    },
+    {
+      "pregunta": "¿Qué relación establece la Tercera Ley de Kepler?",
+      "respuesta_esperada": "Relaciona el tiempo que tarda un planeta en dar la vuelta (periodo) con su distancia media al Sol."
+    },
+    {
+      "pregunta": "Según el texto, ¿por qué es importante conocer estas leyes en Neo-Veridia?",
+      "respuesta_esperada": "Para predecir la posición de los planetas y garantizar el funcionamiento de los sistemas de navegación."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja una elipse indicando dónde estarían los focos y simula la posición de un planeta en dos puntos diferentes de su órbita.",
+    "Realiza un cuadro comparativo entre lo que se creía antes de Kepler (órbitas circulares) y lo que él descubrió (órbitas elípticas).",
+    "¿Cómo crees que cambiaría la vida en Neo-Veridia si las órbitas fueran totalmente irregulares en lugar de seguir las leyes de Kepler?",
+    "Representa gráficamente la Segunda Ley de Kepler, sombreando dos secciones de 'áreas iguales' en diferentes partes de la elipse."
+  ],
+  "texto_deductivo": "Detective, ahora que sabemos 'cómo' se mueven, debemos entender 'por qué'. [JUEGO:ORDENAR_LETRAS:NEWTON] Aquí entra Isaac Newton. Su ley de gravitación universal es el 'pegamento' invisible que resuelve nuestra pregunta problematizadora. [JUEGO:ORDENAR_FRASE:LA FUERZA ATRAE A LOS CUERPOS] La fuerza de atracción depende de dos cosas: cuánta materia tiene el cuerpo y qué tan lejos está. [JUEGO:ORDENAR_LETRAS:FUERZA] \n\n<div style='background:#1a1a1a; padding:15px; border:3px double #00FF00; color:#00FF00; font-family:monospace;'> <h2 style='text-align:center;'>ARCHIVOS SECRETOS DE NEWTON</h2> <p style='font-size:1.5rem; text-align:center;'>F = G * (m1 * m2) / r²</p> <table style='width:100%; border-collapse: collapse; border: 1px solid #00FF00;'> <thead> <tr> <th style='border: 1px solid #00FF00; padding: 5px;'>Variable</th> <th style='border: 1px solid #00FF00; padding: 5px;'>Significado</th> </tr> </thead> <tbody> <tr> <td style='border: 1px solid #00FF00; padding: 5px;'>m1, m2</td> <td style='border: 1px solid #00FF00; padding: 5px;'>Masas de los objetos</td> </tr> <tr> <td style='border: 1px solid #00FF00; padding: 5px;'>r</td> <td style='border: 1px solid #00FF00; padding: 5px;'>Distancia entre centros</td> </tr> </tbody> </table> </div>\n\nSi la masa aumenta, la fuerza crece. [JUEGO:SOPA_LETRAS:PESO,MASA,LEY] [JUEGO:ORDENAR_FRASE:LA GRAVEDAD DEPENDE DE LA MASA] Pero si la distancia aumenta, la fuerza cae drásticamente. [JUEGO:ORDENAR_LETRAS:MASA] [JUEGO:CRUCIGRAMA:Padre de la gravedad|NEWTON;Atracción entre masas|FUERZA] En cinemática, esto genera una aceleración constante hacia el centro, llamada centrípeta. [JUEGO:SOPA_LETRAS:CAIDA,LIBRE,FIN] \n\n[JUEGO:ORDENAR_FRASE:EL CUADRADO DE LA DISTANCIA] Esta aceleración cambia la dirección de la velocidad, obligando al planeta a curvar su trayectoria en lugar de seguir recto. [JUEGO:ORDENAR_LETRAS:GRAVEDAD] [JUEGO:SOPA_LETRAS:VELOCIDAD,VECTOR,SENTIDO] Si la velocidad fuera cero, el planeta caería al Sol. [JUEGO:CRUCIGRAMA:Unidad de masa|MASA;Espacio entre objetos|DISTANCIA] \n\n[JUEGO:ORDENAR_FRASE:LA ACELERACION CAMBIA LA VELOCIDAD] Por eso, Neo-Veridia está en una 'caída libre perpetua' pero con suficiente velocidad lateral para fallar siempre el golpe contra el Sol. [JUEGO:ORDENAR_LETRAS:RADIO] [JUEGO:SOPA_LETRAS:CENTRIPETA,CURVA,GIRO] ¡Es un equilibrio perfecto! [JUEGO:CRUCIGRAMA:Rapidez con dirección|VELOCIDAD;Cambio de ritmo|ACELERACION] \n\n[JUEGO:ORDENAR_FRASE:LA POSICION DEFINE EL LUGAR] Sin esta fuerza, nos perderíamos en el cosmos. [JUEGO:SOPA_LETRAS:INERCIA,RECTA,PAR] [JUEGO:CRUCIGRAMA:Constante de gravedad|UNIVERSAL;Planeta natal|MUNDO] La posición, velocidad y aceleración son las tres variables que monitoreamos en el tablero de control de la ciudad para asegurar nuestra supervivencia. [JUEGO:CRUCIGRAMA:Órbita|CURVATURA;Lugar sin aire|VACIO]",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "¿De qué dos factores depende la fuerza de gravedad según Newton?",
+      "respuesta_esperada": "Depende de las masas de los objetos y de la distancia que los separa."
+    },
+    {
+      "pregunta": "¿Qué sucede con la fuerza de atracción si duplicamos la distancia entre dos planetas?",
+      "respuesta_esperada": "La fuerza se reduce a la cuarta parte (porque depende del cuadrado de la distancia)."
+    },
+    {
+      "pregunta": "¿Cuál es la función de la aceleración centrípeta en una órbita?",
+      "respuesta_esperada": "Cambiar la dirección de la velocidad para mantener al planeta en una trayectoria curva."
+    },
+    {
+      "pregunta": "¿Por qué los planetas no se caen hacia el Sol?",
+      "respuesta_esperada": "Porque tienen una velocidad lateral suficiente que compensa la atracción gravitatoria, manteniéndolos en órbita."
+    },
+    {
+      "pregunta": "¿Qué pasaría con Neo-Veridia si la gravedad del Sol desapareciera de repente?",
+      "output": "Saldría disparada en línea recta en la dirección de su velocidad instantánea debido a la inercia."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Dibuja un diagrama detallado de un planeta en órbita mostrando los vectores de velocidad (tangente) y de fuerza gravitatoria (hacia el centro).",
+    "Elabora un mapa mental que conecte los conceptos de Masa, Distancia, Fuerza de Gravedad y Órbita.",
+    "Realiza un dibujo explicativo que compare la caída de una manzana en la Tierra con la 'caída' de la Luna alrededor de la Tierra.",
+    "Crea una infografía artesanal donde expliques la fórmula de la Gravitación Universal de Newton usando ejemplos de la Metrópolis del Futuro."
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "En la estación espacial de Neo-Veridia, los científicos observan que un satélite ha perdido parte de su velocidad debido a un choque con basura espacial. Los datos actuales son:",
+      "tabla_o_grafica_markdown": "| Estado | Velocidad Orbital | Radio de Órbita |\n|---|---|---|\n| Antes del choque | 7,500 m/s | 42,000 km |\n| Después del choque | 5,000 m/s | 42,000 km |",
+      "pregunta": "Si el satélite no recupera su velocidad original, ¿qué fenómeno es más probable que ocurra?",
+      "opciones": [
+        "El satélite comenzará a espiral hacia el planeta debido a que la gravedad superará el equilibrio orbital.",
+        "El satélite se alejará del planeta hacia el espacio profundo.",
+        "El satélite se detendrá en seco y flotará en ese punto exacto.",
+        "La gravedad del planeta disminuirá para ajustarse a la nueva velocidad."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. Al disminuir la velocidad lateral, la fuerza gravitatoria tira del satélite hacia el centro con más eficacia, alterando la órbita hacia adentro.",
+        "1": "Incorrecto. Para alejarse, necesitaría aumentar su velocidad (energía cinética).",
+        "2": "Incorrecto. En el espacio, las fuerzas siguen actuando; no hay nada que lo 'frene' hasta detenerlo totalmente sin que caiga.",
+        "3": "Incorrecto. La gravedad es una propiedad de la masa y la distancia, no cambia porque el satélite se mueva más lento."
+      }
+    }
+  ]
+}

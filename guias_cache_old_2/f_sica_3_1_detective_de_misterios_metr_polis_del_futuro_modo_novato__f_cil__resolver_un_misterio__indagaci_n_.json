@@ -1,0 +1,114 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Qué fuerza crees que mantiene a la Luna cerca de la Tierra?",
+      "opciones": [
+        "El magnetismo de los polos",
+        "La fuerza de gravedad",
+        "El viento solar",
+        "La presión del vacío"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Qué forma tiene el camino que recorre un planeta alrededor del Sol?",
+      "opciones": [
+        "Un círculo perfecto",
+        "Un cuadrado con bordes curvos",
+        "Una elipse (u óvalo)",
+        "Una línea recta"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "Si un objeto está en el espacio y no hay fuerzas sobre él, ¿qué hace?",
+      "opciones": [
+        "Se detiene inmediatamente",
+        "Flota hacia arriba",
+        "Sigue moviéndose en línea recta",
+        "Explota por la presión"
+      ],
+      "correcta": 2
+    }
+  ],
+  "texto_inductivo": "¡Saludos, Cadetes de la Metrópolis del Futuro! Soy el Detective de Misterios Newtoniano. En el año 2150, nuestras ciudades flotantes dependen del equilibrio cósmico. ***¿Cómo es posible que las megaestructuras de Metrópolis del Futuro y los planetas gigantes se mantengan en movimiento constante por el espacio sin chocar ni detenerse nunca?*** \n\n<div style='background: #001f3f; padding: 20px; border-radius: 15px; border: 2px solid #00d4ff; color: white; font-family: sans-serif;'>\n  <h3 style='text-align: center;'>SISTEMA DE MONITOREO DE ÓRBITAS</h3>\n  <svg width='100%' height='200' viewBox='0 0 400 200' xmlns='http://www.w3.org/2000/svg'>\n    <ellipse cx='200' cy='100' rx='180' ry='80' style='fill:none;stroke:#00d4ff;stroke-width:2;stroke-dasharray:5,5' />\n    <circle cx='100' cy='100' r='20' fill='yellow' />\n    <circle cx='350' cy='100' r='10' fill='red'>\n      <animateMotion dur='5s' repeatCount='indefinite' path='M -150,0 a 180,80 0 1,0 360,0 a 180,80 0 1,0 -360,0' />\n    </circle>\n    <text x='90' y='70' fill='yellow' font-size='12'>SOL</text>\n    <text x='250' y='30' fill='#00d4ff' font-size='12'>ÓRBITA ELÍPTICA</text>\n  </svg>\n</div>\n\nPara resolver este misterio, debemos observar el cielo. Los antiguos pensaban que los planetas eran dioses. [JUEGO:ORDENAR_LETRAS:DIOSES] Pero nosotros sabemos que son cuerpos con mucha masa. [JUEGO:ORDENAR_FRASE:EL SOL ES EL CENTRO] \n\nEn nuestra ciudad, las naves siguen rutas precisas. [JUEGO:SOPA_LETRAS:SOL,RUTA,NAVE] ¿Qué pasaría si la gravedad desapareciera? [JUEGO:CRUCIGRAMA:Astro central|SOL;Fuerza de atraccion|GRAVEDAD] Los planetas saldrían disparados. \n\nEl movimiento planetario es una danza de caída constante. [JUEGO:ORDENAR_LETRAS:DANZA] Imagina que lanzas una piedra tan fuerte que nunca toca el suelo. [JUEGO:ORDENAR_FRASE:LOS PLANETAS GIRAN SIEMPRE] La órbita es eso: caer fallando el suelo. [JUEGO:SOPA_LETRAS:CAER,SUELO,ASTRO] \n\n<table style='width:100%; border-collapse: collapse; color: #00d4ff; background: #080808;'>\n  <tr style='border-bottom: 2px solid #00d4ff;'><th>Planeta Neo</th><th>Distancia (UA)</th><th>Velocidad (km/s)</th></tr>\n  <tr><td>Mercurio-X</td><td>0.39</td><td>47.4</td></tr>\n  <tr><td>Venus-Z</td><td>0.72</td><td>35.0</td></tr>\n  <tr><td>Tierra-2</td><td>1.00</td><td>29.8</td></tr>\n</table>\n\nEl sol atrae a todos. [JUEGO:CRUCIGRAMA:Camino circular|ORBITA;Mucha materia|MASA] Los planetas más cercanos van más rápido. [JUEGO:ORDENAR_LETRAS:RAPIDO] Es un equilibrio entre velocidad y atracción. [JUEGO:ORDENAR_FRASE:LA GRAVEDAD ATRAE TODO] \n\nSi la velocidad baja, el planeta cae al sol. [JUEGO:SOPA_LETRAS:FOCO,LEY,EJE] Si la velocidad sube, escapa al vacío. [JUEGO:CRUCIGRAMA:Rapidez|VELOCIDAD;Espacio vacio|VACIO] \n\nEl espacio no tiene aire para frenar las cosas. [JUEGO:ORDENAR_LETRAS:AIRE] Por eso no se detienen. [JUEGO:ORDENAR_FRASE:MAS DISTANCIA MENOS FUERZA] El vacío es como una pista de hielo infinita. [JUEGO:SOPA_LETRAS:Luz,Gas,Polvo] \n\nFinalmente, entendemos que el universo es una máquina perfecta. [JUEGO:CRUCIGRAMA:Forma ovalada|ELIPSE;Movimiento|INERCIA] Cada astro tiene su lugar. [JUEGO:ORDENAR_LETRAS:LUGAR] El misterio se empieza a aclarar. [JUEGO:ORDENAR_FRASE:LA ELIPSE ES LA FORMA] Para investigar más, miremos los datos técnicos. [JUEGO:SOPA_LETRAS:VIAJE,GIRO,PLANETA] [JUEGO:CRUCIGRAMA:Centro|NUCLEO;Estrella|ASTRO]",
+  "recurso_visual": "| Componente | Descripción en la Metrópolis | Concepto Físico |\n| :--- | :--- | :--- |\n| El Motor | El Sol | Masa Central |\n| Los Carriles | Órbitas Elípticas | Trayectoria |\n| El Combustible | Inercia | Conservación del movimiento |\n| Los Frenos | Fricción (Ausente) | Movimiento Perpetuo |\n| El Imán | Gravedad | Fuerza Centrípeta |",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "¿Qué figura geométrica describe el movimiento de los planetas?",
+      "respuesta_esperada": "Una elipse, que es como un círculo estirado u óvalo."
+    },
+    {
+      "pregunta": "¿Por qué los planetas no se detienen si no tienen motores?",
+      "respuesta_esperada": "Porque en el vacío del espacio no hay fricción (aire) que los frene."
+    },
+    {
+      "pregunta": "¿Qué pasaría con la Tierra si el Sol desapareciera de repente?",
+      "respuesta_esperada": "Saldría volando en línea recta debido a la inercia, al no haber gravedad que la retenga."
+    },
+    {
+      "pregunta": "¿Qué planeta se mueve más rápido: uno cerca del Sol o uno lejos?",
+      "respuesta_esperada": "El planeta más cercano al Sol se mueve más rápido."
+    },
+    {
+      "pregunta": "¿Quién es el responsable de mantener a los planetas en su sitio?",
+      "respuesta_esperada": "La fuerza de gravedad ejercida principalmente por la gran masa del Sol."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema de Metrópolis del Futuro orbitando una estrella, marcando la trayectoria elíptica.",
+    "Realiza un cuadro comparativo entre el movimiento de un carro en la ciudad y un planeta en el espacio.",
+    "Escribe una bitácora de detective explicando por qué la gravedad es como un 'hilo invisible'.",
+    "Representa gráficamente cómo cambia la velocidad de un planeta cuando se acerca y se aleja del Sol."
+  ],
+  "texto_deductivo": "Ahora, agentes, vamos a las leyes que gobiernan este sector de la galaxia. Johannes Kepler y Isaac Newton son nuestros informantes clave. [JUEGO:ORDENAR_LETRAS:KEPLER] Newton descubrió que la fuerza depende de la masa. [JUEGO:ORDENAR_FRASE:A MAYOR MASA MAYOR FUERZA] \n\n<div style='border: 2px dashed #00d4ff; padding: 15px; background: rgba(0,212,255,0.1); font-family: monospace;'>\n  <center>\n    <span style='font-size: 2rem;'>F = G * (m1 * m2) / r²</span><br>\n    <i>Ley de Gravitación Universal</i>\n  </center>\n</div>\n\nCuanto más lejos está una estación espacial, menos atracción siente. [JUEGO:SOPA_LETRAS:PESO,LEY,EJE] Es la ley del inverso del cuadrado. [JUEGO:CRUCIGRAMA:Cantidad de materia|MASA;Distancia entre centros|RADIO] \n\nKepler nos dijo que los planetas barren áreas iguales en tiempos iguales. [JUEGO:ORDENAR_LETRAS:AREAS] Eso significa que el planeta acelera al acercarse al sol (perihelio). [JUEGO:ORDENAR_FRASE:EL TIEMPO ES ORO AQUI] \n\nEn Metrópolis, usamos esto para ahorrar energía en los saltos espaciales. [JUEGO:SOPA_LETRAS:FOCO,MASA,RUTA] Los satélites de vigilancia usan órbitas bajas para ir rápido. [JUEGO:CRUCIGRAMA:Punto mas cercano|PERIHELIO;Punto mas lejano|AFELIO] \n\nLa aceleración no siempre es cambiar de rapidez, también es cambiar de dirección. [JUEGO:ORDENAR_LETRAS:DIRECCION] Los planetas siempre están acelerando hacia el centro. [JUEGO:ORDENAR_FRASE:LA ACELERACION ES CONSTANTE] \n\n<svg width='300' height='100' viewBox='0 0 300 100' xmlns='http://www.w3.org/2000/svg'>\n  <rect x='10' y='40' width='50' height='20' fill='silver' />\n  <line x1='60' y1='50' x2='150' y2='50' stroke='red' stroke-width='2' marker-end='url(#arrowhead)' />\n  <defs><marker id='arrowhead' markerWidth='10' markerHeight='7' refX='0' refY='3.5' orient='auto'><polygon points='0 0, 10 3.5, 0 7' fill='red' /></marker></defs>\n  <text x='70' y='40' fill='red'>VELOCIDAD V</text>\n</svg>\n\nNewton explicó que la misma fuerza que hace caer una manzana en la antigua Tierra, mantiene a los satélites arriba. [JUEGO:SOPA_LETRAS:LUZ,GAS,POLVO] Es la unificación de la física terrestre y celeste. [JUEGO:ORDENAR_LETRAS:FISICA] \n\n[JUEGO:ORDENAR_FRASE:LA CIENCIA EXPLICA EL MISTERIO] Si entendemos la aceleración centrípeta, controlamos la ciudad. [JUEGO:SOPA_LETRAS:VIAJE,PLANETA,ORBITAR] [JUEGO:CRUCIGRAMA:Hacia el centro|CENTRIPETA;Resistencia al cambio|INERCIA] \n\nLa posición se mide desde el centro de la estrella. [JUEGO:ORDENAR_LETRAS:CENTRO] La velocidad es el cambio de esa posición en el tiempo. [JUEGO:ORDENAR_FRASE:EL MOVIMIENTO ES RELATIVO] La aceleración es el cambio de esa velocidad. [JUEGO:SOPA_LETRAS:CAER,SUELO,ASTRO] \n\nFinalmente, la gravitación es el pegamento del universo. [JUEGO:ORDENAR_LETRAS:PEGAMENTO] Sin ella, no habría galaxias ni Metrópolis. [JUEGO:ORDENAR_FRASE:SOMOS POLVO DE ESTRELLAS] El misterio ha sido resuelto por la ciencia. [JUEGO:CRUCIGRAMA:Astro rey|SOL;Atraccion|GRAVEDAD]",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "¿Qué le sucede a la fuerza de gravedad si duplicamos la distancia entre dos objetos?",
+      "respuesta_esperada": "La fuerza se reduce a la cuarta parte (1/4) debido a que depende del cuadrado de la distancia."
+    },
+    {
+      "pregunta": "¿Cómo se llama el punto donde un planeta está más cerca del Sol?",
+      "respuesta_esperada": "Se llama Perihelio."
+    },
+    {
+      "pregunta": "¿Qué ley dice que la fuerza depende del producto de las masas?",
+      "respuesta_esperada": "La Ley de Gravitación Universal de Newton."
+    },
+    {
+      "pregunta": "En un movimiento circular, ¿hacia dónde apunta la aceleración?",
+      "respuesta_esperada": "Apunta siempre hacia el centro del círculo (aceleración centrípeta)."
+    },
+    {
+      "pregunta": "¿Por qué un astronauta flota en la estación espacial?",
+      "respuesta_esperada": "Porque está en un estado de caída libre perpetua junto con la estación."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Dibuja un diagrama detallado de un planeta en cuatro puntos de su órbita elíptica, señalando los vectores de velocidad.",
+    "Elabora un mapa mental que conecte a Newton, Kepler, Gravedad y Órbitas.",
+    "Realiza un dibujo explicativo de por qué una bala de cañón disparada muy rápido entraría en órbita.",
+    "Crea una infografía artesanal sobre la vida de un planeta en Metrópolis del Futuro usando las 3 leyes de Kepler."
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "En la Metrópolis del Futuro, se observa que dos lunas de masa similar orbitan un planeta. La Luna A está al doble de distancia que la Luna B.",
+      "tabla_o_grafica_markdown": "| Objeto | Distancia Relativa | Fuerza de Gravedad |\n| :--- | :--- | :--- |\n| Luna B | 1r | F |\n| Luna A | 2r | ? |",
+      "pregunta": "¿Cuál será la fuerza de gravedad que experimenta la Luna A en comparación con la Luna B?",
+      "opciones": [
+        "La cuarta parte (F/4)",
+        "La mitad (F/2)",
+        "El doble (2F)",
+        "Igual (F)"
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. Según la ley de Newton, la fuerza es inversamente proporcional al cuadrado de la distancia (2 al cuadrado es 4).",
+        "1": "Incorrecto. La relación no es lineal, es cuadrática.",
+        "2": "Incorrecto. A mayor distancia, la fuerza disminuye, no aumenta.",
+        "3": "Incorrecto. La distancia afecta significativamente la fuerza gravitacional."
+      }
+    }
+  ]
+}

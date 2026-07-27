@@ -1,0 +1,78 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "Si un dron en la ISS se mueve 3 metros hacia la derecha (Eje X) y luego 4 metros hacia arriba (Eje Y), ¿cuál es su posición final respecto al punto de inicio?",
+      "opciones": [
+        "A) Se encuentra en la coordenada (3, 4)",
+        "B) Se encuentra a exactamente 7 metros en línea recta",
+        "C) Su posición final es (-3, -4)",
+        "D) Quedó en el mismo punto de origen (0, 0)"
+      ],
+      "correcta": 0
+    },
+    {
+      "pregunta": "En un plano de coordenadas cartesianas, ¿qué eje representa la dirección horizontal y cuál la vertical?",
+      "opciones": [
+        "A) El eje Y es horizontal, el eje X es vertical",
+        "B) El eje X es horizontal, el eje Y es vertical",
+        "C) Ambos ejes representan direcciones inclinadas a 45 grados",
+        "D) No hay diferencia, se usan indistintamente según el espacio"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "Si caminamos 5 cuadras al Norte en Montenegro y luego 5 cuadras al Sur, ¿cuál fue nuestro desplazamiento neto real?",
+      "opciones": [
+        "A) 10 cuadras hacia el Norte",
+        "B) 5 cuadras hacia el Este",
+        "C) 0 cuadras, volvimos al punto inicial",
+        "D) 50 metros cuadrados en total"
+      ],
+      "correcta": 2
+    }
+  ],
+  "texto_inductivo": "¡Saludos, Cadetes del Instituto Montenegro! Soy el Detective de Vectores Espaciales. Hoy nos enfrentamos a una emergencia crítica en órbita a 400 kilómetros sobre la Tierra. \n\n***¿Cómo puede un estudiante de la IE Instituto Montenegro usar el mismo lenguaje matemático que salva la vida de un astronauta extraviado en la ISS al calcular rutas vectoriales en dos dimensiones?***\n\nEsta es nuestra gran incógnita. En Montenegro, si te pierdes cerca del parque principal, usas puntos de referencia como calles y carreras. En la Estación Espacial Internacional (ISS), no hay calles, pero tenemos un plano cartesiano virtual de dos dimensiones (2D) acoplado a la estructura exterior. \n\nHace solo 10 minutos, un micrometeorito impactó el módulo de investigación, cortando el cable de seguridad de la astronauta Sarah. Ahora mismo, se desplaza lentamente a la deriva en el vacío. ¡Su tanque de oxígeno solo tiene 30 minutos de reserva! Si no calculamos con precisión matemática su vector de movimiento actual y el vector de rescate de nuestra sonda, Sarah se perderá en el espacio profundo.\n\nPara comunicarnos en clave sin interferencias, primero descifra esta palabra de supervivencia:\n[JUEGO:ORDENAR_LETRAS:VECTOR]\n\nAquí tienen la telemetría del radar de la ISS. Muestra la posición actual de Sarah y los objetos que flotan a su alrededor. Observen el plano de coordenadas:\n\n<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400' width='100%' style='background-color:#0b0f19; border-radius: 8px;'>\n  <!-- Grid lines -->\n  <defs>\n    <pattern id='grid' width='40' height='40' patternUnits='userSpaceOnUse'>\n      <path d='M 40 0 L 0 0 0 40' fill='none' stroke='#1e293b' stroke-width='1'/>\n    </pattern>\n  </defs>\n  <rect width='100%' height='100%' fill='url(#grid)' />\n  <!-- Axes -->\n  <line x1='200' y1='0' x2='200' y2='400' stroke='#38bdf8' stroke-width='2' stroke-dasharray='4'/>\n  <line x1='0' y1='200' x2='400' y2='200' stroke='#38bdf8' stroke-width='2' stroke-dasharray='4'/>\n  <!-- Labels -->\n  <text x='380' y='190' fill='#38bdf8' font-size='12'>+X (Este)</text>\n  <text x='10' y='190' fill='#38bdf8' font-size='12'>-X (Oeste)</text>\n  <text x='210' y='20' fill='#38bdf8' font-size='12'>+Y (Norte)</text>\n  <text x='210' y='390' fill='#38bdf8' font-size='12'>-Y (Sur)</text>\n  <!-- ISS Center -->\n  <circle cx='200' cy='200' r='8' fill='#e2e8f0'/>\n  <text x='180' y='220' fill='#e2e8f0' font-size='10'>ISS (0,0)</text>\n  <!-- Astronaut Sarah Vector -->\n  <line x1='200' y1='200' x2='320' y2='80' stroke='#ef4444' stroke-width='3' marker-end='url(#arrow)'/>\n  <circle cx='320' cy='80' r='5' fill='#ef4444'/>\n  <text x='330' y='85' fill='#ef4444' font-size='12' font-weight='bold'>Sarah (3, 3)</text>\n  <!-- Rescue Probe Vector -->\n  <line x1='200' y1='200' x2='80' y2='320' stroke='#10b981' stroke-width='3' />\n  <circle cx='80' cy='320' r='5' fill='#10b981'/>\n  <text x='40' y='340' fill='#10b981' font-size='12' font-weight='bold'>Sonda (-3, -3)</text>\n</svg>\n\n¿Logran ver cómo el vector rojo aleja a Sarah hacia el cuadrante Noreste? Ella se desplaza con cierta inclinación, una brújula espacial que requiere de coordenadas precisas. Necesitamos analizar esta trayectoria con urgencia. Ordenemos esta idea clave:\n[JUEGO:ORDENAR_FRASE:EL VECTOR TIENE DIRECCION Y MAGNITUD]\n\nPara orientarnos en el espacio exterior, debemos entrenar la mente buscando los puntos cardinales y variables clave en esta sopa de letras:\n[JUEGO:SOPA_LETRAS:NORTE,ESTE,OESTE,SUR]\n\nAhora, definamos otra palabra clave que indica hacia dónde apunta la punta de la flecha roja en nuestro mapa espacial:\n[JUEGO:ORDENAR_LETRAS:DIRECCION]\n\nAntes de lanzar la sonda de rescate hacia Sarah, debemos comprender qué fuerzas y trayectorias componen su deriva en el vacío de la ISS. Resolvamos este acertijo preliminar para calibrar los sensores de posicionamiento:\n[JUEGO:CRUCIGRAMA:Tiene magnitud y direccion|VECTOR;Punto de origen de un plano|ORIGEN]",
+  "recurso_visual": "| Objeto en Deriva | Componente Horizontal (X) | Componente Vertical (Y) | Cuadrante de Movimiento |\n| :--- | :---: | :---: | :---: |\n| **Astronauta Sarah** | +3 Unidades | +3 Unidades | Cuadrante I (Noreste) |\n| **Herramienta Perdida** | -2 Unidades | +4 Unidades | Cuadrante II (Noroeste) |\n| **Sonda de Rescate** | -3 Unidades | -3 Unidades | Cuadrante III (Suroeste) |\n| **Desecho Espacial** | +5 Unidades | -2 Unidades | Cuadrante IV (Sureste) |",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "¿Qué representan los signos positivos y negativos en las componentes X e Y del movimiento de los objetos en la ISS?",
+      "respuesta_esperada": "Los signos representan el sentido de la dirección del movimiento en el plano bidimensional: el signo positivo indica movimiento hacia el Este (+X) o Norte (+Y), mientras que el negativo indica movimiento hacia el Oeste (-X) o Sur (-Y)."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja en tu cuaderno un plano cartesiano que represente el patio de la IE Instituto Montenegro. Define un vector de movimiento que vaya desde la entrada principal hasta el salón de física. ¿Cuáles son sus componentes X e Y estimadas?",
+    "Si un astronauta se desplaza en el espacio con un vector de componentes (4, -2), explica detalladamente en qué dirección se está moviendo con respecto a la ISS y en qué cuadrante terminará."
+  ],
+  "texto_deductivo": "¡Excelente trabajo detectivesco, Cadetes! Hemos identificado la ubicación visual de Sarah. Ahora entraremos en el **Modo Supervivencia: Fase de Cálculo Deductivo**. No basta con decir que 'está flotando hacia arriba y a la derecha'. Necesitamos precisión milimétrica para que el brazo robótico la intercepte.\n\nUn **vector en 2D** está compuesto por tres elementos esenciales:\n1. **Magnitud**: La longitud del vector (cuán rápido va o qué distancia recorre). Se halla matemáticamente usando el Teorema de Pitágoras sobre sus componentes: \n   $$Magnitud = \\sqrt{V_x^2 + V_y^2}$$\n2. **Dirección**: El ángulo del vector respecto a una línea de referencia (usualmente el eje X positivo).\n3. **Sentido**: Indicado por la punta de la flecha (hacia dónde apunta).\n\nPara desbloquear el software de cálculo de la ISS, ordena las siguientes letras sobre la propiedad de longitud de un vector:\n[JUEGO:ORDENAR_LETRAS:MAGNITUD]\n\nVeamos cómo se descomponen matemáticamente los vectores en sus componentes horizontal y vertical. Todo vector inclinado se puede ver como la suma de un paso horizontal ($V_x$) y un paso vertical ($V_y$):\n\n<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300' width='100%' style='background-color:#111827; border-radius: 8px;'>\n  <!-- Vector Construction -->\n  <line x1='50' y1='250' x2='350' y2='250' stroke='#38bdf8' stroke-width='2' stroke-dasharray='5'/>\n  <line x1='350' y1='250' x2='350' y2='50' stroke='#34d399' stroke-width='2' stroke-dasharray='5'/>\n  <line x1='50' y1='250' x2='350' y2='50' stroke='#f43f5e' stroke-width='4' marker-end='url(#arrow)'/>\n  \n  <!-- Text Labels -->\n  <text x='180' y='270' fill='#38bdf8' font-size='14' font-weight='bold'>Componente X (Vx) = 4 m/s</text>\n  <text x='250' y='140' fill='#34d399' font-size='14' font-weight='bold'>Componente Y (Vy) = 3 m/s</text>\n  <text x='130' y='130' fill='#f43f5e' font-size='16' font-weight='bold'>Vector Resultante (V)</text>\n  \n  <!-- Right angle indicator -->\n  <rect x='330' y='230' width='20' height='20' fill='none' stroke='#f59e0b' stroke-width='1.5'/>\n</svg>\n\n¡La física es exacta! Si la componente horizontal es de 4 m/s y la vertical es de 3 m/s, calculamos la velocidad total (magnitud) de Sarah de la siguiente manera:\n$$V = \\sqrt{4^2 + 3^2} = \\sqrt{16 + 9} = \\sqrt{25} = 5 \\text{ m/s}$$\n\nDescifra el sentido de la flecha con este juego de letras:\n[JUEGO:ORDENAR_LETRAS:SENTIDO]\n\nAhora, ordena la frase matemática de rescate sobre la suma de vectores de movimiento:\n[JUEGO:ORDENAR_FRASE:SUMAMOS LOS COMPONENTES EN X E Y]\n\n¡Alerta! Para que el computador de navegación asimile estos datos de rescate, encuentra los términos fundamentales del cálculo físico en este panel de palabras:\n[JUEGO:SOPA_LETRAS:SUMA,RESTA,PLANO]\n\nDescifremos la parte más pequeña de un vector en dos dimensiones (el bloque de construcción del plano cartesiano):\n[JUEGO:ORDENAR_LETRAS:COMPONENTE]\n\nPara consolidar el rescate, apliquemos la lógica deductiva ordenando la siguiente frase sobre la dirección angular del vector:\n[JUEGO:ORDENAR_FRASE:LA DIRECCION ES EL ANGULO DEL VECTOR]\n\nVamos a medir los ángulos para guiar a nuestra sonda. Superemos este desafío mecánico orbital:\n[JUEGO:CRUCIGRAMA:Lado horizontal de un vector|COMPONENTEX;Lado vertical de un vector|COMPONENTEY]\n\nPara asegurar que la sonda no falle, debemos dominar el instrumento y la unidad de medición de la dirección:\n[JUEGO:CRUCIGRAMA:Instrumento para medir angulos|TRANSPORTADOR;Angulo recto mide noventa|GRADOS]\n\nFinalmente, entendamos el poder del Teorema que nos permite conocer la longitud exacta de la línea de peligro espacial. Ordena este concepto fundamental de la geometría aplicada:\n[JUEGO:ORDENAR_FRASE:EL TEOREMA DE PITAGORAS ENCUENTRA LA MAGNITUD]\n\nBusca los conceptos que respaldan nuestra teoría trigonométrica en esta rejilla de datos estelares:\n[JUEGO:SOPA_LETRAS:PITAGORAS,SENO,COSENO]\n\nY antes de lanzar el gancho extractor, asegúrate de resolver este último reto de acoplamiento:\n[JUEGO:CRUCIGRAMA:Resultado de juntar dos vectores|SUMA;Segmento con flecha|SAETA]\n\nLa gravedad cero no nos detendrá. Hemos logrado descomponer el movimiento de Sarah. ¡Es hora de ejecutar la maniobra final!",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "Si un astronauta flota con componentes de velocidad de Vx = 6 m/s y Vy = 8 m/s, ¿cuál es el valor de su velocidad resultante total?",
+      "respuesta_esperada": "La velocidad resultante total es de 10 m/s. Se calcula usando el Teorema de Pitágoras: V = √(6² + 8²) = √(36 + 64) = √100 = 10 m/s."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Un astronauta realiza dos desplazamientos consecutivos fuera de la ISS: primero se mueve con un vector A = (3, 2) metros, y luego con un vector B = (1, 5) metros. Dibuja ambos vectores consecutivamente en un papel cuadriculado y determina gráficamente y por componentes el vector de desplazamiento total.",
+    "Investiga cómo los ingenieros de la NASA calculan las trayectorias de las naves usando vectores y explica por qué un error de un grado en la dirección vectorial puede hacer que una nave espacial se pierda por miles de kilómetros en el espacio."
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de fenómenos",
+      "texto_introductorio": "Durante una caminata espacial en la Estación Espacial Internacional (ISS), una herramienta de mantenimiento se desprende accidentalmente. El sensor de proximidad registra que el vector de velocidad de la herramienta tiene componentes Vx = -3 m/s y Vy = -4 m/s respecto al origen de la estación espacial.",
+      "tabla_o_grafica_markdown": "| Eje de Coordenadas | Velocidad Componente | Sentido | \n| :--- | :---: | :--- |\n| Eje Horizontal (X) | -3 m/s | Hacia el Oeste (Izquierda) |\n| Eje Vertical (Y) | -4 m/s | Hacia el Sur (Abajo) |",
+      "pregunta": "A partir de la información anterior, ¿cuál es la magnitud de la velocidad con la que se aleja la herramienta y en qué dirección general se desplaza?",
+      "options": [
+        "A) La magnitud es 5 m/s y se desplaza hacia el Suroeste (Cuadrante III).",
+        "B) La magnitud es 7 m/s y se desplaza hacia el Noroeste (Cuadrante II).",
+        "C) La magnitud es 5 m/s y se desplaza hacia el Noreste (Cuadrante I).",
+        "D) La magnitud es 1 m/s y se desplaza directamente hacia el Sur (Eje Y negativo)."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "¡Excelente detective! Usando el Teorema de Pitágoras, la magnitud es V = √((-3)² + (-4)²) = √(9 + 16) = √25 = 5 m/s. Como ambas componentes son negativas, el movimiento apunta hacia la izquierda y abajo, correspondiente al Suroeste (Cuadrante III).",
+        "1": "Incorrecto. Sumaste las componentes de forma lineal (3 + 4 = 7) lo cual viola el cálculo vectorial en dos dimensiones, y la dirección no corresponde a los signos negativos.",
+        "2": "Incorrecto. Aunque la magnitud de 5 m/s es correcta, la dirección Noreste requiere componentes de velocidad positivas tanto en X como en Y.",
+        "3": "Incorrecto. Restaste las magnitudes algebraicamente (4 - 3 = 1) y asumiste que se mueve solo en un eje, ignorando que el movimiento ocurre en dos dimensiones simultáneamente."
+      }
+    }
+  ]
+}

@@ -1,0 +1,134 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Qué fuerza mantiene a los planetas girando alrededor del sol sin salir disparados al vacío?",
+      "opciones": [
+        "Magnetismo",
+        "Gravedad",
+        "Fricción",
+        "Presión atmosférica"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "Si un planeta se aleja del Sol en su órbita elíptica, ¿qué ocurre con su velocidad?",
+      "opciones": [
+        "Aumenta",
+        "Disminuye",
+        "Permanece igual",
+        "Se vuelve cero"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Qué forma geométrica describen las órbitas planetarias según Kepler?",
+      "opciones": [
+        "Círculo perfecto",
+        "Cuadrado",
+        "Elipse",
+        "Parábola"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "¿Cuál es la unidad de medida de la aceleración en el Sistema Internacional?",
+      "opciones": [
+        "m/s",
+        "kg/m",
+        "m/s²",
+        "Newton"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "¿Quién propuso la Ley de Gravitación Universal?",
+      "opciones": [
+        "Albert Einstein",
+        "Isaac Newton",
+        "Galileo Galilei",
+        "Johannes Kepler"
+      ],
+      "correcta": 1
+    }
+  ],
+  "texto_inductivo": "### Expediente de Caso: El Silencio de las Esferas en Neo-Metrópolis\n\nSaludos, Cadete del Mañana. Soy el Detective de Misterios Estelares. En el año 2099, Neo-Metrópolis depende de una red de satélites que mantienen la energía infinita. Sin embargo, algo ha cambiado: las trayectorias se han desviado. ***¿Podría la humanidad sobrevivir a un fallo total de los sistemas de navegación digital si olvidamos las leyes físicas que rigen el cosmos, o estamos condenados a vagar sin rumbo por el vacío al perder nuestra brújula gravitacional?*** [JUEGO:ORDENAR_LETRAS:ORBITA] Esta pregunta no es solo retórica; es nuestra única pista para evitar la colisión de la Estación Ícaro contra la Luna. \n\n<svg width=\"400\" height=\"200\" viewBox=\"0 0 400 200\" xmlns=\"http://www.w3.org/2000/svg\">\n  <ellipse cx=\"200\" cy=\"100\" rx=\"150\" ry=\"80\" style=\"fill:none;stroke:#00ffcc;stroke-width:2\" />\n  <circle cx=\"120\" cy=\"100\" r=\"20\" fill=\"#ffcc00\" />\n  <circle cx=\"350\" cy=\"100\" r=\"8\" fill=\"#00ccff\" />\n  <text x=\"100\" y=\"70\" fill=\"white\" font-size=\"12\">Sol (Foco)</text>\n  <text x=\"320\" y=\"85\" fill=\"white\" font-size=\"12\">Planeta</text>\n  <line x1=\"120\" y1=\"100\" x2=\"350\" y2=\"100\" stroke=\"white\" stroke-dasharray=\"4\" />\n</svg>\n\nEl primer indicio nos lleva a las leyes del movimiento. [JUEGO:ORDENAR_FRASE:EL PLANETA GIRA SIEMPRE] Los cuerpos celestes no se mueven por capricho de los dioses, sino por la curvatura del espacio y la masa. [JUEGO:SOPA_LETRAS:SOL,LUNA,EJE] Si entendemos la elipse, entendemos el destino de Neo-Metrópolis. [JUEGO:ORDENAR_LETRAS:ELIPSE] Cada planeta barre áreas iguales en tiempos iguales; es un baile de precisión absoluta. [JUEGO:CRUCIGRAMA:Cuerpo celeste|PLANETA;Curva cerrada|ELIPSE]\n\nLa gravedad es el pegamento invisible. [JUEGO:ORDENAR_LETRAS:GRAVEDAD] Sin ella, la inercia lanzaría nuestros hogares al abismo interestelar. [JUEGO:ORDENAR_FRASE:LA FUERZA ES ATRACCION] Debemos observar cómo la distancia afecta esta atracción. [JUEGO:SOPA_LETRAS:FOCO,RADIO,AREA] En la periferia de la ciudad, donde los hologramas fallan, la física es la única verdad. [JUEGO:ORDENAR_LETRAS:INERCIA] ¿Por qué la Luna no cae? Porque su velocidad lateral compensa la caída libre. [JUEGO:CRUCIGRAMA:Fuerza invisible|GRAVEDAD;Ruta espacial|ORBITA]\n\n<div style=\"border: 2px solid #00ffcc; padding: 10px; background: #001a1a; color: #00ffcc;\">\n  <strong>DATO DEL DETECTIVE:</strong> La masa de un objeto es su resistencia al cambio. [JUEGO:ORDENAR_LETRAS:MASA]\n</div>\n\nAl estudiar el movimiento planetario, notamos que la Tierra se mueve más rápido cuando está cerca del Sol. [JUEGO:ORDENAR_FRASE:LA TIERRA SE MUEVE] Este fenómeno se llama perihelio. [JUEGO:SOPA_LETRAS:PESO,CAIDA,AIRE] La supervivencia de nuestra metrópolis depende de predecir estos cambios de ritmo. [JUEGO:ORDENAR_FRASE:TODO CAE AL CENTRO] Si fallamos en el cálculo de la aceleración centrípeta, el escudo protector de la ciudad colapsará. [JUEGO:CRUCIGRAMA:Resistencia al cambio|INERCIA;Punto central|FOCO]\n\nNo temas a la oscuridad del espacio. [JUEGO:ORDENAR_FRASE:EL VACIO ES FRIO] Las leyes de Kepler son las huellas dactilares de la creación. [JUEGO:SOPA_LETRAS:CIELO,LUZ,MAR] Al analizar el periodo orbital, descubrimos la armonía del sistema solar. [JUEGO:CRUCIGRAMA:Lugar vacio|ESPACIO;Tiempo de giro|PERIODO] Cada segundo cuenta para recalibrar los propulsores. [JUEGO:SOPA_LETRAS:VELOZ,LENTO,GIRO] Solo así, la ciencia se convertirá en nuestro escudo. [JUEGO:CRUCIGRAMA:Velocidad de escape|IMPULSO;Masa gigante|ESTRELLA]",
+  "recurso_visual": "graph TD\n    A[Movimiento Planetario] --> B[Leyes de Kepler]\n    A --> C[Ley de Gravitación Newton]\n    B --> B1(1. Órbitas Elípticas)\n    B --> B2(2. Áreas Iguales - Tiempos Iguales)\n    B --> B3(3. Relación Radio-Periodo)\n    C --> C1{F = G*M*m/r²}\n    C1 --> D[Atracción entre Masas]\n    D --> E[Cinemática Orbital]\n    E --> E1(Velocidad Tangencial)\n    E --> E2(Aceleración Centrípeta)",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "¿Qué forma tienen las órbitas de los satélites en Neo-Metrópolis según el texto?",
+      "respuesta_esperada": "Tienen forma de elipse, donde el cuerpo central (como la Tierra o el Sol) ocupa uno de los focos."
+    },
+    {
+      "pregunta": "¿Qué sucedería con un satélite si la fuerza de gravedad desapareciera súbitamente?",
+      "respuesta_esperada": "Debido a la inercia, el satélite saldría disparado en línea recta siguiendo la dirección de su velocidad tangencial en ese instante."
+    },
+    {
+      "pregunta": "¿En qué punto de su órbita se mueve más rápido un cuerpo celeste?",
+      "respuesta_esperada": "En el perihelio, que es el punto más cercano al cuerpo central, debido a que la fuerza de atracción gravitacional es mayor."
+    },
+    {
+      "pregunta": "¿Cuál es la función de la gravedad en el contexto de la supervivencia de la ciudad?",
+      "respuesta_esperada": "Actúa como la fuerza centrípeta necesaria para mantener a los cuerpos en órbita, evitando que se pierdan en el vacío o colisionen por falta de control."
+    },
+    {
+      "pregunta": "¿Cómo se relacionan las áreas barridas por el radio vector con el tiempo?",
+      "respuesta_esperada": "Según la segunda ley de Kepler, el radio vector que une al sol con un planeta barre áreas iguales en tiempos iguales, lo que implica variaciones de velocidad."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema detallado de una órbita elíptica señalando el perihelio, afelio, los focos y el eje mayor.",
+    "Realiza un cuadro comparativo entre el concepto de 'Inercia' y 'Gravedad' basándote en cómo afectan el movimiento de un satélite.",
+    "Escribe una reflexión de 10 líneas sobre cómo el conocimiento de la física puede salvar a una civilización tecnológica de la extinción.",
+    "Representa gráficamente mediante un diagrama de fuerzas por qué la Luna se mantiene en órbita y no cae directamente hacia la Tierra."
+  ],
+  "texto_deductivo": "### Análisis Forense: La Mecánica de la Supervivencia\n\nPara resolver este misterio de Modo Héroe, debemos pasar de la observación a la deducción matemática. [JUEGO:ORDENAR_LETRAS:NEWTON] Isaac Newton unificó los cielos y la tierra con su Ley de Gravitación Universal. [JUEGO:ORDENAR_FRASE:NEWTON EXPLICO LA GRAVEDAD] Descubrimos que la fuerza es proporcional al producto de las masas e inversamente proporcional al cuadrado de la distancia. [JUEGO:SOPA_LETRAS:METRO,HORA,KILO]\n\n<table style=\"width:100%; border: 1px solid #00ffcc; border-collapse: collapse; background: #000; color: white;\">\n  <tr style=\"background: #004444;\">\n    <th style=\"border: 1px solid #00ffcc; padding: 8px;\">Variable</th>\n    <th style=\"border: 1px solid #00ffcc; padding: 8px;\">Definición</th>\n    <th style=\"border: 1px solid #00ffcc; padding: 8px;\">Impacto en la Órbita</th>\n  </tr>\n  <tr>\n    <td style=\"border: 1px solid #00ffcc; padding: 8px;\">Velocidad (v)</td>\n    <td style=\"border: 1px solid #00ffcc; padding: 8px;\">Distancia/Tiempo</td>\n    <td style=\"border: 1px solid #00ffcc; padding: 8px;\">Define si escapa o cae</td>\n  </tr>\n  <tr>\n    <td style=\"border: 1px solid #00ffcc; padding: 8px;\">Aceleración (a)</td>\n    <td style=\"border: 1px solid #00ffcc; padding: 8px;\">Cambio de v</td>\n    <td style=\"border: 1px solid #00ffcc; padding: 8px;\">Curva la trayectoria</td>\n  </tr>\n</table>\n\nJohannes Kepler, antes que Newton, dedujo que el cubo del radio medio es proporcional al cuadrado del periodo orbital. [JUEGO:ORDENAR_LETRAS:KEPLER] [JUEGO:ORDENAR_FRASE:KEPLER HALLO LAS ELIPSES] Esta es la Ley de la Armonía. [JUEGO:SOPA_LETRAS:RADIO,CUBO,LEY] Si la estación Ícaro aumenta su distancia, su tiempo de órbita crecerá exponencialmente. [JUEGO:CRUCIGRAMA:Cientifico de manzanas|NEWTON;Padre de orbitas|KEPLER]\n\nLa cinemática nos da las herramientas de rastreo. [JUEGO:ORDENAR_LETRAS:VECTOR] Un vector posición nos indica dónde está el peligro. [JUEGO:ORDENAR_FRASE:LA VELOCIDAD ES CONSTANTE] Pero cuidado: en un movimiento circular, aunque la rapidez sea constante, la velocidad cambia porque cambia su dirección. [JUEGO:SOPA_LETRAS:MASA,DISTANCIA,PAR] [JUEGO:CRUCIGRAMA:Cambio de posicion|VELOCIDAD;Cambio de velocidad|ACELERACION]\n\n<svg width=\"300\" height=\"300\" viewBox=\"0 0 300 300\" xmlns=\"http://www.w3.org/2000/svg\">\n  <circle cx=\"150\" cy=\"150\" r=\"80\" style=\"fill:none;stroke:#555;stroke-width:1;stroke-dasharray:5\" />\n  <circle cx=\"150\" cy=\"70\" r=\"10\" fill=\"#ff3300\" />\n  <line x1=\"150\" y1=\"70\" x2=\"230\" y2=\"70\" stroke=\"#00ff00\" stroke-width=\"3\" marker-end=\"url(#arrow)\" />\n  <line x1=\"150\" y1=\"70\" x2=\"150\" y2=\"130\" stroke=\"#ffff00\" stroke-width=\"3\" marker-end=\"url(#arrow)\" />\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"context-stroke\" />\n    </marker>\n  </defs>\n  <text x=\"210\" y=\"60\" fill=\"#00ff00\" font-size=\"10\">Velocidad (v)</text>\n  <text x=\"110\" y=\"110\" fill=\"#ffff00\" font-size=\"10\">Aceleración (a)</text>\n</svg>\n\nEsto genera una aceleración dirigida al centro. [JUEGO:ORDENAR_LETRAS:TIEMPO] [JUEGO:ORDENAR_FRASE:LA ACELERACION ES CAMBIO] La física clásica es el mapa que necesitamos. [JUEGO:SOPA_LETRAS:ALTA,BAJA,NULA] [JUEGO:CRUCIGRAMA:Segmento con direccion|VECTOR;Unidad de masa|KILOGRAMO]\n\nAl aplicar la tercera ley de Newton (acción y reacción) a los motores iónicos, podemos corregir el curso. [JUEGO:ORDENAR_LETRAS:FUERZA] [JUEGO:ORDENAR_FRASE:EL ESPACIO TIENE CURVAS] El tiempo se agota. [JUEGO:SOPA_LETRAS:DOS,TRES,UNA] Si calculamos mal el empuje, la gravedad nos devorará. [JUEGO:CRUCIGRAMA:Trayectoria circular|GIRO;Fuerza motriz|MOTOR] Cada cifra es una vida salvada. [JUEGO:CRUCIGRAMA:Ley de areas|SEGUNDA;Ley de armonia|TERCERA]",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "¿Qué establece la Tercera Ley de Kepler?",
+      "respuesta_esperada": "Establece que el cuadrado del periodo orbital (T²) es directamente proporcional al cubo de la distancia media al Sol (r³)."
+    },
+    {
+      "pregunta": "¿Por qué un satélite en órbita circular tiene aceleración si su rapidez es constante?",
+      "respuesta_esperada": "Porque la aceleración es el cambio de la velocidad, y aunque la rapidez no cambie, la dirección del vector velocidad cambia continuamente para seguir la curva."
+    },
+    {
+      "pregunta": "Si la distancia entre dos cuerpos se triplica, ¿qué ocurre con la fuerza gravitacional entre ellos?",
+      "respuesta_esperada": "La fuerza se reduce a la novena parte (1/9), ya que la fuerza es inversamente proporcional al cuadrado de la distancia."
+    },
+    {
+      "pregunta": "¿Qué papel juega la masa del planeta central en la velocidad orbital de un satélite?",
+      "respuesta_esperada": "A mayor masa del planeta central, mayor debe ser la velocidad orbital del satélite para mantenerse en una órbita estable a una distancia determinada."
+    },
+    {
+      "pregunta": "¿Cuál es la diferencia entre velocidad tangencial y aceleración centrípeta?",
+      "respuesta_esperada": "La velocidad tangencial es perpendicular al radio de la órbita e indica la dirección del movimiento, mientras que la aceleración centrípeta apunta al centro y cambia esa dirección."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Realiza un diagrama detallado que muestre los vectores de velocidad y aceleración en cuatro puntos diferentes de una órbita elíptica.",
+    "Elabora un mapa mental que conecte las Leyes de Kepler con la Ley de Gravitación Universal de Newton.",
+    "Dibuja un esquema explicativo que muestre cómo la curvatura de la Tierra y la velocidad tangencial permiten que un satélite 'caiga' perpetuamente sin chocar.",
+    "Crea una infografía artesanal sobre los 'Héroes de la Astronomía' (Kepler, Newton, Galileo) y sus aportes fundamentales al movimiento planetario."
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "En la Metrópolis del Futuro, un equipo de ingenieros observa que un satélite de comunicaciones ha perdido altitud, acercándose a la atmósfera. Según la Ley de Gravitación Universal, la fuerza de atracción entre el satélite y la Tierra aumenta a medida que la distancia disminuye.",
+      "tabla_o_grafica_markdown": "| Posición | Distancia (km) | Velocidad Requerida |\n|---|---|---|\n| Órbita Alta | 35.000 | 3.07 km/s |\n| Órbita Baja | 2.000 | 7.78 km/s |",
+      "pregunta": "Si el satélite mantiene su velocidad de órbita alta (3.07 km/s) mientras desciende a la órbita baja, ¿cuál será el resultado físico más probable?",
+      "opciones": [
+        "El satélite entrará en una órbita más estable.",
+        "El satélite escapará de la gravedad terrestre hacia el espacio exterior.",
+        "La gravedad terrestre superará la inercia del satélite, provocando que colisione con la superficie.",
+        "El satélite aumentará su masa para compensar la falta de velocidad."
+      ],
+      "correcta": 2,
+      "retroalimentacion": {
+        "0": "Incorrecto. Para estar estable en órbita baja se requiere una velocidad mucho mayor.",
+        "1": "Incorrecto. Al tener menos velocidad de la requerida, la gravedad lo atraerá con más fuerza, no lo dejará escapar.",
+        "2": "Correcto. En órbita baja se necesita más velocidad para generar la fuerza centrífuga necesaria que contrarreste la mayor gravedad. Sin esa velocidad, el objeto cae.",
+        "3": "Incorrecto. La masa es una propiedad intrínseca y no cambia para compensar variables cinemáticas."
+      }
+    }
+  ]
+}

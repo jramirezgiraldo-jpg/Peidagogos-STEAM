@@ -1,0 +1,68 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "Si estás oculto en el sótano tecnológico de la IE Instituto Montenegro hackeando un dron de vigilancia sin cambiar de lugar, ¿te estás moviendo?",
+      "opciones": [
+        "No, porque tu cuerpo permanece completamente inmóvil sobre la silla.",
+        "Sí, porque la Tierra gira, pero en física clásica dependes del sistema de referencia seleccionado.",
+        "No, la física dice que el movimiento absoluto no existe y solo los objetos pesados se mueven.",
+        "Sí, porque la pantalla del terminal muestra códigos en movimiento rápido."
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "Para enviar las coordenadas de un cargamento de núcleos de energía a tu clan de resistencia, ¿cuál es el requisito físico elemental?",
+      "opciones": [
+        "Tener una antena satelital activa de alta frecuencia.",
+        "Establecer un Punto de Referencia fijo desde el cual medir las distancias.",
+        "Contar los pasos exactos desde la zona de radiación hasta el búnker.",
+        "Calcular la velocidad del viento electromagnético."
+      ],
+      "correcta": 1
+    }
+  ],
+  "texto_inductivo": "# Terminal de Hackeo: Sector Montenegro-7\n\nSaludos, recluta del Páramo. Soy **Zero-X**, el Hacker de Sistemas de la IE Instituto Montenegro. El mundo que conocieron nuestros abuelos colapsó, pero las leyes de la física siguen activas en el firmware del universo. Hoy vamos a hackear la realidad para desmentir un mito letal que ha cobrado la vida de muchos mensajeros novatos en las ruinas del Sector Quindío.\n\n***¿Cómo puede un hacker del Sector Montenegro-7 trazar una ruta de escape segura a través de las ruinas radiactivas si el mapa digital insiste en que la línea recta es la única forma de llegar antes de que se agote el filtro de aire?***\n\n<svg width='100%' height='220' style='background-color:#121212; border: 2px solid #00ff00; border-radius: 8px;'>\n  <!-- Grid -->\n  <defs>\n    <pattern id='grid' width='20' height='20' patternUnits='userSpaceOnUse'>\n      <path d='M 20 0 L 0 0 0 20' fill='none' stroke='#003300' stroke-width='1'/>\n    </pattern>\n  </defs>\n  <rect width='100%' height='100%' fill='url(#grid)' />\n  \n  <!-- Obstáculo Radiación -->\n  <circle cx='200' cy='110' r='45' fill='rgba(255, 0, 0, 0.2)' stroke='#ff0000' stroke-dasharray='5,5' />\n  <text x='200' y='115' fill='#ff0000' font-size='11' font-family='monospace' text-anchor='middle'>ZONA MUTANTE</text>\n\n  <!-- Puntos -->\n  <circle cx='60' cy='160' r='8' fill='#00ff00' />\n  <text x='60' y='190' fill='#00ff00' font-size='12' font-family='monospace' text-anchor='middle'>Inicio: Colegio</text>\n\n  <circle cx='340' cy='60' r='8' fill='#00ffff' />\n  <text x='340' y='45' fill='#00ffff' font-size='12' font-family='monospace' text-anchor='middle'>Búnker Alfa</text>\n\n  <!-- Desplazamiento (Línea Recta) -->\n  <line x1='60' y1='160' x2='340' y2='60' stroke='#ff0000' stroke-width='2' stroke-dasharray='4,4' />\n  <text x='180' y='80' fill='#ff0000' font-size='11' font-family='monospace' transform='rotate(-19, 180, 80)'>Línea Recta (¡Peligro!)</text>\n\n  <!-- Trayectoria (Curva Segura) -->\n  <path d='M 60 160 Q 150 200 240 160 T 340 60' fill='none' stroke='#00ff00' stroke-width='3' />\n  <text x='220' y='175' fill='#00ff00' font-size='11' font-family='monospace'>Trayectoria de Escape</text>\n</svg>\n\n## El Mito del Atajo Rectilíneo\n\nExiste una creencia absurda entre los supervivientes sin educación científica: *\"Para llegar rápido y seguro, muévete siempre en línea recta, porque la distancia más corta es el único camino que importa\"*. \n\n¡FALSO! En el Páramo, la línea recta (lo que llamamos **Desplazamiento**) a menudo atraviesa nidos de cyber-avispas o grietas de lava ácida. El camino real que tus pies dibujan en el suelo para esquivar la muerte es la **Trayectoria**.\n\nHackeemos este concepto con los siguientes códigos encriptados:\n\n[JUEGO:ORDENAR_LETRAS:POSICION]\n\n[JUEGO:ORDENAR_LETRAS:TRAYECTORIA]\n\nPara hackear las rutas de escape de la IE Instituto Montenegro, primero debes entender que tu **posición** no es un número absoluto en el espacio. Es una variable relativa que depende de dónde coloques tu antena de referencia.\n\n[JUEGO:ORDENAR_FRASE:LA TRAYECTORIA ES EL CAMINO RECORRIDO]\n\n[JUEGO:ORDENAR_FRASE:EL DESPLAZAMIENTO ES EN LINEA RECTA]\n\nIntenta buscar los componentes del sistema en esta base de datos encriptada:\n\n[JUEGO:SOPA_LETRAS:MAPA,GPS,REDC]\n\n[JUEGO:SOPA_LETRAS:ORIGEN,METRO,PASO]\n\nDescifra el mapa de variables cinemáticas con este procesador de datos:\n\n[JUEGO:CRUCIGRAMA:Lugar donde te encuentras medido desde un origen|POSICION;Camino real que recorres paso a paso|TRAYECTORIA]\n\n[JUEGO:CRUCIGRAMA:Distancia en linea recta entre inicio y fin|DESPLAZAMIENTO;Punto desde donde mides todo|ORIGEN]",
+  "recurso_visual": "| Variable Cinemática | Definición en el Páramo | Unidad de Medida (SI) | Tipo de Variable |\n| :--- | :--- | :--- | :--- |\n| **Posición (x)** | Lugar donde te escondes respecto al radar central del Colegio. | Metro (m) | Vectorial (Tiene dirección) |\n| **Trayectoria** | El camino curvo, quebrado o sinuoso que recorres para no morir. | Sin unidad directa (es una línea) | Geométrica (Forma del camino) |\n| **Desplazamiento (Δx)**| El vector recto que une tu punto de inicio con tu punto de llegada. | Metro (m) | Vectorial (Cambio de posición) |\n| **Distancia Recorrida**| La longitud total medida sobre tu trayectoria real. | Metro (m) | Escalar (Magnitud física) |",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "¿Por qué un mensajero que va en línea recta puede terminar en una zona altamente radiactiva aunque su HUD marque que es el camino más corto?",
+      "respuesta_esperada": "Porque la línea recta representa el vector desplazamiento, el cual no tiene en cuenta los obstáculos físicos del terreno; mientras que la trayectoria es el camino real que evade los peligros del Páramo."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja en tu bitácora de supervivencia un mapa del Sector Montenegro-7 donde muestres un Punto de Referencia, una Trayectoria de 3 curvas y un vector Desplazamiento de color rojo.",
+    "Explica por qué, si sales del búnker del colegio a explorar el Páramo y regresas al mismo punto de inicio al anochecer, tu desplazamiento total es igual a cero metros."
+  ],
+  "texto_deductivo": "# Base de Datos de Física de la Resistencia\n\n¡Excelente hackeo, recluta! Ahora cargaremos la teoría oficial en tu memoria flash para consolidar tus habilidades cinemáticas. \n\nPara que un sistema de navegación de un dron del Sector Montenegro-7 funcione, requiere estructurar la información bajo estas tres variables fundamentales:\n\n1. **Punto de Referencia (Origen $O$):** El punto cero (0,0) desde donde se trazan los ejes de coordenadas. En nuestras misiones, la antena de la IE Instituto Montenegro es nuestro origen oficial.\n2. **Posición ($\\vec{r}$):** El vector que va desde el Origen hasta el objeto. Nos dice exactamente dónde está el objetivo en la cuadrícula del mapa.\n3. **Trayectoria:** La línea continua que describe el cuerpo durante su movimiento. Puede ser rectilínea, curvilínea o caótica.\n4. **Desplazamiento ($\\Delta\\vec{r}$):** La diferencia entre la posición final y la posición inicial. Es la flecha verde directa del punto $A$ al punto $B$.\n\n<svg width='100%' height='240' style='background-color:#0d0e15; border: 2px solid #00ffff; border-radius: 8px;'>\n  <!-- Grid -->\n  <defs>\n    <pattern id='grid2' width='30' height='30' patternUnits='userSpaceOnUse'>\n      <path d='M 30 0 L 0 0 0 30' fill='none' stroke='#1c2331' stroke-width='1'/>\n    </pattern>\n  </defs>\n  <rect width='100%' height='100%' fill='url(#grid2)' />\n\n  <!-- Ejes Coordenados -->\n  <line x1='30' y1='210' x2='380' y2='210' stroke='#555' stroke-width='2' />\n  <line x1='30' y1='20' x2='30' y2='210' stroke='#555' stroke-width='2' />\n  <text x='370' y='225' fill='#888' font-size='10' font-family='monospace'>Eje X (Este)</text>\n  <text x='40' y='30' fill='#888' font-size='10' font-family='monospace'>Eje Y (Norte)</text>\n\n  <!-- Origen IE Instituto Montenegro -->\n  <circle cx='30' cy='210' r='6' fill='#ffaa00' />\n  <text x='40' y='200' fill='#ffaa00' font-size='11' font-family='monospace'>Origen (IE Montenegro)</text>\n\n  <!-- Movimiento de un dron -->\n  <path d='M 90 180 C 150 50, 250 220, 330 100' fill='none' stroke='#00ffff' stroke-width='3' />\n  <path d='M 90 180 L 330 100' fill='none' stroke='#ff00ff' stroke-width='2' stroke-dasharray='5,5' />\n\n  <!-- Puntos A y B -->\n  <circle cx='90' cy='180' r='5' fill='#fff' />\n  <text x='80' y='170' fill='#fff' font-size='11' font-family='monospace'>A (Inicio)</text>\n  \n  <circle cx='330' cy='100' r='5' fill='#fff' />\n  <text x='340' y='100' fill='#fff' font-size='11' font-family='monospace'>B (Fin)</text>\n\n  <text x='160' y='110' fill='#00ffff' font-size='10' font-family='monospace'>Trayectoria Real</text>\n  <text x='210' y='155' fill='#ff00ff' font-size='10' font-family='monospace'>Desplazamiento</text>\n</svg>\n\n## Desmitificando con Datos Científicos\n\nSi el sensor de tu Pip-Boy registra que un cazador del páramo caminó $400\\text{ metros}$ en curvas sinuosas, pero su posición final está a solo $10\\text{ metros}$ de la IE Instituto Montenegro donde comenzó, el mito del \"desplazamiento equivalente\" se destruye por completo.\n\nEl desplazamiento es de apenas $10\\text{ metros}$ con dirección norte, pero su trayectoria real costó $400\\text{ metros}$ de sudor y consumo de batería de su servoarmadura.\n\nPrueba tus conocimientos desbloqueando las siguientes compuertas de seguridad:\n\n[JUEGO:ORDENAR_LETRAS:DISTANCIA]\n\n[JUEGO:ORDENAR_LETRAS:MOVIMIENTO]\n\n[JUEGO:ORDENAR_LETRAS:HACKER]\n\n[JUEGO:ORDENAR_FRASE:EL PUNTO DE REFERENCIA ES CLAVE]\n\n[JUEGO:ORDENAR_FRASE:UN HACKER MIDE SUS COORDENADAS]\n\n[JUEGO:ORDENAR_FRASE:EL MITO DE LA LINEA RECTA]\n\nSigue decodificando los algoritmos de escaneo:\n\n[JUEGO:SOPA_LETRAS:FISICA,DATOS,SENSOR]\n\n[JUEGO:SOPA_LETRAS:PUNTO,LINEA,PLANO]\n\n[JUEGO:SOPA_LETRAS:MITO,REAL,DATOS]\n\nSupera las últimas defensas del firewall central:\n\n[JUEGO:CRUCIGRAMA:Sistema de coordenadas para el hacker|REFERENCIA;Unidad de medida del sistema internacional|METRO]\n\n[JUEGO:CRUCIGRAMA:Cambio de posición de un cuerpo|MOVIMIENTO;Variable que mide la duracion|TIEMPO]\n\n[JUEGO:CRUCIGRAMA:Mentira de los antiguos que desmentimos|MITO;El que hackea la realidad con fisica|HACKER]",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "¿Qué representa físicamente un vector trazado directamente desde la IE Instituto Montenegro hasta las ruinas del Hospital sin importar los obstáculos?",
+      "respuesta_esperada": "Representa el Desplazamiento del móvil, el cual indica el cambio de posición neto."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Si caminas 12 metros al Norte y luego 12 metros al Sur, ¿cuál fue tu trayectoria total recorrida y cuál fue tu vector de desplazamiento final respecto al origen?",
+    "Calcula por qué un hacker que use un dron necesita conocer tanto la trayectoria del viento como la posición final del dron para evitar que se estrelle contra los restos de las líneas de alta tensión."
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de fenómenos",
+      "texto_introductorio": "Un dron de suministros mecánicos del Sector Montenegro-7 despega desde la antena principal de la IE Instituto Montenegro (coordenada 0 m). El dron vuela esquivando edificios colapsados hacia el Este. Recorre un camino curvo total de 150 metros para finalmente aterrizar en el puesto de control médico que se encuentra a una distancia en línea recta de 50 metros hacia el Este del punto de partida.",
+      "tabla_o_grafica_markdown": "| Variable del Dron | Magnitud Medida por los Sensores |\n| :--- | :--- |\n| Distancia recorrida sobre la curva | $150\\text{ m}$ |\n| Línea recta horizontal (Inicio a Fin)| $50\\text{ m}$ |\n| Tiempo total de vuelo | $30\\text{ s}$ |",
+      "pregunta": "Teniendo en cuenta los datos recolectados por los sensores del dron de la resistencia, las magnitudes de la Trayectoria (longitud de la curva) y del Desplazamiento son respectivamente:",
+      "options": [
+        "150 m y 50 m al Este.",
+        "50 m y 150 m.",
+        "100 m y 50 m al Oeste.",
+        "200 m y 0 m."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "¡Excelente hackeo! La longitud de la trayectoria recorrida por el dron es la distancia total a lo largo de las curvas (150 m) y el desplazamiento es la distancia directa entre el inicio y el final (50 m al Este).",
+        "1": "Error de calibración. Confundiste la trayectoria con el desplazamiento. La trayectoria es la longitud del camino real.",
+        "2": "Error del procesador. El dron no se movió al Oeste, y las magnitudes matemáticas no corresponden a las registradas por los sensores.",
+        "3": "Señal perdida. Ese cálculo asume valores que no corresponden al mapa de variables cinemáticas medido."
+      }
+    }
+  ]
+}

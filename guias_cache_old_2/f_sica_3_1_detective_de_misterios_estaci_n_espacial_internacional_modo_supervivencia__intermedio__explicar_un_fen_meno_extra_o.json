@@ -1,0 +1,84 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Qué forma geométrica tienen las órbitas de los planetas alrededor del Sol según el consenso científico actual?",
+      "opciones": [
+        "Círculos perfectos",
+        "Elipses con el Sol en uno de sus focos",
+        "Espirales descendientes",
+        "Parábolas abiertas"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Qué ocurre con la velocidad orbital de un planeta cuando está en su punto más cercano al Sol (perihelio)?",
+      "opciones": [
+        "Alcanza su valor máximo",
+        "Alcanza su valor mínimo",
+        "Se mantiene constante",
+        "Se reduce a cero de forma instantánea"
+      ],
+      "correcta": 0
+    },
+    {
+      "pregunta": "¿Cuál es la fuerza fundamental responsable de mantener a la Estación Espacial Internacional (EEI) en órbita alrededor de la Tierra?",
+      "opciones": [
+        "La fuerza magnética terrestre",
+        "La presión del viento solar",
+        "La atracción gravitacional terrestre",
+        "La fuerza de fricción de la alta atmósfera"
+      ],
+      "correcta": 2
+    }
+  ],
+  "texto_inductivo": "Saludos, recluta espacial. Soy el Detective de Anomalías Cósmicas y nos enfrentamos a un misterio crítico a bordo de la Estación Espacial Internacional (EEI). Los sensores de navegación han registrado una sutil pero extraña desviación en nuestro curso orbital habitual. Para entender qué está ocurriendo, debemos recurrir a los fundamentos históricos y científicos de la física celeste. Las órbitas no son un capricho del azar; siguen un patrón matemático preciso que primero debemos deducir observando la naturaleza. ¿Cómo se desplaza un cuerpo en el vacío? [JUEGO:ORDENAR_LETRAS:ORBITA] Para descifrar este enigma, debemos analizar el trabajo de Johannes Kepler. [JUEGO:ORDENAR_LETRAS:KEPLER] Él descubrió que los planetas se mueven siguiendo trayectorias cerradas muy específicas denominadas elipses. [JUEGO:ORDENAR_LETRAS:ELIPSE]\n\nNuestras mediciones telemétricas de esta mañana indican que la velocidad de nuestra estación espacial varía ligeramente a lo largo de su recorrido. [JUEGO:ORDENAR_LETRAS:VELOCIDAD] ¿Se tratará de la atracción de la Tierra que ejerce un tirón desigual en diferentes puntos de nuestra trayectoria? [JUEGO:ORDENAR_LETRAS:GRAVEDAD] Debemos recordar que esta fuerza es la responsable de la curvatura de nuestro viaje cósmico. [JUEGO:ORDENAR_FRASE:LA GRAVEDAD MANTIENE LAS ORBITAS] Kepler determinó en su primera ley que el Sol se ubica exactamente en uno de los focos de estas curvas espaciales. [JUEGO:ORDENAR_FRASE:EL SOL OCUPA UN FOCO]\n\nCuando un cuerpo celeste se aproxima a la masa que lo atrae, su dinámica orbital experimenta un cambio notable. [JUEGO:ORDENAR_FRASE:VELOCIDAD MAXIMA EN EL PERIHELIO] Kepler explicó esto en su segunda ley, argumentando que el radio vector barre superficies de igual extensión en intervalos idénticos de tiempo. [JUEGO:ORDENAR_FRASE:AREAS IGUALES EN TIEMPOS IGUALES] Gracias a estas observaciones inductivas, podemos modelar de manera científica cómo los mundos orbitan alrededor de nuestra estrella central. [JUEGO:ORDENAR_FRASE:LA TIERRA GIRA ALREDEDOR DEL SOL]\n\nComo detectives espaciales, busquemos patrones ocultos dentro de los datos espectrales de los instrumentos. Hemos aislado algunas variables críticas en el ruido de transmisión. [JUEGO:SOPA_LETRAS:FOCO,ELIPSE,SOL] Comprender la distancia y la posición geométrica de estos elementos es vital para nuestra supervivencia. [JUEGO:SOPA_LETRAS:PERIHELIO,AFELIO,ORBITA] Los registros históricos de la física nos proporcionarán el marco conceptual necesario para resolver la anomalía de la EEI. [JUEGO:SOPA_LETRAS:KEPLER,NEWTON,FISICA]\n\nNecesitamos establecer un puente de datos entre la cantidad de materia de los cuerpos celestes y la separación espacial que existe entre ellos. [JUEGO:SOPA_LETRAS:ATRACCION,MASA,DISTANCIA] Debes actuar rápido, recluta; un error de cálculo podría hacernos perder altura de forma irreversible en este laboratorio orbital. [JUEGO:SOPA_LETRAS:ESPACIO,ESTACION,TIEMPO]\n\nRealicemos un diagnóstico del computador central para comprobar la validez de los principios de la mecánica clásica. [JUEGO:CRUCIGRAMA:Ley de las areas|SEGUNDA;Ley de las orbitas|PRIMERA] Los datos de telemetría muestran que nuestra trayectoria sigue una geometría limpia pero influenciada por factores externos. [JUEGO:CRUCIGRAMA:Forma de la orbita|ELIPSE;Centro de masa masivo|SOL] Identifiquemos con precisión las coordenadas de nuestro máximo acercamiento y alejamiento terrestre. [JUEGO:CRUCIGRAMA:Punto mas lejano|AFELIO;Punto mas cercano|PERIHELIO]\n\nLa invisible soga que nos une al planeta Tierra es el gran misterio físico que los científicos de la antigüedad buscaron cuantificar geométricamente. [JUEGO:CRUCIGRAMA:Fuerza invisible|GRAVEDAD;Cientifico aleman|KEPLER] Verifiquemos todas las magnitudes físicas registradas en el sistema informático para asegurar un cálculo preciso. [JUEGO:CRUCIGRAMA:Unidad de masa|KILOGRAMO;Unidad de distancia|METRO]",
+  "recurso_visual": "mermaid\ngraph TD\n    A[Movimiento Planetario] --> B(Leyes de Kepler)\n    A --> C(Gravitación de Newton)\n    B --> B1[1ra Ley: Órbitas Elípticas]\n    B --> B2[2da Ley: Áreas Iguales / Velocidad Variable]\n    B --> B3[3ra Ley: Ley Armónica T² ∝ a³]\n    C --> C1[Fuerza de Atracción Mutua]\n    C --> C2[F = G * M * m / d²]\n    style A fill:#f9f,stroke:#333,stroke-width:2px\n    style B fill:#bbf,stroke:#333,stroke-width:1px\n    style C fill:#bfb,stroke:#333,stroke-width:1px\n",
+  "preguntas_inductivas_pagina": [
+    "¿Qué diferencia geométrica existe entre el modelo de órbitas propuesto por Kepler y el modelo circular perfecto anterior?",
+    "De acuerdo con la segunda ley de Kepler, ¿por qué la velocidad de la EEI cambia según su posición en la órbita?",
+    "¿Qué es el perihelio y qué ocurre con la rapidez de un satélite cuando pasa por ese punto?",
+    "¿Cómo interviene el Sol (o la Tierra en nuestro caso) como foco de atracción en la elipse orbital?",
+    "¿Qué implicaciones físicas tiene que un radio vector barra áreas iguales en tiempos iguales para la órbita terrestre?"
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema detallado de una órbita elíptica señalando los focos, el perihelio, el afelio y el semieje mayor, aplicando la Primera Ley de Kepler.",
+    "Realiza un cuadro comparativo donde contrastes las tres leyes de Kepler, detallando su enunciado, su variable matemática principal y su aplicación práctica.",
+    "Redacta una reflexión extensa sobre cómo el cambio de paradigma de órbitas circulares a elípticas impactó el desarrollo de la física moderna.",
+    "Representa gráficamente mediante un cómic de cuatro viñetas la experiencia de un astronauta experimentando la aceleración orbital en el perihelio."
+  ],
+  "texto_deductivo": "Una vez analizados los datos inductivos del movimiento, es momento de que, como detectives de la física, deduzcamos las causas mecánicas de la anomalía. El tiempo total que tarda la EEI en completar una vuelta alrededor de la Tierra es fundamental para nuestros cálculos de navegación. [JUEGO:ORDENAR_LETRAS:PERIODO] Necesitamos una relación matemática fija que vincule el tamaño de la órbita con este tiempo de traslación. [JUEGO:ORDENAR_LETRAS:CONSTANTE] La interacción dinámica de atracción mutua entre masas es la clave de este enigma físico. [JUEGO:ORDENAR_LETRAS:FUERZA]\n\nCuando un objeto celeste altera su curso, deducimos científicamente que un cuerpo masivo está ejerciendo perturbaciones sobre su trayectoria. [JUEGO:ORDENAR_LETRAS:PLANETA] La EEI se comporta exactamente como un satélite en caída libre constante bajo los efectos de la atracción terrestre. [JUEGO:ORDENAR_LETRAS:SATELITE] Apliquemos la tercera ley de Kepler, donde el tiempo de órbita elevado al cuadrado mantiene una razón constante con el cubo de la distancia media. [JUEGO:ORDENAR_FRASE:EL PERIODO AL CUADRADO ES PROPORCIONAL]\n\nIsaac Newton logró justificar matemáticamente la cinemática de Kepler al formular su gran principio de atracción universal. [JUEGO:ORDENAR_FRASE:LA FUERZA DISMINUYE CON LA DISTANCIA] Newton descubrió que una constante universal regula la magnitud de esta interacción a lo largo de todo el cosmos. [JUEGO:ORDENAR_FRASE:LA CONSTANTE GRAVITACIONAL ES UNIVERSAL]\n\nEsto nos revela que la EEI no cae hacia el suelo debido a que su enorme velocidad lateral neutraliza constantemente la atracción de la gravedad. [JUEGO:ORDENAR_FRASE:CUALQUIER CUERPO EN CAIDA LIBRE] Así es como deducimos y damos explicación científica a la aparente ingravidez que experimentamos a bordo de la estación. [JUEGO:ORDENAR_FRASE:LAS LEYES EXPLICAN EL MOVIMIENTO]\n\nProcedamos a calcular las magnitudes exactas que determinan el equilibrio dinámico del sistema espacial. [JUEGO:SOPA_LETRAS:PERIODO,RADIO,LEYES] Un riguroso análisis algebraico nos permitirá descartar fallas técnicas e identificar si una masa de desecho espacial está perturbando nuestro curso. [JUEGO:SOPA_LETRAS:MATEMATICA,SISTEMA,SOLAR] Las simulaciones computacionales confirman la solidez de nuestras deducciones físicas en la EEI. [JUEGO:SOPA_LETRAS:MODELO,CIENCIA,DATOS]\n\nCalculemos la expresión matemática que determina la velocidad orbital teórica en función de la masa terrestre. [JUEGO:SOPA_LETRAS:ECUACION,ORBITAL,ALZADA] Como detectives analíticos, no dejaremos ningún parámetro físico sin evaluar en esta investigación científica orbital. [JUEGO:SOPA_LETRAS:DETECTIVE,PISTAS,MISTERIO]\n\nLa calibración del sistema de navegación inercial de la estación ha finalizado con éxito rotundo. [JUEGO:CRUCIGRAMA:Tercera ley de Kepler|ARMONICA;Cientifico de la manzana|NEWTON] El vector de dirección geométrica nos indica la corrección exacta que debemos aplicar a nuestros propulsores. [JUEGO:CRUCIGRAMA:Linea que une el sol con el planeta|RADIOVECTOR;Trayectoria curva|ORBITA]\n\nLa íntima conexión matemática entre el tiempo y el radio de giro nos asegura que la estación se encuentra dentro del rango de estabilidad previsto. [JUEGO:CRUCIGRAMA:Relacion entre variables|PROPORCION;Medida de tiempo orbital|PERIODO] La gravedad actúa de forma balanceada con la tendencia de la estación a mantener su movimiento rectilíneo. [JUEGO:CRUCIGRAMA:Atraccion de masas|GRAVITACION;Resistencia al cambio|INERCIA] Hemos descifrado el misterio de la anomalía, devolviendo a la EEI a su altitud operacional segura mediante la aplicación rigurosa de la física de Newton y Kepler. [JUEGO:CRUCIGRAMA:Altura sobre el nivel del mar|ALTITUD;Laboratorio espacial|ESTACION]",
+  "preguntas_deductivas_pagina": [
+    "¿Cómo deduce Newton la Ley de Gravitación Universal a partir de las Leyes de Kepler?",
+    "Si la altitud de la EEI disminuye debido a la fricción atmosférica residual, ¿qué ocurre teóricamente con su velocidad orbital para mantenerse estable?",
+    "¿Por qué la constante G de gravitación universal tiene el mismo valor en la Tierra que en el resto del universo?",
+    "¿De qué manera el concepto de inercia explica que los planetas no sean atraídos directamente hacia el centro del Sol hasta colisionar?",
+    "¿Cómo varía el periodo de revolución de un satélite artificial si se decide ubicar en una órbita tres veces más alejada del centro de la Tierra?"
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Realiza un diagrama detallado que muestre la descomposición vectorial de la velocidad tangencial y la aceleración centrípeta de la ISS en su órbita.",
+    "Elabora un mapa mental que conecte la Ley de Gravitación de Newton con las tres Leyes de Kepler, destacando los conceptos de masa, inercia y periodo.",
+    "Dibuja una explicación visual de la diferencia entre la caída libre de un objeto en la Tierra y la caída libre orbital de la Estación Espacial Internacional.",
+    "Diseña una infografía artesanal en tu cuaderno que explique la Tercera Ley de Kepler usando la Tierra y Marte como ejemplos."
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "Durante una misión de monitoreo científico en la Estación Espacial Internacional, los astronautas detectan que un fragmento de basura espacial de gran masa se ha aproximado de forma paralela a un pequeño satélite de investigación climática que orbita a la misma altitud. De manera imprevista, el satélite comienza a experimentar una ligera variación en la geometría de su trayectoria, pasando de una órbita circular a una elíptica. Se registran las siguientes variables de control del satélite antes y después de la interacción con el fragmento de basura espacial:",
+      "tabla_o_grafica_markdown": "| Estado del Satélite | Altura Promedio (km) | Velocidad en el punto más cercano (km/s) | Forma de la Trayectoria |\n| :--- | :--- | :--- | :--- |\n| Antes de la anomalía | 400 | 7.67 | Circular |\n| Después de la anomalía | 395 (Mínima) | 7.82 | Elíptica |",
+      "pregunta": "Teniendo en cuenta las leyes que rigen el movimiento planetario y orbital, ¿cuál es la explicación física más coherente para el incremento registrado en la velocidad del satélite en su punto de máxima aproximación?",
+      "opciones": [
+        "Al volverse la órbita elíptica, el punto de menor altura representa el perihelio donde, según la segunda ley de Kepler, el satélite debe aumentar su velocidad para barrer áreas iguales en tiempos iguales debido al aumento de la atracción gravitacional terrestre en esa zona.",
+        "La masa de la basura espacial empujó mecánicamente al satélite, dotándolo de energía térmica adicional que alteró la constante gravitacional universal en esa región del espacio.",
+        "El satélite aumentó su velocidad porque al aproximarse a la atmósfera terrestre experimentó mayor sustentación aerodinámica, lo que incrementó su energía cinética total.",
+        "Según la tercera ley de Kepler, las órbitas que se deforman hacia elipses siempre duplican la masa efectiva del cuerpo en órbita, lo que obliga al periodo orbital a reducirse a cero."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. Al deformarse la trayectoria hacia una elipse debido a la perturbación gravitacional, el punto más cercano a la Tierra actúa como el perihelio de la órbita. Por conservación del momento angular (expresado en la segunda ley de Kepler) y la conservación de la energía mecánica, el satélite debe aumentar su velocidad tangencial para compensar la reducción en la distancia radial.",
+        "1": "Incorrecto. La constante gravitacional universal G es una constante física fundamental y no varía localmente por interacciones mecánicas comunes o incrementos de energía térmica.",
+        "2": "Incorrecto. La atmósfera a 400 km de altitud es sumamente tenue y la fricción atmosférica produce una pérdida de energía mecánica (frenado) en lugar de una aceleración o sustentación.",
+        "3": "Incorrecto. La tercera ley de Kepler relaciona el periodo orbital con el semieje mayor de la órbita y no establece que la deformación orbital altere la masa del cuerpo ni que reduzca el periodo a cero."
+      }
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Qué trayectoria sigue la Tierra alrededor del Sol según el modelo astronómico actual?",
+      "opciones": [
+        "Un círculo perfecto con velocidad absolutamente constante",
+        "Una elipse donde el Sol se encuentra en uno de los focos",
+        "Una espiral descendente hacia el centro de la galaxia",
+        "Una línea zigzagueante regulada por los campos magnéticos"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Qué variable física cambia cuando un planeta se aproxima al punto más cercano a su estrella?",
+      "opciones": [
+        "Su masa disminuye drásticamente",
+        "La fuerza gravitatoria se vuelve cero",
+        "Su velocidad orbital aumenta",
+        "La dirección del eje de rotación se invierte"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "¿Cuál de las siguientes afirmaciones describe la causa real de las estaciones del año en la Tierra?",
+      "opciones": [
+        "La distancia entre la Tierra y el Sol, siendo el verano cuando está más cerca",
+        "La inclinación del eje de rotación terrestre respecto al plano de su órbita",
+        "El aumento de la actividad nuclear del Sol durante ciertos meses",
+        "La sombra proyectada por la Luna al bloquear los rayos solares"
+      ],
+      "correcta": 1
+    }
+  ],
+  "texto_inductivo": "# Bitácora del Explorador Espacial: Misterios en la Selva de Kepler-4b\n\n Saludos, cadetes de la Federación. Soy el Comandante Orion, transmitiendo desde las densas y húmedas selvas del exoplaneta Kepler-4b. Durante nuestra expedición entre la vegetación bioluminiscente, encontramos las ruinas de un antiguo observatorio astronómico construido por una civilización ancestral. Los glifos tallados en la piedra sugieren que los habitantes locales creían en un mito antiguo muy similar al que persiste en la Tierra.\n\n**_¿Por qué persiste la falsa creencia popular de que los planetas se mueven en círculos perfectos y que la distancia al Sol determina las estaciones del año, cuando la física orbital demuestra que la gravedad y la geometría elíptica gobiernan el cosmos?_**\n\nDesmentir este mito es nuestra misión prioritaria en este Periodo 3, Semana 1. [JUEGO:ORDENAR_LETRAS:ORBITA] La idea popular de que la Tierra viaja en un círculo perfecto alrededor del Sol provoca malentendidos sobre cómo funciona la gravedad y la cinemática en el espacio. [ACTIVIDAD:PLATAFORMA:¿Por qué es erróneo afirmar que la órbita terrestre es un círculo perfecto?|Porque es una elipse donde la distancia al Sol varía y la velocidad cambia.] En tu cuaderno, [ACTIVIDAD:CUADERNO:Realiza un esquema donde dibujes una órbita circular frente a una órbita elíptica exagerada para notar visualmente la diferencia.]\n\n<div style='background-color:#1e293b; color:#f8fafc; padding:15px; border-radius:8px; margin:15px 0; font-family:sans-serif;'>\n<h3 style='color:#38bdf8; text-align:center;'>Análisis Geométrico: Círculo vs Elipse Orbital</h3>\n<svg width='100%' height='160' viewBox='0 0 400 160'>\n  <circle cx='100' cy='80' r='50' fill='none' stroke='#4ade80' stroke-width='3' stroke-dasharray='4'/>\n  <circle cx='100' cy='80' r='6' fill='#facc15'/>\n  <text x='65' y='145' fill='#e2e8f0' font-size='12'>Órbita Circular (Mito)</text>\n  <ellipse cx='290' cy='80' rx='80' ry='45' fill='none' stroke='#38bdf8' stroke-width='3'/>\n  <circle cx='250' cy='80' r='8' fill='#facc15'/>\n  <circle cx='370' cy='80' r='5' fill='#60a5fa'/>\n  <text x='230' y='145' fill='#e2e8f0' font-size='12'>Órbita Elíptica Real (Kepler)</text>\n</svg>\n</div>\n\nMientras abrimos paso entre la espesura selvática, notamos que los científicos antiguos creían que el Sol estaba exactamente en el centro geométrico de la trayectoria planetaria. [JUEGO:ORDENAR_FRASE:LAS ORBITAS PLANETARIAS SON ELIPTICAS Y NO CIRCULARES] Esto alimentó el mito de que en enero (cuando la Tierra está en el perihelio, más cerca del Sol) debería ser verano en todo el planeta, lo cual es FALSO, ya que el hemisferio norte está en pleno invierno. [ACTIVIDAD:PLATAFORMA:¿En qué mes la Tierra se encuentra más cerca del Sol (perihelio)?|En el mes de enero.]\n\n[JUEGO:ORDENAR_LETRAS:KEPLER] Para desarmar la falacia, debemos examinar cómo la aceleración centripetal y la velocidad cambian dinámicamente. [ACTIVIDAD:CUADERNO:Elabora un cuadro comparativo de dos columnas entre el Mito Popular de la Órbita Circular y la Realidad Científica Elíptica.]\n\n[JUEGO:ORDENAR_FRASE:LA GRAVEDAD SOLAR ATRAE A TODOS LOS PLANETAS]\n\nCaminando hacia la cúspide de la pirámide de la selva, encontramos inscripciones sobre el movimiento planetario. [ACTIVIDAD:PLATAFORMA:¿Qué factor geométrico caracteriza a una elipse en comparación con un círculo?|La presencia de dos focos y una excentricidad mayor a cero.] En tu bitácora de campo, [ACTIVIDAD:CUADERNO:Dibuja el planeta Tierra indicando el eje de inclinación de 23.5 grados respecto al plano orbital.]\n\n[JUEGO:ORDENAR_LETRAS:ELIPSE]\n\n[JUEGO:ORDENAR_FRASE:EL SOL OCUPA UNO DE LOS FOCOS DE LA ELIPSE]\n\nPara profundizar en el reconocimiento del terreno, resuelve los siguientes desafíos de exploración:\n\n[JUEGO:SOPA_LETRAS:ORBITA,ELIPSE,KEPLER,NEWTON,GRAVEDAD,FOCO,PERIHELIO,AFELIO,VELOCIDAD,ORBITAL]\n\n[JUEGO:CRUCIGRAMA:Punto más cercano al Sol en una órbita|PERIHELIO;Punto más lejano al Sol|AFELIO;Trayectoria curva de un cuerpo en el espacio|ORBITA;Figura geométrica de las órbitas|ELIPSE;Causa de la atracción entre masas|GRAVEDAD;Unidad de medida de velocidad en SI|METROSPORSEGUNDO;Científico de las tres leyes planetarias|KEPLER;Fuerza hacia el centro en movimiento curvo|CENTRIPETA;Cambio de velocidad en el tiempo|ACELERACION;Resistencia al cambio de movimiento|INERCIA]\n\n[ACTIVIDAD:PLATAFORMA:¿Qué causa realmente las estaciones del año en la Tierra?|La inclinación del eje de rotación terrestre respecto a su plano orbital.]\n\n[ACTIVIDAD:PLATAFORMA:Si la distancia al Sol determinara el verano, ¿qué ocurriría simultáneamente en ambos hemisferios?|Ambos hemisferios tendrían verano al mismo tiempo, lo cual no ocurre.]\n\n[ACTIVIDAD:CUADERNO:Escribe una síntesis de tres párrafos donde expliques a un compañero cómo desmentirías el mito de que el verano ocurre por estar más cerca del Sol.]",
+  "recurso_visual": "| Concepto del Mito Popular | Evidencia Científica Real | Fenómeno Físico Involucrado |\n| :--- | :--- | :--- |\n| **Órbita Circular Perfecta** | La órbita es una elipse de baja excentricidad (0.017) | Primera Ley de Kepler (Focos orbitales) |\n| **Distancia causa Estaciones** | La inclinación de 23.5° dirige la radiación solar | Distribución de energía térmica por área |\n| **Velocidad Orbital Constante** | La velocidad aumenta en el perihelio y cae en el afelio | Segunda Ley de Kepler (Conservación del momento angular) |\n| **Sin Gravedad en el Espacio** | La gravedad mantiene al planeta en caída libre continua | Ley de Gravitación Universal de Newton |",
+  "texto_deductivo": "# Formalización de la Mecánica Orbital y Desmantelamiento del Mito\n\nExploradores, tras superar los peligros de la selva de Kepler-4b y analizar las reliquias astronómicas, es momento de aplicar el rigor conceptual de la Física de nivel Héroe para desarmar definitivamente el mito del movimiento planetario circular y la distancia solar.\n\n### 1. La Geometría Orbital Real: Primera Ley de Kepler\n\nUn mito persistente postula que la Tierra gira en un círculo perfecto. La ley de las órbitas formulada por Johannes Kepler establece cuantitativamente que:\n\n$$r(\\theta) = \\frac{a(1 - e^2)}{1 + e \\cos\\theta}$$\n\nDonde $a$ es el semieje mayor, $e$ es la excentricidad orbital ($0 < e < 1$ para elipses), y $r$ es la distancia instantánea. Para la Tierra, $e \\approx 0.017$, lo que significa que la órbita es *casi* circular, pero no lo es. [JUEGO:ORDENAR_LETRAS:PERIHELIO] Esta ligera variación implica un perihelio a aproximadamente $147 \\times 10^6\\text{ km}$ y un afelio a $152 \\times 10^6\\text{ km}$. [ACTIVIDAD:PLATAFORMA:¿Cuál es el valor aproximado de la excentricidad de la órbita terrestre?|Aproximadamente 0.017.] En el cuaderno, [ACTIVIDAD:CUADERNO:Resuelve el cálculo de la diferencia porcentual entre la distancia del afelio y el perihelio terrestre usando la fórmula ((Afelio-Perihelio)/Afelio)*100.]\n\n<div style='background-color:#0f172a; padding:12px; border:2px solid #38bdf8; border-radius:8px; margin:15px 0;'>\n<table style='width:100%; color:#f8fafc; text-align:center; border-collapse:collapse;'>\n<tr style='background-color:#0284c7;'><th>Posición Orbital</th><th>Distancia al Sol ($10^6$ km)</th><th>Velocidad Orbital ($km/s$)</th><th>Aceleración Gravitacional ($m/s^2$)</th></tr>\n<tr><td>Perihelio (Enero)</td><td>147.1</td><td>30.29</td><td>0.0061</td></tr>\n<tr><td>Afelio (Julio)</td><td>152.1</td><td>29.29</td><td>0.0057</td></tr>\n</table>\n</div>\n\n### 2. Conservación del Momento Angular: Segunda Ley de Kepler\n\n[JUEGO:ORDENAR_FRASE:LA SEGUNDA LEY DE KEPLER HABLA DEL AREA BARREDA]\n\nEl mito sugiere que la velocidad del planeta es perfectamente uniforme. La ley de las áreas demuestra que el vector de posición de un planeta con respecto al Sol barre áreas iguales en tiempos iguales: $\\frac{dA}{dt} = \\frac{L}{2m} = \\text{constante}$. [JUEGO:ORDENAR_LETRAS:AFELIO] Por tanto, el movimiento planetario es acelerado; la posición, velocidad y aceleración varían continuamente en función del ángulo orbital $\\theta$. [ACTIVIDAD:PLATAFORMA:¿En qué punto de la órbita la velocidad orbital de un planeta es máxima?|En el perihelio.] En tu libreta, [ACTIVIDAD:CUADERNO:Dibuja los vectores de velocidad vectorial y aceleración centripeta en cuatro puntos cardinales de una órbita elíptica.]\n\n[JUEGO:ORDENAR_FRASE:A MAYOR DISTANCIA MENOR ES LA FUERZA GRAVITATORIA]\n\n### 3. La Dinámica de Newton y la Caída Libre Espacial\n\nIsaac Newton unificó la cinemática de Kepler con la dinámica mediante la Ley de Gravitación Universal:\n\n$$\\vec{F}_g = -G \\frac{M m}{r^2} \\hat{r}$$\n\n[JUEGO:ORDENAR_LETRAS:INERCIA] La aceleración experimentada por el planeta es $\\vec{a} = -\\frac{G M}{r^2} \\hat{r}$. Esta fuerza actúa como fuerza centrípeta alterando la dirección del vector velocidad. [ACTIVIDAD:PLATAFORMA:¿Cómo varía la fuerza de atracción gravitatoria si la distancia entre dos cuerpos se duplica?|Se reduce a la cuarta parte o un cuarto de la fuerza original.]\n\n[JUEGO:ORDENAR_FRASE:LA ACELERACION CENTRIPETA CAMBIA LA DIRECCION DE LA VELOCIDAD]\n\n[ACTIVIDAD:CUADERNO:Demuestra matemáticamente a partir de Fg = Fc cómo despejar la velocidad orbital de una trayectoria circular teórica v = sqrt(GM/r).]\n\n### 4. Desmintiendo el Mito de las Estaciones\n\nSi la distancia fuera la causa de las estaciones, el punto más cercano (enero) tendría que registrar el verano global. Sin embargo, la radiación solar incidente por unidad de área depende del ángulo de inclinación $\\phi = 23.5^\\circ$. La energía recibida $I$ es proporcional a $\\cos(\\theta_{incidencia})$. En enero, el hemisferio sur está inclinado *hacia* el Sol, recibiendo rayos perpendiculares, mientras el norte recibe rayos inclinados. [ACTIVIDAD:PLATAFORMA:¿Qué ángulo de inclinación posee el eje de rotación de la Tierra respecto a la eclíptica?|Aproximadamente 23.5 grados.]\n\n[ACTIVIDAD:CUADERNO:Realiza un diagrama explicativo de rayos solares incidiendo sobre una superficie curva para mostrar por qué la inclinación cambia la intensidad solar.]\n\n[JUEGO:SOPA_LETRAS:CENTRIPETA,INERCIA,VECTOR,ACELERACION,MASA,DISTANCIA,LEYES,FISICA,SISTEMA,UNIVERSAL]\n\n[JUEGO:CRUCIGRAMA:Ley de gravitación universal postulada por|NEWTON;Ángulo del eje terrestre en grados|VEINTITRES;Razón entre la distancia focal y el eje mayor|EXCENTRICIDAD;Energía recibida por unidad de área|IRRADIANCIA;Movimiento de rotación alrededor del Sol|TRASLACION;Magnitud vectorial con dirección y sentido|VECTOR;Punto de intersección de los ejes de la elipse|CENTRO;Momento angular conservado en la órbita|MOMENTO;Fuerza aparente o real hacia el centro de curva|CENTRIPETA;Trayectoria seguida en caída libre continua|ORBITA]\n\nComandante Orion, fuera.",
+  "icfes": [
+    {
+      "competencia": "Uso Comprensivo del Conocimiento Científico",
+      "texto_introductorio": "Un grupo de estudiantes de la expedición espacial analiza el mito popular de que 'el verano ocurre porque la Tierra está más cerca del Sol en esa época'. Para verificar la validez científica de esta afirmación, recopilan los datos cinemáticos y de posición de la Tierra en dos momentos del año.",
+      "tabla_o_grafica_markdown": "| Fecha | Distancia Tierra-Sol (km) | Hemisferio Norte | Hemisferio Sur |\n| :--- | :--- | :--- | :--- |\n| 3 de Enero (Perihelio) | 147.100.000 | Invierno | Verano |\n| 4 de Julio (Afelio) | 152.100.000 | Verano | Invierno |",
+      "pregunta": "Con base en los datos presentados en la tabla, ¿cuál de las siguientes afirmaciones refuta científicamente el mito analizado?",
+      "opciones": [
+        "El mito es falso porque cuando la Tierra está más cerca del Sol (enero), el hemisferio norte experimenta invierno, lo cual contradice la hipótesis de la distancia.",
+        "El mito es verdadero porque en julio la Tierra está más lejos del Sol y por eso hace calor en todo el planeta.",
+        "El mito es falso porque la velocidad orbital en enero es menor que en julio, lo que reduce la temperatura global.",
+        "El mito es verdadero para el hemisferio sur pero falso para el hemisferio norte debido a la forma circular de la órbita."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "¡Correcto! Si la distancia fuera la causa del verano, ambos hemisferios tendrían verano simultáneamente en enero (perihelio). El hecho de que el hemisferio norte esté en invierno en la menor distancia desmiente categóricamente el mito.",
+        "1": "Incorrecto. En julio la distancia es mayor (afelio) y el hemisferio sur está en invierno, por lo que no hace calor en todo el planeta.",
+        "2": "Incorrecto. Según la segunda ley de Kepler, la velocidad en el perihelio (enero) es mayor, no menor, y la velocidad no determina la temperatura de las estaciones.",
+        "3": "Incorrecto. Las leyes físicas aplican globalmente y la órbita terrestre es una elipse de baja excentricidad, no un círculo perfecto."
+      }
+    },
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "Un explorador observa en un simulador orbital que la velocidad tangencial de un exoplaneta varía a lo largo de su trayectoria alrededor de una estrella masiva. El simulador arroja la siguiente tabla de velocidad en función de la distancia al centro de fuerza gravitacional:",
+      "tabla_o_grafica_markdown": "| Posición | Distancia a la estrella ($10^6$ km) | Velocidad Tangencial (km/s) |\n| :--- | :--- | :--- |\n| A | 100 | 45.2 |\n| B | 150 | 36.9 |\n| C | 200 | 31.9 |",
+      "pregunta": "¿Qué principio físico o ley de la mecánica orbital explica el comportamiento de la velocidad a medida que la distancia aumenta?",
+      "opciones": [
+        "La Segunda Ley de Kepler, que implica la conservación del momento angular: a mayor distancia la velocidad disminuye para barrer áreas iguales en tiempos iguales.",
+        "La Primera Ley de Newton, que establece que la velocidad debe aumentar linealmente con la distancia debido a la inercia del medio.",
+        "El mito de la velocidad constante, que demuestra que los datos del simulador son erróneos pues todos los planetas giran con rapidez uniforme.",
+        "La Tercera Ley de Kepler, que afirma que la masa del planeta aumenta al alejarse de la estrella reduciendo la aceleración."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "¡Correcto! La conservación del momento angular ($L = m v r \\sin\\theta$) y la segunda ley de Kepler exigen que al aumentar el radio $r$, la velocidad $v$ disminuya para mantener la tasa de área barredora constante.",
+        "1": "Incorrecto. La primera ley de Newton habla de la inercia en ausencia de fuerza neta, pero aquí actúa la fuerza de gravedad centrípeta.",
+        "2": "Incorrecto. Afirmar que la velocidad orbital es constante es un mito erróneo; la velocidad orbital varía en órbitas elípticas.",
+        "3": "Incorrecto. La masa del planeta se mantiene constante en su órbita; la tercera ley relaciona períodos orbitales con semiejes mayores."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "Para comprobar si la inclinación del eje terrestre es la verdadera causa de las estaciones (y no la distancia al Sol), un equipo de estudiantes diseña un experimento en la selva con una maqueta. Montan un globo terráqueo con eje inclinable a 23.5° e iluminan con una lámpara de intensidad constante a distancias variables.",
+      "tabla_o_grafica_markdown": "| Experimento | Inclinación del Eje | Distancia a la Lámpara | Resultado en Temperatura por Hemisferio |\n| :--- | :--- | :--- | :--- |\n| Prueba 1 | $0^\\circ$ (Eje vertical) | Variable ($1.0\\text{ m} \\to 1.1\\text{ m}$) | Ambas zonas reciben igual radiación; no hay estaciones. |\n| Prueba 2 | $23.5^\\circ$ (Inclinado) | Fija ($1.0\\text{ m}$) | El hemisferio inclinado hacia la luz registra mayor temperatura. |",
+      "pregunta": "¿Qué hipótesis queda mejor respaldada por los datos obtenidos en el experimento de indagación?",
+      "opciones": [
+        "La inclinación del eje es la condición necesaria y suficiente para generar gradientes de temperatura estacionales entre hemisferios.",
+        "La distancia a la fuente luminosa es la única variable que determina la diferencia de temperatura entre los hemisferios.",
+        "Las órbitas deben ser círculos perfectos para que existan estaciones climáticas en un planeta.",
+        "La variación de distancia causa el cambio estacional únicamente si el eje no tiene ninguna inclinación."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "¡Correcto! La Prueba 1 demuestra que variar la distancia sin inclinación no genera estaciones diferenciales por hemisferio, mientras que la Prueba 2 demuestra que la inclinación a distancia fija crea las variaciones térmicas características de las estaciones.",
+        "1": "Incorrecto. La Prueba 1 muestra que variar la distancia no crea diferencias entre hemisferios norte y sur.",
+        "2": "Incorrecto. La forma elíptica o circular no crea estaciones; la inclinación axial es la causa fundamental.",
+        "3": "Incorrecto. Los datos indican que sin inclinación (Prueba 1) no hay estaciones diferenciadas regionalmente."
+      }
+    }
+  ]
+}

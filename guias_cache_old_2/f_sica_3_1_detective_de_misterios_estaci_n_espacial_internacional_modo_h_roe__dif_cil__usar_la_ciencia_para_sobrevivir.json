@@ -1,0 +1,134 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "Si un astronauta lanza una herramienta en el espacio vacío, ¿qué sucede con la velocidad de la herramienta si no hay fuerzas externas?",
+      "opciones": [
+        "Se detiene inmediatamente",
+        "Sigue moviéndose a velocidad constante infinitamente",
+        "Aumenta su velocidad gradualmente",
+        "Regresa a la mano del astronauta"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "Según la primera ley de Kepler, ¿cuál es la forma precisa de las órbitas planetarias?",
+      "opciones": [
+        "Círculos perfectos",
+        "Triángulos equiláteros",
+        "Elipses con el Sol en uno de sus focos",
+        "Parábolas abiertas"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "En cinemática, ¿qué diferencia fundamental existe entre desplazamiento y distancia recorrida?",
+      "opciones": [
+        "Son lo mismo",
+        "El desplazamiento es un vector y la distancia es un escalar",
+        "La distancia siempre es menor al desplazamiento",
+        "El desplazamiento no tiene dirección"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "Si la aceleración de un objeto es cero, ¿qué podemos afirmar sobre su velocidad?",
+      "opciones": [
+        "Es necesariamente cero",
+        "Es constante (no cambia)",
+        "Está aumentando",
+        "Está disminuyendo"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "En la EEI, los objetos parecen flotar porque:",
+      "opciones": [
+        "No hay gravedad en el espacio",
+        "Están en caída libre perpetua junto con la estación",
+        "La estación tiene imanes potentes",
+        "El vacío empuja los objetos hacia arriba"
+      ],
+      "correcta": 1
+    }
+  ],
+  "texto_inductivo": "### EXPEDIENTE #001: EL MISTERIO DE LA DERIVA ORBITAL\n\nSaludos, Cadetes de la Sección de Riesgos. Soy el Detective Kepler. Un pulso electromagnético desconocido ha desactivado los sistemas de navegación de la Estación Espacial Internacional (EEI). Estamos a la deriva. ***¿Cómo podemos predecir nuestra posición exacta en el vacío infinito y garantizar nuestra supervivencia si los sensores de velocidad han sido saboteados y solo contamos con las leyes del movimiento planetario?*** [JUEGO:ORDENAR_LETRAS:PLANETA] Para resolver este enigma, debemos mirar hacia atrás, a los hallazgos de Johannes Kepler. Él descubrió que no nos movemos en círculos perfectos, sino en elipses. [JUEGO:ORDENAR_FRASE:LA FISICA SALVA VIDAS] Si no comprendemos la curvatura de nuestra caída, terminaremos incinerados en la atmósfera o perdidos en el vacío profundo. [JUEGO:SOPA_LETRAS:SOL,LUNA,ASTRO]\n\n<svg width='400' height='200' viewBox='0 0 400 200' style='background-color:#000; border-radius:10px;'>\n  <ellipse cx='200' cy='100' rx='150' ry='70' style='fill:none;stroke:#00f;stroke-width:2' />\n  <circle cx='120' cy='100' r='15' style='fill:#ff0' />\n  <text x='110' y='80' fill='#fff' font-size='12'>SOL (FOCO)</text>\n  <circle cx='350' cy='100' r='8' style='fill:#4af' />\n  <text x='330' y='85' fill='#fff' font-size='12'>EEI</text>\n  <line x1='120' y1='100' x2='350' y2='100' style='stroke:#fff;stroke-dasharray:4' />\n  <text x='210' y='120' fill='#0f0' font-size='10'>Radio Vector</text>\n</svg>\n\nLa gravedad es nuestra única guía ahora. [JUEGO:ORDENAR_LETRAS:GRAVEDAD] Debemos recordar que mientras más cerca estemos del centro de masa, más rápido nos desplazaremos. [JUEGO:CRUCIGRAMA:Estrella central|SOL;Trayectoria curva|ORBITA] Este es el principio de conservación del momento angular, camuflado en la Segunda Ley de Kepler. [JUEGO:ORDENAR_FRASE:TODO MOVIMIENTO ES RELATIVO] Si la EEI barre áreas iguales en tiempos iguales, ¿podemos calcular cuánto tiempo nos queda antes del próximo perigeo? [JUEGO:SOPA_LETRAS:FISICA,CIENCIA,LEY]\n\nEl espacio no perdona errores de cálculo. [JUEGO:ORDENAR_LETRAS:ELIPSE] Cada centímetro cuenta cuando la aceleración centrípeta es lo único que evita que salgamos disparados hacia el olvido. [JUEGO:CRUCIGRAMA:Siglas Estacion|EEI;Ausencia aire|VACIO] ¿Es posible que el sabotaje incluya una alteración en nuestra masa inercial? [JUEGO:ORDENAR_FRASE:LA TIERRA GIRA SIEMPRE] Improbable, pero como detectives, debemos considerar todas las variables cinemáticas: posición (r), velocidad (v) y aceleración (a). [JUEGO:SOPA_LETRAS:VECTOR,PUNTO,RECTA] \n\n| Fase de la Órbita | Distancia al Centro | Velocidad Orbital | Estado de Supervivencia |\n|---|---|---|---|\n| Perihelio/Perigeo | Mínima | Máxima | Riesgo de Fricción |\n| Afelio/Apogeo | Máxima | Mínima | Riesgo de Deriva |\n\nLa inercia es nuestra enemiga si no sabemos controlarla. [JUEGO:ORDENAR_LETRAS:MASA] [JUEGO:ORDENAR_FRASE:EL ESPACIO ES INMENSO] Estamos atrapados en una danza invisible gobernada por ecuaciones. [JUEGO:CRUCIGRAMA:Fuerza invisible|GRAVEDAD;Masa inercial|MATERIA] Sin los instrumentos, la observación de las estrellas fijas es nuestra única referencia para determinar nuestra posición relativa. [JUEGO:SOPA_LETRAS:MOVIMIENTO,CAIDA,LIBRE] Debemos ser precisos; un error de un grado en el vector de velocidad y la estación se fragmentará. [JUEGO:ORDENAR_LETRAS:FOCO] [JUEGO:ORDENAR_FRASE:KEPLER TENIA RAZON] [JUEGO:SOPA_LETRAS:INERCIA,ACCION,REACCION] [JUEGO:CRUCIGRAMA:Cambio velocidad|ACELERACION;Rapidez vectorial|VELOCIDAD] Finalmente, analizaremos cómo la Tercera Ley de Kepler nos permite saber la distancia al centro de la Tierra con solo mirar nuestro reloj. [JUEGO:CRUCIGRAMA:Forma huevo|ELIPSE;Fisico leyes|NEWTON]",
+  "recurso_visual": "graph TD\n    A[EMERGENCIA: Fallo de Sistemas] --> B{¿Conocemos la Órbita?}\n    B -- SÍ --> C[Aplicar Leyes de Kepler]\n    B -- NO --> D[Observación de Estrellas de Referencia]\n    C --> E[Calcular Velocidad en Perigeo]\n    E --> F[Ajustar Propulsores Manuales]\n    F --> G[SUPERVIVENCIA LOGRADA]\n    D --> C",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "¿Por qué es crucial entender que la órbita de la EEI es una elipse y no un círculo perfecto durante una emergencia?",
+      "respuesta_esperada": "Porque en una elipse la velocidad no es constante; varía dependiendo de la distancia al foco (la Tierra), lo que afecta los cálculos de maniobra y tiempo de reacción."
+    },
+    {
+      "pregunta": "Si barremos áreas iguales en tiempos iguales, ¿qué sucede con la rapidez de la estación cuando se aleja de la Tierra?",
+      "respuesta_esperada": "La rapidez disminuye para compensar el aumento de la distancia (radio vector) y mantener el área barrida constante."
+    },
+    {
+      "pregunta": "En el contexto de supervivencia, ¿qué representa el 'foco' vacío de nuestra órbita elíptica?",
+      "respuesta_esperada": "Es un punto matemático necesario para definir la trayectoria, pero no contiene masa; el foco ocupado es el centro de la Tierra."
+    },
+    {
+      "pregunta": "¿Cómo ayuda la Tercera Ley de Kepler (armonía de los mundos) a un detective espacial sin computadoras?",
+      "respuesta_esperada": "Permite relacionar el tiempo que tarda la estación en dar una vuelta completa con su distancia promedio a la Tierra, permitiendo ubicar la altitud aproximada."
+    },
+    {
+      "pregunta": "¿Qué fuerza actúa como 'pegamento' cinemático manteniendo la EEI en su trayectoria elíptica?",
+      "respuesta_esperada": "La fuerza de gravedad, que actúa como fuerza centrípeta alterando constantemente la dirección de la velocidad."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema de la órbita elíptica de la EEI, señalando los focos, el perigeo, el apogeo y sombreando dos sectores de 'áreas iguales' que representen diferentes velocidades.",
+    "Realiza un cuadro comparativo entre el movimiento circular uniforme y el movimiento planetario elíptico, destacando qué ocurre con la velocidad en cada uno.",
+    "Redacta una bitácora de detective (mínimo 15 líneas) explicando por qué la 'caída libre' es en realidad lo que nos mantiene vivos en órbita.",
+    "Representa gráficamente mediante un diagrama de vectores cómo cambia la dirección de la velocidad de la estación en cuatro puntos diferentes de su órbita."
+  ],
+  "texto_deductivo": "### ANÁLISIS FORENSE: CINEMÁTICA DEL ESCAPE\n\nPara sobrevivir, no basta con saber *hacia dónde* vamos, sino *cómo* estamos cambiando. [JUEGO:ORDENAR_LETRAS:VECTOR] La cinemática nos da las herramientas para describir el movimiento sin preocuparnos (por ahora) por las causas. [JUEGO:ORDENAR_FRASE:LA ACELERACION ES CAMBIO] Necesitamos definir nuestra posición exacta usando coordenadas tridimensionales. [JUEGO:SOPA_LETRAS:METRO,SEGUNDO,HORA] Si la estación se desplaza 1000 km en línea recta, pero regresa al mismo punto orbital, su desplazamiento neto es cero, aunque su distancia recorrida sea inmensa. [JUEGO:CRUCIGRAMA:Unidad de tiempo|SEGUNDO;Unidad de longitud|METRO]\n\n<div style='background: #1a1a1a; padding: 20px; border: 2px solid #00ff00; color: #00ff00; font-family: monospace;'>\n  <h3>REPORTE DE ESTADO CINEMÁTICO</h3>\n  <p>VELOCIDAD (v) = Δx / Δt  --> ¿Es nuestra trayectoria una recta?</p>\n  <p>ACELERACIÓN (a) = Δv / Δt --> ¡Alerta! La dirección cambia continuamente.</p>\n  <hr>\n  <p><strong>Vector Posición:</strong> r(t) = [x, y, z]</p>\n</div>\n\nLa inercia dicta que un cuerpo en movimiento permanecerá en movimiento. [JUEGO:ORDENAR_LETRAS:INERCIA] [JUEGO:ORDENAR_FRASE:VELOCIDAD ES VECTORIAL] Sin embargo, en el espacio, la aceleración no siempre significa 'ir más rápido'. [JUEGO:SOPA_LETRAS:NORTE,SUR,ESTE] Puede significar simplemente cambiar de dirección para evitar un impacto con basura espacial. [JUEGO:CRUCIGRAMA:Cambio de lugar|DESPLAZAMIENTO;Camino recorrido|TRAYECTORIA] El sabotaje ha alterado nuestro reloj maestro. [JUEGO:ORDENAR_LETRAS:RAPIDEZ] Si no podemos medir el tiempo con precisión, la velocidad se vuelve una incógnita peligrosa. [JUEGO:ORDENAR_FRASE:LA MASA NO CAMBIA] [JUEGO:SOPA_LETRAS:ALFA,BETA,GAMA]\n\nLa rapidez es una magnitud escalar, pero la velocidad es un vector. [JUEGO:ORDENAR_LETRAS:TIEMPO] Un detective espacial sabe que puedes tener rapidez constante y aun así estar acelerando (aceleración centrípeta). [JUEGO:CRUCIGRAMA:Posee magnitud y direccion|VECTOR;Solo magnitud|ESCALAR] [JUEGO:ORDENAR_FRASE:EL PESO ES FUERZA] Esta distinción es la que nos permitirá recalcular el encendido de los motores de emergencia. [JUEGO:SOPA_LETRAS:CINEMATICA,DINAMICA,ESTATICA]\n\n| Concepto | Tipo de Magnitud | Unidad SI | Descripción |\n|---|---|---|---|\n| Posición | Vectorial | Metros (m) | Ubicación respecto al origen |\n| Velocidad | Vectorial | m/s | Cambio de posición en el tiempo |\n| Aceleración | Vectorial | m/s² | Cambio de velocidad en el tiempo |\n| Rapidez | Escalar | m/s | Módulo del vector velocidad |\n\nLa trayectoria es el rastro que dejamos en el vacío. [JUEGO:ORDENAR_LETRAS:POSICION] Si es curva, hay una fuerza actuando. [JUEGO:ORDENAR_FRASE:DISTANCIA NO ES DESPLAZAMIENTO] [JUEGO:CRUCIGRAMA:Relacion d sobre t|VELOCIDAD;Magnitud de v|RAPIDEZ] Si logramos estabilizar la estación, pasaremos del movimiento acelerado al reposo relativo respecto a la Tierra. [JUEGO:SOPA_LETRAS:RAPIDEZ,ESCALAR,VECTOR] [JUEGO:CRUCIGRAMA:Cero movimiento|REPOSO;Estado de cambio|MOVIMIENTO] [JUEGO:SOPA_LETRAS:TRAYECTORIA,ORIGEN,MARCO] La clave final de este misterio reside en entender que en órbita, siempre estamos cayendo, pero tenemos tanta velocidad lateral que nunca tocamos el suelo. Esa es la cinemática de la supervivencia.",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "¿Por qué un astronauta que camina fuera de la estación tiene la misma velocidad orbital que la estación misma?",
+      "respuesta_esperada": "Por la ley de inercia; al no haber fuerzas significativas de fricción, mantiene el estado de movimiento que tenía al estar dentro de la estación."
+    },
+    {
+      "pregunta": "Si la rapidez de la EEI es constante en un tramo circular, ¿por qué decimos que su aceleración no es cero?",
+      "respuesta_esperada": "Porque la velocidad es un vector y, aunque su magnitud (rapidez) no cambie, su dirección cambia constantemente, lo que implica la existencia de una aceleración centrípeta."
+    },
+    {
+      "pregunta": "Si queremos alejarnos de la Tierra para evitar un residuo, ¿debemos aumentar o disminuir nuestra velocidad orbital?",
+      "respuesta_esperada": "Debemos aumentarla, ya que según las leyes de Kepler y la mecánica orbital, una mayor velocidad a una altitud dada nos empujará a una órbita más alta (mayor energía)."
+    },
+    {
+      "pregunta": "¿Cuál es la diferencia técnica entre decir 'la estación va a 27,000 km/h' y 'la estación tiene una velocidad de 27,000 km/h hacia el Este'?",
+      "respuesta_esperada": "La primera es la rapidez (escalar) y la segunda es la velocidad (vectorial, incluye dirección)."
+    },
+    {
+      "pregunta": "En un sistema de coordenadas donde la Tierra es el origen (0,0,0), ¿qué representa el vector posición de la estación?",
+      "respuesta_esperada": "Representa la distancia y dirección exacta desde el centro de la Tierra hasta el centro de masa de la estación en un instante t."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Elabora un diagrama detallado de los vectores de velocidad y aceleración centrípeta para la EEI en cuatro puntos de una órbita elíptica, usando colores diferentes para cada magnitud.",
+    "Crea un mapa mental que conecte los conceptos de Cinemática (Posición, Velocidad, Aceleración) con las tres Leyes de Kepler.",
+    "Dibuja una infografía artesanal titulada 'Manual de Supervivencia: Cómo no perderse en el Vacío', explicando gráficamente la diferencia entre trayectoria, distancia y desplazamiento.",
+    "Diseña un dibujo explicativo que muestre qué sucedería con la trayectoria de la estación si la gravedad de la Tierra desapareciera súbitamente (Ley de Inercia)."
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "Un detective espacial analiza los datos de telemetría de un satélite de suministros que intenta acoplarse a la EEI. Los datos muestran que el satélite mantiene una rapidez constante de 7,600 m/s en una trayectoria curva perfecta alrededor de la Tierra.",
+      "tabla_o_grafica_markdown": "| Variable | Valor Medido | Comentario |\n|---|---|---|\n| Rapidez | 7,600 m/s | Constante |\n| Dirección | Cambiante | Trayectoria Circular |\n| Fuerza Neta | Gravitacional | Hacia el centro |",
+      "pregunta": "¿Cuál de las siguientes afirmaciones sobre la aceleración del satélite es correcta basándose en los principios de la cinemática?",
+      "opciones": [
+        "La aceleración es cero porque la rapidez no cambia.",
+        "La aceleración es constante en magnitud y apunta hacia el centro de la Tierra.",
+        "La aceleración es negativa porque el satélite está cayendo.",
+        "La aceleración aumenta a medida que el satélite completa cada órbita."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. Aunque la rapidez es constante, el cambio en la dirección del vector velocidad implica una aceleración.",
+        "1": "Correcto. En un movimiento circular uniforme, existe una aceleración centrípeta que cambia la dirección del vector velocidad y apunta siempre al centro.",
+        "2": "Incorrecto. El término 'negativa' depende del sistema de referencia, pero aquí hablamos de dirección radial.",
+        "3": "Incorrecto. Si la rapidez y el radio son constantes, la magnitud de la aceleración centrípeta también lo es."
+      }
+    }
+  ]
+}

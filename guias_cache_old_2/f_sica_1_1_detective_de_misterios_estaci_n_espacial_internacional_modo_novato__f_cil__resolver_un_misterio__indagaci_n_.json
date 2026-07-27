@@ -1,0 +1,114 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "Si estás sentado en un aula de la IE Instituto Montenegro sin moverte, ¿estás realmente en reposo absoluto?",
+      "opciones": [
+        "Sí, porque mi pupitre y yo no nos movemos para nada.",
+        "No, porque la Tierra (y el colegio con ella) se está moviendo en el espacio.",
+        "Depende de si el profesor me está mirando o no.",
+        "Sí, porque no siento que me esté moviendo."
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "Vas en el bus escolar de regreso a casa. Para tu compañero que va al lado, tú estás...",
+      "opciones": [
+        "En movimiento, porque el bus avanza rápido.",
+        "En reposo, porque tu posición respecto a él no cambia.",
+        "Flotando, debido a la gravedad.",
+        "En reposo absoluto en todo el universo."
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Qué elemento es fundamental para decidir si un objeto se mueve o está quieto?",
+      "opciones": [
+        "Un cronómetro muy rápido.",
+        "Un punto de referencia u observador.",
+        "Una regla de un metro.",
+        "La luz del Sol."
+      ],
+      "correcta": 2
+    }
+  ],
+  "texto_inductivo": "# ¡Alerta en la Estación Espacial Internacional! El Misterio del Termo Flotante\n\n¡Un saludo, joven detective de la **IE Instituto Montenegro**! Soy el Detective Astro. Hoy nos enfrentamos a un misterio que desafía el sentido común, directamente desde la cúpula de la Estación Espacial Internacional (EEI). \n\nLa astronauta Elena dejó su termo de café flotando en el aire de la cabina mientras realizaba una videollamada con los estudiantes en Quindío. Para ella, el termo estaba perfectamente quieto, suspendido a un metro del suelo. Sin embargo, desde nuestro centro de control en la Tierra, vemos que la EEI —y el termo dentro de ella— viajan a la asombrosa velocidad de **27,600 km/h**.\n\nEsto nos lleva a plantear nuestra gran investigación:\n\n***¿Cómo es posible que mientras estás sentado en tu pupitre de la IE Instituto Montenegro sintiéndote completamente quieto, en realidad te estés moviendo por el espacio a miles de kilómetros por hora igual que un astronauta flotando en la Estación Espacial Internacional?***\n\nResolvemos este misterio analizando las pistas físicas del movimiento y el reposo.\n\n<div style=\"text-align: center; margin: 20px 0;\">\n  <svg width=\"320\" height=\"220\" viewBox=\"0 0 320 220\" xmlns=\"http://www.w3.org/2000/svg\" style=\"background-color:#0B1D3A; border-radius:12px; box-shadow: 0 4px 8px rgba(0,0,0,0.5);\">\n    <!-- Espacio profundo -->\n    <circle cx=\"50\" cy=\"40\" r=\"1\" fill=\"#FFF\"/>\n    <circle cx=\"280\" cy=\"60\" r=\"1.5\" fill=\"#FFF\"/>\n    <circle cx=\"120\" cy=\"150\" r=\"1\" fill=\"#FFF\"/>\n    <circle cx=\"200\" cy=\"30\" r=\"2\" fill=\"#FFD700\"/>\n    <!-- La Tierra -->\n    <circle cx=\"160\" cy=\"240\" r=\"120\" fill=\"#1E90FF\" stroke=\"#4682B4\" stroke-width=\"4\"/>\n    <path d=\"M100,160 Q120,150 150,155 T220,170 Q200,190 160,195 Z\" fill=\"#2E8B57\"/>\n    <!-- Estación Espacial -->\n    <g transform=\"translate(130, 50)\">\n      <rect x=\"10\" y=\"15\" width=\"40\" height=\"8\" fill=\"#DCDCDC\" rx=\"2\"/>\n      <line x1=\"-10\" y1=\"19\" x2=\"70\" y2=\"19\" stroke=\"#C0C0C0\" stroke-width=\"3\"/>\n      <rect x=\"-15\" y=\"4\" width=\"10\" height=\"30\" fill=\"#4682B4\" opacity=\"0.8\"/>\n      <rect x=\"65\" y=\"4\" width=\"10\" height=\"30\" fill=\"#4682B4\" opacity=\"0.8\"/>\n      <circle cx=\"30\" cy=\"19\" r=\"5\" fill=\"#FF5733\"/>\n    </g>\n    <path d=\"M80,85 A 110 110 0 0 1 240,85\" fill=\"none\" stroke=\"#FFD700\" stroke-width=\"2\" stroke-dasharray=\"5,5\"/>\n    <text x=\"160\" y=\"115\" font-family=\"sans-serif\" font-size=\"10\" fill=\"#FFD700\" text-anchor=\"middle\">Órbita de la EEI: 27,600 km/h</text>\n    <text x=\"160\" y=\"210\" font-family=\"sans-serif\" font-size=\"11\" fill=\"#FFF\" text-anchor=\"middle\" font-weight=\"bold\">IE Instituto Montenegro (Tierra)</text>\n  </svg>\n</div>\n\n## Pista 1: ¿Qué significa moverse?\n\nPara atrapar al culpable de nuestra confusión, primero debemos ordenar nuestras ideas básicas sobre el movimiento.\n\n[JUEGO:ORDENAR_LETRAS:MOVIMIENTO]\n\n[JUEGO:ORDENAR_LETRAS:REPOSO]\n\nCuando dices que algo se mueve, es porque cambia su **posición** a medida que pasa el tiempo. Pero, ¡ojo!, esto solo tiene sentido si lo comparas con algo que consideres fijo. A ese \"algo\" lo llamamos **Punto de Referencia**.\n\n[JUEGO:ORDENAR_FRASE:EL MOVIMIENTO ES RELATIVO]\n\nSi el punto de referencia cambia, la respuesta también. Por ejemplo, para un pajarito que vuela sobre la plaza de Montenegro, tú sentado en clase te estás alejando. Pero para tu pupitre, estás en absoluto silencio y calma.\n\n[JUEGO:SOPA_LETRAS:REPOSO,MOVIMIENTO,FISICA]\n\n[JUEGO:SOPA_LETRAS:ESPACIO,ESTACION,TIERRA]\n\n[JUEGO:CRUCIGRAMA:Estado de no movimiento|REPOSO;Cambio de posicion|MOVIMIENTO]\n\n## Pista 2: La ilusión de estar quieto\n\nAquí va una pista clave para nuestro misterio. \n\n[JUEGO:ORDENAR_LETRAS:DISTANCIA]\n\n[JUEGO:ORDENAR_FRASE:TODO DEPENDE DEL OBSERVADOR]\n\n[JUEGO:ORDENAR_FRASE:TU TE MUEVES CON LA TIERRA]\n\n[JUEGO:SOPA_LETRAS:GRAVEDAD,ORBITA,DETECTIVE]\n\n[JUEGO:CRUCIGRAMA:Desde donde miramos el movimiento|REFERENCIA;Lugar en el espacio|POSICION]\n\nComo la Tierra gira sobre su propio eje y además viaja alrededor del Sol, tú, tu aula, la IE Instituto Montenegro y todo el departamento del Quindío se mueven por el cosmos a velocidades de vértigo. ¡No lo sientes porque la atmósfera y todo a tu alrededor se mueve contigo a la misma velocidad!",
+  "recurso_visual": "| Situación / Objeto | Punto de Referencia: La Cabina de la EEI | Punto de Referencia: El Centro de la Tierra |\n| :--- | :--- | :--- |\n| **Termo de café flotante** | **En Reposo** (No cambia su posición respecto a las paredes de la estación) | **En Movimiento** (Se desplaza a 27,600 km/h en órbita circular) |\n| **Astronauta Elena** | **En Reposo** (Flota estable frente a su cámara de video) | **En Movimiento** (Gira alrededor del planeta completo cada 90 minutos) |\n| **Estudiante en Montenegro** | **En Movimiento** (La estación espacial lo pasa de largo continuamente) | **En Reposo** (Sentado en su pupitre dentro del aula) |",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "¿Por qué la astronauta Elena ve el termo de café quieto (en reposo)?",
+      "respuesta_esperada": "Porque está usando la cabina de la estación espacial como su punto de referencia, y la distancia entre el termo y las paredes no varía."
+    },
+    {
+      "pregunta": "¿Por qué un científico en la Tierra dice que el termo se mueve rapidísimo?",
+      "respuesta_esperada": "Porque su punto de referencia es el centro de la Tierra, y desde allí la estación recorre miles de kilómetros en el espacio."
+    },
+    {
+      "pregunta": "Si vas caminando al tablero del salón, ¿te mueves respecto al tablero?",
+      "respuesta_esperada": "Sí, porque tu posición con relación al tablero cambia a medida que transcurre el tiempo."
+    },
+    {
+      "pregunta": "¿Qué es un punto de referencia en física?",
+      "respuesta_esperada": "Es un objeto o lugar que elegimos como fijo para poder medir y describir si otros cuerpos se mueven o están quietos."
+    },
+    {
+      "pregunta": "¿Por qué no sentimos el movimiento de rotación de la Tierra en Montenegro?",
+      "respuesta_esperada": "Porque nos movemos junto con la Tierra, el suelo y el aire que nos rodea a la misma velocidad constante."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Reto Detective 1: Dibuja en tu cuaderno la escena del termo flotando dentro de la ISS. Traza dos flechas que muestren los dos puntos de vista (Elena vs. Detective en la Tierra).",
+    "Reto Detective 2: Escribe una carta corta a la astronauta Elena explicándole por qué su café está quieto y en movimiento al mismo tiempo.",
+    "Reto Detective 3: Imagina que dejas caer un borrador en el salón. Diseña un breve informe policial describiendo quién lo ve moverse y quién no.",
+    "Reto Detective 4: Si la ISS viaja a 27,600 km/h, ¿cuántos kilómetros recorre en un viaje de dos horas? ¡Haz los cálculos matemáticos de detective!"
+  ],
+  "texto_deductivo": "# La Ciencia del Movimiento: El Sistema de Referencia\n\n¡Felicidades, detective! Hemos recolectado suficientes pistas inductivas. Ahora es el momento de formalizar el veredicto científico. En física, el misterio se resuelve utilizando el concepto formal de **Sistema de Referencia**.\n\nUn **Sistema de Referencia** es un conjunto de convenciones usado por un observador para medir la posición y otras magnitudes físicas de un objeto. No existe un \"reposo absoluto\" en el universo; todo movimiento es **relativo**.\n\n<div style=\"text-align: center; margin: 20px 0;\">\n  <table style=\"border-collapse: collapse; margin: auto; background-color: #F4F6F7; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); overflow: hidden;\">\n    <thead>\n      <tr style=\"background-color: #2C3E50; color: white;\">\n        <th style=\"padding: 10px 15px; border: 1px solid #BDC3C7;\">Concepto Clave</th>\n        <th style=\"padding: 10px 15px; border: 1px solid #BDC3C7;\">Definición Sencilla (Grado 6)</th>\n      </tr>\n    </thead>\n    <tbody>\n      <tr>\n        <td style=\"padding: 8px 12px; border: 1px solid #BDC3C7; font-weight: bold;\">Posición</td>\n        <td style=\"padding: 8px 12px; border: 1px solid #BDC3C7;\">El lugar exacto donde se encuentra un cuerpo.</td>\n      </tr>\n      <tr style=\"background-color: #EAEDED;\">\n        <td style=\"padding: 8px 12px; border: 1px solid #BDC3C7; font-weight: bold;\">Movimiento</td>\n        <td style=\"padding: 8px 12px; border: 1px solid #BDC3C7;\">Cambiar de posición respecto a un punto elegido.</td>\n      </tr>\n      <tr>\n        <td style=\"padding: 8px 12px; border: 1px solid #BDC3C7; font-weight: bold;\">Reposo</td>\n        <td style=\"padding: 8px 12px; border: 1px solid #BDC3C7;\">Mantener la misma posición respecto al punto elegido.</td>\n      </tr>\n    </tbody>\n  </table>\n</div>\n\n[JUEGO:ORDENAR_LETRAS:RAPIDEZ]\n\n[JUEGO:ORDENAR_LETRAS:TRAYECTORIA]\n\n## Las Reglas de Oro de la Cinemática\n\n1. **El reposo absoluto no existe**: Dado que el universo se está expandiendo, las galaxias se mueven, el Sol órbita la Vía Láctea y la Tierra gira, nada está verdaderamente quieto.\n2. **La trayectoria depende del ojo que mire**: Si dejas caer una manzana dentro de un tren en movimiento, para ti cae en línea recta vertical. Para alguien de pie al lado de la carrilera, la manzana hace una curva (parábola).\n\n[JUEGO:ORDENAR_FRASE:NADA ESTA EN REPOSO ABSOLUTO]\n\n[JUEGO:ORDENAR_FRASE:LA ESTACION ESPACIAL DA VUELTAS]\n\n[JUEGO:SOPA_LETRAS:SISTEMA,REFERENCIA,PUNTO]\n\n[JUEGO:SOPA_LETRAS:RAPIDEZ,VELOCIDAD,TIEMPO]\n\n<div style=\"text-align: center; margin: 20px 0;\">\n  <svg width=\"280\" height=\"140\" viewBox=\"0 0 280 140\" xmlns=\"http://www.w3.org/2000/svg\" style=\"background-color:#FFF; border: 2px solid #34495E; border-radius:10px;\">\n    <!-- Ejes coordenados simples -->\n    <line x1=\"30\" y1=\"110\" x2=\"250\" y2=\"110\" stroke=\"#34495E\" stroke-width=\"3\" marker-end=\"url(#arrow)\"/>\n    <line x1=\"30\" y1=\"110\" x2=\"30\" y2=\"20\" stroke=\"#34495E\" stroke-width=\"3\"/>\n    <!-- Persona en el origen -->\n    <circle cx=\"30\" cy=\"110\" r=\"6\" fill=\"#E74C3C\"/>\n    <!-- Objeto moviéndose -->\n    <circle cx=\"180\" cy=\"60\" r=\"8\" fill=\"#3498DB\"/>\n    <path d=\"M30,110 Q100,50 180,60\" fill=\"none\" stroke=\"#2ECC71\" stroke-width=\"2\" stroke-dasharray=\"4\"/>\n    <!-- Etiquetas -->\n    <text x=\"35\" y=\"125\" font-family=\"sans-serif\" font-size=\"9\" fill=\"#222\">Origen (Punto de Referencia)</text>\n    <text x=\"190\" y=\"55\" font-family=\"sans-serif\" font-size=\"10\" fill=\"#222\" font-weight=\"bold\">Objeto en Movimiento</text>\n    <text x=\"110\" y=\"60\" font-family=\"sans-serif\" font-size=\"9\" fill=\"#27AE60\">Trayectoria</text>\n  </svg>\n</div>\n\n[JUEGO:CRUCIGRAMA:Camino que sigue un objeto|TRAYECTORIA;Medida del camino recorrido|DISTANCIA]\n\n[JUEGO:CRUCIGRAMA:Nuestra nave en orbita|ESTACION;Planeta donde vivimos|TIERRA]\n\n[JUEGO:CRUCIGRAMA:El detective que resuelve el misterio|DETECTIVE;Fuerza que nos mantiene en orbita|GRAVEDAD]\n\n¡Caso cerrado! El termo flotante está en reposo relativo a la nave, pero en movimiento relativo a la Tierra. Ambos puntos de vista son científicamente correctos y verdaderos.",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "¿Por qué se afirma que el reposo absoluto no existe en nuestro universo?",
+      "respuesta_esperada": "Porque todos los planetas, estrellas y galaxias están en continuo movimiento en el espacio exterior."
+    },
+    {
+      "pregunta": "Si un carro pasa frente a la IE Instituto Montenegro, ¿qué indica que se mueve?",
+      "respuesta_esperada": "Que su posición respecto a las puertas del colegio cambia de manera constante en el tiempo."
+    },
+    {
+      "pregunta": "¿Qué es la trayectoria de un objeto según la cinemática?",
+      "respuesta_esperada": "Es la línea o camino imaginario que dibuja un cuerpo mientras se desplaza por el espacio."
+    },
+    {
+      "pregunta": "Si estás parado al lado de una vía de tren y ves pasar un vagón, ¿cómo se mueve una persona sentada adentro respecto a ti?",
+      "respuesta_esperada": "Se mueve a la misma velocidad que avanza el tren."
+    },
+    {
+      "pregunta": "¿Cómo se llama el sistema que nos permite medir la posición de los cuerpos de forma precisa?",
+      "respuesta_esperada": "Se llama Sistema de Referencia."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Reto de Evidencia 1: Define con tus propias palabras qué es 'movimiento relativo' y pon un ejemplo de tu vida diaria en el municipio de Montenegro.",
+    "Reto de Evidencia 2: Dibuja un sistema de coordenadas sencillo en tu cuaderno, ubica un punto de referencia en el origen (0,0) y dibuja el movimiento de una mariposa.",
+    "Reto de Evidencia 3: Explica por qué dos detectives pueden tener respuestas diferentes pero válidas sobre si un mismo objeto se mueve o está quieto.",
+    "Reto de Evidencia 4: Investiga a qué velocidad gira la Tierra sobre su propio eje y compárala con la velocidad de la Estación Espacial Internacional."
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de fenómenos",
+      "texto_introductorio": "Dos estudiantes de sexto grado de la IE Instituto Montenegro observan a un pájaro volar en línea recta de norte a sur sobre la cancha de fútbol. El estudiante A está sentado en las graderías sin moverse, mientras que el estudiante B está corriendo de sur a norte persiguiendo un balón.",
+      "tabla_o_grafica_markdown": "| Observador | Estado del Observador | Dirección en la que ve moverse al pájaro |\n| :--- | :--- | :--- |\n| **Estudiante A** | En reposo en la gradería | Hacia el sur a velocidad normal |\n| **Estudiante B** | Corriendo hacia el norte | Hacia el sur a una velocidad aparentemente mayor |",
+      "pregunta": "Con base en la información anterior y los principios de la cinemática básica, ¿cuál de las siguientes explicaciones es científicamente correcta?",
+      "opciones": [
+        "El pájaro vuela a velocidades diferentes porque puede sentir quién corre y quién está sentado.",
+        "Ambos estudiantes describen el movimiento de forma distinta porque tienen diferentes sistemas de referencia.",
+        "Solo el estudiante A tiene la razón, porque al estar quieto su observación es la única real.",
+        "El pájaro está en reposo absoluto y son los estudiantes quienes se desplazan."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. Los animales no cambian su velocidad física basándose en el estado de movimiento de los observadores en tierra.",
+        "1": "¡Correcto! El movimiento es relativo y depende directamente del sistema de referencia del observador. Como el estudiante B corre en dirección contraria, percibe que el pájaro pasa más veloz.",
+        "2": "Incorrecto. En física no hay un observador privilegiado para definir el movimiento; ambos sistemas de referencia son válidos.",
+        "3": "Incorrecto. El pájaro está cambiando activamente su posición respecto al suelo, por lo tanto no está en reposo."
+      }
+    }
+  ]
+}

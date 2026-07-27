@@ -1,0 +1,114 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Qué forma tiene la trayectoria de los planetas alrededor del Sol según el conocimiento científico actual?",
+      "opciones": [
+        "Círculos perfectos",
+        "Elipses",
+        "Líneas rectas",
+        "Espirales"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Cuál es la fuerza responsable de mantener a los planetas en su órbita?",
+      "opciones": [
+        "Magnetismo",
+        "Fricción espacial",
+        "Gravitación",
+        "Energía solar"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "Si un planeta se aleja del Sol en su órbita, ¿qué sucede con su velocidad?",
+      "opciones": [
+        "Aumenta",
+        "Disminuye",
+        "Se mantiene constante",
+        "Se detiene"
+      ],
+      "correcta": 1
+    }
+  ],
+  "texto_inductivo": "¡Bienvenidos, cadetes de la selva! Soy el Detective Kepler y hoy nos adentraremos en la maleza más densa de la ignorancia para desenterrar la verdad sobre los cielos. Nuestra misión es rastrear las huellas de los gigantes que nos precedieron para entender cómo se mueven las esferas celestes. ***¿Si la Tierra se mueve a miles de kilómetros por hora a través del vacío, por qué no sentimos el viento en la cara y cómo es que no salimos disparados hacia el espacio profundo mientras caminamos por la selva?*** Esta pregunta es la brújula de nuestra expedición. [JUEGO:ORDENAR_LETRAS:PLANETA] El primer rastro lo encontramos en la idea de que todo lo que sube debe bajar, pero en el espacio, 'arriba' y 'abajo' son conceptos relativos. [JUEGO:ORDENAR_FRASE:LA TIERRA GIRA ALREDEDOR DEL SOL] Antiguamente, los exploradores creían que éramos el centro del universo, un mito que costó siglos derribar. <div style='background-color: #e0f2f1; border: 5px dashed #00796b; padding: 20px; text-align: center;'><svg width='300' height='200' viewBox='0 0 300 200'><ellipse cx='150' cy='100' rx='120' ry='70' style='fill:none;stroke:#004d40;stroke-width:2' /><circle cx='100' cy='100' r='15' fill='#ffc107' /><circle cx='270' cy='100' r='8' fill='#2196f3' /><text x='85' y='80' font-family='Arial' font-size='12' fill='#004d40'>Sol (Foco)</text><text x='240' y='125' font-family='Arial' font-size='12' fill='#004d40'>Tierra en Órbita</text></svg><p><b>Diagrama 1: La danza elíptica en la selva cósmica.</b></p></div> [JUEGO:SOPA_LETRAS:FOCO,SOL,EJE] La gravedad es el hilo invisible que conecta la fruta que cae de un árbol con el movimiento de Marte. [JUEGO:CRUCIGRAMA:Centro del sistema|SOL;Camino del planeta|ORBITA] Para entender el movimiento planetario, debemos observar la posición y el tiempo. [JUEGO:ORDENAR_LETRAS:ORBITA] Si medimos dónde está un astro hoy y dónde estará mañana, podemos calcular su velocidad. [JUEGO:ORDENAR_FRASE:KEPLER ESTUDIO LOS MOVIMIENTOS PLANETARIOS] Pero cuidado, en la selva los sentidos engañan. [JUEGO:SOPA_LETRAS:MASA,PESO,FUERZA] Pareciera que estamos quietos, pero viajamos en una nave espacial llamada Tierra. [JUEGO:CRUCIGRAMA:Forma de la orbita|ELIPSE;Tirar hacia abajo|GRAVEDAD] El mito popular dice que las estaciones ocurren porque la Tierra se acerca más al Sol en verano. ¡Falso! [JUEGO:ORDENAR_LETRAS:GRAVEDAD] La distancia varía, sí, pero la inclinación del eje es la verdadera culpable. [JUEGO:ORDENAR_FRASE:EL SOL ESTA EN EL CENTRO] Investigar esto requiere precisión de detective. [JUEGO:SOPA_LETRAS:LUNA,MARTE,TIERRA] <table border='1' style='width:100%; border-collapse: collapse; background-color: #fff9c4;'><tr><th style='background-color: #fbc02d;'>Hallazgo</th><th style='background-color: #fbc02d;'>Descripción</th></tr><tr><td>Posición</td><td>Coordenadas en el mapa estelar.</td></tr><tr><td>Velocidad</td><td>Ritmo de avance en la maleza espacial.</td></tr></table> [JUEGO:CRUCIGRAMA:Espacio sin aire|VACIO;Astro brillante|ESTRELLA] [JUEGO:ORDENAR_LETRAS:ELIPSE] Debemos ser astutos para no caer en las trampas del sentido común. [JUEGO:ORDENAR_FRASE:LOS PLANETAS SE MUEVEN EN ELIPSES] [JUEGO:SOPA_LETRAS:VELOZ,LENTO,CONSTANTE] Finalmente, la aceleración nos dice cómo cambia ese ritmo. [JUEGO:CRUCIGRAMA:Hacer ciencia|INVESTIGAR;Punto de vista|PERSPECTIVA] [JUEGO:ORDENAR_LETRAS:CIENCIA] [JUEGO:ORDENAR_FRASE:LA GRAVEDAD ES UNA FUERZA] [JUEGO:SOPA_LETRAS:CIELO,NOCHE,ESTRELLA]",
+  "recurso_visual": "graph TD\n    A[Gran Pregunta: ¿Por qué no sentimos el movimiento?] --> B[Conceptos Básicos]\n    B --> C(Posición: Dónde está el planeta)\n    B --> D(Velocidad: Qué tan rápido va)\n    B --> E(Aceleración: Cómo cambia su ritmo)\n    C --> F[Orbitas Elípticas]\n    D --> G[Leyes de Kepler]\n    E --> H[Gravitación Universal]\n    F --> I{MITO: Estaciones por distancia}\n    G --> I\n    H --> I\n    I --> J[VERDAD: Inclinación del Eje]",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "¿Cuál es el mito principal que el Detective Kepler busca desmentir en esta expedición?",
+      "respuesta_esperada": "El mito de que las estaciones del año se producen debido a que la Tierra se acerca más al Sol en verano (distancia orbital), cuando en realidad se deben a la inclinación del eje terrestre."
+    },
+    {
+      "pregunta": "Según el texto, ¿por qué los antiguos creían que la Tierra era el centro del universo?",
+      "respuesta_esperada": "Debido a que nuestros sentidos nos engañan (perspectiva geocéntrica), haciéndonos sentir que estamos quietos mientras vemos a los astros moverse a nuestro alrededor."
+    },
+    {
+      "pregunta": "En el Diagrama 1, ¿qué representa el Sol respecto a la elipse?",
+      "respuesta_esperada": "Representa uno de los focos de la elipse orbital."
+    },
+    {
+      "pregunta": "¿Qué relación establece el detective entre una fruta que cae y el movimiento de Marte?",
+      "respuesta_esperada": "Establece que ambos fenómenos están regidos por la misma fuerza: la gravitación universal."
+    },
+    {
+      "pregunta": "¿Cuáles son las tres variables de la cinemática mencionadas para rastrear a los astros?",
+      "respuesta_esperada": "Posición, velocidad y aceleración."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema de la selva donde representes la órbita de la Tierra alrededor del Sol, señalando el perihelio (punto más cercano) y el afelio (punto más lejano).",
+    "Realiza un cuadro comparativo entre la 'Teoría Geocéntrica' (mito antiguo) y la 'Teoría Heliocéntrica' (evidencia científica).",
+    "Escribe una carta de un detective a un habitante de la selva explicándole por qué, aunque la Tierra se mueve rápido, no sentimos el viento del espacio.",
+    "Representa gráficamente, mediante un dibujo creativo, cómo la gravedad actúa como un 'hilo invisible' entre el Sol y los planetas."
+  ],
+  "texto_deductivo": "Tras analizar las pistas inductivas, es hora de aplicar las leyes de la física con rigor de Modo Dios. La cinemática nos da las herramientas: la **posición** define el lugar del sospechoso en el espacio 3D. [JUEGO:ORDENAR_LETRAS:POSICION] La **velocidad** no es solo rapidez, es un vector que nos dice hacia dónde se dirige el planeta. [JUEGO:ORDENAR_FRASE:LA ACELERACION CAMBIA LA VELOCIDAD] Cuando un planeta orbita, su velocidad cambia de dirección constantemente; esto significa que hay una **aceleración** centrípeta causada por la gravedad. [JUEGO:SOPA_LETRAS:LEYES,NORMA,TEORIA] <div style='padding: 20px; background: linear-gradient(135deg, #1a237e, #0d47a1); color: white; border-radius: 15px; font-family: monospace;'><h2 style='color: #ffeb3b;'>Expediente de Evidencia #1</h2><table style='width:100%; color: white; border: 1px solid white;'><tr><td>Variable</td><td>Fórmula / Concepto</td></tr><tr><td>v (Velocidad)</td><td>Δx / Δt</td></tr><tr><td>a (Aceleración)</td><td>Δv / Δt</td></tr><tr><td>F_g (Gravedad)</td><td>G * (m1*m2)/r²</td></tr></table></div> [JUEGO:CRUCIGRAMA:Rapidez con direccion|VELOCIDAD;Cambio en el ritmo|ACELERACION] La Primera Ley de Kepler confirma que el camino es una elipse, no un círculo. [JUEGO:ORDENAR_LETRAS:VELOCIDAD] La Segunda Ley nos dice que el planeta barre áreas iguales en tiempos iguales: ¡corre más cuando está cerca del Sol! [JUEGO:ORDENAR_FRASE:EL PERIHELIO ES EL PUNTO CERCANO] [JUEGO:SOPA_LETRAS:FISICA,CALCULO,DATOS] Aquí desmentimos el mito: si la velocidad aumenta cerca del sol (perihelio), y esto ocurre en enero, ¡debería ser verano en todo el mundo! Pero en el hemisferio norte es invierno. [JUEGO:CRUCIGRAMA:Lugar de un objeto|POSICION;Caida sin apoyo|LIBRE] [JUEGO:ORDENAR_LETRAS:ACELERACION] El culpable es la inclinación de 23.5 grados del eje terrestre. [JUEGO:ORDENAR_FRASE:EL AFELIO ES EL PUNTO LEJANO] [JUEGO:SOPA_LETRAS:TIEMPO,RADIO,AREA] Newton, el gran detective, unificó el cielo y la tierra con su Ley de Gravitación. [JUEGO:CRUCIGRAMA:Fuerza de empuje|FUERZA;Resistencia al cambio|INERCIA] [JUEGO:ORDENAR_LETRAS:NEWTON] La inercia es la que intenta sacar al planeta de la selva, pero la gravedad lo mantiene en su ruta. [JUEGO:ORDENAR_FRASE:LA INERCIA MANTIENE EL MOVIMIENTO] [JUEGO:SOPA_LETRAS:CAMBIO,RITMO,FLUJO] Sin aceleración, no hay curva; sin gravedad, no hay órbita. [JUEGO:CRUCIGRAMA:Punto mas lejano|AFELIO;Punto mas cercano|PERIHELIO] [JUEGO:ORDENAR_LETRAS:INERCIA] [JUEGO:ORDENAR_FRASE:LA FUERZA ES MASA POR ACELERACION] [JUEGO:SOPA_LETRAS:MOTOR,IMPULSO,VIAJE] Así resolvemos el caso: nos movemos por inercia junto con la atmósfera, por eso no sentimos el viento, y la gravedad nos mantiene pegados al suelo de nuestra selva.",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "¿Qué sucede con la velocidad de un planeta cuando pasa por el perihelio?",
+      "respuesta_esperada": "La velocidad aumenta debido a que está en su punto más cercano al Sol, cumpliendo la segunda ley de Kepler (áreas iguales en tiempos iguales)."
+    },
+    {
+      "pregunta": "¿Por qué no sentimos el viento del espacio si la Tierra viaja a gran velocidad?",
+      "respuesta_esperada": "Porque la atmósfera se mueve junto con la Tierra debido a la inercia y la gravedad; estamos en un sistema de referencia en movimiento uniforme (relatividad galileana)."
+    },
+    {
+      "pregunta": "¿Cuál es la función de la aceleración centrípeta en el movimiento planetario?",
+      "respuesta_esperada": "Cambiar la dirección del vector velocidad del planeta para que mantenga una trayectoria curva (órbita) en lugar de seguir en línea recta."
+    },
+    {
+      "pregunta": "Si la Tierra está más cerca del Sol en enero, ¿por qué no es verano en todo el planeta?",
+      "respuesta_esperada": "Porque la distancia al Sol tiene un efecto mínimo comparado con la inclinación del eje terrestre, que determina cómo inciden los rayos solares en cada hemisferio."
+    },
+    {
+      "pregunta": "¿Qué establece la Ley de Gravitación Universal de Newton sobre la distancia?",
+      "respuesta_esperada": "Establece que la fuerza de atracción entre dos cuerpos es inversamente proporcional al cuadrado de la distancia que los separa."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Realiza un diagrama detallado que muestre el vector velocidad y el vector aceleración gravitatoria en cuatro puntos diferentes de una órbita elíptica.",
+    "Elabora un mapa mental que conecte las 3 Leyes de Kepler con la Ley de Gravitación Universal de Newton.",
+    "Dibuja una infografía artesanal titulada 'El Mito de las Estaciones' donde expliques visualmente la diferencia entre distancia orbital e inclinación axial.",
+    "Crea un dibujo explicativo del concepto de 'Inercia' usando un explorador en una camioneta en movimiento a través de la selva."
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "Un estudiante de la Expedición Selva observa que la Tierra se encuentra en el perihelio (punto más cercano al Sol) en el mes de enero y en el afelio (punto más alejado) en julio. El estudiante registra las velocidades de traslación en ambos puntos.",
+      "tabla_o_grafica_markdown": "| Posición | Distancia al Sol (millones km) | Velocidad Orbital (km/s) |\n|---|---|---|\n| Perihelio (Enero) | 147 | 30.3 |\n| Afelio (Julio) | 152 | 29.3 |",
+      "pregunta": "Con base en los datos y las leyes de Kepler, ¿qué se puede concluir sobre el movimiento de la Tierra?",
+      "opciones": [
+        "La Tierra se mueve más rápido en enero porque la fuerza gravitacional es mayor al estar más cerca del Sol.",
+        "La Tierra se mueve más lento en enero para compensar la cercanía al Sol y no chocar.",
+        "Las estaciones dependen exclusivamente de la velocidad orbital de la Tierra.",
+        "La distancia al Sol no influye en la velocidad, los datos muestran una coincidencia casual."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. Según la segunda ley de Kepler y la ley de gravitación de Newton, a menor distancia, mayor fuerza y mayor velocidad orbital.",
+        "1": "Incorrecto. La física indica que a menor distancia la velocidad debe ser mayor para mantener la órbita.",
+        "2": "Incorrecto. Las estaciones dependen de la inclinación del eje, no de la velocidad de traslación.",
+        "3": "Incorrecto. La relación entre distancia y velocidad es una ley física establecida (2da Ley de Kepler)."
+      }
+    }
+  ]
+}

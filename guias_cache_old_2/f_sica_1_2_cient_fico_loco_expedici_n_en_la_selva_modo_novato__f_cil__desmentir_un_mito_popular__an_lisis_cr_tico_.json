@@ -1,0 +1,86 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "Si caminas en círculos en el patio de la IE Instituto Montenegro y terminas exactamente en el mismo punto donde empezaste, ¿cuál fue tu cambio de posición neto?",
+      "opciones": [
+        "Cero, porque volví al punto de origen.",
+        "Igual a la distancia de todo el círculo.",
+        "Infinito, porque me cansé mucho.",
+        "Depende de la velocidad a la que caminé."
+      ],
+      "correcta": 0
+    },
+    {
+      "pregunta": "En un mapa de expedición, ¿qué herramienta te indica la dirección exacta desde tu posición actual hasta el tesoro en línea recta?",
+      "opciones": [
+        "El termómetro de la selva.",
+        "Un vector de desplazamiento (flecha indicadora).",
+        "El odómetro que mide los pasos.",
+        "Un reloj de arena húmeda."
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Qué diferencia hay entre el camino sinuoso que toma una hormiga para esquivar hojas y la línea recta entre su hormiguero y la comida?",
+      "opciones": [
+        "No hay ninguna diferencia física.",
+        "El camino sinuoso es la trayectoria; la línea recta representa el desplazamiento mínimo.",
+        "La línea recta es la trayectoria; el camino sinuoso es la posición.",
+        "La hormiga no experimenta variables cinemáticas."
+      ],
+      "correcta": 1
+    }
+  ],
+  "texto_inductivo": "# ¡ALERTA CIENTÍFICA EN LA JUNGLA! 🧪🌿\n\n¡Saludos, mis audaces e intrépidos neófitos de la **IE Instituto Montenegro**! Soy su guía, el increíble (y solo un *poco* desquiciado) **Dr. Voltius**. ¡Bienvenidos a nuestra gran expedición cinemática por las selvas más densas y misteriosas del Quindío! \n\nHoy vamos a romper un mito que ha hecho perder a miles de exploradores aficionados. Pero antes de adentrarnos en las fauces de los jaguares mecánicos, debemos responder a nuestra gran interrogante:\n\n***¿Cómo es posible que un explorador de la IE Instituto Montenegro, tras caminar por horas esquivando pantanos y arenas movedizas en nuestra expedición selvática, termine exhausto en el mismo campamento de donde salió, afirmando que no se movió de su posición original?***\n\n<div style='text-align: center;'>\n  <svg viewBox='0 0 400 200' width='100%' xmlns='http://www.w3.org/2000/svg' style='background:#1e3f20; border-radius:10px; padding:10px;'>\n    <defs>\n      <pattern id='grid' width='20' height='20' patternUnits='userSpaceOnUse'>\n        <path d='M 20 0 L 0 0 0 20' fill='none' stroke='#2e5f30' stroke-width='1'/>\n      </pattern>\n    </defs>\n    <rect width='100%' height='100%' fill='url(#grid)' />\n    <circle cx='50' cy='100' r='8' fill='#ff5722'/>\n    <text x='45' y='85' fill='#fff' font-family='monospace' font-size='10'>Inicio (Campamento A)</text>\n    <path d='M 50 100 C 120 20, 200 180, 280 50 S 350 150, 350 100 C 300 200, 150 150, 50 100' fill='none' stroke='#ffeb3b' stroke-width='3' stroke-dasharray='5,5'/>\n    <text x='180' y='120' fill='#ffeb3b' font-family='sans-serif' font-size='12'>¡Trayectoria Loca!</text>\n    <circle cx='50' cy='100' r='4' fill='#00e5ff'/>\n  </svg>\n</div>\n\n## El Gran Mito de la Selva: 'Si caminas mucho, tu posición final debe ser muy lejana'\n\n¡FALSO! ¡MENTIRA CIENTÍFICA! Los exploradores novatos creen que la **distancia recorrida** y el **desplazamiento** son lo mismo. Creen que por terminar con los tenis llenos de barro y las rodillas raspadas, su *posición* ha cambiado drásticamente en el mapa de coordenadas del laboratorio. ¡Pero la física demuestra que puedes caminar 100 kilómetros y tu cambio de posición ser exactamente CERO!\n\n¡Vamos a activar nuestras mentes brillantes con estos desafíos de descifrado selvático antes de que nos alcance la lluvia de electrones!\n\n[JUEGO:ORDENAR_LETRAS:POSICION]\n\n[JUEGO:ORDENAR_FRASE:LA TRAYECTORIA ES EL CAMINO]\n\n[JUEGO:SOPA_LETRAS:LINEA,CURVA,PUNTO]\n\n[JUEGO:CRUCIGRAMA:Lugar ocupado en el espacio|POSICION;Camino recorrido por el explorador|TRAYECTORIA]\n\n¿Lo ven? El camino real que pisas, lleno de curvas para esquivar las serpientes, se llama **trayectoria**. Pero tu **posición** se mide respecto a un punto de referencia fijo (el laboratorio de la IE Instituto Montenegro). Si sales del salón de clases, le das la vuelta a toda la manzana persiguiendo un prototipo de robot y regresas al salón... ¡tu posición inicial y final son idénticas!\n\n[JUEGO:ORDENAR_LETRAS:TRAYECTORIA]\n\n[JUEGO:ORDENAR_FRASE:EL DESPLAZAMIENTO ES UNA LINEA RECTA]\n\n[JUEGO:SOPA_LETRAS:MAPA,BRUJULA,METRO]\n\n[JUEGO:CRUCIGRAMA:Punto de donde partimos|ORIGEN;Instrumento para no perderse|BRUJULA]\n\nPara salir con vida de esta selva experimental, debemos dominar estos conceptos. ¡Miren el mapa visual que he preparado en mi pizarra de lianas electromagnéticas!",
+  "recurso_visual": "| Variable Cinemática | Definición en la Selva | Representación Gráfica | Unidad de Medida (SI) |\n| :--- | :--- | :--- | :--- |\n| **Posición (x)** | ¿Dónde estás exactamente ubicado respecto al Árbol Sabio? | Punto de coordenadas `(x, y)` | Metros (m) |\n| **Trayectoria** | El camino curvo, loco y lleno de lianas que realmente pisas. | Línea discontinua y zigzagueante | No tiene fórmula única |\n| **Desplazamiento (Δx)** | La línea recta (vector) desde donde empezaste hasta donde terminaste. | Flecha recta que une inicio y fin | Metros (m) |\n| **Distancia Recorrida** | La longitud total de tus huellas sumadas en el lodo. | Suma de todo el camino recorrido | Metros (m) |",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "Según el Dr. Voltius, si corres en zigzag para huir de una avispa gigante y terminas en el mismo árbol donde empezaste, ¿cuánto vale tu desplazamiento?",
+      "respuesta_esperada": "Cero metros, ya que la posición inicial y final son la misma, a pesar de haber recorrido una trayectoria larga."
+    },
+    {
+      "pregunta": "¿Cuál es la diferencia clave entre 'trayectoria' y 'desplazamiento' en la selva?",
+      "respuesta_esperada": "La trayectoria es la forma del camino seguido (curvo, recto, circular), mientras que el desplazamiento es la línea recta imaginaria que une el punto de partida con el punto de llegada."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja en tu cuaderno un mapa de la IE Instituto Montenegro donde muestres una trayectoria curva para ir de la cafetería al salón de física, y traza con color rojo el vector de desplazamiento.",
+    "Explica por qué un podómetro (contador de pasos) mide la distancia recorrida y no el cambio de posición de un explorador."
+  ],
+  "texto_deductivo": "# LA FÓRMULA DE LA SUPERVIVENCIA: CINEMÁTICA EN ACCIÓN 🌀⛰️\n\n¡Mis pequeños genios! Ahora que hemos desenmascarado el mito de la línea recta, es hora de usar el rigor matemático de nuestro laboratorio selvático. Para describir el movimiento de cualquier criatura (¡como el veloz jaguar de plasma que nos observa desde la copa de los árboles!), los físicos usamos **coordenadas**.\n\nLa **Posición** ($x$) es el lugar preciso que ocupa un cuerpo en el espacio con respecto a un sistema de referencia. Si establecemos que la entrada de la **IE Instituto Montenegro** es nuestro punto $x = 0$ metros (origen):\n\n$$\\text{Posición Final} = x_f$$\n$$\\text{Posición Inicial} = x_i$$\n\nEl **Desplazamiento** (que representamos con la letra griega delta: $\\Delta x$) se calcula de manera extremadamente sencilla:\n\n$$\\Delta x = x_f - x_i$$\n\n¡Ajá! Observen este gráfico de coordenadas de nuestra selva de entrenamiento:\n\n<div style='text-align: center;'>\n  <svg viewBox='0 0 400 200' width='100%' xmlns='http://www.w3.org/2000/svg' style='background:#0d1b2a; border-radius:10px; padding:10px;'>\n    <line x1='40' y1='160' x2='360' y2='160' stroke='#a0aec0' stroke-width='2'/>\n    <line x1='40' y1='160' x2='40' y2='20' stroke='#a0aec0' stroke-width='2'/>\n    <text x='340' y='180' fill='#a0aec0' font-family='sans-serif' font-size='10'>Eje X (Metros)</text>\n    <text x='15' y='40' fill='#a0aec0' font-family='sans-serif' font-size='10' transform='rotate(-90 15 40)'>Eje Y (Metros)</text>\n    <!-- Trayectoria -->\n    <path d='M 100 120 Q 180 30, 280 60' fill='none' stroke='#48bb78' stroke-width='2' stroke-dasharray='4'/>\n    <text x='150' y='65' fill='#48bb78' font-family='sans-serif' font-size='10'>Trayectoria (Curva)</text>\n    <!-- Desplazamiento -->\n    <line x1='100' y1='120' x2='280' y2='60' stroke='#f56565' stroke-width='3' />\n    <polygon points='280,60 270,68 275,60 271,54' fill='#f56565' />\n    <text x='180' y='110' fill='#f56565' font-family='sans-serif' font-size='10'>Desplazamiento (Δx)</text>\n    <circle cx='100' cy='120' r='6' fill='#ed8936'/>\n    <text x='70' y='140' fill='#ed8936' font-family='sans-serif' font-size='10'>x_i (Inicio)</text>\n    <circle cx='280' cy='60' r='6' fill='#3182ce'/>\n    <text x='270' y='45' fill='#3182ce' font-family='sans-serif' font-size='10'>x_f (Fin)</text>\n  </svg>\n</div>\n\n¿Ven la diferencia? Si caminan por la línea verde punteada (trayectoria), recorrerán una gran **distancia** (por ejemplo, 15 metros de puras curvas). Pero su **desplazamiento** (flecha roja) podría ser de solo 8 metros en línea recta.\n\n¡Hagamos funcionar la súper máquina de juegos para fijar estos conocimientos en nuestros cerebros de científicos!\n\n[JUEGO:ORDENAR_LETRAS:DISTANCIA]\n\n[JUEGO:ORDENAR_FRASE:LA POSICION DEPENDE DEL PUNTO DE REFERENCIA]\n\n[JUEGO:SOPA_LETRAS:MOVIMIENTO,FISICA,SABIO]\n\n[JUEGO:CRUCIGRAMA:Magnitud del camino total|DISTANCIA;Cambio neto de posicion|DESPLAZAMIENTO]\n\n[JUEGO:ORDENAR_LETRAS:SELVA]\n\n[JUEGO:ORDENAR_FRASE:EL MOVIMIENTO ES RELATIVO EN LA SELVA]\n\n[JUEGO:SOPA_LETRAS:JAGUAR,SELVA,MONTE]\n\n[JUEGO:CRUCIGRAMA:Selva donde nos perdimos|AMAZONAS;Institucion educativa de Montenegro|MONTENEGRO]\n\n### Resolviendo la Pregunta Problematizadora:\nEl misterio ha sido resuelto. El explorador de Montenegro terminó exhausto porque su **trayectoria** fue un bucle cerrado inmenso (gran distancia recorrida que destruyó sus tenis), pero como volvió exactamente al punto de inicio ($x_f = x_i$), su **desplazamiento** neto fue de $0$ metros y su **posición** final no cambió respecto al campamento.\n\n[JUEGO:ORDENAR_LETRAS:VECTOR]\n\n[JUEGO:ORDENAR_FRASE:MEDIR LA DISTANCIA ES IMPORTANTE]\n\n[JUEGO:SOPA_LETRAS:RAPIDEZ,TIEMPO,CAMINO]\n\n[JUEGO:CRUCIGRAMA:Estudio de la materia y energia|FISICA;Variable que mide la duracion|TIEMPO]",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "Si un explorador parte de la posición x = 10 metros y llega a la posición x = 55 metros huyendo de un caimán, ¿cuál fue su desplazamiento?",
+      "respuesta_esperada": "El desplazamiento es de 45 metros, calculado como x_f - x_i (55m - 10m = 45m)."
+    },
+    {
+      "pregunta": "¿Por qué la distancia recorrida nunca puede ser negativa, pero el desplazamiento sí?",
+      "respuesta_esperada": "La distancia recorrida es la suma de los pasos dados (siempre suma). El desplazamiento puede ser negativo si retrocedes respecto al punto de referencia de la selva."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Un mono araña salta de un árbol en x = 5m, va hasta x = 25m y luego se devuelve a x = 15m. Calcula la distancia recorrida total y su desplazamiento final.",
+    "Define con tus propias palabras qué es un 'sistema de referencia' y explica por qué es crucial para el Dr. Voltius saber dónde está el norte en la selva."
+  ],
+  "icfes": [
+    {
+      "competencia": "Uso comprensivo del conocimiento científico",
+      "texto_introductorio": "Durante una práctica de laboratorio al aire libre de la IE Instituto Montenegro, un estudiante mide el movimiento de un caracol de la selva húmeda sobre una regla graduada en centímetros, obteniendo los siguientes datos:",
+      "tabla_o_grafica_markdown": "| Tiempo (s) | Posición (cm) |\n| :--- | :--- |\n| 0 | 2 |\n| 10 | 8 |\n| 20 | 14 |\n| 30 | 8 |",
+      "pregunta": "¿Cuál fue el desplazamiento total del caracol entre los 0 y los 30 segundos?",
+      "opciones": [
+        "12 cm, porque sumamos todo el recorrido de ida y vuelta.",
+        "6 cm, porque la posición final es 8 cm y la inicial es 2 cm.",
+        "8 cm, porque es la posición en la que más tiempo estuvo.",
+        "0 cm, porque regresó al punto de partida."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. 12 cm sería la distancia total recorrida (6 cm de ida + 6 cm de vuelta), no el desplazamiento neto.",
+        "1": "¡Correcto, genio de la selva! El desplazamiento se calcula restando la posición final a los 30s (8 cm) menos la inicial a los 0s (2 cm): 8 cm - 2 cm = 6 cm.",
+        "2": "Incorrecto. 8 cm es un valor de posición en ciertos instantes, pero no representa el cambio neto de posición.",
+        "3": "Incorrecto. El caracol no regresó a la posición inicial de 2 cm; terminó en la posición de 8 cm."
+      }
+    }
+  ]
+}

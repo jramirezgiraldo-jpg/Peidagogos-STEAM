@@ -1,0 +1,86 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "Estás escapando de una patrulla de chatarreros mutantes en las ruinas de Montenegro. Si cambias de lugar respecto a la torre del Instituto Montenegro, ¿cómo demuestras físicamente que te has movido?",
+      "opciones": [
+        "A) Midiendo el tiempo transcurrido en mi reloj digital hackeado.",
+        "B) Demostrando que mi posición cambia respecto a la torre (punto de referencia) a medida que pasa el tiempo.",
+        "C) Calculando la temperatura del suelo contaminado con radiación.",
+        "D) Permaneciendo estático y cambiando la dirección de mi linterna electromagnética."
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "Para hackear el mapa de navegación de un dron explorador, necesitas definir un 'Punto de Origen'. ¿Qué significa esto en el desierto del Quindío post-apocalíptico?",
+      "opciones": [
+        "A) El punto exacto de la explosión que destruyó el viejo mundo.",
+        "B) Una coordenada (0,0) arbitraria que elegimos para medir todas las demás posiciones.",
+        "C) El límite máximo de la atmósfera donde orbitan los satélites caídos.",
+        "D) La velocidad máxima a la que puede correr un mutante corredor."
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "En tu pantalla de fósforo verde, observas el rastro curvo de un proyectil electromagnético. ¿Qué nombre técnico recibe este camino o rastro físico?",
+      "opciones": [
+        "A) Desplazamiento absoluto.",
+        "B) Vector de posición instantánea.",
+        "C) Trayectoria.",
+        "D) Sistema de geolocalización inercial."
+      ],
+      "correcta": 2
+    }
+  ],
+  "texto_inductivo": "# 📟 TRANSMISIÓN ENTRANTE: EL FENÓMENO DEL DRON FANTASMA\n\n**¡Atención, hackers de la IE Instituto Montenegro!** Aquí su Tecno-Hacker de confianza reportándose desde el búnker de subestación eléctrica. Hemos detectado una anomalía electromagnética masiva sobre las ruinas de nuestra antigua institución. Un viejo dron militar de vigilancia clase *Spectre-X* ha quedado atrapado en un bucle infinito de patrullaje. \n\nEl problema es crítico: cada 10 minutos, emite un pulso electromagnético (EMP) destructivo que amenaza con quemar nuestras terminales de supervivencia y las bases de datos de nuestra comunidad.\n\n***¿Cómo podemos hackear y predecir la trayectoria del Dron Fantasma que rodea las ruinas de la IE Instituto Montenegro para evitar que sus pulsos electromagnéticos frían nuestros servidores de supervivencia?***\n\nPara desactivar el dron, no podemos simplemente dispararle; su escudo cuántico lo protege. Debemos sincronizar nuestro decodificador de señal con su ubicación exacta segundo a segundo. Pero para lograrlo, necesitamos dominar los conceptos de **Posición** y **Trayectoria** en nuestro sistema de coordenadas local.\n\n<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 300' style='background-color:#0d1117; border-radius:8px; border:2px solid #00ff00;'><g stroke='#1f242c' stroke-width='1'><line x1='50' y1='0' x2='50' y2='300'/><line x1='100' y1='0' x2='100' y2='300'/><line x1='150' y1='0' x2='150' y2='300'/><line x1='200' y1='0' x2='200' y2='300'/><line x1='250' y1='0' x2='250' y2='300'/><line x1='300' y1='0' x2='300' y2='300'/><line x1='350' y1='0' x2='350' y2='300'/><line x1='400' y1='0' x2='400' y2='300'/><line x1='450' y1='0' x2='450' y2='300'/><line x1='500' y1='0' x2='500' y2='300'/><line x1='550' y1='0' x2='550' y2='300'/><line x1='0' y1='50' x2='600' y2='50'/><line x1='0' y1='100' x2='600' y2='100'/><line x1='0' y1='150' x2='600' y2='150'/><line x1='0' y1='200' x2='600' y2='200'/><line x1='0' y1='250' x2='600' y2='250'/></g><line x1='300' y1='0' x2='300' y2='300' stroke='#00ff00' stroke-width='2'/><line x1='0' y1='150' x2='600' y2='150' stroke='#00ff00' stroke-width='2'/><circle cx='300' cy='150' r='6' fill='#ff0055'/><text x='310' y='145' fill='#ff0055' font-family='monospace' font-size='12'>Búnker Montenegro (0,0)</text><path d='M 300 150 Q 400 50 500 100 T 450 250 T 200 200' fill='none' stroke='#00ffff' stroke-width='3' stroke-dasharray='5,5'/><circle cx='200' cy='200' r='8' fill='#00ffff'/><text x='170' y='225' fill='#00ffff' font-family='monospace' font-size='12'>Dron Anomalía (-100m, -50m)</text><g fill='#00ff00' font-family='monospace' font-size='10'><text x='570' y='140'>+X</text><text x='10' y='140'>-X</text><text x='310' y='20'>+Y</text><text x='310' y='290'>-Y</text></g></svg>\n\n### El Enigma del Radar Analógico\n\nAl encender las consolas de tubo de rayos catódicos en el laboratorio de física del Instituto, descubrimos que el dron describe una órbita extraña alrededor de la cancha principal de fútbol del colegio (nuestro punto de origen de coordenadas $0,0$). Para hackear su red, primero debemos codificar estas palabras clave en nuestro transceptor cuántico:\n\n[JUEGO:ORDENAR_LETRAS:POSICION]\n\n[JUEGO:ORDENAR_LETRAS:TRAYECTORIA]\n\nNuestros sensores captaron el siguiente registro de telemetría preliminar:\n\n| Tiempo (s) | Posición X (m) | Posición Y (m) | Estado del Escudo | Evento de Red |\n| :---: | :---: | :---: | :---: | :---: |\n| 0 | 0 | 0 | 100% | Inicio de Ciclo |\n| 10 | 100 | 50 | 85% | Emisión Térmica |\n| 20 | 200 | -100 | 70% | Fluctuación Cuántica |\n| 30 | -50 | -150 | 45% | Sobrecarga de Datos |\n\nPara procesar este flujo de información binaria en la terminal del búnker, ordena la siguiente frase táctica de calibración:\n\n[JUEGO:ORDENAR_FRASE:EL DRON SE MUEVE EN LINEA RECTA]\n\n[JUEGO:ORDENAR_FRASE:EL PUNTO DE REFERENCIA ES EL COLEGIO]\n\n¡Súper hack! Ahora descifra las señales camufladas en esta matriz de datos para evitar la interferencia estática:\n\n[JUEGO:SOPA_LETRAS:DRON,VECTOR,COORDENADA]\n\n[JUEGO:SOPA_LETRAS:ORIGEN,DISTANCIA,TIEMPO]\n\nPara cerrar la sincronización inicial, debemos resolver los siguientes cortafuegos lógicos de encriptación directa:\n\n[JUEGO:CRUCIGRAMA:Punto de inicio o cero del sistema|ORIGEN;Camino seguido por un objeto|TRAYECTORIA]\n\n[JUEGO:CRUCIGRAMA:Lugar donde se encuentra un cuerpo|POSICION;Cambio de posicion de un objeto|MOVIMIENTO]",
+  "recurso_visual": "| Variable Cinemática | Definición en el Búnker | Instrumento de Medición Hacker | Representación Matemática |\n| :--- | :--- | :--- | :--- |\n| **Punto de Referencia** | Lugar físico desde donde vigilamos el desierto. | Estación de Antena del Instituto Montenegro | Origen $O(0,0)$ |\n| **Posición** | Ubicación exacta de la anomalía en nuestra pantalla. | Radar de barrido térmico | Vector $\\vec{r} = (x, y)$ |\n| **Trayectoria** | El camino invisible y radioactivo dibujado en el aire. | Línea de fósforo verde del osciloscopio | Ecuación de la curva $y = f(x)$ |\n| **Tiempo** | Intervalo en el que el dron tarda en lanzar el pulso EMP. | Cronómetro atómico de cesio salvado | Escalar $t$ (segundos) |",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "¿Qué ocurre con la posición del dron si decidimos cambiar nuestro Punto de Referencia del Búnker del Instituto a la Plaza de Bolívar de Montenegro?",
+      "respuesta_esperada": "Los valores numéricos de las coordenadas de la posición del dron cambiarán por completo, aunque físicamente el dron siga estando en el mismo lugar, demostrando que la posición siempre es relativa al punto de referencia elegido."
+    },
+    {
+      "pregunta": "Observando el mapa del radar, ¿el dron se mueve siempre en línea recta o describe una curva en el espacio del Instituto?",
+      "respuesta_esperada": "El dron describe una curva compleja (trayectoria curvilínea) sobre el espacio del Instituto, indicada por el cambio simultáneo y no lineal de sus coordenadas X e Y a lo largo del tiempo."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja en tu cuaderno de supervivencia el plano cartesiano del Instituto Montenegro, ubicando las coordenadas del dron descritas en la tabla de telemetría. Traza con color rojo fluorescente la posible trayectoria que une esos puntos.",
+    "Si el dron se encuentra en la posición (100, 50) metros y lanza un pulso con radio de acción de 120 metros, calcula analíticamente si el Búnker ubicado en (0,0) sufrirá una sobrecarga destructiva."
+  ],
+  "texto_deductivo": "# 🛠️ MANUAL DE HACKEO FÍSICO: FORMALIZACIÓN CINEMÁTICA\n\n¡Filtros electromagnéticos activados, hackers! Para reprogramar el núcleo del dron, requerimos rigor matemático de Nivel Héroe. La **Cinemática** es la rama de la física que describe el movimiento de los cuerpos sin preocuparse por las causas que lo producen (las fuerzas de los motores de plasma). En nuestro mundo, dominarla es la diferencia entre salvar la base de datos o quedar incomunicados en la oscuridad del invierno electromagnético.\n\n### 1. El Marco de Referencia (Sistemas de Coordenadas)\nPara localizar cualquier amenaza, necesitamos un **Sistema de Referencia**. Este consta de un observador, un origen de coordenadas (normalmente el búnker de la IE Instituto Montenegro) y un sistema de ejes coordenados (ejes X e Y).\n\nPara desbloquear la teoría en la terminal cuántica, procesa el siguiente comando descifrado:\n\n[JUEGO:ORDENAR_LETRAS:DISTANCIA]\n\n[JUEGO:ORDENAR_LETRAS:DESPLAZAMIENTO]\n\n[JUEGO:ORDENAR_LETRAS:CINEMATICA]\n\n### 2. Posición ($\\vec{r}$)\nEs una magnitud vectorial que localiza al dron en un instante determinado. Se representa mediante un vector que va desde el origen de coordenadas hasta el punto donde se encuentra el objeto.\n\n$$\\vec{r} = x\\hat{i} + y\\hat{j}$$\n\n### 3. Trayectoria vs Desplazamiento (El gran abismo físico)\n\n<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 250' style='background-color:#0d1117; border-radius:8px; border:2px solid #00ffff;'><path d='M 100 150 C 200 50, 300 250, 500 150' fill='none' stroke='#ff0055' stroke-width='3' stroke-dasharray='4,4'/><text x='250' y='100' fill='#ff0055' font-family='monospace' font-size='14'>Trayectoria (Camino Real Recorrido = Escalar)</text><line x1='100' y1='150' x2='500' y2='150' stroke='#00ff00' stroke-width='3'/><polygon points='500,150 485,142 485,158' fill='#00ff00'/><text x='180' y='180' fill='#00ff00' font-family='monospace' font-size='14'>Desplazamiento Δr (Línea Recta = Vector)</text><circle cx='100' cy='150' r='6' fill='#00ffff'/><circle cx='500' cy='150' r='6' fill='#00ffff'/><text x='70' y='155' fill='#ffffff' font-family='monospace' font-size='12'>Inicio (A)</text><text x='515' y='155' fill='#ffffff' font-family='monospace' font-size='12'>Fin (B)</text></svg>\n\n*   **Trayectoria:** Es la línea continua que describe el dron en su vuelo. Es un concepto geométrico. Su longitud medida se denomina **distancia recorrida** (un número escalar, siempre positivo).\n*   **Desplazamiento ($\\Delta\\vec{r}$):** Es el vector que une directamente el punto de partida con el punto de llegada. No le importa las curvas que dio el dron, solo la diferencia neta entre la posición final y la inicial:\n\n$$\\Delta\\vec{r} = \\vec{r}_{final} - \\vec{r}_{inicial}$$\n\nCalibremos los procesadores principales ordenando estos postulados esenciales de defensa aérea:\n\n[JUEGO:ORDENAR_FRASE:LA DISTANCIA ES UNA MAGNITUD ESCALAR]\n\n[JUEGO:ORDENAR_FRASE:EL DESPLAZAMIENTO TIENE DIRECCION Y SENTIDO]\n\n[JUEGO:ORDENAR_FRASE:HACKEAMOS EL SISTEMA DE NAVEGACION ENEMY]\n\nEncuentra las firmas de radiación escondidas en el espectro del búnker antes de que se agote la reserva de energía:\n\n[JUEGO:SOPA_LETRAS:ESCALAR,VECTORIAL,RAPIDEZ]\n\n[JUEGO:SOPA_LETRAS:CINEMATICA,CAMINO,SISTEMA]\n\n[JUEGO:SOPA_LETRAS:MEDIDA,GRAFICO,REDUNDANTE]\n\nFinalmente, digita los códigos de desfragmentación final en las siguientes compuertas lógicas:\n\n[JUEGO:CRUCIGRAMA:Magnitud que solo tiene numero y unidad|ESCALAR;Magnitud con direccion y sentido|VECTORIAL]\n\n[JUEGO:CRUCIGRAMA:Largo total del camino recorrido|DISTANCIA;Linea recta del inicio al final|DESPLAZAMIENTO]\n\n[JUEGO:CRUCIGRAMA:Eje horizontal de coordenadas|ABSCISA;Eje vertical de coordenadas|ORDENADA]",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "Si el Dron Fantasma despega del helipuerto del Instituto, vuela en círculos sobre Montenegro recorriendo 10 kilómetros, y finalmente aterriza exactamente en el mismo helipuerto, ¿cuál es su desplazamiento neto?",
+      "respuesta_esperada": "Su desplazamiento neto es cero (0 metros), porque sus posiciones inicial y final coinciden perfectamente en el espacio cartesiano, aunque la distancia recorrida haya sido de 10 kilómetros."
+    },
+    {
+      "pregunta": "¿Por qué un vector de posición necesita una dirección además de un valor numérico para salvaguardar el búnker?",
+      "respuesta_esperada": "Porque si solo conociéramos el valor numérico (la distancia), el dron podría estar en cualquier punto de una circunferencia gigante alrededor del búnker. Necesitamos saber la dirección angular para poder apuntar nuestra antena electromagnética disruptiva exactamente hacia él."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Un explorador del búnker se desplaza 3 metros al Norte de la IE Instituto Montenegro, y luego 4 metros al Este. Dibuja los vectores de posición en tu cuaderno y determina geométricamente la magnitud del vector desplazamiento resultante.",
+    "Escribe un algoritmo o diagrama de flujo detallado en tu cuaderno que un procesador de 8 bits pueda utilizar para diferenciar entre un cambio en la posición (movimiento) y un estado estático distorsionado por interferencias ópticas."
+  ],
+  "icfes": [
+    {
+      "competencia": "Uso comprensivo del conocimiento científico",
+      "texto_introductorio": "Durante la fase de rastreo del Dron Fantasma sobre las canchas de la IE Instituto Montenegro, la consola de monitoreo de la resistencia hacker registra un movimiento que se modela en la siguiente tabla de variables cinemáticas en una sola dimensión (Eje X):",
+      "tabla_o_grafica_markdown": "| Tiempo $t$ (segundos) | Posición $X$ (metros) |\n| :---: | :---: |\n| 0 | 5 |\n| 5 | 15 |\n| 10 | 5 |\n| 15 | -5 |",
+      "pregunta": "Con base en los datos del sistema de telemetría, ¿cuáles son los valores correspondientes al desplazamiento neto del dron y a la distancia total recorrida por este durante los primeros 10 segundos de observación?",
+      "opciones": [
+        "A) Desplazamiento neto: 10 metros; Distancia recorrida: 20 metros.",
+        "B) Desplazamiento neto: 0 metros; Distancia recorrida: 20 metros.",
+        "C) Desplazamiento neto: 5 metros; Distancia recorrida: 15 metros.",
+        "D) Desplazamiento neto: 0 metros; Distancia recorrida: 10 metros."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. Un desplazamiento de 10 m indicaría un cambio neto de posición, pero a los 10 segundos el dron regresó a la misma coordenada inicial de 5 metros.",
+        "1": "¡Correcto! El desplazamiento neto es 0 metros porque a los 10 segundos el dron regresó a su posición inicial ($5\\text{ m} - 5\\text{ m} = 0\\text{ m}$). La distancia total recorrida es 20 metros porque viajó 10 metros de ida (de 5 m a 15 m) y 10 metros de regreso (de 15 m a 5 m).",
+        "2": "Incorrecto. Has calculado erróneamente tanto el cambio posicional neto como la suma de las trayectorias escalares parciales.",
+        "3": "Incorrecto. Aunque identificaste correctamente que el desplazamiento neto es cero metros, calculaste mal la distancia recorrida acumulada, que es la suma del valor absoluto de ambos tramos."
+      }
+    }
+  ]
+}

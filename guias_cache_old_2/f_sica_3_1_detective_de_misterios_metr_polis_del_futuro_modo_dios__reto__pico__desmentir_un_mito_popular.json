@@ -1,0 +1,114 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Cuál es la forma real de la trayectoria que siguen los planetas alrededor del Sol?",
+      "opciones": [
+        "Círculos perfectos",
+        "Líneas rectas",
+        "Elipses",
+        "Triángulos"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "¿Qué fuerza es la responsable de mantener a los planetas en su lugar?",
+      "opciones": [
+        "Magnetismo",
+        "Gravedad",
+        "Fricción espacial",
+        "Energía nuclear"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "Si un planeta se aleja del Sol, ¿qué sucede con su velocidad?",
+      "opciones": [
+        "Aumenta",
+        "Disminuye",
+        "Permanece igual",
+        "Se detiene"
+      ],
+      "correcta": 1
+    }
+  ],
+  "texto_inductivo": "# Expediente X-2045: El Fraude de los Círculos Celestiales\n\nSaludos, Cadetes de la Policía Científica de Neo-Metrópolis. Soy el Detective de Misterios y hoy enfrentamos una conspiración que ha durado milenios. En los archivos holográficos de la vieja era, se decía que los cielos eran perfectos y que los astros bailaban en círculos inmutables. **_¿Si los planetas estuvieran 'atados' a una cuerda invisible para no salir volando por el vacío de Neo-Metrópolis, de qué material debería ser esa cuerda para soportar la velocidad de la Metrópolis Galáctica sin romperse?_** [JUEGO:ORDENAR_LETRAS:MITOS] Esta pregunta nos lleva a cuestionar el mito de la perfección geométrica. [JUEGO:ORDENAR_FRASE:EL ESPACIO ES UN VACIO] \n\nInvestigando las ruinas digitales, hallamos que la gente cree que el Sol está en el centro exacto de un círculo. [JUEGO:SOPA_LETRAS:ASTRO,CIELO,SOL] Pero mis sensores detectan anomalías. Si el movimiento fuera circular, la velocidad sería constante, pero los radares de la Metrópolis indican que la Tierra acelera y frena. [JUEGO:CRUCIGRAMA:Caminito celestial|ORBITA;Astro rey|SOL] \n\n<div style='background: #001f3f; padding: 20px; border: 2px solid #0074D9; border-radius: 10px; color: white; text-align: center;'>\n  <h3>Evidencia Visual: El Mito vs La Realidad</h3>\n  <svg width='300' height='200' viewBox='0 0 300 200'>\n    <!-- Órbita Circular (Mito) -->\n    <circle cx='80' cy='100' r='50' fill='none' stroke='#FF4136' stroke-width='2' stroke-dasharray='5,5' />\n    <circle cx='80' cy='100' r='10' fill='#FFDC00' />\n    <text x='50' y='40' fill='#FF4136' font-size='12'>MITO: Círculo</text>\n    <!-- Órbita Elíptica (Realidad) -->\n    <ellipse cx='220' cy='100' rx='60' ry='40' fill='none' stroke='#2ECC40' stroke-width='3' />\n    <circle cx='200' cy='100' r='10' fill='#FFDC00' />\n    <text x='190' y='40' fill='#2ECC40' font-size='12'>REALIDAD: Elipse</text>\n  </svg>\n  <p>Note que en la realidad, el Sol NO está en el centro.</p>\n</div>\n\nEl primer sospechoso es Johannes Kepler. [JUEGO:ORDENAR_LETRAS:ORBITA] Él rompió el cristal de la perfección. Descubrió que los planetas se mueven en elipses. [JUEGO:ORDENAR_FRASE:LA LUNA GIRA SIEMPRE] Al observar el cielo nocturno sobre los rascacielos de cromo, vemos que el movimiento no es uniforme. [JUEGO:SOPA_LETRAS:ELIPSE,FOCO,MASA] \n\n¿Por qué importa esto? Porque en la Metrópolis del Futuro, un error de cálculo en la trayectoria de un carguero interplanetario podría causar un desastre nivel Extinción. [JUEGO:CRUCIGRAMA:Vacio total|ESPACIO;Pesado|MASA] Los datos no mienten. [JUEGO:ORDENAR_LETRAS:ELIPSE] La velocidad cambia según la posición. [JUEGO:ORDENAR_FRASE:KEPLER DESCUBRIO LAS LEYES] \n\n<table style='width:100%; border-collapse: collapse; background: #111; color: #0f0; font-family: monospace;'>\n  <tr style='border-bottom: 2px solid #0f0;'>\n    <th>Planeta</th>\n    <th>Excentricidad (Deformación)</th>\n    <th>Veredicto</th>\n  </tr>\n  <tr><td>Mercurio</td><td>0.205</td><td>Muy Elíptica</td></tr>\n  <tr><td>Tierra</td><td>0.017</td><td>Casi Círculo (Pero no)</td></tr>\n  <tr><td>Marte</td><td>0.093</td><td>Sospechoso</td></tr>\n</table>\n\nEstamos rodeados de fuerzas invisibles. [JUEGO:ORDENAR_LETRAS:ASTROS] La gravedad actúa como ese hilo tensor. [JUEGO:ORDENAR_FRASE:NEWTON VIO UNA MANZANA] Sin ella, la Metrópolis flotaría a la deriva. [JUEGO:SOPA_LETRAS:MAPA,RUTA,VIAJE] Necesitamos entender la cinemática: posición, velocidad y aceleración. [JUEGO:CRUCIGRAMA:Atraccion|GRAVEDAD;Rapidez|VELOCIDAD] Todo está conectado. [JUEGO:ORDENAR_LETRAS:CIENCIA] Si la trayectoria fuera un círculo perfecto, la física que conocemos se desmoronaría como un holograma sin energía. [JUEGO:ORDENAR_FRASE:EL SOL TIENE MASA] [JUEGO:SOPA_LETRAS:PLANETA,ASTRO,CIELO] [JUEGO:CRUCIGRAMA:Centro de elipse|FOCO;Todo lo ocupa|MATERIA]",
+  "recurso_visual": "graph TD\n    A[Mito: Círculos Perfectos] -->|Evidencia: Anomalías de Velocidad| B(Kepler & Newton)\n    B --> C{Leyes de Movimiento}\n    C --> D[Trayectoria Elíptica]\n    C --> E[Gravedad como Cuerda Invisible]\n    D --> F[Posición Variable]\n    E --> G[Aceleración Constante en Cambio]",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "¿Cuál es la principal diferencia visual entre el mito y la realidad según el diagrama SVG?",
+      "respuesta_esperada": "En el mito el sol está en el centro de un círculo perfecto, mientras que en la realidad el sol se ubica en uno de los focos de una elipse."
+    },
+    {
+      "pregunta": "¿Por qué Kepler es considerado un sospechoso clave en esta investigación?",
+      "respuesta_esperada": "Porque fue quien rompió el mito de las órbitas circulares al proponer que son elípticas."
+    },
+    {
+      "pregunta": "¿Qué indica la excentricidad de un planeta en la tabla comparativa?",
+      "respuesta_esperada": "Indica qué tan deformada o alejada de un círculo perfecto está su órbita."
+    },
+    {
+      "pregunta": "¿Qué pasaría con un carguero espacial si calculamos su ruta usando círculos perfectos?",
+      "respuesta_esperada": "Podría ocurrir un desastre o colisión, ya que la posición y velocidad real del planeta no coincidirían con el cálculo circular."
+    },
+    {
+      "pregunta": "¿Qué conceptos de cinemática son esenciales para entender este fenómeno?",
+      "respuesta_esperada": "La posición, la velocidad y la aceleración."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema comparativo entre una órbita circular 'mítica' y una órbita elíptica 'real', señalando la posición del Sol en cada una.",
+    "Realiza un cuadro comparativo entre los conceptos de Velocidad Constante (Mito) y Velocidad Variable (Realidad) en el espacio.",
+    "Escribe un informe de detective de dos párrafos explicando por qué el mito de los círculos perfectos es peligroso para la navegación espacial.",
+    "Representa gráficamente mediante un dibujo cómo te imaginas la 'cuerda invisible' de la gravedad tirando de la Tierra en diferentes puntos de su órbita."
+  ],
+  "texto_deductivo": "# El Código de las Leyes Universales: Desmintiendo la Inercia Circular\n\nCadetes, para cerrar el caso debemos usar la lógica deductiva. [JUEGO:ORDENAR_LETRAS:KEPELR] Isaac Newton, el gran arquitecto de la física, nos entregó la fórmula de la Gravitación Universal. [JUEGO:ORDENAR_FRASE:TODO CUERPO CAE LIBRE] Esta ley dicta que la fuerza de atracción depende de la masa y la distancia. [JUEGO:SOPA_LETRAS:NEWTON,KEPLER,GALILEO] No hay 'éter' empujando los planetas; hay una caída libre perpetua. [JUEGO:CRUCIGRAMA:Tendencia a seguir|INERCIA;Cambio de velocidad|ACELERACION]\n\n<div style='border: 5px double #00FF00; background: black; padding: 15px; font-family: sans-serif;'>\n  <h2 style='color: #00FF00; text-shadow: 2px 2px #ff0000;'>RETO ÉPICO: MODO DIOS</h2>\n  <p style='font-size: 1.2rem; color: white;'>La Segunda Ley de Kepler establece que el radio vector que une al Sol con un planeta barre áreas iguales en tiempos iguales.</p>\n  <div style='display: flex; justify-content: space-around; align-items: center;'>\n    <div style='width: 100px; height: 100px; border: 2px solid white; border-radius: 50%; position: relative;'>\n       <div style='position: absolute; top: 40%; left: 10%; width: 20px; height: 20px; background: yellow; border-radius: 50%;'></div>\n       <div style='width: 0; height: 0; border-left: 50px solid transparent; border-right: 50px solid transparent; border-bottom: 80px solid rgba(0, 255, 0, 0.3); position: absolute; top: 10px;'></div>\n    </div>\n    <div style='color: #00FF00;'>S1 (Perihelio: Rápido) = S2 (Afelio: Lento)</div>\n  </div>\n</div>\n\nAl analizar la cinemática, vemos que la aceleración centrípeta es la que curva el camino. [JUEGO:ORDENAR_LETRAS:NEWTON] Sin esta fuerza, los planetas saldrían disparados en línea recta por la inercia. [JUEGO:ORDENAR_FRASE:MASA POR ACELERACION] Por lo tanto, el mito del círculo perfecto queda desmentido: la elipse es la respuesta a la interacción de la energía y la masa. [JUEGO:SOPA_LETRAS:INERCIA,ACCION,REACCION] \n\n[JUEGO:ORDENAR_LETRAS:INERCIA] La gravedad disminuye con el cuadrado de la distancia. [JUEGO:ORDENAR_FRASE:FUERZA IGUAL A MASA] Si te alejas al doble de distancia, la fuerza es cuatro veces menor. [JUEGO:SOPA_LETRAS:RADIAL,ANGULO,TIEMPO] Esto explica por qué en el punto más lejano (afelio), el planeta se mueve con pereza. [JUEGO:CRUCIGRAMA:Punto lejano|AFELIO;Punto cercano|PERIHELIO]\n\n[JUEGO:ORDENAR_LETRAS:ELIPSE] El misterio está resuelto. [JUEGO:ORDENAR_FRASE:GRAVEDAD ES UNA FUERZA] La 'cuerda' es la curvatura del espacio-tiempo. [JUEGO:SOPA_LETRAS:METROS,SEGUNDOS,KILOS] Para sobrevivir en Neo-Metrópolis, debemos respetar estas leyes matemáticas. [JUEGO:CRUCIGRAMA:V de cambio|VELOCIDAD;Fuerza de Newton|GRAVEDAD]\n\n[JUEGO:ORDENAR_LETRAS:VECTOR] Un vector tiene magnitud, dirección y sentido. [JUEGO:ORDENAR_FRASE:RADIO VECTOR BARRE AREAS] La física no es solo números; es el mapa de nuestra supervivencia estelar. [JUEGO:SOPA_LETRAS:LEYES,FISICA,CIENCIA] [JUEGO:CRUCIGRAMA:Constante G|GRAVITACION;Forma orbital|ELIPSE]",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "¿Qué sucede con la fuerza de gravedad si duplicamos la distancia entre dos astros?",
+      "answer_esperada": "La fuerza de gravedad disminuye a la cuarta parte (se divide por cuatro)."
+    },
+    {
+      "pregunta": "¿Qué ley de Kepler explica que los planetas van más rápido cuando están cerca del Sol?",
+      "respuesta_esperada": "La Segunda Ley de Kepler (Ley de las áreas)."
+    },
+    {
+      "pregunta": "¿Qué pasaría con un planeta si la gravedad desapareciera súbitamente?",
+      "respuesta_esperada": "Saldría disparado en línea recta siguiendo su velocidad tangencial debido a la inercia."
+    },
+    {
+      "pregunta": "¿Cuál es la relación entre la fuerza, la masa y la aceleración según la deducción?",
+      "respuesta_esperada": "La Fuerza es igual al producto de la masa por la aceleración (F=m*a)."
+    },
+    {
+      "pregunta": "¿Cómo se define el Perihelio en la órbita de un planeta?",
+      "respuesta_esperada": "Es el punto de la órbita donde el planeta está más cerca del Sol y se mueve a su máxima velocidad."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Elabora un diagrama detallado que muestre un planeta en el Perihelio y en el Afelio, dibujando los vectores de velocidad (más largos o cortos según corresponda).",
+    "Crea un mapa mental que conecte a Newton (Gravedad), Kepler (Elipses) y los conceptos de Cinemática (Posición, Velocidad, Aceleración).",
+    "Realiza un dibujo explicativo de la Segunda Ley de Kepler, sombreando dos áreas iguales pero con bases de diferente longitud.",
+    "Diseña una infografía artesanal titulada 'Desmintiendo el Mito Circular' donde resumas los tres hallazgos más importantes de esta guía."
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "En la Metrópolis del Futuro, un satélite de comunicaciones debe mantener una órbita estable. Se observa que cuando el satélite se acerca a una gran masa, su velocidad aumenta sin necesidad de encender sus motores.",
+      "tabla_o_grafica_markdown": "| Posición | Distancia (km) | Velocidad (km/s) |\n|---|---|---|\n| Punto A | 10.000 | 7.5 |\n| Punto B | 5.000 | 10.2 |",
+      "pregunta": "¿A qué fenómeno físico se debe el incremento de velocidad en el Punto B?",
+      "opciones": [
+        "A la conservación del momento angular y la Segunda Ley de Kepler",
+        "A un aumento en la fricción con la atmósfera espacial",
+        "A que el satélite ha perdido masa durante el trayecto",
+        "A que la gravedad es menor cuando se está más cerca de la masa"
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto. Según Kepler, al reducirse el radio de la órbita (Punto B), el objeto debe moverse más rápido para barrer áreas iguales.",
+        "1": "Incorrecto. La fricción en el espacio es casi nula y, de existir, frenaría al objeto.",
+        "2": "Incorrecto. La masa del satélite se considera constante para este análisis cinemático.",
+        "3": "Incorrecto. La gravedad es mayor, no menor, al estar más cerca de la masa (Ley de Newton)."
+      }
+    }
+  ]
+}

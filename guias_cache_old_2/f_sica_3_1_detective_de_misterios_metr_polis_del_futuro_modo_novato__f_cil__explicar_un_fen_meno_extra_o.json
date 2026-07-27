@@ -1,0 +1,114 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "¿Qué fuerza hace que las cosas caigan al suelo en Neo-Metrópolis?",
+      "opciones": [
+        "Magnetismo",
+        "Gravedad",
+        "Electricidad",
+        "Viento"
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "¿Qué forma crees que tiene el camino que sigue la Tierra alrededor del Sol?",
+      "opciones": [
+        "Cuadrada",
+        "Triangular",
+        "Circular u Ovalada",
+        "Línea recta"
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "¿Quién es el científico famoso por la manzana y la gravedad?",
+      "opciones": [
+        "Einstein",
+        "Kepler",
+        "Newton",
+        "Copérnico"
+      ],
+      "correcta": 2
+    }
+  ],
+  "texto_inductivo": "# Informe del Detective: El Misterio de las Sendas Invisibles\n\nSaludos, Cadete de la Unidad de Ciencias de Neo-Metrópolis. Soy tu Detective Jefe y hoy tenemos un caso que desafía la lógica de nuestra ciudad flotante. ***¿Cómo es posible que los colosales planetas de Neo-Metrópolis sigan una ruta perfecta por el vacío sin motores ni raíles que los guíen?*** [JUEGO:ORDENAR_LETRAS:PLANETA] Para resolver esto, debemos mirar al cielo. Antiguamente, los detectives del cosmos pensaban que todo era un círculo perfecto. [JUEGO:ORDENAR_FRASE:LA GRAVEDAD ES UNA FUERZA] Pero algo no encajaba en los datos de los radares. [JUEGO:SOPA_LETRAS:SOL,LUNA,MARTE]\n\n<svg width='400' height='200' viewBox='0 0 400 200' style='background-color:#001122; border-radius:10px; display:block; margin:auto;'>\n  <ellipse cx='200' cy='100' rx='150' ry='70' style='fill:none;stroke:#00ffcc;stroke-width:2;stroke-dasharray:5,5' />\n  <circle cx='120' cy='100' r='15' fill='#ffcc00' />\n  <circle cx='350' cy='100' r='8' fill='#00aaff' />\n  <text x='105' y='130' fill='#ffcc00' font-family='Arial' font-size='12'>Sol (Foco)</text>\n  <text x='320' y='85' fill='#00aaff' font-family='Arial' font-size='12'>Planeta</text>\n  <text x='150' y='30' fill='#ffffff' font-family='Arial' font-size='14'>Trayectoria Elíptica</text>\n</svg>\n\nAl observar los astros, notamos que no son círculos, sino elipses. [JUEGO:ORDENAR_LETRAS:ORBITA] Imagina una banda elástica estirada. [JUEGO:ORDENAR_FRASE:EL SOL TIENE MUCHA MASA] Los planetas se mueven por el vacío. [JUEGO:SOPA_LETRAS:CIELO,ASTRO,RUTAS] En esta metrópolis galáctica, cada mundo tiene su carril invisible. [JUEGO:CRUCIGRAMA:Centro de luz|SOL;Camino del astro|ORBITA]\n\n<table style='width:100%; border:2px solid #00ffcc; color:white; background:black;'>\n<tr style='background:#003333;'><th>Sensor ID</th><th>Objeto</th><th>Forma de Ruta</th></tr>\n<tr><td>NM-01</td><td>Planeta Rojo</td><td>Elipse Cerrada</td></tr>\n<tr><td>NM-02</td><td>Estación Nova</td><td>Órbita Estable</td></tr>\n</table>\n\nEl espacio no está vacío realmente, está lleno de reglas. [JUEGO:ORDENAR_LETRAS:ESPACIO] Si un planeta se detuviera, caería hacia su estrella. [JUEGO:ORDENAR_FRASE:LOS PLANETAS GIRAN SIEMPRE] Buscamos pistas en los focos de la elipse. [JUEGO:SOPA_LETRAS:FOCO,EJE,MASA] Una estrella brilla en la oscuridad. [JUEGO:ORDENAR_LETRAS:ESTRELLA] El detective Kepler descubrió que el Sol no está en el centro, sino a un lado. [JUEGO:CRUCIGRAMA:Fuerza invisible|GRAVEDAD;Tiempo de un giro|AÑO]\n\nEn Neo-Metrópolis, el vacío es nuestro laboratorio. [JUEGO:ORDENAR_LETRAS:VACIO] Todo lo que sube, debe seguir una curva. [JUEGO:ORDENAR_FRASE:KEPLER ESTUDIO LOS ASTROS] Las rutas son seguras. [JUEGO:SOPA_LETRAS:LEY,TRAYECTO,FUTURO] La elipse es la clave. [JUEGO:ORDENAR_FRASE:LA ELIPSE ES UN CIRCULO CHATO] Hemos encontrado el rastro. [JUEGO:SOPA_LETRAS:DETECTIVE,MISTERIO,PISTA] ¿Estás listo para aplicar las leyes? [JUEGO:CRUCIGRAMA:Forma de huevo|ELIPSE;Lugar sin aire|ESPACIO] La velocidad cambia según la cercanía. [JUEGO:CRUCIGRAMA:Rapidez de movimiento|VELOCIDAD;Empuje constante|FUERZA] Finalmente, el científico Newton nos dio la fórmula. [JUEGO:CRUCIGRAMA:Maestro de la gravedad|NEWTON;Calculador de órbitas|KEPLER]",
+  "recurso_visual": "| Concepto Clave | Descripción en Neo-Metrópolis | Evidencia Detectivesca |\n| :--- | :--- | :--- |\n| **Órbita** | El carril invisible de los planetas. | Elipses observadas por telescopios. |\n| **Gravedad** | El imán invisible que mantiene todo unido. | Los objetos no salen volando al vacío. |\n| **Foco** | El punto donde se ubica el Sol. | El sol está ligeramente desplazado del centro. |\n| **Velocidad** | Qué tan rápido corre el planeta. | Aumenta cuando el planeta está cerca del Sol. |",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "¿Qué forma geométrica tienen las órbitas de los planetas según el informe?",
+      "respuesta_esperada": "Tienen forma de elipse (un círculo algo aplanado)."
+    },
+    {
+      "pregunta": "¿Dónde se ubica el Sol dentro de esa forma elíptica?",
+      "respuesta_esperada": "Se ubica en uno de los puntos llamados focos, no en el centro exacto."
+    },
+    {
+      "pregunta": "¿Qué pasaría si la gravedad desapareciera de repente en Neo-Metrópolis?",
+      "respuesta_esperada": "Los planetas y estaciones saldrían disparados en línea recta hacia el vacío infinito."
+    },
+    {
+      "pregunta": "¿Por qué el detective menciona que la velocidad cambia?",
+      "respuesta_esperada": "Porque los planetas se mueven más rápido cuando están más cerca del Sol y más lento cuando están lejos."
+    },
+    {
+      "pregunta": "¿Cuál es la 'pregunta problematizadora' que estamos intentando resolver?",
+      "respuesta_esperada": "¿Cómo es posible que los colosales planetas de Neo-Metrópolis sigan una ruta perfecta por el vacío sin motores ni raíles que los guíen?"
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un esquema de Neo-Metrópolis orbitando una estrella, marcando la forma de la elipse y la posición del Sol en un foco.",
+    "Realiza un cuadro comparativo entre un círculo perfecto y una elipse, mencionando sus diferencias visuales.",
+    "Escribe un reporte de una página explicando por qué los habitantes de Neo-Metrópolis no deben temer que el planeta se salga de su ruta.",
+    "Representa gráficamente con flechas de colores dónde el planeta va 'Rápido' (Cerca del Sol) y dónde va 'Lento' (Lejos del Sol)."
+  ],
+  "texto_deductivo": "Para cerrar este caso, debemos aplicar las Leyes de la Física. [JUEGO:ORDENAR_LETRAS:ELIPSE] La Primera Ley de Kepler nos dice que las órbitas son elípticas. [JUEGO:ORDENAR_FRASE:TODO CUERPO TIENE MASA] La Segunda Ley explica que el planeta barre áreas iguales en tiempos iguales. [JUEGO:SOPA_LETRAS:NEWTON,KEPLER,FISICA]\n\n<div style='background: #111; color: #0f0; padding: 20px; border: 5px double #0f0; font-family: monospace;'>\n  <h2 style='text-align:center;'>FORMULARIO DE INVESTIGACIÓN</h2>\n  <p>1. Fuerza (F) = G * (m1 * m2) / r²</p>\n  <p>2. Aceleración (a) = Cambio de velocidad / Tiempo</p>\n  <p>3. Estado: CASO ABIERTO</p>\n</div>\n\nTodo objeto con masa atrae a otros. [JUEGO:ORDENAR_LETRAS:MASA] La distancia es vital en esta ecuación. [JUEGO:ORDENAR_FRASE:LA DISTANCIA AFECTA LA FUERZA] Si estamos lejos, la fuerza es débil. [JUEGO:SOPA_LETRAS:FOCO,RADIO,CURVA] Kepler fue un genio de su tiempo. [JUEGO:ORDENAR_FRASE:KEPLER PROPUSO TRES LEYES] Buscamos la inercia de los cuerpos. [JUEGO:ORDENAR_LETRAS:FUERZA] Newton explicó que la manzana y la luna siguen la misma regla. [JUEGO:ORDENAR_FRASE:NEWTON EXPLICO LA CAIDA] La gravedad es la cadena invisible. [JUEGO:ORDENAR_LETRAS:GRAVEDAD] Cada acción tiene una reacción. [JUEGO:SOPA_LETRAS:ACCION,REACCION,INERCIA]\n\nmermaid\ngraph TD\n    A[Gravedad Universal] --> B[Leyes de Kepler]\n    B --> C[1. Orbitas Elípticas]\n    B --> D[2. Áreas Iguales]\n    B --> E[3. Periodos y Distancia]\n    C --> F[Neo-Metrópolis Segura]\n\n\nEn la ciudad del futuro, entendemos que la masa importa. [JUEGO:ORDENAR_LETRAS:LEYES] La Tierra es muy pesada. [JUEGO:ORDENAR_FRASE:LAS AREAS SON IGUALES] El giro es constante gracias a la física. [JUEGO:SOPA_LETRAS:PESO,GIRON,NUCLEO] Usamos la lógica para explicar lo extraño. [JUEGO:SOPA_LETRAS:CIENCIA,METODO,LOGICA] \n\n[JUEGO:CRUCIGRAMA:Unidad de longitud|METRO;Medida de materia|KILO]\n[JUEGO:CRUCIGRAMA:Fuerza hacia el centro|PESO;Mundo habitable|PLANETA]\n[JUEGO:CRUCIGRAMA:Energía de movimiento|CINETICA;Punto en el espacio|LUGAR]\n[JUEGO:CRUCIGRAMA:Cambio de velocidad|ACELERACION;Velocidad rápida|VELOCIDAD]\n[JUEGO:CRUCIGRAMA:Ley de resistencia|INERCIA;Estudio de fuerzas|DINAMICA]",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "¿Qué dice la Primera Ley de Kepler sobre las órbitas?",
+      "respuesta_esperada": "Que todos los planetas se mueven en órbitas elípticas con el Sol en uno de los focos."
+    },
+    {
+      "pregunta": "¿Qué relación hay entre la masa de un objeto y su fuerza de gravedad?",
+      "respuesta_esperada": "A mayor masa, mayor es la fuerza de atracción gravitatoria que ejerce."
+    },
+    {
+      "pregunta": "¿Qué ocurre con la fuerza de gravedad si alejamos dos planetas?",
+      "respuesta_esperada": "La fuerza de gravedad disminuye rápidamente al aumentar la distancia."
+    },
+    {
+      "pregunta": "¿Cómo se llama la ley que dice que un objeto en movimiento seguirá así a menos que una fuerza actúe sobre él?",
+      "respuesta_esperada": "La Ley de Inercia."
+    },
+    {
+      "pregunta": "¿Por qué los planetas no chocan contra el Sol si este los atrae?",
+      "respuesta_esperada": "Debido a su velocidad lateral (tangencial), que los mantiene cayendo 'alrededor' del Sol en lugar de hacia él."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Dibuja un diagrama detallado que muestre la relación entre la masa de Neo-Metrópolis y la fuerza que ejerce sobre sus satélites.",
+    "Elabora un mapa mental que conecte a Newton, Kepler y los conceptos de Elipse, Gravedad y Órbita.",
+    "Realiza un dibujo explicativo de la 'Ley de las Áreas' de Kepler, usando colores para mostrar que áreas iguales se barren en tiempos iguales.",
+    "Diseña una infografía artesanal que explique a los ciudadanos de Neo-Metrópolis cómo la física los mantiene a salvo en su órbita."
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "En la ciudad de Neo-Metrópolis, un grupo de científicos observa que el satélite 'Vigía' se está moviendo más rápido cuando pasa por el punto A que cuando pasa por el punto B de su órbita alrededor de la ciudad.",
+      "tabla_o_grafica_markdown": "| Punto | Distancia al Centro | Velocidad Detectada |\n|---|---|---|\n| A | 500 km | Alta |\n| B | 1200 km | Baja |",
+      "pregunta": "¿Cuál es la explicación científica más probable para este fenómeno extraño?",
+      "opciones": [
+        "El satélite usa motores extra en el punto A para no caer.",
+        "Según la Segunda Ley de Kepler, los objetos en órbita aumentan su velocidad al estar más cerca del centro de atracción.",
+        "En el punto B hay más aire que frena al satélite.",
+        "La gravedad es más fuerte en el punto B porque hay más espacio."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. Las órbitas naturales no dependen de motores constantes, sino de la gravedad.",
+        "1": "Correcto. La ley de las áreas iguales implica que al estar más cerca (perihelio), el cuerpo debe ir más rápido.",
+        "2": "Incorrecto. En el espacio exterior no hay aire suficiente para generar ese tipo de frenado orbital constante.",
+        "3": "Incorrecto. La gravedad disminuye con la distancia, por lo tanto es más débil en el punto B, no más fuerte."
+      }
+    }
+  ]
+}

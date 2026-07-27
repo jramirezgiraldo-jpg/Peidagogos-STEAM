@@ -1,0 +1,68 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "Para decirle a un compañero de la resistencia dónde te encuentras exactamente en el patio en ruinas de la IE Instituto Montenegro, ¿qué es lo primero que debes definir?",
+      "opciones": [
+        "La velocidad a la que puedes correr.",
+        "Un punto de referencia fijo (como el arco de fútbol destruido o el laboratorio).",
+        "El tiempo que tardarás en llegar.",
+        "La cantidad de raciones de comida que te quedan."
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "Si caminas en círculo alrededor del laboratorio de química destruido para vigilar y vuelves exactamente al mismo punto de inicio, tu desplazamiento neto es:",
+      "opciones": [
+        "Igual a la distancia total que caminaste.",
+        "La mitad del camino que recorriste.",
+        "Cero, porque terminaste en la misma posición donde iniciaste.",
+        "No se puede calcular sin usar un satélite pre-apocalíptico."
+      ],
+      "correcta": 2
+    }
+  ],
+  "texto_inductivo": "¡Atención, Reclutas del Sector Montenegro! Mi nombre de red es *Aegis-01*, su Hacker de tecnología de confianza en este páramo post-apocalíptico. El pulso electromagnético del año 2045 borró todo rastro de civilización digital, pero dejó intactos los viejos servidores locales de nuestra amada **IE Instituto Montenegro**. Hemos interceptado la señal de telemetría de un dron de suministros militar que cayó en el área del colegio, pero la señal está fragmentada. Los carroñeros vienen en camino y necesitamos encontrar la caja negra antes que ellos.\n\nPara adelantarnos, debemos resolver este misterio físico y geo-referencial. Aquí está nuestra misión fundamental:\n\n***¿Cómo podemos mapear la trayectoria exacta de un dron de suministros perdido en las ruinas de la IE Instituto Montenegro usando solo coordenadas de referencia, evitando que las bandas enemigas intercepten nuestra posición?***\n\n<svg width=\"100%\" height=\"250\" style=\"background:#121214; border: 2px solid #33ff33; border-radius: 8px;\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <pattern id=\"grid\" width=\"20\" height=\"20\" patternUnits=\"userSpaceOnUse\">\n      <path d=\"M 20 0 L 0 0 0 20\" fill=\"none\" stroke=\"#1f2d1f\" stroke-width=\"1\"/>\n    </pattern>\n  </defs>\n  <rect width=\"100%\" height=\"100%\" fill=\"url(#grid)\" />\n  <line x1=\"50\" y1=\"180\" x2=\"350\" y2=\"180\" stroke=\"#33ff33\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"30\" x2=\"50\" y2=\"180\" stroke=\"#33ff33\" stroke-width=\"2\" />\n  <circle cx=\"50\" cy=\"180\" r=\"5\" fill=\"#ff3333\" />\n  <text x=\"40\" y=\"195\" fill=\"#33ff33\" font-family=\"monospace\" font-size=\"10\">Origen (0,0) - Entrada Principal</text>\n  <circle cx=\"250\" cy=\"70\" r=\"6\" fill=\"#33ccff\" />\n  <text x=\"260\" y=\"65\" fill=\"#33ccff\" font-family=\"monospace\" font-size=\"11\">Dron Caído (X=10, Y=11)</text>\n  <path d=\"M 50 180 Q 150 180 150 120 T 250 70\" fill=\"none\" stroke=\"#ffcc00\" stroke-width=\"2\" stroke-dasharray=\"5,5\" />\n  <text x=\"110\" y=\"130\" fill=\"#ffcc00\" font-family=\"monospace\" font-size=\"10\">Ruta de los Carroñeros</text>\n</svg>\n\nPara hackear el sistema de navegación del dron y entender dónde se encuentra parado en el espacio tridimensional de nuestro búnker educativo, primero debes descifrar el concepto básico que define el lugar exacto de un objeto en el espacio:\n\n[JUEGO:ORDENAR_LETRAS:POSICION]\n\nSi no definimos un punto cero, un 'origen de coordenadas', estamos perdidos en la nada post-apocalíptica del páramo de Quindío. Mapear significa registrar cada cambio en la ruta a lo largo del tiempo. ¿Qué camino físico e imaginario siguió el dron militar para esquivar las torres de alta tensión caídas de la IE Instituto Montenegro?\n\n[JUEGO:ORDENAR_LETRAS:TRAYECTORIA]\n\nDescifra el siguiente código de transmisión de radiofrecuencia para habilitar la antena del bloque A:\n\n[JUEGO:ORDENAR_FRASE:EL PUNTO DE REFERENCIA ES CLAVE]\n\nNuestros sensores tácticos de radio indican que los carroñeros creen que el movimiento es absoluto, pero nosotros, los hackers de la resistencia de Montenegro, sabemos que todo depende de quién esté mirando:\n\n[JUEGO:ORDENAR_FRASE:EL MOVIMIENTO ES RELATIVO]\n\nEncuentra las siguientes palabras de rastreo en tu decodificador antes de que expire el cortafuegos enemigo:\n\n[JUEGO:SOPA_LETRAS:DISTANCIA,VECTOR,ORIGEN]\n\n[JUEGO:SOPA_LETRAS:MOVIL,RUMBO,MAPA]\n\nUsa este panel de acceso rápido para hackear las terminales de seguridad del laboratorio de física:\n\n[JUEGO:CRUCIGRAMA:Punto de partida|ORIGEN;Lugar ocupado|POSICION]\n\n[JUEGO:CRUCIGRAMA:Camino seguido por un cuerpo|TRAYECTORIA;Medida de la trayectoria|DISTANCIA]",
+  "recurso_visual": "| Variable Cinemática | Tipo de Magnitud | ¿Depende de la ruta? | Unidad (S.I.) | Representación Gráfica |\n| :--- | :--- | :--- | :--- | :--- |\n| **Posición ($r$)** | Vectorial | No | Metro (m) | Flecha desde el origen (0,0) |\n| **Trayectoria** | Geométrica | Sí (Es la forma) | N/A | Línea continua, curva o recta |\n| **Distancia ($d$)** | Escalar | Sí (Suma total) | Metro (m) | Longitud del hilo de la ruta |\n| **Desplazamiento ($\\Delta r$)** | Vectorial | No (Solo inicio y fin) | Metro (m) | Flecha directa recta Inicio-Fin |",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "Si el dron vuela en un patrón en zigzag para esquivar la radiación desde la entrada de la IE Instituto Montenegro hasta el bloque de química, ¿cuál medida física será mayor: la distancia recorrida o la magnitud de su desplazamiento?",
+      "respuesta_esperada": "La distancia recorrida será mayor porque mide toda la trayectoria curva y en zigzag que hizo el dron, mientras que la magnitud del desplazamiento solo mide la línea recta directa entre el punto de inicio (entrada) y el punto final (bloque de química)."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja en tu cuaderno un plano esquemático de las ruinas de la IE Instituto Montenegro. Elige la puerta del salón como tu origen de coordenadas (0,0). Dibuja dos trayectorias diferentes que puedas tomar para llegar a tu pupitre. Explica cuál tiene mayor distancia y si el desplazamiento cambia entre ambas rutas.",
+    "Si un robot centinela camina alrededor de la cancha de fútbol de la institución (que mide 50 m de largo por 30 m de ancho) y da una vuelta completa volviendo al punto exacto de partida, ¿cuál fue su distancia recorrida y cuál fue su desplazamiento neto?"
+  ],
+  "texto_deductivo": "¡Excelente trabajo de decodificación, hackers del Sector Montenegro! Ahora que tenemos acceso al firmware del dron, es hora de aplicar la **Física Teórica de Combate**. En el Modo Héroe, no nos limitamos a adivinar; calculamos con precisión matemática militar para salvar nuestros recursos.\n\n### La Anatomía del Movimiento en el Páramo\n\nPara rastrear cualquier amenaza o recurso en el páramo, la cinemática (la ciencia que describe el movimiento) nos exige diferenciar de manera rigurosa las siguientes variables:\n\n*   **Posición ($r$):** Es el vector que va desde el origen de nuestro sistema de referencia elegido hasta el punto donde se encuentra el móvil. Tiene dirección y sentido.\n*   **Trayectoria:** Es la línea continua que describe el móvil al desplazarse. Puede ser rectilínea (una bala de francotirador) o curvilínea (un dron evitando escombros).\n*   **Distancia Recorrida ($d$):** Es la longitud de la trayectoria recorrida. Es una magnitud escalar (siempre positiva).\n*   **Desplazamiento ($\\Delta r$):** Es la variación de la posición. Se calcula restando la posición final menos la inicial ($\\Delta r = r_f - r_i$). Es un vector que une directamente el inicio y el final.\n\n<svg width=\"100%\" height=\"220\" style=\"background:#1a1a1a; border: 2px solid #00ffcc; border-radius: 8px;\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#00ffcc\" />\n    </marker>\n  </defs>\n  <path d=\"M 60 160 C 120 40, 200 240, 320 80\" fill=\"none\" stroke=\"#ff5555\" stroke-width=\"3\" stroke-dasharray=\"4,4\" />\n  <line x1=\"60\" y1=\"160\" x2=\"315\" y2=\"82\" stroke=\"#00ffcc\" stroke-width=\"4\" marker-end=\"url(#arrow)\" />\n  <circle cx=\"60\" cy=\"160\" r=\"6\" fill=\"#ffff00\" />\n  <circle cx=\"320\" cy=\"80\" r=\"6\" fill=\"#00ffcc\" />\n  <text x=\"45\" y=\"185\" fill=\"#ffff00\" font-family=\"monospace\" font-size=\"11\">Inicio (A)</text>\n  <text x=\"310\" y=\"65\" fill=\"#00ffcc\" font-family=\"monospace\" font-size=\"11\">Fin (B)</text>\n  <text x=\"160\" y=\"80\" fill=\"#ff5555\" font-family=\"monospace\" font-size=\"11\">Trayectoria / Distancia</text>\n  <text x=\"150\" y=\"150\" fill=\"#00ffcc\" font-family=\"monospace\" font-size=\"11\">Desplazamiento (Vector)</text>\n</svg>\n\n¿Ves la diferencia física, hacker? Un dron de suministros gasta energía de su batería según la **distancia** de su trayectoria curva, pero el mapa táctico solo registrará su cambio neto de posición mediante su vector **desplazamiento**.\n\nConsolida estos datos del firmware descifrando los códigos de los condensadores cuánticos:\n\n[JUEGO:ORDENAR_LETRAS:DISTANCIA]\n\n[JUEGO:ORDENAR_LETRAS:DESPLAZAMIENTO]\n\n[JUEGO:ORDENAR_LETRAS:SISTEMA]\n\nPara estabilizar la fuente de poder de nuestro búnker contra el frío del invierno nuclear, ordena los siguientes principios cinemáticos:\n\n[JUEGO:ORDENAR_FRASE:LA TRAYECTORIA NO SIEMPRE ES RECTA]\n\n[JUEGO:ORDENAR_FRASE:EL DESPLAZAMIENTO ES UN VECTOR]\n\n[JUEGO:ORDENAR_FRASE:LA CINEMATICA ESTUDIA EL MOVIMIENTO]\n\nEscanea los espectros de ondas de radiofrecuencia usando la antena principal de la IE Instituto Montenegro:\n\n[JUEGO:SOPA_LETRAS:CINEMATICA,COORDENADA,TIEMPO]\n\n[JUEGO:SOPA_LETRAS:ESCALAR,RAPIDEZ,VELOCIDAD]\n\n[JUEGO:SOPA_LETRAS:FISICA,LINEA,CURVA]\n\nCompleta las llaves del algoritmo criptográfico para abrir la compuerta blindada del laboratorio de informática:\n\n[JUEGO:CRUCIGRAMA:Cambio de posicion|DESPLAZAMIENTO;Magnitud sin direccion|ESCALAR]\n\n[JUEGO:CRUCIGRAMA:Linea imaginaria|TRAYECTORIA;Estudia el movimiento|CINEMATICA]\n\n[JUEGO:CRUCIGRAMA:Aparato que mide distancia|ODOMETRO;Unidad en el SI|METRO]\n\nCon estos conceptos claros, ya poseemos el software de hackeo cinemático listo para interceptar el dron antes que los carroñeros.",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "Si un explorador de Montenegro viaja desde el búnker central (posición x1 = 5m) hasta el taller de herrería (posición x2 = 25m) y luego regresa a la posición x3 = 15m, ¿cuál fue su distancia recorrida y cuál fue su desplazamiento neto?",
+      "respuesta_esperada": "La distancia recorrida fue de 30 metros (20 metros de ida y 10 metros de vuelta). El desplazamiento neto fue de +10 metros (calculado como posición final menos posición inicial: 15m - 5m = 10m)."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Deduce y escribe en tu cuaderno por qué en un viaje de ida y vuelta a cualquier punto del páramo el desplazamiento total siempre será nulo, independientemente del cansancio de tus piernas o la distancia caminada.",
+    "Construye una tabla comparativa detallada en tu cuaderno entre magnitudes vectoriales y escalares en la física del movimiento, clasificando: Posición, Distancia, Desplazamiento y Tiempo. Proporciona un ejemplo táctico para cada una."
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de fenómenos",
+      "texto_introductorio": "En la IE Instituto Montenegro, una patrulla de la resistencia de sexto grado se desplaza desde el bloque de aulas (punto A) hasta el búnker del gimnasio (punto B) siguiendo el único sendero seguro libre de trampas ácidas (línea curvilínea). Los sensores electrónicos de sus trajes registran la información mostrada en la siguiente tabla táctica:",
+      "tabla_o_grafica_markdown": "| Variable Registrada | Valor Medido |\n| :--- | :--- |\n| Recorrido total por el sendero | 180 metros |\n| Distancia en línea recta desde A hasta B | 50 metros |",
+      "pregunta": "Con base en la información de la tabla y los conceptos físicos de la cinemática, ¿cuál de las siguientes afirmaciones describe de manera correcta el movimiento de la patrulla?",
+      "opciones": [
+        "La distancia recorrida por la patrulla es de 50 metros y la magnitud de su desplazamiento es de 180 metros.",
+        "La distancia recorrida por la patrulla es de 180 metros y la magnitud de su desplazamiento es de 50 metros.",
+        "El desplazamiento total de la patrulla es de 230 metros, correspondiente a la suma de ambas mediciones.",
+        "La trayectoria es de 50 metros dado que representa el único camino real y directo que existía."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. Confundes las definiciones: la distancia es la longitud del camino real tomado (180m) y el desplazamiento es el cambio de posición en línea recta (50m).",
+        "1": "¡Excelente hackeo, recluta! La distancia mide la trayectoria real recorrida por el sendero seguro (180 m), mientras que el desplazamiento mide el cambio neto de posición en línea recta aérea (50 m).",
+        "2": "Incorrecto. No se deben sumar la distancia y el desplazamiento; son conceptos físicos de diferente naturaleza (escalar y vectorial).",
+        "3": "Incorrecto. La trayectoria es la línea del sendero curvo que mide 180 metros, no la distancia mínima directa en línea recta."
+      }
+    }
+  ]
+}

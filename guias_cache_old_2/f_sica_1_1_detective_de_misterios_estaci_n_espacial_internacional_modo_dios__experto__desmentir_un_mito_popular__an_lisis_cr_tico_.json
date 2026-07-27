@@ -1,0 +1,114 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "Si un astronauta está flotando 'quieto' dentro de la Estación Espacial Internacional (ISS), ¿cuál es su verdadero estado de movimiento desde la perspectiva de alguien que lo observa desde la plaza de Montenegro, Quindío?",
+      "opciones": [
+        "Está en reposo absoluto porque no se observa ninguna fuerza empujándolo dentro de la cabina.",
+        "Se está moviendo a una velocidad extrema de aproximadamente 27,600 km/h junto con la ISS alrededor de la Tierra.",
+        "Está en movimiento relativo solo si decide encender sus propulsores personales de emergencia.",
+        "No tiene estado de movimiento porque la gravedad en el espacio exterior es exactamente cero."
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "Para definir si un objeto en la ISS está en reposo o en movimiento, ¿qué elemento de la cinemática es indispensable seleccionar primero?",
+      "opciones": [
+        "Un cronómetro digital de alta precisión.",
+        "La masa del objeto bajo estudio en kilogramos.",
+        "Un sistema de referencia o punto de observación.",
+        "La distancia exacta al centro de la Vía Láctea."
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "El mito popular afirma que los astronautas flotan en la ISS porque 'no hay gravedad en el espacio'. Si la gravedad a 400 km de altura (donde orbita la ISS) es casi el 90% de la terrestre, ¿por qué flotan realmente?",
+      "opciones": [
+        "Porque la velocidad de la luz contrarresta la atracción gravitatoria en esa zona.",
+        "Porque la ISS y los astronautas están en un estado de caída libre constante y perpetua hacia la Tierra, pero nunca chocan debido a su alta velocidad lateral.",
+        "Porque las aleaciones de titanio de la estación anulan las líneas del campo magnético terrestre.",
+        "Porque el vacío del espacio actúa como una piscina flotante gigante que los empuja hacia arriba."
+      ],
+      "correcta": 1
+    }
+  ],
+  "texto_inductivo": "# 🕵️‍♂️ EXPEDIENTE CÓSMICO: EL MISTERIO DEL ASTRONAUTA DORMIDO\n\n### 📁 Caso No: ISS-001\n**Investigador Principal:** Detective Neutrón, Departamento de Misterios Cinemáticos.\n**Ubicación:** Órbita Terrestre Baja, a 400 km sobre el patio central de la **IE Instituto Montenegro**.\n\n¡Atención, reclutas de Grado 6! Soy el Detective Neutrón. Hoy nos enfrentamos a un crimen contra la lógica de la física. Las agencias espaciales nos muestran videos de astronautas flotando plácidamente, durmiendo en el aire dentro de la Estación Espacial Internacional (ISS). La opinión pública afirma con ligereza: *'Ellos están en absoluto reposo, suspendidos en el vacío donde la gravedad no existe'*. \n\n¡FALSO! Eso es un mito que resolveremos hoy con las herramientas de la **Cinemática**.\n\n🕵️‍♂️ **_¿Cómo es posible que mientras tú crees estar completamente quieto sentado en tu pupitre de la IE Instituto Montenegro, en realidad te estés desplazando a miles de kilómetros por hora a través del cosmos, igual que un astronauta flotando 'en reposo' dentro de la Estación Espacial Internacional?_**\n\n<center>\n<svg width='100%' height='220' viewBox='0 0 600 220' style='background-color:#0b0f19; border:2px solid #00f0ff; border-radius:10px; font-family:sans-serif;'>\n  <circle cx='100' cy='110' r='60' fill='#1a233a' stroke='#00f0ff' stroke-width='2'/>\n  <text x='100' y='115' fill='#00f0ff' font-size='14' text-anchor='middle'>IE Montenegro</text>\n  <text x='100' y='185' fill='#8fa0bc' font-size='11' text-anchor='middle'>Observador A (Reposo Terrestre)</text>\n  <path d='M 100,110 L 400,110' stroke='#ff0055' stroke-dasharray='5,5' stroke-width='2'/>\n  <circle cx='400' cy='110' r='40' fill='#25122c' stroke='#ff0055' stroke-width='2'/>\n  <text x='400' y='115' fill='#ff0055' font-size='14' text-anchor='middle'>ISS</text>\n  <text x='400' y='165' fill='#8fa0bc' font-size='11' text-anchor='middle'>Observador B (Órbita a 27.600 km/h)</text>\n  <path d='M 410,60 L 460,30' stroke='#00ffcc' stroke-width='2'/>\n  <text x='460' y='25' fill='#00ffcc' font-size='12'>v = 7.66 km/s</text>\n</svg>\n</center>\n\nPara iniciar la investigación de campo, debemos ordenar nuestras pistas y conceptos básicos de la física del movimiento.\n\n[JUEGO:ORDENAR_LETRAS:CINEMATICA]\n\n[JUEGO:ORDENAR_LETRAS:REPOSO]\n\n### 🔍 Las Pistas del Crimen\nPara desvelar este misterio, primero debemos entender que el movimiento no es un absoluto. Analiza la siguiente tabla de observación y compara cómo cambia la percepción según el lugar desde donde mires el fenómeno.\n\n[JUEGO:ORDENAR_FRASE:EL MOVIMIENTO ES RELATIVO AL OBSERVADOR]\n\n[JUEGO:SOPA_LETRAS:SISTEMA,REFERENCIA,FISICA]\n\n[JUEGO:SOPA_LETRAS:ORBITA,CAIDA,LIBRE]\n\n[JUEGO:ORDENAR_FRASE:LA ESTACION ESPACIAL CAE CONSTANTEMENTE]\n\n[JUEGO:CRUCIGRAMA:Punto desde donde se observa el movimiento|REFERENCIA;Estado de no cambio de posicion|REPOSO]\n\n[JUEGO:CRUCIGRAMA:Cambio de posicion de un cuerpo|MOVIMIENTO;Camino recorrido por el movil|TRAYECTORIA]",
+  "recurso_visual": "| Observador Situado En | Objeto Observado | ¿Se Mueve? | Velocidad Detectada | Explicación Física |\n| :--- | :--- | :---: | :---: | :--- |\n| **Pupitre en la IE Montenegro** | Tablero del salón | ❌ NO (Reposo) | 0 km/h | Su posición no varía con respecto al aula de clases. |\n| **Estación Espacial ISS** | Astronauta durmiendo | ❌ NO (Reposo) | 0 km/h | Su posición no cambia respecto a las paredes de la cabina. |\n| **Centro de la Tierra** | Astronauta durmiendo |  SÍ (Móvil) | 27,600 km/h | Recorre una órbita circular completa alrededor del planeta. |\n| **El Sol** | Estudiante en Montenegro |  SÍ (Móvil) | 107,000 km/h | La Tierra viaja en su órbita elíptica anual alrededor del Sol. |",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "¿Qué elemento determina si un cuerpo está en movimiento o en reposo?",
+      "respuesta_esperada": "El sistema de referencia elegido por el observador."
+    },
+    {
+      "pregunta": "Si viajas en un bus de Montenegro a Armenia, ¿estás en movimiento respecto a tu compañero de asiento?",
+      "respuesta_esperada": "No, estás en reposo relativo a tu compañero porque tu posición con respecto a él no cambia a lo largo del tiempo."
+    },
+    {
+      "pregunta": "¿Por qué un astronauta en la ISS parece no moverse cuando se le graba con una cámara interna?",
+      "respuesta_esperada": "Porque la cámara comparte el mismo sistema de referencia (la ISS) y se mueve a su misma velocidad."
+    },
+    {
+      "pregunta": "¿Por qué decimos que el reposo absoluto es una ilusión?",
+      "respuesta_esperada": "Porque todo en el universo (planetas, estrellas, galaxias) está en constante movimiento relativo."
+    },
+    {
+      "pregunta": "¿A qué velocidad viaja la ISS con respecto a la superficie terrestre?",
+      "respuesta_esperada": "Aproximadamente a 27,600 km/h (unos 7.66 kilómetros por segundo)."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja en tu cuaderno un esquema donde expliques cómo tú puedes estar simultáneamente en reposo (respecto a tu cuaderno) y en movimiento (respecto al Sol).",
+    "Define con tus propias palabras qué es un 'Sistema de Referencia' y da tres ejemplos cotidianos de tu colegio.",
+    "Si un dron vuela estático sobre el parque de Montenegro sin avanzar, ¿está en reposo respecto a la Tierra? ¿Y respecto a un satélite espacial?",
+    "Escribe una hipótesis de por qué crees que la gravedad terrestre no es cero en la ISS, a pesar de que los objetos parezcan flotar sin peso."
+  ],
+  "texto_deductivo": "# 📐 EL VERDICTO CIENTÍFICO: REVELANDO LA RELATIVIDAD DEL MOVIMIENTO\n\n### ⚖️ Teoría de la Cinemática Aplicada\nComo detectives expertos, nuestro deber es fundamentar nuestras conclusiones con leyes físicas irrefutables. La **Cinemática** es la rama de la física que describe el movimiento de los objetos sin preocuparse por las causas que lo producen. \n\nPara que un cuerpo cambie de estado, debemos evaluar dos conceptos clave:\n1. **Movimiento:** El cambio de posición que experimenta un cuerpo a lo largo del tiempo respecto a un sistema de referencia de tu elección.\n2. **Reposo:** El estado en el cual la posición de un cuerpo no varía en relación con un sistema de referencia seleccionado.\n\n<center>\n<svg width='100%' height='250' viewBox='0 0 600 250' style='background-color:#0b0f19; border:2px solid #ff0055; border-radius:10px; font-family:sans-serif;'>\n  <circle cx='300' cy='350' r='200' fill='#0f172a' stroke='#38bdf8' stroke-width='4'/>\n  <text x='300' y='180' fill='#38bdf8' font-size='16' font-weight='bold' text-anchor='middle'>TIERRA</text>\n  <circle cx='300' cy='350' r='240' fill='none' stroke='#f43f5e' stroke-width='2' stroke-dasharray='6,6'/>\n  <rect x='280' y='95' width='40' height='20' rx='5' fill='#0ea5e9' stroke='#fff' stroke-width='1.5'/>\n  <text x='330' y='110' fill='#fff' font-size='12'>ISS (En Caída Libre)</text>\n  <path d='M 325,105 L 390,105' stroke='#10b981' stroke-width='3'/>\n  <text x='395' y='100' fill='#10b981' font-size='11' font-weight='bold'>Inercia</text>\n  <path d='M 300,115 L 300,160' stroke='#f43f5e' stroke-width='3'/>\n  <text x='240' y='150' fill='#f43f5e' font-size='11' font-weight='bold'>Gravedad (90%)</text>\n</svg>\n</center>\n\n[JUEGO:ORDENAR_LETRAS:MOVIMIENTO]\n\n[JUEGO:ORDENAR_LETRAS:TRAYECTORIA]\n\n[JUEGO:ORDENAR_LETRAS:GRAVEDAD]\n\n### 🛡️ Desmintiendo el Mito: La Verdad sobre la Flotación Cósmica\nEl mito urbano reza: *'En el espacio la gravedad es cero, por eso flotamos libres de fuerzas'*. \n\n**La Realidad Científica:** A la altura de la ISS (400 km), la fuerza de gravedad terrestre es el **90%** de la que sentimos en Montenegro. Si construyeras una torre gigante de 400 km de altura y te pararas en la cima, ¡no flotarías! Pesarías casi lo mismo. \n\nEntonces, ¿por qué flotan? La ISS no está en reposo; avanza de lado a una velocidad lateral colosal de **7.66 km/s**. Al mismo tiempo, la gravedad la jala hacia abajo. El resultado es que la ISS **cae continuamente hacia la Tierra**, pero como el planeta es redondo y la estación se mueve tan rápido de lado, la curvatura de su caída coincide perfectamente con la curvatura de la Tierra. La ISS está en una **caída libre perpetua**.\n\n[JUEGO:ORDENAR_FRASE:NADA ESTA EN REPOSO ABSOLUTO]\n\n[JUEGO:ORDENAR_FRASE:LA GRAVEDAD MANTIENE LA ORBITA]\n\nComo los astronautas dentro de la nave caen exactamente al mismo ritmo que la propia nave, no sienten ninguna fuerza de soporte bajo sus pies. Esto se conoce como **microgravedad** o estado de ingravidez aparente. Estar en reposo dentro de la ISS es solo un efecto visual relativo a sus paredes metálicas.\n\n[JUEGO:ORDENAR_FRASE:MEDIMOS EL CAMBIO DE POSICION]\n\n[JUEGO:SOPA_LETRAS:GRAVEDAD,ESPACIO,MASA]\n\n[JUEGO:SOPA_LETRAS:VELOCIDAD,TIEMPO,DISTANCIA]\n\n[JUEGO:SOPA_LETRAS:INERCIA,FUERZA,RAPIDEZ]\n\n[JUEGO:CRUCIGRAMA:Fuerza de atraccion planetaria|GRAVEDAD;Lugar donde orbita la ISS|ESPACIO]\n\n[JUEGO:CRUCIGRAMA:Estacion Espacial Internacional en abreviatura|ISS;Estado de flotacion aparente en orbita|MICROGRAVEDAD]\n\n[JUEGO:CRUCIGRAMA:Estudio del movimiento sin atender sus causas|CINEMATICA;Magnitud escalar del movimiento|DISTANCIA]",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "¿Por qué un cuerpo no puede tener un estado de movimiento absoluto e indiscutible?",
+      "respuesta_esperada": "Porque todo movimiento depende de la elección arbitraria de un sistema de referencia."
+    },
+    {
+      "pregunta": "¿Qué pasaría con la ISS si su velocidad lateral se redujera repentinamente a cero?",
+      "respuesta_esperada": "Dejaría de orbitar y caería verticalmente en picada directa hacia la superficie terrestre debido al 90% de gravedad."
+    },
+    {
+      "pregunta": "¿Qué es la caída libre en el contexto de la órbita terrestre?",
+      "respuesta_esperada": "Es el estado de caer continuamente hacia el planeta bajo la influencia de la gravedad mientras se viaja lo suficientemente rápido lateralmente para esquivar la colisión con la superficie."
+    },
+    {
+      "pregunta": "Si dejas caer un borrador dentro de un ascensor en caída libre, ¿qué observarás respecto al ascensor?",
+      "respuesta_esperada": "Observarás que el borrador flota en reposo aparente contigo, porque ambos caen a la misma aceleración."
+    },
+    {
+      "pregunta": "¿Por qué el reposo dentro de la ISS se denomina 'reposo relativo'?",
+      "respuesta_esperada": "Porque es reposo únicamente con respecto al interior de la estación espacial, pero es movimiento de alta velocidad respecto a la Tierra firme."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Construye un cuadro comparativo entre el concepto erróneo 'gravedad cero' y el concepto real 'caída libre orbital'.",
+    "Explica detalladamente por qué el patio de la IE Instituto Montenegro es un excelente sistema de referencia para medir tu velocidad al correr, pero un pésimo sistema para medir tu velocidad en el universo.",
+    "Si un astronauta lanza una pelota dentro de la ISS a 10 km/h hacia adelante, ¿cuál es la velocidad de la pelota para un científico en la Tierra?",
+    "Calcula la distancia aproximada que recorre la ISS en un solo minuto de tu clase de física si viaja a 7.66 km/s."
+  ],
+  "icfes": [
+    {
+      "competencia": "Uso comprensivo del conocimiento científico",
+      "texto_introductorio": "Un grupo de estudiantes de grado sexto de la IE Instituto Montenegro analiza el movimiento de los astronautas a bordo de la Estación Espacial Internacional (ISS). Durante la discusión, un estudiante afirma que como los astronautas no necesitan sostenerse para permanecer flotando en un punto fijo del aire de la ISS, ellos se encuentran en un estado de reposo absoluto.",
+      "tabla_o_grafica_markdown": "| Estado de Movimiento observado desde la ISS | Estado de Movimiento observado desde el Municipio de Montenegro | Fuerza de Gravedad neta sobre la ISS |\n| :---: | :---: | :---: |\n| Reposo Relativo | Movimiento Orbital Rápido (~27,600 km/h) | Presente (~90% de la gravedad superficial) |",
+      "pregunta": "Teniendo en cuenta la información física real y la tabla adjunta, la afirmación del estudiante es:",
+      "opciones": [
+        "Incorrecta, porque el reposo y el movimiento son conceptos relativos que dependen del sistema de referencia seleccionado por el observador.",
+        "Correcta, porque al no haber fuerzas gravitacionales actuando sobre la ISS en el espacio, no se produce ningún tipo de cambio posicional real.",
+        "Incorrecta, porque para que exista reposo relativo dentro de la estación espacial la gravedad debería ser exactamente igual a la registrada en el suelo de Quindío.",
+        "Correcta, debido a que el aire de la cabina espacial sirve como un punto de referencia universal que determina el reposo verdadero de la materia."
+      ],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "¡Excelente deducción, detective! El movimiento y el reposo siempre dependen del sistema de referencia. Para la cabina están quietos, pero para un observador en Montenegro se desplazan a velocidades increíbles.",
+        "1": "Incorrecto. Recuerda que la gravedad no es cero allí arriba; es el 90%. El reposo absoluto es una idea falsa en física.",
+        "2": "Incorrecto. El reposo relativo no depende de que la gravedad sea igual a la del suelo, sino de mantener una posición constante con el sistema de referencia seleccionado.",
+        "3": "Incorrecto. No existe ningún punto de referencia universal o absoluto en el universo según las leyes de la cinemática moderna."
+      }
+    }
+  ]
+}

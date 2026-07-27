@@ -1,0 +1,64 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "Desde mi visor en la Estación Espacial Internacional, observo una zona de Colombia que brilla con un verde intenso y huele a aroma de montaña. ¿A qué región crees que me refiero?",
+      "opciones": [
+        "El Desierto de la Tatacoa",
+        "El Eje Cafetero",
+        "La Antártida",
+        "La selva del Amazonas"
+      ],
+      "correcta": 1
+    }
+  ],
+  "texto_inductivo": "¡Saludos, reclutas terrestres! Aquí su Explorador Espacial informando desde la cúpula de observación de la EEI. [JUEGO:ORDENAR_LETRAS:ESPACIO] Hoy nuestro radar se ha fijado en una coordenada específica: 4.6° N, 74.0° W. Al hacer zoom, detectamos un fenómeno visual fascinante en el corazón de Colombia. [JUEGO:ORDENAR_FRASE:EL MAPA ES VERDE] Se trata de una región compuesta principalmente por tres fragmentos de tierra conocidos como departamentos: Quindío, Risaralda y Caldas. [JUEGO:SOPA_LETRAS:RISARALDA,CALDAS,QUINDIO] Es curioso, pero desde aquí arriba no se ven fronteras, solo una alfombra de cafetales que parece infinita. [JUEGO:CRUCIGRAMA:Centro del cafe|EJE;Fruto rojo|CEREZA] \n\nHe notado que esta zona tiene una topografía muy accidentada, llena de pliegues que ustedes llaman montañas. [JUEGO:ORDENAR_LETRAS:MONTAÑA] Estas elevaciones permiten que el aire sea fresco y las nubes se abracen a los árboles. [JUEGO:ORDENAR_FRASE:MIRA LAS NUBES] ¿Saben por qué es importante identificar estos tres departamentos? [JUEGO:SOPA_LETRAS:FINCA,COSECHA,GRANO] Porque cada uno aporta una pieza clave al rompecabezas del turismo nacional. [JUEGO:CRUCIGRAMA:Capital de Quindio|ARMENIA;Depto de Manizales|CALDAS] \n\nDesde mi órbita, veo puntos blancos que resultan ser pueblos coloridos. [JUEGO:ORDENAR_LETRAS:VERDE] Parecen pequeñas estaciones base donde los humanos procesan un grano mágico. [JUEGO:ORDENAR_FRASE:EL CAFE HUELE BIEN] He registrado que el Quindío es el más pequeño, pero su magnetismo turístico es gigante. [JUEGO:SOPA_LETRAS:TURISTA,VIAJE,GUIA] Risaralda tiene una conexión vital con el agua y Caldas se eleva hacia un nevado imponente. [JUEGO:CRUCIGRAMA:Ciudad de los puentes|PEREIRA;Depto de Risaralda|RISARALDA] \n\nEs extraño observar cómo la naturaleza y el trabajo humano han creado un patrón tan simétrico. [JUEGO:ORDENAR_LETRAS:COLOMBIA] A esto, los científicos de la Tierra lo llaman Paisaje Cultural Cafetero. [JUEGO:ORDENAR_FRASE:ESTAMOS EN LA ESTACION] Mis sensores indican una alta concentración de biodiversidad. [JUEGO:SOPA_LETRAS:VALLE,PALMA,CERA] Es vital que ustedes, como futuros embajadores turísticos, reconozcan esta región en el mapa mundial. [JUEGO:CRUCIGRAMA:El astro rey|SOL;Luz nocturna|LUNA] Para terminar este reporte visual, detecto que la zona es un motor de reconocimiento cultural. [JUEGO:ORDENAR_LETRAS:REGION] Es un ecosistema vivo que espera ser explorado con respeto. [JUEGO:ORDENAR_FRASE:BUSCA EL QUINDIO] La misión de hoy es entender por qué este rincón es tan especial para el mundo. [JUEGO:SOPA_LETRAS:MAPA,COORDENADA,NORTE] [JUEGO:CRUCIGRAMA:Lugar de naves|ESTACION;Vuela alto|COHETE]",
+  "recurso_visual": "graph TD\n    A[Eje Cafetero] --> B(Quindío)\n    A --> C(Risaralda)\n    A --> D(Caldas)\n    B --> B1[Atractivos: Salento y Valle del Cocora]\n    C --> C1[Atractivos: Termales y Bioparque Ukumarí]\n    D --> D1[Atractivos: Nevado del Ruiz y Manizales]\n    A --- E{Fenómeno: Paisaje Cultural Cafetero}\n    E --> F[Reconocido por la UNESCO]",
+  "preguntas_inductivas_pagina": [
+    "¿Cuáles son los tres departamentos principales que forman el Eje Cafetero?",
+    "¿Qué fenómeno visual detectó el explorador desde la EEI al mirar la zona?",
+    "¿Cuál es el departamento más pequeño pero con gran magnetismo turístico?",
+    "¿A qué se refiere el término 'Paisaje Cultural Cafetero' según el texto?",
+    "¿Qué elementos naturales menciona el explorador que se ven desde el espacio?"
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un mapa conceptual donde conectes los tres departamentos con una característica única de cada uno mencionada en el reporte.",
+    "Realiza un cuadro comparativo entre lo que ve el explorador desde el espacio y lo que vería un turista caminando por una finca cafetera.",
+    "Escribe una reflexión de 10 líneas sobre por qué el explorador considera que la unión entre naturaleza y trabajo humano es un 'fenómeno extraño'.",
+    "Representa gráficamente (dibujo) cómo te imaginas que se ve el Eje Cafetero desde la cúpula de la Estación Espacial Internacional."
+  ],
+  "texto_deductivo": "Ahora, cadetes, bajemos de la órbita para analizar los datos técnicos de este sector. [JUEGO:ORDENAR_LETRAS:TURISMO] El turismo en el Eje Cafetero no es solo viajar; es una actividad económica basada en el Paisaje Cultural Cafetero (PCC). [JUEGO:ORDENAR_FRASE:EL TURISMO ES CULTURA] Este fenómeno fue declarado Patrimonio de la Humanidad por la UNESCO porque es un ejemplo excepcional de adaptación humana a condiciones geográficas difíciles. [JUEGO:SOPA_LETRAS:SOSTENIBLE,HOSPITALIDAD,EXPERIENCIA] Para que un lugar sea parte del PCC, debe cumplir con criterios de tradición y esfuerzo intergeneracional. [JUEGO:CRUCIGRAMA:Siglas patrimonio|UNESCO;Siglas paisaje|PCC] \n\nEl concepto de 'Turismo de Experiencia' es vital aquí. [JUEGO:ORDENAR_LETRAS:CULTURA] Los visitantes no solo miran, sino que participan en la recolección del café. [JUEGO:ORDENAR_FRASE:EL PAISAJE ES PATRIMONIO] Departamentos como el Quindío lideran en parques temáticos que enseñan sobre la cultura del arriero. [JUEGO:SOPA_LETRAS:PATRIMONIO,TRADICION,IDENTIDAD] El emprendimiento local ha transformado antiguas fincas en hoteles boutique de alta calidad. [JUEGO:CRUCIGRAMA:Pueblo con encanto|SALENTO;Pueblo de artesania|FILANDIA] \n\nAnalizando la estructura social, vemos que el caficultor es el protagonista de este ecosistema. [JUEGO:ORDENAR_LETRAS:PAISAJE] Sin su labor, el paisaje se degradaría y perdería su valor turístico. [JUEGO:ORDENAR_FRASE:CUIDEMOS LA NATURALEZA] La sostenibilidad es la regla de oro: usar los recursos sin agotarlos para futuras misiones generacionales. [JUEGO:SOPA_LETRAS:CAFICULTOR,ARRIERO,MULAS] Por ello, el turismo debe ser responsable con el medio ambiente y la cultura local. [JUEGO:CRUCIGRAMA:Sombrero tipico|AGUADEÑO;Prenda de lana|RUANA] \n\nDesde el punto de vista del mercado, el Eje Cafetero es una marca global reconocida. [JUEGO:ORDENAR_LETRAS:UNESCO] Atrae a miles de terrícolas cada año que buscan el 'aroma' de la autenticidad. [JUEGO:ORDENAR_FRASE:COLOMBIA ES UN TESORO] Esto genera empleo y desarrollo en los municipios de Caldas, Risaralda y Quindío. [JUEGO:SOPA_LETRAS:MIRADOR,RESERVA,PARQUE] Es un modelo de economía circular donde la tradición se vende como una joya invaluable. [JUEGO:CRUCIGRAMA:El que guia|GUIA;Libro de viaje|MAPA] \n\nFinalmente, entender este fenómeno implica valorar nuestra propia identidad. [JUEGO:ORDENAR_LETRAS:VALOR] Al ser guías turísticos, su labor es explicar este 'fenómeno extraño' de belleza y productividad a todo el universo. [JUEGO:ORDENAR_FRASE:EL EJE ES UNICO] La riqueza no está solo en el grano, sino en el reconocimiento del Paisaje Cultural Cafetero como un legado vivo. [JUEGO:SOPA_LETRAS:ECONOMIA,EMPRESA,PROGRESO] Mantengan sus radares encendidos para proteger este patrimonio. [JUEGO:CRUCIGRAMA:Intercambio de bienes|COMERCIO;Idea de negocio|EMPRENDIMIENTO]",
+  "preguntas_deductivas_pagina": [
+    "¿Por qué la UNESCO declaró al Eje Cafetero como Patrimonio de la Humanidad?",
+    "¿Qué significa el término 'Turismo de Experiencia' en el contexto del café?",
+    "¿Cuál es el papel del caficultor en el mantenimiento del ecosistema turístico?",
+    "¿Qué departamentos se ven beneficiados económicamente por la marca PCC?",
+    "¿Cuál es la 'regla de oro' para que el turismo sea exitoso en esta región?"
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Elabora un diagrama detallado que muestre la relación entre el caficultor, el turista, la UNESCO y la economía local.",
+    "Crea un mapa mental sobre los valores que componen el Paisaje Cultural Cafetero (tradición, esfuerzo, biodiversidad, etc.).",
+    "Realiza un dibujo explicativo de una finca cafetera que se ha transformado en un hostal turístico, señalando sus partes.",
+    "Diseña una infografía artesanal que promocione los tres departamentos del Eje Cafetero para un visitante que viene de otro planeta."
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "En el Eje Cafetero ocurre un fenómeno socio-ambiental único: a pesar de que el cultivo de café suele agotar los suelos, en esta región el Paisaje Cultural Cafetero (PCC) ha mantenido un equilibrio entre la producción intensiva y la conservación de la biodiversidad durante más de cien años. Los científicos analizan los siguientes datos de impacto turístico y ambiental:",
+      "tabla_o_grafica_markdown": "| Variable | Antes del Turismo Masivo | Con Turismo Sostenible (PCC) |\n|---|---|---|\n| Conservación de Bosques | 45% | 62% |\n| Empleo Local | Bajo | Muy Alto |\n| Preservación de Tradiciones | En riesgo | Fortalecida |\n| Identidad Cultural | Localizada | Reconocimiento Global |",
+      "pregunta": "¿Cuál es la explicación más lógica de por qué el Paisaje Cultural Cafetero se considera un 'fenómeno extraño' y valioso para el turismo mundial?",
+      "opciones": [
+        "Porque es una zona donde el café crece solo sin intervención de los seres humanos ni tecnología.",
+        "Porque combina la supervivencia económica del cultivo con la protección de la cultura y la naturaleza, creando un atractivo único.",
+        "Porque es el único lugar de la Tierra donde los turistas pueden ver naves espaciales aterrizar en los cafetales.",
+        "Porque los departamentos de Quindío, Risaralda y Caldas no tienen montañas y eso facilita el turismo masivo."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. El PCC es precisamente un paisaje 'cultural', lo que significa que la intervención humana es fundamental.",
+        "1": "Correcto. El fenómeno es la armonía perfecta entre una actividad productiva (café) y la conservación de la identidad y el entorno, lo que atrae al turismo.",
+        "2": "Incorrecto. Esta es una interpretación fantasiosa que no corresponde a la realidad del turismo cultural.",
+        "3": "Incorrecto. La topografía del Eje Cafetero es precisamente de alta montaña, lo cual es una característica esencial del PCC."
+      }
+    }
+  ]
+}

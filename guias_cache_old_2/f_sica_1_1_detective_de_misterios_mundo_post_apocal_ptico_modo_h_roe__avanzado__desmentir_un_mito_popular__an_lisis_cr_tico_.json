@@ -1,0 +1,114 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "Estás sentado dentro de un vagón blindado que viaja a velocidad constante por las ruinas de Armenia. No hay ventanas. Dejas caer una cantimplora de metal. ¿Dónde cae con respecto a ti?",
+      "opciones": [
+        "Detrás de mí, porque el vagón se está moviendo hacia adelante mientras la cantimplora cae.",
+        "Exactamente a mis pies, porque dentro del vagón comparto el mismo estado de movimiento.",
+        "Adelante de mí, debido a la inercia del movimiento del aire post-apocalíptico.",
+        "Se queda flotando en el aire debido a la distorsión del campo gravitacional."
+      ],
+      "correcta": 1
+    },
+    {
+      "pregunta": "El radar de la IE Instituto Montenegro detecta un dron carroñero que se desplaza hacia el norte a 50 km/h. Al mismo tiempo, tú corres hacia el norte a 10 km/h. ¿A qué velocidad ves que se aleja el dron desde tu posición?",
+      "opciones": [
+        "A 60 km/h, porque las velocidades de persecución siempre se suman.",
+        "A 50 km/h, ya que tu propio movimiento no afecta cómo percibes el entorno.",
+        "A 40 km/h, porque restas tu velocidad de la velocidad del dron desde tu sistema de referencia.",
+        "A 10 km/h, que es tu propio límite físico de velocidad de escape."
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "La secta de los 'Estáticos' afirma que una enorme roca sagrada en el patio del instituto está en 'Reposo Absoluto'. Desde la perspectiva de la física moderna, ¿por qué esta afirmación es un mito?",
+      "opciones": [
+        "Porque la roca se desgasta por la lluvia ácida y por lo tanto cambia su masa interna.",
+        "Porque el reposo absoluto no existe: la roca se mueve con la Tierra en su rotación y traslación interestelar.",
+        "Porque la roca emite radiación gamma constante, lo que equivale a un movimiento de partículas.",
+        "Porque un cuerpo de gran masa siempre ejerce gravedad, atrayendo otros objetos hacia su centro."
+      ],
+      "correcta": 1
+    }
+  ],
+  "texto_inductivo": "# CASO 01: El Misterio del Altar Inmóvil\n\nSaludos, Detective. Nos encontramos en los páramos radiactivos que rodean las antiguas instalaciones de la **IE Instituto Montenegro**. El viento aúlla entre las vigas retorcidas de la vieja biblioteca. Una nueva facción radical, autodenominada *Los Estáticos*, ha tomado control del sector del gimnasio. Su líder espiritual, el autoproclamado 'Ermitaño del Cero', afirma haber descubierto un punto geográfico sagrado dentro del búnker subterráneo: el **Altar del Reposo Absoluto**.\n\nLos Estáticos afirman que cualquiera que entre al Altar quedará inmune a la entropía, las tormentas de polvo y el paso del tiempo, porque allí *nada se mueve a nivel absoluto*. Cientos de estudiantes asustados planean refugiarse allí y sellar las puertas para siempre, un acto que los condenaría a morir por asfixia en pocas horas.\n\nAquí es donde entra tu mente deductiva. Como Detective de Misterios Físicos de la Resistencia, tu deber es derribar este peligroso mito científico utilizando la lógica de la **Cinemática**.\n\n***¿Cómo puede un detective de misterios demostrar a los sobrevivientes de la IE Instituto Montenegro que el \"Búnker del Reposo Absoluto\" es una ilusión física, y que en realidad se están moviendo a miles de kilómetros por hora a través del cosmos mientras creen estar completamente estáticos?***\n\n<div style=\"background-color:#1e1e1e; color:#00ffcc; border: 2px solid #00ffcc; padding: 15px; border-radius: 8px; margin: 20px 0;\">\n  <h3 style=\"margin-top:0; text-align:center;\">🔍 ANALIZANDO LA ESCENA DEL CRIMEN CIENTÍFICO</h3>\n  <p>Para descifrar este enigma, debemos descodificar las primeras pistas sobre el movimiento. Comencemos entrenando tu cerebro con estos acertijos de encriptación:</p>\n</div>\n\n[JUEGO:ORDENAR_LETRAS:CINEMATICA]\n\n[JUEGO:ORDENAR_LETRAS:MOVIMIENTO]\n\n### 🗺️ El Mapa de Referencia Temporal\n\nPara probar que el búnker no está quieto, observa este mapa de vectores de velocidad que el satélite de la Resistencia ha trazado sobre las ruinas de Montenegro:\n\n<svg viewBox=\"0 0 800 400\" xmlns=\"http://www.w3.org/2000/svg\" style=\"background-color: #0d0d0d; border-radius: 10px; width:100%; height:auto;\">\n  <!-- Sol (Referencia Solar) -->\n  <circle cx=\"100\" cy=\"200\" r=\"40\" fill=\"#ff9900\" filter=\"drop-shadow(0px 0px 15px #ff6600)\" />\n  <text x=\"100\" y=\"205\" fill=\"#ffffff\" font-weight=\"bold\" text-anchor=\"middle\" font-size=\"14\">Sol (Origen S)</text>\n  \n  <!-- Órbita de la Tierra -->\n  <path d=\"M 100 200 A 300 150 0 1 1 700 200\" fill=\"none\" stroke=\"#333333\" stroke-dasharray=\"5,5\" stroke-width=\"2\" />\n  \n  <!-- La Tierra -->\n  <circle cx=\"550\" cy=\"200\" r=\"25\" fill=\"#3399ff\" />\n  <text x=\"550\" y=\"165\" fill=\"#3399ff\" font-weight=\"bold\" text-anchor=\"middle\" font-size=\"12\">Tierra (Origen T)</text>\n  \n  <!-- El Búnker en Montenegro -->\n  <rect x=\"540\" y=\"190\" width=\"20\" height=\"15\" fill=\"#888888\" stroke=\"#ff0033\" stroke-width=\"2\" />\n  <text x=\"620\" y=\"215\" fill=\"#ff0033\" font-weight=\"bold\" font-size=\"11\">Búnker de Montenegro</text>\n  \n  <!-- Vectores de Movimiento -->\n  <!-- Rotación -->\n  <path d=\"M 530 180 Q 550 170 570 180\" fill=\"none\" stroke=\"#00ffcc\" stroke-width=\"3\" marker-end=\"url(#arrow)\" />\n  <text x=\"550\" y=\"150\" fill=\"#00ffcc\" font-size=\"10\" text-anchor=\"middle\">Rotación: ~1,670 km/h</text>\n  \n  <!-- Traslación -->\n  <line x1=\"550\" y1=\"200\" x2=\"680\" y2=\"110\" stroke=\"#ffff00\" stroke-width=\"3\" />\n  <polygon points=\"680,110 670,115 675,125\" fill=\"#ffff00\" />\n  <text x=\"660\" y=\"95\" fill=\"#ffff00\" font-size=\"11\">Traslación: ~107,000 km/h</text>\n  \n  <!-- Explicación de Referencias -->\n  <rect x=\"30\" y=\"280\" width=\"340\" height=\"100\" rx=\"5\" fill=\"#1a1a1a\" stroke=\"#444444\" />\n  <text x=\"40\" y=\"300\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"bold\">Para un refugiado dentro del búnker:</text>\n  <text x=\"40\" y=\"320\" fill=\"#aaaaaa\" font-size=\"11\">• Velocidad del Altar = 0 km/h (Reposo relativo)</text>\n  <text x=\"40\" y=\"340\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"bold\">Para un observador en el Sol (Origen S):</text>\n  <text x=\"40\" y=\"360\" fill=\"#aaaaaa\" font-size=\"11\">• Velocidad del Altar = ~107,000 km/h (Movimiento circular)</text>\n</svg>\n\n¿Lo ves con claridad, Detective? Los miembros de la secta afirman estar quietos porque utilizan el suelo del búnker como su único **Sistema de Referencia**. Pero si cambiamos la perspectiva al Sol o al centro galáctico, ¡se están moviendo a velocidades hiperbólicas!\n\nPractiquemos ordenando las siguientes deducciones físicas fundamentales para presentar ante el consejo del Instituto:\n\n[JUEGO:ORDENAR_FRASE:EL MOVIMIENTO ES RELATIVO AL OBSERVADOR]\n\n[JUEGO:ORDENAR_FRASE:EL REPOSO ABSOLUTO NO EXISTE EN EL UNIVERSO]\n\n### 🔍 Búsqueda de Pistas en el Terreno\n\nAntes de confrontar al líder del culto, debemos recopilar palabras clave que los espías de la Resistencia ocultaron en las transmisiones de radio de la zona de exclusión:\n\n[JUEGO:SOPA_LETRAS:FISICA,CIENCIA,ESPACIO]\n\n[JUEGO:SOPA_LETRAS:TIEMPO,METRO,REGLA]\n\nResuelve el siguiente acertijo cifrado de doble entrada para obtener la clave de acceso a la base de datos de la cinemática del búnker:\n\n[JUEGO:CRUCIGRAMA:Cambio de posición en el tiempo|MOVIMIENTO;Estado de no movimiento aparente|REPOSO]\n\n[JUEGO:CRUCIGRAMA:Sistema que determina si algo se mueve|REFERENCIA;Camino recorrido por un objeto|TRAYECTORIA]",
+  "recurso_visual": "<table style=\"width:100%; border-collapse: collapse; text-align: left; font-family: sans-serif; background-color: #121212; color: #ffffff; border: 1px solid #333;\">\n  <thead>\n    <tr style=\"background-color: #222; border-bottom: 2px solid #00ffcc;\">\n      <th style=\"padding: 12px; color: #00ffcc;\">Concepto de Análisis</th>\n      <th style=\"padding: 12px; color: #00ffcc;\">Perspectiva del Culto (Mito)</th>\n      <th style=\"padding: 12px; color: #00ffcc;\">Perspectiva del Detective (Ciencia)</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr style=\"border-bottom: 1px solid #222;\">\n      <td style=\"padding: 12px; font-weight: bold;\">Estado de Movimiento</td>\n      <td style=\"padding: 12px; color: #ff5555;\">El reposo es una propiedad intrínseca y absoluta del Altar.</td>\n      <td style=\"padding: 12px; color: #55ff55;\">El reposo y el movimiento dependen enteramente del Sistema de Referencia elegido.</td>\n    </tr>\n    <tr style=\"border-bottom: 1px solid #222;\">\n      <td style=\"padding: 12px; font-weight: bold;\">Sistema de Referencia</td>\n      <td style=\"padding: 12px; color: #ff5555;\">Solo existe un punto de vista válido: las paredes de piedra del búnker.</td>\n      <td style=\"padding: 12px; color: #55ff55;\">Existen infinitos sistemas (la Tierra, el Sol, la Vía Láctea, un satélite en órbita).</td>\n    </tr>\n    <tr style=\"border-bottom: 1px solid #222;\">\n      <td style=\"padding: 12px; font-weight: bold;\">Velocidad del Bunker</td>\n      <td style=\"padding: 12px; color: #ff5555;\">0 km/h en todo el Universo.</td>\n      <td style=\"padding: 12px; color: #55ff55;\">0 km/h respecto al suelo; ~107,000 km/h respecto al Sol.</td>\n    </tr>\n  </tbody>\n</table>",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "¿Qué elemento físico define si un objeto se encuentra en movimiento o en reposo según la explicación del detective?",
+      "respuesta_esperada": "El Sistema de Referencia (u observador) desde el cual se analiza la posición del objeto."
+    },
+    {
+      "pregunta": "Si un sobreviviente permanece sentado e inmóvil dentro del Altar del búnker, ¿por qué un astronauta en la Luna diría que está en movimiento?",
+      "respuesta_esperada": "Porque desde el sistema de referencia lunar, la Tierra gira sobre su propio eje y orbita alrededor del Sol, moviendo al búnker y al sobreviviente con ella."
+    },
+    {
+      "pregunta": "¿Cuál es la velocidad aproximada a la que se traslada el búnker de la IE Instituto Montenegro alrededor del Sol?",
+      "respuesta_esperada": "Aproximadamente 107,000 kilómetros por hora."
+    },
+    {
+      "pregunta": "¿Cómo define la física el término 'cinemática' en este contexto post-apocalíptico?",
+      "respuesta_esperada": "Es la rama de la física que estudia el movimiento de los cuerpos sin preocuparse por las fuerzas que lo producen."
+    },
+    {
+      "pregunta": "¿Por qué es físicamente imposible construir un búnker de 'reposo absoluto' en cualquier parte del Universo?",
+      "respuesta_esperada": "Porque todo en el Universo está en constante movimiento (planetas, estrellas, galaxias) y no existe ningún punto de referencia verdaderamente estático o absoluto."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "RETO 1: Dibuja en tu cuaderno dos sistemas de referencia diferentes para un sobreviviente que corre por el patio de la IE Instituto Montenegro a 12 km/h huyendo de un dron.",
+    "RETO 2: Explica con tus propias palabras por qué la afirmación de 'Los Estáticos' de que el Altar los protege de la entropía debido al 'reposo absoluto' es un mito pseudocientífico.",
+    "RETO 3: Escribe un argumento convincente de tres líneas para convencer a tus compañeros de clase de no sellar el búnker basándote en la relatividad del movimiento.",
+    "RETO 4: Si la Tierra dejara de rotar repentinamente respecto a su propio eje pero mantuviera su traslación, ¿seguiría moviéndose el búnker respecto al Sol? Explica detalladamente."
+  ],
+  "texto_deductivo": "# TEORÍA CONSPIRATIVA DESMANTELADA: Las Leyes de la Relatividad del Movimiento\n\nDetective, es momento de estructurar las pruebas científicas con rigor académico de Modo Héroe. El mito del reposo absoluto cae cuando aplicamos formalmente las matemáticas de la **cinemática básica**.\n\n### ⚖️ Definición Formal de Términos\n\n1. **Movimiento**: Es el cambio de posición que experimenta un cuerpo (móvil) a lo largo del tiempo, respecto a un **sistema de referencia** que consideramos fijo.\n2. **Reposo**: Es el estado en el cual la posición de un cuerpo no varía en el tiempo con respecto a un sistema de referencia seleccionado.\n3. **Sistema de Referencia (SR)**: Un sistema de coordenadas cartesianas o un punto físico concreto que elegimos de manera arbitraria para poder medir la posición, la distancia y la velocidad de un cuerpo.\n\n<div style=\"background-color:#1e1e1e; border-left: 5px solid #ffff00; padding: 15px; margin: 20px 0; color: #e0e0e0;\">\n  <h4 style=\"margin-top:0; color:#ffff00;\">🧪 PRINCIPIO DE RELATIVIDAD DE GALILEO</h4>\n  <p>«No se puede determinar mediante ningún experimento mecánico realizado dentro de un sistema cerrado y sin mirar al exterior, si dicho sistema está en reposo o se mueve con velocidad constante en línea recta.»</p>\n</div>\n\nDesbloqueemos más encriptaciones de alta seguridad para preparar el informe definitivo para el Director de la IE Instituto Montenegro:\n\n[JUEGO:ORDENAR_LETRAS:REFERENCIA]\n\n[JUEGO:ORDENAR_LETRAS:TRAYECTORIA]\n\n[JUEGO:ORDENAR_LETRAS:REPOSO]\n\n### 🧭 Demostración Matemática del Movimiento\n\nImagina que analizamos la posición de un sobreviviente ($P$) que camina por un pasillo recto del búnker. Representemos esto matemáticamente usando dos sistemas de referencia diferentes:\n\n- **Sistema $A$ (Vigilante de la puerta del búnker)**: Se encuentra de pie junto a la entrada. Para él, el búnker está en $x = 0$ m. El sobreviviente se mueve a $1 \\text{ m/s}$.\n- **Sistema $B$ (Satélite de órbita baja de la Resistencia)**: Observa el búnker desde el espacio. Para el satélite, el búnker viaja con la velocidad de la Tierra, $v_{\\text{tierra}} = 30,000 \\text{ m/s}$.\n\nLa ecuación de adición de velocidades de Galileo para la velocidad del sobreviviente respecto al satélite ($v_{PB}$) es:\n\n$$v_{PB} = v_{PA} + v_{AB}$$\n\nDonde:\n- $v_{PA} = 1 \\text{ m/s}$ (Velocidad respecto al búnker)\n- $v_{AB} = 30,000 \\text{ m/s}$ (Velocidad del búnker respecto al espacio)\n\n$$v_{PB} = 1 \\text{ m/s} + 30,000 \\text{ m/s} = 30,001 \\text{ m/s}$$\n\n¡Por lo tanto, mientras el vigilante del búnker ve al sobreviviente caminar lentamente a solo $1 \\text{ m/s}$, el satélite lo ve pasar como un destello supersónico a la increíble velocidad de $30,001 \\text{ m/s}$!\n\nUtilicemos las transmisiones captadas para consolidar este conocimiento en nuestro informe:\n\n[JUEGO:ORDENAR_FRASE:TODO SE MUEVE RESPECTO A OTRO CUERPO]\n\n[JUEGO:ORDENAR_FRASE:UN PUNTO DE REFERENCIA DETERMINA LA VELOCIDAD]\n\n[JUEGO:ORDENAR_FRASE:LA CINEMATICA ESTUDIA EL MOVIMIENTO SIN SUS CAUSAS]\n\n### 📦 Recopilación de Evidencia Holográfica\n\nEncontremos las últimas palabras clave codificadas por los científicos del pasado para terminar nuestro análisis crítico del fenómeno físico:\n\n[JUEGO:SOPA_LETRAS:SISTEMA,ORIGEN,VECTOR]\n\n[JUEGO:SOPA_LETRAS:RAPIDEZ,INERCIA,FUERZA]\n\n[JUEGO:SOPA_LETRAS:SATELITE,TIERRA,ORBITA]\n\nPor último, completa los esquemas lógicos finales del manual de física de campo:\n\n[JUEGO:CRUCIGRAMA:Magnitud que mide la prisa de un objeto|RAPIDEZ;Duración de un evento físico|TIEMPO]\n\n[JUEGO:CRUCIGRAMA:El planeta donde vivimos que rota sin cesar|TIERRA;Cuerpo celeste artificial en el espacio|SATELITE]\n\n[JUEGO:CRUCIGRAMA:Unidad de medida de longitud en el SI|METRO;Rama de la fisica que describe el movimiento|CINEMATICA]\n\n¡Excelente trabajo científico, Detective! El mito ha sido desmentido teórica y experimentalmente. Los refugiados ahora comprenden que el búnker no los mantendrá estáticos a nivel cósmico.",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "¿Cuál es la ecuación básica de Galileo que demuestra que las velocidades percibidas por observadores en diferentes sistemas de referencia cambian de manera predecible?",
+      "respuesta_esperada": "La velocidad del objeto medida por un sistema es la suma de la velocidad del objeto medida por otro sistema más la velocidad relativa entre ambos sistemas (v_PB = v_PA + v_AB)."
+    },
+    {
+      "pregunta": "¿Qué ocurre con el valor de la posición de un objeto si cambiamos el origen del sistema de referencia de las coordenadas cartesianas?",
+      "respuesta_esperada": "El valor numérico de la posición cambia, aunque el objeto siga ubicado en el mismo lugar físico de la realidad."
+    },
+    {
+      "pregunta": "Si vas montado en un carro blindado a 60 km/h y lanzas una manzana hacia adelante a 10 km/h (respecto al carro), ¿a qué velocidad la verá pasar un guardián de pie en el camino?",
+      "respuesta_esperada": "La verá pasar a 70 km/h (la suma de 60 km/h del auto más los 10 km/h del lanzamiento)."
+    },
+    {
+      "pregunta": "¿Cómo refuta el principio de la relatividad la idea de que existe un 'centro absoluto' del universo que está perfectamente quieto?",
+      "respuesta_esperada": "Establece que no existe ningún sistema de referencia inercial privilegiado; todos los sistemas que se mueven a velocidad constante son igualmente válidos."
+    },
+    {
+      "pregunta": "¿Por qué las leyes físicas dentro del búnker funcionan exactamente igual que afuera, a pesar del tremendo movimiento de la Tierra en el espacio?",
+      "respuesta_esperada": "Porque el búnker se desplaza a una velocidad prácticamente constante junto con la atmósfera terrestre, actuando como un sistema de referencia inercial cerrado."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "RETO 1: Escribe un breve informe técnico (de una página) donde resumas el mito de 'Los Estáticos' y cómo lo resolviste usando la ley galileana de adición de velocidades.",
+    "RETO 2: Realiza el siguiente cálculo: Un vagón de la resistencia avanza a 15 m/s. Un francotirador camina por el techo del vagón hacia la parte trasera a 2 m/s. ¿Cuál es la velocidad de este francotirador respecto a un observador quieto en la orilla del camino?",
+    "RETO 3: Explica con un diagrama gráfico por qué una persona sentada frente a un panel de control de la IE Instituto Montenegro se encuentra simultáneamente en reposo y en movimiento continuo.",
+    "RETO 4: Diseña un nuevo letrero de advertencia científica para colocar en la entrada del búnker que recuerde a todos los sobrevivientes la naturaleza puramente relativa de su estado de movimiento."
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de Fenómenos",
+      "texto_introductorio": "Durante un experimento de cinemática en los restos del laboratorio de la IE Instituto Montenegro, dos estudiantes, Ana y Carlos, analizan la trayectoria de un robot de exploración. Ana se encuentra parada inmóvil junto a la plataforma de lanzamiento del robot, mientras que Carlos viaja sobre una plataforma móvil que se desplaza en línea recta y a velocidad constante de 5 m/s paralela a la trayectoria del robot. Los datos de velocidad recopilados para el robot se presentan en la siguiente tabla de telemetría:",
+      "tabla_o_grafica_markdown": "| Observador | Velocidad del Robot Registrada |\n|---|---|\n| Ana (en tierra) | $12 \\text{ m/s}$ hacia el norte |\n| Carlos (en plataforma móvil) | ? |\n| Sensor Orbital (fijo en el espacio) | $30,012 \\text{ m/s}$ hacia el norte |",
+      "pregunta": "Si la plataforma de Carlos se desplaza hacia el norte (en el mismo sentido del robot), ¿cuál de las siguientes opciones representa correctamente la velocidad del robot registrada por Carlos y la explicación de este resultado?",
+      "opciones": [
+        "A) 17 m/s hacia el norte, porque al moverse en el mismo sentido, la velocidad de la plataforma de Carlos se suma directamente a la velocidad del robot medida por Ana.",
+        "B) 7 m/s hacia el norte, porque al moverse en la misma dirección y sentido, la velocidad relativa se reduce al restar el movimiento de la plataforma de Carlos.",
+        "C) 12 m/s hacia el norte, debido a que las mediciones de velocidad son absolutas y no dependen de la velocidad de los observadores en movimiento inercial.",
+        "D) 30,007 m/s hacia el norte, puesto que todas las mediciones terrestres deben ajustarse obligatoriamente con el sistema de referencia espacial del sensor orbital."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. Se sumarían las velocidades si Carlos se moviera en sentido opuesto al robot (acercándose o alejándose de espaldas), lo que haría ver al robot más veloz. Pero al ir en el mismo sentido, Carlos ve que el robot avanza más lentamente respecto a él.",
+        "1": "¡Correcto, Detective! Al viajar ambos en la misma dirección y sentido, Carlos percibe que el robot se aleja de él a una menor velocidad (12 m/s - 5 m/s = 7 m/s). La velocidad relativa disminuye porque comparten una componente de movimiento común.",
+        "2": "Incorrecto. Este valor asume que el movimiento es absoluto, contradiciendo el principio básico de la relatividad galileana en física, donde el movimiento registrado varía según el observador.",
+        "3": "Incorrecto. Este valor mezcla incorrectamente el sistema de referencia cósmico de la Tierra respecto al espacio con la relación de movimiento local y directa entre Carlos y el robot."
+      }
+    }
+  ]
+}

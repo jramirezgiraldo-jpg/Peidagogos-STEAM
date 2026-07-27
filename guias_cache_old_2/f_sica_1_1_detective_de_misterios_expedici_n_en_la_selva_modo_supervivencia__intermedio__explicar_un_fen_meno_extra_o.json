@@ -1,0 +1,104 @@
+{
+  "saberes_previos": [
+    {
+      "pregunta": "Vas en el autobús escolar camino a la IE Instituto Montenegro. Miras a tu compañero de asiento. ¿Él se está moviendo o está en reposo?",
+      "opciones": [
+        "A) Está en movimiento absoluto porque el autobús avanza por la carretera.",
+        "B) Está en reposo absoluto porque no se levanta de su silla.",
+        "C) Depende del punto de referencia: está en reposo respecto a ti, pero en movimiento respecto a alguien en la acera.",
+        "D) No se puede saber sin un velocímetro."
+      ],
+      "correcta": 2
+    },
+    {
+      "pregunta": "Un mono en la selva está colgado de una rama sin cambiar su posición respecto al árbol. El mono está en:",
+      "opciones": [
+        "A) Reposo relativo respecto al árbol.",
+        "B) Movimiento acelerado.",
+        "C) Reposo absoluto en todo el universo.",
+        "D) Caída libre."
+      ],
+      "correcta": 0
+    }
+  ],
+  "texto_inductivo": "# Expedición en la Selva del Amazonas: El Misterio de las Ruinas Desplazadas\n\n¡Hola, joven Detective! Soy tu guía en esta investigación científica de **Modo Supervivencia**. Nos hemos adentrado en la selva espesa del Amazonas tras un reporte insólito: unas ruinas antiguas de piedra, conocidas como *Las Estatuas Susurrantes*, parecen cambiar de lugar misteriosamente cuando la niebla desciende. Los lugareños dicen que las estatuas caminan. Como detectives de la física, resolveremos esto usando la cinemática.\n\nAntes de empezar nuestra investigación en el campo, debemos plantearnos el enigma central de nuestra aventura:\n\n***¿Cómo es posible que mientras un estudiante de la IE Instituto Montenegro cree estar completamente quieto sentado en su pupitre, un detective espacial lo observe moviéndose a más de 100.000 kilómetros por hora a través de la selva del cosmos?***\n\n<div style='text-align: center;'>\n  <svg width='320' height='180' viewBox='0 0 320 180' style='background-color:#1e293b; border-radius: 8px;'>\n    <rect x='10' y='140' width='300' height='30' fill='#15803d' />\n    <circle cx='60' cy='110' r='15' fill='#e11d48' />\n    <rect x='55' y='125' width='10' height='15' fill='#f59e0b' />\n    <polygon points='160,140 190,80 220,140' fill='#475569' />\n    <text x='50' y='80' fill='#ffffff' font-size='12' font-family='sans-serif'>¿Se mueve el Templo?</text>\n    <path d='M 60 110 Q 110 80 160 110' stroke='#f59e0b' stroke-dasharray='4' fill='none' />\n  </svg>\n</div>\n\nPara entender este fenómeno, analiza el mapa de coordenadas de nuestro campamento base en la selva:\n\n[JUEGO:SOPA_LETRAS:REPOSO,MOVIMIENTO,SISTEMA]\n\n## El Caso del Templo que se Mueve\n\nAl llegar, plantamos nuestro campamento al lado de un gigantesco árbol de ceiba. Observamos una estatua a 10 metros al este. Al caer la noche, la niebla cubrió el lugar. Cuando se disipó, la estatua estaba a 15 metros. ¿Se movió la estatua o nos movimos nosotros con todo y campamento?\n\n[JUEGO:ORDENAR_LETRAS:REPOSO]\n\nPara resolver este misterio, necesitamos entender que el movimiento no es un juego de magia; requiere un punto de partida claro.\n\n[JUEGO:ORDENAR_FRASE:EL MOVIMIENTO ES RELATIVO]\n\nObservemos la siguiente tabla donde registramos las posiciones de tres sospechosos en la selva durante nuestro primer día de observación:\n\n| Objeto Sospechoso | Posición Inicial (Hora 08:00) | Posición Final (Hora 09:00) | ¿Hubo cambio de posición? |\n| :--- | :--- | :--- | :--- |\n| Estatua de Jaguar | 5 metros al Norte del Árbol | 5 metros al Norte del Árbol | No |\n| Explorador en Jeep | 0 metros (Campamento) | 500 metros al Oeste | Sí |\n| Sombra de la Ceiba | 2 metros al Este | 4 metros al Oeste | Sí (por el Sol) |\n\n[JUEGO:CRUCIGRAMA:Punto desde donde se observa|REFERENCIA;Estado de no movimiento|REPOSO]\n\n[JUEGO:SOPA_LETRAS:TIEMPO,DISTANCIA,PUNTO]\n\n[JUEGO:ORDENAR_LETRAS:MOVIMIENTO]\n\n[JUEGO:ORDENAR_FRASE:EL REPOSO DEPENDE DEL OBSERVADOR]",
+  "recurso_visual": "<table border='1' style='width:100%; border-collapse: collapse; text-align: center; font-family: sans-serif; background-color: #f8fafc;'>\n  <tr style='background-color: #0f172a; color: white;'>\n    <th>Estado del Objeto</th>\n    <th>Punto de Referencia: Árbol Fijo</th>\n    <th>Punto de Referencia: Río Corriendo</th>\n  </tr>\n  <tr>\n    <td><b>Detective sentado</b></td>\n    <td style='color: #16a34a; font-weight: bold;'>REPOSO</td>\n    <td style='color: #dc2626; font-weight: bold;'>MOVIMIENTO</td>\n  </tr>\n  <tr>\n    <td><b>Balsa flotando a la deriva</b></td>\n    <td style='color: #dc2626; font-weight: bold;'>MOVIMIENTO</td>\n    <td style='color: #16a34a; font-weight: bold;'>REPOSO</td>\n  </tr>\n</table>",
+  "preguntas_inductivas_pagina": [
+    {
+      "pregunta": "¿Por qué es necesario elegir un punto de referencia para saber si la estatua de la selva se movió?",
+      "respuesta_esperada": "Porque el movimiento es el cambio de posición de un cuerpo respecto a un punto fijo de referencia a lo largo del tiempo. Sin ese punto, no se puede medir la distancia recorrida ni afirmar que hubo cambio de posición."
+    },
+    {
+      "pregunta": "Si estás parado en la selva y una mariposa vuela a tu alrededor, ¿quién está en movimiento respecto a quién?",
+      "respuesta_esperada": "La mariposa está en movimiento respecto a ti, y tú estás en reposo respecto al suelo de la selva. Al mismo tiempo, tú estás en movimiento respecto a la mariposa."
+    },
+    {
+      "pregunta": "Si toda la selva se desplaza debido a las placas tectónicas, ¿cómo afecta esto nuestra medición local?",
+      "respuesta_esperada": "No la afecta para fines de supervivencia cotidianos porque todo nuestro entorno (árboles, campamento) se mueve junto, manteniendo las posiciones relativas constantes entre sí."
+    },
+    {
+      "pregunta": "¿Qué ocurre si cambiamos nuestro punto de referencia del campamento al Jeep en marcha?",
+      "respuesta_esperada": "El campamento que antes considerábamos fijo ahora se verá en movimiento hacia atrás desde la perspectiva del conductor del Jeep."
+    },
+    {
+      "pregunta": "¿Qué papel juega el tiempo en la detección del movimiento?",
+      "respuesta_esperada": "El tiempo nos permite registrar el instante en que ocurren los cambios de posición y determinar si el estado del objeto varió cronológicamente."
+    }
+  ],
+  "preguntas_inductivas_cuaderno": [
+    "Dibuja un mapa de la selva con un sistema de coordenadas plano donde muestres tu campamento en el punto (0,0) y localiza tres objetos a tu alrededor.",
+    "Explica con tus propias palabras qué significa el término 'relativo' cuando hablamos del movimiento de un río en la Amazonía.",
+    "Si dejas tu brújula sobre una roca, ¿por qué podemos decir que está en reposo relativo pero en movimiento absoluto?",
+    "Escribe una hipótesis policial que explique cómo la niebla pudo haber engañado a los exploradores haciéndoles creer que las estatuas se movían."
+  ],
+  "texto_deductivo": "# El Manifiesto del Detective: La Física de la Cinemática\n\n¡Felicidades por sobrevivir a la primera noche en la selva, Detective! Ahora debemos formalizar nuestras observaciones para presentar el informe oficial a la central de detectives científicos de la **IE Instituto Montenegro**. \n\nLa **Cinemática** es la rama de la física que estudia el movimiento de los cuerpos sin preocuparse por las causas que lo producen. \n\n<div style='text-align: center;'>\n  <svg width='300' height='150' viewBox='0 0 300 150' style='background-color:#1e293b; border-radius: 8px;'>\n    <!-- Sistema Cartesianos -->\n    <line x1='30' y1='120' x2='270' y2='120' stroke='#94a3b8' stroke-width='2' />\n    <line x1='50' y1='20' x2='50' y2='140' stroke='#94a3b8' stroke-width='2' />\n    <!-- Trayectoria -->\n    <path d='M 50 120 C 100 50, 180 50, 250 120' stroke='#38bdf8' stroke-width='3' fill='none' />\n    <circle cx='250' cy='120' r='6' fill='#fbbf24' />\n    <text x='55' y='35' fill='#94a3b8' font-size='10' font-family='sans-serif'>Eje Y (Posición)</text>\n    <text x='210' y='135' fill='#94a3b8' font-size='10' font-family='sans-serif'>Eje X (Distancia)</text>\n    <text x='110' y='45' fill='#38bdf8' font-size='12' font-family='sans-serif'>Trayectoria de la Flecha</text>\n  </svg>\n</div>\n\n## Conceptos Clave de Supervivencia\n\nPara resolver el enigma del aula de clase y de la selva, debemos dominar estos tres pilares teóricos:\n\n1. **Movimiento:** Es el cambio de posición que experimenta un cuerpo (móvil) con respecto a un sistema de referencia que se considera fijo.\n2. **Reposo:** Estado de un cuerpo que no cambia de posición con respecto al punto de referencia elegido.\n3. **Sistema de Referencia:** Es el conjunto de coordenadas y el observador desde donde se analiza y mide el movimiento.\n\n[JUEGO:ORDENAR_LETRAS:TRAYECTORIA]\n\n[JUEGO:ORDENAR_FRASE:TODO SE MUEVE EN EL UNIVERSO]\n\n[JUEGO:SOPA_LETRAS:CINEMATICA,RAPIDEZ,MARCO]\n\n### El Veredicto Científico del Enigma de Montenegro\nUn estudiante sentado en su aula en la IE Instituto Montenegro está en **reposo relativo** respecto a su tablero y su profesor. Sin embargo, dado que la Tierra gira sobre su propio eje y orbita alrededor del Sol a gran velocidad, ese mismo estudiante está en **movimiento absoluto** respecto al Sol y a las estrellas del cosmos profundo.\n\n[JUEGO:CRUCIGRAMA:Estudio del movimiento sin causas|CINEMATICA;Cambio de posicion|MOVIMIENTO]\n\n[JUEGO:ORDENAR_LETRAS:DISTANCIA]\n\n[JUEGO:ORDENAR_FRASE:EL PUNTO DE REFERENCIA ES CLAVE]\n\n[JUEGO:SOPA_LETRAS:DETECTIVE,MISTERIO,SELVA]\n\n[JUEGO:CRUCIGRAMA:Camino recorrido por un objeto|TRAYECTORIA;Magnitud escalar del movimiento|DISTANCIA]\n\n[JUEGO:ORDENAR_LETRAS:VELOCIDAD]\n\n[JUEGO:ORDENAR_FRASE:LA CINEMATICA ESTUDIA EL MOVIMIENTO]\n\n[JUEGO:SOPA_LETRAS:FISICA,CIENCIA,ESTADO]\n\n[JUEGO:CRUCIGRAMA:Espacio que separa dos puntos|LONGITUD;Intervalo en que ocurre algo|TIEMPO]\n\n[JUEGO:CRUCIGRAMA:Rapidez con direccion|VELOCIDAD;Lugar en el espacio|POSICION]\n\nLa ilusión de las estatuas que se mueven en la selva ocurre porque la densa niebla en constante movimiento actúa como un sistema de referencia falso para nuestro cerebro, haciéndonos percibir que las estatuas estables se desplazan cuando en realidad es la niebla la que viaja con el viento.",
+  "preguntas_deductivas_pagina": [
+    {
+      "pregunta": "¿Qué es la trayectoria según la física de la cinemática?",
+      "respuesta_esperada": "La trayectoria es la línea imaginaria que describe un cuerpo en movimiento al unir todos los puntos sucesivos por los que pasa."
+    },
+    {
+      "pregunta": "Si un jaguar recorre 20 metros al norte y luego regresa al mismo punto de partida, ¿cuál fue su distancia recorrida y su desplazamiento?",
+      "respuesta_esperada": "La distancia recorrida fue de 40 metros, pero su desplazamiento fue de 0 metros porque su posición inicial y final fueron exactamente las mismas."
+    },
+    {
+      "pregunta": "¿Cómo se define el estado de reposo?",
+      "respuesta_esperada": "El estado de reposo se define como la ausencia de cambio de posición de un objeto con respecto a un marco de referencia seleccionado durante un tiempo determinado."
+    },
+    {
+      "pregunta": "¿Por qué no existe el reposo absoluto en el universo?",
+      "respuesta_esperada": "Porque todos los cuerpos celestes, galaxias, planetas y átomos están en constante movimiento, por lo que todo reposo es relativo al punto de observación escogido."
+    },
+    {
+      "pregunta": "¿Cuál es la principal diferencia entre distancia y desplazamiento?",
+      "respuesta_esperada": "La distancia es la medida de la longitud de la trayectoria recorrida (magnitud escalar), mientras que el desplazamiento es la línea recta que une el punto inicial con el punto final (magnitud vectorial)."
+    }
+  ],
+  "preguntas_deductivas_cuaderno": [
+    "Define formalmente con tus palabras qué es un sistema de referencia inercial utilizando el ejemplo de la selva del Amazonas.",
+    "Si viajas dentro de un helicóptero que vuela sobre la selva a velocidad constante, ¿estás en movimiento o en reposo respecto al piloto?",
+    "Explica mediante un experimento mental cómo podrías hacer que una estatua pesada parezca estar moviéndose sin llegar a tocarla físicamente.",
+    "Elabora un mapa conceptual que conecte los siguientes términos: Cinemática, Movimiento, Reposo, Sistema de Referencia, Trayectoria y Tiempo."
+  ],
+  "icfes": [
+    {
+      "competencia": "Explicación de fenómenos",
+      "texto_introductorio": "Durante la Expedición en la Selva, dos detectives, Carlos y Sofía, deciden observar el vuelo de un guacamayo desde dos ubicaciones diferentes. Carlos está sentado inmóvil bajo un árbol de ceiba, mientras que Sofía camina hacia el norte a una velocidad constante de 2 m/s. El guacamayo vuela hacia el norte exactamente a la misma velocidad que camina Sofía (2 m/s).",
+      "tabla_o_grafica_markdown": "| Observador | Estado del Observador respecto al Suelo | Velocidad del Guacamayo respecto al Suelo | Velocidad del Guacamayo respecto al Observador |\n| :--- | :--- | :--- | :--- |\n| Carlos | Reposo | 2 m/s | 2 m/s |\n| Sofía | Movimiento (2 m/s) | 2 m/s | 0 m/s |\n",
+      "pregunta": "Teniendo en cuenta la información recolectada por los detectives, ¿cuál de las siguientes afirmaciones sobre el estado del guacamayo es correcta?",
+      "opciones": [
+        "A) El guacamayo está en movimiento absoluto para ambos detectives porque vuela sobre la selva.",
+        "B) Para Sofía, el guacamayo está en reposo relativo porque no cambia de posición respecto a ella a medida que avanzan.",
+        "C) Para Carlos, el guacamayo está en reposo absoluto porque la ceiba es el centro del universo físico.",
+        "D) El guacamayo está en movimiento respecto a Sofía y en reposo respecto a Carlos."
+      ],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto. El movimiento no es absoluto; depende estrictamente del punto de referencia de cada observador.",
+        "1": "¡Correcto, Detective! Dado que Sofía y el guacamayo viajan en la misma dirección y a la misma velocidad, la distancia entre ellos no cambia, por lo que el guacamayo se encuentra en reposo relativo respecto a Sofía.",
+        "2": "Incorrecto. Para Carlos, el guacamayo se aleja a 2 m/s, por lo que está en movimiento relativo respecto a su posición.",
+        "3": "Incorrecto. Es al revés: está en movimiento respecto a Carlos (quien está fijo en el suelo) y en reposo respecto a Sofía (quien se mueve a la par con el ave)."
+      }
+    }
+  ]
+}
