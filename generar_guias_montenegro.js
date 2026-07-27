@@ -40,7 +40,21 @@ async function generarGuia(params) {
 
     console.log(`\n[INTENTANDO] ${asignatura} P${periodo} S${semana} - ${topico}`);
 
-    const prompt = `Actúa como un ${rol}. Tu objetivo es enseñar ${asignatura} a estudiantes de educación media en el contexto narrativo de ${ambiente}.
+    let perfilEstudiante = "estudiantes de básica secundaria (aprox. 11-14 años)";
+    let matchGrado = asignatura.toString().match(/\d+/);
+    let numGrado = matchGrado ? parseInt(matchGrado[0]) : 0;
+    
+    if (asignatura.toString().toUpperCase().includes("PENSAR")) {
+        perfilEstudiante = "jóvenes y adultos en modelo educativo flexible (CLEI/PENSAR), requiriendo un enfoque andragógico, maduro y muy contextualizado a la vida laboral/cotidiana";
+    } else if (numGrado >= 10) {
+        perfilEstudiante = "estudiantes de educación media (aprox. 15-17 años)";
+    } else if (numGrado >= 6 && numGrado <= 9) {
+        perfilEstudiante = "estudiantes de básica secundaria (aprox. 11-14 años)";
+    }
+
+    const prompt = `Actúa como un ${rol}. Tu objetivo es enseñar ${asignatura} a ${perfilEstudiante} en el contexto narrativo de ${ambiente}.
+OBLIGACIÓN PEDAGÓGICA: El contenido, vocabulario y profundidad científica DEBEN estar estrictamente alineados con los Derechos Básicos de Aprendizaje (DBA) y los Estándares Básicos de Competencias de Colombia para esta asignatura y nivel.
+Si es un grado inferior (6º a 9º), evita la matematización excesiva o fórmulas complejas; prioriza la comprensión cualitativa, la indagación y la fenomenología.
 Debes estructurar la guía de estudio siguiendo el nivel evolutivo de ${nivel}.
 La guía debe evaluar la competencia de ${enfoque}.
 
