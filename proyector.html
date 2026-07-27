@@ -142,11 +142,6 @@
         <p id="slide-content">Contenido</p>
         
         <div id="slide-custom-area"></div>
-
-        <div id="timer-container" style="display:none; flex-direction: column; align-items: center;">
-            <div id="timer-text" class="timer-display">00:00</div>
-        </div>
-
     </div>
 
     <script>
@@ -289,19 +284,13 @@
                 });
             }
 
-            const timerContainer = document.getElementById('timer-container');
-            const timerText = document.getElementById('timer-text');
             const btnTimer = document.getElementById('btn-start-timer');
 
             if (slide.timer) {
-                timerContainer.style.display = 'flex';
                 currentTimerSeconds = slide.timer;
                 updateTimerDisplay();
                 btnTimer.style.display = 'block';
-                timerText.classList.remove('timer-pulse');
-                timerText.style.color = '#FBBF24';
             } else {
-                timerContainer.style.display = 'none';
                 btnTimer.style.display = 'none';
             }
         }
@@ -309,7 +298,6 @@
         function updateTimerDisplay() {
             const m = Math.floor(currentTimerSeconds / 60).toString().padStart(2, '0');
             const s = (currentTimerSeconds % 60).toString().padStart(2, '0');
-            document.getElementById('timer-text').innerText = `${m}:${s}`;
             
             const miniTimer = document.getElementById('timer-text-mini');
             if (miniTimer) {
@@ -325,13 +313,12 @@
                     currentTimerSeconds--;
                     updateTimerDisplay();
                     if (currentTimerSeconds <= 10) {
-                        document.getElementById('timer-text').classList.add('timer-pulse');
+                        const miniTimer = document.getElementById('timer-text-mini');
+                        if (miniTimer) miniTimer.classList.add('timer-pulse');
                     }
                 } else {
                     clearInterval(timerInterval);
-                    document.getElementById('timer-text').style.color = '#EF4444';
-                    document.getElementById('timer-text').innerText = "¡TIEMPO!";
-                    document.getElementById('timer-text').classList.remove('timer-pulse');
+                    // Reloj grande eliminado, actualizando solo el mini
                     
                     const miniTimer = document.getElementById('timer-text-mini');
                     if(miniTimer) {
