@@ -1225,9 +1225,8 @@ function renderizarGuiaProfesor(guideData, asignatura, periodo, semanaStr) {
 
     if (guideData.recurso_visual) {
         htmlRenderizado += `<h4 style="color: #4F46E5; margin-top: 20px;">📊 Recurso Visual</h4>`;
-        if (guideData.recurso_visual.includes('graph TD') || guideData.recurso_visual.includes('graph LR') || guideData.recurso_visual.includes('pie') || guideData.recurso_visual.includes('flowchart')) {
-            let cleanMermaid = guideData.recurso_visual.replace(/```mermaid/g, '').replace(/```/g, '').trim();
-            htmlRenderizado += `<div class="mermaid" style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px; text-align: center; overflow-x: auto;">${cleanMermaid}</div>`;
+        if (guideData.recurso_visual.includes('graph TD') || guideData.recurso_visual.includes('graph LR') || guideData.recurso_visual.includes('pie') || guideData.recurso_visual.includes('flowchart') || guideData.recurso_visual.includes('mermaid')) {
+            htmlRenderizado += `<div style="text-align:center; padding:20px; border: 2px dashed #94A3B8; border-radius: 8px; color: #475569; background: #F8FAFC; margin-bottom: 20px;"><i>📝 <b>Actividad Práctica:</b> Reflexiona sobre el texto anterior e imagina cómo dibujarías este concepto en tu cuaderno usando un esquema.</i></div>`;
         } else {
             htmlRenderizado += `<div class="markdown-body" style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px; overflow-x: auto;">${marked.parse(guideData.recurso_visual)}</div>`;
         }
@@ -1693,12 +1692,9 @@ window.ingresarAGuia = async function() {
 
         if (guideData.recurso_visual) {
             htmlRenderizado += `<h4 style="color: #4F46E5; margin-top: 20px;">📊 Recurso Visual</h4>`;
-            if (guideData.recurso_visual.includes('graph TD') || guideData.recurso_visual.includes('graph LR') || guideData.recurso_visual.includes('pie') || guideData.recurso_visual.includes('flowchart')) {
-                // Es código mermaid
-                let cleanMermaid = guideData.recurso_visual.replace(/```mermaid/g, '').replace(/```/g, '').trim();
-                htmlRenderizado += `<div class="mermaid" style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px; text-align: center; overflow-x: auto;">${cleanMermaid}</div>`;
+            if (guideData.recurso_visual.includes('graph TD') || guideData.recurso_visual.includes('graph LR') || guideData.recurso_visual.includes('pie') || guideData.recurso_visual.includes('flowchart') || guideData.recurso_visual.includes('mermaid')) {
+                htmlRenderizado += `<div style="text-align:center; padding:20px; border: 2px dashed #94A3B8; border-radius: 8px; color: #475569; background: #F8FAFC; margin-bottom: 20px;"><i>📝 <b>Actividad Práctica:</b> Reflexiona sobre el texto anterior e imagina cómo dibujarías este concepto en tu cuaderno usando un esquema.</i></div>`;
             } else {
-                // Es markdown tabla o imagen
                 htmlRenderizado += `<div class="markdown-body" style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px; overflow-x: auto;">${marked.parse(guideData.recurso_visual)}</div>`;
             }
         }
@@ -2520,12 +2516,13 @@ window.addEventListener('popstate', (e) => {
 window.renderizarBloquesEspeciales = function(containerElement) {
     if (!containerElement) return;
 
-    // Renderizar Mermaid (Desactivado para mostrar indicaciones textuales en su lugar)
+    // Reemplazar bloques de Mermaid generados por markdown con un mensaje didáctico
     const mermaidBlocks = containerElement.querySelectorAll('pre code.language-mermaid');
     mermaidBlocks.forEach((block, index) => {
-        // En lugar de intentar renderizar, solo lo mostramos como texto
-        block.parentElement.style.background = '#f4f4f4';
-        block.parentElement.style.padding = '10px';
+        const divMsg = document.createElement('div');
+        divMsg.style.cssText = "text-align:center; padding:20px; border: 2px dashed #94A3B8; border-radius: 8px; color: #475569; background: #F8FAFC; margin-bottom: 20px;";
+        divMsg.innerHTML = "<i>📝 <b>Actividad Práctica:</b> Reflexiona sobre el texto anterior e imagina cómo dibujarías este concepto en tu cuaderno usando un esquema.</i>";
+        block.parentElement.parentNode.replaceChild(divMsg, block.parentElement);
     });
 
     // Renderizar ABC

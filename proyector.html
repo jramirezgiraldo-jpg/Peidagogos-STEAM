@@ -248,14 +248,13 @@
             const customArea = document.getElementById('slide-custom-area');
             customArea.innerHTML = slide.customHtml || "";
             
-            // Re-render Mermaid (Desactivado para mostrar solo texto)
+            // Reemplazar bloques Mermaid con indicación pedagógica
             if (window.mermaid) {
                 const mermaidDivs = document.querySelectorAll('.mermaid');
                 if (mermaidDivs.length > 0) {
                     mermaidDivs.forEach((div) => {
-                        div.style.background = '#f4f4f4';
-                        div.style.padding = '10px';
-                        div.style.borderRadius = '8px';
+                        div.style.cssText = "text-align:center; padding:20px; border: 2px dashed #94A3B8; border-radius: 8px; color: #475569; background: #F8FAFC; margin-bottom: 20px;";
+                        div.innerHTML = "<i>📝 <b>Actividad Práctica:</b> Reflexiona sobre el texto anterior e imagina cómo dibujarías este concepto en tu cuaderno usando un esquema.</i>";
                     });
                 }
             }
