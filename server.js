@@ -293,6 +293,29 @@ app.get(/(.*)/, (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
 
+// ==========================================
+// DESCARGA DEL BACKUP DE GUÍAS (ZIP)
+// ==========================================
+app.get('/api/descargar-guias', (req, res) => {
+    const archiver = require('archiver');
+    const cacheDir = path.join(__dirname, 'guias_cache');
+    
+    if (!fs.existsSync(cacheDir)) {
+        return res.status(404).send("La carpeta guias_cache no existe todavía. El motor no ha guardado guías.");
+    }
+
+    res.attachment('Guias_Peidagogos.zip');
+    const archive = archiver('zip', { zlib: { level: 9 } });
+
+    archive.on('error', function(err) {
+        res.status(500).send({error: err.message});
+    });
+
+    archive.pipe(res);
+    archive.directory(cacheDir, false);
+    archive.finalize();
+});
+
 app.listen(PORT, () => {
     console.log(`Servidor ejecutándose en el puerto ${PORT}`);
     console.log(`Backend de IA listo (Esperando API Key en .env)`);
