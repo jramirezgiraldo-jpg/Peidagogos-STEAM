@@ -121,7 +121,7 @@ Devuelve SOLO el array de 10 objetos JSON vlido, sin bloques \`\`\`json y sin ex
 
     try {
         const response = await ai.models.generateContent({
-            model: "gemini-2.5-flash",
+            model: "gemini-3.5-flash",
             contents: prompt,
             config: {
                 temperature: 0.2
@@ -203,13 +203,14 @@ async function main() {
         let db = { semanasGeneradas: 0, clases: {} };
         if (fs.existsSync(dbPath)) db = JSON.parse(fs.readFileSync(dbPath, 'utf-8'));
         
-        const nextWeek = db.semanasGeneradas + 1;
-        if (nextWeek <= 8) {
-            await generarSemana(nextWeek);
-            await pushGit();
-        } else {
-            logMsg("Ya se generaron las 8 semanas.");
+        let currentWeek = db.semanasGeneradas + 1;
+        while (currentWeek <= 8) {
+            logMsg(`Generando semana ${currentWeek} forzadamente...`);
+            await generarSemana(currentWeek);
+            currentWeek++;
         }
+        await pushGit();
+        logMsg("Se han generado todas las semanas hasta la 8.");
         process.exit(0);
     }
     

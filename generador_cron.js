@@ -58,22 +58,69 @@ const mallasCurriculares = {
             { semana: 8, topico: "Proyecto Integrador de Física 7", meta: "Resolver retos energéticos." }
         ]
     },
-    "Turismo": {
+    "Química": {
+        "PENS": [
+            { semana: 1, topico: "Estructura de la Materia", meta: "Comprender los átomos." },
+            { semana: 2, topico: "Tabla Periódica Básica", meta: "Identificar elementos comunes." },
+            { semana: 3, topico: "Enlaces Químicos", meta: "Diferenciar iónico y covalente." },
+            { semana: 4, topico: "Reacciones Cotidianas", meta: "Observar química en casa." },
+            { semana: 5, topico: "Estados de la Materia", meta: "Analizar cambios de fase." },
+            { semana: 6, topico: "Mezclas y Soluciones", meta: "Separar mezclas." },
+            { semana: 7, topico: "Ácidos y Bases", meta: "Identificar pH en alimentos." },
+            { semana: 8, topico: "Proyecto Químico PENS", meta: "Experimento casero seguro." }
+        ]
+    },
+    "Tutoría": {
         "7": [
-            { semana: 1, topico: "Conceptos Básicos: Turismo y Patrimonio", meta: "Definir turismo y patrimonio." },
-            { semana: 2, topico: "Geografía Turística de Montenegro y Quindío", meta: "Reconocer atractivos locales." },
-            { semana: 3, topico: "Patrimonio Cultural vs Patrimonio Natural", meta: "Clasificar patrimonios." },
-            { semana: 4, topico: "Turismo Sostenible y Medio Ambiente", meta: "Evaluar impacto ambiental." },
-            { semana: 5, topico: "Diseño de Paquetes Turísticos Básicos", meta: "Crear una oferta turística." },
-            { semana: 6, topico: "Atención al Cliente en Turismo", meta: "Aplicar protocolos de servicio." },
-            { semana: 7, topico: "Marketing Turístico Básico", meta: "Promocionar destinos." },
-            { semana: 8, topico: "Ruta Turística Guiada (Proyecto Final)", meta: "Diseñar y exponer una ruta." }
+            { semana: 1, topico: "Autoconocimiento", meta: "Reconocer fortalezas." },
+            { semana: 2, topico: "Manejo del Estrés", meta: "Técnicas de relajación." },
+            { semana: 3, topico: "Resolución de Conflictos", meta: "Mediación escolar." },
+            { semana: 4, topico: "Trabajo en Equipo", meta: "Colaboración." },
+            { semana: 5, topico: "Metas Personales", meta: "Proyecto de vida a corto plazo." },
+            { semana: 6, topico: "Empatía y Respeto", meta: "Convivencia pacífica." },
+            { semana: 7, topico: "Uso Seguro de Redes", meta: "Ciudadanía digital." },
+            { semana: 8, topico: "Cierre de Bimestre", meta: "Reflexión del periodo." }
+        ],
+        "PENS": [
+            { semana: 1, topico: "Proyecto de Vida Adulto", meta: "Proyección laboral." },
+            { semana: 2, topico: "Inteligencia Emocional", meta: "Autocontrol." },
+            { semana: 3, topico: "Comunicación Asertiva", meta: "Expresar sin herir." },
+            { semana: 4, topico: "Toma de Decisiones", meta: "Pensamiento crítico." },
+            { semana: 5, topico: "Manejo Financiero Básico", meta: "Presupuesto personal." },
+            { semana: 6, topico: "Derechos y Deberes", meta: "Ciudadanía." },
+            { semana: 7, topico: "Prevención de Adicciones", meta: "Cuidado personal." },
+            { semana: 8, topico: "Evaluación Personal", meta: "Balance del módulo." }
+        ]
+    },
+    "Artes": {
+        "Universal": [
+            { semana: 1, topico: "Teoría del Color", meta: "Colores primarios y secundarios." },
+            { semana: 2, topico: "Línea y Perspectiva", meta: "Dibujo 3D básico." },
+            { semana: 3, topico: "Historia del Arte Antiguo", meta: "Apreciación estética." },
+            { semana: 4, topico: "Técnicas Mixtas", meta: "Collage y texturas." },
+            { semana: 5, topico: "El Cuerpo Humano en el Arte", meta: "Proporciones." },
+            { semana: 6, topico: "Música y Sonido", meta: "Ritmo y melodía." },
+            { semana: 7, topico: "Expresión Corporal", meta: "Teatro básico." },
+            { semana: 8, topico: "Exposición de Talentos", meta: "Muestra artística final." }
+        ]
+    },
+    "Ética": {
+        "Universal": [
+            { semana: 1, topico: "Valores Institucionales", meta: "Identidad del colegio." },
+            { semana: 2, topico: "El Respeto a la Diferencia", meta: "Inclusión." },
+            { semana: 3, topico: "Honestidad y Plagio", meta: "Ética académica." },
+            { semana: 4, topico: "Cuidado del Entorno", meta: "Ética ambiental." },
+            { semana: 5, topico: "Solidaridad", meta: "Ayuda mutua." },
+            { semana: 6, topico: "Responsabilidad", meta: "Cumplimiento de deberes." },
+            { semana: 7, topico: "Libertad y Límites", meta: "Autonomía moral." },
+            { semana: 8, topico: "Dilemas Éticos", meta: "Análisis de casos." }
         ]
     }
 };
 
 function getDynamicDelay() {
-    return { ms: 3000, desc: "3s (Velocidad rǭpida Flash)" };
+    // Exactamente 10 Peticiones Por Minuto (6000 ms por petición) para seguridad extrema del presupuesto
+    return { ms: 6000, desc: "6s (10 RPM - Modo Seguro)" };
 }
 
 async function generarGuia(asignatura, grado, periodo, semanaData, rol, ambiente, nivel, enfoque) {
@@ -106,62 +153,83 @@ async function generarGuia(asignatura, grado, periodo, semanaData, rol, ambiente
     }
 
     const prompt = `Actúa como un ${rol}. Tu objetivo es enseñar ${asignatura} (Grado ${grado}) a ${perfilEstudiante} en el contexto narrativo de ${ambiente}.
-OBLIGACIÓN PEDAGÓGICA: El contenido, vocabulario y profundidad científica DEBEN estar estrictamente alineados con los Derechos Básicos de Aprendizaje (DBA) y los Estándares Básicos de Competencias de Colombia para esta asignatura y grado.
-Si es un grado inferior (6º a 9º), evita la matematización excesiva o fórmulas complejas; prioriza la comprensión cualitativa, la indagación y la fenomenología.
-Debes estructurar la guía de estudio siguiendo el nivel de dificultad: ${nivel}.
-La guía debe enfocarse en: ${enfoque}.
+OBLIGACIÓN PEDAGÓGICA V10: El contenido debe estar alineado con los DBA de Colombia.
+Debes estructurar la guía de estudio siguiendo el nivel de dificultad: ${nivel}, enfocándote en: ${enfoque}.
 
 Contexto Curricular:
 - Periodo: ${periodo}
 - Semana: ${semanaData.semana}
-- Meta de Comprensión: ${semanaData.meta}
-- Tópico Generativo: ${semanaData.topico}
+- Meta: ${semanaData.meta}
+- Tópico: ${semanaData.topico}
 
-INSTRUCCIÓN MUY IMPORTANTE SOBRE GRÁFICOS Y ESTÉTICA:
-1. NO generes imágenes, diagramas Mermaid, SVG ni tablas HTML complejas. Cuando sea necesario ilustrar algo, proporciona INDICACIONES TEXTUALES CLARAS para que el estudiante dibuje o imagine el concepto en su cuaderno.
+REGLAS DE ORO V10 (ESTRICTAS):
+1. LONGITUD DE TEXTO: El "texto_inductivo" y el "texto_deductivo" DEBEN tener MÍNIMO 500 PALABRAS CADA UNO. Deben ser explicaciones narrativas profundas y densas en contenido.
+2. ZERO-SEARCH: Toda la información necesaria para responder los cuestionarios, actividades y Pruebas Saber DEBE estar explícita y literalmente en el texto de la guía. El estudiante no debe buscar nada en internet.
+3. PREGUNTA PROBLEMATIZADORA: El primer párrafo absoluto del "texto_inductivo" debe ser una gran pregunta problematizadora (en negrita y cursiva) que conecte el tema con la vida real en Montenegro, Quindío.
+4. RETROALIMENTACIÓN EXHAUSTIVA ICFES: En las "Pruebas Saber" (icfes), la retroalimentación DEBE explicar por qué la opción correcta es correcta, y OBLIGATORIAMENTE debe explicar por qué cada uno de los 3 distractores (opciones falsas) es incorrecto.
 
-INSTRUCCIÓN VITAL Y OBLIGATORIA: LA PREGUNTA PROBLEMATIZADORA
-Es OBLIGATORIO que tu "texto_inductivo" EMPIECE SIEMPRE con una GRAN PREGUNTA PROBLEMATIZADORA (destacada en negrita y cursiva) como el PRIMER PÁRRAFO absoluto del texto. Esta pregunta debe conectar el Tópico Generativo con la vida real del estudiante en la IE Instituto Montenegro. Todo el desarrollo de la guía debe girar en torno a resolver esta pregunta, manteniendo el rol y narrativa.
+JUEGOS OBLIGATORIOS (incrustar estos shortcodes dentro del texto inductivo y deductivo donde tenga sentido):
+- 3 juegos de ordenar letras: [JUEGO:ORDENAR_LETRAS:PALABRA]
+- 2 juegos de ordenar frase: [JUEGO:ORDENAR_FRASE:LA FRASE COMPLETA]
+- 1 sopa de letras con 10 palabras: [JUEGO:SOPA_LETRAS:P1,P2,P3,P4,P5,P6,P7,P8,P9,P10]
+- 2 juegos de Plataforma (Anti-IA): [ACTIVIDAD:PLATAFORMA:Pregunta|Respuesta Correcta|Distractor1|Distractor2|Distractor3]
 
-INSTRUCCIÓN MINIJUEGOS:
-Incrusta OBLIGATORIAMENTE en "texto_inductivo" y "texto_deductivo":
-- 5 juegos de ordenar letras: [JUEGO:ORDENAR_LETRAS:PALABRA]
-- 5 ordenar frases: [JUEGO:ORDENAR_FRASE:LA FRASE COMPLETA]
-- 5 sopa de letras: [JUEGO:SOPA_LETRAS:PALABRA1,PALABRA2,PALABRA3]
-- 5 crucigrama: [JUEGO:CRUCIGRAMA:Pista 1|RESPUESTA1;Pista 2|RESPUESTA2]
-
-DEBES DEVOLVER EXCLUSIVAMENTE UN OBJETO JSON VÁLIDO CON ESTA ESTRUCTURA EXACTA:
+DEBES DEVOLVER EXCLUSIVAMENTE UN JSON VÁLIDO CON ESTA ESTRUCTURA EXACTA:
 {
-  "saberes_previos": [{ "pregunta": "¿...?", "opciones": ["A", "B", "C", "D"], "correcta": 0 }],
-  "texto_inductivo": "Markdown largo con PREGUNTA PROBLEMATIZADORA, MINIJUEGOS e indicaciones textuales para dibujar...",
-  "recurso_visual": "Texto descriptivo detallado dando indicaciones al estudiante de qué debe dibujar en su cuaderno.",
-  "preguntas_inductivas_pagina": [{ "pregunta": "¿P1?", "respuesta_esperada": "R1" }],
-  "preguntas_inductivas_cuaderno": ["Reto 1", "Reto 2"],
-  "texto_deductivo": "Markdown largo con teoría, MINIJUEGOS e indicaciones para dibujar...",
-  "preguntas_deductivas_pagina": [{ "pregunta": "¿P1?", "respuesta_esperada": "R1" }],
-  "preguntas_deductivas_cuaderno": ["Reto 1", "Reto 2"],
-  "icfes": [{ "competencia": "Evaluación", "texto_introductorio": "...", "tabla_o_grafica_markdown": "...", "pregunta": "¿...?", "opciones": ["1", "2", "3", "4"], "correcta": 0, "retroalimentacion": { "0": "...", "1": "...", "2": "...", "3": "..." } }]
+  "saberes_previos": [
+    { "pregunta": "¿...?", "opciones": ["A", "B", "C", "D"], "correcta": 0 },
+    { "pregunta": "¿...?", "opciones": ["A", "B", "C", "D"], "correcta": 1 },
+    { "pregunta": "¿...?", "opciones": ["A", "B", "C", "D"], "correcta": 2 }
+  ],
+  "texto_inductivo": "Markdown (+500 palabras) con la PREGUNTA PROBLEMATIZADORA al inicio y los minijuegos/actividades intercalados...",
+  "recurso_visual": "Indicaciones textuales claras de lo que debe dibujar el estudiante en su cuaderno.",
+  "preguntas_inductivas_pagina": [], 
+  "preguntas_inductivas_cuaderno": ["Actividad 1", "Actividad 2", "Actividad 3"],
+  "texto_deductivo": "Markdown (+500 palabras) con teoría, narrativa y minijuegos...",
+  "preguntas_deductivas_pagina": [], 
+  "preguntas_deductivas_cuaderno": ["Actividad 4", "Actividad 5"],
+  "icfes": [
+    {
+      "competencia": "Uso Comprensivo / Indagación / Explicación",
+      "texto_introductorio": "Contexto detallado...",
+      "tabla_o_grafica_markdown": "| Dato | Valor |\\n|---|---|",
+      "pregunta": "¿...?",
+      "opciones": ["1", "2", "3", "4"],
+      "correcta": 0,
+      "retroalimentacion": {
+        "0": "Correcto porque... Además, la opción 1 es falsa porque..., la 2 es falsa porque..., la 3 es falsa porque..."
+      }
+    },
+    // Repetir para 3 preguntas ICFES en total (índices 0, 1, 2)
+  ]
 }`;
 
-    const modelos = ['gemini-2.5-flash'];
+    const modelos = ['gemini-3.5-flash', 'gemini-3.6-flash'];
     let responseText = "";
     let maxRetries = 15;
-    let baseDelay = 5000;
+    let baseDelay = 30000;
 
     while (maxRetries > 0) {
         const ai = getAIClient();
         for (let i = 0; i < modelos.length; i++) {
             try {
-                const response = await ai.models.generateContent({ model: modelos[i], contents: prompt });
+                const response = await ai.models.generateContent({ 
+                    model: modelos[i], 
+                    contents: prompt,
+                    config: {
+                        responseMimeType: "application/json"
+                    }
+                });
                 responseText = response.text;
                 break; // Éxito!
             } catch (err) {
+                console.error(`[ERROR API ${modelos[i]}]`, err.message || err);
                 await sleep(1500); // Pequeña pausa antes de intentar otro modelo
             }
         }
         if (responseText) break;
         
-        logMsg(`[REINTENTO] Rate Limit alcanzado. Esperando ${baseDelay/1000}s...`);
+        logMsg(`[REINTENTO] Fallo en la petición. Esperando ${baseDelay/1000}s...`);
         await sleep(baseDelay);
         baseDelay *= 1.5; // Backoff exponencial
         maxRetries--;
@@ -194,6 +262,8 @@ async function generarSemanaCompleta(semanaObjetivo) {
     const actNiveles = semanaObjetivo === 1 ? allNiveles.slice(0, 2) : allNiveles;
     const actEnfoques = semanaObjetivo === 1 ? allEnfoques.slice(0, 2) : allEnfoques;
     
+    let tareas = [];
+
     for (const asignatura of Object.keys(mallasCurriculares)) {
         const grados = Object.keys(mallasCurriculares[asignatura]);
         
@@ -205,27 +275,31 @@ async function generarSemanaCompleta(semanaObjetivo) {
                 for (const a of actAmbientes) {
                     for (const n of actNiveles) {
                         for (const e of actEnfoques) {
-                            await generarGuia(asignatura, grado, periodo, semanaData, r, a, n, e);
+                            tareas.push({asignatura, grado, periodo, semanaData, r, a, n, e});
                         }
                     }
                 }
             }
         }
     }
+    
+    logMsg(`Se encolaron ${tareas.length} guías para la Semana ${semanaObjetivo}. Procesando en lotes de 10...`);
+    
+    const CONCURRENCIA = 10;
+    for (let i = 0; i < tareas.length; i += CONCURRENCIA) {
+        const lote = tareas.slice(i, i + CONCURRENCIA);
+        const promesas = lote.map(t => generarGuia(t.asignatura, t.grado, t.periodo, t.semanaData, t.r, t.a, t.n, t.e));
+        await Promise.all(promesas);
+    }
 }
 
 function pushGuiasToGit() {
     return new Promise((resolve) => {
-        logMsg("Iniciando subida a GitHub de las guías...");
-        exec('git add guias_cache/ && git commit -m "Auto-upload: Guias generadas por Cron" && git push', { cwd: __dirname }, (error, stdout, stderr) => {
-            if (error) {
-                // Es normal que de error si no hay archivos nuevos para hacer commit
-                logMsg(`Resultado Git: Sin cambios nuevos o error (${error.message})`);
-                return resolve(false);
-            }
-            logMsg("Subida a GitHub exitosa.");
-            resolve(true);
-        });
+        // Deshabilitado para la nube. 
+        // En Render, usaremos Persistent Disks o enviaremos directamente a MongoDB/Firebase.
+        // Por ahora, simplemente guardamos en el File System (que en Render apuntará a un disco persistente).
+        logMsg("Sincronización Git desactivada para ejecución en servidor Cloud (Render).");
+        resolve(true);
     });
 }
 
