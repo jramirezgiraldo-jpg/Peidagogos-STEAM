@@ -286,22 +286,7 @@ app.post('/api/login', (req, res) => {
     }
 });
 
-    } else {
-        const usuarios = readJSON('usuarios.json');
-        const est = usuarios.find(u => String(u.documento).trim() === String(usuario).trim() && String(u.documento).trim() === String(clave).trim());
-        if (est) {
-            encontrado = true; nombre = `${est.nombre} ${est.apellidos}`;
-            grado = est.grado || ""; grupo = est.grupo || ""; asignatura = est.asignatura || "";
-            rol_asignado = "estudiante";
-        }
-    }
 
-    if (encontrado) {
-        res.json({ status: "success", usuario, nombre, rol: rol_asignado, grado, grupo, asignatura });
-    } else {
-        res.status(401).json({ status: "error", message: "Credenciales invalidas" });
-    }
-});
 
 // Ruta principal para servir el index.html en cualquier otra ruta
 app.get(/(.*)/, (req, res) => {
