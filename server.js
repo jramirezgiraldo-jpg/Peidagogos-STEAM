@@ -286,6 +286,23 @@ app.post('/api/login', (req, res) => {
     }
 });
 
+    } else {
+        const usuarios = readJSON('usuarios.json');
+        const est = usuarios.find(u => String(u.documento).trim() === String(usuario).trim() && String(u.documento).trim() === String(clave).trim());
+        if (est) {
+            encontrado = true; nombre = `${est.nombre} ${est.apellidos}`;
+            grado = est.grado || ""; grupo = est.grupo || ""; asignatura = est.asignatura || "";
+            rol_asignado = "estudiante";
+        }
+    }
+
+    if (encontrado) {
+        res.json({ status: "success", usuario, nombre, rol: rol_asignado, grado, grupo, asignatura });
+    } else {
+        res.status(401).json({ status: "error", message: "Credenciales invalidas" });
+    }
+});
+
 // Ruta principal para servir el index.html en cualquier otra ruta
 app.get(/(.*)/, (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
@@ -294,4 +311,8 @@ app.get(/(.*)/, (req, res) => {
 app.listen(PORT, () => {
     console.log(`Servidor ejecutándose en el puerto ${PORT}`);
     console.log(`Backend de IA listo (Esperando API Key en .env)`);
+    
+    // Iniciar el generador masivo en segundo plano
+    const cronProcess = require('child_process').spawn('node', ['generador_cron.js'], { stdio: 'inherit' });
+    console.log('Generador masivo de guías (CRON) inicializado en segundo plano.');
 });
