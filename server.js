@@ -289,26 +289,28 @@ app.post('/api/login', (req, res) => {
 
 
 // ==========================================
-// DESCARGA DEL BACKUP DE GUÍAS (ZIP)
+// DESCARGA DEL BACKUP DE GUÍAS (ZIP/TAR)
 // ==========================================
 app.get('/api/descargar-guias', (req, res) => {
-    const archiver = require('archiver');
+    const { exec } = require('child_process');
     const cacheDir = path.join(__dirname, 'guias_cache');
+    const tarPath = path.join(__dirname, 'guias.tar.gz');
     
     if (!fs.existsSync(cacheDir)) {
         return res.status(404).send("La carpeta guias_cache no existe todavía. El motor no ha guardado guías.");
     }
 
-    res.attachment('Guias_Peidagogos.zip');
-    const archive = archiver('zip', { zlib: { level: 9 } });
-
-    archive.on('error', function(err) {
-        res.status(500).send({error: err.message});
+    // Usar tar nativo de Linux (Render) que es mucho más rápido y no satura la memoria de Node
+    exec('tar -czf guias.tar.gz guias_cache/', { cwd: __dirname }, (error) => {
+        if (error) {
+            console.error('Error comprimiendo:', error);
+            return res.status(500).send("Hubo un error al empaquetar los miles de archivos.");
+        }
+        res.download(tarPath, 'Guias_Peidagogos.tar.gz', (err) => {
+            // Limpieza después de descargar para ahorrar disco
+            if (fs.existsSync(tarPath)) fs.unlinkSync(tarPath);
+        });
     });
-
-    archive.pipe(res);
-    archive.directory(cacheDir, false);
-    archive.finalize();
 });
 
 // Ruta principal para servir el index.html en cualquier otra ruta
