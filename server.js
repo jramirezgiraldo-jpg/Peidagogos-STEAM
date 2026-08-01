@@ -170,9 +170,17 @@ DEBES DEVOLVER EXCLUSIVAMENTE UN OBJETO JSON VÁLIDO (sin bloques de código mar
 
         if (!responseText) {
             let mensajeFront = "El motor de IA falló después de varios intentos.";
-            if (finalError && finalError.status === 503) mensajeFront = "El cerebro de IA está muy saturado en este momento (alta demanda global). Inténtalo en un par de minutos.";
-            if (finalError && finalError.status === 429) mensajeFront = "Te has quedado sin cuota de peticiones en tu API Key de Gemini.";
-            if (finalError && finalError.status === 404) mensajeFront = "El modelo de IA solicitado ya no existe o fue deshabilitado por Google.";
+            if (finalError && (finalError.status === 403 || (finalError.message && finalError.message.includes("leaked")))) {
+                mensajeFront = "Tu API Key de Gemini fue bloqueada por Google por seguridad (Leaked Key). Por favor crea una nueva API Key en Google AI Studio y pégala en las variables de entorno de Render.";
+            } else if (finalError && finalError.status === 503) {
+                mensajeFront = "El cerebro de IA está muy saturado en este momento (alta demanda global). Inténtalo en un par de minutos.";
+            } else if (finalError && finalError.status === 429) {
+                mensajeFront = "Te has quedado sin cuota de peticiones en tu API Key de Gemini (Límite alcanzado).";
+            } else if (finalError && finalError.status === 404) {
+                mensajeFront = "El modelo de IA solicitado no fue encontrado.";
+            } else if (finalError && finalError.message) {
+                mensajeFront = `Error de Google IA: ${finalError.message}`;
+            }
             return res.status(500).json({ error: mensajeFront });
         }
 

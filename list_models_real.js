@@ -1,15 +1,12 @@
+// Script de prueba limpio
 const { GoogleGenAI } = require('@google/genai');
+require('dotenv').config();
 
-const ai = new GoogleGenAI({ apiKey: 'AIzaSyDTC-pbk9GRw4pAfNw4aVc1y-Kkk6yJgQM' });
+const apiKey = process.env.GEMINI_API_KEYS ? process.env.GEMINI_API_KEYS.split(',')[0].trim() : process.env.GEMINI_API_KEY;
 
-async function listModels() {
-    try {
-        const response = await ai.models.list();
-        for (const model of response) {
-            console.log(model.name);
-        }
-    } catch (e) {
-        console.error(e);
-    }
+if (!apiKey) {
+    console.log("No API key configured in environment.");
+} else {
+    const ai = new GoogleGenAI({ apiKey });
+    ai.models.list().then(res => console.log("Conexión exitosa!")).catch(console.error);
 }
-listModels();
