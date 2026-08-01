@@ -389,23 +389,60 @@
                             <!-- Contenedor para mostrar los grupos de IE Instituto Montenegro -->
                             <div id="grupos-montenegro" style="display: none;">
                                 <h3 style="font-weight: 800; margin-bottom: 20px;">Grupos Matriculados - IE Instituto Montenegro</h3>
-                                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 15px;">
-                                    <button onclick="abrirGrupo('6A')" class="grupo-btn">6A</button>
-                                    <button onclick="abrirGrupo('6B')" class="grupo-btn">6B</button>
-                                    <button onclick="abrirGrupo('7A')" class="grupo-btn">7A</button>
-                                    <button onclick="abrirGrupo('7B')" class="grupo-btn">7B</button>
-                                    <button onclick="abrirGrupo('7C')" class="grupo-btn">7C</button>
-                                    <button onclick="abrirGrupo('8A')" class="grupo-btn">8A</button>
-                                    <button onclick="abrirGrupo('8B')" class="grupo-btn">8B</button>
-                                    <button onclick="abrirGrupo('9A')" class="grupo-btn">9A</button>
-                                    <button onclick="abrirGrupo('10A')" class="grupo-btn">10A</button>
-                                    <button onclick="abrirGrupo('10D')" class="grupo-btn">10D</button>
-                                    <button onclick="abrirGrupo('PENS')" class="grupo-btn">PENS</button>
+                                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 15px;">
+                                    <button onclick="abrirGrupo('6A')" class="grupo-btn">
+                                        <span class="grupo-nombre">6A</span>
+                                        <span class="grupo-materias">Física</span>
+                                    </button>
+                                    <button onclick="abrirGrupo('6B')" class="grupo-btn">
+                                        <span class="grupo-nombre">6B</span>
+                                        <span class="grupo-materias">Física</span>
+                                    </button>
+                                    <button onclick="abrirGrupo('7A')" class="grupo-btn">
+                                        <span class="grupo-nombre">7A</span>
+                                        <span class="grupo-materias">Turismo<br>Física</span>
+                                    </button>
+                                    <button onclick="abrirGrupo('7B')" class="grupo-btn">
+                                        <span class="grupo-nombre">7B</span>
+                                        <span class="grupo-materias">Turismo<br>Física</span>
+                                    </button>
+                                    <button onclick="abrirGrupo('7C')" class="grupo-btn">
+                                        <span class="grupo-nombre">7C</span>
+                                        <span class="grupo-materias">Turismo<br>Ética<br>Física</span>
+                                    </button>
+                                    <button onclick="abrirGrupo('8A')" class="grupo-btn">
+                                        <span class="grupo-nombre">8A</span>
+                                        <span class="grupo-materias">Artística</span>
+                                    </button>
+                                    <button onclick="abrirGrupo('8B')" class="grupo-btn">
+                                        <span class="grupo-nombre">8B</span>
+                                        <span class="grupo-materias">Artística</span>
+                                    </button>
+                                    <button onclick="abrirGrupo('9A')" class="grupo-btn">
+                                        <span class="grupo-nombre">9A</span>
+                                        <span class="grupo-materias">Artística</span>
+                                    </button>
+                                    <button onclick="abrirGrupo('10A')" class="grupo-btn">
+                                        <span class="grupo-nombre">10A</span>
+                                        <span class="grupo-materias">Ética</span>
+                                    </button>
+                                    <button onclick="abrirGrupo('10D')" class="grupo-btn">
+                                        <span class="grupo-nombre">10D</span>
+                                        <span class="grupo-materias">Ética</span>
+                                    </button>
+                                    <button onclick="abrirGrupo('PENS')" class="grupo-btn">
+                                        <span class="grupo-nombre">PENS</span>
+                                        <span class="grupo-materias">Turismo<br>Química</span>
+                                    </button>
                                 </div>
                                 <style>
-                                    .grupo-btn { background: white; border: 1px solid #E5E7EB; border-radius: 8px; padding: 20px; font-weight: bold; font-size: 1.2rem; cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: 0.2s; }
-                                    .grupo-btn:hover { border-color: #3B82F6; color: #3B82F6; transform: translateY(-2px); }
+                                    .grupo-btn { background: white; border: 1px solid #E5E7EB; border-radius: 12px; padding: 15px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: 0.2s; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; }
+                                    .grupo-nombre { font-size: 1.4rem; color: #1F2937; }
+                                    .grupo-materias { font-size: 0.85rem; color: #6B7280; font-weight: normal; text-align: center; line-height: 1.3; }
+                                    .grupo-btn:hover { border-color: #3B82F6; transform: translateY(-2px); box-shadow: 0 6px 12px rgba(59,130,246,0.15); }
+                                    .grupo-btn:hover .grupo-nombre { color: #3B82F6; }
                                 </style>
+
                             </div>
 
                             <!-- Contenedor para mostrar los grupos de IE Ramon Messa -->
