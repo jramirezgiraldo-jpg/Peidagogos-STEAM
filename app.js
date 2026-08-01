@@ -1622,14 +1622,20 @@ window.ingresarAGuia = async function() {
             enfoque: enfoqueElem.options[enfoqueElem.selectedIndex].text
         };
         
-        const fileNameSafe = [payload.asignatura, payload.periodo, payload.semana, payload.rol, payload.ambiente, payload.nivel, payload.enfoque]
-            .map(s => s ? s.toString().toLowerCase().replace(/[^a-z0-9]/g, '_') : 'na')
-            .join('_') + '.json';
-
-        const response = await fetch('guias_cache/' + fileNameSafe);
+        // Petición al endpoint VIP de generación
+        const response = await fetch('/api/generate-guide', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+        });
         
         if (!response.ok) {
-            innerContent.innerHTML = `<div style="padding: 20px; background: #FEE2E2; border: 1px solid #EF4444; border-radius: 8px; color: #B91C1C;"><strong>Guía no encontrada:</strong> La guía para esta configuración aún no ha sido generada o no está disponible localmente.</div>`;
+            let errMsg = "Error desconocido";
+            try {
+                const errData = await response.json();
+                errMsg = errData.error || errData.details || errMsg;
+            } catch(e){}
+            innerContent.innerHTML = `<div style="padding: 20px; background: #FEE2E2; border: 1px solid #EF4444; border-radius: 8px; color: #B91C1C;"><strong>No se pudo generar la guía:</strong> ${errMsg}</div>`;
             return;
         }
         
