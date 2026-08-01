@@ -288,11 +288,6 @@ app.post('/api/login', (req, res) => {
 
 
 
-// Ruta principal para servir el index.html en cualquier otra ruta
-app.get(/(.*)/, (req, res) => {
-    res.sendFile(path.join(__dirname, 'index.html'));
-});
-
 // ==========================================
 // DESCARGA DEL BACKUP DE GUÍAS (ZIP)
 // ==========================================
@@ -314,6 +309,11 @@ app.get('/api/descargar-guias', (req, res) => {
     archive.pipe(res);
     archive.directory(cacheDir, false);
     archive.finalize();
+});
+
+// Ruta principal para servir el index.html en cualquier otra ruta
+app.get(/(.*)/, (req, res) => {
+    res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 app.listen(PORT, () => {
