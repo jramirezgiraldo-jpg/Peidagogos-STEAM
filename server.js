@@ -144,8 +144,8 @@ DEBES DEVOLVER EXCLUSIVAMENTE UN OBJETO JSON VÁLIDO (sin bloques de código mar
     }
   ]
 }`;
-        // Modelos de respaldo en caso de saturación
-        const modelos = ['gemini-1.5-flash', 'gemini-1.5-pro'];
+        // Modelos de última generación confirmados y activos
+        const modelos = ['gemini-flash-latest', 'gemini-3.5-flash', 'gemini-pro-latest'];
         let responseText = "";
         let finalError = null;
 

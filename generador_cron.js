@@ -204,7 +204,7 @@ DEBES DEVOLVER EXCLUSIVAMENTE UN JSON VÁLIDO CON ESTA ESTRUCTURA EXACTA:
   ]
 }`;
 
-    const modelos = ['gemini-1.5-flash', 'gemini-1.5-pro'];
+    const modelos = ['gemini-flash-latest', 'gemini-3.5-flash', 'gemini-pro-latest'];
     let responseText = "";
     let maxRetries = 15;
     let baseDelay = 30000;
