@@ -155,6 +155,9 @@ DEBES DEVOLVER EXCLUSIVAMENTE UN OBJETO JSON VÁLIDO (sin bloques de código mar
                 const response = await ai.models.generateContent({
                     model: modelos[i],
                     contents: prompt,
+                    config: {
+                        responseMimeType: "application/json"
+                    }
                 });
                 responseText = response.text;
                 break; // Si tiene éxito, salir del bucle
@@ -184,13 +187,20 @@ DEBES DEVOLVER EXCLUSIVAMENTE UN OBJETO JSON VÁLIDO (sin bloques de código mar
             return res.status(500).json({ error: mensajeFront });
         }
 
-        // Sanitización del JSON (Remover bloques markdown como ```json ... ```)
-        let limpio = responseText;
-        if (limpio.includes("```")) {
-            limpio = limpio.replace(/```json/gi, "").replace(/```/g, "").trim();
+        // Sanitización y parseo robusto del JSON
+        let finalJson;
+        try {
+            let limpio = responseText.replace(/```json/gi, "").replace(/```/g, "").trim();
+            const firstBrace = limpio.indexOf('{');
+            const lastBrace = limpio.lastIndexOf('}');
+            if (firstBrace !== -1 && lastBrace !== -1) {
+                limpio = limpio.substring(firstBrace, lastBrace + 1);
+            }
+            finalJson = JSON.parse(limpio);
+        } catch (parseErr) {
+            console.error("Error parseando respuesta JSON de IA:", parseErr.message, responseText);
+            return res.status(500).json({ error: "La IA generó una respuesta pero el formato JSON vino incompleto. Por favor inténtalo de nuevo." });
         }
-
-        const finalJson = JSON.parse(limpio);
         
         // Guardar en caché
         try {
@@ -204,7 +214,7 @@ DEBES DEVOLVER EXCLUSIVAMENTE UN OBJETO JSON VÁLIDO (sin bloques de código mar
 
     } catch (error) {
         console.error("Error fatal al generar con la IA:", error);
-        res.status(500).json({ error: "Ocurrió un error inesperado en el servidor al generar la aventura." });
+        res.status(500).json({ error: `Error en el servidor: ${error.message || "Ocurrió un error inesperado al procesar la guía."}` });
     }
 });
 
