@@ -1641,7 +1641,18 @@ window.ingresarAGuia = async function() {
         
         let guideData;
         try {
-            guideData = await response.json();
+            const rawData = await response.json();
+            if (rawData && typeof rawData.text === 'string') {
+                try {
+                    guideData = JSON.parse(rawData.text);
+                } catch(e) {
+                    guideData = rawData;
+                }
+            } else if (rawData && rawData.text && typeof rawData.text === 'object') {
+                guideData = rawData.text;
+            } else {
+                guideData = rawData;
+            }
         } catch (e) {
             console.error("Error parseando JSON:", e);
             innerContent.innerHTML = `<div style="padding: 20px; background: #FEE2E2; border: 1px solid #EF4444; border-radius: 8px; color: #B91C1C;"><strong>Error de formato:</strong> El archivo de la guía tiene un formato incorrecto.</div>`;
@@ -1655,7 +1666,8 @@ window.ingresarAGuia = async function() {
             const configKey = `config_${user.documento}_${asignatura}_p${periodo}_s${semanaStr}`;
             localStorage.setItem(configKey, JSON.stringify(payload));
             
-            document.getElementById('student-guide-header-name').innerText = user.nombres + " " + user.apellidos;
+            const studentDisplayName = user.nombre || ((user.nombres || '') + ' ' + (user.apellidos || '')).trim() || 'Estudiante';
+            document.getElementById('student-guide-header-name').innerText = studentDisplayName;
             // Calcular XP total del estudiante para esta materia y periodo
             const xpKey = `prog_${user.documento}_${asignatura}_p${periodo}`;
             let prog = parseInt(localStorage.getItem(xpKey)) || 1;
