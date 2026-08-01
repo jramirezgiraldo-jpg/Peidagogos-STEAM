@@ -119,8 +119,8 @@ const mallasCurriculares = {
 };
 
 function getDynamicDelay() {
-    // Exactamente 10 Peticiones Por Minuto (6000 ms por petición) para seguridad extrema del presupuesto
-    return { ms: 6000, desc: "6s (10 RPM - Modo Seguro)" };
+    // Exactamente 19 Peticiones Por Minuto (3100 ms por petición) para seguridad extrema del presupuesto
+    return { ms: 3100, desc: "3.1s (Flujo Constante Sin Ráfagas)" };
 }
 
 async function generarGuia(asignatura, grado, periodo, semanaData, rol, ambiente, nivel, enfoque) {
@@ -204,7 +204,7 @@ DEBES DEVOLVER EXCLUSIVAMENTE UN JSON VÁLIDO CON ESTA ESTRUCTURA EXACTA:
   ]
 }`;
 
-    const modelos = ['gemini-3.5-flash', 'gemini-3.6-flash'];
+    const modelos = ['gemini-1.5-flash', 'gemini-1.5-pro'];
     let responseText = "";
     let maxRetries = 15;
     let baseDelay = 30000;
@@ -283,9 +283,9 @@ async function generarSemanaCompleta(semanaObjetivo) {
         }
     }
     
-    logMsg(`Se encolaron ${tareas.length} guías para la Semana ${semanaObjetivo}. Procesando en lotes de 10...`);
+    logMsg(`Se encolaron ${tareas.length} guías para la Semana ${semanaObjetivo}. Procesando en lotes de 1...`);
     
-    const CONCURRENCIA = 10;
+    const CONCURRENCIA = 1;
     for (let i = 0; i < tareas.length; i += CONCURRENCIA) {
         const lote = tareas.slice(i, i + CONCURRENCIA);
         const promesas = lote.map(t => generarGuia(t.asignatura, t.grado, t.periodo, t.semanaData, t.r, t.a, t.n, t.e));
