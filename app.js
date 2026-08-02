@@ -882,14 +882,243 @@ window.mallaEtica = {
 window.mallaMatematicas = {
     '6': { objetivo: 'Desarrollar el pensamiento numérico y espacial.', periodos: { '1': { '1': 'Sistemas Numéricos (Números Enteros).', '2': 'Operaciones Básicas con Enteros.' } } }
 };
-window.mallaNaturales = {
-    '6': { objetivo: 'Comprender la estructura celular y el entorno vivo.', periodos: { '1': { '1': 'La Célula y sus partes.', '2': 'Funciones Celulares y organelos.' } } }
+
+window.mallaQuimica = {
+    '11': {
+        objetivo: 'Comprender la química orgánica, reactividad del carbono y aplicaciones industriales.',
+        periodos: {
+            '1': { '1': 'El átomo de carbono e hibridación.', '3': 'Hidrocarburos alifáticos y aromáticos.', '5': 'Grupos funcionales oxigenados.', '7': 'Grupos nitrogenados.' },
+            '2': { '1': 'Reacciones orgánicas.', '3': 'Biomoléculas.', '5': 'Polímeros y plásticos.', '7': 'Química verde.' },
+            '3': { '1': 'Cinética y equilibrio químico.', '3': 'Ácidos y bases de Brønsted-Lowry.', '5': 'Electroquímica y pilas.', '7': 'Termoquímica.' },
+            '4': { '1': 'Química ambiental.', '3': 'Industria química y procesos.', '5': 'Saber 11 Química.', '7': 'Proyecto final.' }
+        }
+    },
+    'PENS': {
+        objetivo: 'Aplicar conceptos de química a procesos industriales, culinarios y de salud.',
+        periodos: {
+            '1': { '1': 'Materia, mezclas y separación en la industria.', '3': 'Reacciones químicas cotidianas.', '5': 'Gases y soluciones.', '7': 'Química del carbono básica.' },
+            '2': { '1': 'Química de los alimentos.', '3': 'Productos de limpieza e higiene.', '5': 'Bioquímica humana.', '7': 'Seguridad en el manejo de químicos.' },
+            '3': { '1': 'Procesos de fermentación y destilación.', '3': 'Polímeros y reciclaje.', '5': 'Energía y combustibles.', '7': 'Control de calidad.' },
+            '4': { '1': 'Tratamiento de aguas residuales.', '3': 'Fertilizantes y pesticidas.', '5': 'Impacto ambiental industrial.', '7': 'Taller de química aplicada.' }
+        }
+    },
+    'Ciclo V': {
+        objetivo: 'Reconocer la estructura de la materia, elementos químicos y transformaciones cotidianas.',
+        periodos: {
+            '1': { '1': 'Diagnóstico inicial: Estructura de la materia y sustancias cotidianas.', '3': 'La tabla periódica y elementos esenciales.', '5': 'Enlaces químicos en materiales de uso diario.', '7': 'Reacciones químicas caseras e industriales.' },
+            '2': { '1': 'Nomenclatura química básica.', '3': 'Conservación de la masa y balanceo.', '5': 'Ácidos y bases en el hogar.', '7': 'Soluciones y concentraciones en sueros y bebidas.' },
+            '3': { '1': 'Comportamiento de gases y presión.', '3': 'Calor y temperatura en cambios químicos.', '5': 'Oxidación y reducción en la vida diaria.', '7': 'Manejo seguro de sustancias químicas.' },
+            '4': { '1': 'Química y medio ambiente.', '3': 'Contaminación y alternativas ecológicas.', '5': 'Química en la agricultura.', '7': 'Proyecto de aula química aplicada.' }
+        }
+    },
+    'Ciclo VI': {
+        objetivo: 'Comprender la química orgánica, reactividad del carbono, biomoléculas y aplicaciones sostenibles.',
+        periodos: {
+            '1': { '1': 'Diagnóstico inicial: El carbono y la química de los seres vivos.', '3': 'Combustibles fósiles y biocombustibles.', '5': 'Alcoholes, vinagres y fragancias en la industria.', '7': 'Carbohidratos, grasas y proteínas en la alimentación.' },
+            '2': { '1': 'Plásticos, polímeros y alternativas biodegradables.', '3': 'Medicamentos, cosméticos y química farmacéutica.', '5': 'Jabones y detergentes: química de la saponificación.', '7': 'Fermentación en el café, pan y bebidas.' },
+            '3': { '1': 'Equilibrio químico y pH en el cuerpo humano.', '3': 'Baterías, pilas y energía electroquímica.', '5': 'Lectura crítica de tablas y gráficas químicas (Saber 11).', '7': 'Química verde y sostenibilidad ambiental.' },
+            '4': { '1': 'Toxicología y prevención en el trabajo.', '3': 'Nanotecnología y nuevos materiales.', '5': 'Cambio climático desde la perspectiva química.', '7': 'Proyecto de aplicación comunitaria.' }
+        }
+    }
 };
+
+window.mallaNaturales = {
+    '6': { objetivo: 'Comprender la estructura celular y el entorno vivo.', periodos: { '1': { '1': 'La Célula y sus partes.', '3': 'Funciones Celulares y organelos.', '5': 'Tejidos y órganos.', '7': 'Ecosistemas y biodiversidad.' } } },
+    'Ciclo I': {
+        objetivo: 'Reconocer los seres vivos, el cuidado del cuerpo, los sentidos y la preservación del entorno natural cercano de forma práctica y cotidiana.',
+        periodos: {
+            '1': {
+                '1': 'Diagnóstico inicial: Los sentidos y cómo percibimos el mundo que nos rodea.',
+                '3': 'Seres vivos y elementos no vivos en el hogar, el campo y la comunidad.',
+                '5': 'El cuidado del agua y hábitos de higiene y salud personal.',
+                '7': 'Las plantas y animales de nuestra región (Quindío) y su importancia.'
+            },
+            '2': {
+                '1': 'Partes del cuerpo humano y su funcionamiento básico.',
+                '3': 'Alimentos saludables y nutrición en la familia.',
+                '5': 'El día y la noche: el Sol y la Luna en la vida diaria.',
+                '7': 'Cuidado de mascotas y animales domésticos.'
+            },
+            '3': {
+                '1': 'Los estados del agua en la cocina y la naturaleza.',
+                '3': 'Plantas medicinales y cultivos tradicionales.',
+                '5': 'El suelo y cómo cuidarlo para sembrar.',
+                '7': 'El aire que respiramos y la prevención de enfermedades respiratorias.'
+            },
+            '4': {
+                '1': 'Reciclaje y manejo de basuras en la casa y el barrio.',
+                '3': 'Los sonidos del entorno y el cuidado del oído.',
+                '5': 'Las estaciones, lluvias y clima local.',
+                '7': 'Proyecto comunitario de cuidado ambiental.'
+            }
+        }
+    },
+    'Ciclo II': {
+        objetivo: 'Identificar las relaciones entre los seres vivos y su medio ambiente, los estados de la materia y la nutrición balanceada.',
+        periodos: {
+            '1': {
+                '1': 'Diagnóstico inicial: Estados del agua en la naturaleza y en el hogar (sólido, líquido y vapor).',
+                '3': 'Alimentación saludable, grupos de alimentos y origen de lo que comemos.',
+                '5': 'Cadenas alimenticias sencillas y equilibrio en los ecosistemas.',
+                '7': 'Clasificación básica de los seres vivos y cuidado de los recursos naturales.'
+            },
+            '2': {
+                '1': 'El sistema digestivo y la absorción de nutrientes.',
+                '3': 'El sistema respiratorio y circulatorio en el esfuerzo físico.',
+                '5': 'La fotosíntesis explicada de forma sencilla: cómo las plantas fabrican su alimento.',
+                '7': 'Adaptaciones de animales y plantas a diferentes climas.'
+            },
+            '3': {
+                '1': 'Mezclas en la cocina: solubilidad del azúcar, sal y café.',
+                '3': 'Fuerzas cotidianas: empujar, jalar, fricción y gravedad.',
+                '5': 'Fuentes de energía en el hogar: luz, calor y electricidad.',
+                '7': 'Ahorro de energía y uso responsable de electrodomésticos.'
+            },
+            '4': {
+                '1': 'El ciclo del agua y el cuidado de ríos y quebradas locales.',
+                '3': 'Contaminación del aire y del agua: causas y soluciones.',
+                '5': 'Biodiversidad de la flora y fauna colombiana.',
+                '7': 'Acciones prácticas para un hogar ecológico y sostenible.'
+            }
+        }
+    },
+    'Ciclo III': {
+        objetivo: 'Comprender la célula como unidad básica de vida, los tipos de mezclas cotidianas y las formas elementales de energía.',
+        periodos: {
+            '1': {
+                '1': 'Diagnóstico inicial: La célula y los componentes básicos de los organismos vivos.',
+                '3': 'Mezclas homogéneas y heterogéneas en la vida diaria (café, agua y aceite, suelo).',
+                '5': 'El ciclo del agua y su importancia para la vida, la salud y la agricultura.',
+                '7': 'Formas de energía que usamos a diario (calor, luz solar, electricidad, movimiento).'
+            },
+            '2': {
+                '1': 'Estructura y organelos principales de la célula (membrana, núcleo, citoplasma).',
+                '3': 'Célula vegetal vs célula animal: diferencias clave en la vida práctica.',
+                '5': 'Organización de los seres vivos: células, tejidos, órganos y sistemas.',
+                '7': 'Microorganismos en los alimentos (levaduras, bacterias del yogur) y en la salud.'
+            },
+            '3': {
+                '1': 'Métodos caseros y de laboratorio para separar mezclas (filtración, decantación, evaporación).',
+                '3': 'Sustancias puras vs mezclas: la sal, el agua pura y el aire.',
+                '5': 'Temperatura, calor y cambios de fase en la materia.',
+                '7': 'Energías limpias y renovables (solar, eólica e hidroeléctrica) en Colombia.'
+            },
+            '4': {
+                '1': 'Ecosistemas locales: bosques de niebla, guaduales y cafetales.',
+                '3': 'Relaciones biológicas: mutualismo, parasitismo y depredación.',
+                '5': 'Impacto de la actividad humana en el cambio climático.',
+                '7': 'Estrategias de conservación y desarrollo sostenible en el Quindío.'
+            }
+        }
+    },
+    'Ciclo IV': {
+        objetivo: 'Reconocer los principios básicos de la herencia biológica, transformaciones de la materia y el impacto ecológico en la región.',
+        periodos: {
+            '1': {
+                '1': 'Diagnóstico inicial: Herencia biológica básica (rasgos familiares y características genéticas).',
+                '3': 'Cambios físicos vs transformaciones químicas cotidianas (combustión, oxidación, fermentación).',
+                '5': 'Ecosistemas del Paisaje Cultural Cafetero y biodiversidad del Quindío.',
+                '7': 'Reciclaje, gestión de residuos y conservación del medio ambiente.'
+            },
+            '2': {
+                '1': 'ADN, genes y cromosomas: el manual de instrucciones de los seres vivos.',
+                '3': 'Leyes básicas de la herencia (Mendel) aplicadas a rasgos humanos y plantas.',
+                '5': 'Reproducción celular: mitosis y meiosis explicadas para la regeneración y herencia.',
+                '7': 'Biotecnología y mejoramiento genético tradicional en la agricultura.'
+            },
+            '3': {
+                '1': 'Estructura atómica básica: protones, neutrones y electrones.',
+                '3': 'La tabla periódica: metales, no metales y elementos vitales (C, H, O, N, P, S).',
+                '5': 'Reacciones químicas cotidianas: cómo arde una vela y cómo se oxida un metal.',
+                '7': 'Ácidos y bases en el hogar (vinagre, jabón, bicarbonato, limón) y escala de pH.'
+            },
+            '4': {
+                '1': 'Evolución y selección natural: cómo las especies se adaptan al entorno.',
+                '3': 'Impacto de la minería, deforestación y agroquímicos en los suelos.',
+                '5': 'Servicios ecosistémicos del agua y los polinizadores (abejas y colibríes).',
+                '7': 'Propuesta de gestión ambiental y sostenibilidad para la comunidad.'
+            }
+        }
+    },
+    'Ciclo V': {
+        objetivo: 'Interpretar la estructura de la materia, elementos químicos comunes y las fuerzas aplicadas al trabajo y transporte.',
+        periodos: {
+            '1': {
+                '1': 'Diagnóstico inicial: La materia, átomos y elementos químicos esenciales en la vida (oxígeno, carbono, agua).',
+                '3': 'Sustancias puras, compuestos y mezclas en el hogar y la industria local.',
+                '5': 'Fuerzas, gravedad y movimiento aplicados a herramientas, máquinas y vehículos.',
+                '7': 'Energía térmica, calor y temperatura en la vida cotidiana y laboral.'
+            },
+            '2': {
+                '1': 'Modelos atómicos y configuración electrónica simplificada.',
+                '3': 'Enlaces químicos: iónico, covalente y metálico en materiales comunes.',
+                '5': 'Nomenclatura básica de óxidos, hidróxidos y ácidos cotidianos.',
+                '7': 'Estequiometría básica: la ley de conservación de la masa (Lavoisier) en la cocina e industria.'
+            },
+            '3': {
+                '1': 'Cinemática aplicada: velocidad, rapidez y tiempo en desplazamientos reales.',
+                '3': 'Leyes de Newton: inercia, fuerza (F=m*a) y acción-reacción en el trabajo y transporte.',
+                '5': 'Trabajo mecánico, potencia y energía cinética vs potencial.',
+                '7': 'Presión y fluidos: principio de Pascal y Arquímedes en prensas hidráulicas y barcos.'
+            },
+            '4': {
+                '1': 'Gases ideales: presión, volumen y temperatura en ollas de presión y neumáticos.',
+                '3': 'Soluciones químicas: concentración en porcentaje y molaridad en sueros y fertilizantes.',
+                '5': 'Termodinámica básica: calor específico y transferencia de calor por conducción, convección y radiación.',
+                '7': 'Química ambiental: lluvia ácida, efecto invernadero y tratamiento de aguas.'
+            }
+        }
+    },
+    'Ciclo VI': {
+        objetivo: 'Analizar los procesos biofísicos y químicos del entorno, fuentes de energía sostenible y comprensión científica tipo Saber 11 adaptada a adultos.',
+        periodos: {
+            '1': {
+                '1': 'Diagnóstico inicial: Química básica de la vida y el carbono (alimentos, plásticos y combustibles).',
+                '3': 'Flujos de energía en el planeta, ciclos biogeoquímicos y cambio climático global.',
+                '5': 'Leyes físicas cotidianas (electricidad, circuitos, luz y sonido en la tecnología).',
+                '7': 'Lectura crítica de fenómenos naturales y toma de decisiones ambientales fundamentadas (Saber 11 formativo).'
+            },
+            '2': {
+                '1': 'Química orgánica: el átomo de carbono, hidrocarburos y combustibles fósiles.',
+                '3': 'Grupos funcionales clave: alcoholes, aldehídos, cetonas, ácidos carboxílicos y ésteres.',
+                '5': 'Biomoléculas: carbohidratos, lípidos, proteínas y ácidos nucleicos en la nutrición humana.',
+                '7': 'Polímeros sintéticos, microplásticos y nuevos materiales biodegradables.'
+            },
+            '3': {
+                '1': 'Electricidad y magnetismo: voltaje, corriente, resistencia (Ley de Ohm) en instalaciones domésticas.',
+                '3': 'Ondas electromagnéticas: radio, microondas, luz visible, rayos X y comunicaciones modernas.',
+                '5': 'Óptica básica: reflexión, refracción, lentes y el funcionamiento del ojo humano.',
+                '7': 'Física nuclear y medicina: radioterapia, rayos X y energía nuclear controlada.'
+            },
+            '4': {
+                '1': 'Bioética y ciencia: organismos genéticamente modificados y farmacología.',
+                '3': 'Transición energética: paneles solares fotovoltaicos, biocombustibles e hidrógeno verde.',
+                '5': 'Análisis de gráficas y tablas experimentales tipo ICFES Saber 11 para adultos.',
+                '7': 'Proyecto de grado: Solución científico-tecnológica a una problemática de la comunidad.'
+            }
+        }
+    }
+};
+
 window.mallaSociales = {
     '6': { objetivo: 'Identificar el espacio geográfico y el universo.', periodos: { '1': { '1': 'Geografía Física.', '2': 'El Sistema Solar.' } } }
 };
 window.mallaCastellano = {
     '6': { objetivo: 'Fortalecer la comprensión lectora.', periodos: { '1': { '1': 'Tipos de Textos.', '2': 'Estructura del Cuento.' } } }
+};
+
+window.normalizarGradoOCiclo = function(gradoStr) {
+    if (!gradoStr) return '6';
+    const g = gradoStr.toString().trim();
+    if (g.includes('Ciclo I') && !g.includes('Ciclo II') && !g.includes('Ciclo III') && !g.includes('Ciclo IV')) return 'Ciclo I';
+    if (g.includes('Ciclo II') && !g.includes('Ciclo III')) return 'Ciclo II';
+    if (g.includes('Ciclo III')) return 'Ciclo III';
+    if (g.includes('Ciclo IV')) return 'Ciclo IV';
+    if (g.includes('Ciclo V') && !g.includes('Ciclo VI')) return 'Ciclo V';
+    if (g.includes('Ciclo VI')) return 'Ciclo VI';
+    if (g.toUpperCase().includes('PENS')) return 'PENS';
+    const match = g.match(/\d+/);
+    return match ? match[0] : g;
 };
 
 window.mallaFisica = {
@@ -986,11 +1215,28 @@ window.mallaFisica = {
             '3': { '1': 'Electrodinámica avanzada.', '3': 'Magnetismo e inducción electromagnética.', '5': 'Física moderna básica y óptica física.', '7': 'Preparación pruebas SABER 11 (Eventos electromagnéticos).' },
             '4': { '1': 'Planteamiento de un problema de investigación física.', '3': 'Diseño y construcción de un prototipo o experimento.', '5': 'Análisis de datos y evaluación de hipótesis.', '7': 'Presentación del proyecto final (Feria de la Ciencia).' }
         }
+    },
+    'Ciclo III': {
+        objetivo: 'Comprender conceptos fundamentales del movimiento, fuerza y energía en la vida cotidiana.',
+        periodos: {
+            '1': { '1': 'Diagnóstico inicial: Movimiento, rapidez y fuerzas en el entorno.', '3': 'La gravedad y el peso de los objetos.', '5': 'Energía y trabajo en las actividades diarias.', '7': 'Máquinas simples (palancas, poleas y planos inclinados).' },
+            '2': { '1': 'Vectores y dirección del movimiento.', '3': 'Velocidad constante vs aceleración.', '5': 'Fuerza de rozamiento y frenado.', '7': 'Presión en líquidos y gases.' },
+            '3': { '1': 'Calor y temperatura en el hogar.', '3': 'Sonido y ondas en la comunicación.', '5': 'Luz y sombras: óptica básica.', '7': 'Electricidad estática y precauciones.' },
+            '4': { '1': 'Circuitos eléctricos simples.', '3': 'Imanes y brújulas.', '5': 'Energías renovables.', '7': 'Taller de física práctica.' }
+        }
+    },
+    'Ciclo VI': {
+        objetivo: 'Interpretar fenómenos mecánicos, termodinámicos y electromagnéticos aplicados con orientación Saber 11 formativo.',
+        periodos: {
+            '1': { '1': 'Diagnóstico inicial: Cinemática, fuerzas y leyes del movimiento.', '3': 'Trabajo mecánico, potencia y conservación de la energía.', '5': 'Fluidos: densidad, presión y empuje.', '7': 'Preguntas tipo Saber 11 formativas de Física.' },
+            '2': { '1': 'Termodinámica: calor, dilatación y máquinas térmicas.', '3': 'Ondas mecánicas y sonido.', '5': 'Óptica geométrica: espejos y lentes.', '7': 'Análisis de gráficas experimentales de física.' },
+            '3': { '1': 'Electrostática y ley de Coulomb.', '3': 'Circuitos eléctricos domésticos y ley de Ohm.', '5': 'Magnetismo y motores eléctricos.', '7': 'Consumo eficiente de energía eléctrica.' },
+            '4': { '1': 'Ondas electromagnéticas y telecomunicaciones.', '3': 'Física moderna y aplicaciones médicas.', '5': 'Simulacro Saber 11 de Ciencias Naturales / Física.', '7': 'Proyecto tecnológico de aplicación.' }
+        }
     }
 };
 
 window.gradoActualPlaneacion = null;
-
 
 window.actualizarVisualizadorPlaneacion = function() {
     const selectorAsignatura = document.getElementById('select-planeacion-asignatura');
@@ -999,24 +1245,23 @@ window.actualizarVisualizadorPlaneacion = function() {
     if (!visualizador || !window.gradoActualPlaneacion) return;
 
     const gradoSeleccionado = window.gradoActualPlaneacion;
-
-    const gradoNum = gradoSeleccionado.replace(/[^0-9PENS]/g, '');
+    const gradoNum = window.normalizarGradoOCiclo ? window.normalizarGradoOCiclo(gradoSeleccionado) : gradoSeleccionado.replace(/[^0-9PENS]/g, '');
     let asignatura = selectorAsignatura ? selectorAsignatura.value : 'Física';
     
     let malla = null;
 
     if (asignatura.toLowerCase().includes('física')) {
         malla = window.mallaFisica;
+    } else if (asignatura.toLowerCase().includes('química') || asignatura.toLowerCase().includes('quimica')) {
+        malla = window.mallaQuimica;
     } else if (asignatura.toLowerCase().includes('matemática') || asignatura.toLowerCase().includes('matematica')) {
         malla = window.mallaMatematicas;
-    } else if (asignatura.toLowerCase().includes('naturales')) {
+    } else if (asignatura.toLowerCase().includes('naturales') || asignatura.toLowerCase().includes('ciencias')) {
         malla = window.mallaNaturales;
     } else if (asignatura.toLowerCase().includes('sociales')) {
         malla = window.mallaSociales;
     } else if (asignatura.toLowerCase().includes('castellano') || asignatura.toLowerCase().includes('humanidades')) {
         malla = window.mallaCastellano;
-
-        malla = window.mallaFisica;
     } else if (asignatura.toLowerCase().includes('turismo')) {
         malla = window.mallaTurismo;
     } else if (asignatura.toLowerCase().includes('artística') || asignatura.toLowerCase().includes('música') || asignatura.toLowerCase().includes('artistica')) {
@@ -1025,7 +1270,7 @@ window.actualizarVisualizadorPlaneacion = function() {
         malla = window.mallaEtica;
     }
 
-    const dataGrado = malla ? malla[gradoNum] : null;
+    const dataGrado = malla ? (malla[gradoNum] || malla[gradoSeleccionado] || malla['6']) : null;
 
     if (!dataGrado) {
         visualizador.innerHTML = `<p style="color: #6B7280; font-style: italic; margin: 0;">Planeación en construcción para la materia de ${asignatura} en este grado.</p>`;
@@ -1446,23 +1691,24 @@ window.actualizarPlaneacionEstudiante = function() {
     
     if (!contenido || !window.gradoActualEstudiante || !subjectTitle) return;
 
-    const gradoNum = window.gradoActualEstudiante.replace(/[^0-9PENS]/g, '');
+    const gradoSeleccionado = window.gradoActualEstudiante;
+    const gradoNum = window.normalizarGradoOCiclo ? window.normalizarGradoOCiclo(gradoSeleccionado) : gradoSeleccionado.replace(/[^0-9PENS]/g, '');
     let asignatura = subjectTitle.innerText.replace('Aula de ', '').trim();
     
     let malla = null;
 
     if (asignatura.toLowerCase().includes('física')) {
         malla = window.mallaFisica;
+    } else if (asignatura.toLowerCase().includes('química') || asignatura.toLowerCase().includes('quimica')) {
+        malla = window.mallaQuimica;
     } else if (asignatura.toLowerCase().includes('matemática') || asignatura.toLowerCase().includes('matematica')) {
         malla = window.mallaMatematicas;
-    } else if (asignatura.toLowerCase().includes('naturales')) {
+    } else if (asignatura.toLowerCase().includes('naturales') || asignatura.toLowerCase().includes('ciencias')) {
         malla = window.mallaNaturales;
     } else if (asignatura.toLowerCase().includes('sociales')) {
         malla = window.mallaSociales;
     } else if (asignatura.toLowerCase().includes('castellano') || asignatura.toLowerCase().includes('humanidades')) {
         malla = window.mallaCastellano;
-
-        malla = window.mallaFisica;
     } else if (asignatura.toLowerCase().includes('turismo')) {
         malla = window.mallaTurismo;
     } else if (asignatura.toLowerCase().includes('artística') || asignatura.toLowerCase().includes('música') || asignatura.toLowerCase().includes('artistica')) {
@@ -1471,7 +1717,7 @@ window.actualizarPlaneacionEstudiante = function() {
         malla = window.mallaEtica;
     }
 
-    const dataGrado = malla ? malla[gradoNum] : null;
+    const dataGrado = malla ? (malla[gradoNum] || malla[gradoSeleccionado] || malla['6']) : null;
 
     if (!dataGrado) {
         contenido.innerHTML = `<p style="color: #6B7280; font-style: italic; margin: 0;">Planeación en construcción para la materia de ${asignatura} en este grado.</p>`;
@@ -1832,14 +2078,15 @@ window.ingresarAGuia = async function() {
     }
     
     // Obtener la meta y el tópico de la malla
-    const gradoNum = window.gradoActualEstudiante.replace(/[^0-9PENS]/g, '');
+    const gradoSeleccionado = window.gradoActualEstudiante || '6';
+    const gradoNum = window.normalizarGradoOCiclo ? window.normalizarGradoOCiclo(gradoSeleccionado) : gradoSeleccionado.replace(/[^0-9PENS]/g, '');
     let malla = null;
     if (asignatura.toLowerCase().includes('física')) malla = window.mallaFisica;
+    else if (asignatura.toLowerCase().includes('química') || asignatura.toLowerCase().includes('quimica')) malla = window.mallaQuimica;
     else if (asignatura.toLowerCase().includes('matemática') || asignatura.toLowerCase().includes('matematica')) malla = window.mallaMatematicas;
-    else if (asignatura.toLowerCase().includes('naturales')) malla = window.mallaNaturales;
+    else if (asignatura.toLowerCase().includes('naturales') || asignatura.toLowerCase().includes('ciencias')) malla = window.mallaNaturales;
     else if (asignatura.toLowerCase().includes('sociales')) malla = window.mallaSociales;
     else if (asignatura.toLowerCase().includes('castellano') || asignatura.toLowerCase().includes('humanidades')) malla = window.mallaCastellano;
-
     else if (asignatura.toLowerCase().includes('turismo')) malla = window.mallaTurismo;
     else if (asignatura.toLowerCase().includes('artística') || asignatura.toLowerCase().includes('música') || asignatura.toLowerCase().includes('artistica')) malla = window.mallaArtistica;
     else if (asignatura.toLowerCase().includes('ética') || asignatura.toLowerCase().includes('etica')) malla = window.mallaEtica;
@@ -1847,15 +2094,16 @@ window.ingresarAGuia = async function() {
     let meta = "Aprender los conceptos básicos";
     let topico = "Introducción a la materia";
     
-    if (malla && malla[gradoNum]) {
-        meta = malla[gradoNum].objetivo;
+    const dataGrado = malla ? (malla[gradoNum] || malla[gradoSeleccionado] || malla['6']) : null;
+    if (dataGrado) {
+        meta = dataGrado.objetivo || meta;
         const semanaNum = parseInt(semanaStr, 10);
         let indexTema = '1';
         if (semanaNum >= 3 && semanaNum <= 4) indexTema = '3';
         else if (semanaNum >= 5 && semanaNum <= 6) indexTema = '5';
         else if (semanaNum >= 7 && semanaNum <= 8) indexTema = '7';
-        if (malla[gradoNum].periodos[periodo]) {
-            topico = malla[gradoNum].periodos[periodo][indexTema] || topico;
+        if (dataGrado.periodos && dataGrado.periodos[periodo]) {
+            topico = dataGrado.periodos[periodo][indexTema] || topico;
         }
     }
     
@@ -1879,6 +2127,7 @@ window.ingresarAGuia = async function() {
     try {
         const payload = {
             asignatura,
+            grado: gradoSeleccionado,
             periodo,
             semana: semanaStr,
             meta,

@@ -180,6 +180,38 @@
                     🚨 ¡RUIDO EXCEDIDO!<br>-10 XP (TODO EL GRUPO)
                 </div>
             </div>
+            <!-- FILTRO POR CICLO/GRUPO -->
+            <div style="margin-top: 20px; border-top: 2px solid #E5E7EB; padding-top: 20px; display: flex; flex-direction: column; gap: 12px;">
+                <h3 style="margin: 0; color: #1F2937; font-size: 1.1rem; text-align: center; font-weight: 800;">🎯 Filtrar Ranking</h3>
+                <select id="filtro-ciclo-ranking" onchange="cambiarFiltroRanking()" style="padding: 12px; border: 2px solid #E5E7EB; border-radius: 10px; font-size: 1rem; font-weight: 600; color: #374151; background: white; cursor: pointer;">
+                    <option value="">Todos los Estudiantes</option>
+                    <optgroup label="— Ciclos Nocturna IE Montenegro —">
+                        <option value="Ciclo I (1°, 2°, 3°)">🌱 Ciclo I (1°-3°)</option>
+                        <option value="Ciclo II (4°, 5°)">🌿 Ciclo II (4°-5°)</option>
+                        <option value="Ciclo III (6°, 7°)">⚗️ Ciclo III (6°-7°)</option>
+                        <option value="Ciclo IV (8°, 9°)">🔬 Ciclo IV (8°-9°)</option>
+                        <option value="Ciclo V (10°)">🧪 Ciclo V (10°)</option>
+                        <option value="Ciclo VI (11°)">🎓 Ciclo VI (11°)</option>
+                    </optgroup>
+                    <optgroup label="— Grupos IE Montenegro —">
+                        <option value="6A">6A</option>
+                        <option value="6B">6B</option>
+                        <option value="7A">7A</option>
+                        <option value="7B">7B</option>
+                        <option value="7C">7C</option>
+                        <option value="8A">8A</option>
+                        <option value="8B">8B</option>
+                        <option value="9A">9A</option>
+                        <option value="10A">10A</option>
+                        <option value="10D">10D</option>
+                        <option value="PENS">PENS</option>
+                    </optgroup>
+                </select>
+                <div id="filtro-ciclo-badge" style="text-align:center; font-size:0.9rem; color:#6B7280; display:none;">
+                    Mostrando: <strong id="filtro-ciclo-label" style="color:#1D4ED8;"></strong>
+                    <button onclick="limpiarFiltroRanking()" style="margin-left:8px; background:#FEE2E2; border:1px solid #EF4444; color:#DC2626; padding:3px 10px; border-radius:6px; cursor:pointer; font-size:0.8rem;">✕ Quitar filtro</button>
+                </div>
+            </div>
         </div>
 
         <!-- CONTENIDO PRINCIPAL (DERECHA) -->
@@ -358,16 +390,55 @@
             document.getElementById('subtitle').innerText = "Clasificación del Grupo: " + grupoActual + " (Periodo 3)";
         }
 
+        // Sincronizar el selector con el parámetro URL al cargar
+        if (grupoActual) {
+            const sel = document.getElementById('filtro-ciclo-ranking');
+            if (sel) {
+                for (let opt of sel.options) {
+                    if (opt.value === grupoActual) { opt.selected = true; break; }
+                }
+                document.getElementById('filtro-ciclo-badge').style.display = 'block';
+                document.getElementById('filtro-ciclo-label').textContent = grupoActual;
+            }
+        }
+
+        function cambiarFiltroRanking() {
+            const sel = document.getElementById('filtro-ciclo-ranking');
+            const val = sel.value;
+            const badge = document.getElementById('filtro-ciclo-badge');
+            const label = document.getElementById('filtro-ciclo-label');
+            const subtitle = document.getElementById('subtitle');
+
+            if (val) {
+                badge.style.display = 'block';
+                label.textContent = val;
+                subtitle.innerText = 'Clasificación: ' + val + ' (Periodo 3)';
+            } else {
+                badge.style.display = 'none';
+                subtitle.innerText = 'Clasificación Global - Periodo 3';
+            }
+            cargarRanking();
+        }
+
+        function limpiarFiltroRanking() {
+            document.getElementById('filtro-ciclo-ranking').value = '';
+            cambiarFiltroRanking();
+        }
+
         async function cargarRanking() {
             try {
                 const res = await fetch('/api/estudiantes');
                 if (!res.ok) return;
                 let estudiantes = await res.json();
-                
-                if (grupoActual) {
-                    estudiantes = estudiantes.filter(e => e.grupo === grupoActual);
+
+                // Filtro dinámico: combinar parámetro URL + selector sidebar
+                const filtroSel = document.getElementById('filtro-ciclo-ranking');
+                const filtroActivo = (filtroSel && filtroSel.value) ? filtroSel.value : grupoActual;
+
+                if (filtroActivo) {
+                    estudiantes = estudiantes.filter(e => e.grupo === filtroActivo);
                 }
-                
+
                 // Obtener penalidad grupal total por asignatura
                 let penaltyKey = `penalty_${grupoActual}_p3`;
                 if (asignaturaActual) {

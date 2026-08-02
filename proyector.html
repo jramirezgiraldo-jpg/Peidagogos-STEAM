@@ -126,6 +126,82 @@
             <button class="btn-class" onclick="showWeeks('ciclo6', 'Ciclo VI (11°)')" style="border-color: #8B5CF6; background: #F5F3FF;">
                 <i class="ph ph-graduation-cap" style="color: #8B5CF6;"></i> Ciclo VI (11°)<br><span style="font-size: 0.95rem; color:#7C3AED; font-weight: normal;">Fís / Ét / Quim / Tur</span>
             </button>
+            <!-- MODO MULTICICLO -->
+            <button class="btn-class" onclick="abrirModalMulticiclo()" style="border-color: #DC2626; background: #FFF1F2; grid-column: 1 / -1; max-width: 600px; margin: 0 auto;">
+                <i class="ph ph-layout" style="color: #DC2626; font-size: 3.5rem;"></i>
+                <strong style="color: #DC2626; font-size: 1.4rem;">⚡ MODO MULTICICLO</strong>
+                <span style="font-size: 1rem; color:#B91C1C; font-weight: normal;">Proyecta 2 ciclos simultáneamente en el mismo salón</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- MODAL MULTICICLO -->
+    <div id="modal-multiciclo" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.7); z-index:9999; display:none; justify-content:center; align-items:center;">
+        <div style="background:white; border-radius:20px; padding:40px; max-width:600px; width:90%; box-shadow:0 25px 60px rgba(0,0,0,0.3);">
+            <h2 style="margin:0 0 10px 0; color:#1E3A8A; font-weight:900;">⚡ Modo Multiciclo</h2>
+            <p style="color:#6B7280; margin:0 0 25px 0;">Selecciona los <strong>dos ciclos</strong> que vas a proyectar simultáneamente en el mismo salón.</p>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-bottom:25px;">
+                <div>
+                    <label style="font-weight:700; color:#374151; display:block; margin-bottom:8px;">Panel Izquierdo (Ciclo A)</label>
+                    <select id="mc-ciclo-a" style="width:100%; padding:12px; border:2px solid #E5E7EB; border-radius:10px; font-size:1rem;">
+                        <option value="ciclo1">Ciclo I (1°, 2°, 3°)</option>
+                        <option value="ciclo2">Ciclo II (4°, 5°)</option>
+                        <option value="ciclo3" selected>Ciclo III (6°, 7°)</option>
+                        <option value="ciclo4">Ciclo IV (8°, 9°)</option>
+                        <option value="ciclo5">Ciclo V (10°)</option>
+                        <option value="ciclo6">Ciclo VI (11°)</option>
+                        <option value="fisica6">Física 6°</option>
+                        <option value="fisica7">Física 7°</option>
+                        <option value="etica">Ética</option>
+                        <option value="artistica">Artística</option>
+                        <option value="turismo">Turismo</option>
+                        <option value="quimica">Química</option>
+                    </select>
+                    <label style="font-weight:600; color:#6B7280; display:block; margin:10px 0 5px 0;">Semana</label>
+                    <select id="mc-semana-a" style="width:100%; padding:10px; border:2px solid #E5E7EB; border-radius:8px; font-size:1rem;">
+                        <option value="1">Semana 1 - Clase 1</option>
+                        <option value="2">Semana 2 - Clase 1</option>
+                        <option value="3">Semana 3 - Clase 1</option>
+                        <option value="4">Semana 4 - Clase 1</option>
+                        <option value="5">Semana 5 - Clase 1</option>
+                        <option value="6">Semana 6 - Clase 1</option>
+                        <option value="7">Semana 7 - Clase 1</option>
+                        <option value="8">Semana 8 - Clase 1</option>
+                    </select>
+                </div>
+                <div>
+                    <label style="font-weight:700; color:#374151; display:block; margin-bottom:8px;">Panel Derecho (Ciclo B)</label>
+                    <select id="mc-ciclo-b" style="width:100%; padding:12px; border:2px solid #E5E7EB; border-radius:10px; font-size:1rem;">
+                        <option value="ciclo1">Ciclo I (1°, 2°, 3°)</option>
+                        <option value="ciclo2">Ciclo II (4°, 5°)</option>
+                        <option value="ciclo3">Ciclo III (6°, 7°)</option>
+                        <option value="ciclo4" selected>Ciclo IV (8°, 9°)</option>
+                        <option value="ciclo5">Ciclo V (10°)</option>
+                        <option value="ciclo6">Ciclo VI (11°)</option>
+                        <option value="fisica6">Física 6°</option>
+                        <option value="fisica7">Física 7°</option>
+                        <option value="etica">Ética</option>
+                        <option value="artistica">Artística</option>
+                        <option value="turismo">Turismo</option>
+                        <option value="quimica">Química</option>
+                    </select>
+                    <label style="font-weight:600; color:#6B7280; display:block; margin:10px 0 5px 0;">Semana</label>
+                    <select id="mc-semana-b" style="width:100%; padding:10px; border:2px solid #E5E7EB; border-radius:8px; font-size:1rem;">
+                        <option value="1">Semana 1 - Clase 1</option>
+                        <option value="2">Semana 2 - Clase 1</option>
+                        <option value="3">Semana 3 - Clase 1</option>
+                        <option value="4">Semana 4 - Clase 1</option>
+                        <option value="5">Semana 5 - Clase 1</option>
+                        <option value="6">Semana 6 - Clase 1</option>
+                        <option value="7">Semana 7 - Clase 1</option>
+                        <option value="8">Semana 8 - Clase 1</option>
+                    </select>
+                </div>
+            </div>
+            <div style="display:flex; gap:15px; justify-content:flex-end;">
+                <button onclick="cerrarModalMulticiclo()" style="padding:12px 25px; background:#F3F4F6; border:1px solid #D1D5DB; border-radius:10px; font-size:1rem; cursor:pointer; color:#374151; font-weight:600;">Cancelar</button>
+                <button onclick="lanzarMulticiclo()" style="padding:12px 30px; background:linear-gradient(135deg,#7C3AED,#DC2626); color:white; border:none; border-radius:10px; font-size:1rem; font-weight:700; cursor:pointer; box-shadow:0 4px 15px rgba(124,58,237,0.4);">⚡ ¡Proyectar Ambos!</button>
+            </div>
         </div>
     </div>
 
@@ -162,12 +238,72 @@
         <div id="slide-custom-area"></div>
     </div>
 
+    <!-- PANTALLA MODO MULTICICLO SPLIT -->
+    <div id="screen-multiciclo" class="screen" style="padding:0; align-items:stretch; justify-content:stretch; flex-direction:row; height:100vh; min-height:100vh;">
+        <!-- BARRA SUPERIOR MULTICICLO -->
+        <div style="position:fixed; top:0; left:0; width:100%; background:linear-gradient(90deg,#7C3AED,#DC2626); color:white; z-index:1000; display:flex; justify-content:space-between; align-items:center; padding:8px 20px; box-sizing:border-box; box-shadow:0 4px 15px rgba(0,0,0,0.3);">
+            <div style="display:flex; align-items:center; gap:15px;">
+                <button onclick="salirMulticiclo()" style="background:rgba(255,255,255,0.2); border:none; color:white; width:36px; height:36px; border-radius:50%; cursor:pointer; font-size:1.1rem; display:flex; align-items:center; justify-content:center;">🏠</button>
+                <strong style="font-size:1.1rem;">⚡ MODO MULTICICLO</strong>
+            </div>
+            <div style="display:flex; gap:20px; align-items:center;">
+                <span id="mc-label-a" style="background:rgba(255,255,255,0.2); padding:5px 15px; border-radius:20px; font-weight:700;">Ciclo A</span>
+                <span style="opacity:0.6;">vs</span>
+                <span id="mc-label-b" style="background:rgba(255,255,255,0.2); padding:5px 15px; border-radius:20px; font-weight:700;">Ciclo B</span>
+            </div>
+        </div>
+
+        <!-- PANEL IZQUIERDO (A) -->
+        <div style="flex:1; border-right:4px solid #7C3AED; display:flex; flex-direction:column; overflow-y:auto; padding-top:60px; background:#FAFAFA;">
+            <div style="background:linear-gradient(135deg,#7C3AED,#5B21B6); color:white; padding:12px 20px; display:flex; justify-content:space-between; align-items:center;">
+                <strong id="mc-panel-a-title" style="font-size:1.1rem;">Ciclo A</strong>
+                <div style="display:flex; gap:10px; align-items:center;">
+                    <button onclick="mcPrev('a')" style="background:rgba(255,255,255,0.2); border:none; color:white; padding:6px 12px; border-radius:6px; cursor:pointer; font-weight:bold;">◀ Ant</button>
+                    <span id="mc-slide-counter-a" style="font-size:0.9rem; opacity:0.8;">1/1</span>
+                    <button onclick="mcNext('a')" style="background:rgba(255,255,255,0.2); border:none; color:white; padding:6px 12px; border-radius:6px; cursor:pointer; font-weight:bold;">Sig ▶</button>
+                    <button onclick="mcStartTimer('a')" id="mc-btn-timer-a" style="background:#F59E0B; border:none; color:white; padding:6px 12px; border-radius:6px; cursor:pointer; font-weight:bold; display:none;">▶ Timer</button>
+                    <span id="mc-timer-a" style="font-size:1.2rem; font-weight:900; color:#FDE68A; display:none; font-variant-numeric:tabular-nums;">00:00</span>
+                </div>
+            </div>
+            <div id="mc-slide-a" style="padding:25px; flex:1; text-align:center; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:15px;">
+                <div style="font-size:3rem;">📚</div>
+                <h2 style="font-size:1.5rem; font-weight:900; color:#1E3A8A; margin:0;">Lanzando...</h2>
+                <p style="color:#6B7280; font-size:1rem; margin:0;">Usa los botones de arriba para navegar entre los slides.</p>
+            </div>
+        </div>
+
+        <!-- PANEL DERECHO (B) -->
+        <div style="flex:1; display:flex; flex-direction:column; overflow-y:auto; padding-top:60px; background:#FEFCE8;">
+            <div style="background:linear-gradient(135deg,#DC2626,#B91C1C); color:white; padding:12px 20px; display:flex; justify-content:space-between; align-items:center;">
+                <strong id="mc-panel-b-title" style="font-size:1.1rem;">Ciclo B</strong>
+                <div style="display:flex; gap:10px; align-items:center;">
+                    <button onclick="mcPrev('b')" style="background:rgba(255,255,255,0.2); border:none; color:white; padding:6px 12px; border-radius:6px; cursor:pointer; font-weight:bold;">◀ Ant</button>
+                    <span id="mc-slide-counter-b" style="font-size:0.9rem; opacity:0.8;">1/1</span>
+                    <button onclick="mcNext('b')" style="background:rgba(255,255,255,0.2); border:none; color:white; padding:6px 12px; border-radius:6px; cursor:pointer; font-weight:bold;">Sig ▶</button>
+                    <button onclick="mcStartTimer('b')" id="mc-btn-timer-b" style="background:#F59E0B; border:none; color:white; padding:6px 12px; border-radius:6px; cursor:pointer; font-weight:bold; display:none;">▶ Timer</button>
+                    <span id="mc-timer-b" style="font-size:1.2rem; font-weight:900; color:#FDE68A; display:none; font-variant-numeric:tabular-nums;">00:00</span>
+                </div>
+            </div>
+            <div id="mc-slide-b" style="padding:25px; flex:1; text-align:center; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:15px;">
+                <div style="font-size:3rem;">📚</div>
+                <h2 style="font-size:1.5rem; font-weight:900; color:#991B1B; margin:0;">Lanzando...</h2>
+                <p style="color:#6B7280; font-size:1rem; margin:0;">Usa los botones de arriba para navegar entre los slides.</p>
+            </div>
+        </div>
+    </div>
+
     <script>
         let dbData = { clases: {} };
         let currentCourse = null;
         let currentSlideIdx = 0;
         let timerInterval = null;
         let currentTimerSeconds = 0;
+
+        // Estado del modo multiciclo
+        const mcState = {
+            a: { course: null, idx: 0, timerSec: 0, timerInterval: null },
+            b: { course: null, idx: 0, timerSec: 0, timerInterval: null }
+        };
 
         // Cargar datos dinámicos al iniciar
         fetch('proyectorData.json?v=' + new Date().getTime())
@@ -405,6 +541,161 @@
                     if(step > 4) step = 0;
                 }, 500); // Fast!
             }
+        }
+
+        // =====================================
+        // MODO MULTICICLO
+        // =====================================
+        const COURSE_LABELS = {
+            ciclo1: 'Ciclo I (1°-3°)', ciclo2: 'Ciclo II (4°-5°)',
+            ciclo3: 'Ciclo III (6°-7°)', ciclo4: 'Ciclo IV (8°-9°)',
+            ciclo5: 'Ciclo V (10°)', ciclo6: 'Ciclo VI (11°)',
+            fisica6: 'Física 6°', fisica7: 'Física 7°',
+            quimica: 'Química', etica: 'Ética', artistica: 'Artística', turismo: 'Turismo'
+        };
+
+        function abrirModalMulticiclo() {
+            const modal = document.getElementById('modal-multiciclo');
+            modal.style.display = 'flex';
+        }
+
+        function cerrarModalMulticiclo() {
+            document.getElementById('modal-multiciclo').style.display = 'none';
+        }
+
+        function lanzarMulticiclo() {
+            const cicloA = document.getElementById('mc-ciclo-a').value;
+            const cicloB = document.getElementById('mc-ciclo-b').value;
+            const semanaA = document.getElementById('mc-semana-a').value;
+            const semanaB = document.getElementById('mc-semana-b').value;
+
+            const dataA = dbData.clases[cicloA] && dbData.clases[cicloA][semanaA] && dbData.clases[cicloA][semanaA][0];
+            const dataB = dbData.clases[cicloB] && dbData.clases[cicloB][semanaB] && dbData.clases[cicloB][semanaB][0];
+
+            mcState.a.course = dataA || null;
+            mcState.a.idx = 0;
+            mcState.b.course = dataB || null;
+            mcState.b.idx = 0;
+
+            // Labels
+            const labelA = COURSE_LABELS[cicloA] || cicloA;
+            const labelB = COURSE_LABELS[cicloB] || cicloB;
+            document.getElementById('mc-label-a').textContent = labelA;
+            document.getElementById('mc-label-b').textContent = labelB;
+            document.getElementById('mc-panel-a-title').textContent = labelA + ' — Sem. ' + semanaA;
+            document.getElementById('mc-panel-b-title').textContent = labelB + ' — Sem. ' + semanaB;
+
+            cerrarModalMulticiclo();
+
+            // Cambiar pantalla
+            document.querySelectorAll('.screen').forEach(s => s.classList.remove('active-screen'));
+            document.getElementById('screen-multiciclo').classList.add('active-screen');
+
+            mcRenderSlide('a');
+            mcRenderSlide('b');
+        }
+
+        function mcRenderSlide(panel) {
+            const state = mcState[panel];
+            const container = document.getElementById('mc-slide-' + panel);
+            const counter = document.getElementById('mc-slide-counter-' + panel);
+            const btnTimer = document.getElementById('mc-btn-timer-' + panel);
+            const timerEl = document.getElementById('mc-timer-' + panel);
+
+            if (!state.course || state.course.length === 0) {
+                container.innerHTML = `<div style="padding:30px; text-align:center;">
+                    <div style="font-size:4rem; margin-bottom:15px;">🔒</div>
+                    <h2 style="color:#9CA3AF;">Contenido no disponible</h2>
+                    <p style="color:#6B7280;">Esta semana aún no tiene diapositivas en proyectorData.json</p>
+                </div>`;
+                counter.textContent = '0/0';
+                btnTimer.style.display = 'none';
+                return;
+            }
+
+            const slide = state.course[state.idx];
+            counter.textContent = `${state.idx + 1}/${state.course.length}`;
+
+            // Detener timer anterior
+            if (state.timerInterval) clearInterval(state.timerInterval);
+            state.timerInterval = null;
+            timerEl.style.display = 'none';
+
+            if (slide.timer) {
+                state.timerSec = slide.timer;
+                const m = Math.floor(state.timerSec / 60).toString().padStart(2,'0');
+                const s = (state.timerSec % 60).toString().padStart(2,'0');
+                timerEl.textContent = `${m}:${s}`;
+                timerEl.style.display = 'inline';
+                timerEl.style.color = '#FDE68A';
+                btnTimer.style.display = 'inline-block';
+            } else {
+                btnTimer.style.display = 'none';
+            }
+
+            container.innerHTML = `
+                <div style="font-size:2.5rem; margin-bottom:10px;">${slide.icon ? '📌' : '📚'}</div>
+                <h2 style="font-size:1.6rem; font-weight:900; color:${panel === 'a' ? '#1E3A8A' : '#991B1B'}; margin:0 0 8px 0;">${slide.title || ''}</h2>
+                <p style="font-size:1.1rem; font-weight:600; color:#6B7280; margin:0 0 12px 0;">${slide.sub || ''}</p>
+                <div style="font-size:1rem; color:#374151; line-height:1.7; max-width:550px; text-align:left; background:white; padding:20px; border-radius:12px; box-shadow:0 2px 10px rgba(0,0,0,0.06);">${slide.content || ''}</div>
+            `;
+        }
+
+        function mcNext(panel) {
+            const state = mcState[panel];
+            if (!state.course) return;
+            if (state.idx < state.course.length - 1) {
+                state.idx++;
+                mcRenderSlide(panel);
+            } else {
+                if(confirm('Fin de las diapositivas de este panel. ¿Volver al inicio?')) {
+                    state.idx = 0;
+                    mcRenderSlide(panel);
+                }
+            }
+        }
+
+        function mcPrev(panel) {
+            const state = mcState[panel];
+            if (!state.course) return;
+            if (state.idx > 0) {
+                state.idx--;
+                mcRenderSlide(panel);
+            }
+        }
+
+        function mcStartTimer(panel) {
+            const state = mcState[panel];
+            const timerEl = document.getElementById('mc-timer-' + panel);
+            const btnTimer = document.getElementById('mc-btn-timer-' + panel);
+            if (state.timerInterval) return;
+            btnTimer.style.display = 'none';
+
+            state.timerInterval = setInterval(() => {
+                if (state.timerSec > 0) {
+                    state.timerSec--;
+                    const m = Math.floor(state.timerSec / 60).toString().padStart(2,'0');
+                    const s = (state.timerSec % 60).toString().padStart(2,'0');
+                    timerEl.textContent = `${m}:${s}`;
+                    if (state.timerSec <= 10) timerEl.style.color = '#EF4444';
+                } else {
+                    clearInterval(state.timerInterval);
+                    state.timerInterval = null;
+                    timerEl.textContent = '¡TIEMPO!';
+                    timerEl.style.color = '#EF4444';
+                }
+            }, 1000);
+        }
+
+        function salirMulticiclo() {
+            // Detener timers
+            if (mcState.a.timerInterval) clearInterval(mcState.a.timerInterval);
+            if (mcState.b.timerInterval) clearInterval(mcState.b.timerInterval);
+            mcState.a.timerInterval = null;
+            mcState.b.timerInterval = null;
+
+            document.getElementById('screen-multiciclo').classList.remove('active-screen');
+            document.getElementById('screen-menu').classList.add('active-screen');
         }
     </script>
 </body>

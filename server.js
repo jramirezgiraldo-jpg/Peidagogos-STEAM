@@ -34,6 +34,7 @@ app.post('/api/generate-guide', async (req, res) => {
     try {
         const {
             asignatura,
+            grado,
             periodo,
             semana,
             meta,
@@ -43,6 +44,11 @@ app.post('/api/generate-guide', async (req, res) => {
             nivel,
             enfoque
         } = req.body;
+
+        const esCicloNocturno = grado && grado.toString().toLowerCase().includes('ciclo');
+        const contextoEscolar = esCicloNocturno
+            ? `Estás trabajando con estudiantes adultos de educación nocturna (${grado}), quienes retomaron sus estudios después de haberlos interrumpido. El contenido DEBE ser relevante, práctico y contextualizado en la vida adulta cotidiana, sin ser excesivamente riguroso. Usa ejemplos del hogar, el trabajo, la comunidad y la salud. Mantén el tono amable, motivador y sin tecnicismos innecesarios.`
+            : `Contexto escolar regular (Grado ${grado || 'General'}).`;
 
         // Validar si la IA está lista
         if (apiKeys.length === 0) {
@@ -58,7 +64,7 @@ app.post('/api/generate-guide', async (req, res) => {
         }
         
         // Generar un nombre de archivo seguro basado en los parámetros
-        const fileNameSafe = [asignatura, periodo, semana, rol, ambiente, nivel, enfoque]
+        const fileNameSafe = [asignatura, grado, periodo, semana, rol, ambiente, nivel, enfoque]
             .map(s => s ? s.toString().toLowerCase().replace(/[^a-z0-9]/g, '_') : 'na')
             .join('_') + '.json';
             
@@ -75,7 +81,8 @@ app.post('/api/generate-guide', async (req, res) => {
         // --- END CACHE LOGIC ---
 
         // Construir el Prompt Maestro alineado con Saber 11 y Pedagogía STEAM V11
-        const prompt = `Actúa como un ${rol}. Tu objetivo pedagógico es enseñar ${asignatura} (Grado ${grado}) a estudiantes en el contexto narrativo inmersivo de ${ambiente}.
+        const prompt = `Actúa como un ${rol}. Tu objetivo pedagógico es enseñar ${asignatura} a estudiantes en el contexto narrativo inmersivo de ${ambiente}.
+${contextoEscolar}
 Nivel de dificultad: ${nivel}. Competencia focal: ${enfoque}.
 
 Contexto Curricular:
