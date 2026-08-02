@@ -169,18 +169,30 @@
             <option value="">Institución Educativa...</option>
             <option value="RamonMessa">IE Ramon Messa</option>
             <option value="InstitutoMontenegro">IE Instituto Montenegro</option>
-        </select>
-        <select id="reg-grado" onchange="actualizarMaterias()" style="padding: 12px; border: 1px solid #d1d5db; border-radius: 8px; display: none;">
-            <option value="">Grado a cursar...</option><option value="6">6&deg;</option><option value="7">7&deg;</option><option value="8">8&deg;</option><option value="9">9&deg;</option><option value="10">10&deg;</option><option value="11">11&deg;</option>
+        </select>        <select id="reg-grado" onchange="actualizarMaterias()" style="padding: 12px; border: 1px solid #d1d5db; border-radius: 8px; display: none;">
+            <option value="">Grado / Ciclo a cursar...</option>
+            <option value="6">6&deg;</option><option value="7">7&deg;</option><option value="8">8&deg;</option><option value="9">9&deg;</option><option value="10">10&deg;</option><option value="11">11&deg;</option>
+            <option value="Ciclo I">Ciclo I (1°, 2°, 3°)</option>
+            <option value="Ciclo II">Ciclo II (4°, 5°)</option>
+            <option value="Ciclo III">Ciclo III (6°, 7°)</option>
+            <option value="Ciclo IV">Ciclo IV (8°, 9°)</option>
+            <option value="Ciclo V">Ciclo V (10°)</option>
+            <option value="Ciclo VI">Ciclo VI (11°)</option>
         </select>
         <select id="registro-grupo" onchange="actualizarMaterias()" style="padding: 12px; border: 1px solid #d1d5db; border-radius: 8px; display: none;">
-            <option value="">Grupo...</option>
+            <option value="">Grupo / Ciclo...</option>
             <option value="6A">6A</option><option value="6B">6B</option>
             <option value="7A">7A</option><option value="7B">7B</option><option value="7C">7C</option>
             <option value="8A">8A</option><option value="8B">8B</option>
             <option value="9A">9A</option>
             <option value="10A">10A</option><option value="10D">10D</option>
             <option value="PENS">PENS</option>
+            <option value="Ciclo I">Ciclo I (1°, 2°, 3°)</option>
+            <option value="Ciclo II">Ciclo II (4°, 5°)</option>
+            <option value="Ciclo III">Ciclo III (6°, 7°)</option>
+            <option value="Ciclo IV">Ciclo IV (8°, 9°)</option>
+            <option value="Ciclo V">Ciclo V (10°)</option>
+            <option value="Ciclo VI">Ciclo VI (11°)</option>
         </select>
         <input type="hidden" id="registro-asignatura">
         <div id="materias-asignadas-view" style="padding: 12px; background: #f9fafb; border: 1px solid #d1d5db; border-radius: 8px; color: #6B7280; font-style: italic; font-size: 0.95rem;">Selecciona institución y curso para ver asignaturas</div>
@@ -197,7 +209,7 @@
                 } else if (ie === "InstitutoMontenegro") {
                     gradoSelect.style.display = "none";
                     grupoSelect.style.display = "block";
-                    gradoSelect.value = "";
+                    grupoSelect.value = "";
                 } else {
                     gradoSelect.style.display = "none";
                     grupoSelect.style.display = "none";
@@ -222,7 +234,13 @@
                         "8": "Física, Biología, Química",
                         "9": "Física, Biología, Química",
                         "10": "Física, Biología, Química",
-                        "11": "Física, Biología, Química"
+                        "11": "Física, Biología, Química",
+                        "Ciclo I": "Ciencias Naturales, Ética, Artística",
+                        "Ciclo II": "Ciencias Naturales, Ética, Artística",
+                        "Ciclo III": "Física, Biología, Química",
+                        "Ciclo IV": "Física, Biología, Química",
+                        "Ciclo V": "Física, Biología, Química",
+                        "Ciclo VI": "Física, Biología, Química"
                     };
                     materias = mapaRamon[grado];
                 } else if (ie === "InstitutoMontenegro") {
@@ -238,7 +256,13 @@
                         "9A": "Artística",
                         "10A": "Ética",
                         "10D": "Ética",
-                        "PENS": "Química, Turismo"
+                        "PENS": "Química, Turismo",
+                        "Ciclo I": "Ciencias Naturales, Ética, Artística",
+                        "Ciclo II": "Ciencias Naturales, Ética, Artística",
+                        "Ciclo III": "Física, Turismo, Ética",
+                        "Ciclo IV": "Artística, Turismo, Ciencias",
+                        "Ciclo V": "Ética, Química, Turismo",
+                        "Ciclo VI": "Física, Ética, Química, Turismo"
                     };
                     materias = mapaMontenegro[grupo];
                 }
@@ -262,8 +286,6 @@
     </div>
 </div>
 
-
-
 <!-- DASHBOARD DOCENTE (NUEVO) -->
 <div id="docente-dashboard-container" style="display: none; height: 100vh; overflow-y: auto; background-color: #F8FAFC;">
     <header style="background: white; border-bottom: 1px solid #E5E7EB; padding: 15px 30px; display: flex; justify-content: space-between; align-items: center;">
@@ -280,7 +302,7 @@
     </header>
 
     <div style="padding: 40px 30px; max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 2fr; gap: 20px;">
-        <!-- Formulario MatrÃƒÂ­cula Estudiante -->
+        <!-- Formulario Matrícula Estudiante -->
         <div style="background: white; padding: 30px; border-radius: 16px; box-shadow: 0 10px 25px rgba(0,0,0,0.05);">
             <h3 style="font-weight: 800; margin-bottom: 20px;">Matricular Estudiante</h3>
             <div style="display: flex; flex-direction: column; gap: 15px;">
@@ -289,10 +311,16 @@
                 <input type="text" id="docente-reg-ape" placeholder="Apellidos" style="padding: 10px; border: 1px solid #d1d5db; border-radius: 8px;">
                 <input type="number" id="docente-reg-edad" placeholder="Edad" style="padding: 10px; border: 1px solid #d1d5db; border-radius: 8px;">
                 <select id="docente-reg-gen" style="padding: 10px; border: 1px solid #d1d5db; border-radius: 8px;">
-                    <option value="">GÃƒÂ©nero...</option><option value="F">Femenino</option><option value="M">Masculino</option>
+                    <option value="">Género...</option><option value="F">Femenino</option><option value="M">Masculino</option>
                 </select>
                 <select id="docente-reg-grado" style="padding: 10px; border: 1px solid #d1d5db; border-radius: 8px;" onchange="cargarAsignaturasDocente(this.value)">
-                    <option value="">Grado...</option><option value="6">6°</option><option value="7">7°</option><option value="8">8°</option>
+                    <option value="">Grado...</option><option value="6">6°</option><option value="7">7°</option><option value="8">8°</option><option value="9">9°</option><option value="10">10°</option><option value="11">11°</option>
+                    <option value="Ciclo I (1°, 2°, 3°)">Ciclo I (1°, 2°, 3°)</option>
+                    <option value="Ciclo II (4°, 5°)">Ciclo II (4°, 5°)</option>
+                    <option value="Ciclo III (6°, 7°)">Ciclo III (6°, 7°)</option>
+                    <option value="Ciclo IV (8°, 9°)">Ciclo IV (8°, 9°)</option>
+                    <option value="Ciclo V (10°)">Ciclo V (10°)</option>
+                    <option value="Ciclo VI (11°)">Ciclo VI (11°)</option>
                 </select>
                 <div>
                     <strong>Materias a cursar:</strong>
@@ -311,11 +339,11 @@
             <div style="display: flex; gap: 15px; margin-bottom: 20px;">
                 <select id="filtro-asignatura" style="padding: 10px; border: 1px solid #d1d5db; border-radius: 8px;" onchange="cargarEstudiantesDocente(usuario_actual)">
                     <option value="Todas las Asignaturas">Todas las Asignaturas</option>
-                    <option value="FÃƒÂ­sica">FÃƒÂ­sica</option>
-                    <option value="ArtÃƒÂ­stica">ArtÃƒÂ­stica</option>
-                    <option value="Ãƒâ€°tica">Ãƒâ€°tica</option>
+                    <option value="Física">Física</option>
+                    <option value="Artística">Artística</option>
+                    <option value="Ética">Ética</option>
                     <option value="Turismo">Turismo</option>
-                    <option value="QuÃƒÂ­mica">QuÃƒÂ­mica</option>
+                    <option value="Química">Química</option>
                 </select>
                 <select id="filtro-grupo" style="padding: 10px; border: 1px solid #d1d5db; border-radius: 8px;" onchange="cargarEstudiantesDocente(usuario_actual)">
                     <option value="Todos los Grupos">Todos los Grupos</option>
@@ -325,6 +353,12 @@
                     <option value="9A">9A</option>
                     <option value="10A">10A</option><option value="10D">10D</option>
                     <option value="PENS">PENS</option>
+                    <option value="Ciclo I (1°, 2°, 3°)">Ciclo I (1°, 2°, 3°)</option>
+                    <option value="Ciclo II (4°, 5°)">Ciclo II (4°, 5°)</option>
+                    <option value="Ciclo III (6°, 7°)">Ciclo III (6°, 7°)</option>
+                    <option value="Ciclo IV (8°, 9°)">Ciclo IV (8°, 9°)</option>
+                    <option value="Ciclo V (10°)">Ciclo V (10°)</option>
+                    <option value="Ciclo VI (11°)">Ciclo VI (11°)</option>
                 </select>
             </div>
 
@@ -345,237 +379,261 @@
 </div>
 
 <!-- DASHBOARD ADMIN RECREADO -->
-        <div id="dashboard-screen-container" style="display: none; height: 100vh; overflow-y: auto; background-color: #F8FAFC;">
-            <!-- Header Superior -->
-            <header style="background: white; border-bottom: 1px solid #E5E7EB; padding: 15px 30px; display: flex; justify-content: flex-end; align-items: center;">
-                <div style="display: flex; align-items: center; gap: 15px;">
-                    <a href="proyector.html" target="_blank" style="background: #10B981; color: white; border: none; padding: 8px 20px; border-radius: 8px; font-weight: bold; text-decoration: none; display: flex; align-items: center; gap: 8px;"><i class="ph ph-projector-screen-chart" style="font-size: 1.2rem;"></i> Modo Proyector</a>
-                    <div style="background: #F3F4F6; padding: 8px 15px; border-radius: 20px; font-size: 0.9rem; font-weight: 700; color: #374151;">
-                        Administrador Maestro ADMINISTRADOR
-                    </div>
-                    <button onclick="location.reload()" style="background: #EF4444; color: white; border: none; padding: 8px 20px; border-radius: 8px; font-weight: bold; cursor: pointer; font-family: Inter, sans-serif;">Cerrar Sesi&oacute;n</button>
+<div id="dashboard-screen-container" style="display: none; height: 100vh; overflow-y: auto; background-color: #F8FAFC;">
+    <!-- Header Superior -->
+    <header style="background: white; border-bottom: 1px solid #E5E7EB; padding: 15px 30px; display: flex; justify-content: flex-end; align-items: center;">
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <a href="proyector.html" target="_blank" style="background: #10B981; color: white; border: none; padding: 8px 20px; border-radius: 8px; font-weight: bold; text-decoration: none; display: flex; align-items: center; gap: 8px;"><i class="ph ph-projector-screen-chart" style="font-size: 1.2rem;"></i> Modo Proyector</a>
+            <div style="background: #F3F4F6; padding: 8px 15px; border-radius: 20px; font-size: 0.9rem; font-weight: 700; color: #374151;">
+                Administrador Maestro ADMINISTRADOR
+            </div>
+            <button onclick="location.reload()" style="background: #EF4444; color: white; border: none; padding: 8px 20px; border-radius: 8px; font-weight: bold; cursor: pointer; font-family: Inter, sans-serif;">Cerrar Sesión</button>
+        </div>
+    </header>
+
+    <!-- Contenedor Central -->
+    <div id="student-main-content" style="padding: 40px 30px; max-width: 1200px; margin: 0 auto;">
+        <div style="background: white; border-radius: 16px; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05); overflow: hidden;">
+            
+            <!-- Cabecera Azul Claro -->
+            <div style="background: #3B82F6; padding: 20px 30px; display: flex; align-items: center; justify-content: flex-start; gap: 20px;">
+                <img src="logo-peidagogos.png" alt="Peidagogos STEAM" style="height: 180px; width: auto; object-fit: contain;">
+                <div style="text-align: left;">
+                    <h1 style="color: white; margin: 0; font-size: 2.2rem; font-weight: 900; letter-spacing: 0.5px;">Hola Juan Felipe Ramirez Giraldo</h1>
+                    <p style="color: #EFF6FF; margin: 8px 0 0 0; font-weight: 600; font-size: 1.3rem;">panel de administrador</p>
                 </div>
-            </header>
+            </div>
 
-            <!-- Contenedor Central -->
-            <div id="student-main-content" style="padding: 40px 30px; max-width: 1200px; margin: 0 auto;">
-                <div style="background: white; border-radius: 16px; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05); overflow: hidden;">
-                    
-                    <!-- Cabecera Azul Claro -->
-                    <div style="background: #3B82F6; padding: 20px 30px; display: flex; align-items: center; justify-content: flex-start; gap: 20px;">
-                        <img src="logo-peidagogos.png" alt="Peidagogos STEAM" style="height: 180px; width: auto; object-fit: contain;">
-                        <div style="text-align: left;">
-                            <h1 style="color: white; margin: 0; font-size: 2.2rem; font-weight: 900; letter-spacing: 0.5px;">Hola Juan Felipe Ramirez Giraldo</h1>
-                            <p style="color: #EFF6FF; margin: 8px 0 0 0; font-weight: 600; font-size: 1.3rem;">panel de administrador</p>
-                        </div>
+            <!-- TABS ADMIN -->
+            <div style="display: flex; background: #F3F4F6; border-bottom: 1px solid #E5E7EB; flex-wrap: wrap;">
+                <button class="admin-tab-btn active" data-tab="grupos" style="padding: 15px 30px; border: none; background: white; font-weight: bold; cursor: pointer; border-bottom: 3px solid #3B82F6;">Instituciones</button>
+                <button class="admin-tab-btn" data-tab="docentes" style="padding: 15px 30px; border: none; background: transparent; font-weight: bold; cursor: pointer; color: #6B7280;">Lista Docentes</button>
+            </div>
+            
+            <div id="admin-view-grupos" class="admin-view" style="display: block; padding: 20px;">
+                <div id="admin-grupos-container">
+                    <div style="display: flex; gap: 20px; margin-bottom: 20px; flex-wrap: wrap;">
+                        <button onclick="mostrarGruposInstitucion('montenegro')" style="padding: 15px 30px; background: #3B82F6; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 1.1rem; box-shadow: 0 4px 6px rgba(59,130,246,0.3);">🏫 IE Instituto Montenegro</button>
+                        <button onclick="mostrarGruposInstitucion('ramon_messa')" style="padding: 15px 30px; background: #3B82F6; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 1.1rem; box-shadow: 0 4px 6px rgba(59,130,246,0.3);">🏫 IE Ramon Messa</button>
                     </div>
                     
-
-
-                    <!-- TABS ADMIN -->
-                    <div style="display: flex; background: #F3F4F6; border-bottom: 1px solid #E5E7EB; flex-wrap: wrap;">
-                        <button class="admin-tab-btn active" data-tab="grupos" style="padding: 15px 30px; border: none; background: white; font-weight: bold; cursor: pointer; border-bottom: 3px solid #3B82F6;">Instituciones</button>
-                        <button class="admin-tab-btn" data-tab="docentes" style="padding: 15px 30px; border: none; background: transparent; font-weight: bold; cursor: pointer; color: #6B7280;">Lista Docentes</button>
+                    <!-- Contenedor para mostrar los grupos de IE Instituto Montenegro -->
+                    <div id="grupos-montenegro" style="display: none;">
+                        <h3 style="font-weight: 800; margin-bottom: 20px;">Grupos Matriculados - IE Instituto Montenegro</h3>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 15px;">
+                            <button onclick="abrirGrupo('6A')" class="grupo-btn">
+                                <span class="grupo-nombre">6A</span>
+                                <span class="grupo-materias">Física</span>
+                            </button>
+                            <button onclick="abrirGrupo('6B')" class="grupo-btn">
+                                <span class="grupo-nombre">6B</span>
+                                <span class="grupo-materias">Física</span>
+                            </button>
+                            <button onclick="abrirGrupo('7A')" class="grupo-btn">
+                                <span class="grupo-nombre">7A</span>
+                                <span class="grupo-materias">Turismo<br>Física</span>
+                            </button>
+                            <button onclick="abrirGrupo('7B')" class="grupo-btn">
+                                <span class="grupo-nombre">7B</span>
+                                <span class="grupo-materias">Turismo<br>Física</span>
+                            </button>
+                            <button onclick="abrirGrupo('7C')" class="grupo-btn">
+                                <span class="grupo-nombre">7C</span>
+                                <span class="grupo-materias">Turismo<br>Ética<br>Física</span>
+                            </button>
+                            <button onclick="abrirGrupo('8A')" class="grupo-btn">
+                                <span class="grupo-nombre">8A</span>
+                                <span class="grupo-materias">Artística</span>
+                            </button>
+                            <button onclick="abrirGrupo('8B')" class="grupo-btn">
+                                <span class="grupo-nombre">8B</span>
+                                <span class="grupo-materias">Artística</span>
+                            </button>
+                            <button onclick="abrirGrupo('9A')" class="grupo-btn">
+                                <span class="grupo-nombre">9A</span>
+                                <span class="grupo-materias">Artística</span>
+                            </button>
+                            <button onclick="abrirGrupo('10A')" class="grupo-btn">
+                                <span class="grupo-nombre">10A</span>
+                                <span class="grupo-materias">Ética</span>
+                            </button>
+                            <button onclick="abrirGrupo('10D')" class="grupo-btn">
+                                <span class="grupo-nombre">10D</span>
+                                <span class="grupo-materias">Ética</span>
+                            </button>
+                            <button onclick="abrirGrupo('PENS')" class="grupo-btn">
+                                <span class="grupo-nombre">PENS</span>
+                                <span class="grupo-materias">Turismo<br>Química</span>
+                            </button>
+                            <!-- CICLOS ADULTOS / NOCTURNA / ESPECIAL -->
+                            <button onclick="abrirGrupo('Ciclo I (1°, 2°, 3°)')" class="grupo-btn" style="border-color: #8B5CF6; background: #F5F3FF;">
+                                <span class="grupo-nombre" style="color: #6D28D9; font-size: 1.15rem;">Ciclo I</span>
+                                <span class="grupo-materias">C. Naturales<br>Ética<br>Artística</span>
+                            </button>
+                            <button onclick="abrirGrupo('Ciclo II (4°, 5°)')" class="grupo-btn" style="border-color: #8B5CF6; background: #F5F3FF;">
+                                <span class="grupo-nombre" style="color: #6D28D9; font-size: 1.15rem;">Ciclo II</span>
+                                <span class="grupo-materias">C. Naturales<br>Ética<br>Artística</span>
+                            </button>
+                            <button onclick="abrirGrupo('Ciclo III (6°, 7°)')" class="grupo-btn" style="border-color: #8B5CF6; background: #F5F3FF;">
+                                <span class="grupo-nombre" style="color: #6D28D9; font-size: 1.15rem;">Ciclo III</span>
+                                <span class="grupo-materias">Física<br>Turismo<br>Ética</span>
+                            </button>
+                            <button onclick="abrirGrupo('Ciclo IV (8°, 9°)')" class="grupo-btn" style="border-color: #8B5CF6; background: #F5F3FF;">
+                                <span class="grupo-nombre" style="color: #6D28D9; font-size: 1.15rem;">Ciclo IV</span>
+                                <span class="grupo-materias">Artística<br>Turismo<br>C. Naturales</span>
+                            </button>
+                            <button onclick="abrirGrupo('Ciclo V (10°)')" class="grupo-btn" style="border-color: #8B5CF6; background: #F5F3FF;">
+                                <span class="grupo-nombre" style="color: #6D28D9; font-size: 1.15rem;">Ciclo V</span>
+                                <span class="grupo-materias">Ética<br>Química<br>Turismo</span>
+                            </button>
+                            <button onclick="abrirGrupo('Ciclo VI (11°)')" class="grupo-btn" style="border-color: #8B5CF6; background: #F5F3FF;">
+                                <span class="grupo-nombre" style="color: #6D28D9; font-size: 1.15rem;">Ciclo VI</span>
+                                <span class="grupo-materias">Física<br>Ética<br>Química<br>Turismo</span>
+                            </button>
+                        </div>
+                        <style>
+                            .grupo-btn { background: white; border: 1px solid #E5E7EB; border-radius: 12px; padding: 15px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: 0.2s; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; }
+                            .grupo-nombre { font-size: 1.4rem; color: #1F2937; }
+                            .grupo-materias { font-size: 0.85rem; color: #6B7280; font-weight: normal; text-align: center; line-height: 1.3; }
+                            .grupo-btn:hover { border-color: #3B82F6; transform: translateY(-2px); box-shadow: 0 6px 12px rgba(59,130,246,0.15); }
+                            .grupo-btn:hover .grupo-nombre { color: #3B82F6; }
+                        </style>
                     </div>
+
+                    <!-- Contenedor para mostrar los grupos de IE Ramon Messa -->
+                    <div id="grupos-ramon_messa" style="display: none;">
+                        <h3 style="font-weight: 800; margin-bottom: 20px;">Grupos Matriculados - IE Ramon Messa</h3>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 15px;">
+                            <button onclick="abrirGrupo('RM-6A')" class="grupo-btn">6A</button>
+                            <button onclick="abrirGrupo('RM-6B')" class="grupo-btn">6B</button>
+                            <button onclick="abrirGrupo('RM-7A')" class="grupo-btn">7A</button>
+                            <button onclick="abrirGrupo('RM-7B')" class="grupo-btn">7B</button>
+                            <button onclick="abrirGrupo('RM-8A')" class="grupo-btn">8A</button>
+                            <button onclick="abrirGrupo('RM-8B')" class="grupo-btn">8B</button>
+                            <button onclick="abrirGrupo('RM-9A')" class="grupo-btn">9A</button>
+                            <button onclick="abrirGrupo('RM-10A')" class="grupo-btn">10A</button>
+                            <button onclick="abrirGrupo('RM-11A')" class="grupo-btn">11A</button>
+                        </div>
+                    </div>
+                    <script>
+                        function mostrarGruposInstitucion(inst) {
+                            document.getElementById('grupos-montenegro').style.display = 'none';
+                            document.getElementById('grupos-ramon_messa').style.display = 'none';
+                            document.getElementById('grupos-' + inst).style.display = 'block';
+                        }
+                        function volverAGrupos() {
+                            document.getElementById('admin-estudiantes-grupo-container').style.display = 'none';
+                            document.getElementById('admin-grupos-container').style.display = 'block';
+                        }
+                    </script>
+                </div>
+
+                <!-- Vista Nivel 2: Estudiantes del Grupo Seleccionado -->
+                <div id="admin-estudiantes-grupo-container" style="display: none;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 10px;">
+                        <h4 id="admin-titulo-grupo-actual" style="font-weight: 800; font-size: 1.2rem; color: #111827;">Grupo...</h4>
+                        <div style="display: flex; gap: 10px;">
+                            <button onclick="volverAGrupos()" style="padding: 8px 16px; background: #E5E7EB; color: #374151; border: none; border-radius: 8px; cursor: pointer; font-weight: bold;">← Volver a Instituciones</button>
+                        </div>
+                    </div>
+                    <style>@keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.02); } 100% { transform: scale(1); } }</style>
+                    <div id="admin-materias-grupo-actual" style="margin-bottom: 20px;"></div>
                     
-                    <div id="admin-view-grupos" class="admin-view" style="display: block; padding: 20px;">
-                        <div id="admin-grupos-container">
-                            <div style="display: flex; gap: 20px; margin-bottom: 20px; flex-wrap: wrap;">
-                                <button onclick="mostrarGruposInstitucion('montenegro')" style="padding: 15px 30px; background: #3B82F6; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 1.1rem; box-shadow: 0 4px 6px rgba(59,130,246,0.3);">🏫 IE Instituto Montenegro</button>
-                                <button onclick="mostrarGruposInstitucion('ramon_messa')" style="padding: 15px 30px; background: #3B82F6; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 1.1rem; box-shadow: 0 4px 6px rgba(59,130,246,0.3);">🏫 IE Ramon Messa</button>
-                                
-                            </div>
-                            
-                            <!-- Contenedor para mostrar los grupos de IE Instituto Montenegro -->
-                            <div id="grupos-montenegro" style="display: none;">
-                                <h3 style="font-weight: 800; margin-bottom: 20px;">Grupos Matriculados - IE Instituto Montenegro</h3>
-                                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 15px;">
-                                    <button onclick="abrirGrupo('6A')" class="grupo-btn">
-                                        <span class="grupo-nombre">6A</span>
-                                        <span class="grupo-materias">Física</span>
-                                    </button>
-                                    <button onclick="abrirGrupo('6B')" class="grupo-btn">
-                                        <span class="grupo-nombre">6B</span>
-                                        <span class="grupo-materias">Física</span>
-                                    </button>
-                                    <button onclick="abrirGrupo('7A')" class="grupo-btn">
-                                        <span class="grupo-nombre">7A</span>
-                                        <span class="grupo-materias">Turismo<br>Física</span>
-                                    </button>
-                                    <button onclick="abrirGrupo('7B')" class="grupo-btn">
-                                        <span class="grupo-nombre">7B</span>
-                                        <span class="grupo-materias">Turismo<br>Física</span>
-                                    </button>
-                                    <button onclick="abrirGrupo('7C')" class="grupo-btn">
-                                        <span class="grupo-nombre">7C</span>
-                                        <span class="grupo-materias">Turismo<br>Ética<br>Física</span>
-                                    </button>
-                                    <button onclick="abrirGrupo('8A')" class="grupo-btn">
-                                        <span class="grupo-nombre">8A</span>
-                                        <span class="grupo-materias">Artística</span>
-                                    </button>
-                                    <button onclick="abrirGrupo('8B')" class="grupo-btn">
-                                        <span class="grupo-nombre">8B</span>
-                                        <span class="grupo-materias">Artística</span>
-                                    </button>
-                                    <button onclick="abrirGrupo('9A')" class="grupo-btn">
-                                        <span class="grupo-nombre">9A</span>
-                                        <span class="grupo-materias">Artística</span>
-                                    </button>
-                                    <button onclick="abrirGrupo('10A')" class="grupo-btn">
-                                        <span class="grupo-nombre">10A</span>
-                                        <span class="grupo-materias">Ética</span>
-                                    </button>
-                                    <button onclick="abrirGrupo('10D')" class="grupo-btn">
-                                        <span class="grupo-nombre">10D</span>
-                                        <span class="grupo-materias">Ética</span>
-                                    </button>
-                                    <button onclick="abrirGrupo('PENS')" class="grupo-btn">
-                                        <span class="grupo-nombre">PENS</span>
-                                        <span class="grupo-materias">Turismo<br>Química</span>
-                                    </button>
-                                </div>
-                                <style>
-                                    .grupo-btn { background: white; border: 1px solid #E5E7EB; border-radius: 12px; padding: 15px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: 0.2s; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; }
-                                    .grupo-nombre { font-size: 1.4rem; color: #1F2937; }
-                                    .grupo-materias { font-size: 0.85rem; color: #6B7280; font-weight: normal; text-align: center; line-height: 1.3; }
-                                    .grupo-btn:hover { border-color: #3B82F6; transform: translateY(-2px); box-shadow: 0 6px 12px rgba(59,130,246,0.15); }
-                                    .grupo-btn:hover .grupo-nombre { color: #3B82F6; }
-                                </style>
-
-                            </div>
-
-                            <!-- Contenedor para mostrar los grupos de IE Ramon Messa -->
-                            <div id="grupos-ramon_messa" style="display: none;">
-                                <h3 style="font-weight: 800; margin-bottom: 20px;">Grupos Matriculados - IE Ramon Messa</h3>
-                                
-<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 15px;">
-    <button onclick="abrirGrupo('RM-6A')" class="grupo-btn">6A</button>
-    <button onclick="abrirGrupo('RM-6B')" class="grupo-btn">6B</button>
-    <button onclick="abrirGrupo('RM-7A')" class="grupo-btn">7A</button>
-    <button onclick="abrirGrupo('RM-7B')" class="grupo-btn">7B</button>
-    <button onclick="abrirGrupo('RM-8A')" class="grupo-btn">8A</button>
-    <button onclick="abrirGrupo('RM-8B')" class="grupo-btn">8B</button>
-    <button onclick="abrirGrupo('RM-9A')" class="grupo-btn">9A</button>
-    <button onclick="abrirGrupo('RM-10A')" class="grupo-btn">10A</button>
-    <button onclick="abrirGrupo('RM-11A')" class="grupo-btn">11A</button>
-</div>
-
-                            </div>
-                            <script>
-                                function mostrarGruposInstitucion(inst) {
-                                    document.getElementById('grupos-montenegro').style.display = 'none';
-                                    document.getElementById('grupos-ramon_messa').style.display = 'none';
-                                    document.getElementById('grupos-' + inst).style.display = 'block';
-                                }
-                                function volverAGrupos() {
-                                    document.getElementById('admin-estudiantes-grupo-container').style.display = 'none';
-                                    document.getElementById('admin-grupos-container').style.display = 'block';
-                                }
-                            </script>
-                        </div>
-
-                        <!-- Vista Nivel 2: Estudiantes del Grupo Seleccionado -->
-                        <div id="admin-estudiantes-grupo-container" style="display: none;">
-                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 10px;">
-                                <h4 id="admin-titulo-grupo-actual" style="font-weight: 800; font-size: 1.2rem; color: #111827;">Grupo...</h4>
-                                <div style="display: flex; gap: 10px;">
-                                    <button onclick="volverAGrupos()" style="padding: 8px 16px; background: #E5E7EB; color: #374151; border: none; border-radius: 8px; cursor: pointer; font-weight: bold;">← Volver a Instituciones</button>
-                                </div>
-                            </div>
-                            <style>@keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.02); } 100% { transform: scale(1); } }</style>
-                            <div id="admin-materias-grupo-actual" style="margin-bottom: 20px;"></div>
-                            
-                            <div id="visualizador-planeacion-container" style="background: white; border: 1px solid #E5E7EB; border-radius: 8px; padding: 20px; margin-bottom: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); display: none;">
-                                <div style="display: flex; gap: 20px; margin-bottom: 15px; align-items: center; flex-wrap: wrap;">
-                                    <h5 style="margin: 0; font-size: 1.1rem; color: #111827; display: flex; align-items: center; gap: 8px; flex-grow: 1;">
-                                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
-                                        Malla Curricular
-                                    </h5>
-                                    <button onclick="abrirRankingEnNuevaPestana()" style="padding: 8px 16px; background: linear-gradient(135deg, #F59E0B, #D97706); color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 900; box-shadow: 0 4px 10px rgba(245, 158, 11, 0.4); animation: pulse 2s infinite;">🏆 Puntuación de Asignatura</button>
-                                    <select id="select-planeacion-asignatura" style="display: none; padding: 8px 12px; border-radius: 6px; border: 1px solid #D1D5DB; font-weight: bold; cursor: pointer;" onchange="actualizarVisualizadorPlaneacion()">
-                                    </select>
-                                    <select id="select-planeacion-periodo" style="padding: 8px 12px; border-radius: 6px; border: 1px solid #D1D5DB; font-weight: bold; cursor: pointer;" onchange="actualizarVisualizadorPlaneacion()">
-                                        <option value="1" disabled>Periodo 1 (Bloqueado)</option>
-                                        <option value="2" disabled>Periodo 2 (Bloqueado)</option>
-                                        <option value="3" selected>Periodo 3</option>
-                                        <option value="4" disabled>Periodo 4 (Bloqueado)</option>
-                                    </select>
-                                    <select id="select-planeacion-semana" style="padding: 8px 12px; border-radius: 6px; border: 1px solid #D1D5DB; font-weight: bold; cursor: pointer;" onchange="actualizarVisualizadorPlaneacion()">
-                                        <option value="1">Semana 1</option>
-                                        <option value="2">Semana 2</option>
-                                        <option value="3">Semana 3</option>
-                                        <option value="4">Semana 4</option>
-                                        <option value="5">Semana 5</option>
-                                        <option value="6">Semana 6</option>
-                                        <option value="7">Semana 7</option>
-                                        <option value="8">Semana 8</option>
-                                    </select>
-                                </div>
-                                <div id="planeacion-contenido-actual" style="background: #F9FAFB; padding: 15px; border-radius: 8px; border-left: 4px solid #3B82F6;">
-                                    <!-- Contenido inyectado por JS -->
-                                </div>
-                            </div>
-
-<table style="width: 100%; border-collapse: collapse; text-align: left; background: white; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
-                                <thead><tr style="border-bottom: 2px solid #E5E7EB;">
-                                    <th style="padding: 15px;">Documento</th>
-                                    <th style="padding: 15px;">Nombre</th>
-                                    <th style="padding: 15px;">Grado</th>
-                                    <th style="padding: 15px;">Progreso por Asignatura</th>
-                                    <th style="padding: 15px; text-align: center;">Acciones</th>
-                                </tr></thead>
-                                <tbody id="tbody-admin-estudiantes-por-grupo"></tbody>
-                            </table>
-                        </div>
-                    </div>
-
-                    <div id="admin-view-docentes" class="admin-view" style="display: none; padding: 20px;">
-                        <h3 style="font-weight: 800; margin-bottom: 20px;">Directorio de Docentes</h3>
-                        
-
-<table style="width: 100%; border-collapse: collapse; text-align: left; background: white; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
-                            <thead><tr style="border-bottom: 2px solid #E5E7EB;"><th style="padding: 15px;">Documento</th><th style="padding: 15px;">Nombre del Docente</th><th style="padding: 15px;">Tipo de Vinculación</th></tr></thead>
-                            <tbody id="tbody-admin-docentes"></tbody>
-                        </table>
-                    </div>
-                    <div id="admin-view-asignaturas" class="admin-view" style="display: none; padding: 20px;">
-                        <h3 style="font-weight: 800; margin-bottom: 20px;">Crear Asignatura</h3>
-                        <div style="display: flex; gap: 10px; margin-bottom: 20px; align-items: center; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
-                            <input type="text" id="admin-asig-nombre" placeholder="Nombre Asignatura" style="padding: 12px; border: 1px solid #d1d5db; border-radius: 8px; flex: 1;">
-                            <select id="admin-asig-grado" style="padding: 12px; border: 1px solid #d1d5db; border-radius: 8px;">
-                                <option value="6">6°</option><option value="7">7°</option><option value="8">8°</option><option value="9">9°</option><option value="10">10°</option><option value="11">11°</option>
+                    <div id="visualizador-planeacion-container" style="background: white; border: 1px solid #E5E7EB; border-radius: 8px; padding: 20px; margin-bottom: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); display: none;">
+                        <div style="display: flex; gap: 20px; margin-bottom: 15px; align-items: center; flex-wrap: wrap;">
+                            <h5 style="margin: 0; font-size: 1.1rem; color: #111827; display: flex; align-items: center; gap: 8px; flex-grow: 1;">
+                                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                                Malla Curricular
+                            </h5>
+                            <button onclick="abrirRankingEnNuevaPestana()" style="padding: 8px 16px; background: linear-gradient(135deg, #F59E0B, #D97706); color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 900; box-shadow: 0 4px 10px rgba(245, 158, 11, 0.4); animation: pulse 2s infinite;">🏆 Puntuación de Asignatura</button>
+                            <select id="select-planeacion-asignatura" style="display: none; padding: 8px 12px; border-radius: 6px; border: 1px solid #D1D5DB; font-weight: bold; cursor: pointer;" onchange="actualizarVisualizadorPlaneacion()">
                             </select>
-                            <button id="btn-crear-asignatura" style="background: #10B981; color: white; padding: 12px 24px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;">Registrar Asignatura</button>
+                            <select id="select-planeacion-periodo" style="padding: 8px 12px; border-radius: 6px; border: 1px solid #D1D5DB; font-weight: bold; cursor: pointer;" onchange="actualizarVisualizadorPlaneacion()">
+                                <option value="1" disabled>Periodo 1 (Bloqueado)</option>
+                                <option value="2" disabled>Periodo 2 (Bloqueado)</option>
+                                <option value="3" selected>Periodo 3</option>
+                                <option value="4" disabled>Periodo 4 (Bloqueado)</option>
+                            </select>
+                            <select id="select-planeacion-semana" style="padding: 8px 12px; border-radius: 6px; border: 1px solid #D1D5DB; font-weight: bold; cursor: pointer;" onchange="actualizarVisualizadorPlaneacion()">
+                                <option value="1">Semana 1</option>
+                                <option value="2">Semana 2</option>
+                                <option value="3">Semana 3</option>
+                                <option value="4">Semana 4</option>
+                                <option value="5">Semana 5</option>
+                                <option value="6">Semana 6</option>
+                                <option value="7">Semana 7</option>
+                                <option value="8">Semana 8</option>
+                            </select>
+                        </div>
+                        <div id="planeacion-contenido-actual" style="background: #F9FAFB; padding: 15px; border-radius: 8px; border-left: 4px solid #3B82F6;">
+                            <!-- Contenido inyectado por JS -->
                         </div>
                     </div>
 
-                </div> <!-- fin div bg white admin central -->
-            </div> <!-- fin contenedor central -->
-        </div> <!-- fin dashboard-screen-container -->
+                    <table style="width: 100%; border-collapse: collapse; text-align: left; background: white; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+                        <thead><tr style="border-bottom: 2px solid #E5E7EB;">
+                            <th style="padding: 15px;">Documento</th>
+                            <th style="padding: 15px;">Nombre</th>
+                            <th style="padding: 15px;">Grado</th>
+                            <th style="padding: 15px;">Progreso por Asignatura</th>
+                            <th style="padding: 15px; text-align: center;">Acciones</th>
+                        </tr></thead>
+                        <tbody id="tbody-admin-estudiantes-por-grupo"></tbody>
+                    </table>
+                </div>
+            </div>
 
-        <!-- PANEL DE ESTUDIANTE -->
-        <div id="student-dashboard-container" style="display: none; height: 100vh; overflow-y: auto; background-color: #F8FAFC;">
-            <!-- Header Superior Siempre Visible -->
-            <header style="background: white; border-bottom: 1px solid #E5E7EB; padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100;">
-                <div style="display: flex; align-items: center; gap: 15px;">
-                    <div style="font-weight: 800; color: #1E293B; font-size: 1.1rem; display: flex; align-items: center; gap: 8px;">
-                        <span style="font-size: 1.5rem;">👨‍🎓</span> <span id="header-student-name">Estudiante</span>
-                    </div>
-                    <div style="background: #E0E7FF; color: #4338CA; padding: 4px 12px; border-radius: 12px; font-weight: bold; font-size: 0.9rem;">
-                        Grado <span id="header-student-grade">0</span>
-                    </div>
+            <div id="admin-view-docentes" class="admin-view" style="display: none; padding: 20px;">
+                <h3 style="font-weight: 800; margin-bottom: 20px;">Directorio de Docentes</h3>
+                
+                <table style="width: 100%; border-collapse: collapse; text-align: left; background: white; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+                    <thead><tr style="border-bottom: 2px solid #E5E7EB;"><th style="padding: 15px;">Documento</th><th style="padding: 15px;">Nombre del Docente</th><th style="padding: 15px;">Tipo de Vinculación</th></tr></thead>
+                    <tbody id="tbody-admin-docentes"></tbody>
+                </table>
+            </div>
+            <div id="admin-view-asignaturas" class="admin-view" style="display: none; padding: 20px;">
+                <h3 style="font-weight: 800; margin-bottom: 20px;">Crear Asignatura</h3>
+                <div style="display: flex; gap: 10px; margin-bottom: 20px; align-items: center; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+                    <input type="text" id="admin-asig-nombre" placeholder="Nombre Asignatura" style="padding: 12px; border: 1px solid #d1d5db; border-radius: 8px; flex: 1;">
+                    <select id="admin-asig-grado" style="padding: 12px; border: 1px solid #d1d5db; border-radius: 8px;">
+                        <option value="6">6°</option><option value="7">7°</option><option value="8">8°</option><option value="9">9°</option><option value="10">10°</option><option value="11">11°</option>
+                        <option value="Ciclo I">Ciclo I (1°, 2°, 3°)</option>
+                        <option value="Ciclo II">Ciclo II (4°, 5°)</option>
+                        <option value="Ciclo III">Ciclo III (6°, 7°)</option>
+                        <option value="Ciclo IV">Ciclo IV (8°, 9°)</option>
+                        <option value="Ciclo V">Ciclo V (10°)</option>
+                        <option value="Ciclo VI">Ciclo VI (11°)</option>
+                    </select>
+                    <button id="btn-crear-asignatura" style="background: #10B981; color: white; padding: 12px 24px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;">Registrar Asignatura</button>
                 </div>
-                <div style="display: flex; align-items: center; gap: 20px;">
-                    <div style="background: linear-gradient(135deg, #10B981, #059669); padding: 8px 18px; border-radius: 20px; font-size: 1rem; font-weight: 800; color: white; box-shadow: 0 4px 6px rgba(16, 185, 129, 0.2);">
-                        🌟 <span id="student-score-display">0</span> Puntos
-                    </div>
-                    <button onclick="location.reload()" style="background: #EF4444; color: white; border: none; padding: 8px 20px; border-radius: 8px; font-weight: bold; cursor: pointer; font-family: Inter, sans-serif;">Cerrar Sesi&oacute;n</button>
-                </div>
-            </header>
-            <!-- Hero Banner -->
-            <div style="background: #2563EB; padding: 40px 30px; display: flex; align-items: center; justify-content: flex-start; gap: 30px; border-bottom: 5px solid #60A5FA;">
-                <div style="background: white; padding: 10px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+            </div>
+
+        </div> <!-- fin div bg white admin central -->
+    </div> <!-- fin contenedor central -->
+</div> <!-- fin dashboard-screen-container -->
+
+<!-- PANEL DE ESTUDIANTE -->
+<div id="student-dashboard-container" style="display: none; height: 100vh; overflow-y: auto; background-color: #F8FAFC;">
+    <!-- Header Superior Siempre Visible -->
+    <header style="background: white; border-bottom: 1px solid #E5E7EB; padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100;">
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <div style="font-weight: 800; color: #1E293B; font-size: 1.1rem; display: flex; align-items: center; gap: 8px;">
+                <span style="font-size: 1.5rem;">👨‍🎓</span> <span id="header-student-name">Estudiante</span>
+            </div>
+            <div style="background: #E0E7FF; color: #4338CA; padding: 4px 12px; border-radius: 12px; font-weight: bold; font-size: 0.9rem;">
+                Grado <span id="header-student-grade">0</span>
+            </div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 20px;">
+            <div style="background: linear-gradient(135deg, #10B981, #059669); padding: 8px 18px; border-radius: 20px; font-size: 1rem; font-weight: 800; color: white; box-shadow: 0 4px 6px rgba(16, 185, 129, 0.2);">
+                🌟 <span id="student-score-display">0</span> Puntos
+            </div>
+            <button onclick="location.reload()" style="background: #EF4444; color: white; border: none; padding: 8px 20px; border-radius: 8px; font-weight: bold; cursor: pointer; font-family: Inter, sans-serif;">Cerrar Sesi&oacute;n</button>
+        </div>
+    </header>
+    <!-- Hero Banner -->
+    <div style="background: #2563EB; padding: 40px 30px; display: flex; align-items: center; justify-content: flex-start; gap: 30px; border-bottom: 5px solid #60A5FA;">
+        <div style="background: white; padding: 10px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
                     <img src="logo-peidagogos.png" alt="Peidagogos STEAM" style="height: 90px; width: auto; object-fit: contain;">
                 </div>
                 <div style="text-align: left;">
@@ -636,42 +694,40 @@
                                 <label style="font-weight: bold; color: #111827;">Men&uacute; 1: Tu Rol</label>
                                 <select id="student-quest-rol" style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #93C5FD; margin-top: 5px;">
                                     <option value="">Seleccionar...</option>
-                                    <option value="Detective Experto">Detective de Misterios</option>
+                                    <option value="Detective de Misterios">Detective de Misterios</option>
                                     <option value="Explorador Espacial">Explorador Espacial</option>
-                                    <option value="Cientifico Loco" disabled>Cient&iacute;fico Loco (Bloqueado)</option>
-                                    <option value="Youtuber de Ciencia" disabled>Youtuber Cient&iacute;fico (Bloqueado)</option>
-                                    <option value="Hacker Tecnologico" disabled>Hacker Tecnol&oacute;gico (Bloqueado)</option>
+                                    <option value="Cientifico Loco">Cient&iacute;fico Loco</option>
+                                    <option value="Hacker Tecnologico">Hacker Tecnol&oacute;gico</option>
                                 </select>
                             </div>
                             <div>
                                 <label style="font-weight: bold; color: #111827;">Men&uacute; 2: Ambiente de Trabajo</label>
                                 <select id="student-quest-ambiente" style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #93C5FD; margin-top: 5px;">
                                     <option value="">Seleccionar...</option>
-                                    <option value="Mundo Post-Apocaliptico">Mundo Post-Apocal&iacute;ptico</option>
-                                    <option value="Estacion Espacial">Estaci&oacute;n Espacial Internacional</option>
-                                    <option value="Selva Profunda" disabled>Expedici&oacute;n en la Selva (Bloqueado)</option>
-                                    <option value="Laboratorio Secreto" disabled>Laboratorio Secreto Subterr&aacute;neo (Bloqueado)</option>
-                                    <option value="Ciudad del Futuro" disabled>Metr&oacute;polis del Futuro (Bloqueado)</option>
+                                    <option value="Mundo Post-Apocalíptico">Mundo Post-Apocal&iacute;ptico</option>
+                                    <option value="Estación Espacial Internacional">Estaci&oacute;n Espacial Internacional</option>
+                                    <option value="Expedición en la Selva">Expedici&oacute;n en la Selva</option>
+                                    <option value="Laboratorio Secreto Subterráneo">Laboratorio Secreto Subterr&aacute;neo</option>
                                 </select>
                             </div>
                             <div>
                                 <label style="font-weight: bold; color: #111827;">Men&uacute; 3: Nivel de Desaf&iacute;o</label>
                                 <select id="student-quest-nivel" style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #93C5FD; margin-top: 5px;">
                                     <option value="">Seleccionar...</option>
-                                    <option value="Modo Novato (Nivel Celula)">Modo Novato (F&aacute;cil)</option>
-                                    <option value="Modo Supervivencia (Nivel Tejido)">Modo Supervivencia (Intermedio)</option>
-                                    <option value="Modo Heroe (Nivel Organo)" disabled>Modo H&eacute;roe (Bloqueado)</option>
-                                    <option value="Modo Dios (Nivel Organismo)" disabled>Modo Dios (Bloqueado)</option>
+                                    <option value="Modo Novato (Fácil)">Modo Novato (F&aacute;cil)</option>
+                                    <option value="Modo Supervivencia (Intermedio)">Modo Supervivencia (Intermedio)</option>
+                                    <option value="Modo Héroe (Avanzado)">Modo H&eacute;roe (Avanzado)</option>
+                                    <option value="Modo Dios (Experto)">Modo Dios (Experto)</option>
                                 </select>
                             </div>
                             <div>
                                 <label style="font-weight: bold; color: #111827;">Men&uacute; 4: Enfoque de la Tarea</label>
                                 <select id="student-quest-enfoque" style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #93C5FD; margin-top: 5px;">
                                     <option value="">Seleccionar...</option>
-                                    <option value="Resolver un misterio con pistas (Indagacion)">Resolver un misterio (Indagaci&oacute;n)</option>
-                                    <option value="Explicar un fenomeno extrano (Explicacion)">Explicar un fen&oacute;meno extra&ntilde;o</option>
-                                    <option value="Aplicar la ciencia para sobrevivir (Uso Comprensivo)" disabled>Usar la ciencia (Bloqueado)</option>
-                                    <option value="Desmentir un mito popular (Analisis Critico)" disabled>Desmentir un mito (Bloqueado)</option>
+                                    <option value="Resolver un misterio (Indagación)">Resolver un misterio (Indagaci&oacute;n)</option>
+                                    <option value="Explicar un fenómeno extraño">Explicar un fen&oacute;meno extra&ntilde;o</option>
+                                    <option value="Aplicar la ciencia para sobrevivir">Aplicar la ciencia para sobrevivir</option>
+                                    <option value="Desmentir un mito popular (Análisis Crítico)">Desmentir un mito popular (An&aacute;lisis Cr&iacute;tico)</option>
                                 </select>
                             </div>
                         </div>

@@ -453,19 +453,53 @@ async function cargarAsignaturasDocente(gradoSeleccionado) {
         const res = await fetch('/api/asignaturas');
         const asignaturas = await res.json();
         
+        const defaultMap = {
+            "6": ["Física"],
+            "7": ["Turismo", "Ética", "Física"],
+            "8": ["Artística"],
+            "9": ["Artística"],
+            "10": ["Ética"],
+            "11": ["Física", "Ética", "Química", "Turismo"],
+            "PENS": ["Turismo", "Química"],
+            "Ciclo I": ["Ciencias Naturales", "Ética", "Artística"],
+            "Ciclo II": ["Ciencias Naturales", "Ética", "Artística"],
+            "Ciclo III": ["Física", "Turismo", "Ética"],
+            "Ciclo IV": ["Artística", "Turismo", "Ciencias"],
+            "Ciclo V": ["Ética", "Química", "Turismo"],
+            "Ciclo VI": ["Física", "Ética", "Química", "Turismo"]
+        };
+
+        // Normalizar clave grado
+        let cleanGrade = gradoSeleccionado.split('(')[0].trim().replace('°', '');
+
         let html = '';
         let cont = 0;
-        asignaturas.forEach(a => {
-            if (a.grado == gradoSeleccionado) {
+        if (Array.isArray(asignaturas) && asignaturas.length > 0) {
+            asignaturas.forEach(a => {
+                const aClean = a.grado ? a.grado.split('(')[0].trim().replace('°', '') : '';
+                if (a.grado == gradoSeleccionado || aClean == cleanGrade) {
+                    html += `
+                    <label style="display: flex; align-items: center; gap: 8px;">
+                        <input type="checkbox" class="materia-chk" value="${a.nombre}" checked>
+                        ${a.nombre}
+                    </label>`;
+                    cont++;
+                }
+            });
+        }
+        
+        if (cont === 0 && (defaultMap[gradoSeleccionado] || defaultMap[cleanGrade])) {
+            const list = defaultMap[gradoSeleccionado] || defaultMap[cleanGrade];
+            list.forEach(materia => {
                 html += `
                 <label style="display: flex; align-items: center; gap: 8px;">
-                    <input type="checkbox" class="materia-chk" value="${a.nombre}">
-                    ${a.nombre}
+                    <input type="checkbox" class="materia-chk" value="${materia}" checked>
+                    ${materia}
                 </label>`;
                 cont++;
-            }
-        });
-        
+            });
+        }
+
         if (cont === 0) {
             container.innerHTML = '<span style="color: #6B7280; font-size: 0.9rem;">No hay asignaturas para este grado.</span>';
         } else {
@@ -580,6 +614,43 @@ function obtenerMateriasPorGrupo(grupoName) {
         return [
             { nombre: 'Turismo', horas: '1h', estado: 'Pendiente', color: '#6B7280' },
             { nombre: 'Química', horas: '2h', estado: 'Pendiente', color: '#6B7280' }
+        ];
+    } else if (grupoName.includes('Ciclo I') || grupoName === 'Ciclo 1') {
+        return [
+            { nombre: 'Ciencias Naturales', horas: '2h', estado: 'Pendiente', color: '#6B7280' },
+            { nombre: 'Ética', horas: '1h', estado: 'Pendiente', color: '#6B7280' },
+            { nombre: 'Artística', horas: '1h', estado: 'Pendiente', color: '#6B7280' }
+        ];
+    } else if (grupoName.includes('Ciclo II') || grupoName === 'Ciclo 2') {
+        return [
+            { nombre: 'Ciencias Naturales', horas: '2h', estado: 'Pendiente', color: '#6B7280' },
+            { nombre: 'Ética', horas: '1h', estado: 'Pendiente', color: '#6B7280' },
+            { nombre: 'Artística', horas: '1h', estado: 'Pendiente', color: '#6B7280' }
+        ];
+    } else if (grupoName.includes('Ciclo III') || grupoName === 'Ciclo 3') {
+        return [
+            { nombre: 'Física', horas: '2h', estado: 'Pendiente', color: '#6B7280' },
+            { nombre: 'Turismo', horas: '1h', estado: 'Pendiente', color: '#6B7280' },
+            { nombre: 'Ética', horas: '1h', estado: 'Pendiente', color: '#6B7280' }
+        ];
+    } else if (grupoName.includes('Ciclo IV') || grupoName === 'Ciclo 4') {
+        return [
+            { nombre: 'Artística', horas: '1h', estado: 'Pendiente', color: '#6B7280' },
+            { nombre: 'Turismo', horas: '1h', estado: 'Pendiente', color: '#6B7280' },
+            { nombre: 'Ciencias Naturales', horas: '2h', estado: 'Pendiente', color: '#6B7280' }
+        ];
+    } else if (grupoName.includes('Ciclo V') || grupoName === 'Ciclo 5') {
+        return [
+            { nombre: 'Ética', horas: '1h', estado: 'Pendiente', color: '#6B7280' },
+            { nombre: 'Química', horas: '2h', estado: 'Pendiente', color: '#6B7280' },
+            { nombre: 'Turismo', horas: '1h', estado: 'Pendiente', color: '#6B7280' }
+        ];
+    } else if (grupoName.includes('Ciclo VI') || grupoName === 'Ciclo 6') {
+        return [
+            { nombre: 'Física', horas: '2h', estado: 'Pendiente', color: '#6B7280' },
+            { nombre: 'Ética', horas: '1h', estado: 'Pendiente', color: '#6B7280' },
+            { nombre: 'Química', horas: '2h', estado: 'Pendiente', color: '#6B7280' },
+            { nombre: 'Turismo', horas: '1h', estado: 'Pendiente', color: '#6B7280' }
         ];
     } else {
         return [{ nombre: 'Asignaturas Básicas', horas: 'Varias', estado: 'Pendiente', color: '#6B7280' }];
@@ -1189,16 +1260,27 @@ window.abrirGuiaProfesor = async function(key) {
 function renderizarGuiaProfesor(guideData, asignatura, periodo, semanaStr) {
     const innerContent = document.getElementById("student-guide-inner-content");
     window.guideDataCache = guideData;
+    window.juegosPendientes = [];
     
     let htmlRenderizado = `
         <div style="text-align: center; margin-bottom: 20px; background: #FEF3C7; padding: 10px; border-radius: 8px; border: 2px solid #F59E0B;">
             <h3 style="color: #D97706; font-weight: 900; margin: 0;">👨‍🏫 VISTA DE PROFESOR</h3>
-            <p style="color: #92400E; margin: 5px 0 0 0;">Visualizando guía exacta generada por el estudiante.</p>
+            <p style="color: #92400E; margin: 5px 0 0 0;">Visualizando guía pedagógica completa y respuestas oficiales.</p>
             <button onclick="cerrarGuiaProfesor()" style="margin-top: 10px; background: #EF4444; color: white; border: none; padding: 8px 16px; border-radius: 6px; font-weight: bold; cursor: pointer;">Cerrar Vista Profesor</button>
         </div>
         <div class="mega-guide-container" style="background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); border: 1px solid #E5E7EB; font-family: 'Inter', sans-serif;">
     `;
     
+    // Objetivo y Pregunta Problematizadora
+    if (guideData.objetivo_aprendizaje || guideData.pregunta_problematizadora) {
+        htmlRenderizado += `
+            <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 8px; padding: 15px; margin-bottom: 25px;">
+                ${guideData.objetivo_aprendizaje ? `<p style="margin: 0 0 8px 0; color: #1E40AF;">🎯 <b>Objetivo de Aprendizaje:</b> ${guideData.objetivo_aprendizaje}</p>` : ''}
+                ${guideData.pregunta_problematizadora ? `<p style="margin: 0; color: #9A3412;">❓ <b>Pregunta Problematizadora:</b> <i>${guideData.pregunta_problematizadora}</i></p>` : ''}
+            </div>
+        `;
+    }
+
     if (guideData.saberes_previos) {
         htmlRenderizado += `<h4 style="color: #4F46E5; margin-top: 0;">🧠 Saberes Previos</h4>`;
         htmlRenderizado += `<div style="background: #F3F4F6; padding: 20px; border-radius: 8px; margin-bottom: 30px;">`;
@@ -1219,7 +1301,7 @@ function renderizarGuiaProfesor(guideData, asignatura, periodo, semanaStr) {
     }
     
     if (guideData.texto_inductivo) {
-        htmlRenderizado += `<h4 style="color: #4F46E5;">📖 Texto Inductivo</h4>`;
+        htmlRenderizado += `<h4 style="color: #4F46E5;">📖 Fase 1: Exploración (Texto Inductivo)</h4>`;
         htmlRenderizado += `<div class="markdown-body" style="font-size: 1.1rem; line-height: 1.6; color: #374151;">${window.procesarJuegosEnTexto(guideData.texto_inductivo)}</div>`;
     }
 
@@ -1252,43 +1334,19 @@ function renderizarGuiaProfesor(guideData, asignatura, periodo, semanaStr) {
         }
     }
     
-    if (guideData.preguntas_inductivas_pagina) {
-        htmlRenderizado += `<h4 style="color: #4F46E5; margin-top: 20px;">✍️ Preguntas de Análisis</h4>`;
-        htmlRenderizado += `<div style="background: #F8FAFC; padding: 20px; border: 1px dashed #94A3B8; border-radius: 8px; margin-bottom: 20px;">`;
-        guideData.preguntas_inductivas_pagina.forEach((p, i) => {
-            let textoPreg = typeof p === 'string' ? p : p.pregunta;
-            let resEsp = typeof p === 'string' ? '' : p.respuesta_esperada;
-            htmlRenderizado += `
-                <div style="margin-bottom: 15px;">
-                    <label style="font-weight: bold; color: #1E293B; display: block; margin-bottom: 8px;">${i+1}. ${textoPreg}</label>
-                    <textarea disabled rows="3" style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #CBD5E1; background: #F1F5F9;"></textarea>
-                    ${resEsp ? `<div style="margin-top: 5px; padding: 10px; background: #ECFDF5; border: 1px solid #10B981; border-radius: 6px; font-size: 0.9rem;"><strong style="color: #047857;">💡 Respuesta Esperada:</strong> ${resEsp}</div>` : ''}
-                </div>
-            `;
-        });
-        htmlRenderizado += `</div>`;
-    }
-    
     if (guideData.texto_deductivo) {
-        htmlRenderizado += `<h4 style="color: #4F46E5;">🔍 Texto Deductivo</h4>`;
+        htmlRenderizado += `<h4 style="color: #4F46E5; margin-top: 30px;">📖 Fase 2: Síntesis (Texto Deductivo)</h4>`;
         htmlRenderizado += `<div class="markdown-body" style="font-size: 1.1rem; line-height: 1.6; color: #374151;">${window.procesarJuegosEnTexto(guideData.texto_deductivo)}</div>`;
     }
     
-    if (guideData.preguntas_deductivas_pagina) {
-        htmlRenderizado += `<h4 style="color: #4F46E5; margin-top: 20px;">✍️ Preguntas Deductivas</h4>`;
-        htmlRenderizado += `<div style="background: #F8FAFC; padding: 20px; border: 1px dashed #94A3B8; border-radius: 8px; margin-bottom: 20px;">`;
-        guideData.preguntas_deductivas_pagina.forEach((p, i) => {
-            let textoPreg = typeof p === 'string' ? p : p.pregunta;
-            let resEsp = typeof p === 'string' ? '' : p.respuesta_esperada;
-            htmlRenderizado += `
-                <div style="margin-bottom: 15px;">
-                    <label style="font-weight: bold; color: #1E293B; display: block; margin-bottom: 8px;">${i+1}. ${textoPreg}</label>
-                    <textarea disabled rows="3" style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #CBD5E1; background: #F1F5F9;"></textarea>
-                    ${resEsp ? `<div style="margin-top: 5px; padding: 10px; background: #ECFDF5; border: 1px solid #10B981; border-radius: 6px; font-size: 0.9rem;"><strong style="color: #047857;">💡 Respuesta Esperada:</strong> ${resEsp}</div>` : ''}
-                </div>
-            `;
-        });
-        htmlRenderizado += `</div>`;
+    // ICFES Saber 11
+    if (guideData.icfes) {
+        htmlRenderizado += window.renderizarSeccionIcfes(guideData.icfes, true);
+    }
+
+    // Cierre Gamificado
+    if (guideData.cierre_gamificado) {
+        htmlRenderizado += window.renderizarCierreGamificado(guideData.cierre_gamificado, true);
     }
     
     htmlRenderizado += `</div>`;
@@ -1503,38 +1561,247 @@ window.procesarJuegosEnTexto = function(textoMarkdown) {
     if (!textoMarkdown) return "";
     let html = marked.parse(textoMarkdown);
     
-    // Buscar [JUEGO:TIPO:DATOS]
-    const regex = /\[JUEGO:(ORDENAR_LETRAS|ORDENAR_FRASE|SOPA_LETRAS|CRUCIGRAMA):(.*?)\]/g;
-    html = html.replace(regex, (match, tipo, datos) => {
+    // 1. Buscar [JUEGO:TIPO:DATOS]
+    const regexJuegos = /\[JUEGO:(ORDENAR_LETRAS|ORDENAR_FRASE|SOPA_LETRAS|CRUCIGRAMA):(.*?)\]/g;
+    html = html.replace(regexJuegos, (match, tipo, datos) => {
         let uniqueId = 'juego_' + Math.random().toString(36).substr(2, 9);
         if (tipo === 'ORDENAR_LETRAS') {
             return `<div class="juego-incrustado" style="background:#F0FDF4; border:2px dashed #22C55E; padding:15px; margin:15px 0; border-radius:8px;">
-                <h5 style="color:#166534; margin-top:0;">🧩 Minijuego: Ordenar Letras</h5>
+                <h5 style="color:#166534; margin-top:0; display:flex; align-items:center; gap:8px;">🧩 Minijuego: Ordenar Letras</h5>
                 ${window.renderizarJuegoOrdenar(datos.split(''), 'letras')}
             </div>`;
         } else if (tipo === 'ORDENAR_FRASE') {
             let palabras = datos.split(' ');
             return `<div class="juego-incrustado" style="background:#EFF6FF; border:2px dashed #3B82F6; padding:15px; margin:15px 0; border-radius:8px;">
-                <h5 style="color:#1E3A8A; margin-top:0;">🧩 Minijuego: Ordenar Frase</h5>
+                <h5 style="color:#1E3A8A; margin-top:0; display:flex; align-items:center; gap:8px;">🧩 Minijuego: Ordenar Frase</h5>
                 ${window.renderizarJuegoOrdenar(palabras, 'palabras')}
             </div>`;
         } else if (tipo === 'SOPA_LETRAS') {
             let palabras = datos.split(',');
             window.juegosPendientes.push(() => window.renderizarSopaLetras(uniqueId, palabras));
             return `<div class="juego-incrustado" style="background:#FFFBEB; border:2px dashed #F59E0B; padding:15px; margin:15px 0; border-radius:8px;">
-                <h5 style="color:#92400E; margin-top:0;">🔍 Minijuego: Sopa de Letras</h5>
+                <h5 style="color:#92400E; margin-top:0; display:flex; align-items:center; gap:8px;">🔍 Minijuego: Sopa de Letras</h5>
                 <div id="${uniqueId}" style="display:flex; flex-direction:column; align-items:center;">Cargando sopa de letras...</div>
             </div>`;
         } else if (tipo === 'CRUCIGRAMA') {
             window.juegosPendientes.push(() => window.renderizarCrucigrama(uniqueId, datos));
             return `<div class="juego-incrustado" style="background:#FAF5FF; border:2px dashed #A855F7; padding:15px; margin:15px 0; border-radius:8px;">
-                <h5 style="color:#581C87; margin-top:0;">✏️ Minijuego: Crucigrama</h5>
+                <h5 style="color:#581C87; margin-top:0; display:flex; align-items:center; gap:8px;">✏️ Minijuego: Crucigrama</h5>
                 <div id="${uniqueId}" style="display:flex; flex-direction:column; align-items:center;">Cargando crucigrama...</div>
             </div>`;
         }
         return match;
     });
+
+    // 2. Buscar [ACTIVIDAD:PLATAFORMA:PREGUNTA|RESPUESTA]
+    const regexPlat = /\[ACTIVIDAD:PLATAFORMA:(.*?)\]/g;
+    html = html.replace(regexPlat, (match, datos) => {
+        let partes = datos.split('|');
+        let preg = partes[0] ? partes[0].trim() : 'Responde la siguiente pregunta de análisis:';
+        let actId = 'act_plat_' + Math.random().toString(36).substr(2, 9);
+        return `<div class="actividad-plataforma-box" style="background: #F8FAFC; border: 2px dashed #3B82F6; padding: 18px; margin: 20px 0; border-radius: 8px;">
+            <h5 style="color: #1E40AF; margin-top: 0; display:flex; align-items:center; gap:8px;">✍️ Actividad en Plataforma (No Copy-Paste)</h5>
+            <p style="font-weight: bold; color: #1E293B; margin-bottom: 10px;">${preg}</p>
+            <textarea class="anti-cheat-textarea" id="textarea_${actId}" rows="3" style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #CBD5E1;" onpaste="return false;" ondrop="return false;" oninput="verificarEscrituraIA(this)" placeholder="Escribe tu análisis con tus propias palabras..."></textarea>
+            <div class="ai-warning" style="color: #EF4444; font-size: 0.85rem; font-weight: bold; display: none; margin-top: 5px;">⚠️ Se detectó velocidad anormal de tipeo. Escribe tu propia respuesta.</div>
+            <button onclick="validarActividadPlataformaIncrustada('${actId}')" id="btn_${actId}" style="background: #3B82F6; color: white; padding: 8px 18px; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; margin-top: 10px;">Validar Respuesta</button>
+            <div id="feedback_${actId}" style="display:none; margin-top:10px; padding:10px; background:#ECFDF5; border:1px solid #10B981; border-radius:6px; color:#065F46; font-size:0.9rem;">✔️ ¡Respuesta validada y registrada correctamente!</div>
+        </div>`;
+    });
+
+    // 3. Buscar [ACTIVIDAD:CUADERNO:INSTRUCCION]
+    const regexCuad = /\[ACTIVIDAD:CUADERNO:(.*?)\]/g;
+    html = html.replace(regexCuad, (match, instruccion) => {
+        return `<div class="actividad-cuaderno-box" style="background: #FFFBEB; border: 2px dashed #F59E0B; padding: 18px; margin: 20px 0; border-radius: 8px;">
+            <h5 style="color: #92400E; margin-top: 0; display:flex; align-items:center; gap:8px;">📓 Actividad para Desarrollar en el Cuaderno</h5>
+            <p style="color: #451A03; font-weight: 500; line-height: 1.5; margin-bottom: 12px;">${instruccion}</p>
+            <button onclick="this.style.background='#10B981'; this.innerText='✔️ Lo resolví en mi cuaderno';" style="background: #F59E0B; color: white; padding: 8px 18px; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; transition: all 0.2s;">✔️ Lo resolví en mi cuaderno</button>
+        </div>`;
+    });
     
+    return html;
+};
+
+window.validarActividadPlataformaIncrustada = function(actId) {
+    const textarea = document.getElementById(`textarea_${actId}`);
+    const btn = document.getElementById(`btn_${actId}`);
+    const fb = document.getElementById(`feedback_${actId}`);
+    if (!textarea || textarea.value.trim().length < 5) {
+        alert("Por favor escribe tu respuesta completa antes de validar.");
+        return;
+    }
+    textarea.disabled = true;
+    if (btn) btn.style.display = 'none';
+    if (fb) fb.style.display = 'block';
+};
+
+window.renderizarSeccionIcfes = function(icfesData, isTeacher = false) {
+    if (!icfesData || !Array.isArray(icfesData) || icfesData.length === 0) return '';
+    
+    let html = `
+        <div style="margin-top: 35px; background: #F8FAFC; border: 2px solid #3B82F6; border-radius: 12px; padding: 25px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px; border-bottom: 2px solid #E2E8F0; padding-bottom: 12px;">
+                <span style="font-size: 1.8rem;">🏛️</span>
+                <div>
+                    <h3 style="color: #1E40AF; margin: 0; font-size: 1.35rem; font-weight: 800;">Desafío Saber 11 (Pruebas ICFES)</h3>
+                    <p style="color: #64748B; margin: 2px 0 0 0; font-size: 0.9rem;">Preguntas alineadas al Diseño Centrado en Evidencias del ICFES Colombia.</p>
+                </div>
+            </div>
+    `;
+
+    icfesData.forEach((q, idx) => {
+        let comp = q.competencia || 'Competencia Científica';
+        let intro = q.texto_introductorio || '';
+        let tabla = q.tabla_o_grafica_markdown || '';
+        let preg = q.pregunta || '';
+        let opciones = q.opciones || [];
+        let correcta = q.correcta !== undefined ? q.correcta : 0;
+        let retro = q.retroalimentacion || {};
+
+        html += `
+            <div id="icfes_pregunta_${idx}" class="icfes-card" style="background: white; border: 1px solid #CBD5E1; border-radius: 10px; padding: 20px; margin-bottom: 25px;">
+                <div style="display: inline-block; background: #DBEAFE; color: #1E40AF; font-size: 0.8rem; font-weight: 700; padding: 4px 10px; border-radius: 20px; margin-bottom: 12px;">
+                    🎯 Competencia: ${comp}
+                </div>
+                ${intro ? `<div style="font-size: 1rem; color: #334155; line-height: 1.6; margin-bottom: 12px;">${marked.parse(intro)}</div>` : ''}
+                ${tabla ? `<div style="background: #F1F5F9; padding: 12px; border-radius: 6px; margin-bottom: 15px; overflow-x: auto;">${marked.parse(tabla)}</div>` : ''}
+                <p style="font-weight: 700; color: #0F172A; font-size: 1.05rem; margin-bottom: 15px;">${idx + 1}. ${preg}</p>
+                
+                <div class="icfes-opciones-list" style="display: flex; flex-direction: column; gap: 10px;">
+                    ${opciones.map((opc, opcIdx) => {
+                        let letra = String.fromCharCode(65 + opcIdx);
+                        if (isTeacher) {
+                            let esCorrecta = opcIdx === correcta;
+                            return `
+                                <div style="display: flex; align-items: flex-start; gap: 10px; padding: 12px; border-radius: 8px; border: 2px solid ${esCorrecta ? '#10B981' : '#E2E8F0'}; background: ${esCorrecta ? '#ECFDF5' : 'white'};">
+                                    <span style="font-weight: 800; color: ${esCorrecta ? '#065F46' : '#64748B'};">${letra}.</span>
+                                    <div style="flex: 1; color: #1E293B;">${opc} ${esCorrecta ? '✅ <b>(Correcta)</b>' : ''}</div>
+                                </div>
+                            `;
+                        } else {
+                            return `
+                                <label class="icfes-opcion-label" id="label_icfes_${idx}_${opcIdx}" style="display: flex; align-items: flex-start; gap: 10px; padding: 12px; border-radius: 8px; border: 1.5px solid #CBD5E1; background: white; cursor: pointer; transition: all 0.2s;">
+                                    <input type="radio" name="icfes_opt_${idx}" value="${opcIdx}" style="margin-top: 4px;">
+                                    <span style="font-weight: 800; color: #1E40AF;">${letra}.</span>
+                                    <span style="flex: 1; color: #1E293B;">${opc}</span>
+                                </label>
+                            `;
+                        }
+                    }).join('')}
+                </div>
+
+                ${isTeacher ? `
+                    <div style="margin-top: 15px; padding: 15px; background: #F8FAFC; border-left: 4px solid #3B82F6; border-radius: 0 8px 8px 0;">
+                        <h6 style="margin: 0 0 8px 0; color: #1E40AF; font-size: 0.95rem;">💡 Justificación Pedagógica y Análisis de Distractores:</h6>
+                        ${Object.keys(retro).map(k => `
+                            <p style="margin: 3px 0; font-size: 0.88rem; color: ${parseInt(k) === correcta ? '#065F46' : '#475569'};">
+                                <b>Opción ${String.fromCharCode(65 + parseInt(k))}:</b> ${retro[k]}
+                            </p>
+                        `).join('')}
+                    </div>
+                ` : `
+                    <button id="btn_icfes_${idx}" onclick="verificarIcfesPregunta(${idx}, ${correcta}, ${JSON.stringify(retro).replace(/"/g, '&quot;')})" style="margin-top: 15px; background: #2563EB; color: white; border: none; padding: 10px 20px; border-radius: 6px; font-weight: bold; cursor: pointer; transition: background 0.2s;">
+                        Verificar Respuesta Saber
+                    </button>
+                    <div id="icfes_feedback_${idx}" style="display: none;"></div>
+                `}
+            </div>
+        `;
+    });
+
+    html += `</div>`;
+    return html;
+};
+
+window.verificarIcfesPregunta = function(qIndex, correctaIndex, retroMap) {
+    const selected = document.querySelector(`input[name="icfes_opt_${qIndex}"]:checked`);
+    if (!selected) {
+        alert("Por favor selecciona una opción antes de verificar.");
+        return;
+    }
+    const val = parseInt(selected.value);
+    const feedbackBox = document.getElementById(`icfes_feedback_${qIndex}`);
+    const btn = document.getElementById(`btn_icfes_${qIndex}`);
+    if (btn) btn.disabled = true;
+
+    // Deshabilitar radios y marcar colores
+    document.querySelectorAll(`input[name="icfes_opt_${qIndex}"]`).forEach((r, i) => {
+        r.disabled = true;
+        const lbl = document.getElementById(`label_icfes_${qIndex}_${i}`);
+        if (lbl) {
+            if (i === parseInt(correctaIndex)) {
+                lbl.style.background = '#ECFDF5';
+                lbl.style.borderColor = '#10B981';
+            } else if (i === val) {
+                lbl.style.background = '#FEF2F2';
+                lbl.style.borderColor = '#EF4444';
+            }
+        }
+    });
+
+    if (feedbackBox) {
+        feedbackBox.style.display = 'block';
+        let isCorrect = val === parseInt(correctaIndex);
+        let retroElegida = (retroMap && (retroMap[val] || retroMap[String(val)])) || (isCorrect ? "¡Opción correcta!" : "Opción incorrecta.");
+        let retroCorrecta = (retroMap && (retroMap[correctaIndex] || retroMap[String(correctaIndex)])) || "";
+
+        let html = `
+            <div style="padding: 15px; border-radius: 8px; margin-top: 15px; background: ${isCorrect ? '#ECFDF5' : '#FEF2F2'}; border: 2px solid ${isCorrect ? '#10B981' : '#EF4444'};">
+                <h5 style="margin: 0 0 8px 0; color: ${isCorrect ? '#065F46' : '#991B1B'}; font-size: 1.05rem;">
+                    ${isCorrect ? '🎉 ¡Respuesta Correcta! (+50 XP)' : '❌ Respuesta Incorrecta'}
+                </h5>
+                <p style="margin: 0 0 8px 0; color: #1E293B; font-size: 0.95rem;"><b>Análisis de tu respuesta:</b> ${retroElegida}</p>
+                ${!isCorrect && retroCorrecta ? `<p style="margin: 0; color: #065F46; font-size: 0.95rem;"><b>💡 Justificación de la opción correcta (Opción ${String.fromCharCode(65 + parseInt(correctaIndex))}):</b> ${retroCorrecta}</p>` : ''}
+            </div>
+        `;
+        feedbackBox.innerHTML = html;
+        
+        if (isCorrect) {
+            let xpElem = document.getElementById('student-guide-header-xp');
+            if (xpElem) {
+                xpElem.innerText = parseInt(xpElem.innerText || 0) + 50;
+            }
+        }
+    }
+};
+
+window.renderizarCierreGamificado = function(cierreData, isTeacher = false) {
+    if (!cierreData) return '';
+    let html = `
+        <div style="margin-top: 35px; background: linear-gradient(135deg, #FAF5FF 0%, #F3E8FF 100%); border: 2px solid #A855F7; border-radius: 12px; padding: 25px;">
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+                <span style="font-size: 1.8rem;">🏆</span>
+                <div>
+                    <h3 style="color: #6B21A8; margin: 0; font-size: 1.35rem; font-weight: 800;">Cierre Gamificado de la Misión</h3>
+                    <p style="color: #7E22CE; margin: 2px 0 0 0; font-size: 0.9rem;">Consolida los 10 conceptos fundamentales de la semana.</p>
+                </div>
+            </div>
+    `;
+
+    if (cierreData.sopa_letras) {
+        let sopaId = 'sopa_final_' + Math.random().toString(36).substr(2, 9);
+        let palabras = typeof cierreData.sopa_letras === 'string' ? cierreData.sopa_letras.split(',') : cierreData.sopa_letras;
+        window.juegosPendientes.push(() => window.renderizarSopaLetras(sopaId, palabras));
+        html += `
+            <div style="background: white; border: 1px solid #D8B4FE; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
+                <h4 style="color: #6B21A8; margin-top: 0; display:flex; align-items:center; gap:8px;">🔍 Sopa de Letras Final (10 Conceptos Clave)</h4>
+                <div id="${sopaId}">Cargando sopa de letras...</div>
+            </div>
+        `;
+    }
+
+    if (cierreData.crucigrama) {
+        let crucId = 'crucigrama_final_' + Math.random().toString(36).substr(2, 9);
+        window.juegosPendientes.push(() => window.renderizarCrucigrama(crucId, cierreData.crucigrama));
+        html += `
+            <div style="background: white; border: 1px solid #D8B4FE; border-radius: 10px; padding: 20px;">
+                <h4 style="color: #6B21A8; margin-top: 0; display:flex; align-items:center; gap:8px;">✏️ Crucigrama Final (10 Desafíos Conceptuales)</h4>
+                <div id="${crucId}">Cargando crucigrama...</div>
+            </div>
+        `;
+    }
+
+    html += `</div>`;
     return html;
 };
 
@@ -1700,6 +1967,16 @@ window.ingresarAGuia = async function() {
             <div class="mega-guide-container" style="background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); border: 1px solid #E5E7EB; font-family: 'Inter', sans-serif;">
         `;
         
+        // Objetivo y Pregunta Problematizadora
+        if (guideData.objetivo_aprendizaje || guideData.pregunta_problematizadora) {
+            htmlRenderizado += `
+                <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 8px; padding: 15px; margin-bottom: 25px;">
+                    ${guideData.objetivo_aprendizaje ? `<p style="margin: 0 0 8px 0; color: #1E40AF;">🎯 <b>Objetivo de Aprendizaje:</b> ${guideData.objetivo_aprendizaje}</p>` : ''}
+                    ${guideData.pregunta_problematizadora ? `<p style="margin: 0; color: #9A3412;">❓ <b>Pregunta Problematizadora:</b> <i>${guideData.pregunta_problematizadora}</i></p>` : ''}
+                </div>
+            `;
+        }
+
         if (guideData.saberes_previos) {
             htmlRenderizado += `<h4 style="color: #4F46E5; margin-top: 0;">🧠 Desafío 1: Saberes Previos</h4>`;
             htmlRenderizado += `<div id="saberes-previos-container" style="background: #F3F4F6; padding: 20px; border-radius: 8px; margin-bottom: 30px;">`;
@@ -1724,7 +2001,7 @@ window.ingresarAGuia = async function() {
         htmlRenderizado += `<div id="rest-of-guide-container">`;
         
         if (guideData.texto_inductivo) {
-            htmlRenderizado += `<h4 style="color: #4F46E5;">📖 Exploración: Texto Inductivo</h4>`;
+            htmlRenderizado += `<h4 style="color: #4F46E5;">📖 Fase 1: Exploración (Texto Inductivo)</h4>`;
             htmlRenderizado += `<div class="markdown-body" style="font-size: 1.1rem; line-height: 1.6; color: #374151;">${window.procesarJuegosEnTexto(guideData.texto_inductivo)}</div>`;
         }
 
@@ -1757,80 +2034,24 @@ window.ingresarAGuia = async function() {
             }
         }
         
-        // Anti-cheat inputs para las preguntas
-        if (guideData.preguntas_inductivas_pagina) {
-            htmlRenderizado += `<h4 style="color: #4F46E5; margin-top: 20px;">✍️ Preguntas de Análisis (No Copy-Paste)</h4>`;
-            htmlRenderizado += `<div style="background: #F8FAFC; padding: 20px; border: 1px dashed #94A3B8; border-radius: 8px; margin-bottom: 20px;">`;
-            guideData.preguntas_inductivas_pagina.forEach((p, i) => {
-                let disabled = 'disabled style="opacity:0.5;"'; // Bloquear hasta que se active por código
-                htmlRenderizado += `
-                    <div class="pregunta-inductiva-pag" id="container_ind_pag_${i}" style="margin-bottom: 15px;" ${disabled}>
-                        <label style="font-weight: bold; color: #1E293B; display: block; margin-bottom: 8px;">${i+1}. ${p}</label>
-                        <textarea class="anti-cheat-textarea" id="textarea_ind_pag_${i}" data-qindex="${i}" rows="3" style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #CBD5E1;" onpaste="return false;" ondrop="return false;" oninput="verificarEscrituraIA(this)"></textarea>
-                        <div class="ai-warning" style="color: #EF4444; font-size: 0.9rem; font-weight: bold; display: none; margin-top: 5px;">⚠️ Se ha detectado velocidad de escritura anormal (Posible Copy-Paste / IA). Intenta escribir con tus propias palabras.</div>
-                        <button id="btn_ind_pag_${i}" onclick="verificarInductivaPagina(${i})" style="background: #10B981; color: white; padding: 8px 16px; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; margin-top: 10px;">Validar Respuesta</button>
-                    </div>
-                `;
-            });
-            htmlRenderizado += `</div>`;
-        }
-        
-        // Preguntas Cuaderno
-        if (guideData.preguntas_inductivas_cuaderno) {
-            htmlRenderizado += `<h4 style="color: #4F46E5; margin-top: 20px;">📓 Para desarrollar en el cuaderno</h4>`;
-            htmlRenderizado += `<div id="cuaderno-container" style="background: #FFFBEB; padding: 20px; border: 1px dashed #F59E0B; border-radius: 8px; margin-bottom: 20px;">`;
-            guideData.preguntas_inductivas_cuaderno.forEach((p, i) => {
-                let disabled = 'disabled style="opacity:0.5;"';
-                htmlRenderizado += `
-                    <div class="pregunta-cuaderno" id="container_cuaderno_${i}" style="margin-bottom: 15px;" ${disabled}>
-                        <p style="margin-bottom: 8px; color: #451A03; font-weight: bold;">${i+1}. ${p}</p>
-                        <button id="btn_cuaderno_${i}" onclick="verificarCuadernoIndividual(${i})" style="background: #F59E0B; color: white; padding: 8px 16px; border: none; border-radius: 6px; font-weight: bold; cursor: pointer;">✔️ Lo resolví en mi cuaderno</button>
-                    </div>
-                `;
-            });
-            htmlRenderizado += `</div>`;
-        }
-        
         // --- FASE DEDUCTIVA ---
         if (guideData.texto_deductivo) {
-            htmlRenderizado += `<h4 style="color: #4F46E5; margin-top: 30px;">📖 Síntesis: Texto Deductivo</h4>`;
+            htmlRenderizado += `<h4 style="color: #4F46E5; margin-top: 30px;">📖 Fase 2: Síntesis (Texto Deductivo)</h4>`;
             htmlRenderizado += `<div class="markdown-body" style="font-size: 1.1rem; line-height: 1.6; color: #374151;">${window.procesarJuegosEnTexto(guideData.texto_deductivo)}</div>`;
         }
 
-        if (guideData.preguntas_deductivas_pagina) {
-            htmlRenderizado += `<h4 style="color: #4F46E5; margin-top: 20px;">✍️ Preguntas de Síntesis (No Copy-Paste)</h4>`;
-            htmlRenderizado += `<div style="background: #F8FAFC; padding: 20px; border: 1px dashed #94A3B8; border-radius: 8px; margin-bottom: 20px;">`;
-            guideData.preguntas_deductivas_pagina.forEach((p, i) => {
-                let disabled = 'disabled style="opacity:0.5;"'; // Bloquear hasta que se active por código
-                htmlRenderizado += `
-                    <div class="pregunta-deductiva-pag" id="container_ded_pag_${i}" style="margin-bottom: 15px;" ${disabled}>
-                        <label style="font-weight: bold; color: #1E293B; display: block; margin-bottom: 8px;">${i+1}. ${p}</label>
-                        <textarea class="anti-cheat-textarea" id="textarea_ded_pag_${i}" data-qindex="ded_${i}" rows="3" style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #CBD5E1;" onpaste="return false;" ondrop="return false;" oninput="verificarEscrituraIA(this)"></textarea>
-                        <div class="ai-warning" style="color: #EF4444; font-size: 0.9rem; font-weight: bold; display: none; margin-top: 5px;">⚠️ Se ha detectado velocidad de escritura anormal.</div>
-                        <button id="btn_ded_pag_${i}" onclick="verificarDeductivaPagina(${i})" style="background: #10B981; color: white; padding: 8px 16px; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; margin-top: 10px;">Validar Respuesta</button>
-                    </div>
-                `;
-            });
-            htmlRenderizado += `</div>`;
+        // ICFES Saber 11
+        if (guideData.icfes) {
+            htmlRenderizado += window.renderizarSeccionIcfes(guideData.icfes, false);
         }
 
-        if (guideData.preguntas_deductivas_cuaderno) {
-            htmlRenderizado += `<h4 style="color: #4F46E5; margin-top: 20px;">📓 Para desarrollar en el cuaderno (Síntesis)</h4>`;
-            htmlRenderizado += `<div id="cuaderno-ded-container" style="background: #FFFBEB; padding: 20px; border: 1px dashed #F59E0B; border-radius: 8px; margin-bottom: 20px;">`;
-            guideData.preguntas_deductivas_cuaderno.forEach((p, i) => {
-                let disabled = 'disabled style="opacity:0.5;"';
-                htmlRenderizado += `
-                    <div class="pregunta-cuaderno-ded" id="container_cuaderno_ded_${i}" style="margin-bottom: 15px;" ${disabled}>
-                        <p style="margin-bottom: 8px; color: #451A03; font-weight: bold;">${i+1}. ${p}</p>
-                        <button id="btn_cuaderno_ded_${i}" onclick="verificarCuadernoDeductivoIndividual(${i})" style="background: #F59E0B; color: white; padding: 8px 16px; border: none; border-radius: 6px; font-weight: bold; cursor: pointer;">✔️ Lo resolví en mi cuaderno</button>
-                    </div>
-                `;
-            });
-            htmlRenderizado += `</div>`;
+        // Cierre Gamificado
+        if (guideData.cierre_gamificado) {
+            htmlRenderizado += window.renderizarCierreGamificado(guideData.cierre_gamificado, false);
         }
 
-        htmlRenderizado += `<div style="text-align: center; margin-top: 30px; padding-bottom: 20px;">
-                <button onclick="completarMisionActual()" style="background: #10B981; color: white; border: none; padding: 15px 30px; border-radius: 8px; font-weight: bold; font-size: 1.1rem; cursor: pointer; box-shadow: 0 4px 6px rgba(16, 185, 129, 0.2); transition: transform 0.2s;">✅ Completar Misión</button>
+        htmlRenderizado += `<div style="text-align: center; margin-top: 35px; padding-bottom: 20px;">
+                <button onclick="completarMisionActual()" style="background: #10B981; color: white; border: none; padding: 15px 35px; border-radius: 8px; font-weight: bold; font-size: 1.15rem; cursor: pointer; box-shadow: 0 4px 6px rgba(16, 185, 129, 0.2); transition: transform 0.2s;">✅ Completar Misión</button>
             </div>
         </div>`;
 
@@ -2207,53 +2428,147 @@ window.verificarOrden = function(btn, correctStr) {
 };
 
 // --- SOPA DE LETRAS ---
-window.renderizarSopaLetras = function(palabras) {
-    const size = 12;
-    let grid = Array(size).fill(null).map(() => Array(size).fill(''));
-    // Simplificación: solo llenar aleatoriamente por ahora para UI (la lógica real de sopa de letras es compleja)
-    // Para que sea funcional y el estudiante gane el premio, validaremos si encuentra las palabras escritas.
-    // Llenado dummy:
-    const letras = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    for(let r=0; r<size; r++) {
-        for(let c=0; c<size; c++) {
-            grid[r][c] = letras.charAt(Math.floor(Math.random() * letras.length));
-        }
+window.renderizarSopaLetras = function(arg1, arg2) {
+    let containerId = null;
+    let palabras = [];
+    
+    if (arg2 !== undefined) {
+        containerId = arg1;
+        palabras = Array.isArray(arg2) ? arg2 : (typeof arg2 === 'string' ? arg2.split(',') : []);
+    } else {
+        palabras = Array.isArray(arg1) ? arg1 : (typeof arg1 === 'string' ? arg1.split(',') : []);
     }
     
-    // Inyectar al menos la primera palabra horizontalmente para probar
-    if(palabras.length > 0) {
-        let p = palabras[0].toUpperCase();
-        if(p.length <= size) {
-            for(let i=0; i<p.length; i++) grid[0][i] = p[i];
+    palabras = palabras.map(p => p.trim().toUpperCase()).filter(p => p.length > 0);
+    
+    const size = 14;
+    let grid = Array(size).fill(null).map(() => Array(size).fill(''));
+    const letras = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
+    
+    // Intentar ubicar palabras en la cuadrícula
+    palabras.forEach((pal, idx) => {
+        let placed = false;
+        let attempts = 0;
+        while (!placed && attempts < 50) {
+            attempts++;
+            let dir = Math.random() > 0.5 ? 'H' : 'V'; // Horizontal o Vertical
+            let row = Math.floor(Math.random() * (dir === 'H' ? size : size - pal.length + 1));
+            let col = Math.floor(Math.random() * (dir === 'H' ? size - pal.length + 1 : size));
+            
+            let canPlace = true;
+            for (let i = 0; i < pal.length; i++) {
+                let r = dir === 'H' ? row : row + i;
+                let c = dir === 'H' ? col + i : col;
+                if (grid[r][c] !== '' && grid[r][c] !== pal[i]) {
+                    canPlace = false;
+                    break;
+                }
+            }
+            if (canPlace) {
+                for (let i = 0; i < pal.length; i++) {
+                    let r = dir === 'H' ? row : row + i;
+                    let c = dir === 'H' ? col + i : col;
+                    grid[r][c] = pal[i];
+                }
+                placed = true;
+            }
+        }
+    });
+
+    // Llenar vacíos con letras aleatorias
+    for(let r=0; r<size; r++) {
+        for(let c=0; c<size; c++) {
+            if (grid[r][c] === '') {
+                grid[r][c] = letras.charAt(Math.floor(Math.random() * letras.length));
+            }
         }
     }
 
-    let html = `<div style="display: flex; gap: 20px;">`;
-    html += `<div style="display: grid; grid-template-columns: repeat(${size}, 30px); gap: 2px;">`;
+    let html = `
+        <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start; justify-content: center;">
+            <div style="display: grid; grid-template-columns: repeat(${size}, minmax(22px, 28px)); gap: 3px; background: #F1F5F9; padding: 10px; border-radius: 8px; border: 1px solid #CBD5E1; user-select: none;">
+    `;
     for(let r=0; r<size; r++) {
         for(let c=0; c<size; c++) {
-            html += `<div style="width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; background: #E5E7EB; border-radius: 4px; font-weight: bold; cursor: pointer;" onclick="this.style.background='#FCD34D'">${grid[r][c]}</div>`;
+            html += `<div style="aspect-ratio: 1; display: flex; align-items: center; justify-content: center; background: white; border-radius: 4px; font-weight: 700; font-size: 0.95rem; color: #1E293B; cursor: pointer; border: 1px solid #E2E8F0; transition: background 0.15s;" onclick="this.style.background = this.style.background === 'rgb(253, 230, 138)' ? 'white' : '#FDE68A'">${grid[r][c]}</div>`;
         }
     }
-    html += `</div>`;
-    html += `<div><p>Encuentra las palabras:</p><ul>${palabras.map(p => `<li>${p}</li>`).join('')}</ul>`;
-    html += `<button onclick="this.disabled=true; this.innerText='✅ Resuelto'; mostrarHuevos();" style="margin-top: 10px; background: #10B981; color: white; border: none; padding: 5px 10px; border-radius: 6px; cursor:pointer;">Terminar Sopa</button></div>`;
-    html += `</div>`;
+    html += `
+            </div>
+            <div style="flex: 1; min-width: 200px; background: white; padding: 15px; border-radius: 8px; border: 1px solid #E2E8F0;">
+                <p style="margin: 0 0 10px 0; font-weight: 700; color: #1E293B;">🔍 Palabras a encontrar (${palabras.length}):</p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 6px;">
+                    ${palabras.map(p => `
+                        <label style="display: flex; align-items: center; gap: 6px; font-size: 0.88rem; color: #475569; cursor: pointer;">
+                            <input type="checkbox" onchange="this.parentElement.style.textDecoration = this.checked ? 'line-through' : 'none'; this.parentElement.style.color = this.checked ? '#10B981' : '#475569';">
+                            <span>${p}</span>
+                        </label>
+                    `).join('')}
+                </div>
+                <button onclick="this.disabled=true; this.innerHTML='✅ ¡Sopa Completada! (+40 XP)'; this.style.background='#10B981'; mostrarHuevos();" style="margin-top: 15px; width: 100%; background: #F59E0B; color: white; border: none; padding: 8px 12px; border-radius: 6px; font-weight: bold; cursor: pointer; transition: background 0.2s;">
+                    Verificar Sopa de Letras
+                </button>
+            </div>
+        </div>
+    `;
+    
+    if (containerId) {
+        let el = document.getElementById(containerId);
+        if (el) el.innerHTML = html;
+    }
     return html;
 };
 
 // --- CRUCIGRAMA ---
-window.renderizarCrucigrama = function(datos) {
-    let html = `<div style="background: #F8FAFC; padding: 20px; border: 1px solid #CBD5E1; border-radius: 8px;">`;
-    html += `<ul style="list-style: none; padding: 0;">`;
+window.renderizarCrucigrama = function(arg1, arg2) {
+    let containerId = null;
+    let datos = [];
+    
+    if (arg2 !== undefined) {
+        containerId = arg1;
+        datos = arg2;
+    } else {
+        datos = arg1;
+    }
+    
+    if (typeof datos === 'string') {
+        // Formato: "Pista 1|PALABRA1;Pista 2|PALABRA2"
+        datos = datos.split(';').map(item => {
+            let p = item.split('|');
+            return {
+                pista: p[0] ? p[0].trim() : 'Pista conceptual',
+                palabra: p[1] ? p[1].trim() : ''
+            };
+        }).filter(d => d.palabra.length > 0);
+    }
+    
+    if (!Array.isArray(datos)) datos = [];
+
+    let html = `
+        <div style="background: #F8FAFC; padding: 20px; border: 1px solid #CBD5E1; border-radius: 8px;">
+            <p style="margin: 0 0 15px 0; color: #475569; font-size: 0.9rem;">Escribe la palabra correspondiente a cada pista conceptual en MAYÚSCULAS:</p>
+            <div style="display: flex; flex-direction: column; gap: 12px;">
+    `;
     datos.forEach((item, idx) => {
-        html += `<li style="margin-bottom: 10px;"><strong>${idx+1}.</strong> ${item.pista}<br>
-        <input type="text" style="padding: 5px; margin-top: 5px; text-transform: uppercase;" data-correct="${item.palabra}" onchange="verificarPalabraCrucigrama(this)">
-        </li>`;
+        html += `
+            <div style="background: white; padding: 12px 15px; border-radius: 8px; border: 1px solid #E2E8F0;">
+                <p style="margin: 0 0 6px 0; font-size: 0.95rem; color: #1E293B;"><strong>${idx+1}.</strong> ${item.pista}</p>
+                <input type="text" style="padding: 6px 10px; font-weight: bold; letter-spacing: 2px; text-transform: uppercase; border: 1.5px solid #CBD5E1; border-radius: 6px; width: 100%; max-width: 300px;" data-correct="${item.palabra}" placeholder="Escribe aquí..." oninput="verificarPalabraCrucigrama(this)">
+            </div>
+        `;
     });
-    html += `</ul>`;
-    html += `<button onclick="verificarCrucigramaCompleto(this, ${datos.length})" style="background: #3B82F6; color: white; padding: 8px 16px; border: none; border-radius: 6px; cursor: pointer; font-weight: bold;">Validar Crucigrama</button>`;
-    html += `</div>`;
+    html += `
+            </div>
+            <button onclick="verificarCrucigramaCompleto(this, ${datos.length})" style="margin-top: 18px; background: #3B82F6; color: white; padding: 10px 20px; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; transition: background 0.2s;">
+                Validar Crucigrama Completo
+            </button>
+        </div>
+    `;
+    
+    if (containerId) {
+        let el = document.getElementById(containerId);
+        if (el) el.innerHTML = html;
+    }
     return html;
 };
 

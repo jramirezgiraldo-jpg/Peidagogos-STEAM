@@ -86,6 +86,66 @@ const mallasCurriculares = {
         { semana: 6, topico: "Apreciacin Sonora", horas: 1 },
         { semana: 7, topico: "Msica Folclrica Colombiana", horas: 1 },
         { semana: 8, topico: "Proyecto: Ensamble Final", horas: 1 }
+    ],
+    "ciclo1": [
+        { semana: 1, topico: "Los seres vivos y su entorno natural", horas: 2 },
+        { semana: 2, topico: "Partes de las plantas y su función", horas: 2 },
+        { semana: 3, topico: "Animales vertebrados e invertebrados", horas: 2 },
+        { semana: 4, topico: "El agua y su cuidado en el hogar", horas: 2 },
+        { semana: 5, topico: "Los sentidos humanos y la percepción", horas: 2 },
+        { semana: 6, topico: "La materia: sólidos y líquidos", horas: 2 },
+        { semana: 7, topico: "El sol, la luna y el día/noche", horas: 2 },
+        { semana: 8, topico: "Proyecto Integrador de Ciencias Ciclo I", horas: 2 }
+    ],
+    "ciclo2": [
+        { semana: 1, topico: "Ecosistemas y cadenas tróficas", horas: 2 },
+        { semana: 2, topico: "Adaptaciones de los seres vivos", horas: 2 },
+        { semana: 3, topico: "El sistema digestivo y circulatorio", horas: 2 },
+        { semana: 4, topico: "Mezclas y sustancias en la vida diaria", horas: 2 },
+        { semana: 5, topico: "Energía y sus formas (luz, calor, sonido)", horas: 2 },
+        { semana: 6, topico: "Fuerzas y máquinas simples", horas: 2 },
+        { semana: 7, topico: "El ciclo del agua y el clima", horas: 2 },
+        { semana: 8, topico: "Proyecto Integrador de Ciencias Ciclo II", horas: 2 }
+    ],
+    "ciclo3": [
+        { semana: 1, topico: "Magnitudes físicas y el método científico", horas: 2 },
+        { semana: 2, topico: "El movimiento y la velocidad en la vida cotidiana", horas: 2 },
+        { semana: 3, topico: "Fuerzas y leyes de Newton aplicadas", horas: 2 },
+        { semana: 4, topico: "Patrimonio turístico regional y cultura ciudadana", horas: 2 },
+        { semana: 5, topico: "La energía y sus transformaciones", horas: 2 },
+        { semana: 6, topico: "Ética, convivencia y toma de decisiones", horas: 2 },
+        { semana: 7, topico: "Presión y fluidos en el entorno", horas: 2 },
+        { semana: 8, topico: "Proyecto STEAM Ciclo III", horas: 2 }
+    ],
+    "ciclo4": [
+        { semana: 1, topico: "Genética, células y biodiversidad colombiana", horas: 2 },
+        { semana: 2, topico: "Expresión artística y patrimonio cultural", horas: 2 },
+        { semana: 3, topico: "Ondas: sonido y luz en la tecnología", horas: 2 },
+        { semana: 4, topico: "Turismo sostenible y conservación ambiental", horas: 2 },
+        { semana: 5, topico: "Reacciones químicas y la tabla periódica", horas: 2 },
+        { semana: 6, topico: "Técnicas de dibujo y composición visual", horas: 2 },
+        { semana: 7, topico: "Ecología y cambio climático global", horas: 2 },
+        { semana: 8, topico: "Proyecto Integrador Ciclo IV", horas: 2 }
+    ],
+    "ciclo5": [
+        { semana: 1, topico: "Química inorgánica y enlaces químicos", horas: 2 },
+        { semana: 2, topico: "Ética profesional y bioética ambiental", horas: 2 },
+        { semana: 3, topico: "Emprendimiento y gestión turística regional", horas: 2 },
+        { semana: 4, topico: "Estequiometría y leyes ponderales", horas: 2 },
+        { semana: 5, topico: "Cinemática y dinámica vectorial avanzada", horas: 2 },
+        { semana: 6, topico: "Dilemas morales en la sociedad moderna", horas: 2 },
+        { semana: 7, topico: "Soluciones químicas y concentraciones", horas: 2 },
+        { semana: 8, topico: "Proyecto de Investigación Ciclo V", horas: 2 }
+    ],
+    "ciclo6": [
+        { semana: 1, topico: "Química orgánica: hidrocarburos y grupos funcionales", horas: 2 },
+        { semana: 2, topico: "Mecánica clásica y termodinámica aplicada", horas: 2 },
+        { semana: 3, topico: "Electromagnetismo y circuitos eléctricos", horas: 2 },
+        { semana: 4, topico: "Ética ciudadana, derechos humanos y paz", horas: 2 },
+        { semana: 5, topico: "Marketing turístico digital y proyectos productivos", horas: 2 },
+        { semana: 6, topico: "Ondas electromagnéticas y óptica moderna", horas: 2 },
+        { semana: 7, topico: "Bioquímica y biomoléculas esenciales", horas: 2 },
+        { semana: 8, topico: "Preparación Saber 11 / Proyecto de Grado Ciclo VI", horas: 2 }
     ]
 };
 
@@ -121,7 +181,7 @@ Devuelve SOLO el array de 10 objetos JSON vlido, sin bloques \`\`\`json y sin ex
 
     try {
         const response = await ai.models.generateContent({
-            model: "gemini-3.5-flash",
+            model: "gemini-2.5-flash",
             contents: prompt,
             config: {
                 temperature: 0.2

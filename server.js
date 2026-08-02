@@ -74,66 +74,59 @@ app.post('/api/generate-guide', async (req, res) => {
         console.log(`[Caché MISS] Generando nueva guía: ${fileNameSafe}`);
         // --- END CACHE LOGIC ---
 
-        // Construir el Prompt Maestro
-        const prompt = `Actúa como un ${rol}. Tu objetivo es enseñar ${asignatura} a estudiantes de educación media en el contexto narrativo de ${ambiente}.
-Debes estructurar la guía de estudio siguiendo el nivel evolutivo de ${nivel}.
-La guía debe evaluar la competencia de ${enfoque}.
+        // Construir el Prompt Maestro alineado con Saber 11 y Pedagogía STEAM V11
+        const prompt = `Actúa como un ${rol}. Tu objetivo pedagógico es enseñar ${asignatura} (Grado ${grado}) a estudiantes en el contexto narrativo inmersivo de ${ambiente}.
+Nivel de dificultad: ${nivel}. Competencia focal: ${enfoque}.
 
 Contexto Curricular:
 - Periodo: ${periodo}
 - Semana: ${semana}
 - Meta de Comprensión Anual: ${meta}
-- 5 juegos de sopa de letras. Etiqueta: [JUEGO:SOPA_LETRAS:PALABRA1,PALABRA2,PALABRA3] (mínimo 3, máximo 6 palabras por sopa)
-- 5 juegos de crucigrama. Etiqueta: [JUEGO:CRUCIGRAMA:Pista 1|RESPUESTA1;Pista 2|RESPUESTA2] (mínimo 2, máximo 4 pistas por crucigrama)
 
-- 4 actividades para el cuaderno (dibujos, mapas mentales, cuadros comparativos). Etiqueta: [ACTIVIDAD:CUADERNO:Instrucción de lo que debe hacer en el cuaderno]
-  - REGLA ESTRICTA DE DIBUJO: Cada vez que pidas al estudiante que dibuje un esquema o mapa mental en su cuaderno, DEBES acompañar la instrucción de un bloque de código Markdown tipo 'mermaid' con un diagrama de bloques ('graph TD') o mapa que estructure las partes que deben dibujar.
-  - REGLA ESTRICTA DE MÚSICA/ARTES: Si el tema involucra música (notas, escalas, partituras), DEBES usar notación ABC dentro de un bloque Markdown tipo 'abc' para que la plataforma dibuje el pentagrama automáticamente.
+REGLAS PEDAGÓGICAS ESTRICTAS:
+1. EXTENSIÓN Y RIGOR:
+   - "texto_inductivo" DEBE tener MÍNIMO 500 PALABRAS. Narrativa de exploración profunda y contextualizada.
+   - "texto_deductivo" DEBE tener MÍNIMO 500 PALABRAS. Formalización teórica, leyes, modelos matemáticos/científicos y síntesis.
+2. PREGUNTA PROBLEMATIZADORA:
+   - El primer párrafo de "texto_inductivo" debe iniciar OBLIGATORIAMENTE con la Pregunta Problematizadora en negrita y cursiva (**_¿Pregunta...?_**).
+3. INTERCALACIÓN EXACTA EN "texto_inductivo" (debes incrustar estos shortcodes dentro de los párrafos):
+   - 3 Actividades de Cuaderno: [ACTIVIDAD:CUADERNO:Instrucción de lo que debe dibujar, hacer o tabular en el cuaderno]
+   - 3 Actividades de Plataforma: [ACTIVIDAD:PLATAFORMA:Pregunta de análisis profundo|Respuesta esperada o palabra clave]
+   - 3 Juegos de Ordenar Letras: [JUEGO:ORDENAR_LETRAS:PALABRA]
+   - 3 Juegos de Ordenar Frase: [JUEGO:ORDENAR_FRASE:FRASE COMPLETA CON SENTIDO]
+4. INTERCALACIÓN EXACTA EN "texto_deductivo" (debes incrustar estos shortcodes dentro de los párrafos):
+   - 3 Actividades de Cuaderno: [ACTIVIDAD:CUADERNO:Instrucción de síntesis, esquema o mapa conceptual en el cuaderno]
+   - 3 Actividades de Plataforma: [ACTIVIDAD:PLATAFORMA:Pregunta de síntesis o aplicación|Respuesta esperada]
+   - 3 Juegos de Ordenar Letras: [JUEGO:ORDENAR_LETRAS:PALABRA]
+   - 3 Juegos de Ordenar Frase: [JUEGO:ORDENAR_FRASE:FRASE DE PRINCIPIO O LEY CIENTIFICA]
+5. DESAFÍO FINAL - 3 PREGUNTAS TIPO ICFES SABER 11 (Diseño Centrado en Evidencias):
+   - Pregunta 1: Evalúa "Explicación de Fenómenos".
+   - Pregunta 2: Evalúa "Uso Comprensivo del Conocimiento Científico".
+   - Pregunta 3: Evalúa "Indagación" (análisis de datos, gráficas o diseño experimental).
+   - Cada pregunta debe tener: competencia, texto_introductorio, tabla_o_grafica_markdown, pregunta, 4 opciones (0, 1, 2, 3) y retroalimentación detallada explicando la opción correcta y por qué cada uno de los 3 distractores es falso.
+6. CIERRE GAMIFICADO AL FINAL:
+   - 1 Sola Sopa de Letras con exactamente 10 términos clave de toda la guía: [JUEGO:SOPA_LETRAS:P1,P2,P3,P4,P5,P6,P7,P8,P9,P10]
+   - 1 Solo Crucigrama con exactamente 10 pistas y respuestas: [JUEGO:CRUCIGRAMA:Pista 1|PAL1;Pista 2|PAL2;Pista 3|PAL3;Pista 4|PAL4;Pista 5|PAL5;Pista 6|PAL6;Pista 7|PAL7;Pista 8|PAL8;Pista 9|PAL9;Pista 10|PAL10]
 
-Ejemplo de cómo redactar un párrafo con juegos y actividades intercaladas:
-"El sol es la estrella principal de nuestro sistema solar. [JUEGO:ORDENAR_LETRAS:ESTRELLA] Su gravedad mantiene a los planetas en órbita. [ACTIVIDAD:PLATAFORMA:¿Cuál es la función de la gravedad del sol?|Mantener los planetas en órbita] En tu cuaderno, [ACTIVIDAD:CUADERNO:Dibuja el sistema solar destacando el sol y la órbita de la tierra]..."
-
-DEBES DEVOLVER EXCLUSIVAMENTE UN OBJETO JSON VÁLIDO (sin bloques de código markdown como \`\`\`json) CON LA SIGUIENTE ESTRUCTURA EXACTA:
+DEBES DEVOLVER EXCLUSIVAMENTE UN OBJETO JSON VÁLIDO CON LA SIGUIENTE ESTRUCTURA EXACTA:
 {
+  "objetivo_aprendizaje": "Objetivo de aprendizaje de la semana...",
+  "pregunta_problematizadora": "¿Pregunta problematizadora...?",
   "saberes_previos": [
-    { "pregunta": "¿...?", "opciones": ["A", "B", "C", "D"], "correcta": 0 }
+    { "pregunta": "¿...?", "opciones": ["A", "B", "C", "D"], "correcta": 0 },
+    { "pregunta": "¿...?", "opciones": ["A", "B", "C", "D"], "correcta": 1 },
+    { "pregunta": "¿...?", "opciones": ["A", "B", "C", "D"], "correcta": 2 }
   ],
-  "texto_inductivo": "Texto largo en formato Markdown. OBLIGATORIAMENTE debes incrustar aquí los 5 juegos de cada tipo, así como los GRÁFICOS (SVG, Tablas, CSS) o PENTAGRAMAS GIGANTES explicados en la instrucción visual...",
-  "recurso_visual": "Genera una tabla en formato Markdown o un código de diagrama Mermaid (graph TD...) que resuma el texto inductivo.",
-  "preguntas_inductivas_pagina": [
-    { "pregunta": "¿P1?", "respuesta_esperada": "Respuesta ideal a P1" },
-    { "pregunta": "¿P2?", "respuesta_esperada": "Respuesta ideal a P2" },
-    { "pregunta": "¿P3?", "respuesta_esperada": "Respuesta ideal a P3" },
-    { "pregunta": "¿P4?", "respuesta_esperada": "Respuesta ideal a P4" },
-    { "pregunta": "¿P5?", "respuesta_esperada": "Respuesta ideal a P5" }
-  ],
-  "preguntas_inductivas_cuaderno": [
-      "Pregunta que exija dibujar un esquema o mapa conceptual",
-      "Pregunta que exija realizar un cuadro comparativo",
-      "Pregunta reflexiva extensa sobre el texto",
-      "Pregunta que exija representar gráficamente una idea"
-  ],
-  "texto_deductivo": "Texto deductivo largo en formato Markdown. OBLIGATORIAMENTE debes incrustar aquí también los 5 juegos de cada tipo y nuevos GRÁFICOS/PENTAGRAMAS explicativos...",
-  "preguntas_deductivas_pagina": [
-    { "pregunta": "¿P1?", "respuesta_esperada": "Respuesta ideal a P1" },
-    { "pregunta": "¿P2?", "respuesta_esperada": "Respuesta ideal a P2" },
-    { "pregunta": "¿P3?", "respuesta_esperada": "Respuesta ideal a P3" },
-    { "pregunta": "¿P4?", "respuesta_esperada": "Respuesta ideal a P4" },
-    { "pregunta": "¿P5?", "respuesta_esperada": "Respuesta ideal a P5" }
-  ],
-  "preguntas_deductivas_cuaderno": [
-      "Pregunta que exija realizar un diagrama detallado",
-      "Pregunta que exija elaborar un mapa mental",
-      "Pregunta que exija un dibujo explicativo del tema",
-      "Pregunta que exija una infografía artesanal"
-  ],
+  "texto_inductivo": "Markdown (+500 palabras) con la pregunta problematizadora y conteniendo 3 [ACTIVIDAD:CUADERNO:...], 3 [ACTIVIDAD:PLATAFORMA:...], 3 [JUEGO:ORDENAR_LETRAS:...] y 3 [JUEGO:ORDENAR_FRASE:...]",
+  "recurso_visual": "Instrucción de mapa mental o tabla con diagrama Mermaid graph TD o tabla markdown",
+  "texto_deductivo": "Markdown (+500 palabras) con teoría formal y conteniendo 3 [ACTIVIDAD:CUADERNO:...], 3 [ACTIVIDAD:PLATAFORMA:...], 3 [JUEGO:ORDENAR_LETRAS:...] y 3 [JUEGO:ORDENAR_FRASE:...]",
   "icfes": [
     {
       "competencia": "Explicación de Fenómenos",
       "texto_introductorio": "Contexto de la pregunta...",
-      "tabla_o_grafica_markdown": "| Dato | Valor |\\n|---|---|",
-      "pregunta": "¿Qué ocurre si...?",
-      "opciones": ["Opcion 1", "Opcion 2", "Opcion 3", "Opcion 4"],
+      "tabla_o_grafica_markdown": "| Variable | Valor |\\n|---|---|",
+      "pregunta": "¿...?",
+      "opciones": ["Opción A", "Opción B", "Opción C", "Opción D"],
       "correcta": 0,
       "retroalimentacion": {
         "0": "Correcto porque...",
@@ -141,11 +134,43 @@ DEBES DEVOLVER EXCLUSIVAMENTE UN OBJETO JSON VÁLIDO (sin bloques de código mar
         "2": "Incorrecto porque...",
         "3": "Incorrecto porque..."
       }
+    },
+    {
+      "competencia": "Uso Comprensivo del Conocimiento Científico",
+      "texto_introductorio": "Contexto...",
+      "tabla_o_grafica_markdown": "",
+      "pregunta": "¿...?",
+      "opciones": ["Opción A", "Opción B", "Opción C", "Opción D"],
+      "correcta": 1,
+      "retroalimentacion": {
+        "0": "Incorrecto porque...",
+        "1": "Correcto porque...",
+        "2": "Incorrecto porque...",
+        "3": "Incorrecto porque..."
+      }
+    },
+    {
+      "competencia": "Indagación",
+      "texto_introductorio": "Contexto experimental...",
+      "tabla_o_grafica_markdown": "| Ensayo | Resultado |\\n|---|---|",
+      "pregunta": "¿...?",
+      "opciones": ["Opción A", "Opción B", "Opción C", "Opción D"],
+      "correcta": 2,
+      "retroalimentacion": {
+        "0": "Incorrecto porque...",
+        "1": "Incorrecto porque...",
+        "2": "Correcto porque...",
+        "3": "Incorrecto porque..."
+      }
     }
-  ]
+  ],
+  "cierre_gamificado": {
+    "sopa_letras": "PAL1,PAL2,PAL3,PAL4,PAL5,PAL6,PAL7,PAL8,PAL9,PAL10",
+    "crucigrama": "Pista 1|PAL1;Pista 2|PAL2;Pista 3|PAL3;Pista 4|PAL4;Pista 5|PAL5;Pista 6|PAL6;Pista 7|PAL7;Pista 8|PAL8;Pista 9|PAL9;Pista 10|PAL10"
+  }
 }`;
-        // Modelos de última generación confirmados y activos
-        const modelos = ['gemini-flash-latest', 'gemini-3.5-flash', 'gemini-pro-latest'];
+        // Modelos Flash ultra-rápidos y económicos para Free Tier
+        const modelos = ['gemini-flash-latest', 'gemini-2.0-flash', 'gemini-flash-lite-latest'];
         let responseText = "";
         let finalError = null;
 
