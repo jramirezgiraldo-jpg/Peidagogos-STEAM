@@ -243,8 +243,10 @@ document.addEventListener("DOMContentLoaded", function() {
                 edad: edad,
                 genero: gen,
                 grado: grado,
-                docente_id: usuario_actual,
-                materias: materias_matriculadas
+                grupo: grado,  // Para ciclos, el grupo ES el ciclo (facilita filtrado en ranking)
+                asignatura: materias_matriculadas.join(', '),  // String para compatibilidad con login
+                materias: materias_matriculadas,
+                docente_id: usuario_actual
             };
 
             try {
@@ -449,6 +451,20 @@ async function cargarAsignaturasDocente(gradoSeleccionado) {
         return;
     }
 
+    // Si es cualquier ciclo del nocturno → solo Ciencias Naturales (sin consultar API)
+    if (gradoSeleccionado.toLowerCase().includes('ciclo')) {
+        container.innerHTML = `
+            <div style="background:#D1FAE5; border:1px solid #10B981; border-radius:8px; padding:12px; display:flex; align-items:center; gap:10px;">
+                <span style="font-size:1.4rem;">🌿</span>
+                <div>
+                    <strong style="color:#065F46;">Ciencias Naturales</strong>
+                    <div style="font-size:0.8rem; color:#047857;">Asignatura única para todos los ciclos del nocturno</div>
+                </div>
+                <input type="checkbox" class="materia-chk" value="Ciencias Naturales" checked style="margin-left:auto; width:18px; height:18px;">
+            </div>`;
+        return;
+    }
+
     try {
         const res = await fetch('/api/asignaturas');
         const asignaturas = await res.json();
@@ -460,13 +476,7 @@ async function cargarAsignaturasDocente(gradoSeleccionado) {
             "9": ["Artística"],
             "10": ["Ética"],
             "11": ["Física", "Ética", "Química", "Turismo"],
-            "PENS": ["Turismo", "Química"],
-            "Ciclo I": ["Ciencias Naturales", "Ética", "Artística"],
-            "Ciclo II": ["Ciencias Naturales", "Ética", "Artística"],
-            "Ciclo III": ["Física", "Turismo", "Ética"],
-            "Ciclo IV": ["Artística", "Turismo", "Ciencias"],
-            "Ciclo V": ["Ética", "Química", "Turismo"],
-            "Ciclo VI": ["Física", "Ética", "Química", "Turismo"]
+            "PENS": ["Turismo", "Química"]
         };
 
         // Normalizar clave grado
@@ -507,6 +517,7 @@ async function cargarAsignaturasDocente(gradoSeleccionado) {
         }
     } catch(e) { console.error(e); }
 }
+
 
 async function cargarDatosAdmin() {
     try {
@@ -615,43 +626,9 @@ function obtenerMateriasPorGrupo(grupoName) {
             { nombre: 'Turismo', horas: '1h', estado: 'Pendiente', color: '#6B7280' },
             { nombre: 'Química', horas: '2h', estado: 'Pendiente', color: '#6B7280' }
         ];
-    } else if (grupoName.includes('Ciclo I') || grupoName === 'Ciclo 1') {
-        return [
-            { nombre: 'Ciencias Naturales', horas: '2h', estado: 'Pendiente', color: '#6B7280' },
-            { nombre: 'Ética', horas: '1h', estado: 'Pendiente', color: '#6B7280' },
-            { nombre: 'Artística', horas: '1h', estado: 'Pendiente', color: '#6B7280' }
-        ];
-    } else if (grupoName.includes('Ciclo II') || grupoName === 'Ciclo 2') {
-        return [
-            { nombre: 'Ciencias Naturales', horas: '2h', estado: 'Pendiente', color: '#6B7280' },
-            { nombre: 'Ética', horas: '1h', estado: 'Pendiente', color: '#6B7280' },
-            { nombre: 'Artística', horas: '1h', estado: 'Pendiente', color: '#6B7280' }
-        ];
-    } else if (grupoName.includes('Ciclo III') || grupoName === 'Ciclo 3') {
-        return [
-            { nombre: 'Física', horas: '2h', estado: 'Pendiente', color: '#6B7280' },
-            { nombre: 'Turismo', horas: '1h', estado: 'Pendiente', color: '#6B7280' },
-            { nombre: 'Ética', horas: '1h', estado: 'Pendiente', color: '#6B7280' }
-        ];
-    } else if (grupoName.includes('Ciclo IV') || grupoName === 'Ciclo 4') {
-        return [
-            { nombre: 'Artística', horas: '1h', estado: 'Pendiente', color: '#6B7280' },
-            { nombre: 'Turismo', horas: '1h', estado: 'Pendiente', color: '#6B7280' },
-            { nombre: 'Ciencias Naturales', horas: '2h', estado: 'Pendiente', color: '#6B7280' }
-        ];
-    } else if (grupoName.includes('Ciclo V') || grupoName === 'Ciclo 5') {
-        return [
-            { nombre: 'Ética', horas: '1h', estado: 'Pendiente', color: '#6B7280' },
-            { nombre: 'Química', horas: '2h', estado: 'Pendiente', color: '#6B7280' },
-            { nombre: 'Turismo', horas: '1h', estado: 'Pendiente', color: '#6B7280' }
-        ];
-    } else if (grupoName.includes('Ciclo VI') || grupoName === 'Ciclo 6') {
-        return [
-            { nombre: 'Física', horas: '2h', estado: 'Pendiente', color: '#6B7280' },
-            { nombre: 'Ética', horas: '1h', estado: 'Pendiente', color: '#6B7280' },
-            { nombre: 'Química', horas: '2h', estado: 'Pendiente', color: '#6B7280' },
-            { nombre: 'Turismo', horas: '1h', estado: 'Pendiente', color: '#6B7280' }
-        ];
+    } else if (grupoName.includes('Ciclo')) {
+        // TODOS los ciclos del nocturno (I al VI) → solo Ciencias Naturales
+        return [{ nombre: 'Ciencias Naturales', horas: '2h', estado: 'Pendiente', color: '#059669' }];
     } else {
         return [{ nombre: 'Asignaturas Básicas', horas: 'Varias', estado: 'Pendiente', color: '#6B7280' }];
     }
