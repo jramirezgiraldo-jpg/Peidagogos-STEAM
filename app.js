@@ -279,32 +279,58 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // Registro antiguo (por si acaso se usa)
+    // Registro de estudiante (Auto-registro)
     const btnSubmit = document.getElementById("btn-submit-register");
     if (btnSubmit) {
         btnSubmit.addEventListener("click", function(e) {
             e.preventDefault();
-            // (Código de registro original de estudiantes, se mantiene para no romper lógica anterior)
             const doc = document.getElementById("reg-documento") ? document.getElementById("reg-documento").value.trim() : "";
             const ap = document.getElementById("reg-apellidos") ? document.getElementById("reg-apellidos").value.trim() : "";
             const nom = document.getElementById("reg-nombre") ? document.getElementById("reg-nombre").value.trim() : "";
             const ed = document.getElementById("reg-edad") ? document.getElementById("reg-edad").value.trim() : "";
             const gen = document.getElementById("reg-genero") ? document.getElementById("reg-genero").value : "";
+            const ie = document.getElementById("reg-ie") ? document.getElementById("reg-ie").value : "";
             const gra = document.getElementById("reg-grado") ? document.getElementById("reg-grado").value : "";
-            const grupo = document.getElementById("registro-grupo") ? document.getElementById("registro-grupo").value : "";
-            const asig = document.getElementById("registro-asignatura") ? document.getElementById("registro-asignatura").value : "";
+            let grupo = document.getElementById("registro-grupo") ? document.getElementById("registro-grupo").value : "";
+            let asig = document.getElementById("registro-asignatura") ? document.getElementById("registro-asignatura").value : "";
 
             if (!doc || !ap || !nom || !ed || !gen || (!gra && !grupo) || !asig) {
                 alert("⚠️ Por favor, completa todos los campos.");
                 return;
             }
+
+            let gradoFinal = gra || grupo;
+            let grupoFinal = grupo || gra;
+
+            // Para Ciclos del nocturno (I al VI), la asignatura SIEMPRE es Ciencias Naturales
+            if (gradoFinal.includes("Ciclo") || grupoFinal.includes("Ciclo")) {
+                asig = "Ciencias Naturales";
+            }
+
+            if (ie === 'RamonMessa' && gra && !gra.includes('Ciclo')) {
+                grupoFinal = 'RM-' + gra + 'A';
+            }
+
+            const payload = {
+                documento: doc,
+                apellidos: ap,
+                nombre: nom,
+                edad: ed,
+                genero: gen,
+                institucion: ie,
+                grado: gradoFinal,
+                grupo: grupoFinal,
+                asignatura: asig,
+                materias: [asig]
+            };
+
             fetch("/api/registro-estudiante", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ documento: doc, apellidos: ap, nombre: nom, edad: ed, genero: gen, grado: gra, grupo: grupo, asignatura: asig })
+                body: JSON.stringify(payload)
             }).then(async r => {
                 if(r.ok) { 
-                    alert("Registrado!"); location.reload(); 
+                    alert("✅ ¡Estudiante matriculado exitosamente!"); location.reload(); 
                 } else {
                     const errMsg = await r.text();
                     alert("❌ Error del servidor (" + r.status + "): " + errMsg);
@@ -519,6 +545,41 @@ async function cargarAsignaturasDocente(gradoSeleccionado) {
 }
 
 
+// Helper para verificar si un estudiante pertenece a un grupo/ciclo específico
+window.perteneceAlGrupo = function(est, grupoName) {
+    if (!est || !grupoName) return false;
+    const gEst = (est.grupo || '').trim();
+    const graEst = (est.grado || '').trim();
+    const target = grupoName.trim();
+
+    if (gEst === target || graEst === target) return true;
+
+    // Comparación robusta para Ciclos (I, II, III, IV, V, VI)
+    if (target.toLowerCase().includes('ciclo') || gEst.toLowerCase().includes('ciclo') || graEst.toLowerCase().includes('ciclo')) {
+        const regexCiclo = /ciclo\s*(I{1,3}|IV|V|VI)\b/i;
+        const targetMatch = target.match(regexCiclo);
+        if (targetMatch) {
+            const cTarget = targetMatch[1].toUpperCase();
+            const estMatch = (gEst + ' ' + graEst).match(regexCiclo);
+            if (estMatch && estMatch[1].toUpperCase() === cTarget) {
+                return true;
+            }
+        }
+    }
+
+    // Normalización para grupos con prefijo RM-
+    if (target.startsWith('RM-')) {
+        const simpleTarget = target.replace('RM-', '').toLowerCase();
+        if (gEst.toLowerCase() === target.toLowerCase() || gEst.toLowerCase() === simpleTarget || graEst.toLowerCase() === simpleTarget || graEst.toLowerCase() === simpleTarget.replace(/[a-z]/g, '')) {
+            return true;
+        }
+    }
+
+    if (gEst.toLowerCase() === target.toLowerCase()) return true;
+
+    return false;
+};
+
 async function cargarDatosAdmin() {
     try {
         // Cargar Docentes
@@ -548,6 +609,36 @@ async function cargarDatosAdmin() {
         // Renderizado del Admin
         window.todosEstudiantes = estudiantes;
         
+        // Actualizar automáticamente los contadores de estudiantes en los botones de grupos
+        document.querySelectorAll('#grupos-montenegro .grupo-btn, #grupos-ramon_messa .grupo-btn').forEach(btn => {
+            const onclickAttr = btn.getAttribute('onclick') || '';
+            const match = onclickAttr.match(/abrirGrupo\(['"]([^'"]+)['"]\)/);
+            if (match) {
+                const gName = match[1];
+                const count = estudiantes.filter(e => window.perteneceAlGrupo(e, gName)).length;
+                let badge = btn.querySelector('.grupo-badge-count');
+                if (!badge) {
+                    badge = document.createElement('span');
+                    badge.className = 'grupo-badge-count';
+                    badge.style.fontSize = '0.75rem';
+                    badge.style.padding = '3px 8px';
+                    badge.style.borderRadius = '12px';
+                    badge.style.fontWeight = 'bold';
+                    badge.style.marginTop = '4px';
+                    btn.appendChild(badge);
+                }
+                if (count > 0) {
+                    badge.style.background = '#DCFCE7';
+                    badge.style.color = '#15803D';
+                    badge.textContent = `👤 ${count} ${count === 1 ? 'estudiante' : 'estudiantes'}`;
+                } else {
+                    badge.style.background = '#F3F4F6';
+                    badge.style.color = '#9CA3AF';
+                    badge.textContent = '0 estudiantes';
+                }
+            }
+        });
+
         const filtroGrupo = document.getElementById('admin-grupo-filtro');
         if (filtroGrupo) {
             // Guardar selección actual si existe
@@ -583,7 +674,10 @@ window.eliminarEstudiante = async function(documento) {
         });
         if(res.ok) {
             alert("Estudiante eliminado correctamente.");
-            cargarDatosAdmin(); // recargar
+            await cargarDatosAdmin(); // recargar
+            if (window.gradoActualPlaneacion && document.getElementById('admin-estudiantes-grupo-container').style.display !== 'none') {
+                window.abrirGrupo(window.gradoActualPlaneacion);
+            }
         } else {
             const data = await res.json();
             alert("Error: " + data.message);
@@ -1337,40 +1431,55 @@ window.abrirGrupo = function(grupoName) {
     }
 
     const tbodyEst = document.getElementById('tbody-admin-estudiantes-por-grupo');
-    const estFiltrados = window.todosEstudiantes.filter(e => (e.grupo || 'Sin asignar') === grupoName);
+    const estFiltrados = (window.todosEstudiantes || []).filter(e => window.perteneceAlGrupo(e, grupoName));
 
     tbodyEst.innerHTML = '';
-    estFiltrados.forEach(est => {
-        // Progreso aleatorio para la demostración
-        const progreso = Math.floor(Math.random() * 60) + 40; 
-        
-        tbodyEst.innerHTML += `
-        <tr style="border-bottom: 1px solid #f3f4f6;">
-            <td style="padding: 15px;">${est.documento || ''}</td>
-            <td style="padding: 15px; font-weight: bold;">${est.nombre || ''} ${est.apellidos || ''}</td>
-            <td style="padding: 15px;">${est.grado || ''}°</td>
-            <td style="padding: 15px;">
-                <div style="display: flex; flex-direction: column; gap: 5px;">
-                    ${obtenerMateriasPorGrupo(grupoName).map(m => `
-                        <div style="display: flex; justify-content: space-between; align-items: center; background: #F3F4F6; padding: 4px 8px; border-radius: 4px;">
-                            <span style="font-size: 0.85rem; font-weight: bold; color: #374151;">${m.nombre} (${m.horas})</span>
-                            <span style="font-size: 0.75rem; color: ${m.color}; font-weight: bold;">${m.estado}</span>
-                        </div>
-                    `).join('')}
-                </div>
-            </td>
-            <td style="padding: 15px; text-align: center;">
-                    <button onclick="verInformeEstudiante('${est.nombre || ''} ${est.apellidos || ''}', ${progreso}, '${grupoName}', '${est.documento}')" style="background: #3B82F6; color: white; border: none; padding: 6px 12px; border-radius: 6px; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 5px;" title="Ver Informe">
-                        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
-                        Informe
-                    </button>
-                    <button onclick="eliminarEstudiante('${est.documento}')" style="background: #EF4444; color: white; border: none; padding: 6px 12px; border-radius: 6px; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 5px;" title="Eliminar">
-                        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
-                    </button>
+    if (estFiltrados.length === 0) {
+        tbodyEst.innerHTML = `
+        <tr>
+            <td colspan="5" style="padding: 35px; text-align: center; color: #6B7280;">
+                <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
+                    <span style="font-size: 2.2rem;">👥</span>
+                    <span style="font-size: 1.1rem; font-weight: bold; color: #374151;">No hay estudiantes matriculados en este grupo aún</span>
+                    <span style="font-size: 0.9rem; color: #6B7280;">Cuando los estudiantes se matriculen en la página seleccionando <strong>${grupoName}</strong>, aparecerán aquí automáticamente.</span>
                 </div>
             </td>
         </tr>`;
-    });
+    } else {
+        estFiltrados.forEach(est => {
+            // Progreso para demostración
+            const progreso = Math.floor(Math.random() * 60) + 40; 
+            const materiasGrupo = obtenerMateriasPorGrupo(grupoName);
+            
+            tbodyEst.innerHTML += `
+            <tr style="border-bottom: 1px solid #f3f4f6;">
+                <td style="padding: 15px; font-family: monospace; font-size: 0.95rem;">${est.documento || ''}</td>
+                <td style="padding: 15px; font-weight: bold; color: #111827;">${est.nombre || ''} ${est.apellidos || ''}</td>
+                <td style="padding: 15px;"><span class="badge" style="background: #F3F4F6; color: #374151; padding: 4px 8px; border-radius: 4px;">${est.grado || grupoName}</span></td>
+                <td style="padding: 15px;">
+                    <div style="display: flex; flex-direction: column; gap: 5px;">
+                        ${materiasGrupo.map(m => `
+                            <div style="display: flex; justify-content: space-between; align-items: center; background: #F3F4F6; padding: 4px 8px; border-radius: 4px;">
+                                <span style="font-size: 0.85rem; font-weight: bold; color: #374151;">${m.nombre} (${m.horas})</span>
+                                <span style="font-size: 0.75rem; color: ${m.color}; font-weight: bold;">${m.estado}</span>
+                            </div>
+                        `).join('')}
+                    </div>
+                </td>
+                <td style="padding: 15px; text-align: center;">
+                    <div style="display: flex; gap: 8px; justify-content: center;">
+                        <button onclick="verInformeEstudiante('${est.nombre || ''} ${est.apellidos || ''}', ${progreso}, '${grupoName}', '${est.documento}')" style="background: #3B82F6; color: white; border: none; padding: 6px 12px; border-radius: 6px; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 5px;" title="Ver Informe">
+                            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                            Informe
+                        </button>
+                        <button onclick="eliminarEstudiante('${est.documento}')" style="background: #EF4444; color: white; border: none; padding: 6px 12px; border-radius: 6px; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 5px;" title="Eliminar">
+                            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+                        </button>
+                    </div>
+                </td>
+            </tr>`;
+        });
+    }
 };
 
 window.volverAGrupos = function() {
