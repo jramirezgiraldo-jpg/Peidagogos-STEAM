@@ -130,31 +130,41 @@
             padding: 0.2rem 1.5rem 0.5rem 1.5rem;
         }
 
-        /* HERO / LOGO SECTION */
-        .hero-center {
-            text-align: center;
+        /* HERO / LOGO SECTION (HORIZONTAL WITH LOGO ON LEFT) */
+        .hero-header {
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             align-items: center;
-            margin-bottom: 0.5rem;
+            justify-content: center;
+            gap: 2.2rem;
+            width: 100%;
+            max-width: 1050px;
+            margin-bottom: 0.3rem;
+            text-align: left;
         }
 
         .logo-img {
-            max-height: 145px;
+            max-height: 180px;
             width: auto;
             object-fit: contain;
-            filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.08));
+            filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.09));
             transition: transform 0.3s ease;
+            flex-shrink: 0;
         }
         .logo-img:hover {
-            transform: scale(1.03);
+            transform: scale(1.04);
+        }
+
+        .hero-text-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .hero-title {
-            font-size: 2.35rem;
+            font-size: 2.85rem;
             font-weight: 900;
-            line-height: 1.15;
-            margin-top: 0.35rem;
+            line-height: 1.1;
             letter-spacing: -0.5px;
             background: linear-gradient(135deg, #1E3A8A 0%, #2563EB 50%, #0284C7 100%);
             -webkit-background-clip: text;
@@ -162,12 +172,12 @@
         }
 
         .hero-subtitle {
-            font-size: 1.02rem;
+            font-size: 1.08rem;
             color: var(--text-muted);
-            max-width: 780px;
-            margin-top: 0.3rem;
+            max-width: 650px;
+            margin-top: 0.4rem;
             font-weight: 500;
-            line-height: 1.35;
+            line-height: 1.4;
         }
 
         /* PILLARS GRID (3 CARDS) */
@@ -176,7 +186,7 @@
             grid-template-columns: repeat(3, 1fr);
             gap: 1.4rem;
             width: 100%;
-            margin: 0.4rem 0;
+            margin: 0.3rem 0;
         }
 
         .card {
@@ -284,10 +294,11 @@
 
         /* RESPONSIVE ADAPTATIONS */
         @media (max-height: 760px) {
-            .logo-img { max-height: 115px; }
-            .hero-title { font-size: 1.95rem; }
-            .hero-subtitle { font-size: 0.92rem; }
-            .card { padding: 0.9rem 1rem; }
+            .logo-img { max-height: 140px; }
+            .hero-title { font-size: 2.3rem; }
+            .hero-subtitle { font-size: 0.95rem; }
+            .hero-header { gap: 1.5rem; }
+            .card { padding: 0.85rem 1rem; }
             .card h3 { font-size: 1.05rem; }
             .card p { font-size: 0.8rem; line-height: 1.38; }
             .card-icon-container { width: 38px; height: 38px; }
@@ -299,6 +310,14 @@
                 height: auto;
                 max-height: none;
                 overflow-y: auto;
+            }
+            .hero-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+            .hero-subtitle {
+                text-align: center;
             }
             .pillars-grid {
                 grid-template-columns: 1fr;
@@ -329,11 +348,13 @@
 
     <!-- MAIN SINGLE-VIEW CONTAINER -->
     <main class="main-container">
-        <!-- HERO CENTER (LOGO & TITLES) -->
-        <section class="hero-center">
+        <!-- HERO (LOGO ON LEFT, TEXT ON RIGHT) -->
+        <section class="hero-header">
             <img src="logo-peidagogos.png" alt="Logo Peidagogos STEAM" class="logo-img">
-            <h1 class="hero-title">Peidagogos STEAM</h1>
-            <p class="hero-subtitle">La solución definitiva y creativa al modelo de educación en casa (Homeschooling) y aprendizaje activo.</p>
+            <div class="hero-text-content">
+                <h1 class="hero-title">Peidagogos STEAM</h1>
+                <p class="hero-subtitle">La solución definitiva y creativa al modelo de educación en casa (Homeschooling) y aprendizaje activo.</p>
+            </div>
         </section>
 
         <!-- PILLARS (3 CARDS HORIZONTAL) -->
