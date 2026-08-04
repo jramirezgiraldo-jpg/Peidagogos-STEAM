@@ -1,4 +1,34 @@
 // ==========================================
+// UTILIDAD GLOBAL DE NORMALIZACIÓN DE GRADOS Y CICLOS
+// ==========================================
+window.normalizarGradoOCiclo = function(g) {
+    if (!g) return '6';
+    const str = String(g).trim();
+    const strLower = str.toLowerCase();
+    
+    if (strLower.includes('ciclo i') || strLower.includes('ciclo 1') || strLower === 'ciclo i') {
+        if (strLower.includes('ciclo iii') || strLower.includes('ciclo 3')) return 'Ciclo III';
+        if (strLower.includes('ciclo ii') || strLower.includes('ciclo 2')) return 'Ciclo II';
+        if (strLower.includes('ciclo iv') || strLower.includes('ciclo 4')) return 'Ciclo IV';
+        if (strLower.includes('ciclo vi') || strLower.includes('ciclo 6')) return 'Ciclo VI';
+        if (strLower.includes('ciclo v') || strLower.includes('ciclo 5')) return 'Ciclo V';
+        return 'Ciclo I';
+    }
+    if (strLower.includes('ciclo ii') || strLower.includes('ciclo 2')) return 'Ciclo II';
+    if (strLower.includes('ciclo iii') || strLower.includes('ciclo 3')) return 'Ciclo III';
+    if (strLower.includes('ciclo iv') || strLower.includes('ciclo 4')) return 'Ciclo IV';
+    if (strLower.includes('ciclo v') || strLower.includes('ciclo 5')) return 'Ciclo V';
+    if (strLower.includes('ciclo vi') || strLower.includes('ciclo 6')) return 'Ciclo VI';
+    if (strLower.includes('pens')) return 'PENS';
+    
+    // Regular grade: extract numeric part like "6", "7", "8", "9", "10", "11"
+    const match = str.match(/\b(10|11|[3-9])\b/) || str.match(/(10|11|[3-9])/);
+    if (match) return match[1];
+    
+    return str.replace(/[^0-9PENS]/g, '') || '6';
+};
+
+// ==========================================
 // MATRIZ FÍSICA INYECTADA (FASE 2)
 // ==========================================
 var mallaFisicaMontenegro = {
@@ -125,20 +155,33 @@ document.addEventListener("DOMContentLoaded", function() {
                 const data = await res.json();
                 
                 if (data.status === 'success') {
-                    loginView.style.display = "none";
+                    if (typeof mostrarVista === 'function') {
+                        // Usar función unificada SPA
+                    }
                     if (errorMsg) errorMsg.style.display = "none";
                     
-                    window.rol_actual = data.rol; usuario_actual = data.usuario; // Guardar ID del usuario actual
+                    window.rol_actual = data.rol; 
+                    usuario_actual = data.usuario; // Guardar ID del usuario actual
 
                     if (data.rol === 'admin') {
-                        if (dashboardView) dashboardView.style.display = "block";
+                        if (typeof mostrarVista === 'function') mostrarVista('dashboard-screen-container');
+                        else if (dashboardView) dashboardView.style.display = "block";
                         cargarDatosAdmin();
                     } else if (data.rol === 'docente') {
-                        if (docenteDashboardView) docenteDashboardView.style.display = "block";
+                        if (typeof mostrarVista === 'function') mostrarVista('docente-dashboard-container');
+                        else if (docenteDashboardView) docenteDashboardView.style.display = "block";
                         const dHeader = document.getElementById("docente-nombre-header");
                         if (dHeader) dHeader.innerText = data.nombre;
                         cargarEstudiantesDocente(data.usuario);
-                    } else { // Estudiante
+                    } else if (data.rol === 'homeschool_tutor') {
+                        if (typeof mostrarVista === 'function') mostrarVista('tutor-dashboard-container');
+                        const tutorView = document.getElementById("tutor-dashboard-container");
+                        if (tutorView) tutorView.style.display = "block";
+                        const tHeader = document.getElementById("tutor-nombre-header");
+                        if (tHeader) tHeader.innerText = data.nombre;
+                        cargarEstudiantesTutor(data.usuario);
+                    } else { // Estudiante regular o Validación
+                        if (typeof mostrarVista === 'function') mostrarVista('student-dashboard-container');
                         const studentView = document.getElementById("student-dashboard-container");
                         window.usuarioEstudianteActual = data;
                         localStorage.setItem('usuario_sesion', JSON.stringify(data));
@@ -151,6 +194,7 @@ document.addEventListener("DOMContentLoaded", function() {
                             const badgeMsg = document.getElementById("student-grade-badge");
                             if (badgeMsg) {
                                 let badgeText = [];
+                                if (data.rol === 'validacion') badgeText.push("🎓 Validación de Bachillerato");
                                 if (data.grado) badgeText.push("Grado " + data.grado);
                                 if (data.grupo) badgeText.push("Grupo " + data.grupo);
                                 badgeMsg.innerText = badgeText.length > 0 ? badgeText.join(" | ") : "Estudiante";
@@ -160,6 +204,48 @@ document.addEventListener("DOMContentLoaded", function() {
                             if (headerName) headerName.innerText = data.nombre;
                             const headerGrade = document.getElementById("header-student-grade");
                             if (headerGrade) headerGrade.innerText = data.grado || "N/A";
+
+                            // Banner de pago para Validación y Home School
+                            const bannerPago = document.getElementById("banner-pago-estado");
+                            if (bannerPago) {
+                                if (data.rol === 'validacion' || data.institucion === 'Validacion' || data.institucion === 'HomeSchool') {
+                                    bannerPago.style.display = "block";
+                                    if (data.pago_realizado) {
+                                        bannerPago.style.background = "#ECFDF5";
+                                        bannerPago.style.borderColor = "#10B981";
+                                        bannerPago.innerHTML = `
+                                            <div style="display: flex; align-items: center; gap: 12px;">
+                                                <span style="font-size: 1.8rem;">✅</span>
+                                                <div>
+                                                    <h4 style="margin: 0; color: #065F46; font-size: 1.1rem; font-weight: 800;">Matrícula y Acceso a Guías Habilitado</h4>
+                                                    <p style="margin: 2px 0 0 0; color: #047857; font-size: 0.9rem;">Tu pago está verificado. Tienes acceso ilimitado a todas las guías interactivas, simulacros y material de estudio.</p>
+                                                </div>
+                                            </div>
+                                        `;
+                                    } else {
+                                        const monto = (data.rol === 'validacion' || data.institucion === 'Validacion') ? 60000 : 50000;
+                                        const concepto = (data.rol === 'validacion' || data.institucion === 'Validacion') ? 'Acceso a Guías y Simulacros de Validación' : 'Matrícula Home School';
+                                        bannerPago.style.background = "#FEF3C7";
+                                        bannerPago.style.borderColor = "#F59E0B";
+                                        bannerPago.innerHTML = `
+                                            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
+                                                <div style="display: flex; align-items: center; gap: 12px;">
+                                                    <span style="font-size: 1.8rem;">⚠️</span>
+                                                    <div>
+                                                        <h4 style="margin: 0; color: #92400E; font-size: 1.1rem; font-weight: 800;">Acceso a Guías Pendiente de Pago</h4>
+                                                        <p style="margin: 2px 0 0 0; color: #B45309; font-size: 0.9rem;">Para desbloquear el contenido pedagógico de validación, cancela los derechos de acceso ($${monto.toLocaleString('es-CO')} COP).</p>
+                                                    </div>
+                                                </div>
+                                                <button onclick="abrirPasarelaPago({ concepto: '${concepto}', documento: '${data.documento || data.usuario}', monto: ${monto}, rol: '${data.rol}', callback: () => location.reload() })" style="background: linear-gradient(135deg, #F59E0B, #D97706); color: white; border: none; padding: 10px 20px; border-radius: 8px; font-weight: 800; cursor: pointer; box-shadow: 0 4px 10px rgba(217,119,6,0.3); display: flex; align-items: center; gap: 8px;">
+                                                    💳 Pagar Guías Ahora
+                                                </button>
+                                            </div>
+                                        `;
+                                    }
+                                } else {
+                                    bannerPago.style.display = "none";
+                                }
+                            }
                             
                             // Mostrar materias matriculadas
                             const subjectsGrid = document.getElementById("student-subjects-grid");
@@ -293,10 +379,24 @@ document.addEventListener("DOMContentLoaded", function() {
             const gra = document.getElementById("reg-grado") ? document.getElementById("reg-grado").value : "";
             let grupo = document.getElementById("registro-grupo") ? document.getElementById("registro-grupo").value : "";
             let asig = document.getElementById("registro-asignatura") ? document.getElementById("registro-asignatura").value : "";
+            const codigoInst = document.getElementById("reg-codigo-institucional") ? document.getElementById("reg-codigo-institucional").value.trim() : "";
 
-            if (!doc || !ap || !nom || !ed || !gen || (!gra && !grupo) || !asig) {
+            if (!doc || !ap || !nom || !ed || !gen || !ie || (!gra && !grupo) || !asig) {
                 alert("⚠️ Por favor, completa todos los campos.");
                 return;
+            }
+
+            // Validación estricta del código institucional para IE Instituto Montenegro
+            if (ie === "InstitutoMontenegro") {
+                if (codigoInst.toLowerCase() !== "ieinstituto2026") {
+                    alert("❌ Código institucional incorrecto.\n\nPara matricularte en la IE Instituto Montenegro debes ingresar el código oficial proporcionado por la institución (ieinstituto2026).");
+                    const codInput = document.getElementById("reg-codigo-institucional");
+                    if (codInput) {
+                        codInput.focus();
+                        codInput.style.borderColor = "#EF4444";
+                    }
+                    return;
+                }
             }
 
             let gradoFinal = gra || grupo;
@@ -318,10 +418,13 @@ document.addEventListener("DOMContentLoaded", function() {
                 edad: ed,
                 genero: gen,
                 institucion: ie,
+                codigo_institucional: codigoInst,
                 grado: gradoFinal,
                 grupo: grupoFinal,
                 asignatura: asig,
-                materias: [asig]
+                materias: asig.split(',').map(s => s.trim()),
+                pago_realizado: ie === "InstitutoMontenegro" ? true : false,
+                suscrito: ie === "InstitutoMontenegro" ? true : false
             };
 
             fetch("/api/registro-estudiante", {
@@ -330,10 +433,20 @@ document.addEventListener("DOMContentLoaded", function() {
                 body: JSON.stringify(payload)
             }).then(async r => {
                 if(r.ok) { 
-                    alert("✅ ¡Estudiante matriculado exitosamente!"); location.reload(); 
+                    const bienvenidaMsg = ie === "InstitutoMontenegro"
+                        ? "✅ ¡Matrícula institucional exitosa en la IE Instituto Montenegro! Tienes acceso total ilimitado."
+                        : "✅ ¡Matrícula completada exitosamente! Recuerda que tienes la 1ª Guía de cada materia 100% GRATIS de prueba.";
+                    alert(bienvenidaMsg); 
+                    location.reload(); 
                 } else {
-                    const errMsg = await r.text();
-                    alert("❌ Error del servidor (" + r.status + "): " + errMsg);
+                    let errMsg = "Error al procesar la matrícula";
+                    try {
+                        const errData = await r.json();
+                        errMsg = errData.error || errMsg;
+                    } catch(e) {
+                        errMsg = await r.text();
+                    }
+                    alert("❌ Error: " + errMsg);
                 }
             }).catch(err => {
                 alert("❌ Error crítico: El servidor backend está apagado o inaccesible.");
@@ -461,6 +574,11 @@ async function cargarEstudiantesDocente(docenteId) {
                         <td style="padding: 10px;">${est.documento || ''}</td>
                         <td style="padding: 10px; font-weight: bold;">${est.nombre || ''} ${est.apellidos || ''}</td>
                         <td style="padding: 10px;">${est.grado || ''}° - ${est.grupo || ''} (${est.asignatura || ''})</td>
+                        <td style="padding: 10px; text-align: center;">
+                            <button onclick="verInformeEstudiante('${est.nombre || ''} ${est.apellidos || ''}', 0, '${est.grupo || est.grado || ''}', '${est.documento}')" style="background: #2563EB; color: white; border: none; padding: 6px 12px; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 0.8rem; display: inline-flex; align-items: center; gap: 4px;">
+                                📊 Ver Guías / Orientar
+                            </button>
+                        </td>
                     </tr>`;
                 }
             });
@@ -692,39 +810,89 @@ function renderizarTablaAdmin() {
 }
 
 
-function obtenerMateriasPorGrupo(grupoName) {
-    if (grupoName === '6A' || grupoName === '6B') {
-        return [{ nombre: 'Física', horas: '2h', estado: 'Pendiente', color: '#6B7280' }];
-    } else if (grupoName === '7A') {
+function obtenerMateriasPorGrupo(grupoName, est) {
+    if (est && est.asignatura) {
+        const asigs = est.asignatura.split(',').map(s => s.trim()).filter(Boolean);
+        if (asigs.length > 0) {
+            return asigs.map(a => ({ nombre: a, horas: 'Semanal', estado: 'Habilitada', color: '#10B981' }));
+        }
+    }
+    if (est && Array.isArray(est.materias) && est.materias.length > 0) {
+        return est.materias.map(a => ({ nombre: typeof a === 'string' ? a : (a.nombre || a), horas: 'Semanal', estado: 'Habilitada', color: '#10B981' }));
+    }
+
+    if (!grupoName) return [{ nombre: 'Ciencias Naturales', horas: '2h', estado: 'Habilitada', color: '#10B981' }];
+
+    const gUpper = String(grupoName).toUpperCase().trim();
+    if (gUpper === '6A' || gUpper === '6B') {
+        return [{ nombre: 'Física', horas: '2h', estado: 'Habilitada', color: '#10B981' }];
+    } else if (gUpper === '7A') {
         return [
-            { nombre: 'Turismo', horas: '1h', estado: 'Pendiente', color: '#6B7280' },
-            { nombre: 'Física', horas: '3h', estado: 'Pendiente', color: '#6B7280' }
+            { nombre: 'Turismo', horas: '1h', estado: 'Habilitada', color: '#10B981' },
+            { nombre: 'Física', horas: '3h', estado: 'Habilitada', color: '#10B981' }
         ];
-    } else if (grupoName === '7B') {
+    } else if (gUpper === '7B') {
         return [
-            { nombre: 'Turismo', horas: '1h', estado: 'Pendiente', color: '#6B7280' },
-            { nombre: 'Física', horas: '2h', estado: 'Pendiente', color: '#6B7280' }
+            { nombre: 'Turismo', horas: '1h', estado: 'Habilitada', color: '#10B981' },
+            { nombre: 'Física', horas: '2h', estado: 'Habilitada', color: '#10B981' }
         ];
-    } else if (grupoName === '7C') {
+    } else if (gUpper === '7C') {
         return [
-            { nombre: 'Turismo', horas: '1h', estado: 'Pendiente', color: '#6B7280' },
-            { nombre: 'Ética', horas: '1h', estado: 'Pendiente', color: '#6B7280' },
-            { nombre: 'Física', horas: '2h', estado: 'Pendiente', color: '#6B7280' }
+            { nombre: 'Turismo', horas: '1h', estado: 'Habilitada', color: '#10B981' },
+            { nombre: 'Ética', horas: '1h', estado: 'Habilitada', color: '#10B981' },
+            { nombre: 'Física', horas: '2h', estado: 'Habilitada', color: '#10B981' }
         ];
-    } else if (grupoName === '8A' || grupoName === '8B' || grupoName === '9A') {
-        return [{ nombre: 'Artística', horas: '1h', estado: 'Pendiente', color: '#6B7280' }];
-    } else if (grupoName === '10A' || grupoName === '10D') {
-        return [{ nombre: 'Ética', horas: '1h', estado: 'Pendiente', color: '#6B7280' }];
-    } else if (grupoName === 'PENS') {
+    } else if (gUpper === '8A' || gUpper === '8B' || gUpper === '9A') {
+        return [{ nombre: 'Artística', horas: '1h', estado: 'Habilitada', color: '#10B981' }];
+    } else if (gUpper === '10A' || gUpper === '10D') {
+        return [{ nombre: 'Ética', horas: '1h', estado: 'Habilitada', color: '#10B981' }];
+    } else if (gUpper === 'PENS') {
         return [
-            { nombre: 'Turismo', horas: '1h', estado: 'Pendiente', color: '#6B7280' },
-            { nombre: 'Química', horas: '2h', estado: 'Pendiente', color: '#6B7280' }
+            { nombre: 'Turismo', horas: '1h', estado: 'Habilitada', color: '#10B981' },
+            { nombre: 'Química', horas: '2h', estado: 'Habilitada', color: '#10B981' }
         ];
-    } else if (grupoName.includes('Ciclo')) {
-        // TODOS los ciclos del nocturno (I al VI) → solo Ciencias Naturales
-        return [{ nombre: 'Ciencias Naturales', horas: '2h', estado: 'Pendiente', color: '#059669' }];
+    } else if (gUpper.includes('CICLO')) {
+        return [{ nombre: 'Ciencias Naturales', horas: '2h', estado: 'Habilitada', color: '#059669' }];
+    } else if (gUpper === '3' || gUpper === '4' || gUpper === '5' || gUpper.includes('PRIMARIA')) {
+        return [
+            { nombre: 'Matemáticas', horas: '5h', estado: 'Habilitada', color: '#10B981' },
+            { nombre: 'Ciencias Naturales', horas: '4h', estado: 'Habilitada', color: '#10B981' },
+            { nombre: 'Lengua Castellana', horas: '5h', estado: 'Habilitada', color: '#10B981' },
+            { nombre: 'Ciencias Sociales', horas: '3h', estado: 'Habilitada', color: '#10B981' },
+            { nombre: 'Inglés', horas: '3h', estado: 'Habilitada', color: '#10B981' },
+            { nombre: 'Tecnología', horas: '2h', estado: 'Habilitada', color: '#10B981' }
+        ];
+    } else if (['6', '7', '8', '9'].includes(gUpper) || gUpper.includes('SECUNDARIA') || gUpper.startsWith('HS-') || gUpper.startsWith('VAL-')) {
+        return [
+            { nombre: 'Matemáticas', horas: '4h', estado: 'Habilitada', color: '#10B981' },
+            { nombre: 'Ciencias Naturales', horas: '4h', estado: 'Habilitada', color: '#10B981' },
+            { nombre: 'Física', horas: '3h', estado: 'Habilitada', color: '#10B981' },
+            { nombre: 'Lengua Castellana', horas: '4h', estado: 'Habilitada', color: '#10B981' },
+            { nombre: 'Ciencias Sociales', horas: '3h', estado: 'Habilitada', color: '#10B981' },
+            { nombre: 'Inglés', horas: '3h', estado: 'Habilitada', color: '#10B981' },
+            { nombre: 'Tecnología', horas: '2h', estado: 'Habilitada', color: '#10B981' },
+            { nombre: 'Ética', horas: '1h', estado: 'Habilitada', color: '#10B981' },
+            { nombre: 'Artística', horas: '1h', estado: 'Habilitada', color: '#10B981' }
+        ];
+    } else if (['10', '11'].includes(gUpper) || gUpper.includes('MEDIA')) {
+        return [
+            { nombre: 'Matemáticas', horas: '4h', estado: 'Habilitada', color: '#10B981' },
+            { nombre: 'Física', horas: '4h', estado: 'Habilitada', color: '#10B981' },
+            { nombre: 'Química', horas: '4h', estado: 'Habilitada', color: '#10B981' },
+            { nombre: 'Lengua Castellana', horas: '4h', estado: 'Habilitada', color: '#10B981' },
+            { nombre: 'Ciencias Sociales', horas: '3h', estado: 'Habilitada', color: '#10B981' },
+            { nombre: 'Filosofía', horas: '2h', estado: 'Habilitada', color: '#10B981' },
+            { nombre: 'Inglés', horas: '3h', estado: 'Habilitada', color: '#10B981' },
+            { nombre: 'Tecnología', horas: '2h', estado: 'Habilitada', color: '#10B981' }
+        ];
     } else {
-        return [{ nombre: 'Asignaturas Básicas', horas: 'Varias', estado: 'Pendiente', color: '#6B7280' }];
+        return [
+            { nombre: 'Matemáticas', horas: '4h', estado: 'Habilitada', color: '#10B981' },
+            { nombre: 'Ciencias Naturales', horas: '4h', estado: 'Habilitada', color: '#10B981' },
+            { nombre: 'Lengua Castellana', horas: '4h', estado: 'Habilitada', color: '#10B981' },
+            { nombre: 'Ciencias Sociales', horas: '3h', estado: 'Habilitada', color: '#10B981' },
+            { nombre: 'Inglés', horas: '3h', estado: 'Habilitada', color: '#10B981' }
+        ];
     }
 }
 
@@ -951,7 +1119,150 @@ window.mallaEtica = {
 };
 
 window.mallaMatematicas = {
-    '6': { objetivo: 'Desarrollar el pensamiento numérico y espacial.', periodos: { '1': { '1': 'Sistemas Numéricos (Números Enteros).', '2': 'Operaciones Básicas con Enteros.' } } }
+    '3': {
+        objetivo: 'Desarrollar el pensamiento numérico y el cálculo mental con números naturales, suma, resta y multiplicación básica.',
+        periodos: {
+            '1': { '1': 'El sistema de numeración decimal y valor posicional.', '3': 'Adición y sustracción con situaciones problema.', '5': 'Introducción a la multiplicación como suma repetida.', '7': 'Tablas de multiplicar y propiedades.' },
+            '2': { '1': 'Multiplicación por una y dos cifras.', '3': 'Reparto equitativo e iniciación a la división.', '5': 'Figuras geométricas básicas y simetría.', '7': 'Medición de longitud y tiempo (reloj y calendario).' },
+            '3': { '1': 'División exacta e inexacta.', '3': 'Fracciones como parte de la unidad.', '5': 'Representación de datos en tablas y pictogramas.', '7': 'Resolución de problemas cotidianos.' },
+            '4': { '1': 'Cálculo de perímetros en figuras planas.', '3': 'Unidades de masa y capacidad.', '5': 'Patrones numéricos y secuencias.', '7': 'Proyecto de aplicación matemática.' }
+        }
+    },
+    '4': {
+        objetivo: 'Dominar las operaciones básicas con números naturales, fracciones y conceptos iniciales de geometría y estadística.',
+        periodos: {
+            '1': { '1': 'Números de más de seis cifras y operaciones combinadas.', '3': 'Múltiplos, divisores y criterios de divisibilidad.', '5': 'Números primos y compuestos.', '7': 'Resolución de problemas con las 4 operaciones.' },
+            '2': { '1': 'Concepto y representación de fracciones.', '3': 'Fracciones equivalentes y simplificación.', '5': 'Suma y resta de fracciones homogéneas.', '7': 'Clasificación de ángulos y triángulos.' },
+            '3': { '1': 'Números decimales y su relación con fracciones.', '3': 'Operaciones con números decimales en dinero y medidas.', '5': 'Cálculo de área de rectángulos y triángulos.', '7': 'Gráficos de barras y moda estadística.' },
+            '4': { '1': 'Medidas de volumen y capacidad.', '3': 'Probabilidad simple en juegos cotidianos.', '5': 'Ecuaciones sencillas con incógnita.', '7': 'Taller de razonamiento lógico.' }
+        }
+    },
+    '5': {
+        objetivo: 'Consolidar el pensamiento numérico, proporcionalidad, operaciones con decimales y fracciones, y preparación básica para secundaria.',
+        periodos: {
+            '1': { '1': 'Teoría de números: MCM y MCD en problemas prácticos.', '3': 'Operaciones con fracciones heterogéneas.', '5': 'Multiplicación y división de fracciones.', '7': 'Potenciación y radicación básica.' },
+            '2': { '1': 'Operaciones combinadas con decimales.', '3': 'Razones y proporciones.', '5': 'Regla de tres simple directa e inversa.', '7': 'Porcentajes e interés en compras cotidianas.' },
+            '3': { '1': 'Polígonos regulares y área de figuras compuestas.', '3': 'Volumen de prismas rectangulares.', '5': 'Transformaciones en el plano (traslación y rotación).', '7': 'Medidas de tendencia central: media y mediana.' },
+            '4': { '1': 'Interpretación de diagramas circulares.', '3': 'Concepto de variable y patrones algebraicos.', '5': 'Preparación Pruebas Saber 5° Matemáticas.', '7': 'Proyecto de emprendimiento numérico.' }
+        }
+    },
+    '6': {
+        objetivo: 'Comprender el conjunto de los números enteros, geometría básica y pensamiento variacional.',
+        periodos: {
+            '1': { '1': 'El conjunto de los números enteros (Z) y la recta numérica.', '3': 'Suma y resta de números enteros en balances y temperaturas.', '5': 'Multiplicación y división de enteros (ley de signos).', '7': 'Polinomios aritméticos y signos de agrupación.' },
+            '2': { '1': 'Potenciación y radicación en Z.', '3': 'Ecuaciones lineales de primer grado en enteros.', '5': 'Elementos fundamentales de la geometría: punto, recta y plano.', '7': 'Construcción y clasificación de polígonos.' },
+            '3': { '1': 'El conjunto de los números racionales (Q).', '3': 'Operaciones con racionales (fracciones y decimales).', '5': 'Unidades de longitud, área y conversión de unidades.', '7': 'Población, muestra y tablas de frecuencia.' },
+            '4': { '1': 'Razones, proporciones y proporcionalidad directa.', '3': 'Diagramas de barras y circulares.', '5': 'Probabilidad frecuencial.', '7': 'Taller de integración matemática.' }
+        }
+    },
+    '7': {
+        objetivo: 'Dominar las operaciones con números racionales, proporcionalidad, semejanza y estadística inferencial básica.',
+        periodos: {
+            '1': { '1': 'Operaciones avanzadas con números racionales (Q).', '3': 'Potenciación y propiedades en Q.', '5': 'Notación científica y números muy grandes o pequeños.', '7': 'Ecuaciones en el conjunto de racionales.' },
+            '2': { '1': 'Magnitudes directas e inversamente proporcionales.', '3': 'Regla de tres compuesta y aplicaciones.', '5': 'Porcentajes, descuentos e IVA en finanzas.', '7': 'Círculo, circunferencia y cálculo de Pi.' },
+            '3': { '1': 'Teorema de Tales y proporcionalidad geométrica.', '3': 'Criterios de congruencia y semejanza de triángulos.', '5': 'Áreas sombreadas y figuras complejas.', '7': 'Medidas de tendencia central para datos agrupados.' },
+            '4': { '1': 'Experimentos aleatorios y espacio muestral.', '3': 'Modelación de relaciones lineales.', '5': 'Análisis de datos en situaciones reales.', '7': 'Proyecto de investigación matemática.' }
+        }
+    },
+    '8': {
+        objetivo: 'Comprender el lenguaje algebraico, operaciones con polinomios, productos notables y factorización.',
+        periodos: {
+            '1': { '1': 'Introducción al Álgebra: expresiones algebraicas y términos.', '3': 'Suma y resta de polinomios.', '5': 'Multiplicación de monomios y polinomios.', '7': 'División de polinomios y regla de Ruffini.' },
+            '2': { '1': 'Productos notables (binomio al cuadrado y al cubo).', '3': 'Cocientes notables.', '5': 'Factorización: Factor común y agrupación.', '7': 'Factorización: Trinomios de la forma x²+bx+c y ax²+bx+c.' },
+            '3': { '1': 'Factorización: Diferencia y suma de cubos y cuadrados.', '3': 'Fracciones algebraicas y simplificación.', '5': 'Teorema de Pitágoras y aplicaciones.', '7': 'Área y volumen de cuerpos geométricos.' },
+            '4': { '1': 'Ecuaciones fraccionarias.', '3': 'Medidas de dispersión: rango y varianza.', '5': 'Diagramas de dispersión y correlación.', '7': 'Taller de resolución algebraica.' }
+        }
+    },
+    '9': {
+        objetivo: 'Dominar la función lineal, sistemas de ecuaciones 2x2, números complejos y función cuadrática.',
+        periodos: {
+            '1': { '1': 'El conjunto de los números reales (R) y radicales.', '3': 'Racionalización de denominadores.', '5': 'Números complejos e imaginarios.', '7': 'Función lineal, pendiente y ecuación de la recta.' },
+            '2': { '1': 'Sistemas de ecuaciones lineales 2x2 (método gráfico y sustitución).', '3': 'Sistemas 2x2 (método de igualación y reducción).', '5': 'Regla de Cramer (determinantes).', '7': 'Problemas de aplicación con sistemas de ecuaciones.' },
+            '3': { '1': 'Función cuadrática y gráfica de la parábola.', '3': 'Ecuación cuadrática por factorización y fórmula general.', '5': 'Discriminante y naturaleza de las raíces.', '7': 'Cuerpos redondos: cilindro, cono y esfera.' },
+            '4': { '1': 'Sucesiones aritméticas y geométricas.', '3': 'Combinatoria y permutaciones.', '5': 'Probabilidad condicional.', '7': 'Preparación Saber 9°.' }
+        }
+    },
+    '10': {
+        objetivo: 'Comprender la trigonometría analítica, identidades, leyes del seno y coseno, y geometría analítica.',
+        periodos: {
+            '1': { '1': 'Ángulos, sistemas de medición (grados y radianes).', '3': 'Razones trigonométricas en el triángulo rectángulo.', '5': 'Círculo unitario y funciones trigonométricas.', '7': 'Gráficas de seno, coseno y tangente.' },
+            '2': { '1': 'Identidades trigonométricas fundamentales.', '3': 'Demostración de identidades trigonométricas.', '5': 'Ecuaciones trigonométricas.', '7': 'Ley del Seno y Ley del Coseno en triángulos oblicuángulos.' },
+            '3': { '1': 'Geometría analítica: Distancia entre dos puntos y punto medio.', '3': 'Ecuación de la recta y posiciones relativas.', '5': 'Secciones cónicas: La circunferencia.', '7': 'Secciones cónicas: La parábola y la elipse.' },
+            '4': { '1': 'Vectores en el plano y operaciones.', '3': 'Distribuciones de probabilidad binomial.', '5': 'Lectura crítica de tablas Saber 10°.', '7': 'Taller de trigonometría aplicada.' }
+        }
+    },
+    '11': {
+        objetivo: 'Dominar el cálculo diferencial, límites, derivadas, optimización y preparación integral Saber 11 Matemáticas.',
+        periodos: {
+            '1': { '1': 'Desigualdades e inecuaciones en los números reales.', '3': 'Funciones reales, dominio, rango y asíntotas.', '5': 'Concepto intuitivo y formal de límite.', '7': 'Cálculo algebraico de límites y límites al infinito.' },
+            '2': { '1': 'Continuidad de funciones.', '3': 'Concepto de derivada como razón de cambio instantánea.', '5': 'Reglas de derivación (suma, producto, cociente y cadena).', '7': 'Derivadas de funciones trigonométricas y exponenciales.' },
+            '3': { '1': 'Aplicaciones de la derivada: Máximos, mínimos y concavidad.', '3': 'Problemas de optimización en economía e ingeniería.', '5': 'Introducción a la antiderivada e integral.', '7': 'Simulacros y análisis de evidencias ICFES Saber 11.' },
+            '4': { '1': 'Estadística inferencial y distribución normal.', '3': 'Toma de decisiones bajo incertidumbre.', '5': 'Entrenamiento intensivo en razonamiento cuantitativo Saber 11.', '7': 'Evaluación final y proyecto de egreso.' }
+        }
+    },
+    'Ciclo I': {
+        objetivo: 'Desarrollar habilidades matemáticas esenciales para la vida cotidiana: conteo, sumas, restas y manejo de dinero.',
+        periodos: {
+            '1': { '1': 'Los números naturales en la vida diaria y el conteo.', '3': 'Suma y resta aplicadas a compras y cuentas del hogar.', '5': 'Organización del presupuesto familiar.', '7': 'Manejo del dinero y cálculo de cambio.' },
+            '2': { '1': 'Introducción a la multiplicación.', '3': 'Lectura del reloj y medidas de tiempo.', '5': 'Medición de longitudes con cinta métrica.', '7': 'Formas geométricas en el entorno.' },
+            '3': { '1': 'Reparto equitativo e iniciación a la división.', '3': 'Fracciones cotidianas (medio kilo, un cuarto de litro).', '5': 'Tablas y listas de control en el trabajo.', '7': 'Resolución de problemas prácticos.' },
+            '4': { '1': 'Unidades de peso (gramos, kilos, libras).', '3': 'Cálculo de vueltas y descuentos simples.', '5': 'Planificación financiera personal.', '7': 'Proyecto de aplicación.' }
+        }
+    },
+    'Ciclo II': {
+        objetivo: 'Fortalecer el cálculo numérico, las 4 operaciones básicas, fracciones y geometría práctica para adultos.',
+        periodos: {
+            '1': { '1': 'Las cuatro operaciones básicas con números grandes.', '3': 'Resolución de problemas laborales y comerciales.', '5': 'Múltiplos y divisores aplicados.', '7': 'Fracciones y su uso en recetas y construcción.' },
+            '2': { '1': 'Suma y resta de fracciones.', '3': 'Números decimales y dinero.', '5': 'Cálculo de perímetros y áreas de terrenos.', '7': 'Lectura de facturas de servicios públicos.' },
+            '3': { '1': 'Multiplicación y división con decimales.', '3': 'Regla de tres simple y porcentajes.', '5': 'Intereses en préstamos y compras a plazos.', '7': 'Gráficos sencillos en medios de comunicación.' },
+            '4': { '1': 'Medidas de capacidad y volumen en el hogar.', '3': 'Promedios y estadísticas básicas.', '5': 'Presupuesto de microempresa.', '7': 'Taller integrador.' }
+        }
+    },
+    'Ciclo III': {
+        objetivo: 'Dominar los números enteros, racionales, porcentajes y resolución de problemas prácticos de validación.',
+        periodos: {
+            '1': { '1': 'Números enteros: saldos a favor, deudas y variaciones térmicas.', '3': 'Operaciones con enteros y ley de signos.', '5': 'Números racionales y fracciones equivalentes.', '7': 'Operaciones combinadas con racionales.' },
+            '2': { '1': 'Proporcionalidad directa e inversa.', '3': 'Porcentajes, IVA y descuentos comerciales.', '5': 'Geometría plana: cálculo de áreas de lotes y habitaciones.', '7': 'Teorema de Pitágoras en la construcción.' },
+            '3': { '1': 'Introducción a las ecuaciones de primer grado.', '3': 'Despeje de fórmulas en la vida práctica.', '5': 'Lectura de tablas de frecuencias y porcentajes.', '7': 'Gráficos de barras y líneas para análisis de datos.' },
+            '4': { '1': 'Conversión de unidades métricas e imperiales.', '3': 'Probabilidad cotidiana.', '5': 'Preparación para pruebas de ciclo.', '7': 'Proyecto de emprendimiento.' }
+        }
+    },
+    'Ciclo IV': {
+        objetivo: 'Comprender el álgebra fundamental, ecuaciones, sistemas 2x2 y geometría analítica para validantes.',
+        periodos: {
+            '1': { '1': 'Expresiones algebraicas y valor numérico en fórmulas.', '3': 'Operaciones con polinomios.', '5': 'Productos notables y factorización clave.', '7': 'Ecuaciones lineales aplicadas.' },
+            '2': { '1': 'Función lineal y gráficas de costo-beneficio.', '3': 'Sistemas de ecuaciones 2x2 en problemas de mezclas y finanzas.', '5': 'Ecuación cuadrática y sus aplicaciones.', '7': 'Área y volumen de tanques y cilindros.' },
+            '3': { '1': 'Razonamiento lógico y secuencias.', '3': 'Estadística: promedio, moda y mediana en reportes.', '5': 'Interpretación de diagramas circulares.', '7': 'Probabilidad en decisiones cotidianas.' },
+            '4': { '1': 'Entrenamiento en preguntas tipo Saber Ciclo IV.', '3': 'Modelado de situaciones financieras.', '5': 'Simulacro de validación.', '7': 'Cierre del ciclo.' }
+        }
+    },
+    'Ciclo V': {
+        objetivo: 'Dominar la trigonometría, funciones, geometría analítica y razonamiento cuantitativo para validación.',
+        periodos: {
+            '1': { '1': 'Razones trigonométricas en triángulos rectángulos.', '3': 'Aplicaciones de la trigonometría en topografía y distancias.', '5': 'Funciones trigonométricas y sus gráficas.', '7': 'Ley del Seno y Coseno.' },
+            '2': { '1': 'Geometría analítica: La recta y pendientes.', '3': 'Circunferencia y parábola en la tecnología.', '5': 'Desigualdades e inecuaciones.', '7': 'Funciones exponenciales y logarítmicas en finanzas.' },
+            '3': { '1': 'Lectura crítica de tablas y gráficos Saber 11.', '3': 'Análisis de dispersión estadística.', '5': 'Probabilidad condicional en diagnósticos.', '7': 'Resolución de problemas complejos.' },
+            '4': { '1': 'Estrategias de respuesta rápida en pruebas de Estado.', '3': 'Simulacros intensivos de matemáticas.', '5': 'Retroalimentación de errores comunes.', '7': 'Proyecto vocacional.' }
+        }
+    },
+    'Ciclo VI': {
+        objetivo: 'Consolidar el cálculo, análisis de razones de cambio, optimización y preparación final Saber 11 Validación.',
+        periodos: {
+            '1': { '1': 'Funciones reales, modelos de crecimiento y decrecimiento.', '3': 'Concepto de límite y continuidad.', '5': 'La derivada como razón de cambio instantánea.', '7': 'Reglas básicas de derivación.' },
+            '2': { '1': 'Optimización: maximizar ganancias y minimizar costos.', '3': 'Interpretación de gráficas de derivadas.', '5': 'Noción de integral y acumulación.', '7': 'Modelado matemático de situaciones reales.' },
+            '3': { '1': 'Razonamiento cuantitativo Saber 11 (Módulo oficial MEN).', '3': 'Estadística inferencial y toma de decisiones.', '5': 'Geometría espacial y cálculo de volúmenes complejos.', '7': 'Simulacro completo Saber 11 con retroalimentación.' },
+            '4': { '1': 'Resolución de ítems de alta dificultad.', '3': 'Manejo del tiempo y técnicas de examen.', '5': 'Validación final de competencias matemáticas.', '7': 'Proyecto de grado y graduación.' }
+        }
+    },
+    'PENS': {
+        objetivo: 'Aplicar matemáticas operativas, financieras y de razonamiento lógico en contextos productivos.',
+        periodos: {
+            '1': { '1': 'Operaciones con números reales y porcentajes.', '3': 'Regla de tres y proporcionalidad.', '5': 'Presupuestos y costos de producción.', '7': 'Ecuaciones de primer grado en finanzas.' },
+            '2': { '1': 'Cálculo de áreas y volúmenes en obra y almacenamiento.', '3': 'Funciones lineales de oferta y demanda.', '5': 'Manejo de hojas de cálculo y estadísticas.', '7': 'Gráficos de control de calidad.' },
+            '3': { '1': 'Interés simple y compuesto.', '3': 'Amortización de préstamos e inversiones.', '5': 'Interpretación de datos para la toma de decisiones.', '7': 'Modelos de optimización sencillos.' },
+            '4': { '1': 'Evaluación económica de proyectos.', '3': 'Simulacros de validación de matemáticas.', '5': 'Taller de lógica y razonamiento.', '7': 'Proyecto productivo final.' }
+        }
+    }
 };
 
 window.mallaQuimica = {
@@ -1172,142 +1483,568 @@ window.mallaNaturales = {
 };
 
 window.mallaSociales = {
-    '6': { objetivo: 'Identificar el espacio geográfico y el universo.', periodos: { '1': { '1': 'Geografía Física.', '2': 'El Sistema Solar.' } } }
-};
-window.mallaCastellano = {
-    '6': { objetivo: 'Fortalecer la comprensión lectora.', periodos: { '1': { '1': 'Tipos de Textos.', '2': 'Estructura del Cuento.' } } }
+    '3': {
+        objetivo: 'Reconocer el municipio, las normas de convivencia, la historia local y la geografía del departamento.',
+        periodos: {
+            '1': { '1': 'El municipio y sus autoridades.', '3': 'El paisaje rural y el paisaje urbano.', '5': 'Puntos cardinales y orientación.', '7': 'Normas de convivencia escolar y comunitaria.' },
+            '2': { '1': 'El departamento y sus municipios principales.', '3': 'Relieve, ríos y clima del departamento.', '5': 'Primeros pobladores y comunidades indígenas locales.', '7': 'Tradiciones, fiestas y gastronomía regional.' },
+            '3': { '1': 'Recursos naturales y su cuidado.', '3': 'Actividades económicas del municipio (agricultura, comercio, turismo).', '5': 'Servicios públicos y su importancia.', '7': 'Los derechos de los niños y deberes ciudadanos.' },
+            '4': { '1': 'Símbolos municipales y departamentales.', '3': 'Medios de transporte y vías de comunicación.', '5': 'Prevención de desastres en la comunidad.', '7': 'Feria de saberes locales.' }
+        }
+    },
+    '4': {
+        objetivo: 'Comprender la geografía de Colombia, regiones naturales, diversidad étnica y la organización del Estado.',
+        periodos: {
+            '1': { '1': 'Ubicación geográfica y astronómica de Colombia.', '3': 'Relieve colombiano: las tres cordilleras y valles interandinos.', '5': 'Hidrografía de Colombia: ríos principales y vertientes.', '7': 'Climas y pisos térmicos en Colombia.' },
+            '2': { '1': 'Las regiones naturales de Colombia (Andina, Caribe, Pacífica, Orinoquía, Amazonía, Insular).', '3': 'Diversidad cultural, grupos étnicos y afrocolombianidad.', '5': 'Parques nacionales naturales y biodiversidad.', '7': 'Problemas ambientales en Colombia y conservación.' },
+            '3': { '1': 'Culturas indígenas prehispánicas de Colombia (Muiscas, Taironas, Quimbayas).', '3': 'El Descubrimiento y la Conquista en territorio colombiano.', '5': 'La época colonial: economía, sociedad y gobierno.', '7': 'El grito de Independencia y la Campaña Libertadora.' },
+            '4': { '1': 'La Constitución Política de Colombia de 1991: derechos fundamentales.', '3': 'Ramas del poder público en Colombia.', '5': 'Participación ciudadana en la escuela y el barrio.', '7': 'Proyecto: Conociendo a mi Colombia.' }
+        }
+    },
+    '5': {
+        objetivo: 'Analizar la historia de Colombia en el siglo XIX y XX, la economía nacional y los derechos humanos.',
+        periodos: {
+            '1': { '1': 'La Gran Colombia y su disolución.', '3': 'Partidos políticos tradicionales (Liberal y Conservador) y guerras civiles del siglo XIX.', '5': 'La Constitución de 1886 y la Regeneración.', '7': 'La Guerra de los Mil Días y la pérdida de Panamá.' },
+            '2': { '1': 'Colombia en la primera mitad del siglo XX: economía cafetera e industrialización.', '3': 'El Bogotazo y el periodo de La Violencia.', '5': 'El Frente Nacional y sus consecuencias.', '7': 'Surgimiento de los movimientos sociales y guerrilleros.' },
+            '3': { '1': 'Sectores de la economía colombiana (primario, secundario, terciario, cuaternario).', '3': 'El comercio exterior: importaciones y exportaciones de Colombia.', '5': 'La población colombiana: demografía, migración y desplazamientos.', '7': 'Derechos Humanos y mecanismos de protección (tutela, derecho de petición).' },
+            '4': { '1': 'La Constitución de 1991 y el Estado Social de Derecho.', '3': 'Preparación Saber 5° Sociales y Ciudadanas.', '5': 'Cultura de paz y resolución de conflictos.', '7': 'Foro escolar de historia y ciudadanía.' }
+        }
+    },
+    '6': {
+        objetivo: 'Comprender el origen del universo, la Tierra, las primeras civilizaciones fluviales y la antigüedad clásica.',
+        periodos: {
+            '1': { '1': 'El origen del universo y del planeta Tierra (teorías científicas y mitológicas).', '3': 'Estructura interna de la Tierra, placas tectónicas y relieve.', '5': 'Coordenadas geográficas: latitud, longitud, husos horarios y mapas.', '7': 'El proceso de hominización y la prehistoria (Paleolítico y Neolítico).' },
+            '2': { '1': 'Civilizaciones fluviales: Mesopotamia (Sumeria, Babilonia) y el Código de Hammurabi.', '3': 'El Antiguo Egipto: faraones, pirámides, religión y sociedad.', '5': 'Civilizaciones de Oriente: Antigua India y Antigua China.', '7': 'Aportes culturales, científicos y tecnológicos de las civilizaciones antiguas.' },
+            '3': { '1': 'La Antigua Grecia: polis (Atenas y Esparta), democracia y filosofía.', '3': 'El Helenismo y las conquistas de Alejandro Magno.', '5': 'La Antigua Roma: Monarquía, República e Imperio Romano.', '7': 'El Derecho Romano, el cristianismo primitivo y la caída del Imperio Romano.' },
+            '4': { '1': 'Geografía física de los continentes (África, Asia, Europa, América, Oceanía).', '3': 'El agua como recurso estratégico mundial.', '5': 'Patrimonio histórico de la humanidad.', '7': 'Muestra de civilizaciones de la antigüedad.' }
+        }
+    },
+    '7': {
+        objetivo: 'Analizar la Edad Media, el Renacimiento, el Islam, las civilizaciones prehispánicas de América y la geografía humana.',
+        periodos: {
+            '1': { '1': 'La Edad Media en Europa: el Feudalismo, sociedad estamental y economía señorial.', '3': 'El papel de la Iglesia Católica y las Cruzadas.', '5': 'El Imperio Bizantino y el Imperio Carolingio.', '7': 'El surgimiento del Islam y la expansión árabe.' },
+            '2': { '1': 'El Renacimiento, el Humanismo y la Revolución Científica.', '3': 'La crisis de la Iglesia y la Reforma Protestante (Lutero, Calvino).', '5': 'La Contrarreforma Católica y el Concilio de Trento.', '7': 'Las grandes exploraciones marítimas europeas de los siglos XV y XVI.' },
+            '3': { '1': 'Grandes imperios prehispánicos de América: Mayas, Aztecas e Incas.', '3': 'Sociedades indígenas de Colombia antes de 1492.', '5': 'El impacto del encuentro entre dos mundos: conquista y catástrofe demográfica.', '7': 'La colonización española y portuguesa en América.' },
+            '4': { '1': 'Demografía mundial: crecimiento, distribución y pirámides de población.', '3': 'Procesos de urbanización y megaciudades en el mundo.', '5': 'Diversidad cultural y respeto interreligioso.', '7': 'Proyecto de investigación histórica.' }
+        }
+    },
+    '8': {
+        objetivo: 'Examinar las revoluciones burguesas, la Revolución Industrial, el imperialismo y la conformación de los Estados nacionales.',
+        periodos: {
+            '1': { '1': 'La Ilustración y el pensamiento político moderno (Montesquieu, Rousseau, Locke).', '3': 'La Revolución Industrial: máquina de vapor, capitalismo y surgimiento del proletariado.', '5': 'La Revolución Francesa y la Declaración de los Derechos del Hombre.', '7': 'El Imperio Napoleónico y la Restauración monárquica.' },
+            '2': { '1': 'Procesos de Independencia en América Latina y líderes libertadores.', '3': 'Formación de los Estados nacionales en América Latina en el siglo XIX.', '5': 'Guerra civil estadounidense y consolidación de EE.UU.', '7': 'El Imperialismo y el colonialismo europeo en África y Asia en el siglo XIX.' },
+            '3': { '1': 'Historia de Colombia en el siglo XIX: centralistas vs. federalistas.', '3': 'Constituciones colombianas de 1863 (Rionegro) y 1886.', '5': 'La economía agroexportadora y el tabaco, quina y café en Colombia.', '7': 'Conflictos fronterizos y separación de Panamá.' },
+            '4': { '1': 'Geografía económica mundial: recursos energéticos y materias primas.', '3': 'Movimientos obreros, socialismo y sindicalismo.', '5': 'Derecho Internacional Humanitario.', '7': 'Taller de análisis historiográfico.' }
+        }
+    },
+    '9': {
+        objetivo: 'Analizar el siglo XX mundial y colombiano: Guerras Mundiales, Guerra Fría, dictaduras y conflicto armado.',
+        periodos: {
+            '1': { '1': 'La Primera Guerra Mundial: causas, desarrollo y Tratado de Versalles.', '3': 'La Revolución Rusa de 1917 y el nacimiento de la URSS.', '5': 'La Gran Depresión de 1929 y la crisis del capitalismo.', '7': 'El ascenso de los totalitarismos: Fascismo italiano y Nazismo alemán.' },
+            '2': { '1': 'La Segunda Guerra Mundial: frentes, Holocausto y bombas atómicas.', '3': 'La creación de la ONU y la Declaración Universal de los Derechos Humanos (1948).', '5': 'La Guerra Fría: bloques capitalista y comunista, crisis de los misiles y carrera espacial.', '7': 'Procesos de descolonización en Asia y África.' },
+            '3': { '1': 'Dictaduras militares en América Latina y Doctrina de Seguridad Nacional.', '3': 'La Revolución Cubana y su impacto continental.', '5': 'Colombia en el siglo XX: La Hegemonía Conservadora, la República Liberal y el 9 de abril de 1948.', '7': 'Origen y evolución del conflicto armado en Colombia y narcotráfico.' },
+            '4': { '1': 'La caída del Muro de Berlín y el fin de la Guerra Fría.', '3': 'La Constitución de 1991 y los procesos de paz en Colombia.', '5': 'Preparación Saber 9° Ciencias Sociales y Competencias Ciudadanas.', '7': 'Foro de memoria histórica y reconciliación.' }
+        }
+    },
+    '10': {
+        objetivo: 'Analizar la economía política, globalización, geopolítica mundial, sistemas de gobierno y competencias ciudadanas.',
+        periodos: {
+            '1': { '1': 'Fundamentos de economía: escasez, oferta, demanda y mercados.', '3': 'Sistemas económicos: Capitalismo, Socialismo y Economía Mixta.', '5': 'Políticas monetarias y fiscales: inflación, desempleo y PIB.', '7': 'Teorías del Estado y filosofía política (Hobbes, Locke, Maquiavelo).' },
+            '2': { '1': 'Sistemas políticos contemporáneos: democracias, autoritarismos y totalitarismos.', '3': 'El Estado Social de Derecho y la Constitución de 1991 en Colombia.', '5': 'Mecanismos de participación ciudadana (voto, plebiscito, referendo, cabildo abierto).', '7': 'Organismos de control en Colombia (Procuraduría, Contraloría, Defensoría).' },
+            '3': { '1': 'La Globalización: dimensiones económicas, culturales, tecnológicas y ambientales.', '3': 'Organismos económicos internacionales (FMI, Banco Mundial, OMC).', '5': 'Geopolítica mundial del siglo XXI: potencias hegemónicas y bloques emergentes (BRICS).', '7': 'Crisis migratorias y refugiados en el mundo.' },
+            '4': { '1': 'Desarrollo sostenible y cambio climático en la agenda global.', '3': 'Competencias ciudadanas: análisis de dilemas morales y multiperspectivismo.', '5': 'Simulacros Saber 10° Sociales.', '7': 'Proyecto de veeduría ciudadana escolar.' }
+        }
+    },
+    '11': {
+        objetivo: 'Dominar el análisis crítico de la historia contemporánea, conflictos geopolíticos, acuerdos de paz y preparación intensiva Saber 11 Sociales y Ciudadanas.',
+        periodos: {
+            '1': { '1': 'Estructura y evidencias de la prueba Saber 11: Competencias Sociales y Ciudadanas.', '3': 'Multiperspectivismo: análisis de actores, intereses y valoraciones en conflictos sociales.', '5': 'Pensamiento social: conceptos estructurantes (poder, legitimidad, territorio, identidad).', '7': 'Interpretación y análisis de perspectivas en textos históricos y constitucionales.' },
+            '2': { '1': 'El conflicto armado colombiano contemporáneo: actores, dinámicas territoriales y víctimas.', '3': 'El Acuerdo de Paz de 2016, la Comisión de la Verdad y la JEP.', '5': 'Modelos de desarrollo económico en Colombia y desigualdad social.', '7': 'Políticas públicas, ordenamiento territorial y regalías.' },
+            '3': { '1': 'Geopolítica contemporánea: conflictos en Medio Oriente, Europa del Este y tensiones Asia-Pacífico.', '3': 'Terrorismo, ciberseguridad y soberanía en la era digital.', '5': 'Derechos Humanos de tercera y cuarta generación.', '7': 'Entrenamiento intensivo en resolución de preguntas Saber 11 con retroalimentación.' },
+            '4': { '1': 'Estrategias para enfrentar preguntas de alta complejidad y manejo del tiempo.', '3': 'Simulacro final Saber 11 Sociales y Ciudadanas.', '5': 'Reflexión sobre el rol del ciudadano en el desarrollo nacional.', '7': 'Evaluación final y cierre académico.' }
+        }
+    },
+    'Ciclo I': {
+        objetivo: 'Reconocer el entorno geográfico cercano, los valores ciudadanos, la familia y la comunidad.',
+        periodos: {
+            '1': { '1': 'La persona, la familia y los vecinos.', '3': 'El barrio y la vereda: lugares importantes y servicios.', '5': 'Normas de convivencia y respeto mutuo.', '7': 'Puntos de referencia y cómo orientarse.' },
+            '2': { '1': 'El municipio y sus tradiciones culturales.', '3': 'El trabajo y los diferentes oficios en la comunidad.', '5': 'Cuidado del medio ambiente y los recursos naturales.', '7': 'Símbolos locales.' },
+            '3': { '1': 'Los derechos fundamentales de las personas.', '3': 'La historia familiar y de los abuelos.', '5': 'Resolución pacífica de problemas entre vecinos.', '7': 'Participación en la junta de acción comunal.' },
+            '4': { '1': 'El departamento y sus paisajes.', '3': 'Solidaridad y trabajo comunitario.', '5': 'Celebraciones patrias.', '7': 'Muestra de identidad comunitaria.' }
+        }
+    },
+    'Ciclo II': {
+        objetivo: 'Comprender la geografía e historia de Colombia, las regiones naturales y los derechos y deberes ciudadanos.',
+        periodos: {
+            '1': { '1': 'Colombia en el mapa: fronteras, mares y cordilleras.', '3': 'Las regiones naturales y su economía.', '5': 'Población colombiana y diversidad cultural.', '7': 'Pisos térmicos y agricultura.' },
+            '2': { '1': 'Nuestros antepasados indígenas y su legado.', '3': 'La época colonial y la lucha por la Independencia.', '5': 'Héroes de la patria y fechas históricas.', '7': 'Símbolos nacionales de Colombia.' },
+            '3': { '1': 'La Constitución y los derechos ciudadanos.', '3': 'Autoridades del país y cómo se eligen.', '5': 'Mecanismos de protección de derechos.', '7': 'El cuidado del agua y la tierra.' },
+            '4': { '1': 'Actividades económicas del país.', '3': 'Convivencia pacífica y reconciliación.', '5': 'Evaluación de saberes sociales.', '7': 'Proyecto de memoria local.' }
+        }
+    },
+    'Ciclo III': {
+        objetivo: 'Analizar las civilizaciones antiguas, la Edad Media, el descubrimiento de América y la geografía universal para validantes.',
+        periodos: {
+            '1': { '1': 'Origen del planeta, mapas y coordenadas geográficas.', '3': 'Grandes civilizaciones de la antigüedad (Egipto, Grecia, Roma).', '5': 'Aportes de la antigüedad a las leyes y la democracia.', '7': 'Prehistoria y primeros pobladores de América.' },
+            '2': { '1': 'La Edad Media: feudalismo, religión y comercio.', '3': 'El Renacimiento y los descubrimientos marítimos.', '5': 'Culturas indígenas prehispánicas (Aztecas, Mayas, Incas, Muiscas).', '7': 'La Conquista y Colonización de América.' },
+            '3': { '1': 'Geografía de los continentes y recursos naturales.', '3': 'Población mundial y migraciones.', '5': 'Derechos Humanos y su evolución histórica.', '7': 'Democracia y participación ciudadana.' },
+            '4': { '1': 'Problemas ambientales globales.', '3': 'Preparación para pruebas de ciclo.', '5': 'Simulacro de validación.', '7': 'Cierre del ciclo.' }
+        }
+    },
+    'Ciclo IV': {
+        objetivo: 'Examinar las revoluciones modernas, la historia de Colombia en los siglos XIX y XX y el conflicto armado.',
+        periodos: {
+            '1': { '1': 'La Revolución Industrial y la Revolución Francesa.', '3': 'Independencia de Colombia y la Gran Colombia.', '5': 'El siglo XIX colombiano: guerras civiles y constituciones.', '7': 'El imperialismo y la Primera Guerra Mundial.' },
+            '2': { '1': 'La Segunda Guerra Mundial y la creación de la ONU.', '3': 'La Guerra Fría y su impacto en América Latina.', '5': 'Colombia en el siglo XX: El Bogotazo y La Violencia.', '7': 'Nacimiento de las guerrillas y el narcotráfico en Colombia.' },
+            '3': { '1': 'La Constitución Política de 1991: Estado Social de Derecho.', '3': 'Ramas del poder público y organismos de control.', '5': 'Mecanismos de participación ciudadana y tutela.', '7': 'Economía colombiana y sectores productivos.' },
+            '4': { '1': 'Entrenamiento Saber Ciclo IV Sociales.', '3': 'Cultura de paz y convivencia.', '5': 'Simulacro final.', '7': 'Graduación del ciclo.' }
+        }
+    },
+    'Ciclo V': {
+        objetivo: 'Dominar la economía política, geopolítica contemporánea, multiperspectivismo y preparación Saber 11 Sociales.',
+        periodos: {
+            '1': { '1': 'Principios de economía: mercados, inflación, empleo y presupuesto.', '3': 'Modelos económicos: Capitalismo, Socialismo y Neoliberalismo.', '5': 'El Estado y la política fiscal en Colombia.', '7': 'Geopolítica mundial y organismos internacionales.' },
+            '2': { '1': 'Competencias ciudadanas: análisis de prejuicios y argumentos.', '3': 'Multiperspectivismo en problemáticas sociales complejas.', '5': 'Derechos Humanos y Derecho Internacional Humanitario.', '7': 'Lectura crítica de textos y fuentes históricas.' },
+            '3': { '1': 'Historia reciente de Colombia: Constitución de 1991 y procesos de paz.', '3': 'Conflicto armado, víctimas y justicia transicional.', '5': 'Desarrollo sostenible y problemáticas ambientales.', '7': 'Simulacros de prueba Saber 11 Sociales y Ciudadanas.' },
+            '4': { '1': 'Estrategias de resolución de preguntas tipo ICFES.', '3': 'Análisis de casos y dilemas morales.', '5': 'Refuerzo conceptual.', '7': 'Evaluación integral.' }
+        }
+    },
+    'Ciclo VI': {
+        objetivo: 'Consolidar las competencias Saber 11 en Sociales y Ciudadanas, análisis crítico de políticas públicas y formación ciudadana de egreso.',
+        periodos: {
+            '1': { '1': 'Evidencias del módulo oficial Saber 11 Sociales y Ciudadanas.', '3': 'Pensamiento social y análisis sistémico de problemas del país.', '5': 'Interpretación de perspectivas y dimensiones (económica, política, ambiental, cultural).', '7': 'Análisis de la Constitución y fallos de la Corte Constitucional.' },
+            '2': { '1': 'El Acuerdo de Paz de 2016 y los retos del posconflicto en Colombia.', '3': 'Geopolítica del siglo XXI: nuevas potencias y globalización.', '5': 'Ética pública, transparencia y lucha contra la corrupción.', '7': 'Simulacros intensivos con retroalimentación completa.' },
+            '3': { '1': 'Manejo de tiempos y técnicas para descartar opciones incorrectas.', '3': 'Repaso intensivo de los temas de mayor peso en la prueba de Estado.', '5': 'Debate sobre el futuro socioeconómico de Colombia.', '7': 'Simulacro general de validación.' },
+            '4': { '1': 'Prueba final de Estado y validación de bachillerato.', '3': 'Liderazgo comunitario y plan de vida ciudadana.', '5': 'Sustentación de proyectos.', '7': 'Graduación.' }
+        }
+    },
+    'PENS': {
+        objetivo: 'Analizar la realidad socioeconómica regional, legislación laboral y participación ciudadana productiva.',
+        periodos: {
+            '1': { '1': 'Geografía económica y potencial productivo del Eje Cafetero.', '3': 'Normativa laboral: contratos, salarios y prestaciones sociales.', '5': 'Derecho de petición y tutela en el ámbito laboral.', '7': 'Economía solidaria y cooperativismo.' },
+            '2': { '1': 'Políticas de fomento empresarial y microcréditos.', '3': 'Impacto social y ambiental de las empresas.', '5': 'Participación ciudadana en planes de desarrollo municipal.', '7': 'Resolución de conflictos laborales.' },
+            '3': { '1': 'Globalización y comercio justo.', '3': 'Preparación de pruebas de validación social.', '5': 'Simulacros tipo Saber.', '7': 'Análisis de casos socioeconómicos.' },
+            '4': { '1': 'Diseño del componente social del proyecto productivo.', '3': 'Sustentación de la propuesta comunitaria.', '5': 'Evaluación final.', '7': 'Graduación.' }
+        }
+    }
 };
 
-window.normalizarGradoOCiclo = function(gradoStr) {
-    if (!gradoStr) return '6';
-    const g = gradoStr.toString().trim();
-    if (g.includes('Ciclo I') && !g.includes('Ciclo II') && !g.includes('Ciclo III') && !g.includes('Ciclo IV')) return 'Ciclo I';
-    if (g.includes('Ciclo II') && !g.includes('Ciclo III')) return 'Ciclo II';
-    if (g.includes('Ciclo III')) return 'Ciclo III';
-    if (g.includes('Ciclo IV')) return 'Ciclo IV';
-    if (g.includes('Ciclo V') && !g.includes('Ciclo VI')) return 'Ciclo V';
-    if (g.includes('Ciclo VI')) return 'Ciclo VI';
-    if (g.toUpperCase().includes('PENS')) return 'PENS';
-    const match = g.match(/\d+/);
-    return match ? match[0] : g;
+window.mallaCastellano = {
+    '3': {
+        objetivo: 'Fortalecer la lectura fluida, comprensión de textos narrativos e informativos y ortografía básica.',
+        periodos: {
+            '1': { '1': 'El cuento y sus partes (inicio, nudo, desenlace).', '3': 'El sustantivo, género y número.', '5': 'El adjetivo y la descripción de personajes.', '7': 'Uso del punto y la mayúscula.' },
+            '2': { '1': 'La fábula y la moraleja.', '3': 'El verbo y los tiempos verbales (pasado, presente, futuro).', '5': 'Sinónimos y antónimos.', '7': 'Uso de la coma en enumeraciones.' },
+            '3': { '1': 'El poema, la rima y el verso.', '3': 'La noticia y textos informativos sencillos.', '5': 'Familias de palabras y prefijos.', '7': 'Palabras agudas, graves y esdrújulas.' },
+            '4': { '1': 'El teatro infantil y los diálogos.', '3': 'La carta y el correo electrónico.', '5': 'Comprensión lectora y resumen.', '7': 'Taller de creación literaria.' }
+        }
+    },
+    '4': {
+        objetivo: 'Desarrollar habilidades de redacción, análisis de textos instructivos, líricos y narrativos, y acentuación.',
+        periodos: {
+            '1': { '1': 'Mitos y leyendas tradicionales.', '3': 'El párrafo y la idea principal.', '5': 'Clasificación de palabras según el acento (agudas, graves, esdrújulas).', '7': 'Los pronombres personales.' },
+            '2': { '1': 'El texto instructivo: recetas y manuales.', '3': 'Adverbios de tiempo, lugar y modo.', '5': 'Uso de conectores lógicos de causa y consecuencia.', '7': 'Signos de interrogación y exclamación.' },
+            '3': { '1': 'El texto expositivo y la infografía.', '3': 'Preposiciones y conjunciones.', '5': 'Sentido literal y figurado (metáforas sencillas).', '7': 'Uso de la b, v, c, s, z.' },
+            '4': { '1': 'La historieta y el lenguaje del cómic.', '3': 'Técnicas de exposición oral.', '5': 'Comprensión inferencial.', '7': 'Feria del libro escolar.' }
+        }
+    },
+    '5': {
+        objetivo: 'Comprender textos argumentativos básicos, enriquecer la producción textual y desarrollar lectura crítica inicial.',
+        periodos: {
+            '1': { '1': 'La novela juvenil y sus elementos narrativos.', '3': 'Estructura de la oración: sujeto, predicado y núcleos.', '5': 'Uso de diptongos, triptongos y hiatos.', '7': 'El resumen y la síntesis.' },
+            '2': { '1': 'El artículo de opinión y la argumentación.', '3': 'La entrevista y el reportaje.', '5': 'Uso de comillas, guiones y paréntesis.', '7': 'Homófonas y parónimas.' },
+            '3': { '1': 'El texto publicitario: lemas y persuasión.', '3': 'Figuras literarias: símil, hipérbole y personificación.', '5': 'Voz activa y voz pasiva.', '7': 'Lectura crítica de medios de comunicación.' },
+            '4': { '1': 'Mesa redonda y debate escolar.', '3': 'Preparación Saber 5° Lenguaje.', '5': 'Ensayo infantil.', '7': 'Antología de cuentos propios.' }
+        }
+    },
+    '6': {
+        objetivo: 'Interpretar y producir textos narrativos, líricos y dramáticos reconociendo su estructura y funciones gramaticales.',
+        periodos: {
+            '1': { '1': 'La tradición oral: mitos y leyendas universales.', '3': 'Estructura profunda de los textos narrativos.', '5': 'Categorías gramaticales y sintaxis básica.', '7': 'Reglas ortográficas y uso de signos de puntuación.' },
+            '2': { '1': 'El género lírico: poemas, odas y figuras retóricas.', '3': 'Métrica, rima y ritmo poético.', '5': 'El texto expositivo: ideas principales y secundarias.', '7': 'Cohesión y coherencia en el párrafo.' },
+            '3': { '1': 'El género dramático: guion teatral, acotaciones y puesta en escena.', '3': 'Medios de comunicación: la noticia y la crónica.', '5': 'Semántica: polisemia, homonimia y campos semánticos.', '7': 'Mapas conceptuales y esquemas de lectura.' },
+            '4': { '1': 'La novela de aventuras y fantasía.', '3': 'El debate y la argumentación oral.', '5': 'Uso de conectores discursivos.', '7': 'Creación de una revista escolar.' }
+        }
+    },
+    '7': {
+        objetivo: 'Analizar textos de la literatura precolombina y colonial, afianzar el texto argumentativo y la ortografía avanzada.',
+        periodos: {
+            '1': { '1': 'Literatura precolombina: cosmogonía y mitos indígenas.', '3': 'Literatura del Descubrimiento y la Conquista (diarios de Indias).', '5': 'Oraciones compuestas por coordinación.', '7': 'Uso del punto y coma y dos puntos.' },
+            '2': { '1': 'La crónica periodística y el reportaje.', '3': 'El texto argumentativo: tesis, argumentos y contraargumentos.', '5': 'Nexos subordinantes y oraciones complejas.', '7': 'Análisis crítico de la publicidad.' },
+            '3': { '1': 'El teatro del Siglo de Oro español.', '3': 'Figuras literarias de pensamiento: antítesis e ironía.', '5': 'Tipologías textuales y su intención comunicativa.', '7': 'El ensayo corto de opinión.' },
+            '4': { '1': 'La literatura de ciencia ficción.', '3': 'Ética de la comunicación en redes sociales.', '5': 'Técnicas de oratoria y exposición.', '7': 'Proyecto de investigación literaria.' }
+        }
+    },
+    '8': {
+        objetivo: 'Explorar la literatura colombiana y latinoamericana, el ensayo argumentativo y la lectura crítica.',
+        periodos: {
+            '1': { '1': 'Literatura de la Colonia y la Independencia en Colombia.', '3': 'El Romanticismo y el Costumbrismo colombiano (María de Jorge Isaacs).', '5': 'El Modernismo en Colombia (José Asunción Silva).', '7': 'Oraciones compuestas por subordinación adjetiva y sustantiva.' },
+            '2': { '1': 'El ensayo: estructura formal y tipos de argumentos.', '3': 'Literatura de la Violencia en Colombia.', '5': 'Vicios del lenguaje: dequeísmo, pleonasmo y extranjerismos.', '7': 'Citas textuales y normas de citación.' },
+            '3': { '1': 'El Boom Latinoamericano y el Realismo Mágico (Gabriel García Márquez).', '3': 'Análisis semiótico de imágenes y cine.', '5': 'Cohesión léxica y gramatical avanzada.', '7': 'La mesa redonda y el panel de discusión.' },
+            '4': { '1': 'Literatura contemporánea colombiana.', '3': 'El discurso político y su análisis crítico.', '5': 'Taller de producción de ensayos.', '7': 'Muestra literaria escolar.' }
+        }
+    },
+    '9': {
+        objetivo: 'Analizar la literatura latinoamericana universal, vanguardias, pensamiento crítico y preparación Saber 9°.',
+        periodos: {
+            '1': { '1': 'Vanguardias literarias en América Latina (creacionismo, ultraísmo).', '3': 'Poesía social latinoamericana (Neruda, Vallejo, Mistral).', '5': 'Análisis sintáctico de oraciones compuestas.', '7': 'Mecanismos de coherencia y progresión temática.' },
+            '2': { '1': 'La novela social e indigenista en América Latina.', '3': 'El artículo de opinión y la columna editorial.', '5': 'Falacias argumentativas y cómo refutarlas.', '7': 'Ética del discurso en medios masivos.' },
+            '3': { '1': 'El teatro contemporáneo y teatro del absurdo.', '3': 'Ensayo filosófico y literario.', '5': 'Lectura crítica: identificación de intenciones del autor.', '7': 'Análisis de editoriales de prensa.' },
+            '4': { '1': 'Literatura posmoderna y nuevas narrativas digitales.', '3': 'Preparación Saber 9° Lenguaje.', '5': 'Seminario de oratoria y debate.', '7': 'Proyecto final de publicación.' }
+        }
+    },
+    '10': {
+        objetivo: 'Estudiar la literatura española desde sus orígenes hasta el siglo XX, tipologías textuales complejas y ensayo.',
+        periodos: {
+            '1': { '1': 'Literatura Medieval española: El Cantar de Mio Cid y el mester de juglaría.', '3': 'El Renacimiento y el Siglo de Oro (La Celestina, El Quijote).', '5': 'Poesía mística y barroca (Garcilaso, Góngora, Quevedo).', '7': 'Estructura profunda del texto argumentativo y el ensayo.' },
+            '2': { '1': 'El Neoclasicismo y la Ilustración española.', '3': 'El Romanticismo español (Bécquer, Espronceda).', '5': 'El Realismo y Naturalismo (Galdós, Clarín).', '7': 'Lectura crítica Saber 10°: inferencia y valoración.' },
+            '3': { '1': 'La Generación del 98 (Unamuno, Machado) y del 27 (Lorca, Cernuda).', '3': 'Análisis de textos filosóficos y científicos.', '5': 'Pragmática lingüística y actos de habla.', '7': 'Redacción de artículos académicos con normas APA.' },
+            '4': { '1': 'Literatura española contemporánea.', '3': 'El debate académico formal.', '5': 'Simulacros de lectura crítica.', '7': 'Ensayo de grado 10°.' }
+        }
+    },
+    '11': {
+        objetivo: 'Analizar la literatura universal (Clásica a Contemporánea), dominio del ensayo crítico y preparación intensiva Saber 11 Lectura Crítica.',
+        periodos: {
+            '1': { '1': 'Literatura Clásica Griega y Latina (Homero, Sófocles, Virgilio).', '3': 'Literatura Medieval y Renacentista Universal (Dante, Shakespeare).', '5': 'Estructura y niveles de la prueba Saber 11 Lectura Crítica (Literal, Inferencial, Crítico-Intertextual).', '7': 'Análisis de textos discontinuos (caricaturas, infografías, tablas).' },
+            '2': { '1': 'El Racionalismo, Ilustración y Romanticismo Universal (Goethe, Poe, Dostoievski).', '3': 'El Existencialismo y literatura del siglo XX (Kafka, Camus, Sartre).', '5': 'Identificación de tesis, premisas, argumentos y contraargumentos en textos filosóficos.', '7': 'Detección de supuestos ideológicos e intención comunicativa del autor.' },
+            '3': { '1': 'Literatura Oriental y Africana contemporánea.', '3': 'El ensayo crítico-filosófico de grado.', '5': 'Estrategias de resolución de preguntas tipo Saber 11 Lectura Crítica.', '7': 'Simulacros intensivos con retroalimentación pregunta por pregunta.' },
+            '4': { '1': 'Lectura crítica de medios y análisis de discursos políticos.', '3': 'Técnicas de manejo de tiempo en Saber 11.', '5': 'Sustentación de ensayos de grado.', '7': 'Evaluación final y cierre de bachillerato.' }
+        }
+    },
+    'Ciclo I': {
+        objetivo: 'Desarrollar la alfabetización funcional, comprensión lectora básica y redacción de textos cotidianos para adultos.',
+        periodos: {
+            '1': { '1': 'Lectura comprensiva de textos cortos y cotidianos.', '3': 'La oración, el sujeto y la acción.', '5': 'Escritura de datos personales y formularios.', '7': 'Signos de puntuación esenciales.' },
+            '2': { '1': 'Lectura de avisos, carteles y empaques de productos.', '3': 'El abecedario y búsqueda en diccionarios.', '5': 'Redacción de notas, mensajes y recados.', '7': 'Uso correcto de mayúsculas.' },
+            '3': { '1': 'Cuentos y anécdotas de la tradición popular.', '3': 'La carta familiar y la solicitud sencilla.', '5': 'Lectura de noticias breves.', '7': 'Ortografía de palabras frecuentes.' },
+            '4': { '1': 'Instrucciones de medicamentos y recetas.', '3': 'Conversación y expresión oral respetuosa.', '5': 'Lectura en familia.', '7': 'Proyecto de lectoescritura.' }
+        }
+    },
+    'Ciclo II': {
+        objetivo: 'Consolidar la lectura fluida, redacción de documentos laborales y comprensión de diversos tipos de textos para adultos.',
+        periodos: {
+            '1': { '1': 'Estructura de textos informativos y narrativos.', '3': 'El párrafo y la conexión entre ideas.', '5': 'Elaboración de cartas formales y derechos de petición.', '7': 'Acentuación y reglas ortográficas prácticas.' },
+            '2': { '1': 'La noticia y la crónica comunitaria.', '3': 'Textos instructivos: manuales de uso y seguridad laboral.', '5': 'Uso de conectores de orden y causa.', '7': 'Lectura de contratos y acuerdos.' },
+            '3': { '1': 'La poesía popular y las coplas de la región.', '3': 'Expresión oral en reuniones de trabajo y comunidad.', '5': 'El resumen de textos extensos.', '7': 'Comprensión inferencial en situaciones reales.' },
+            '4': { '1': 'Uso de medios digitales: correos y mensajes.', '3': 'Lectura de artículos de salud y bienestar.', '5': 'Muestra de escritos propios.', '7': 'Taller integrador.' }
+        }
+    },
+    'Ciclo III': {
+        objetivo: 'Desarrollar la comprensión crítica de textos informativos y literarios, redacción argumentativa y normas ortográficas.',
+        periodos: {
+            '1': { '1': 'Mitos, leyendas y tradición oral colombiana.', '3': 'Estructura de la narración y personajes.', '5': 'Gramática funcional: categorías de palabras.', '7': 'Signos de puntuación para dar claridad al texto.' },
+            '2': { '1': 'El texto informativo y periodístico.', '3': 'El texto argumentativo: dar razones y fundamentar opiniones.', '5': 'Uso de conectores lógicos.', '7': 'Análisis crítico de noticias y publicidad.' },
+            '3': { '1': 'El teatro y la expresión corporal y verbal.', '3': 'El género lírico y la sensibilidad poética.', '5': 'Técnicas de resumen y síntesis.', '7': 'Redacción de hojas de vida y solicitudes laborales.' },
+            '4': { '1': 'La novela corta y el cuento latinoamericano.', '3': 'El debate y la escucha activa.', '5': 'Preparación para pruebas de ciclo.', '7': 'Proyecto de comunicación comunitaria.' }
+        }
+    },
+    'Ciclo IV': {
+        objetivo: 'Fortalecer el análisis literario, la redacción de ensayos cortos y la lectura crítica para la validación.',
+        periodos: {
+            '1': { '1': 'Literatura colombiana: identidad, violencia y memoria.', '3': 'El ensayo argumentativo: tesis y sustentación.', '5': 'Oraciones compuestas y conectores discursivos.', '7': 'Normas ortográficas avanzadas.' },
+            '2': { '1': 'El Realismo Mágico y Gabriel García Márquez.', '3': 'El artículo de opinión y la columna periodística.', '5': 'Detección de falacias y argumentos débiles.', '7': 'Lectura de textos discontinuos (gráficos e infografías).' },
+            '3': { '1': 'Literatura latinoamericana: novela social y vanguardias.', '3': 'El discurso oral persuasivo.', '5': 'Semántica y pragmática en la comunicación.', '7': 'Elaboración de proyectos escritos.' },
+            '4': { '1': 'Entrenamiento en preguntas tipo Saber Ciclo IV.', '3': 'Análisis crítico de redes sociales y medios.', '5': 'Simulacro de validación de lenguaje.', '7': 'Cierre del ciclo.' }
+        }
+    },
+    'Ciclo V': {
+        objetivo: 'Dominar la lectura crítica, análisis de textos filosóficos y literarios españoles y universales, y ensayo formal.',
+        periodos: {
+            '1': { '1': 'Literatura Española Clásica y del Siglo de Oro (El Quijote).', '3': 'Estructura del ensayo académico y citas.', '5': 'Niveles de lectura: literal, inferencial y crítico.', '7': 'Análisis de textos filosóficos y ensayísticos.' },
+            '2': { '1': 'Generaciones literarias españolas y universales.', '3': 'Tipologías textuales y actos de habla.', '5': 'Lectura de caricaturas políticas y textos discontinuos.', '7': 'Estrategias de comprensión lectora Saber 11.' },
+            '3': { '1': 'El discurso argumentativo en debates públicos.', '3': 'Identificación de supuestos, intenciones y sesgos en el autor.', '5': 'Redacción de textos reflexivos de vida.', '7': 'Simulacros de lectura crítica con análisis detallado.' },
+            '4': { '1': 'Manejo del tiempo y técnicas de examen de Estado.', '3': 'Refuerzo en preguntas de alta complejidad.', '5': 'Ensayo de proyecto de vida.', '7': 'Evaluación integral.' }
+        }
+    },
+    'Ciclo VI': {
+        objetivo: 'Consolidar la competencia de Lectura Crítica Saber 11, análisis filosófico universal y producción textual de egreso.',
+        periodos: {
+            '1': { '1': 'Literatura Universal: de la tragedia griega a la modernidad.', '3': 'Módulo oficial ICFES Saber 11: Lectura Crítica (Evidencias y competencias).', '5': 'Análisis de textos filosóficos clásicos y modernos.', '7': 'Textos continuos vs. textos discontinuos en pruebas de Estado.' },
+            '2': { '1': 'El Existencialismo y las vanguardias del siglo XX.', '3': 'Estrategias para descartar distractores en preguntas de opción múltiple.', '5': 'Análisis ideológico de textos periodísticos y ensayos políticos.', '7': 'Redacción del ensayo de grado.' },
+            '3': { '1': 'Simulacros intensivos Saber 11 de Lectura Crítica.', '3': 'Retroalimentación detallada de errores comunes.', '5': 'Argumentación oral y defensa de puntos de vista.', '7': 'Lectura intertextual y comparación de posturas.' },
+            '4': { '1': 'Prueba final de validación de bachillerato.', '3': 'Oratoria y habilidades de comunicación para el mundo laboral.', '5': 'Sustentación del ensayo final.', '7': 'Graduación y plan de vida profesional.' }
+        }
+    },
+    'PENS': {
+        objetivo: 'Aplicar la comunicación asertiva, redacción técnica y lectura crítica en contextos laborales y comerciales.',
+        periodos: {
+            '1': { '1': 'Comprensión de textos técnicos e instructivos laborales.', '3': 'Redacción de informes, actas y correspondencia comercial.', '5': 'Ortografía y puntuación en documentos oficiales.', '7': 'Lectura crítica de contratos y normativas.' },
+            '2': { '1': 'Comunicación asertiva y resolución pacífica de conflictos.', '3': 'Técnicas de atención al cliente y servicio.', '5': 'Elaboración de propuestas comerciales y proyectos.', '7': 'Presentaciones orales efectivas.' },
+            '3': { '1': 'Análisis de medios y publicidad engañosa.', '3': 'El ensayo de opinión sobre problemáticas socioeconómicas.', '5': 'Preparación de pruebas de validación de lenguaje.', '7': 'Simulacros tipo Saber.' },
+            '4': { '1': 'Diseño del manual de procesos o producto final.', '3': 'Sustentación oral del proyecto productivo.', '5': 'Cierre curricular y evaluación de egreso.', '7': 'Graduación.' }
+        }
+    }
+};
+
+window.mallaIngles = {
+    '3': {
+        objetivo: 'Reconocer vocabulario básico en inglés: saludos, números, colores, animales, familia y órdenes sencillas de clase.',
+        periodos: {
+            '1': { '1': 'Greetings and farewells (Hello, Goodbye, Good morning).', '3': 'Numbers from 1 to 20 and basic colors.', '5': 'Classroom objects and simple commands.', '7': 'The alphabet and spelling names.' },
+            '2': { '1': 'Family members (Father, Mother, Brother, Sister).', '3': 'Farm and wild animals.', '5': 'Parts of the body (Head, Shoulders, Knees, Toes).', '7': 'Singular and plural nouns with A/An.' },
+            '3': { '1': 'Fruits and vegetables.', '3': 'Days of the week and months of the year.', '5': 'Basic feelings and emotions (Happy, Sad, Angry).', '7': 'Simple questions: What is this? Who is that?' },
+            '4': { '1': 'Clothes and weather (Sunny, Rainy, Cold).', '3': 'Shapes and sizes (Big, Small).', '5': 'Songs and chants in English.', '7': 'English show and tell.' }
+        }
+    },
+    '4': {
+        objetivo: 'Comprender frases cortas en presente simple, descripciones personales, la hora y rutinas diarias.',
+        periodos: {
+            '1': { '1': 'Personal pronouns (I, You, He, She, It, We, They).', '3': 'Verb To Be in affirmative and negative.', '5': 'Countries, nationalities and languages.', '7': 'Numbers from 20 to 100.' },
+            '2': { '1': 'Telling the time (O clock, Half past, Quarter to/past).', '3': 'Daily routines (Wake up, Have breakfast, Go to school).', '5': 'Simple Present with action verbs (Like, Play, Eat).', '7': 'Adverbs of frequency (Always, Sometimes, Never).' },
+            '3': { '1': 'Parts of the house and furniture.', '3': 'Prepositions of place (In, On, Under, Next to).', '5': 'Possessive adjectives (My, Your, His, Her, Our, Their).', '7': 'There is / There are in descriptions.' },
+            '4': { '1': 'Sports and free time activities.', '3': 'Can / Can t for abilities.', '5': 'Short reading comprehension texts.', '7': 'Role-play in English.' }
+        }
+    },
+    '5': {
+        objetivo: 'Consolidar el Presente Simple, Presente Continuo, vocabulario de lugares de la ciudad y textos descriptivos.',
+        periodos: {
+            '1': { '1': 'Review of Verb To Be and Simple Present rules (Third person -s/-es).', '3': 'Wh- questions (What, Where, When, Why, Who, How).', '5': 'Places in the city (Bank, Hospital, Park, Supermarket).', '7': 'Giving simple directions (Turn left, Turn right, Go straight).' },
+            '2': { '1': 'Present Continuous: actions happening now (Verb + ing).', '3': 'Contrast between Simple Present and Present Continuous.', '5': 'Professions and jobs (Doctor, Teacher, Engineer).', '7': 'Food, meals and countable/uncountable nouns (Some/Any).' },
+            '3': { '1': 'Comparative adjectives (Taller, Bigger, More intelligent).', '3': 'Superlative adjectives (The tallest, The biggest, The most interesting).', '5': 'Past of Verb To Be: Was / Were.', '7': 'Describing past holidays and events.' },
+            '4': { '1': 'Going to for future plans.', '3': 'Preparación Saber 5° Inglés.', '5': 'Short dialogues and presentations.', '7': 'English festival.' }
+        }
+    },
+    '6': {
+        objetivo: 'Desarrollar competencias comunicativas en nivel A1: descripciones personales, rutinas y presente continuo.',
+        periodos: {
+            '1': { '1': 'Introductions, personal information and Verb To Be.', '3': 'Subject pronouns and possessive adjectives.', '5': 'Cardinal and ordinal numbers, dates and time.', '7': 'Classroom language and imperative forms.' },
+            '2': { '1': 'Simple Present tense (Affirmative, Negative, Interrogative).', '3': 'Daily routines and time expressions.', '5': 'Adverbs of frequency and leisure activities.', '7': 'Likes, dislikes and preferences (Like, Love, Hate + ing).' },
+            '3': { '1': 'There is / There are and quantifiers (Much, Many, A lot of).', '3': 'Prepositions of place and movement.', '5': 'Present Continuous tense for current activities.', '7': 'Reading comprehension: descriptive paragraphs.' },
+            '4': { '1': 'Modal verb Can / Can t for ability and permission.', '3': 'Body parts, physical appearance and personality adjectives.', '5': 'Writing a short personal profile.', '7': 'English project presentation.' }
+        }
+    },
+    '7': {
+        objetivo: 'Consolidar el nivel A1+ hacia A2: Pasado Simple regular e irregular, comparativos y planes futuros.',
+        periodos: {
+            '1': { '1': 'Simple Past of Verb To Be (Was / Were).', '3': 'Past Simple: Regular verbs (-ed endings and pronunciation).', '5': 'Past Simple: Irregular verbs (Common list and usage).', '7': 'Past Simple questions and negative forms (Did / Didn t).' },
+            '2': { '1': 'Time expressions for the past (Yesterday, Last week, Ago).', '3': 'Biographies of famous people and historical events.', '5': 'Comparative and superlative adjectives.', '7': 'Giving opinions and making comparisons between places.' },
+            '3': { '1': 'Countable and uncountable nouns with How much / How many.', '3': 'Food, nutrition and ordering at a restaurant.', '5': 'Future with Be Going To (Plans and intentions).', '7': 'Weather forecast and holiday planning.' },
+            '4': { '1': 'Have to / Don t have to for obligations.', '3': 'Reading short stories and fables.', '5': 'Writing an email to a pen pal.', '7': 'Cultural awareness project.' }
+        }
+    },
+    '8': {
+        objetivo: 'Alcanzar el nivel A2: Pasado Continuo, Futuro Will vs. Going to, Primer Condicional y Modales.',
+        periodos: {
+            '1': { '1': 'Review of Past Simple vs. Past Continuous (When / While).', '3': 'Narrating stories and anecdotes in the past.', '5': 'Used to for past habits and states.', '7': 'Vocabulary of technology, internet and social media.' },
+            '2': { '1': 'Future forms: Will (Predictions, promises, spontaneous decisions).', '3': 'Future forms: Be Going To vs. Will.', '5': 'First Conditional (If + Present, Will + Verb) for cause and effect.', '7': 'Environmental issues and green solutions.' },
+            '3': { '1': 'Modal verbs for advice and obligation (Should, Must, Have to).', '3': 'Health problems, symptoms and remedies.', '5': 'Indefinite pronouns (Someone, Anything, Nowhere).', '7': 'Reading informative articles.' },
+            '4': { '1': 'Present Perfect introductory concepts (Ever / Never).', '3': 'Writing a formal and informal letter.', '5': 'Speaking: Debating simple topics.', '7': 'English talent show.' }
+        }
+    },
+    '9': {
+        objetivo: 'Avanzar en el nivel B1 inicial: Presente Perfecto, Voz Pasiva básica, Segundo Condicional y preparación Saber 9°.',
+        periodos: {
+            '1': { '1': 'Present Perfect Simple (Have/Has + Past Participle).', '3': 'Present Perfect with Already, Just, Yet, For, Since.', '5': 'Contrast: Present Perfect vs. Past Simple.', '7': 'Talking about life experiences and achievements.' },
+            '2': { '1': 'Second Conditional (If + Past Simple, Would + Verb) for hypothetical situations.', '3': 'Giving advice with If I were you...', '5': 'Relative clauses with Who, Which, That, Where.', '7': 'Describing objects, people and places in detail.' },
+            '3': { '1': 'Passive Voice in Present and Past Simple (Form and usage).', '3': 'Inventions, discoveries and scientific processes.', '5': 'Reported Speech basics (Said that, Told me that).', '7': 'Reading journalistic and opinion articles.' },
+            '4': { '1': 'Phrasal verbs common in everyday English.', '3': 'Preparación Saber 9° Inglés.', '5': 'Mock exam practice with feedback.', '7': 'Final oral presentation.' }
+        }
+    },
+    '10': {
+        objetivo: 'Dominar la gramática intermedia B1: Pasado Perfecto, Tercer Condicional, Modales de deducción y lectura inferencial.',
+        periodos: {
+            '1': { '1': 'Past Perfect Simple (Had + Past Participle) and sequence of past events.', '3': 'Past Perfect vs. Past Simple with Before, After, By the time.', '5': 'Used to, Be used to, Get used to.', '7': 'Advanced narrative writing.' },
+            '2': { '1': 'Third Conditional (If + Past Perfect, Would have + Past Participle) for regrets.', '3': 'Mixed conditionals overview.', '5': 'Modals of deduction in the present (Must be, Can t be, Might be).', '7': 'Modals of deduction in the past (Must have been, Could have been).' },
+            '3': { '1': 'Advanced Passive Voice with modal verbs and continuous tenses.', '3': 'Causative verbs (Have/Get something done).', '5': 'Estructura de la prueba Saber 11 Inglés: Partes 1 a 4 (Avisos, Vocabulario, Conversaciones, Textos incompletos).', '7': 'Reading strategies: Skimming, scanning and inferencing.' },
+            '4': { '1': 'Vocabulary of global issues, politics and ethics.', '3': 'Writing argumentative essays in English.', '5': 'Simulacro Saber 10° Inglés.', '7': 'Debate in English on current affairs.' }
+        }
+    },
+    '11': {
+        objetivo: 'Alcanzar competencia B1+ / B2 y preparación integral para las 7 partes de la prueba Saber 11 de Inglés.',
+        periodos: {
+            '1': { '1': 'Saber 11 Part 1 (Avisos y lugares) and Part 2 (Emparejamiento de vocabulario y definiciones).', '3': 'Saber 11 Part 3 (Conversaciones cortas y pragmática comunicativa).', '5': 'Saber 11 Part 4 (Textos con espacios gramaticales - Cloze Test).', '7': 'Grammar review: Tenses, prepositions, linking words and collocations.' },
+            '2': { '1': 'Saber 11 Part 5 (Comprensión de lectura literal e inferencial).', '3': 'Saber 11 Part 6 (Lectura crítica de opinión y punto de vista del autor).', '5': 'Saber 11 Part 7 (Texto largo con espacios de vocabulario avanzado y conectores).', '7': 'Time management strategies and error elimination techniques.' },
+            '3': { '1': 'Full-length Saber 11 Mock Exams with in-depth feedback.', '3': 'Advanced phrasal verbs, idioms and academic vocabulary.', '5': 'Writing: Personal statement and cover letter for university.', '7': 'Oral presentation: Global challenges and solutions.' },
+            '4': { '1': 'Intensive drilling on high-difficulty questions.', '3': 'Tips and mental preparation for the official exam.', '5': 'Evaluation and language portfolio review.', '7': 'English graduation project.' }
+        }
+    },
+    'Ciclo I': {
+        objetivo: 'Aprender vocabulario elemental en inglés para el trabajo y la vida cotidiana.',
+        periodos: {
+            '1': { '1': 'Saludos y presentaciones básicas.', '3': 'Números del 1 al 50 y dinero.', '5': 'Días de la semana y meses.', '7': 'Palabras de cortesía (Please, Thank you).' },
+            '2': { '1': 'Nombres de objetos comunes y herramientas.', '3': 'La familia y ocupaciones.', '5': 'Colores y prendas de vestir.', '7': 'Frases útiles en el trabajo.' },
+            '3': { '1': 'Comidas, bebidas y compras.', '3': 'Preguntar la hora y direcciones sencillas.', '5': 'Señales de advertencia en inglés.', '7': 'Práctica oral básica.' },
+            '4': { '1': 'Lectura de avisos y etiquetas.', '3': 'Conversaciones cotidianas.', '5': 'Repaso general.', '7': 'Evaluación práctica.' }
+        }
+    },
+    'Ciclo II': {
+        objetivo: 'Comprender instrucciones, descripciones sencillas y vocabulario práctico en inglés para adultos.',
+        periodos: {
+            '1': { '1': 'El verbo To Be en presente.', '3': 'Preguntas básicas de información personal.', '5': 'Números hasta 1000 y precios.', '7': 'Lugares de la ciudad y el barrio.' },
+            '2': { '1': 'Presente simple: rutinas y horarios.', '3': 'Profesiones y actividades laborales.', '5': 'El cuerpo humano y síntomas de salud.', '7': 'Lectura de textos cortos.' },
+            '3': { '1': 'Uso de Can para habilidades y permisos.', '3': 'Preposiciones de lugar en mapas.', '5': 'Compras en tiendas y restaurantes.', '7': 'Escritura de mensajes breves.' },
+            '4': { '1': 'Avisos en aeropuertos y terminales.', '3': 'Diálogos de simulación.', '5': 'Evaluación de competencias.', '7': 'Cierre del ciclo.' }
+        }
+    },
+    'Ciclo III': {
+        objetivo: 'Dominar el presente simple, pasado básico y comprensión de lecturas cortas en inglés de validación.',
+        periodos: {
+            '1': { '1': 'Presente simple y pronombres personales.', '3': 'Rutinas diarias y adverbios de frecuencia.', '5': 'There is / There are y cantidades.', '7': 'Lectura de párrafos descriptivos.' },
+            '2': { '1': 'Pasado simple del verbo To Be (Was / Were).', '3': 'Verbos regulares e irregulares en pasado.', '5': 'Frases de tiempo en pasado (Yesterday, Last year).', '7': 'Biografías breves.' },
+            '3': { '1': 'Comparativos y superlativos.', '3': 'Planes futuros con Going to.', '5': 'Vocabulario de viajes y transporte.', '7': 'Comprensión de avisos públicos.' },
+            '4': { '1': 'Entrenamiento en preguntas tipo Saber Ciclo III.', '3': 'Simulacro de validación.', '5': 'Repaso.', '7': 'Evaluación final.' }
+        }
+    },
+    'Ciclo IV': {
+        objetivo: 'Avanzar en pasado simple, presente perfecto básico, modales y preparación Saber de validación.',
+        periodos: {
+            '1': { '1': 'Pasado simple vs. Pasado continuo.', '3': 'Futuro con Will y Going to.', '5': 'Primer condicional (If + Present, Will).', '7': 'Vocabulario de medio ambiente y tecnología.' },
+            '2': { '1': 'Verbos modales (Should, Must, Have to).', '3': 'Presente perfecto introductorio (Have you ever...?).', '5': 'Lectura de artículos informativos breves.', '7': 'Conversaciones en contexto laboral.' },
+            '3': { '1': 'Voz pasiva básica en presente y pasado.', '3': 'Phrasal verbs más comunes.', '5': 'Estrategias para responder preguntas de selección múltiple.', '7': 'Simulacros tipo prueba de Estado.' },
+            '4': { '1': 'Revisión de vocabulario clave Saber Ciclo IV.', '3': 'Simulacro de validación.', '5': 'Retroalimentación.', '7': 'Cierre del ciclo.' }
+        }
+    },
+    'Ciclo V': {
+        objetivo: 'Dominar la comprensión lectora, gramática intermedia y las primeras partes del examen Saber 11 Inglés.',
+        periodos: {
+            '1': { '1': 'Estructura de la prueba de inglés Saber 11: Partes 1 y 2.', '3': 'Avisos publicitarios y señales en inglés (Part 1).', '5': 'Asociación de definiciones y vocabulario (Part 2).', '7': 'Tiempos verbales compuestos y conectores.' },
+            '2': { '1': 'Completación de conversaciones (Part 3).', '3': 'Textos incompletos con gramática (Part 4).', '5': 'Segundo y tercer condicional.', '7': 'Modales de deducción y probabilidad.' },
+            '3': { '1': 'Lectura literal e inferencial de artículos (Part 5).', '3': 'Vocabulario laboral, científico y tecnológico.', '5': 'Técnicas para identificar la idea central.', '7': 'Simulacros de práctica.' },
+            '4': { '1': 'Manejo del tiempo en el examen.', '3': 'Refuerzo de puntos débiles.', '5': 'Simulacro completo.', '7': 'Evaluación integral.' }
+        }
+    },
+    'Ciclo VI': {
+        objetivo: 'Consolidar las 7 partes de la prueba Saber 11 de Inglés para la obtención del título de bachiller.',
+        periodos: {
+            '1': { '1': 'Repaso intensivo Saber 11: Partes 1, 2 y 3 (Avisos, Vocabulario, Diálogos).', '3': 'Estrategias para la Parte 4 (Cloze Test gramatical).', '5': 'Comprensión de lectura crítica: Partes 5 y 6 (Textos de opinión e inferencia).', '7': 'Técnicas para la Parte 7 (Vocabulario de nivel B1+).' },
+            '2': { '1': 'Conectores discursivos, preposiciones dependientes y collocations.', '3': 'Análisis de errores recurrentes y trampas en opciones de respuesta.', '5': 'Simulacro completo Saber 11 Inglés bajo condiciones reales.', '7': 'Retroalimentación detallada y plan de mejora individual.' },
+            '3': { '1': 'Inglés práctico para entrevistas laborales y hojas de vida.', '3': 'Lectura de manuales técnicos y correspondencia internacional.', '5': 'Práctica intensiva con bancos oficiales de preguntas.', '7': 'Simulacro final de validación.' },
+            '4': { '1': 'Examen oficial de Estado Saber 11.', '3': 'Evaluación final y portfolio de aprendizaje.', '5': 'Cierre de la asignatura de inglés.', '7': 'Graduación.' }
+        }
+    },
+    'PENS': {
+        objetivo: 'Aplicar el inglés técnico, comercial y de servicio al cliente en empresas turísticas y productivas.',
+        periodos: {
+            '1': { '1': 'Inglés para atención al cliente y bienvenida a turistas.', '3': 'Vocabulario de hotelería, gastronomía y transporte.', '5': 'Dar información sobre atractivos del Paisaje Cultural Cafetero.', '7': 'Manejo de reservas y facturación en inglés.' },
+            '2': { '1': 'Redacción de correos electrónicos comerciales en inglés.', '3': 'Descripción de productos, café y artesanías.', '5': 'Resolución de quejas y situaciones imprevistas.', '7': 'Presentación de catálogos y menús.' },
+            '3': { '1': 'Preparación para pruebas Saber de inglés.', '3': 'Simulacros de comprensión de lectura técnica.', '5': 'Diálogos de negociación comercial.', '7': 'Glosario especializado de emprendimiento.' },
+            '4': { '1': 'Diseño del material bilingüe del proyecto productivo.', '3': 'Sustentación en inglés del producto o servicio.', '5': 'Evaluación final.', '7': 'Graduación.' }
+        }
+    }
+};
+
+window.mallaTecnologia = {
+    '3': {
+        objetivo: 'Reconocer artefactos tecnológicos del entorno, su evolución, uso seguro y partes básicas del computador.',
+        periodos: {
+            '1': { '1': 'Qué es la tecnología y artefactos del hogar.', '3': 'Evolución de los artefactos: antes y ahora.', '5': 'Partes principales del computador (pantalla, teclado, ratón, CPU).', '7': 'Normas de postura y cuidado en la sala de sistemas.' },
+            '2': { '1': 'El ratón y sus funciones (clic, doble clic, arrastrar).', '3': 'El teclado: teclas alfanuméricas y barra espaciadora.', '5': 'Programas de dibujo digital (Paint) y creatividad.', '7': 'Guardar y abrir archivos en el computador.' },
+            '3': { '1': 'La energía y los electrodomésticos en la casa.', '3': 'Materiales naturales y artificiales en los objetos.', '5': 'Uso seguro de herramientas sencillas (tijeras, reglas).', '7': 'Reciclaje de aparatos electrónicos.' },
+            '4': { '1': 'Internet: una ventana al conocimiento.', '3': 'Cuidado con la información personal en línea.', '5': 'Creación de una tarjeta digital.', '7': 'Muestra de inventos infantiles.' }
+        }
+    },
+    '4': {
+        objetivo: 'Comprender el funcionamiento de procesadores de texto, sistemas simples, mecanismos y uso responsable de la red.',
+        periodos: {
+            '1': { '1': 'El procesador de texto: formato de fuentes, párrafos y títulos.', '3': 'Insertar imágenes, formas y tablas en documentos.', '5': 'Artefactos y procesos: de la materia prima al producto final.', '7': 'Inventores famosos y sus creaciones.' },
+            '2': { '1': 'Mecanismos simples: palancas, poleas y ruedas.', '3': 'Estructuras y resistencia de materiales.', '5': 'Búsqueda de información académica en internet.', '7': 'Correo electrónico y comunicación digital básica.' },
+            '3': { '1': 'Circuitos eléctricos simples (pila, cable, bombillo).', '3': 'Conductores y aislantes de la electricidad.', '5': 'Presentaciones digitales básicas con diapositivas.', '7': 'Diseño de un folleto digital sobre el cuidado ambiental.' },
+            '4': { '1': 'Introducción al pensamiento computacional con juegos de lógica.', '3': 'Seguridad digital y ciberacoso (Netiqueta).', '5': 'Construcción de un juguete con materiales reciclados.', '7': 'Feria de tecnología escolar.' }
+        }
+    },
+    '5': {
+        objetivo: 'Dominar hojas de cálculo básicas, presentaciones multimedia, fuentes de energía y principios de programación por bloques.',
+        periodos: {
+            '1': { '1': 'La hoja de cálculo: filas, columnas, celdas y datos.', '3': 'Operaciones matemáticas básicas en hojas de cálculo (suma, resta, promedio).', '5': 'Creación de gráficos estadísticos digitales.', '7': 'Fuentes de energía renovables (solar, eólica, hidráulica) vs. no renovables.' },
+            '2': { '1': 'Presentaciones multimedia avanzadas: transiciones y animaciones.', '3': 'Sistemas tecnológicos: entrada, proceso y salida.', '5': 'Introducción a la programación por bloques (Scratch).', '7': 'Movimiento de personajes y eventos en Scratch.' },
+            '3': { '1': 'Sensores y condicionales en la programación por bloques.', '3': 'La robótica en la vida moderna y la medicina.', '5': 'Huella de carbono digital y basura electrónica (e-waste).', '7': 'Derechos de autor y licencias Creative Commons.' },
+            '4': { '1': 'Diseño de un videojuego educativo en Scratch.', '3': 'Preparación Saber 5° en pensamiento tecnológico.', '5': 'Presentación de proyectos digitales.', '7': 'Exposición tecnológica escolar.' }
+        }
+    },
+    '6': {
+        objetivo: 'Comprender la naturaleza de la tecnología, operadores mecánicos y eléctricos, y ofimática aplicada.',
+        periodos: {
+            '1': { '1': 'Concepto de tecnología, técnica y ciencia.', '3': 'Evolución histórica de la tecnología y revoluciones industriales.', '5': 'Hardware y Software: sistemas operativos y arquitectura básica.', '7': 'Manejo avanzado de procesadores de texto y normas de formato.' },
+            '2': { '1': 'Operadores mecánicos: engranajes, bielas y manivelas.', '3': 'Transformación de movimientos en máquinas.', '5': 'Hojas de cálculo: fórmulas lógicas y funciones condicionales.', '7': 'Seguridad en internet, contraseñas seguras y privacidad.' },
+            '3': { '1': 'Electricidad básica: circuitos serie y paralelo.', '3': 'Leyes básicas de la electricidad (Ley de Ohm conceptual).', '5': 'Diseño y modelado 2D con herramientas digitales.', '7': 'Algoritmos y diagramas de flujo de procesos.' },
+            '4': { '1': 'Introducción a la robótica educativa y sensores.', '3': 'Impacto ambiental de la tecnología y obsolescencia programada.', '5': 'Construcción de un prototipo tecnológico.', '7': 'Feria de la ciencia y tecnología.' }
+        }
+    },
+    'Ciclo I': {
+        objetivo: 'Aprender el uso básico del teléfono celular, computador y herramientas digitales para la vida cotidiana de adultos.',
+        periodos: {
+            '1': { '1': 'El celular: llamadas, mensajes y configuración básica.', '3': 'El computador: encendido, apagado y uso del ratón.', '5': 'Navegación en internet y búsqueda de información.', '7': 'Seguridad y prevención de estafas digitales.' },
+            '2': { '1': 'Escritura de textos cortos en el computador.', '3': 'Uso de WhatsApp para el trabajo y la familia.', '5': 'Trámites en línea sencillos (citas médicas, certificados).', '7': 'Cuidado y mantenimiento de aparatos electrónicos.' },
+            '3': { '1': 'Uso de la calculadora del celular y cuentas.', '3': 'Fotografía digital y envío de documentos.', '5': 'Medios de transporte y aplicaciones útiles.', '7': 'Tecnología en el hogar y ahorro de energía.' },
+            '4': { '1': 'Herramientas digitales para el empleo.', '3': 'Evaluación práctica de habilidades.', '5': 'Repaso general.', '7': 'Cierre del ciclo.' }
+        }
+    }
 };
 
 window.mallaFisica = {
     '6': {
         objetivo: 'Interpretar fenómenos naturales, la gravitación y los conceptos básicos de cinemática (posición, velocidad y aceleración).',
         periodos: {
-            '1': {
-                '1': 'Introducción a la Física y su importancia en el desarrollo humano.',
-                '3': 'Observación e interpretación de fenómenos naturales en el entorno.',
-                '5': 'El sistema planetario y sus componentes.',
-                '7': 'Ley de la gravitación universal y movimiento de satélites naturales.'
-            },
-            '2': {
-                '1': 'Conceptos de posición y trayectoria.',
-                '3': 'Distancia y desplazamiento.',
-                '5': 'Velocidad y rapidez en el entorno cotidiano.',
-                '7': 'Aceleración y características de los diferentes tipos de movimiento.'
-            },
-            '3': {
-                '1': 'Revisión del movimiento planetario desde el punto de vista científico.',
-                '3': 'Aplicación de la ley de la gravitación universal.',
-                '5': 'Satélites naturales vs. satélites artificiales.',
-                '7': 'Proyecto de aula: Modelando el sistema solar y sus fuerzas.'
-            },
-            '4': {
-                '1': 'Concepto de impulso en situaciones cotidianas.',
-                '3': 'Cantidad de movimiento (Momentum).',
-                '5': 'Choques elásticos: Teoría y ejemplos.',
-                '7': 'Choques inelásticos e identificación de fuerzas internas y externas.'
-            }
+            '1': { '1': 'Introducción a la Física y su importancia.', '3': 'Fenómenos naturales del entorno.', '5': 'El sistema planetario.', '7': 'Ley de gravitación universal.' },
+            '2': { '1': 'Conceptos de posición y trayectoria.', '3': 'Distancia y desplazamiento.', '5': 'Velocidad y rapidez.', '7': 'Aceleración y tipos de movimiento.' },
+            '3': { '1': 'Movimiento planetario.', '3': 'Aplicación de la ley de gravitación.', '5': 'Satélites naturales vs. artificiales.', '7': 'Modelado del sistema solar.' },
+            '4': { '1': 'Concepto de impulso.', '3': 'Cantidad de movimiento (Momentum).', '5': 'Choques elásticos.', '7': 'Choques inelásticos y fuerzas internas.' }
         }
     },
     '7': {
-        objetivo: 'Analizar gráficamente el movimiento bidimensional y aplicar el principio de conservación de la energía mecánica.',
+        objetivo: 'Analizar gráficamente el movimiento bidimensional y aplicar el principio de conservación de la energía.',
         periodos: {
-            '1': {
-                '1': 'Diferencia entre magnitudes escalares y vectoriales.',
-                '3': 'Representación gráfica de vectores.',
-                '5': 'Suma y resta de vectores en contextos físicos.',
-                '7': 'Interpretación de vectores en fenómenos naturales del entorno.'
-            },
-            '2': {
-                '1': 'Construcción e interpretación de gráficas de posición vs tiempo (x-t).',
-                '3': 'Gráficas de velocidad vs tiempo (v-t).',
-                '5': 'Gráficas de aceleración vs tiempo (a-t).',
-                '7': 'Comparación de movimientos utilizando herramientas gráficas.'
-            },
-            '3': {
-                '1': 'Características de un cuerpo que se mueve en dos dimensiones.',
-                '3': 'Movimiento semiparabólico y parabólico.',
-                '5': 'Movimiento circular uniforme.',
-                '7': 'Argumentación y resolución de problemas bidimensionales.'
-            },
-            '4': {
-                '1': 'Tipos de energía mecánica: Cinética y Potencial.',
-                '3': 'Principio de conservación de la energía mecánica.',
-                '5': 'Transformaciones de energía en sistemas físicos.',
-                '7': 'Resolución de problemas aplicando la conservación de la energía.'
-            }
+            '1': { '1': 'Escalares y vectoriales.', '3': 'Gráficas de vectores.', '5': 'Suma y resta de vectores.', '7': 'Vectores en fenómenos naturales.' },
+            '2': { '1': 'Gráficas de posición vs tiempo.', '3': 'Gráficas de velocidad vs tiempo.', '5': 'Gráficas de aceleración vs tiempo.', '7': 'Herramientas gráficas comparativas.' },
+            '3': { '1': 'Cuerpos en dos dimensiones.', '3': 'Movimiento parabólico.', '5': 'Movimiento circular.', '7': 'Problemas bidimensionales.' },
+            '4': { '1': 'Energía cinética y potencial.', '3': 'Conservación de la energía mecánica.', '5': 'Transformaciones energéticas.', '7': 'Resolución de problemas de energía.' }
         }
     },
     '8': {
-        objetivo: 'Comprender la utilidad de las máquinas simples, las leyes de la termodinámica y el comportamiento de fluidos.',
+        objetivo: 'Comprender máquinas simples, termodinámica y fluidos.',
         periodos: {
-            '1': { '1': 'Concepto de trabajo, ventaja mecánica y eficiencia.', '3': 'Tipos de máquinas simples.', '5': 'Máquinas compuestas en la vida diaria.', '7': 'Diseño y construcción de máquinas simples (Laboratorio).' },
-            '2': { '1': 'Energía mecánica y su transformación cualitativa.', '3': 'Relación entre trabajo mecánico y energía.', '5': 'Conservación de la energía en diferentes situaciones.', '7': 'Cuantificación de la transformación energética.' },
-            '3': { '1': 'Energía interna, temperatura y calor.', '3': 'Primera ley de la termodinámica.', '5': 'Segunda ley de la termodinámica.', '7': 'Aplicación de leyes en motores térmicos y refrigeradores.' },
-            '4': { '1': 'Variables termodinámicas: Presión, Volumen y Temperatura.', '3': 'Leyes de Boyle, Charles y Gay-Lussac.', '5': 'Ecuación de estado de los gases ideales.', '7': 'Dinámica de fluidos y eventos cotidianos (globos aerostáticos).' }
+            '1': { '1': 'Trabajo y eficiencia.', '3': 'Tipos de máquinas simples.', '5': 'Máquinas compuestas.', '7': 'Laboratorio de máquinas simples.' },
+            '2': { '1': 'Energía mecánica.', '3': 'Trabajo y energía.', '5': 'Conservación de la energía.', '7': 'Cuantificación energética.' },
+            '3': { '1': 'Calor y temperatura.', '3': 'Primera ley termodinámica.', '5': 'Segunda ley termodinámica.', '7': 'Motores térmicos.' },
+            '4': { '1': 'Variables termodinámicas.', '3': 'Leyes de los gases.', '5': 'Gases ideales.', '7': 'Dinámica de fluidos.' }
         }
     },
     '9': {
-        objetivo: 'Analizar cargas eléctricas, circuitos, ondas mecánicas y fenómenos ópticos.',
+        objetivo: 'Analizar carga eléctrica, circuitos, ondas y óptica.',
         periodos: {
-            '1': { '1': 'Naturaleza de la carga eléctrica y métodos de electrización.', '3': 'Ley de Coulomb.', '5': 'Concepto de Campo Eléctrico.', '7': 'Potencial Eléctrico y su aplicación.' },
-            '2': { '1': 'Corriente eléctrica, voltaje y resistencia.', '3': 'Ley de Ohm.', '5': 'Circuitos en serie y paralelo.', '7': 'Resolución de circuitos y modelos prácticos.' },
-            '3': { '1': 'Características de las ondas mecánicas.', '3': 'Frecuencia, longitud de onda y velocidad.', '5': 'Reflexión, refracción y difracción.', '7': 'El sonido como onda mecánica y sus propiedades.' },
-            '4': { '1': 'Naturaleza de la luz y el espectro electromagnético.', '3': 'Reflexión y espejos.', '5': 'Refracción y lentes.', '7': 'Aplicaciones ópticas en la vida cotidiana.' }
+            '1': { '1': 'Carga eléctrica.', '3': 'Ley de Coulomb.', '5': 'Campo Eléctrico.', '7': 'Potencial Eléctrico.' },
+            '2': { '1': 'Corriente y voltaje.', '3': 'Ley de Ohm.', '5': 'Circuitos en serie y paralelo.', '7': 'Resolución de circuitos.' },
+            '3': { '1': 'Ondas mecánicas.', '3': 'Frecuencia y longitud.', '5': 'Reflexión y refracción.', '7': 'Sonido.' },
+            '4': { '1': 'Luz y espectro.', '3': 'Reflexión y espejos.', '5': 'Refracción y lentes.', '7': 'Aplicaciones ópticas.' }
         }
     },
     '10': {
-        objetivo: 'Profundizar en el modelado matemático del movimiento y las condiciones de equilibrio de los cuerpos.',
+        objetivo: 'Modelado matemático del movimiento y equilibrio.',
         periodos: {
-            '1': { '1': 'Sistemas de referencia inerciales.', '3': 'Movimiento Rectilíneo Uniforme (MRU).', '5': 'Movimiento Rectilíneo Uniformemente Variado (MRUV).', '7': 'Análisis matemático y gráfico de la cinemática.' },
-            '2': { '1': 'Vectores avanzados y sus componentes.', '3': 'Tiro parabólico y ecuaciones de trayectoria.', '5': 'Dinámica del movimiento circular.', '7': 'Aplicación de conocimientos en situaciones del entorno.' },
-            '3': { '1': 'Concepto de Fuerza e Inercia (Primera Ley).', '3': 'Relación entre Fuerza, Masa y Aceleración (Segunda Ley).', '5': 'Acción y Reacción (Tercera Ley).', '7': 'Fricción y fuerzas en planos inclinados.' },
-            '4': { '1': 'Fuerzas coplanares y concurrentes.', '3': 'Equilibrio de traslación.', '5': 'Torque y momento de fuerza.', '7': 'Equilibrio de rotación y equilibrio estático total.' }
+            '1': { '1': 'Sistemas de referencia.', '3': 'MRU.', '5': 'MRUV.', '7': 'Análisis cinemático.' },
+            '2': { '1': 'Vectores avanzados.', '3': 'Tiro parabólico.', '5': 'Dinámica circular.', '7': 'Situaciones del entorno.' },
+            '3': { '1': 'Fuerza e inercia.', '3': 'Segunda ley de Newton.', '5': 'Tercera ley de Newton.', '7': 'Fricción.' },
+            '4': { '1': 'Fuerzas coplanares.', '3': 'Equilibrio de traslación.', '5': 'Torque.', '7': 'Equilibrio estático.' }
         }
     },
     '11': {
-        objetivo: 'Consolidar competencias ICFES a través de la integración de toda la física.',
+        objetivo: 'Consolidar competencias ICFES.',
         periodos: {
-            '1': { '1': 'Repaso integrador de Cinemática y Dinámica.', '3': 'Trabajo, Potencia y Energía.', '5': 'Conservación del momento lineal.', '7': 'Preparación pruebas SABER 11 (Mecánica Clásica).' },
-            '2': { '1': 'Estática y dinámica de fluidos.', '3': 'Calorimetría y cambios de fase.', '5': 'Procesos termodinámicos avanzados.', '7': 'Preparación pruebas SABER 11 (Eventos termodinámicos).' },
-            '3': { '1': 'Electrodinámica avanzada.', '3': 'Magnetismo e inducción electromagnética.', '5': 'Física moderna básica y óptica física.', '7': 'Preparación pruebas SABER 11 (Eventos electromagnéticos).' },
-            '4': { '1': 'Planteamiento de un problema de investigación física.', '3': 'Diseño y construcción de un prototipo o experimento.', '5': 'Análisis de datos y evaluación de hipótesis.', '7': 'Presentación del proyecto final (Feria de la Ciencia).' }
+            '1': { '1': 'Repaso mecánica.', '3': 'Energía.', '5': 'Momento lineal.', '7': 'SABER 11 Mecánica.' },
+            '2': { '1': 'Estática fluidos.', '3': 'Calorimetría.', '5': 'Termodinámica.', '7': 'SABER 11 Termodinámica.' },
+            '3': { '1': 'Electrodinámica.', '3': 'Magnetismo.', '5': 'Física moderna.', '7': 'SABER 11 Electromagnetismo.' },
+            '4': { '1': 'Problema investigación.', '3': 'Construcción prototipo.', '5': 'Análisis datos.', '7': 'Feria de la Ciencia.' }
         }
     },
     'Ciclo III': {
-        objetivo: 'Comprender conceptos fundamentales del movimiento, fuerza y energía en la vida cotidiana.',
+        objetivo: 'Movimiento, fuerza y energía.',
         periodos: {
-            '1': { '1': 'Diagnóstico inicial: Movimiento, rapidez y fuerzas en el entorno.', '3': 'La gravedad y el peso de los objetos.', '5': 'Energía y trabajo en las actividades diarias.', '7': 'Máquinas simples (palancas, poleas y planos inclinados).' },
-            '2': { '1': 'Vectores y dirección del movimiento.', '3': 'Velocidad constante vs aceleración.', '5': 'Fuerza de rozamiento y frenado.', '7': 'Presión en líquidos y gases.' },
-            '3': { '1': 'Calor y temperatura en el hogar.', '3': 'Sonido y ondas en la comunicación.', '5': 'Luz y sombras: óptica básica.', '7': 'Electricidad estática y precauciones.' },
-            '4': { '1': 'Circuitos eléctricos simples.', '3': 'Imanes y brújulas.', '5': 'Energías renovables.', '7': 'Taller de física práctica.' }
+            '1': { '1': 'Rapidez y fuerzas.', '3': 'Gravedad y peso.', '5': 'Energía y trabajo.', '7': 'Máquinas simples.' },
+            '2': { '1': 'Vectores.', '3': 'Velocidad y aceleración.', '5': 'Fuerza de rozamiento.', '7': 'Presión.' },
+            '3': { '1': 'Calor y temperatura.', '3': 'Sonido.', '5': 'Luz y sombras.', '7': 'Electricidad estática.' },
+            '4': { '1': 'Circuitos.', '3': 'Magnetismo.', '5': 'Energías renovables.', '7': 'Física práctica.' }
         }
     },
     'Ciclo VI': {
-        objetivo: 'Interpretar fenómenos mecánicos, termodinámicos y electromagnéticos aplicados con orientación Saber 11 formativo.',
+        objetivo: 'Mecánica, termodinámica y electromagnetismo.',
         periodos: {
-            '1': { '1': 'Diagnóstico inicial: Cinemática, fuerzas y leyes del movimiento.', '3': 'Trabajo mecánico, potencia y conservación de la energía.', '5': 'Fluidos: densidad, presión y empuje.', '7': 'Preguntas tipo Saber 11 formativas de Física.' },
-            '2': { '1': 'Termodinámica: calor, dilatación y máquinas térmicas.', '3': 'Ondas mecánicas y sonido.', '5': 'Óptica geométrica: espejos y lentes.', '7': 'Análisis de gráficas experimentales de física.' },
-            '3': { '1': 'Electrostática y ley de Coulomb.', '3': 'Circuitos eléctricos domésticos y ley de Ohm.', '5': 'Magnetismo y motores eléctricos.', '7': 'Consumo eficiente de energía eléctrica.' },
-            '4': { '1': 'Ondas electromagnéticas y telecomunicaciones.', '3': 'Física moderna y aplicaciones médicas.', '5': 'Simulacro Saber 11 de Ciencias Naturales / Física.', '7': 'Proyecto tecnológico de aplicación.' }
+            '1': { '1': 'Cinemática y fuerzas.', '3': 'Trabajo y energía.', '5': 'Fluidos.', '7': 'SABER 11 Física.' },
+            '2': { '1': 'Termodinámica.', '3': 'Ondas y sonido.', '5': 'Óptica.', '7': 'Análisis experimental.' },
+            '3': { '1': 'Electrostática.', '3': 'Circuitos y Ley de Ohm.', '5': 'Magnetismo.', '7': 'Eficiencia energética.' },
+            '4': { '1': 'Ondas electromagnéticas.', '3': 'Física moderna.', '5': 'Simulacro Saber 11.', '7': 'Proyecto aplicativo.' }
         }
     }
 };
-
-window.gradoActualPlaneacion = null;
 
 window.actualizarVisualizadorPlaneacion = function() {
     const selectorAsignatura = document.getElementById('select-planeacion-asignatura');
@@ -1320,8 +2057,7 @@ window.actualizarVisualizadorPlaneacion = function() {
     let asignatura = selectorAsignatura ? selectorAsignatura.value : 'Física';
     
     let malla = null;
-
-    if (asignatura.toLowerCase().includes('física')) {
+    if (asignatura.toLowerCase().includes('física') || asignatura.toLowerCase().includes('fisica')) {
         malla = window.mallaFisica;
     } else if (asignatura.toLowerCase().includes('química') || asignatura.toLowerCase().includes('quimica')) {
         malla = window.mallaQuimica;
@@ -1331,13 +2067,17 @@ window.actualizarVisualizadorPlaneacion = function() {
         malla = window.mallaNaturales;
     } else if (asignatura.toLowerCase().includes('sociales')) {
         malla = window.mallaSociales;
-    } else if (asignatura.toLowerCase().includes('castellano') || asignatura.toLowerCase().includes('humanidades')) {
+    } else if (asignatura.toLowerCase().includes('castellano') || asignatura.toLowerCase().includes('humanidades') || asignatura.toLowerCase().includes('lengua')) {
         malla = window.mallaCastellano;
+    } else if (asignatura.toLowerCase().includes('inglés') || asignatura.toLowerCase().includes('ingles') || asignatura.toLowerCase().includes('idioma')) {
+        malla = window.mallaIngles;
+    } else if (asignatura.toLowerCase().includes('tecnología') || asignatura.toLowerCase().includes('tecnologia') || asignatura.toLowerCase().includes('informática') || asignatura.toLowerCase().includes('informatica')) {
+        malla = window.mallaTecnologia;
     } else if (asignatura.toLowerCase().includes('turismo')) {
         malla = window.mallaTurismo;
     } else if (asignatura.toLowerCase().includes('artística') || asignatura.toLowerCase().includes('música') || asignatura.toLowerCase().includes('artistica')) {
         malla = window.mallaArtistica;
-    } else if (asignatura.toLowerCase().includes('ética') || asignatura.toLowerCase().includes('etica')) {
+    } else if (asignatura.toLowerCase().includes('ética') || asignatura.toLowerCase().includes('etica') || asignatura.toLowerCase().includes('filosofía') || asignatura.toLowerCase().includes('filosofia')) {
         malla = window.mallaEtica;
     }
 
@@ -1487,63 +2227,317 @@ window.volverAGrupos = function() {
     document.getElementById('admin-estudiantes-grupo-container').style.display = 'none';
 };
 
-window.verInformeEstudiante = function(nombre, progreso, grupoName, documento) {
-    document.getElementById('informe-nombre-estudiante').textContent = 'Informe: ' + nombre + ' (' + (grupoName || 'Sin Grupo') + ')';
+window.verInformeEstudiante = async function(nombreOrDoc, progreso, grupoName, documento) {
+    let docId = documento || '';
+    let nombreEst = '';
+    let gradoEst = grupoName || '';
     
-    // Mapping of group to subjects based on the provided schedule
-    let materiasHTML = '';
-    let materias = obtenerMateriasPorGrupo(grupoName);
-    
+    // Normalizar argumentos si fue llamado solo con docId o con objeto
+    if (typeof nombreOrDoc === 'object' && nombreOrDoc !== null) {
+        docId = nombreOrDoc.documento || nombreOrDoc.usuario || '';
+        nombreEst = nombreOrDoc.nombre || '';
+        gradoEst = nombreOrDoc.grado || nombreOrDoc.grupo || '';
+    } else if (!documento && String(nombreOrDoc).match(/^\d+$/)) {
+        docId = String(nombreOrDoc);
+    } else {
+        nombreEst = nombreOrDoc || '';
+    }
+
+    // Consultar lista completa de estudiantes para tener el objeto completo
+    let estObj = null;
+    try {
+        const res = await fetch('/api/estudiantes');
+        const listaEstudiantes = await res.json();
+        estObj = listaEstudiantes.find(e => String(e.documento).trim() === String(docId).trim());
+    } catch(e) { console.error(e); }
+
+    if (estObj) {
+        nombreEst = ((estObj.nombre || '') + ' ' + (estObj.apellidos || '')).trim() || estObj.documento;
+        gradoEst = estObj.grado || estObj.grupo || gradoEst || '6';
+    } else if (!nombreEst) {
+        nombreEst = 'Estudiante (' + docId + ')';
+    }
+
+    const modalTitle = document.getElementById('informe-nombre-estudiante');
+    if (modalTitle) {
+        modalTitle.innerHTML = `📋 Informe & Orientador: <span style="color:#2563EB;">${nombreEst}</span> <span style="font-size:0.9rem; color:#6B7280; font-weight:normal;">(Doc: ${docId} | Grado/Grupo: ${gradoEst})</span>`;
+    }
+
+    const materias = obtenerMateriasPorGrupo(gradoEst, estObj);
+
+    // Contar guías generadas en localStorage
+    let totalGuiasGeneradas = 0;
+    let guiasPorMateriaHtml = '';
+
     materias.forEach(m => {
-        let guiasHtml = '';
-        if (documento) {
+        let botonesGuias = '';
+        if (docId) {
             for (let i = 0; i < localStorage.length; i++) {
                 let key = localStorage.key(i);
-                if (key.startsWith(`config_${documento}_${m.nombre}`)) {
+                if (key.startsWith(`config_${docId}_${m.nombre}`)) {
+                    totalGuiasGeneradas++;
                     let p = key.match(/_p(\d+)_/);
                     let s = key.match(/_s(\d+)$/);
-                    let per = p ? p[1] : '?';
-                    let sem = s ? s[1] : '?';
-                    guiasHtml += `<button onclick="abrirGuiaProfesor('${key}')" style="margin-top: 5px; margin-right: 5px; background:#10B981; color:white; border:none; border-radius:4px; font-size:0.75rem; padding:4px 8px; cursor:pointer;">P${per} S${sem}</button>`;
+                    let per = p ? p[1] : '1';
+                    let sem = s ? s[1] : '1';
+                    botonesGuias += `
+                        <button onclick="abrirGuiaProfesor('${key}')" style="background: #10B981; color: white; border: none; border-radius: 6px; font-size: 0.75rem; padding: 4px 8px; font-weight: bold; cursor: pointer; display: inline-flex; align-items: center; gap: 4px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+                            👁️ P${per} S${sem} (Solucionario)
+                        </button>
+                    `;
                 }
             }
         }
-        
-        materiasHTML += `
-            <li style="display: flex; flex-direction: column; padding: 10px 0; border-bottom: 1px solid #E5E7EB;">
-                <div style="display: flex; justify-content: space-between;">
-                    <span style="font-weight: bold;">${m.nombre} (${m.horas})</span>
-                    <span style="color: ${m.color}; font-weight: bold;">${m.estado}</span>
+
+        guiasPorMateriaHtml += `
+            <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 8px; padding: 12px 16px; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
+                <div>
+                    <strong style="color: #1E293B; font-size: 0.95rem;">📚 ${m.nombre}</strong>
+                    <span style="font-size: 0.8rem; color: #64748B; margin-left: 6px;">(${m.horas})</span>
                 </div>
-                ${guiasHtml ? `<div style="margin-top: 5px; display: flex; flex-wrap: wrap;">Guías: ${guiasHtml}</div>` : ''}
-            </li>
+                <div style="display: flex; align-items: center; gap: 6px; flex-wrap: wrap;">
+                    ${botonesGuias || '<span style="font-size: 0.8rem; color: #94A3B8; font-style: italic;">Sin guías previas guardadas</span>'}
+                </div>
+            </div>
         `;
     });
 
-    document.getElementById('informe-contenido').innerHTML = `
-        <div style="margin-bottom: 20px;">
-            <h4 style="font-weight: 800; border-bottom: 2px solid #E5E7EB; padding-bottom: 10px; margin-bottom: 15px;">Resumen de Actividad</h4>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
-                <div style="background: #F3F4F6; padding: 15px; border-radius: 8px;">
-                    <div style="color: #6B7280; font-size: 0.85rem; font-weight: bold; text-transform: uppercase;">Progreso Total</div>
-                    <div style="font-size: 1.5rem; font-weight: 900; color: #10B981;">${progreso}%</div>
+    const estadoPago = estObj && (estObj.pago_realizado || estObj.pago_activo) ? '🟢 Matrícula Activa' : '🟡 Modo Freemium (1ª Guía Gratis)';
+    const opcionesMaterias = materias.map(m => `<option value="${m.nombre}">${m.nombre}</option>`).join('');
+
+    const modalContenido = document.getElementById('informe-contenido');
+    if (modalContenido) {
+        modalContenido.innerHTML = `
+            <div style="margin-bottom: 20px;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-bottom: 20px;">
+                    <div style="background: #EFF6FF; border: 1px solid #BFDBFE; padding: 12px 16px; border-radius: 8px;">
+                        <div style="color: #1E40AF; font-size: 0.8rem; font-weight: bold; text-transform: uppercase;">Estado de Cuenta</div>
+                        <div style="font-size: 0.95rem; font-weight: 800; color: #1E3A8A; margin-top: 4px;">${estadoPago}</div>
+                    </div>
+                    <div style="background: #ECFDF5; border: 1px solid #A7F3D0; padding: 12px 16px; border-radius: 8px;">
+                        <div style="color: #065F46; font-size: 0.8rem; font-weight: bold; text-transform: uppercase;">Guías Guardadas</div>
+                        <div style="font-size: 1.3rem; font-weight: 900; color: #047857; margin-top: 4px;">${totalGuiasGeneradas}</div>
+                    </div>
+                    <div style="background: #FDF4FF; border: 1px solid #F0ABFC; padding: 12px 16px; border-radius: 8px;">
+                        <div style="color: #86198F; font-size: 0.8rem; font-weight: bold; text-transform: uppercase;">Materias Asignadas</div>
+                        <div style="font-size: 1.3rem; font-weight: 900; color: #701A75; margin-top: 4px;">${materias.length}</div>
+                    </div>
                 </div>
-                <div style="background: #F3F4F6; padding: 15px; border-radius: 8px;">
-                    <div style="color: #6B7280; font-size: 0.85rem; font-weight: bold; text-transform: uppercase;">Materias Asignadas</div>
-                    <div style="font-size: 1.5rem; font-weight: 900; color: #3B82F6;">${materias.length}</div>
+
+                <!-- SECCIÓN 1: EXPLORADOR DE GUÍAS CON SOLUCIONARIO -->
+                <div style="background: linear-gradient(135deg, #EEF2FF 0%, #E0E7FF 100%); border: 2px solid #818CF8; border-radius: 12px; padding: 20px; margin-bottom: 25px; box-shadow: 0 4px 10px rgba(99,102,241,0.1);">
+                    <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+                        <span style="font-size: 1.5rem;">🧭</span>
+                        <h4 style="margin: 0; font-size: 1.15rem; color: #312E81; font-weight: 900;">Explorador & Solucionario Pedagógico para el Tutor</h4>
+                    </div>
+                    <p style="margin: 0 0 15px 0; font-size: 0.9rem; color: #4338CA;">
+                        Selecciona cualquier asignatura, periodo y semana para abrir la guía correspondiente con todas las <b>respuestas oficiales</b>, pistas didácticas y justificaciones ICFES.
+                    </p>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; align-items: flex-end;">
+                        <div>
+                            <label style="display: block; font-size: 0.8rem; font-weight: bold; color: #3730A3; margin-bottom: 4px;">Asignatura:</label>
+                            <select id="orientador-select-materia" style="width: 100%; padding: 8px 12px; border-radius: 6px; border: 1px solid #A5B4FC; font-weight: bold; color: #1E1B4B; background: white;">
+                                ${opcionesMaterias}
+                            </select>
+                        </div>
+                        <div>
+                            <label style="display: block; font-size: 0.8rem; font-weight: bold; color: #3730A3; margin-bottom: 4px;">Periodo:</label>
+                            <select id="orientador-select-periodo" style="width: 100%; padding: 8px 12px; border-radius: 6px; border: 1px solid #A5B4FC; font-weight: bold; color: #1E1B4B; background: white;">
+                                <option value="1">Periodo 1</option>
+                                <option value="2">Periodo 2</option>
+                                <option value="3" selected>Periodo 3</option>
+                                <option value="4">Periodo 4</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label style="display: block; font-size: 0.8rem; font-weight: bold; color: #3730A3; margin-bottom: 4px;">Semana:</label>
+                            <select id="orientador-select-semana" style="width: 100%; padding: 8px 12px; border-radius: 6px; border: 1px solid #A5B4FC; font-weight: bold; color: #1E1B4B; background: white;">
+                                <option value="1">Semana 1</option>
+                                <option value="2">Semana 2</option>
+                                <option value="3">Semana 3</option>
+                                <option value="4">Semana 4</option>
+                                <option value="5">Semana 5</option>
+                                <option value="6">Semana 6</option>
+                                <option value="7">Semana 7</option>
+                                <option value="8">Semana 8</option>
+                            </select>
+                        </div>
+                        <div>
+                            <button onclick="ejecutarAperturaOrientador('${docId}')" style="width: 100%; background: #4F46E5; color: white; border: none; padding: 10px 14px; border-radius: 6px; font-weight: 800; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px; box-shadow: 0 2px 6px rgba(79,70,229,0.3);">
+                                <span>👁️</span> Abrir Solucionario
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SECCIÓN 2: HISTORIAL Y MATERIAS ASIGNADAS -->
+                <div>
+                    <h4 style="font-weight: 800; color: #1E293B; margin-bottom: 12px; display: flex; align-items: center; gap: 6px;">
+                        <span>📚</span> Asignaturas y Guías en Progreso
+                    </h4>
+                    ${guiasPorMateriaHtml}
                 </div>
             </div>
-        </div>
-        <div>
-            <h4 style="font-weight: 800; border-bottom: 2px solid #E5E7EB; padding-bottom: 10px; margin-bottom: 15px;">Materias Matriculadas</h4>
-            <ul style="list-style: none; padding: 0; margin: 0;">
-                ${materiasHTML}
-            </ul>
-        </div>
-    `;
+        `;
+    }
+
+    const modal = document.getElementById('modal-informe-estudiante');
+    if (modal) {
+        modal.style.display = 'flex';
+        if (typeof pushSubView === 'function') pushSubView();
+    }
+};
+
+window.verInformeDetallado = window.verInformeEstudiante;
+
+window.ejecutarAperturaOrientador = function(documento) {
+    const matElem = document.getElementById('orientador-select-materia');
+    const perElem = document.getElementById('orientador-select-periodo');
+    const semElem = document.getElementById('orientador-select-semana');
+    if (!matElem || !perElem || !semElem) return;
+
+    const asignatura = matElem.value;
+    const periodo = perElem.value;
+    const semana = semElem.value;
+
+    abrirGuiaOrientador(documento, asignatura, periodo, semana);
+};
+
+window.abrirGuiaOrientador = async function(documento, asignatura, periodo, semanaStr) {
+    let est = {
+        nombre: 'Estudiante',
+        grado: '6',
+        documento: documento,
+        institucion: 'HomeSchool',
+        rol: 'estudiante'
+    };
+
+    try {
+        const resEst = await fetch('/api/estudiantes');
+        const estudiantes = await resEst.json();
+        const found = estudiantes.find(e => String(e.documento).trim() === String(documento).trim());
+        if (found) est = found;
+    } catch(e) { console.error(e); }
     
-    document.getElementById('modal-informe-estudiante').style.display = 'flex';
-    if(typeof pushSubView === 'function') pushSubView();
+    const studentDisplayName = ((est.nombre || '') + (est.apellidos ? ' ' + est.apellidos : '')).trim() || 'Estudiante';
+    const grado = est.grado || est.grupo || '6';
+    const institucion = est.institucion || (est.rol === 'validacion' ? 'Validacion' : 'HomeSchool');
+    const modo = est.rol || (institucion === 'Validacion' ? 'validacion' : (institucion === 'HomeSchool' ? 'homeschool' : 'regular'));
+
+    // Determinar meta y tópico de la malla
+    const gradoNum = window.normalizarGradoOCiclo ? window.normalizarGradoOCiclo(grado) : grado.replace(/[^0-9PENS]/g, '');
+    let malla = null;
+    if (asignatura.toLowerCase().includes('física') || asignatura.toLowerCase().includes('fisica')) malla = window.mallaFisica;
+    else if (asignatura.toLowerCase().includes('química') || asignatura.toLowerCase().includes('quimica')) malla = window.mallaQuimica;
+    else if (asignatura.toLowerCase().includes('matemática') || asignatura.toLowerCase().includes('matematica')) malla = window.mallaMatematicas;
+    else if (asignatura.toLowerCase().includes('naturales') || asignatura.toLowerCase().includes('ciencias')) malla = window.mallaNaturales;
+    else if (asignatura.toLowerCase().includes('sociales')) malla = window.mallaSociales;
+    else if (asignatura.toLowerCase().includes('castellano') || asignatura.toLowerCase().includes('lengua')) malla = window.mallaCastellano;
+    else if (asignatura.toLowerCase().includes('inglés') || asignatura.toLowerCase().includes('ingles')) malla = window.mallaIngles;
+    else if (asignatura.toLowerCase().includes('tecnología') || asignatura.toLowerCase().includes('tecnologia')) malla = window.mallaTecnologia;
+    else if (asignatura.toLowerCase().includes('turismo')) malla = window.mallaTurismo;
+    else if (asignatura.toLowerCase().includes('artística') || asignatura.toLowerCase().includes('artistica')) malla = window.mallaArtistica;
+    else if (asignatura.toLowerCase().includes('ética') || asignatura.toLowerCase().includes('filosofía')) malla = window.mallaEtica;
+
+    let meta = `Desarrollar competencias integrales en ${asignatura} para grado ${grado}.`;
+    let topico = `Unidad temática de ${asignatura} - Semana ${semanaStr}`;
+
+    const dataGrado = malla ? (malla[gradoNum] || malla[grado] || malla['6']) : null;
+    if (dataGrado) {
+        meta = dataGrado.objetivo || meta;
+        const semanaNum = parseInt(semanaStr, 10);
+        let indexTema = '1';
+        if (semanaNum >= 3 && semanaNum <= 4) indexTema = '3';
+        else if (semanaNum >= 5 && semanaNum <= 6) indexTema = '5';
+        else if (semanaNum >= 7 && semanaNum <= 8) indexTema = '7';
+        if (dataGrado.periodos && dataGrado.periodos[periodo]) {
+            topico = dataGrado.periodos[periodo][indexTema] || topico;
+        }
+    }
+
+    const payload = {
+        asignatura,
+        grado: grado,
+        periodo,
+        semana: semanaStr,
+        meta,
+        topico,
+        rol: "Profesor / Orientador Pedagógico",
+        ambiente: "Aula Virtual Guiada",
+        nivel: "Intermedio",
+        enfoque: "STEAM Gamificado con Solucionario",
+        nombre_estudiante: studentDisplayName,
+        estudiante_nombre: studentDisplayName,
+        institucion: institucion,
+        modo: modo
+    };
+
+    // Close modal
+    const modalInforme = document.getElementById('modal-informe-estudiante');
+    if (modalInforme) modalInforme.style.display = 'none';
+
+    // Set vista origen to return accurately
+    window.vistaOrigenOrientador = (window.rol_actual === 'homeschool_tutor') ? 'tutor-dashboard-container' : ((window.rol_actual === 'docente') ? 'docente-dashboard-container' : 'dashboard-screen-container');
+
+    // Show loading in guide inner content
+    const studentView = document.getElementById("student-dashboard-container");
+    const adminView = document.getElementById("dashboard-screen-container") || document.getElementById("admin-dashboard-container");
+    const docView = document.getElementById("docente-dashboard-container");
+    const tutorView = document.getElementById("tutor-dashboard-container");
+    const questContainer = document.getElementById("student-quest-container");
+    const guideContent = document.getElementById("student-guide-content");
+    const innerContent = document.getElementById("student-guide-inner-content");
+
+    if (adminView) adminView.style.display = "none";
+    if (docView) docView.style.display = "none";
+    if (tutorView) tutorView.style.display = "none";
+    if (studentView) studentView.style.display = "block";
+    if (questContainer) questContainer.style.display = "none";
+    if (guideContent) guideContent.style.display = "block";
+
+    if (innerContent) {
+        innerContent.innerHTML = `
+            <div style="text-align:center; padding: 50px 20px;">
+                <div style="font-size: 3rem; margin-bottom: 15px;">🧭</div>
+                <h3 style="color:#2563EB; font-weight:800; font-size:1.4rem;">Cargando Guía con Solucionario y Pistas Pedagógicas...</h3>
+                <p style="color:#64748B; font-size:1rem; margin-top:8px;">
+                    Personalizando contenidos para: <b>${studentDisplayName}</b><br>
+                    ${asignatura} • Periodo ${periodo}, Semana ${semanaStr}
+                </p>
+                <div style="display: inline-block; width: 40px; height: 40px; border: 4px solid #E5E7EB; border-top-color: #2563EB; border-radius: 50%; animation: spin 1s linear infinite; margin-top:20px;"></div>
+            </div>
+        `;
+    }
+
+    window.isTeacherView = true;
+
+    try {
+        const response = await fetch('/api/generate-guide', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+        });
+
+        if (!response.ok) {
+            let errMsg = "Error al obtener la guía";
+            try { const eData = await response.json(); errMsg = eData.error || errMsg; } catch(e){}
+            innerContent.innerHTML = `<div style="padding: 20px; background: #FEE2E2; border: 1px solid #EF4444; border-radius: 8px; color: #B91C1C;"><strong>No se pudo cargar la guía:</strong> ${errMsg}</div>`;
+            return;
+        }
+
+        const rawData = await response.json();
+        let guideData = rawData;
+        if (rawData && typeof rawData.text === 'string') {
+            try { guideData = JSON.parse(rawData.text); } catch(e){ guideData = rawData; }
+        } else if (rawData && rawData.text && typeof rawData.text === 'object') {
+            guideData = rawData.text;
+        }
+
+        renderizarGuiaProfesor(guideData, asignatura, periodo, semanaStr, studentDisplayName);
+    } catch(err) {
+        console.error("Error abriendo guía orientador:", err);
+        innerContent.innerHTML = `<div style="padding: 20px; background: #FEE2E2; border: 1px solid #EF4444; border-radius: 8px; color: #B91C1C;"><strong>Error de conexión al cargar la guía.</strong></div>`;
+    }
 };
 
 window.abrirGuiaProfesor = async function(key) {
@@ -1555,32 +2549,48 @@ window.abrirGuiaProfesor = async function(key) {
         .map(s => s ? s.toString().toLowerCase().replace(/[^a-z0-9]/g, '_') : 'na')
         .join('_') + '.json';
 
+    window.vistaOrigenOrientador = (window.rol_actual === 'homeschool_tutor') ? 'tutor-dashboard-container' : ((window.rol_actual === 'docente') ? 'docente-dashboard-container' : 'dashboard-screen-container');
+
+    const modalInforme = document.getElementById('modal-informe-estudiante');
+    if (modalInforme) modalInforme.style.display = 'none';
+
     try {
         const response = await fetch('guias_cache/' + fileNameSafe);
-        if (!response.ok) return alert("Guía no encontrada en caché: " + fileNameSafe);
+        let guideData = null;
+        if (response.ok) {
+            guideData = await response.json();
+        } else {
+            const resGen = await fetch('/api/generate-guide', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+            if (resGen.ok) {
+                const raw = await resGen.json();
+                guideData = (raw && typeof raw.text === 'string') ? JSON.parse(raw.text) : (raw.text || raw);
+            }
+        }
+
+        if (!guideData) return alert("No se pudo cargar la guía.");
         
-        const guideData = await response.json();
-        
-        // Cargar vista de profesor
         window.isTeacherView = true;
         
-        // Simular variables que necesita la UI de estudiante
-        document.getElementById("admin-dashboard-container").style.display = "none";
-        document.getElementById("student-dashboard-container").style.display = "block";
-        document.getElementById("student-quest-container").style.display = "none";
-        document.getElementById("student-guide-content").style.display = "block";
+        const adminView = document.getElementById("dashboard-screen-container") || document.getElementById("admin-dashboard-container");
+        const docView = document.getElementById("docente-dashboard-container");
+        const tutorView = document.getElementById("tutor-dashboard-container");
+        const studentView = document.getElementById("student-dashboard-container");
+        const questContainer = document.getElementById("student-quest-container");
+        const guideContent = document.getElementById("student-guide-content");
+
+        if (adminView) adminView.style.display = "none";
+        if (docView) docView.style.display = "none";
+        if (tutorView) tutorView.style.display = "none";
+        if (studentView) studentView.style.display = "block";
+        if (questContainer) questContainer.style.display = "none";
+        if (guideContent) guideContent.style.display = "block";
         
-        const innerContent = document.getElementById("student-guide-inner-content");
-        innerContent.innerHTML = "<p>Cargando vista de profesor...</p>";
-        
-        // Llamar a ingresarAGuia mockeando el comportamiento
-        window.guiaActualAsignatura = payload.asignatura;
-        window.guiaActualPeriodo = payload.periodo;
-        document.getElementById('student-select-semana').value = payload.semana;
-        document.getElementById('student-select-periodo').value = payload.periodo;
-        
-        // Simular una llamada directa para renderizar (usaremos una copia adaptada de la lógica de ingresarAGuia)
-        renderizarGuiaProfesor(guideData, payload.asignatura, payload.periodo, payload.semana);
+        const studentDisplayName = payload.nombre_estudiante || payload.estudiante_nombre || 'Estudiante';
+        renderizarGuiaProfesor(guideData, payload.asignatura, payload.periodo, payload.semana, studentDisplayName);
         
     } catch (e) {
         console.error(e);
@@ -1588,16 +2598,30 @@ window.abrirGuiaProfesor = async function(key) {
     }
 };
 
-function renderizarGuiaProfesor(guideData, asignatura, periodo, semanaStr) {
+function renderizarGuiaProfesor(guideData, asignatura, periodo, semanaStr, studentName = '') {
     const innerContent = document.getElementById("student-guide-inner-content");
     window.guideDataCache = guideData;
     window.juegosPendientes = [];
+
+    const nombreEst = studentName || (window.usuarioEstudianteActual ? window.usuarioEstudianteActual.nombre : 'Estudiante');
     
     let htmlRenderizado = `
-        <div style="text-align: center; margin-bottom: 20px; background: #FEF3C7; padding: 10px; border-radius: 8px; border: 2px solid #F59E0B;">
-            <h3 style="color: #D97706; font-weight: 900; margin: 0;">👨‍🏫 VISTA DE PROFESOR</h3>
-            <p style="color: #92400E; margin: 5px 0 0 0;">Visualizando guía pedagógica completa y respuestas oficiales.</p>
-            <button onclick="cerrarGuiaProfesor()" style="margin-top: 10px; background: #EF4444; color: white; border: none; padding: 8px 16px; border-radius: 6px; font-weight: bold; cursor: pointer;">Cerrar Vista Profesor</button>
+        <div style="text-align: center; margin-bottom: 25px; background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%); padding: 18px 24px; border-radius: 12px; border: 2px solid #F59E0B; box-shadow: 0 4px 12px rgba(245,158,11,0.15);">
+            <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
+                <div style="text-align: left;">
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <span style="font-size: 1.6rem;">🧭</span>
+                        <h3 style="color: #92400E; font-weight: 900; margin: 0; font-size: 1.25rem;">VISTA DE ORIENTADOR / PROFESOR TUTOR</h3>
+                    </div>
+                    <p style="color: #B45309; margin: 4px 0 0 0; font-size: 0.95rem;">
+                        Guía de <b>${asignatura}</b> (Periodo ${periodo}, Semana ${semanaStr}) para el estudiante: <b>${nombreEst}</b>.
+                        <span style="display: block; font-size: 0.85rem; color: #78350F; margin-top: 2px;">✅ Respuestas oficiales, pistas pedagógicas y justificaciones ICFES activadas.</span>
+                    </p>
+                </div>
+                <button onclick="cerrarGuiaProfesor()" style="background: #EF4444; color: white; border: none; padding: 10px 20px; border-radius: 8px; font-weight: 800; cursor: pointer; display: flex; align-items: center; gap: 6px; box-shadow: 0 2px 8px rgba(239,68,68,0.3);">
+                    <span>⬅️</span> Volver a mi Panel
+                </button>
+            </div>
         </div>
         <div class="mega-guide-container" style="background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); border: 1px solid #E5E7EB; font-family: 'Inter', sans-serif;">
     `;
@@ -1698,9 +2722,19 @@ function renderizarGuiaProfesor(guideData, asignatura, periodo, semanaStr) {
 
 window.cerrarGuiaProfesor = function() {
     window.isTeacherView = false;
-    document.getElementById("student-dashboard-container").style.display = "none";
-    document.getElementById("student-guide-content").style.display = "none";
-    document.getElementById("admin-dashboard-container").style.display = "block";
+    const studentView = document.getElementById("student-dashboard-container");
+    const guideContent = document.getElementById("student-guide-content");
+    if (studentView) studentView.style.display = "none";
+    if (guideContent) guideContent.style.display = "none";
+
+    const targetVista = window.vistaOrigenOrientador || ((window.rol_actual === 'homeschool_tutor') ? 'tutor-dashboard-container' : ((window.rol_actual === 'docente') ? 'docente-dashboard-container' : 'dashboard-screen-container'));
+    
+    if (typeof mostrarVista === 'function') {
+        mostrarVista(targetVista);
+    } else {
+        const el = document.getElementById(targetVista) || document.getElementById('dashboard-screen-container');
+        if (el) el.style.display = "block";
+    }
 };
 
 function normalizar(valor) {
@@ -1722,27 +2756,23 @@ window.aplicarRestriccionesProgreso = function() {
     if (!subjectTitle) return;
     const asignatura = subjectTitle.innerText.replace('Aula de ', '').trim();
     
-    const key = `prog_${window.usuario_actual || 'default'}_${asignatura}_p${periodo}`;
-    let maxSemanaUnlocked = 8; // Desbloqueo total solicitado por el usuario
-    
     const selectSemana = document.getElementById("student-select-semana");
     if (!selectSemana) return;
     
+    const curUser = window.usuarioEstudianteActual || JSON.parse(localStorage.getItem('usuario_sesion') || '{}');
+    const esInstitucional = (curUser.institucion === 'IE Instituto Montenegro' || curUser.codigo_institucional === 'ieinstituto2026');
+    const estaPagado = (curUser.pago_realizado === true || curUser.pago_activo === true || esInstitucional);
+    
     Array.from(selectSemana.options).forEach((opt) => {
         const num = parseInt(opt.value);
-        if (num > maxSemanaUnlocked) {
-            opt.disabled = true;
-            opt.text = `Semana ${num} (Bloqueada 🔒)`;
+        if (!estaPagado && (periodo !== "1" || num > 1)) {
+            opt.text = `Semana ${num} (🔒 Requiere Suscripción)`;
+        } else if (!estaPagado && periodo === "1" && num === 1) {
+            opt.text = `Semana 1 (✨ Guía Gratuita)`;
         } else {
-            opt.disabled = false;
             opt.text = `Semana ${num}`;
         }
     });
-    
-    // Si la seleccionada actualmente está bloqueada, volver a la maxima permitida
-    if (parseInt(selectSemana.value) > maxSemanaUnlocked) {
-        selectSemana.value = maxSemanaUnlocked;
-    }
 };
 
 window.completarMisionActual = function() {
@@ -1783,7 +2813,7 @@ window.actualizarPlaneacionEstudiante = function() {
     
     let malla = null;
 
-    if (asignatura.toLowerCase().includes('física')) {
+        if (asignatura.toLowerCase().includes('física')) {
         malla = window.mallaFisica;
     } else if (asignatura.toLowerCase().includes('química') || asignatura.toLowerCase().includes('quimica')) {
         malla = window.mallaQuimica;
@@ -1793,13 +2823,17 @@ window.actualizarPlaneacionEstudiante = function() {
         malla = window.mallaNaturales;
     } else if (asignatura.toLowerCase().includes('sociales')) {
         malla = window.mallaSociales;
-    } else if (asignatura.toLowerCase().includes('castellano') || asignatura.toLowerCase().includes('humanidades')) {
+    } else if (asignatura.toLowerCase().includes('castellano') || asignatura.toLowerCase().includes('humanidades') || asignatura.toLowerCase().includes('lengua')) {
         malla = window.mallaCastellano;
+    } else if (asignatura.toLowerCase().includes('inglés') || asignatura.toLowerCase().includes('ingles') || asignatura.toLowerCase().includes('idioma')) {
+        malla = window.mallaIngles;
+    } else if (asignatura.toLowerCase().includes('tecnología') || asignatura.toLowerCase().includes('tecnologia') || asignatura.toLowerCase().includes('informática') || asignatura.toLowerCase().includes('informatica')) {
+        malla = window.mallaTecnologia;
     } else if (asignatura.toLowerCase().includes('turismo')) {
         malla = window.mallaTurismo;
     } else if (asignatura.toLowerCase().includes('artística') || asignatura.toLowerCase().includes('música') || asignatura.toLowerCase().includes('artistica')) {
         malla = window.mallaArtistica;
-    } else if (asignatura.toLowerCase().includes('ética') || asignatura.toLowerCase().includes('etica')) {
+    } else if (asignatura.toLowerCase().includes('ética') || asignatura.toLowerCase().includes('etica') || asignatura.toLowerCase().includes('filosofía') || asignatura.toLowerCase().includes('filosofia')) {
         malla = window.mallaEtica;
     }
 
@@ -1863,8 +2897,8 @@ window.abrirAsignaturaEstudiante = function(asig, grado) {
         subjectTitle.innerText = "Aula de " + asig;
     }
     
-    // Reset questionnaire
-    document.getElementById("student-select-periodo").value = "3";
+    // Reset questionnaire (Por defecto Periodo 1 Semana 1 para acceso inmediato a la guía gratuita)
+    document.getElementById("student-select-periodo").value = "1";
     document.getElementById("student-select-semana").value = "1";
     document.getElementById("student-quest-rol").value = "";
     document.getElementById("student-quest-ambiente").value = "";
@@ -1892,28 +2926,41 @@ window.volverAlGridEstudiante = function() {
 window.procesarJuegosEnTexto = function(textoMarkdown) {
     if (!textoMarkdown) return "";
     let html = marked.parse(textoMarkdown);
+    const esProfe = !!window.isTeacherView;
     
     // 1. Buscar [JUEGO:TIPO:DATOS]
     const regexJuegos = /\[JUEGO:(ORDENAR_LETRAS|ORDENAR_FRASE|SOPA_LETRAS|CRUCIGRAMA):(.*?)\]/g;
     html = html.replace(regexJuegos, (match, tipo, datos) => {
         let uniqueId = 'juego_' + Math.random().toString(36).substr(2, 9);
         if (tipo === 'ORDENAR_LETRAS') {
+            const solucionProfe = esProfe 
+                ? `<div style="margin-top:10px; padding:8px 12px; background:#DCFCE7; border-left:4px solid #16A34A; border-radius:4px; color:#166534; font-size:0.9rem; font-weight:bold;">💡 Solución Orientador: <span style="letter-spacing:2px; font-family:monospace; font-size:1.05rem;">${datos}</span></div>` 
+                : '';
             return `<div class="juego-incrustado" style="background:#F0FDF4; border:2px dashed #22C55E; padding:15px; margin:15px 0; border-radius:8px;">
                 <h5 style="color:#166534; margin-top:0; display:flex; align-items:center; gap:8px;">🧩 Minijuego: Ordenar Letras</h5>
                 ${window.renderizarJuegoOrdenar(datos.split(''), 'letras')}
+                ${solucionProfe}
             </div>`;
         } else if (tipo === 'ORDENAR_FRASE') {
             let palabras = datos.split(' ');
+            const solucionProfe = esProfe 
+                ? `<div style="margin-top:10px; padding:8px 12px; background:#DBEAFE; border-left:4px solid #2563EB; border-radius:4px; color:#1E40AF; font-size:0.9rem; font-weight:bold;">💡 Frase Solución Orientador: <span style="font-family:monospace; font-size:0.95rem;">"${datos}"</span></div>` 
+                : '';
             return `<div class="juego-incrustado" style="background:#EFF6FF; border:2px dashed #3B82F6; padding:15px; margin:15px 0; border-radius:8px;">
                 <h5 style="color:#1E3A8A; margin-top:0; display:flex; align-items:center; gap:8px;">🧩 Minijuego: Ordenar Frase</h5>
                 ${window.renderizarJuegoOrdenar(palabras, 'palabras')}
+                ${solucionProfe}
             </div>`;
         } else if (tipo === 'SOPA_LETRAS') {
             let palabras = datos.split(',');
+            const solucionProfe = esProfe 
+                ? `<div style="margin-top:10px; padding:8px 12px; background:#FEF3C7; border-left:4px solid #D97706; border-radius:4px; color:#92400E; font-size:0.9rem; font-weight:bold;">💡 Palabras a encontrar (Orientador): <span style="font-family:monospace;">${palabras.join(', ')}</span></div>` 
+                : '';
             window.juegosPendientes.push(() => window.renderizarSopaLetras(uniqueId, palabras));
             return `<div class="juego-incrustado" style="background:#FFFBEB; border:2px dashed #F59E0B; padding:15px; margin:15px 0; border-radius:8px;">
                 <h5 style="color:#92400E; margin-top:0; display:flex; align-items:center; gap:8px;">🔍 Minijuego: Sopa de Letras</h5>
                 <div id="${uniqueId}" style="display:flex; flex-direction:column; align-items:center;">Cargando sopa de letras...</div>
+                ${solucionProfe}
             </div>`;
         } else if (tipo === 'CRUCIGRAMA') {
             window.juegosPendientes.push(() => window.renderizarCrucigrama(uniqueId, datos));
@@ -1930,7 +2977,11 @@ window.procesarJuegosEnTexto = function(textoMarkdown) {
     html = html.replace(regexPlat, (match, datos) => {
         let partes = datos.split('|');
         let preg = partes[0] ? partes[0].trim() : 'Responde la siguiente pregunta de análisis:';
+        let respSugerida = partes[1] ? partes[1].trim() : '';
         let actId = 'act_plat_' + Math.random().toString(36).substr(2, 9);
+        const solucionProfe = (esProfe && respSugerida) 
+            ? `<div style="margin-top:12px; padding:10px 14px; background:#ECFDF5; border:2px solid #10B981; border-radius:6px; color:#065F46; font-size:0.9rem;"><strong>💡 Respuesta sugerida / Criterio para el orientador:</strong><br>${respSugerida}</div>` 
+            : '';
         return `<div class="actividad-plataforma-box" style="background: #F8FAFC; border: 2px dashed #3B82F6; padding: 18px; margin: 20px 0; border-radius: 8px;">
             <h5 style="color: #1E40AF; margin-top: 0; display:flex; align-items:center; gap:8px;">✍️ Actividad en Plataforma (No Copy-Paste)</h5>
             <p style="font-weight: bold; color: #1E293B; margin-bottom: 10px;">${preg}</p>
@@ -1938,16 +2989,21 @@ window.procesarJuegosEnTexto = function(textoMarkdown) {
             <div class="ai-warning" style="color: #EF4444; font-size: 0.85rem; font-weight: bold; display: none; margin-top: 5px;">⚠️ Se detectó velocidad anormal de tipeo. Escribe tu propia respuesta.</div>
             <button onclick="validarActividadPlataformaIncrustada('${actId}')" id="btn_${actId}" style="background: #3B82F6; color: white; padding: 8px 18px; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; margin-top: 10px;">Validar Respuesta</button>
             <div id="feedback_${actId}" style="display:none; margin-top:10px; padding:10px; background:#ECFDF5; border:1px solid #10B981; border-radius:6px; color:#065F46; font-size:0.9rem;">✔️ ¡Respuesta validada y registrada correctamente!</div>
+            ${solucionProfe}
         </div>`;
     });
 
     // 3. Buscar [ACTIVIDAD:CUADERNO:INSTRUCCION]
     const regexCuad = /\[ACTIVIDAD:CUADERNO:(.*?)\]/g;
     html = html.replace(regexCuad, (match, instruccion) => {
+        const solucionProfe = esProfe 
+            ? `<div style="margin-top:10px; padding:8px 12px; background:#FEF3C7; border-left:4px solid #D97706; border-radius:4px; color:#92400E; font-size:0.85rem;"><strong>💡 Orientación Pedagógica:</strong> Verificar que el estudiante consigne en su cuaderno la actividad con título, fecha y desarrollo claro.</div>` 
+            : '';
         return `<div class="actividad-cuaderno-box" style="background: #FFFBEB; border: 2px dashed #F59E0B; padding: 18px; margin: 20px 0; border-radius: 8px;">
             <h5 style="color: #92400E; margin-top: 0; display:flex; align-items:center; gap:8px;">📓 Actividad para Desarrollar en el Cuaderno</h5>
             <p style="color: #451A03; font-weight: 500; line-height: 1.5; margin-bottom: 12px;">${instruccion}</p>
             <button onclick="this.style.background='#10B981'; this.innerText='✔️ Lo resolví en mi cuaderno';" style="background: #F59E0B; color: white; padding: 8px 18px; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; transition: all 0.2s;">✔️ Lo resolví en mi cuaderno</button>
+            ${solucionProfe}
         </div>`;
     });
     
@@ -2153,6 +3209,34 @@ window.ingresarAGuia = async function() {
     const semanaStr = document.getElementById("student-select-semana").value;
     const asignatura = document.getElementById('student-subject-title').innerText.replace('Aula de ', '').trim();
     
+    // Verificación de Modelo Freemium: Primera guía (Semana 1, Periodo 1) es 100% gratuita. A partir de la segunda se solicita suscripción
+    const curUser = window.usuarioEstudianteActual || JSON.parse(localStorage.getItem('usuario_sesion') || '{}');
+    const esInstitucional = (curUser.institucion === 'IE Instituto Montenegro' || curUser.codigo_institucional === 'ieinstituto2026');
+    const estaPagado = (curUser.pago_realizado === true || curUser.pago_activo === true || esInstitucional);
+
+    if (!estaPagado && (periodo !== "1" || parseInt(semanaStr, 10) > 1)) {
+        const monto = (curUser.rol === 'validacion' || curUser.institucion === 'Validacion') ? 60000 : 50000;
+        const concepto = (curUser.rol === 'validacion' || curUser.institucion === 'Validacion') 
+            ? 'Suscripción Completa Validación' 
+            : 'Suscripción Completa Home School';
+        
+        abrirPasarelaPago({
+            concepto: `${concepto} (Semana ${semanaStr} - Periodo ${periodo})`,
+            documento: curUser.documento || curUser.usuario || 'EST',
+            monto: monto,
+            rol: curUser.rol || 'estudiante',
+            callback: () => {
+                curUser.pago_realizado = true;
+                curUser.pago_activo = true;
+                window.usuarioEstudianteActual = curUser;
+                localStorage.setItem('usuario_sesion', JSON.stringify(curUser));
+                alert("🎉 ¡Suscripción activada con éxito! Todas las guías y semanas están desbloqueadas.");
+                window.ingresarAGuia();
+            }
+        });
+        return;
+    }
+    
     const questContainer = document.getElementById("student-quest-container");
     const guideContent = document.getElementById("student-guide-content");
     const innerContent = document.getElementById("student-guide-inner-content");
@@ -2167,15 +3251,17 @@ window.ingresarAGuia = async function() {
     const gradoSeleccionado = window.gradoActualEstudiante || '6';
     const gradoNum = window.normalizarGradoOCiclo ? window.normalizarGradoOCiclo(gradoSeleccionado) : gradoSeleccionado.replace(/[^0-9PENS]/g, '');
     let malla = null;
-    if (asignatura.toLowerCase().includes('física')) malla = window.mallaFisica;
+    if (asignatura.toLowerCase().includes('física') || asignatura.toLowerCase().includes('fisica')) malla = window.mallaFisica;
     else if (asignatura.toLowerCase().includes('química') || asignatura.toLowerCase().includes('quimica')) malla = window.mallaQuimica;
     else if (asignatura.toLowerCase().includes('matemática') || asignatura.toLowerCase().includes('matematica')) malla = window.mallaMatematicas;
     else if (asignatura.toLowerCase().includes('naturales') || asignatura.toLowerCase().includes('ciencias')) malla = window.mallaNaturales;
     else if (asignatura.toLowerCase().includes('sociales')) malla = window.mallaSociales;
-    else if (asignatura.toLowerCase().includes('castellano') || asignatura.toLowerCase().includes('humanidades')) malla = window.mallaCastellano;
+    else if (asignatura.toLowerCase().includes('castellano') || asignatura.toLowerCase().includes('humanidades') || asignatura.toLowerCase().includes('lengua')) malla = window.mallaCastellano;
+    else if (asignatura.toLowerCase().includes('inglés') || asignatura.toLowerCase().includes('ingles') || asignatura.toLowerCase().includes('idioma')) malla = window.mallaIngles;
+    else if (asignatura.toLowerCase().includes('tecnología') || asignatura.toLowerCase().includes('tecnologia') || asignatura.toLowerCase().includes('informática') || asignatura.toLowerCase().includes('informatica')) malla = window.mallaTecnologia;
     else if (asignatura.toLowerCase().includes('turismo')) malla = window.mallaTurismo;
     else if (asignatura.toLowerCase().includes('artística') || asignatura.toLowerCase().includes('música') || asignatura.toLowerCase().includes('artistica')) malla = window.mallaArtistica;
-    else if (asignatura.toLowerCase().includes('ética') || asignatura.toLowerCase().includes('etica')) malla = window.mallaEtica;
+    else if (asignatura.toLowerCase().includes('ética') || asignatura.toLowerCase().includes('etica') || asignatura.toLowerCase().includes('filosofía') || asignatura.toLowerCase().includes('filosofia')) malla = window.mallaEtica;
     
     let meta = "Aprender los conceptos básicos";
     let topico = "Introducción a la materia";
@@ -2203,14 +3289,19 @@ window.ingresarAGuia = async function() {
             <div style="text-align: center; padding: 40px;">
                 <div style="display: inline-block; width: 40px; height: 40px; border: 4px solid #E5E7EB; border-top-color: #3B82F6; border-radius: 50%; animation: spin 1s linear infinite;"></div>
                 <style>@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }</style>
-                <h3 style="margin-top: 20px; color: #3B82F6;">Generando tu aventura...</h3>
+                <h3 style="margin-top: 20px; color: #3B82F6;">Generando tu aventura personalizada...</h3>
                 <p style="color: #6B7280;">La Inteligencia Artificial está tejiendo tu misión, por favor espera unos segundos.</p>
             </div>
         `;
     }
     
-    // Petición al caché local (Archivos JSON estáticos)
+    // Petición al caché local (Archivos JSON estáticos) o Generación por Demanda
     try {
+        const currentUser = window.usuarioEstudianteActual || JSON.parse(localStorage.getItem('usuario_sesion') || '{}');
+        const studentDisplayName = (currentUser.nombre || ((currentUser.nombres || '') + ' ' + (currentUser.apellidos || '')).trim()) || 'Estudiante';
+        const userInstitucion = currentUser.institucion || (currentUser.rol === 'validacion' ? 'Validacion' : 'IE Instituto Montenegro');
+        const userModo = currentUser.rol || (currentUser.institucion === 'Validacion' ? 'validacion' : (currentUser.institucion === 'HomeSchool' ? 'homeschool' : 'regular'));
+
         const payload = {
             asignatura,
             grado: gradoSeleccionado,
@@ -2221,15 +3312,40 @@ window.ingresarAGuia = async function() {
             rol: rolElem.options[rolElem.selectedIndex].text,
             ambiente: ambienteElem.options[ambienteElem.selectedIndex].text,
             nivel: nivelElem.options[nivelElem.selectedIndex].text,
-            enfoque: enfoqueElem.options[enfoqueElem.selectedIndex].text
+            enfoque: enfoqueElem.options[enfoqueElem.selectedIndex].text,
+            nombre_estudiante: studentDisplayName,
+            estudiante_nombre: studentDisplayName,
+            institucion: userInstitucion,
+            modo: userModo
         };
         
         // Petición al endpoint VIP de generación
-        const response = await fetch('/api/generate-guide', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(payload)
-        });
+        let response;
+        try {
+            response = await fetch('/api/generate-guide', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+            // Si el servidor actual devuelve 404 (ej. motor_seguro en 8080) pero node está en 3000
+            if (response.status === 404 && window.location.port !== '3000') {
+                response = await fetch('http://localhost:3000/api/generate-guide', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+            }
+        } catch (fetchErr) {
+            if (window.location.port !== '3000') {
+                response = await fetch('http://localhost:3000/api/generate-guide', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+            } else {
+                throw fetchErr;
+            }
+        }
         
         if (!response.ok) {
             let errMsg = "Error desconocido";
@@ -3278,4 +4394,321 @@ window.renderizarBloquesEspeciales = function(containerElement) {
             }
         }
     });
+};
+
+// ==========================================
+// MÓDULO TUTORES HOME SCHOOL Y PASARELA DE PAGO
+// ==========================================
+
+window.actualizarMateriasTutor = function() {
+    const gradoSelect = document.getElementById("tutor-reg-grado");
+    const preview = document.getElementById("tutor-materias-preview");
+    if (!gradoSelect || !preview) return;
+    
+    const grado = gradoSelect.value;
+    if (!grado) {
+        preview.innerHTML = "Selecciona un grado para ver las materias asignadas.";
+        return;
+    }
+
+    let materias = [];
+    if (grado.includes("Ciclo")) {
+        materias = ["Ciencias Naturales", "Matemáticas", "Lenguaje", "Ciencias Sociales", "Inglés"];
+    } else {
+        const gNum = parseInt(grado);
+        if (gNum >= 1 && gNum <= 5) {
+            materias = ["Ciencias Naturales", "Matemáticas", "Lengua Castellana", "Ciencias Sociales", "Inglés", "Educación Artística"];
+        } else if (gNum >= 6 && gNum <= 9) {
+            materias = ["Ciencias Naturales", "Física", "Química", "Matemáticas", "Lengua Castellana", "Ciencias Sociales", "Inglés", "Educación Artística", "Tecnología"];
+        } else if (gNum >= 10 && gNum <= 11) {
+            materias = ["Física", "Química", "Matemáticas", "Lengua Castellana", "Filosofía", "Ciencias Sociales", "Inglés", "Turismo y Emprendimiento"];
+        } else {
+            materias = ["Ciencias Naturales", "Matemáticas", "Lengua Castellana", "Ciencias Sociales", "Inglés"];
+        }
+    }
+
+    preview.innerHTML = `<strong>Materias asignadas (${materias.length}):</strong><br><span style="color: #1E40AF;">${materias.join(" • ")}</span>`;
+    window.materiasTutorSeleccionadas = materias;
+};
+
+window.matricularYProcederPagoTutor = async function() {
+    const tipoDoc = document.getElementById("tutor-reg-tipo-doc").value;
+    const doc = document.getElementById("tutor-reg-doc").value.trim();
+    const nom = document.getElementById("tutor-reg-nom").value.trim();
+    const ape = document.getElementById("tutor-reg-ape").value.trim();
+    const edad = document.getElementById("tutor-reg-edad").value.trim();
+    const gen = document.getElementById("tutor-reg-gen").value;
+    const grado = document.getElementById("tutor-reg-grado").value;
+
+    if (!doc || !nom || !ape || !edad || !gen || !grado) {
+        alert("⚠️ Por favor completa todos los campos del estudiante antes de continuar.");
+        return;
+    }
+
+    const materias = window.materiasTutorSeleccionadas || ["Ciencias Naturales", "Matemáticas", "Lengua Castellana", "Ciencias Sociales", "Inglés"];
+
+    // Abrir pasarela de pago para este estudiante
+    abrirPasarelaPago({
+        concepto: `Matrícula Home School - Grado ${grado} (${nom} ${ape})`,
+        documento: doc,
+        monto: 50000,
+        rol: 'homeschool_tutor',
+        callback: async () => {
+            // Registrar estudiante con pago_realizado: true
+            const payload = {
+                documento: doc,
+                tipo_documento: tipoDoc,
+                nombre: nom,
+                apellidos: ape,
+                edad: edad,
+                genero: gen,
+                grado: grado,
+                grupo: `HS-${grado}`,
+                institucion: 'HomeSchool',
+                asignatura: materias.join(', '),
+                materias: materias,
+                docente_id: usuario_actual || 'TUTOR-HS',
+                pago_realizado: true
+            };
+
+            try {
+                const res = await fetch("/api/registro-estudiante", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(payload)
+                });
+                
+                if (res.ok) {
+                    alert(`🎉 ¡Matrícula y pago completados con éxito para ${nom} ${ape}!`);
+                    // Limpiar formulario
+                    document.getElementById("tutor-reg-doc").value = "";
+                    document.getElementById("tutor-reg-nom").value = "";
+                    document.getElementById("tutor-reg-ape").value = "";
+                    document.getElementById("tutor-reg-edad").value = "";
+                    document.getElementById("tutor-reg-gen").value = "";
+                    document.getElementById("tutor-reg-grado").value = "";
+                    document.getElementById("tutor-materias-preview").innerHTML = "Selecciona un grado para ver las materias asignadas.";
+                    
+                    cargarEstudiantesTutor(usuario_actual);
+                } else {
+                    alert("⚠️ El pago fue aprobado, pero hubo un error al guardar el registro en base de datos.");
+                }
+            } catch (err) {
+                console.error("Error registrando estudiante tutor:", err);
+                alert("❌ Error de red al registrar al estudiante.");
+            }
+        }
+    });
+};
+
+window.cargarEstudiantesTutor = async function(tutorId) {
+    try {
+        const res = await fetch('/api/estudiantes');
+        const estudiantes = await res.json();
+        const tbody = document.getElementById('tbody-tutor-estudiantes');
+        if (!tbody) return;
+        
+        // Filtrar estudiantes asignados a este tutor o de HomeSchool
+        const tutorEstudiantes = estudiantes.filter(e => 
+            e.docente_id === tutorId || 
+            (e.institucion && (e.institucion.toLowerCase() === 'homeschool' || e.institucion.toLowerCase() === 'home school')) ||
+            (e.grupo && e.grupo.startsWith('HS-'))
+        );
+
+        if (tutorEstudiantes.length === 0) {
+            tbody.innerHTML = `
+                <tr>
+                    <td colspan="4" style="text-align: center; padding: 30px; color: #9CA3AF;">
+                        <span style="font-size: 2rem;">🏡</span><br>
+                        Aún no tienes estudiantes matriculados en tu panel.<br>
+                        Utiliza el formulario de la izquierda para registrar a tu primer estudiante.
+                    </td>
+                </tr>
+            `;
+            return;
+        }
+
+        tbody.innerHTML = "";
+        tutorEstudiantes.forEach(est => {
+            const tr = document.createElement("tr");
+            tr.style.borderBottom = "1px solid #E5E7EB";
+            
+            const estaPagado = est.pago_realizado !== false; // True por defecto si ya está registrado o pagado
+            const badgePago = estaPagado 
+                ? `<span style="background: #DEF7EC; color: #03543F; padding: 4px 10px; border-radius: 12px; font-weight: 700; font-size: 0.8rem;">✅ Pagado</span>`
+                : `<span style="background: #FEF3C7; color: #92400E; padding: 4px 10px; border-radius: 12px; font-weight: 700; font-size: 0.8rem;">⏳ Pendiente</span>`;
+
+            tr.innerHTML = `
+                <td style="padding: 14px 10px;">
+                    <div style="font-weight: 700; color: #111827;">${est.nombre} ${est.apellidos || ''}</div>
+                    <div style="font-size: 0.8rem; color: #6B7280;">Doc: ${est.documento || 'N/A'} • ${est.edad || '--'} años</div>
+                </td>
+                <td style="padding: 14px 10px;">
+                    <div style="font-weight: 600; color: #2563EB;">Grado ${est.grado || est.grupo || '--'}</div>
+                    <div style="font-size: 0.75rem; color: #4B5563; max-width: 250px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="${est.asignatura || ''}">
+                        ${est.asignatura || 'Materias STEAM'}
+                    </div>
+                </td>
+                <td style="padding: 14px 10px; text-align: center;">
+                    ${badgePago}
+                </td>
+                <td style="padding: 14px 10px; text-align: center;">
+                    <div style="display: flex; gap: 6px; justify-content: center; flex-wrap: wrap;">
+                        <button onclick="verInformeEstudiante('${(est.nombre || '').replace(/'/g, "\\'")} ${(est.apellidos || '').replace(/'/g, "\\'")}', 0, '${est.grado || est.grupo || ''}', '${est.documento || ''}')" style="background: #4F46E5; color: white; border: none; padding: 6px 12px; border-radius: 6px; font-weight: 700; cursor: pointer; font-size: 0.8rem; display: inline-flex; align-items: center; gap: 4px; box-shadow: 0 1px 3px rgba(79,70,229,0.2);">
+                            🧭 Orientar / Guías
+                        </button>
+                        ${!estaPagado ? `
+                            <button onclick="abrirPasarelaPago({ concepto: 'Matrícula Home School - Grado ${est.grado} (${est.nombre})', documento: '${est.documento}', monto: 50000, rol: 'homeschool_tutor', callback: () => cargarEstudiantesTutor('${tutorId}') })" style="background: #10B981; color: white; border: none; padding: 6px 12px; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 0.8rem;">💳 Pagar</button>
+                        ` : ''}
+                    </div>
+                </td>
+            `;
+            tbody.appendChild(tr);
+        });
+
+    } catch (err) {
+        console.error("Error cargando estudiantes tutor:", err);
+    }
+};
+
+// ==========================================
+// PASARELA DE PAGO UNIVERSAL
+// ==========================================
+window.pasarelaConfigActual = null;
+window.metodoPagoActual = 'pse';
+
+window.abrirPasarelaPago = function(config) {
+    window.pasarelaConfigActual = config;
+    const modal = document.getElementById("modal-pasarela-pago");
+    const conceptoTxt = document.getElementById("pago-concepto-texto");
+    const docTxt = document.getElementById("pago-documento-texto");
+    const montoTxt = document.getElementById("pago-monto-texto");
+    const feedback = document.getElementById("pago-feedback-msg");
+    const btnPagar = document.getElementById("btn-confirmar-pago-pasarela");
+
+    if (conceptoTxt) conceptoTxt.innerText = config.concepto || "Pago de Servicios Académicos";
+    if (docTxt) docTxt.innerText = "Doc: " + (config.documento || "N/A");
+    if (montoTxt) montoTxt.innerText = "$" + (config.monto || 50000).toLocaleString('es-CO') + " COP";
+    
+    if (feedback) feedback.style.display = "none";
+    if (btnPagar) {
+        btnPagar.disabled = false;
+        btnPagar.innerHTML = "<span>🔒</span> Pagar Ahora";
+    }
+
+    seleccionarMetodoPago('pse');
+
+    if (modal) {
+        modal.style.display = "flex";
+    }
+};
+
+window.cerrarPasarelaPago = function() {
+    const modal = document.getElementById("modal-pasarela-pago");
+    if (modal) modal.style.display = "none";
+    window.pasarelaConfigActual = null;
+};
+
+window.seleccionarMetodoPago = function(metodo) {
+    window.metodoPagoActual = metodo;
+    
+    // Cambiar estilos de pestañas
+    const tabs = document.querySelectorAll(".metodo-pago-tab");
+    tabs.forEach(tab => {
+        if (tab.getAttribute("data-metodo") === metodo) {
+            tab.classList.add("active");
+            tab.style.border = "2px solid #2563EB";
+            tab.style.background = "#EFF6FF";
+            tab.style.color = "#1D4ED8";
+            tab.style.fontWeight = "800";
+        } else {
+            tab.classList.remove("active");
+            tab.style.border = "1px solid #CBD5E1";
+            tab.style.background = "white";
+            tab.style.color = "#475569";
+            tab.style.fontWeight = "700";
+        }
+    });
+
+    // Cambiar formularios
+    const secciones = document.querySelectorAll(".pago-form-seccion");
+    secciones.forEach(sec => sec.style.display = "none");
+
+    const activeForm = document.getElementById("pago-form-" + metodo);
+    if (activeForm) activeForm.style.display = "flex";
+};
+
+window.ejecutarPagoPasarela = async function() {
+    if (!window.pasarelaConfigActual) return;
+
+    const btnPagar = document.getElementById("btn-confirmar-pago-pasarela");
+    const feedback = document.getElementById("pago-feedback-msg");
+
+    if (btnPagar) {
+        btnPagar.disabled = true;
+        btnPagar.innerHTML = `<span style="display: inline-block; animation: spin 1s linear infinite;">⏳</span> Procesando...`;
+    }
+
+    const payload = {
+        documento: window.pasarelaConfigActual.documento,
+        rol: window.pasarelaConfigActual.rol || 'estudiante',
+        concepto: window.pasarelaConfigActual.concepto,
+        monto: window.pasarelaConfigActual.monto || 50000,
+        metodo_pago: window.metodoPagoActual,
+        referencia: `REF-${Date.now()}`
+    };
+
+    try {
+        const res = await fetch('/api/procesar-pago', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+        });
+
+        const data = await res.json();
+
+        if (data.status === 'success' || data.success) {
+            if (feedback) {
+                feedback.style.display = "block";
+                feedback.style.background = "#ECFDF5";
+                feedback.style.color = "#065F46";
+                feedback.style.border = "1px solid #A7F3D0";
+                feedback.innerHTML = `✅ ¡Transacción Aprobada!<br><span style="font-size: 0.8rem; font-weight: normal;">Referencia: ${data.comprobante.referencia} • Autorización: ${data.comprobante.codigo_aprobacion}</span>`;
+            }
+
+            setTimeout(() => {
+                const cb = window.pasarelaConfigActual && window.pasarelaConfigActual.callback;
+                cerrarPasarelaPago();
+                if (typeof cb === 'function') {
+                    cb(data);
+                }
+            }, 1200);
+
+        } else {
+            if (feedback) {
+                feedback.style.display = "block";
+                feedback.style.background = "#FEF2F2";
+                feedback.style.color = "#991B1B";
+                feedback.style.border = "1px solid #FECACA";
+                feedback.innerText = "❌ Error: " + (data.message || "No se pudo procesar la transacción.");
+            }
+            if (btnPagar) {
+                btnPagar.disabled = false;
+                btnPagar.innerHTML = "<span>🔒</span> Reintentar Pago";
+            }
+        }
+    } catch (err) {
+        console.error("Error al procesar pago:", err);
+        if (feedback) {
+            feedback.style.display = "block";
+            feedback.style.background = "#FEF2F2";
+            feedback.style.color = "#991B1B";
+            feedback.style.border = "1px solid #FECACA";
+            feedback.innerText = "❌ Error de conexión con la pasarela de pagos.";
+        }
+        if (btnPagar) {
+            btnPagar.disabled = false;
+            btnPagar.innerHTML = "<span>🔒</span> Reintentar Pago";
+        }
+    }
 };

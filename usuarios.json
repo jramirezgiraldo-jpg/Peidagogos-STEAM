@@ -5,8 +5,38 @@
         "nombre": "Clara",
         "edad": "13",
         "genero": "F",
-        "grado": "",
+        "institucion": "InstitutoMontenegro",
+        "grado": "7",
         "grupo": "7C",
-        "asignatura": "Física, Ética, Turismo"
+        "asignatura": "Física, Ética, Turismo",
+        "pago_activo": true,
+        "pago_realizado": true
+    },
+    {
+        "documento": "validador123",
+        "apellidos": "Restrepo",
+        "nombre": "Mariana",
+        "edad": "19",
+        "genero": "F",
+        "institucion": "Validacion",
+        "grado": "Ciclo III",
+        "grupo": "Ciclo III (6°, 7°)",
+        "asignatura": "Ciencias Naturales, Matemáticas, Física, Lenguaje",
+        "pago_activo": true,
+        "pago_realizado": true
+    },
+    {
+        "documento": "homeschool123",
+        "apellidos": "Gómez",
+        "nombre": "Mateo",
+        "edad": "11",
+        "genero": "M",
+        "institucion": "HomeSchool",
+        "docente_id": "tutor123",
+        "grado": "6",
+        "grupo": "HS-6",
+        "asignatura": "Física, Ciencias Naturales, Matemáticas",
+        "pago_activo": true,
+        "pago_realizado": true
     }
 ]

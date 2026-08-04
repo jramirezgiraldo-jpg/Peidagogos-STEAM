@@ -3,6 +3,8 @@ import socketserver
 import json
 import os
 import sys
+import urllib.request
+import urllib.error
 
 # BLINDAJE WINDOWS UTF-8
 if sys.stdout.encoding != 'utf-8':
@@ -28,7 +30,7 @@ class GestorAPI(http.server.SimpleHTTPRequestHandler):
         self.end_headers()
 
     def do_GET(self):
-        if self.path == '/api/estudiantes':
+        if self.path == '/api/estudiantes' or self.path == '/api/usuarios':
             try:
                 archivo_db = 'usuarios.json'
                 usuarios = []
@@ -98,7 +100,49 @@ class GestorAPI(http.server.SimpleHTTPRequestHandler):
             except Exception as e: print(f"[INFO] Recurso no encontrado: {self.path}")
 
     def do_POST(self):
-        if self.path == '/api/registro-estudiante':
+        if self.path == '/api/generate-guide':
+            # Reenviar al servidor Node.js en puerto 3000 (el motor de IA)
+            try:
+                content_length = int(self.headers.get('Content-Length', 0))
+                post_data = self.rfile.read(content_length)
+                
+                req = urllib.request.Request(
+                    'http://localhost:3000/api/generate-guide',
+                    data=post_data,
+                    headers={'Content-Type': 'application/json'}
+                )
+                try:
+                    with urllib.request.urlopen(req, timeout=120) as response:
+                        res_body = response.read()
+                        self.send_response(response.status)
+                        self.send_header('Content-Type', 'application/json')
+                        self.send_header('Access-Control-Allow-Origin', '*')
+                        self.end_headers()
+                        self.wfile.write(res_body)
+                except urllib.error.HTTPError as he:
+                    err_body = he.read()
+                    self.send_response(he.code)
+                    self.send_header('Content-Type', 'application/json')
+                    self.send_header('Access-Control-Allow-Origin', '*')
+                    self.end_headers()
+                    self.wfile.write(err_body)
+                except urllib.error.URLError:
+                    self.send_response(503)
+                    self.send_header('Content-Type', 'application/json')
+                    self.send_header('Access-Control-Allow-Origin', '*')
+                    self.end_headers()
+                    self.wfile.write(json.dumps({
+                        "error": "El motor de Inteligencia Artificial (Node.js) no está activo en el puerto 3000. Por favor inicia 'Arranque_IA.bat' o 'server.js'."
+                    }).encode('utf-8'))
+            except Exception as e:
+                self.send_response(500)
+                self.send_header('Content-Type', 'application/json')
+                self.send_header('Access-Control-Allow-Origin', '*')
+                self.end_headers()
+                self.wfile.write(json.dumps({"error": str(e)}).encode('utf-8'))
+            return
+
+        elif self.path == '/api/registro-estudiante':
             try:
                 content_length = int(self.headers.get('Content-Length', 0))
                 post_data = self.rfile.read(content_length)
@@ -165,7 +209,6 @@ class GestorAPI(http.server.SimpleHTTPRequestHandler):
                     with open(archivo_db, 'r', encoding='utf-8') as f:
                         usuarios = json.load(f)
                     
-                    # Filtrar eliminando al estudiante con ese documento
                     usuarios_restantes = [u for u in usuarios if str(u.get('documento', '')).strip() != doc_a_borrar]
                     
                     with open(archivo_db, 'w', encoding='utf-8') as f:
@@ -220,7 +263,7 @@ class GestorAPI(http.server.SimpleHTTPRequestHandler):
                 
                 usuario_input = creds.get('usuario', '').strip()
                 clave_input = creds.get('clave', '').strip()
-                rol_esperado = creds.get('rol', '').strip() # "admin", "docente", "estudiante"
+                rol_esperado = creds.get('rol', '').strip()
                 
                 encontrado = False
                 nombre = ""
@@ -228,12 +271,30 @@ class GestorAPI(http.server.SimpleHTTPRequestHandler):
                 grupo = ""
                 asignatura = ""
                 rol_asignado = ""
+                institucion = ""
+                pago_activo = True
+                usuario_obj = {}
 
                 if rol_esperado == "admin":
                     if (usuario_input == "jramirezgiraldo" and clave_input == "Biol2008%") or (usuario_input == "admin" and clave_input == "admin"):
                         encontrado = True
                         nombre = "Administrador"
                         rol_asignado = "admin"
+                elif rol_esperado in ["homeschool_tutor", "tutor"]:
+                    archivo_db = 'docentes.json'
+                    if os.path.exists(archivo_db):
+                        with open(archivo_db, 'r', encoding='utf-8') as f:
+                            try:
+                                docentes = json.load(f)
+                                for u in docentes:
+                                    if str(u.get('documento', '')).strip() == usuario_input and str(u.get('clave', '')).strip() == clave_input:
+                                        encontrado = True
+                                        nombre = f"{u.get('nombre', '')} {u.get('apellidos', '')}".strip()
+                                        rol_asignado = "homeschool_tutor"
+                                        institucion = "HomeSchool"
+                                        usuario_obj = u
+                                        break
+                            except: pass
                 elif rol_esperado == "docente":
                     archivo_db = 'docentes.json'
                     if os.path.exists(archivo_db):
@@ -243,11 +304,13 @@ class GestorAPI(http.server.SimpleHTTPRequestHandler):
                                 for u in docentes:
                                     if str(u.get('documento', '')).strip() == usuario_input and str(u.get('clave', '')).strip() == clave_input:
                                         encontrado = True
-                                        nombre = f"{u.get('nombre', '')} {u.get('apellidos', '')}"
-                                        rol_asignado = "docente"
+                                        nombre = f"{u.get('nombre', '')} {u.get('apellidos', '')}".strip()
+                                        rol_asignado = "homeschool_tutor" if u.get('tipo') == 'tutor_homeschool' else "docente"
+                                        institucion = u.get('institucion', 'IE Instituto Montenegro')
+                                        usuario_obj = u
                                         break
                             except: pass
-                else: # Estudiante por defecto
+                else:  # Estudiante, Validación o HomeSchool
                     archivo_db = 'usuarios.json'
                     if os.path.exists(archivo_db):
                         with open(archivo_db, 'r', encoding='utf-8') as f:
@@ -255,13 +318,20 @@ class GestorAPI(http.server.SimpleHTTPRequestHandler):
                                 usuarios = json.load(f)
                                 for u in usuarios:
                                     doc_db = str(u.get('documento', '')).strip()
-                                    if doc_db == usuario_input and doc_db == clave_input:
+                                    clave_db = str(u.get('clave', doc_db)).strip()
+                                    if doc_db == usuario_input and (clave_input == doc_db or clave_input == clave_db):
                                         encontrado = True
-                                        nombre = f"{u.get('nombre', '')} {u.get('apellidos', '')}"
+                                        nombre = f"{u.get('nombre', '')} {u.get('apellidos', '')}".strip()
                                         grado = str(u.get('grado', ''))
                                         grupo = str(u.get('grupo', ''))
                                         asignatura = str(u.get('asignatura', ''))
-                                        rol_asignado = "estudiante"
+                                        institucion = str(u.get('institucion', ''))
+                                        pago_activo = u.get('pago_activo', True) in [True, "true", 1, "1"] or u.get('pago_realizado', False) in [True, "true", 1, "1"]
+                                        if rol_esperado == "validacion" or institucion == "Validacion":
+                                            rol_asignado = "validacion"
+                                        else:
+                                            rol_asignado = "estudiante"
+                                        usuario_obj = u
                                         break
                             except: pass
 
@@ -271,9 +341,21 @@ class GestorAPI(http.server.SimpleHTTPRequestHandler):
                 self.end_headers()
 
                 if encontrado:
-                    self.wfile.write(json.dumps({"status": "success", "nombre": nombre, "grado": grado, "grupo": grupo, "asignatura": asignatura, "rol": rol_asignado, "usuario": usuario_input}).encode('utf-8'))
+                    self.wfile.write(json.dumps({
+                        "status": "success",
+                        "usuario": usuario_input,
+                        "nombre": nombre,
+                        "grado": grado,
+                        "grupo": grupo,
+                        "asignatura": asignatura,
+                        "rol": rol_asignado,
+                        "institucion": institucion,
+                        "pago_activo": pago_activo,
+                        "pago_realizado": pago_activo,
+                        "usuarioObj": usuario_obj
+                    }).encode('utf-8'))
                 else:
-                    self.wfile.write(json.dumps({"status": "error", "message": "Inválido"}).encode('utf-8'))
+                    self.wfile.write(json.dumps({"status": "error", "message": "Credenciales incorrectas"}).encode('utf-8'))
             except Exception as e:
                 self.send_response(500)
                 self.end_headers()

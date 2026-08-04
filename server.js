@@ -29,7 +29,7 @@ function getAIClient() {
     return new GoogleGenAI({ apiKey: key });
 }
 
-// Endpoint para generar la guía
+// Endpoint para generar la guía pedagógica con IA por demanda
 app.post('/api/generate-guide', async (req, res) => {
     try {
         const {
@@ -42,13 +42,62 @@ app.post('/api/generate-guide', async (req, res) => {
             rol,
             ambiente,
             nivel,
-            enfoque
+            enfoque,
+            nombre_estudiante,
+            estudiante_nombre,
+            modo,
+            institucion
         } = req.body;
 
+        // Nombre propio del estudiante
+        const nombreEstudiante = (nombre_estudiante || estudiante_nombre || 'Estudiante').trim();
+
+        // Determinar contexto y modalidad institucional
         const esCicloNocturno = grado && grado.toString().toLowerCase().includes('ciclo');
-        const contextoEscolar = esCicloNocturno
-            ? `Estás trabajando con estudiantes adultos de educación nocturna (${grado}), quienes retomaron sus estudios después de haberlos interrumpido. El contenido DEBE ser relevante, práctico y contextualizado en la vida adulta cotidiana, sin ser excesivamente riguroso. Usa ejemplos del hogar, el trabajo, la comunidad y la salud. Mantén el tono amable, motivador y sin tecnicismos innecesarios.`
-            : `Contexto escolar regular (Grado ${grado || 'General'}).`;
+        const modalidad = modo || institucion || (esCicloNocturno ? 'Validacion' : 'IE Instituto Montenegro');
+        
+        let contextoModalidad = '';
+        if (modalidad.toLowerCase().includes('validacion') || esCicloNocturno) {
+            contextoModalidad = `MODALIDAD: PROGRAMA DE VALIDACIÓN DEL BACHILLERATO (Jóvenes y Adultos).
+Estás guiando a ${nombreEstudiante} en su proceso de validación. El contenido DEBE ser altamente contextualizado en la vida cotidiana, el mundo laboral, la economía del hogar, la salud y la preparación rigurosa para las pruebas de Estado Saber / Validación del MEN. Mantén un tono maduro, motivador, empático y libre de tecnicismos oscuros.`;
+        } else if (modalidad.toLowerCase().includes('home') || modalidad.toLowerCase().includes('homeschool')) {
+            contextoModalidad = `MODALIDAD: HOME SCHOOL (Educación en el Hogar).
+Estás acompañando a ${nombreEstudiante} y a su tutor familiar en un ambiente de aprendizaje en casa. Promueve la curiosidad, el autoaprendizaje guiado, la experimentación con materiales cotidianos del hogar y la reflexión crítica.`;
+        } else {
+            contextoModalidad = `MODALIDAD: INSTITUCIÓN EDUCATIVA INSTITUTO MONTENEGRO (Colegio Regular - Grado ${grado || 'General'}).
+Estás formando a ${nombreEstudiante} mediante la metodología pedagógica STEAM integrada, vinculando los conceptos con su entorno regional (Paisaje Cultural Cafetero), proyectos de aula y trabajo colaborativo.`;
+        }
+
+        // Adaptación pedagógica por ciclo de edad/grado
+        let adaptacionGrado = '';
+        const gradoNum = parseInt(grado, 10);
+        if (gradoNum >= 3 && gradoNum <= 5) {
+            adaptacionGrado = `NIVEL: BÁSICA PRIMARIA (Grado ${grado}).
+Usa un lenguaje claro, cercano y motivador. En las actividades de cuaderno, pide dibujos, esquemas coloridos, comparaciones visuales y observaciones sencillas del entorno. Evita fórmulas complejas.`;
+        } else if (gradoNum >= 6 && gradoNum <= 7) {
+            adaptacionGrado = `NIVEL: BÁSICA SECUNDARIA INICIAL (Grado ${grado}).
+Enfócate en la comprensión conceptual profunda y ejemplos cotidianos. En ${asignatura}, da instrucciones para que ${nombreEstudiante} realice dibujos, diagramas de flujo y esquemas explicativos en su cuaderno. Omite fórmulas matemáticas abstractas innecesarias.`;
+        } else if (gradoNum >= 8 && gradoNum <= 9) {
+            adaptacionGrado = `NIVEL: BÁSICA SECUNDARIA MEDIA (Grado ${grado}).
+Fomenta el razonamiento lógico, el análisis causa-efecto, la formulación de hipótesis y el diseño de modelos explicativos.`;
+        } else if (gradoNum >= 10 || gradoNum === 11 || grado === 'PENS' || esCicloNocturno) {
+            adaptacionGrado = `NIVEL: MEDIA VOCACIONAL Y PREPARACIÓN SABER 11 (Grado ${grado}).
+Rigor conceptual, lectura crítica de tablas y gráficos, formulación de modelos y justificación epistemológica de respuestas para pruebas ICFES Saber 11.`;
+        }
+
+        // Adaptaciones por áreas específicas
+        let adaptacionArea = '';
+        const asigLower = (asignatura || '').toLowerCase();
+        if (asigLower.includes('turismo')) {
+            adaptacionArea = `ENFOQUE DE TURISMO Y EMPRENDIMIENTO:
+Orienta la guía hacia la formulación o desarrollo de un bien o servicio turístico sostenible en el marco del Paisaje Cultural Cafetero y la economía local.`;
+        } else if (asigLower.includes('artística') || asigLower.includes('música') || asigLower.includes('artistica')) {
+            adaptacionArea = `ENFOQUE DE EDUCACIÓN ARTÍSTICA / MÚSICA:
+Integra conceptos de ritmo, pulso, apreciación auditiva, notación musical básica o expresión plástica según corresponda.`;
+        } else if (asigLower.includes('ética') || asigLower.includes('etica')) {
+            adaptacionArea = `ENFOQUE DE ÉTICA Y VALORES / PROYECTO DE VIDA:
+Estructura la reflexión a partir de dilemas morales reales, toma de decisiones éticas, empatía, resolución pacífica de conflictos y construcción del Proyecto de Vida de ${nombreEstudiante}.`;
+        }
 
         // Validar si la IA está lista
         if (apiKeys.length === 0) {
@@ -63,10 +112,19 @@ app.post('/api/generate-guide', async (req, res) => {
             fs.mkdirSync(cacheDir, { recursive: true });
         }
         
-        // Generar un nombre de archivo seguro basado en los parámetros
-        const fileNameSafe = [asignatura, grado, periodo, semana, rol, ambiente, nivel, enfoque]
-            .map(s => s ? s.toString().toLowerCase().replace(/[^a-z0-9]/g, '_') : 'na')
-            .join('_') + '.json';
+        // Generar un nombre de archivo seguro basado en los parámetros y estudiante
+        const fileNameSafe = [
+            asignatura,
+            grado,
+            periodo,
+            semana,
+            nombreEstudiante.replace(/[^a-z0-9]/gi, '_'),
+            modalidad.replace(/[^a-z0-9]/gi, '_'),
+            rol,
+            ambiente,
+            nivel,
+            enfoque
+        ].map(s => s ? s.toString().toLowerCase().replace(/[^a-z0-9]/g, '_') : 'na').join('_') + '.json';
             
         const cacheFilePath = path.join(cacheDir, fileNameSafe);
         
@@ -77,56 +135,74 @@ app.post('/api/generate-guide', async (req, res) => {
             return res.json({ text: cacheData });
         }
         
-        console.log(`[Caché MISS] Generando nueva guía: ${fileNameSafe}`);
+        console.log(`[Caché MISS] Generando nueva guía personalizada para ${nombreEstudiante}: ${fileNameSafe}`);
         // --- END CACHE LOGIC ---
 
         // Construir el Prompt Maestro alineado con Saber 11 y Pedagogía STEAM V11
-        const prompt = `Actúa como un ${rol}. Tu objetivo pedagógico es enseñar ${asignatura} a estudiantes en el contexto narrativo inmersivo de ${ambiente}.
-${contextoEscolar}
-Nivel de dificultad: ${nivel}. Competencia focal: ${enfoque}.
+        const prompt = `Actúa como un ${rol}. Tu objetivo pedagógico es enseñar ${asignatura} en el contexto narrativo inmersivo de ${ambiente}.
 
-Contexto Curricular:
+CONTEXTO INSTITUCIONAL Y PEDAGÓGICO:
+${contextoModalidad}
+${adaptacionGrado}
+${adaptacionArea}
+
+DATOS CURRICULARES:
+- Estudiante: ${nombreEstudiante}
+- Asignatura: ${asignatura}
+- Grado / Nivel: ${grado}
 - Periodo: ${periodo}
 - Semana: ${semana}
-- Meta de Comprensión Anual: ${meta}
+- Meta de Comprensión: ${meta}
+- Tópico / Tema: ${topico}
+- Nivel de Dificultad: ${nivel}
+- Competencia Focal: ${enfoque}
 
-REGLAS PEDAGÓGICAS ESTRICTAS:
+⭐ REGLA DE ORO DE PERSONALIZACIÓN (OBLIGATORIA):
+A lo largo de TODA la guía pedagógica (en el objetivo de aprendizaje, el texto inductivo, el texto deductivo, las 6 actividades de cuaderno y los retos interactivos de plataforma), DEBES dirigirte explícita y cálidamente a ${nombreEstudiante} por su NOMBRE PROPIO (${nombreEstudiante}).
+Ejemplos de cómo debes redactar:
+- "¡Hola ${nombreEstudiante}! En esta aventura exploraremos..."
+- "${nombreEstudiante}, observa atentamente el siguiente caso y reflexiona..."
+- "Ahora ${nombreEstudiante}, toma tu cuaderno y dibuja un esquema donde representes..."
+- "Muy bien ${nombreEstudiante}, analicemos la teoría fundamental detrás de este fenómeno..."
+- "${nombreEstudiante}, demuestra tu destreza resolviendo el siguiente desafío..."
+
+REGLAS PEDAGÓGICAS DE ESTRUCTURA:
 1. EXTENSIÓN Y RIGOR:
-   - "texto_inductivo" DEBE tener MÍNIMO 500 PALABRAS. Narrativa de exploración profunda y contextualizada.
-   - "texto_deductivo" DEBE tener MÍNIMO 500 PALABRAS. Formalización teórica, leyes, modelos matemáticos/científicos y síntesis.
+   - "texto_inductivo" DEBE tener MÍNIMO 500 PALABRAS. Narrativa inmersiva, exploración contextualizada y diálogo directo con ${nombreEstudiante}.
+   - "texto_deductivo" DEBE tener MÍNIMO 500 PALABRAS. Formalización teórica clara, conceptos clave, modelos científicos/humanísticos y síntesis directa para ${nombreEstudiante}.
 2. PREGUNTA PROBLEMATIZADORA:
    - El primer párrafo de "texto_inductivo" debe iniciar OBLIGATORIAMENTE con la Pregunta Problematizadora en negrita y cursiva (**_¿Pregunta...?_**).
 3. INTERCALACIÓN EXACTA EN "texto_inductivo" (debes incrustar estos shortcodes dentro de los párrafos):
-   - 3 Actividades de Cuaderno: [ACTIVIDAD:CUADERNO:Instrucción de lo que debe dibujar, hacer o tabular en el cuaderno]
-   - 3 Actividades de Plataforma: [ACTIVIDAD:PLATAFORMA:Pregunta de análisis profundo|Respuesta esperada o palabra clave]
+   - 3 Actividades de Cuaderno: [ACTIVIDAD:CUADERNO:Instrucción para ${nombreEstudiante} de lo que debe dibujar, hacer o tabular en su cuaderno]
+   - 3 Actividades de Plataforma: [ACTIVIDAD:PLATAFORMA:Pregunta de análisis profundo para ${nombreEstudiante}|Respuesta esperada o palabra clave]
    - 3 Juegos de Ordenar Letras: [JUEGO:ORDENAR_LETRAS:PALABRA]
    - 3 Juegos de Ordenar Frase: [JUEGO:ORDENAR_FRASE:FRASE COMPLETA CON SENTIDO]
 4. INTERCALACIÓN EXACTA EN "texto_deductivo" (debes incrustar estos shortcodes dentro de los párrafos):
-   - 3 Actividades de Cuaderno: [ACTIVIDAD:CUADERNO:Instrucción de síntesis, esquema o mapa conceptual en el cuaderno]
-   - 3 Actividades de Plataforma: [ACTIVIDAD:PLATAFORMA:Pregunta de síntesis o aplicación|Respuesta esperada]
+   - 3 Actividades de Cuaderno: [ACTIVIDAD:CUADERNO:Instrucción para ${nombreEstudiante} de síntesis, esquema o mapa conceptual en el cuaderno]
+   - 3 Actividades de Plataforma: [ACTIVIDAD:PLATAFORMA:Pregunta de síntesis o aplicación para ${nombreEstudiante}|Respuesta esperada]
    - 3 Juegos de Ordenar Letras: [JUEGO:ORDENAR_LETRAS:PALABRA]
-   - 3 Juegos de Ordenar Frase: [JUEGO:ORDENAR_FRASE:FRASE DE PRINCIPIO O LEY CIENTIFICA]
-5. DESAFÍO FINAL - 3 PREGUNTAS TIPO ICFES SABER 11 (Diseño Centrado en Evidencias):
-   - Pregunta 1: Evalúa "Explicación de Fenómenos".
-   - Pregunta 2: Evalúa "Uso Comprensivo del Conocimiento Científico".
-   - Pregunta 3: Evalúa "Indagación" (análisis de datos, gráficas o diseño experimental).
-   - Cada pregunta debe tener: competencia, texto_introductorio, tabla_o_grafica_markdown, pregunta, 4 opciones (0, 1, 2, 3) y retroalimentación detallada explicando la opción correcta y por qué cada uno de los 3 distractores es falso.
+   - 3 Juegos de Ordenar Frase: [JUEGO:ORDENAR_FRASE:FRASE DE PRINCIPIO O LEY CIENTIFICA O CONCEPTO CLAVE]
+5. DESAFÍO FINAL - 3 PREGUNTAS TIPO ICFES SABER (Diseño Centrado en Evidencias):
+   - Pregunta 1: Evalúa "Explicación de Fenómenos" o comprensión crítica.
+   - Pregunta 2: Evalúa "Uso Comprensivo del Conocimiento".
+   - Pregunta 3: Evalúa "Indagación" (análisis de tablas, casos o diseño experimental).
+   - Cada pregunta debe tener: competencia, texto_introductorio, tabla_o_grafica_markdown, pregunta, 4 opciones (0, 1, 2, 3) y retroalimentación profunda para la opción correcta y para cada uno de los 3 distractores.
 6. CIERRE GAMIFICADO AL FINAL:
    - 1 Sola Sopa de Letras con exactamente 10 términos clave de toda la guía: [JUEGO:SOPA_LETRAS:P1,P2,P3,P4,P5,P6,P7,P8,P9,P10]
    - 1 Solo Crucigrama con exactamente 10 pistas y respuestas: [JUEGO:CRUCIGRAMA:Pista 1|PAL1;Pista 2|PAL2;Pista 3|PAL3;Pista 4|PAL4;Pista 5|PAL5;Pista 6|PAL6;Pista 7|PAL7;Pista 8|PAL8;Pista 9|PAL9;Pista 10|PAL10]
 
-DEBES DEVOLVER EXCLUSIVAMENTE UN OBJETO JSON VÁLIDO CON LA SIGUIENTE ESTRUCTURA EXACTA:
+DEBES DEVOLVER EXCLUSIVAMENTE UN OBJETO JSON VÁLIDO CON LA SIGUIENTE ESTRUCTURA EXACTA (SIN TEXTO ANTES NI DESPUÉS):
 {
-  "objetivo_aprendizaje": "Objetivo de aprendizaje de la semana...",
+  "objetivo_aprendizaje": "Objetivo de aprendizaje motivador para ${nombreEstudiante}...",
   "pregunta_problematizadora": "¿Pregunta problematizadora...?",
   "saberes_previos": [
-    { "pregunta": "¿...?", "opciones": ["A", "B", "C", "D"], "correcta": 0 },
-    { "pregunta": "¿...?", "opciones": ["A", "B", "C", "D"], "correcta": 1 },
-    { "pregunta": "¿...?", "opciones": ["A", "B", "C", "D"], "correcta": 2 }
+    { "pregunta": "¿...?", "opciones": ["Opción A", "Opción B", "Opción C", "Opción D"], "correcta": 0 },
+    { "pregunta": "¿...?", "opciones": ["Opción A", "Opción B", "Opción C", "Opción D"], "correcta": 1 },
+    { "pregunta": "¿...?", "opciones": ["Opción A", "Opción B", "Opción C", "Opción D"], "correcta": 2 }
   ],
-  "texto_inductivo": "Markdown (+500 palabras) con la pregunta problematizadora y conteniendo 3 [ACTIVIDAD:CUADERNO:...], 3 [ACTIVIDAD:PLATAFORMA:...], 3 [JUEGO:ORDENAR_LETRAS:...] y 3 [JUEGO:ORDENAR_FRASE:...]",
-  "recurso_visual": "Instrucción de mapa mental o tabla con diagrama Mermaid graph TD o tabla markdown",
-  "texto_deductivo": "Markdown (+500 palabras) con teoría formal y conteniendo 3 [ACTIVIDAD:CUADERNO:...], 3 [ACTIVIDAD:PLATAFORMA:...], 3 [JUEGO:ORDENAR_LETRAS:...] y 3 [JUEGO:ORDENAR_FRASE:...]",
+  "texto_inductivo": "Markdown (+500 palabras) hablándole a ${nombreEstudiante}, con la pregunta problematizadora y conteniendo 3 [ACTIVIDAD:CUADERNO:...], 3 [ACTIVIDAD:PLATAFORMA:...], 3 [JUEGO:ORDENAR_LETRAS:...] y 3 [JUEGO:ORDENAR_FRASE:...]",
+  "recurso_visual": "Instrucción de mapa mental o diagrama Mermaid graph TD o tabla markdown",
+  "texto_deductivo": "Markdown (+500 palabras) formalizando la teoría para ${nombreEstudiante}, conteniendo 3 [ACTIVIDAD:CUADERNO:...], 3 [ACTIVIDAD:PLATAFORMA:...], 3 [JUEGO:ORDENAR_LETRAS:...] y 3 [JUEGO:ORDENAR_FRASE:...]",
   "icfes": [
     {
       "competencia": "Explicación de Fenómenos",
@@ -136,14 +212,14 @@ DEBES DEVOLVER EXCLUSIVAMENTE UN OBJETO JSON VÁLIDO CON LA SIGUIENTE ESTRUCTURA
       "opciones": ["Opción A", "Opción B", "Opción C", "Opción D"],
       "correcta": 0,
       "retroalimentacion": {
-        "0": "Correcto porque...",
+        "0": "Correcto ${nombreEstudiante}, porque...",
         "1": "Incorrecto porque...",
         "2": "Incorrecto porque...",
         "3": "Incorrecto porque..."
       }
     },
     {
-      "competencia": "Uso Comprensivo del Conocimiento Científico",
+      "competencia": "Uso Comprensivo del Conocimiento",
       "texto_introductorio": "Contexto...",
       "tabla_o_grafica_markdown": "",
       "pregunta": "¿...?",
@@ -151,7 +227,7 @@ DEBES DEVOLVER EXCLUSIVAMENTE UN OBJETO JSON VÁLIDO CON LA SIGUIENTE ESTRUCTURA
       "correcta": 1,
       "retroalimentacion": {
         "0": "Incorrecto porque...",
-        "1": "Correcto porque...",
+        "1": "Correcto ${nombreEstudiante}, porque...",
         "2": "Incorrecto porque...",
         "3": "Incorrecto porque..."
       }
@@ -166,7 +242,7 @@ DEBES DEVOLVER EXCLUSIVAMENTE UN OBJETO JSON VÁLIDO CON LA SIGUIENTE ESTRUCTURA
       "retroalimentacion": {
         "0": "Incorrecto porque...",
         "1": "Incorrecto porque...",
-        "2": "Correcto porque...",
+        "2": "Correcto ${nombreEstudiante}, porque...",
         "3": "Incorrecto porque..."
       }
     }
@@ -176,37 +252,50 @@ DEBES DEVOLVER EXCLUSIVAMENTE UN OBJETO JSON VÁLIDO CON LA SIGUIENTE ESTRUCTURA
     "crucigrama": "Pista 1|PAL1;Pista 2|PAL2;Pista 3|PAL3;Pista 4|PAL4;Pista 5|PAL5;Pista 6|PAL6;Pista 7|PAL7;Pista 8|PAL8;Pista 9|PAL9;Pista 10|PAL10"
   }
 }`;
-        // Modelos Flash ultra-rápidos y económicos para Free Tier
-        const modelos = ['gemini-flash-latest', 'gemini-2.0-flash', 'gemini-flash-lite-latest'];
+
+        // Modelos Gemini compatibles y operativos en @google/genai
+        const modelos = [
+            'gemini-3.5-flash-lite',
+            'gemini-flash-latest',
+            'gemini-3.5-flash',
+            'gemini-3.1-flash-lite',
+            'gemini-flash-lite-latest'
+        ];
         let responseText = "";
         let finalError = null;
 
-        const ai = getAIClient();
-        for (let i = 0; i < modelos.length; i++) {
-            try {
-                const response = await ai.models.generateContent({
-                    model: modelos[i],
-                    contents: prompt,
-                    config: {
-                        responseMimeType: "application/json"
+        const maxKeyAttempts = Math.max(apiKeys.length, 1);
+        for (let k = 0; k < maxKeyAttempts && !responseText; k++) {
+            const ai = getAIClient();
+            if (!ai) break;
+            for (let i = 0; i < modelos.length; i++) {
+                try {
+                    console.log(`[IA] Generando guía con modelo: ${modelos[i]} (Intento key #${k+1})...`);
+                    const response = await ai.models.generateContent({
+                        model: modelos[i],
+                        contents: prompt,
+                        config: {
+                            responseMimeType: "application/json"
+                        }
+                    });
+                    if (response && response.text) {
+                        responseText = response.text;
+                        console.log(`[IA] ✅ Guía generada exitosamente con ${modelos[i]}`);
+                        break; // Si tiene éxito, salir del bucle de modelos
                     }
-                });
-                responseText = response.text;
-                break; // Si tiene éxito, salir del bucle
-            } catch (err) {
-                console.error(`Fallo con el modelo ${modelos[i]}:`, err.message);
-                finalError = err;
-                // Si es un error 400, probablemente el prompt está mal
-                if (err.status === 400) break;
-                // Esperar 1 segundo antes de probar el siguiente modelo
-                await new Promise(resolve => setTimeout(resolve, 1000));
+                } catch (err) {
+                    console.error(`[IA] Fallo con el modelo ${modelos[i]}:`, err.message);
+                    finalError = err;
+                    if (err.status === 400) break;
+                    await new Promise(resolve => setTimeout(resolve, 500));
+                }
             }
         }
 
         if (!responseText) {
             let mensajeFront = "El motor de IA falló después de varios intentos.";
             if (finalError && (finalError.status === 403 || (finalError.message && finalError.message.includes("leaked")))) {
-                mensajeFront = "Tu API Key de Gemini fue bloqueada por Google por seguridad (Leaked Key). Por favor crea una nueva API Key en Google AI Studio y pégala en las variables de entorno de Render.";
+                mensajeFront = "Tu API Key de Gemini fue bloqueada por Google por seguridad (Leaked Key). Por favor crea una nueva API Key en Google AI Studio y pégala en las variables de entorno.";
             } else if (finalError && finalError.status === 503) {
                 mensajeFront = "El cerebro de IA está muy saturado en este momento (alta demanda global). Inténtalo en un par de minutos.";
             } else if (finalError && finalError.status === 429) {
@@ -277,62 +366,201 @@ app.get('/api/docentes', (req, res) => res.json(readJSON('docentes.json')));
 app.get('/api/asignaturas', (req, res) => res.json(readJSON('asignaturas.json')));
 
 app.post('/api/registro-estudiante', (req, res) => {
-    const usuarios = readJSON('usuarios.json');
-    usuarios.push(req.body);
+    let usuarios = readJSON('usuarios.json');
+    const nuevo = req.body;
+    
+    // Validación de código institucional para IE Instituto Montenegro
+    const esIEInstituto = nuevo.institucion === 'InstitutoMontenegro' || 
+                          nuevo.institucion === 'IE Instituto Montenegro' || 
+                          (nuevo.institucion && nuevo.institucion.toLowerCase().includes('montenegro'));
+    if (esIEInstituto) {
+        const codigo = (nuevo.codigo_institucional || nuevo.codigo || '').trim().toLowerCase();
+        if (codigo !== 'ieinstituto2026') {
+            return res.status(403).json({ 
+                error: "Código de acceso institucional incorrecto. Debes ingresar el código oficial para matricularte en la IE Instituto Montenegro (ieinstituto2026)." 
+            });
+        }
+        nuevo.pago_realizado = true;
+        nuevo.suscrito = true;
+        nuevo.tipo_acceso = 'institucional_ilimitado';
+    } else {
+        // Home School, Validación y particulares: Matrícula libre (1ª guía de cada materia gratis)
+        if (nuevo.pago_realizado === undefined) {
+            nuevo.pago_realizado = false;
+            nuevo.suscrito = false;
+            nuevo.tipo_acceso = 'freemium_primera_guia_gratis';
+        }
+    }
+    
+    // Si ya existe por documento, actualizar datos
+    const idx = usuarios.findIndex(u => String(u.documento).trim() === String(nuevo.documento).trim());
+    if (idx !== -1) {
+        usuarios[idx] = { ...usuarios[idx], ...nuevo };
+    } else {
+        usuarios.push(nuevo);
+    }
+    
     writeJSON('usuarios.json', usuarios);
-    res.json({status: "success"});
+    res.json({ status: "success", estudiante: nuevo });
 });
 
 app.post('/api/registro-docente', (req, res) => {
     const docentes = readJSON('docentes.json');
     docentes.push(req.body);
     writeJSON('docentes.json', docentes);
-    res.json({status: "success"});
+    res.json({ status: "success" });
+});
+
+app.post('/api/registro-tutor', (req, res) => {
+    const docentes = readJSON('docentes.json');
+    const tutor = {
+        ...req.body,
+        tipo: 'tutor_homeschool',
+        institucion: 'HomeSchool'
+    };
+    docentes.push(tutor);
+    writeJSON('docentes.json', docentes);
+    res.json({ status: "success", tutor });
+});
+
+app.post('/api/procesar-pago', (req, res) => {
+    const { documento, tipo, monto, metodo, metodo_pago, concepto, referencia } = req.body;
+    let usuarios = readJSON('usuarios.json');
+    const refFinal = referencia || ('PAY-' + Date.now());
+    const codigoAprobacion = 'APROB-' + Math.floor(100000 + Math.random() * 900000);
+    const montoFinal = monto || 50000;
+    const metodoFinal = metodo || metodo_pago || 'PSE / Pasarela';
+    const conceptoFinal = concepto || 'Servicios Educativos STEAM';
+    const fechaActual = new Date().toISOString();
+
+    const idx = usuarios.findIndex(u => String(u.documento).trim() === String(documento).trim());
+    if (idx !== -1) {
+        usuarios[idx].pago_activo = true;
+        usuarios[idx].pago_realizado = true;
+        usuarios[idx].fecha_pago = fechaActual;
+        usuarios[idx].monto_pago = montoFinal;
+        usuarios[idx].metodo_pago = metodoFinal;
+        usuarios[idx].concepto_pago = conceptoFinal;
+        usuarios[idx].referencia_pago = refFinal;
+        writeJSON('usuarios.json', usuarios);
+        return res.json({ 
+            status: "success", 
+            success: true,
+            message: "Pago procesado y verificado exitosamente.",
+            estudiante: usuarios[idx],
+            referencia: refFinal,
+            comprobante: {
+                referencia: refFinal,
+                monto: montoFinal,
+                fecha: fechaActual,
+                codigo_aprobacion: codigoAprobacion
+            }
+        });
+    }
+    
+    // Si aún no está en la base de datos (por ejemplo, validación previa antes de guardar)
+    res.json({ 
+        status: "success", 
+        success: true,
+        message: "Transacción aprobada exitosamente.",
+        referencia: refFinal,
+        comprobante: {
+            referencia: refFinal,
+            monto: montoFinal,
+            fecha: fechaActual,
+            codigo_aprobacion: codigoAprobacion
+        }
+    });
 });
 
 app.post('/api/eliminar-estudiante', (req, res) => {
     let usuarios = readJSON('usuarios.json');
-    usuarios = usuarios.filter(u => u.documento !== req.body.documento);
+    usuarios = usuarios.filter(u => String(u.documento).trim() !== String(req.body.documento).trim());
     writeJSON('usuarios.json', usuarios);
-    res.json({status: "success"});
+    res.json({ status: "success" });
 });
 
 app.post('/api/asignaturas', (req, res) => {
     const asignaturas = readJSON('asignaturas.json');
     asignaturas.push(req.body);
     writeJSON('asignaturas.json', asignaturas);
-    res.json({status: "success"});
+    res.json({ status: "success" });
 });
 
 app.post('/api/login', (req, res) => {
     const { usuario, clave, rol } = req.body;
     let encontrado = false;
-    let nombre = "", grado = "", grupo = "", asignatura = "", rol_asignado = "";
+    let nombre = "", grado = "", grupo = "", asignatura = "", rol_asignado = "", institucion = "";
+    let pago_activo = true;
+    let usuarioObj = null;
 
     if (rol === 'admin') {
         if ((usuario === 'jramirezgiraldo' && clave === 'Biol2008%') || (usuario === 'admin' && clave === 'admin')) {
             encontrado = true; nombre = "Administrador"; rol_asignado = "admin";
         }
+    } else if (rol === 'homeschool_tutor' || rol === 'tutor') {
+        const docentes = readJSON('docentes.json');
+        const doc = docentes.find(d => String(d.documento).trim() === String(usuario).trim() && String(d.clave).trim() === String(clave).trim());
+        if (doc) {
+            encontrado = true;
+            nombre = `${doc.nombre} ${doc.apellidos}`;
+            rol_asignado = "homeschool_tutor";
+            institucion = "HomeSchool";
+            usuarioObj = doc;
+        }
     } else if (rol === 'docente') {
         const docentes = readJSON('docentes.json');
         const doc = docentes.find(d => String(d.documento).trim() === String(usuario).trim() && String(d.clave).trim() === String(clave).trim());
         if (doc) {
-            encontrado = true; nombre = `${doc.nombre} ${doc.apellidos}`; rol_asignado = "docente";
+            encontrado = true; 
+            nombre = `${doc.nombre} ${doc.apellidos}`; 
+            rol_asignado = (doc.tipo === 'tutor_homeschool' || doc.institucion === 'HomeSchool') ? "homeschool_tutor" : "docente";
+            institucion = doc.institucion || "IE Instituto Montenegro";
+            usuarioObj = doc;
         }
     } else {
+        // Estudiante (Regular o Validación)
         const usuarios = readJSON('usuarios.json');
-        const est = usuarios.find(u => String(u.documento).trim() === String(usuario).trim() && String(u.documento).trim() === String(clave).trim());
+        const est = usuarios.find(u => String(u.documento).trim() === String(usuario).trim() && (String(u.documento).trim() === String(clave).trim() || String(u.clave || '').trim() === String(clave).trim()));
         if (est) {
-            encontrado = true; nombre = `${est.nombre} ${est.apellidos}`;
-            grado = est.grado || ""; grupo = est.grupo || ""; asignatura = est.asignatura || "";
-            rol_asignado = "estudiante";
+            encontrado = true; 
+            nombre = `${est.nombre} ${est.apellidos}`;
+            grado = est.grado || ""; 
+            grupo = est.grupo || ""; 
+            asignatura = est.asignatura || "";
+            institucion = est.institucion || "";
+            
+            // Si es de validación o homeschool, verificar pago
+            if (rol === 'validacion' || est.institucion === 'Validacion' || (est.grupo && est.grupo.includes('Validacion'))) {
+                rol_asignado = "validacion";
+                pago_activo = est.pago_activo === true || est.pago_activo === "true" || est.pago_activo === 1 || est.pago_realizado === true;
+            } else if (est.institucion === 'HomeSchool') {
+                rol_asignado = "estudiante";
+                pago_activo = est.pago_activo === true || est.pago_activo === "true" || est.pago_activo === 1 || est.pago_realizado === true;
+            } else {
+                rol_asignado = "estudiante";
+                pago_activo = true; // Colegio regular
+            }
+            usuarioObj = est;
         }
     }
 
     if (encontrado) {
-        res.json({ status: "success", usuario, nombre, rol: rol_asignado, grado, grupo, asignatura });
+        res.json({ 
+            status: "success", 
+            usuario, 
+            nombre, 
+            rol: rol_asignado, 
+            grado, 
+            grupo, 
+            asignatura, 
+            institucion,
+            pago_activo,
+            pago_realizado: pago_activo,
+            usuarioObj
+        });
     } else {
-        res.status(401).json({ status: "error", message: "Credenciales invalidas" });
+        res.status(401).json({ status: "error", message: "Credenciales inválidas" });
     }
 });
 

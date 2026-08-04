@@ -1,16 +1,16 @@
 @echo off
 title Servidor Peidagogos STEAM
 color 0A
-echo ==========================================
-echo Iniciando Motor de Peidagogos STEAM...
-echo ==========================================
+echo =======================================================
+echo    INICIANDO MOTOR COMPLETO DE PEIDAGOGOS STEAM
+echo =======================================================
 cd /d "%~dp0"
 
 :: Abre la interfaz en el navegador por defecto
-start http://localhost:8080
+start http://localhost:3000
 
-:: Inicia el servidor backend
-python motor_seguro.py
+:: Inicia el servidor backend Node.js (Servidor Web + Motor IA)
+node server.js
 
 echo.
 echo [!] EL SERVIDOR SE HA DETENIDO O ENCONTRO UN ERROR.

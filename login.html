@@ -123,30 +123,44 @@
     </div>
     <div style="padding: 5% 15%; display: flex; flex-direction: column; justify-content: center; background-color: #ffffff; border-left: 1px solid #e5e7eb;">
         <h2 style="font-size: 2rem; font-weight: 800; color: #111827; margin: 0;">Portal de Acceso</h2>
-        <p style="font-size: 1rem; color: #6B7280; margin: 10px 0 30px 0;">Selecciona tu v&iacute;a de ingreso.</p>
+        <p style="font-size: 1rem; color: #6B7280; margin: 10px 0 25px 0;">Selecciona tu vía de ingreso a la plataforma.</p>
         
-        <form id="login-form" onsubmit="return false;" style="display: flex; flex-direction: column; gap: 15px; margin-bottom: 30px;">
+        <form id="login-form" onsubmit="return false;" style="display: flex; flex-direction: column; gap: 15px; margin-bottom: 20px;">
             <div style="display: flex; flex-direction: column; gap: 5px; text-align: left;">
                 <label for="login-role" style="font-weight: 800; color: #111827; font-size: 0.95rem;">Selecciona tu perfil de ingreso:</label>
                 <select id="login-role" style="padding: 12px; border: 2px solid #3B82F6; border-radius: 8px; font-weight: bold; color: #111827; cursor: pointer; background-color: #F0F9FF;">
-                <option value="estudiante">Soy Estudiante</option>
-                <option value="docente">Soy Docente Home School</option>
-                <option value="admin">Soy Administrador</option>
-            </select>
+                    <option value="estudiante">👨‍🎓 Soy Estudiante</option>
+                    <option value="homeschool_tutor">🏡 Soy Tutor Home School</option>
+                    <option value="validacion">🎓 Soy Estudiante de Validación</option>
+                    <option value="docente">👨‍🏫 Soy Docente de Colegio</option>
+                    <option value="admin">⚙️ Soy Administrador</option>
+                </select>
             </div>
-            <input type="text" id="admin-user" placeholder="Usuario" style="padding: 12px; border: 1px solid #d1d5db; border-radius: 8px;">
-            <input type="password" id="admin-pass" placeholder="Contrase&ntilde;a" style="padding: 12px; border: 1px solid #d1d5db; border-radius: 8px;">
-            <button type="submit" id="btn-login-core" style="background-color: #2C3E50; color: white; padding: 14px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;">Iniciar Sesi&oacute;n</button>
+            <input type="text" id="admin-user" placeholder="Número de Identificación" style="padding: 12px; border: 1px solid #d1d5db; border-radius: 8px;">
+            <input type="password" id="admin-pass" placeholder="Contraseña" style="padding: 12px; border: 1px solid #d1d5db; border-radius: 8px;">
+            <button type="submit" id="btn-login-core" style="background-color: #2563EB; color: white; padding: 14px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 6px rgba(37,99,235,0.25); transition: 0.2s;">Iniciar Sesión</button>
             <div id="login-error-msg" style="color: #e74c3c; font-size: 0.85rem; display: none;">Credenciales incorrectas.</div>
         </form>
-        <button id="btn-show-register" onclick="mostrarVista('register-screen-container')" style="background: transparent; color: #374151; padding: 12px; border: 1px solid #d1d5db; border-radius: 8px; font-weight: 500; cursor: pointer; text-align: left;">Nuevo Usuario</button>
+
+        <!-- Botones de acceso directo rápido -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px;">
+            <button type="button" onclick="accesoRapidoRol('homeschool_tutor')" style="background: #EFF6FF; border: 1px solid #93C5FD; color: #1D4ED8; padding: 10px 12px; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 0.85rem; display: flex; align-items: center; justify-content: center; gap: 6px; transition: 0.2s;" onmouseover="this.style.background='#DBEAFE'" onmouseout="this.style.background='#EFF6FF'">
+                🏡 Tutor Home School
+            </button>
+            <button type="button" onclick="accesoRapidoRol('validacion')" style="background: #FEF3C7; border: 1px solid #FCD34D; color: #92400E; padding: 10px 12px; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 0.85rem; display: flex; align-items: center; justify-content: center; gap: 6px; transition: 0.2s;" onmouseover="this.style.background='#FDE68A'" onmouseout="this.style.background='#FEF3C7'">
+                🎓 Validación
+            </button>
+        </div>
+
+        <button id="btn-show-register" onclick="mostrarVista('register-screen-container')" style="background: #F3F4F6; color: #374151; padding: 12px; border: 1px solid #d1d5db; border-radius: 8px; font-weight: bold; cursor: pointer; text-align: center;">➕ Registrar Nuevo Estudiante / Matrícula</button>
     </div>
 </div>
 
-<div id="register-screen-container" style="display: none; height: 100vh; background-color: #f3f4f6; justify-content: center; align-items: center; padding: 20px;">
-    <div style="background: white; padding: 40px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); width: 100%; max-width: 500px; display: flex; flex-direction: column; gap: 15px;">
-        <div style="text-align: center; margin-bottom: 10px;">
-            <h2 style="font-size: 1.8rem; font-weight: 800; color: #111827; margin: 0;">Registro de Estudiante</h2>
+<div id="register-screen-container" style="display: none; height: 100vh; background-color: #f3f4f6; justify-content: center; align-items: center; padding: 20px; overflow-y: auto;">
+    <div style="background: white; padding: 35px; border-radius: 16px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); width: 100%; max-width: 520px; display: flex; flex-direction: column; gap: 15px;">
+        <div style="text-align: center; margin-bottom: 5px;">
+            <h2 style="font-size: 1.8rem; font-weight: 800; color: #111827; margin: 0;">Matrícula y Registro</h2>
+            <p style="color: #6B7280; font-size: 0.9rem; margin-top: 5px;">Colegio Regular • Home School • Validación</p>
         </div>
         <div style="display: flex; gap: 10px;">
             <select id="reg-tipo-doc" style="padding: 12px; border: 1px solid #d1d5db; border-radius: 8px; width: 30%;">
@@ -162,16 +176,37 @@
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
             <input type="number" id="reg-edad" placeholder="Edad" style="padding: 12px; border: 1px solid #d1d5db; border-radius: 8px;">
             <select id="reg-genero" style="padding: 12px; border: 1px solid #d1d5db; border-radius: 8px;">
-                <option value="">G&eacute;nero...</option><option value="F">Femenino</option><option value="M">Masculino</option><option value="otro">Otro</option>
+                <option value="">Género...</option><option value="F">Femenino</option><option value="M">Masculino</option><option value="otro">Otro</option>
             </select>
         </div>
-        <select id="reg-ie" onchange="toggleIEOptions()" style="padding: 12px; border: 1px solid #d1d5db; border-radius: 8px;" required>
-            <option value="">Institución Educativa...</option>
-            <option value="RamonMessa">IE Ramon Messa</option>
-            <option value="InstitutoMontenegro">IE Instituto Montenegro</option>
-        </select>        <select id="reg-grado" onchange="actualizarMaterias()" style="padding: 12px; border: 1px solid #d1d5db; border-radius: 8px; display: none;">
+        <select id="reg-ie" onchange="toggleIEOptions()" style="padding: 12px; border: 2px solid #3B82F6; border-radius: 8px; font-weight: bold; background-color: #F8FAFC;" required>
+            <option value="">Institución / Modalidad...</option>
+            <option value="InstitutoMontenegro">🏫 IE Instituto Montenegro</option>
+            <option value="HomeSchool">🏡 Tutor Home School (Educación en Casa)</option>
+            <option value="Validacion">🎓 Validación Bachillerato (Ciclos)</option>
+        </select>
+
+        <div id="campo-codigo-institucional" style="display: none; flex-direction: column; gap: 6px; background: #EFF6FF; padding: 12px; border: 1.5px solid #93C5FD; border-radius: 8px;">
+            <label style="font-size: 0.85rem; font-weight: bold; color: #1E3A8A; display: flex; align-items: center; gap: 6px;">
+                <span>🔑</span> Código de Acceso Institucional (IE Instituto Montenegro):
+            </label>
+            <input type="password" id="reg-codigo-institucional" placeholder="Ingresa el código oficial (ieinstituto2026)" style="padding: 10px 12px; border: 1.5px solid #3B82F6; border-radius: 6px; font-weight: bold; background-color: white; outline: none; font-size: 0.95rem;">
+            <span style="font-size: 0.8rem; color: #475569;">Debes solicitar este código a la coordinación para ingresar a la comunidad de la IE Instituto Montenegro.</span>
+        </div>
+        
+        <select id="reg-grado" onchange="actualizarMaterias()" style="padding: 12px; border: 1px solid #d1d5db; border-radius: 8px; display: none;">
             <option value="">Grado / Ciclo a cursar...</option>
-            <option value="6">6&deg;</option><option value="7">7&deg;</option><option value="8">8&deg;</option><option value="9">9&deg;</option><option value="10">10&deg;</option><option value="11">11&deg;</option>
+            <option value="1">1° de Primaria</option>
+            <option value="2">2° de Primaria</option>
+            <option value="3">3° de Primaria</option>
+            <option value="4">4° de Primaria</option>
+            <option value="5">5° de Primaria</option>
+            <option value="6">6° de Secundaria</option>
+            <option value="7">7° de Secundaria</option>
+            <option value="8">8° de Secundaria</option>
+            <option value="9">9° de Secundaria</option>
+            <option value="10">10° Media</option>
+            <option value="11">11° Media</option>
             <option value="Ciclo I">Ciclo I (1°, 2°, 3°)</option>
             <option value="Ciclo II">Ciclo II (4°, 5°)</option>
             <option value="Ciclo III">Ciclo III (6°, 7°)</option>
@@ -179,6 +214,7 @@
             <option value="Ciclo V">Ciclo V (10°)</option>
             <option value="Ciclo VI">Ciclo VI (11°)</option>
         </select>
+        
         <select id="registro-grupo" onchange="actualizarMaterias()" style="padding: 12px; border: 1px solid #d1d5db; border-radius: 8px; display: none;">
             <option value="">Grupo / Ciclo...</option>
             <option value="6A">6A</option><option value="6B">6B</option>
@@ -194,27 +230,73 @@
             <option value="Ciclo V">Ciclo V (10°)</option>
             <option value="Ciclo VI">Ciclo VI (11°)</option>
         </select>
+        
         <input type="hidden" id="registro-asignatura">
-        <div id="materias-asignadas-view" style="padding: 12px; background: #f9fafb; border: 1px solid #d1d5db; border-radius: 8px; color: #6B7280; font-style: italic; font-size: 0.95rem;">Selecciona institución y curso para ver asignaturas</div>
+        <div id="materias-asignadas-view" style="padding: 12px; background: #f9fafb; border: 1px solid #d1d5db; border-radius: 8px; color: #6B7280; font-style: italic; font-size: 0.95rem;">Selecciona modalidad y curso para ver asignaturas</div>
+        
+        <div id="info-pago-modalidad" style="display: none; padding: 12px; border-radius: 8px; font-size: 0.9rem; font-weight: 600;"></div>
+
         <script>
+            function accesoRapidoRol(rol) {
+                const select = document.getElementById('login-role');
+                if (select) {
+                    select.value = rol;
+                    select.dispatchEvent(new Event('change'));
+                }
+                const userInput = document.getElementById('admin-user');
+                if (userInput) userInput.focus();
+            }
+
             function toggleIEOptions() {
                 const ie = document.getElementById("reg-ie").value;
                 const gradoSelect = document.getElementById("reg-grado");
                 const grupoSelect = document.getElementById("registro-grupo");
+                const campoCodigo = document.getElementById("campo-codigo-institucional");
+                const infoPago = document.getElementById("info-pago-modalidad");
                 
-                if (ie === "RamonMessa") {
+                if (ie === "HomeSchool") {
+                    if (campoCodigo) campoCodigo.style.display = "none";
                     gradoSelect.style.display = "block";
                     grupoSelect.style.display = "none";
                     grupoSelect.value = "";
+                    if (infoPago) {
+                        infoPago.style.display = "block";
+                        infoPago.style.background = "#EFF6FF";
+                        infoPago.style.color = "#1D4ED8";
+                        infoPago.style.border = "1px solid #93C5FD";
+                        infoPago.innerHTML = "🎁 <strong>Modalidad Tutor Home School:</strong> Matrícula libre. ¡Tienes acceso a la <strong>1ª Guía de cada materia 100% GRATIS</strong>! Podrás suscribirte a partir de la 2ª guía.";
+                    }
+                } else if (ie === "Validacion") {
+                    if (campoCodigo) campoCodigo.style.display = "none";
+                    gradoSelect.style.display = "block";
+                    grupoSelect.style.display = "none";
+                    grupoSelect.value = "";
+                    if (infoPago) {
+                        infoPago.style.display = "block";
+                        infoPago.style.background = "#FEF3C7";
+                        infoPago.style.color = "#92400E";
+                        infoPago.style.border = "1px solid #FCD34D";
+                        infoPago.innerHTML = "🎁 <strong>Modalidad Validación Bachillerato:</strong> Matrícula libre. ¡Tienes acceso a la <strong>1ª Guía de cada materia 100% GRATIS</strong>! Podrás suscribirte a partir de la 2ª guía.";
+                    }
                 } else if (ie === "InstitutoMontenegro") {
+                    if (campoCodigo) campoCodigo.style.display = "flex";
                     gradoSelect.style.display = "none";
                     grupoSelect.style.display = "block";
-                    grupoSelect.value = "";
+                    gradoSelect.value = "";
+                    if (infoPago) {
+                        infoPago.style.display = "block";
+                        infoPago.style.background = "#F0FDF4";
+                        infoPago.style.color = "#166534";
+                        infoPago.style.border = "1px solid #86EFAC";
+                        infoPago.innerHTML = "🏫 <strong>Comunidad Oficial IE Instituto Montenegro:</strong> Ingresa el código institucional suministrado por la institución para matricularte con acceso total e ilimitado.";
+                    }
                 } else {
+                    if (campoCodigo) campoCodigo.style.display = "none";
                     gradoSelect.style.display = "none";
                     grupoSelect.style.display = "none";
                     gradoSelect.value = "";
                     grupoSelect.value = "";
+                    if (infoPago) infoPago.style.display = "none";
                 }
                 actualizarMaterias();
             }
@@ -228,34 +310,48 @@
                 const grado = document.getElementById("reg-grado").value;
                 const grupo = document.getElementById("registro-grupo").value;
                 
-                // REGLA FUNDAMENTAL: Todos los ciclos del nocturno (I al VI) cursan ÚNICAMENTE Ciencias Naturales
-                if ((grado && grado.includes("Ciclo")) || (grupo && grupo.includes("Ciclo"))) {
-                    materias = "Ciencias Naturales";
-                } else if (ie === "RamonMessa") {
-                    const mapaRamon = {
-                        "6": "Física, Biología, Química",
-                        "7": "Física, Biología, Química",
-                        "8": "Física, Biología, Química",
-                        "9": "Física, Biología, Química",
-                        "10": "Física, Biología, Química",
-                        "11": "Física, Biología, Química"
+                // REGLA FUNDAMENTAL: Todos los ciclos (I al VI) cursan Ciencias Naturales
+                if (ie === "HomeSchool") {
+                    const mapaHome = {
+                        "1": "Ciencias Naturales, Matemáticas, Lengua Castellana",
+                        "2": "Ciencias Naturales, Matemáticas, Lengua Castellana",
+                        "3": "Matemáticas, Ciencias Naturales, Lengua Castellana, Ciencias Sociales, Inglés, Tecnología, Educación Artística, Ética y Valores",
+                        "4": "Matemáticas, Ciencias Naturales, Lengua Castellana, Ciencias Sociales, Inglés, Tecnología, Educación Artística, Ética y Valores",
+                        "5": "Matemáticas, Ciencias Naturales, Lengua Castellana, Ciencias Sociales, Inglés, Tecnología, Educación Artística, Ética y Valores",
+                        "6": "Matemáticas, Ciencias Naturales, Física, Lengua Castellana, Ciencias Sociales, Inglés, Tecnología, Educación Artística, Ética y Valores",
+                        "7": "Matemáticas, Ciencias Naturales, Física, Lengua Castellana, Ciencias Sociales, Inglés, Tecnología, Turismo, Educación Artística, Ética y Valores",
+                        "8": "Matemáticas, Ciencias Naturales, Física, Lengua Castellana, Ciencias Sociales, Inglés, Tecnología, Educación Artística, Ética y Valores",
+                        "9": "Matemáticas, Ciencias Naturales, Física, Lengua Castellana, Ciencias Sociales, Inglés, Tecnología, Educación Artística, Ética y Valores",
+                        "10": "Matemáticas, Física, Química, Ciencias Naturales, Lengua Castellana, Ciencias Sociales, Inglés, Tecnología, Filosofía y Ética",
+                        "11": "Matemáticas, Física, Química, Ciencias Naturales, Lengua Castellana, Ciencias Sociales, Inglés, Tecnología, Filosofía y Ética, Turismo"
                     };
-                    materias = mapaRamon[grado];
+                    materias = mapaHome[grado] || "Matemáticas, Ciencias Naturales, Física, Lengua Castellana, Ciencias Sociales, Inglés, Tecnología";
+                } else if (ie === "Validacion" || (grado && grado.includes("Ciclo")) || (grupo && grupo.includes("Ciclo"))) {
+                    const cicloVal = grado || grupo || "Ciclo III";
+                    const mapaCiclos = {
+                        "Ciclo I": "Matemáticas, Ciencias Naturales, Lengua Castellana, Ciencias Sociales",
+                        "Ciclo II": "Matemáticas, Ciencias Naturales, Lengua Castellana, Ciencias Sociales, Inglés",
+                        "Ciclo III": "Matemáticas, Ciencias Naturales, Física, Lengua Castellana, Ciencias Sociales, Inglés, Tecnología",
+                        "Ciclo IV": "Matemáticas, Ciencias Naturales, Física, Lengua Castellana, Ciencias Sociales, Inglés, Tecnología",
+                        "Ciclo V": "Matemáticas, Física, Química, Ciencias Naturales, Lengua Castellana, Ciencias Sociales, Inglés, Filosofía y Ética",
+                        "Ciclo VI": "Matemáticas, Física, Química, Ciencias Naturales, Lengua Castellana, Ciencias Sociales, Inglés, Filosofía y Ética"
+                    };
+                    materias = mapaCiclos[cicloVal] || "Matemáticas, Ciencias Naturales, Física, Lengua Castellana, Ciencias Sociales, Inglés, Filosofía y Ética";
                 } else if (ie === "InstitutoMontenegro") {
                     const mapaMontenegro = {
-                        "6A": "Física",
-                        "6B": "Física",
-                        "7A": "Física, Turismo",
-                        "7B": "Física, Turismo",
-                        "7C": "Física, Ética, Turismo",
-                        "8A": "Artística",
-                        "8B": "Artística",
-                        "9A": "Artística",
-                        "10A": "Ética",
-                        "10D": "Ética",
-                        "PENS": "Química, Turismo"
+                        "6A": "Física, Matemáticas, Ciencias Naturales, Lengua Castellana, Ciencias Sociales, Inglés, Tecnología, Educación Artística, Ética",
+                        "6B": "Física, Matemáticas, Ciencias Naturales, Lengua Castellana, Ciencias Sociales, Inglés, Tecnología, Educación Artística, Ética",
+                        "7A": "Física, Turismo, Matemáticas, Ciencias Naturales, Lengua Castellana, Ciencias Sociales, Inglés, Tecnología, Educación Artística, Ética",
+                        "7B": "Física, Turismo, Matemáticas, Ciencias Naturales, Lengua Castellana, Ciencias Sociales, Inglés, Tecnología, Educación Artística, Ética",
+                        "7C": "Física, Ética, Turismo, Matemáticas, Ciencias Naturales, Lengua Castellana, Ciencias Sociales, Inglés, Tecnología, Educación Artística",
+                        "8A": "Artística, Matemáticas, Ciencias Naturales, Física, Lengua Castellana, Ciencias Sociales, Inglés, Tecnología, Ética",
+                        "8B": "Artística, Matemáticas, Ciencias Naturales, Física, Lengua Castellana, Ciencias Sociales, Inglés, Tecnología, Ética",
+                        "9A": "Artística, Matemáticas, Ciencias Naturales, Física, Lengua Castellana, Ciencias Sociales, Inglés, Tecnología, Ética",
+                        "10A": "Ética, Matemáticas, Física, Química, Ciencias Naturales, Lengua Castellana, Ciencias Sociales, Inglés, Tecnología",
+                        "10D": "Ética, Matemáticas, Física, Química, Ciencias Naturales, Lengua Castellana, Ciencias Sociales, Inglés, Tecnología",
+                        "PENS": "Química, Turismo, Matemáticas, Física, Ciencias Naturales, Lengua Castellana, Ciencias Sociales, Inglés, Filosofía"
                     };
-                    materias = mapaMontenegro[grupo];
+                    materias = mapaMontenegro[grupo] || "Física, Matemáticas, Ciencias Naturales, Lengua Castellana, Ciencias Sociales, Inglés, Tecnología";
                 }
                 
                 if (materias) {
@@ -265,15 +361,17 @@
                     view.style.fontStyle = "normal";
                 } else {
                     input.value = "";
-                    view.innerHTML = "Sin asignaturas matriculadas";
+                    view.innerHTML = "Sin asignaturas seleccionadas";
                     view.style.color = "#e74c3c";
                     view.style.fontStyle = "italic";
                 }
             }
         </script>
-        <button id="btn-submit-register" style="background-color: #10B981; color: white; padding: 14px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;">Crear Estudiante</button>
+        <button id="btn-submit-register" style="background-color: #10B981; color: white; padding: 14px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 10px rgba(16,185,129,0.3);">Continuar con la Matrícula</button>
         <button id="btn-cancel-register" onclick="mostrarVista('login-screen-container')" style="background-color: transparent; color: #6B7280; padding: 10px; border: none; cursor: pointer; text-decoration: underline;">Volver al Acceso Principal</button>
         <div id="reg-feedback-msg" style="text-align: center; font-size: 0.9rem; display: none; font-weight: bold;"></div>
+    </div>
+</div>
     </div>
 </div>
 
@@ -359,6 +457,7 @@
                         <th style="padding: 10px;">Doc</th>
                         <th style="padding: 10px;">Nombre</th>
                         <th style="padding: 10px;">Grado</th>
+                        <th style="padding: 10px; text-align: center;">Acciones</th>
                     </tr>
                 </thead>
                 <tbody id="tbody-docente-estudiantes">
@@ -403,14 +502,17 @@
             
             <div id="admin-view-grupos" class="admin-view" style="display: block; padding: 20px;">
                 <div id="admin-grupos-container">
-                    <div style="display: flex; gap: 20px; margin-bottom: 20px; flex-wrap: wrap;">
-                        <button onclick="mostrarGruposInstitucion('montenegro')" style="padding: 15px 30px; background: #3B82F6; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 1.1rem; box-shadow: 0 4px 6px rgba(59,130,246,0.3);">🏫 IE Instituto Montenegro</button>
-                        <button onclick="mostrarGruposInstitucion('ramon_messa')" style="padding: 15px 30px; background: #3B82F6; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 1.1rem; box-shadow: 0 4px 6px rgba(59,130,246,0.3);">🏫 IE Ramon Messa</button>
+                    <div style="display: flex; gap: 15px; margin-bottom: 25px; flex-wrap: wrap;">
+                        <button class="admin-inst-btn" data-inst="montenegro" onclick="mostrarGruposInstitucion('montenegro')" style="padding: 14px 24px; background: #2563EB; color: white; border: none; border-radius: 10px; cursor: pointer; font-weight: 800; font-size: 1rem; box-shadow: 0 4px 10px rgba(37,99,235,0.3); display: flex; align-items: center; gap: 8px; transition: 0.2s;">🏫 IE Instituto Montenegro</button>
+                        <button class="admin-inst-btn" data-inst="homeschool" onclick="mostrarGruposInstitucion('homeschool')" style="padding: 14px 24px; background: #4B5563; color: white; border: none; border-radius: 10px; cursor: pointer; font-weight: 800; font-size: 1rem; display: flex; align-items: center; gap: 8px; transition: 0.2s;">🏡 Tutores Home School</button>
+                        <button class="admin-inst-btn" data-inst="validacion" onclick="mostrarGruposInstitucion('validacion')" style="padding: 14px 24px; background: #4B5563; color: white; border: none; border-radius: 10px; cursor: pointer; font-weight: 800; font-size: 1rem; display: flex; align-items: center; gap: 8px; transition: 0.2s;">🎓 Validación Bachillerato</button>
                     </div>
                     
                     <!-- Contenedor para mostrar los grupos de IE Instituto Montenegro -->
                     <div id="grupos-montenegro" style="display: block;">
-                        <h3 style="font-weight: 800; margin-bottom: 20px; color: #1E3A8A;">Grupos Matriculados - IE Instituto Montenegro</h3>
+                        <h3 style="font-weight: 800; margin-bottom: 20px; color: #1E3A8A; display: flex; align-items: center; gap: 8px;">
+                            <span>🏫</span> Grupos Matriculados - IE Instituto Montenegro
+                        </h3>
                         <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 15px;">
                             <button onclick="abrirGrupo('6A')" class="grupo-btn">
                                 <span class="grupo-nombre">6A</span>
@@ -482,28 +584,33 @@
                                 <span class="grupo-materias" style="color: #059669; font-weight: bold;">C. Naturales</span>
                             </button>
                         </div>
-                        <style>
-                            .grupo-btn { background: white; border: 1px solid #E5E7EB; border-radius: 12px; padding: 15px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: 0.2s; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; }
-                            .grupo-nombre { font-size: 1.4rem; color: #1F2937; }
-                            .grupo-materias { font-size: 0.85rem; color: #6B7280; font-weight: normal; text-align: center; line-height: 1.3; }
-                            .grupo-btn:hover { border-color: #3B82F6; transform: translateY(-2px); box-shadow: 0 6px 12px rgba(59,130,246,0.15); }
-                            .grupo-btn:hover .grupo-nombre { color: #3B82F6; }
-                        </style>
                     </div>
 
-                    <!-- Contenedor para mostrar los grupos de IE Ramon Messa -->
-                    <div id="grupos-ramon_messa" style="display: none;">
-                        <h3 style="font-weight: 800; margin-bottom: 20px; color: #1E3A8A;">Grupos Matriculados - IE Ramon Messa</h3>
-                        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 15px;">
-                            <button onclick="abrirGrupo('RM-6A')" class="grupo-btn"><span class="grupo-nombre">6A</span><span class="grupo-materias">Física, Bio, Quím</span></button>
-                            <button onclick="abrirGrupo('RM-6B')" class="grupo-btn"><span class="grupo-nombre">6B</span><span class="grupo-materias">Física, Bio, Quím</span></button>
-                            <button onclick="abrirGrupo('RM-7A')" class="grupo-btn"><span class="grupo-nombre">7A</span><span class="grupo-materias">Física, Bio, Quím</span></button>
-                            <button onclick="abrirGrupo('RM-7B')" class="grupo-btn"><span class="grupo-nombre">7B</span><span class="grupo-materias">Física, Bio, Quím</span></button>
-                            <button onclick="abrirGrupo('RM-8A')" class="grupo-btn"><span class="grupo-nombre">8A</span><span class="grupo-materias">Física, Bio, Quím</span></button>
-                            <button onclick="abrirGrupo('RM-8B')" class="grupo-btn"><span class="grupo-nombre">8B</span><span class="grupo-materias">Física, Bio, Quím</span></button>
-                            <button onclick="abrirGrupo('RM-9A')" class="grupo-btn"><span class="grupo-nombre">9A</span><span class="grupo-materias">Física, Bio, Quím</span></button>
-                            <button onclick="abrirGrupo('RM-10A')" class="grupo-btn"><span class="grupo-nombre">10A</span><span class="grupo-materias">Física, Bio, Quím</span></button>
-                            <button onclick="abrirGrupo('RM-11A')" class="grupo-btn"><span class="grupo-nombre">11A</span><span class="grupo-materias">Física, Bio, Quím</span></button>
+                    <!-- Contenedor para mostrar TUTORES Y ESTUDIANTES HOME SCHOOL -->
+                    <div id="grupos-homeschool" style="display: none;">
+                        <div style="background: linear-gradient(135deg, #1E40AF, #3B82F6); color: white; padding: 25px; border-radius: 12px; margin-bottom: 25px; box-shadow: 0 4px 15px rgba(37,99,235,0.2);">
+                            <h3 style="font-weight: 900; margin: 0; font-size: 1.5rem; display: flex; align-items: center; gap: 10px;">
+                                <span>🏡</span> Gestión de Educación en Casa (Home School)
+                            </h3>
+                            <p style="margin: 8px 0 0 0; color: #DBEAFE; font-size: 0.95rem;">
+                                Plataforma de acompañamiento pedagógico, matrículas independientes y pasarela de pago para tutores familiares.
+                            </p>
+                        </div>
+
+                        <!-- Grados Home School -->
+                        <h4 style="font-weight: 800; color: #1F2937; margin-bottom: 15px;">Aulas y Cursos Home School:</h4>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(135px, 1fr)); gap: 12px; margin-bottom: 30px;">
+                            <button onclick="abrirGrupo('HS-1')" class="grupo-btn"><span class="grupo-nombre">1° Prim</span><span class="grupo-materias">STEAM Base</span></button>
+                            <button onclick="abrirGrupo('HS-2')" class="grupo-btn"><span class="grupo-nombre">2° Prim</span><span class="grupo-materias">STEAM Base</span></button>
+                            <button onclick="abrirGrupo('HS-3')" class="grupo-btn"><span class="grupo-nombre">3° Prim</span><span class="grupo-materias">STEAM Base</span></button>
+                            <button onclick="abrirGrupo('HS-4')" class="grupo-btn"><span class="grupo-nombre">4° Prim</span><span class="grupo-materias">STEAM Base</span></button>
+                            <button onclick="abrirGrupo('HS-5')" class="grupo-btn"><span class="grupo-nombre">5° Prim</span><span class="grupo-materias">STEAM Base</span></button>
+                            <button onclick="abrirGrupo('HS-6')" class="grupo-btn"><span class="grupo-nombre">6° Sec</span><span class="grupo-materias">Física, Nat</span></button>
+                            <button onclick="abrirGrupo('HS-7')" class="grupo-btn"><span class="grupo-nombre">7° Sec</span><span class="grupo-materias">Física, Turismo</span></button>
+                            <button onclick="abrirGrupo('HS-8')" class="grupo-btn"><span class="grupo-nombre">8° Sec</span><span class="grupo-materias">Artística, Nat</span></button>
+                            <button onclick="abrirGrupo('HS-9')" class="grupo-btn"><span class="grupo-nombre">9° Sec</span><span class="grupo-materias">Artística, Nat</span></button>
+                            <button onclick="abrirGrupo('HS-10')" class="grupo-btn"><span class="grupo-nombre">10° Med</span><span class="grupo-materias">Ética, Física</span></button>
+                            <button onclick="abrirGrupo('HS-11')" class="grupo-btn"><span class="grupo-nombre">11° Med</span><span class="grupo-materias">Física, Quím, Tur</span></button>
                             <button onclick="abrirGrupo('Ciclo I (1°, 2°, 3°)')" class="grupo-btn" style="border-color: #8B5CF6; background: #F5F3FF;"><span class="grupo-nombre" style="color: #6D28D9; font-size: 1.15rem;">Ciclo I</span><span class="grupo-materias" style="color: #059669; font-weight: bold;">C. Naturales</span></button>
                             <button onclick="abrirGrupo('Ciclo II (4°, 5°)')" class="grupo-btn" style="border-color: #8B5CF6; background: #F5F3FF;"><span class="grupo-nombre" style="color: #6D28D9; font-size: 1.15rem;">Ciclo II</span><span class="grupo-materias" style="color: #059669; font-weight: bold;">C. Naturales</span></button>
                             <button onclick="abrirGrupo('Ciclo III (6°, 7°)')" class="grupo-btn" style="border-color: #8B5CF6; background: #F5F3FF;"><span class="grupo-nombre" style="color: #6D28D9; font-size: 1.15rem;">Ciclo III</span><span class="grupo-materias" style="color: #059669; font-weight: bold;">C. Naturales</span></button>
@@ -512,12 +619,78 @@
                             <button onclick="abrirGrupo('Ciclo VI (11°)')" class="grupo-btn" style="border-color: #8B5CF6; background: #F5F3FF;"><span class="grupo-nombre" style="color: #6D28D9; font-size: 1.15rem;">Ciclo VI</span><span class="grupo-materias" style="color: #059669; font-weight: bold;">C. Naturales</span></button>
                         </div>
                     </div>
+
+                    <!-- Contenedor para mostrar VALIDACIÓN BACHILLERATO -->
+                    <div id="grupos-validacion" style="display: none;">
+                        <div style="background: linear-gradient(135deg, #059669, #10B981); color: white; padding: 25px; border-radius: 12px; margin-bottom: 25px; box-shadow: 0 4px 15px rgba(16,185,129,0.2);">
+                            <h3 style="font-weight: 900; margin: 0; font-size: 1.5rem; display: flex; align-items: center; gap: 10px;">
+                                <span>🎓</span> Programa de Validación de Bachillerato por Ciclos
+                            </h3>
+                            <p style="margin: 8px 0 0 0; color: #D1FAE5; font-size: 0.95rem;">
+                                Acceso a guías STEAM modulares, simulacros de preparación ICFES Saber 11 y acreditación por ciclos lectivos especiales integrados (CLEI).
+                            </p>
+                        </div>
+
+                        <h4 style="font-weight: 800; color: #1F2937; margin-bottom: 15px;">Ciclos de Formación Acreditados:</h4>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 15px; margin-bottom: 30px;">
+                            <button onclick="abrirGrupo('Ciclo I (1°, 2°, 3°)')" class="grupo-btn" style="border-color: #10B981; background: #F0FDF4;">
+                                <span class="grupo-nombre" style="color: #047857;">Ciclo I</span>
+                                <span class="grupo-materias">1°, 2°, 3° Primaria<br><strong>C. Naturales</strong></span>
+                            </button>
+                            <button onclick="abrirGrupo('Ciclo II (4°, 5°)')" class="grupo-btn" style="border-color: #10B981; background: #F0FDF4;">
+                                <span class="grupo-nombre" style="color: #047857;">Ciclo II</span>
+                                <span class="grupo-materias">4°, 5° Primaria<br><strong>C. Naturales</strong></span>
+                            </button>
+                            <button onclick="abrirGrupo('Ciclo III (6°, 7°)')" class="grupo-btn" style="border-color: #10B981; background: #F0FDF4;">
+                                <span class="grupo-nombre" style="color: #047857;">Ciclo III</span>
+                                <span class="grupo-materias">6°, 7° Básica<br><strong>C. Naturales</strong></span>
+                            </button>
+                            <button onclick="abrirGrupo('Ciclo IV (8°, 9°)')" class="grupo-btn" style="border-color: #10B981; background: #F0FDF4;">
+                                <span class="grupo-nombre" style="color: #047857;">Ciclo IV</span>
+                                <span class="grupo-materias">8°, 9° Básica<br><strong>C. Naturales</strong></span>
+                            </button>
+                            <button onclick="abrirGrupo('Ciclo V (10°)')" class="grupo-btn" style="border-color: #10B981; background: #F0FDF4;">
+                                <span class="grupo-nombre" style="color: #047857;">Ciclo V</span>
+                                <span class="grupo-materias">10° Educación Media<br><strong>C. Naturales</strong></span>
+                            </button>
+                            <button onclick="abrirGrupo('Ciclo VI (11°)')" class="grupo-btn" style="border-color: #10B981; background: #F0FDF4;">
+                                <span class="grupo-nombre" style="color: #047857;">Ciclo VI</span>
+                                <span class="grupo-materias">11° Bachillerato<br><strong>C. Naturales</strong></span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <style>
+                        .grupo-btn { background: white; border: 1px solid #E5E7EB; border-radius: 12px; padding: 15px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: 0.2s; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; }
+                        .grupo-nombre { font-size: 1.4rem; color: #1F2937; }
+                        .grupo-materias { font-size: 0.85rem; color: #6B7280; font-weight: normal; text-align: center; line-height: 1.3; }
+                        .grupo-btn:hover { border-color: #3B82F6; transform: translateY(-2px); box-shadow: 0 6px 12px rgba(59,130,246,0.15); }
+                        .grupo-btn:hover .grupo-nombre { color: #3B82F6; }
+                    </style>
+
                     <script>
                         function mostrarGruposInstitucion(inst) {
-                            document.getElementById('grupos-montenegro').style.display = 'none';
-                            document.getElementById('grupos-ramon_messa').style.display = 'none';
-                            document.getElementById('grupos-' + inst).style.display = 'block';
+                            const list = ['montenegro', 'homeschool', 'validacion'];
+                            list.forEach(item => {
+                                const el = document.getElementById('grupos-' + item);
+                                if (el) el.style.display = (item === inst) ? 'block' : 'none';
+                            });
+                            document.querySelectorAll('.admin-inst-btn').forEach(btn => {
+                                if (btn.getAttribute('data-inst') === inst) {
+                                    btn.style.background = '#2563EB';
+                                    btn.style.boxShadow = '0 4px 10px rgba(37,99,235,0.4)';
+                                } else {
+                                    btn.style.background = '#4B5563';
+                                    btn.style.boxShadow = 'none';
+                                }
+                            });
                         }
+                        function volverAGrupos() {
+                            document.getElementById('admin-estudiantes-grupo-container').style.display = 'none';
+                            document.getElementById('admin-grupos-container').style.display = 'block';
+                        }
+                    </script>
+                </div>
                         function volverAGrupos() {
                             document.getElementById('admin-estudiantes-grupo-container').style.display = 'none';
                             document.getElementById('admin-grupos-container').style.display = 'block';
@@ -609,6 +782,144 @@
     </div> <!-- fin contenedor central -->
 </div> <!-- fin dashboard-screen-container -->
 
+<!-- PANEL DE TUTOR HOME SCHOOL -->
+<div id="tutor-dashboard-container" style="display: none; height: 100vh; overflow-y: auto; background-color: #F8FAFC;">
+    <!-- Header Superior -->
+    <header style="background: white; border-bottom: 1px solid #E5E7EB; padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 10px rgba(0,0,0,0.04);">
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <img src="logo-peidagogos.png" alt="Peidagogos STEAM" style="height: 45px; width: auto; object-fit: contain;">
+            <div>
+                <div style="font-weight: 800; color: #1E293B; font-size: 1.15rem; display: flex; align-items: center; gap: 6px;">
+                    <span>🏡</span> Panel de Tutor Home School
+                </div>
+                <div style="font-size: 0.85rem; color: #6B7280; font-weight: 500;">
+                    Tutor: <span id="tutor-nombre-header" style="font-weight: 700; color: #2563EB;">Tutor Familiar</span>
+                </div>
+            </div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <a href="proyector.html" target="_blank" style="background: #10B981; color: white; border: none; padding: 8px 18px; border-radius: 8px; font-weight: bold; text-decoration: none; display: flex; align-items: center; gap: 8px; font-size: 0.9rem;"><i class="ph ph-projector-screen-chart"></i> Modo Proyector</a>
+            <button onclick="location.reload()" style="background: #EF4444; color: white; border: none; padding: 8px 18px; border-radius: 8px; font-weight: bold; cursor: pointer; font-family: Inter, sans-serif; font-size: 0.9rem;">Cerrar Sesión</button>
+        </div>
+    </header>
+
+    <!-- Contenido Principal Tutor -->
+    <div style="padding: 30px; max-width: 1300px; margin: 0 auto;">
+        
+        <!-- Banner de Bienvenida -->
+        <div style="background: linear-gradient(135deg, #1E40AF, #3B82F6); color: white; padding: 30px; border-radius: 16px; margin-bottom: 30px; box-shadow: 0 10px 25px rgba(37,99,235,0.2); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
+            <div>
+                <h1 style="margin: 0; font-size: 2rem; font-weight: 900; letter-spacing: 0.5px;">¡Bienvenido al Aula Home School!</h1>
+                <p style="margin: 8px 0 0 0; color: #DBEAFE; font-size: 1.05rem;">Administra las matrículas de tus estudiantes, accede a guías personalizadas y gestiona los pagos seguros.</p>
+            </div>
+            <div style="background: rgba(255,255,255,0.15); backdrop-filter: blur(8px); padding: 15px 25px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.3); text-align: center;">
+                <div style="font-size: 0.85rem; color: #E0E7FF; font-weight: 600; text-transform: uppercase;">Tarifa por Estudiante</div>
+                <div style="font-size: 1.6rem; font-weight: 900; color: #FEF08A; margin-top: 4px;">$50.000 COP</div>
+            </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1.6fr; gap: 30px; align-items: start;">
+            
+            <!-- Columna Izquierda: Formulario Matricular Nuevo Estudiante -->
+            <div style="background: white; padding: 30px; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #E5E7EB;">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+                    <span style="font-size: 1.8rem;">➕</span>
+                    <div>
+                        <h3 style="margin: 0; font-size: 1.3rem; font-weight: 800; color: #111827;">Matricular Nuevo Estudiante</h3>
+                        <p style="margin: 2px 0 0 0; font-size: 0.85rem; color: #6B7280;">Registra a tu estudiante y habilita su acceso</p>
+                    </div>
+                </div>
+
+                <form id="form-tutor-matricular" onsubmit="return false;" style="display: flex; flex-direction: column; gap: 14px;">
+                    <div style="display: flex; gap: 10px;">
+                        <select id="tutor-reg-tipo-doc" style="padding: 10px; border: 1px solid #D1D5DB; border-radius: 8px; width: 32%; font-weight: bold;">
+                            <option value="TI">TI</option><option value="RC">RC</option><option value="CC">CC</option><option value="CE">CE</option>
+                        </select>
+                        <input type="text" id="tutor-reg-doc" placeholder="Número de Documento" style="padding: 10px 12px; border: 1px solid #D1D5DB; border-radius: 8px; flex: 1;" required>
+                    </div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                        <input type="text" id="tutor-reg-nom" placeholder="Nombres" style="padding: 10px 12px; border: 1px solid #D1D5DB; border-radius: 8px;" required>
+                        <input type="text" id="tutor-reg-ape" placeholder="Apellidos" style="padding: 10px 12px; border: 1px solid #D1D5DB; border-radius: 8px;" required>
+                    </div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                        <input type="number" id="tutor-reg-edad" placeholder="Edad" style="padding: 10px 12px; border: 1px solid #D1D5DB; border-radius: 8px;" required>
+                        <select id="tutor-reg-gen" style="padding: 10px 12px; border: 1px solid #D1D5DB; border-radius: 8px;">
+                            <option value="">Género...</option><option value="M">Masculino</option><option value="F">Femenino</option><option value="otro">Otro</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label style="font-weight: 700; color: #374151; font-size: 0.85rem; display: block; margin-bottom: 4px;">Grado o Ciclo Académico:</label>
+                        <select id="tutor-reg-grado" onchange="actualizarMateriasTutor()" style="width: 100%; padding: 10px 12px; border: 2px solid #3B82F6; border-radius: 8px; font-weight: bold; background: #F8FAFC;" required>
+                            <option value="">Seleccionar Grado...</option>
+                            <option value="1">1° de Primaria</option>
+                            <option value="2">2° de Primaria</option>
+                            <option value="3">3° de Primaria</option>
+                            <option value="4">4° de Primaria</option>
+                            <option value="5">5° de Primaria</option>
+                            <option value="6">6° de Secundaria</option>
+                            <option value="7">7° de Secundaria</option>
+                            <option value="8">8° de Secundaria</option>
+                            <option value="9">9° de Secundaria</option>
+                            <option value="10">10° Media</option>
+                            <option value="11">11° Media</option>
+                            <option value="Ciclo I">Ciclo I (1°, 2°, 3°)</option>
+                            <option value="Ciclo II">Ciclo II (4°, 5°)</option>
+                            <option value="Ciclo III">Ciclo III (6°, 7°)</option>
+                            <option value="Ciclo IV">Ciclo IV (8°, 9°)</option>
+                            <option value="Ciclo V">Ciclo V (10°)</option>
+                            <option value="Ciclo VI">Ciclo VI (11°)</option>
+                        </select>
+                    </div>
+
+                    <div id="tutor-materias-preview" style="padding: 10px 12px; background: #EFF6FF; border: 1px dashed #93C5FD; border-radius: 8px; font-size: 0.85rem; color: #1E40AF;">
+                        Selecciona un grado para ver las materias asignadas.
+                    </div>
+
+                    <div style="background: #FEF3C7; border: 1px solid #FCD34D; padding: 12px; border-radius: 8px; font-size: 0.85rem; color: #92400E; display: flex; align-items: center; gap: 8px;">
+                        <span>💳</span>
+                        <span>Al matricular, se iniciará el proceso de pago seguro de <strong>$50.000 COP</strong> para habilitar el acceso total.</span>
+                    </div>
+
+                    <button type="button" id="btn-tutor-matricular-pagar" onclick="matricularYProcederPagoTutor()" style="background: linear-gradient(135deg, #10B981, #059669); color: white; padding: 14px; border: none; border-radius: 10px; font-weight: 800; font-size: 1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 12px rgba(16,185,129,0.35); transition: 0.2s;">
+                        <span>💳</span> Matricular y Proceder al Pago
+                    </button>
+                </form>
+            </div>
+
+            <!-- Columna Derecha: Lista de Estudiantes a Cargo -->
+            <div style="background: white; padding: 30px; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #E5E7EB;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 10px;">
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <span style="font-size: 1.8rem;">👨‍🎓</span>
+                        <div>
+                            <h3 style="margin: 0; font-size: 1.3rem; font-weight: 800; color: #111827;">Mis Estudiantes Home School</h3>
+                            <p style="margin: 2px 0 0 0; font-size: 0.85rem; color: #6B7280;">Estudiantes matriculados bajo tu tutoría</p>
+                        </div>
+                    </div>
+                    <button onclick="cargarEstudiantesTutor(usuario_actual)" style="background: #F3F4F6; border: 1px solid #D1D5DB; color: #374151; padding: 6px 14px; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 0.85rem; display: flex; align-items: center; gap: 5px;">🔄 Actualizar</button>
+                </div>
+
+                <div style="overflow-x: auto;">
+                    <table style="width: 100%; border-collapse: collapse; text-align: left;">
+                        <thead>
+                            <tr style="border-bottom: 2px solid #E5E7EB; background: #F9FAFB;">
+                                <th style="padding: 12px 10px; font-size: 0.85rem; color: #4B5563;">Estudiante</th>
+                                <th style="padding: 12px 10px; font-size: 0.85rem; color: #4B5563;">Curso / Materias</th>
+                                <th style="padding: 12px 10px; font-size: 0.85rem; color: #4B5563; text-align: center;">Estado Pago</th>
+                                <th style="padding: 12px 10px; font-size: 0.85rem; color: #4B5563; text-align: center;">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody-tutor-estudiantes">
+                            <!-- Inyectado dinámicamente -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
 <!-- PANEL DE ESTUDIANTE -->
 <div id="student-dashboard-container" style="display: none; height: 100vh; overflow-y: auto; background-color: #F8FAFC;">
     <!-- Header Superior Siempre Visible -->
@@ -625,31 +936,37 @@
             <div style="background: linear-gradient(135deg, #10B981, #059669); padding: 8px 18px; border-radius: 20px; font-size: 1rem; font-weight: 800; color: white; box-shadow: 0 4px 6px rgba(16, 185, 129, 0.2);">
                 🌟 <span id="student-score-display">0</span> Puntos
             </div>
-            <button onclick="location.reload()" style="background: #EF4444; color: white; border: none; padding: 8px 20px; border-radius: 8px; font-weight: bold; cursor: pointer; font-family: Inter, sans-serif;">Cerrar Sesi&oacute;n</button>
+            <button onclick="location.reload()" style="background: #EF4444; color: white; border: none; padding: 8px 20px; border-radius: 8px; font-weight: bold; cursor: pointer; font-family: Inter, sans-serif;">Cerrar Sesión</button>
         </div>
     </header>
     <!-- Hero Banner -->
     <div style="background: #2563EB; padding: 40px 30px; display: flex; align-items: center; justify-content: flex-start; gap: 30px; border-bottom: 5px solid #60A5FA;">
         <div style="background: white; padding: 10px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-                    <img src="logo-peidagogos.png" alt="Peidagogos STEAM" style="height: 90px; width: auto; object-fit: contain;">
-                </div>
-                <div style="text-align: left;">
-                    <h1 id="student-welcome-name" style="color: white; margin: 0; font-size: 2.5rem; font-weight: 900; letter-spacing: 0.5px;">&iexcl;Hola, Estudiante!</h1>
-                    <p style="color: #DBEAFE; margin: 10px 0 0 0; font-weight: 500; font-size: 1.2rem;">Bienvenido a tu panel de aprendizaje STEAM. Elige una asignatura para comenzar.</p>
-                    <div id="student-grade-badge" style="margin-top: 15px; display: inline-block; background: rgba(255, 255, 255, 0.2); border: 1px solid rgba(255,255,255,0.4); padding: 6px 16px; border-radius: 20px; color: white; font-weight: bold; font-size: 0.95rem; letter-spacing: 0.5px;">
-                        Grado
-                    </div>
-                </div>
+            <img src="logo-peidagogos.png" alt="Peidagogos STEAM" style="height: 90px; width: auto; object-fit: contain;">
+        </div>
+        <div style="text-align: left;">
+            <h1 id="student-welcome-name" style="color: white; margin: 0; font-size: 2.5rem; font-weight: 900; letter-spacing: 0.5px;">¡Hola, Estudiante!</h1>
+            <p style="color: #DBEAFE; margin: 10px 0 0 0; font-weight: 500; font-size: 1.2rem;">Bienvenido a tu panel de aprendizaje STEAM. Elige una asignatura para comenzar.</p>
+            <div id="student-grade-badge" style="margin-top: 15px; display: inline-block; background: rgba(255, 255, 255, 0.2); border: 1px solid rgba(255,255,255,0.4); padding: 6px 16px; border-radius: 20px; color: white; font-weight: bold; font-size: 0.95rem; letter-spacing: 0.5px;">
+                Grado
             </div>
+        </div>
+    </div>
 
-            <!-- Contenedor Principal (Grid de Materias) -->
-            <div id="student-main-content" style="padding: 40px 30px; max-width: 1200px; margin: 0 auto;">
-                <h2 style="font-weight: 900; color: #111827; margin-bottom: 25px; font-size: 1.8rem; border-left: 5px solid #3B82F6; padding-left: 15px;">Mis Asignaturas Matriculadas</h2>
-                
-                <div id="student-subjects-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 25px;">
-                    <!-- Las tarjetas de asignaturas se inyectarÃ¡n aquÃ­ vÃ­a JS -->
-                </div>
-            </div>
+    <!-- Contenedor Principal (Grid de Materias) -->
+    <div id="student-main-content" style="padding: 40px 30px; max-width: 1200px; margin: 0 auto;">
+        
+        <!-- Banner de Estado de Pago (Para Validación y Home School) -->
+        <div id="banner-pago-estado" style="display: none; margin-bottom: 25px; border-radius: 12px; padding: 20px; border: 2px solid #E5E7EB; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+            <!-- Inyectado por JS -->
+        </div>
+
+        <h2 style="font-weight: 900; color: #111827; margin-bottom: 25px; font-size: 1.8rem; border-left: 5px solid #3B82F6; padding-left: 15px;">Mis Asignaturas Matriculadas</h2>
+        
+        <div id="student-subjects-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 25px;">
+            <!-- Las tarjetas de asignaturas se inyectarán aquí vía JS -->
+        </div>
+    </div>
         
             <!-- Vista de Asignatura Específica (Gamificada) -->
             <div id="student-subject-view-container" style="display: none; padding: 40px 30px; max-width: 1200px; margin: 0 auto;">
@@ -761,7 +1078,7 @@
 
     <!-- Modal de Informe Detallado -->
     <div id="modal-informe-estudiante" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); align-items: center; justify-content: center; z-index: 1000;">
-        <div style="background: white; padding: 30px; border-radius: 12px; max-width: 600px; width: 90%; max-height: 90vh; overflow-y: auto;">
+        <div style="background: white; padding: 30px; border-radius: 12px; max-width: 800px; width: 90%; max-height: 90vh; overflow-y: auto;">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
                 <h3 id="informe-nombre-estudiante" style="font-weight: 800; font-size: 1.5rem; margin: 0; color: #111827;">Informe Detallado</h3>
                 <button onclick="document.getElementById('modal-informe-estudiante').style.display='none'" style="background: none; border: none; font-size: 1.5rem; cursor: pointer; color: #6B7280;">&times;</button>
@@ -778,14 +1095,15 @@
     <script src="diagnostico_nocturno.js"></script>
     <script src="app.js?v=1784824719486"></script>
     <script>
-        // FunciÃƒÂ³n global para navegaciÃƒÂ³n SPA segura sin conflictos con app.js
+        // Función global para navegación SPA segura sin conflictos con app.js
         function mostrarVista(id) {
             const vistas = [
                 'login-screen-container',
                 'register-screen-container',
                 'docente-dashboard-container',
                 'dashboard-screen-container',
-                'student-dashboard-container'
+                'student-dashboard-container',
+                'tutor-dashboard-container'
             ];
             
             vistas.forEach(vista => {
@@ -839,7 +1157,130 @@
                     </tbody>
                 </table>
             </div>
+        </div>
+    </div>
+
+    <!-- MODAL PASARELA DE PAGO SEGURA -->
+    <div id="modal-pasarela-pago" style="display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(8px); align-items: center; justify-content: center; z-index: 3000; padding: 20px;">
+        <div style="background: white; border-radius: 20px; max-width: 580px; width: 100%; max-height: 95vh; overflow-y: auto; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); border: 1px solid #E2E8F0;">
             
+            <!-- Header Pasarela -->
+            <div style="background: linear-gradient(135deg, #1E3A8A, #2563EB); color: white; padding: 25px 30px; display: flex; justify-content: space-between; align-items: center; border-top-left-radius: 19px; border-top-right-radius: 19px;">
+                <div style="display: flex; align-items: center; gap: 12px;">
+                    <div style="background: rgba(255,255,255,0.2); width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">🔒</div>
+                    <div>
+                        <h3 style="margin: 0; font-size: 1.35rem; font-weight: 900; letter-spacing: 0.5px;">Pasarela de Pago Segura</h3>
+                        <p style="margin: 3px 0 0 0; font-size: 0.8rem; color: #93C5FD; font-weight: 600;">Peidagogos STEAM • Cifrado SSL 256-bit</p>
+                    </div>
+                </div>
+                <button onclick="cerrarPasarelaPago()" style="background: rgba(255,255,255,0.15); border: none; color: white; width: 36px; height: 36px; border-radius: 50%; cursor: pointer; font-size: 1.2rem; font-weight: bold; transition: 0.2s;">✕</button>
+            </div>
+
+            <div style="padding: 25px 30px;">
+                <!-- Resumen de Pago -->
+                <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 12px; padding: 16px 20px; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center;">
+                    <div>
+                        <div style="font-size: 0.8rem; color: #64748B; font-weight: 700; text-transform: uppercase;">Concepto</div>
+                        <div id="pago-concepto-texto" style="font-weight: 800; color: #1E293B; font-size: 1.05rem; margin-top: 2px;">Matrícula Estudiante</div>
+                        <div id="pago-documento-texto" style="font-size: 0.85rem; color: #64748B; margin-top: 2px;">Doc: --</div>
+                    </div>
+                    <div style="text-align: right;">
+                        <div style="font-size: 0.8rem; color: #64748B; font-weight: 700; text-transform: uppercase;">Total a Pagar</div>
+                        <div id="pago-monto-texto" style="font-size: 1.5rem; font-weight: 900; color: #059669; margin-top: 2px;">$50.000 COP</div>
+                    </div>
+                </div>
+
+                <!-- Selector de Métodos de Pago (Tabs) -->
+                <label style="font-weight: 800; color: #1E293B; font-size: 0.9rem; display: block; margin-bottom: 10px;">Selecciona tu Método de Pago:</label>
+                <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 20px;">
+                    <button type="button" class="metodo-pago-tab active" data-metodo="pse" onclick="seleccionarMetodoPago('pse')" style="padding: 10px 6px; border: 2px solid #2563EB; background: #EFF6FF; border-radius: 10px; font-weight: 800; font-size: 0.75rem; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 4px; color: #1D4ED8;">
+                        <span style="font-size: 1.2rem;">⚡</span> PSE
+                    </button>
+                    <button type="button" class="metodo-pago-tab" data-metodo="tarjeta" onclick="seleccionarMetodoPago('tarjeta')" style="padding: 10px 6px; border: 1px solid #CBD5E1; background: white; border-radius: 10px; font-weight: 700; font-size: 0.75rem; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 4px; color: #475569;">
+                        <span style="font-size: 1.2rem;">💳</span> Tarjeta
+                    </button>
+                    <button type="button" class="metodo-pago-tab" data-metodo="nequi" onclick="seleccionarMetodoPago('nequi')" style="padding: 10px 6px; border: 1px solid #CBD5E1; background: white; border-radius: 10px; font-weight: 700; font-size: 0.75rem; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 4px; color: #475569;">
+                        <span style="font-size: 1.2rem;">📱</span> Nequi / Davi
+                    </button>
+                    <button type="button" class="metodo-pago-tab" data-metodo="efecty" onclick="seleccionarMetodoPago('efecty')" style="padding: 10px 6px; border: 1px solid #CBD5E1; background: white; border-radius: 10px; font-weight: 700; font-size: 0.75rem; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 4px; color: #475569;">
+                        <span style="font-size: 1.2rem;">🏢</span> Efecty / Corresp
+                    </button>
+                </div>
+
+                <!-- Formulario PSE -->
+                <div id="pago-form-pse" class="pago-form-seccion" style="display: flex; flex-direction: column; gap: 12px;">
+                    <div>
+                        <label style="font-size: 0.8rem; font-weight: 700; color: #475569; display: block; margin-bottom: 4px;">Banco emisor:</label>
+                        <select id="pse-banco" style="width: 100%; padding: 10px; border: 1px solid #CBD5E1; border-radius: 8px; font-weight: 600;">
+                            <option value="Bancolombia">Bancolombia</option>
+                            <option value="Nequi">Nequi</option>
+                            <option value="Davivienda">Davivienda / Daviplata</option>
+                            <option value="Banco de Bogota">Banco de Bogotá</option>
+                            <option value="BBVA Colombia">BBVA Colombia</option>
+                            <option value="Banco Caja Social">Banco Caja Social</option>
+                            <option value="Scotiabank Colpatria">Scotiabank Colpatria</option>
+                            <option value="Banco Agrario">Banco Agrario</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label style="font-size: 0.8rem; font-weight: 700; color: #475569; display: block; margin-bottom: 4px;">Correo registrado en PSE:</label>
+                        <input type="email" id="pse-email" placeholder="ejemplo@correo.com" value="usuario.pago@peidagogos.com" style="width: 100%; padding: 10px 12px; border: 1px solid #CBD5E1; border-radius: 8px;">
+                    </div>
+                </div>
+
+                <!-- Formulario Tarjeta -->
+                <div id="pago-form-tarjeta" class="pago-form-seccion" style="display: none; flex-direction: column; gap: 12px;">
+                    <div>
+                        <label style="font-size: 0.8rem; font-weight: 700; color: #475569; display: block; margin-bottom: 4px;">Número de Tarjeta (Débito o Crédito):</label>
+                        <input type="text" id="card-number" placeholder="4500 •••• •••• 1234" maxlength="19" value="4500 1234 5678 9012" style="width: 100%; padding: 10px 12px; border: 1px solid #CBD5E1; border-radius: 8px; font-family: monospace; font-size: 1rem;">
+                    </div>
+                    <div style="display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 10px;">
+                        <div>
+                            <label style="font-size: 0.8rem; font-weight: 700; color: #475569; display: block; margin-bottom: 4px;">Titular:</label>
+                            <input type="text" id="card-name" placeholder="Nombre completo" value="Tutor Responsable" style="width: 100%; padding: 10px 12px; border: 1px solid #CBD5E1; border-radius: 8px;">
+                        </div>
+                        <div>
+                            <label style="font-size: 0.8rem; font-weight: 700; color: #475569; display: block; margin-bottom: 4px;">Vence:</label>
+                            <input type="text" id="card-exp" placeholder="MM/AA" maxlength="5" value="12/28" style="width: 100%; padding: 10px 12px; border: 1px solid #CBD5E1; border-radius: 8px; text-align: center;">
+                        </div>
+                        <div>
+                            <label style="font-size: 0.8rem; font-weight: 700; color: #475569; display: block; margin-bottom: 4px;">CVV:</label>
+                            <input type="password" id="card-cvv" placeholder="•••" maxlength="4" value="888" style="width: 100%; padding: 10px 12px; border: 1px solid #CBD5E1; border-radius: 8px; text-align: center;">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formulario Nequi -->
+                <div id="pago-form-nequi" class="pago-form-seccion" style="display: none; flex-direction: column; gap: 12px;">
+                    <div>
+                        <label style="font-size: 0.8rem; font-weight: 700; color: #475569; display: block; margin-bottom: 4px;">Número de Celular Nequi / Daviplata:</label>
+                        <input type="tel" id="nequi-cel" placeholder="300 123 4567" value="310 987 6543" style="width: 100%; padding: 10px 12px; border: 1px solid #CBD5E1; border-radius: 8px; font-size: 1rem;">
+                    </div>
+                    <div style="background: #F1F5F9; border-radius: 8px; padding: 10px 14px; font-size: 0.85rem; color: #475569;">
+                        📲 Recibirás una notificación en tu celular para autorizar la transacción en menos de 5 minutos.
+                    </div>
+                </div>
+
+                <!-- Formulario Efecty -->
+                <div id="pago-form-efecty" class="pago-form-seccion" style="display: none; flex-direction: column; gap: 12px;">
+                    <div style="background: #FEF3C7; border: 1px solid #FCD34D; border-radius: 8px; padding: 12px 14px; font-size: 0.85rem; color: #92400E;">
+                        🏢 <strong>Convenio Nacional Peidagogos STEAM: #110542</strong><br>
+                        Presenta tu número de documento en cualquier punto Efecty, Baloto o Corresponsal Bancolombia.
+                    </div>
+                </div>
+
+                <!-- Feedback de Pago y Spinner -->
+                <div id="pago-feedback-msg" style="margin-top: 15px; padding: 12px; border-radius: 8px; font-weight: bold; font-size: 0.9rem; display: none; text-align: center;"></div>
+
+                <!-- Botones de Acción -->
+                <div style="margin-top: 25px; display: flex; gap: 12px; justify-content: flex-end;">
+                    <button type="button" onclick="cerrarPasarelaPago()" style="padding: 12px 20px; background: #F1F5F9; border: 1px solid #CBD5E1; color: #475569; border-radius: 10px; font-weight: 700; cursor: pointer;">Cancelar</button>
+                    <button type="button" id="btn-confirmar-pago-pasarela" onclick="ejecutarPagoPasarela()" style="padding: 12px 28px; background: linear-gradient(135deg, #10B981, #059669); color: white; border: none; border-radius: 10px; font-weight: 900; font-size: 1rem; cursor: pointer; box-shadow: 0 4px 15px rgba(16,185,129,0.35); display: flex; align-items: center; gap: 8px;">
+                        <span>🔒</span> Pagar Ahora
+                    </button>
+                </div>
+            </div>
+
         </div>
     </div>
 </body>
