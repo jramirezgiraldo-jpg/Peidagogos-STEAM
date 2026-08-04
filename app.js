@@ -4088,8 +4088,22 @@ window.mostrarHuevos = function() {
         document.body.appendChild(modal);
     }
     
-    // Generar 3 recompensas aleatorias
-    const opciones = ["+10%", "+20%", "+30%", "ROBAR 5%", "ROBAR 10%", "ROBAR 15%"];
+    const user = window.usuarioEstudianteActual || JSON.parse(localStorage.getItem('usuario_sesion') || '{}');
+    const grado = window.gradoActualEstudiante || user.grado || user.grupo || '';
+    const esCicloONocturno = user.rol === 'validacion' || 
+                             user.institucion === 'Validacion' || 
+                             grado.toString().toLowerCase().includes('ciclo') || 
+                             (user.grupo && user.grupo.toString().toLowerCase().includes('ciclo')) ||
+                             (user.institucion && user.institucion.toString().toLowerCase().includes('nocturn'));
+
+    // Generar 3 recompensas aleatorias (En Ciclos / Nocturno NO se permite robar a compañeros, solo bonos constructivos)
+    let opciones;
+    if (esCicloONocturno) {
+        opciones = ["+15%", "+25%", "+35%", "+50%", "Bono STEAM +60 XP", "Bono Sabiduría +100 XP"];
+    } else {
+        opciones = ["+10%", "+20%", "+30%", "ROBAR 5%", "ROBAR 10%", "ROBAR 15%"];
+    }
+    
     let huevos = [];
     for(let i=0; i<3; i++) {
         huevos.push(opciones[Math.floor(Math.random() * opciones.length)]);
@@ -4112,15 +4126,21 @@ window.mostrarHuevos = function() {
 };
 
 window.abrirHuevo = function(premio) {
-    const user = window.usuarioEstudianteActual || JSON.parse(localStorage.getItem('usuario_sesion'));
+    const user = window.usuarioEstudianteActual || JSON.parse(localStorage.getItem('usuario_sesion') || '{}');
     const asig = window.guiaActualAsignatura;
     const p = window.guiaActualPeriodo;
     const xpKey = `prog_${user.documento}_${asig}_p${p}`;
+    const grado = window.gradoActualEstudiante || user.grado || user.grupo || '';
+    const esCicloONocturno = user.rol === 'validacion' || 
+                             user.institucion === 'Validacion' || 
+                             grado.toString().toLowerCase().includes('ciclo') || 
+                             (user.grupo && user.grupo.toString().toLowerCase().includes('ciclo')) ||
+                             (user.institucion && user.institucion.toString().toLowerCase().includes('nocturn'));
     
     let modal = document.getElementById('modal-huevos');
     
-    if(premio.includes("ROBAR")) {
-        // Lógica de robo
+    if (premio.includes("ROBAR") && !esCicloONocturno) {
+        // Lógica de robo (solo para modalidades no nocturnas / ciclos)
         let htmlRobo = `
             <div style="background: white; padding: 40px; border-radius: 20px; text-align: center; max-width: 500px;">
                 <h3 style="color: #EF4444; font-weight: 900;">😈 ¡TE HA TOCADO ${premio}!</h3>
@@ -4139,16 +4159,20 @@ window.abrirHuevo = function(premio) {
         modal.innerHTML = htmlRobo;
     } else {
         // Bono directo
-        let bonoStr = premio.replace("+", "").replace("%", "");
-        let pct = parseInt(bonoStr) / 100;
+        let suma = 30;
+        if (premio.includes("+")) {
+            let bonoStr = premio.replace("+", "").replace("%", "");
+            let pct = parseInt(bonoStr) / 100;
+            let currentProg = parseInt(localStorage.getItem(xpKey)) || 1;
+            let baseXP = (currentProg > 1) ? (currentProg - 1) * 100 : 0;
+            suma = Math.floor(baseXP * pct);
+            if (suma === 0) suma = 25;
+        } else if (premio.includes("XP")) {
+            let match = premio.match(/\d+/);
+            suma = match ? parseInt(match[0]) : 50;
+        }
         
-        // Simular XP
-        let currentProg = parseInt(localStorage.getItem(xpKey)) || 1;
-        let baseXP = (currentProg > 1) ? (currentProg - 1) * 100 : 0;
-        let suma = Math.floor(baseXP * pct);
-        if(suma === 0) suma = 20; // minimo 20 XP si tienen 0
-        
-        alert(`¡Felicidades! Has ganado un bono del ${premio} (+${suma} XP)`);
+        alert(`🎉 ¡Felicidades! Has ganado un bono de ${premio} (+${suma} XP)`);
         
         // Agregar penalidad negativa (que restaula en XP positivo) en el sistema actual de "penalties"
         let pKey = `penalty_${user.grupo}_${asig}_p${p}`;
@@ -4159,7 +4183,10 @@ window.abrirHuevo = function(premio) {
         window.dispatchEvent(new Event('storage'));
         
         // Refrescar header
-        document.getElementById('student-guide-header-xp').innerText = parseInt(document.getElementById('student-guide-header-xp').innerText) + suma;
+        const xpHeader = document.getElementById('student-guide-header-xp');
+        if (xpHeader) {
+            xpHeader.innerText = (parseInt(xpHeader.innerText) || 0) + suma;
+        }
         
         modal.style.display = 'none';
     }
