@@ -5,6 +5,7 @@ const fs = require('fs');
 const cors = require('cors');
 const { GoogleGenAI } = require('@google/genai');
 const { exec } = require('child_process');
+const { generarGuiaPredeterminada } = require('./diagnosticos_predeterminados');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -99,14 +100,7 @@ Integra conceptos de ritmo, pulso, apreciación auditiva, notación musical bás
 Estructura la reflexión a partir de dilemas morales reales, toma de decisiones éticas, empatía, resolución pacífica de conflictos y construcción del Proyecto de Vida de ${nombreEstudiante}.`;
         }
 
-        // Validar si la IA está lista
-        if (apiKeys.length === 0) {
-            return res.status(500).json({ 
-                error: "El motor de IA no está configurado todavía. Faltan las llaves en GEMINI_API_KEYS." 
-            });
-        }
-
-        // --- CACHE LOGIC ---
+        // --- CACHE & DIAGNOSTIC PRESET LOGIC ---
         const cacheDir = path.join(__dirname, 'guias_cache');
         if (!fs.existsSync(cacheDir)) {
             fs.mkdirSync(cacheDir, { recursive: true });
@@ -128,11 +122,23 @@ Estructura la reflexión a partir de dilemas morales reales, toma de decisiones 
             
         const cacheFilePath = path.join(cacheDir, fileNameSafe);
         
-        // Verificar si existe en caché
+        // 1. Verificar si existe en caché
         if (fs.existsSync(cacheFilePath)) {
             console.log(`[Caché HIT] Sirviendo guía desde: ${fileNameSafe}`);
             const cacheData = fs.readFileSync(cacheFilePath, 'utf-8');
             return res.json({ text: cacheData });
+        }
+        
+        // 2. Si es Semana 1 (Diagnóstico de Ciclos o Grados Regulares), servir la guía predeterminada garantizada
+        if (semana == '1' || periodo == '1' && semana == '1' || apiKeys.length === 0) {
+            console.log(`[DIAGNÓSTICO] Sirviendo guía predeterminada garantizada para ${nombreEstudiante} (${grado})...`);
+            const guiaPredeterminada = generarGuiaPredeterminada({
+                asignatura, grado, periodo, semana, rol, ambiente, nivel, enfoque, nombre_estudiante: nombreEstudiante, institucion, modo
+            });
+            try {
+                fs.writeFileSync(cacheFilePath, JSON.stringify(guiaPredeterminada, null, 2), 'utf-8');
+            } catch(e) {}
+            return res.json({ text: JSON.stringify(guiaPredeterminada) });
         }
         
         console.log(`[Caché MISS] Generando nueva guía personalizada para ${nombreEstudiante}: ${fileNameSafe}`);
@@ -293,19 +299,14 @@ DEBES DEVOLVER EXCLUSIVAMENTE UN OBJETO JSON VÁLIDO CON LA SIGUIENTE ESTRUCTURA
         }
 
         if (!responseText) {
-            let mensajeFront = "El motor de IA falló después de varios intentos.";
-            if (finalError && (finalError.status === 403 || (finalError.message && finalError.message.includes("leaked")))) {
-                mensajeFront = "Tu API Key de Gemini fue bloqueada por Google por seguridad (Leaked Key). Por favor crea una nueva API Key en Google AI Studio y pégala en las variables de entorno.";
-            } else if (finalError && finalError.status === 503) {
-                mensajeFront = "El cerebro de IA está muy saturado en este momento (alta demanda global). Inténtalo en un par de minutos.";
-            } else if (finalError && finalError.status === 429) {
-                mensajeFront = "Te has quedado sin cuota de peticiones en tu API Key de Gemini (Límite alcanzado).";
-            } else if (finalError && finalError.status === 404) {
-                mensajeFront = "El modelo de IA solicitado no fue encontrado.";
-            } else if (finalError && finalError.message) {
-                mensajeFront = `Error de Google IA: ${finalError.message}`;
-            }
-            return res.status(500).json({ error: mensajeFront });
+            console.log(`[IA Fallback] IA no disponible, sirviendo guía pedagógica estructurada de respaldo para ${nombreEstudiante}...`);
+            const fallbackGuia = generarGuiaPredeterminada({
+                asignatura, grado, periodo, semana, rol, ambiente, nivel, enfoque, nombre_estudiante: nombreEstudiante, institucion, modo
+            });
+            try {
+                fs.writeFileSync(cacheFilePath, JSON.stringify(fallbackGuia, null, 2), 'utf-8');
+            } catch(e) {}
+            return res.json({ text: JSON.stringify(fallbackGuia) });
         }
 
         // Sanitización y parseo robusto del JSON
