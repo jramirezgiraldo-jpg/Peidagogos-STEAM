@@ -170,6 +170,39 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
+    // Función de búsqueda flexible y tolerante de estudiante
+    function buscarEstudianteFlexible(queryDoc, lista) {
+        if (!queryDoc || !Array.isArray(lista)) return null;
+        const normQ = String(queryDoc).trim().toLowerCase().replace(/[\.\,\-\_\s]/g, '');
+        if (!normQ) return null;
+
+        // 1. Coincidencia exacta de documento
+        let found = lista.find(u => {
+            const d = String(u.documento || u.id || u.usuario || '').trim().toLowerCase().replace(/[\.\,\-\_\s]/g, '');
+            return d === normQ;
+        });
+        if (found) return found;
+
+        // 2. Coincidencia por nombre o apellidos
+        found = lista.find(u => {
+            const n = String(u.nombre || '').toLowerCase().replace(/[\.\,\-\_\s]/g, '');
+            const a = String(u.apellidos || '').toLowerCase().replace(/[\.\,\-\_\s]/g, '');
+            const full = `${n} ${a}`.trim();
+            return (n && normQ.includes(n)) || (a && normQ.includes(a)) || (full && (normQ.includes(full) || full.includes(normQ)));
+        });
+        if (found) return found;
+
+        // 3. Coincidencia flexible de dígitos (prefijos, subcadenas o primeros 6 dígitos)
+        found = lista.find(u => {
+            const d = String(u.documento || u.id || u.usuario || '').trim().toLowerCase().replace(/[\.\,\-\_\s]/g, '');
+            if (d.length >= 5 && normQ.length >= 5) {
+                return d.startsWith(normQ) || normQ.startsWith(d) || d.includes(normQ) || normQ.includes(d) || d.substring(0,6) === normQ.substring(0,6);
+            }
+            return false;
+        });
+        return found || null;
+    }
+
     if (loginBtn) {
         loginBtn.addEventListener("click", async function(e) {
             e.preventDefault();
@@ -209,15 +242,10 @@ document.addEventListener("DOMContentLoaded", function() {
                     console.warn("Fallo conectando al servidor backend, buscando respaldo local...", netErr);
                 }
                 
-                // Si la API no respondió éxito, verificar si el estudiante está en localStorage o usuarios.json
+                // Si la API no respondió éxito, verificar si el estudiante está en localStorage o usuarios.json con búsqueda flexible
                 if (!data || data.status !== 'success') {
                     let localUsers = JSON.parse(localStorage.getItem('usuarios_db') || '[]');
-                    let localEst = localUsers.find(u => {
-                        const d = String(u.documento || u.id || u.usuario || '').trim().toLowerCase().replace(/[\.\,\-\_\s]/g, '');
-                        const n = String(u.nombre || '').toLowerCase().replace(/[\.\,\-\_\s]/g, '');
-                        const a = String(u.apellidos || '').toLowerCase().replace(/[\.\,\-\_\s]/g, '');
-                        return d === normUser || (n && a && normUser.includes(n) && normUser.includes(a));
-                    });
+                    let localEst = buscarEstudianteFlexible(normUser, localUsers);
 
                     // Si no está aún en localStorage, consultar directamente usuarios.json
                     if (!localEst) {
@@ -226,10 +254,7 @@ document.addEventListener("DOMContentLoaded", function() {
                             if (uRes.ok) {
                                 const uData = await uRes.json();
                                 if (Array.isArray(uData)) {
-                                    localEst = uData.find(u => {
-                                        const d = String(u.documento || u.id || u.usuario || '').trim().toLowerCase().replace(/[\.\,\-\_\s]/g, '');
-                                        return d === normUser;
-                                    });
+                                    localEst = buscarEstudianteFlexible(normUser, uData);
                                     if (localEst) {
                                         localUsers.push(localEst);
                                         localStorage.setItem('usuarios_db', JSON.stringify(localUsers));
@@ -388,7 +413,7 @@ document.addEventListener("DOMContentLoaded", function() {
                                     
                                     card.innerHTML = `
                                         <div>
-                                            <div style="font-size: 2rem; margin-bottom: 10px;">📚</div>
+                                             <div style="font-size: 2rem; margin-bottom: 10px;">📚</div>
                                             <h3 style="margin: 0; font-size: 1.3rem; color: #111827; font-weight: 800;">${asig}</h3>
                                         </div>
                                         <button style="background: #10B981; color: white; border: none; padding: 10px; border-radius: 8px; font-weight: bold; cursor: pointer; width: 100%; font-family: Inter, sans-serif; margin-top: 15px;" onclick="abrirAsignaturaEstudiante('${asig}', '${data.grado || data.grupo || ''}')">Entrar al Aula</button>
@@ -401,9 +426,22 @@ document.addEventListener("DOMContentLoaded", function() {
                         }
                     }
                 } else {
-                    if (errorMsg) { 
+                    // AUTO-HABILITACIÓN DIRECTA: Si no se encontró por coincidencia exacta o difusa, abrir modal de auto-habilitación para que ingrese en 1 clic
+                    const modalAuto = document.getElementById("modal-auto-habilitacion");
+                    if (modalAuto) {
+                        const badge = document.getElementById("modal-auto-doc-badge");
+                        if (badge) badge.innerText = rawUser;
+                        const nomInput = document.getElementById("auto-nombre-completo");
+                        if (nomInput) nomInput.value = "Estudiante Montenegro";
+                        const cicloSelect = document.getElementById("auto-ciclo-grado");
+                        if (cicloSelect && rol === 'validacion') {
+                            cicloSelect.value = "Ciclo VI";
+                        }
+                        modalAuto.style.display = "flex";
+                        if (nomInput) nomInput.focus();
+                    } else if (errorMsg) { 
                         errorMsg.style.display = "block"; 
-                        errorMsg.innerText = "❌ Documento no encontrado o credenciales incorrectas. Si eres nuevo, haz clic en '➕ Registrar Nuevo Estudiante / Matrícula'."; 
+                        errorMsg.innerText = "❌ Documento no encontrado. Haz clic en '➕ Registrar Nuevo Estudiante / Matrícula'."; 
                     }
                 }
             } catch (err) {
@@ -412,6 +450,105 @@ document.addEventListener("DOMContentLoaded", function() {
             } finally {
                 loginBtn.innerText = "Iniciar Sesión";
                 loginBtn.disabled = false;
+            }
+        });
+    }
+
+    // Manejador del botón de auto-habilitación e ingreso inmediato
+    const btnAutoIngreso = document.getElementById("btn-ejecutar-auto-ingreso");
+    if (btnAutoIngreso) {
+        btnAutoIngreso.addEventListener("click", function(e) {
+            e.preventDefault();
+            const rawUser = document.getElementById("admin-user") ? String(document.getElementById("admin-user").value).trim() : "";
+            const rawNombre = document.getElementById("auto-nombre-completo") ? document.getElementById("auto-nombre-completo").value.trim() : "Estudiante";
+            const cicloGrado = document.getElementById("auto-ciclo-grado") ? document.getElementById("auto-ciclo-grado").value : "Ciclo VI";
+            
+            const docFinal = rawUser || String(Date.now()).slice(-8);
+            const esCiclo = cicloGrado.includes("Ciclo");
+            
+            const payload = {
+                documento: docFinal,
+                nombre: rawNombre,
+                apellidos: "",
+                edad: "18",
+                genero: "M",
+                institucion: "InstitutoMontenegro",
+                codigo_institucional: "ieinstituto2026",
+                grado: cicloGrado,
+                grupo: cicloGrado,
+                asignatura: "Ciencias Naturales",
+                materias: ["Ciencias Naturales"],
+                pago_realizado: true,
+                pago_activo: true,
+                suscrito: true,
+                tipo_acceso: "institucional_ilimitado"
+            };
+
+            const normDoc = docFinal.toLowerCase().replace(/[\.\,\-\_\s]/g, '');
+            let uList = JSON.parse(localStorage.getItem('usuarios_db') || '[]');
+            const idx = uList.findIndex(u => String(u.documento || u.id || '').toLowerCase().replace(/[\.\,\-\_\s]/g, '') === normDoc);
+            if (idx >= 0) uList[idx] = { ...uList[idx], ...payload };
+            else uList.push(payload);
+            localStorage.setItem('usuarios_db', JSON.stringify(uList));
+
+            const sessionData = {
+                status: 'success',
+                usuario: docFinal,
+                nombre: rawNombre,
+                rol: esCiclo ? 'validacion' : 'estudiante',
+                grado: cicloGrado,
+                grupo: cicloGrado,
+                asignatura: "Ciencias Naturales",
+                institucion: "InstitutoMontenegro",
+                pago_activo: true,
+                pago_realizado: true,
+                usuarioObj: payload
+            };
+            localStorage.setItem('usuario_sesion', JSON.stringify(sessionData));
+
+            // Cerrar modal
+            const modalAuto = document.getElementById("modal-auto-habilitacion");
+            if (modalAuto) modalAuto.style.display = "none";
+
+            // Sincronizar backend en segundo plano
+            fetch('/api/registro-estudiante', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            }).catch(() => {});
+
+            // Iniciar sesión inmediatamente
+            window.rol_actual = sessionData.rol;
+            window.usuario_actual = sessionData.usuario;
+            window.usuarioEstudianteActual = sessionData;
+
+            if (typeof mostrarVista === 'function') {
+                mostrarVista('student-dashboard-container');
+            }
+            const studentView = document.getElementById("student-dashboard-container");
+            if (studentView) {
+                studentView.style.display = "block";
+                const welcomeMsg = document.getElementById("student-welcome-name");
+                if (welcomeMsg) welcomeMsg.innerText = "¡Hola, " + sessionData.nombre + "!";
+                const headerName = document.getElementById("header-student-name");
+                if (headerName) headerName.innerText = sessionData.nombre;
+                const headerGrade = document.getElementById("header-student-grade");
+                if (headerGrade) headerGrade.innerText = sessionData.grado || sessionData.grupo || "N/A";
+                
+                const subjectsGrid = document.getElementById("student-subjects-grid");
+                if (subjectsGrid) {
+                    subjectsGrid.innerHTML = `
+                        <div style="background: white; border-radius: 12px; padding: 25px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-top: 4px solid #10B981; display: flex; flex-direction: column; justify-content: space-between; height: 180px;">
+                            <div>
+                                <div style="font-size: 2rem; margin-bottom: 10px;">📚</div>
+                                <h3 style="margin: 0; font-size: 1.3rem; color: #111827; font-weight: 800;">Ciencias Naturales</h3>
+                            </div>
+                            <button style="background: #10B981; color: white; border: none; padding: 10px; border-radius: 8px; font-weight: bold; cursor: pointer; width: 100%; font-family: Inter, sans-serif; margin-top: 15px;" onclick="abrirAsignaturaEstudiante('Ciencias Naturales', '${sessionData.grado || sessionData.grupo || ''}')">Entrar al Aula</button>
+                        </div>
+                    `;
+                }
+            } else {
+                location.reload();
             }
         });
     }

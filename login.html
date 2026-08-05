@@ -1092,8 +1092,45 @@
         </div>
     </div>
 
-    <script src="diagnostico_nocturno.js?v=20260804_v4"></script>
-    <script src="app.js?v=20260804_v4"></script>
+    <!-- Modal de Auto-Habilitación e Ingreso Inmediato de Estudiantes -->
+    <div id="modal-auto-habilitacion" style="display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.75); backdrop-filter: blur(6px); align-items: center; justify-content: center; z-index: 9999; padding: 20px;">
+        <div style="background: white; border-radius: 16px; padding: 32px; max-width: 480px; width: 100%; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); text-align: center; position: relative; border: 1px solid #E2E8F0;">
+            <button onclick="document.getElementById('modal-auto-habilitacion').style.display='none'" style="position: absolute; top: 16px; right: 16px; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: #94A3B8; line-height: 1;">&times;</button>
+            <div style="width: 60px; height: 60px; background: #EFF6FF; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px auto; font-size: 2rem; color: #2563EB;">🎓</div>
+            <h3 style="font-size: 1.4rem; font-weight: 800; color: #0F172A; margin: 0 0 8px 0;">¡Bienvenido(a) a tu Aula Virtual!</h3>
+            <p style="color: #64748B; font-size: 0.95rem; margin: 0 0 20px 0; line-height: 1.4;">Tu documento <strong id="modal-auto-doc-badge" style="color: #2563EB; background: #DBEAFE; padding: 2px 8px; border-radius: 4px;"></strong> está listo. Confirma tus datos para entrar directamente:</p>
+            
+            <form id="form-auto-habilitacion" onsubmit="return false;" style="display: flex; flex-direction: column; gap: 14px; text-align: left;">
+                <div>
+                    <label style="font-size: 0.85rem; font-weight: 700; color: #334155; margin-bottom: 4px; display: block;">Nombres y Apellidos:</label>
+                    <input type="text" id="auto-nombre-completo" placeholder="Ej. Juan Pérez" style="width: 100%; padding: 12px; border: 1.5px solid #CBD5E1; border-radius: 8px; font-size: 0.95rem; box-sizing: border-box; outline: none;" required>
+                </div>
+                <div>
+                    <label style="font-size: 0.85rem; font-weight: 700; color: #334155; margin-bottom: 4px; display: block;">Ciclo / Grado de Estudio:</label>
+                    <select id="auto-ciclo-grado" style="width: 100%; padding: 12px; border: 2px solid #3B82F6; border-radius: 8px; font-size: 0.95rem; font-weight: bold; background: #F8FAFC; color: #1E293B; box-sizing: border-box;">
+                        <option value="Ciclo VI">🌙 Ciclo VI (Nocturno / Validación - 11°)</option>
+                        <option value="Ciclo V">🌙 Ciclo V (Nocturno / Validación - 10°)</option>
+                        <option value="Ciclo IV">🌙 Ciclo IV (Nocturno / Validación - 8°, 9°)</option>
+                        <option value="Ciclo III">🌙 Ciclo III (Nocturno / Validación - 6°, 7°)</option>
+                        <option value="Ciclo II">🌙 Ciclo II (Nocturno / Validación)</option>
+                        <option value="Ciclo I">🌙 Ciclo I (Nocturno / Validación)</option>
+                        <option value="6">🏫 Grado 6°</option>
+                        <option value="7">🏫 Grado 7°</option>
+                        <option value="8">🏫 Grado 8°</option>
+                        <option value="9">🏫 Grado 9°</option>
+                        <option value="10">🏫 Grado 10°</option>
+                        <option value="11">🏫 Grado 11°</option>
+                    </select>
+                </div>
+                <button type="button" id="btn-ejecutar-auto-ingreso" style="background: linear-gradient(135deg, #2563EB, #1D4ED8); color: white; border: none; padding: 14px; border-radius: 8px; font-weight: 800; font-size: 1rem; cursor: pointer; margin-top: 6px; box-shadow: 0 4px 12px rgba(37,99,235,0.3); transition: transform 0.1s, box-shadow 0.1s;">
+                    🚀 Entrar a Mi Aula de Clase
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script src="diagnostico_nocturno.js?v=20260804_v5"></script>
+    <script src="app.js?v=20260804_v5"></script>
     <script>
         // Función global para navegación SPA segura sin conflictos con app.js
         function mostrarVista(id) {
