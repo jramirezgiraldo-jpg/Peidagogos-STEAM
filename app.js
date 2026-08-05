@@ -145,12 +145,12 @@ document.addEventListener("DOMContentLoaded", function() {
     if (loginBtn) {
         loginBtn.addEventListener("click", async function(e) {
             e.preventDefault();
-            let user = document.getElementById("admin-user") ? String(document.getElementById("admin-user").value).trim() : "";
-            let pass = document.getElementById("admin-pass") ? String(document.getElementById("admin-pass").value).trim() : "";
+            let rawUser = document.getElementById("admin-user") ? String(document.getElementById("admin-user").value).trim() : "";
+            let rawPass = document.getElementById("admin-pass") ? String(document.getElementById("admin-pass").value).trim() : "";
             const rolSelect = document.getElementById("login-role");
             const rol = rolSelect ? rolSelect.value : "estudiante";
 
-            if (!user) {
+            if (!rawUser) {
                 if (errorMsg) { 
                     errorMsg.style.display = "block"; 
                     errorMsg.innerText = "Por favor ingresa tu número de documento de identidad."; 
@@ -158,13 +158,13 @@ document.addEventListener("DOMContentLoaded", function() {
                 return;
             }
 
+            const normUser = rawUser.toLowerCase().replace(/[\.\,\-\_\s]/g, '');
             // Si el estudiante no escribió contraseña, su contraseña por defecto es su mismo documento de identidad
-            if (!pass) {
-                pass = user;
-            }
+            let pass = rawPass || rawUser;
 
             loginBtn.innerText = "Verificando...";
             loginBtn.disabled = true;
+            if (errorMsg) errorMsg.style.display = "none";
             
             try {
                 let data = null;
@@ -172,7 +172,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     const res = await fetch('/api/login', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ usuario: user, clave: pass, rol: rol })
+                        body: JSON.stringify({ usuario: rawUser, clave: pass, rol: rol })
                     });
                     if (res.ok) {
                         data = await res.json();
@@ -185,15 +185,17 @@ document.addEventListener("DOMContentLoaded", function() {
                 if (!data || data.status !== 'success') {
                     const localUsers = JSON.parse(localStorage.getItem('usuarios_db') || '[]');
                     const localEst = localUsers.find(u => {
-                        const d = String(u.documento || u.id || u.usuario || '').trim().toLowerCase();
-                        return d === user.toLowerCase();
+                        const d = String(u.documento || u.id || u.usuario || '').trim().toLowerCase().replace(/[\.\,\-\_\s]/g, '');
+                        const n = String(u.nombre || '').toLowerCase().replace(/[\.\,\-\_\s]/g, '');
+                        const a = String(u.apellidos || '').toLowerCase().replace(/[\.\,\-\_\s]/g, '');
+                        return d === normUser || (n && a && normUser.includes(n) && normUser.includes(a));
                     });
 
                     if (localEst) {
                         data = {
                             status: 'success',
-                            usuario: localEst.documento || user,
-                            nombre: `${localEst.nombre || ''} ${localEst.apellidos || ''}`.trim() || user,
+                            usuario: localEst.documento || rawUser,
+                            nombre: `${localEst.nombre || ''} ${localEst.apellidos || ''}`.trim() || rawUser,
                             rol: (localEst.institucion === 'Validacion' || String(localEst.grupo || '').toLowerCase().includes('ciclo') || String(localEst.grado || '').toLowerCase().includes('ciclo')) ? 'validacion' : 'estudiante',
                             grado: localEst.grado || localEst.grupo || '',
                             grupo: localEst.grupo || localEst.grado || '',
@@ -209,7 +211,7 @@ document.addEventListener("DOMContentLoaded", function() {
                             headers: { 'Content-Type': 'application/json' },
                             body: JSON.stringify(localEst)
                         }).catch(() => {});
-                    } else if (user.toLowerCase() === 'admin' && (pass === 'admin' || pass === '123456' || pass === 'Biol2008%')) {
+                    } else if (normUser === 'admin' && (pass === 'admin' || pass === '123456' || pass === 'Biol2008%')) {
                         data = { status: 'success', usuario: 'admin', nombre: 'Administrador', rol: 'admin' };
                     }
                 }
@@ -227,7 +229,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     if (data.usuarioObj) {
                         try {
                             let uList = JSON.parse(localStorage.getItem('usuarios_db') || '[]');
-                            const idx = uList.findIndex(u => String(u.documento).trim() === String(data.usuario).trim());
+                            const idx = uList.findIndex(u => String(u.documento || u.id || '').toLowerCase().replace(/[\.\,\-\_\s]/g, '') === normUser);
                             if (idx >= 0) uList[idx] = { ...uList[idx], ...data.usuarioObj };
                             else uList.push(data.usuarioObj);
                             localStorage.setItem('usuarios_db', JSON.stringify(uList));
@@ -353,7 +355,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 } else {
                     if (errorMsg) { 
                         errorMsg.style.display = "block"; 
-                        errorMsg.innerText = "❌ Documento no encontrado o credenciales incorrectas. Si no estás matriculado, haz clic en 'Registrar Nuevo Estudiante'."; 
+                        errorMsg.innerText = "❌ Documento no encontrado o credenciales incorrectas. Si eres nuevo, haz clic en '➕ Registrar Nuevo Estudiante / Matrícula'."; 
                     }
                 }
             } catch (err) {
@@ -373,12 +375,12 @@ document.addEventListener("DOMContentLoaded", function() {
     if (btnDocenteMatricular) {
         btnDocenteMatricular.addEventListener("click", async function(e) {
             e.preventDefault();
-            const doc = document.getElementById("docente-reg-doc").value.trim();
-            const nom = document.getElementById("docente-reg-nom").value.trim();
-            const ape = document.getElementById("docente-reg-ape").value.trim();
-            const edad = document.getElementById("docente-reg-edad").value.trim();
-            const gen = document.getElementById("docente-reg-gen").value;
-            const grado = document.getElementById("docente-reg-grado").value;
+            const doc = document.getElementById("docente-reg-doc") ? document.getElementById("docente-reg-doc").value.trim() : "";
+            const nom = document.getElementById("docente-reg-nom") ? document.getElementById("docente-reg-nom").value.trim() : "";
+            const ape = document.getElementById("docente-reg-ape") ? document.getElementById("docente-reg-ape").value.trim() : "";
+            const edad = document.getElementById("docente-reg-edad") ? document.getElementById("docente-reg-edad").value.trim() : "";
+            const gen = document.getElementById("docente-reg-gen") ? document.getElementById("docente-reg-gen").value : "";
+            const grado = document.getElementById("docente-reg-grado") ? document.getElementById("docente-reg-grado").value : "";
             
             // Obtener asignaturas chuleadas
             const checkboxes = document.querySelectorAll('.materia-chk:checked');
@@ -392,9 +394,14 @@ document.addEventListener("DOMContentLoaded", function() {
                 return;
             }
 
+            if (materias_matriculadas.length === 0) {
+                materias_matriculadas = [grado.toLowerCase().includes('ciclo') ? "Ciencias Naturales" : "Ciencias Naturales"];
+            }
+
             btnDocenteMatricular.innerText = "Guardando...";
             btnDocenteMatricular.disabled = true;
 
+            const normDoc = doc.toLowerCase().replace(/[\.\,\-\_\s]/g, '');
             const payload = {
                 documento: doc,
                 nombre: nom,
@@ -402,18 +409,22 @@ document.addEventListener("DOMContentLoaded", function() {
                 edad: edad,
                 genero: gen,
                 grado: grado,
-                grupo: grado,  // Para ciclos, el grupo ES el ciclo (facilita filtrado en ranking)
-                asignatura: materias_matriculadas.join(', '),  // String para compatibilidad con login
+                grupo: grado,  // Para ciclos, el grupo ES el ciclo
+                asignatura: materias_matriculadas.join(', '),
                 materias: materias_matriculadas,
-                docente_id: usuario_actual,
+                docente_id: usuario_actual || 'docente',
+                institucion: 'IE Instituto Montenegro',
+                codigo_institucional: 'ieinstituto2026',
                 pago_realizado: true,
-                pago_activo: true
+                pago_activo: true,
+                suscrito: true,
+                tipo_acceso: 'institucional_ilimitado'
             };
 
             // Guardar inmediatamente en localStorage como respaldo local
             try {
                 let uList = JSON.parse(localStorage.getItem('usuarios_db') || '[]');
-                const idx = uList.findIndex(u => String(u.documento).trim() === String(doc).trim());
+                const idx = uList.findIndex(u => String(u.documento || u.id || '').toLowerCase().replace(/[\.\,\-\_\s]/g, '') === normDoc);
                 if (idx >= 0) uList[idx] = { ...uList[idx], ...payload };
                 else uList.push(payload);
                 localStorage.setItem('usuarios_db', JSON.stringify(uList));
@@ -425,36 +436,32 @@ document.addEventListener("DOMContentLoaded", function() {
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(payload)
                 });
-                if (res.ok) {
-                    alert("✅ Estudiante matriculado.");
-                    // Limpiar form
-                    document.getElementById("docente-reg-doc").value = "";
-                    document.getElementById("docente-reg-nom").value = "";
-                    document.getElementById("docente-reg-ape").value = "";
-                    document.getElementById("docente-reg-edad").value = "";
-                    document.getElementById("docente-reg-gen").value = "";
-                    document.getElementById("docente-reg-grado").value = "";
-                    document.getElementById("materias-checkboxes-container").innerHTML = '<span style="color: #6B7280; font-size: 0.9rem;">Selecciona un grado primero.</span>';
-                    
-                    cargarEstudiantesDocente(usuario_actual);
-                } else {
-                    alert("✅ Estudiante matriculado localmente.");
-                    cargarEstudiantesDocente(usuario_actual);
-                }
+                alert(`✅ Estudiante ${nom} ${ape} matriculado con éxito.`);
             } catch (error) {
-                alert("✅ Estudiante matriculado localmente (modo offline).");
-                cargarEstudiantesDocente(usuario_actual);
+                alert(`✅ Estudiante ${nom} ${ape} matriculado localmente.`);
             } finally {
-                btnDocenteMatricular.innerText = "Matricular";
+                // Limpiar form
+                if (document.getElementById("docente-reg-doc")) document.getElementById("docente-reg-doc").value = "";
+                if (document.getElementById("docente-reg-nom")) document.getElementById("docente-reg-nom").value = "";
+                if (document.getElementById("docente-reg-ape")) document.getElementById("docente-reg-ape").value = "";
+                if (document.getElementById("docente-reg-edad")) document.getElementById("docente-reg-edad").value = "";
+                if (document.getElementById("docente-reg-gen")) document.getElementById("docente-reg-gen").value = "";
+                if (document.getElementById("docente-reg-grado")) document.getElementById("docente-reg-grado").value = "";
+                if (document.getElementById("materias-checkboxes-container")) {
+                    document.getElementById("materias-checkboxes-container").innerHTML = '<span style="color: #6B7280; font-size: 0.9rem;">Selecciona un grado primero.</span>';
+                }
+                
+                cargarEstudiantesDocente(usuario_actual);
+                btnDocenteMatricular.innerText = "Matricular Estudiante";
                 btnDocenteMatricular.disabled = false;
             }
         });
     }
 
-    // Registro de estudiante (Auto-registro)
+    // Registro de estudiante (Auto-registro en página web)
     const btnSubmit = document.getElementById("btn-submit-register");
     if (btnSubmit) {
-        btnSubmit.addEventListener("click", function(e) {
+        btnSubmit.addEventListener("click", async function(e) {
             e.preventDefault();
             const doc = document.getElementById("reg-documento") ? document.getElementById("reg-documento").value.trim() : "";
             const ap = document.getElementById("reg-apellidos") ? document.getElementById("reg-apellidos").value.trim() : "";
@@ -472,10 +479,11 @@ document.addEventListener("DOMContentLoaded", function() {
                 return;
             }
 
+            const normCod = codigoInst.toLowerCase().replace(/[\.\,\-\_\s]/g, '');
             // Validación estricta del código institucional para IE Instituto Montenegro
             if (ie === "InstitutoMontenegro") {
-                if (codigoInst.toLowerCase() !== "ieinstituto2026") {
-                    alert("❌ Código institucional incorrecto.\n\nPara matricularte en la IE Instituto Montenegro debes ingresar el código oficial proporcionado por la institución (ieinstituto2026).");
+                if (normCod !== "ieinstituto2026" && normCod !== "instituto2026") {
+                    alert("❌ Código institucional incorrecto.\n\nPara matricularte en la IE Instituto Montenegro debes ingresar el código oficial: ieinstituto2026");
                     const codInput = document.getElementById("reg-codigo-institucional");
                     if (codInput) {
                         codInput.focus();
@@ -508,34 +516,103 @@ document.addEventListener("DOMContentLoaded", function() {
                 grado: gradoFinal,
                 grupo: grupoFinal,
                 asignatura: asig,
-                materias: asig.split(',').map(s => s.trim()),
-                pago_realizado: ie === "InstitutoMontenegro" ? true : false,
-                suscrito: ie === "InstitutoMontenegro" ? true : false
+                materias: asig.split(',').map(s => s.trim()).filter(Boolean),
+                pago_realizado: ie === "InstitutoMontenegro",
+                pago_activo: ie === "InstitutoMontenegro",
+                suscrito: ie === "InstitutoMontenegro",
+                tipo_acceso: ie === "InstitutoMontenegro" ? "institucional_ilimitado" : "freemium_primera_guia_gratis"
             };
 
-            // Guardar inmediatamente en respaldo local
+            const normDoc = doc.toLowerCase().replace(/[\.\,\-\_\s]/g, '');
+
+            // 1. Guardar inmediatamente en respaldo local usuarios_db
             try {
                 let uList = JSON.parse(localStorage.getItem('usuarios_db') || '[]');
-                const idx = uList.findIndex(u => String(u.documento).trim() === String(doc).trim());
+                const idx = uList.findIndex(u => String(u.documento || u.id || '').toLowerCase().replace(/[\.\,\-\_\s]/g, '') === normDoc);
                 if (idx >= 0) uList[idx] = { ...uList[idx], ...payload };
                 else uList.push(payload);
                 localStorage.setItem('usuarios_db', JSON.stringify(uList));
             } catch(e) {}
 
-            fetch("/api/registro-estudiante", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(payload)
-            }).then(async r => {
-                const bienvenidaMsg = ie === "InstitutoMontenegro"
-                    ? "✅ ¡Matrícula institucional exitosa en la IE Instituto Montenegro! Ya puedes ingresar con tu documento."
-                    : "✅ ¡Matrícula completada exitosamente! Ya puedes ingresar con tu documento.";
-                alert(bienvenidaMsg); 
-                location.reload(); 
-            }).catch(err => {
-                alert("✅ Matrícula guardada exitosamente en tu navegador. Ya puedes ingresar con tu número de documento.");
+            // 2. Prellenar datos de sesión
+            const sessionData = {
+                status: 'success',
+                usuario: doc,
+                nombre: `${nom} ${ap}`.trim(),
+                rol: (ie === 'Validacion' || gradoFinal.includes('Ciclo') || grupoFinal.includes('Ciclo')) ? 'validacion' : 'estudiante',
+                grado: gradoFinal,
+                grupo: grupoFinal,
+                asignatura: asig,
+                institucion: ie,
+                pago_activo: ie === "InstitutoMontenegro",
+                pago_realizado: ie === "InstitutoMontenegro",
+                usuarioObj: payload
+            };
+            localStorage.setItem('usuario_sesion', JSON.stringify(sessionData));
+
+            btnSubmit.innerText = "Registrando...";
+            btnSubmit.disabled = true;
+
+            try {
+                const res = await fetch("/api/registro-estudiante", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(payload)
+                });
+                const resData = await res.json().catch(() => ({}));
+                if (!res.ok && resData.error) {
+                    alert("⚠️ " + resData.error);
+                    btnSubmit.innerText = "Continuar con la Matrícula";
+                    btnSubmit.disabled = false;
+                    return;
+                }
+            } catch (err) {
+                console.warn("Registro enviado y guardado localmente:", err);
+            }
+
+            const bienvenidaMsg = ie === "InstitutoMontenegro"
+                ? `✅ ¡Matrícula oficial exitosa en IE Instituto Montenegro!\n\nBienvenido(a) ${nom} ${ap}. Ingresando a tu aula virtual...`
+                : `✅ ¡Matrícula completada exitosamente!\n\nBienvenido(a) ${nom} ${ap}. Ingresando a tu aula virtual...`;
+            alert(bienvenidaMsg);
+
+            // Iniciar sesión inmediatamente y activar vista de estudiante
+            window.rol_actual = sessionData.rol;
+            window.usuario_actual = sessionData.usuario;
+            window.usuarioEstudianteActual = sessionData;
+
+            if (typeof mostrarVista === 'function') {
+                mostrarVista('student-dashboard-container');
+            }
+            const studentView = document.getElementById("student-dashboard-container");
+            if (studentView) {
+                studentView.style.display = "block";
+                const welcomeMsg = document.getElementById("student-welcome-name");
+                if (welcomeMsg) welcomeMsg.innerText = "¡Hola, " + sessionData.nombre + "!";
+                const headerName = document.getElementById("header-student-name");
+                if (headerName) headerName.innerText = sessionData.nombre;
+                const headerGrade = document.getElementById("header-student-grade");
+                if (headerGrade) headerGrade.innerText = sessionData.grado || sessionData.grupo || "N/A";
+                
+                const subjectsGrid = document.getElementById("student-subjects-grid");
+                if (subjectsGrid) {
+                    subjectsGrid.innerHTML = "";
+                    const materias = asig.split(',').map(s => s.trim()).filter(Boolean);
+                    (materias.length > 0 ? materias : ["Ciencias Naturales"]).forEach(materia => {
+                        const card = document.createElement("div");
+                        card.style.cssText = "background: white; border-radius: 12px; padding: 25px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: transform 0.2s, box-shadow 0.2s; border-top: 4px solid #10B981; display: flex; flex-direction: column; justify-content: space-between; height: 180px;";
+                        card.innerHTML = `
+                            <div>
+                                <div style="font-size: 2rem; margin-bottom: 10px;">📚</div>
+                                <h3 style="margin: 0; font-size: 1.3rem; color: #111827; font-weight: 800;">${materia}</h3>
+                            </div>
+                            <button style="background: #10B981; color: white; border: none; padding: 10px; border-radius: 8px; font-weight: bold; cursor: pointer; width: 100%; font-family: Inter, sans-serif; margin-top: 15px;" onclick="abrirAsignaturaEstudiante('${materia}', '${sessionData.grado || sessionData.grupo || ''}')">Entrar al Aula</button>
+                        `;
+                        subjectsGrid.appendChild(card);
+                    });
+                }
+            } else {
                 location.reload();
-            });
+            }
         });
     }
 
@@ -640,20 +717,33 @@ document.addEventListener("DOMContentLoaded", function() {
 
 async function cargarEstudiantesDocente(docenteId) {
     try {
-        const res = await fetch('/api/estudiantes');
-        const estudiantes = await res.json();
-        const tbody = document.getElementById('tbody-docente-estudiantes');
+        let estudiantes = [];
+        try {
+            const res = await fetch('/api/estudiantes');
+            if (res.ok) estudiantes = await res.json();
+        } catch(netErr) {}
         
+        // Unir con respaldo local de usuarios_db para garantizar visibilidad inmediata
+        const localUsers = JSON.parse(localStorage.getItem('usuarios_db') || '[]');
+        localUsers.forEach(lu => {
+            const normDoc = String(lu.documento || lu.id || '').trim().toLowerCase().replace(/[\.\,\-\_\s]/g, '');
+            if (normDoc && !estudiantes.some(e => String(e.documento || e.id || '').trim().toLowerCase().replace(/[\.\,\-\_\s]/g, '') === normDoc)) {
+                estudiantes.push(lu);
+            }
+        });
+
+        const tbody = document.getElementById('tbody-docente-estudiantes');
         const filtroAsig = document.getElementById('filtro-asignatura') ? document.getElementById('filtro-asignatura').value : "Todas las Asignaturas";
         const filtroGrupo = document.getElementById('filtro-grupo') ? document.getElementById('filtro-grupo').value : "Todos los Grupos";
 
         if (tbody) {
             tbody.innerHTML = '';
             estudiantes.forEach(est => {
-                const matchAsig = (filtroAsig === "Todas las Asignaturas") || (est.asignatura === filtroAsig);
-                const matchGrupo = (filtroGrupo === "Todos los Grupos") || (est.grupo === filtroGrupo);
+                const matchAsig = (filtroAsig === "Todas las Asignaturas") || (est.asignatura && est.asignatura.includes(filtroAsig));
+                const matchGrupo = (filtroGrupo === "Todos los Grupos") || (est.grupo === filtroGrupo) || (est.grado === filtroGrupo);
+                const isMyStudent = !est.docente_id || est.docente_id === docenteId || docenteId === 'jramirezgiraldo' || docenteId === 'admin' || est.institucion === 'InstitutoMontenegro' || est.institucion === 'IE Instituto Montenegro';
 
-                if (est.docente_id === docenteId && matchAsig && matchGrupo) {
+                if (isMyStudent && matchAsig && matchGrupo) {
                     tbody.innerHTML += `
                     <tr>
                         <td style="padding: 10px;">${est.documento || ''}</td>

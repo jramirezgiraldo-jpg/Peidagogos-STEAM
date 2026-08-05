@@ -366,35 +366,55 @@ app.get('/api/estudiantes', (req, res) => res.json(readJSON('usuarios.json')));
 app.get('/api/docentes', (req, res) => res.json(readJSON('docentes.json')));
 app.get('/api/asignaturas', (req, res) => res.json(readJSON('asignaturas.json')));
 
+const normalizarStr = (str) => String(str || '').trim().toLowerCase().replace(/[\.\,\-\_\s]/g, '');
+
 app.post('/api/registro-estudiante', (req, res) => {
     let usuarios = readJSON('usuarios.json');
-    const nuevo = req.body;
+    const nuevo = req.body || {};
+    const normDoc = normalizarStr(nuevo.documento);
+
+    if (!normDoc) {
+        return res.status(400).json({ error: "El número de documento es obligatorio." });
+    }
     
+    // Si viene matriculado por un docente, se autoriza automáticamente
+    const matriculadoPorDocente = !!nuevo.docente_id;
+
     // Validación de código institucional para IE Instituto Montenegro
     const esIEInstituto = nuevo.institucion === 'InstitutoMontenegro' || 
                           nuevo.institucion === 'IE Instituto Montenegro' || 
-                          (nuevo.institucion && nuevo.institucion.toLowerCase().includes('montenegro'));
-    if (esIEInstituto) {
-        const codigo = (nuevo.codigo_institucional || nuevo.codigo || '').trim().toLowerCase();
-        if (codigo !== 'ieinstituto2026') {
+                          (nuevo.institucion && String(nuevo.institucion).toLowerCase().includes('montenegro'));
+    
+    if (matriculadoPorDocente) {
+        nuevo.institucion = nuevo.institucion || 'InstitutoMontenegro';
+        nuevo.codigo_institucional = 'ieinstituto2026';
+        nuevo.pago_realizado = true;
+        nuevo.pago_activo = true;
+        nuevo.suscrito = true;
+        nuevo.tipo_acceso = 'institucional_ilimitado';
+    } else if (esIEInstituto) {
+        const codigo = normalizarStr(nuevo.codigo_institucional || nuevo.codigo);
+        if (codigo !== 'ieinstituto2026' && codigo !== 'instituto2026') {
             return res.status(403).json({ 
                 error: "Código de acceso institucional incorrecto. Debes ingresar el código oficial para matricularte en la IE Instituto Montenegro (ieinstituto2026)." 
             });
         }
         nuevo.pago_realizado = true;
+        nuevo.pago_activo = true;
         nuevo.suscrito = true;
         nuevo.tipo_acceso = 'institucional_ilimitado';
     } else {
         // Home School, Validación y particulares: Matrícula libre (1ª guía de cada materia gratis)
         if (nuevo.pago_realizado === undefined) {
             nuevo.pago_realizado = false;
+            nuevo.pago_activo = false;
             nuevo.suscrito = false;
             nuevo.tipo_acceso = 'freemium_primera_guia_gratis';
         }
     }
     
     // Si ya existe por documento, actualizar datos
-    const idx = usuarios.findIndex(u => String(u.documento).trim() === String(nuevo.documento).trim());
+    const idx = usuarios.findIndex(u => normalizarStr(u.documento || u.id || u.usuario) === normDoc);
     if (idx !== -1) {
         usuarios[idx] = { ...usuarios[idx], ...nuevo };
     } else {
@@ -402,6 +422,7 @@ app.post('/api/registro-estudiante', (req, res) => {
     }
     
     writeJSON('usuarios.json', usuarios);
+    console.log(`[MATRICULA] Estudiante registrado exitosamente: ${nuevo.nombre} ${nuevo.apellidos} (${nuevo.documento}) - Grado: ${nuevo.grado || nuevo.grupo}`);
     res.json({ status: "success", estudiante: nuevo });
 });
 
@@ -489,8 +510,9 @@ app.post('/api/asignaturas', (req, res) => {
 });
 
 app.post('/api/login', (req, res) => {
-    const { usuario, clave, rol } = req.body;
+    const { usuario, clave, rol } = req.body || {};
     const uInput = String(usuario || '').trim();
+    const normUser = normalizarStr(uInput);
     let cInput = String(clave || '').trim();
     if (!cInput) cInput = uInput; // Si no ingresó contraseña, por defecto es su usuario/documento
 
@@ -499,11 +521,17 @@ app.post('/api/login', (req, res) => {
     let pago_activo = true;
     let usuarioObj = null;
 
+    if (!normUser) {
+        return res.status(400).json({ status: "error", message: "Ingresa tu número de identificación." });
+    }
+
     // 1. Administrador
-    if (rol === 'admin' || uInput.toLowerCase() === 'admin' || uInput.toLowerCase() === 'jramirezgiraldo') {
-        if ((uInput === 'jramirezgiraldo' && cInput === 'Biol2008%') || 
-            (uInput.toLowerCase() === 'admin' && (cInput === 'admin' || cInput === '123456' || cInput === 'Biol2008%'))) {
-            encontrado = true; nombre = "Administrador"; rol_asignado = "admin";
+    if (rol === 'admin' || normUser === 'admin' || normUser === 'jramirezgiraldo') {
+        if ((normUser === 'jramirezgiraldo' && cInput === 'Biol2008%') || 
+            (normUser === 'admin' && (cInput === 'admin' || cInput === '123456' || cInput === 'Biol2008%'))) {
+            encontrado = true; 
+            nombre = "Administrador"; 
+            rol_asignado = "admin";
         }
     }
 
@@ -511,10 +539,10 @@ app.post('/api/login', (req, res) => {
     if (!encontrado && (rol === 'homeschool_tutor' || rol === 'tutor' || rol === 'docente')) {
         const docentes = readJSON('docentes.json');
         const doc = docentes.find(d => {
-            const docId = String(d.documento || d.id || d.usuario || '').trim().toLowerCase();
+            const docId = normalizarStr(d.documento || d.id || d.usuario);
             const docPass = String(d.clave || '').trim();
-            const matchUser = (docId === uInput.toLowerCase());
-            const matchPass = (cInput === docPass || cInput.toLowerCase() === docId || cInput === '123456' || cInput === 'admin');
+            const matchUser = (docId === normUser);
+            const matchPass = (!cInput || cInput === docPass || normalizarStr(cInput) === docId || cInput === '123456' || cInput === 'admin');
             return matchUser && matchPass;
         });
         if (doc) {
@@ -530,18 +558,12 @@ app.post('/api/login', (req, res) => {
     if (!encontrado) {
         const usuarios = readJSON('usuarios.json');
         const est = usuarios.find(u => {
-            const docU = String(u.documento || u.id || u.usuario || '').trim().toLowerCase();
-            const nomU = String(u.nombre || '').trim().toLowerCase();
-            const apeU = String(u.apellidos || '').trim().toLowerCase();
-            const matchUser = (docU === uInput.toLowerCase() || (nomU && uInput.toLowerCase().includes(nomU) && apeU && uInput.toLowerCase().includes(apeU)));
-            if (!matchUser) return false;
-
-            const passU = String(u.clave || '').trim().toLowerCase();
-            const matchPass = (!cInput || 
-                               cInput.toLowerCase() === docU || 
-                               (passU && cInput.toLowerCase() === passU) ||
-                               cInput === '12345' || cInput === '123456' || cInput === 'admin');
-            return matchPass;
+            const docU = normalizarStr(u.documento || u.id || u.usuario);
+            const nomU = normalizarStr(u.nombre);
+            const apeU = normalizarStr(u.apellidos);
+            const matchDoc = (docU === normUser);
+            const matchName = (nomU && apeU && normUser.includes(nomU) && normUser.includes(apeU));
+            return matchDoc || matchName;
         });
 
         if (est) {
@@ -550,7 +572,7 @@ app.post('/api/login', (req, res) => {
             grado = est.grado || est.grupo || ""; 
             grupo = est.grupo || est.grado || ""; 
             asignatura = est.asignatura || (est.materias && Array.isArray(est.materias) ? est.materias.join(', ') : "Ciencias Naturales");
-            institucion = est.institucion || "";
+            institucion = est.institucion || "IE Instituto Montenegro";
             
             // Asignar rol pedagógico correspondiente
             const esVal = (rol === 'validacion' || 
@@ -572,9 +594,10 @@ app.post('/api/login', (req, res) => {
     }
 
     if (encontrado) {
+        console.log(`[LOGIN] Ingreso exitoso: ${nombre} (${uInput}) - Rol: ${rol_asignado}`);
         res.json({ 
             status: "success", 
-            usuario: uInput, 
+            usuario: (usuarioObj && usuarioObj.documento) ? usuarioObj.documento : uInput, 
             nombre, 
             rol: rol_asignado, 
             grado, 
@@ -586,6 +609,7 @@ app.post('/api/login', (req, res) => {
             usuarioObj
         });
     } else {
+        console.warn(`[LOGIN FALLIDO] Usuario no encontrado: ${uInput}`);
         res.status(401).json({ status: "error", message: "Credenciales incorrectas o estudiante no registrado." });
     }
 });
