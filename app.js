@@ -85,6 +85,34 @@ document.addEventListener("DOMContentLoaded", function() {
 
     let usuario_actual = "";
 
+    // Sincronización automática de base de datos de usuarios (soporte web y local)
+    async function sincronizarUsuariosDB() {
+        try {
+            const res = await fetch('usuarios.json?t=' + Date.now());
+            if (res.ok) {
+                const serverUsers = await res.json();
+                if (Array.isArray(serverUsers)) {
+                    let localUsers = JSON.parse(localStorage.getItem('usuarios_db') || '[]');
+                    serverUsers.forEach(su => {
+                        const normDoc = String(su.documento || su.id || '').trim().toLowerCase().replace(/[\.\,\-\_\s]/g, '');
+                        if (normDoc) {
+                            const idx = localUsers.findIndex(lu => String(lu.documento || lu.id || '').trim().toLowerCase().replace(/[\.\,\-\_\s]/g, '') === normDoc);
+                            if (idx >= 0) {
+                                localUsers[idx] = { ...su, ...localUsers[idx] };
+                            } else {
+                                localUsers.push(su);
+                            }
+                        }
+                    });
+                    localStorage.setItem('usuarios_db', JSON.stringify(localUsers));
+                }
+            }
+        } catch(e) {
+            console.warn("Aviso: usando base de datos local de usuarios.", e);
+        }
+    }
+    sincronizarUsuariosDB();
+
     if (btnShowReg) {
         btnShowReg.addEventListener("click", function(e) {
             e.preventDefault();
@@ -181,15 +209,35 @@ document.addEventListener("DOMContentLoaded", function() {
                     console.warn("Fallo conectando al servidor backend, buscando respaldo local...", netErr);
                 }
                 
-                // Si la API no respondió éxito, verificar si el estudiante está en localStorage
+                // Si la API no respondió éxito, verificar si el estudiante está en localStorage o usuarios.json
                 if (!data || data.status !== 'success') {
-                    const localUsers = JSON.parse(localStorage.getItem('usuarios_db') || '[]');
-                    const localEst = localUsers.find(u => {
+                    let localUsers = JSON.parse(localStorage.getItem('usuarios_db') || '[]');
+                    let localEst = localUsers.find(u => {
                         const d = String(u.documento || u.id || u.usuario || '').trim().toLowerCase().replace(/[\.\,\-\_\s]/g, '');
                         const n = String(u.nombre || '').toLowerCase().replace(/[\.\,\-\_\s]/g, '');
                         const a = String(u.apellidos || '').toLowerCase().replace(/[\.\,\-\_\s]/g, '');
                         return d === normUser || (n && a && normUser.includes(n) && normUser.includes(a));
                     });
+
+                    // Si no está aún en localStorage, consultar directamente usuarios.json
+                    if (!localEst) {
+                        try {
+                            const uRes = await fetch('usuarios.json?t=' + Date.now());
+                            if (uRes.ok) {
+                                const uData = await uRes.json();
+                                if (Array.isArray(uData)) {
+                                    localEst = uData.find(u => {
+                                        const d = String(u.documento || u.id || u.usuario || '').trim().toLowerCase().replace(/[\.\,\-\_\s]/g, '');
+                                        return d === normUser;
+                                    });
+                                    if (localEst) {
+                                        localUsers.push(localEst);
+                                        localStorage.setItem('usuarios_db', JSON.stringify(localUsers));
+                                    }
+                                }
+                            }
+                        } catch(e) {}
+                    }
 
                     if (localEst) {
                         data = {
