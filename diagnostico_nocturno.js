@@ -330,10 +330,32 @@ window.iniciarDiagnosticoGamificado = function() {
     const user = window.usuarioEstudianteActual || JSON.parse(localStorage.getItem('usuario_sesion') || '{}');
     const grado = window.gradoActualEstudiante || user.grado || user.grupo || 'Ciclo III';
     const diagData = window.obtenerDiagnosticoParaGrado(grado);
+
+    let studentDisplayName = "";
+    if (user.nombre && user.apellidos && user.nombre !== 'Estudiante' && user.apellidos !== 'Nocturno') {
+        studentDisplayName = `${user.nombre} ${user.apellidos}`.trim();
+    } else if (user.nombre_completo) {
+        studentDisplayName = user.nombre_completo.trim();
+    } else if (user.nombre && user.nombre !== 'Estudiante') {
+        studentDisplayName = user.nombre.trim();
+    } else {
+        studentDisplayName = 'Estudiante';
+    }
+
+    const avatar = user.avatar || '🚀';
+
+    // Actualizar Sticky Header de la guía de inmediato
+    const gName = document.getElementById('student-guide-header-name');
+    if (gName) gName.innerText = studentDisplayName;
+    const gAvatar = document.getElementById('student-guide-header-avatar');
+    if (gAvatar) gAvatar.innerText = avatar;
+    const gBadge = document.getElementById('student-guide-header-badge');
+    if (gBadge) gBadge.innerText = diagData.ciclo;
+    const gMateria = document.getElementById('student-guide-header-materia');
+    if (gMateria) gMateria.innerText = 'Diagnóstico STEAM';
     
     const questContainer = document.getElementById("student-quest-container");
     const guideContent = document.getElementById("student-guide-content");
-    const innerContent = document.getElementById("student-guide-inner-content");
     
     if (questContainer) questContainer.style.display = "none";
     if (guideContent) guideContent.style.display = "block";
@@ -341,7 +363,7 @@ window.iniciarDiagnosticoGamificado = function() {
     // Obtener personalización seleccionada si existe
     const rolElem = document.getElementById("student-quest-rol");
     const ambElem = document.getElementById("student-quest-ambiente");
-    const rol = (rolElem && rolElem.value) ? rolElem.value : 'Explorador STEAM';
+    const rol = (rolElem && rolElem.value) ? rolElem.value : (user.alias || 'Explorador STEAM');
     const amb = (ambElem && ambElem.value) ? ambElem.value : 'Paisaje Cultural Cafetero';
 
     window.estadoDiagnosticoActual = {

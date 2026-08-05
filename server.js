@@ -122,11 +122,24 @@ Estructura la reflexión a partir de dilemas morales reales, toma de decisiones 
             
         const cacheFilePath = path.join(cacheDir, fileNameSafe);
         
-        // 1. Verificar si existe en caché
+        // 1. Verificar si existe en caché y es válida
         if (fs.existsSync(cacheFilePath)) {
-            console.log(`[Caché HIT] Sirviendo guía desde: ${fileNameSafe}`);
-            const cacheData = fs.readFileSync(cacheFilePath, 'utf-8');
-            return res.json({ text: cacheData });
+            try {
+                const cacheData = fs.readFileSync(cacheFilePath, 'utf-8');
+                const parsed = typeof cacheData === 'string' ? JSON.parse(cacheData) : cacheData;
+                const objStr = JSON.stringify(parsed).toLowerCase();
+                const asigCheck = (asignatura || '').toLowerCase().substring(0, 4);
+                
+                if (objStr.includes(asigCheck) && objStr.includes('[actividad:cuaderno:')) {
+                    console.log(`[Caché HIT VÁLIDO] Sirviendo guía desde: ${fileNameSafe}`);
+                    return res.json({ text: typeof cacheData === 'string' ? cacheData : JSON.stringify(cacheData) });
+                } else {
+                    console.log(`[Caché DESACTUALIZADO/INCOHERENTE] Eliminando caché previa: ${fileNameSafe}`);
+                    fs.unlinkSync(cacheFilePath);
+                }
+            } catch(e) {
+                try { fs.unlinkSync(cacheFilePath); } catch(err) {}
+            }
         }
         
         // 2. Si es Semana 1 (Diagnóstico de Ciclos o Grados Regulares), servir la guía predeterminada garantizada
@@ -172,57 +185,56 @@ Ejemplos de cómo debes redactar:
 - "Muy bien ${nombreEstudiante}, analicemos la teoría fundamental detrás de este fenómeno..."
 - "${nombreEstudiante}, demuestra tu destreza resolviendo el siguiente desafío..."
 
-REGLAS PEDAGÓGICAS DE ESTRUCTURA:
-1. EXTENSIÓN Y RIGOR:
-   - "texto_inductivo" DEBE tener MÍNIMO 500 PALABRAS. Narrativa inmersiva, exploración contextualizada y diálogo directo con ${nombreEstudiante}.
-   - "texto_deductivo" DEBE tener MÍNIMO 500 PALABRAS. Formalización teórica clara, conceptos clave, modelos científicos/humanísticos y síntesis directa para ${nombreEstudiante}.
-2. PREGUNTA PROBLEMATIZADORA:
-   - El primer párrafo de "texto_inductivo" debe iniciar OBLIGATORIAMENTE con la Pregunta Problematizadora en negrita y cursiva (**_¿Pregunta...?_**).
-3. INTERCALACIÓN EXACTA EN "texto_inductivo" (debes incrustar estos shortcodes dentro de los párrafos):
-   - 3 Actividades de Cuaderno: [ACTIVIDAD:CUADERNO:Instrucción para ${nombreEstudiante} de lo que debe dibujar, hacer o tabular en su cuaderno]
-   - 3 Actividades de Plataforma: [ACTIVIDAD:PLATAFORMA:Pregunta de análisis profundo para ${nombreEstudiante}|Respuesta esperada o palabra clave]
-   - 3 Juegos de Ordenar Letras: [JUEGO:ORDENAR_LETRAS:PALABRA]
-   - 3 Juegos de Ordenar Frase: [JUEGO:ORDENAR_FRASE:FRASE COMPLETA CON SENTIDO]
-4. INTERCALACIÓN EXACTA EN "texto_deductivo" (debes incrustar estos shortcodes dentro de los párrafos):
-   - 3 Actividades de Cuaderno: [ACTIVIDAD:CUADERNO:Instrucción para ${nombreEstudiante} de síntesis, esquema o mapa conceptual en el cuaderno]
-   - 3 Actividades de Plataforma: [ACTIVIDAD:PLATAFORMA:Pregunta de síntesis o aplicación para ${nombreEstudiante}|Respuesta esperada]
-   - 3 Juegos de Ordenar Letras: [JUEGO:ORDENAR_LETRAS:PALABRA]
-   - 3 Juegos de Ordenar Frase: [JUEGO:ORDENAR_FRASE:FRASE DE PRINCIPIO O LEY CIENTIFICA O CONCEPTO CLAVE]
-5. DESAFÍO FINAL - 3 PREGUNTAS TIPO ICFES SABER (Diseño Centrado en Evidencias):
-   - Pregunta 1: Evalúa "Explicación de Fenómenos" o comprensión crítica.
-   - Pregunta 2: Evalúa "Uso Comprensivo del Conocimiento".
-   - Pregunta 3: Evalúa "Indagación" (análisis de tablas, casos o diseño experimental).
-   - Cada pregunta debe tener: competencia, texto_introductorio, tabla_o_grafica_markdown, pregunta, 4 opciones (0, 1, 2, 3) y retroalimentación profunda para la opción correcta y para cada uno de los 3 distractores.
-6. CIERRE GAMIFICADO AL FINAL:
-   - 1 Sola Sopa de Letras con exactamente 10 términos clave de toda la guía: [JUEGO:SOPA_LETRAS:P1,P2,P3,P4,P5,P6,P7,P8,P9,P10]
-   - 1 Solo Crucigrama con exactamente 10 pistas y respuestas: [JUEGO:CRUCIGRAMA:Pista 1|PAL1;Pista 2|PAL2;Pista 3|PAL3;Pista 4|PAL4;Pista 5|PAL5;Pista 6|PAL6;Pista 7|PAL7;Pista 8|PAL8;Pista 9|PAL9;Pista 10|PAL10]
+REGLAS PEDAGÓGICAS Y ESTRUCTURA ESTRICITA (OBLIGATORIAS):
+1. INICIO:
+   - "objetivo_aprendizaje": Objetivo claro y motivador para ${nombreEstudiante}.
+   - "pregunta_problematizadora": Pregunta desafiante e indagadora en el contexto real.
+   - "saberes_previos": Exactamente 3 Preguntas de Selección Múltiple (con 4 opciones y respuesta correcta) para exploración inicial.
+
+2. BLOQUE INDUCTIVO:
+   - "texto_inductivo" DEBE tener MÍNIMO 500 PALABRAS. Narrativa inmersiva hablándole directamente a ${nombreEstudiante}.
+   - Intercaladas dentro del texto inductivo, debes incrustar estas etiquetas exactas:
+     - 3 Actividades de Cuaderno: [ACTIVIDAD:CUADERNO:Instrucción explícita para ${nombreEstudiante} de lo que debe responder, dibujar, crear en tabla comparativa o mapa mental en su cuaderno]
+     - 2 Actividades de Plataforma (con bloqueo Copy/Paste y Verificador Anti-IA): [ACTIVIDAD:PLATAFORMA:Pregunta reflexiva profunda para ${nombreEstudiante}|Respuesta esperada o palabras clave]
+
+3. INTERACTIVIDAD BLOQUE 1 (DRAG & DROP):
+   - 5 Juegos de Ordenar Letras: [JUEGO:ORDENAR_LETRAS:PALABRA1], [JUEGO:ORDENAR_LETRAS:PALABRA2], etc.
+   - 2 Juegos de Ordenar Frase: [JUEGO:ORDENAR_FRASE:FRASE COMPLETA CON SENTIDO 1], [JUEGO:ORDENAR_FRASE:FRASE COMPLETA CON SENTIDO 2]
+
+4. BLOQUE DEDUCTIVO:
+   - "texto_deductivo" DEBE tener MÍNIMO 500 PALABRAS. Formalización teórica clara, leyes/modelos y conceptos fundamentales explicados a ${nombreEstudiante}.
+   - Intercaladas dentro del texto deductivo, debes incrustar estas etiquetas exactas:
+     - 5 Actividades de Cuaderno: [ACTIVIDAD:CUADERNO:Instrucción explícita de responder, dibujar, hacer tabla comparativa o mapa mental en cuaderno]
+     - 2 Actividades de Plataforma (con bloqueo Copy/Paste y Verificador Anti-IA): [ACTIVIDAD:PLATAFORMA:Pregunta de síntesis/aplicación para ${nombreEstudiante}|Respuesta esperada]
+
+5. INTERACTIVIDAD BLOQUE 2 (DRAG & DROP):
+   - 3 Juegos de Ordenar Letras: [JUEGO:ORDENAR_LETRAS:PALABRA1], [JUEGO:ORDENAR_LETRAS:PALABRA2], [JUEGO:ORDENAR_LETRAS:PALABRA3]
+   - 2 Juegos de Ordenar Frase: [JUEGO:ORDENAR_FRASE:FRASE CONCEPTO CLAVE 1], [JUEGO:ORDENAR_FRASE:FRASE CONCEPTO CLAVE 2]
+
+6. CIERRE GAMIFICADO FINAL:
+   - 1 Sola Sopa de Letras con exactamente 10 palabras clave del tema: [JUEGO:SOPA_LETRAS:P1,P2,P3,P4,P5,P6,P7,P8,P9,P10]
 
 DEBES DEVOLVER EXCLUSIVAMENTE UN OBJETO JSON VÁLIDO CON LA SIGUIENTE ESTRUCTURA EXACTA (SIN TEXTO ANTES NI DESPUÉS):
 {
-  "objetivo_aprendizaje": "Objetivo de aprendizaje motivador para ${nombreEstudiante}...",
+  "objetivo_aprendizaje": "Objetivo pedagógico motivador para ${nombreEstudiante}...",
   "pregunta_problematizadora": "¿Pregunta problematizadora...?",
   "saberes_previos": [
     { "pregunta": "¿...?", "opciones": ["Opción A", "Opción B", "Opción C", "Opción D"], "correcta": 0 },
     { "pregunta": "¿...?", "opciones": ["Opción A", "Opción B", "Opción C", "Opción D"], "correcta": 1 },
     { "pregunta": "¿...?", "opciones": ["Opción A", "Opción B", "Opción C", "Opción D"], "correcta": 2 }
   ],
-  "texto_inductivo": "Markdown (+500 palabras) hablándole a ${nombreEstudiante}, con la pregunta problematizadora y conteniendo 3 [ACTIVIDAD:CUADERNO:...], 3 [ACTIVIDAD:PLATAFORMA:...], 3 [JUEGO:ORDENAR_LETRAS:...] y 3 [JUEGO:ORDENAR_FRASE:...]",
+  "texto_inductivo": "Markdown (+500 palabras) hablándole a ${nombreEstudiante}, incrustando 3 [ACTIVIDAD:CUADERNO:...], 2 [ACTIVIDAD:PLATAFORMA:...], 5 [JUEGO:ORDENAR_LETRAS:...] y 2 [JUEGO:ORDENAR_FRASE:...]",
   "recurso_visual": "Instrucción de mapa mental o diagrama Mermaid graph TD o tabla markdown",
-  "texto_deductivo": "Markdown (+500 palabras) formalizando la teoría para ${nombreEstudiante}, conteniendo 3 [ACTIVIDAD:CUADERNO:...], 3 [ACTIVIDAD:PLATAFORMA:...], 3 [JUEGO:ORDENAR_LETRAS:...] y 3 [JUEGO:ORDENAR_FRASE:...]",
+  "texto_deductivo": "Markdown (+500 palabras) formalizando la teoría para ${nombreEstudiante}, incrustando 5 [ACTIVIDAD:CUADERNO:...], 2 [ACTIVIDAD:PLATAFORMA:...], 3 [JUEGO:ORDENAR_LETRAS:...] y 2 [JUEGO:ORDENAR_FRASE:...]",
   "icfes": [
     {
       "competencia": "Explicación de Fenómenos",
-      "texto_introductorio": "Contexto de la pregunta...",
-      "tabla_o_grafica_markdown": "| Variable | Valor |\\n|---|---|",
+      "texto_introductorio": "Contexto...",
+      "tabla_o_grafica_markdown": "",
       "pregunta": "¿...?",
       "opciones": ["Opción A", "Opción B", "Opción C", "Opción D"],
       "correcta": 0,
-      "retroalimentacion": {
-        "0": "Correcto ${nombreEstudiante}, porque...",
-        "1": "Incorrecto porque...",
-        "2": "Incorrecto porque...",
-        "3": "Incorrecto porque..."
-      }
+      "retroalimentacion": { "0": "Correcto...", "1": "Incorrecto...", "2": "Incorrecto...", "3": "Incorrecto..." }
     },
     {
       "competencia": "Uso Comprensivo del Conocimiento",
@@ -231,31 +243,20 @@ DEBES DEVOLVER EXCLUSIVAMENTE UN OBJETO JSON VÁLIDO CON LA SIGUIENTE ESTRUCTURA
       "pregunta": "¿...?",
       "opciones": ["Opción A", "Opción B", "Opción C", "Opción D"],
       "correcta": 1,
-      "retroalimentacion": {
-        "0": "Incorrecto porque...",
-        "1": "Correcto ${nombreEstudiante}, porque...",
-        "2": "Incorrecto porque...",
-        "3": "Incorrecto porque..."
-      }
+      "retroalimentacion": { "0": "Incorrecto...", "1": "Correcto...", "2": "Incorrecto...", "3": "Incorrecto..." }
     },
     {
       "competencia": "Indagación",
       "texto_introductorio": "Contexto experimental...",
-      "tabla_o_grafica_markdown": "| Ensayo | Resultado |\\n|---|---|",
+      "tabla_o_grafica_markdown": "",
       "pregunta": "¿...?",
       "opciones": ["Opción A", "Opción B", "Opción C", "Opción D"],
       "correcta": 2,
-      "retroalimentacion": {
-        "0": "Incorrecto porque...",
-        "1": "Incorrecto porque...",
-        "2": "Correcto ${nombreEstudiante}, porque...",
-        "3": "Incorrecto porque..."
-      }
+      "retroalimentacion": { "0": "Incorrecto...", "1": "Incorrecto...", "2": "Correcto...", "3": "Incorrecto..." }
     }
   ],
   "cierre_gamificado": {
-    "sopa_letras": "PAL1,PAL2,PAL3,PAL4,PAL5,PAL6,PAL7,PAL8,PAL9,PAL10",
-    "crucigrama": "Pista 1|PAL1;Pista 2|PAL2;Pista 3|PAL3;Pista 4|PAL4;Pista 5|PAL5;Pista 6|PAL6;Pista 7|PAL7;Pista 8|PAL8;Pista 9|PAL9;Pista 10|PAL10"
+    "sopa_letras": "PAL1,PAL2,PAL3,PAL4,PAL5,PAL6,PAL7,PAL8,PAL9,PAL10"
   }
 }`;
 

@@ -28,6 +28,741 @@ window.normalizarGradoOCiclo = function(g) {
     return str.replace(/[^0-9PENS]/g, '') || '6';
 };
 
+// =========================================================
+// MÓDULO DE PERSONALIZACIÓN Y RENDERIZADO DE PANEL DE ESTUDIANTE
+// =========================================================
+
+window.seleccionarAvatarPerfil = function(emoji) {
+    const hidden = document.getElementById("perfil-avatar-selected");
+    if (hidden) hidden.value = emoji;
+    const buttons = document.querySelectorAll(".avatar-opt-btn");
+    buttons.forEach(btn => {
+        if (btn.getAttribute("data-avatar") === emoji) {
+            btn.style.borderColor = "#3B82F6";
+            btn.style.background = "#EFF6FF";
+            btn.style.transform = "scale(1.1)";
+        } else {
+            btn.style.borderColor = "#E2E8F0";
+            btn.style.background = "#F8FAFC";
+            btn.style.transform = "scale(1)";
+        }
+    });
+};
+
+window.abrirModalPerfilEstudiante = function() {
+    const user = window.usuarioEstudianteActual || JSON.parse(localStorage.getItem('usuario_sesion') || '{}');
+    const modal = document.getElementById("modal-perfil-estudiante");
+    if (!modal) return;
+
+    const nomInp = document.getElementById("perfil-nombre-input");
+    const apeInp = document.getElementById("perfil-apellidos-input");
+    const gradoSelect = document.getElementById("perfil-grado-ciclo-select");
+    const aliasInp = document.getElementById("perfil-alias-input");
+
+    // Limpiar o prellenar con datos existentes
+    let nombreVal = user.nombre || user.nombres || '';
+    if (nombreVal === 'Estudiante' || nombreVal === 'Estudiante Montenegro') nombreVal = '';
+    let apeVal = user.apellidos || '';
+    if (apeVal === 'Nocturno') apeVal = '';
+
+    if (nomInp) nomInp.value = nombreVal;
+    if (apeInp) apeInp.value = apeVal;
+    if (gradoSelect) {
+        const g = user.grado || user.grupo || 'Ciclo VI';
+        gradoSelect.value = g;
+    }
+    if (aliasInp) aliasInp.value = user.alias || 'Explorador STEAM';
+
+    const avatar = user.avatar || '🚀';
+    window.seleccionarAvatarPerfil(avatar);
+
+    modal.style.display = "flex";
+    if (nomInp) nomInp.focus();
+};
+
+window.cerrarModalPerfilEstudiante = function() {
+    const modal = document.getElementById("modal-perfil-estudiante");
+    if (modal) modal.style.display = "none";
+};
+
+window.guardarPerfilEstudiante = function() {
+    const user = window.usuarioEstudianteActual || JSON.parse(localStorage.getItem('usuario_sesion') || '{}');
+    const nom = document.getElementById("perfil-nombre-input") ? document.getElementById("perfil-nombre-input").value.trim() : '';
+    const ape = document.getElementById("perfil-apellidos-input") ? document.getElementById("perfil-apellidos-input").value.trim() : '';
+    const grado = document.getElementById("perfil-grado-ciclo-select") ? document.getElementById("perfil-grado-ciclo-select").value : (user.grado || 'Ciclo VI');
+    const alias = document.getElementById("perfil-alias-input") ? document.getElementById("perfil-alias-input").value.trim() : 'Explorador STEAM';
+    const avatar = document.getElementById("perfil-avatar-selected") ? document.getElementById("perfil-avatar-selected").value : '🚀';
+
+    if (!nom) {
+        alert("Por favor ingresa tu nombre para personalizar tu perfil.");
+        return;
+    }
+
+    const doc = String(user.documento || user.usuario || user.id || '').trim();
+    const nombreCompleto = ape ? `${nom} ${ape}`.trim() : nom;
+
+    // Actualizar objeto de sesión
+    const updatedUser = {
+        ...user,
+        nombre: nom,
+        apellidos: ape,
+        nombre_completo: nombreCompleto,
+        grado: grado,
+        grupo: grado,
+        avatar: avatar,
+        alias: alias,
+        rol: grado.includes('Ciclo') ? 'validacion' : (user.rol || 'estudiante')
+    };
+
+    window.usuarioEstudianteActual = updatedUser;
+    localStorage.setItem('usuario_sesion', JSON.stringify(updatedUser));
+
+    // Actualizar en base de datos local
+    try {
+        let db = JSON.parse(localStorage.getItem('usuarios_db') || '[]');
+        const normDoc = doc.toLowerCase().replace(/[\.\,\-\_\s]/g, '');
+        const idx = db.findIndex(u => String(u.documento || u.id || '').toLowerCase().replace(/[\.\,\-\_\s]/g, '') === normDoc);
+        if (idx >= 0) {
+            db[idx] = { ...db[idx], ...updatedUser };
+        } else {
+            db.push(updatedUser);
+        }
+        localStorage.setItem('usuarios_db', JSON.stringify(db));
+    } catch(e) {}
+
+    // Sincronizar backend en segundo plano
+    fetch('/api/registro-estudiante', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(updatedUser)
+    }).catch(() => {});
+
+    // Actualizar live UI
+    window.inicializarPanelEstudiante(updatedUser);
+    window.cerrarModalPerfilEstudiante();
+};
+
+// =========================================================
+// SISTEMA DE PENALIZACIONES (-10% XP) Y GUÍA RESUELTA EN VIVO
+// =========================================================
+
+window.abrirGuiaOrientadorDirecto = function(doc, grado, asignatura) {
+    const docClean = String(doc || '').trim();
+    const asigClean = asignatura || "Ciencias Naturales";
+    const perClean = "3";
+    const semClean = "1";
+
+    if (typeof abrirGuiaOrientador === 'function') {
+        abrirGuiaOrientador(docClean, asigClean, perClean, semClean);
+    } else {
+        alert("Cargando solucionario...");
+    }
+};
+
+window.abrirModalPenalizacion = function(doc, nombre, gradoGrupo) {
+    const docClean = String(doc || '').trim();
+    const modal = document.getElementById("modal-penalizacion-estudiante");
+    if (!modal) return;
+
+    // Calcular XP acumulado actual del estudiante
+    let baseXP = 0;
+    try {
+        const xpKey = `xp_${docClean}`;
+        baseXP = parseInt(localStorage.getItem(xpKey)) || 0;
+        if (baseXP === 0) {
+            const diagXP = parseInt(localStorage.getItem(`prog_${docClean}_diag_xp`)) || 0;
+            baseXP += diagXP;
+        }
+    } catch(e) {}
+
+    // Si aún no tiene XP acumulado, asignar base de 500 XP
+    if (baseXP <= 0) baseXP = 500;
+
+    const descuento10 = Math.max(50, Math.round(baseXP * 0.10));
+
+    const nomElem = document.getElementById("penalizacion-estudiante-nombre");
+    const detElem = document.getElementById("penalizacion-estudiante-detalles");
+    const montoElem = document.getElementById("penalizacion-monto-descuento");
+    const docTarget = document.getElementById("penalizacion-doc-target");
+    const xpActual = document.getElementById("penalizacion-xp-actual");
+
+    if (nomElem) nomElem.innerText = nombre || `Estudiante (${docClean})`;
+    if (detElem) detElem.innerText = `Documento: ${docClean} | Grado/Ciclo: ${gradoGrupo || 'N/A'} | Puntos XP Base: ${baseXP} XP`;
+    if (montoElem) montoElem.innerText = `⚡ Sanción a aplicar: -10% (${descuento10} Puntos XP descontados)`;
+    if (docTarget) docTarget.value = docClean;
+    if (xpActual) xpActual.value = baseXP;
+
+    modal.style.display = "flex";
+};
+
+window.cerrarModalPenalizacion = function() {
+    const modal = document.getElementById("modal-penalizacion-estudiante");
+    if (modal) modal.style.display = "none";
+};
+
+window.ejecutarPenalizacionEstudiante = function() {
+    const docTarget = document.getElementById("penalizacion-doc-target");
+    const doc = docTarget ? docTarget.value : '';
+    if (!doc) return alert("Selecciona un estudiante válido.");
+
+    const baseXP = parseInt(document.getElementById("penalizacion-xp-actual") ? document.getElementById("penalizacion-xp-actual").value : '500') || 500;
+    const descuento10 = Math.max(50, Math.round(baseXP * 0.10));
+
+    const radios = document.getElementsByName("motivo-penalizacion");
+    let motivo = "📱 Uso indebido del celular en clase";
+    for (let r of radios) {
+        if (r.checked) { motivo = r.value; break; }
+    }
+
+    const obsInput = document.getElementById("penalizacion-observacion-input");
+    const obs = obsInput ? obsInput.value.trim() : '';
+
+    const now = new Date();
+    const fechaStr = now.toLocaleDateString('es-CO') + ' ' + now.toLocaleTimeString('es-CO', { hour: '2-digit', minute: '2-digit' });
+
+    // 1. Guardar historial de penalizaciones
+    let historial = [];
+    try {
+        historial = JSON.parse(localStorage.getItem(`penalizaciones_${doc}`) || '[]');
+    } catch(e) {}
+    const nuevaPenalizacion = {
+        id: Date.now(),
+        fecha: fechaStr,
+        motivo: motivo,
+        observacion: obs,
+        puntos: descuento10
+    };
+    historial.unshift(nuevaPenalizacion);
+    localStorage.setItem(`penalizaciones_${doc}`, JSON.stringify(historial));
+
+    // 2. Acumular descuento total de puntos
+    let penaltyTotal = parseInt(localStorage.getItem(`penalty_total_${doc}`)) || 0;
+    penaltyTotal += descuento10;
+    localStorage.setItem(`penalty_total_${doc}`, penaltyTotal);
+
+    // 3. Activar notificación para la pantalla del estudiante
+    localStorage.setItem(`notificacion_penalizacion_${doc}`, JSON.stringify(nuevaPenalizacion));
+
+    alert(`⚡ ¡Penalización aplicada exitosamente!\n\nSe han descontado -${descuento10} XP (10%) al estudiante (Doc: ${doc}).\nMotivo: "${motivo}".\n\nEsta sanción se mostrará en vivo en la pantalla del estudiante.`);
+
+    window.cerrarModalPenalizacion();
+
+    // Recargar tabla docente
+    if (typeof window.cargarEstudiantesDocente === 'function') {
+        window.cargarEstudiantesDocente(window.usuario_actual || 'docente');
+    }
+};
+
+window.marcarPenalizacionLeida = function(doc) {
+    if (!doc) return;
+    localStorage.removeItem(`notificacion_penalizacion_${doc}`);
+    const banner = document.getElementById("banner-penalizacion-alerta");
+    if (banner) banner.style.display = "none";
+};
+
+// =========================================================
+// SISTEMA DE BONIFICACIONES (+10% XP)
+// =========================================================
+
+window.abrirModalBonificacion = function(doc, nombre, gradoGrupo) {
+    const docClean = String(doc || '').trim();
+    const modal = document.getElementById("modal-bonificacion-estudiante");
+    if (!modal) return;
+
+    let baseXP = 0;
+    try {
+        const xpKey = `xp_${docClean}`;
+        baseXP = parseInt(localStorage.getItem(xpKey)) || 0;
+        if (baseXP === 0) {
+            const diagXP = parseInt(localStorage.getItem(`prog_${docClean}_diag_xp`)) || 0;
+            baseXP += diagXP;
+        }
+    } catch(e) {}
+
+    if (baseXP <= 0) baseXP = 500;
+    const incremento10 = Math.max(50, Math.round(baseXP * 0.10));
+
+    const nomElem = document.getElementById("bonificacion-estudiante-nombre");
+    const detElem = document.getElementById("bonificacion-estudiante-detalles");
+    const montoElem = document.getElementById("bonificacion-monto-incremento");
+    const docTarget = document.getElementById("bonificacion-doc-target");
+    const xpActual = document.getElementById("bonificacion-xp-actual");
+
+    if (nomElem) nomElem.innerText = nombre || `Estudiante (${docClean})`;
+    if (detElem) detElem.innerText = `Documento: ${docClean} | Grado/Ciclo: ${gradoGrupo || 'N/A'} | Puntos XP Base: ${baseXP} XP`;
+    if (montoElem) montoElem.innerText = `🎁 Bonificación a aplicar: +10% (+${incremento10} Puntos XP otorgados)`;
+    if (docTarget) docTarget.value = docClean;
+    if (xpActual) xpActual.value = baseXP;
+
+    modal.style.display = "flex";
+};
+
+window.cerrarModalBonificacion = function() {
+    const modal = document.getElementById("modal-bonificacion-estudiante");
+    if (modal) modal.style.display = "none";
+};
+
+window.ejecutarBonificacionEstudiante = function() {
+    const docTarget = document.getElementById("bonificacion-doc-target");
+    const doc = docTarget ? docTarget.value : '';
+    if (!doc) return alert("Selecciona un estudiante válido.");
+
+    const baseXP = parseInt(document.getElementById("bonificacion-xp-actual") ? document.getElementById("bonificacion-xp-actual").value : '500') || 500;
+    const incremento10 = Math.max(50, Math.round(baseXP * 0.10));
+
+    const radios = document.getElementsByName("motivo-bonificacion");
+    let motivo = "🌟 Excelente participación activa en clase";
+    for (let r of radios) {
+        if (r.checked) { motivo = r.value; break; }
+    }
+
+    const obsInput = document.getElementById("bonificacion-observacion-input");
+    const obs = obsInput ? obsInput.value.trim() : '';
+
+    const now = new Date();
+    const fechaStr = now.toLocaleDateString('es-CO') + ' ' + now.toLocaleTimeString('es-CO', { hour: '2-digit', minute: '2-digit' });
+
+    let historial = [];
+    try {
+        historial = JSON.parse(localStorage.getItem(`bonificaciones_${doc}`) || '[]');
+    } catch(e) {}
+    const nuevaBonificacion = {
+        id: Date.now(),
+        fecha: fechaStr,
+        motivo: motivo,
+        observacion: obs,
+        puntos: incremento10
+    };
+    historial.unshift(nuevaBonificacion);
+    localStorage.setItem(`bonificaciones_${doc}`, JSON.stringify(historial));
+
+    let bonusTotal = parseInt(localStorage.getItem(`bonus_total_${doc}`)) || 0;
+    bonusTotal += incremento10;
+    localStorage.setItem(`bonus_total_${doc}`, bonusTotal);
+
+    localStorage.setItem(`notificacion_bonificacion_${doc}`, JSON.stringify(nuevaBonificacion));
+
+    alert(`🎁 ¡Bonificación aplicada exitosamente!\n\nSe han otorgado +${incremento10} XP (10%) al estudiante (Doc: ${doc}).\nMotivo: "${motivo}".\n\nSe reflejará en vivo en la pantalla del estudiante y en la proyección del aula.`);
+
+    window.cerrarModalBonificacion();
+
+    if (typeof window.cargarEstudiantesDocente === 'function') {
+        window.cargarEstudiantesDocente(window.usuario_actual || 'docente');
+    }
+    if (typeof window.actualizarProyeccionGrupo === 'function') {
+        window.actualizarProyeccionGrupo();
+    }
+};
+
+window.marcarBonificacionLeida = function(doc) {
+    if (!doc) return;
+    localStorage.removeItem(`notificacion_bonificacion_${doc}`);
+    const banner = document.getElementById("banner-bonificacion-alerta");
+    if (banner) banner.style.display = "none";
+};
+
+// =========================================================
+// SISTEMA DE PROYECCIÓN EN VIVO EN AULA (VIDEOBEAM / TV)
+// =========================================================
+
+window.proyeccionUltimosPuntajes = {};
+
+window.abrirProyeccionGrupo = function() {
+    const modal = document.getElementById("modal-proyeccion-grupo");
+    if (!modal) return;
+
+    modal.style.display = "block";
+
+    window.actualizarProyeccionGrupo();
+
+    if (window.proyeccionInterval) clearInterval(window.proyeccionInterval);
+    window.proyeccionInterval = setInterval(window.actualizarProyeccionGrupo, 1500);
+};
+
+window.cerrarProyeccionGrupo = function() {
+    const modal = document.getElementById("modal-proyeccion-grupo");
+    if (modal) modal.style.display = "none";
+    if (window.proyeccionInterval) {
+        clearInterval(window.proyeccionInterval);
+        window.proyeccionInterval = null;
+    }
+};
+
+window.actualizarProyeccionGrupo = function() {
+    const grid = document.getElementById("proyeccion-estudiantes-grid");
+    if (!grid) return;
+
+    const grupoSelect = document.getElementById("filtro-grupo");
+    const asigSelect = document.getElementById("filtro-asignatura");
+    const grupoFiltro = grupoSelect ? grupoSelect.value : "Todos los Grupos";
+    const asigFiltro = asigSelect ? asigSelect.value : "Todas las Asignaturas";
+
+    const gNomElem = document.getElementById("proyeccion-grupo-nombre");
+    const aNomElem = document.getElementById("proyeccion-materia-nombre");
+    if (gNomElem) gNomElem.innerText = grupoFiltro;
+    if (aNomElem) aNomElem.innerText = asigFiltro;
+
+    // Obtener lista completa de estudiantes
+    let estudiantes = [];
+    try {
+        const localUsers = JSON.parse(localStorage.getItem('usuarios_db') || '[]');
+        estudiantes = localUsers;
+    } catch(e) {}
+
+    // Filtrar por grupo si está seleccionado
+    let listaFiltrada = estudiantes.filter(est => {
+        const matchGrupo = (grupoFiltro === "Todos los Grupos") || (est.grupo === grupoFiltro) || (est.grado === grupoFiltro);
+        const matchAsig = (asigFiltro === "Todas las Asignaturas") || (est.asignatura && est.asignatura.includes(asigFiltro));
+        return matchGrupo && matchAsig;
+    });
+
+    if (listaFiltrada.length === 0) {
+        grid.innerHTML = `
+            <div style="grid-column: 1 / -1; text-align: center; padding: 60px 20px; background: rgba(30,41,59,0.5); border: 2px dashed #334155; border-radius: 20px;">
+                <div style="font-size: 3rem; margin-bottom: 10px;">🏫</div>
+                <h3 style="color: #94A3B8; font-size: 1.4rem; font-weight: 800;">No hay estudiantes registrados en este grupo aún.</h3>
+                <p style="color: #64748B; margin-top: 5px;">Selecciona otro grupo en el panel de docente para proyectar.</p>
+            </div>
+        `;
+        return;
+    }
+
+    // Calcular puntos XP netos (base + bonus - penalizaciones)
+    let estudiantesProyeccion = listaFiltrada.map(est => {
+        const doc = String(est.documento || est.usuario || est.id || '');
+        const nom = ((est.nombre || '') + ' ' + (est.apellidos || '')).trim() || 'Estudiante';
+        const avatar = est.avatar || '🚀';
+        const alias = est.alias || 'Explorador STEAM';
+
+        let baseXP = 0;
+        try {
+            baseXP = parseInt(localStorage.getItem(`xp_${doc}`)) || 0;
+            if (baseXP === 0) {
+                baseXP = parseInt(localStorage.getItem(`prog_${doc}_diag_xp`)) || 0;
+            }
+        } catch(e) {}
+
+        const bonusTotal = parseInt(localStorage.getItem(`bonus_total_${doc}`)) || 0;
+        const penaltyTotal = parseInt(localStorage.getItem(`penalty_total_${doc}`)) || 0;
+        const xpEfectivo = Math.max(0, baseXP + bonusTotal - penaltyTotal);
+
+        return {
+            doc,
+            nombre: nom,
+            avatar,
+            alias,
+            grado: est.grado || est.grupo || 'Ciclo VI',
+            xp: xpEfectivo,
+            bonus: bonusTotal,
+            penalty: penaltyTotal
+        };
+    });
+
+    // Ordenar de mayor a menor puntaje (Ránking de Clase)
+    estudiantesProyeccion.sort((a, b) => b.xp - a.xp);
+
+    // Actualizar métricas generales de la cabecera
+    const totElem = document.getElementById("proyeccion-total-estudiantes");
+    const liderElem = document.getElementById("proyeccion-lider-nombre");
+    const maxElem = document.getElementById("proyeccion-max-xp");
+
+    if (totElem) totElem.innerText = estudiantesProyeccion.length;
+    if (liderElem) liderElem.innerText = estudiantesProyeccion[0] ? estudiantesProyeccion[0].nombre : "---";
+    if (maxElem) maxElem.innerText = (estudiantesProyeccion[0] ? estudiantesProyeccion[0].xp : 0) + " XP";
+
+    // Generar tarjetas animadas
+    let htmlGrid = "";
+    estudiantesProyeccion.forEach((est, idx) => {
+        const rangoPos = idx + 1;
+        let borderStyle = "border: 1px solid #334155; background: rgba(30, 41, 59, 0.7);";
+        let rankBadge = `<span style="font-weight: 900; color: #94A3B8; font-size: 1.1rem;">#${rangoPos}</span>`;
+
+        if (rangoPos === 1) {
+            borderStyle = "border: 2px solid #F59E0B; background: linear-gradient(135deg, rgba(245,158,11,0.2) 0%, rgba(30,41,59,0.9) 100%); box-shadow: 0 10px 25px rgba(245,158,11,0.3);";
+            rankBadge = `<span style="font-size: 1.8rem;" title="Primer Lugar">🥇</span>`;
+        } else if (rangoPos === 2) {
+            borderStyle = "border: 2px solid #94A3B8; background: linear-gradient(135deg, rgba(148,163,184,0.2) 0%, rgba(30,41,59,0.9) 100%); box-shadow: 0 8px 20px rgba(148,163,184,0.2);";
+            rankBadge = `<span style="font-size: 1.8rem;" title="Segundo Lugar">🥈</span>`;
+        } else if (rangoPos === 3) {
+            borderStyle = "border: 2px solid #D97706; background: linear-gradient(135deg, rgba(217,119,6,0.15) 0%, rgba(30,41,59,0.9) 100%); box-shadow: 0 8px 20px rgba(217,119,6,0.15);";
+            rankBadge = `<span style="font-size: 1.8rem;" title="Tercer Lugar">🥉</span>`;
+        }
+
+        // Detectar si el puntaje cambió para aplicar animación visual
+        const prevXP = window.proyeccionUltimosPuntajes[est.doc];
+        let animClass = "";
+        if (prevXP !== undefined && prevXP !== est.xp) {
+            animClass = "animation: pulse 1s ease-in-out;";
+        }
+        window.proyeccionUltimosPuntajes[est.doc] = est.xp;
+
+        htmlGrid += `
+            <div style="${borderStyle} padding: 22px; border-radius: 18px; transition: transform 0.3s; ${animClass}">
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <span style="font-size: 2.2rem; background: rgba(255,255,255,0.1); padding: 6px; border-radius: 50%;">${est.avatar}</span>
+                        <div>
+                            <div style="font-weight: 900; font-size: 1.15rem; color: white;">${est.nombre}</div>
+                            <div style="font-size: 0.8rem; color: #94A3B8;">${est.alias} • ${est.grado}</div>
+                        </div>
+                    </div>
+                    <div>${rankBadge}</div>
+                </div>
+
+                <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-top: 15px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 12px;">
+                    <div>
+                        ${est.bonus > 0 ? `<span style="font-size: 0.75rem; background: rgba(16,185,129,0.2); color: #34D399; padding: 2px 8px; border-radius: 10px; font-weight: bold; margin-right: 4px;">🎁 +${est.bonus} XP</span>` : ''}
+                        ${est.penalty > 0 ? `<span style="font-size: 0.75rem; background: rgba(239,68,68,0.2); color: #FCA5A5; padding: 2px 8px; border-radius: 10px; font-weight: bold;">⚡ -${est.penalty} XP</span>` : ''}
+                    </div>
+                    <div style="font-weight: 900; font-size: 1.6rem; color: #F59E0B; letter-spacing: -0.5px;">
+                        ${est.xp} <span style="font-size: 0.85rem; color: #CBD5E1; font-weight: normal;">XP</span>
+                    </div>
+                </div>
+            </div>
+        `;
+    });
+
+    grid.innerHTML = htmlGrid;
+};
+
+window.inicializarPanelEstudiante = function(data) {
+    if (!data) return;
+    window.usuarioEstudianteActual = data;
+    window.usuario_actual = data.documento || data.usuario;
+    window.rol_actual = data.rol || (String(data.grado || '').includes('Ciclo') ? 'validacion' : 'estudiante');
+
+    if (typeof mostrarVista === 'function') mostrarVista('student-dashboard-container');
+    const studentView = document.getElementById("student-dashboard-container");
+    if (studentView) studentView.style.display = "block";
+
+    let nombreLimpio = "";
+    if (data.nombre && data.apellidos && data.nombre !== 'Estudiante' && data.apellidos !== 'Nocturno') {
+        nombreLimpio = `${data.nombre} ${data.apellidos}`.trim();
+    } else if (data.nombre_completo) {
+        nombreLimpio = data.nombre_completo.trim();
+    } else if (data.nombre && data.nombre !== 'Estudiante') {
+        nombreLimpio = data.nombre.trim();
+    } else if (data.nombres) {
+        nombreLimpio = `${data.nombres} ${data.apellidos || ''}`.trim();
+    } else {
+        nombreLimpio = data.nombre || "Estudiante";
+    }
+
+    const avatar = data.avatar || "🚀";
+    const gradoCiclo = data.grado || data.grupo || "Ciclo VI";
+    const alias = data.alias || "Explorador STEAM";
+    const doc = String(data.documento || data.usuario || '');
+
+    // Calcular XP acumulado considerando bonificaciones y penalizaciones
+    let baseXP = 0;
+    try {
+        const xpKey = `xp_${doc}`;
+        baseXP = parseInt(localStorage.getItem(xpKey)) || 0;
+        if (baseXP === 0) {
+            const diagXP = parseInt(localStorage.getItem(`prog_${doc}_diag_xp`)) || 0;
+            baseXP += diagXP;
+        }
+    } catch(e) {}
+
+    const bonusTotal = parseInt(localStorage.getItem(`bonus_total_${doc}`)) || 0;
+    const penaltyTotal = parseInt(localStorage.getItem(`penalty_total_${doc}`)) || 0;
+    let totalXP = Math.max(0, baseXP + bonusTotal - penaltyTotal);
+
+    // 1. Header Superior
+    const hAvatar = document.getElementById("header-student-avatar");
+    if (hAvatar) hAvatar.innerText = avatar;
+    const hName = document.getElementById("header-student-name");
+    if (hName) hName.innerText = nombreLimpio;
+    const hGrade = document.getElementById("header-student-grade");
+    if (hGrade) hGrade.innerText = gradoCiclo;
+    const hScore = document.getElementById("student-score-display");
+    if (hScore) hScore.innerText = totalXP;
+
+    // 2. Hero Banner
+    const heroAvatar = document.getElementById("student-avatar-hero");
+    if (heroAvatar) heroAvatar.innerText = avatar;
+    const welcomeMsg = document.getElementById("student-welcome-name");
+    if (welcomeMsg) welcomeMsg.innerText = "¡Hola, " + nombreLimpio + "!";
+    const welcomeSubtitle = document.getElementById("student-welcome-subtitle");
+    if (welcomeSubtitle) {
+        welcomeSubtitle.innerText = `Rango: ${alias} | Bienvenido a tu aula y panel interactivo STEAM.`;
+    }
+    const badgeMsg = document.getElementById("student-grade-badge");
+    if (badgeMsg) {
+        const ieName = data.institucion === 'InstitutoMontenegro' ? 'IE Instituto Montenegro' : (data.institucion || 'Instituto Montenegro');
+        badgeMsg.innerText = `🎓 ${gradoCiclo} | 🏛️ ${ieName}`;
+    }
+
+    // 3. Header de Guía (si se abre)
+    const gAvatar = document.getElementById("student-guide-header-avatar");
+    if (gAvatar) gAvatar.innerText = avatar;
+    const gName = document.getElementById("student-guide-header-name");
+    if (gName) gName.innerText = nombreLimpio;
+    const gBadge = document.getElementById("student-guide-header-badge");
+    if (gBadge) gBadge.innerText = gradoCiclo;
+    const gXP = document.getElementById("student-guide-header-xp");
+    if (gXP) gXP.innerText = totalXP;
+
+    // Banner de Felicitación / Bonificación si el profesor otorgó puntos
+    const bannerBonus = document.getElementById("banner-bonificacion-alerta");
+    if (bannerBonus) {
+        let notifBonusStr = localStorage.getItem(`notificacion_bonificacion_${doc}`);
+        if (notifBonusStr) {
+            try {
+                const notifB = JSON.parse(notifBonusStr);
+                bannerBonus.style.display = "block";
+                bannerBonus.innerHTML = `
+                    <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 15px; flex-wrap: wrap;">
+                        <div style="display: flex; align-items: flex-start; gap: 15px;">
+                            <span style="font-size: 2.2rem;">🎉</span>
+                            <div>
+                                <h4 style="margin: 0; color: #065F46; font-size: 1.15rem; font-weight: 900;">¡FELICITACIONES POR TU RECONOCIMIENTO!</h4>
+                                <p style="margin: 4px 0 0 0; color: #047857; font-size: 0.95rem;">
+                                    Tu profesor te ha otorgado una <b>Bonificación del +10% (+${notifB.puntos} XP)</b> por tu logro en clase:
+                                </p>
+                                <div style="background: white; border: 1px solid #A7F3D0; padding: 10px 14px; border-radius: 8px; margin-top: 8px; font-weight: 800; color: #059669; display: inline-block;">
+                                    ${notifB.motivo} ${notifB.observacion ? `<br><small style="color:#64748B; font-weight:normal;">Nota: "${notifB.observacion}"</small>` : ''}
+                                </div>
+                                <div style="font-size: 0.8rem; color: #047857; margin-top: 6px;">Otorgado el ${notifB.fecha} por tu Docente Orientador.</div>
+                            </div>
+                        </div>
+                        <button onclick="marcarBonificacionLeida('${doc}')" style="background: #10B981; color: white; border: none; padding: 10px 18px; border-radius: 8px; font-weight: 800; font-size: 0.85rem; cursor: pointer; box-shadow: 0 4px 10px rgba(16,185,129,0.3); transition: background 0.2s;" onmouseover="this.style.background='#059669'" onmouseout="this.style.background='#10B981'">
+                            ✓ Reclamar y Continuar
+                        </button>
+                    </div>
+                `;
+            } catch(e) {
+                bannerBonus.style.display = "none";
+            }
+        } else {
+            bannerBonus.style.display = "none";
+        }
+    }
+
+    // Banner de Alerta Disciplinaria / Penalización si el profesor aplicó sanciones
+    const bannerAlerta = document.getElementById("banner-penalizacion-alerta");
+    if (bannerAlerta) {
+        let notifStr = localStorage.getItem(`notificacion_penalizacion_${doc}`);
+        if (notifStr) {
+            try {
+                const notif = JSON.parse(notifStr);
+                bannerAlerta.style.display = "block";
+                bannerAlerta.innerHTML = `
+                    <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 15px; flex-wrap: wrap;">
+                        <div style="display: flex; align-items: flex-start; gap: 15px;">
+                            <span style="font-size: 2.2rem;">⚠️</span>
+                            <div>
+                                <h4 style="margin: 0; color: #991B1B; font-size: 1.15rem; font-weight: 900;">SANCIÓN DISCIPLINARIA APLICADA POR TU PROFESOR</h4>
+                                <p style="margin: 4px 0 0 0; color: #7F1D1D; font-size: 0.95rem;">
+                                    Se ha descontado el <b>-10% de tus puntos acumulados (-${notif.puntos} XP)</b> por la siguiente razón disciplinaria en clase:
+                                </p>
+                                <div style="background: white; border: 1px solid #FCA5A5; padding: 10px 14px; border-radius: 8px; margin-top: 8px; font-weight: 800; color: #DC2626; display: inline-block;">
+                                    ${notif.motivo} ${notif.observacion ? `<br><small style="color:#64748B; font-weight:normal;">Nota del profesor: "${notif.observacion}"</small>` : ''}
+                                </div>
+                                <div style="font-size: 0.8rem; color: #991B1B; margin-top: 6px;">Registrado el ${notif.fecha} por tu Docente Orientador.</div>
+                            </div>
+                        </div>
+                        <button onclick="marcarPenalizacionLeida('${doc}')" style="background: #DC2626; color: white; border: none; padding: 10px 18px; border-radius: 8px; font-weight: 800; font-size: 0.85rem; cursor: pointer; box-shadow: 0 4px 10px rgba(220,38,38,0.3); transition: background 0.2s;" onmouseover="this.style.background='#B91C1C'" onmouseout="this.style.background='#DC2626'">
+                            ✓ Entendido y Acepto las Normas
+                        </button>
+                    </div>
+                `;
+            } catch(e) {
+                bannerAlerta.style.display = "none";
+            }
+        } else {
+            bannerAlerta.style.display = "none";
+        }
+    }
+
+    // 4. Banner de pago si aplica
+    const bannerPago = document.getElementById("banner-pago-estado");
+    if (bannerPago) {
+        if (data.rol === 'validacion' || data.institucion === 'Validacion' || data.institucion === 'HomeSchool') {
+            bannerPago.style.display = "block";
+            if (data.pago_realizado) {
+                bannerPago.style.background = "#ECFDF5";
+                bannerPago.style.borderColor = "#10B981";
+                bannerPago.innerHTML = `
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                        <span style="font-size: 1.8rem;">✅</span>
+                        <div>
+                            <h4 style="margin: 0; color: #065F46; font-size: 1.1rem; font-weight: 800;">Matrícula y Acceso a Guías Habilitado</h4>
+                            <p style="margin: 2px 0 0 0; color: #047857; font-size: 0.9rem;">Acceso verificado para <strong>${nombreLimpio}</strong>. Tienes acceso completo a todas las guías, simulacros y laboratorios.</p>
+                        </div>
+                    </div>
+                `;
+            } else {
+                const monto = 60000;
+                bannerPago.style.background = "#FEF3C7";
+                bannerPago.style.borderColor = "#F59E0B";
+                bannerPago.innerHTML = `
+                    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <span style="font-size: 1.8rem;">⚠️</span>
+                            <div>
+                                <h4 style="margin: 0; color: #92400E; font-size: 1.1rem; font-weight: 800;">Acceso a Guías Pendiente de Pago</h4>
+                                <p style="margin: 2px 0 0 0; color: #B45309; font-size: 0.9rem;">Para desbloquear todo el contenido pedagógico de ${gradoCiclo}, cancela los derechos de acceso ($${monto.toLocaleString('es-CO')} COP).</p>
+                            </div>
+                        </div>
+                        <button onclick="abrirPasarelaPago({ concepto: 'Acceso a Guías y Simulacros de Validación', documento: '${data.documento || data.usuario}', monto: ${monto}, rol: '${data.rol}', callback: () => location.reload() })" style="background: linear-gradient(135deg, #F59E0B, #D97706); color: white; border: none; padding: 10px 20px; border-radius: 8px; font-weight: 800; cursor: pointer; box-shadow: 0 4px 10px rgba(217,119,6,0.3); display: flex; align-items: center; gap: 8px;">
+                            💳 Pagar Guías Ahora
+                        </button>
+                    </div>
+                `;
+            }
+        } else {
+            bannerPago.style.display = "none";
+        }
+    }
+
+    // 5. Grid de Materias
+    const subjectsGrid = document.getElementById("student-subjects-grid");
+    if (subjectsGrid) {
+        subjectsGrid.innerHTML = "";
+        let asignaturas = [];
+        const materiasHorario = window.obtenerMateriasHorarioGrado(gradoCiclo);
+
+        if (data.asignatura && data.asignatura !== 'Ciencias Naturales') {
+            asignaturas = data.asignatura.split(',').map(s => s.trim()).filter(Boolean);
+        } else if (Array.isArray(data.materias) && data.materias.length > 0) {
+            asignaturas = data.materias;
+        }
+
+        // Si asignaturas está vacía o es únicamente la genérica, asignar todas las del horario institucional
+        if (asignaturas.length === 0 || (asignaturas.length === 1 && asignaturas[0] === 'Ciencias Naturales' && !gradoCiclo.toLowerCase().includes('ciclo'))) {
+            asignaturas = materiasHorario;
+        } else if (!gradoCiclo.toLowerCase().includes('ciclo')) {
+            // Asegurar que las materias oficiales del horario estén incluidas
+            materiasHorario.forEach(m => {
+                if (!asignaturas.includes(m)) asignaturas.push(m);
+            });
+        }
+
+        asignaturas.forEach(asig => {
+            const card = document.createElement("div");
+            card.style.cssText = "background: white; border-radius: 16px; padding: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.06); transition: transform 0.2s, box-shadow 0.2s; border-top: 5px solid #10B981; display: flex; flex-direction: column; justify-content: space-between; height: 190px;";
+            card.onmouseover = () => { card.style.transform = "translateY(-5px)"; card.style.boxShadow = "0 12px 20px rgba(0,0,0,0.12)"; };
+            card.onmouseout = () => { card.style.transform = "none"; card.style.boxShadow = "0 4px 15px rgba(0,0,0,0.06)"; };
+
+            card.innerHTML = `
+                <div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                        <span style="font-size: 2.2rem;">🔬</span>
+                        <span style="background: #ECFDF5; color: #047857; font-weight: 800; font-size: 0.8rem; padding: 3px 10px; border-radius: 12px; border: 1px solid #A7F3D0;">Activa</span>
+                    </div>
+                    <h3 style="margin: 0; font-size: 1.35rem; color: #111827; font-weight: 800;">${asig}</h3>
+                    <p style="margin: 4px 0 0 0; font-size: 0.85rem; color: #6B7280;">${gradoCiclo} • STEAM 2026</p>
+                </div>
+                <button style="background: linear-gradient(135deg, #10B981, #059669); color: white; border: none; padding: 12px; border-radius: 10px; font-weight: 800; cursor: pointer; width: 100%; font-family: Inter, sans-serif; box-shadow: 0 4px 10px rgba(16,185,129,0.25); display: flex; align-items: center; justify-content: center; gap: 8px;" onclick="abrirAsignaturaEstudiante('${asig}', '${gradoCiclo}')">
+                    🚀 Entrar al Aula
+                </button>
+            `;
+            subjectsGrid.appendChild(card);
+        });
+    }
+};
+
 // ==========================================
 // MATRIZ FÍSICA INYECTADA (FASE 2)
 // ==========================================
@@ -327,103 +1062,7 @@ document.addEventListener("DOMContentLoaded", function() {
                         if (tHeader) tHeader.innerText = data.nombre;
                         cargarEstudiantesTutor(data.usuario);
                     } else { // Estudiante regular o Validación
-                        if (typeof mostrarVista === 'function') mostrarVista('student-dashboard-container');
-                        const studentView = document.getElementById("student-dashboard-container");
-                        window.usuarioEstudianteActual = data;
-                        
-                        if (studentView) {
-                            studentView.style.display = "block";
-                            const welcomeMsg = document.getElementById("student-welcome-name");
-                            if (welcomeMsg) welcomeMsg.innerText = "¡Hola, " + data.nombre + "!";
-                            
-                            const badgeMsg = document.getElementById("student-grade-badge");
-                            if (badgeMsg) {
-                                let badgeText = [];
-                                if (data.rol === 'validacion' || String(data.grupo || '').includes('Ciclo')) badgeText.push("🎓 Validación / Nocturno");
-                                if (data.grado) badgeText.push("Grado " + data.grado);
-                                if (data.grupo && data.grupo !== data.grado) badgeText.push("Grupo " + data.grupo);
-                                badgeMsg.innerText = badgeText.length > 0 ? badgeText.join(" | ") : "Estudiante";
-                            }
-                            
-                            const headerName = document.getElementById("header-student-name");
-                            if (headerName) headerName.innerText = data.nombre;
-                            const headerGrade = document.getElementById("header-student-grade");
-                            if (headerGrade) headerGrade.innerText = data.grado || data.grupo || "N/A";
-
-                            // Banner de pago para Validación y Home School
-                            const bannerPago = document.getElementById("banner-pago-estado");
-                            if (bannerPago) {
-                                if (data.rol === 'validacion' || data.institucion === 'Validacion' || data.institucion === 'HomeSchool') {
-                                    bannerPago.style.display = "block";
-                                    if (data.pago_realizado) {
-                                        bannerPago.style.background = "#ECFDF5";
-                                        bannerPago.style.borderColor = "#10B981";
-                                        bannerPago.innerHTML = `
-                                            <div style="display: flex; align-items: center; gap: 12px;">
-                                                <span style="font-size: 1.8rem;">✅</span>
-                                                <div>
-                                                    <h4 style="margin: 0; color: #065F46; font-size: 1.1rem; font-weight: 800;">Matrícula y Acceso a Guías Habilitado</h4>
-                                                    <p style="margin: 2px 0 0 0; color: #047857; font-size: 0.9rem;">Tu acceso está verificado. Tienes acceso a todas las guías interactivas, simulacros y material de estudio.</p>
-                                                </div>
-                                            </div>
-                                        `;
-                                    } else {
-                                        const monto = (data.rol === 'validacion' || data.institucion === 'Validacion') ? 60000 : 50000;
-                                        const concepto = (data.rol === 'validacion' || data.institucion === 'Validacion') ? 'Acceso a Guías y Simulacros de Validación' : 'Matrícula Home School';
-                                        bannerPago.style.background = "#FEF3C7";
-                                        bannerPago.style.borderColor = "#F59E0B";
-                                        bannerPago.innerHTML = `
-                                            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
-                                                <div style="display: flex; align-items: center; gap: 12px;">
-                                                    <span style="font-size: 1.8rem;">⚠️</span>
-                                                    <div>
-                                                        <h4 style="margin: 0; color: #92400E; font-size: 1.1rem; font-weight: 800;">Acceso a Guías Pendiente de Pago</h4>
-                                                        <p style="margin: 2px 0 0 0; color: #B45309; font-size: 0.9rem;">Para desbloquear todo el contenido pedagógico, cancela los derechos de acceso ($${monto.toLocaleString('es-CO')} COP).</p>
-                                                    </div>
-                                                </div>
-                                                <button onclick="abrirPasarelaPago({ concepto: '${concepto}', documento: '${data.documento || data.usuario}', monto: ${monto}, rol: '${data.rol}', callback: () => location.reload() })" style="background: linear-gradient(135deg, #F59E0B, #D97706); color: white; border: none; padding: 10px 20px; border-radius: 8px; font-weight: 800; cursor: pointer; box-shadow: 0 4px 10px rgba(217,119,6,0.3); display: flex; align-items: center; gap: 8px;">
-                                                    💳 Pagar Guías Ahora
-                                                </button>
-                                            </div>
-                                        `;
-                                    }
-                                } else {
-                                    bannerPago.style.display = "none";
-                                }
-                            }
-                            
-                            // Mostrar materias matriculadas
-                            const subjectsGrid = document.getElementById("student-subjects-grid");
-                            if (subjectsGrid) {
-                                subjectsGrid.innerHTML = ""; // Limpiar previas
-                                let asignaturas = [];
-                                if (data.asignatura) {
-                                    asignaturas = data.asignatura.split(',').map(s => s.trim()).filter(s => s);
-                                }
-                                
-                                if (asignaturas.length === 0) {
-                                    asignaturas = ["Ciencias Naturales"];
-                                }
-                                
-                                asignaturas.forEach(asig => {
-                                    const card = document.createElement("div");
-                                    card.style.cssText = "background: white; border-radius: 12px; padding: 25px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: transform 0.2s, box-shadow 0.2s; border-top: 4px solid #10B981; display: flex; flex-direction: column; justify-content: space-between; height: 180px;";
-                                    card.onmouseover = () => { card.style.transform = "translateY(-5px)"; card.style.boxShadow = "0 10px 15px rgba(0,0,0,0.1)"; };
-                                    card.onmouseout = () => { card.style.transform = "none"; card.style.boxShadow = "0 4px 6px rgba(0,0,0,0.05)"; };
-                                    
-                                    card.innerHTML = `
-                                        <div>
-                                             <div style="font-size: 2rem; margin-bottom: 10px;">📚</div>
-                                            <h3 style="margin: 0; font-size: 1.3rem; color: #111827; font-weight: 800;">${asig}</h3>
-                                        </div>
-                                        <button style="background: #10B981; color: white; border: none; padding: 10px; border-radius: 8px; font-weight: bold; cursor: pointer; width: 100%; font-family: Inter, sans-serif; margin-top: 15px;" onclick="abrirAsignaturaEstudiante('${asig}', '${data.grado || data.grupo || ''}')">Entrar al Aula</button>
-                                    `;
-                                    subjectsGrid.appendChild(card);
-                                });
-                            }
-                        } else {
-                            alert("Bienvenido Estudiante: " + data.nombre);
-                        }
+                        window.inicializarPanelEstudiante(data);
                     }
                 } else {
                     // AUTO-HABILITACIÓN DIRECTA: Si no se encontró por coincidencia exacta o difusa, abrir modal de auto-habilitación para que ingrese en 1 clic
@@ -517,39 +1156,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 body: JSON.stringify(payload)
             }).catch(() => {});
 
-            // Iniciar sesión inmediatamente
-            window.rol_actual = sessionData.rol;
-            window.usuario_actual = sessionData.usuario;
-            window.usuarioEstudianteActual = sessionData;
-
-            if (typeof mostrarVista === 'function') {
-                mostrarVista('student-dashboard-container');
-            }
-            const studentView = document.getElementById("student-dashboard-container");
-            if (studentView) {
-                studentView.style.display = "block";
-                const welcomeMsg = document.getElementById("student-welcome-name");
-                if (welcomeMsg) welcomeMsg.innerText = "¡Hola, " + sessionData.nombre + "!";
-                const headerName = document.getElementById("header-student-name");
-                if (headerName) headerName.innerText = sessionData.nombre;
-                const headerGrade = document.getElementById("header-student-grade");
-                if (headerGrade) headerGrade.innerText = sessionData.grado || sessionData.grupo || "N/A";
-                
-                const subjectsGrid = document.getElementById("student-subjects-grid");
-                if (subjectsGrid) {
-                    subjectsGrid.innerHTML = `
-                        <div style="background: white; border-radius: 12px; padding: 25px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-top: 4px solid #10B981; display: flex; flex-direction: column; justify-content: space-between; height: 180px;">
-                            <div>
-                                <div style="font-size: 2rem; margin-bottom: 10px;">📚</div>
-                                <h3 style="margin: 0; font-size: 1.3rem; color: #111827; font-weight: 800;">Ciencias Naturales</h3>
-                            </div>
-                            <button style="background: #10B981; color: white; border: none; padding: 10px; border-radius: 8px; font-weight: bold; cursor: pointer; width: 100%; font-family: Inter, sans-serif; margin-top: 15px;" onclick="abrirAsignaturaEstudiante('Ciencias Naturales', '${sessionData.grado || sessionData.grupo || ''}')">Entrar al Aula</button>
-                        </div>
-                    `;
-                }
-            } else {
-                location.reload();
-            }
+            // Iniciar sesión inmediatamente y personalizar interfaz
+            window.inicializarPanelEstudiante(sessionData);
         });
     }
 
@@ -580,7 +1188,7 @@ document.addEventListener("DOMContentLoaded", function() {
             }
 
             if (materias_matriculadas.length === 0) {
-                materias_matriculadas = [grado.toLowerCase().includes('ciclo') ? "Ciencias Naturales" : "Ciencias Naturales"];
+                materias_matriculadas = window.obtenerMateriasHorarioGrado(grado);
             }
 
             btnDocenteMatricular.innerText = "Guardando...";
@@ -760,44 +1368,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 : `✅ ¡Matrícula completada exitosamente!\n\nBienvenido(a) ${nom} ${ap}. Ingresando a tu aula virtual...`;
             alert(bienvenidaMsg);
 
-            // Iniciar sesión inmediatamente y activar vista de estudiante
-            window.rol_actual = sessionData.rol;
-            window.usuario_actual = sessionData.usuario;
-            window.usuarioEstudianteActual = sessionData;
-
-            if (typeof mostrarVista === 'function') {
-                mostrarVista('student-dashboard-container');
-            }
-            const studentView = document.getElementById("student-dashboard-container");
-            if (studentView) {
-                studentView.style.display = "block";
-                const welcomeMsg = document.getElementById("student-welcome-name");
-                if (welcomeMsg) welcomeMsg.innerText = "¡Hola, " + sessionData.nombre + "!";
-                const headerName = document.getElementById("header-student-name");
-                if (headerName) headerName.innerText = sessionData.nombre;
-                const headerGrade = document.getElementById("header-student-grade");
-                if (headerGrade) headerGrade.innerText = sessionData.grado || sessionData.grupo || "N/A";
-                
-                const subjectsGrid = document.getElementById("student-subjects-grid");
-                if (subjectsGrid) {
-                    subjectsGrid.innerHTML = "";
-                    const materias = asig.split(',').map(s => s.trim()).filter(Boolean);
-                    (materias.length > 0 ? materias : ["Ciencias Naturales"]).forEach(materia => {
-                        const card = document.createElement("div");
-                        card.style.cssText = "background: white; border-radius: 12px; padding: 25px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: transform 0.2s, box-shadow 0.2s; border-top: 4px solid #10B981; display: flex; flex-direction: column; justify-content: space-between; height: 180px;";
-                        card.innerHTML = `
-                            <div>
-                                <div style="font-size: 2rem; margin-bottom: 10px;">📚</div>
-                                <h3 style="margin: 0; font-size: 1.3rem; color: #111827; font-weight: 800;">${materia}</h3>
-                            </div>
-                            <button style="background: #10B981; color: white; border: none; padding: 10px; border-radius: 8px; font-weight: bold; cursor: pointer; width: 100%; font-family: Inter, sans-serif; margin-top: 15px;" onclick="abrirAsignaturaEstudiante('${materia}', '${sessionData.grado || sessionData.grupo || ''}')">Entrar al Aula</button>
-                        `;
-                        subjectsGrid.appendChild(card);
-                    });
-                }
-            } else {
-                location.reload();
-            }
+            // Iniciar sesión inmediatamente y activar vista de estudiante personalizada
+            window.inicializarPanelEstudiante(sessionData);
         });
     }
 
@@ -929,15 +1501,36 @@ async function cargarEstudiantesDocente(docenteId) {
                 const isMyStudent = !est.docente_id || est.docente_id === docenteId || docenteId === 'jramirezgiraldo' || docenteId === 'admin' || est.institucion === 'InstitutoMontenegro' || est.institucion === 'IE Instituto Montenegro';
 
                 if (isMyStudent && matchAsig && matchGrupo) {
+                    const docClean = est.documento || est.usuario || est.id || '';
+                    const nomClean = ((est.nombre || '') + ' ' + (est.apellidos || '')).trim() || 'Estudiante';
+                    const grupoClean = est.grupo || est.grado || '';
+                    const asigClean = est.asignatura || 'Ciencias Naturales';
+
                     tbody.innerHTML += `
-                    <tr>
-                        <td style="padding: 10px;">${est.documento || ''}</td>
-                        <td style="padding: 10px; font-weight: bold;">${est.nombre || ''} ${est.apellidos || ''}</td>
-                        <td style="padding: 10px;">${est.grado || ''}° - ${est.grupo || ''} (${est.asignatura || ''})</td>
-                        <td style="padding: 10px; text-align: center;">
-                            <button onclick="verInformeEstudiante('${est.nombre || ''} ${est.apellidos || ''}', 0, '${est.grupo || est.grado || ''}', '${est.documento}')" style="background: #2563EB; color: white; border: none; padding: 6px 12px; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 0.8rem; display: inline-flex; align-items: center; gap: 4px;">
-                                📊 Ver Guías / Orientar
-                            </button>
+                    <tr style="border-bottom: 1px solid #F1F5F9;">
+                        <td style="padding: 12px 10px; font-weight: bold; color: #475569;">${docClean}</td>
+                        <td style="padding: 12px 10px; font-weight: 800; color: #1E293B;">
+                            ${nomClean}
+                            <span style="display: block; font-size: 0.75rem; color: #64748B; font-weight: normal;">Rol: ${est.rol || 'Estudiante'}</span>
+                        </td>
+                        <td style="padding: 12px 10px; color: #334155; font-size: 0.9rem;">
+                            <b>${grupoClean}</b> <span style="color: #64748B;">(${asigClean})</span>
+                        </td>
+                        <td style="padding: 12px 10px; text-align: center;">
+                            <div style="display: flex; gap: 8px; justify-content: center; flex-wrap: wrap;">
+                                <button onclick="abrirGuiaOrientadorDirecto('${docClean}', '${grupoClean}', '${asigClean}')" style="background: linear-gradient(135deg, #10B981, #059669); color: white; border: none; padding: 7px 12px; border-radius: 8px; font-weight: 800; cursor: pointer; font-size: 0.82rem; display: inline-flex; align-items: center; gap: 5px; box-shadow: 0 2px 6px rgba(16,185,129,0.25);" title="Ver la guía resuelta con respuestas oficiales para este estudiante">
+                                    👁️ Guía Resuelta
+                                </button>
+                                <button onclick="verInformeEstudiante('${nomClean}', 0, '${grupoClean}', '${docClean}')" style="background: #2563EB; color: white; border: none; padding: 7px 12px; border-radius: 8px; font-weight: 800; cursor: pointer; font-size: 0.82rem; display: inline-flex; align-items: center; gap: 5px; box-shadow: 0 2px 6px rgba(37,99,235,0.25);" title="Ver informe completo y selector de guías">
+                                    📊 Informe
+                                </button>
+                                <button onclick="abrirModalBonificacion('${docClean}', '${nomClean}', '${grupoClean}')" style="background: linear-gradient(135deg, #10B981, #059669); color: white; border: none; padding: 7px 12px; border-radius: 8px; font-weight: 800; cursor: pointer; font-size: 0.82rem; display: inline-flex; align-items: center; gap: 5px; box-shadow: 0 2px 6px rgba(16,185,129,0.25);" title="Otorgar bonificación del +10% de puntos XP por excelente participación o logro">
+                                    🎁 Bonificar +10% XP
+                                </button>
+                                <button onclick="abrirModalPenalizacion('${docClean}', '${nomClean}', '${grupoClean}')" style="background: linear-gradient(135deg, #DC2626, #B91C1C); color: white; border: none; padding: 7px 12px; border-radius: 8px; font-weight: 800; cursor: pointer; font-size: 0.82rem; display: inline-flex; align-items: center; gap: 5px; box-shadow: 0 2px 6px rgba(220,38,38,0.25);" title="Rebajar el 10% de los puntos por indisciplina o uso de celular">
+                                    ⚡ Rebajar -10% XP
+                                </button>
+                            </div>
                         </td>
                     </tr>`;
                 }
@@ -945,6 +1538,55 @@ async function cargarEstudiantesDocente(docenteId) {
         }
     } catch(e) { console.error(e); }
 }
+
+window.HORARIO_IE_MONTENEGRO = {
+    "6": ["Física"],
+    "6A": ["Física"],
+    "6B": ["Física"],
+    "7": ["Física", "Turismo", "Ética", "Artística"],
+    "7A": ["Física", "Turismo"],
+    "7B": ["Física", "Turismo"],
+    "7C": ["Física", "Turismo", "Ética", "Artística"],
+    "8": ["Artística"],
+    "8A": ["Artística"],
+    "8B": ["Artística"],
+    "9": ["Artística"],
+    "9A": ["Artística"],
+    "10": ["Ética"],
+    "10A": ["Ética"],
+    "10D": ["Ética"],
+    "11": ["Física", "Química", "Ética", "Turismo"],
+    "PENS": ["Química", "Turismo"],
+    "Ciclo I": ["Ciencias Naturales"],
+    "Ciclo II": ["Ciencias Naturales"],
+    "Ciclo III": ["Ciencias Naturales"],
+    "Ciclo IV": ["Ciencias Naturales"],
+    "Ciclo V": ["Ciencias Naturales"],
+    "Ciclo VI": ["Ciencias Naturales"]
+};
+
+window.obtenerMateriasHorarioGrado = function(gradoStr) {
+    if (!gradoStr) return ["Física"];
+    const str = String(gradoStr).trim().toUpperCase();
+
+    if (str.includes('CICLO')) return ["Ciencias Naturales"];
+    if (str === 'PENS') return ["Química", "Turismo"];
+
+    if (window.HORARIO_IE_MONTENEGRO[str]) return window.HORARIO_IE_MONTENEGRO[str];
+
+    // Buscar coincidencia directa de grado (6A -> 6A, 7C -> 7C) o por número (6, 7, 8, 9, 10, 11)
+    const match = str.match(/\b(10|11|[6-9])[A-Z]?\b/);
+    if (match && window.HORARIO_IE_MONTENEGRO[match[0]]) {
+        return window.HORARIO_IE_MONTENEGRO[match[0]];
+    }
+
+    const numMatch = str.match(/\b(10|11|[6-9])\b/);
+    if (numMatch && window.HORARIO_IE_MONTENEGRO[numMatch[1]]) {
+        return window.HORARIO_IE_MONTENEGRO[numMatch[1]];
+    }
+
+    return ["Física"];
+};
 
 async function cargarAsignaturasDocente(gradoSeleccionado) {
     const container = document.getElementById("materias-checkboxes-container");
@@ -955,71 +1597,18 @@ async function cargarAsignaturasDocente(gradoSeleccionado) {
         return;
     }
 
-    // Si es cualquier ciclo del nocturno → solo Ciencias Naturales (sin consultar API)
-    if (gradoSeleccionado.toLowerCase().includes('ciclo')) {
-        container.innerHTML = `
-            <div style="background:#D1FAE5; border:1px solid #10B981; border-radius:8px; padding:12px; display:flex; align-items:center; gap:10px;">
-                <span style="font-size:1.4rem;">🌿</span>
-                <div>
-                    <strong style="color:#065F46;">Ciencias Naturales</strong>
-                    <div style="font-size:0.8rem; color:#047857;">Asignatura única para todos los ciclos del nocturno</div>
-                </div>
-                <input type="checkbox" class="materia-chk" value="Ciencias Naturales" checked style="margin-left:auto; width:18px; height:18px;">
-            </div>`;
-        return;
-    }
+    const materiasOficiales = window.obtenerMateriasHorarioGrado(gradoSeleccionado);
 
-    try {
-        const res = await fetch('/api/asignaturas');
-        const asignaturas = await res.json();
-        
-        const defaultMap = {
-            "6": ["Física"],
-            "7": ["Turismo", "Ética", "Física"],
-            "8": ["Artística"],
-            "9": ["Artística"],
-            "10": ["Ética"],
-            "11": ["Física", "Ética", "Química", "Turismo"],
-            "PENS": ["Turismo", "Química"]
-        };
+    let html = '';
+    materiasOficiales.forEach(materia => {
+        html += `
+        <label style="display: flex; align-items: center; gap: 8px; padding: 6px 10px; background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 8px; margin-bottom: 4px; font-weight: 700; color: #1E293B;">
+            <input type="checkbox" class="materia-chk" value="${materia}" checked style="width: 18px; height: 18px;">
+            📚 ${materia}
+        </label>`;
+    });
 
-        // Normalizar clave grado
-        let cleanGrade = gradoSeleccionado.split('(')[0].trim().replace('°', '');
-
-        let html = '';
-        let cont = 0;
-        if (Array.isArray(asignaturas) && asignaturas.length > 0) {
-            asignaturas.forEach(a => {
-                const aClean = a.grado ? a.grado.split('(')[0].trim().replace('°', '') : '';
-                if (a.grado == gradoSeleccionado || aClean == cleanGrade) {
-                    html += `
-                    <label style="display: flex; align-items: center; gap: 8px;">
-                        <input type="checkbox" class="materia-chk" value="${a.nombre}" checked>
-                        ${a.nombre}
-                    </label>`;
-                    cont++;
-                }
-            });
-        }
-        
-        if (cont === 0 && (defaultMap[gradoSeleccionado] || defaultMap[cleanGrade])) {
-            const list = defaultMap[gradoSeleccionado] || defaultMap[cleanGrade];
-            list.forEach(materia => {
-                html += `
-                <label style="display: flex; align-items: center; gap: 8px;">
-                    <input type="checkbox" class="materia-chk" value="${materia}" checked>
-                    ${materia}
-                </label>`;
-                cont++;
-            });
-        }
-
-        if (cont === 0) {
-            container.innerHTML = '<span style="color: #6B7280; font-size: 0.9rem;">No hay asignaturas para este grado.</span>';
-        } else {
-            container.innerHTML = html;
-        }
-    } catch(e) { console.error(e); }
+    container.innerHTML = html;
 }
 
 
@@ -1264,7 +1853,7 @@ function obtenerMateriasPorGrupo(grupoName, est) {
 // ==========================================
 window.mallaTurismo = {
     "7": {
-        objetivo: "Desarrollar una mentalidad emprendedora y de reconocimiento cultural, valorando la riqueza del Eje Cafetero y de Colombia, así como el Paisaje Cultural Cafetero (PCC).",
+        objetivo: "Desarrollar un producto o servicio turístico local (bien o servicio) en las primeras tres semanas, valorando la riqueza del Paisaje Cultural Cafetero (PCC - Montenegro) y el emprendimiento regional.",
         periodos: {
             "1": {
                 "1": "El eje cafetero. Departamentos más importantes.",
@@ -1279,10 +1868,10 @@ window.mallaTurismo = {
                 "7": "Sitios turísticos más importantes de Colombia. Mitos y leyendas."
             },
             "3": {
-                "1": "Qué es el emprendimiento y su definición.",
-                "3": "Tipos de emprendimiento.",
-                "5": "Características y ejemplos de emprendimiento.",
-                "7": "Idea de productos perecederos (maíz y huevo) y realización de su propio emprendimiento."
+                "1": "Desarrollo de Producto Turístico (Semana 1): Identificación de oportunidades locales y diseño inicial del bien o servicio turístico (PCC Montenegro).",
+                "3": "Desarrollo de Producto Turístico (Semana 2 y 3): Estructuración del bien o servicio, propuesta de valor, prototipado y validación de campo.",
+                "5": "Estrategias de empaquetado, marca y promoción del producto o servicio turístico local.",
+                "7": "Costos de producción, precio y comercialización del producto turístico desarrollado."
             },
             "4": {
                 "1": "El reconocimiento de valor universal excepcional concedido al PCC.",
@@ -1293,7 +1882,7 @@ window.mallaTurismo = {
         }
     },
     "PENS": {
-        objetivo: "Fomentar el reconocimiento del Paisaje Cultural Cafetero, la cultura colombiana y el desarrollo de ideas emprendedoras en el contexto del turismo regional (Adaptación CLEI).",
+        objetivo: "Desarrollar un producto o servicio turístico regional (bien o servicio) en las primeras tres semanas, fortaleciendo el emprendimiento en el Paisaje Cultural Cafetero.",
         periodos: {
             "1": {
                 "1": "El eje cafetero y sus departamentos más importantes.",
@@ -1308,10 +1897,10 @@ window.mallaTurismo = {
                 "7": "Identidad cultural colombiana."
             },
             "3": {
-                "1": "Introducción al emprendimiento.",
-                "3": "Tipos y características del emprendimiento.",
-                "5": "Desarrollo de ideas de negocio turísticas.",
-                "7": "Formulación de proyectos productivos locales."
+                "1": "Desarrollo de Producto Turístico (Semana 1): Formulación inicial del bien o servicio turístico para la región del PCC.",
+                "3": "Desarrollo de Producto Turístico (Semana 2 y 3): Diseño detallado, propuesta de valor, prototipado y pruebas de mercado.",
+                "5": "Estrategias de comercialización y empaquetado del bien o servicio turístico.",
+                "7": "Presentación final y plan de negocios del proyecto productivo turístico."
             },
             "4": {
                 "1": "Patrimonio mundial y el PCC.",
@@ -2333,21 +2922,21 @@ window.mallaTecnologia = {
 
 window.mallaFisica = {
     '6': {
-        objetivo: 'Interpretar fenómenos naturales, la gravitación y los conceptos básicos de cinemática (posición, velocidad y aceleración).',
+        objetivo: '100% CONCEPTUAL SIN FÓRMULAS NI CÁLCULOS MATEMÁTICOS: Interpretar fenómenos naturales del entorno, la gravitación y los conceptos básicos del movimiento mediante observación intuitiva, modelos cualitativos y representaciones visuales.',
         periodos: {
-            '1': { '1': 'Introducción a la Física y su importancia.', '3': 'Fenómenos naturales del entorno.', '5': 'El sistema planetario.', '7': 'Ley de gravitación universal.' },
-            '2': { '1': 'Conceptos de posición y trayectoria.', '3': 'Distancia y desplazamiento.', '5': 'Velocidad y rapidez.', '7': 'Aceleración y tipos de movimiento.' },
-            '3': { '1': 'Movimiento planetario.', '3': 'Aplicación de la ley de gravitación.', '5': 'Satélites naturales vs. artificiales.', '7': 'Modelado del sistema solar.' },
-            '4': { '1': 'Concepto de impulso.', '3': 'Cantidad de movimiento (Momentum).', '5': 'Choques elásticos.', '7': 'Choques inelásticos y fuerzas internas.' }
+            '1': { '1': 'Introducción a la Física: observación intuitiva de fenómenos en la vida diaria.', '3': 'Fenómenos naturales del entorno y fuerzas cotidianas sin matemáticas.', '5': 'El sistema planetario: movimiento cualitativo de los astros.', '7': 'Noción cualitativa de atracción gravitacional (por qué caen las cosas).' },
+            '2': { '1': 'Noción cualitativa de posición y trayectoria en el entorno.', '3': 'Diferencia visual e intuitiva entre distancia y desplazamiento.', '5': 'Movimiento cotidiano: comparación cualitativa de rapidez.', '7': 'Noción cualitativa de cambio de ritmo (aceleración visual).' },
+            '3': { '1': 'Movimiento planetario conceptual: gravitación y órbitas en el espacio (sin ecuaciones).', '3': 'Atracción gravitacional cotidiana (por qué caen los objetos y cómo flotan los astronautas).', '5': 'Satélites naturales y artificiales: comunicación y observación visual de la Tierra.', '7': 'Modelado gráfico, dibujo y mapa conceptual del Sistema Solar.' },
+            '4': { '1': 'Noción intuitiva de empuje e impulso.', '3': 'Cantidad de movimiento en situaciones reales.', '5': 'Colisiones y choques cotidianos.', '7': 'Transformación y conservación cualitativa del movimiento.' }
         }
     },
     '7': {
-        objetivo: 'Analizar gráficamente el movimiento bidimensional y aplicar el principio de conservación de la energía.',
+        objetivo: '100% CONCEPTUAL SIN FÓRMULAS NI CÁLCULOS MATEMÁTICOS: Analizar cualitativa y visualmente el movimiento en dos dimensiones y el principio de conservación de la energía en la naturaleza.',
         periodos: {
-            '1': { '1': 'Escalares y vectoriales.', '3': 'Gráficas de vectores.', '5': 'Suma y resta de vectores.', '7': 'Vectores en fenómenos naturales.' },
-            '2': { '1': 'Gráficas de posición vs tiempo.', '3': 'Gráficas de velocidad vs tiempo.', '5': 'Gráficas de aceleración vs tiempo.', '7': 'Herramientas gráficas comparativas.' },
-            '3': { '1': 'Cuerpos en dos dimensiones.', '3': 'Movimiento parabólico.', '5': 'Movimiento circular.', '7': 'Problemas bidimensionales.' },
-            '4': { '1': 'Energía cinética y potencial.', '3': 'Conservación de la energía mecánica.', '5': 'Transformaciones energéticas.', '7': 'Resolución de problemas de energía.' }
+            '1': { '1': 'Noción cualitativa de dirección y sentido en fenómenos cotidianos.', '3': 'Representación gráfica e intuitiva de fuerzas en el entorno.', '5': 'Efecto cualitativo de múltiples fuerzas sobre un objeto.', '7': 'Fenómenos naturales y observación de fuerzas en la vida diaria.' },
+            '2': { '1': 'Interpretación visual de gráficos cualitativos de movimiento.', '3': 'Comparación visual de movimientos rápidos y lentos.', '5': 'Análisis gráfico cualitativo de trayectorias.', '7': 'Esquemas visuales y mapas conceptuales de movimiento.' },
+            '3': { '1': 'Movimiento en dos dimensiones en la vida real (lanzamiento de balones y proyectiles).', '3': 'Movimiento parabólico conceptual en deportes y juegos (sin fórmulas).', '5': 'Movimiento circular cualitativo en ruedas y atracciones de feria.', '7': 'Esquemas visuales y mapas mentales de movimientos combinados.' },
+            '4': { '1': 'Energía en la naturaleza: movimiento y posición desde el análisis cualitativo.', '3': 'Conservación cualitativa de la energía mecánica.', '5': 'Transformaciones energéticas cotidianas en la comunidad.', '7': 'Identificación visual de formas de energía.' }
         }
     },
     '8': {
@@ -3000,13 +3589,17 @@ function renderizarGuiaProfesor(guideData, asignatura, periodo, semanaStr, stude
         htmlRenderizado += `<h4 style="color: #4F46E5; margin-top: 0;">🧠 Saberes Previos</h4>`;
         htmlRenderizado += `<div style="background: #F3F4F6; padding: 20px; border-radius: 8px; margin-bottom: 30px;">`;
         guideData.saberes_previos.forEach((pregunta, idx) => {
+            let opcionesList = (Array.isArray(pregunta.opciones) && pregunta.opciones.length > 0) 
+                ? pregunta.opciones 
+                : (Array.isArray(pregunta.opcion) ? pregunta.opcion : ["Opción A", "Opción B", "Opción C", "Opción D"]);
+
             htmlRenderizado += `
                 <div style="margin-bottom: 15px;">
                     <p style="font-weight: bold;">${idx+1}. ${pregunta.pregunta}</p>
-                    ${pregunta.opciones.map((opcion, i) => `
-                        <label style="display: block; margin-bottom: 8px; padding: 10px; background: ${i === pregunta.correcta ? '#10B981' : 'white'}; border: 1px solid #D1D5DB; border-radius: 6px; ${i === pregunta.correcta ? 'color: white; font-weight: bold;' : ''}">
-                            <input type="radio" disabled ${i === pregunta.correcta ? 'checked' : ''} style="margin-right: 10px;">
-                            ${opcion} ${i === pregunta.correcta ? '✅' : ''}
+                    ${opcionesList.map((opcion, i) => `
+                        <label style="display: block; margin-bottom: 8px; padding: 10px; background: ${i === (pregunta.correcta !== undefined ? pregunta.correcta : 0) ? '#10B981' : 'white'}; border: 1px solid #D1D5DB; border-radius: 6px; ${i === (pregunta.correcta !== undefined ? pregunta.correcta : 0) ? 'color: white; font-weight: bold;' : ''}">
+                            <input type="radio" disabled ${i === (pregunta.correcta !== undefined ? pregunta.correcta : 0) ? 'checked' : ''} style="margin-right: 10px;">
+                            ${opcion} ${i === (pregunta.correcta !== undefined ? pregunta.correcta : 0) ? '✅' : ''}
                         </label>
                     `).join('')}
                 </div>
@@ -3737,22 +4330,49 @@ window.ingresarAGuia = async function() {
             return;
         }
         
-        // Inicializar Sticky Header
-        const user = window.usuarioEstudianteActual || JSON.parse(localStorage.getItem('usuario_sesion'));
+        // Inicializar Sticky Header y Personalización
+        const user = window.usuarioEstudianteActual || JSON.parse(localStorage.getItem('usuario_sesion') || '{}');
+        studentDisplayName = "Estudiante";
         if (user) {
             // Guardar configuración para el panel admin (Teacher View)
             const configKey = `config_${user.documento}_${asignatura}_p${periodo}_s${semanaStr}`;
             localStorage.setItem(configKey, JSON.stringify(payload));
             
-            const studentDisplayName = user.nombre || ((user.nombres || '') + ' ' + (user.apellidos || '')).trim() || 'Estudiante';
-            document.getElementById('student-guide-header-name').innerText = studentDisplayName;
-            // Calcular XP total del estudiante para esta materia y periodo
-            const xpKey = `prog_${user.documento}_${asignatura}_p${periodo}`;
-            let prog = parseInt(localStorage.getItem(xpKey)) || 1;
-            // For now, XP calculation based on progress (simplification for testing)
-            let currentXP = (prog > 1) ? (prog - 1) * 100 : 0;
-            
-            // Apply global penalties
+            if (user.nombre && user.apellidos && user.nombre !== 'Estudiante' && user.apellidos !== 'Nocturno') {
+                studentDisplayName = `${user.nombre} ${user.apellidos}`.trim();
+            } else if (user.nombre_completo) {
+                studentDisplayName = user.nombre_completo.trim();
+            } else if (user.nombre && user.nombre !== 'Estudiante') {
+                studentDisplayName = user.nombre.trim();
+            } else {
+                studentDisplayName = ((user.nombres || '') + ' ' + (user.apellidos || '')).trim() || 'Estudiante';
+            }
+
+            const avatar = user.avatar || '🚀';
+            const gradoBadge = user.grado || user.grupo || 'Ciclo VI';
+
+            const gName = document.getElementById('student-guide-header-name');
+            if (gName) gName.innerText = studentDisplayName;
+
+            const gAvatar = document.getElementById('student-guide-header-avatar');
+            if (gAvatar) gAvatar.innerText = avatar;
+
+            const gBadge = document.getElementById('student-guide-header-badge');
+            if (gBadge) gBadge.innerText = gradoBadge;
+
+            const gMateria = document.getElementById('student-guide-header-materia');
+            if (gMateria) gMateria.innerText = asignatura || 'Ciencias Naturales';
+
+            // XP
+            const doc = String(user.documento || user.usuario || '');
+            const xpKey = `xp_${doc}`;
+            let currentXP = parseInt(localStorage.getItem(xpKey)) || 0;
+            if (currentXP === 0) {
+                const progKey = `prog_${doc}_${asignatura}_p${periodo}`;
+                let prog = parseInt(localStorage.getItem(progKey)) || 1;
+                currentXP = (prog > 1) ? (prog - 1) * 100 : 0;
+            }
+
             let pKey = `penalty_${user.grupo}_p${periodo}`;
             if (asignatura) pKey = `penalty_${user.grupo}_${asignatura}_p${periodo}`;
             let penStr = localStorage.getItem(pKey);
@@ -3761,9 +4381,10 @@ window.ingresarAGuia = async function() {
                 currentXP -= (penData.total || 0);
             }
             if (currentXP < 0) currentXP = 0;
-            
-            document.getElementById('student-guide-header-xp').innerText = currentXP;
-            
+
+            const headerXP = document.getElementById('student-guide-header-xp');
+            if (headerXP) headerXP.innerText = currentXP;
+
             window.guiaActualAsignatura = asignatura;
             window.guiaActualPeriodo = periodo;
         }
@@ -3771,9 +4392,16 @@ window.ingresarAGuia = async function() {
         window.guideDataCache = guideData;
         
         let htmlRenderizado = `
-            <div style="text-align: center; margin-bottom: 20px;">
-                <h3 style="color: #1D4ED8; font-weight: 800; font-size: 1.5rem;">🎮 Tu Misión</h3>
-                <p style="color: #6B7280;">Periodo ${periodo} - Semana ${semanaStr} | ${asignatura}</p>
+            <div style="text-align: center; margin-bottom: 25px; background: linear-gradient(135deg, #EFF6FF, #F0FDF4); padding: 20px; border-radius: 16px; border: 1px solid #BFDBFE;">
+                <div style="font-size: 0.9rem; font-weight: 800; color: #2563EB; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.5px;">
+                    🎯 Misión Oficial de Aprendizaje STEAM 2026
+                </div>
+                <h3 style="color: #1E3A8A; font-weight: 900; font-size: 1.5rem; margin: 4px 0;">
+                    ${user.avatar || '🚀'} ${studentDisplayName} • Guía Periodo ${periodo}
+                </h3>
+                <p style="color: #4B5563; margin: 0; font-size: 0.95rem; font-weight: 600;">
+                    Semana ${semanaStr} | ${asignatura} | ${user.grado || user.grupo || 'Ciclo VI'}
+                </p>
             </div>
             <div class="mega-guide-container" style="background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); border: 1px solid #E5E7EB; font-family: 'Inter', sans-serif;">
         `;
@@ -3792,13 +4420,17 @@ window.ingresarAGuia = async function() {
             htmlRenderizado += `<h4 style="color: #4F46E5; margin-top: 0;">🧠 Desafío 1: Saberes Previos</h4>`;
             htmlRenderizado += `<div id="saberes-previos-container" style="background: #F3F4F6; padding: 20px; border-radius: 8px; margin-bottom: 30px;">`;
             guideData.saberes_previos.forEach((pregunta, idx) => {
-                let disabled = idx === 0 ? '' : 'disabled style="opacity:0.5;"'; // Bloquear secuencial
+                let disabled = idx === 0 ? '' : 'disabled style="opacity:0.5;"';
+                let opcionesList = (Array.isArray(pregunta.opciones) && pregunta.opciones.length > 0) 
+                    ? pregunta.opciones 
+                    : (Array.isArray(pregunta.opcion) ? pregunta.opcion : ["Opción A", "Opción B", "Opción C", "Opción D"]);
+
                 htmlRenderizado += `
                     <div class="pregunta-saberes" id="container_saber_${idx}" style="margin-bottom: 15px;" ${disabled}>
                         <p style="font-weight: bold;">${idx+1}. ${pregunta.pregunta}</p>
-                        ${pregunta.opciones.map((opcion, i) => `
+                        ${opcionesList.map((opcion, i) => `
                             <label style="display: block; margin-bottom: 8px; cursor: pointer; padding: 10px; background: white; border: 1px solid #D1D5DB; border-radius: 6px;">
-                                <input type="radio" name="saber_${idx}" value="${i}" data-correct="${pregunta.correcta}" style="margin-right: 10px;">
+                                <input type="radio" name="saber_${idx}" value="${i}" data-correct="${pregunta.correcta !== undefined ? pregunta.correcta : 0}" style="margin-right: 10px;">
                                 ${opcion}
                             </label>
                         `).join('')}
@@ -4583,20 +5215,34 @@ window.abrirHuevo = function(premio) {
     if (premio.includes("ROBAR") && !esCicloONocturno) {
         // Lógica de robo (solo para modalidades no nocturnas / ciclos)
         let htmlRobo = `
-            <div style="background: white; padding: 40px; border-radius: 20px; text-align: center; max-width: 500px;">
-                <h3 style="color: #EF4444; font-weight: 900;">😈 ¡TE HA TOCADO ${premio}!</h3>
-                <p>Elige a una víctima de tu clase:</p>
-                <select id="victima-robo" style="width: 100%; padding: 10px; margin: 20px 0; border-radius: 6px;">
+            <div style="background: white; padding: 35px 30px; border-radius: 20px; text-align: center; max-width: 500px; position: relative; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);">
+                <button onclick="document.getElementById('modal-huevos').style.display='none'" style="position: absolute; top: 15px; right: 20px; background: none; border: none; font-size: 2.2rem; cursor: pointer; color: #9CA3AF; transition: color 0.2s;" onmouseover="this.style.color='#EF4444'" onmouseout="this.style.color='#9CA3AF'">&times;</button>
+                <h3 style="color: #EF4444; font-weight: 900; font-size: 1.5rem; margin-top: 5px;">😈 ¡TE HA TOCADO ${premio}!</h3>
+                <p style="color: #4B5563; font-size: 0.95rem;">Elige a un compañero de tu clase para reclamar los puntos:</p>
+                <select id="victima-robo" style="width: 100%; padding: 12px; margin: 15px 0 25px 0; border-radius: 8px; border: 1px solid #CBD5E1; font-weight: 600; font-size: 0.95rem; background: white;">
         `;
         // Buscar compañeros
         let todos = JSON.parse(localStorage.getItem('usuarios_db')) || [];
         let compas = todos.filter(u => u.rol === 'estudiante' && u.grupo === user.grupo && u.documento !== user.documento);
-        compas.forEach(c => {
-            htmlRobo += `<option value="${c.documento}">${c.nombres} ${c.apellidos}</option>`;
-        });
-        htmlRobo += `</select>
-            <button onclick="ejecutarRobo('${premio}')" style="background: #EF4444; color: white; padding: 10px 20px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; width: 100%;">¡Ejecutar Robo!</button>
-        </div>`;
+        if (compas.length > 0) {
+            compas.forEach(c => {
+                const nom = c.nombre || c.nombres || 'Estudiante';
+                const ape = c.apellidos || '';
+                htmlRobo += `<option value="${c.documento}">${nom} ${ape}</option>`;
+            });
+            htmlRobo += `</select>
+                <div style="display: flex; gap: 12px; justify-content: center;">
+                    <button onclick="document.getElementById('modal-huevos').style.display='none'" style="background: #F1F5F9; color: #475569; padding: 12px 20px; border: 1px solid #CBD5E1; border-radius: 10px; font-weight: 800; cursor: pointer; flex: 1;">✕ Cerrar</button>
+                    <button onclick="ejecutarRobo('${premio}')" style="background: linear-gradient(135deg, #EF4444, #DC2626); color: white; padding: 12px 20px; border: none; border-radius: 10px; font-weight: 900; cursor: pointer; flex: 1; box-shadow: 0 4px 12px rgba(239,68,68,0.3);">⚡ ¡Ejecutar Robo!</button>
+                </div>`;
+        } else {
+            htmlRobo += `<option value="">No hay compañeros matriculados en tu grupo aún</option></select>
+                <p style="color: #059669; font-size: 0.95rem; font-weight: bold; background: #ECFDF5; padding: 10px; border-radius: 8px; margin-bottom: 20px;">🎉 ¡Se te otorgará un bono directo de +30 XP en su lugar!</p>
+                <div style="display: flex; gap: 12px; justify-content: center;">
+                    <button onclick="document.getElementById('modal-huevos').style.display='none'" style="background: linear-gradient(135deg, #10B981, #059669); color: white; padding: 12px 20px; border: none; border-radius: 10px; font-weight: 900; cursor: pointer; width: 100%; box-shadow: 0 4px 12px rgba(16,185,129,0.3);">✓ Reclamar Bono (+30 XP)</button>
+                </div>`;
+        }
+        htmlRobo += `</div>`;
         modal.innerHTML = htmlRobo;
     } else {
         // Bono directo
