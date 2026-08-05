@@ -178,7 +178,19 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
                         try: usuarios = json.load(f)
                         except json.JSONDecodeError: pass
                 
-                usuarios.append(datos)
+                doc_norm = str(datos.get('documento', '')).strip().replace('.', '').replace(',', '').replace('-', '').replace(' ', '')
+                found_idx = -1
+                for idx, u in enumerate(usuarios):
+                    u_doc = str(u.get('documento', '')).strip().replace('.', '').replace(',', '').replace('-', '').replace(' ', '')
+                    if u_doc and u_doc == doc_norm:
+                        found_idx = idx
+                        break
+                
+                if found_idx >= 0:
+                    usuarios[found_idx].update(datos)
+                else:
+                    usuarios.append(datos)
+                
                 with open(archivo_db, 'w', encoding='utf-8') as f:
                     json.dump(usuarios, f, indent=4, ensure_ascii=False)
 
@@ -208,22 +220,40 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
                 usuario_input = creds.get('usuario', '').strip()
                 clave_input = creds.get('clave', '').strip()
                 
+                norm_user = usuario_input.replace('.', '').replace(',', '').replace('-', '').replace(' ', '').lower()
+                norm_pass = clave_input.replace('.', '').replace(',', '').replace('-', '').replace(' ', '').lower()
+                
                 archivo_db = 'usuarios.json'
                 encontrado = False
-                nombre_estudiante = ""
+                usuario_encontrado = None
 
                 if os.path.exists(archivo_db):
                     with open(archivo_db, 'r', encoding='utf-8') as f:
                         usuarios = json.load(f)
                         for u in usuarios:
-                            if str(u.get('documento', '')) == usuario_input and str(u.get('documento', '')) == clave_input:
-                                encontrado = True
-                                nombre_estudiante = f"{u.get('nombre', '')} {u.get('apellidos', '')}"
-                                break
+                            u_doc = str(u.get('documento', '')).strip().replace('.', '').replace(',', '').replace('-', '').replace(' ', '').lower()
+                            if u_doc and u_doc == norm_user:
+                                if norm_pass == norm_user or norm_pass == u_doc or clave_input == str(u.get('clave', '')) or clave_input == str(u.get('documento', '')):
+                                    encontrado = True
+                                    usuario_encontrado = u
+                                    break
 
-                if encontrado:
+                if encontrado and usuario_encontrado:
+                    nombre_estudiante = f"{usuario_encontrado.get('nombre', '')} {usuario_encontrado.get('apellidos', '')}".strip()
                     print(f"[EXITO] LOGIN EXITOSO: {nombre_estudiante}")
-                    respuesta_json = {"status": "success", "nombre": nombre_estudiante}
+                    respuesta_json = {
+                        "status": "success",
+                        "usuario": usuario_encontrado.get('documento', usuario_input),
+                        "nombre": nombre_estudiante or "Estudiante",
+                        "rol": "validacion" if (str(usuario_encontrado.get('institucion', '')).lower() == 'validacion' or 'ciclo' in str(usuario_encontrado.get('grupo', '')).lower() or 'ciclo' in str(usuario_encontrado.get('grado', '')).lower()) else "estudiante",
+                        "grado": usuario_encontrado.get('grado', usuario_encontrado.get('grupo', '')),
+                        "grupo": usuario_encontrado.get('grupo', usuario_encontrado.get('grado', '')),
+                        "asignatura": usuario_encontrado.get('asignatura', 'Ciencias Naturales'),
+                        "institucion": usuario_encontrado.get('institucion', 'IE Instituto Montenegro'),
+                        "pago_realizado": True,
+                        "pago_activo": True,
+                        "usuarioObj": usuario_encontrado
+                    }
                 else:
                     print(f"[FALLO] LOGIN FALLIDO: Documento {usuario_input}")
                     respuesta_json = {"status": "error", "message": "Credenciales inválidas"}
@@ -233,7 +263,6 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
                 codigo_http = 500
                 respuesta_json = {"status": "error", "error_desc": str(e)}
 
-            # Envío ÚNICO de cabeceras y cuerpo (Garantiza que no haya texto HTTP en el JSON)
             self.send_response(codigo_http)
             self.send_header('Content-Type', 'application/json')
             self.send_header('Access-Control-Allow-Origin', '*')

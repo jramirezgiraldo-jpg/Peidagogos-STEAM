@@ -4181,16 +4181,23 @@ window.verificarEscrituraIA = function(textarea) {
 // FASE 3: MINIJUEGOS INTERACTIVOS
 // ==========================================
 
-// --- ORDENAR LETRAS Y PALABRAS ---
+// --- ORDENAR LETRAS Y PALABRAS (TOUCH + DRAG & DROP) ---
+let selectedSwapItem = null;
 window.renderizarJuegoOrdenar = function(items, tipo) {
-    let html = `<div class="juego-ordenar-container" style="display: flex; flex-wrap: wrap; gap: 10px; margin: 15px 0;">`;
-    // Desordenar
     let desordenado = [...items].sort(() => Math.random() - 0.5);
-    desordenado.forEach((item, idx) => {
-        html += `<div class="draggable-item" draggable="true" ondragstart="dragItem(event)" ondragover="allowDropItem(event)" ondrop="dropItem(event)" data-original="${item}" data-tipo="${tipo}" style="background: #3B82F6; color: white; padding: 10px 15px; border-radius: 8px; cursor: grab; font-weight: bold; user-select: none;">${item}</div>`;
+    if (desordenado.length > 1 && desordenado.join('') === items.join('')) {
+        desordenado.reverse();
+    }
+    const containerId = 'ord_' + Math.random().toString(36).substr(2, 9);
+    let html = `<div id="${containerId}" class="juego-ordenar-container" style="display: flex; flex-wrap: wrap; gap: 10px; margin: 15px 0; align-items: center;">`;
+    desordenado.forEach((item) => {
+        html += `<div class="draggable-item" draggable="true" ondragstart="dragItem(event)" ondragover="allowDropItem(event)" ondrop="dropItem(event)" onclick="tapSwapItem(this)" data-original="${item}" data-tipo="${tipo}" style="background: linear-gradient(135deg, #3B82F6, #2563EB); color: white; padding: 10px 16px; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 1rem; user-select: none; box-shadow: 0 2px 4px rgba(0,0,0,0.1); transition: transform 0.15s, box-shadow 0.15s, background 0.15s;">${item}</div>`;
     });
     html += `</div>`;
-    html += `<button onclick="verificarOrden(this, '${items.join('')}')" style="background: #10B981; color: white; padding: 8px 16px; border: none; border-radius: 6px; cursor: pointer; font-weight: bold;">Verificar Orden</button>`;
+    html += `<div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+        <button onclick="verificarOrden(this, '${items.join('')}')" style="background: #10B981; color: white; padding: 9px 20px; border: none; border-radius: 8px; cursor: pointer; font-weight: 800; font-size: 0.95rem; box-shadow: 0 2px 5px rgba(16,185,129,0.3); transition: background 0.2s;">✨ Verificar Orden</button>
+        <span style="font-size: 0.85rem; color: #64748B;">💡 Arrastra o toca dos fichas para intercambiarlas</span>
+    </div>`;
     return html;
 };
 
@@ -4218,27 +4225,50 @@ window.dropItem = function(e) {
     }
 };
 
+window.tapSwapItem = function(elem) {
+    if (!selectedSwapItem) {
+        selectedSwapItem = elem;
+        elem.style.transform = "scale(1.1)";
+        elem.style.boxShadow = "0 0 0 3px #FBBF24, 0 4px 10px rgba(0,0,0,0.2)";
+    } else if (selectedSwapItem === elem) {
+        selectedSwapItem.style.transform = "none";
+        selectedSwapItem.style.boxShadow = "0 2px 4px rgba(0,0,0,0.1)";
+        selectedSwapItem = null;
+    } else {
+        const parent = elem.parentNode;
+        if (parent === selectedSwapItem.parentNode) {
+            const next1 = elem.nextSibling === selectedSwapItem ? elem : elem.nextSibling;
+            parent.insertBefore(elem, selectedSwapItem);
+            parent.insertBefore(selectedSwapItem, next1);
+        }
+        selectedSwapItem.style.transform = "none";
+        selectedSwapItem.style.boxShadow = "0 2px 4px rgba(0,0,0,0.1)";
+        selectedSwapItem = null;
+    }
+};
+
 window.verificarOrden = function(btn, correctStr) {
-    let parent = btn.previousElementSibling;
-    let items = Array.from(parent.children).map(el => el.innerText).join('');
-    if (items === correctStr) {
-        btn.innerHTML = "✅ ¡Correcto!";
+    let parent = btn.parentElement.previousElementSibling;
+    if (!parent) return;
+    let items = Array.from(parent.children).map(el => el.innerText.trim()).join('');
+    if (items.toUpperCase() === correctStr.toUpperCase()) {
+        btn.innerHTML = "✅ ¡Correcto! (+30 XP)";
         btn.style.background = "#10B981";
         btn.disabled = true;
-        parent.style.opacity = "0.6";
+        parent.style.opacity = "0.7";
         parent.style.pointerEvents = "none";
-        mostrarHuevos(); // Recompensa
+        if (typeof mostrarHuevos === 'function') mostrarHuevos();
     } else {
         btn.innerHTML = "❌ Intenta de nuevo";
         btn.style.background = "#EF4444";
         setTimeout(() => {
-            btn.innerHTML = "Verificar Orden";
+            btn.innerHTML = "✨ Verificar Orden";
             btn.style.background = "#10B981";
         }, 1500);
     }
 };
 
-// --- SOPA DE LETRAS ---
+// --- SOPA DE LETRAS PROFESIONAL Y COMPLETA ---
 window.renderizarSopaLetras = function(arg1, arg2) {
     let containerId = null;
     let palabras = [];
@@ -4250,26 +4280,29 @@ window.renderizarSopaLetras = function(arg1, arg2) {
         palabras = Array.isArray(arg1) ? arg1 : (typeof arg1 === 'string' ? arg1.split(',') : []);
     }
     
-    palabras = palabras.map(p => p.trim().toUpperCase()).filter(p => p.length > 0);
+    palabras = palabras.map(p => p.trim().toUpperCase().replace(/[^A-ZÁÉÍÓÚÑ]/g, '')).filter(p => p.length > 0);
+    if (palabras.length === 0) palabras = ["CIENCIA", "METODO", "HIPOTESIS", "EXPERIMENTO"];
     
-    const size = 14;
+    const size = Math.max(12, Math.min(15, Math.max(...palabras.map(p => p.length)) + 2));
     let grid = Array(size).fill(null).map(() => Array(size).fill(''));
     const letras = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
     
-    // Intentar ubicar palabras en la cuadrícula
-    palabras.forEach((pal, idx) => {
+    palabras.forEach(pal => {
         let placed = false;
         let attempts = 0;
-        while (!placed && attempts < 50) {
+        while (!placed && attempts < 80) {
             attempts++;
-            let dir = Math.random() > 0.5 ? 'H' : 'V'; // Horizontal o Vertical
-            let row = Math.floor(Math.random() * (dir === 'H' ? size : size - pal.length + 1));
-            let col = Math.floor(Math.random() * (dir === 'H' ? size - pal.length + 1 : size));
+            let dir = Math.random() < 0.4 ? 'H' : (Math.random() < 0.7 ? 'V' : 'D');
+            let maxR = dir === 'H' ? size : size - pal.length + 1;
+            let maxC = dir === 'V' ? size : size - pal.length + 1;
+            if (maxR <= 0 || maxC <= 0) continue;
+            let row = Math.floor(Math.random() * maxR);
+            let col = Math.floor(Math.random() * maxC);
             
             let canPlace = true;
             for (let i = 0; i < pal.length; i++) {
-                let r = dir === 'H' ? row : row + i;
-                let c = dir === 'H' ? col + i : col;
+                let r = dir === 'H' ? row : (dir === 'V' ? row + i : row + i);
+                let c = dir === 'H' ? col + i : (dir === 'V' ? col : col + i);
                 if (grid[r][c] !== '' && grid[r][c] !== pal[i]) {
                     canPlace = false;
                     break;
@@ -4277,8 +4310,8 @@ window.renderizarSopaLetras = function(arg1, arg2) {
             }
             if (canPlace) {
                 for (let i = 0; i < pal.length; i++) {
-                    let r = dir === 'H' ? row : row + i;
-                    let c = dir === 'H' ? col + i : col;
+                    let r = dir === 'H' ? row : (dir === 'V' ? row + i : row + i);
+                    let c = dir === 'H' ? col + i : (dir === 'V' ? col : col + i);
                     grid[r][c] = pal[i];
                 }
                 placed = true;
@@ -4286,7 +4319,6 @@ window.renderizarSopaLetras = function(arg1, arg2) {
         }
     });
 
-    // Llenar vacíos con letras aleatorias
     for(let r=0; r<size; r++) {
         for(let c=0; c<size; c++) {
             if (grid[r][c] === '') {
@@ -4296,28 +4328,30 @@ window.renderizarSopaLetras = function(arg1, arg2) {
     }
 
     let html = `
-        <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start; justify-content: center;">
-            <div style="display: grid; grid-template-columns: repeat(${size}, minmax(22px, 28px)); gap: 3px; background: #F1F5F9; padding: 10px; border-radius: 8px; border: 1px solid #CBD5E1; user-select: none;">
+        <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start; justify-content: center; width: 100%;">
+            <div style="overflow-x: auto; max-width: 100%; background: #F8FAFC; padding: 12px; border-radius: 12px; border: 1.5px solid #CBD5E1; user-select: none; box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);">
+                <div style="display: grid; grid-template-columns: repeat(${size}, minmax(24px, 30px)); gap: 3px;">
     `;
     for(let r=0; r<size; r++) {
         for(let c=0; c<size; c++) {
-            html += `<div style="aspect-ratio: 1; display: flex; align-items: center; justify-content: center; background: white; border-radius: 4px; font-weight: 700; font-size: 0.95rem; color: #1E293B; cursor: pointer; border: 1px solid #E2E8F0; transition: background 0.15s;" onclick="this.style.background = this.style.background === 'rgb(253, 230, 138)' ? 'white' : '#FDE68A'">${grid[r][c]}</div>`;
+            html += `<div style="aspect-ratio: 1; display: flex; align-items: center; justify-content: center; background: white; border-radius: 4px; font-weight: 800; font-size: 0.95rem; color: #1E293B; cursor: pointer; border: 1px solid #E2E8F0; transition: background 0.15s, transform 0.1s;" onclick="this.style.background = (this.style.background === 'rgb(253, 230, 138)' || this.style.background === '#FDE68A') ? 'white' : '#FDE68A';">${grid[r][c]}</div>`;
         }
     }
     html += `
+                </div>
             </div>
-            <div style="flex: 1; min-width: 200px; background: white; padding: 15px; border-radius: 8px; border: 1px solid #E2E8F0;">
-                <p style="margin: 0 0 10px 0; font-weight: 700; color: #1E293B;">🔍 Palabras a encontrar (${palabras.length}):</p>
-                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 6px;">
+            <div style="flex: 1; min-width: 220px; background: white; padding: 18px; border-radius: 12px; border: 1.5px solid #E2E8F0; box-shadow: 0 4px 6px rgba(0,0,0,0.04);">
+                <p style="margin: 0 0 12px 0; font-weight: 800; color: #1E293B; font-size: 1rem;">🔍 Palabras a encontrar (${palabras.length}):</p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 8px;">
                     ${palabras.map(p => `
-                        <label style="display: flex; align-items: center; gap: 6px; font-size: 0.88rem; color: #475569; cursor: pointer;">
-                            <input type="checkbox" onchange="this.parentElement.style.textDecoration = this.checked ? 'line-through' : 'none'; this.parentElement.style.color = this.checked ? '#10B981' : '#475569';">
+                        <label style="display: flex; align-items: center; gap: 8px; font-size: 0.9rem; color: #475569; cursor: pointer; user-select: none; padding: 4px; border-radius: 4px; background: #F8FAFC;">
+                            <input type="checkbox" onchange="this.parentElement.style.textDecoration = this.checked ? 'line-through' : 'none'; this.parentElement.style.color = this.checked ? '#10B981' : '#475569'; this.parentElement.style.fontWeight = this.checked ? 'bold' : 'normal';">
                             <span>${p}</span>
                         </label>
                     `).join('')}
                 </div>
-                <button onclick="this.disabled=true; this.innerHTML='✅ ¡Sopa Completada! (+40 XP)'; this.style.background='#10B981'; mostrarHuevos();" style="margin-top: 15px; width: 100%; background: #F59E0B; color: white; border: none; padding: 8px 12px; border-radius: 6px; font-weight: bold; cursor: pointer; transition: background 0.2s;">
-                    Verificar Sopa de Letras
+                <button onclick="this.disabled=true; this.innerHTML='✅ ¡Sopa Completada! (+40 XP)'; this.style.background='#10B981'; if(typeof mostrarHuevos==='function') mostrarHuevos();" style="margin-top: 18px; width: 100%; background: #F59E0B; color: white; border: none; padding: 10px 16px; border-radius: 8px; font-weight: 800; cursor: pointer; transition: background 0.2s; box-shadow: 0 4px 10px rgba(245,158,11,0.3);">
+                    ✨ Verificar Sopa de Letras
                 </button>
             </div>
         </div>
@@ -4330,7 +4364,7 @@ window.renderizarSopaLetras = function(arg1, arg2) {
     return html;
 };
 
-// --- CRUCIGRAMA ---
+// --- CRUCIGRAMA PROFESIONAL Y COMPLETO ---
 window.renderizarCrucigrama = function(arg1, arg2) {
     let containerId = null;
     let datos = [];
@@ -4343,7 +4377,6 @@ window.renderizarCrucigrama = function(arg1, arg2) {
     }
     
     if (typeof datos === 'string') {
-        // Formato: "Pista 1|PALABRA1;Pista 2|PALABRA2"
         datos = datos.split(';').map(item => {
             let p = item.split('|');
             return {
@@ -4354,24 +4387,37 @@ window.renderizarCrucigrama = function(arg1, arg2) {
     }
     
     if (!Array.isArray(datos)) datos = [];
+    if (datos.length === 0) {
+        datos = [
+            { pista: "Unidad biológica fundamental de todo ser vivo", palabra: "CELULA" },
+            { pista: "Molécula que almacena el código genético", palabra: "ADN" },
+            { pista: "Proceso por el cual las plantas producen su alimento con luz solar", palabra: "FOTOSINTESIS" }
+        ];
+    }
 
     let html = `
-        <div style="background: #F8FAFC; padding: 20px; border: 1px solid #CBD5E1; border-radius: 8px;">
-            <p style="margin: 0 0 15px 0; color: #475569; font-size: 0.9rem;">Escribe la palabra correspondiente a cada pista conceptual en MAYÚSCULAS:</p>
-            <div style="display: flex; flex-direction: column; gap: 12px;">
+        <div style="background: #F8FAFC; padding: 20px; border: 1.5px solid #CBD5E1; border-radius: 12px; width: 100%; box-sizing: border-box;">
+            <p style="margin: 0 0 15px 0; color: #475569; font-size: 0.95rem; font-weight: 600;">Escribe cada letra correspondiente a la pista conceptual:</p>
+            <div style="display: flex; flex-direction: column; gap: 14px;">
     `;
     datos.forEach((item, idx) => {
+        const pal = item.palabra.toUpperCase().trim();
         html += `
-            <div style="background: white; padding: 12px 15px; border-radius: 8px; border: 1px solid #E2E8F0;">
-                <p style="margin: 0 0 6px 0; font-size: 0.95rem; color: #1E293B;"><strong>${idx+1}.</strong> ${item.pista}</p>
-                <input type="text" style="padding: 6px 10px; font-weight: bold; letter-spacing: 2px; text-transform: uppercase; border: 1.5px solid #CBD5E1; border-radius: 6px; width: 100%; max-width: 300px;" data-correct="${item.palabra}" placeholder="Escribe aquí..." oninput="verificarPalabraCrucigrama(this)">
+            <div class="crucigrama-item" data-correct="${pal}" style="background: white; padding: 14px 18px; border-radius: 10px; border: 1.5px solid #E2E8F0; box-shadow: 0 2px 4px rgba(0,0,0,0.03);">
+                <p style="margin: 0 0 8px 0; font-size: 0.95rem; color: #1E293B;"><strong>${idx+1}.</strong> ${item.pista}</p>
+                <div style="display: flex; gap: 4px; overflow-x: auto; padding-bottom: 4px; align-items: center;">
+                    ${pal.split('').map((char) => `
+                        <input type="text" maxlength="1" data-letter="${char}" style="width: 32px; height: 36px; min-width: 32px; text-align: center; font-weight: 800; font-size: 1.1rem; border: 2px solid #CBD5E1; border-radius: 6px; text-transform: uppercase; outline: none; transition: border-color 0.2s, background 0.2s;" oninput="validarCasillaCrucigrama(this)" onkeydown="manejarKeyCrucigrama(event, this)">
+                    `).join('')}
+                    <span class="status-icon" style="margin-left: 8px; font-size: 1.2rem; display: none;">✅</span>
+                </div>
             </div>
         `;
     });
     html += `
             </div>
-            <button onclick="verificarCrucigramaCompleto(this, ${datos.length})" style="margin-top: 18px; background: #3B82F6; color: white; padding: 10px 20px; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; transition: background 0.2s;">
-                Validar Crucigrama Completo
+            <button onclick="verificarCrucigramaCompleto(this, ${datos.length})" style="margin-top: 20px; background: linear-gradient(135deg, #3B82F6, #2563EB); color: white; padding: 12px 24px; border: none; border-radius: 8px; cursor: pointer; font-weight: 800; font-size: 1rem; box-shadow: 0 4px 12px rgba(37,99,235,0.3); transition: transform 0.1s;">
+                ✨ Validar Crucigrama Completo
             </button>
         </div>
     `;
@@ -4383,26 +4429,61 @@ window.renderizarCrucigrama = function(arg1, arg2) {
     return html;
 };
 
-window.verificarPalabraCrucigrama = function(input) {
-    if(input.value.toUpperCase() === input.getAttribute('data-correct').toUpperCase()) {
-        input.style.border = "2px solid #10B981";
-        input.style.background = "#D1FAE5";
-        input.disabled = true;
+window.validarCasillaCrucigrama = function(input) {
+    input.value = input.value.toUpperCase();
+    const row = input.closest('.crucigrama-item');
+    if (!row) return;
+    
+    if (input.value.length === 1) {
+        const next = input.nextElementSibling;
+        if (next && next.tagName === 'INPUT') next.focus();
+    }
+    
+    const inputs = Array.from(row.querySelectorAll('input'));
+    const word = inputs.map(i => i.value.toUpperCase()).join('');
+    const target = row.getAttribute('data-correct');
+    const icon = row.querySelector('.status-icon');
+    
+    if (word === target) {
+        inputs.forEach(i => {
+            i.style.borderColor = "#10B981";
+            i.style.background = "#D1FAE5";
+            i.style.color = "#065F46";
+        });
+        if (icon) icon.style.display = "inline";
     } else {
-        input.style.border = "2px solid #EF4444";
-        input.value = "";
+        if (icon) icon.style.display = "none";
     }
 };
+
+window.manejarKeyCrucigrama = function(e, input) {
+    if (e.key === 'Backspace' && !input.value) {
+        const prev = input.previousElementSibling;
+        if (prev && prev.tagName === 'INPUT') {
+            prev.focus();
+        }
+    }
+};
+
 window.verificarCrucigramaCompleto = function(btn, total) {
     let parent = btn.parentElement;
-    let inputs = parent.querySelectorAll('input:disabled');
-    if(inputs.length === total) {
-        btn.innerHTML = "✅ ¡Crucigrama Perfecto!";
+    let items = parent.querySelectorAll('.crucigrama-item');
+    let correctCount = 0;
+    
+    items.forEach(item => {
+        const inputs = Array.from(item.querySelectorAll('input'));
+        const word = inputs.map(i => i.value.toUpperCase()).join('');
+        const target = item.getAttribute('data-correct');
+        if (word === target) correctCount++;
+    });
+    
+    if (correctCount === total) {
+        btn.innerHTML = "✅ ¡Crucigrama Perfecto! (+50 XP)";
         btn.style.background = "#10B981";
         btn.disabled = true;
-        mostrarHuevos();
+        if (typeof mostrarHuevos === 'function') mostrarHuevos();
     } else {
-        alert("Faltan palabras por resolver.");
+        alert(`Tienes ${correctCount} de ${total} palabras correctas. ¡Revisa las que faltan!`);
     }
 };
 
@@ -4585,94 +4666,6 @@ window.ejecutarRobo = function(premio) {
     document.getElementById('modal-huevos').style.display = 'none';
 };
 
-window.renderizarSopaLetras = function(containerId, palabras) {
-    const container = document.getElementById(containerId);
-    if (!container) return;
-    
-    // Generar una sopa de letras simple 10x10
-    const size = 10;
-    let grid = Array(size).fill(null).map(() => Array(size).fill(''));
-    const letras = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    
-    palabras.forEach(palabra => {
-        let p = palabra.toUpperCase().replace(/[^A-Z]/g, '');
-        if (p.length > size) p = p.substring(0, size);
-        let placed = false;
-        let attempts = 0;
-        while (!placed && attempts < 50) {
-            let row = Math.floor(Math.random() * size);
-            let col = Math.floor(Math.random() * size);
-            let dir = Math.random() > 0.5 ? 'H' : 'V';
-            
-            if (dir === 'H' && col + p.length <= size) {
-                let canPlace = true;
-                for (let i=0; i<p.length; i++) {
-                    if (grid[row][col+i] !== '' && grid[row][col+i] !== p[i]) {
-                        canPlace = false;
-                        break;
-                    }
-                }
-                if (canPlace) {
-                    for (let i=0; i<p.length; i++) grid[row][col+i] = p[i];
-                    placed = true;
-                }
-            } else if (dir === 'V' && row + p.length <= size) {
-                let canPlace = true;
-                for (let i=0; i<p.length; i++) {
-                    if (grid[row+i][col] !== '' && grid[row+i][col] !== p[i]) {
-                        canPlace = false;
-                        break;
-                    }
-                }
-                if (canPlace) {
-                    for (let i=0; i<p.length; i++) grid[row+i][col] = p[i];
-                    placed = true;
-                }
-            }
-            attempts++;
-        }
-    });
-    
-    // Rellenar vacíos
-    for (let i=0; i<size; i++) {
-        for (let j=0; j<size; j++) {
-            if (grid[i][j] === '') grid[i][j] = letras[Math.floor(Math.random() * letras.length)];
-        }
-    }
-    
-    let html = `<div style="display:grid; grid-template-columns:repeat(${size}, 30px); gap:2px; margin-bottom:10px;">`;
-    for (let i=0; i<size; i++) {
-        for (let j=0; j<size; j++) {
-            html += `<div style="width:30px; height:30px; background:white; border:1px solid #D1D5DB; display:flex; align-items:center; justify-content:center; font-weight:bold; cursor:pointer;" onclick="this.style.background='#FDE047'; this.style.borderColor='#EAB308';">${grid[i][j]}</div>`;
-        }
-    }
-    html += `</div><div style="font-size:0.9rem; color:#6B7280;">Encuentra: <b>${palabras.join(', ')}</b></div>`;
-    container.innerHTML = html;
-};
-
-window.renderizarCrucigrama = function(containerId, datosCrucigrama) {
-    const container = document.getElementById(containerId);
-    if (!container) return;
-    
-    let pistas = datosCrucigrama.split(';');
-    let html = `<div style="width: 100%; max-width: 400px; text-align: left;">`;
-    pistas.forEach((pistaStr, i) => {
-        let parts = pistaStr.split('|');
-        if (parts.length === 2) {
-            let desc = parts[0].trim();
-            let res = parts[1].trim().toUpperCase();
-            html += `
-            <div style="margin-bottom: 10px;">
-                <div style="font-weight: bold; font-size: 0.9rem; margin-bottom: 5px;">${i+1}. ${desc}</div>
-                <div style="display:flex; gap:2px; overflow-x: auto; padding-bottom: 5px;">
-                    ${res.split('').map(l => `<input type="text" maxlength="1" oninput="this.value = this.value.toUpperCase(); if(this.value === '${l}') { this.style.background = '#BBF7D0'; this.style.borderColor='#22C55E'; } else { this.style.background = 'white'; }" style="width:30px; height:30px; min-width:30px; text-align:center; font-weight:bold; border:1px solid #9CA3AF; border-radius:4px; text-transform:uppercase;">`).join('')}
-                </div>
-            </div>`;
-        }
-    });
-    html += `</div>`;
-    container.innerHTML = html;
-};
 
 // ==========================================
 // HISTORY API INTERCEPTOR (NAVEGACI�N BOT�N ATR�S)

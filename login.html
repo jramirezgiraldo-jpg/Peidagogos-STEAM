@@ -325,18 +325,18 @@
                         "10": "Matemáticas, Física, Química, Ciencias Naturales, Lengua Castellana, Ciencias Sociales, Inglés, Tecnología, Filosofía y Ética",
                         "11": "Matemáticas, Física, Química, Ciencias Naturales, Lengua Castellana, Ciencias Sociales, Inglés, Tecnología, Filosofía y Ética, Turismo"
                     };
-                    materias = mapaHome[grado] || "Matemáticas, Ciencias Naturales, Física, Lengua Castellana, Ciencias Sociales, Inglés, Tecnología";
+                    materias = mapaHome[grado] || "Ciencias Naturales, Matemáticas, Física, Lengua Castellana, Ciencias Sociales, Inglés, Tecnología";
                 } else if (ie === "Validacion" || (grado && grado.includes("Ciclo")) || (grupo && grupo.includes("Ciclo"))) {
-                    const cicloVal = grado || grupo || "Ciclo III";
+                    const cicloVal = (grado && grado.includes("Ciclo")) ? grado : (grupo && grupo.includes("Ciclo") ? grupo : (grado || grupo || "Ciclo VI"));
                     const mapaCiclos = {
-                        "Ciclo I": "Matemáticas, Ciencias Naturales, Lengua Castellana, Ciencias Sociales",
-                        "Ciclo II": "Matemáticas, Ciencias Naturales, Lengua Castellana, Ciencias Sociales, Inglés",
-                        "Ciclo III": "Matemáticas, Ciencias Naturales, Física, Lengua Castellana, Ciencias Sociales, Inglés, Tecnología",
-                        "Ciclo IV": "Matemáticas, Ciencias Naturales, Física, Lengua Castellana, Ciencias Sociales, Inglés, Tecnología",
-                        "Ciclo V": "Matemáticas, Física, Química, Ciencias Naturales, Lengua Castellana, Ciencias Sociales, Inglés, Filosofía y Ética",
-                        "Ciclo VI": "Matemáticas, Física, Química, Ciencias Naturales, Lengua Castellana, Ciencias Sociales, Inglés, Filosofía y Ética"
+                        "Ciclo I": "Ciencias Naturales, Matemáticas, Lengua Castellana, Ciencias Sociales",
+                        "Ciclo II": "Ciencias Naturales, Matemáticas, Lengua Castellana, Ciencias Sociales, Inglés",
+                        "Ciclo III": "Ciencias Naturales, Matemáticas, Física, Lengua Castellana, Ciencias Sociales, Inglés, Tecnología",
+                        "Ciclo IV": "Ciencias Naturales, Matemáticas, Física, Lengua Castellana, Ciencias Sociales, Inglés, Tecnología",
+                        "Ciclo V": "Ciencias Naturales, Matemáticas, Física, Química, Lengua Castellana, Ciencias Sociales, Inglés, Filosofía y Ética",
+                        "Ciclo VI": "Ciencias Naturales, Matemáticas, Física, Química, Lengua Castellana, Ciencias Sociales, Inglés, Filosofía y Ética"
                     };
-                    materias = mapaCiclos[cicloVal] || "Matemáticas, Ciencias Naturales, Física, Lengua Castellana, Ciencias Sociales, Inglés, Filosofía y Ética";
+                    materias = mapaCiclos[cicloVal] || "Ciencias Naturales, Matemáticas, Física, Química, Lengua Castellana, Ciencias Sociales, Inglés, Filosofía y Ética";
                 } else if (ie === "InstitutoMontenegro") {
                     const mapaMontenegro = {
                         "6A": "Física, Matemáticas, Ciencias Naturales, Lengua Castellana, Ciencias Sociales, Inglés, Tecnología, Educación Artística, Ética",
@@ -349,9 +349,15 @@
                         "9A": "Artística, Matemáticas, Ciencias Naturales, Física, Lengua Castellana, Ciencias Sociales, Inglés, Tecnología, Ética",
                         "10A": "Ética, Matemáticas, Física, Química, Ciencias Naturales, Lengua Castellana, Ciencias Sociales, Inglés, Tecnología",
                         "10D": "Ética, Matemáticas, Física, Química, Ciencias Naturales, Lengua Castellana, Ciencias Sociales, Inglés, Tecnología",
-                        "PENS": "Química, Turismo, Matemáticas, Física, Ciencias Naturales, Lengua Castellana, Ciencias Sociales, Inglés, Filosofía"
+                        "PENS": "Química, Turismo, Matemáticas, Física, Ciencias Naturales, Lengua Castellana, Ciencias Sociales, Inglés, Filosofía",
+                        "Ciclo I": "Ciencias Naturales, Matemáticas, Lengua Castellana, Ciencias Sociales",
+                        "Ciclo II": "Ciencias Naturales, Matemáticas, Lengua Castellana, Ciencias Sociales, Inglés",
+                        "Ciclo III": "Ciencias Naturales, Matemáticas, Física, Lengua Castellana, Ciencias Sociales, Inglés, Tecnología",
+                        "Ciclo IV": "Ciencias Naturales, Matemáticas, Física, Lengua Castellana, Ciencias Sociales, Inglés, Tecnología",
+                        "Ciclo V": "Ciencias Naturales, Matemáticas, Física, Química, Lengua Castellana, Ciencias Sociales, Inglés, Filosofía y Ética",
+                        "Ciclo VI": "Ciencias Naturales, Matemáticas, Física, Química, Lengua Castellana, Ciencias Sociales, Inglés, Filosofía y Ética"
                     };
-                    materias = mapaMontenegro[grupo] || "Física, Matemáticas, Ciencias Naturales, Lengua Castellana, Ciencias Sociales, Inglés, Tecnología";
+                    materias = mapaMontenegro[grupo] || "Ciencias Naturales, Matemáticas, Lengua Castellana, Ciencias Sociales, Inglés, Tecnología";
                 }
                 
                 if (materias) {
@@ -1129,8 +1135,8 @@
         </div>
     </div>
 
-    <script src="diagnostico_nocturno.js?v=20260804_v5"></script>
-    <script src="app.js?v=20260804_v5"></script>
+    <script src="diagnostico_nocturno.js?v=20260804_v6"></script>
+    <script src="app.js?v=20260804_v6"></script>
     <script>
         // Función global para navegación SPA segura sin conflictos con app.js
         function mostrarVista(id) {
