@@ -277,49 +277,272 @@ function generarGuiaPredeterminada(params) {
     // 4. BIOLOGÍA / CIENCIAS NATURALES (DEFAULT POR CICLO)
     else {
         const ciclo = obtenerCicloNormalizado(grado);
-        sel = {
-            tema: 'La Célula, Ecosistemas y Biodiversidad Regional',
-            objetivo: `Comprender la estructura biológica de los seres vivos, sus interacciones en los ecosistemas y la preservación ambiental en el Paisaje Cultural Cafetero.`,
-            problema: `¿Cómo interactúan las células y los organismos con los recursos naturales en ${ambiente}?`,
-            saberes: [
-                {
-                    pregunta: `Todos los seres vivos están constituidos por unidades vivas capaces de nutrirse y reproducirse llamadas:`,
-                    opciones: [`Células`, `Cristales de cuarzo`, `Plásticos`, `Minerales inertes`],
-                    correcta: 0
-                },
-                {
-                    pregunta: `Las plantas verdes producen su propio alimento mediante el proceso de:`,
-                    opciones: [`Fotosíntesis`, `Combustión`, `Congelación`, `Fermentación láctica`],
-                    correcta: 0
-                },
-                {
-                    pregunta: `¿Qué recurso natural es indispensable para la vida de todos los seres vivos en la región?`,
-                    opciones: [`El agua limpia`, `El aceite mineral`, `El plástico sintético`, `La gasolina`],
-                    correcta: 0
-                }
-            ],
-            svg: `<div style='text-align:center; margin:20px 0;'><svg width='300' height='150' viewBox='0 0 300 150' xmlns='http://www.w3.org/2000/svg' style='background:#F0FDF4; border-radius:12px; border:2px solid #86EFAC;'><circle cx='150' cy='75' r='35' fill='#4ADE80'/><text x='150' y='80' font-size='24' text-anchor='middle'>🌿</text><text x='150' y='135' font-size='12' font-weight='bold' fill='#166534' text-anchor='middle'>Ecosistemas y Vida Biológica</text></svg></div>`,
-            icfes: [
-                {
-                    contexto: `${nombreEstudiante} analiza la importancia de proteger las microcuencas hídricas en la cuenca del río La Vieja en el Quindío.`,
-                    pregunta: `¿Por qué la cobertura vegetal arbórea protege las fuentes de agua en los ecosistemas cafeteros?`,
-                    opciones: [
-                        `Porque retiene la humedad en el suelo, evita la erosión y regula el ciclo del agua.`,
-                        `Porque evapora toda el agua para que nunca llueva.`,
-                        `Porque calienta el suelo hasta volverlo desierto.`,
-                        `Porque impide el paso de la luz solar por completo en todo el planeta.`
-                    ],
-                    correcta: 0,
-                    retroalimentacion: {
-                        "0": `¡Excelente ${nombreEstudiante}! El bosque de galería actúa como esponja natural regulando los flujos hídricos.`,
-                        "1": `Incorrecto. La vegetación favorece la precipitación y filtración.`,
-                        "2": `Incorrecto. La sombra arbórea modera la temperatura edáfica.`,
-                        "3": `Incorrecto. La luz filtrada promueve el sotobosque y biodiversidad.`
+        
+        if (ciclo === 'Ciclo I') {
+            sel = {
+                tema: 'Los Seres Vivos, los Sentidos y la Naturaleza',
+                objetivo: `Reconocer los seres vivos del entorno, el funcionamiento de los sentidos del cuerpo humano y las rutinas de higiene y alimentación saludable.`,
+                problema: `¿Cómo podemos usar nuestros sentidos y cuidar nuestro cuerpo para explorar los seres vivos en ${ambiente}?`,
+                saberes: [
+                    {
+                        pregunta: `¿Cuál de estos elementos es un ser vivo que necesita agua y alimento para crecer?`,
+                        opciones: [`Un perro o una planta de café`, `Una piedra del río`, `Una silla de madera`, `Un vaso de plástico`],
+                        correcta: 0
+                    },
+                    {
+                        pregunta: `¿Qué sentido de nuestro cuerpo usamos para sentir la temperatura y las texturas suaves o ásperas?`,
+                        opciones: [`El sentido del tacto (la piel)`, `El sentido del olfato`, `El sentido del oído`, `El sentido del gusto`],
+                        correcta: 0
+                    },
+                    {
+                        pregunta: `¿Cuál es la acción más importante antes de comer para evitar bacterias y enfermedades?`,
+                        opciones: [`Lavarse muy bien las manos con agua y jabón`, `Secarse con el pantalón`, `Soplar el plato con fuerza`, `Tomar agua fría`],
+                        correcta: 0
                     }
-                }
-            ],
-            sopa: `CELULA,BIOLOGIA,AGUA,VIDA,BOSQUE,PLANTA,FAUNA,ECOSISTEMA,SUELO,HOJA`
-        };
+                ],
+                svg: `<div style='text-align:center; margin:20px 0;'><svg width='300' height='160' viewBox='0 0 300 160' xmlns='http://www.w3.org/2000/svg' style='background:#F0FDF4; border-radius:12px; border:2px solid #86EFAC;'><circle cx='80' cy='80' r='40' fill='#4ADE80'/><text x='80' y='85' font-size='26' text-anchor='middle'>🌱</text><text x='80' y='140' font-size='12' font-weight='bold' fill='#166534' text-anchor='middle'>Seres Vivos</text><circle cx='220' cy='80' r='40' fill='#60A5FA'/><text x='220' y='85' font-size='26' text-anchor='middle'>✋</text><text x='220' y='140' font-size='12' font-weight='bold' fill='#1E40AF' text-anchor='middle'>Los Sentidos</text></svg></div>`,
+                icfes: [
+                    {
+                        contexto: `En una huerta escolar o casera, ${nombreEstudiante} observa que una planta ubicada en la sombra total tiene hojas amarillas y débiles, mientras que la que recibe sol está verde y fuerte.`,
+                        pregunta: `¿A qué se debe principalmente esta diferencia en el crecimiento de las plantas?`,
+                        opciones: [
+                            `A que las plantas necesitan la luz solar para fabricar su alimento mediante fotosíntesis.`,
+                            `A que la planta en la sombra tenía demasiado abono mineral.`,
+                            `A que las plantas crecen mejor en la oscuridad total.`,
+                            `A que el viento no tocaba la planta del sol.`
+                        ],
+                        correcta: 0,
+                        retroalimentacion: {
+                            "0": `¡Excelente ${nombreEstudiante}! La luz solar es el motor indispensable para la fotosíntesis.`,
+                            "1": `Incorrecto. La sombra limita la energía lumínica.`,
+                            "2": `Incorrecto. Sin luz las plantas no pueden sintetizar azúcares.`,
+                            "3": `Incorrecto. El factor determinante principal es la radiación solar.`
+                        }
+                    }
+                ],
+                sopa: `VIDA,PLANTA,SENTIDO,AGUA,SALUD,CUERPO,SOL,TIERRA,HIGIENE,MANOS`
+            };
+        } else if (ciclo === 'Ciclo II') {
+            sel = {
+                tema: 'Ecosistemas, Estados de la Materia y Nutrición Saludable',
+                objetivo: `Identificar las interacciones en los ecosistemas, los estados de la materia en procesos cotidianos del hogar y los nutrientes esenciales para la salud.`,
+                problema: `¿Cómo interactúan la materia, la energía y los seres vivos en las actividades del hogar y el entorno de ${ambiente}?`,
+                saberes: [
+                    {
+                        pregunta: `Cuando ponemos a hervir agua para el café y sale vapor al aire, ¿a qué estado físico pasa el agua?`,
+                        opciones: [`Estado gaseoso (vapor de agua)`, `Estado sólido (hielo)`, `Estado viscoso`, `Estado plasmático`],
+                        correcta: 0
+                    },
+                    {
+                        pregunta: `En una cadena trófica de una huerta, las plantas que fabrican su propio alimento se denominan:`,
+                        opciones: [`Organismos productores`, `Consumidores secundarios`, `Descomponedores minerales`, `Depredadores tope`],
+                        correcta: 0
+                    },
+                    {
+                        pregunta: `¿Qué grupo de alimentos aporta la energía primaria para las actividades de estudio y trabajo diario?`,
+                        opciones: [`Carbohidratos saludables (plátano, arroz, avena, maíz)`, `Golosinas artificiales y gaseosas`, `Solo agua sin sólidos`, `Salchichas ultraprocesadas`],
+                        correcta: 0
+                    }
+                ],
+                svg: `<div style='text-align:center; margin:20px 0;'><svg width='320' height='160' viewBox='0 0 320 160' xmlns='http://www.w3.org/2000/svg' style='background:#EFF6FF; border-radius:12px; border:2px solid #93C5FD;'><rect x='20' y='50' width='70' height='60' rx='8' fill='#60A5FA'/><text x='55' y='85' font-size='11' font-weight='bold' fill='white' text-anchor='middle'>SÓLIDO</text><rect x='125' y='50' width='70' height='60' rx='8' fill='#3B82F6'/><text x='160' y='85' font-size='11' font-weight='bold' fill='white' text-anchor='middle'>LÍQUIDO</text><rect x='230' y='50' width='70' height='60' rx='8' fill='#1D4ED8'/><text x='265' y='85' font-size='11' font-weight='bold' fill='white' text-anchor='middle'>GASEOSO</text><text x='160' y='140' font-size='12' font-weight='bold' fill='#1E3A8A' text-anchor='middle'>Estados de la Materia</text></svg></div>`,
+                icfes: [
+                    {
+                        contexto: `En una finca cafetera de Montenegro, se desea mantener el equilibrio ecológico evitando el uso excesivo de pesticidas químicos que dañan a las abejas y aves polinizadoras.`,
+                        pregunta: `¿Cuál es la función fundamental de las abejas en el ecosistema agrícola?`,
+                        opciones: [
+                            `Polinizar las flores para permitir la formación de frutos y semillas en los cultivos.`,
+                            `Consumir toda la madera de los árboles viejos.`,
+                            `Calentar el suelo de la plantación con su vuelo.`,
+                            `Aumentar la cantidad de maleza en el cafetal.`
+                        ],
+                        correcta: 0,
+                        retroalimentacion: {
+                            "0": `¡Brillante ${nombreEstudiante}! Las abejas garantizan la reproducción vegetal.`,
+                            "1": `Incorrecto. Función de termitas y hongos descomponedores.`,
+                            "2": `Incorrecto. El calor del suelo depende de la radiación solar.`,
+                            "3": `Incorrecto. La polinización beneficia directamente a los cultivos.`
+                        }
+                    }
+                ],
+                sopa: `MATERIA,LIQUIDO,SOLIDO,GAS,ENERGIA,ECOSISTEMA,PLANTA,SUELO,AGUA,NUTRICION`
+            };
+        } else if (ciclo === 'Ciclo IV') {
+            sel = {
+                tema: 'Genética, Reacciones Químicas y Sostenibilidad Ambiental',
+                objetivo: `Comprender la transmisión de información hereditaria (ADN), diferenciar cambios físicos y químicos en el entorno y proponer alternativas de conservación ecológica.`,
+                problema: `¿Cómo la herencia genética y las reacciones químicas condicionan la productividad y equilibrio ambiental en ${ambiente}?`,
+                saberes: [
+                    {
+                        pregunta: `La molécula presente en el núcleo celular que almacena las instrucciones genéticas hereditarias es:`,
+                        opciones: [`ADN (Ácido Desoxirribonucleico)`, `Glucosa disuelta`, `Cloruro de sodio`, `Dióxido de carbono`],
+                        correcta: 0
+                    },
+                    {
+                        pregunta: `¿Cuál de los siguientes sucesos representa un cambio químico irreversible?`,
+                        opciones: [`La combustión de leña o gas al cocinar`, `Cortar una hoja de papel`, `Fundir un bloque de hielo`, `Romper un vidrio`],
+                        correcta: 0
+                    },
+                    {
+                        pregunta: `Las plantas y cafetales absorben $CO_2$ durante el día y liberan al aire el gas vital:`,
+                        opciones: [`Oxígeno ($O_2$)`, `Monóxido de carbono`, `Gas propano`, `Metano puro`],
+                        correcta: 0
+                    }
+                ],
+                svg: `<div style='text-align:center; margin:20px 0;'><svg width='320' height='160' viewBox='0 0 320 160' xmlns='http://www.w3.org/2000/svg' style='background:#FFFBEB; border-radius:12px; border:2px solid #FCD34D;'><path d='M40,80 Q90,20 160,80 T280,80' fill='none' stroke='#D97706' stroke-width='4'/><path d='M40,80 Q90,140 160,80 T280,80' fill='none' stroke='#2563EB' stroke-width='4'/><text x='160' y='145' font-size='12' font-weight='bold' fill='#92400E' text-anchor='middle'>Doble Hélice del ADN</text></svg></div>`,
+                icfes: [
+                    {
+                        contexto: `En un cultivo se cruzan dos variedades de plantas: una homocigota dominante de tallo alto ($AA$) con una homocigota recesiva de tallo enano ($aa$).`,
+                        pregunta: `De acuerdo con las leyes mendelianas, ¿qué porcentaje de la primera generación filial ($F_1$) tendrá fenotipo de tallo alto?`,
+                        opciones: [
+                            `100% de plantas con tallo alto (genotipo heterocigoto $Aa$).`,
+                            `50% tallo alto y 50% tallo enano.`,
+                            `25% tallo alto y 75% tallo enano.`,
+                            `0% tallo alto (todas enanas).`
+                        ],
+                        correcta: 0,
+                        retroalimentacion: {
+                            "0": `¡Exacto ${nombreEstudiante}! El alelo dominante $A$ se expresa en la totalidad de la descendencia heterocigota.`,
+                            "1": `Incorrecto. Proporción de cruce recesivo.`,
+                            "2": `Incorrecto. El alelo dominante enmascara al recesivo en $F_1$.`,
+                            "3": `Incorrecto. El fenotipo recesivo requiere homocigosis.`
+                        }
+                    }
+                ],
+                sopa: `GENETICA,GENOMA,ALELO,MENDEL,REACCION,ENLACE,OXIDACION,EROSION,BIODIVERSIDAD,CELULA`
+            };
+        } else if (ciclo === 'Ciclo V') {
+            sel = {
+                tema: 'Cinemática, Dinámica de Newton y Química Inorgánica',
+                objetivo: `Analizar vectorialmente el movimiento de los cuerpos, aplicar las leyes de la dinámica de Newton y nombrar compuestos químicos inorgánicos.`,
+                problema: `¿Cómo actúan las fuerzas mecánicas y los enlaces químicos en los procesos tecnológicos de ${ambiente}?`,
+                saberes: [
+                    {
+                        pregunta: `La Primera Ley de Newton o Ley de la Inercia establece que un cuerpo mantiene su estado de reposo o movimiento a menos que sobre él actúe:`,
+                        opciones: [`Una fuerza neta externa no nula`, `Un campo magnético puro`, `Una corriente eléctrica alternativa`, `Una reacción de oxidación`],
+                        correcta: 0
+                    },
+                    {
+                        pregunta: `El compuesto $CO_2$ producido en la respiración celular y en la combustión corresponde químicamente a un:`,
+                        opciones: [`Óxido ácido (anhídrido)`, `Hidróxido alcalino`, `Sal binaria`, `Ácido hidrácido`],
+                        correcta: 0
+                    },
+                    {
+                        pregunta: `La magnitud física que mide la rapidez con la que cambia la velocidad en el tiempo es la:`,
+                        opciones: [`Aceleración`, `Masa inercial`, `Trabajo mecánico`, `Temperatura`],
+                        correcta: 0
+                    }
+                ],
+                svg: `<div style='text-align:center; margin:20px 0;'><svg width='320' height='160' viewBox='0 0 320 160' xmlns='http://www.w3.org/2000/svg' style='background:#FEF2F2; border-radius:12px; border:2px solid #FCA5A5;'><rect x='110' y='50' width='100' height='60' rx='8' fill='#EF4444'/><text x='160' y='85' font-size='12' font-weight='bold' fill='white' text-anchor='middle'>$F = m \\cdot a$</text><text x='160' y='145' font-size='12' font-weight='bold' fill='#991B1B' text-anchor='middle'>Segunda Ley de Newton</text></svg></div>`,
+                icfes: [
+                    {
+                        contexto: `Un bulto de insumos de $50\\text{ kg}$ es arrastrado sobre un piso plano mediante una fuerza horizontal de $200\\text{ N}$. La fuerza de fricción entre el saco y el suelo es de $50\\text{ N}$.`,
+                        pregunta: `¿Cuál es la fuerza neta o resultante que acelera el bulto?`,
+                        opciones: [
+                            `$150\\text{ N}$ hacia adelante ($200\\text{ N} - 50\\text{ N}$).`,
+                            `$250\\text{ N}$ sumando las fuerzas.`,
+                            `$10000\\text{ N}$ multiplicando por la masa.`,
+                            `$0\\text{ N}$ porque está en equilibrio absoluto.`
+                        ],
+                        correcta: 0,
+                        retroalimentacion: {
+                            "0": `¡Excelente ${nombreEstudiante}! La fuerza neta es $200\\text{ N} - 50\\text{ N} = 150\\text{ N}$.`,
+                            "1": `Incorrecto. La fricción se opone al movimiento y se resta.`,
+                            "2": `Incorrecto. No se multiplican las magnitudes.`,
+                            "3": `Incorrecto. Hay aceleración resultante distinta de cero.`
+                        }
+                    }
+                ],
+                sopa: `INERCIA,FUERZA,NEWTON,ACELERACION,MASA,OXIDO,ENLACE,VALENCIA,DINAMICA,VECTOR`
+            };
+        } else if (ciclo === 'Ciclo VI') {
+            sel = {
+                tema: 'Termodinámica, Ondas Electromagnéticas y Química Orgánica',
+                objetivo: `Aplicar las leyes de la termodinámica, comprender la propagación de ondas mecánicas y electromagnéticas y clasificar hidrocarburos orgánicos.`,
+                problema: `¿Cómo la energía térmica, las ondas y la química orgánica determinan la eficiencia tecnológica y ambiental en ${ambiente}?`,
+                saberes: [
+                    {
+                        pregunta: `La Primera Ley de la Termodinámica representa el principio fundamental de:`,
+                        opciones: [`Conservación de la energía (el calor se convierte en trabajo y energía interna)`, `Destrucción espontánea de la masa`, `Generación infinita de movimiento de la nada`, `Aumento exclusivo de la gravedad`],
+                        correcta: 0
+                    },
+                    {
+                        pregunta: `Los hidrocarburos que contienen solo enlaces sencillos entre átomos de carbono (como el gas propano) son los:`,
+                        opciones: [`Alcanos`, `Alquenos`, `Alquinos`, `Aromáticos bencénicos`],
+                        correcta: 0
+                    },
+                    {
+                        pregunta: `Las ondas que requieren un medio material (aire, agua, sólidos) para propagarse (como el sonido) son:`,
+                        opciones: [`Ondas mecánicas`, `Ondas electromagnéticas puras`, `Rayos X vacíos`, `Fotones`],
+                        correcta: 0
+                    }
+                ],
+                svg: `<div style='text-align:center; margin:20px 0;'><svg width='320' height='160' viewBox='0 0 320 160' xmlns='http://www.w3.org/2000/svg' style='background:#F0FDF4; border-radius:12px; border:2px solid #86EFAC;'><path d='M20,80 Q50,20 80,80 T140,80 T200,80 T260,80' fill='none' stroke='#166534' stroke-width='3'/><text x='160' y='145' font-size='12' font-weight='bold' fill='#14532D' text-anchor='middle'>Movimiento Ondulatorio y Frecuencia</text></svg></div>`,
+                icfes: [
+                    {
+                        contexto: `Un gas ideal encerrado en un cilindro absorbe $500\\text{ J}$ de calor mientras realiza un trabajo de expansión sobre el pistón de $200\\text{ J}$.`,
+                        pregunta: `De acuerdo con la primera ley de la termodinámica ($\\Delta U = Q - W$), ¿cuál es el cambio en la energía interna del gas?`,
+                        opciones: [
+                            `$+300\\text{ J}$ ($500\\text{ J} - 200\\text{ J}$).`,
+                            `$+700\\text{ J}$.`,
+                            `$-300\\text{ J}$.`,
+                            `$100000\\text{ J}$.`
+                        ],
+                        correcta: 0,
+                        retroalimentacion: {
+                            "0": `¡Brillante ${nombreEstudiante}! $\\Delta U = 500\\text{ J} - 200\\text{ J} = 300\\text{ J}$.`,
+                            "1": `Incorrecto. El trabajo realizado por el gas se resta.`,
+                            "2": `Incorrecto. La energía interna aumenta (+).`,
+                            "3": `Incorrecto. No se multiplican las magnitudes.`
+                        }
+                    }
+                ],
+                sopa: `ENTROPIA,CALOR,TRABAJO,TERMODINAMICA,ONDA,FRECUENCIA,REFRACCION,ENERGIA,FOTON,ICFES`
+            };
+        } else {
+            sel = {
+                tema: 'La Célula, Mezclas Cotidianas y Conservación de la Energía',
+                objetivo: `Comprender la organización celular de los seres vivos, clasificar mezclas homogéneas y heterogéneas en el hogar y aplicar el principio de conservación de la energía.`,
+                problema: `¿Cómo se relacionan las estructuras microscópicas y las transformaciones energéticas con la vida diaria en ${ambiente}?`,
+                saberes: [
+                    {
+                        pregunta: `Todos los seres vivos (desde una bacteria hasta un árbol de café o un ser humano) están constituidos por unidades vivas llamadas:`,
+                        opciones: [`Células`, `Ladrillos minerales`, `Polímeros sintéticos`, `Moléculas de plástico`],
+                        correcta: 0
+                    },
+                    {
+                        pregunta: `Al disolver una cucharada de panela o azúcar en agua caliente hasta que no se ven partes separadas, formamos una mezcla:`,
+                        opciones: [`Homogénea (solución)`, `Heterogénea`, `Precipitada sólida`, `Insoluble`],
+                        correcta: 0
+                    },
+                    {
+                        pregunta: `Cuando encendemos una bombilla en casa, la energía eléctrica se transforma principalmente en:`,
+                        opciones: [`Energía lumínica (luz) y energía térmica (calor)`, `Energía nuclear pura`, `Energía gravitacional`, `Energía acústica pura`],
+                        correcta: 0
+                    }
+                ],
+                svg: `<div style='text-align:center; margin:20px 0;'><svg width='320' height='170' viewBox='0 0 320 170' xmlns='http://www.w3.org/2000/svg' style='background:#FAF5FF; border-radius:12px; border:2px solid #D8B4FE;'><ellipse cx='160' cy='80' rx='120' ry='55' fill='#F3E8FF' stroke='#9333EA' stroke-width='3'/><circle cx='160' cy='80' r='22' fill='#A855F7'/><text x='160' y='85' font-size='10' font-weight='bold' fill='white' text-anchor='middle'>NÚCLEO</text><text x='160' y='155' font-size='12' font-weight='bold' fill='#6B21A8' text-anchor='middle'>Estructura Básica Celular</text></svg></div>`,
+                icfes: [
+                    {
+                        contexto: `En el proceso de fermentación del café o en la preparación de pan casero, los microorganismos (levaduras) consumen azúcares y liberan gas sin necesidad de oxígeno libre.`,
+                        pregunta: `¿Qué tipo de proceso biológico y transformación ocurre durante la fermentación?`,
+                        opciones: [
+                            `Un proceso bioquímico anaerobio donde se transforman los azúcares y se genera energía celular.`,
+                            `Una reacción física reversible sin cambio en las moléculas.`,
+                            `Una evaporación espontánea del agua pura.`,
+                            `Una combustión con llama abierta.`
+                        ],
+                        correcta: 0,
+                        retroalimentacion: {
+                            "0": `¡Excelente ${nombreEstudiante}! La fermentación es una ruta metabólica anaerobia clave.`,
+                            "1": `Incorrecto. Hay transformación bioquímica.`,
+                            "2": `Incorrecto. No se trata de un simple cambio de fase.`,
+                            "3": `Incorrecto. No hay presencia de llama abierta.`
+                        }
+                    }
+                ],
+                sopa: `CELULA,NUCLEO,ENERGIA,MEZCLA,SOLUCION,CALOR,MATERIA,FERMENTO,FOTOSINTESIS,ATOMO`
+            };
+        }
     }
 
     // CONSTRUCCIÓN ESTRICTA CON LA ESTRUCTURA COMPLETA SOLICITADA
