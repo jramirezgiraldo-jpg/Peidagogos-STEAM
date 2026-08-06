@@ -1472,6 +1472,92 @@ document.addEventListener("DOMContentLoaded", function() {
 // FUNCIONES GLOBALES
 // ==========================================
 
+// Helper global para resolver el nombre real del estudiante
+window.obtenerNombreCompletoEstudiante = function(est) {
+    if (!est) return 'Estudiante';
+    if (typeof est === 'string') return est.trim() || 'Estudiante';
+    if (est.nombre_completo && est.nombre_completo.trim() && est.nombre_completo !== 'Estudiante Nocturno' && est.nombre_completo !== 'Estudiante') {
+        return est.nombre_completo.trim();
+    }
+    if (est.nombre_estudiante && est.nombre_estudiante.trim() && est.nombre_estudiante !== 'Estudiante Nocturno' && est.nombre_estudiante !== 'Estudiante') {
+        return est.nombre_estudiante.trim();
+    }
+    const nomPart = (est.nombre || est.nombres || '').trim();
+    const apePart = (est.apellidos || '').trim();
+    const full = `${nomPart} ${apePart}`.trim();
+    if (full && full !== 'Estudiante Nocturno' && full !== 'Estudiante') {
+        return full;
+    }
+    if (nomPart && nomPart !== 'Estudiante' && nomPart !== 'Estudiante Nocturno') return nomPart;
+    if (est.alias && est.alias !== 'Explorador STEAM') return est.alias;
+    return est.documento || 'Estudiante';
+};
+
+window.abrirModalEditarEstudianteDocente = async function(docClean, currentName) {
+    const defaultVal = (currentName === 'Estudiante Nocturno' || currentName === 'Estudiante') ? '' : currentName;
+    const nuevoNombre = prompt(`✏️ Editar Nombre Completo del Estudiante (Documento: ${docClean}):\n\nIngresa los Nombres y Apellidos reales:`, defaultVal);
+    if (nuevoNombre === null) return;
+    const trimNom = nuevoNombre.trim();
+    if (!trimNom) {
+        alert("El nombre no puede estar vacío.");
+        return;
+    }
+
+    const partes = trimNom.split(' ');
+    const nombre = partes[0] || trimNom;
+    const apellidos = partes.slice(1).join(' ') || '';
+
+    try {
+        const res = await fetch('/api/registro-estudiante', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                documento: docClean,
+                nombre: nombre,
+                apellidos: apellidos,
+                nombre_completo: trimNom,
+                nombre_estudiante: trimNom
+            })
+        });
+
+        // Actualizar local db
+        const localUsers = JSON.parse(localStorage.getItem('usuarios_db') || '[]');
+        const idx = localUsers.findIndex(u => String(u.documento || u.id || u.usuario || '').trim() === String(docClean).trim());
+        if (idx !== -1) {
+            localUsers[idx].nombre = nombre;
+            localUsers[idx].apellidos = apellidos;
+            localUsers[idx].nombre_completo = trimNom;
+            localUsers[idx].nombre_estudiante = trimNom;
+        } else {
+            localUsers.push({ documento: docClean, nombre, apellidos, nombre_completo: trimNom, nombre_estudiante: trimNom });
+        }
+        localStorage.setItem('usuarios_db', JSON.stringify(localUsers));
+
+        if (Array.isArray(window.todosEstudiantes)) {
+            const eIdx = window.todosEstudiantes.findIndex(u => String(u.documento || u.id || '').trim() === String(docClean).trim());
+            if (eIdx !== -1) {
+                window.todosEstudiantes[eIdx].nombre = nombre;
+                window.todosEstudiantes[eIdx].apellidos = apellidos;
+                window.todosEstudiantes[eIdx].nombre_completo = trimNom;
+                window.todosEstudiantes[eIdx].nombre_estudiante = trimNom;
+            }
+        }
+
+        alert(`✅ ¡Nombre del estudiante (${docClean}) asignado con éxito a: ${trimNom}!`);
+
+        if (typeof window.cargarEstudiantesDocente === 'function') {
+            window.cargarEstudiantesDocente(window.usuario_actual || 'docente');
+        }
+        const containerGrupo = document.getElementById('admin-estudiantes-grupo-container');
+        if (containerGrupo && containerGrupo.style.display !== 'none' && window.grupoActualSeleccionado) {
+            window.verDetalleGrupo(window.grupoActualSeleccionado);
+        }
+    } catch(e) {
+        console.error(e);
+        alert("Error de red al intentar actualizar el nombre del estudiante.");
+    }
+};
+
 async function cargarEstudiantesDocente(docenteId) {
     try {
         let estudiantes = [];
@@ -1502,7 +1588,7 @@ async function cargarEstudiantesDocente(docenteId) {
 
                 if (isMyStudent && matchAsig && matchGrupo) {
                     const docClean = est.documento || est.usuario || est.id || '';
-                    const nomClean = ((est.nombre || '') + ' ' + (est.apellidos || '')).trim() || 'Estudiante';
+                    const nomClean = window.obtenerNombreCompletoEstudiante(est);
                     const grupoClean = est.grupo || est.grado || '';
                     const asigClean = est.asignatura || 'Ciencias Naturales';
 
@@ -1511,6 +1597,9 @@ async function cargarEstudiantesDocente(docenteId) {
                         <td style="padding: 12px 10px; font-weight: bold; color: #475569;">${docClean}</td>
                         <td style="padding: 12px 10px; font-weight: 800; color: #1E293B;">
                             ${nomClean}
+                            <button onclick="abrirModalEditarEstudianteDocente('${docClean}', '${nomClean.replace(/'/g, "\\'")}')" style="background: #F3F4F6; border: 1px solid #CBD5E1; color: #374151; padding: 2px 8px; border-radius: 6px; font-size: 0.75rem; font-weight: bold; cursor: pointer; margin-left: 6px; display: inline-flex; align-items: center; gap: 4px;" title="Editar o asignar el nombre real de este estudiante">
+                                ✏️ Editar Nombre
+                            </button>
                             <span style="display: block; font-size: 0.75rem; color: #64748B; font-weight: normal;">Rol: ${est.rol || 'Estudiante'}</span>
                         </td>
                         <td style="padding: 12px 10px; color: #334155; font-size: 0.9rem;">
@@ -3134,40 +3223,45 @@ window.abrirGrupo = function(grupoName) {
                 </div>
             </td>
         </tr>`;
-    } else {
-        estFiltrados.forEach(est => {
-            // Progreso para demostración
-            const progreso = Math.floor(Math.random() * 60) + 40; 
-            const materiasGrupo = obtenerMateriasPorGrupo(grupoName);
-            
-            tbodyEst.innerHTML += `
-            <tr style="border-bottom: 1px solid #f3f4f6;">
-                <td style="padding: 15px; font-family: monospace; font-size: 0.95rem;">${est.documento || ''}</td>
-                <td style="padding: 15px; font-weight: bold; color: #111827;">${est.nombre || ''} ${est.apellidos || ''}</td>
-                <td style="padding: 15px;"><span class="badge" style="background: #F3F4F6; color: #374151; padding: 4px 8px; border-radius: 4px;">${est.grado || grupoName}</span></td>
-                <td style="padding: 15px;">
-                    <div style="display: flex; flex-direction: column; gap: 5px;">
-                        ${materiasGrupo.map(m => `
-                            <div style="display: flex; justify-content: space-between; align-items: center; background: #F3F4F6; padding: 4px 8px; border-radius: 4px;">
-                                <span style="font-size: 0.85rem; font-weight: bold; color: #374151;">${m.nombre} (${m.horas})</span>
-                                <span style="font-size: 0.75rem; color: ${m.color}; font-weight: bold;">${m.estado}</span>
-                            </div>
-                        `).join('')}
-                    </div>
-                </td>
-                <td style="padding: 15px; text-align: center;">
-                    <div style="display: flex; gap: 8px; justify-content: center;">
-                        <button onclick="verInformeEstudiante('${est.nombre || ''} ${est.apellidos || ''}', ${progreso}, '${grupoName}', '${est.documento}')" style="background: #3B82F6; color: white; border: none; padding: 6px 12px; border-radius: 6px; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 5px;" title="Ver Informe">
-                            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
-                            Informe
+            estFiltrados.forEach(est => {
+                const docClean = est.documento || est.usuario || est.id || '';
+                const nomClean = window.obtenerNombreCompletoEstudiante(est);
+                const progreso = Math.floor(Math.random() * 60) + 40; 
+                const materiasGrupo = obtenerMateriasPorGrupo(grupoName);
+                
+                tbodyEst.innerHTML += `
+                <tr style="border-bottom: 1px solid #f3f4f6;">
+                    <td style="padding: 15px; font-family: monospace; font-size: 0.95rem;">${docClean}</td>
+                    <td style="padding: 15px; font-weight: bold; color: #111827;">
+                        ${nomClean}
+                        <button onclick="abrirModalEditarEstudianteDocente('${docClean}', '${nomClean.replace(/'/g, "\\'")}')" style="background: #F3F4F6; border: 1px solid #CBD5E1; color: #374151; padding: 2px 8px; border-radius: 6px; font-size: 0.75rem; font-weight: bold; cursor: pointer; margin-left: 6px; display: inline-flex; align-items: center; gap: 4px;" title="Editar o asignar el nombre real de este estudiante">
+                            ✏️ Editar Nombre
                         </button>
-                        <button onclick="eliminarEstudiante('${est.documento}')" style="background: #EF4444; color: white; border: none; padding: 6px 12px; border-radius: 6px; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 5px;" title="Eliminar">
-                            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
-                        </button>
-                    </div>
-                </td>
-            </tr>`;
-        });
+                    </td>
+                    <td style="padding: 15px;"><span class="badge" style="background: #F3F4F6; color: #374151; padding: 4px 8px; border-radius: 4px;">${est.grado || grupoName}</span></td>
+                    <td style="padding: 15px;">
+                        <div style="display: flex; flex-direction: column; gap: 5px;">
+                            ${materiasGrupo.map(m => `
+                                <div style="display: flex; justify-content: space-between; align-items: center; background: #F3F4F6; padding: 4px 8px; border-radius: 4px;">
+                                    <span style="font-size: 0.85rem; font-weight: bold; color: #374151;">${m.nombre} (${m.horas})</span>
+                                    <span style="font-size: 0.75rem; color: ${m.color}; font-weight: bold;">${m.estado}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </td>
+                    <td style="padding: 15px; text-align: center;">
+                        <div style="display: flex; gap: 8px; justify-content: center;">
+                            <button onclick="verInformeEstudiante('${nomClean.replace(/'/g, "\\'")}', ${progreso}, '${grupoName}', '${docClean}')" style="background: #3B82F6; color: white; border: none; padding: 6px 12px; border-radius: 6px; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 5px;" title="Ver Informe">
+                                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                                Informe
+                            </button>
+                            <button onclick="eliminarEstudiante('${docClean}')" style="background: #EF4444; color: white; border: none; padding: 6px 12px; border-radius: 6px; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 5px;" title="Eliminar">
+                                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+                            </button>
+                        </div>
+                    </td>
+                </tr>`;
+            });
     }
 };
 
