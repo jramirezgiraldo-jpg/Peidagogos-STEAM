@@ -545,26 +545,30 @@ function generarGuiaPredeterminada(params) {
         }
     }
 
-    // CONSTRUCCIÓN ESTRICTA CON LA ESTRUCTURA COMPLETA SOLICITADA
-    const textoInductivo = `# 🚀 Exploración STEAM: ${sel.tema}
+    // CONSTRUCCIÓN ESTRICTA CON MÁS DE 500 PALABRAS POR FASE
+    const textoInductivo = `# 🚀 Exploración STEAM Inductiva: ${sel.tema}
 
-¡Bienvenido(a), **${nombreEstudiante}**! En tu rol de **${rol}**, te encuentras en el entorno de **${ambiente}** participando en una sesión interactiva bajo el enfoque de **${enfoque}**.
+¡Bienvenido(a) a tu gran expedición pedagógica, **${nombreEstudiante}**! En tu rol fundamental como **${rol}**, te encuentras explorando el apasionante entorno de **${ambiente}** en una sesión interactiva bajo el enfoque de **${enfoque}**.
 
 ***${sel.problema}***
 
-A continuación, ${nombreEstudiante}, iniciaremos una lectura profunda e inductiva sobre **${sel.tema}**. Lee con mucha atención cada concepto y responde los retos intercalados a medida que avanza tu exploración.
+A continuación, **${nombreEstudiante}**, iniciaremos una lectura guiada, inductiva y profunda sobre **${sel.tema}**. Es vital que leas con extrema atención cada párrafo, pues los conocimientos que abordaremos se relacionan directamente con lo que observas en tu vida diaria, tu comunidad y los retos del mundo contemporáneo.
 
 ${sel.svg}
 
-### 📖 Capítulo 1: Observación e Indagación Inicial
+### 📖 Capítulo 1: Observación, Asombro e Indagación Inicial del Entorno
 
-En nuestro entorno cotidiano en ${ambiente}, los fenómenos científicos y las dinámicas sociales ocurren a cada instante. Cuando observamos nuestro alrededor, nos damos cuenta de que todo aquello que nos rodea sigue principios fundamentales que podemos comprender sin necesidad de recurrir a formulas complejas ni explicaciones oscuras. 
+En nuestro entorno cotidiano en **${ambiente}**, los fenómenos científicos, las transformaciones de la materia y las dinámicas sociales ocurren a cada instante a nuestro alrededor sin que a veces nos detengamos a contemplar su maravilloso origen. Cuando caminamos por las calles, observamos los paisajes naturales de nuestra región, miramos el funcionamiento de los electrodomésticos en casa o contemplamos cómo la naturaleza se autorregula, nos damos cuenta de que absolutamente todo sigue principios fundamentales que podemos comprender de manera intuitiva y apasionante.
 
-Para ti, **${nombreEstudiante}**, comprender estos principios te permitirá tomar mejores decisiones en tu vida diaria, en tu hogar y en tu comunidad. Por ejemplo, al analizar cómo interactúan los objetos, cómo se transforma la energía o cómo se organizan los bienes y servicios en el turismo, descubrimos que la indagación constante es la clave para resolver grandes retos.
+Para ti, **${nombreEstudiante}**, comprender estos principios te permitirá tomar mejores decisiones en tu vida diaria, en tu hogar y en tu futuro académico. La ciencia y la tecnología no son fórmulas lejanas ni ecuaciones misteriosas guardadas en libros antiguos; son, por el contrario, las herramientas vivas con las que explicamos por qué caen las cosas, cómo la energía fluye de un cuerpo a otro, cómo se organizan las células o cómo se estructura un emprendimiento de turismo sostenible en nuestra propia tierra. Al indagar sobre estos aspectos, te conviertes en un agente activo capaz de transformar tu entorno.
 
-[ACTIVIDAD:CUADERNO:✏️ **Actividad en Cuaderno 1:** ${nombreEstudiante}, responde en tu cuaderno: Escribe con tus propias palabras qué fenómeno de tu entorno en ${ambiente} te causa mayor curiosidad y por qué.]
+Por ejemplo, **${nombreEstudiante}**, cuando observas detenidamente cómo interactúan los objetos al moverse, cómo el calor calienta una taza de café o cómo las personas colaboran para sacar adelante un proyecto comunal en **${ambiente}**, descubres que la curiosidad y la indagación rigurosa son los motores principales para resolver grandes desafíos sociales y ambientales. La investigación inductiva comienza siempre con una pregunta sencilla pero poderosa, seguida de la observación atenta de las evidencias que la naturaleza nos entrega.
 
-[ACTIVIDAD:PLATAFORMA:¿Cuál es el valor principal de observar los fenómenos cotidianos con actitud científica y reflexiva en ${ambiente}?|Permite comprender el entorno y resolver problemas reales]
+[ACTIVIDAD:CUADERNO:✏️ **Actividad en Cuaderno 1:** ${nombreEstudiante}, responde en tu cuaderno: Escribe un texto de al menos 5 renglones explicando qué fenómeno natural o tecnológico de tu entorno en ${ambiente} te causa mayor curiosidad, qué preguntas te surgen al respecto y cómo crees que la ciencia podría ayudarte a comprenderlo mejor.]
+
+[ACTIVIDAD:PLATAFORMA:¿Cuál es el valor principal de observar los fenómenos cotidianos con actitud científica, crítica y reflexiva en ${ambiente}?|Permite comprender las causas profundas del entorno, tomar decisiones informadas y resolver problemas reales de la comunidad]
+
+Para continuar fortaleciendo tu agilidad mental y vocabulario técnico, **${nombreEstudiante}**, resuelve los siguientes minijuegos de reordenamiento de letras basados en los conceptos centrales de esta lección:
 
 [JUEGO:ORDENAR_LETRAS:${sel.sopa.split(',')[0] || 'CIENCIA'}]
 [JUEGO:ORDENAR_LETRAS:${sel.sopa.split(',')[1] || 'ENERGIA'}]
@@ -575,40 +579,51 @@ Para ti, **${nombreEstudiante}**, comprender estos principios te permitirá toma
 [JUEGO:ORDENAR_FRASE:LA OBSERVACION Y LA CURIOSIDAD TRANSFORMAN NUESTRA COMUNIDAD]
 [JUEGO:ORDENAR_FRASE:EL CONOCIMIENTO STEAM NOS AYUDA A RESOLVER RETOS REALES]
 
-### 📖 Capítulo 2: Desarrollo y Análisis de Casos
+### 📖 Capítulo 2: Desarrollo, Análisis de Casos y Organización de Evidencias
 
-Continuando con nuestra expedición, **${nombreEstudiante}**, debemos profundizar en las evidencias. La ciencia y el desarrollo de proyectos requieren que organicemos la información mediante esquemas visuales, tablas comparativas y mapas mentales que sinteticen las ideas clave de forma clara y atractiva.
+Continuando con nuestra expedición de descubrimiento, **${nombreEstudiante}**, debemos profundizar en el análisis de las evidencias encontradas en el terreno. La construcción del conocimiento científico y la estructuración de proyectos innovadores requieren que aprendamos a organizar la información recopilada mediante esquemas visuales, mapas conceptuales, dibujos interpretativos y tablas comparativas. Estas herramientas no solo facilitan el estudio, sino que también permiten transmitir ideas complejas a otras personas de forma clara, sintética y altamente persuasiva.
 
-[ACTIVIDAD:CUADERNO:🎨 **Actividad en Cuaderno 2:** ${nombreEstudiante}, elabora en tu cuaderno un dibujo explicativo o esquema visual donde representes el concepto central de ${sel.tema}.]
+Al analizar casos específicos dentro de **${ambiente}**, notamos cómo la teoría aprendida se pone a prueba en situaciones reales. Por ejemplo, al estudiar la conservación de la energía, la química de las mezclas o el impacto ecológico de nuestras actividades, comprendemos que cada acción tiene una consecuencia directa sobre el equilibrio ambiental y social. Como **${rol}**, tu misión consiste en examinar estos casos con imparcialidad, proponer explicaciones basadas en hechos verificables y formular soluciones creativas.
 
-[ACTIVIDAD:CUADERNO:📊 **Actividad en Cuaderno 3:** ${nombreEstudiante}, diseña en tu cuaderno una tabla comparativa con 2 columnas comparando las características de dos elementos clave de este tema.]
+Es por ello que, **${nombreEstudiante}**, a medida que avanzamos en la lección, es fundamental que registres tus reflexiones personales en tu cuaderno de trabajo. El cuaderno no es solo un depósito de notas, sino tu bitácora de viaje donde plasmas tu pensamiento crítico, tus esquemas organizadores y los bocetos de tus ideas. Integrar la lectura inductiva con retos prácticos de dibujo y tabulación garantiza que tu aprendizaje sea duradero, significativo y aplicable en múltiples contextos de tu vida cotidiana.
 
-[ACTIVIDAD:PLATAFORMA:¿Por qué los esquemas visuales y tablas comparativas facilitan el aprendizaje significativo de ${nombreEstudiante}?|Ayudan a estructurar las ideas y sintetizar la información]
+[ACTIVIDAD:CUADERNO:🎨 **Actividad en Cuaderno 2:** ${nombreEstudiante}, elabora en tu cuaderno un dibujo explicativo a todo color o un esquema visual detallado donde representes el concepto central de ${sel.tema} y su relación directa con tu vida diaria en ${ambiente}.]
 
-Sigamos adelante con paso firme en nuestra misión de aprendizaje en ${ambiente}.`;
+[ACTIVIDAD:CUADERNO:📊 **Actividad en Cuaderno 3:** ${nombreEstudiante}, diseña en tu cuaderno una tabla comparativa de 2 columnas donde contrapongas las características de dos elementos o momentos clave de este tema, resaltando sus diferencias y semejanzas de forma muy ordenada.]
 
-    const textoDeductivo = `### 📚 Fundamentación Teórica y Síntesis Formal
+[ACTIVIDAD:PLATAFORMA:¿Por qué la elaboración de esquemas visuales, mapas conceptuales y tablas comparativas facilita el aprendizaje significativo de ${nombreEstudiante}?|Ayudan a estructurar las ideas complejas, sintetizar la información clave y visualizar relaciones lógicas de manera clara]
 
-**${nombreEstudiante}**, como **${rol}**, has demostrado que la exploración inductiva nos conduce directamente a la formalización del conocimiento científico y emprendedor.
+Sigamos adelante con paso firme, entusiasmo y rigor científico en esta enriquecedora misión de exploración en **${ambiente}**.`;
 
-### 🏛️ Marco Conceptual
+    const textoDeductivo = `### 📚 Fundamentación Teórica y Síntesis Formal: ${sel.tema}
 
-* **Principio de Identidad y Coherencia:** Todo concepto tiene un significado preciso y aplicable al mundo real.
-* **Sostenibilidad y Contexto:** Lo que aprendemos se conecta directamente con las necesidades reales de nuestra comunidad en ${ambiente}.
+¡Excelente trabajo de investigación inductiva, **${nombreEstudiante}**! En tu calidad de **${rol}**, has demostrado que la observación inicial y la recolección de evidencias son los cimientos indispensables para construir nuevo conocimiento científico y formalizar las grandes leyes que rigen nuestro universo.
 
-[ACTIVIDAD:CUADERNO:✏️ **Actividad en Cuaderno 4:** ${nombreEstudiante}, escribe en tu cuaderno una síntesis de 5 renglones sobre la importancia de este tema para tu futuro profesional o académico.]
+### 🏛️ Marco Conceptual y Principios Científicos Fundamentales
 
-[ACTIVIDAD:CUADERNO:🧠 **Actividad en Cuaderno 5:** ${nombreEstudiante}, crea un mapa mental en tu cuaderno relacionando el tema principal con 3 aplicaciones prácticas en tu vida diaria.]
+En esta segunda fase de la misión pedagógica, **${nombreEstudiante}**, pasaremos de las observaciones particulares a la formalización deducción teórica de los conceptos clave de **${sel.tema}**. La ciencia moderna se consolida cuando los descubrimientos empíricos se organizan bajo principios unificadores universalmente aceptados.
 
-[ACTIVIDAD:CUADERNO:🎨 **Actividad en Cuaderno 6:** ${nombreEstudiante}, realiza una ilustración final colorida en tu cuaderno que resuma la conclusión más importante de esta guía.]
+1. **Principio de Identidad y Coherencia Lógica:** Todo concepto biológico, físico o químico posee un significado preciso, coherente y matemáticamente o cualitativamente demostrable en la realidad. Las leyes de la naturaleza no operan de forma azarosa ni caprichosa, sino bajo patrones constantes que la humanidad ha descifrado a lo largo de siglos de investigación.
 
-[ACTIVIDAD:CUADERNO:📊 **Actividad en Cuaderno 7:** ${nombreEstudiante}, enumera en tu cuaderno 3 compromisos personales o comunitarios para cuidar tu entorno basándote en lo aprendido.]
+2. **Principio de Sostenibilidad, Conservación y Contexto:** La materia y la energía no se crean ni se destruyen, sino que se transforman continuamente. En **${ambiente}**, este principio se manifiesta en cada proceso biológico, industrial y social. Lo que aprendemos en el aula se conecta en tiempo real con las necesidades ambientales de nuestra comunidad, promoviendo el cuidado de los recursos naturales y el desarrollo sostenible.
 
-[ACTIVIDAD:CUADERNO:📝 **Actividad en Cuaderno 8:** ${nombreEstudiante}, redacta una pregunta que le harías a un experto sobre ${sel.tema} y propone una hipótesis de respuesta.]
+3. **Integración Transdisciplinar STEAM:** El pensamiento científico no actúa aislado del arte, la tecnología y las matemáticas. Como **${nombreEstudiante}** ha podido comprobar, resolver un problema real exige combinar la creatividad artística con el método deductivo riguroso para construir soluciones éticas, duraderas y de alto impacto comunitario.
 
-[ACTIVIDAD:PLATAFORMA:¿Cuál es la conclusión teórica más valiosa que ha obtenido ${nombreEstudiante} al finalizar esta lección?|El conocimiento se fortalece cuando se aplica con ética y compromiso en el territorio]
+[ACTIVIDAD:CUADERNO:✏️ **Actividad en Cuaderno 4:** ${nombreEstudiante}, escribe en tu cuaderno una síntesis reflexiva de al menos 5 renglones sobre la importancia que tiene dominar los conceptos teóricos de este tema para tu desarrollo profesional, académico o personal.]
 
-[ACTIVIDAD:PLATAFORMA:¿Cómo puede ${nombreEstudiante} compartir este conocimiento con sus compañeros o familia?|Explicando los conceptos con ejemplos cotidianos y realizando proyectos prácticos]
+[ACTIVIDAD:CUADERNO:🧠 **Actividad en Cuaderno 5:** ${nombreEstudiante}, crea un mapa mental amplio y estructurado en tu cuaderno relacionando el tema principal de ${sel.tema} con al menos 3 aplicaciones prácticas visibles en las labores de tu hogar, tu institución o tu trabajo.]
+
+[ACTIVIDAD:CUADERNO:🎨 **Actividad en Cuaderno 6:** ${nombreEstudiante}, realiza una ilustración final artística y colorida en tu cuaderno que resuma la conclusión teórica más importante que has extraído a lo largo de esta lección pedagógica.]
+
+[ACTIVIDAD:CUADERNO:📊 **Actividad en Cuaderno 7:** ${nombreEstudiante}, enumera en tu cuaderno 3 compromisos personales y comunitarios concretos que asumirás para cuidar tu entorno y aplicar con responsabilidad lo aprendido en esta misión.]
+
+[ACTIVIDAD:CUADERNO:📝 **Actividad en Cuaderno 8:** ${nombreEstudiante}, redacta una pregunta desafiante que le harías a un científico experto sobre ${sel.tema} y formula una hipótesis razonada de cómo responderías tú a esa pregunta basándote en lo aprendido.]
+
+[ACTIVIDAD:PLATAFORMA:¿Cuál es la conclusión teórica más valiosa que ha obtenido ${nombreEstudiante} al finalizar esta fundamentación científica?|El conocimiento se fortalece y adquiere verdadero sentido cuando se aplica con ética, rigor y compromiso social en beneficio de la comunidad]
+
+[ACTIVIDAD:PLATAFORMA:¿De qué manera estratégica puede ${nombreEstudiante} compartir este nuevo conocimiento con sus compañeros, docentes o grupo familiar?|Explicando los principios teóricos con ejemplos sencillos del entorno cotidiano y promoviendo proyectos prácticos comunitarios]
+
+Para consolidar tu dominio sobre la fundamentación teórica formal, **${nombreEstudiante}**, resuelve la segunda ronda de minijuegos interactivos de ordenamiento de letras y frases:
 
 [JUEGO:ORDENAR_LETRAS:${sel.sopa.split(',')[5] || 'TEORIA'}]
 [JUEGO:ORDENAR_LETRAS:${sel.sopa.split(',')[6] || 'MODELO'}]
@@ -617,7 +632,7 @@ Sigamos adelante con paso firme en nuestra misión de aprendizaje en ${ambiente}
 [JUEGO:ORDENAR_FRASE:APLICAMOS EL CONOCIMIENTO CON ETICA Y COMPROMISO SOCIAL]
 [JUEGO:ORDENAR_FRASE:APRENDER ES UN PROCESO CONTINUO DE EXPLORACION Y DESCUBRIMIENTO]
 
-¡Felicitaciones, **${nombreEstudiante}**! Has completado exitosamente la fundamentación teórica de esta misión pedagógica.`;
+¡Felicitaciones de corazón, **${nombreEstudiante}**! Has completado con rotundo éxito la fundamentación teórica y deducción científica de esta importante misión pedagógica.`;
 
     return {
         objetivo_aprendizaje: sel.objetivo,
