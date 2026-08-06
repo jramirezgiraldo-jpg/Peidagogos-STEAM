@@ -4251,7 +4251,7 @@ window.ingresarAGuia = async function() {
     // Petición al caché local (Archivos JSON estáticos) o Generación por Demanda
     try {
         const currentUser = window.usuarioEstudianteActual || JSON.parse(localStorage.getItem('usuario_sesion') || '{}');
-        const studentDisplayName = (currentUser.nombre || ((currentUser.nombres || '') + ' ' + (currentUser.apellidos || '')).trim()) || 'Estudiante';
+        let studentDisplayName = (currentUser.nombre || ((currentUser.nombres || '') + ' ' + (currentUser.apellidos || '')).trim()) || 'Estudiante';
         const userInstitucion = currentUser.institucion || (currentUser.rol === 'validacion' ? 'Validacion' : 'IE Instituto Montenegro');
         const userModo = currentUser.rol || (currentUser.institucion === 'Validacion' ? 'validacion' : (currentUser.institucion === 'HomeSchool' ? 'homeschool' : 'regular'));
 
