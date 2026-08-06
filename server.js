@@ -372,10 +372,26 @@ const normalizarStr = (str) => String(str || '').trim().toLowerCase().replace(/[
 app.post('/api/registro-estudiante', (req, res) => {
     let usuarios = readJSON('usuarios.json');
     const nuevo = req.body || {};
-    const normDoc = normalizarStr(nuevo.documento);
+    const normDoc = normalizarStr(nuevo.documento || nuevo.usuario);
+    const nom = String(nuevo.nombre || nuevo.nombres || nuevo.nombre_completo || '').trim();
+    const ape = String(nuevo.apellidos || '').trim();
+    const grado = String(nuevo.grado || nuevo.grupo || '').trim();
 
     if (!normDoc) {
-        return res.status(400).json({ error: "El número de documento es obligatorio." });
+        return res.status(400).json({ error: "❌ El número de documento es obligatorio." });
+    }
+
+    const isGenericNom = !nom || nom.toLowerCase() === 'estudiante' || nom.toLowerCase() === 'estudiante nocturno';
+    if (isGenericNom) {
+        return res.status(400).json({ error: "❌ Debes ingresar un Nombre (o Nombres) real y válido." });
+    }
+
+    if (!ape && !nuevo.nombre_completo) {
+        return res.status(400).json({ error: "❌ Debes ingresar los Apellidos reales del estudiante." });
+    }
+
+    if (!grado) {
+        return res.status(400).json({ error: "❌ El Grado o Ciclo es obligatorio." });
     }
     
     // Si viene matriculado por un docente, se autoriza automáticamente

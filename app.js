@@ -1267,10 +1267,15 @@ document.addEventListener("DOMContentLoaded", function() {
             let asig = document.getElementById("registro-asignatura") ? document.getElementById("registro-asignatura").value : "";
             const codigoInst = document.getElementById("reg-codigo-institucional") ? document.getElementById("reg-codigo-institucional").value.trim() : "";
 
-            if (!doc || !ap || !nom || !ed || !gen || !ie || (!gra && !grupo) || !asig) {
-                alert("⚠️ Por favor, completa todos los campos.");
-                return;
-            }
+            if (!doc) { alert("⚠️ El campo Número de Documento es obligatorio."); return; }
+            if (!nom || nom.toLowerCase() === 'estudiante' || nom.toLowerCase() === 'estudiante nocturno') { alert("⚠️ El campo Nombres es obligatorio (ingresa tus nombres reales)."); return; }
+            if (!ap || ap.toLowerCase() === 'nocturno' || ap.toLowerCase() === 'estudiante') { alert("⚠️ El campo Apellidos es obligatorio (ingresa tus apellidos reales)."); return; }
+            if (!ed) { alert("⚠️ El campo Edad es obligatorio."); return; }
+            if (!gen) { alert("⚠️ El campo Género es obligatorio."); return; }
+            if (!ie) { alert("⚠️ Debes seleccionar tu Institución o Modalidad de estudio."); return; }
+            if (ie === 'InstitutoMontenegro' && !grupo) { alert("⚠️ Debes seleccionar tu Grupo en la IE Instituto Montenegro."); return; }
+            if (ie !== 'InstitutoMontenegro' && !gra) { alert("⚠️ Debes seleccionar tu Grado o Ciclo a cursar."); return; }
+            if (!asig) { alert("⚠️ Por favor espera a que se carguen las asignaturas asignadas."); return; }
 
             const normCod = codigoInst.toLowerCase().replace(/[\.\,\-\_\s]/g, '');
             // Validación estricta del código institucional para IE Instituto Montenegro
