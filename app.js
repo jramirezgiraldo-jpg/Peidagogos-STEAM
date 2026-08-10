@@ -593,6 +593,52 @@ window.inicializarPanelEstudiante = function(data) {
         badgeMsg.innerText = `🎓 ${gradoCiclo} | 🏛️ ${ieName}`;
     }
 
+    // Cálculo de Nivel y Porcentaje de Progreso
+    let nivelNum = 1;
+    let nivelNombre = "Novato STEAM 🌱";
+    let proximaMeta = 300;
+    let baseNivel = 0;
+
+    if (totalXP >= 2000) {
+        nivelNum = 5;
+        nivelNombre = "Sabio Cuántico STEAM 👑";
+        proximaMeta = 3000;
+        baseNivel = 2000;
+    } else if (totalXP >= 1200) {
+        nivelNum = 4;
+        nivelNombre = "Maestro Investigador 🧙‍♂️";
+        proximaMeta = 2000;
+        baseNivel = 1200;
+    } else if (totalXP >= 700) {
+        nivelNum = 3;
+        nivelNombre = "Científico Avanzado 🔬";
+        proximaMeta = 1200;
+        baseNivel = 700;
+    } else if (totalXP >= 300) {
+        nivelNum = 2;
+        nivelNombre = "Explorador de Campo 🚀";
+        proximaMeta = 700;
+        baseNivel = 300;
+    } else {
+        nivelNum = 1;
+        nivelNombre = "Novato STEAM 🌱";
+        proximaMeta = 300;
+        baseNivel = 0;
+    }
+
+    let xpEnNivel = totalXP - baseNivel;
+    let rangoNivel = Math.max(1, proximaMeta - baseNivel);
+    let porcentajeProgreso = Math.min(100, Math.max(5, Math.round((xpEnNivel / rangoNivel) * 100)));
+
+    const pBar = document.getElementById("student-xp-progress-bar");
+    if (pBar) pBar.style.width = `${porcentajeProgreso}%`;
+
+    const pText = document.getElementById("student-xp-progress-text");
+    if (pText) pText.innerText = `${totalXP} / ${proximaMeta} XP (${porcentajeProgreso}% hacia Nivel ${nivelNum + 1})`;
+
+    const pLevelBadge = document.getElementById("student-xp-level-name");
+    if (pLevelBadge) pLevelBadge.innerText = `Nivel ${nivelNum}: ${nivelNombre}`;
+
     // 3. Header de Guía (si se abre)
     const gAvatar = document.getElementById("student-guide-header-avatar");
     if (gAvatar) gAvatar.innerText = avatar;
@@ -1717,7 +1763,7 @@ window.perteneceAlGrupo = function(est, grupoName) {
 
     // Comparación robusta para Ciclos (I, II, III, IV, V, VI)
     if (target.toLowerCase().includes('ciclo') || gEst.toLowerCase().includes('ciclo') || graEst.toLowerCase().includes('ciclo')) {
-        const regexCiclo = /ciclo\s*(I{1,3}|IV|V|VI)\b/i;
+        const regexCiclo = /ciclo\s*(VI|IV|V|III|II|I)\b/i;
         const targetMatch = target.match(regexCiclo);
         if (targetMatch) {
             const cTarget = targetMatch[1].toUpperCase();
@@ -1744,12 +1790,27 @@ window.perteneceAlGrupo = function(est, grupoName) {
 async function cargarDatosAdmin() {
     try {
         // Cargar Docentes
-        const resDocentes = await fetch('/api/docentes');
-        const docentes = await resDocentes.json();
+        let docentes = [];
+        try {
+            const resDocentes = await fetch('/api/docentes');
+            if (resDocentes.ok) docentes = await resDocentes.json();
+        } catch(e) {}
         
         // Cargar Estudiantes
-        const resEstud = await fetch('/api/estudiantes');
-        const estudiantes = await resEstud.json();
+        let estudiantes = [];
+        try {
+            const resEstud = await fetch('/api/estudiantes');
+            if (resEstud.ok) estudiantes = await resEstud.json();
+        } catch(e) {}
+
+        // Unir con respaldo local de usuarios_db para garantizar visibilidad inmediata de todos los matriculados
+        const localUsers = JSON.parse(localStorage.getItem('usuarios_db') || '[]');
+        localUsers.forEach(lu => {
+            const normDoc = String(lu.documento || lu.id || lu.usuario || '').trim().toLowerCase().replace(/[\.\,\-\_\s]/g, '');
+            if (normDoc && !estudiantes.some(e => String(e.documento || e.id || e.usuario || '').trim().toLowerCase().replace(/[\.\,\-\_\s]/g, '') === normDoc)) {
+                estudiantes.push(lu);
+            }
+        });
 
         const tbodyDoc = document.getElementById('tbody-admin-docentes');
         const tbodyEst = document.getElementById('tbody-admin-todos-estudiantes');
@@ -3228,45 +3289,61 @@ window.abrirGrupo = function(grupoName) {
                 </div>
             </td>
         </tr>`;
-            estFiltrados.forEach(est => {
-                const docClean = est.documento || est.usuario || est.id || '';
-                const nomClean = window.obtenerNombreCompletoEstudiante(est);
-                const progreso = Math.floor(Math.random() * 60) + 40; 
-                const materiasGrupo = obtenerMateriasPorGrupo(grupoName);
-                
-                tbodyEst.innerHTML += `
-                <tr style="border-bottom: 1px solid #f3f4f6;">
-                    <td style="padding: 15px; font-family: monospace; font-size: 0.95rem;">${docClean}</td>
-                    <td style="padding: 15px; font-weight: bold; color: #111827;">
-                        ${nomClean}
-                        <button onclick="abrirModalEditarEstudianteDocente('${docClean}', '${nomClean.replace(/'/g, "\\'")}')" style="background: #F3F4F6; border: 1px solid #CBD5E1; color: #374151; padding: 2px 8px; border-radius: 6px; font-size: 0.75rem; font-weight: bold; cursor: pointer; margin-left: 6px; display: inline-flex; align-items: center; gap: 4px;" title="Editar o asignar el nombre real de este estudiante">
-                            ✏️ Editar Nombre
+    } else {
+        estFiltrados.forEach(est => {
+            const docClean = est.documento || est.usuario || est.id || '';
+            const nomClean = window.obtenerNombreCompletoEstudiante(est);
+            const progreso = Math.floor(Math.random() * 60) + 40; 
+            const materiasGrupo = obtenerMateriasPorGrupo(grupoName);
+            
+            // Calcular Puntos Acumulados Reales (XP) del estudiante
+            let xpEst = parseInt(localStorage.getItem(`xp_${docClean}`)) || 0;
+            if (xpEst === 0) {
+                const diagXP = parseInt(localStorage.getItem(`prog_${docClean}_diag_xp`)) || 0;
+                xpEst = diagXP || 500;
+            }
+            const bonusTotal = parseInt(localStorage.getItem(`bonus_total_${docClean}`)) || 0;
+            const penaltyTotal = parseInt(localStorage.getItem(`penalty_total_${docClean}`)) || 0;
+            let totalXPAcumulado = Math.max(0, xpEst + bonusTotal - penaltyTotal);
+
+            tbodyEst.innerHTML += `
+            <tr style="border-bottom: 1px solid #f3f4f6;">
+                <td style="padding: 15px; font-family: monospace; font-size: 0.95rem;">${docClean}</td>
+                <td style="padding: 15px; font-weight: bold; color: #111827;">
+                    ${nomClean}
+                    <button onclick="abrirModalEditarEstudianteDocente('${docClean}', '${nomClean.replace(/'/g, "\\'")}')" style="background: #F3F4F6; border: 1px solid #CBD5E1; color: #374151; padding: 2px 8px; border-radius: 6px; font-size: 0.75rem; font-weight: bold; cursor: pointer; margin-left: 6px; display: inline-flex; align-items: center; gap: 4px;" title="Editar o asignar el nombre real de este estudiante">
+                        ✏️ Editar Nombre
+                    </button>
+                </td>
+                <td style="padding: 15px;"><span class="badge" style="background: #F3F4F6; color: #374151; padding: 4px 8px; border-radius: 4px;">${est.grado || grupoName}</span></td>
+                <td style="padding: 15px;">
+                    <span style="background: #ECFDF5; color: #047857; border: 1px solid #A7F3D0; padding: 6px 14px; border-radius: 20px; font-weight: 900; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 5px; box-shadow: 0 2px 5px rgba(16,185,129,0.15);">
+                        🌟 ${totalXPAcumulado} XP
+                    </span>
+                </td>
+                <td style="padding: 15px;">
+                    <div style="display: flex; flex-direction: column; gap: 5px;">
+                        ${materiasGrupo.map(m => `
+                            <div style="display: flex; justify-content: space-between; align-items: center; background: #F3F4F6; padding: 4px 8px; border-radius: 4px;">
+                                <span style="font-size: 0.85rem; font-weight: bold; color: #374151;">${m.nombre} (${m.horas})</span>
+                                <span style="font-size: 0.75rem; color: ${m.color}; font-weight: bold;">${m.estado}</span>
+                            </div>
+                        `).join('')}
+                    </div>
+                </td>
+                <td style="padding: 15px; text-align: center;">
+                    <div style="display: flex; gap: 8px; justify-content: center;">
+                        <button onclick="verInformeEstudiante('${nomClean.replace(/'/g, "\\'")}', ${progreso}, '${grupoName}', '${docClean}')" style="background: #3B82F6; color: white; border: none; padding: 6px 12px; border-radius: 6px; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 5px;" title="Ver Informe">
+                            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                            Informe
                         </button>
-                    </td>
-                    <td style="padding: 15px;"><span class="badge" style="background: #F3F4F6; color: #374151; padding: 4px 8px; border-radius: 4px;">${est.grado || grupoName}</span></td>
-                    <td style="padding: 15px;">
-                        <div style="display: flex; flex-direction: column; gap: 5px;">
-                            ${materiasGrupo.map(m => `
-                                <div style="display: flex; justify-content: space-between; align-items: center; background: #F3F4F6; padding: 4px 8px; border-radius: 4px;">
-                                    <span style="font-size: 0.85rem; font-weight: bold; color: #374151;">${m.nombre} (${m.horas})</span>
-                                    <span style="font-size: 0.75rem; color: ${m.color}; font-weight: bold;">${m.estado}</span>
-                                </div>
-                            `).join('')}
-                        </div>
-                    </td>
-                    <td style="padding: 15px; text-align: center;">
-                        <div style="display: flex; gap: 8px; justify-content: center;">
-                            <button onclick="verInformeEstudiante('${nomClean.replace(/'/g, "\\'")}', ${progreso}, '${grupoName}', '${docClean}')" style="background: #3B82F6; color: white; border: none; padding: 6px 12px; border-radius: 6px; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 5px;" title="Ver Informe">
-                                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
-                                Informe
-                            </button>
-                            <button onclick="eliminarEstudiante('${docClean}')" style="background: #EF4444; color: white; border: none; padding: 6px 12px; border-radius: 6px; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 5px;" title="Eliminar">
-                                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
-                            </button>
-                        </div>
-                    </td>
-                </tr>`;
-            });
+                        <button onclick="eliminarEstudiante('${docClean}')" style="background: #EF4444; color: white; border: none; padding: 6px 12px; border-radius: 6px; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 5px;" title="Eliminar">
+                            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+                        </button>
+                    </div>
+                </td>
+            </tr>`;
+        });
     }
 };
 
@@ -4885,6 +4962,69 @@ window.verificarCuadernoDeductivoIndividual = function(idx) {
 
 // --- FASE 2: ANTI-CHEAT Y VALIDACIONES ---
 
+// Utilidad global para sumar XP acumulado al perfil del estudiante y refrescar panel
+window.sumarXPEstudiante = function(docClean, puntos) {
+    if (!docClean || !puntos) return;
+    const doc = String(docClean).trim();
+    const xpKey = `xp_${doc}`;
+    let currentXP = parseInt(localStorage.getItem(xpKey)) || 0;
+    if (currentXP === 0) {
+        const diagXP = parseInt(localStorage.getItem(`prog_${doc}_diag_xp`)) || 0;
+        currentXP = diagXP || 500;
+    }
+    const newXP = currentXP + puntos;
+    localStorage.setItem(xpKey, newXP);
+
+    // Actualizar elemento header de la guía
+    const gXP = document.getElementById('student-guide-header-xp');
+    if (gXP) gXP.innerText = newXP;
+
+    // Actualizar el panel global del estudiante si está activo
+    const hScore = document.getElementById('student-score-display');
+    if (hScore) hScore.innerText = newXP;
+
+    if (window.usuarioEstudianteActual && typeof window.inicializarPanelEstudiante === 'function') {
+        window.inicializarPanelEstudiante(window.usuarioEstudianteActual);
+    }
+};
+
+// Detección automática Anti-Cheat al cambiar de pestaña o salir de la página
+(function() {
+    let ultimoDescuento = 0;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            const user = window.usuarioEstudianteActual || JSON.parse(localStorage.getItem('usuario_sesion') || '{}');
+            const doc = String(user.documento || user.usuario || '').trim();
+            if (!doc || user.rol === 'docente' || user.rol === 'admin') return;
+
+            const ahora = Date.now();
+            if (ahora - ultimoDescuento < 10000) return; // Evitar penalización repetida en menos de 10 seg
+            ultimoDescuento = ahora;
+
+            const xpKey = `xp_${doc}`;
+            let currentXP = parseInt(localStorage.getItem(xpKey)) || 500;
+            const penaltyAmount = Math.max(50, Math.round(currentXP * 0.10));
+            const newXP = Math.max(0, currentXP - penaltyAmount);
+
+            localStorage.setItem(xpKey, newXP);
+            let penaltyTotal = parseInt(localStorage.getItem(`penalty_total_${doc}`)) || 0;
+            localStorage.setItem(`penalty_total_${doc}`, penaltyTotal + penaltyAmount);
+
+            const notif = {
+                motivo: "🚨 Salida de la página / Cambio de pestaña no autorizado",
+                observacion: "El sistema Anti-Cheat ha detectado que minimizaste o saliste de la aplicación durante la clase activa.",
+                puntos: penaltyAmount,
+                fecha: new Date().toLocaleDateString() + ' ' + new Date().toLocaleTimeString()
+            };
+            localStorage.setItem(`notificacion_penalizacion_${doc}`, JSON.stringify(notif));
+
+            if (typeof window.inicializarPanelEstudiante === 'function') {
+                window.inicializarPanelEstudiante(user);
+            }
+        }
+    });
+})();
+
 window.verificarEscrituraIA = function(textarea) {
     const val = textarea.value;
     const lastLen = textarea.dataset.lastLen || 0;
@@ -5315,7 +5455,7 @@ window.abrirHuevo = function(premio) {
         // Lógica de robo (solo para modalidades no nocturnas / ciclos)
         let htmlRobo = `
             <div style="background: white; padding: 35px 30px; border-radius: 20px; text-align: center; max-width: 500px; position: relative; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);">
-                <button onclick="document.getElementById('modal-huevos').style.display='none'" style="position: absolute; top: 15px; right: 20px; background: none; border: none; font-size: 2.2rem; cursor: pointer; color: #9CA3AF; transition: color 0.2s;" onmouseover="this.style.color='#EF4444'" onmouseout="this.style.color='#9CA3AF'">&times;</button>
+                <button onclick="document.getElementById('modal-huevos').style.display='none'" style="position: absolute; top: 12px; right: 15px; background: #FEE2E2; border: 1.5px solid #FCA5A5; color: #EF4444; width: 38px; height: 38px; border-radius: 50%; font-size: 1.5rem; font-weight: 900; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 10; box-shadow: 0 2px 8px rgba(239,68,68,0.2); transition: all 0.2s;" onmouseover="this.style.background='#EF4444'; this.style.color='white'" onmouseout="this.style.background='#FEE2E2'; this.style.color='#EF4444'">&times;</button>
                 <h3 style="color: #EF4444; font-weight: 900; font-size: 1.5rem; margin-top: 5px;">😈 ¡TE HA TOCADO ${premio}!</h3>
                 <p style="color: #4B5563; font-size: 0.95rem;">Elige a un compañero de tu clase para reclamar los puntos:</p>
                 <select id="victima-robo" style="width: 100%; padding: 12px; margin: 15px 0 25px 0; border-radius: 8px; border: 1px solid #CBD5E1; font-weight: 600; font-size: 0.95rem; background: white;">
@@ -5360,18 +5500,8 @@ window.abrirHuevo = function(premio) {
         
         alert(`🎉 ¡Felicidades! Has ganado un bono de ${premio} (+${suma} XP)`);
         
-        // Agregar penalidad negativa (que restaula en XP positivo) en el sistema actual de "penalties"
-        let pKey = `penalty_${user.grupo}_${asig}_p${p}`;
-        let penStr = localStorage.getItem(pKey);
-        let penData = penStr ? JSON.parse(penStr) : { total: 0 };
-        penData.total -= suma; // restar a la penalidad es sumar XP
-        localStorage.setItem(pKey, JSON.stringify(penData));
-        window.dispatchEvent(new Event('storage'));
-        
-        // Refrescar header
-        const xpHeader = document.getElementById('student-guide-header-xp');
-        if (xpHeader) {
-            xpHeader.innerText = (parseInt(xpHeader.innerText) || 0) + suma;
+        if (window.sumarXPEstudiante) {
+            window.sumarXPEstudiante(user.documento || user.usuario, suma);
         }
         
         modal.style.display = 'none';
@@ -5384,30 +5514,16 @@ window.ejecutarRobo = function(premio) {
     const victimaNombre = select.options[select.selectedIndex].text;
     
     let bonoStr = premio.replace("ROBAR ", "").replace("%", "");
-    let pct = parseInt(bonoStr) / 100;
-    
-    // Robaremos asumiendo una base generica de xp para la demo (50 XP por defecto si la victima no tiene mucho)
     let robado = 50; 
     
     alert(`¡Robaste ${robado} XP a ${victimaNombre}!`);
     
-    const user = window.usuarioEstudianteActual || JSON.parse(localStorage.getItem('usuario_sesion'));
-    const asig = window.guiaActualAsignatura;
-    const p = window.guiaActualPeriodo;
+    const user = window.usuarioEstudianteActual || JSON.parse(localStorage.getItem('usuario_sesion') || '{}');
     
-    // Sumar al atacante
-    let pKey = `penalty_${user.grupo}_${asig}_p${p}`;
-    let penStr = localStorage.getItem(pKey);
-    let penData = penStr ? JSON.parse(penStr) : { total: 0 };
-    penData.total -= robado; 
-    localStorage.setItem(pKey, JSON.stringify(penData));
+    if (window.sumarXPEstudiante) {
+        window.sumarXPEstudiante(user.documento || user.usuario, robado);
+    }
     
-    // Quitar a la victima
-    let pKeyV = `penalty_${user.grupo}_${asig}_p${p}`; // Ojo, para que sea individual necesitamos ajustar la key de penalty a individual, pero el admin panel resta global a menos que estemos en la asignatura. En este caso, simularemos con el nombre de usuario
-    // Simplificación para la demo: disparamos storage
-    window.dispatchEvent(new Event('storage'));
-    
-    document.getElementById('student-guide-header-xp').innerText = parseInt(document.getElementById('student-guide-header-xp').innerText) + robado;
     document.getElementById('modal-huevos').style.display = 'none';
 };
 

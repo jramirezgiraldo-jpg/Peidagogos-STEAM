@@ -693,17 +693,6 @@
                                     btn.style.boxShadow = 'none';
                                 }
                             });
-                        }
-                        function volverAGrupos() {
-                            document.getElementById('admin-estudiantes-grupo-container').style.display = 'none';
-                            document.getElementById('admin-grupos-container').style.display = 'block';
-                        }
-                    </script>
-                </div>
-                        function volverAGrupos() {
-                            document.getElementById('admin-estudiantes-grupo-container').style.display = 'none';
-                            document.getElementById('admin-grupos-container').style.display = 'block';
-                        }
                     </script>
                 </div>
 
@@ -754,6 +743,7 @@
                             <th style="padding: 15px;">Documento</th>
                             <th style="padding: 15px;">Nombre</th>
                             <th style="padding: 15px;">Grado</th>
+                            <th style="padding: 15px;">Puntaje Acumulado (XP)</th>
                             <th style="padding: 15px;">Progreso por Asignatura</th>
                             <th style="padding: 15px; text-align: center;">Acciones</th>
                         </tr></thead>
@@ -972,6 +962,17 @@
                     ✏️ Personalizar Nombre y Avatar
                 </button>
             </div>
+
+            <!-- Barra de Progreso de Nivel y Puntos Acumulados del Estudiante -->
+            <div style="margin-top: 15px; background: rgba(15, 23, 42, 0.45); border: 1px solid rgba(255, 255, 255, 0.25); border-radius: 14px; padding: 12px 18px; max-width: 550px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; flex-wrap: wrap; gap: 6px;">
+                    <span id="student-xp-level-name" style="color: #FDE047; font-weight: 800; font-size: 0.92rem; letter-spacing: 0.3px;">🌱 Nivel 1: Novato STEAM</span>
+                    <span id="student-xp-progress-text" style="color: #F8FAFC; font-weight: 700; font-size: 0.85rem;">0 / 300 XP (0%)</span>
+                </div>
+                <div style="background: rgba(255, 255, 255, 0.2); height: 12px; border-radius: 10px; overflow: hidden; position: relative; border: 1px solid rgba(255, 255, 255, 0.3);">
+                    <div id="student-xp-progress-bar" style="background: linear-gradient(90deg, #10B981, #34D399, #38BDF8); height: 100%; width: 10%; border-radius: 10px; transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 0 10px rgba(52, 211, 153, 0.6);"></div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -1177,8 +1178,8 @@
         </div>
     </div>
 
-    <script src="diagnostico_nocturno.js?v=20260805_v11"></script>
-    <script src="app.js?v=20260805_v11"></script>
+    <script src="diagnostico_nocturno.js?v=20260806_v16"></script>
+    <script src="app.js?v=20260806_v16"></script>
     <script>
         // Función global para navegación SPA segura sin conflictos con app.js
         function mostrarVista(id) {
