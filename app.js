@@ -2288,8 +2288,44 @@ window.mallaEtica = {
 };
 
 window.mallaMatematicas = {
+    '1': {
+        objetivo: 'Desarrollar el pensamiento numérico y espacial inicial: conteo, adición y sustracción básica (0-99), figuras geométricas y resolución de problemas cotidianos.',
+        dba: [
+            'DBA 1: Identifica los usos de los números (como código, cardinal, medida, ordinal) y las operaciones en la vida diaria.',
+            'DBA 2: Utiliza diferentes estrategias para contar, sumar, restar y resolver problemas aditivos sencillos.',
+            'DBA 3: Reconoce y compara atributos medibles en objetos: longitud, peso, capacidad y tiempo.',
+            'DBA 4: Describe y clasifica figuras bidimensionales y cuerpos tridimensionales en su entorno.'
+        ],
+        periodos: {
+            '1': { '1': 'Conteo y secuencia numérica del 0 al 20.', '3': 'Concepto intuitivo de adición y agrupación.', '5': 'Figuras geométricas básicas (círculo, cuadrado, triángulo).', '7': 'Resolución de problemas de suma sencilla.' },
+            '2': { '1': 'Números hasta el 50 y valor posicional (unidades y decenas).', '3': 'Sustracción como quitar y comparar.', '5': 'Noción de longitud (largo, corto) y medición con objetos.', '7': 'Problemas combinados de suma y resta.' },
+            '3': { '1': 'Números hasta el 99 y conteo de 2 en 2, 5 en 5 y 10 en 10.', '3': 'Operaciones de suma y resta sin reagrupación.', '5': 'Cuerpos geométricos en el entorno (cubo, esfera, cilindro).', '7': 'Lectura de tablas sencillas y pictogramas.' },
+            '4': { '1': 'Ubicación espacial: arriba, abajo, izquierda, derecha.', '3': 'El reloj y la noción del tiempo (días de la semana, meses).', '5': 'Resolución de desafíos matemáticos infantiles.', '7': 'Feria de juegos matemáticos de 1°.' }
+        }
+    },
+    '2': {
+        objetivo: 'Consolidar el valor posicional (centenas), suma y resta con reagrupación, iniciación a la multiplicación, medición estándar y recolección de datos.',
+        dba: [
+            'DBA 1: Aplica el sistema de numeración decimal para representar, comparar y operar con números de hasta tres cifras (0-999).',
+            'DBA 2: Utiliza el conteo y la suma iterada para comprender la noción de multiplicación y resolver problemas.',
+            'DBA 3: Mide y estima longitudes utilizando instrumentos estandarizados (metro, centímetro) y unidades de tiempo.',
+            'DBA 4: Clasifica y organiza datos en tablas de doble entrada y gráficos de barras sencillos.'
+        ],
+        periodos: {
+            '1': { '1': 'Números de tres cifras (centenas) y valor posicional.', '3': 'Adición con reagrupación (llevando).', '5': 'Líneas rectas, curvas y figuras planas.', '7': 'Resolución de problemas de compra y venta.' },
+            '2': { '1': 'Sustracción con desagrupación (prestando).', '3': 'La multiplicación como suma repetida.', '5': 'El metro y el centímetro como unidades de medida.', '7': 'Tablas del 2, 3, 4 y 5.' },
+            '3': { '1': 'Tablas de multiplicar del 6 al 9.', '3': 'Noción de reparto equitativo.', '5': 'El reloj de manecillas y digital (horas y minutos).', '7': 'Gráficos de barras y recolección de datos.' },
+            '4': { '1': 'Cálculo mental y estimaciones.', '3': 'Cuerpos geométricos: caras, vértices y aristas.', '5': 'Problemas matemáticos de dos operaciones.', '7': 'Olimpiadas matemáticas de 2°.' }
+        }
+    },
     '3': {
         objetivo: 'Desarrollar el pensamiento numérico y el cálculo mental con números naturales, suma, resta y multiplicación básica.',
+        dba: [
+            'DBA 1: Interpreta y formula problemas multiplicativos y aditivos con números de hasta cuatro cifras.',
+            'DBA 2: Comprende el concepto de fracción como parte de una unidad o de una colección de objetos.',
+            'DBA 3: Describe y representa formas bidimensionales y tridimensionales, calculando perímetros de figuras simples.',
+            'DBA 4: Formula preguntas y lee gráficos estadísticos sencillos de la vida cotidiana.'
+        ],
         periodos: {
             '1': { '1': 'El sistema de numeración decimal y valor posicional.', '3': 'Adición y sustracción con situaciones problema.', '5': 'Introducción a la multiplicación como suma repetida.', '7': 'Tablas de multiplicar y propiedades.' },
             '2': { '1': 'Multiplicación por una y dos cifras.', '3': 'Reparto equitativo e iniciación a la división.', '5': 'Figuras geométricas básicas y simetría.', '7': 'Medición de longitud y tiempo (reloj y calendario).' },
@@ -2474,9 +2510,158 @@ window.mallaQuimica = {
 };
 
 window.mallaNaturales = {
-    '6': { objetivo: 'Comprender la estructura celular y el entorno vivo.', periodos: { '1': { '1': 'La Célula y sus partes.', '3': 'Funciones Celulares y organelos.', '5': 'Tejidos y órganos.', '7': 'Ecosistemas y biodiversidad.' } } },
+    '1': {
+        objetivo: 'Reconocer los sentidos, las partes del cuerpo, los seres vivos del entorno y los objetos cotidianos.',
+        dba: [
+            'DBA 1: Comprende que los sentidos le permiten percibir características de los objetos (forma, color, textura, sabor, sonido).',
+            'DBA 2: Comprende que los seres vivos (plantas y animales) tienen características comunes y necesidades básicas para vivir.'
+        ],
+        periodos: {
+            '1': { '1': 'Los cinco sentidos y el cuidado del cuerpo.', '3': 'Seres vivos vs. objetos inertes en el entorno.', '5': 'Las plantas: partes básicas (raíz, tallo, hojas).', '7': 'Animales del entorno y cómo se mueven.' },
+            '2': { '1': 'El día, la noche y el Sol en el cielo.', '3': 'El agua y su importancia para la vida.', '5': 'Alimentos saludables de origen vegetal y animal.', '7': 'Cuidado y respeto hacia los animales.' },
+            '3': { '1': 'Materiales de los objetos: madera, plástico, metal, vidrio.', '3': 'Sonidos del entorno: suaves, fuertes, agradables y ruidos.', '5': 'El suelo y las plantas que crecen en él.', '7': 'El aire y la respiración.' },
+            '4': { '1': 'Cambios del clima: días soleados y lluviosos.', '3': 'Hábitos de higiene personal.', '5': 'Reciclaje básico y cuidado del aula.', '7': 'Muestra de ciencias de 1°.' }
+        }
+    },
+    '2': {
+        objetivo: 'Identificar ciclos de vida, estados de la materia, fuentes de luz y sonido, y adaptaciones sencillas de los seres vivos.',
+        dba: [
+            'DBA 1: Comprende que las sustancias pueden encontrarse en distintos estados (sólido, líquido y gas).',
+            'DBA 2: Explica los procesos de cambios físicos y ciclos de vida en plantas y animales a lo largo del tiempo.'
+        ],
+        periodos: {
+            '1': { '1': 'Estados de la materia: sólidos, líquidos y gases en el hogar.', '3': 'Ciclo de vida de las plantas (germinación y crecimiento).', '5': 'Ciclo de vida de los animales (nacimiento, crecimiento, reproducción).', '7': 'Cambios en el cuerpo humano con la edad.' },
+            '2': { '1': 'Fuentes de luz naturales (Sol, estrellas) y artificiales (bombillos, linternas).', '3': 'La luz y la formación de sombras.', '5': 'Fuentes de sonido y vibración.', '7': 'El cuidado de los ojos y los oídos.' },
+            '3': { '1': 'Hábitats terrestres y acuáticos.', '3': 'Adaptaciones de los animales a su ambiente.', '5': 'El agua: cambios de estado (hielo, agua líquida, vapor).', '7': 'Ahorro y conservación del agua.' },
+            '4': { '1': 'Fuerzas: empujar, jalar y mover objetos.', '3': 'Los recursos naturales renovables.', '5': 'Cuidado del medio ambiente escolar y familiar.', '7': 'Feria de la ciencia de 2°.' }
+        }
+    },
+    '3': {
+        objetivo: 'Comprender las relaciones bióticas, adaptaciones ecosistémicas, mezclas y separación, y el movimiento por fuerzas.',
+        dba: [
+            'DBA 1: Comprende la influencia de la variación de la temperatura en los cambios de estado de la materia.',
+            'DBA 2: Explica la influencia de los factores bióticos y abióticos en los ecosistemas.'
+        ],
+        periodos: {
+            '1': { '1': 'Ecosistemas locales: factores bióticos (seres vivos) y abióticos (luz, agua, suelo).', '3': 'Adaptaciones morfológicas y de comportamiento.', '5': 'Cadenas alimentarias: productores, consumidores y descomponedores.', '7': 'El calor y la temperatura en los cambios de estado.' },
+            '2': { '1': 'Mezclas homogéneas y heterogéneas en la cocina.', '3': 'Métodos de separación de mezclas (filtración, tamizado, decantación).', '5': 'Fuerzas por contacto y a distancia (magnetismo, gravedad).', '7': 'Efecto de las fuerzas en el movimiento y deformación de objetos.' },
+            '3': { '1': 'El sistema óseo y muscular del cuerpo humano.', '3': 'Nutrición balanceada y grupos de alimentos.', '5': 'El ciclo del agua en la naturaleza.', '7': 'Fuentes de energía en la vida diaria.' },
+            '4': { '1': 'Contaminación del suelo y del agua.', '3': 'Especies protegidas de Colombia.', '5': 'Experimentos caseros de mezclas y fuerzas.', '7': 'Proyecto de aula ambiental.' }
+        }
+    },
+    '4': {
+        objetivo: 'Analizar redes tróficas, transformaciones de energía, calor, temperatura y sistemas biológicos.',
+        dba: [
+            'DBA 1: Comprende que la luz y el sonido viajan en diferentes medios y experimentan transformaciones.',
+            'DBA 2: Comprende que los organismos cumplen funciones de nutrición, respiración y relación en los ecosistemas.'
+        ],
+        periodos: {
+            '1': { '1': 'Estructura de los ecosistemas y flujo de energía en redes tróficas.', '3': 'Niveles de organización biológica: célula, tejido, órgano, sistema, organismo.', '5': 'La fotosíntesis y la respiración en las plantas.', '7': 'El sistema digestivo y circulatorio humano.' },
+            '2': { '1': 'La energía: formas de energía (mecánica, térmica, lumínica, sonora, eléctrica).', '3': 'Transformación y conservación de la energía.', '5': 'Transferencia de calor: conducción, convección y radiación.', '7': 'Conductores y aislantes térmicos.' },
+            '3': { '1': 'Propagación de la luz: reflexión, refracción y espejos.', '3': 'El sonido: tono, timbre e intensidad.', '5': 'El suelo: horizontes, permeabilidad y erosión.', '7': 'Biodiversidad colombiana y parques nacionales.' },
+            '4': { '1': 'Impacto humano en los ecosistemas.', '3': 'Uso eficiente de la energía.', '5': 'Preparación Saber 4° Ciencias.', '7': 'Feria científica escolar.' }
+        }
+    },
+    '5': {
+        objetivo: 'Comprender los sistemas del cuerpo humano, la materia a nivel corpuscular, circuitos eléctricos y equilibrio ambiental.',
+        dba: [
+            'DBA 1: Comprende que los sistemas del cuerpo humano interactúan para mantener el equilibrio y la salud.',
+            'DBA 2: Comprende que los circuitos eléctricos requieren de una fuente, conductores y receptores para funcionar.'
+        ],
+        periodos: {
+            '1': { '1': 'Sistemas del cuerpo humano: respiratorio, excretor y nervioso.', '3': 'Interacción entre sistemas para la homeostasis.', '5': 'Microorganismos: bacterias, virus y hongos (beneficios y prevención de enfermedades).', '7': 'La materia: masa, volumen y densidad.' },
+            '2': { '1': 'Estructura básica del átomo y moléculas.', '3': 'Electricidad estática y cargas eléctricas.', '5': 'Circuitos eléctricos simples: serie y paralelo.', '7': 'Magnetismo y electroimanes.' },
+            '3': { '1': 'Dinámica de los ecosistemas y equilibrio ecológico.', '3': 'Ciclos biogeoquímicos del agua, carbono y nitrógeno.', '5': 'La atmósfera y el efecto invernadero.', '7': 'Lectura crítica de tablas y experimentos Saber 5°.' },
+            '4': { '1': 'Fuentes de energía renovables vs. no renovables.', '3': 'Gestión de residuos sólidos y huella ecológica.', '5': 'Simulacros Saber 5° Ciencias Naturales.', '7': 'Proyecto de ciencias aplicadas.' }
+        }
+    },
+    '6': {
+        objetivo: 'Comprender la estructura celular, la taxonomía de los seres vivos, la materia y el universo.',
+        dba: [
+            'DBA 1: Comprende que la célula es la unidad estructural y funcional de los seres vivos.',
+            'DBA 2: Clasifica los organismos en los dominios y reinos biológicos.',
+            'DBA 3: Explica la estructura de la materia y los modelos atómicos.'
+        ],
+        periodos: {
+            '1': { '1': 'La Célula: teoría celular, membrana, núcleo y citoplasma.', '3': 'Célula animal vs vegetal y organelos celulares.', '5': 'Transporte celular: difusión y ósmosis.', '7': 'Tejidos vegetales y animales.' },
+            '2': { '1': 'Clasificación de los seres vivos y reinos de la naturaleza.', '3': 'Microbiología: bacterias, protozoos y virus.', '5': 'Nutrición autótrofa y heterótrofa.', '7': 'Ecosistemas acuáticos y terrestres.' },
+            '3': { '1': 'Materia, sustancias puras y mezclas.', '3': 'Modelos atómicos y tabla periódica inicial.', '5': 'Propiedades físicas y químicas de la materia.', '7': 'Masa, volumen y densidad en laboratorio.' },
+            '4': { '1': 'El Sistema Solar y la Tierra en el universo.', '3': 'Atmósfera e hidrósfera.', '5': 'El ciclo de las rocas y litósfera.', '7': 'Muestra de ciencias de 6°.' }
+        }
+    },
+    '7': {
+        objetivo: 'Analizar los tejidos biológicos, respiración celular, enlaces químicos y leyes del movimiento.',
+        dba: [
+            'DBA 1: Explica cómo los sistemas de órganos (respiratorio, circulatorio, digestivo, excretor) interactúan en los seres vivos.',
+            'DBA 2: Explica la formación de enlaces químicos a partir de la configuración electrónica de los elementos.'
+        ],
+        periodos: {
+            '1': { '1': 'Respiración celular y metabolismo energético (ATP).', '3': 'Nutrición y digestión en organismos complejos.', '5': 'Circulación en plantas y animales.', '7': 'Excreción y osmorregulación.' },
+            '2': { '1': 'Estructura atómica y electrones de valencia.', '3': 'La tabla periódica: grupos, periodos y propiedades periódicas.', '5': 'Enlaces químicos: iónico, covalente y metálico.', '7': 'Fórmulas químicas y compuestos inorgánicos.' },
+            '3': { '1': 'Cinemática básica: distancia, desplazamiento y rapidez.', '3': 'Fuerzas cotidianas y Primera Ley de Newton.', '5': 'Segunda y Tercera Ley de Newton en situaciones reales.', '7': 'Energía cinética y potencial gravitacional.' },
+            '4': { '1': 'Flujo de materia y energía en los ecosistemas.', '3': 'Biomas del mundo y pisos bioclimáticos.', '5': 'Cuidado del medio ambiente y biodiversidad.', '7': 'Proyecto integrador de ciencias de 7°.' }
+        }
+    },
+    '8': {
+        objetivo: 'Comprender la reproducción celular, sistemas de control (nervioso y endocrino), termodinámica y fluidos.',
+        dba: [
+            'DBA 1: Explica los procesos de división celular (mitosis y meiosis) y su importancia en la reproducción.',
+            'DBA 2: Comprende el funcionamiento de los sistemas nervioso y endocrino en la regulación corporal.'
+        ],
+        periodos: {
+            '1': { '1': 'División celular: Mitosis y Meiosis.', '3': 'Reproducción asexual y sexual en plantas y animales.', '5': 'Sistema reproductor humano y salud sexual.', '7': 'Embriogénesis y desarrollo fetal.' },
+            '2': { '1': 'Sistema nervioso: neuronas, sinapsis y sistema central/periférico.', '3': 'Sistema endocrino y hormonas en el cuerpo humano.', '5': 'Respuestas a estímulos y receptores sensoriales.', '7': 'Efecto de sustancias psicoactivas en el sistema nervioso.' },
+            '3': { '1': 'Calor, temperatura y escalas termométricas.', '3': 'Leyes de los gases (Boyle, Charles, Gay-Lussac).', '5': 'Fluidos: presión, principio de Pascal y Arquímedes.', '7': 'Termodinámica en sistemas vivos y motores.' },
+            '4': { '1': 'Contaminación por residuos químicos y plásticos.', '3': 'Cambio climático y calentamiento global.', '5': 'Lectura crítica Saber 8°.', '7': 'Feria científica de grado 8°.' }
+        }
+    },
+    '9': {
+        objetivo: 'Analizar la genética mendeliana, el ADN, la evolución por selección natural, ondas y electromagnetismo.',
+        dba: [
+            'DBA 1: Explica la forma como se transmite la información hereditaria en los seres vivos (genética mendeliana y molecular).',
+            'DBA 2: Explica la teoría de la evolución biológica por selección natural y especiación.'
+        ],
+        periodos: {
+            '1': { '1': 'Genética mendeliana: leyes de Mendel y cuadros de Punnett.', '3': 'Genética no mendeliana (codominancia, alelos múltiples).', '5': 'Estructura del ADN y ARN, replicación y síntesis de proteínas.', '7': 'Mutaciones genéticas y biotecnología (OGM, clonación).' },
+            '2': { '1': 'Teoría de la evolución de Darwin-Wallace y selección natural.', '3': 'Evidencias de la evolución (fósiles, anatomía comparada, genética).', '5': 'Especiación y biodiversidad a lo largo del tiempo geológico.', '7': 'Historia de la vida en la Tierra y extinciones masivas.' },
+            '3': { '1': 'Ondas mecánicas y electromagnéticas.', '3': 'El sonido: acústica, velocidad y aplicaciones médicas (ecografía).', '5': 'La luz: óptica geométrica y espectro electromagnético.', '7': 'Electricidad y circuitos de corriente directa.' },
+            '4': { '1': 'Química ambiental y ciclos del carbono.', '3': 'Preparación Saber 9° Ciencias Naturales.', '5': 'Bioética y debates científicos.', '7': 'Proyecto de grado 9°.' }
+        }
+    },
+    '10': {
+        objetivo: 'Dominar la química inorgánica, estequiometría, cinemática vectorial, leyes de Newton y ecología de poblaciones.',
+        dba: [
+            'DBA 1: Relaciona la estructura del átomo con los enlaces químicos, fórmulas y nomenclatura inorgánica.',
+            'DBA 2: Resuelve problemas de estequiometría aplicando la ley de conservación de la materia.',
+            'DBA 3: Modela matemáticamente el movimiento rectilíneo y curvilíneo de los cuerpos.'
+        ],
+        periodos: {
+            '1': { '1': 'Química general: materia, tabla periódica y configuración electrónica.', '3': 'Enlaces químicos y geometría molecular.', '5': 'Nomenclatura inorgánica (óxidos, hidróxidos, ácidos, sales).', '7': 'Cinemática 1D y 2D (MRU, MRUV, tiro parabólico).' },
+            '2': { '1': 'Reacciones químicas y balanceo (tanteo y redox).', '3': 'Estequiometría: mol, masa molar, reactivo límite y rendimiento.', '5': 'Dinámica newtoniana: fuerzas, diagramas de cuerpo libre y fricción.', '7': 'Trabajo, potencia y conservación de la energía mecánica.' },
+            '3': { '1': 'Gases ideales y ecuación de estado (PV=nRT).', '3': 'Soluciones químicas: porcentaje, molaridad y normalidad.', '5': 'Ecología de poblaciones y capacidad de carga.', '7': 'Simulacros Saber 10° Ciencias Naturales.' },
+            '4': { '1': 'Ácidos, bases y escala de pH.', '3': 'Impulso y cantidad de movimiento.', '5': 'Química verde y sostenibilidad industrial.', '7': 'Proyecto de investigación científica 10°.' }
+        }
+    },
+    '11': {
+        objetivo: 'Consolidar la química orgánica, física de fluidos, electromagnetismo, óptica y preparación intensiva Saber 11 Ciencias Naturales.',
+        dba: [
+            'DBA 1: Explica la estructura y reactividad de los compuestos orgánicos a partir de la química del carbono.',
+            'DBA 2: Analiza los principios de la mecánica de fluidos, termodinámica y electromagnetismo.',
+            'DBA 3: Evalúa críticamente el impacto de desarrollos científicos y tecnológicos en la sociedad.'
+        ],
+        periodos: {
+            '1': { '1': 'Química del carbono: hibridación, enlaces y tipos de cadenas.', '3': 'Hidrocarburos: alcanos, alquenos, alquinos y aromáticos.', '5': 'Mecánica de fluidos: hidrostática, presión, Pascal y Arquímedes.', '7': 'Hidrodinámica: ecuación de continuidad y principio de Bernoulli.' },
+            '2': { '1': 'Grupos funcionales oxigenados (alcoholes, aldehídos, cetonas, ácidos).', '3': 'Grupos funcionales nitrogenados (aminas, amidas).', '5': 'Termodinámica: leyes, máquinas térmicas y entropía.', '7': 'Electrostática: Ley de Coulomb, campo y potencial eléctrico.' },
+            '3': { '1': 'Biomoléculas: carbohidratos, lípidos, proteínas y ácidos nucleicos.', '3': 'Circuitos eléctricos, Ley de Ohm y Leyes de Kirchhoff.', '5': 'Magnetismo e inducción electromagnética (Faraday).', '7': 'Simulacros intensivos Saber 11 Ciencias Naturales con justificaciones.' },
+            '4': { '1': 'Polímeros sintéticos, biomateriales y nanotecnología.', '3': 'Física moderna: efecto fotoeléctrico y relatividad conceptual.', '5': 'Estrategias de resolución de problemas complejos en Saber 11.', '7': 'Sustentación de proyectos de egreso.' }
+        }
+    },
     'Ciclo I': {
         objetivo: 'Reconocer los seres vivos, el cuidado del cuerpo, los sentidos y la preservación del entorno natural cercano de forma práctica y cotidiana.',
+        dba: [
+            'DBA 1: Reconoce las partes del cuerpo humano, los sentidos y hábitos de salud y nutrición.',
+            'DBA 2: Identifica seres vivos, plantas medicinales y recursos naturales de la región.'
+        ],
         periodos: {
             '1': {
                 '1': 'Diagnóstico inicial: Los sentidos y cómo percibimos el mundo que nos rodea.',
@@ -2506,6 +2691,10 @@ window.mallaNaturales = {
     },
     'Ciclo II': {
         objetivo: 'Identificar las relaciones entre los seres vivos y su medio ambiente, los estados de la materia y la nutrición balanceada.',
+        dba: [
+            'DBA 1: Explica los sistemas digestivo, respiratorio y circulatorio y la nutrición balanceada.',
+            'DBA 2: Comprende las cadenas tróficas, mezclas cotidianas y fuerzas mecánicas.'
+        ],
         periodos: {
             '1': {
                 '1': 'Diagnóstico inicial: Estados del agua en la naturaleza y en el hogar (sólido, líquido y vapor).',
@@ -2535,6 +2724,10 @@ window.mallaNaturales = {
     },
     'Ciclo III': {
         objetivo: 'Comprender la célula como unidad básica de vida, los tipos de mezclas cotidianas y las formas elementales de energía.',
+        dba: [
+            'DBA 1: Describe la célula, organelos y niveles de organización biológica.',
+            'DBA 2: Diferencia sustancias puras y mezclas homogéneas/heterogéneas.'
+        ],
         periodos: {
             '1': {
                 '1': 'Diagnóstico inicial: La célula y los componentes básicos de los organismos vivos.',
@@ -2549,54 +2742,62 @@ window.mallaNaturales = {
                 '7': 'Microorganismos en los alimentos (levaduras, bacterias del yogur) y en la salud.'
             },
             '3': {
-                '1': 'Métodos caseros y de laboratorio para separar mezclas (filtración, decantación, evaporación).',
-                '3': 'Sustancias puras vs mezclas: la sal, el agua pura y el aire.',
-                '5': 'Temperatura, calor y cambios de fase en la materia.',
-                '7': 'Energías limpias y renovables (solar, eólica e hidroeléctrica) en Colombia.'
+                '1': 'Nutrición en los seres vivos: autótrofos (plantas) y heterótrofos (animales y humanos).',
+                '3': 'Fuerza, masa y gravedad: por qué caen las cosas y cómo funcionan las palancas.',
+                '5': 'El sonido y la luz como ondas que viajan en el aire.',
+                '7': 'Ecosistemas de Colombia: páramos, selvas y bosques andinos.'
             },
             '4': {
-                '1': 'Ecosistemas locales: bosques de niebla, guaduales y cafetales.',
-                '3': 'Relaciones biológicas: mutualismo, parasitismo y depredación.',
-                '5': 'Impacto de la actividad humana en el cambio climático.',
-                '7': 'Estrategias de conservación y desarrollo sostenible en el Quindío.'
+                '1': 'Contaminación por plásticos y basuras: alternativas de reciclaje y reutilización.',
+                '3': 'Calentamiento global y el efecto invernadero en la agricultura local.',
+                '5': 'Preparación para pruebas de validación de Ciencias Naturales.',
+                '7': 'Proyecto ambiental comunitario del ciclo.'
             }
         }
     },
     'Ciclo IV': {
-        objetivo: 'Reconocer los principios básicos de la herencia biológica, transformaciones de la materia y el impacto ecológico en la región.',
+        objetivo: 'Analizar la división celular, las leyes de la herencia genética, las propiedades de la materia y el átomo.',
+        dba: [
+            'DBA 1: Explica la reproducción celular (mitosis/meiosis) y principios de herencia genética.',
+            'DBA 2: Comprende la estructura atómica, tabla periódica y transformaciones de energía.'
+        ],
         periodos: {
             '1': {
-                '1': 'Diagnóstico inicial: Herencia biológica básica (rasgos familiares y características genéticas).',
-                '3': 'Cambios físicos vs transformaciones químicas cotidianas (combustión, oxidación, fermentación).',
-                '5': 'Ecosistemas del Paisaje Cultural Cafetero y biodiversidad del Quindío.',
-                '7': 'Reciclaje, gestión de residuos y conservación del medio ambiente.'
+                '1': 'Diagnóstico inicial: La reproducción celular (mitosis y meiosis) y la herencia de rasgos.',
+                '3': 'El sistema endocrino y nervioso: hormonas, estrés y control del cuerpo.',
+                '5': 'Leyes de Mendel explicadas con ejemplos de la agricultura y cría de animales.',
+                '7': 'Ácido desoxirribonucleico (ADN) y su importancia en la vida.'
             },
             '2': {
-                '1': 'ADN, genes y cromosomas: el manual de instrucciones de los seres vivos.',
-                '3': 'Leyes básicas de la herencia (Mendel) aplicadas a rasgos humanos y plantas.',
-                '5': 'Reproducción celular: mitosis y meiosis explicadas para la regeneración y herencia.',
-                '7': 'Biotecnología y mejoramiento genético tradicional en la agricultura.'
+                '1': 'El átomo: protones, neutrones y electrones.',
+                '3': 'La tabla periódica: metales, no metales y elementos esenciales para la vida.',
+                '5': 'Enlaces químicos cotidianos (la sal de cocina, el agua, el oxígeno).',
+                '7': 'Transformaciones químicas de la materia en la cocina y la industria.'
             },
             '3': {
-                '1': 'Estructura atómica básica: protones, neutrones y electrones.',
-                '3': 'La tabla periódica: metales, no metales y elementos vitales (C, H, O, N, P, S).',
-                '5': 'Reacciones químicas cotidianas: cómo arde una vela y cómo se oxida un metal.',
-                '7': 'Ácidos y bases en el hogar (vinagre, jabón, bicarbonato, limón) y escala de pH.'
+                '1': 'Leyes de Newton aplicadas al transporte y las herramientas de trabajo.',
+                '3': 'Energía cinética y potencial en caídas de agua y represas hidroeléctricas.',
+                '5': 'Calor vs temperatura y dilatación térmica de materiales.',
+                '7': 'Presión atmosférica e hidrostática en la vida real.'
             },
             '4': {
-                '1': 'Evolución y selección natural: cómo las especies se adaptan al entorno.',
-                '3': 'Impacto de la minería, deforestación y agroquímicos en los suelos.',
-                '5': 'Servicios ecosistémicos del agua y los polinizadores (abejas y colibríes).',
-                '7': 'Propuesta de gestión ambiental y sostenibilidad para la comunidad.'
+                '1': 'Teoría de la evolución de las especies y selección natural.',
+                '3': 'Impacto ambiental de la minería y la deforestación en Colombia.',
+                '5': 'Simulacros de validación de ciencias de Ciclo IV.',
+                '7': 'Proyecto de ciencias y desarrollo sostenible.'
             }
         }
     },
     'Ciclo V': {
-        objetivo: 'Interpretar la estructura de la materia, elementos químicos comunes y las fuerzas aplicadas al trabajo y transporte.',
+        objetivo: 'Dominar la química inorgánica, estequiometría básica, cinemática y leyes de Newton aplicadas.',
+        dba: [
+            'DBA 1: Resuelve situaciones de estequiometría, enlaces químicos y nomenclatura inorgánica.',
+            'DBA 2: Analiza el movimiento, fuerzas y energía en sistemas mecánicos cotidianos.'
+        ],
         periodos: {
             '1': {
-                '1': 'Diagnóstico inicial: La materia, átomos y elementos químicos esenciales en la vida (oxígeno, carbono, agua).',
-                '3': 'Sustancias puras, compuestos y mezclas en el hogar y la industria local.',
+                '1': 'Diagnóstico inicial: Estructura de la materia, enlaces químicos y nomenclatura.',
+                '3': 'Soluciones químicas y concentraciones porcentuales en la vida laboral y doméstica.',
                 '5': 'Fuerzas, gravedad y movimiento aplicados a herramientas, máquinas y vehículos.',
                 '7': 'Energía térmica, calor y temperatura en la vida cotidiana y laboral.'
             },
@@ -2622,6 +2823,11 @@ window.mallaNaturales = {
     },
     'Ciclo VI': {
         objetivo: 'Analizar los procesos biofísicos y químicos del entorno, fuentes de energía sostenible y comprensión científica tipo Saber 11 adaptada a adultos.',
+        dba: [
+            'DBA 1: Comprende la química orgánica del carbono, biomoléculas y combustibles.',
+            'DBA 2: Analiza circuitos eléctricos, electromagnetismo y termodinámica.',
+            'DBA 3: Aplica el razonamiento científico en preguntas tipo ICFES Saber 11.'
+        ],
         periodos: {
             '1': {
                 '1': 'Diagnóstico inicial: Química básica de la vida y el carbono (alimentos, plásticos y combustibles).',
@@ -2649,12 +2855,43 @@ window.mallaNaturales = {
             }
         }
     }
-};
-
 window.mallaSociales = {
+    '1': {
+        objetivo: 'Reconocer la identidad personal, la familia, los acuerdos de convivencia en la escuela y los puntos de orientación en el barrio.',
+        dba: [
+            'DBA 1: Se reconoce como sujeto de derechos y miembro activo de una familia y una comunidad escolar.',
+            'DBA 2: Describe las características de su entorno físico (la casa, la escuela, el barrio) y utiliza puntos de referencia.',
+            'DBA 3: Participa en la construcción de acuerdos de convivencia y resolución de pequeños conflictos.',
+            'DBA 4: Identifica las celebraciones y tradiciones culturales de su familia y entorno local.'
+        ],
+        periodos: {
+            '1': { '1': 'Quién soy yo: mi nombre, familia y cualidades.', '3': 'La escuela y el aula: acuerdos de convivencia.', '5': 'Mi casa y las dependencias del hogar.', '7': 'Puntos de orientación y ubicación espacial.' },
+            '2': { '1': 'El barrio y la vereda: lugares y vecinos.', '3': 'Normas de tránsito peatonal y seguridad.', '5': 'Oficios y profesiones en mi comunidad.', '7': 'Cuidado de los espacios públicos.' },
+            '3': { '1': 'Derechos y deberes de los niños en la familia.', '3': 'Historias familiares y de los abuelos.', '5': 'Paisajes naturales y construidos.', '7': 'Resolución pacífica de diferencias.' },
+            '4': { '1': 'Símbolos patrios: bandera, himno y escudo.', '3': 'Celebraciones comunitarias.', '5': 'Cuidado de los recursos naturales del barrio.', '7': 'Muestra de identidad familiar.' }
+        }
+    },
+    '2': {
+        objetivo: 'Comprender la organización del municipio, las diferencias entre el paisaje rural y urbano, los oficios y los servicios públicos.',
+        dba: [
+            'DBA 1: Reconoce los puntos cardinales y los usa para orientarse en el plano de su municipio.',
+            'DBA 2: Compara los paisajes rurales y urbanos, identificando sus actividades económicas y medios de transporte.',
+            'DBA 3: Reconoce la diversidad cultural de los habitantes de su municipio y valora sus saberes tradicionales.',
+            'DBA 4: Identifica los servicios públicos esenciales y la importancia de cuidar el medio ambiente local.'
+        ],
+        periodos: {
+            '1': { '1': 'Los puntos cardinales y la rosa de los vientos.', '3': 'El municipio: historia, plano y lugares representativos.', '5': 'Autoridades del municipio (Alcalde, Concejo).', '7': 'Normas de convivencia ciudadana.' },
+            '2': { '1': 'Paisaje rural (el campo, fincas, cultivos).', '3': 'Paisaje urbano (la ciudad, barrios, avenidas).', '5': 'Medios de transporte y vías de comunicación.', '7': 'Trabajo en el campo vs trabajo en la ciudad.' },
+            '3': { '1': 'Servicios públicos: agua, luz, gas, aseo y su uso responsable.', '3': 'Tradiciones culturales y fiestas del municipio.', '5': 'Comunidades afrodescendientes e indígenas del territorio.', '7': 'Monumentos y patrimonio histórico municipal.' },
+            '4': { '1': 'Recursos hídricos y ambientales del municipio.', '3': 'Prevención de riesgos y desastres naturales.', '5': 'Derecho a la educación y la salud.', '7': 'Proyecto: Mi municipio querido.' }
+        }
+    },
     '3': {
         objetivo: 'Reconocer el municipio, las normas de convivencia, la historia local y la geografía del departamento.',
-        periodos: {
+        dba: [
+            'DBA 1: Comprende la importancia de los recursos naturales en el desarrollo económico del departamento.',
+            'DBA 2: Explica las formas de relieve y las cuencas hidrográficas del departamento.'
+        ],
             '1': { '1': 'El municipio y sus autoridades.', '3': 'El paisaje rural y el paisaje urbano.', '5': 'Puntos cardinales y orientación.', '7': 'Normas de convivencia escolar y comunitaria.' },
             '2': { '1': 'El departamento y sus municipios principales.', '3': 'Relieve, ríos y clima del departamento.', '5': 'Primeros pobladores y comunidades indígenas locales.', '7': 'Tradiciones, fiestas y gastronomía regional.' },
             '3': { '1': 'Recursos naturales y su cuidado.', '3': 'Actividades económicas del municipio (agricultura, comercio, turismo).', '5': 'Servicios públicos y su importancia.', '7': 'Los derechos de los niños y deberes ciudadanos.' },
@@ -2799,8 +3036,42 @@ window.mallaSociales = {
 };
 
 window.mallaCastellano = {
+    '1': {
+        objetivo: 'Desarrollar la conciencia fonológica, asociación fonema-grafema, lectura de palabras y oraciones cortas, y expresión oral respetuosa.',
+        dba: [
+            'DBA 1: Reconoce los sonidos iniciales y finales de las palabras y los asocia con las letras correspondientes.',
+            'DBA 2: Lee y comprende palabras, frases y textos cortos apoyándose en imágenes e ilustraciones.',
+            'DBA 3: Escribe textos sencillos con diferentes intenciones comunicativas (mensajes, tarjetas, listas).',
+            'DBA 4: Participa en conversaciones y rondas infantiles respetando turnos de habla.'
+        ],
+        periodos: {
+            '1': { '1': 'Conciencia fonológica y vocales.', '3': 'Consonantes iniciales (m, p, s, l, t).', '5': 'Lectura de palabras y oraciones sencillas con imágenes.', '7': 'Expresión oral: rimas y rondas infantiles.' },
+            '2': { '1': 'Consonantes intermedias (d, n, r, f, b, v).', '3': 'Combinaciones silábicas directas.', '5': 'Cuentos infantiles cortos y comprensión literal.', '7': 'Escritura de palabras y dictados sencillos.' },
+            '3': { '1': 'Combinaciones con consonantes complejas (bl, br, pl, pr, cl, cr).', '3': 'Uso de la mayúscula y el punto en oraciones.', '5': 'Fábulas con moraleja y personajes de animales.', '7': 'Creación de pequeños mensajes y tarjetas.' },
+            '4': { '1': 'Lectura fluida de textos breves.', '3': 'Descripción oral de objetos, animales y personas.', '5': 'Secuencia de historias (inicio, nudo, final).', '7': 'Feria de la lectura y títeres de 1°.' }
+        }
+    },
+    '2': {
+        objetivo: 'Fortalecer la lectura fluida, comprensión de fábulas y cuentos, escritura de párrafos con concordancia y enriquecimiento de vocabulario.',
+        dba: [
+            'DBA 1: Lee en voz alta con entonación adecuada textos narrativos e instructivos breves.',
+            'DBA 2: Identifica la estructura de textos narrativos (inicio, nudo, desenlace) y sus personajes.',
+            'DBA 3: Produce textos escritos utilizando mayúsculas al inicio y punto al final.',
+            'DBA 4: Utiliza el orden alfabético para buscar palabras en el diccionario.'
+        ],
+        periodos: {
+            '1': { '1': 'El abecedario y el orden alfabético.', '3': 'El cuento: personajes, lugar y tiempo de la historia.', '5': 'El sustantivo común y propio.', '7': 'Uso de la mayúscula en nombres propios.' },
+            '2': { '1': 'La fábula y la personificación.', '3': 'El adjetivo calificativo y la descripción.', '5': 'Uso del punto y la coma en listas.', '7': 'Lectura en voz alta con entonación.' },
+            '3': { '1': 'El texto instructivo: recetas y normas de juego.', '3': 'El verbo y acciones cotidianas.', '5': 'Sinónimos y antónimos en la escritura.', '7': 'Acentuación básica de palabras familiares.' },
+            '4': { '1': 'La poesía infantil, rimas y coplas.', '3': 'La historieta y las viñetas.', '5': 'Producción de un cuento corto propio.', '7': 'Festival de declamación y lectura de 2°.' }
+        }
+    },
     '3': {
         objetivo: 'Fortalecer la lectura fluida, comprensión de textos narrativos e informativos y ortografía básica.',
+        dba: [
+            'DBA 1: Comprende el sentido global de los textos que lee (tema, propósito e ideas principales).',
+            'DBA 2: Escribe textos narrativos e informativos organizando las ideas en párrafos coherentes.'
+        ],
         periodos: {
             '1': { '1': 'El cuento y sus partes (inicio, nudo, desenlace).', '3': 'El sustantivo, género y número.', '5': 'El adjetivo y la descripción de personajes.', '7': 'Uso del punto y la mayúscula.' },
             '2': { '1': 'La fábula y la moraleja.', '3': 'El verbo y los tiempos verbales (pasado, presente, futuro).', '5': 'Sinónimos y antónimos.', '7': 'Uso de la coma en enumeraciones.' },
@@ -6160,12 +6431,15 @@ window.cargarEstudiantesTutor = async function(tutorId) {
                     ${badgePago}
                 </td>
                 <td style="padding: 14px 10px; text-align: center;">
-                    <div style="display: flex; gap: 6px; justify-content: center; flex-wrap: wrap;">
-                        <button onclick="verInformeEstudiante('${(est.nombre || '').replace(/'/g, "\\'")} ${(est.apellidos || '').replace(/'/g, "\\'")}', 0, '${est.grado || est.grupo || ''}', '${est.documento || ''}')" style="background: #4F46E5; color: white; border: none; padding: 6px 12px; border-radius: 6px; font-weight: 700; cursor: pointer; font-size: 0.8rem; display: inline-flex; align-items: center; gap: 4px; box-shadow: 0 1px 3px rgba(79,70,229,0.2);">
-                            🧭 Orientar / Guías
+                    <div style="display: flex; gap: 6px; justify-content: center; flex-wrap: wrap; align-items: center;">
+                        <button onclick="verInformeEstudiante('${(est.nombre || '').replace(/'/g, "\\'")} ${(est.apellidos || '').replace(/'/g, "\\'")}', 0, '${est.grado || est.grupo || ''}', '${est.documento || ''}')" style="background: #4F46E5; color: white; border: none; padding: 6px 10px; border-radius: 6px; font-weight: 700; cursor: pointer; font-size: 0.8rem; display: inline-flex; align-items: center; gap: 4px; box-shadow: 0 1px 3px rgba(79,70,229,0.2);" title="Ver fichas de aprendizaje y orientar">
+                            🧭 Orientar
+                        </button>
+                        <button onclick="abrirMallaTutorDesdeEstudiante('${est.grado || est.grupo || '7'}', 'Naturales')" style="background: #059669; color: white; border: none; padding: 6px 10px; border-radius: 6px; font-weight: 700; cursor: pointer; font-size: 0.8rem; display: inline-flex; align-items: center; gap: 4px; box-shadow: 0 1px 3px rgba(5,150,105,0.2);" title="Ver Malla Curricular Oficial DBA de este grado">
+                            📚 Malla DBA
                         </button>
                         ${!estaPagado ? `
-                            <button onclick="abrirPasarelaPago({ concepto: 'Matrícula Home School - Grado ${est.grado} (${est.nombre})', documento: '${est.documento}', monto: 50000, rol: 'homeschool_tutor', callback: () => cargarEstudiantesTutor('${tutorId}') })" style="background: #10B981; color: white; border: none; padding: 6px 12px; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 0.8rem;">💳 Pagar</button>
+                            <button onclick="abrirPasarelaPago({ concepto: 'Matrícula Home School - Grado ${est.grado} (${est.nombre})', documento: '${est.documento}', monto: 50000, rol: 'homeschool_tutor', callback: () => cargarEstudiantesTutor('${tutorId}') })" style="background: #10B981; color: white; border: none; padding: 6px 10px; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 0.8rem;">💳 Pagar</button>
                         ` : ''}
                     </div>
                 </td>

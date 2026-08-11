@@ -835,7 +835,18 @@
             </div>
         </div>
 
-        <div style="display: grid; grid-template-columns: 1fr 1.6fr; gap: 30px; align-items: start;">
+        <!-- Pestañas de Navegación del Tutor Home School -->
+        <div style="display: flex; gap: 10px; margin-bottom: 25px; border-bottom: 2px solid #E2E8F0; padding-bottom: 12px; flex-wrap: wrap;">
+            <button id="btn-tab-tutor-estudiantes" onclick="cambiarTabTutor('estudiantes')" style="background: #2563EB; color: white; border: none; padding: 12px 22px; border-radius: 10px; font-weight: 800; font-size: 0.95rem; cursor: pointer; display: flex; align-items: center; gap: 8px; box-shadow: 0 4px 10px rgba(37,99,235,0.25); transition: 0.2s;">
+                <span>👨‍🎓</span> Matrículas y Estudiantes a Cargo
+            </button>
+            <button id="btn-tab-tutor-mallas" onclick="cambiarTabTutor('mallas')" style="background: white; color: #475569; border: 1.5px solid #CBD5E1; padding: 12px 22px; border-radius: 10px; font-weight: 800; font-size: 0.95rem; cursor: pointer; display: flex; align-items: center; gap: 8px; transition: 0.2s;">
+                <span>📚</span> Mallas Curriculares DBA (Materias Fundamentales)
+            </button>
+        </div>
+
+        <!-- Vista 1: Matrículas y Lista de Estudiantes -->
+        <div id="vista-tutor-estudiantes" style="display: grid; grid-template-columns: 1fr 1.6fr; gap: 30px; align-items: start;">
             
             <!-- Columna Izquierda: Formulario Matricular Nuevo Estudiante -->
             <div style="background: white; padding: 30px; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #E5E7EB;">
@@ -933,6 +944,74 @@
                 </div>
             </div>
 
+        </div>
+
+        <!-- Vista 2: Explorador Curricular DBA para Tutores y Familias Home School -->
+        <div id="vista-tutor-mallas" style="display: none;">
+            <div style="background: white; padding: 25px 30px; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #E5E7EB; margin-bottom: 25px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; margin-bottom: 20px;">
+                    <div>
+                        <h2 style="font-size: 1.5rem; font-weight: 900; color: #0F172A; margin: 0; display: flex; align-items: center; gap: 10px;">
+                            <span>📚</span> Explorador Curricular DBA para Familias Home School
+                        </h2>
+                        <p style="color: #64748B; font-size: 0.95rem; margin: 4px 0 0 0;">
+                            Plan de estudios oficial estructurado según los <strong>Derechos Básicos de Aprendizaje (DBA V2 - MEN Colombia)</strong>.
+                        </p>
+                    </div>
+                    <button onclick="window.print()" style="background: #F1F5F9; border: 1px solid #CBD5E1; color: #334155; padding: 8px 16px; border-radius: 8px; font-weight: 700; cursor: pointer; display: flex; align-items: center; gap: 6px;">
+                        <span>🖨️</span> Imprimir Plan de Estudio
+                    </button>
+                </div>
+
+                <!-- Controles de Selección -->
+                <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 20px; background: #F8FAFC; padding: 18px; border-radius: 12px; border: 1px solid #E2E8F0; align-items: center;">
+                    <div>
+                        <label style="display: block; font-size: 0.85rem; font-weight: 800; color: #334155; margin-bottom: 6px;">Seleccionar Grado o Ciclo:</label>
+                        <select id="select-tutor-malla-grado" onchange="renderizarMallaTutorHomeSchool()" style="width: 100%; padding: 10px 14px; border: 2px solid #3B82F6; border-radius: 8px; font-weight: 800; font-size: 0.95rem; background: white; color: #1E293B;">
+                            <optgroup label="Primaria">
+                                <option value="1">1° de Primaria</option>
+                                <option value="2">2° de Primaria</option>
+                                <option value="3">3° de Primaria</option>
+                                <option value="4">4° de Primaria</option>
+                                <option value="5">5° de Primaria</option>
+                            </optgroup>
+                            <optgroup label="Secundaria">
+                                <option value="6">6° de Secundaria</option>
+                                <option value="7" selected>7° de Secundaria</option>
+                                <option value="8">8° de Secundaria</option>
+                                <option value="9">9° de Secundaria</option>
+                            </optgroup>
+                            <optgroup label="Media">
+                                <option value="10">10° Media Vocacional</option>
+                                <option value="11">11° Media Vocacional (Saber 11)</option>
+                            </optgroup>
+                            <optgroup label="Educación de Adultos / Validación">
+                                <option value="Ciclo I">Ciclo I (1°, 2°, 3°)</option>
+                                <option value="Ciclo II">Ciclo II (4°, 5°)</option>
+                                <option value="Ciclo III">Ciclo III (6°, 7°)</option>
+                                <option value="Ciclo IV">Ciclo IV (8°, 9°)</option>
+                                <option value="Ciclo V">Ciclo V (10°)</option>
+                                <option value="Ciclo VI">Ciclo VI (11°)</option>
+                            </optgroup>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label style="display: block; font-size: 0.85rem; font-weight: 800; color: #334155; margin-bottom: 6px;">Materia Fundamental:</label>
+                        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                            <button class="tutor-materia-pill active" data-materia="Naturales" onclick="seleccionarMateriaTutorMalla('Naturales')" style="padding: 8px 14px; border-radius: 20px; font-weight: 800; font-size: 0.85rem; cursor: pointer; border: 2px solid #2563EB; background: #EFF6FF; color: #1D4ED8;">🌿 Ciencias Naturales</button>
+                            <button class="tutor-materia-pill" data-materia="Matematicas" onclick="seleccionarMateriaTutorMalla('Matematicas')" style="padding: 8px 14px; border-radius: 20px; font-weight: 800; font-size: 0.85rem; cursor: pointer; border: 1.5px solid #CBD5E1; background: white; color: #475569;">📐 Matemáticas</button>
+                            <button class="tutor-materia-pill" data-materia="Lenguaje" onclick="seleccionarMateriaTutorMalla('Lenguaje')" style="padding: 8px 14px; border-radius: 20px; font-weight: 800; font-size: 0.85rem; cursor: pointer; border: 1.5px solid #CBD5E1; background: white; color: #475569;">📖 Lengua Castellana</button>
+                            <button class="tutor-materia-pill" data-materia="Sociales" onclick="seleccionarMateriaTutorMalla('Sociales')" style="padding: 8px 14px; border-radius: 20px; font-weight: 800; font-size: 0.85rem; cursor: pointer; border: 1.5px solid #CBD5E1; background: white; color: #475569;">🌍 Ciencias Sociales</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contenedor del Detalle de la Malla -->
+            <div id="tutor-malla-detalle-container">
+                <!-- Renderizado dinámico desde app.js -->
+            </div>
         </div>
     </div>
 </div>
@@ -1253,8 +1332,8 @@
         </div>
     </div>
 
-    <script src="diagnostico_nocturno.js?v=20260806_v18"></script>
-    <script src="app.js?v=20260806_v18"></script>
+    <script src="diagnostico_nocturno.js?v=20260806_v19"></script>
+    <script src="app.js?v=20260806_v19"></script>
     <script>
         // Función global para navegación SPA segura sin conflictos con app.js
         function mostrarVista(id) {
