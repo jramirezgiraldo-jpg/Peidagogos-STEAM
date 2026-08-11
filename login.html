@@ -109,6 +109,20 @@
                 grid-template-columns: 1fr !important;
             }
         }
+
+        /* Estilos Menú Colgante Sanciones y Notificaciones */
+        .item-sancion-btn:hover {
+            background-color: #FEE2E2 !important;
+            color: #991B1B !important;
+        }
+        @keyframes popInAlert {
+            0% { transform: scale(0.85); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        @keyframes slideDownToast {
+            0% { transform: translate(-50%, -40px); opacity: 0; }
+            100% { transform: translate(-50%, 0); opacity: 1; }
+        }
     </style>
 
 </head>
@@ -1182,8 +1196,65 @@
         </div>
     </div>
 
-    <script src="diagnostico_nocturno.js?v=20260806_v17"></script>
-    <script src="app.js?v=20260806_v17"></script>
+    <!-- Contenedor Toast Flotante de Puntos XP -->
+    <div id="toast-xp-container" style="position: fixed; top: 20px; left: 50%; transform: translateX(-50%); z-index: 999999; display: none; pointer-events: none;">
+        <div id="toast-xp-content" style="background: linear-gradient(135deg, #065F46, #047857); color: white; padding: 12px 24px; border-radius: 30px; font-weight: 800; font-size: 1rem; box-shadow: 0 10px 25px rgba(4,120,87,0.4); border: 2px solid #34D399; display: flex; align-items: center; gap: 10px; animation: slideDownToast 0.3s ease-out;">
+            ✨ +30 XP | ¡Misión Cumplida!
+        </div>
+    </div>
+
+    <!-- Modal de Notificación Disciplinaria y Sanción de Puntos (Estudiante) -->
+    <div id="modal-notificacion-disciplinaria" style="display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); align-items: center; justify-content: center; z-index: 100000; padding: 20px;">
+        <div style="background: linear-gradient(180deg, #FFFFFF 0%, #FEF2F2 100%); border-radius: 24px; padding: 35px 30px; max-width: 520px; width: 100%; box-shadow: 0 25px 60px -15px rgba(220, 38, 38, 0.5), 0 0 0 2px rgba(239, 68, 68, 0.4); text-align: center; position: relative; animation: popInAlert 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);">
+            
+            <!-- Icono animado -->
+            <div style="width: 76px; height: 76px; background: linear-gradient(135deg, #FEE2E2, #FECACA); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px auto; font-size: 2.5rem; box-shadow: 0 8px 20px rgba(239,68,68,0.25); border: 2px solid #F87171;">
+                🚨
+            </div>
+
+            <h3 style="font-size: 1.5rem; font-weight: 900; color: #991B1B; margin: 0 0 6px 0; letter-spacing: -0.5px;">
+                Notificación Disciplinaria
+            </h3>
+            <p style="color: #7F1D1D; font-size: 0.95rem; margin: 0 0 20px 0; font-weight: 600;">
+                Ajuste Formativo en tu Puntaje de Convivencia STEAM
+            </p>
+
+            <!-- Tarjeta de la Infracción -->
+            <div style="background: white; border: 1.5px solid #FCA5A5; border-radius: 16px; padding: 18px; text-align: left; margin-bottom: 20px; box-shadow: 0 4px 12px rgba(239,68,68,0.08);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; border-bottom: 1px dashed #FECACA; padding-bottom: 8px;">
+                    <span style="font-size: 0.85rem; font-weight: 800; color: #991B1B; text-transform: uppercase;">Infracción Registrada:</span>
+                    <span id="modal-sancion-descuento-badge" style="background: #EF4444; color: white; padding: 3px 10px; border-radius: 20px; font-weight: 900; font-size: 0.85rem; box-shadow: 0 2px 6px rgba(239,68,68,0.3);">-10% XP</span>
+                </div>
+                
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+                    <span id="modal-sancion-icono" style="font-size: 1.8rem;">⚡</span>
+                    <div>
+                        <div id="modal-sancion-motivo-texto" style="font-size: 1.05rem; font-weight: 800; color: #1E293B;">Indisciplina en clase</div>
+                        <div id="modal-sancion-fecha-texto" style="font-size: 0.8rem; color: #64748B;">Fecha y hora del registro</div>
+                    </div>
+                </div>
+
+                <!-- Puntos descontados -->
+                <div style="background: #FEF2F2; border-radius: 10px; padding: 10px 14px; display: flex; justify-content: space-between; align-items: center;">
+                    <span style="font-size: 0.85rem; color: #7F1D1D; font-weight: 700;">Puntos descontados:</span>
+                    <span id="modal-sancion-puntos-descontados" style="font-size: 1rem; font-weight: 900; color: #DC2626;">-50 XP</span>
+                </div>
+            </div>
+
+            <!-- Mensaje Reflexivo -->
+            <p style="color: #4B5563; font-size: 0.88rem; line-height: 1.5; margin: 0 0 22px 0; background: rgba(255,255,255,0.7); padding: 12px; border-radius: 10px; border-left: 4px solid #EF4444; text-align: left;">
+                💡 <strong>Reflexión Pedagógica:</strong> En el aula STEAM el respeto mutuo, la atención y el cuidado de los acuerdos de convivencia son fundamentales. Aprovecha esta oportunidad formativa para reflexionar y recuperar tu puntaje con las próximas misiones académicas.
+            </p>
+
+            <!-- Botón de Compromiso -->
+            <button onclick="confirmarLecturaSancion()" style="background: linear-gradient(135deg, #DC2626, #B91C1C); color: white; border: none; width: 100%; padding: 14px; border-radius: 12px; font-weight: 900; font-size: 1rem; cursor: pointer; box-shadow: 0 6px 18px rgba(220,38,38,0.35); transition: transform 0.15s, box-shadow 0.15s;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
+                🤝 Entendido y Me Comprometo a Mejorar
+            </button>
+        </div>
+    </div>
+
+    <script src="diagnostico_nocturno.js?v=20260806_v18"></script>
+    <script src="app.js?v=20260806_v18"></script>
     <script>
         // Función global para navegación SPA segura sin conflictos con app.js
         function mostrarVista(id) {

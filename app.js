@@ -1693,7 +1693,7 @@ async function cargarEstudiantesDocente(docenteId) {
                             </span>
                         </td>
                         <td style="padding: 12px 10px; text-align: center;">
-                            <div style="display: flex; gap: 6px; justify-content: center; flex-wrap: wrap;">
+                            <div style="display: flex; gap: 6px; justify-content: center; flex-wrap: wrap; align-items: center;">
                                 <button onclick="abrirGuiaOrientadorDirecto('${docClean}', '${grupoClean}', '${asigClean}')" style="background: linear-gradient(135deg, #10B981, #059669); color: white; border: none; padding: 6px 10px; border-radius: 6px; font-weight: 800; cursor: pointer; font-size: 0.8rem; display: inline-flex; align-items: center; gap: 4px;" title="Ver la guía resuelta con respuestas oficiales para este estudiante">
                                     👁️ Guía
                                 </button>
@@ -1703,9 +1703,38 @@ async function cargarEstudiantesDocente(docenteId) {
                                 <button onclick="abrirModalBonificacion('${docClean}', '${nomClean}', '${grupoClean}')" style="background: #10B981; color: white; border: none; padding: 6px 10px; border-radius: 6px; font-weight: 800; cursor: pointer; font-size: 0.8rem; display: inline-flex; align-items: center; gap: 4px;" title="Otorgar bonificación del +10% XP">
                                     🎁 +10%
                                 </button>
-                                <button onclick="abrirModalPenalizacion('${docClean}', '${nomClean}', '${grupoClean}')" style="background: #DC2626; color: white; border: none; padding: 6px 10px; border-radius: 6px; font-weight: 800; cursor: pointer; font-size: 0.8rem; display: inline-flex; align-items: center; gap: 4px;" title="Rebajar -10% XP por indisciplina">
-                                    ⚡ -10%
-                                </button>
+
+                                <!-- Menú Colgante Sanciones Disciplinarias (-10%) -->
+                                <div class="dropdown-sancion-container" style="position: relative; display: inline-block;">
+                                    <button onclick="toggleMenuSancion('${docClean}', event)" style="background: linear-gradient(135deg, #DC2626, #B91C1C); color: white; border: none; padding: 6px 10px; border-radius: 6px; font-weight: 800; font-size: 0.8rem; cursor: pointer; display: inline-flex; align-items: center; gap: 4px; box-shadow: 0 2px 4px rgba(220,38,38,0.25);" title="Aplicar sanción disciplinaria del -10% de puntos">
+                                        ⚡ -10% ▾
+                                    </button>
+                                    <div id="menu-sancion-${docClean}" class="menu-sancion-dropdown" style="display: none; position: absolute; right: 0; top: 100%; margin-top: 4px; background: white; border: 1.5px solid #E2E8F0; border-radius: 10px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); min-width: 215px; z-index: 9999; padding: 6px 0; text-align: left;">
+                                        <div style="padding: 6px 12px; font-size: 0.72rem; font-weight: 800; color: #64748B; text-transform: uppercase; border-bottom: 1px solid #F1F5F9;">
+                                            Sanción Disciplinaria (-10%)
+                                        </div>
+                                        <button onclick="aplicarSancionDocente('${docClean}', '${nomClean.replace(/'/g, "\\'")}', 'Indisciplina', '⚡ Indisciplina en clase')" class="item-sancion-btn" style="width: 100%; text-align: left; background: none; border: none; padding: 7px 12px; font-size: 0.8rem; font-weight: 700; color: #1E293B; cursor: pointer; display: flex; align-items: center; gap: 8px;">
+                                            ⚡ Indisciplina
+                                        </button>
+                                        <button onclick="aplicarSancionDocente('${docClean}', '${nomClean.replace(/'/g, "\\'")}', 'Comer en clase', '🥪 Comer en clase')" class="item-sancion-btn" style="width: 100%; text-align: left; background: none; border: none; padding: 7px 12px; font-size: 0.8rem; font-weight: 700; color: #1E293B; cursor: pointer; display: flex; align-items: center; gap: 8px;">
+                                            🥪 Comer en clase
+                                        </button>
+                                        <button onclick="aplicarSancionDocente('${docClean}', '${nomClean.replace(/'/g, "\\'")}', 'Uso de celular', '📱 Usar el celular')" class="item-sancion-btn" style="width: 100%; text-align: left; background: none; border: none; padding: 7px 12px; font-size: 0.8rem; font-weight: 700; color: #1E293B; cursor: pointer; display: flex; align-items: center; gap: 8px;">
+                                            📱 Usar el celular
+                                        </button>
+                                        <button onclick="aplicarSancionDocente('${docClean}', '${nomClean.replace(/'/g, "\\'")}', 'Levantarse sin permiso', '🚶 Levantarse sin permiso')" class="item-sancion-btn" style="width: 100%; text-align: left; background: none; border: none; padding: 7px 12px; font-size: 0.8rem; font-weight: 700; color: #1E293B; cursor: pointer; display: flex; align-items: center; gap: 8px;">
+                                            🚶 Levantarse sin permiso
+                                        </button>
+                                        <button onclick="aplicarSancionDocente('${docClean}', '${nomClean.replace(/'/g, "\\'")}', 'Arrancar hojas', '📄 Arrancar hojas')" class="item-sancion-btn" style="width: 100%; text-align: left; background: none; border: none; padding: 7px 12px; font-size: 0.8rem; font-weight: 700; color: #1E293B; cursor: pointer; display: flex; align-items: center; gap: 8px;">
+                                            📄 Arrancar hojas
+                                        </button>
+                                        <div style="border-top: 1px solid #F1F5F9; margin-top: 3px; padding-top: 3px;">
+                                            <button onclick="aplicarSancionDocente('${docClean}', '${nomClean.replace(/'/g, "\\'")}', 'Personalizado')" class="item-sancion-btn" style="width: 100%; text-align: left; background: none; border: none; padding: 7px 12px; font-size: 0.8rem; font-weight: 700; color: #6366F1; cursor: pointer; display: flex; align-items: center; gap: 8px;">
+                                                ✏️ Otro motivo...
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </td>
                     </tr>`;
@@ -3410,10 +3439,43 @@ window.abrirGrupo = async function(grupoName) {
                     </div>
                 </td>
                 <td style="padding: 14px 10px; text-align: center;">
-                    <div style="display: flex; gap: 6px; justify-content: center; flex-wrap: wrap;">
+                    <div style="display: flex; gap: 6px; justify-content: center; flex-wrap: wrap; align-items: center;">
                         <button onclick="verInformeEstudiante('${nomClean.replace(/'/g, "\\'")}', ${progreso}, '${grupoName}', '${docClean}')" style="background: #3B82F6; color: white; border: none; padding: 5px 10px; border-radius: 6px; font-weight: bold; font-size: 0.8rem; cursor: pointer; display: flex; align-items: center; gap: 4px;" title="Ver Ficha / Informe Pedagógico">
                             📊 Informe
                         </button>
+
+                        <!-- Menú Colgante Sanciones Disciplinarias (-10%) -->
+                        <div class="dropdown-sancion-container" style="position: relative; display: inline-block;">
+                            <button onclick="toggleMenuSancion('${docClean}', event)" style="background: linear-gradient(135deg, #DC2626, #B91C1C); color: white; border: none; padding: 5px 9px; border-radius: 6px; font-weight: 800; font-size: 0.78rem; cursor: pointer; display: inline-flex; align-items: center; gap: 3px; box-shadow: 0 2px 4px rgba(220,38,38,0.2);" title="Aplicar sanción disciplinaria del -10% de puntos">
+                                ⚡ -10% ▾
+                            </button>
+                            <div id="menu-sancion-${docClean}" class="menu-sancion-dropdown" style="display: none; position: absolute; right: 0; top: 100%; margin-top: 4px; background: white; border: 1.5px solid #E2E8F0; border-radius: 10px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); min-width: 215px; z-index: 9999; padding: 6px 0; text-align: left;">
+                                <div style="padding: 6px 12px; font-size: 0.72rem; font-weight: 800; color: #64748B; text-transform: uppercase; border-bottom: 1px solid #F1F5F9;">
+                                    Sanción Disciplinaria (-10%)
+                                </div>
+                                <button onclick="aplicarSancionDocente('${docClean}', '${nomClean.replace(/'/g, "\\'")}', 'Indisciplina', '⚡ Indisciplina en clase')" class="item-sancion-btn" style="width: 100%; text-align: left; background: none; border: none; padding: 7px 12px; font-size: 0.8rem; font-weight: 700; color: #1E293B; cursor: pointer; display: flex; align-items: center; gap: 8px;">
+                                    ⚡ Indisciplina
+                                </button>
+                                <button onclick="aplicarSancionDocente('${docClean}', '${nomClean.replace(/'/g, "\\'")}', 'Comer en clase', '🥪 Comer en clase')" class="item-sancion-btn" style="width: 100%; text-align: left; background: none; border: none; padding: 7px 12px; font-size: 0.8rem; font-weight: 700; color: #1E293B; cursor: pointer; display: flex; align-items: center; gap: 8px;">
+                                    🥪 Comer en clase
+                                </button>
+                                <button onclick="aplicarSancionDocente('${docClean}', '${nomClean.replace(/'/g, "\\'")}', 'Uso de celular', '📱 Usar el celular')" class="item-sancion-btn" style="width: 100%; text-align: left; background: none; border: none; padding: 7px 12px; font-size: 0.8rem; font-weight: 700; color: #1E293B; cursor: pointer; display: flex; align-items: center; gap: 8px;">
+                                    📱 Usar el celular
+                                </button>
+                                <button onclick="aplicarSancionDocente('${docClean}', '${nomClean.replace(/'/g, "\\'")}', 'Levantarse sin permiso', '🚶 Levantarse sin permiso')" class="item-sancion-btn" style="width: 100%; text-align: left; background: none; border: none; padding: 7px 12px; font-size: 0.8rem; font-weight: 700; color: #1E293B; cursor: pointer; display: flex; align-items: center; gap: 8px;">
+                                    🚶 Levantarse sin permiso
+                                </button>
+                                <button onclick="aplicarSancionDocente('${docClean}', '${nomClean.replace(/'/g, "\\'")}', 'Arrancar hojas', '📄 Arrancar hojas')" class="item-sancion-btn" style="width: 100%; text-align: left; background: none; border: none; padding: 7px 12px; font-size: 0.8rem; font-weight: 700; color: #1E293B; cursor: pointer; display: flex; align-items: center; gap: 8px;">
+                                    📄 Arrancar hojas
+                                </button>
+                                <div style="border-top: 1px solid #F1F5F9; margin-top: 3px; padding-top: 3px;">
+                                    <button onclick="aplicarSancionDocente('${docClean}', '${nomClean.replace(/'/g, "\\'")}', 'Personalizado')" class="item-sancion-btn" style="width: 100%; text-align: left; background: none; border: none; padding: 7px 12px; font-size: 0.8rem; font-weight: 700; color: #6366F1; cursor: pointer; display: flex; align-items: center; gap: 8px;">
+                                        ✏️ Otro motivo...
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
                         <button onclick="eliminarEstudiante('${docClean}')" style="background: #EF4444; color: white; border: none; padding: 5px 8px; border-radius: 6px; font-weight: bold; font-size: 0.8rem; cursor: pointer; display: flex; align-items: center;" title="Eliminar estudiante">
                             🗑️
                         </button>
@@ -4934,19 +4996,21 @@ window.verificarSaberIndividual = function(idx) {
     
     const correct = selected.value === selected.getAttribute('data-correct');
     const btn = document.getElementById('btn_saber_' + idx);
-    const container = document.getElementById('container_saber_' + idx);
     
     if (correct) {
-        btn.innerText = "✅ Correcto";
+        btn.innerText = "✅ Correcto (+20 XP)";
         btn.style.background = "#10B981";
         btn.disabled = true;
-        
-        // Bloquear radios
         radios.forEach(r => r.disabled = true);
+        
+        // Sumar XP a la barra de estado
+        const user = window.usuarioEstudianteActual || JSON.parse(localStorage.getItem('usuario_sesion') || '{}');
+        if (window.sumarXPEstudiante && user.documento) {
+            window.sumarXPEstudiante(user.documento, 20, 'Saberes Previos');
+        }
         
         mostrarHuevos(); // Recompensa
         
-        // Habilitar la siguiente si existe
         const nextContainer = document.getElementById('container_saber_' + (idx + 1));
         if (nextContainer) {
             nextContainer.style.opacity = '1';
@@ -4970,10 +5034,15 @@ window.verificarInductivaPagina = function(idx) {
     }
     
     const btn = document.getElementById('btn_ind_pag_' + idx);
-    btn.innerText = "✅ Validado";
+    btn.innerText = "✅ Validado (+30 XP)";
     btn.style.background = "#10B981";
     btn.disabled = true;
     textarea.disabled = true;
+    
+    const user = window.usuarioEstudianteActual || JSON.parse(localStorage.getItem('usuario_sesion') || '{}');
+    if (window.sumarXPEstudiante && user.documento) {
+        window.sumarXPEstudiante(user.documento, 30, 'Reto Inductivo');
+    }
     
     mostrarHuevos(); // Recompensa
     
@@ -4986,9 +5055,14 @@ window.verificarInductivaPagina = function(idx) {
 
 window.verificarCuadernoIndividual = function(idx) {
     const btn = document.getElementById('btn_cuaderno_' + idx);
-    btn.innerText = "✅ Confirmado";
+    btn.innerText = "✅ Confirmado (+25 XP)";
     btn.style.background = "#10B981";
     btn.disabled = true;
+    
+    const user = window.usuarioEstudianteActual || JSON.parse(localStorage.getItem('usuario_sesion') || '{}');
+    if (window.sumarXPEstudiante && user.documento) {
+        window.sumarXPEstudiante(user.documento, 25, 'Actividad Cuaderno');
+    }
     
     mostrarHuevos(); // Recompensa
     
@@ -5007,10 +5081,15 @@ window.verificarDeductivaPagina = function(idx) {
     }
     
     const btn = document.getElementById('btn_ded_pag_' + idx);
-    btn.innerText = "✅ Validado";
+    btn.innerText = "✅ Validado (+30 XP)";
     btn.style.background = "#10B981";
     btn.disabled = true;
     textarea.disabled = true;
+    
+    const user = window.usuarioEstudianteActual || JSON.parse(localStorage.getItem('usuario_sesion') || '{}');
+    if (window.sumarXPEstudiante && user.documento) {
+        window.sumarXPEstudiante(user.documento, 30, 'Reto Deductivo');
+    }
     
     mostrarHuevos(); // Recompensa
     
@@ -5023,9 +5102,14 @@ window.verificarDeductivaPagina = function(idx) {
 
 window.verificarCuadernoDeductivoIndividual = function(idx) {
     const btn = document.getElementById('btn_cuaderno_ded_' + idx);
-    btn.innerText = "✅ Confirmado";
+    btn.innerText = "✅ Confirmado (+25 XP)";
     btn.style.background = "#10B981";
     btn.disabled = true;
+    
+    const user = window.usuarioEstudianteActual || JSON.parse(localStorage.getItem('usuario_sesion') || '{}');
+    if (window.sumarXPEstudiante && user.documento) {
+        window.sumarXPEstudiante(user.documento, 25, 'Actividad Cuaderno');
+    }
     
     mostrarHuevos(); // Recompensa
     
@@ -5037,10 +5121,23 @@ window.verificarCuadernoDeductivoIndividual = function(idx) {
 };
 
 
-// --- FASE 2: ANTI-CHEAT Y VALIDACIONES ---
+// --- FASE 2: ANTI-CHEAT, SANCIONES Y RECOMPENSAS ---
 
-// Utilidad global para sumar XP acumulado al perfil del estudiante y refrescar panel
-window.sumarXPEstudiante = function(docClean, puntos) {
+// Toast Flotante de Puntos
+window.mostrarToastXP = function(puntos, motivo) {
+    const toast = document.getElementById('toast-xp-container');
+    const content = document.getElementById('toast-xp-content');
+    if (!toast || !content) return;
+    content.innerHTML = `✨ <strong style="color: #FDE047;">+${puntos} XP</strong> | ${motivo || '¡Misión Cumplida!'}`;
+    toast.style.display = 'block';
+    clearTimeout(window._toastTimeout);
+    window._toastTimeout = setTimeout(() => {
+        toast.style.display = 'none';
+    }, 3500);
+};
+
+// Utilidad global para sumar XP acumulado al perfil del estudiante y refrescar panel y barra
+window.sumarXPEstudiante = function(docClean, puntos, motivo) {
     if (!docClean || !puntos) return;
     const doc = String(docClean).trim();
     const xpKey = `xp_${doc}`;
@@ -5049,7 +5146,7 @@ window.sumarXPEstudiante = function(docClean, puntos) {
         const diagXP = parseInt(localStorage.getItem(`prog_${doc}_diag_xp`)) || 0;
         currentXP = diagXP || 500;
     }
-    const newXP = currentXP + puntos;
+    const newXP = Math.max(0, currentXP + puntos);
     localStorage.setItem(xpKey, newXP);
 
     // Actualizar elemento header de la guía
@@ -5060,10 +5157,190 @@ window.sumarXPEstudiante = function(docClean, puntos) {
     const hScore = document.getElementById('student-score-display');
     if (hScore) hScore.innerText = newXP;
 
-    if (window.usuarioEstudianteActual && typeof window.inicializarPanelEstudiante === 'function') {
-        window.inicializarPanelEstudiante(window.usuarioEstudianteActual);
+    // Actualizar Barra de Progreso y Nivel Gamificado en tiempo real
+    const bonusTotal = parseInt(localStorage.getItem(`bonus_total_${doc}`)) || 0;
+    const penaltyTotal = parseInt(localStorage.getItem(`penalty_total_${doc}`)) || 0;
+    let totalXP = Math.max(0, newXP + bonusTotal - penaltyTotal);
+
+    let nivelNum = 1;
+    let nivelNombre = "Novato STEAM 🌱";
+    let proximaMeta = 300;
+    let baseNivel = 0;
+
+    if (totalXP >= 2000) {
+        nivelNum = 5;
+        nivelNombre = "Sabio Cuántico STEAM 👑";
+        proximaMeta = 3000;
+        baseNivel = 2000;
+    } else if (totalXP >= 1200) {
+        nivelNum = 4;
+        nivelNombre = "Maestro Investigador 🧙‍♂️";
+        proximaMeta = 2000;
+        baseNivel = 1200;
+    } else if (totalXP >= 700) {
+        nivelNum = 3;
+        nivelNombre = "Científico Avanzado 🔬";
+        proximaMeta = 1200;
+        baseNivel = 700;
+    } else if (totalXP >= 300) {
+        nivelNum = 2;
+        nivelNombre = "Explorador de Campo 🚀";
+        proximaMeta = 700;
+        baseNivel = 300;
+    } else {
+        nivelNum = 1;
+        nivelNombre = "Novato STEAM 🌱";
+        proximaMeta = 300;
+        baseNivel = 0;
+    }
+
+    let xpEnNivel = totalXP - baseNivel;
+    let rangoNivel = Math.max(1, proximaMeta - baseNivel);
+    let porcentajeProgreso = Math.min(100, Math.max(5, Math.round((xpEnNivel / rangoNivel) * 100)));
+
+    const pBar = document.getElementById("student-xp-progress-bar");
+    if (pBar) pBar.style.width = `${porcentajeProgreso}%`;
+
+    const pText = document.getElementById("student-xp-progress-text");
+    if (pText) pText.innerText = `${totalXP} / ${proximaMeta} XP (${porcentajeProgreso}% hacia Nivel ${nivelNum + 1})`;
+
+    const pLevelBadge = document.getElementById("student-xp-level-name");
+    if (pLevelBadge) pLevelBadge.innerText = `Nivel ${nivelNum}: ${nivelNombre}`;
+
+    // Disparar toast de recompensa
+    window.mostrarToastXP(puntos, motivo || '¡Misión Cumplida!');
+};
+
+// Controladores del Menú Colgante de Sanciones Disciplinarias (-10%)
+window.toggleMenuSancion = function(docClean, event) {
+    if (event) {
+        event.stopPropagation();
+        event.preventDefault();
+    }
+    document.querySelectorAll('.menu-sancion-dropdown').forEach(m => {
+        if (m.id !== `menu-sancion-${docClean}`) m.style.display = 'none';
+    });
+    const menu = document.getElementById(`menu-sancion-${docClean}`);
+    if (menu) {
+        menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
     }
 };
+
+document.addEventListener('click', function() {
+    document.querySelectorAll('.menu-sancion-dropdown').forEach(m => m.style.display = 'none');
+});
+
+window.aplicarSancionDocente = function(docClean, nomClean, motivoKey, motivoLabel) {
+    const doc = String(docClean).trim();
+    if (!doc) return;
+
+    let motivoFinal = motivoLabel || motivoKey;
+    let icono = '⚡';
+
+    if (motivoKey === 'Indisciplina') icono = '⚡';
+    else if (motivoKey === 'Comer en clase') icono = '🥪';
+    else if (motivoKey === 'Uso de celular') icono = '📱';
+    else if (motivoKey === 'Levantarse sin permiso') icono = '🚶';
+    else if (motivoKey === 'Arrancar hojas') icono = '📄';
+    else if (motivoKey === 'Personalizado') {
+        const custom = prompt(`Ingresa el motivo específico de la infracción para ${nomClean}:`, 'Incumplimiento de acuerdos');
+        if (custom === null || !custom.trim()) return;
+        motivoFinal = '⚠️ ' + custom.trim();
+        icono = '⚠️';
+    }
+
+    // Calcular 10% del puntaje acumulado actual
+    let xpEst = parseInt(localStorage.getItem(`xp_${doc}`)) || 0;
+    if (xpEst === 0) {
+        const diagXP = parseInt(localStorage.getItem(`prog_${doc}_diag_xp`)) || 0;
+        xpEst = diagXP || 500;
+    }
+    const bonusTotal = parseInt(localStorage.getItem(`bonus_total_${doc}`)) || 0;
+    const penaltyTotalPrev = parseInt(localStorage.getItem(`penalty_total_${doc}`)) || 0;
+    let totalXPAntes = Math.max(0, xpEst + bonusTotal - penaltyTotalPrev);
+
+    let penaltyAmount = Math.max(30, Math.round(totalXPAntes * 0.10));
+    let nuevoPenaltyTotal = penaltyTotalPrev + penaltyAmount;
+    localStorage.setItem(`penalty_total_${doc}`, nuevoPenaltyTotal);
+
+    const registroSancion = {
+        id: 'sancion_' + Date.now(),
+        doc: doc,
+        estudiante: nomClean,
+        motivo: motivoFinal,
+        motivoKey: motivoKey,
+        icono: icono,
+        puntosDescontados: penaltyAmount,
+        fecha: new Date().toLocaleDateString('es-CO', { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' }),
+        hora: new Date().toLocaleTimeString('es-CO', { hour: '2-digit', minute: '2-digit' }),
+        leido: false
+    };
+    localStorage.setItem(`sancion_activa_${doc}`, JSON.stringify(registroSancion));
+
+    // Refrescar vistas en tiempo real
+    if (typeof window.cargarDatosAdmin === 'function') {
+        window.cargarDatosAdmin();
+    }
+    if (window.gradoActualPlaneacion && typeof window.abrirGrupo === 'function') {
+        window.abrirGrupo(window.gradoActualPlaneacion);
+    }
+    if (typeof window.cargarEstudiantesDocente === 'function') {
+        window.cargarEstudiantesDocente(window.usuario_actual || 'docente');
+    }
+
+    alert(`✅ Sanción del -10% (-${penaltyAmount} XP) aplicada a ${nomClean} por: ${motivoFinal}.\n\nAl estudiante le aparecerá inmediatamente la notificación formativa en su pantalla.`);
+};
+
+// Controlador de Notificaciones Disciplinarias en la Pantalla del Estudiante
+window.verificarSancionesEstudiante = function() {
+    const user = window.usuarioEstudianteActual || JSON.parse(localStorage.getItem('usuario_sesion') || '{}');
+    const doc = String(user.documento || user.usuario || '').trim();
+    if (!doc || user.rol === 'docente' || user.rol === 'admin') return;
+
+    const rawSancion = localStorage.getItem(`sancion_activa_${doc}`);
+    if (!rawSancion) return;
+
+    try {
+        const sancion = JSON.parse(rawSancion);
+        if (sancion && !sancion.leido) {
+            const modal = document.getElementById('modal-notificacion-disciplinaria');
+            const iconoEl = document.getElementById('modal-sancion-icono');
+            const motivoEl = document.getElementById('modal-sancion-motivo-texto');
+            const fechaEl = document.getElementById('modal-sancion-fecha-texto');
+            const ptsEl = document.getElementById('modal-sancion-puntos-descontados');
+
+            if (iconoEl) iconoEl.innerText = sancion.icono || '⚡';
+            if (motivoEl) motivoEl.innerText = sancion.motivo || 'Infracción disciplinaria';
+            if (fechaEl) fechaEl.innerText = `${sancion.fecha} • ${sancion.hora}`;
+            if (ptsEl) ptsEl.innerText = `-${sancion.puntosDescontados || 50} XP`;
+
+            if (modal) modal.style.display = 'flex';
+        }
+    } catch(e) {}
+};
+
+window.confirmarLecturaSancion = function() {
+    const user = window.usuarioEstudianteActual || JSON.parse(localStorage.getItem('usuario_sesion') || '{}');
+    const doc = String(user.documento || user.usuario || '').trim();
+    if (doc) {
+        const rawSancion = localStorage.getItem(`sancion_activa_${doc}`);
+        if (rawSancion) {
+            try {
+                let sancion = JSON.parse(rawSancion);
+                sancion.leido = true;
+                localStorage.setItem(`sancion_activa_${doc}`, JSON.stringify(sancion));
+            } catch(e) {}
+        }
+        if (typeof window.inicializarPanelEstudiante === 'function') {
+            window.inicializarPanelEstudiante(user);
+        }
+    }
+    const modal = document.getElementById('modal-notificacion-disciplinaria');
+    if (modal) modal.style.display = 'none';
+};
+
+// Chequeo activo para el estudiante
+setInterval(window.verificarSancionesEstudiante, 2000);
 
 // Detección automática Anti-Cheat al cambiar de pestaña o salir de la página
 (function() {
@@ -5205,6 +5482,12 @@ window.verificarOrden = function(btn, correctStr) {
         btn.disabled = true;
         parent.style.opacity = "0.7";
         parent.style.pointerEvents = "none";
+        
+        const user = window.usuarioEstudianteActual || JSON.parse(localStorage.getItem('usuario_sesion') || '{}');
+        if (window.sumarXPEstudiante && user.documento) {
+            window.sumarXPEstudiante(user.documento, 30, 'Juego Ordenar');
+        }
+        
         if (typeof mostrarHuevos === 'function') mostrarHuevos();
     } else {
         btn.innerHTML = "❌ Intenta de nuevo";
@@ -5458,7 +5741,13 @@ window.evaluarIcfes = function(idxBtn) {
     let fbBox = document.getElementById('icfes-fb-' + idxBtn);
     fbBox.style.display = 'block';
     if(elegida === correcta) {
-        fbBox.innerHTML = `<div style="background: #D1FAE5; color: #065F46; padding: 15px; border-radius: 6px;"><strong>¡Respuesta Correcta!</strong> ${fbObj[elegida]}</div>`;
+        fbBox.innerHTML = `<div style="background: #D1FAE5; color: #065F46; padding: 15px; border-radius: 6px;"><strong>¡Respuesta Correcta! (+40 XP)</strong> ${fbObj[elegida]}</div>`;
+        
+        const user = window.usuarioEstudianteActual || JSON.parse(localStorage.getItem('usuario_sesion') || '{}');
+        if (window.sumarXPEstudiante && user.documento) {
+            window.sumarXPEstudiante(user.documento, 40, 'Pregunta ICFES Saber 11');
+        }
+        
         mostrarHuevos();
     } else {
         fbBox.innerHTML = `<div style="background: #FEE2E2; color: #991B1B; padding: 15px; border-radius: 6px;"><strong>Respuesta Incorrecta.</strong> ${fbObj[elegida]}</div>`;
