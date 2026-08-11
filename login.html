@@ -462,11 +462,14 @@
 
             <table style="width: 100%; border-collapse: collapse; text-align: left;">
                 <thead>
-                    <tr style="border-bottom: 2px solid #E5E7EB;">
-                        <th style="padding: 10px;">Doc</th>
-                        <th style="padding: 10px;">Nombre</th>
-                        <th style="padding: 10px;">Grado</th>
-                        <th style="padding: 10px; text-align: center;">Acciones</th>
+                    <tr style="border-bottom: 2px solid #E5E7EB; background: #F8FAFC;">
+                        <th style="padding: 12px 10px;">Documento</th>
+                        <th style="padding: 12px 10px;">Estudiante</th>
+                        <th style="padding: 12px 10px;">Edad / Género</th>
+                        <th style="padding: 12px 10px;">Grado / Grupo</th>
+                        <th style="padding: 12px 10px;">Institución / Modalidad</th>
+                        <th style="padding: 12px 10px;">Puntaje (XP)</th>
+                        <th style="padding: 12px 10px; text-align: center;">Acciones</th>
                     </tr>
                 </thead>
                 <tbody id="tbody-docente-estudiantes">
@@ -739,13 +742,14 @@
                     </div>
 
                     <table style="width: 100%; border-collapse: collapse; text-align: left; background: white; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
-                        <thead><tr style="border-bottom: 2px solid #E5E7EB;">
-                            <th style="padding: 15px;">Documento</th>
-                            <th style="padding: 15px;">Nombre</th>
-                            <th style="padding: 15px;">Grado</th>
-                            <th style="padding: 15px;">Puntaje Acumulado (XP)</th>
-                            <th style="padding: 15px;">Progreso por Asignatura</th>
-                            <th style="padding: 15px; text-align: center;">Acciones</th>
+                        <thead><tr style="border-bottom: 2px solid #CBD5E1; background: #F1F5F9;">
+                            <th style="padding: 14px 10px; font-size: 0.88rem; color: #1E293B;">Documento</th>
+                            <th style="padding: 14px 10px; font-size: 0.88rem; color: #1E293B;">Estudiante</th>
+                            <th style="padding: 14px 10px; font-size: 0.88rem; color: #1E293B;">Edad / Género</th>
+                            <th style="padding: 14px 10px; font-size: 0.88rem; color: #1E293B;">Institución / Modalidad</th>
+                            <th style="padding: 14px 10px; font-size: 0.88rem; color: #1E293B;">Puntaje Acumulado (XP)</th>
+                            <th style="padding: 14px 10px; font-size: 0.88rem; color: #1E293B;">Asignaturas y Estado</th>
+                            <th style="padding: 14px 10px; font-size: 0.88rem; color: #1E293B; text-align: center;">Acciones</th>
                         </tr></thead>
                         <tbody id="tbody-admin-estudiantes-por-grupo"></tbody>
                     </table>
@@ -1178,8 +1182,8 @@
         </div>
     </div>
 
-    <script src="diagnostico_nocturno.js?v=20260806_v16"></script>
-    <script src="app.js?v=20260806_v16"></script>
+    <script src="diagnostico_nocturno.js?v=20260806_v17"></script>
+    <script src="app.js?v=20260806_v17"></script>
     <script>
         // Función global para navegación SPA segura sin conflictos con app.js
         function mostrarVista(id) {

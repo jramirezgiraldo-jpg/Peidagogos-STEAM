@@ -1349,7 +1349,12 @@ document.addEventListener("DOMContentLoaded", function() {
                 grupoFinal = 'RM-' + gra + 'A';
             }
 
+            const tipoDocSel = document.getElementById("reg-tipo-doc");
+            const tipoDoc = tipoDocSel ? tipoDocSel.value : (doc.length > 8 ? "CC" : "TI");
+
             const payload = {
+                tipo_doc: tipoDoc,
+                tipo_documento: tipoDoc,
                 documento: doc,
                 apellidos: ap,
                 nombre: nom,
@@ -1369,13 +1374,18 @@ document.addEventListener("DOMContentLoaded", function() {
 
             const normDoc = doc.toLowerCase().replace(/[\.\,\-\_\s]/g, '');
 
-            // 1. Guardar inmediatamente en respaldo local usuarios_db
+            // 1. Guardar inmediatamente en respaldo local usuarios_db y en window.todosEstudiantes
             try {
                 let uList = JSON.parse(localStorage.getItem('usuarios_db') || '[]');
                 const idx = uList.findIndex(u => String(u.documento || u.id || '').toLowerCase().replace(/[\.\,\-\_\s]/g, '') === normDoc);
                 if (idx >= 0) uList[idx] = { ...uList[idx], ...payload };
                 else uList.push(payload);
                 localStorage.setItem('usuarios_db', JSON.stringify(uList));
+
+                if (!window.todosEstudiantes) window.todosEstudiantes = [];
+                const idxGlobal = window.todosEstudiantes.findIndex(u => String(u.documento || u.id || '').toLowerCase().replace(/[\.\,\-\_\s]/g, '') === normDoc);
+                if (idxGlobal >= 0) window.todosEstudiantes[idxGlobal] = { ...window.todosEstudiantes[idxGlobal], ...payload };
+                else window.todosEstudiantes.push(payload);
             } catch(e) {}
 
             // 2. Prellenar datos de sesión
@@ -1639,36 +1649,62 @@ async function cargarEstudiantesDocente(docenteId) {
 
                 if (isMyStudent && matchAsig && matchGrupo) {
                     const docClean = est.documento || est.usuario || est.id || '';
+                    const tipoDoc = est.tipo_doc || est.tipo_documento || (docClean.length > 8 ? 'CC' : 'TI');
                     const nomClean = window.obtenerNombreCompletoEstudiante(est);
                     const grupoClean = est.grupo || est.grado || '';
                     const asigClean = est.asignatura || 'Ciencias Naturales';
+                    const edad = est.edad ? `${est.edad} años` : 'N/A';
+                    const genero = est.genero === 'F' ? '♀ F' : (est.genero === 'M' ? '♂ M' : (est.genero || 'N/A'));
+                    const inst = est.institucion === 'InstitutoMontenegro' ? 'IE Instituto Montenegro' : (est.institucion || 'IE Instituto Montenegro');
+
+                    let xpEst = parseInt(localStorage.getItem(`xp_${docClean}`)) || 0;
+                    if (xpEst === 0) {
+                        const diagXP = parseInt(localStorage.getItem(`prog_${docClean}_diag_xp`)) || 0;
+                        xpEst = diagXP || 500;
+                    }
+                    const bonusTotal = parseInt(localStorage.getItem(`bonus_total_${docClean}`)) || 0;
+                    const penaltyTotal = parseInt(localStorage.getItem(`penalty_total_${docClean}`)) || 0;
+                    let totalXPAcumulado = Math.max(0, xpEst + bonusTotal - penaltyTotal);
 
                     tbody.innerHTML += `
                     <tr style="border-bottom: 1px solid #F1F5F9;">
-                        <td style="padding: 12px 10px; font-weight: bold; color: #475569;">${docClean}</td>
+                        <td style="padding: 12px 10px; font-family: monospace; font-size: 0.9rem;">
+                            <span style="background: #F1F5F9; color: #475569; padding: 2px 5px; border-radius: 4px; font-weight: bold; font-size: 0.75rem;">${tipoDoc}</span>
+                            <strong>${docClean}</strong>
+                        </td>
                         <td style="padding: 12px 10px; font-weight: 800; color: #1E293B;">
                             ${nomClean}
                             <button onclick="abrirModalEditarEstudianteDocente('${docClean}', '${nomClean.replace(/'/g, "\\'")}')" style="background: #F3F4F6; border: 1px solid #CBD5E1; color: #374151; padding: 2px 8px; border-radius: 6px; font-size: 0.75rem; font-weight: bold; cursor: pointer; margin-left: 6px; display: inline-flex; align-items: center; gap: 4px;" title="Editar o asignar el nombre real de este estudiante">
                                 ✏️ Editar Nombre
                             </button>
-                            <span style="display: block; font-size: 0.75rem; color: #64748B; font-weight: normal;">Rol: ${est.rol || 'Estudiante'}</span>
+                        </td>
+                        <td style="padding: 12px 10px; font-size: 0.85rem; color: #475569;">
+                            <b>${edad}</b> • <span>${genero}</span>
                         </td>
                         <td style="padding: 12px 10px; color: #334155; font-size: 0.9rem;">
-                            <b>${grupoClean}</b> <span style="color: #64748B;">(${asigClean})</span>
+                            <span style="background: #F1F5F9; color: #334155; padding: 3px 8px; border-radius: 6px; font-weight: bold;">${grupoClean}</span>
+                        </td>
+                        <td style="padding: 12px 10px; font-size: 0.82rem;">
+                            <span style="background: #EFF6FF; color: #1E40AF; padding: 3px 8px; border-radius: 6px; font-weight: 600;">${inst}</span>
+                        </td>
+                        <td style="padding: 12px 10px;">
+                            <span style="background: #ECFDF5; color: #047857; border: 1px solid #A7F3D0; padding: 4px 10px; border-radius: 16px; font-weight: 900; font-size: 0.85rem;">
+                                🌟 ${totalXPAcumulado} XP
+                            </span>
                         </td>
                         <td style="padding: 12px 10px; text-align: center;">
-                            <div style="display: flex; gap: 8px; justify-content: center; flex-wrap: wrap;">
-                                <button onclick="abrirGuiaOrientadorDirecto('${docClean}', '${grupoClean}', '${asigClean}')" style="background: linear-gradient(135deg, #10B981, #059669); color: white; border: none; padding: 7px 12px; border-radius: 8px; font-weight: 800; cursor: pointer; font-size: 0.82rem; display: inline-flex; align-items: center; gap: 5px; box-shadow: 0 2px 6px rgba(16,185,129,0.25);" title="Ver la guía resuelta con respuestas oficiales para este estudiante">
-                                    👁️ Guía Resuelta
+                            <div style="display: flex; gap: 6px; justify-content: center; flex-wrap: wrap;">
+                                <button onclick="abrirGuiaOrientadorDirecto('${docClean}', '${grupoClean}', '${asigClean}')" style="background: linear-gradient(135deg, #10B981, #059669); color: white; border: none; padding: 6px 10px; border-radius: 6px; font-weight: 800; cursor: pointer; font-size: 0.8rem; display: inline-flex; align-items: center; gap: 4px;" title="Ver la guía resuelta con respuestas oficiales para este estudiante">
+                                    👁️ Guía
                                 </button>
-                                <button onclick="verInformeEstudiante('${nomClean}', 0, '${grupoClean}', '${docClean}')" style="background: #2563EB; color: white; border: none; padding: 7px 12px; border-radius: 8px; font-weight: 800; cursor: pointer; font-size: 0.82rem; display: inline-flex; align-items: center; gap: 5px; box-shadow: 0 2px 6px rgba(37,99,235,0.25);" title="Ver informe completo y selector de guías">
+                                <button onclick="verInformeEstudiante('${nomClean}', 0, '${grupoClean}', '${docClean}')" style="background: #2563EB; color: white; border: none; padding: 6px 10px; border-radius: 6px; font-weight: 800; cursor: pointer; font-size: 0.8rem; display: inline-flex; align-items: center; gap: 4px;" title="Ver informe completo">
                                     📊 Informe
                                 </button>
-                                <button onclick="abrirModalBonificacion('${docClean}', '${nomClean}', '${grupoClean}')" style="background: linear-gradient(135deg, #10B981, #059669); color: white; border: none; padding: 7px 12px; border-radius: 8px; font-weight: 800; cursor: pointer; font-size: 0.82rem; display: inline-flex; align-items: center; gap: 5px; box-shadow: 0 2px 6px rgba(16,185,129,0.25);" title="Otorgar bonificación del +10% de puntos XP por excelente participación o logro">
-                                    🎁 Bonificar +10% XP
+                                <button onclick="abrirModalBonificacion('${docClean}', '${nomClean}', '${grupoClean}')" style="background: #10B981; color: white; border: none; padding: 6px 10px; border-radius: 6px; font-weight: 800; cursor: pointer; font-size: 0.8rem; display: inline-flex; align-items: center; gap: 4px;" title="Otorgar bonificación del +10% XP">
+                                    🎁 +10%
                                 </button>
-                                <button onclick="abrirModalPenalizacion('${docClean}', '${nomClean}', '${grupoClean}')" style="background: linear-gradient(135deg, #DC2626, #B91C1C); color: white; border: none; padding: 7px 12px; border-radius: 8px; font-weight: 800; cursor: pointer; font-size: 0.82rem; display: inline-flex; align-items: center; gap: 5px; box-shadow: 0 2px 6px rgba(220,38,38,0.25);" title="Rebajar el 10% de los puntos por indisciplina o uso de celular">
-                                    ⚡ Rebajar -10% XP
+                                <button onclick="abrirModalPenalizacion('${docClean}', '${nomClean}', '${grupoClean}')" style="background: #DC2626; color: white; border: none; padding: 6px 10px; border-radius: 6px; font-weight: 800; cursor: pointer; font-size: 0.8rem; display: inline-flex; align-items: center; gap: 4px;" title="Rebajar -10% XP por indisciplina">
+                                    ⚡ -10%
                                 </button>
                             </div>
                         </td>
@@ -3227,7 +3263,7 @@ window.actualizarVisualizadorPlaneacion = function() {
 };
 // --- FIN MALLA CURRICULAR FÍSICA ---
 
-window.abrirGrupo = function(grupoName) {
+window.abrirGrupo = async function(grupoName) {
     document.getElementById('admin-grupos-container').style.display = 'none';
     document.getElementById('admin-estudiantes-grupo-container').style.display = 'block';
     if(typeof pushSubView === 'function') pushSubView();
@@ -3238,17 +3274,23 @@ window.abrirGrupo = function(grupoName) {
     const contPlaneacion = document.getElementById('visualizador-planeacion-container');
     if (contPlaneacion) {
         contPlaneacion.style.display = 'block';
-        document.getElementById('select-planeacion-periodo').value = '3';
-        document.getElementById('select-planeacion-semana').value = '1';
-        actualizarVisualizadorPlaneacion();
+        const pSel = document.getElementById('select-planeacion-periodo');
+        const sSel = document.getElementById('select-planeacion-semana');
+        if (pSel) pSel.value = '3';
+        if (sSel) sSel.value = '1';
+        if (typeof actualizarVisualizadorPlaneacion === 'function') {
+            actualizarVisualizadorPlaneacion();
+        }
     }
 
     // Mostrar materias del grupo de inmediato
     const materiasDiv = document.getElementById('admin-materias-grupo-actual');
     const selectAsig = document.getElementById('select-planeacion-asignatura');
     let mat = [];
-    if (materiasDiv) {
+    if (typeof obtenerMateriasPorGrupo === 'function') {
         mat = obtenerMateriasPorGrupo(grupoName);
+    }
+    if (materiasDiv) {
         let tagsHTML = mat.map(m => `
             <div style="background: #E0E7FF; color: #4338CA; padding: 6px 12px; border-radius: 6px; font-weight: bold; font-size: 0.9rem; display: inline-block; margin-right: 10px; margin-bottom: 10px;">
                 📚 ${m.nombre} (${m.horas})
@@ -3275,26 +3317,49 @@ window.abrirGrupo = function(grupoName) {
     }
 
     const tbodyEst = document.getElementById('tbody-admin-estudiantes-por-grupo');
+    if (!tbodyEst) return;
+
+    // Asegurar que window.todosEstudiantes tenga datos (desde API y localStorage)
+    if (!window.todosEstudiantes || window.todosEstudiantes.length === 0) {
+        let lista = [];
+        try {
+            const res = await fetch('/api/estudiantes');
+            if (res.ok) lista = await res.json();
+        } catch(e) {}
+        const localUsers = JSON.parse(localStorage.getItem('usuarios_db') || '[]');
+        localUsers.forEach(lu => {
+            const normDoc = String(lu.documento || lu.id || lu.usuario || '').trim().toLowerCase().replace(/[\.\,\-\_\s]/g, '');
+            if (normDoc && !lista.some(e => String(e.documento || e.id || e.usuario || '').trim().toLowerCase().replace(/[\.\,\-\_\s]/g, '') === normDoc)) {
+                lista.push(lu);
+            }
+        });
+        window.todosEstudiantes = lista;
+    }
+
     const estFiltrados = (window.todosEstudiantes || []).filter(e => window.perteneceAlGrupo(e, grupoName));
 
     tbodyEst.innerHTML = '';
     if (estFiltrados.length === 0) {
         tbodyEst.innerHTML = `
         <tr>
-            <td colspan="5" style="padding: 35px; text-align: center; color: #6B7280;">
+            <td colspan="7" style="padding: 35px; text-align: center; color: #6B7280;">
                 <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
                     <span style="font-size: 2.2rem;">👥</span>
                     <span style="font-size: 1.1rem; font-weight: bold; color: #374151;">No hay estudiantes matriculados en este grupo aún</span>
-                    <span style="font-size: 0.9rem; color: #6B7280;">Cuando los estudiantes se matriculen en la página seleccionando <strong>${grupoName}</strong>, aparecerán aquí automáticamente.</span>
+                    <span style="font-size: 0.9rem; color: #6B7280;">Cuando los estudiantes se matriculen en la página seleccionando <strong>${grupoName}</strong>, aparecerán aquí automáticamente con toda su información personal.</span>
                 </div>
             </td>
         </tr>`;
     } else {
         estFiltrados.forEach(est => {
-            const docClean = est.documento || est.usuario || est.id || '';
+            const docClean = est.documento || est.usuario || est.id || 'Sin Doc';
+            const tipoDoc = est.tipo_doc || est.tipo_documento || (docClean.length > 8 ? 'CC' : 'TI');
             const nomClean = window.obtenerNombreCompletoEstudiante(est);
+            const edad = est.edad ? `${est.edad} años` : 'N/A';
+            const genero = est.genero === 'F' ? '♀ Femenino' : (est.genero === 'M' ? '♂ Masculino' : (est.genero || 'N/A'));
+            const inst = est.institucion === 'InstitutoMontenegro' ? 'IE Instituto Montenegro' : (est.institucion || 'IE Instituto Montenegro');
             const progreso = Math.floor(Math.random() * 60) + 40; 
-            const materiasGrupo = obtenerMateriasPorGrupo(grupoName);
+            const materiasGrupo = typeof obtenerMateriasPorGrupo === 'function' ? obtenerMateriasPorGrupo(grupoName) : [];
             
             // Calcular Puntos Acumulados Reales (XP) del estudiante
             let xpEst = parseInt(localStorage.getItem(`xp_${docClean}`)) || 0;
@@ -3307,38 +3372,50 @@ window.abrirGrupo = function(grupoName) {
             let totalXPAcumulado = Math.max(0, xpEst + bonusTotal - penaltyTotal);
 
             tbodyEst.innerHTML += `
-            <tr style="border-bottom: 1px solid #f3f4f6;">
-                <td style="padding: 15px; font-family: monospace; font-size: 0.95rem;">${docClean}</td>
-                <td style="padding: 15px; font-weight: bold; color: #111827;">
-                    ${nomClean}
-                    <button onclick="abrirModalEditarEstudianteDocente('${docClean}', '${nomClean.replace(/'/g, "\\'")}')" style="background: #F3F4F6; border: 1px solid #CBD5E1; color: #374151; padding: 2px 8px; border-radius: 6px; font-size: 0.75rem; font-weight: bold; cursor: pointer; margin-left: 6px; display: inline-flex; align-items: center; gap: 4px;" title="Editar o asignar el nombre real de este estudiante">
-                        ✏️ Editar Nombre
-                    </button>
+            <tr style="border-bottom: 1px solid #f3f4f6; transition: background 0.2s;" onmouseover="this.style.background='#F8FAFC'" onmouseout="this.style.background='white'">
+                <td style="padding: 14px 10px; font-family: monospace; font-size: 0.9rem;">
+                    <span style="background: #F1F5F9; color: #475569; padding: 2px 6px; border-radius: 4px; font-weight: bold; font-size: 0.75rem; margin-right: 4px;">${tipoDoc}</span>
+                    <strong style="color: #0F172A;">${docClean}</strong>
                 </td>
-                <td style="padding: 15px;"><span class="badge" style="background: #F3F4F6; color: #374151; padding: 4px 8px; border-radius: 4px;">${est.grado || grupoName}</span></td>
-                <td style="padding: 15px;">
-                    <span style="background: #ECFDF5; color: #047857; border: 1px solid #A7F3D0; padding: 6px 14px; border-radius: 20px; font-weight: 900; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 5px; box-shadow: 0 2px 5px rgba(16,185,129,0.15);">
+                <td style="padding: 14px 10px; font-weight: bold; color: #111827;">
+                    <div style="display: flex; align-items: center; gap: 6px; flex-wrap: wrap;">
+                        <span style="font-size: 0.95rem;">${nomClean}</span>
+                        <button onclick="abrirModalEditarEstudianteDocente('${docClean}', '${nomClean.replace(/'/g, "\\'")}')" style="background: #F1F5F9; border: 1px solid #CBD5E1; color: #334155; padding: 2px 7px; border-radius: 5px; font-size: 0.75rem; font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; gap: 3px;" title="Editar nombre de este estudiante">
+                            ✏️ Editar
+                        </button>
+                    </div>
+                </td>
+                <td style="padding: 14px 10px; font-size: 0.85rem; color: #475569;">
+                    <div><strong>${edad}</strong></div>
+                    <div style="font-size: 0.8rem; color: #64748B;">${genero}</div>
+                </td>
+                <td style="padding: 14px 10px; font-size: 0.85rem;">
+                    <span style="background: #EFF6FF; color: #1E40AF; border: 1px solid #BFDBFE; padding: 3px 8px; border-radius: 6px; font-weight: 600; display: inline-block;">
+                        🏛️ ${inst}
+                    </span>
+                </td>
+                <td style="padding: 14px 10px;">
+                    <span style="background: #ECFDF5; color: #047857; border: 1px solid #A7F3D0; padding: 5px 12px; border-radius: 16px; font-weight: 900; font-size: 0.88rem; display: inline-flex; align-items: center; gap: 4px; box-shadow: 0 2px 4px rgba(16,185,129,0.12);">
                         🌟 ${totalXPAcumulado} XP
                     </span>
                 </td>
-                <td style="padding: 15px;">
-                    <div style="display: flex; flex-direction: column; gap: 5px;">
+                <td style="padding: 14px 10px;">
+                    <div style="display: flex; flex-direction: column; gap: 4px;">
                         ${materiasGrupo.map(m => `
-                            <div style="display: flex; justify-content: space-between; align-items: center; background: #F3F4F6; padding: 4px 8px; border-radius: 4px;">
-                                <span style="font-size: 0.85rem; font-weight: bold; color: #374151;">${m.nombre} (${m.horas})</span>
-                                <span style="font-size: 0.75rem; color: ${m.color}; font-weight: bold;">${m.estado}</span>
+                            <div style="display: flex; justify-content: space-between; align-items: center; background: #F8FAFC; border: 1px solid #E2E8F0; padding: 3px 8px; border-radius: 4px;">
+                                <span style="font-size: 0.8rem; font-weight: 700; color: #334155;">📚 ${m.nombre}</span>
+                                <span style="font-size: 0.72rem; color: ${m.color || '#10B981'}; font-weight: 800;">${m.estado || 'Activo'}</span>
                             </div>
                         `).join('')}
                     </div>
                 </td>
-                <td style="padding: 15px; text-align: center;">
-                    <div style="display: flex; gap: 8px; justify-content: center;">
-                        <button onclick="verInformeEstudiante('${nomClean.replace(/'/g, "\\'")}', ${progreso}, '${grupoName}', '${docClean}')" style="background: #3B82F6; color: white; border: none; padding: 6px 12px; border-radius: 6px; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 5px;" title="Ver Informe">
-                            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
-                            Informe
+                <td style="padding: 14px 10px; text-align: center;">
+                    <div style="display: flex; gap: 6px; justify-content: center; flex-wrap: wrap;">
+                        <button onclick="verInformeEstudiante('${nomClean.replace(/'/g, "\\'")}', ${progreso}, '${grupoName}', '${docClean}')" style="background: #3B82F6; color: white; border: none; padding: 5px 10px; border-radius: 6px; font-weight: bold; font-size: 0.8rem; cursor: pointer; display: flex; align-items: center; gap: 4px;" title="Ver Ficha / Informe Pedagógico">
+                            📊 Informe
                         </button>
-                        <button onclick="eliminarEstudiante('${docClean}')" style="background: #EF4444; color: white; border: none; padding: 6px 12px; border-radius: 6px; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 5px;" title="Eliminar">
-                            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+                        <button onclick="eliminarEstudiante('${docClean}')" style="background: #EF4444; color: white; border: none; padding: 5px 8px; border-radius: 6px; font-weight: bold; font-size: 0.8rem; cursor: pointer; display: flex; align-items: center;" title="Eliminar estudiante">
+                            🗑️
                         </button>
                     </div>
                 </td>
