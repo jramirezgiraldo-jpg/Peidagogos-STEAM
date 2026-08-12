@@ -1415,10 +1415,10 @@
         </div>
     </div>
 
-    <script src="diagnostico_nocturno.js?v=20260806_v21"></script>
-    <script src="app.js?v=20260806_v21"></script>
+    <script src="diagnostico_nocturno.js?v=20260806_v22"></script>
+    <script src="app.js?v=20260806_v22"></script>
     <script>
-        // Función global para navegación SPA segura sin conflictos con app.js
+        // Función global para navegación SPA instantánea y sin scroll residual
         function mostrarVista(id) {
             const vistas = [
                 'login-screen-container',
@@ -1433,6 +1433,7 @@
                 const el = document.getElementById(vista);
                 if (el) {
                     el.style.display = 'none';
+                    el.scrollTop = 0;
                 }
             });
             
@@ -1445,7 +1446,11 @@
                 } else {
                     target.style.display = 'block';
                 }
+                target.scrollTop = 0;
             }
+            window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+            if (document.documentElement) document.documentElement.scrollTop = 0;
+            if (document.body) document.body.scrollTop = 0;
         }
     </script>
     <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>

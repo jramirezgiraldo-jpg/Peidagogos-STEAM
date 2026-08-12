@@ -584,6 +584,27 @@ app.post('/api/procesar-pago', (req, res) => {
     });
 });
 
+app.post('/api/actualizar-puntos', (req, res) => {
+    try {
+        const { documento, puntos, xp, motivo } = req.body;
+        let usuarios = readJSON('usuarios.json');
+        const docClean = String(documento || '').trim();
+        const idx = usuarios.findIndex(u => String(u.documento || u.id || u.usuario).trim() === docClean);
+        if (idx !== -1) {
+            const nuevoTotal = (puntos !== undefined) ? Number(puntos) : ((Number(usuarios[idx].puntos || 0)) + (Number(xp || 0)));
+            usuarios[idx].puntos = nuevoTotal;
+            usuarios[idx].xp = nuevoTotal;
+            writeJSON('usuarios.json', usuarios);
+            console.log(`[PUNTOS XP] Actualizados para ${usuarios[idx].nombre} (${docClean}): ${nuevoTotal} XP`);
+            return res.json({ status: "success", puntos: nuevoTotal });
+        }
+        res.json({ status: "not_found" });
+    } catch(e) {
+        console.error(`[ERROR ACTUALIZAR PUNTOS] ${e.message}`);
+        res.status(500).json({ error: e.message });
+    }
+});
+
 app.post('/api/eliminar-estudiante', (req, res) => {
     let usuarios = readJSON('usuarios.json');
     usuarios = usuarios.filter(u => String(u.documento).trim() !== String(req.body.documento).trim());

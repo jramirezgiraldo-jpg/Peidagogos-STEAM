@@ -4358,19 +4358,28 @@ window.completarMisionActual = function() {
     if (!subjectTitle) return;
     const asignatura = subjectTitle.innerText.replace('Aula de ', '').trim();
     
-    const key = `prog_${window.usuario_actual || 'default'}_${asignatura}_p${periodo}`;
-    let maxSemanaUnlocked = 8; // Desbloqueo total solicitado por el usuario
+    const user = window.usuarioEstudianteActual || JSON.parse(localStorage.getItem('usuario_sesion') || '{}');
+    const doc = String(user.documento || user.usuario || window.usuario_actual || 'default').trim();
+    
+    // Marcar misión completada
+    const misKey = `mision_hecha_${doc}_${asignatura}_p${periodo}_s${semanaStr}`;
+    const yaCompletada = localStorage.getItem(misKey) === 'true';
+    localStorage.setItem(misKey, 'true');
+    
+    // Sumar 100 XP si es la primera vez
+    if (!yaCompletada && window.sumarXPEstudiante) {
+        window.sumarXPEstudiante(doc, 100, `Misión Semana ${semanaStr} (${asignatura}) Completada`);
+    }
+    
+    const key = `prog_${doc}_${asignatura}_p${periodo}`;
     let semanaActual = parseInt(semanaStr);
+    let maxSemanaUnlocked = 8;
     
     if (semanaActual === maxSemanaUnlocked) {
-        if (maxSemanaUnlocked < 8) {
-            localStorage.setItem(key, maxSemanaUnlocked + 1);
-            alert("¡Felicidades! Has completado esta misión y desbloqueado la siguiente semana.");
-        } else {
-            alert("¡Increíble! Has completado todas las misiones de este periodo.");
-        }
+        alert("🎉 ¡Increíble! Has completado todas las misiones de este periodo. Has sumado +100 XP a tu acumulado.");
     } else {
-        alert("¡Misión repasada con éxito!");
+        localStorage.setItem(key, Math.max(semanaActual + 1, parseInt(localStorage.getItem(key) || 1)));
+        alert(`🎉 ¡Felicidades! Has completado con éxito la misión de la Semana ${semanaStr} de ${asignatura} y ganado +100 XP.`);
     }
     
     cerrarGuia();
@@ -4438,6 +4447,30 @@ window.actualizarPlaneacionEstudiante = function() {
         ? "Conceptos básicos e introducción a: " + tema.toLowerCase()
         : "Profundización, práctica y aplicación de: " + tema.toLowerCase();
 
+    // Comprobar si existe guía guardada para esta semana
+    const curUser = window.usuarioEstudianteActual || JSON.parse(localStorage.getItem('usuario_sesion') || '{}');
+    const docClean = String(curUser.documento || curUser.usuario || 'EST').trim();
+    const guiaGuardadaKey = `guia_guardada_${docClean}_${asignatura}_p${periodo}_s${semanaStr}`;
+    const tieneGuiaGuardada = !!localStorage.getItem(guiaGuardadaKey);
+
+    let htmlGuiaGuardadaBanner = '';
+    if (tieneGuiaGuardada) {
+        htmlGuiaGuardadaBanner = `
+            <div style="margin-top: 15px; padding: 14px 18px; background: #ECFDF5; border: 1.5px solid #10B981; border-radius: 10px; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;">
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <span style="font-size: 1.6rem;">💾</span>
+                    <div>
+                        <strong style="color: #065F46; font-size: 0.95rem; display: block;">¡Guía Guardada Activa para la Semana ${semanaStr}!</strong>
+                        <span style="color: #047857; font-size: 0.85rem;">Tienes una guía creada con tu progreso guardado.</span>
+                    </div>
+                </div>
+                <button type="button" onclick="cargarGuiaGuardadaDirecta()" style="background: #10B981; color: white; border: none; padding: 8px 18px; border-radius: 20px; font-weight: 800; font-size: 0.9rem; cursor: pointer; box-shadow: 0 4px 10px rgba(16,185,129,0.25);">
+                    📖 Abrir Mi Guía Guardada
+                </button>
+            </div>
+        `;
+    }
+
     contenido.innerHTML = `
         <div style="margin-bottom: 10px;">
             <strong style="color: #1E3A8A; font-size: 0.95rem;">Meta de Comprensión del Año:</strong>
@@ -4451,8 +4484,39 @@ window.actualizarPlaneacionEstudiante = function() {
             <strong style="color: #10B981; font-size: 0.95rem;">Tema Específico (Semana ${semanaNum}):</strong>
             <p style="margin: 4px 0 0 0; color: #111827; font-weight: bold; font-size: 1rem;">${subTema}</p>
         </div>
+        ${htmlGuiaGuardadaBanner}
     `;
     contenido.style.display = 'block';
+};
+
+window.cargarGuiaGuardadaDirecta = function() {
+    const periodo = document.getElementById("student-select-periodo").value;
+    const semanaStr = document.getElementById("student-select-semana").value;
+    const subjectTitle = document.getElementById('student-subject-title');
+    if (!subjectTitle) return false;
+    const asignatura = subjectTitle.innerText.replace('Aula de ', '').trim();
+    const curUser = window.usuarioEstudianteActual || JSON.parse(localStorage.getItem('usuario_sesion') || '{}');
+    const docClean = String(curUser.documento || curUser.usuario || 'EST').trim();
+    const guiaGuardadaKey = `guia_guardada_${docClean}_${asignatura}_p${periodo}_s${semanaStr}`;
+    const dataStr = localStorage.getItem(guiaGuardadaKey);
+    
+    if (dataStr) {
+        try {
+            const guideData = JSON.parse(dataStr);
+            const questContainer = document.getElementById("student-quest-container");
+            const guideContent = document.getElementById("student-guide-content");
+            if (questContainer) questContainer.style.display = "none";
+            if (guideContent) guideContent.style.display = "block";
+            window.renderizarGuiaContenido(guideData, periodo, semanaStr, asignatura, curUser);
+            window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+            const sDash = document.getElementById('student-dashboard-container');
+            if (sDash) sDash.scrollTop = 0;
+            return true;
+        } catch(e) {
+            console.error('Error cargando guía guardada:', e);
+        }
+    }
+    return false;
 };
 
 window.abrirAsignaturaEstudiante = function(asig, grado) {
@@ -4487,6 +4551,11 @@ window.abrirAsignaturaEstudiante = function(asig, grado) {
     
     aplicarRestriccionesProgreso();
     actualizarPlaneacionEstudiante();
+
+    // Auto-scroll al tope
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    const sDash = document.getElementById('student-dashboard-container');
+    if (sDash) sDash.scrollTop = 0;
 };
 
 window.volverAlGridEstudiante = function() {
@@ -4497,6 +4566,11 @@ window.volverAlGridEstudiante = function() {
         mainContent.style.display = "block";
         subjectView.style.display = "none";
     }
+
+    // Auto-scroll al tope
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    const sDash = document.getElementById('student-dashboard-container');
+    if (sDash) sDash.scrollTop = 0;
 };
 
 window.procesarJuegosEnTexto = function(textoMarkdown) {
@@ -4903,7 +4977,6 @@ window.ingresarAGuia = async function() {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(payload)
             });
-            // Si el servidor actual devuelve 404 (ej. motor_seguro en 8080) pero node está en 3000
             if (response.status === 404 && window.location.port !== '3000') {
                 response = await fetch('http://localhost:3000/api/generate-guide', {
                     method: 'POST',
@@ -4952,149 +5025,125 @@ window.ingresarAGuia = async function() {
             innerContent.innerHTML = `<div style="padding: 20px; background: #FEE2E2; border: 1px solid #EF4444; border-radius: 8px; color: #B91C1C;"><strong>Error de formato:</strong> El archivo de la guía tiene un formato incorrecto.</div>`;
             return;
         }
-        
-        // Inicializar Sticky Header y Personalización
+
+        // Guardar guía en localStorage para persistencia continua de la semana
         const user = window.usuarioEstudianteActual || JSON.parse(localStorage.getItem('usuario_sesion') || '{}');
-        studentDisplayName = "Estudiante";
-        if (user) {
-            // Guardar configuración para el panel admin (Teacher View)
-            const configKey = `config_${user.documento}_${asignatura}_p${periodo}_s${semanaStr}`;
-            localStorage.setItem(configKey, JSON.stringify(payload));
-            
-            if (user.nombre && user.apellidos && user.nombre !== 'Estudiante' && user.apellidos !== 'Nocturno') {
-                studentDisplayName = `${user.nombre} ${user.apellidos}`.trim();
-            } else if (user.nombre_completo) {
-                studentDisplayName = user.nombre_completo.trim();
-            } else if (user.nombre && user.nombre !== 'Estudiante') {
-                studentDisplayName = user.nombre.trim();
-            } else {
-                studentDisplayName = ((user.nombres || '') + ' ' + (user.apellidos || '')).trim() || 'Estudiante';
-            }
-
-            const avatar = user.avatar || '🚀';
-            const gradoBadge = user.grado || user.grupo || 'Ciclo VI';
-
-            const gName = document.getElementById('student-guide-header-name');
-            if (gName) gName.innerText = studentDisplayName;
-
-            const gAvatar = document.getElementById('student-guide-header-avatar');
-            if (gAvatar) gAvatar.innerText = avatar;
-
-            const gBadge = document.getElementById('student-guide-header-badge');
-            if (gBadge) gBadge.innerText = gradoBadge;
-
-            const gMateria = document.getElementById('student-guide-header-materia');
-            if (gMateria) gMateria.innerText = asignatura || 'Ciencias Naturales';
-
-            // XP
-            const doc = String(user.documento || user.usuario || '');
-            const xpKey = `xp_${doc}`;
-            let currentXP = parseInt(localStorage.getItem(xpKey)) || 0;
-            if (currentXP === 0) {
-                const progKey = `prog_${doc}_${asignatura}_p${periodo}`;
-                let prog = parseInt(localStorage.getItem(progKey)) || 1;
-                currentXP = (prog > 1) ? (prog - 1) * 100 : 0;
-            }
-
-            let pKey = `penalty_${user.grupo}_p${periodo}`;
-            if (asignatura) pKey = `penalty_${user.grupo}_${asignatura}_p${periodo}`;
-            let penStr = localStorage.getItem(pKey);
-            if (penStr) {
-                let penData = JSON.parse(penStr);
-                currentXP -= (penData.total || 0);
-            }
-            if (currentXP < 0) currentXP = 0;
-
-            const headerXP = document.getElementById('student-guide-header-xp');
-            if (headerXP) headerXP.innerText = currentXP;
-
-            window.guiaActualAsignatura = asignatura;
-            window.guiaActualPeriodo = periodo;
+        if (user && user.documento) {
+            const guiaGuardadaKey = `guia_guardada_${user.documento}_${asignatura}_p${periodo}_s${semanaStr}`;
+            localStorage.setItem(guiaGuardadaKey, JSON.stringify(guideData));
         }
+
+        window.renderizarGuiaContenido(guideData, periodo, semanaStr, asignatura, user);
         
-        window.guideDataCache = guideData;
-        
-        let htmlRenderizado = `
-            <div style="text-align: center; margin-bottom: 25px; background: linear-gradient(135deg, #EFF6FF, #F0FDF4); padding: 20px; border-radius: 16px; border: 1px solid #BFDBFE;">
-                <div style="font-size: 0.9rem; font-weight: 800; color: #2563EB; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.5px;">
-                    🎯 Misión Oficial de Aprendizaje STEAM 2026
-                </div>
-                <h3 style="color: #1E3A8A; font-weight: 900; font-size: 1.5rem; margin: 4px 0;">
-                    ${user.avatar || '🚀'} ${studentDisplayName} • Guía Periodo ${periodo}
-                </h3>
-                <p style="color: #4B5563; margin: 0; font-size: 0.95rem; font-weight: 600;">
-                    Semana ${semanaStr} | ${asignatura} | ${user.grado || user.grupo || 'Ciclo VI'}
-                </p>
+    } catch (error) {
+        console.error(error);
+        innerContent.innerHTML = `<div style="padding: 20px; background: #FEE2E2; border: 1px solid #EF4444; border-radius: 8px; color: #B91C1C;"><strong>Error de conexión:</strong> No se pudo conectar con el servidor central.</div>`;
+    }
+};
+
+window.renderizarGuiaContenido = function(guideData, periodo, semanaStr, asignatura, user) {
+    const innerContent = document.getElementById("student-guide-inner-content");
+    if (!innerContent) return;
+
+    window.guideDataCache = guideData;
+    const doc = String(user ? (user.documento || user.usuario || '') : '').trim();
+
+    let studentDisplayName = "Estudiante";
+    if (user) {
+        if (user.nombre && user.apellidos && user.nombre !== 'Estudiante' && user.apellidos !== 'Nocturno') {
+            studentDisplayName = `${user.nombre} ${user.apellidos}`.trim();
+        } else if (user.nombre_completo) {
+            studentDisplayName = user.nombre_completo.trim();
+        } else if (user.nombre && user.nombre !== 'Estudiante') {
+            studentDisplayName = user.nombre.trim();
+        } else {
+            studentDisplayName = ((user.nombres || '') + ' ' + (user.apellidos || '')).trim() || 'Estudiante';
+        }
+
+        const avatar = user.avatar || '🚀';
+        const gradoBadge = user.grado || user.grupo || 'Ciclo VI';
+
+        const gName = document.getElementById('student-guide-header-name');
+        if (gName) gName.innerText = studentDisplayName;
+
+        const gAvatar = document.getElementById('student-guide-header-avatar');
+        if (gAvatar) gAvatar.innerText = avatar;
+
+        const gBadge = document.getElementById('student-guide-header-badge');
+        if (gBadge) gBadge.innerText = gradoBadge;
+
+        const gMateria = document.getElementById('student-guide-header-materia');
+        if (gMateria) gMateria.innerText = asignatura || 'Ciencias Naturales';
+
+        // XP
+        const xpKey = `xp_${doc}`;
+        let currentXP = parseInt(localStorage.getItem(xpKey)) || 0;
+        if (currentXP === 0) {
+            const progKey = `prog_${doc}_${asignatura}_p${periodo}`;
+            let prog = parseInt(localStorage.getItem(progKey)) || 1;
+            currentXP = (prog > 1) ? (prog - 1) * 100 : 0;
+        }
+
+        const headerXP = document.getElementById('student-guide-header-xp');
+        if (headerXP) headerXP.innerText = currentXP;
+
+        window.guiaActualAsignatura = asignatura;
+        window.guiaActualPeriodo = periodo;
+    }
+
+    let htmlRenderizado = `
+        <div style="text-align: center; margin-bottom: 25px; background: linear-gradient(135deg, #EFF6FF, #F0FDF4); padding: 20px; border-radius: 16px; border: 1px solid #BFDBFE;">
+            <div style="font-size: 0.9rem; font-weight: 800; color: #2563EB; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.5px;">
+                🎯 Misión Oficial de Aprendizaje STEAM 2026
             </div>
-            <div class="mega-guide-container" style="background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); border: 1px solid #E5E7EB; font-family: 'Inter', sans-serif;">
+            <h3 style="color: #1E3A8A; font-weight: 900; font-size: 1.5rem; margin: 4px 0;">
+                ${user ? (user.avatar || '🚀') : '🚀'} ${studentDisplayName} • Guía Periodo ${periodo}
+            </h3>
+            <p style="color: #4B5563; margin: 0; font-size: 0.95rem; font-weight: 600;">
+                Semana ${semanaStr} | ${asignatura} | ${user ? (user.grado || user.grupo || 'Ciclo VI') : 'Ciclo VI'}
+            </p>
+        </div>
+        <div class="mega-guide-container" style="background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); border: 1px solid #E5E7EB; font-family: 'Inter', sans-serif;">
+    `;
+    
+    // Objetivo y Pregunta Problematizadora
+    if (guideData.objetivo_aprendizaje || guideData.pregunta_problematizadora) {
+        htmlRenderizado += `
+            <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 8px; padding: 15px; margin-bottom: 25px;">
+                ${guideData.objetivo_aprendizaje ? `<p style="margin: 0 0 8px 0; color: #1E40AF;">🎯 <b>Objetivo de Aprendizaje:</b> ${guideData.objetivo_aprendizaje}</p>` : ''}
+                ${guideData.pregunta_problematizadora ? `<p style="margin: 0; color: #9A3412;">❓ <b>Pregunta Problematizadora:</b> <i>${guideData.pregunta_problematizadora}</i></p>` : ''}
+            </div>
         `;
-        
-        // Objetivo y Pregunta Problematizadora
-        if (guideData.objetivo_aprendizaje || guideData.pregunta_problematizadora) {
+    }
+
+    if (guideData.saberes_previos) {
+        htmlRenderizado += `<h4 style="color: #4F46E5; margin-top: 0;">🧠 Desafío 1: Saberes Previos</h4>`;
+        htmlRenderizado += `<div id="saberes-previos-container" style="background: #F3F4F6; padding: 20px; border-radius: 8px; margin-bottom: 30px;">`;
+        guideData.saberes_previos.forEach((pregunta, idx) => {
+            const respGuardada = doc ? localStorage.getItem(`resp_saber_${doc}_${asignatura}_p${periodo}_s${semanaStr}_${idx}`) : null;
+            const estaRespondida = respGuardada !== null;
+            let disabled = (idx === 0 || estaRespondida) ? '' : 'disabled style="opacity:0.5;"';
+            let opcionesList = (Array.isArray(pregunta.opciones) && pregunta.opciones.length > 0) 
+                ? pregunta.opciones 
+                : (Array.isArray(pregunta.opcion) ? pregunta.opcion : ["Opción A", "Opción B", "Opción C", "Opción D"]);
+
             htmlRenderizado += `
-                <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 8px; padding: 15px; margin-bottom: 25px;">
-                    ${guideData.objetivo_aprendizaje ? `<p style="margin: 0 0 8px 0; color: #1E40AF;">🎯 <b>Objetivo de Aprendizaje:</b> ${guideData.objetivo_aprendizaje}</p>` : ''}
-                    ${guideData.pregunta_problematizadora ? `<p style="margin: 0; color: #9A3412;">❓ <b>Pregunta Problematizadora:</b> <i>${guideData.pregunta_problematizadora}</i></p>` : ''}
+                <div class="pregunta-saberes" id="container_saber_${idx}" style="margin-bottom: 15px;" ${disabled}>
+                    <p style="font-weight: bold;">${idx+1}. ${pregunta.pregunta}</p>
+                    ${opcionesList.map((opcion, i) => {
+                        const checked = (respGuardada === String(i)) ? 'checked' : '';
+                        const dis = estaRespondida ? 'disabled' : '';
+                        return `
+                        <label style="display: block; margin-bottom: 8px; cursor: pointer; padding: 10px; background: white; border: 1px solid #D1D5DB; border-radius: 6px;">
+                            <input type="radio" name="saber_${idx}" value="${i}" ${checked} ${dis} data-correct="${pregunta.correcta !== undefined ? pregunta.correcta : 0}" style="margin-right: 10px;">
+                            ${opcion}
+                        </label>`;
+                    }).join('')}
+                    <button id="btn_saber_${idx}" onclick="verificarSaberIndividual(${idx})" ${estaRespondida ? 'disabled style="background: #10B981; color: white; padding: 8px 16px; border: none; border-radius: 6px; font-weight: bold; margin-top: 10px;"' : 'style="background: #3B82F6; color: white; padding: 8px 16px; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; margin-top: 10px;"'}>
+                        ${estaRespondida ? '✅ Respondido (+20 XP)' : 'Verificar'}
+                    </button>
                 </div>
             `;
-        }
-
-        if (guideData.saberes_previos) {
-            htmlRenderizado += `<h4 style="color: #4F46E5; margin-top: 0;">🧠 Desafío 1: Saberes Previos</h4>`;
-            htmlRenderizado += `<div id="saberes-previos-container" style="background: #F3F4F6; padding: 20px; border-radius: 8px; margin-bottom: 30px;">`;
-            guideData.saberes_previos.forEach((pregunta, idx) => {
-                let disabled = idx === 0 ? '' : 'disabled style="opacity:0.5;"';
-                let opcionesList = (Array.isArray(pregunta.opciones) && pregunta.opciones.length > 0) 
-                    ? pregunta.opciones 
-                    : (Array.isArray(pregunta.opcion) ? pregunta.opcion : ["Opción A", "Opción B", "Opción C", "Opción D"]);
-
-                htmlRenderizado += `
-                    <div class="pregunta-saberes" id="container_saber_${idx}" style="margin-bottom: 15px;" ${disabled}>
-                        <p style="font-weight: bold;">${idx+1}. ${pregunta.pregunta}</p>
-                        ${opcionesList.map((opcion, i) => `
-                            <label style="display: block; margin-bottom: 8px; cursor: pointer; padding: 10px; background: white; border: 1px solid #D1D5DB; border-radius: 6px;">
-                                <input type="radio" name="saber_${idx}" value="${i}" data-correct="${pregunta.correcta !== undefined ? pregunta.correcta : 0}" style="margin-right: 10px;">
-                                ${opcion}
-                            </label>
-                        `).join('')}
-                        <button id="btn_saber_${idx}" onclick="verificarSaberIndividual(${idx})" style="background: #3B82F6; color: white; padding: 8px 16px; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; margin-top: 10px;">Verificar</button>
-                    </div>
-                `;
-            });
-            htmlRenderizado += `</div>`;
-        }
-        
-        htmlRenderizado += `<div id="rest-of-guide-container">`;
-        
-        if (guideData.texto_inductivo) {
-            htmlRenderizado += `<h4 style="color: #4F46E5;">📖 Fase 1: Exploración (Texto Inductivo)</h4>`;
-            htmlRenderizado += `<div class="markdown-body" style="font-size: 1.1rem; line-height: 1.6; color: #374151;">${window.procesarJuegosEnTexto(guideData.texto_inductivo)}</div>`;
-        }
-
-        if (guideData.recurso_visual) {
-            htmlRenderizado += `<h4 style="color: #4F46E5; margin-top: 20px;">📊 Recurso Visual</h4>`;
-            if (guideData.recurso_visual.includes('graph TD') || guideData.recurso_visual.includes('graph LR') || guideData.recurso_visual.includes('pie') || guideData.recurso_visual.includes('flowchart') || guideData.recurso_visual.includes('mermaid')) {
-                let concepts = [];
-                let regex = /[\[\(\{]([^\]\)\}]+)[\]\)\}]/g;
-                let match;
-                while ((match = regex.exec(guideData.recurso_visual)) !== null) {
-                    if(match[1] && match[1].trim().length > 3 && !match[1].includes('#') && !match[1].includes('mermaid') && !match[1].includes('graph')) {
-                        concepts.push(match[1].trim().replace(/['"]/g, ''));
-                    }
-                }
-                let uniqueConcepts = [...new Set(concepts)];
-                let instructionText = "Elabora en tu cuaderno un esquema, mapa mental o dibujo que resuma la información del texto.";
-                if (uniqueConcepts.length > 0) {
-                    let instructionsList = [
-                        "🎨 <b>Misión de Mapa Mental:</b> Toma tu cuaderno de forma horizontal. En el centro, escribe el concepto principal de esta lista y enciérralo en una nube. Luego, saca flechas (ramificaciones) hacia los demás conceptos. Usa un color diferente para cada rama.",
-                        "📏 <b>Misión de Tabla Organizadora:</b> Usa tu regla para dibujar una tabla amplia en tu cuaderno. En la primera columna, escribe cada uno de los conceptos de la lista. En la segunda columna, explica con tus propias palabras qué significa cada uno. En la tercera columna, da un ejemplo de la vida real.",
-                        "🔗 <b>Misión de Esquema de Conectores:</b> Escribe los conceptos de la lista distribuidos por toda la página de tu cuaderno. Ahora, el reto es conectarlos con líneas. Sobre cada línea que dibujes, escribe una palabra de enlace (ej: 'sirve para', 'se divide en', 'produce').",
-                        "🖍️ <b>Misión de Dibujo Explicativo:</b> Haz un dibujo grande y detallado en tu cuaderno donde aparezcan y se relacionen los conceptos de esta lista. Usa flechas y etiquetas para señalar dónde está cada concepto dentro de tu dibujo. ¡Ponle colores para que destaque!"
-                    ];
-                    let randIndex = Math.floor(Math.random() * instructionsList.length);
-                    instructionText = instructionsList[randIndex] + "<br><br><div style='background: #e2e8f0; padding: 10px; border-radius: 6px; display:inline-block; text-align:left; margin-top: 5px;'><b>Conceptos a incluir obligatoriamente:</b><br>• " + uniqueConcepts.join("<br>• ") + "</div>";
-                }
-                htmlRenderizado += `<div style="text-align:center; padding:20px; border: 2px dashed #94A3B8; border-radius: 8px; color: #475569; background: #F8FAFC; margin-bottom: 20px;"><i>📝 <b>Instrucción para tu cuaderno:</b><br><br>${instructionText}</i></div>`;
             } else {
                 htmlRenderizado += `<div class="markdown-body" style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px; overflow-x: auto;">${marked.parse(guideData.recurso_visual)}</div>`;
             }
@@ -5304,6 +5353,11 @@ window.verificarSaberIndividual = function(idx) {
     
     const correct = selected.value === selected.getAttribute('data-correct');
     const btn = document.getElementById('btn_saber_' + idx);
+    const user = window.usuarioEstudianteActual || JSON.parse(localStorage.getItem('usuario_sesion') || '{}');
+    const doc = String(user.documento || user.usuario || 'EST').trim();
+    const periodo = document.getElementById("student-select-periodo") ? document.getElementById("student-select-periodo").value : "1";
+    const semanaStr = document.getElementById("student-select-semana") ? document.getElementById("student-select-semana").value : "1";
+    const asig = window.guiaActualAsignatura || 'General';
     
     if (correct) {
         btn.innerText = "✅ Correcto (+20 XP)";
@@ -5311,8 +5365,10 @@ window.verificarSaberIndividual = function(idx) {
         btn.disabled = true;
         radios.forEach(r => r.disabled = true);
         
+        // Guardar respuesta en localStorage para persistencia
+        localStorage.setItem(`resp_saber_${doc}_${asig}_p${periodo}_s${semanaStr}_${idx}`, selected.value);
+        
         // Sumar XP a la barra de estado
-        const user = window.usuarioEstudianteActual || JSON.parse(localStorage.getItem('usuario_sesion') || '{}');
         if (window.sumarXPEstudiante && user.documento) {
             window.sumarXPEstudiante(user.documento, 20, 'Saberes Previos');
         }
@@ -5514,6 +5570,15 @@ window.sumarXPEstudiante = function(docClean, puntos, motivo) {
 
     const pLevelBadge = document.getElementById("student-xp-level-name");
     if (pLevelBadge) pLevelBadge.innerText = `Nivel ${nivelNum}: ${nivelNombre}`;
+
+    // Sincronización en segundo plano con el servidor
+    try {
+        fetch('/api/actualizar-puntos', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ documento: doc, puntos: totalXP, motivo: motivo || 'Puntos acumulados' })
+        }).catch(() => {});
+    } catch(e) {}
 
     // Disparar toast de recompensa
     window.mostrarToastXP(puntos, motivo || '¡Misión Cumplida!');
