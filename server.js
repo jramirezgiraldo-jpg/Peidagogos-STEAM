@@ -595,6 +595,120 @@ app.post('/api/procesar-pago', (req, res) => {
     });
 });
 
+// =========================================================================
+// WEBHOOKS OFICIALES PARA PASARELAS DE PAGO (WOMPI, EPAYCO, MERCADO PAGO, BOLD)
+// =========================================================================
+
+// 1. Webhook Oficial Wompi (Bancolombia / PSE / Nequi)
+app.post('/api/webhook-wompi', (req, res) => {
+    try {
+        const body = req.body;
+        console.log("🔔 [WEBHOOK WOMPI RECIBIDO]:", JSON.stringify(body));
+
+        const transaccion = body?.data?.transaction;
+        if (transaccion) {
+            const status = transaccion.status; // 'APPROVED', 'DECLINED', 'VOIDED', 'ERROR'
+            const referencia = transaccion.reference; // ej: PAY-12345 o documento
+            const monto = (transaccion.amount_in_cents || 0) / 100;
+            const metodo = transaccion.payment_method_type || 'Wompi / PSE / Nequi';
+            const customerEmail = transaccion.customer_email || 'S/D';
+            
+            // Extraer documento si viene en la referencia o metadatos
+            let docEstudiante = transaccion.customer_data?.legal_id || transaccion.shipping_address?.phone_number || '';
+            if (!docEstudiante && referencia.includes('-')) {
+                const partes = referencia.split('-');
+                if (partes.length > 1 && !isNaN(partes[1])) docEstudiante = partes[1];
+            }
+
+            if (status === 'APPROVED') {
+                let usuarios = readJSON('usuarios.json');
+                const idx = usuarios.findIndex(u => String(u.documento || u.id || '').trim() === String(docEstudiante).trim());
+                if (idx !== -1) {
+                    usuarios[idx].pago_activo = true;
+                    usuarios[idx].pago_realizado = true;
+                    usuarios[idx].fecha_pago = new Date().toISOString();
+                    usuarios[idx].monto_pago = monto;
+                    usuarios[idx].metodo_pago = metodo;
+                    usuarios[idx].referencia_pago = transaccion.id || referencia;
+                    writeJSON('usuarios.json', usuarios);
+                }
+
+                enviarAlertaTelegram(
+`🎉 ¡PAGO APROBADO EN BANCO (WOMPI)!
+👤 Documento: ${docEstudiante || 'Identificado por Ref'}
+💵 Monto: $${Number(monto).toLocaleString('es-CO')} COP
+💳 Método: ${metodo}
+📧 Correo Pagador: ${customerEmail}
+🔖 ID Transacción: ${transaccion.id || referencia}
+✅ Acceso Ilimitado Activado Automáticamente en Peidagogos STEAM.`
+                );
+            }
+        }
+        res.status(200).json({ status: "received" });
+    } catch(err) {
+        console.error("Error procesando Webhook Wompi:", err);
+        res.status(200).json({ status: "error", message: err.message });
+    }
+});
+
+// 2. Webhook Oficial ePayco (Davivienda / PSE / Daviplata)
+app.post('/api/webhook-epayco', (req, res) => {
+    try {
+        const body = req.body;
+        console.log("🔔 [WEBHOOK EPAYCO RECIBIDO]:", JSON.stringify(body));
+
+        const codRespuesta = String(body.x_cod_response || body.x_cod_respuesta || '');
+        const refPago = body.x_ref_pay || body.x_transaction_id || ('EP-' + Date.now());
+        const monto = body.x_amount || 50000;
+        const docEstudiante = body.x_extra1 || body.x_customer_doctype || body.x_cust_id_cliente || '';
+        const estado = body.x_response || body.x_transaction_state || '';
+        const metodo = body.x_franchise || body.x_type_payment || 'ePayco / PSE / Daviplata';
+
+        // 1 = Aceptada en ePayco
+        if (codRespuesta === '1' || estado.toLowerCase() === 'aceptada' || estado.toLowerCase() === 'aprobada') {
+            let usuarios = readJSON('usuarios.json');
+            const idx = usuarios.findIndex(u => String(u.documento || u.id || '').trim() === String(docEstudiante).trim());
+            if (idx !== -1) {
+                usuarios[idx].pago_activo = true;
+                usuarios[idx].pago_realizado = true;
+                usuarios[idx].fecha_pago = new Date().toISOString();
+                usuarios[idx].monto_pago = Number(monto);
+                usuarios[idx].metodo_pago = metodo;
+                usuarios[idx].referencia_pago = refPago;
+                writeJSON('usuarios.json', usuarios);
+            }
+
+            enviarAlertaTelegram(
+`🎉 ¡PAGO APROBADO EN BANCO (EPAYCO - DAVIVIENDA)!
+👤 Documento: ${docEstudiante || 'Referenciado'}
+💵 Monto: $${Number(monto).toLocaleString('es-CO')} COP
+💳 Método: ${metodo}
+🔖 Ref ePayco: ${refPago}
+✅ Acceso Ilimitado Activado Automáticamente en Peidagogos STEAM.`
+            );
+        }
+        res.status(200).json({ status: "success" });
+    } catch(err) {
+        console.error("Error procesando Webhook ePayco:", err);
+        res.status(200).json({ status: "error", message: err.message });
+    }
+});
+
+// 3. Webhook Universal / Bold / Pasarela Directa
+app.post('/api/webhook-pago', (req, res) => {
+    try {
+        const body = req.body;
+        console.log("🔔 [WEBHOOK UNIVERSAL RECIBIDO]:", JSON.stringify(body));
+        enviarAlertaTelegram(
+`🔔 NOTIFICACIÓN DE PASARELA DE PAGO:
+${JSON.stringify(body, null, 2)}`
+        );
+        res.status(200).json({ status: "success" });
+    } catch(err) {
+        res.status(200).json({ status: "error", message: err.message });
+    }
+});
+
 app.post('/api/actualizar-puntos', (req, res) => {
     try {
         const { documento, puntos, xp, motivo } = req.body;
