@@ -4453,24 +4453,6 @@ window.actualizarPlaneacionEstudiante = function() {
     const guiaGuardadaKey = `guia_guardada_${docClean}_${asignatura}_p${periodo}_s${semanaStr}`;
     const tieneGuiaGuardada = !!localStorage.getItem(guiaGuardadaKey);
 
-    let htmlGuiaGuardadaBanner = '';
-    if (tieneGuiaGuardada) {
-        htmlGuiaGuardadaBanner = `
-            <div style="margin-top: 15px; padding: 14px 18px; background: #ECFDF5; border: 1.5px solid #10B981; border-radius: 10px; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;">
-                <div style="display: flex; align-items: center; gap: 10px;">
-                    <span style="font-size: 1.6rem;">💾</span>
-                    <div>
-                        <strong style="color: #065F46; font-size: 0.95rem; display: block;">¡Guía Guardada Activa para la Semana ${semanaStr}!</strong>
-                        <span style="color: #047857; font-size: 0.85rem;">Tienes una guía creada con tu progreso guardado.</span>
-                    </div>
-                </div>
-                <button type="button" onclick="cargarGuiaGuardadaDirecta()" style="background: #10B981; color: white; border: none; padding: 8px 18px; border-radius: 20px; font-weight: 800; font-size: 0.9rem; cursor: pointer; box-shadow: 0 4px 10px rgba(16,185,129,0.25);">
-                    📖 Abrir Mi Guía Guardada
-                </button>
-            </div>
-        `;
-    }
-
     contenido.innerHTML = `
         <div style="margin-bottom: 10px;">
             <strong style="color: #1E3A8A; font-size: 0.95rem;">Meta de Comprensión del Año:</strong>
@@ -4484,9 +4466,85 @@ window.actualizarPlaneacionEstudiante = function() {
             <strong style="color: #10B981; font-size: 0.95rem;">Tema Específico (Semana ${semanaNum}):</strong>
             <p style="margin: 4px 0 0 0; color: #111827; font-weight: bold; font-size: 1rem;">${subTema}</p>
         </div>
-        ${htmlGuiaGuardadaBanner}
     `;
     contenido.style.display = 'block';
+
+    const questContainer = document.getElementById("student-quest-container");
+    if (questContainer) {
+        if (tieneGuiaGuardada) {
+            questContainer.style.border = "2px dashed #10B981";
+            questContainer.style.background = "#ECFDF5";
+            questContainer.innerHTML = `
+                <div style="text-align: center; padding: 10px;">
+                    <span style="font-size: 2.5rem;">📖</span>
+                    <h3 style="font-weight: 900; color: #065F46; margin: 10px 0 6px 0; font-size: 1.3rem;">Misión de la Semana ${semanaStr} en Curso</h3>
+                    <p style="color: #047857; margin: 0 0 20px 0; font-size: 0.95rem;">Tu guía ya fue creada para esta semana. Debes continuar trabajando sobre ella y registrar tu progreso hasta completarla.</p>
+                    <button type="button" onclick="cargarGuiaGuardadaDirecta()" style="background: linear-gradient(135deg, #10B981, #059669); color: white; padding: 14px 36px; border-radius: 30px; border: none; font-weight: 900; font-size: 1.1rem; cursor: pointer; box-shadow: 0 4px 15px rgba(16,185,129,0.35); transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">
+                        🚀 Abrir y Continuar Mi Guía de la Semana ${semanaStr}
+                    </button>
+                </div>
+            `;
+        } else {
+            questContainer.style.border = "2px dashed #3B82F6";
+            questContainer.style.background = "#EFF6FF";
+            questContainer.innerHTML = `
+                <h3 style="font-weight: 800; color: #1D4ED8; margin-bottom: 15px;">¡Personaliza tu Aventura de Aprendizaje!</h3>
+                <p style="color: #1E3A8A; margin-bottom: 20px;">Configura los parámetros para crear tu misión de la Semana ${semanaStr}. Una vez generada, trabajarás sobre ella hasta completarla.</p>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                    <div>
+                        <label style="font-weight: bold; color: #111827;">Menú 1: Tu Rol</label>
+                        <select id="student-quest-rol" style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #93C5FD; margin-top: 5px;">
+                            <option value="">Seleccionar...</option>
+                            <option value="Detective de Misterios">Detective de Misterios</option>
+                            <option value="Explorador Espacial">Explorador Espacial</option>
+                            <option value="Cientifico Loco">Científico Loco</option>
+                            <option value="Hacker Tecnologico">Hacker Tecnológico</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label style="font-weight: bold; color: #111827;">Menú 2: Ambiente de Trabajo</label>
+                        <select id="student-quest-ambiente" style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #93C5FD; margin-top: 5px;">
+                            <option value="">Seleccionar...</option>
+                            <option value="Mundo Post-Apocalíptico">Mundo Post-Apocalíptico</option>
+                            <option value="Estación Espacial Internacional">Estación Espacial Internacional</option>
+                            <option value="Expedición en la Selva">Expedición en la Selva</option>
+                            <option value="Laboratorio Secreto Subterráneo">Laboratorio Secreto Subterráneo</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label style="font-weight: bold; color: #111827;">Menú 3: Nivel de Desafío</label>
+                        <select id="student-quest-nivel" style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #93C5FD; margin-top: 5px;">
+                            <option value="">Seleccionar...</option>
+                            <option value="Modo Novato (Fácil)">Modo Novato (Fácil)</option>
+                            <option value="Modo Supervivencia (Intermedio)">Modo Supervivencia (Intermedio)</option>
+                            <option value="Modo Héroe (Avanzado)">Modo Héroe (Avanzado)</option>
+                            <option value="Modo Dios (Experto)">Modo Dios (Experto)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label style="font-weight: bold; color: #111827;">Menú 4: Enfoque de la Tarea</label>
+                        <select id="student-quest-enfoque" style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #93C5FD; margin-top: 5px;">
+                            <option value="">Seleccionar...</option>
+                            <option value="Resolver un misterio (Indagación)">Resolver un misterio (Indagación)</option>
+                            <option value="Explicar un fenómeno extraño">Explicar un fenómeno extraño</option>
+                            <option value="Aplicar la ciencia para sobrevivir">Aplicar la ciencia para sobrevivir</option>
+                            <option value="Desmentir un mito popular (Análisis Crítico)">Desmentir un mito popular (Análisis Crítico)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div style="margin-top: 30px; display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                    <button id="student-btn-ingresar-diag" onclick="iniciarDiagnosticoGamificado()" style="background: linear-gradient(135deg, #F59E0B, #D97706); color: white; padding: 14px 28px; border-radius: 30px; border: none; font-weight: 900; font-size: 1.05rem; cursor: pointer; box-shadow: 0 4px 15px rgba(245,158,11,0.35); display: flex; align-items: center; gap: 8px; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">
+                        🥚 Diagnóstico Inicial (Gamificado)
+                    </button>
+                    <button id="student-btn-ingresar-guia" onclick="ingresarAGuia()" style="background: #10B981; color: white; padding: 14px 32px; border-radius: 30px; border: none; font-weight: 800; font-size: 1.05rem; cursor: pointer; box-shadow: 0 4px 15px rgba(16,185,129,0.3); transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">
+                        🚀 Iniciar Misión de la Semana ${semanaStr}
+                    </button>
+                </div>
+            `;
+        }
+    }
 };
 
 window.cargarGuiaGuardadaDirecta = function() {
@@ -4844,13 +4902,16 @@ window.renderizarCierreGamificado = function(cierreData, isTeacher = false) {
 };
 
 window.ingresarAGuia = async function() {
+    if (window.cargarGuiaGuardadaDirecta && window.cargarGuiaGuardadaDirecta()) {
+        return;
+    }
     window.juegosPendientes = [];
     const rolElem = document.getElementById("student-quest-rol");
     const ambienteElem = document.getElementById("student-quest-ambiente");
     const nivelElem = document.getElementById("student-quest-nivel");
     const enfoqueElem = document.getElementById("student-quest-enfoque");
     
-    if (!rolElem.value || !ambienteElem.value || !nivelElem.value || !enfoqueElem.value) {
+    if (!rolElem || !ambienteElem || !nivelElem || !enfoqueElem || !rolElem.value || !ambienteElem.value || !nivelElem.value || !enfoqueElem.value) {
         alert("¡Por favor completa todos los menús para personalizar tu aventura!");
         return;
     }
