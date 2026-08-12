@@ -292,36 +292,41 @@
                 const grupoSelect = document.getElementById("registro-grupo");
                 const campoCodigo = document.getElementById("campo-codigo-institucional");
                 const infoPago = document.getElementById("info-pago-modalidad");
+                const materiasView = document.getElementById("materias-asignadas-view");
+                const btnSubmit = document.getElementById("btn-submit-register");
                 
                 if (ie === "HomeSchool") {
                     if (campoCodigo) campoCodigo.style.display = "none";
-                    gradoSelect.style.display = "block";
-                    grupoSelect.style.display = "none";
-                    grupoSelect.value = "";
+                    if (gradoSelect) { gradoSelect.style.display = "none"; gradoSelect.value = ""; }
+                    if (grupoSelect) { grupoSelect.style.display = "none"; grupoSelect.value = ""; }
+                    if (materiasView) materiasView.style.display = "none";
+                    if (btnSubmit) btnSubmit.innerText = "Registrarme como Tutor Home School";
                     if (infoPago) {
                         infoPago.style.display = "block";
                         infoPago.style.background = "#EFF6FF";
                         infoPago.style.color = "#1D4ED8";
                         infoPago.style.border = "1px solid #93C5FD";
-                        infoPago.innerHTML = "🎁 <strong>Modalidad Tutor Home School:</strong> Matrícula libre. ¡Tienes acceso a la <strong>1ª Guía de cada materia 100% GRATIS</strong>! Podrás suscribirte a partir de la 2ª guía.";
+                        infoPago.innerHTML = "🏡 <strong>Registro de Tutor / Padre Home School:</strong> Te registrarás como tutor para administrar las matrículas de tus hijos o apoderados, acceder a las mallas DBA y gestionar sus guías de estudio.";
                     }
                 } else if (ie === "Validacion") {
                     if (campoCodigo) campoCodigo.style.display = "none";
-                    gradoSelect.style.display = "block";
-                    grupoSelect.style.display = "none";
-                    grupoSelect.value = "";
+                    if (gradoSelect) { gradoSelect.style.display = "block"; }
+                    if (grupoSelect) { grupoSelect.style.display = "none"; grupoSelect.value = ""; }
+                    if (materiasView) materiasView.style.display = "block";
+                    if (btnSubmit) btnSubmit.innerText = "Continuar con la Matrícula";
                     if (infoPago) {
                         infoPago.style.display = "block";
                         infoPago.style.background = "#FEF3C7";
                         infoPago.style.color = "#92400E";
                         infoPago.style.border = "1px solid #FCD34D";
-                        infoPago.innerHTML = "🎁 <strong>Modalidad Validación Bachillerato:</strong> Matrícula libre. ¡Tienes acceso a la <strong>1ª Guía de cada materia 100% GRATIS</strong>! Podrás suscribirte a partir de la 2ª guía.";
+                        infoPago.innerHTML = "🎓 <strong>Modalidad Validación Bachillerato:</strong> Matrícula libre de estudiante por ciclos (Ciclo I al VI). ¡Acceso a la 1ª Guía de cada materia 100% GRATIS!";
                     }
                 } else if (ie === "InstitutoMontenegro") {
                     if (campoCodigo) campoCodigo.style.display = "flex";
-                    gradoSelect.style.display = "none";
-                    grupoSelect.style.display = "block";
-                    gradoSelect.value = "";
+                    if (gradoSelect) { gradoSelect.style.display = "none"; gradoSelect.value = ""; }
+                    if (grupoSelect) { grupoSelect.style.display = "block"; }
+                    if (materiasView) materiasView.style.display = "block";
+                    if (btnSubmit) btnSubmit.innerText = "Continuar con la Matrícula";
                     if (infoPago) {
                         infoPago.style.display = "block";
                         infoPago.style.background = "#F0FDF4";
@@ -331,10 +336,10 @@
                     }
                 } else {
                     if (campoCodigo) campoCodigo.style.display = "none";
-                    gradoSelect.style.display = "none";
-                    grupoSelect.style.display = "none";
-                    gradoSelect.value = "";
-                    grupoSelect.value = "";
+                    if (gradoSelect) { gradoSelect.style.display = "none"; gradoSelect.value = ""; }
+                    if (grupoSelect) { grupoSelect.style.display = "none"; grupoSelect.value = ""; }
+                    if (materiasView) materiasView.style.display = "none";
+                    if (btnSubmit) btnSubmit.innerText = "Continuar con la Matrícula";
                     if (infoPago) infoPago.style.display = "none";
                 }
                 actualizarMaterias();
@@ -1438,8 +1443,8 @@
         </div>
     </div>
 
-    <script src="diagnostico_nocturno.js?v=20260806_v25"></script>
-    <script src="app.js?v=20260806_v25"></script>
+    <script src="diagnostico_nocturno.js?v=20260806_v26"></script>
+    <script src="app.js?v=20260806_v26"></script>
     <script>
         // --- BLINDAJE DE PROPIEDAD INTELECTUAL Y SEGURIDAD ---
         (function() {

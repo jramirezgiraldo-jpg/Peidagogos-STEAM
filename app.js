@@ -1372,13 +1372,104 @@ document.addEventListener("DOMContentLoaded", function() {
         const codigoInst = codElem ? codElem.value.trim() : "";
 
         if (!doc) { mostrarErrorReg("⚠️ El campo Número de Documento es obligatorio."); return; }
-        if (!nom || nom.toLowerCase() === 'estudiante' || nom.toLowerCase() === 'estudiante nocturno') { mostrarErrorReg("⚠️ El campo Nombres es obligatorio (ingresa tus nombres reales)."); return; }
-        if (!ap || ap.toLowerCase() === 'nocturno' || ap.toLowerCase() === 'estudiante') { mostrarErrorReg("⚠️ El campo Apellidos es obligatorio (ingresa tus apellidos reales)."); return; }
+        if (!nom) { mostrarErrorReg("⚠️ El campo Nombres es obligatorio."); return; }
+        if (!ap) { mostrarErrorReg("⚠️ El campo Apellidos es obligatorio."); return; }
+        if (!ie) { mostrarErrorReg("⚠️ Debes seleccionar tu Institución o Modalidad de estudio."); return; }
+
+        const tipoDocSel = document.getElementById("reg-tipo-doc");
+        const tipoDoc = tipoDocSel ? tipoDocSel.value : (doc.length > 8 ? "CC" : "TI");
+        const normDoc = doc.toLowerCase().replace(/[\.\,\-\_\s]/g, '');
+
+        // ==========================================
+        // CASO 1: REGISTRO DE TUTOR HOME SCHOOL
+        // ==========================================
+        if (ie === "HomeSchool") {
+            if (btnSubmit) {
+                btnSubmit.innerText = "⏳ Creando Cuenta de Tutor...";
+                btnSubmit.disabled = true;
+            }
+            if (feedback) {
+                feedback.style.display = "block";
+                feedback.style.background = "#ECFDF5";
+                feedback.style.color = "#065F46";
+                feedback.style.border = "1px solid #86EFAC";
+                feedback.innerText = "⏳ Registrando Tutor Home School e ingresando al panel...";
+            }
+
+            const payloadTutor = {
+                documento: doc,
+                cedula: doc,
+                usuario: doc,
+                nombre: nom,
+                nombres: nom,
+                apellidos: ap,
+                nombre_completo: `${nom} ${ap}`.trim(),
+                edad: ed || '35',
+                genero: gen || 'otro',
+                rol: 'homeschool_tutor',
+                tipo: 'tutor_homeschool',
+                institucion: 'HomeSchool'
+            };
+
+            // 1. Guardar localmente
+            try {
+                let dList = JSON.parse(localStorage.getItem('docentes_db') || '[]');
+                const idx = dList.findIndex(d => String(d.documento || d.usuario || '').toLowerCase().replace(/[\.\,\-\_\s]/g, '') === normDoc);
+                if (idx >= 0) dList[idx] = { ...dList[idx], ...payloadTutor };
+                else dList.push(payloadTutor);
+                localStorage.setItem('docentes_db', JSON.stringify(dList));
+            } catch(e) {}
+
+            const sessionData = {
+                status: 'success',
+                usuario: doc,
+                nombre: `${nom} ${ap}`.trim(),
+                rol: 'homeschool_tutor',
+                tipo: 'tutor_homeschool',
+                institucion: 'HomeSchool',
+                usuarioObj: payloadTutor
+            };
+            localStorage.setItem('usuario_sesion', JSON.stringify(sessionData));
+
+            // 2. Enviar a servidor
+            try {
+                await fetch("/api/registro-tutor", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(payloadTutor)
+                });
+            } catch(err) {
+                console.warn("Registro tutor guardado localmente:", err);
+            }
+
+            alert(`✅ ¡Registro de Tutor Exitoso!\n\nBienvenido(a) ${nom} ${ap}. Has ingresado a tu Panel de Tutor Home School.\n\nDesde aquí puedes matricular a tus hijos o estudiantes a cargo, consultar las mallas DBA y orientar su aprendizaje.`);
+
+            // 3. Activar Panel de Tutor
+            window.usuario_actual = doc;
+            window.rol_actual = 'homeschool_tutor';
+            if (typeof mostrarVista === 'function') mostrarVista('tutor-dashboard-container');
+            const tutorView = document.getElementById("tutor-dashboard-container");
+            if (tutorView) tutorView.style.display = "block";
+            const tHeader = document.getElementById('tutor-nombre-header');
+            if (tHeader) tHeader.innerText = `${nom} ${ap}`.trim();
+            if (typeof window.cargarEstudiantesTutor === 'function') {
+                window.cargarEstudiantesTutor(doc);
+            }
+
+            window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+            if (document.documentElement) document.documentElement.scrollTop = 0;
+            if (document.body) document.body.scrollTop = 0;
+            if (tutorView) tutorView.scrollTop = 0;
+            return;
+        }
+
+        // ==========================================
+        // CASO 2: REGISTRO DE ESTUDIANTE (VALIDACIÓN O COLEGIO REGULAR)
+        // ==========================================
         if (!ed) { mostrarErrorReg("⚠️ El campo Edad es obligatorio."); return; }
         if (!gen) { mostrarErrorReg("⚠️ El campo Género es obligatorio."); return; }
-        if (!ie) { mostrarErrorReg("⚠️ Debes seleccionar tu Institución o Modalidad de estudio."); return; }
         if (ie === 'InstitutoMontenegro' && !grupo) { mostrarErrorReg("⚠️ Debes seleccionar tu Grupo en la IE Instituto Montenegro."); return; }
-        if (ie !== 'InstitutoMontenegro' && !gra) { mostrarErrorReg("⚠️ Debes seleccionar tu Grado o Ciclo a cursar."); return; }
+        if (ie === 'Validacion' && !gra) { mostrarErrorReg("⚠️ Debes seleccionar tu Grado o Ciclo a cursar."); return; }
 
         // Si por alguna razón el campo oculto de asignaturas no se llenó en el móvil, calcularlo automáticamente
         if (!asig) {
@@ -1386,9 +1477,7 @@ document.addEventListener("DOMContentLoaded", function() {
             asig = asigElem ? asigElem.value : "";
         }
         if (!asig) {
-            if (ie === "HomeSchool") {
-                asig = "Matemáticas, Ciencias Naturales, Física, Lengua Castellana, Ciencias Sociales, Inglés, Tecnología";
-            } else if (ie === "Validacion" || (gra && gra.includes("Ciclo")) || (grupo && grupo.includes("Ciclo"))) {
+            if (ie === "Validacion" || (gra && gra.includes("Ciclo")) || (grupo && grupo.includes("Ciclo"))) {
                 asig = "Ciencias Naturales, Matemáticas, Física, Química, Lengua Castellana, Ciencias Sociales, Inglés, Filosofía y Ética";
             } else {
                 asig = "Física, Matemáticas, Ciencias Naturales, Lengua Castellana, Ciencias Sociales, Inglés, Tecnología, Educación Artística, Ética";
@@ -1420,9 +1509,6 @@ document.addEventListener("DOMContentLoaded", function() {
             grupoFinal = 'RM-' + gra + 'A';
         }
 
-        const tipoDocSel = document.getElementById("reg-tipo-doc");
-        const tipoDoc = tipoDocSel ? tipoDocSel.value : (doc.length > 8 ? "CC" : "TI");
-
         const payload = {
             tipo_doc: tipoDoc,
             tipo_documento: tipoDoc,
@@ -1442,8 +1528,6 @@ document.addEventListener("DOMContentLoaded", function() {
             suscrito: ie === "InstitutoMontenegro",
             tipo_acceso: ie === "InstitutoMontenegro" ? "institucional_ilimitado" : "freemium_primera_guia_gratis"
         };
-
-        const normDoc = doc.toLowerCase().replace(/[\.\,\-\_\s]/g, '');
 
         // 1. Guardar inmediatamente en respaldo local usuarios_db y en window.todosEstudiantes
         try {
