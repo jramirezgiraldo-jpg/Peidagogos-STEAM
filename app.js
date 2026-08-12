@@ -593,6 +593,19 @@ window.inicializarPanelEstudiante = function(data) {
         badgeMsg.innerText = `🎓 ${gradoCiclo} | 🏛️ ${ieName}`;
     }
 
+    // Sincronizar selector de Malla Curricular Oficial DBA del Estudiante
+    const selectMallaEst = document.getElementById("select-estudiante-malla-grado");
+    if (selectMallaEst) {
+        let normG = window.normalizarGradoOCiclo ? window.normalizarGradoOCiclo(gradoCiclo) : gradoCiclo;
+        if (String(gradoCiclo).includes('Ciclo')) normG = String(gradoCiclo).trim();
+        for (let opt of selectMallaEst.options) {
+            if (opt.value === normG || opt.value === gradoCiclo || opt.text.includes(gradoCiclo)) {
+                selectMallaEst.value = opt.value;
+                break;
+            }
+        }
+    }
+
     // Cálculo de Nivel y Porcentaje de Progreso
     let nivelNum = 1;
     let nivelNombre = "Novato STEAM 🌱";
@@ -1699,6 +1712,9 @@ async function cargarEstudiantesDocente(docenteId) {
                                 </button>
                                 <button onclick="verInformeEstudiante('${nomClean}', 0, '${grupoClean}', '${docClean}')" style="background: #2563EB; color: white; border: none; padding: 6px 10px; border-radius: 6px; font-weight: 800; cursor: pointer; font-size: 0.8rem; display: inline-flex; align-items: center; gap: 4px;" title="Ver informe completo">
                                     📊 Informe
+                                </button>
+                                <button onclick="abrirMallaDocenteDesdeEstudiante('${grupoClean}', '${asigClean}')" style="background: #059669; color: white; border: none; padding: 6px 10px; border-radius: 6px; font-weight: 800; cursor: pointer; font-size: 0.8rem; display: inline-flex; align-items: center; gap: 4px; box-shadow: 0 1px 3px rgba(5,150,105,0.2);" title="Ver Malla Curricular Oficial DBA del grado de este estudiante">
+                                    📚 Malla DBA
                                 </button>
                                 <button onclick="abrirModalBonificacion('${docClean}', '${nomClean}', '${grupoClean}')" style="background: #10B981; color: white; border: none; padding: 6px 10px; border-radius: 6px; font-weight: 800; cursor: pointer; font-size: 0.8rem; display: inline-flex; align-items: center; gap: 4px;" title="Otorgar bonificación del +10% XP">
                                     🎁 +10%
@@ -6593,3 +6609,409 @@ window.ejecutarPagoPasarela = async function() {
         }
     }
 };
+
+// =========================================================
+// MÓDULO UNIVERSAL DE MALLAS CURRICULARES OFICIALES DBA (MEN)
+// Tutor Home School • Docente de Colegio • Estudiante Validación/Regular
+// =========================================================
+
+window.generarHTMLDetalleMallaDBA = function(grado, materiaKey, rol) {
+    const gradoNum = window.normalizarGradoOCiclo ? window.normalizarGradoOCiclo(grado) : String(grado).replace(/[^0-9CicloIVPENS]/g, '').trim();
+    
+    let malla = null;
+    let nombreMateria = "Ciencias Naturales";
+    let iconoMateria = "🌿";
+    let colorTema = "#2563EB";
+    let colorFondo = "#EFF6FF";
+
+    if (materiaKey === 'Matematicas' || materiaKey.includes('Matem')) {
+        malla = window.mallaMatematicas;
+        nombreMateria = "Matemáticas";
+        iconoMateria = "📐";
+        colorTema = "#7C3AED";
+        colorFondo = "#F5F3FF";
+    } else if (materiaKey === 'Lenguaje' || materiaKey.includes('Lengua') || materiaKey.includes('Castellano')) {
+        malla = window.mallaCastellano;
+        nombreMateria = "Lengua Castellana";
+        iconoMateria = "📖";
+        colorTema = "#EA580C";
+        colorFondo = "#FFF7ED";
+    } else if (materiaKey === 'Sociales' || materiaKey.includes('Social')) {
+        malla = window.mallaSociales;
+        nombreMateria = "Ciencias Sociales";
+        iconoMateria = "🌍";
+        colorTema = "#059669";
+        colorFondo = "#ECFDF5";
+    } else {
+        malla = window.mallaNaturales;
+        nombreMateria = "Ciencias Naturales";
+        iconoMateria = "🌿";
+        colorTema = "#2563EB";
+        colorFondo = "#EFF6FF";
+    }
+
+    const dataGrado = malla ? (malla[grado] || malla[gradoNum] || malla['6']) : null;
+
+    if (!dataGrado) {
+        return `
+            <div style="background: white; border: 2px dashed #CBD5E1; border-radius: 16px; padding: 40px 20px; text-align: center;">
+                <span style="font-size: 2.5rem;">📚</span>
+                <h3 style="color: #475569; margin: 10px 0 5px 0; font-weight: 800;">Malla Curricular en Estructuración</h3>
+                <p style="color: #64748B; font-size: 0.95rem; margin: 0;">Los estándares oficiales para ${nombreMateria} en Grado/Ciclo ${grado} se están actualizando con el estándar MEN.</p>
+            </div>
+        `;
+    }
+
+    // 1. Tarjeta de Objetivo Anual / Meta de Comprensión
+    let html = `
+        <div style="background: white; border-radius: 16px; padding: 25px 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.04); border: 1.5px solid #E2E8F0; margin-bottom: 25px;">
+            <div style="display: flex; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; gap: 15px; margin-bottom: 15px;">
+                <div style="display: flex; align-items: center; gap: 12px;">
+                    <span style="font-size: 2.2rem; background: ${colorFondo}; padding: 10px; border-radius: 12px; border: 1.5px solid ${colorTema}33;">${iconoMateria}</span>
+                    <div>
+                        <h3 style="margin: 0; font-size: 1.35rem; font-weight: 900; color: #0F172A;">
+                            Malla Curricular Oficial: ${nombreMateria}
+                        </h3>
+                        <span style="background: ${colorTema}; color: white; padding: 3px 10px; border-radius: 12px; font-weight: 800; font-size: 0.78rem; text-transform: uppercase; margin-top: 4px; display: inline-block;">
+                            ${grado.includes('Ciclo') ? grado : 'Grado ' + grado + '°'} • DBA Versión Oficial MEN
+                        </span>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="background: ${colorFondo}; border-left: 4px solid ${colorTema}; padding: 15px 20px; border-radius: 0 10px 10px 0; margin-top: 10px;">
+                <h4 style="margin: 0 0 5px 0; color: #1E293B; font-size: 0.95rem; font-weight: 800;">
+                    🎯 Meta Anual de Comprensión y Aprendizaje:
+                </h4>
+                <p style="margin: 0; color: #334155; font-size: 0.95rem; line-height: 1.5;">
+                    ${dataGrado.objetivo || 'Desarrollar competencias fundamentales integrales en el área.'}
+                </p>
+            </div>
+        </div>
+    `;
+
+    // 2. Tarjeta de Derechos Básicos de Aprendizaje (DBA V2)
+    if (dataGrado.dba && dataGrado.dba.length > 0) {
+        html += `
+            <div style="background: white; border-radius: 16px; padding: 25px 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.04); border: 1.5px solid #E2E8F0; margin-bottom: 25px;">
+                <h4 style="margin: 0 0 15px 0; font-size: 1.15rem; font-weight: 900; color: #0F172A; display: flex; align-items: center; gap: 8px;">
+                    <span>📋</span> Derechos Básicos de Aprendizaje Oficiales (DBA - MEN Colombia)
+                </h4>
+                <div style="display: flex; flex-direction: column; gap: 12px;">
+                    ${dataGrado.dba.map((item, idx) => `
+                        <div style="display: flex; gap: 12px; background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 10px; padding: 14px 18px; align-items: flex-start;">
+                            <span style="background: ${colorTema}; color: white; width: 26px; height: 26px; min-width: 26px; border-radius: 50%; font-weight: 800; font-size: 0.85rem; display: flex; align-items: center; justify-content: center; margin-top: 2px;">
+                                ${idx + 1}
+                            </span>
+                            <div style="color: #1E293B; font-size: 0.92rem; line-height: 1.45; font-weight: 600;">
+                                ${item}
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+        `;
+    }
+
+    // 3. Grid de los 4 Periodos Académicos y Semanas Quincenales
+    if (dataGrado.periodos) {
+        html += `
+            <div style="margin-bottom: 25px;">
+                <h4 style="margin: 0 0 15px 0; font-size: 1.15rem; font-weight: 900; color: #0F172A; display: flex; align-items: center; gap: 8px;">
+                    <span>🗓️</span> Distribución Quincenal por Periodos Académicos (Semanas 1 a 8)
+                </h4>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+        `;
+
+        const coloresPeriodos = [
+            { bg: '#EFF6FF', border: '#93C5FD', header: '#1E40AF', tag: 'Periodo 1' },
+            { bg: '#F0FDF4', border: '#86EFAC', header: '#166534', tag: 'Periodo 2' },
+            { bg: '#FAF5FF', border: '#D8B4FE', header: '#6B21A8', tag: 'Periodo 3' },
+            { bg: '#FFF7ED', border: '#FDBA74', header: '#9A3412', tag: 'Periodo 4' }
+        ];
+
+        for (let p = 1; p <= 4; p++) {
+            const pKey = String(p);
+            const pData = dataGrado.periodos[pKey] || {};
+            const col = coloresPeriodos[p - 1];
+
+            html += `
+                <div style="background: white; border-radius: 14px; border: 1.5px solid ${col.border}; box-shadow: 0 4px 10px rgba(0,0,0,0.03); overflow: hidden; display: flex; flex-direction: column;">
+                    <div style="background: ${col.bg}; padding: 14px 18px; border-bottom: 1.5px solid ${col.border}; display: flex; justify-content: space-between; align-items: center;">
+                        <span style="font-weight: 900; color: ${col.header}; font-size: 1.05rem;">${col.tag}</span>
+                        <span style="font-size: 0.75rem; font-weight: 800; background: white; color: ${col.header}; padding: 2px 8px; border-radius: 10px; border: 1px solid ${col.border};">8 Semanas</span>
+                    </div>
+                    <div style="padding: 16px 18px; display: flex; flex-direction: column; gap: 12px; flex: 1;">
+                        <div style="background: #F8FAFC; border-radius: 8px; padding: 10px 12px; border-left: 3px solid #3B82F6;">
+                            <div style="font-size: 0.75rem; font-weight: 800; color: #3B82F6; text-transform: uppercase;">Semanas 1 - 2</div>
+                            <div style="font-size: 0.88rem; color: #1E293B; font-weight: 600; margin-top: 3px;">${pData['1'] || 'Fundamentación conceptual'}</div>
+                        </div>
+                        <div style="background: #F8FAFC; border-radius: 8px; padding: 10px 12px; border-left: 3px solid #10B981;">
+                            <div style="font-size: 0.75rem; font-weight: 800; color: #10B981; text-transform: uppercase;">Semanas 3 - 4</div>
+                            <div style="font-size: 0.88rem; color: #1E293B; font-weight: 600; margin-top: 3px;">${pData['3'] || 'Profundización y práctica'}</div>
+                        </div>
+                        <div style="background: #F8FAFC; border-radius: 8px; padding: 10px 12px; border-left: 3px solid #F59E0B;">
+                            <div style="font-size: 0.75rem; font-weight: 800; color: #F59E0B; text-transform: uppercase;">Semanas 5 - 6</div>
+                            <div style="font-size: 0.88rem; color: #1E293B; font-weight: 600; margin-top: 3px;">${pData['5'] || 'Aplicación y experimentación'}</div>
+                        </div>
+                        <div style="background: #F8FAFC; border-radius: 8px; padding: 10px 12px; border-left: 3px solid #8B5CF6;">
+                            <div style="font-size: 0.75rem; font-weight: 800; color: #8B5CF6; text-transform: uppercase;">Semanas 7 - 8</div>
+                            <div style="font-size: 0.88rem; color: #1E293B; font-weight: 600; margin-top: 3px;">${pData['7'] || 'Evaluación Saber y Cierre'}</div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        html += `
+                </div>
+            </div>
+        `;
+    }
+
+    return html;
+};
+
+// --- CONTROLADORES DE PANEL TUTOR HOME SCHOOL ---
+window.materiaTutorMallaActual = 'Naturales';
+
+window.cambiarTabTutor = function(tab) {
+    const btnEstudiantes = document.getElementById('btn-tab-tutor-estudiantes');
+    const btnMallas = document.getElementById('btn-tab-tutor-mallas');
+    const vistaEstudiantes = document.getElementById('vista-tutor-estudiantes');
+    const vistaMallas = document.getElementById('vista-tutor-mallas');
+
+    if (tab === 'estudiantes') {
+        if (btnEstudiantes) {
+            btnEstudiantes.style.background = '#2563EB';
+            btnEstudiantes.style.color = 'white';
+            btnEstudiantes.style.border = 'none';
+            btnEstudiantes.style.boxShadow = '0 4px 10px rgba(37,99,235,0.25)';
+        }
+        if (btnMallas) {
+            btnMallas.style.background = 'white';
+            btnMallas.style.color = '#475569';
+            btnMallas.style.border = '1.5px solid #CBD5E1';
+            btnMallas.style.boxShadow = 'none';
+        }
+        if (vistaEstudiantes) vistaEstudiantes.style.display = 'grid';
+        if (vistaMallas) vistaMallas.style.display = 'none';
+    } else {
+        if (btnEstudiantes) {
+            btnEstudiantes.style.background = 'white';
+            btnEstudiantes.style.color = '#475569';
+            btnEstudiantes.style.border = '1.5px solid #CBD5E1';
+            btnEstudiantes.style.boxShadow = 'none';
+        }
+        if (btnMallas) {
+            btnMallas.style.background = '#2563EB';
+            btnMallas.style.color = 'white';
+            btnMallas.style.border = 'none';
+            btnMallas.style.boxShadow = '0 4px 10px rgba(37,99,235,0.25)';
+        }
+        if (vistaEstudiantes) vistaEstudiantes.style.display = 'none';
+        if (vistaMallas) vistaMallas.style.display = 'block';
+
+        window.renderizarMallaTutorHomeSchool();
+    }
+};
+
+window.seleccionarMateriaTutorMalla = function(materia) {
+    window.materiaTutorMallaActual = materia;
+    document.querySelectorAll('.tutor-materia-pill').forEach(pill => {
+        if (pill.getAttribute('data-materia') === materia) {
+            pill.style.border = '2px solid #2563EB';
+            pill.style.background = '#EFF6FF';
+            pill.style.color = '#1D4ED8';
+        } else {
+            pill.style.border = '1.5px solid #CBD5E1';
+            pill.style.background = 'white';
+            pill.style.color = '#475569';
+        }
+    });
+    window.renderizarMallaTutorHomeSchool();
+};
+
+window.abrirMallaTutorDesdeEstudiante = function(grado, materia) {
+    window.cambiarTabTutor('mallas');
+    const select = document.getElementById('select-tutor-malla-grado');
+    if (select) {
+        let normGrado = String(grado).replace(/[^0-9CicloIVPENS]/g, '').trim();
+        if (String(grado).includes('Ciclo')) normGrado = String(grado).trim();
+        select.value = normGrado || '6';
+    }
+    if (materia) {
+        window.seleccionarMateriaTutorMalla(materia);
+    } else {
+        window.renderizarMallaTutorHomeSchool();
+    }
+};
+
+window.renderizarMallaTutorHomeSchool = function() {
+    const selectGrado = document.getElementById('select-tutor-malla-grado');
+    const container = document.getElementById('tutor-malla-detalle-container');
+    if (!container) return;
+
+    const grado = selectGrado ? selectGrado.value : '6';
+    const materia = window.materiaTutorMallaActual || 'Naturales';
+
+    container.innerHTML = window.generarHTMLDetalleMallaDBA(grado, materia, 'homeschool_tutor');
+};
+
+// --- CONTROLADORES DE PANEL DOCENTE DE COLEGIO ---
+window.materiaDocenteMallaActual = 'Naturales';
+
+window.cambiarTabDocente = function(tab) {
+    const btnEstudiantes = document.getElementById('btn-tab-docente-estudiantes');
+    const btnMallas = document.getElementById('btn-tab-docente-mallas');
+    const vistaEstudiantes = document.getElementById('vista-docente-estudiantes');
+    const vistaMallas = document.getElementById('vista-docente-mallas');
+
+    if (tab === 'estudiantes') {
+        if (btnEstudiantes) {
+            btnEstudiantes.style.background = '#2563EB';
+            btnEstudiantes.style.color = 'white';
+            btnEstudiantes.style.border = 'none';
+            btnEstudiantes.style.boxShadow = '0 4px 10px rgba(37,99,235,0.25)';
+        }
+        if (btnMallas) {
+            btnMallas.style.background = 'white';
+            btnMallas.style.color = '#475569';
+            btnMallas.style.border = '1.5px solid #CBD5E1';
+            btnMallas.style.boxShadow = 'none';
+        }
+        if (vistaEstudiantes) vistaEstudiantes.style.display = 'grid';
+        if (vistaMallas) vistaMallas.style.display = 'none';
+    } else {
+        if (btnEstudiantes) {
+            btnEstudiantes.style.background = 'white';
+            btnEstudiantes.style.color = '#475569';
+            btnEstudiantes.style.border = '1.5px solid #CBD5E1';
+            btnEstudiantes.style.boxShadow = 'none';
+        }
+        if (btnMallas) {
+            btnMallas.style.background = '#2563EB';
+            btnMallas.style.color = 'white';
+            btnMallas.style.border = 'none';
+            btnMallas.style.boxShadow = '0 4px 10px rgba(37,99,235,0.25)';
+        }
+        if (vistaEstudiantes) vistaEstudiantes.style.display = 'none';
+        if (vistaMallas) vistaMallas.style.display = 'block';
+
+        window.renderizarMallaDocenteColegio();
+    }
+};
+
+window.seleccionarMateriaDocenteMalla = function(materia) {
+    window.materiaDocenteMallaActual = materia;
+    document.querySelectorAll('.docente-materia-pill').forEach(pill => {
+        if (pill.getAttribute('data-materia') === materia) {
+            pill.style.border = '2px solid #2563EB';
+            pill.style.background = '#EFF6FF';
+            pill.style.color = '#1D4ED8';
+        } else {
+            pill.style.border = '1.5px solid #CBD5E1';
+            pill.style.background = 'white';
+            pill.style.color = '#475569';
+        }
+    });
+    window.renderizarMallaDocenteColegio();
+};
+
+window.abrirMallaDocenteDesdeEstudiante = function(grado, materia) {
+    window.cambiarTabDocente('mallas');
+    const select = document.getElementById('select-docente-malla-grado');
+    if (select) {
+        let normGrado = String(grado).replace(/[^0-9CicloIVPENS]/g, '').trim();
+        if (String(grado).includes('Ciclo')) normGrado = String(grado).trim();
+        select.value = normGrado || '6';
+    }
+    if (materia) {
+        window.seleccionarMateriaDocenteMalla(materia);
+    } else {
+        window.renderizarMallaDocenteColegio();
+    }
+};
+
+window.renderizarMallaDocenteColegio = function() {
+    const selectGrado = document.getElementById('select-docente-malla-grado');
+    const container = document.getElementById('docente-malla-detalle-container');
+    if (!container) return;
+
+    const grado = selectGrado ? selectGrado.value : '6';
+    const materia = window.materiaDocenteMallaActual || 'Naturales';
+
+    container.innerHTML = window.generarHTMLDetalleMallaDBA(grado, materia, 'docente');
+};
+
+// --- CONTROLADORES DE PANEL ESTUDIANTE DE VALIDACIÓN / REGULAR ---
+window.materiaEstudianteMallaActual = 'Naturales';
+
+window.cambiarTabEstudiante = function(tab) {
+    const btnMaterias = document.getElementById('btn-tab-estudiante-materias');
+    const btnMalla = document.getElementById('btn-tab-estudiante-malla');
+    const vistaMaterias = document.getElementById('vista-estudiante-materias');
+    const vistaMalla = document.getElementById('vista-estudiante-malla');
+
+    if (tab === 'materias') {
+        if (btnMaterias) {
+            btnMaterias.style.background = '#2563EB';
+            btnMaterias.style.color = 'white';
+            btnMaterias.style.border = 'none';
+            btnMaterias.style.boxShadow = '0 4px 10px rgba(37,99,235,0.25)';
+        }
+        if (btnMalla) {
+            btnMalla.style.background = 'white';
+            btnMalla.style.color = '#475569';
+            btnMalla.style.border = '1.5px solid #CBD5E1';
+            btnMalla.style.boxShadow = 'none';
+        }
+        if (vistaMaterias) vistaMaterias.style.display = 'block';
+        if (vistaMalla) vistaMalla.style.display = 'none';
+    } else {
+        if (btnMaterias) {
+            btnMaterias.style.background = 'white';
+            btnMaterias.style.color = '#475569';
+            btnMaterias.style.border = '1.5px solid #CBD5E1';
+            btnMaterias.style.boxShadow = 'none';
+        }
+        if (btnMalla) {
+            btnMalla.style.background = '#2563EB';
+            btnMalla.style.color = 'white';
+            btnMalla.style.border = 'none';
+            btnMalla.style.boxShadow = '0 4px 10px rgba(37,99,235,0.25)';
+        }
+        if (vistaMaterias) vistaMaterias.style.display = 'none';
+        if (vistaMalla) vistaMalla.style.display = 'block';
+
+        window.renderizarMallaEstudianteDBA();
+    }
+};
+
+window.seleccionarMateriaEstudianteMalla = function(materia) {
+    window.materiaEstudianteMallaActual = materia;
+    document.querySelectorAll('.estudiante-materia-pill').forEach(pill => {
+        if (pill.getAttribute('data-materia') === materia) {
+            pill.style.border = '2px solid #2563EB';
+            pill.style.background = '#EFF6FF';
+            pill.style.color = '#1D4ED8';
+        } else {
+            pill.style.border = '1.5px solid #CBD5E1';
+            pill.style.background = 'white';
+            pill.style.color = '#475569';
+        }
+    });
+    window.renderizarMallaEstudianteDBA();
+};
+
+window.renderizarMallaEstudianteDBA = function() {
+    const selectGrado = document.getElementById('select-estudiante-malla-grado');
+    const container = document.getElementById('estudiante-malla-detalle-container');
+    if (!container) return;
+
+    const grado = selectGrado ? selectGrado.value : 'Ciclo VI';
+    const materia = window.materiaEstudianteMallaActual || 'Naturales';
+
+    container.innerHTML = window.generarHTMLDetalleMallaDBA(grado, materia, 'estudiante');
+};
+

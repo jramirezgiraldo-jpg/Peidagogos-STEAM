@@ -410,86 +410,170 @@
         </div>
     </header>
 
-    <div style="padding: 40px 30px; max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 2fr; gap: 20px;">
-        <!-- Formulario Matrícula Estudiante -->
-        <div style="background: white; padding: 30px; border-radius: 16px; box-shadow: 0 10px 25px rgba(0,0,0,0.05);">
-            <h3 style="font-weight: 800; margin-bottom: 20px;">Matricular Estudiante</h3>
-            <div style="display: flex; flex-direction: column; gap: 15px;">
-                <input type="number" id="docente-reg-doc" placeholder="Documento" style="padding: 10px; border: 1px solid #d1d5db; border-radius: 8px;">
-                <input type="text" id="docente-reg-nom" placeholder="Nombres" style="padding: 10px; border: 1px solid #d1d5db; border-radius: 8px;">
-                <input type="text" id="docente-reg-ape" placeholder="Apellidos" style="padding: 10px; border: 1px solid #d1d5db; border-radius: 8px;">
-                <input type="number" id="docente-reg-edad" placeholder="Edad" style="padding: 10px; border: 1px solid #d1d5db; border-radius: 8px;">
-                <select id="docente-reg-gen" style="padding: 10px; border: 1px solid #d1d5db; border-radius: 8px;">
-                    <option value="">Género...</option><option value="F">Femenino</option><option value="M">Masculino</option>
-                </select>
-                <select id="docente-reg-grado" style="padding: 10px; border: 1px solid #d1d5db; border-radius: 8px;" onchange="cargarAsignaturasDocente(this.value)">
-                    <option value="">Grado...</option><option value="6">6°</option><option value="7">7°</option><option value="8">8°</option><option value="9">9°</option><option value="10">10°</option><option value="11">11°</option>
-                    <option value="Ciclo I (1°, 2°, 3°)">Ciclo I (1°, 2°, 3°)</option>
-                    <option value="Ciclo II (4°, 5°)">Ciclo II (4°, 5°)</option>
-                    <option value="Ciclo III (6°, 7°)">Ciclo III (6°, 7°)</option>
-                    <option value="Ciclo IV (8°, 9°)">Ciclo IV (8°, 9°)</option>
-                    <option value="Ciclo V (10°)">Ciclo V (10°)</option>
-                    <option value="Ciclo VI (11°)">Ciclo VI (11°)</option>
-                </select>
-                <div>
-                    <strong>Materias a cursar:</strong>
-                    <div id="materias-checkboxes-container" style="display: flex; flex-direction: column; gap: 5px; margin-top: 10px;">
-                        <span style="color: #6B7280; font-size: 0.9rem;">Selecciona un grado primero.</span>
+    <div style="padding: 30px; max-width: 1300px; margin: 0 auto;">
+        
+        <!-- Pestañas de Navegación del Docente de Colegio -->
+        <div style="display: flex; gap: 10px; margin-bottom: 25px; border-bottom: 2px solid #E2E8F0; padding-bottom: 12px; flex-wrap: wrap;">
+            <button id="btn-tab-docente-estudiantes" onclick="cambiarTabDocente('estudiantes')" style="background: #2563EB; color: white; border: none; padding: 12px 22px; border-radius: 10px; font-weight: 800; font-size: 0.95rem; cursor: pointer; display: flex; align-items: center; gap: 8px; box-shadow: 0 4px 10px rgba(37,99,235,0.25); transition: 0.2s;">
+                <span>👨‍🏫</span> Mis Grupos y Estudiantes Matriculados
+            </button>
+            <button id="btn-tab-docente-mallas" onclick="cambiarTabDocente('mallas')" style="background: white; color: #475569; border: 1.5px solid #CBD5E1; padding: 12px 22px; border-radius: 10px; font-weight: 800; font-size: 0.95rem; cursor: pointer; display: flex; align-items: center; gap: 8px; transition: 0.2s;">
+                <span>📚</span> Mallas Curriculares DBA (Materias Fundamentales)
+            </button>
+        </div>
+
+        <!-- Vista 1: Matrícula y Lista de Estudiantes -->
+        <div id="vista-docente-estudiantes" style="display: grid; grid-template-columns: 1fr 2fr; gap: 20px; align-items: start;">
+            <!-- Formulario Matrícula Estudiante -->
+            <div style="background: white; padding: 30px; border-radius: 16px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border: 1px solid #E5E7EB;">
+                <h3 style="font-weight: 800; margin-bottom: 20px; color: #111827; display: flex; align-items: center; gap: 8px;">
+                    <span>➕</span> Matricular Estudiante
+                </h3>
+                <div style="display: flex; flex-direction: column; gap: 15px;">
+                    <input type="number" id="docente-reg-doc" placeholder="Documento" style="padding: 10px; border: 1px solid #d1d5db; border-radius: 8px;">
+                    <input type="text" id="docente-reg-nom" placeholder="Nombres" style="padding: 10px; border: 1px solid #d1d5db; border-radius: 8px;">
+                    <input type="text" id="docente-reg-ape" placeholder="Apellidos" style="padding: 10px; border: 1px solid #d1d5db; border-radius: 8px;">
+                    <input type="number" id="docente-reg-edad" placeholder="Edad" style="padding: 10px; border: 1px solid #d1d5db; border-radius: 8px;">
+                    <select id="docente-reg-gen" style="padding: 10px; border: 1px solid #d1d5db; border-radius: 8px;">
+                        <option value="">Género...</option><option value="F">Femenino</option><option value="M">Masculino</option>
+                    </select>
+                    <select id="docente-reg-grado" style="padding: 10px; border: 1px solid #d1d5db; border-radius: 8px;" onchange="cargarAsignaturasDocente(this.value)">
+                        <option value="">Grado...</option><option value="6">6°</option><option value="7">7°</option><option value="8">8°</option><option value="9">9°</option><option value="10">10°</option><option value="11">11°</option>
+                        <option value="Ciclo I (1°, 2°, 3°)">Ciclo I (1°, 2°, 3°)</option>
+                        <option value="Ciclo II (4°, 5°)">Ciclo II (4°, 5°)</option>
+                        <option value="Ciclo III (6°, 7°)">Ciclo III (6°, 7°)</option>
+                        <option value="Ciclo IV (8°, 9°)">Ciclo IV (8°, 9°)</option>
+                        <option value="Ciclo V (10°)">Ciclo V (10°)</option>
+                        <option value="Ciclo VI (11°)">Ciclo VI (11°)</option>
+                    </select>
+                    <div>
+                        <strong>Materias a cursar:</strong>
+                        <div id="materias-checkboxes-container" style="display: flex; flex-direction: column; gap: 5px; margin-top: 10px;">
+                            <span style="color: #6B7280; font-size: 0.9rem;">Selecciona un grado primero.</span>
+                        </div>
                     </div>
+                    <button id="btn-docente-matricular" style="background-color: #10B981; color: white; padding: 12px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;">Matricular</button>
                 </div>
-                <button id="btn-docente-matricular" style="background-color: #10B981; color: white; padding: 12px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;">Matricular</button>
+            </div>
+
+            <!-- Lista Estudiantes -->
+            <div style="background: white; padding: 30px; border-radius: 16px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border: 1px solid #E5E7EB;">
+                <h3 style="font-weight: 800; margin-bottom: 20px; color: #111827;">Mis Estudiantes Matriculados</h3>
+                
+                <div style="display: flex; gap: 15px; margin-bottom: 20px; align-items: center; flex-wrap: wrap;">
+                    <select id="filtro-asignatura" style="padding: 10px; border: 1px solid #d1d5db; border-radius: 8px;" onchange="cargarEstudiantesDocente(usuario_actual)">
+                        <option value="Todas las Asignaturas">Todas las Asignaturas</option>
+                        <option value="Física">Física</option>
+                        <option value="Artística">Artística</option>
+                        <option value="Ética">Ética</option>
+                        <option value="Turismo">Turismo</option>
+                        <option value="Química">Química</option>
+                    </select>
+                    <select id="filtro-grupo" style="padding: 10px; border: 1px solid #d1d5db; border-radius: 8px;" onchange="cargarEstudiantesDocente(usuario_actual)">
+                        <option value="Todos los Grupos">Todos los Grupos</option>
+                        <option value="6A">6A</option><option value="6B">6B</option>
+                        <option value="7A">7A</option><option value="7B">7B</option><option value="7C">7C</option>
+                        <option value="8A">8A</option><option value="8B">8B</option>
+                        <option value="9A">9A</option>
+                        <option value="10A">10A</option><option value="10D">10D</option>
+                        <option value="PENS">PENS</option>
+                        <option value="Ciclo I (1°, 2°, 3°)">Ciclo I (1°, 2°, 3°)</option>
+                        <option value="Ciclo II (4°, 5°)">Ciclo II (4°, 5°)</option>
+                        <option value="Ciclo III (6°, 7°)">Ciclo III (6°, 7°)</option>
+                        <option value="Ciclo IV (8°, 9°)">Ciclo IV (8°, 9°)</option>
+                        <option value="Ciclo V (10°)">Ciclo V (10°)</option>
+                        <option value="Ciclo VI (11°)">Ciclo VI (11°)</option>
+                    </select>
+                    <button onclick="abrirProyeccionGrupo()" style="background: linear-gradient(135deg, #8B5CF6, #6D28D9); color: white; border: none; padding: 10px 18px; border-radius: 10px; font-weight: 800; font-size: 0.92rem; cursor: pointer; display: flex; align-items: center; gap: 8px; box-shadow: 0 4px 12px rgba(139,92,246,0.3); margin-left: auto; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" title="Abrir pantalla interactiva de proyección en vivo para VideoBeam / TV de clase">
+                        📺 Proyectar Ránkin de Clase en Vivo (VideoBeam)
+                    </button>
+                </div>
+
+                <table style="width: 100%; border-collapse: collapse; text-align: left;">
+                    <thead>
+                        <tr style="border-bottom: 2px solid #E5E7EB; background: #F8FAFC;">
+                            <th style="padding: 12px 10px;">Documento</th>
+                            <th style="padding: 12px 10px;">Estudiante</th>
+                            <th style="padding: 12px 10px;">Edad / Género</th>
+                            <th style="padding: 12px 10px;">Grado / Grupo</th>
+                            <th style="padding: 12px 10px;">Institución / Modalidad</th>
+                            <th style="padding: 12px 10px;">Puntaje (XP)</th>
+                            <th style="padding: 12px 10px; text-align: center;">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody-docente-estudiantes">
+                        <!-- Se llena con JS -->
+                    </tbody>
+                </table>
             </div>
         </div>
 
-        <!-- Lista Estudiantes -->
-        <div style="background: white; padding: 30px; border-radius: 16px; box-shadow: 0 10px 25px rgba(0,0,0,0.05);">
-            <h3 style="font-weight: 800; margin-bottom: 20px;">Mis Estudiantes Matriculados</h3>
-            
-            <div style="display: flex; gap: 15px; margin-bottom: 20px; align-items: center; flex-wrap: wrap;">
-                <select id="filtro-asignatura" style="padding: 10px; border: 1px solid #d1d5db; border-radius: 8px;" onchange="cargarEstudiantesDocente(usuario_actual)">
-                    <option value="Todas las Asignaturas">Todas las Asignaturas</option>
-                    <option value="Física">Física</option>
-                    <option value="Artística">Artística</option>
-                    <option value="Ética">Ética</option>
-                    <option value="Turismo">Turismo</option>
-                    <option value="Química">Química</option>
-                </select>
-                <select id="filtro-grupo" style="padding: 10px; border: 1px solid #d1d5db; border-radius: 8px;" onchange="cargarEstudiantesDocente(usuario_actual)">
-                    <option value="Todos los Grupos">Todos los Grupos</option>
-                    <option value="6A">6A</option><option value="6B">6B</option>
-                    <option value="7A">7A</option><option value="7B">7B</option><option value="7C">7C</option>
-                    <option value="8A">8A</option><option value="8B">8B</option>
-                    <option value="9A">9A</option>
-                    <option value="10A">10A</option><option value="10D">10D</option>
-                    <option value="PENS">PENS</option>
-                    <option value="Ciclo I (1°, 2°, 3°)">Ciclo I (1°, 2°, 3°)</option>
-                    <option value="Ciclo II (4°, 5°)">Ciclo II (4°, 5°)</option>
-                    <option value="Ciclo III (6°, 7°)">Ciclo III (6°, 7°)</option>
-                    <option value="Ciclo IV (8°, 9°)">Ciclo IV (8°, 9°)</option>
-                    <option value="Ciclo V (10°)">Ciclo V (10°)</option>
-                    <option value="Ciclo VI (11°)">Ciclo VI (11°)</option>
-                </select>
-                <button onclick="abrirProyeccionGrupo()" style="background: linear-gradient(135deg, #8B5CF6, #6D28D9); color: white; border: none; padding: 10px 18px; border-radius: 10px; font-weight: 800; font-size: 0.92rem; cursor: pointer; display: flex; align-items: center; gap: 8px; box-shadow: 0 4px 12px rgba(139,92,246,0.3); margin-left: auto; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" title="Abrir pantalla interactiva de proyección en vivo para VideoBeam / TV de clase">
-                    📺 Proyectar Ránkin de Clase en Vivo (VideoBeam)
-                </button>
+        <!-- Vista 2: Explorador Curricular DBA para Docentes de Colegio -->
+        <div id="vista-docente-mallas" style="display: none;">
+            <div style="background: white; padding: 25px 30px; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #E5E7EB; margin-bottom: 25px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; margin-bottom: 20px;">
+                    <div>
+                        <h2 style="font-size: 1.5rem; font-weight: 900; color: #0F172A; margin: 0; display: flex; align-items: center; gap: 10px;">
+                            <span>📚</span> Explorador Curricular Oficial DBA para Docentes
+                        </h2>
+                        <p style="color: #64748B; font-size: 0.95rem; margin: 4px 0 0 0;">
+                            Planeación pedagógica y evidencias oficiales según los <strong>Derechos Básicos de Aprendizaje (DBA V2 - MEN Colombia)</strong>.
+                        </p>
+                    </div>
+                    <button onclick="window.print()" style="background: #F1F5F9; border: 1px solid #CBD5E1; color: #334155; padding: 8px 16px; border-radius: 8px; font-weight: 700; cursor: pointer; display: flex; align-items: center; gap: 6px;">
+                        <span>🖨️</span> Imprimir Malla Curricular
+                    </button>
+                </div>
+
+                <!-- Controles de Selección Docente -->
+                <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 20px; background: #F8FAFC; padding: 18px; border-radius: 12px; border: 1px solid #E2E8F0; align-items: center;">
+                    <div>
+                        <label style="display: block; font-size: 0.85rem; font-weight: 800; color: #334155; margin-bottom: 6px;">Seleccionar Grado o Ciclo:</label>
+                        <select id="select-docente-malla-grado" onchange="renderizarMallaDocenteColegio()" style="width: 100%; padding: 10px 14px; border: 2px solid #3B82F6; border-radius: 8px; font-weight: 800; font-size: 0.95rem; background: white; color: #1E293B;">
+                            <optgroup label="Secundaria">
+                                <option value="6" selected>6° de Secundaria</option>
+                                <option value="7">7° de Secundaria</option>
+                                <option value="8">8° de Secundaria</option>
+                                <option value="9">9° de Secundaria</option>
+                            </optgroup>
+                            <optgroup label="Media Vocacional">
+                                <option value="10">10° Media Vocacional</option>
+                                <option value="11">11° Media Vocacional (Saber 11)</option>
+                            </optgroup>
+                            <optgroup label="Educación Básica Primaria">
+                                <option value="1">1° de Primaria</option>
+                                <option value="2">2° de Primaria</option>
+                                <option value="3">3° de Primaria</option>
+                                <option value="4">4° de Primaria</option>
+                                <option value="5">5° de Primaria</option>
+                            </optgroup>
+                            <optgroup label="Ciclos Especiales / Nocturna / Adultos">
+                                <option value="Ciclo I">Ciclo I (1°, 2°, 3°)</option>
+                                <option value="Ciclo II">Ciclo II (4°, 5°)</option>
+                                <option value="Ciclo III">Ciclo III (6°, 7°)</option>
+                                <option value="Ciclo IV">Ciclo IV (8°, 9°)</option>
+                                <option value="Ciclo V">Ciclo V (10°)</option>
+                                <option value="Ciclo VI">Ciclo VI (11°)</option>
+                            </optgroup>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label style="display: block; font-size: 0.85rem; font-weight: 800; color: #334155; margin-bottom: 6px;">Materia Fundamental:</label>
+                        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                            <button class="docente-materia-pill active" data-materia="Naturales" onclick="seleccionarMateriaDocenteMalla('Naturales')" style="padding: 8px 14px; border-radius: 20px; font-weight: 800; font-size: 0.85rem; cursor: pointer; border: 2px solid #2563EB; background: #EFF6FF; color: #1D4ED8;">🌿 Ciencias Naturales</button>
+                            <button class="docente-materia-pill" data-materia="Matematicas" onclick="seleccionarMateriaDocenteMalla('Matematicas')" style="padding: 8px 14px; border-radius: 20px; font-weight: 800; font-size: 0.85rem; cursor: pointer; border: 1.5px solid #CBD5E1; background: white; color: #475569;">📐 Matemáticas</button>
+                            <button class="docente-materia-pill" data-materia="Lenguaje" onclick="seleccionarMateriaDocenteMalla('Lenguaje')" style="padding: 8px 14px; border-radius: 20px; font-weight: 800; font-size: 0.85rem; cursor: pointer; border: 1.5px solid #CBD5E1; background: white; color: #475569;">📖 Lengua Castellana</button>
+                            <button class="docente-materia-pill" data-materia="Sociales" onclick="seleccionarMateriaDocenteMalla('Sociales')" style="padding: 8px 14px; border-radius: 20px; font-weight: 800; font-size: 0.85rem; cursor: pointer; border: 1.5px solid #CBD5E1; background: white; color: #475569;">🌍 Ciencias Sociales</button>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <table style="width: 100%; border-collapse: collapse; text-align: left;">
-                <thead>
-                    <tr style="border-bottom: 2px solid #E5E7EB; background: #F8FAFC;">
-                        <th style="padding: 12px 10px;">Documento</th>
-                        <th style="padding: 12px 10px;">Estudiante</th>
-                        <th style="padding: 12px 10px;">Edad / Género</th>
-                        <th style="padding: 12px 10px;">Grado / Grupo</th>
-                        <th style="padding: 12px 10px;">Institución / Modalidad</th>
-                        <th style="padding: 12px 10px;">Puntaje (XP)</th>
-                        <th style="padding: 12px 10px; text-align: center;">Acciones</th>
-                    </tr>
-                </thead>
-                <tbody id="tbody-docente-estudiantes">
-                    <!-- Se llena con JS -->
-                </tbody>
-            </table>
+            <!-- Contenedor del Detalle de la Malla Docente -->
+            <div id="docente-malla-detalle-container">
+                <!-- Renderizado dinámico desde app.js -->
+            </div>
         </div>
     </div>
 </div>
@@ -1073,28 +1157,109 @@
         </div>
     </div>
 
-    <!-- Contenedor Principal (Grid de Materias) -->
-    <div id="student-main-content" style="padding: 40px 30px; max-width: 1200px; margin: 0 auto;">
+    <!-- Contenedor Principal (Grid de Materias & Malla DBA Estudiante) -->
+    <div id="student-main-content" style="padding: 30px; max-width: 1200px; margin: 0 auto;">
         
-        <!-- Banner de Felicitación / Bonificación (+10% XP) -->
-        <div id="banner-bonificacion-alerta" style="display: none; margin-bottom: 25px; border-radius: 16px; padding: 20px; border: 2px solid #34D399; background: linear-gradient(135deg, #ECFDF5 0%, #D1FAE5 100%); box-shadow: 0 10px 25px rgba(16,185,129,0.15);">
-            <!-- Inyectado dinámicamente por JS -->
+        <!-- Pestañas de Navegación del Estudiante / Validación -->
+        <div style="display: flex; gap: 10px; margin-bottom: 25px; border-bottom: 2px solid #E2E8F0; padding-bottom: 12px; flex-wrap: wrap;">
+            <button id="btn-tab-estudiante-materias" onclick="cambiarTabEstudiante('materias')" style="background: #2563EB; color: white; border: none; padding: 12px 22px; border-radius: 10px; font-weight: 800; font-size: 0.95rem; cursor: pointer; display: flex; align-items: center; gap: 8px; box-shadow: 0 4px 10px rgba(37,99,235,0.25); transition: 0.2s;">
+                <span>🚀</span> Mis Asignaturas y Misiones
+            </button>
+            <button id="btn-tab-estudiante-malla" onclick="cambiarTabEstudiante('malla')" style="background: white; color: #475569; border: 1.5px solid #CBD5E1; padding: 12px 22px; border-radius: 10px; font-weight: 800; font-size: 0.95rem; cursor: pointer; display: flex; align-items: center; gap: 8px; transition: 0.2s;">
+                <span>📚</span> Mi Malla Curricular DBA (Estándares Oficiales)
+            </button>
         </div>
 
-        <!-- Banner de Alerta Disciplinaria / Penalización (Visibilidad Estudiante) -->
-        <div id="banner-penalizacion-alerta" style="display: none; margin-bottom: 25px; border-radius: 16px; padding: 20px; border: 2px solid #F87171; background: linear-gradient(135deg, #FEF2F2 0%, #FEE2E2 100%); box-shadow: 0 10px 25px rgba(239,68,68,0.15);">
-            <!-- Inyectado dinámicamente por JS -->
+        <!-- Vista 1: Mis Asignaturas y Misiones -->
+        <div id="vista-estudiante-materias">
+            <!-- Banner de Felicitación / Bonificación (+10% XP) -->
+            <div id="banner-bonificacion-alerta" style="display: none; margin-bottom: 25px; border-radius: 16px; padding: 20px; border: 2px solid #34D399; background: linear-gradient(135deg, #ECFDF5 0%, #D1FAE5 100%); box-shadow: 0 10px 25px rgba(16,185,129,0.15);">
+                <!-- Inyectado dinámicamente por JS -->
+            </div>
+
+            <!-- Banner de Alerta Disciplinaria / Penalización (Visibilidad Estudiante) -->
+            <div id="banner-penalizacion-alerta" style="display: none; margin-bottom: 25px; border-radius: 16px; padding: 20px; border: 2px solid #F87171; background: linear-gradient(135deg, #FEF2F2 0%, #FEE2E2 100%); box-shadow: 0 10px 25px rgba(239,68,68,0.15);">
+                <!-- Inyectado dinámicamente por JS -->
+            </div>
+
+            <!-- Banner de Estado de Pago (Para Validación y Home School) -->
+            <div id="banner-pago-estado" style="display: none; margin-bottom: 25px; border-radius: 12px; padding: 20px; border: 2px solid #E5E7EB; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+                <!-- Inyectado por JS -->
+            </div>
+
+            <h2 style="font-weight: 900; color: #111827; margin-bottom: 25px; font-size: 1.8rem; border-left: 5px solid #3B82F6; padding-left: 15px;">Mis Asignaturas Matriculadas</h2>
+            
+            <div id="student-subjects-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 25px;">
+                <!-- Las tarjetas de asignaturas se inyectarán aquí vía JS -->
+            </div>
         </div>
 
-        <!-- Banner de Estado de Pago (Para Validación y Home School) -->
-        <div id="banner-pago-estado" style="display: none; margin-bottom: 25px; border-radius: 12px; padding: 20px; border: 2px solid #E5E7EB; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
-            <!-- Inyectado por JS -->
-        </div>
+        <!-- Vista 2: Explorador Curricular DBA para Estudiante / Validación -->
+        <div id="vista-estudiante-malla" style="display: none;">
+            <div style="background: white; padding: 25px 30px; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #E5E7EB; margin-bottom: 25px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; margin-bottom: 20px;">
+                    <div>
+                        <h2 style="font-size: 1.5rem; font-weight: 900; color: #0F172A; margin: 0; display: flex; align-items: center; gap: 10px;">
+                            <span>📚</span> Mi Malla Curricular y Derechos Básicos de Aprendizaje (DBA)
+                        </h2>
+                        <p style="color: #64748B; font-size: 0.95rem; margin: 4px 0 0 0;">
+                            Estándares oficiales del <strong>MEN Colombia</strong> que acreditan y certifican tu ciclo o grado académico.
+                        </p>
+                    </div>
+                    <button onclick="window.print()" style="background: #F1F5F9; border: 1px solid #CBD5E1; color: #334155; padding: 8px 16px; border-radius: 8px; font-weight: 700; cursor: pointer; display: flex; align-items: center; gap: 6px;">
+                        <span>🖨️</span> Imprimir Mi Plan de Estudios
+                    </button>
+                </div>
 
-        <h2 style="font-weight: 900; color: #111827; margin-bottom: 25px; font-size: 1.8rem; border-left: 5px solid #3B82F6; padding-left: 15px;">Mis Asignaturas Matriculadas</h2>
-        
-        <div id="student-subjects-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 25px;">
-            <!-- Las tarjetas de asignaturas se inyectarán aquí vía JS -->
+                <!-- Controles de Selección Estudiante -->
+                <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 20px; background: #F8FAFC; padding: 18px; border-radius: 12px; border: 1px solid #E2E8F0; align-items: center;">
+                    <div>
+                        <label style="display: block; font-size: 0.85rem; font-weight: 800; color: #334155; margin-bottom: 6px;">Grado o Ciclo en Curso:</label>
+                        <select id="select-estudiante-malla-grado" onchange="renderizarMallaEstudianteDBA()" style="width: 100%; padding: 10px 14px; border: 2px solid #3B82F6; border-radius: 8px; font-weight: 800; font-size: 0.95rem; background: white; color: #1E293B;">
+                            <optgroup label="Validación por Ciclos (Adultos / CLEI)">
+                                <option value="Ciclo I">Ciclo I (1°, 2°, 3° Primaria)</option>
+                                <option value="Ciclo II">Ciclo II (4°, 5° Primaria)</option>
+                                <option value="Ciclo III">Ciclo III (6°, 7° Básica)</option>
+                                <option value="Ciclo IV">Ciclo IV (8°, 9° Básica)</option>
+                                <option value="Ciclo V">Ciclo V (10° Educación Media)</option>
+                                <option value="Ciclo VI" selected>Ciclo VI (11° Bachillerato)</option>
+                            </optgroup>
+                            <optgroup label="Secundaria Regular">
+                                <option value="6">6° de Secundaria</option>
+                                <option value="7">7° de Secundaria</option>
+                                <option value="8">8° de Secundaria</option>
+                                <option value="9">9° de Secundaria</option>
+                            </optgroup>
+                            <optgroup label="Media Vocacional Regular">
+                                <option value="10">10° Media Vocacional</option>
+                                <option value="11">11° Media Vocacional (Saber 11)</option>
+                            </optgroup>
+                            <optgroup label="Básica Primaria Regular">
+                                <option value="1">1° de Primaria</option>
+                                <option value="2">2° de Primaria</option>
+                                <option value="3">3° de Primaria</option>
+                                <option value="4">4° de Primaria</option>
+                                <option value="5">5° de Primaria</option>
+                            </optgroup>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label style="display: block; font-size: 0.85rem; font-weight: 800; color: #334155; margin-bottom: 6px;">Materia Fundamental:</label>
+                        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                            <button class="estudiante-materia-pill active" data-materia="Naturales" onclick="seleccionarMateriaEstudianteMalla('Naturales')" style="padding: 8px 14px; border-radius: 20px; font-weight: 800; font-size: 0.85rem; cursor: pointer; border: 2px solid #2563EB; background: #EFF6FF; color: #1D4ED8;">🌿 Ciencias Naturales</button>
+                            <button class="estudiante-materia-pill" data-materia="Matematicas" onclick="seleccionarMateriaEstudianteMalla('Matematicas')" style="padding: 8px 14px; border-radius: 20px; font-weight: 800; font-size: 0.85rem; cursor: pointer; border: 1.5px solid #CBD5E1; background: white; color: #475569;">📐 Matemáticas</button>
+                            <button class="estudiante-materia-pill" data-materia="Lenguaje" onclick="seleccionarMateriaEstudianteMalla('Lenguaje')" style="padding: 8px 14px; border-radius: 20px; font-weight: 800; font-size: 0.85rem; cursor: pointer; border: 1.5px solid #CBD5E1; background: white; color: #475569;">📖 Lengua Castellana</button>
+                            <button class="estudiante-materia-pill" data-materia="Sociales" onclick="seleccionarMateriaEstudianteMalla('Sociales')" style="padding: 8px 14px; border-radius: 20px; font-weight: 800; font-size: 0.85rem; cursor: pointer; border: 1.5px solid #CBD5E1; background: white; color: #475569;">🌍 Ciencias Sociales</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contenedor del Detalle de la Malla Estudiante -->
+            <div id="estudiante-malla-detalle-container">
+                <!-- Renderizado dinámico desde app.js -->
+            </div>
         </div>
     </div>
         
@@ -1332,8 +1497,8 @@
         </div>
     </div>
 
-    <script src="diagnostico_nocturno.js?v=20260806_v19"></script>
-    <script src="app.js?v=20260806_v19"></script>
+    <script src="diagnostico_nocturno.js?v=20260806_v20"></script>
+    <script src="app.js?v=20260806_v20"></script>
     <script>
         // Función global para navegación SPA segura sin conflictos con app.js
         function mostrarVista(id) {
