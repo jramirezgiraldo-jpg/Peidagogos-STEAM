@@ -56,31 +56,51 @@
         /* Responsive Mobile Fixes */
         @media (max-width: 768px) {
             #login-screen-container {
-                display: flex !important;
-                flex-direction: column !important;
-                height: auto !important;
+                grid-template-columns: 1fr !important;
                 min-height: 100vh;
+                height: auto !important;
                 overflow-y: auto !important;
             }
             #login-screen-container > div {
-                padding: 10% !important;
+                padding: 30px 20px !important;
                 border-left: none !important;
                 border-bottom: 1px solid #e5e7eb;
+            }
+            #register-screen-container {
+                height: auto !important;
+                min-height: 100vh !important;
+                padding: 20px 12px !important;
+            }
+            #register-screen-container > div {
+                padding: 25px 18px !important;
+            }
+            
+            /* Asegurar que ninguna vista oculta se muestre con display !important en mobile */
+            #login-screen-container[style*="display: none"],
+            #register-screen-container[style*="display: none"],
+            #docente-dashboard-container[style*="display: none"],
+            #dashboard-screen-container[style*="display: none"],
+            #student-dashboard-container[style*="display: none"],
+            #tutor-dashboard-container[style*="display: none"] {
+                display: none !important;
             }
             
             /* Docente Dashboard */
             #docente-dashboard-container > div:nth-child(2) {
                 grid-template-columns: 1fr !important;
+                padding: 15px !important;
             }
             #docente-dashboard-container header {
                 flex-direction: column !important;
                 gap: 10px;
+                padding: 15px !important;
             }
             
             /* Admin Dashboard */
             #dashboard-screen-container header {
                 flex-direction: column !important;
                 gap: 10px;
+                padding: 15px !important;
             }
             #dashboard-screen-container .admin-tab-btn {
                 flex: 1 1 100%;
@@ -94,6 +114,7 @@
             #student-dashboard-container header {
                 flex-direction: column !important;
                 gap: 10px;
+                padding: 15px !important;
             }
             #student-dashboard-container > div:nth-child(2) {
                 flex-direction: column !important;
@@ -174,8 +195,8 @@
     </div>
 </div>
 
-<div id="register-screen-container" style="display: none; height: 100vh; background-color: #f3f4f6; justify-content: center; align-items: center; padding: 20px; overflow-y: auto;">
-    <div style="background: white; padding: 35px; border-radius: 16px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); width: 100%; max-width: 520px; display: flex; flex-direction: column; gap: 15px;">
+<div id="register-screen-container" style="display: none; min-height: 100vh; background-color: #f3f4f6; justify-content: center; align-items: flex-start; padding: 30px 15px; overflow-y: auto; box-sizing: border-box;">
+    <div style="background: white; padding: 35px; border-radius: 16px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); width: 100%; max-width: 520px; display: flex; flex-direction: column; gap: 15px; margin: auto;">
         <div style="text-align: center; margin-bottom: 5px;">
             <h2 style="font-size: 1.8rem; font-weight: 800; color: #111827; margin: 0;">Matrícula y Registro</h2>
             <p style="color: #6B7280; font-size: 0.9rem; margin-top: 5px;">Colegio Regular • Home School • Validación</p>
@@ -391,11 +412,9 @@
                 }
             }
         </script>
-        <button id="btn-submit-register" style="background-color: #10B981; color: white; padding: 14px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 10px rgba(16,185,129,0.3);">Continuar con la Matrícula</button>
-        <button id="btn-cancel-register" onclick="mostrarVista('login-screen-container')" style="background-color: transparent; color: #6B7280; padding: 10px; border: none; cursor: pointer; text-decoration: underline;">Volver al Acceso Principal</button>
-        <div id="reg-feedback-msg" style="text-align: center; font-size: 0.9rem; display: none; font-weight: bold;"></div>
-    </div>
-</div>
+        <button type="button" id="btn-submit-register" onclick="window.ejecutarRegistroEstudiante(event)" style="background-color: #10B981; color: white; padding: 14px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 10px rgba(16,185,129,0.3); font-size: 1rem; width: 100%;">Continuar con la Matrícula</button>
+        <button type="button" id="btn-cancel-register" onclick="mostrarVista('login-screen-container')" style="background-color: transparent; color: #6B7280; padding: 10px; border: none; cursor: pointer; text-decoration: underline; text-align: center;">Volver al Acceso Principal</button>
+        <div id="reg-feedback-msg" style="text-align: center; font-size: 0.95rem; display: none; font-weight: bold; padding: 10px; border-radius: 8px;"></div>
     </div>
 </div>
 
@@ -1419,8 +1438,8 @@
         </div>
     </div>
 
-    <script src="diagnostico_nocturno.js?v=20260806_v24"></script>
-    <script src="app.js?v=20260806_v24"></script>
+    <script src="diagnostico_nocturno.js?v=20260806_v25"></script>
+    <script src="app.js?v=20260806_v25"></script>
     <script>
         // --- BLINDAJE DE PROPIEDAD INTELECTUAL Y SEGURIDAD ---
         (function() {

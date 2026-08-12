@@ -1332,140 +1332,200 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // Registro de estudiante (Auto-registro en página web)
-    const btnSubmit = document.getElementById("btn-submit-register");
-    if (btnSubmit) {
-        btnSubmit.addEventListener("click", async function(e) {
-            e.preventDefault();
-            const doc = document.getElementById("reg-documento") ? document.getElementById("reg-documento").value.trim() : "";
-            const ap = document.getElementById("reg-apellidos") ? document.getElementById("reg-apellidos").value.trim() : "";
-            const nom = document.getElementById("reg-nombre") ? document.getElementById("reg-nombre").value.trim() : "";
-            const ed = document.getElementById("reg-edad") ? document.getElementById("reg-edad").value.trim() : "";
-            const gen = document.getElementById("reg-genero") ? document.getElementById("reg-genero").value : "";
-            const ie = document.getElementById("reg-ie") ? document.getElementById("reg-ie").value : "";
-            const gra = document.getElementById("reg-grado") ? document.getElementById("reg-grado").value : "";
-            let grupo = document.getElementById("registro-grupo") ? document.getElementById("registro-grupo").value : "";
-            let asig = document.getElementById("registro-asignatura") ? document.getElementById("registro-asignatura").value : "";
-            const codigoInst = document.getElementById("reg-codigo-institucional") ? document.getElementById("reg-codigo-institucional").value.trim() : "";
+    // Registro de estudiante (Auto-registro en página web y móviles)
+    window.ejecutarRegistroEstudiante = async function(e) {
+        if (e && e.preventDefault) e.preventDefault();
+        
+        const feedback = document.getElementById("reg-feedback-msg");
+        function mostrarErrorReg(msg) {
+            if (feedback) {
+                feedback.style.display = "block";
+                feedback.style.background = "#FEE2E2";
+                feedback.style.color = "#991B1B";
+                feedback.style.border = "1px solid #FCA5A5";
+                feedback.innerText = msg;
+            }
+            alert(msg);
+        }
 
-            if (!doc) { alert("⚠️ El campo Número de Documento es obligatorio."); return; }
-            if (!nom || nom.toLowerCase() === 'estudiante' || nom.toLowerCase() === 'estudiante nocturno') { alert("⚠️ El campo Nombres es obligatorio (ingresa tus nombres reales)."); return; }
-            if (!ap || ap.toLowerCase() === 'nocturno' || ap.toLowerCase() === 'estudiante') { alert("⚠️ El campo Apellidos es obligatorio (ingresa tus apellidos reales)."); return; }
-            if (!ed) { alert("⚠️ El campo Edad es obligatorio."); return; }
-            if (!gen) { alert("⚠️ El campo Género es obligatorio."); return; }
-            if (!ie) { alert("⚠️ Debes seleccionar tu Institución o Modalidad de estudio."); return; }
-            if (ie === 'InstitutoMontenegro' && !grupo) { alert("⚠️ Debes seleccionar tu Grupo en la IE Instituto Montenegro."); return; }
-            if (ie !== 'InstitutoMontenegro' && !gra) { alert("⚠️ Debes seleccionar tu Grado o Ciclo a cursar."); return; }
-            if (!asig) { alert("⚠️ Por favor espera a que se carguen las asignaturas asignadas."); return; }
+        const docElem = document.getElementById("reg-documento");
+        const apElem = document.getElementById("reg-apellidos");
+        const nomElem = document.getElementById("reg-nombre");
+        const edElem = document.getElementById("reg-edad");
+        const genElem = document.getElementById("reg-genero");
+        const ieElem = document.getElementById("reg-ie");
+        const graElem = document.getElementById("reg-grado");
+        const grupoElem = document.getElementById("registro-grupo");
+        const asigElem = document.getElementById("registro-asignatura");
+        const codElem = document.getElementById("reg-codigo-institucional");
+        const btnSubmit = document.getElementById("btn-submit-register");
 
-            const normCod = codigoInst.toLowerCase().replace(/[\.\,\-\_\s]/g, '');
-            // Validación estricta del código institucional para IE Instituto Montenegro
-            if (ie === "InstitutoMontenegro") {
-                if (normCod !== "ieinstituto2026" && normCod !== "instituto2026") {
-                    alert("❌ Código institucional incorrecto.\n\nPara matricularte en la IE Instituto Montenegro debes ingresar el código oficial: ieinstituto2026");
-                    const codInput = document.getElementById("reg-codigo-institucional");
-                    if (codInput) {
-                        codInput.focus();
-                        codInput.style.borderColor = "#EF4444";
-                    }
-                    return;
+        const doc = docElem ? docElem.value.trim() : "";
+        const ap = apElem ? apElem.value.trim() : "";
+        const nom = nomElem ? nomElem.value.trim() : "";
+        const ed = edElem ? edElem.value.trim() : "";
+        const gen = genElem ? genElem.value : "";
+        const ie = ieElem ? ieElem.value : "";
+        const gra = graElem ? graElem.value : "";
+        let grupo = grupoElem ? grupoElem.value : "";
+        let asig = asigElem ? asigElem.value : "";
+        const codigoInst = codElem ? codElem.value.trim() : "";
+
+        if (!doc) { mostrarErrorReg("⚠️ El campo Número de Documento es obligatorio."); return; }
+        if (!nom || nom.toLowerCase() === 'estudiante' || nom.toLowerCase() === 'estudiante nocturno') { mostrarErrorReg("⚠️ El campo Nombres es obligatorio (ingresa tus nombres reales)."); return; }
+        if (!ap || ap.toLowerCase() === 'nocturno' || ap.toLowerCase() === 'estudiante') { mostrarErrorReg("⚠️ El campo Apellidos es obligatorio (ingresa tus apellidos reales)."); return; }
+        if (!ed) { mostrarErrorReg("⚠️ El campo Edad es obligatorio."); return; }
+        if (!gen) { mostrarErrorReg("⚠️ El campo Género es obligatorio."); return; }
+        if (!ie) { mostrarErrorReg("⚠️ Debes seleccionar tu Institución o Modalidad de estudio."); return; }
+        if (ie === 'InstitutoMontenegro' && !grupo) { mostrarErrorReg("⚠️ Debes seleccionar tu Grupo en la IE Instituto Montenegro."); return; }
+        if (ie !== 'InstitutoMontenegro' && !gra) { mostrarErrorReg("⚠️ Debes seleccionar tu Grado o Ciclo a cursar."); return; }
+
+        // Si por alguna razón el campo oculto de asignaturas no se llenó en el móvil, calcularlo automáticamente
+        if (!asig) {
+            if (typeof actualizarMaterias === 'function') actualizarMaterias();
+            asig = asigElem ? asigElem.value : "";
+        }
+        if (!asig) {
+            if (ie === "HomeSchool") {
+                asig = "Matemáticas, Ciencias Naturales, Física, Lengua Castellana, Ciencias Sociales, Inglés, Tecnología";
+            } else if (ie === "Validacion" || (gra && gra.includes("Ciclo")) || (grupo && grupo.includes("Ciclo"))) {
+                asig = "Ciencias Naturales, Matemáticas, Física, Química, Lengua Castellana, Ciencias Sociales, Inglés, Filosofía y Ética";
+            } else {
+                asig = "Física, Matemáticas, Ciencias Naturales, Lengua Castellana, Ciencias Sociales, Inglés, Tecnología, Educación Artística, Ética";
+            }
+        }
+
+        const normCod = codigoInst.toLowerCase().replace(/[\.\,\-\_\s]/g, '');
+        // Validación estricta del código institucional para IE Instituto Montenegro
+        if (ie === "InstitutoMontenegro") {
+            if (normCod !== "ieinstituto2026" && normCod !== "instituto2026") {
+                mostrarErrorReg("❌ Código institucional incorrecto.\n\nPara matricularte en la IE Instituto Montenegro debes ingresar el código oficial: ieinstituto2026");
+                if (codElem) {
+                    codElem.focus();
+                    codElem.style.borderColor = "#EF4444";
                 }
+                return;
             }
+        }
 
-            let gradoFinal = gra || grupo;
-            let grupoFinal = grupo || gra;
+        let gradoFinal = gra || grupo;
+        let grupoFinal = grupo || gra;
 
-            // Para Ciclos del nocturno (I al VI), la asignatura SIEMPRE es Ciencias Naturales
-            if (gradoFinal.includes("Ciclo") || grupoFinal.includes("Ciclo")) {
-                asig = "Ciencias Naturales";
-            }
+        // Para Ciclos del nocturno (I al VI), la asignatura SIEMPRE es Ciencias Naturales
+        if (gradoFinal.includes("Ciclo") || grupoFinal.includes("Ciclo")) {
+            asig = "Ciencias Naturales";
+        }
 
-            if (ie === 'RamonMessa' && gra && !gra.includes('Ciclo')) {
-                grupoFinal = 'RM-' + gra + 'A';
-            }
+        if (ie === 'RamonMessa' && gra && !gra.includes('Ciclo')) {
+            grupoFinal = 'RM-' + gra + 'A';
+        }
 
-            const tipoDocSel = document.getElementById("reg-tipo-doc");
-            const tipoDoc = tipoDocSel ? tipoDocSel.value : (doc.length > 8 ? "CC" : "TI");
+        const tipoDocSel = document.getElementById("reg-tipo-doc");
+        const tipoDoc = tipoDocSel ? tipoDocSel.value : (doc.length > 8 ? "CC" : "TI");
 
-            const payload = {
-                tipo_doc: tipoDoc,
-                tipo_documento: tipoDoc,
-                documento: doc,
-                apellidos: ap,
-                nombre: nom,
-                edad: ed,
-                genero: gen,
-                institucion: ie,
-                codigo_institucional: codigoInst,
-                grado: gradoFinal,
-                grupo: grupoFinal,
-                asignatura: asig,
-                materias: asig.split(',').map(s => s.trim()).filter(Boolean),
-                pago_realizado: ie === "InstitutoMontenegro",
-                pago_activo: ie === "InstitutoMontenegro",
-                suscrito: ie === "InstitutoMontenegro",
-                tipo_acceso: ie === "InstitutoMontenegro" ? "institucional_ilimitado" : "freemium_primera_guia_gratis"
-            };
+        const payload = {
+            tipo_doc: tipoDoc,
+            tipo_documento: tipoDoc,
+            documento: doc,
+            apellidos: ap,
+            nombre: nom,
+            edad: ed,
+            genero: gen,
+            institucion: ie,
+            codigo_institucional: codigoInst,
+            grado: gradoFinal,
+            grupo: grupoFinal,
+            asignatura: asig,
+            materias: asig.split(',').map(s => s.trim()).filter(Boolean),
+            pago_realizado: ie === "InstitutoMontenegro",
+            pago_activo: ie === "InstitutoMontenegro",
+            suscrito: ie === "InstitutoMontenegro",
+            tipo_acceso: ie === "InstitutoMontenegro" ? "institucional_ilimitado" : "freemium_primera_guia_gratis"
+        };
 
-            const normDoc = doc.toLowerCase().replace(/[\.\,\-\_\s]/g, '');
+        const normDoc = doc.toLowerCase().replace(/[\.\,\-\_\s]/g, '');
 
-            // 1. Guardar inmediatamente en respaldo local usuarios_db y en window.todosEstudiantes
-            try {
-                let uList = JSON.parse(localStorage.getItem('usuarios_db') || '[]');
-                const idx = uList.findIndex(u => String(u.documento || u.id || '').toLowerCase().replace(/[\.\,\-\_\s]/g, '') === normDoc);
-                if (idx >= 0) uList[idx] = { ...uList[idx], ...payload };
-                else uList.push(payload);
-                localStorage.setItem('usuarios_db', JSON.stringify(uList));
+        // 1. Guardar inmediatamente en respaldo local usuarios_db y en window.todosEstudiantes
+        try {
+            let uList = JSON.parse(localStorage.getItem('usuarios_db') || '[]');
+            const idx = uList.findIndex(u => String(u.documento || u.id || '').toLowerCase().replace(/[\.\,\-\_\s]/g, '') === normDoc);
+            if (idx >= 0) uList[idx] = { ...uList[idx], ...payload };
+            else uList.push(payload);
+            localStorage.setItem('usuarios_db', JSON.stringify(uList));
 
-                if (!window.todosEstudiantes) window.todosEstudiantes = [];
-                const idxGlobal = window.todosEstudiantes.findIndex(u => String(u.documento || u.id || '').toLowerCase().replace(/[\.\,\-\_\s]/g, '') === normDoc);
-                if (idxGlobal >= 0) window.todosEstudiantes[idxGlobal] = { ...window.todosEstudiantes[idxGlobal], ...payload };
-                else window.todosEstudiantes.push(payload);
-            } catch(e) {}
+            if (!window.todosEstudiantes) window.todosEstudiantes = [];
+            const idxGlobal = window.todosEstudiantes.findIndex(u => String(u.documento || u.id || '').toLowerCase().replace(/[\.\,\-\_\s]/g, '') === normDoc);
+            if (idxGlobal >= 0) window.todosEstudiantes[idxGlobal] = { ...window.todosEstudiantes[idxGlobal], ...payload };
+            else window.todosEstudiantes.push(payload);
+        } catch(e) {}
 
-            // 2. Prellenar datos de sesión
-            const sessionData = {
-                status: 'success',
-                usuario: doc,
-                nombre: `${nom} ${ap}`.trim(),
-                rol: (ie === 'Validacion' || gradoFinal.includes('Ciclo') || grupoFinal.includes('Ciclo')) ? 'validacion' : 'estudiante',
-                grado: gradoFinal,
-                grupo: grupoFinal,
-                asignatura: asig,
-                institucion: ie,
-                pago_activo: ie === "InstitutoMontenegro",
-                pago_realizado: ie === "InstitutoMontenegro",
-                usuarioObj: payload
-            };
-            localStorage.setItem('usuario_sesion', JSON.stringify(sessionData));
+        // 2. Prellenar datos de sesión
+        const sessionData = {
+            status: 'success',
+            usuario: doc,
+            nombre: `${nom} ${ap}`.trim(),
+            rol: (ie === 'Validacion' || gradoFinal.includes('Ciclo') || grupoFinal.includes('Ciclo')) ? 'validacion' : 'estudiante',
+            grado: gradoFinal,
+            grupo: grupoFinal,
+            asignatura: asig,
+            institucion: ie,
+            pago_activo: ie === "InstitutoMontenegro",
+            pago_realizado: ie === "InstitutoMontenegro",
+            usuarioObj: payload
+        };
+        localStorage.setItem('usuario_sesion', JSON.stringify(sessionData));
 
-            btnSubmit.innerText = "Registrando...";
+        if (btnSubmit) {
+            btnSubmit.innerText = "⏳ Matriculando e Ingresando...";
             btnSubmit.disabled = true;
+        }
 
-            try {
-                const res = await fetch("/api/registro-estudiante", {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify(payload)
-                });
-                const resData = await res.json().catch(() => ({}));
-                if (!res.ok && resData.error) {
-                    alert("⚠️ " + resData.error);
+        if (feedback) {
+            feedback.style.display = "block";
+            feedback.style.background = "#ECFDF5";
+            feedback.style.color = "#065F46";
+            feedback.style.border = "1px solid #86EFAC";
+            feedback.innerText = "⏳ Registrando en servidor e iniciando sesión...";
+        }
+
+        try {
+            const res = await fetch("/api/registro-estudiante", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(payload)
+            });
+            const resData = await res.json().catch(() => ({}));
+            if (!res.ok && resData.error) {
+                mostrarErrorReg("⚠️ " + resData.error);
+                if (btnSubmit) {
                     btnSubmit.innerText = "Continuar con la Matrícula";
                     btnSubmit.disabled = false;
-                    return;
                 }
-            } catch (err) {
-                console.warn("Registro enviado y guardado localmente:", err);
+                return;
             }
+        } catch (err) {
+            console.warn("Registro enviado y guardado localmente:", err);
+        }
 
-            const bienvenidaMsg = ie === "InstitutoMontenegro"
-                ? `✅ ¡Matrícula oficial exitosa en IE Instituto Montenegro!\n\nBienvenido(a) ${nom} ${ap}. Ingresando a tu aula virtual...`
-                : `✅ ¡Matrícula completada exitosamente!\n\nBienvenido(a) ${nom} ${ap}. Ingresando a tu aula virtual...`;
-            alert(bienvenidaMsg);
+        const bienvenidaMsg = ie === "InstitutoMontenegro"
+            ? `✅ ¡Matrícula oficial exitosa en IE Instituto Montenegro!\n\nBienvenido(a) ${nom} ${ap}. Ingresando a tu aula virtual...`
+            : `✅ ¡Matrícula completada exitosamente!\n\nBienvenido(a) ${nom} ${ap}. Ingresando a tu aula virtual...`;
+        alert(bienvenidaMsg);
 
-            // Iniciar sesión inmediatamente y activar vista de estudiante personalizada
-            window.inicializarPanelEstudiante(sessionData);
-        });
+        // Iniciar sesión inmediatamente y activar vista de estudiante personalizada
+        window.inicializarPanelEstudiante(sessionData);
+        
+        // Reset scroll en móviles y desktop
+        window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+        if (document.documentElement) document.documentElement.scrollTop = 0;
+        if (document.body) document.body.scrollTop = 0;
+        const sDash = document.getElementById("student-dashboard-container");
+        if (sDash) sDash.scrollTop = 0;
+    };
+
+    const btnSubmit = document.getElementById("btn-submit-register");
+    if (btnSubmit) {
+        btnSubmit.addEventListener("click", window.ejecutarRegistroEstudiante);
     }
 
     // ==========================================
