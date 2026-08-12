@@ -34,6 +34,17 @@ const PORT = process.env.PORT || 3000;
 // Configuración de middlewares
 app.use(cors());
 app.use(express.json()); // Permitir parseo de JSON en el body
+
+// Middleware de seguridad y protección de propiedad intelectual
+app.use((req, res, next) => {
+    res.setHeader('X-Content-Type-Options', 'nosniff');
+    res.setHeader('X-Frame-Options', 'SAMEORIGIN');
+    res.setHeader('X-XSS-Protection', '1; mode=block');
+    res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
+    res.setHeader('X-Copyright', '© 2026 Peidagogos STEAM. Todos los derechos reservados.');
+    next();
+});
+
 app.use(express.static(path.join(__dirname))); // Servir archivos estáticos
 
 // Inicializar el sistema de rotación de API Keys

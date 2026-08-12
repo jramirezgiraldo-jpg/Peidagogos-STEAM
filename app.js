@@ -5226,8 +5226,12 @@ window.renderizarGuiaContenido = function(guideData, periodo, semanaStr, asignat
             htmlRenderizado += window.renderizarCierreGamificado(guideData.cierre_gamificado, false);
         }
 
-        htmlRenderizado += `<div style="text-align: center; margin-top: 35px; padding-bottom: 20px;">
+        htmlRenderizado += `<div style="text-align: center; margin-top: 35px; padding-bottom: 10px;">
                 <button onclick="completarMisionActual()" style="background: #10B981; color: white; border: none; padding: 15px 35px; border-radius: 8px; font-weight: bold; font-size: 1.15rem; cursor: pointer; box-shadow: 0 4px 6px rgba(16, 185, 129, 0.2); transition: transform 0.2s;">✅ Completar Misión</button>
+            </div>
+            <div class="peidagogos-ip-footer" style="margin-top: 25px; padding: 12px 15px; border-top: 1px dashed #CBD5E1; text-align: center; color: #64748B; font-size: 0.78rem; line-height: 1.4; user-select: none;">
+                🔒 <b>Documento Oficial Protegido • Peidagogos STEAM</b><br>
+                Licencia de Uso Académico Personal para <b>${studentDisplayName}</b> (ID: ${user ? (user.documento || 'S/D') : 'S/D'}). © 2026 Peidagogos STEAM. Prohibida su copia, distribución o reproducción no autorizada.
             </div>
         </div>`;
 
