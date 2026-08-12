@@ -3,9 +3,30 @@ const express = require('express');
 const path = require('path');
 const fs = require('fs');
 const cors = require('cors');
+const https = require('https');
 const { GoogleGenAI } = require('@google/genai');
 const { exec } = require('child_process');
 const { generarGuiaPredeterminada } = require('./diagnosticos_predeterminados');
+
+// Función para enviar alertas instantáneas a Telegram (@jramirezgiraldo)
+function enviarAlertaTelegram(mensaje) {
+    try {
+        const telegramUser = process.env.TELEGRAM_ADMIN_USER || '@jramirezgiraldo';
+        if (!telegramUser) return;
+        const url = `https://api.callmebot.com/text.php?user=${encodeURIComponent(telegramUser)}&text=${encodeURIComponent(mensaje)}`;
+        https.get(url, (res) => {
+            let data = '';
+            res.on('data', chunk => data += chunk);
+            res.on('end', () => {
+                console.log(`[TELEGRAM ALERTA] Notificación enviada con éxito a ${telegramUser}`);
+            });
+        }).on('error', (err) => {
+            console.error(`[TELEGRAM ERROR] No se pudo enviar notificación: ${err.message}`);
+        });
+    } catch(e) {
+        console.error(`[TELEGRAM EXCEPTION] ${e.message}`);
+    }
+}
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -440,6 +461,25 @@ app.post('/api/registro-estudiante', (req, res) => {
     
     writeJSON('usuarios.json', usuarios);
     console.log(`[MATRICULA] Estudiante registrado exitosamente: ${nuevo.nombre} ${nuevo.apellidos} (${nuevo.documento}) - Grado: ${nuevo.grado || nuevo.grupo}`);
+    
+    // Notificación en vivo a Telegram
+    const nombreCompleto = `${nuevo.nombre || ''} ${nuevo.apellidos || ''}`.trim() || nuevo.usuario || 'Estudiante';
+    const gradoGrupo = nuevo.grado || nuevo.grupo || 'No especificado';
+    const inst = nuevo.institucion || nuevo.modalidad || (String(gradoGrupo).includes('Ciclo') ? 'Validación Nocturna' : 'IE Instituto Montenegro');
+    const doc = nuevo.documento || nuevo.id || 'S/D';
+    const celular = nuevo.telefono || nuevo.celular || nuevo.whatsapp || 'No registrado';
+    const fecha = new Date().toLocaleString('es-CO', { timeZone: 'America/Bogota' });
+
+    enviarAlertaTelegram(
+`🔔 ¡NUEVO ESTUDIANTE MATRICULADO!
+👤 Nombre: ${nombreCompleto}
+📄 Documento: ${doc}
+🎓 Grado/Ciclo: ${gradoGrupo}
+🏛️ Modalidad: ${inst}
+📱 Contacto: ${celular}
+📅 Fecha: ${fecha}`
+    );
+
     res.json({ status: "success", estudiante: nuevo });
 });
 
@@ -447,6 +487,17 @@ app.post('/api/registro-docente', (req, res) => {
     const docentes = readJSON('docentes.json');
     docentes.push(req.body);
     writeJSON('docentes.json', docentes);
+
+    const d = req.body;
+    const nombreDocente = `${d.nombre || ''} ${d.apellidos || ''}`.trim() || d.usuario || 'Docente';
+    enviarAlertaTelegram(
+`👨‍🏫 ¡NUEVO DOCENTE REGISTRADO!
+👤 Nombre: ${nombreDocente}
+📄 Documento: ${d.documento || 'S/D'}
+🏛️ Institución: ${d.institucion || 'IE Instituto Montenegro'}
+📚 Asignatura: ${d.asignatura || 'General'}`
+    );
+
     res.json({ status: "success" });
 });
 
@@ -459,6 +510,16 @@ app.post('/api/registro-tutor', (req, res) => {
     };
     docentes.push(tutor);
     writeJSON('docentes.json', docentes);
+
+    const t = req.body;
+    enviarAlertaTelegram(
+`🏡 ¡NUEVO TUTOR HOME SCHOOL!
+👤 Nombre: ${t.nombre || t.usuario || 'Tutor'}
+📄 Documento: ${t.documento || 'S/D'}
+📧 Correo: ${t.email || t.correo || 'S/D'}
+📱 Teléfono: ${t.telefono || t.celular || 'S/D'}`
+    );
+
     res.json({ status: "success", tutor });
 });
 
@@ -482,6 +543,17 @@ app.post('/api/procesar-pago', (req, res) => {
         usuarios[idx].concepto_pago = conceptoFinal;
         usuarios[idx].referencia_pago = refFinal;
         writeJSON('usuarios.json', usuarios);
+        
+        // Notificación en vivo a Telegram
+        enviarAlertaTelegram(
+`💰 ¡PAGO CONFIRMADO EN PEIDAGOGOS STEAM!
+👤 Documento: ${documento}
+💵 Monto: $${Number(montoFinal).toLocaleString('es-CO')} COP
+💳 Método: ${metodoFinal}
+📦 Concepto: ${conceptoFinal}
+🔖 Referencia: ${refFinal}`
+        );
+
         return res.json({ 
             status: "success", 
             success: true,
