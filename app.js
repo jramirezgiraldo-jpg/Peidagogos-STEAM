@@ -593,6 +593,21 @@ window.inicializarPanelEstudiante = function(data) {
         badgeMsg.innerText = `🎓 ${gradoCiclo} | 🏛️ ${ieName}`;
     }
 
+    // Detección de Modalidad: Home School o Validación Virtual vs. Colegio Regular
+    const esHomeSchool = data.institucion === 'HomeSchool' || data.rol === 'homeschool' || data.rol === 'homeschool_tutor' || String(data.grupo || '').startsWith('HS-');
+    const esValidacionVirtual = data.rol === 'validacion' || data.institucion === 'Validacion' || String(data.grado || data.grupo || '').toLowerCase().includes('ciclo') || String(data.institucion || '').toLowerCase().includes('nocturn');
+
+    // Visibilidad de pestañas DBA: Solo para Home School y Validación Virtual
+    const navTabs = document.getElementById("student-nav-tabs");
+    if (navTabs) {
+        navTabs.style.display = (esHomeSchool || esValidacionVirtual) ? 'flex' : 'none';
+    }
+    if (!esHomeSchool && !esValidacionVirtual) {
+        if (typeof window.cambiarTabEstudiante === 'function') {
+            window.cambiarTabEstudiante('materias');
+        }
+    }
+
     // Sincronizar selector de Malla Curricular Oficial DBA del Estudiante
     const selectMallaEst = document.getElementById("select-estudiante-malla-grado");
     if (selectMallaEst) {
@@ -782,20 +797,26 @@ window.inicializarPanelEstudiante = function(data) {
         let asignaturas = [];
         const materiasHorario = window.obtenerMateriasHorarioGrado(gradoCiclo);
 
-        if (data.asignatura && data.asignatura !== 'Ciencias Naturales') {
-            asignaturas = data.asignatura.split(',').map(s => s.trim()).filter(Boolean);
-        } else if (Array.isArray(data.materias) && data.materias.length > 0) {
-            asignaturas = data.materias;
-        }
-
-        // Si asignaturas está vacía o es únicamente la genérica, asignar todas las del horario institucional
-        if (asignaturas.length === 0 || (asignaturas.length === 1 && asignaturas[0] === 'Ciencias Naturales' && !gradoCiclo.toLowerCase().includes('ciclo'))) {
-            asignaturas = materiasHorario;
-        } else if (!gradoCiclo.toLowerCase().includes('ciclo')) {
-            // Asegurar que las materias oficiales del horario estén incluidas
-            materiasHorario.forEach(m => {
-                if (!asignaturas.includes(m)) asignaturas.push(m);
-            });
+        if (esValidacionVirtual) {
+            // Estudiantes de Validación Virtual: Todas las áreas fundamentales oficiales
+            asignaturas = ["Ciencias Naturales", "Matemáticas", "Lengua Castellana", "Ciencias Sociales", "Inglés"];
+        } else if (esHomeSchool) {
+            // Estudiantes de Home School: Todas las áreas fundamentales oficiales
+            asignaturas = ["Ciencias Naturales", "Matemáticas", "Lengua Castellana", "Ciencias Sociales", "Inglés"];
+            if (Array.isArray(data.materias) && data.materias.length > 0) {
+                data.materias.forEach(m => {
+                    if (!asignaturas.includes(m)) asignaturas.push(m);
+                });
+            }
+        } else {
+            // Estudiantes de Colegio Regular (ej. IE Instituto Montenegro / Ramón Messa): SOLO sus asignaturas matriculadas del colegio
+            if (data.asignatura && data.asignatura !== 'Ciencias Naturales' && !data.asignatura.includes('Todas')) {
+                asignaturas = data.asignatura.split(',').map(s => s.trim()).filter(Boolean);
+            } else if (Array.isArray(data.materias) && data.materias.length > 0) {
+                asignaturas = data.materias;
+            } else {
+                asignaturas = materiasHorario;
+            }
         }
 
         asignaturas.forEach(asig => {
