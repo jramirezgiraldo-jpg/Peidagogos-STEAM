@@ -6838,7 +6838,7 @@ window.ejecutarPagoPasarela = async function() {
 
     if (btnPagar) {
         btnPagar.disabled = true;
-        btnPagar.innerHTML = `<span style="display: inline-block; animation: spin 1s linear infinite;">⏳</span> Procesando...`;
+        btnPagar.innerHTML = `<span style="display: inline-block; animation: spin 1s linear infinite;">⏳</span> Conectando con Mercado Pago...`;
     }
 
     const payload = {
@@ -6851,6 +6851,29 @@ window.ejecutarPagoPasarela = async function() {
     };
 
     try {
+        // 1. Intentar iniciar checkout oficial de Mercado Pago
+        const mpRes = await fetch('/api/crear-preferencia-mercadopago', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+        });
+        const mpData = await mpRes.json().catch(() => ({}));
+
+        if (mpData && mpData.init_point) {
+            if (feedback) {
+                feedback.style.display = "block";
+                feedback.style.background = "#EFF6FF";
+                feedback.style.color = "#1D4ED8";
+                feedback.style.border = "1px solid #93C5FD";
+                feedback.innerHTML = `🚀 <strong>Redirigiendo a Mercado Pago Seguro...</strong><br>Podrás pagar por PSE (Davivienda, Bancolombia, etc.), Nequi o Tarjeta.`;
+            }
+            setTimeout(() => {
+                window.location.href = mpData.init_point;
+            }, 800);
+            return;
+        }
+
+        // 2. Procesamiento de pago directo
         const res = await fetch('/api/procesar-pago', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },

@@ -694,18 +694,139 @@ app.post('/api/webhook-epayco', (req, res) => {
     }
 });
 
-// 3. Webhook Universal / Bold / Pasarela Directa
-app.post('/api/webhook-pago', (req, res) => {
+// 3. Integración Oficial Mercado Pago Colombia (PSE, Davivienda, Nequi, Tarjetas)
+app.post('/api/crear-preferencia-mercadopago', async (req, res) => {
     try {
-        const body = req.body;
-        console.log("🔔 [WEBHOOK UNIVERSAL RECIBIDO]:", JSON.stringify(body));
-        enviarAlertaTelegram(
-`🔔 NOTIFICACIÓN DE PASARELA DE PAGO:
-${JSON.stringify(body, null, 2)}`
-        );
-        res.status(200).json({ status: "success" });
-    } catch(err) {
-        res.status(200).json({ status: "error", message: err.message });
+        const { documento, nombre, concepto, monto, email } = req.body;
+        const mpAccessToken = process.env.MERCADO_PAGO_ACCESS_TOKEN || 'APP_USR-TEST-TOKEN';
+        const montoNum = Number(monto) || 50000;
+        const conceptoFinal = concepto || 'Matrícula y Acceso Peidagogos STEAM';
+        const docFinal = String(documento || 'ESTUDIANTE').trim();
+        const refId = `PAG-${docFinal}-${Date.now()}`;
+
+        // Si hay token real de Mercado Pago configurado, crear preferencia oficial
+        if (process.env.MERCADO_PAGO_ACCESS_TOKEN) {
+            const mpPayload = {
+                items: [
+                    {
+                        id: refId,
+                        title: conceptoFinal,
+                        description: `Servicios Educativos Peidagogos STEAM - Doc: ${docFinal}`,
+                        quantity: 1,
+                        currency_id: 'COP',
+                        unit_price: montoNum
+                    }
+                ],
+                payer: {
+                    name: nombre || 'Estudiante',
+                    email: email || 'pagos@peidagogosteam.com',
+                    identification: {
+                        type: 'CC',
+                        number: docFinal
+                    }
+                },
+                back_urls: {
+                    success: `https://peidagogosteam.com/login.html?pago=exitoso&doc=${docFinal}`,
+                    failure: `https://peidagogosteam.com/login.html?pago=fallido&doc=${docFinal}`,
+                    pending: `https://peidagogosteam.com/login.html?pago=pendiente&doc=${docFinal}`
+                },
+                auto_return: 'approved',
+                external_reference: refId,
+                notification_url: 'https://peidagogosteam.com/api/webhook-mercadopago'
+            };
+
+            const mpRes = await fetch('https://api.mercadopago.com/checkout/preferences', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${process.env.MERCADO_PAGO_ACCESS_TOKEN}`
+                },
+                body: JSON.stringify(mpPayload)
+            });
+
+            const mpData = await mpRes.json();
+            if (mpData && (mpData.init_point || mpData.sandbox_init_point)) {
+                return res.json({
+                    status: 'success',
+                    init_point: mpData.init_point,
+                    sandbox_init_point: mpData.sandbox_init_point,
+                    preference_id: mpData.id,
+                    referencia: refId
+                });
+            }
+        }
+
+        // Modo Pasarela Integrada Directa (Fallback)
+        res.json({
+            status: 'success',
+            modo_directo: true,
+            referencia: refId,
+            monto: montoNum,
+            concepto: conceptoFinal,
+            mensaje: 'Preferencia generada para procesamiento directo'
+        });
+
+    } catch (err) {
+        console.error('Error creando preferencia Mercado Pago:', err);
+        res.status(500).json({ status: 'error', message: err.message });
+    }
+});
+
+// Webhook Oficial Mercado Pago (Recepción de pagos PSE, Davivienda, Nequi, Tarjetas)
+app.all(['/api/webhook-mercadopago', '/api/webhook-pago'], async (req, res) => {
+    try {
+        const body = req.body || {};
+        const query = req.query || {};
+        console.log('🔔 [WEBHOOK MERCADO PAGO RECIBIDO]:', JSON.stringify({ body, query }));
+
+        const topic = query.topic || query.type || body.type;
+        const paymentId = query.id || query['data.id'] || body.data?.id || body.id;
+
+        if (paymentId && process.env.MERCADO_PAGO_ACCESS_TOKEN) {
+            try {
+                const checkRes = await fetch(`https://api.mercadopago.com/v1/payments/${paymentId}`, {
+                    headers: { 'Authorization': `Bearer ${process.env.MERCADO_PAGO_ACCESS_TOKEN}` }
+                });
+                const paymentData = await checkRes.json();
+
+                if (paymentData && paymentData.status === 'approved') {
+                    const docEstudiante = paymentData.payer?.identification?.number || 
+                                          (paymentData.external_reference ? paymentData.external_reference.split('-')[1] : '');
+                    const monto = paymentData.transaction_amount || 50000;
+                    const metodo = paymentData.payment_method_id || paymentData.payment_type_id || 'PSE / Mercado Pago';
+
+                    if (docEstudiante) {
+                        let usuarios = readJSON('usuarios.json');
+                        const idx = usuarios.findIndex(u => String(u.documento || u.id || '').trim() === String(docEstudiante).trim());
+                        if (idx !== -1) {
+                            usuarios[idx].pago_activo = true;
+                            usuarios[idx].pago_realizado = true;
+                            usuarios[idx].fecha_pago = new Date().toISOString();
+                            usuarios[idx].monto_pago = Number(monto);
+                            usuarios[idx].metodo_pago = `Mercado Pago (${metodo})`;
+                            usuarios[idx].referencia_pago = String(paymentId);
+                            writeJSON('usuarios.json', usuarios);
+                        }
+                    }
+
+                    enviarAlertaTelegram(
+`🎉 ¡PAGO APROBADO EN BANCO (MERCADO PAGO)!
+👤 Documento: ${docEstudiante || 'Referenciado'}
+💵 Monto: $${Number(monto).toLocaleString('es-CO')} COP
+💳 Método: ${metodo}
+🔖 ID Mercado Pago: ${paymentId}
+✅ Acceso Ilimitado Activado Automáticamente en Peidagogos STEAM.`
+                    );
+                }
+            } catch(fetchErr) {
+                console.warn('Error consultando pago Mercado Pago:', fetchErr);
+            }
+        }
+
+        res.status(200).json({ status: 'success' });
+    } catch (err) {
+        console.error('Error en webhook Mercado Pago:', err);
+        res.status(200).json({ status: 'error', message: err.message });
     }
 });
 
