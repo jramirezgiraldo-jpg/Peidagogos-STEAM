@@ -5310,6 +5310,27 @@ window.renderizarGuiaContenido = function(guideData, periodo, semanaStr, asignat
         </div>
         <div class="mega-guide-container" style="background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); border: 1px solid #E5E7EB; font-family: 'Inter', sans-serif;">
     `;
+
+    const esInstitucional = (user && (user.institucion === 'IE Instituto Montenegro' || user.codigo_institucional === 'ieinstituto2026'));
+    const estaPagado = (user && (user.pago_realizado === true || user.pago_activo === true || esInstitucional));
+
+    if (!estaPagado) {
+        htmlRenderizado += `
+            <div style="background: #FEF3C7; border: 2px solid #F59E0B; padding: 18px 24px; border-radius: 14px; margin-bottom: 25px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; box-shadow: 0 4px 15px rgba(245,158,11,0.12);">
+                <div style="max-width: 650px;">
+                    <div style="font-weight: 900; color: #92400E; font-size: 1.15rem; display: flex; align-items: center; gap: 8px;">
+                        <span>🔒</span> Modo Observación Gratuita (Guía 1 de Muestra)
+                    </div>
+                    <p style="margin: 6px 0 0 0; color: #78350F; font-size: 0.92rem; line-height: 1.45;">
+                        Puedes leer y observar todo el contenido teórico de la guía. Para habilitar la solución interactiva, respuestas con IA, acumulación de XP y certificación oficial, activa tu matrícula con Mercado Pago.
+                    </p>
+                </div>
+                <button onclick="abrirPasarelaPago({ concepto: 'Matrícula Oficial y Solución de Guías', documento: '${doc}', monto: 50000, rol: '${user ? user.rol : 'estudiante'}', callback: () => location.reload() })" style="background: linear-gradient(135deg, #009EE3, #007EB5); color: white; border: none; padding: 12px 24px; border-radius: 10px; font-weight: 800; cursor: pointer; box-shadow: 0 4px 15px rgba(0,158,227,0.35); font-size: 0.95rem; display: flex; align-items: center; gap: 8px;">
+                    <span>💳</span> Pagar Matrícula ($50.000 COP con Mercado Pago)
+                </button>
+            </div>
+        `;
+    }
     
     // Objetivo y Pregunta Problematizadora
     if (guideData.objetivo_aprendizaje || guideData.pregunta_problematizadora) {
@@ -5550,7 +5571,35 @@ window.abrirRankingEnNuevaPestana = function() {
 
 // --- FUNCIONES INTERACTIVAS MEGA GUIA ---
 
+window.validarPermisoResolucionEstudiante = function() {
+    const user = window.usuarioEstudianteActual || JSON.parse(localStorage.getItem('usuario_sesion') || '{}');
+    const doc = String(user.documento || user.usuario || 'EST').trim();
+    const esInstitucional = (user.institucion === 'IE Instituto Montenegro' || user.codigo_institucional === 'ieinstituto2026');
+    const estaPagado = (user.pago_realizado === true || user.pago_activo === true || esInstitucional);
+
+    if (!estaPagado) {
+        abrirPasarelaPago({
+            concepto: 'Matrícula Oficial y Solución de Guías',
+            documento: doc,
+            monto: 50000,
+            rol: user.rol || 'estudiante',
+            callback: () => {
+                user.pago_realizado = true;
+                user.pago_activo = true;
+                window.usuarioEstudianteActual = user;
+                localStorage.setItem('usuario_sesion', JSON.stringify(user));
+                alert("🎉 ¡Matrícula activada con éxito! Ahora puedes responder todas tus guías y acumular XP.");
+                location.reload();
+            }
+        });
+        return false;
+    }
+    return true;
+};
+
 window.verificarSaberIndividual = function(idx) {
+    if (!window.validarPermisoResolucionEstudiante()) return;
+
     const radios = document.getElementsByName('saber_' + idx);
     let selected = null;
     radios.forEach(r => { if (r.checked) selected = r; });
@@ -5600,6 +5649,8 @@ window.verificarSaberIndividual = function(idx) {
 };
 
 window.verificarInductivaPagina = function(idx) {
+    if (!window.validarPermisoResolucionEstudiante()) return;
+
     const textarea = document.getElementById('textarea_ind_pag_' + idx);
     if (!textarea || textarea.value.trim().length < 10) {
         alert("Escribe una respuesta más completa (al menos 10 caracteres).");
@@ -5627,6 +5678,8 @@ window.verificarInductivaPagina = function(idx) {
 };
 
 window.verificarCuadernoIndividual = function(idx) {
+    if (!window.validarPermisoResolucionEstudiante()) return;
+
     const btn = document.getElementById('btn_cuaderno_' + idx);
     btn.innerText = "✅ Confirmado (+25 XP)";
     btn.style.background = "#10B981";
@@ -5647,6 +5700,8 @@ window.verificarCuadernoIndividual = function(idx) {
 };
 
 window.verificarDeductivaPagina = function(idx) {
+    if (!window.validarPermisoResolucionEstudiante()) return;
+
     const textarea = document.getElementById('textarea_ded_pag_' + idx);
     if (!textarea || textarea.value.trim().length < 10) {
         alert("Escribe una respuesta más completa (al menos 10 caracteres).");
@@ -5674,6 +5729,8 @@ window.verificarDeductivaPagina = function(idx) {
 };
 
 window.verificarCuadernoDeductivoIndividual = function(idx) {
+    if (!window.validarPermisoResolucionEstudiante()) return;
+
     const btn = document.getElementById('btn_cuaderno_ded_' + idx);
     btn.innerText = "✅ Confirmado (+25 XP)";
     btn.style.background = "#10B981";

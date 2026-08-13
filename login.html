@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="css/styles.css">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://unpkg.com/html5-qrcode"></script>
     <script>
         window.MathJax = {
           tex: {
@@ -226,11 +227,19 @@
         </select>
 
         <div id="campo-codigo-institucional" style="display: none; flex-direction: column; gap: 6px; background: #EFF6FF; padding: 12px; border: 1.5px solid #93C5FD; border-radius: 8px;">
-            <label style="font-size: 0.85rem; font-weight: bold; color: #1E3A8A; display: flex; align-items: center; gap: 6px;">
-                <span>🔑</span> Código de Acceso Institucional (IE Instituto Montenegro):
-            </label>
-            <input type="password" id="reg-codigo-institucional" placeholder="Ingresa el código oficial (ieinstituto2026)" style="padding: 10px 12px; border: 1.5px solid #3B82F6; border-radius: 6px; font-weight: bold; background-color: white; outline: none; font-size: 0.95rem;">
-            <span style="font-size: 0.8rem; color: #475569;">Debes solicitar este código a la coordinación para ingresar a la comunidad de la IE Instituto Montenegro.</span>
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 6px;">
+                <label style="font-size: 0.85rem; font-weight: bold; color: #1E3A8A; display: flex; align-items: center; gap: 6px; margin: 0;">
+                    <span>🔑</span> Código Institucional (IE Instituto Montenegro - $0 COP):
+                </label>
+                <button type="button" onclick="iniciarEscaneoQRRegistro()" style="background: linear-gradient(135deg, #2563EB, #1D4ED8); color: white; border: none; padding: 5px 12px; border-radius: 6px; font-weight: bold; font-size: 0.8rem; cursor: pointer; display: flex; align-items: center; gap: 6px; box-shadow: 0 2px 6px rgba(37,99,235,0.3);">
+                    <span>📷</span> Escanear QR Proyectado
+                </button>
+            </div>
+            <div style="display: flex; gap: 8px;">
+                <input type="password" id="reg-codigo-institucional" placeholder="Ingresa el código oficial (ieinstituto2026)" style="flex: 1; padding: 10px 12px; border: 1.5px solid #3B82F6; border-radius: 6px; font-weight: bold; background-color: white; outline: none; font-size: 0.95rem;">
+                <button type="button" onclick="const p = document.getElementById('reg-codigo-institucional'); p.type = (p.type === 'password' ? 'text' : 'password');" style="background: #E2E8F0; border: 1px solid #CBD5E1; border-radius: 6px; padding: 0 12px; cursor: pointer; font-size: 0.9rem;" title="Mostrar/Ocultar">👁️</button>
+            </div>
+            <span id="qr-feedback-status" style="font-size: 0.8rem; color: #475569;">Escribe el código o escanea el QR proyectado por el docente en el VideoBeam del salón.</span>
         </div>
         
         <select id="reg-grado" onchange="actualizarMaterias()" style="padding: 12px; border: 1px solid #d1d5db; border-radius: 8px; display: none;">
@@ -430,6 +439,7 @@
             <img src="logo-peidagogos.png" alt="Peidagogos STEAM" style="height: 55px; width: auto; object-fit: contain;">
         </div>
         <div style="display: flex; align-items: center; gap: 15px;">
+            <a href="proyector-qr.html" target="_blank" style="background: linear-gradient(135deg, #2563EB, #1D4ED8); color: white; border: none; padding: 8px 18px; border-radius: 8px; font-weight: bold; text-decoration: none; display: flex; align-items: center; gap: 8px; font-size: 0.9rem; box-shadow: 0 4px 10px rgba(37,99,235,0.25);"><span>📽️</span> Proyectar QR Matrícula</a>
             <a href="proyector.html" target="_blank" style="background: #10B981; color: white; border: none; padding: 8px 20px; border-radius: 8px; font-weight: bold; text-decoration: none; display: flex; align-items: center; gap: 8px;"><i class="ph ph-projector-screen-chart" style="font-size: 1.2rem;"></i> Modo Proyector</a>
             <div style="background: #F3F4F6; padding: 8px 15px; border-radius: 20px; font-size: 0.9rem; font-weight: 700; color: #374151;">
                 Panel Docente: <span id="docente-nombre-header">Docente</span>
@@ -529,6 +539,7 @@
     <!-- Header Superior -->
     <header style="background: white; border-bottom: 1px solid #E5E7EB; padding: 15px 30px; display: flex; justify-content: flex-end; align-items: center;">
         <div style="display: flex; align-items: center; gap: 15px;">
+            <a href="proyector-qr.html" target="_blank" style="background: linear-gradient(135deg, #2563EB, #1D4ED8); color: white; border: none; padding: 8px 18px; border-radius: 8px; font-weight: bold; text-decoration: none; display: flex; align-items: center; gap: 8px; font-size: 0.9rem; box-shadow: 0 4px 10px rgba(37,99,235,0.25);"><span>📽️</span> Proyectar QR Matrícula</a>
             <a href="proyector.html" target="_blank" style="background: #10B981; color: white; border: none; padding: 8px 20px; border-radius: 8px; font-weight: bold; text-decoration: none; display: flex; align-items: center; gap: 8px;"><i class="ph ph-projector-screen-chart" style="font-size: 1.2rem;"></i> Modo Proyector</a>
             <div style="background: #F3F4F6; padding: 8px 15px; border-radius: 20px; font-size: 0.9rem; font-weight: 700; color: #374151;">
                 Administrador Maestro ADMINISTRADOR
@@ -845,6 +856,7 @@
             </div>
         </div>
         <div style="display: flex; align-items: center; gap: 15px;">
+            <a href="proyector-qr.html" target="_blank" style="background: linear-gradient(135deg, #2563EB, #1D4ED8); color: white; border: none; padding: 8px 18px; border-radius: 8px; font-weight: bold; text-decoration: none; display: flex; align-items: center; gap: 8px; font-size: 0.9rem; box-shadow: 0 4px 10px rgba(37,99,235,0.25);"><span>📽️</span> Proyectar QR Matrícula</a>
             <a href="proyector.html" target="_blank" style="background: #10B981; color: white; border: none; padding: 8px 18px; border-radius: 8px; font-weight: bold; text-decoration: none; display: flex; align-items: center; gap: 8px; font-size: 0.9rem;"><i class="ph ph-projector-screen-chart"></i> Modo Proyector</a>
             <button onclick="location.reload()" style="background: #EF4444; color: white; border: none; padding: 8px 18px; border-radius: 8px; font-weight: bold; cursor: pointer; font-family: Inter, sans-serif; font-size: 0.9rem;">Cerrar Sesión</button>
         </div>
@@ -1349,6 +1361,29 @@
         </div>
     </div>
 
+    <!-- MODAL ESCANER QR DE REGISTRO INSTITUCIONAL -->
+    <div id="modal-scanner-qr" style="display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); align-items: center; justify-content: center; z-index: 10000; padding: 20px;">
+        <div style="background: white; border-radius: 20px; max-width: 460px; width: 100%; padding: 25px; position: relative; box-shadow: 0 25px 50px rgba(0,0,0,0.3); text-align: center;">
+            <button onclick="detenerEscaneoQR()" style="position: absolute; top: 15px; right: 15px; background: #F1F5F9; border: none; font-size: 1.4rem; cursor: pointer; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #475569;">✕</button>
+            <div style="width: 50px; height: 50px; background: #EFF6FF; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px auto; font-size: 1.8rem;">📷</div>
+            <h3 style="margin: 0 0 6px 0; color: #1E3A8A; font-weight: 800; font-size: 1.25rem;">Escanear QR de Matrícula</h3>
+            <p style="margin: 0 0 15px 0; color: #64748B; font-size: 0.88rem;">Apunta la cámara de tu celular hacia el código QR proyectado en el salón por el docente.</p>
+            
+            <div id="qr-reader-container" style="width: 100%; min-height: 240px; background: #0F172A; border-radius: 12px; overflow: hidden; display: flex; align-items: center; justify-content: center;">
+                <div id="qr-reader" style="width: 100%;"></div>
+            </div>
+            
+            <div style="margin-top: 15px; display: flex; flex-direction: column; gap: 8px;">
+                <button type="button" onclick="aplicarCodigoManualQR('ieinstituto2026')" style="background: #DEF7EC; border: 1px solid #31C48D; color: #03543F; padding: 10px 16px; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 0.9rem;">
+                    🔑 Aplicar Código Oficial Directo (ieinstituto2026)
+                </button>
+                <button type="button" onclick="detenerEscaneoQR()" style="background: #F3F4F6; border: 1px solid #D1D5DB; color: #4B5563; padding: 8px 14px; border-radius: 8px; font-weight: 600; cursor: pointer; font-size: 0.85rem;">
+                    Cancelar
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- Modal de Auto-Habilitación e Ingreso Inmediato de Estudiantes -->
     <div id="modal-auto-habilitacion" style="display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.75); backdrop-filter: blur(6px); align-items: center; justify-content: center; z-index: 9999; padding: 20px;">
         <div style="background: white; border-radius: 16px; padding: 32px; max-width: 480px; width: 100%; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); text-align: center; position: relative; border: 1px solid #E2E8F0;">
@@ -1443,8 +1478,8 @@
         </div>
     </div>
 
-    <script src="diagnostico_nocturno.js?v=20260806_v27"></script>
-    <script src="app.js?v=20260806_v27"></script>
+    <script src="diagnostico_nocturno.js?v=20260806_v28"></script>
+    <script src="app.js?v=20260806_v28"></script>
     <script>
         // --- BLINDAJE DE PROPIEDAD INTELECTUAL Y SEGURIDAD ---
         (function() {
@@ -1507,8 +1542,130 @@
             }
             window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
             if (document.documentElement) document.documentElement.scrollTop = 0;
-            if (document.body) document.body.scrollTop = 0;
         }
+
+        // --- CONTROLADOR DE ESCANER QR PARA MATRÍCULA INSTITUCIONAL ---
+        let html5QrScannerInstance = null;
+
+        function iniciarEscaneoQRRegistro() {
+            const modal = document.getElementById('modal-scanner-qr');
+            if (modal) modal.style.display = 'flex';
+
+            if (typeof Html5Qrcode !== 'undefined') {
+                try {
+                    if (html5QrScannerInstance) {
+                        html5QrScannerInstance.stop().catch(() => {}).finally(() => {
+                            html5QrScannerInstance = null;
+                            arrancarCamaraQR();
+                        });
+                    } else {
+                        arrancarCamaraQR();
+                    }
+                } catch(e) {
+                    console.warn("Error inicializando Html5Qrcode:", e);
+                }
+            }
+        }
+
+        function arrancarCamaraQR() {
+            html5QrScannerInstance = new Html5Qrcode("qr-reader");
+            const config = { fps: 10, qrbox: { width: 220, height: 220 } };
+            html5QrScannerInstance.start(
+                { facingMode: "environment" },
+                config,
+                (decodedText, decodedResult) => {
+                    console.log("QR Detectado:", decodedText);
+                    procesarTextoQRDetectado(decodedText);
+                },
+                (errorMessage) => {
+                    // scanning in progress...
+                }
+            ).catch(err => {
+                console.warn("No se pudo iniciar cámara para QR:", err);
+            });
+        }
+
+        function procesarTextoQRDetectado(texto) {
+            detenerEscaneoQR();
+            if (texto.includes('ieinstituto2026') || texto.includes('codigo=') || texto.includes('registro=instituto')) {
+                aplicarCodigoManualQR('ieinstituto2026');
+
+                // Si trae grupo en la URL
+                try {
+                    const parsedUrl = new URL(texto);
+                    const grupo = parsedUrl.searchParams.get('grupo');
+                    if (grupo && document.getElementById('registro-grupo')) {
+                        document.getElementById('registro-grupo').value = decodeURIComponent(grupo);
+                        actualizarMaterias();
+                    }
+                } catch(e) {}
+            } else {
+                aplicarCodigoManualQR(texto.trim());
+            }
+        }
+
+        function aplicarCodigoManualQR(cod) {
+            const codInput = document.getElementById('reg-codigo-institucional');
+            if (codInput) codInput.value = cod || 'ieinstituto2026';
+
+            const regIE = document.getElementById('reg-ie');
+            if (regIE) {
+                regIE.value = 'InstitutoMontenegro';
+                toggleIEOptions();
+            }
+
+            const fb = document.getElementById('qr-feedback-status');
+            if (fb) {
+                fb.innerHTML = '✅ <strong>¡Código oficial verificado por QR!</strong> Matrícula Gratuita ($0 COP).';
+                fb.style.color = '#059669';
+                fb.style.fontWeight = 'bold';
+            }
+
+            detenerEscaneoQR();
+        }
+
+        function detenerEscaneoQR() {
+            const modal = document.getElementById('modal-scanner-qr');
+            if (modal) modal.style.display = 'none';
+            if (html5QrScannerInstance) {
+                html5QrScannerInstance.stop().catch(() => {}).finally(() => {
+                    html5QrScannerInstance = null;
+                });
+            }
+        }
+
+        // Auto-detección de QR por URL al ingresar a la plataforma
+        window.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const regParam = params.get('registro');
+            const codParam = params.get('codigo');
+            const grupoParam = params.get('grupo');
+
+            if (regParam === 'instituto' || codParam === 'ieinstituto2026') {
+                mostrarVista('register-screen-container');
+
+                const regIE = document.getElementById('reg-ie');
+                if (regIE) {
+                    regIE.value = 'InstitutoMontenegro';
+                    toggleIEOptions();
+                }
+
+                const codInput = document.getElementById('reg-codigo-institucional');
+                if (codInput) codInput.value = codParam || 'ieinstituto2026';
+
+                if (grupoParam && document.getElementById('registro-grupo')) {
+                    document.getElementById('registro-grupo').value = decodeURIComponent(grupoParam);
+                    actualizarMaterias();
+                }
+
+                const fb = document.getElementById('qr-feedback-status');
+                if (fb) {
+                    fb.innerHTML = '✅ <strong>Código QR verificado con éxito:</strong> IE Instituto Montenegro ($0 COP).';
+                    fb.style.color = '#059669';
+                    fb.style.fontWeight = 'bold';
+                }
+            }
+        });
     </script>
     <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
     <script>mermaid.initialize({startOnLoad:true});</script>
