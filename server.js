@@ -998,6 +998,79 @@ app.get('/api/descargar-guias', (req, res) => {
     });
 });
 
+// ==========================================
+// INTEGRACIÓN REDES SOCIALES (META API)
+// ==========================================
+const { generateEducationalPost } = require('./ai_content_generator');
+const { publishToFacebook } = require('./social_media_poster');
+const crypto = require('crypto');
+
+// Memoria temporal para guardar posts pendientes de aprobación
+const pendingSocialPosts = new Map();
+
+// Generar un post, guardarlo en memoria y enviar a Telegram
+async function triggerSocialPostGeneration() {
+    try {
+        console.log('[SOCIAL] Iniciando generación de post con IA...');
+        const apiKey = process.env.GEMINI_API_KEYS || process.env.GEMINI_API_KEY;
+        const keys = apiKey ? apiKey.split(',').map(k => k.trim()) : [];
+        if (keys.length === 0) throw new Error("No hay API Keys disponibles");
+        
+        const postText = await generateEducationalPost(keys[0]);
+        
+        const postId = crypto.randomBytes(8).toString('hex');
+        pendingSocialPosts.set(postId, { text: postText, timestamp: Date.now() });
+
+        const telegramMsg = `🤖 PROPUESTA DE POST PARA REDES 🤖\n\n${postText}\n\n✅ APROBAR Y PUBLICAR:\nhttps://peidagogosteam.com/api/social/approve?id=${postId}\n\n❌ RECHAZAR:\nhttps://peidagogosteam.com/api/social/reject?id=${postId}`;
+        
+        enviarAlertaTelegram(telegramMsg);
+        console.log(`[SOCIAL] Post propuesto enviado a Telegram (ID: ${postId})`);
+    } catch (error) {
+        console.error('[SOCIAL] Error generando post:', error);
+    }
+}
+
+// Endpoint para aprobar y publicar
+app.get('/api/social/approve', async (req, res) => {
+    const postId = req.query.id;
+    if (!postId || !pendingSocialPosts.has(postId)) {
+        return res.status(404).send('<h1>Post no encontrado o ya procesado.</h1>');
+    }
+
+    const postData = pendingSocialPosts.get(postId);
+    pendingSocialPosts.delete(postId); // Borrar para evitar doble publicación
+
+    try {
+        const pageId = process.env.FB_PAGE_ID;
+        const metaToken = process.env.META_ACCESS_TOKEN;
+        
+        if (!pageId || !metaToken) {
+            return res.status(500).send('<h1>Faltan FB_PAGE_ID o META_ACCESS_TOKEN en las variables de entorno.</h1>');
+        }
+
+        const facebookId = await publishToFacebook(postData.text, pageId, metaToken);
+        
+        enviarAlertaTelegram(`✅ POST PUBLICADO EN FACEBOOK CON ÉXITO\nID: ${facebookId}`);
+        res.send('<h1>¡Éxito! El post se ha publicado correctamente en Facebook.</h1><p>Ya puedes cerrar esta ventana.</p>');
+    } catch (error) {
+        console.error('[SOCIAL] Error publicando:', error);
+        enviarAlertaTelegram(`❌ ERROR PUBLICANDO EN FACEBOOK\n${error.message}`);
+        res.status(500).send('<h1>Error al publicar en Facebook</h1><p>' + error.message + '</p>');
+    }
+});
+
+// Endpoint para rechazar
+app.get('/api/social/reject', (req, res) => {
+    const postId = req.query.id;
+    if (pendingSocialPosts.has(postId)) {
+        pendingSocialPosts.delete(postId);
+        enviarAlertaTelegram(`❌ Post RECHAZADO.`);
+        res.send('<h1>Post descartado.</h1><p>No se publicará en las redes. Ya puedes cerrar esta ventana.</p>');
+    } else {
+        res.status(404).send('<h1>Post no encontrado o ya procesado.</h1>');
+    }
+});
+
 // Ruta principal para servir el index.html en cualquier otra ruta
 app.get(/(.*)/, (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
@@ -1007,6 +1080,11 @@ app.listen(PORT, () => {
     console.log(`Servidor ejecutándose en el puerto ${PORT}`);
     console.log(`Backend de IA listo (Esperando API Key en .env)`);
     
+    // Iniciar generador de contenido para redes sociales (Ej: cada 8 horas = 28800000 ms)
+    setInterval(triggerSocialPostGeneration, 8 * 60 * 60 * 1000);
+    // Ejecutar uno de prueba al iniciar (después de 30 segundos)
+    setTimeout(triggerSocialPostGeneration, 30000);
+
     // Iniciar el generador masivo en segundo plano
     const cronProcess = require('child_process').spawn('node', ['generador_cron.js'], { stdio: 'inherit' });
     console.log('Generador masivo de guías (CRON) inicializado en segundo plano.');
