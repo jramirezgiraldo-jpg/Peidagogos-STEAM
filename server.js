@@ -698,14 +698,14 @@ app.post('/api/webhook-epayco', (req, res) => {
 app.post('/api/crear-preferencia-mercadopago', async (req, res) => {
     try {
         const { documento, nombre, concepto, monto, email } = req.body;
-        const mpAccessToken = process.env.MERCADO_PAGO_ACCESS_TOKEN || 'APP_USR-TEST-TOKEN';
+        const mpAccessToken = process.env.MERCADO_PAGO_ACCESS_TOKEN || 'APP_USR-2589122234398367-081312-84a2539ed43d0b48c72c866c213b6d2c-27842547';
         const montoNum = Number(monto) || 50000;
         const conceptoFinal = concepto || 'Matrícula y Acceso Peidagogos STEAM';
         const docFinal = String(documento || 'ESTUDIANTE').trim();
         const refId = `PAG-${docFinal}-${Date.now()}`;
 
         // Si hay token real de Mercado Pago configurado, crear preferencia oficial
-        if (process.env.MERCADO_PAGO_ACCESS_TOKEN) {
+        if (mpAccessToken && mpAccessToken !== 'APP_USR-TEST-TOKEN') {
             const mpPayload = {
                 items: [
                     {
@@ -739,7 +739,7 @@ app.post('/api/crear-preferencia-mercadopago', async (req, res) => {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${process.env.MERCADO_PAGO_ACCESS_TOKEN}`
+                    'Authorization': `Bearer ${mpAccessToken}`
                 },
                 body: JSON.stringify(mpPayload)
             });
@@ -781,11 +781,12 @@ app.all(['/api/webhook-mercadopago', '/api/webhook-pago'], async (req, res) => {
 
         const topic = query.topic || query.type || body.type;
         const paymentId = query.id || query['data.id'] || body.data?.id || body.id;
+        const mpAccessToken = process.env.MERCADO_PAGO_ACCESS_TOKEN || 'APP_USR-2589122234398367-081312-84a2539ed43d0b48c72c866c213b6d2c-27842547';
 
-        if (paymentId && process.env.MERCADO_PAGO_ACCESS_TOKEN) {
+        if (paymentId && mpAccessToken) {
             try {
                 const checkRes = await fetch(`https://api.mercadopago.com/v1/payments/${paymentId}`, {
-                    headers: { 'Authorization': `Bearer ${process.env.MERCADO_PAGO_ACCESS_TOKEN}` }
+                    headers: { 'Authorization': `Bearer ${mpAccessToken}` }
                 });
                 const paymentData = await checkRes.json();
 
