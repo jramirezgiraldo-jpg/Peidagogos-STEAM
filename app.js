@@ -5070,10 +5070,10 @@ window.ingresarAGuia = async function() {
     const estaPagado = (curUser.pago_realizado === true || curUser.pago_activo === true || esInstitucional);
 
     if (!estaPagado && (periodo !== "1" || parseInt(semanaStr, 10) > 1)) {
-        const monto = (curUser.rol === 'validacion' || curUser.institucion === 'Validacion') ? 60000 : 50000;
+        const monto = 85000;
         const concepto = (curUser.rol === 'validacion' || curUser.institucion === 'Validacion') 
-            ? 'Suscripción Completa Validación' 
-            : 'Suscripción Completa Home School';
+            ? 'Matrícula Oficial Validación Bachillerato' 
+            : 'Matrícula Oficial Home School';
         
         abrirPasarelaPago({
             concepto: `${concepto} (Semana ${semanaStr} - Periodo ${periodo})`,
@@ -5325,8 +5325,8 @@ window.renderizarGuiaContenido = function(guideData, periodo, semanaStr, asignat
                         Puedes leer y observar todo el contenido teórico de la guía. Para habilitar la solución interactiva, respuestas con IA, acumulación de XP y certificación oficial, activa tu matrícula con Mercado Pago.
                     </p>
                 </div>
-                <button onclick="abrirPasarelaPago({ concepto: 'Matrícula Oficial y Solución de Guías', documento: '${doc}', monto: 50000, rol: '${user ? user.rol : 'estudiante'}', callback: () => location.reload() })" style="background: linear-gradient(135deg, #009EE3, #007EB5); color: white; border: none; padding: 12px 24px; border-radius: 10px; font-weight: 800; cursor: pointer; box-shadow: 0 4px 15px rgba(0,158,227,0.35); font-size: 0.95rem; display: flex; align-items: center; gap: 8px;">
-                    <span>💳</span> Pagar Matrícula ($50.000 COP con Mercado Pago)
+                <button onclick="abrirPasarelaPago({ concepto: 'Matrícula Oficial y Solución de Guías', documento: '${doc}', monto: 85000, rol: '${user ? user.rol : 'estudiante'}', callback: () => location.reload() })" style="background: linear-gradient(135deg, #009EE3, #007EB5); color: white; border: none; padding: 12px 24px; border-radius: 10px; font-weight: 800; cursor: pointer; box-shadow: 0 4px 15px rgba(0,158,227,0.35); font-size: 0.95rem; display: flex; align-items: center; gap: 8px;">
+                    <span>💳</span> Pagar Matrícula ($85.000 COP con Mercado Pago)
                 </button>
             </div>
         `;
@@ -5581,7 +5581,7 @@ window.validarPermisoResolucionEstudiante = function() {
         abrirPasarelaPago({
             concepto: 'Matrícula Oficial y Solución de Guías',
             documento: doc,
-            monto: 50000,
+            monto: 85000,
             rol: user.rol || 'estudiante',
             callback: () => {
                 user.pago_realizado = true;
@@ -6646,6 +6646,53 @@ window.renderizarBloquesEspeciales = function(containerElement) {
 // MÓDULO TUTORES HOME SCHOOL Y PASARELA DE PAGO
 // ==========================================
 
+window.toggleEnfasisDoctrinal = function() {
+    const check = document.getElementById("tutor-check-etica-religion");
+    const campo = document.getElementById("campo-enfasis-doctrinal");
+    if (campo) {
+        campo.style.display = (check && check.checked) ? "block" : "none";
+    }
+};
+
+window.actualizarTotalMatriculaTutor = function() {
+    let total = 85000;
+    let desglose = ["Base Fundamentales ($85.000)"];
+
+    const simatCheck = document.getElementById("tutor-check-simat");
+    const inglesCheck = document.getElementById("tutor-check-ingles");
+    const artesCheck = document.getElementById("tutor-check-artes");
+    const eticaCheck = document.getElementById("tutor-check-etica-religion");
+
+    if (simatCheck && simatCheck.checked) {
+        total += 15000;
+        desglose.push("SIMAT IE Instituto (+ $15.000/mes)");
+    }
+    if (inglesCheck && inglesCheck.checked) {
+        total += 25000;
+        desglose.push("Inglés STEAM (+ $25.000)");
+    }
+    if (artesCheck && artesCheck.checked) {
+        total += 25000;
+        desglose.push("Artes/Música (+ $25.000)");
+    }
+    if (eticaCheck && eticaCheck.checked) {
+        total += 25000;
+        desglose.push("Ética/Religión (+ $25.000)");
+    }
+
+    const badge = document.getElementById("tutor-monto-total-badge");
+    const btnMonto = document.getElementById("btn-monto-texto");
+    const desgloseEl = document.getElementById("tutor-desglose-pago");
+
+    const totalFormateado = "$" + Number(total).toLocaleString('es-CO') + " COP";
+    if (badge) badge.innerText = totalFormateado;
+    if (btnMonto) btnMonto.innerText = totalFormateado;
+    if (desgloseEl) desgloseEl.innerText = desglose.join(" • ");
+
+    window.totalMatriculaTutorActual = total;
+    window.desgloseMatriculaTutorActual = desglose;
+};
+
 window.actualizarMateriasTutor = function() {
     const gradoSelect = document.getElementById("tutor-reg-grado");
     const preview = document.getElementById("tutor-materias-preview");
@@ -6659,22 +6706,23 @@ window.actualizarMateriasTutor = function() {
 
     let materias = [];
     if (grado.includes("Ciclo")) {
-        materias = ["Ciencias Naturales", "Matemáticas", "Lenguaje", "Ciencias Sociales", "Inglés"];
+        materias = ["Ciencias Naturales", "Matemáticas", "Lenguaje", "Ciencias Sociales"];
     } else {
         const gNum = parseInt(grado);
         if (gNum >= 1 && gNum <= 5) {
-            materias = ["Ciencias Naturales", "Matemáticas", "Lengua Castellana", "Ciencias Sociales", "Inglés", "Educación Artística"];
+            materias = ["Ciencias Naturales", "Matemáticas", "Lengua Castellana", "Ciencias Sociales"];
         } else if (gNum >= 6 && gNum <= 9) {
-            materias = ["Ciencias Naturales", "Física", "Química", "Matemáticas", "Lengua Castellana", "Ciencias Sociales", "Inglés", "Educación Artística", "Tecnología"];
+            materias = ["Ciencias Naturales", "Física", "Química", "Matemáticas", "Lengua Castellana", "Ciencias Sociales"];
         } else if (gNum >= 10 && gNum <= 11) {
-            materias = ["Física", "Química", "Matemáticas", "Lengua Castellana", "Filosofía", "Ciencias Sociales", "Inglés", "Turismo y Emprendimiento"];
+            materias = ["Física", "Química", "Matemáticas", "Lengua Castellana", "Filosofía", "Ciencias Sociales"];
         } else {
-            materias = ["Ciencias Naturales", "Matemáticas", "Lengua Castellana", "Ciencias Sociales", "Inglés"];
+            materias = ["Ciencias Naturales", "Matemáticas", "Lengua Castellana", "Ciencias Sociales"];
         }
     }
 
-    preview.innerHTML = `<strong>Materias asignadas (${materias.length}):</strong><br><span style="color: #1E40AF;">${materias.join(" • ")}</span>`;
+    preview.innerHTML = `<strong>Materias Fundamentales DBA incluidas (${materias.length}):</strong><br><span style="color: #1E40AF;">${materias.join(" • ")}</span>`;
     window.materiasTutorSeleccionadas = materias;
+    actualizarTotalMatriculaTutor();
 };
 
 window.matricularYProcederPagoTutor = async function() {
@@ -6691,16 +6739,38 @@ window.matricularYProcederPagoTutor = async function() {
         return;
     }
 
-    const materias = window.materiasTutorSeleccionadas || ["Ciencias Naturales", "Matemáticas", "Lengua Castellana", "Ciencias Sociales", "Inglés"];
+    let materias = (window.materiasTutorSeleccionadas && window.materiasTutorSeleccionadas.length > 0) 
+        ? [...window.materiasTutorSeleccionadas] 
+        : ["Ciencias Naturales", "Matemáticas", "Lengua Castellana", "Ciencias Sociales"];
 
-    // Abrir pasarela de pago para este estudiante
+    const simatCheck = document.getElementById("tutor-check-simat");
+    const inglesCheck = document.getElementById("tutor-check-ingles");
+    const artesCheck = document.getElementById("tutor-check-artes");
+    const eticaCheck = document.getElementById("tutor-check-etica-religion");
+    const enfasisDoctrinal = document.getElementById("tutor-reg-enfasis-doctrinal") ? document.getElementById("tutor-reg-enfasis-doctrinal").value.trim() : "";
+
+    const tieneSIMAT = (simatCheck && simatCheck.checked);
+    if (inglesCheck && inglesCheck.checked && !materias.includes("Inglés")) {
+        materias.push("Inglés");
+    }
+    if (artesCheck && artesCheck.checked && !materias.includes("Educación Artística y Música")) {
+        materias.push("Educación Artística y Música");
+    }
+    if (eticaCheck && eticaCheck.checked && !materias.includes("Ética y Valores Religiosos")) {
+        materias.push(enfasisDoctrinal ? `Ética y Religión (${enfasisDoctrinal})` : "Ética y Valores Religiosos");
+    }
+
+    const montoFinal = window.totalMatriculaTutorActual || 85000;
+    const desgloseTexto = (window.desgloseMatriculaTutorActual || []).join(" + ");
+
+    // Abrir pasarela de pago para este estudiante con monto personalizado
     abrirPasarelaPago({
-        concepto: `Matrícula Home School - Grado ${grado} (${nom} ${ape})`,
+        concepto: `Matrícula Home School - Grado ${grado} (${nom} ${ape}) [${desgloseTexto}]`,
         documento: doc,
-        monto: 50000,
+        monto: montoFinal,
         rol: 'homeschool_tutor',
         callback: async () => {
-            // Registrar estudiante con pago_realizado: true
+            // Registrar estudiante con pago_realizado: true y metadatos completos
             const payload = {
                 documento: doc,
                 tipo_documento: tipoDoc,
@@ -6710,11 +6780,15 @@ window.matricularYProcederPagoTutor = async function() {
                 genero: gen,
                 grado: grado,
                 grupo: `HS-${grado}`,
-                institucion: 'HomeSchool',
+                institucion: tieneSIMAT ? 'IE Instituto Montenegro (SIMAT Certificado)' : 'HomeSchool',
                 asignatura: materias.join(', '),
                 materias: materias,
+                simat_activo: tieneSIMAT,
+                enfasis_doctrinal: enfasisDoctrinal || null,
+                monto_pagado: montoFinal,
                 docente_id: usuario_actual || 'TUTOR-HS',
-                pago_realizado: true
+                pago_realizado: true,
+                pago_activo: true
             };
 
             try {
@@ -6725,7 +6799,7 @@ window.matricularYProcederPagoTutor = async function() {
                 });
                 
                 if (res.ok) {
-                    alert(`🎉 ¡Matrícula y pago completados con éxito para ${nom} ${ape}!`);
+                    alert(`🎉 ¡Matrícula y pago completados con éxito para ${nom} ${ape} por un valor de $${Number(montoFinal).toLocaleString('es-CO')} COP!\n${tieneSIMAT ? '✅ Registrado con solicitud de vinculación oficial SIMAT y boletín por periodo.' : ''}`);
                     // Limpiar formulario
                     document.getElementById("tutor-reg-doc").value = "";
                     document.getElementById("tutor-reg-nom").value = "";
@@ -6733,8 +6807,16 @@ window.matricularYProcederPagoTutor = async function() {
                     document.getElementById("tutor-reg-edad").value = "";
                     document.getElementById("tutor-reg-gen").value = "";
                     document.getElementById("tutor-reg-grado").value = "";
+                    if (simatCheck) simatCheck.checked = false;
+                    if (inglesCheck) inglesCheck.checked = false;
+                    if (artesCheck) artesCheck.checked = false;
+                    if (eticaCheck) eticaCheck.checked = false;
+                    const campoEnfasis = document.getElementById("campo-enfasis-doctrinal");
+                    if (campoEnfasis) campoEnfasis.style.display = "none";
+                    if (document.getElementById("tutor-reg-enfasis-doctrinal")) document.getElementById("tutor-reg-enfasis-doctrinal").value = "";
                     document.getElementById("tutor-materias-preview").innerHTML = "Selecciona un grado para ver las materias asignadas.";
                     
+                    actualizarTotalMatriculaTutor();
                     cargarEstudiantesTutor(usuario_actual);
                 } else {
                     alert("⚠️ El pago fue aprobado, pero hubo un error al guardar el registro en base de datos.");
@@ -6743,7 +6825,6 @@ window.matricularYProcederPagoTutor = async function() {
                 console.error("Error registrando estudiante tutor:", err);
                 alert("❌ Error de red al registrar al estudiante.");
             }
-        }
     });
 };
 

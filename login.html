@@ -315,7 +315,7 @@
                         infoPago.style.background = "#EFF6FF";
                         infoPago.style.color = "#1D4ED8";
                         infoPago.style.border = "1px solid #93C5FD";
-                        infoPago.innerHTML = "🏡 <strong>Registro de Tutor / Padre Home School:</strong> Te registrarás como tutor para administrar las matrículas de tus hijos o apoderados, acceder a las mallas DBA y gestionar sus guías de estudio.";
+                        infoPago.innerHTML = "🏡 <strong>Registro de Tutor / Padre Home School (Gratis):</strong> Te registrarás como tutor para matricular a tus estudiantes ($85.000 COP base), personalizar materias y gestionar el aprendizaje en casa según estándares DBA del MEN.<br><span style='font-size:0.8rem; color:#475569; display:block; margin-top:4px;'>⚠️ <em>Aviso: Esta plataforma es una herramienta pedagógica en casa y no constituye matrícula SIMAT automática a menos que se solicite el módulo certificado ($15.000 COP/mes).</em></span>";
                     }
                 } else if (ie === "Validacion") {
                     if (campoCodigo) campoCodigo.style.display = "none";
@@ -328,7 +328,7 @@
                         infoPago.style.background = "#FEF3C7";
                         infoPago.style.color = "#92400E";
                         infoPago.style.border = "1px solid #FCD34D";
-                        infoPago.innerHTML = "🎓 <strong>Modalidad Validación Bachillerato:</strong> Matrícula libre de estudiante por ciclos (Ciclo I al VI). ¡Acceso a la 1ª Guía de cada materia 100% GRATIS!";
+                        infoPago.innerHTML = "🎓 <strong>Modalidad Validación Bachillerato por Ciclos:</strong> Registro inicial gratis y observación de la Guía 1 de muestra. Tarifa de matrícula oficial para resolver guías y certificar: <strong>$85.000 COP</strong>.<br><span style='font-size:0.8rem; color:#78350F; display:block; margin-top:4px;'>⚠️ <em>Aviso: Esta plataforma desarrolla las competencias de los DBA del MEN. La vinculación oficial y boletín certificado en SIMAT con la IE Instituto Montenegro tiene un costo mensual de $15.000 COP.</em></span>";
                     }
                 } else if (ie === "InstitutoMontenegro") {
                     if (campoCodigo) campoCodigo.style.display = "flex";
@@ -872,8 +872,8 @@
                 <p style="margin: 8px 0 0 0; color: #DBEAFE; font-size: 1.05rem;">Administra las matrículas de tus estudiantes, accede a guías personalizadas y gestiona los pagos seguros.</p>
             </div>
             <div style="background: rgba(255,255,255,0.15); backdrop-filter: blur(8px); padding: 15px 25px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.3); text-align: center;">
-                <div style="font-size: 0.85rem; color: #E0E7FF; font-weight: 600; text-transform: uppercase;">Tarifa por Estudiante</div>
-                <div style="font-size: 1.6rem; font-weight: 900; color: #FEF08A; margin-top: 4px;">$50.000 COP</div>
+                <div style="font-size: 0.85rem; color: #E0E7FF; font-weight: 600; text-transform: uppercase;">Tarifa Base por Estudiante</div>
+                <div style="font-size: 1.6rem; font-weight: 900; color: #FEF08A; margin-top: 4px;">$85.000 COP</div>
             </div>
         </div>
 
@@ -896,8 +896,16 @@
                     <span style="font-size: 1.8rem;">➕</span>
                     <div>
                         <h3 style="margin: 0; font-size: 1.3rem; font-weight: 800; color: #111827;">Matricular Nuevo Estudiante</h3>
-                        <p style="margin: 2px 0 0 0; font-size: 0.85rem; color: #6B7280;">Registra a tu estudiante y habilita su acceso</p>
+                        <p style="margin: 2px 0 0 0; font-size: 0.85rem; color: #6B7280;">Configura las materias, SIMAT y formaliza el acceso</p>
                     </div>
+                </div>
+
+                <!-- Aviso Legal Aclaratorio Obligatorio -->
+                <div style="background: #FEF3C7; border: 1.5px solid #F59E0B; padding: 14px; border-radius: 10px; font-size: 0.84rem; color: #78350F; line-height: 1.45; margin-bottom: 15px;">
+                    <div style="font-weight: 800; color: #92400E; display: flex; align-items: center; gap: 6px; margin-bottom: 4px;">
+                        <span>⚠️</span> Aviso Legal y Pedagógico Aclaratorio:
+                    </div>
+                    Con esta suscripción a <strong>Peidagogos STEAM</strong>, el estudiante <strong>no queda matriculado automáticamente en una institución educativa tradicional ni registrado en el SIMAT</strong>. Esta es una plataforma para el aprendizaje en casa orientada a desarrollar las competencias de acuerdo a los estándares y DBA del MEN. Si deseas registro oficial en SIMAT y boletín por periodo, activa la opción certificada abajo.
                 </div>
 
                 <form id="form-tutor-matricular" onsubmit="return false;" style="display: flex; flex-direction: column; gap: 14px;">
@@ -942,16 +950,62 @@
                     </div>
 
                     <div id="tutor-materias-preview" style="padding: 10px 12px; background: #EFF6FF; border: 1px dashed #93C5FD; border-radius: 8px; font-size: 0.85rem; color: #1E40AF;">
-                        Selecciona un grado para ver las materias asignadas.
+                        Selecciona un grado para ver las materias fundamentales (Ciencias Naturales, Matemáticas, Castellano, Sociales).
                     </div>
 
-                    <div style="background: #FEF3C7; border: 1px solid #FCD34D; padding: 12px; border-radius: 8px; font-size: 0.85rem; color: #92400E; display: flex; align-items: center; gap: 8px;">
-                        <span>💳</span>
-                        <span>Al matricular, se iniciará el proceso de pago seguro de <strong>$50.000 COP</strong> para habilitar el acceso total.</span>
+                    <!-- Módulo Opcional SIMAT -->
+                    <div style="background: #F0FDF4; border: 1.5px solid #86EFAC; padding: 14px; border-radius: 10px;">
+                        <label style="display: flex; align-items: flex-start; gap: 10px; cursor: pointer; font-weight: 700; color: #166534; font-size: 0.88rem; margin: 0;">
+                            <input type="checkbox" id="tutor-check-simat" onchange="actualizarTotalMatriculaTutor()" style="margin-top: 3px; transform: scale(1.2);">
+                            <div>
+                                <span>🏛️ Matrícula Oficial en SIMAT + Boletín Certificado (+$15.000 COP / mes)</span>
+                                <div style="font-weight: normal; font-size: 0.78rem; color: #374151; margin-top: 3px; line-height: 1.35;">
+                                    Convierte al estudiante en <strong>estudiante activo del Sistema Educativo Nacional</strong> adscrito a la <strong>IE Instituto Montenegro (Quindío)</strong> con boletín oficial de calificaciones por periodo.
+                                </div>
+                            </div>
+                        </label>
                     </div>
 
-                    <button type="button" id="btn-tutor-matricular-pagar" onclick="matricularYProcederPagoTutor()" style="background: linear-gradient(135deg, #10B981, #059669); color: white; padding: 14px; border: none; border-radius: 10px; font-weight: 800; font-size: 1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 12px rgba(16,185,129,0.35); transition: 0.2s;">
-                        <span>💳</span> Matricular y Proceder al Pago
+                    <!-- Materias Electivas Personalizadas -->
+                    <div style="background: #F8FAFC; border: 1.5px solid #CBD5E1; padding: 14px; border-radius: 10px; display: flex; flex-direction: column; gap: 10px;">
+                        <div style="font-weight: 800; color: #1E293B; font-size: 0.88rem; display: flex; align-items: center; gap: 6px;">
+                            <span>✨</span> Materias Adicionales Personalizadas (+$25.000 COP c/u):
+                        </div>
+                        
+                        <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 0.85rem; color: #334155; margin: 0;">
+                            <input type="checkbox" id="tutor-check-ingles" onchange="actualizarTotalMatriculaTutor()" style="transform: scale(1.15);">
+                            <span>🇬🇧 <strong>Inglés STEAM</strong> (+ $25.000 COP)</span>
+                        </label>
+
+                        <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 0.85rem; color: #334155; margin: 0;">
+                            <input type="checkbox" id="tutor-check-artes" onchange="actualizarTotalMatriculaTutor()" style="transform: scale(1.15);">
+                            <span>🎨 <strong>Educación Artística y Música</strong> (+ $25.000 COP)</span>
+                        </label>
+
+                        <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 0.85rem; color: #334155; margin: 0;">
+                            <input type="checkbox" id="tutor-check-etica-religion" onchange="toggleEnfasisDoctrinal(); actualizarTotalMatriculaTutor();" style="transform: scale(1.15);">
+                            <span>🕊️ <strong>Ética y Religión (Con Énfasis Doctrinal)</strong> (+ $25.000 COP)</span>
+                        </label>
+
+                        <div id="campo-enfasis-doctrinal" style="display: none; margin-top: 4px; padding: 10px; background: white; border: 1px dashed #93C5FD; border-radius: 8px;">
+                            <label style="font-size: 0.8rem; font-weight: 700; color: #1E40AF; display: block; margin-bottom: 4px;">
+                                Énfasis Doctrinal / Axiológico Solicitado:
+                            </label>
+                            <input type="text" id="tutor-reg-enfasis-doctrinal" placeholder="Ej: Católico, Cristiano Evangélico, Laico / Valores Cívicos, Bíblico..." style="width: 100%; padding: 8px 12px; border: 1px solid #94A3B8; border-radius: 6px; font-size: 0.85rem; box-sizing: border-box;">
+                        </div>
+                    </div>
+
+                    <!-- Totalizador Dinámico -->
+                    <div style="background: linear-gradient(135deg, #1E293B, #0F172A); color: white; padding: 14px 18px; border-radius: 10px; display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <div style="font-size: 0.8rem; color: #94A3B8; text-transform: uppercase; font-weight: 700;">Total Matrícula</div>
+                            <div style="font-size: 0.78rem; color: #CBD5E1;" id="tutor-desglose-pago">Base Fundamentales ($85.000)</div>
+                        </div>
+                        <div style="font-size: 1.5rem; font-weight: 900; color: #38BDF8;" id="tutor-monto-total-badge">$85.000 COP</div>
+                    </div>
+
+                    <button type="button" id="btn-tutor-matricular-pagar" onclick="matricularYProcederPagoTutor()" style="background: linear-gradient(135deg, #009EE3, #007EB5); color: white; padding: 14px; border: none; border-radius: 10px; font-weight: 800; font-size: 1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 14px rgba(0,158,227,0.35); transition: 0.2s;">
+                        <span>💳</span> Matricular y Pagar con Mercado Pago (<span id="btn-monto-texto">$85.000 COP</span>)
                     </button>
                 </form>
             </div>
@@ -1478,8 +1532,8 @@
         </div>
     </div>
 
-    <script src="diagnostico_nocturno.js?v=20260806_v28"></script>
-    <script src="app.js?v=20260806_v28"></script>
+    <script src="diagnostico_nocturno.js?v=20260806_v29"></script>
+    <script src="app.js?v=20260806_v29"></script>
     <script>
         // --- BLINDAJE DE PROPIEDAD INTELECTUAL Y SEGURIDAD ---
         (function() {
