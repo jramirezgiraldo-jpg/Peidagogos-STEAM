@@ -1008,8 +1008,8 @@ const crypto = require('crypto');
 // Memoria temporal para guardar posts pendientes de aprobación
 const pendingSocialPosts = new Map();
 
-// Generar un post, guardarlo en memoria y enviar a Telegram
-async function triggerSocialPostGeneration() {
+// Función base que genera y propone (lanza errores)
+async function generateAndProposePost() {
     console.log('[SOCIAL] Iniciando generación de post con IA...');
     const apiKey = process.env.GEMINI_API_KEYS || process.env.GEMINI_API_KEY;
     const keys = apiKey ? apiKey.split(',').map(k => k.trim()) : [];
@@ -1025,6 +1025,15 @@ async function triggerSocialPostGeneration() {
     enviarAlertaTelegram(telegramMsg);
     console.log(`[SOCIAL] Post propuesto enviado a Telegram (ID: ${postId})`);
     return postId;
+}
+
+// Generar un post, guardarlo en memoria y enviar a Telegram (seguro para cron)
+async function triggerSocialPostGeneration() {
+    try {
+        await generateAndProposePost();
+    } catch (error) {
+        console.error('[SOCIAL] Error generando post automático:', error.message);
+    }
 }
 
 // Endpoint para aprobar y publicar
@@ -1071,7 +1080,7 @@ app.get('/api/social/reject', (req, res) => {
 // Endpoint manual para forzar la prueba
 app.get('/api/social/force-trigger', async (req, res) => {
     try {
-        const id = await triggerSocialPostGeneration();
+        const id = await generateAndProposePost();
         res.send(`<h1>Comando exitoso.</h1><p>El post (ID: ${id}) se ha generado y enviado a Telegram.</p>`);
     } catch(e) {
         res.status(500).send('<h1>Error Real:</h1><p>' + e.message + '</p>');
