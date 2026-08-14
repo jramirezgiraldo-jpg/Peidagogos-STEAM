@@ -1010,24 +1010,21 @@ const pendingSocialPosts = new Map();
 
 // Generar un post, guardarlo en memoria y enviar a Telegram
 async function triggerSocialPostGeneration() {
-    try {
-        console.log('[SOCIAL] Iniciando generación de post con IA...');
-        const apiKey = process.env.GEMINI_API_KEYS || process.env.GEMINI_API_KEY;
-        const keys = apiKey ? apiKey.split(',').map(k => k.trim()) : [];
-        if (keys.length === 0) throw new Error("No hay API Keys disponibles");
-        
-        const postText = await generateEducationalPost(keys[0]);
-        
-        const postId = crypto.randomBytes(8).toString('hex');
-        pendingSocialPosts.set(postId, { text: postText, timestamp: Date.now() });
+    console.log('[SOCIAL] Iniciando generación de post con IA...');
+    const apiKey = process.env.GEMINI_API_KEYS || process.env.GEMINI_API_KEY;
+    const keys = apiKey ? apiKey.split(',').map(k => k.trim()) : [];
+    if (keys.length === 0) throw new Error("No hay API Keys disponibles");
+    
+    const postText = await generateEducationalPost(keys[0]);
+    
+    const postId = crypto.randomBytes(8).toString('hex');
+    pendingSocialPosts.set(postId, { text: postText, timestamp: Date.now() });
 
-        const telegramMsg = `🤖 PROPUESTA DE POST PARA REDES 🤖\n\n${postText}\n\n✅ APROBAR Y PUBLICAR:\nhttps://peidagogosteam.com/api/social/approve?id=${postId}\n\n❌ RECHAZAR:\nhttps://peidagogosteam.com/api/social/reject?id=${postId}`;
-        
-        enviarAlertaTelegram(telegramMsg);
-        console.log(`[SOCIAL] Post propuesto enviado a Telegram (ID: ${postId})`);
-    } catch (error) {
-        console.error('[SOCIAL] Error generando post:', error);
-    }
+    const telegramMsg = `🤖 PROPUESTA DE POST PARA REDES 🤖\n\n${postText}\n\n✅ APROBAR Y PUBLICAR:\nhttps://peidagogosteam.com/api/social/approve?id=${postId}\n\n❌ RECHAZAR:\nhttps://peidagogosteam.com/api/social/reject?id=${postId}`;
+    
+    enviarAlertaTelegram(telegramMsg);
+    console.log(`[SOCIAL] Post propuesto enviado a Telegram (ID: ${postId})`);
+    return postId;
 }
 
 // Endpoint para aprobar y publicar
@@ -1074,10 +1071,10 @@ app.get('/api/social/reject', (req, res) => {
 // Endpoint manual para forzar la prueba
 app.get('/api/social/force-trigger', async (req, res) => {
     try {
-        await triggerSocialPostGeneration();
-        res.send('<h1>Comando enviado.</h1><p>Revisa Telegram en unos segundos. Si hay error, revisa los logs del servidor.</p>');
+        const id = await triggerSocialPostGeneration();
+        res.send(`<h1>Comando exitoso.</h1><p>El post (ID: ${id}) se ha generado y enviado a Telegram.</p>`);
     } catch(e) {
-        res.status(500).send('<h1>Error:</h1><p>' + e.message + '</p>');
+        res.status(500).send('<h1>Error Real:</h1><p>' + e.message + '</p>');
     }
 });
 
