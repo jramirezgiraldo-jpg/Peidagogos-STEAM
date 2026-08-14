@@ -25,7 +25,7 @@ NO uses saludos largos ni texto extra. Dame SOLO el texto que se va a publicar d
 
     try {
         const response = await ai.models.generateContent({
-            model: 'gemini-2.5-flash',
+            model: 'gemini-1.5-flash',
             contents: prompt,
             config: {
                 temperature: 0.7,
