@@ -1071,6 +1071,16 @@ app.get('/api/social/reject', (req, res) => {
     }
 });
 
+// Endpoint manual para forzar la prueba
+app.get('/api/social/force-trigger', async (req, res) => {
+    try {
+        await triggerSocialPostGeneration();
+        res.send('<h1>Comando enviado.</h1><p>Revisa Telegram en unos segundos. Si hay error, revisa los logs del servidor.</p>');
+    } catch(e) {
+        res.status(500).send('<h1>Error:</h1><p>' + e.message + '</p>');
+    }
+});
+
 // Ruta principal para servir el index.html en cualquier otra ruta
 app.get(/(.*)/, (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
