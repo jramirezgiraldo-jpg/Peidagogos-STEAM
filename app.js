@@ -3036,6 +3036,8 @@ window.mallaNaturales = {
             }
         }
     }
+};
+
 window.mallaSociales = {
     '1': {
         objetivo: 'Reconocer la identidad personal, la familia, los acuerdos de convivencia en la escuela y los puntos de orientación en el barrio.',
@@ -3073,6 +3075,7 @@ window.mallaSociales = {
             'DBA 1: Comprende la importancia de los recursos naturales en el desarrollo económico del departamento.',
             'DBA 2: Explica las formas de relieve y las cuencas hidrográficas del departamento.'
         ],
+        periodos: {
             '1': { '1': 'El municipio y sus autoridades.', '3': 'El paisaje rural y el paisaje urbano.', '5': 'Puntos cardinales y orientación.', '7': 'Normas de convivencia escolar y comunitaria.' },
             '2': { '1': 'El departamento y sus municipios principales.', '3': 'Relieve, ríos y clima del departamento.', '5': 'Primeros pobladores y comunidades indígenas locales.', '7': 'Tradiciones, fiestas y gastronomía regional.' },
             '3': { '1': 'Recursos naturales y su cuidado.', '3': 'Actividades económicas del municipio (agricultura, comercio, turismo).', '5': 'Servicios públicos y su importancia.', '7': 'Los derechos de los niños y deberes ciudadanos.' },
@@ -5370,12 +5373,11 @@ window.renderizarGuiaContenido = function(guideData, periodo, semanaStr, asignat
                     </button>
                 </div>
             `;
-            } else {
-                htmlRenderizado += `<div class="markdown-body" style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px; overflow-x: auto;">${marked.parse(guideData.recurso_visual)}</div>`;
-            }
-        }
-        
-        // --- FASE DEDUCTIVA ---
+        });
+        htmlRenderizado += `</div>`;
+    }
+    
+    // --- FASE DEDUCTIVA ---
         if (guideData.texto_deductivo) {
             htmlRenderizado += `<h4 style="color: #4F46E5; margin-top: 30px;">📖 Fase 2: Síntesis (Texto Deductivo)</h4>`;
             htmlRenderizado += `<div class="markdown-body" style="font-size: 1.1rem; line-height: 1.6; color: #374151;">${window.procesarJuegosEnTexto(guideData.texto_deductivo)}</div>`;
@@ -5427,11 +5429,6 @@ window.renderizarGuiaContenido = function(guideData, periodo, semanaStr, asignat
                 localStorage.setItem(key, (parseInt(semanaStr) + 1).toString());
             }
         }
-        
-    } catch (error) {
-        console.error(error);
-        innerContent.innerHTML = `<div style="padding: 20px; background: #FEE2E2; border: 1px solid #EF4444; border-radius: 8px; color: #B91C1C;"><strong>Error de conexión:</strong> No se pudo conectar con el servidor central.</div>`;
-    }
 };
 
 window.cerrarGuia = function() {
@@ -6825,6 +6822,7 @@ window.matricularYProcederPagoTutor = async function() {
                 console.error("Error registrando estudiante tutor:", err);
                 alert("❌ Error de red al registrar al estudiante.");
             }
+        }
     });
 };
 
