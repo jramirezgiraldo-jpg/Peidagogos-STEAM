@@ -1054,10 +1054,27 @@ async function generateAndProposePost(postType = 'dato_curioso') {
                 const files = fs.readdirSync(videosDir).filter(f => f.match(/\.(mp4|mov)$/i));
                 files.forEach(f => mediaFiles.push({ file: `marketing_kit/${f}`, type: 'video' }));
             }
+        } else if (postType === 'infografia') {
+            const infoDir = path.join(__dirname, 'marketing_kit', 'images', 'infografias');
+            if (fs.existsSync(infoDir)) {
+                const files = fs.readdirSync(infoDir).filter(f => f.match(/\.(png|jpg|jpeg|gif)$/i));
+                files.forEach(f => mediaFiles.push({ file: `marketing_kit/images/infografias/${f}`, type: 'photo' }));
+            }
+            // Fallback si no hay infografías
+            if (mediaFiles.length === 0) {
+                const imagesDir = path.join(__dirname, 'marketing_kit', 'images');
+                if (fs.existsSync(imagesDir)) {
+                    const files = fs.readdirSync(imagesDir).filter(f => f.match(/\.(png|jpg|jpeg|gif)$/i));
+                    files.forEach(f => mediaFiles.push({ file: `marketing_kit/images/${f}`, type: 'photo' }));
+                }
+            }
         } else {
             const imagesDir = path.join(__dirname, 'marketing_kit', 'images');
             if (fs.existsSync(imagesDir)) {
-                const files = fs.readdirSync(imagesDir).filter(f => f.match(/\.(png|jpg|jpeg|gif)$/i));
+                // Leer solo archivos del directorio raíz (excluir subcarpetas)
+                const files = fs.readdirSync(imagesDir, { withFileTypes: true })
+                    .filter(dirent => dirent.isFile() && dirent.name.match(/\.(png|jpg|jpeg|gif)$/i))
+                    .map(dirent => dirent.name);
                 files.forEach(f => mediaFiles.push({ file: `marketing_kit/images/${f}`, type: 'photo' }));
             }
         }

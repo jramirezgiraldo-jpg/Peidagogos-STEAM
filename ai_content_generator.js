@@ -46,6 +46,7 @@ Estructura obligatoria:
     const prompt = `Eres el Community Manager de "Peidagogos STEAM", una plataforma educativa innovadora de Colombia.
 Tu tarea es escribir un post corto, súper atractivo y educativo para Facebook e Instagram.
 ${promptInstruction}
+Enfoque Principal: Debes enfatizar siempre la educación STEAM, la gamificación, el aprendizaje basado en juegos y el aprendizaje personalizado. NO hagas énfasis en la educación mediada por Inteligencia Artificial, enfócate en el juego y la personalización.
 Tono: Entusiasta, profesional pero cercano, inspirador.
 NO uses saludos largos ni texto extra. Dame SOLO el texto que se va a publicar directamente en las redes sociales.`;
 
