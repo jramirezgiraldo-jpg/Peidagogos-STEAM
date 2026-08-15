@@ -1034,28 +1034,32 @@ const crypto = require('crypto');
 const pendingSocialPosts = new Map();
 
 // Función base que genera y propone (lanza errores)
-async function generateAndProposePost() {
-    console.log('[SOCIAL] Iniciando generación de post con IA...');
+async function generateAndProposePost(postType = 'dato_curioso') {
+    console.log(`[SOCIAL] Iniciando generación de post con IA (${postType})...`);
     const apiKey = process.env.GEMINI_API_KEYS || process.env.GEMINI_API_KEY;
     const keys = apiKey ? apiKey.split(',').map(k => k.trim()) : [];
     if (keys.length === 0) throw new Error("No hay API Keys disponibles");
     
-    const postText = await generateEducationalPost(keys[0]);
+    const postText = await generateEducationalPost(keys[0], postType);
     
-    // Seleccionar multimedia al azar
+    // Seleccionar multimedia al azar según el tipo
     let mediaUrl = null;
     let mediaType = null;
     try {
         const mediaFiles = [];
-        const imagesDir = path.join(__dirname, 'marketing_kit', 'images');
-        if (fs.existsSync(imagesDir)) {
-            const files = fs.readdirSync(imagesDir).filter(f => f.match(/\.(png|jpg|jpeg|gif)$/i));
-            files.forEach(f => mediaFiles.push({ file: `marketing_kit/images/${f}`, type: 'photo' }));
-        }
-        const videosDir = path.join(__dirname, 'marketing_kit');
-        if (fs.existsSync(videosDir)) {
-            const files = fs.readdirSync(videosDir).filter(f => f.match(/\.(mp4|mov)$/i));
-            files.forEach(f => mediaFiles.push({ file: `marketing_kit/${f}`, type: 'video' }));
+        
+        if (postType === 'video') {
+            const videosDir = path.join(__dirname, 'marketing_kit');
+            if (fs.existsSync(videosDir)) {
+                const files = fs.readdirSync(videosDir).filter(f => f.match(/\.(mp4|mov)$/i));
+                files.forEach(f => mediaFiles.push({ file: `marketing_kit/${f}`, type: 'video' }));
+            }
+        } else {
+            const imagesDir = path.join(__dirname, 'marketing_kit', 'images');
+            if (fs.existsSync(imagesDir)) {
+                const files = fs.readdirSync(imagesDir).filter(f => f.match(/\.(png|jpg|jpeg|gif)$/i));
+                files.forEach(f => mediaFiles.push({ file: `marketing_kit/images/${f}`, type: 'photo' }));
+            }
         }
 
         if (mediaFiles.length > 0) {
@@ -1083,9 +1087,9 @@ async function generateAndProposePost() {
 }
 
 // Generar un post, guardarlo en memoria y enviar a Telegram (seguro para cron)
-async function triggerSocialPostGeneration() {
+async function triggerSocialPostGeneration(postType = 'dato_curioso') {
     try {
-        await generateAndProposePost();
+        await generateAndProposePost(postType);
     } catch (error) {
         console.error('[SOCIAL] Error generando post automático:', error.message);
     }
@@ -1140,8 +1144,9 @@ app.get('/api/social/reject', (req, res) => {
 // Endpoint manual para forzar la prueba
 app.get('/api/social/force-trigger', async (req, res) => {
     try {
-        const id = await generateAndProposePost();
-        res.send(`<h1>Comando exitoso.</h1><p>El post (ID: ${id}) se ha generado y enviado a Telegram.</p>`);
+        const postType = req.query.type || 'dato_curioso';
+        const id = await generateAndProposePost(postType);
+        res.send(`<h1>Comando exitoso.</h1><p>El post (${postType}, ID: ${id}) se ha generado y enviado a Telegram.</p>`);
     } catch(e) {
         res.status(500).send('<h1>Error Real:</h1><p>' + e.message + '</p>');
     }
