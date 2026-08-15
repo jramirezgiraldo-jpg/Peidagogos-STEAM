@@ -34,7 +34,7 @@ NO uses saludos largos ni texto extra. Dame SOLO el texto que se va a publicar d
 
     for (const modelName of modelsToTry) {
         try {
-            console.log('[SOCIAL] Intentando generar post con modelo:', modelName);
+            console.log('[SOCIAL] Intentando generar post con modelo Gemini:', modelName);
             const response = await ai.models.generateContent({
                 model: modelName,
                 contents: prompt,
@@ -46,16 +46,37 @@ NO uses saludos largos ni texto extra. Dame SOLO el texto que se va a publicar d
             
             return response.text.trim();
         } catch (error) {
-            console.error(`[SOCIAL] Fallo con ${modelName}:`, error.message);
+            console.error(`[SOCIAL] Fallo con Gemini ${modelName}:`, error.message);
             lastError = error;
-            // Si el error no es 404 (modelo no encontrado), lanzarlo inmediatamente
-            if (error.status !== 'NOT_FOUND' && error.status !== 404 && !error.message.includes('not found')) {
-                throw error;
+            // Si el error no es 404/400 (modelo no encontrado/invalido), lanzarlo inmediatamente
+            if (error.status !== 'NOT_FOUND' && error.status !== 404 && error.status !== 400 && !error.message.includes('not found')) {
+                break; // Break loop to try OpenAI
             }
         }
     }
 
-    throw new Error('No se pudo generar el post con ningún modelo disponible. Último error: ' + (lastError ? lastError.message : 'Desconocido'));
+    // FALLBACK A OPENAI (CHATGPT) SI GEMINI FALLA
+    const openAIApiKey = process.env.OPENAI_API_KEY;
+    if (openAIApiKey) {
+        console.log('[SOCIAL] Gemini falló o no está disponible. Intentando con OpenAI ChatGPT...');
+        try {
+            const { OpenAI } = require('openai');
+            const openai = new OpenAI({ apiKey: openAIApiKey });
+            const completion = await openai.chat.completions.create({
+                model: "gpt-4o-mini", // Modelo económico y potente
+                messages: [{ role: "user", content: prompt }],
+                temperature: 0.7,
+                max_tokens: 500
+            });
+            console.log('[SOCIAL] ✅ Post generado exitosamente con OpenAI');
+            return completion.choices[0].message.content.trim();
+        } catch (openaiErr) {
+            console.error('[SOCIAL] OpenAI también falló:', openaiErr.message);
+            throw new Error(`Ambas IAs fallaron. Gemini: ${lastError ? lastError.message : 'N/A'} | OpenAI: ${openaiErr.message}`);
+        }
+    }
+
+    throw new Error('No se pudo generar el post con Gemini y no hay OPENAI_API_KEY configurada. Último error Gemini: ' + (lastError ? lastError.message : 'Desconocido'));
 }
 
 module.exports = {

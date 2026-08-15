@@ -331,8 +331,32 @@ DEBES DEVOLVER EXCLUSIVAMENTE UN OBJETO JSON VÁLIDO CON LA SIGUIENTE ESTRUCTURA
             }
         }
 
+        if (!responseText && process.env.OPENAI_API_KEY) {
+            console.log(`[IA Fallback] Gemini falló. Intentando con OpenAI ChatGPT para la guía...`);
+            try {
+                const { OpenAI } = require('openai');
+                const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+                const completion = await openai.chat.completions.create({
+                    model: "gpt-4o-mini",
+                    messages: [
+                        { role: "system", content: "Devuelve EXCLUSIVAMENTE UN OBJETO JSON VÁLIDO según las instrucciones. SIN markdown json." },
+                        { role: "user", content: prompt }
+                    ],
+                    response_format: { type: "json_object" },
+                    temperature: 0.7
+                });
+                
+                if (completion.choices[0].message.content) {
+                    responseText = completion.choices[0].message.content;
+                    console.log(`[IA Fallback] ✅ Guía generada exitosamente con OpenAI`);
+                }
+            } catch (openaiErr) {
+                console.error(`[IA Fallback] OpenAI también falló:`, openaiErr.message);
+            }
+        }
+
         if (!responseText) {
-            console.log(`[IA Fallback] IA no disponible, sirviendo guía pedagógica estructurada de respaldo para ${nombreEstudiante}...`);
+            console.log(`[IA Fallback] Todas las IAs no están disponibles, sirviendo guía pedagógica estructurada de respaldo para ${nombreEstudiante}...`);
             const fallbackGuia = generarGuiaPredeterminada({
                 asignatura, grado, periodo, semana, rol, ambiente, nivel, enfoque, nombre_estudiante: nombreEstudiante, institucion, modo
             });
@@ -1084,6 +1108,25 @@ app.get('/api/social/force-trigger', async (req, res) => {
         res.send(`<h1>Comando exitoso.</h1><p>El post (ID: ${id}) se ha generado y enviado a Telegram.</p>`);
     } catch(e) {
         res.status(500).send('<h1>Error Real:</h1><p>' + e.message + '</p>');
+    }
+});
+
+// Endpoint temporal para listar modelos
+app.get('/api/social/list-models', async (req, res) => {
+    try {
+        const { GoogleGenAI } = require('@google/genai');
+        const apiKey = process.env.GEMINI_API_KEYS || process.env.GEMINI_API_KEY;
+        const keys = apiKey ? apiKey.split(',').map(k => k.trim()) : [];
+        const ai = new GoogleGenAI({ apiKey: keys[0] });
+        
+        let output = '<h1>Modelos Disponibles:</h1><ul>';
+        for await (const model of ai.models.list()) {
+            output += `<li>${model.name}</li>`;
+        }
+        output += '</ul>';
+        res.send(output);
+    } catch (e) {
+        res.status(500).send('Error: ' + e.message);
     }
 });
 
