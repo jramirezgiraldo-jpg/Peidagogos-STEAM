@@ -23,21 +23,33 @@ Estructura obligatoria:
 Tono: Entusiasta, profesional pero cercano, inspirador.
 NO uses saludos largos ni texto extra. Dame SOLO el texto que se va a publicar directamente en las redes sociales.`;
 
-    try {
-        const response = await ai.models.generateContent({
-            model: 'gemini-1.5-flash',
-            contents: prompt,
-            config: {
-                temperature: 0.7,
-                maxOutputTokens: 500,
+    const modelsToTry = ['gemini-2.5-flash', 'gemini-1.5-flash', 'gemini-1.5-pro', 'gemini-1.0-pro'];
+    let lastError = null;
+
+    for (const modelName of modelsToTry) {
+        try {
+            console.log('[SOCIAL] Intentando generar post con modelo:', modelName);
+            const response = await ai.models.generateContent({
+                model: modelName,
+                contents: prompt,
+                config: {
+                    temperature: 0.7,
+                    maxOutputTokens: 500,
+                }
+            });
+            
+            return response.text.trim();
+        } catch (error) {
+            console.error(`[SOCIAL] Fallo con ${modelName}:`, error.message);
+            lastError = error;
+            // Si el error no es 404 (modelo no encontrado), lanzarlo inmediatamente
+            if (error.status !== 'NOT_FOUND' && error.status !== 404 && !error.message.includes('not found')) {
+                throw error;
             }
-        });
-        
-        return response.text.trim();
-    } catch (error) {
-        console.error('[AI Content Generator] Error:', error);
-        throw error;
+        }
     }
+
+    throw new Error('No se pudo generar el post con ningún modelo disponible. Último error: ' + (lastError ? lastError.message : 'Desconocido'));
 }
 
 module.exports = {
