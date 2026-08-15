@@ -23,7 +23,13 @@ Estructura obligatoria:
 Tono: Entusiasta, profesional pero cercano, inspirador.
 NO uses saludos largos ni texto extra. Dame SOLO el texto que se va a publicar directamente en las redes sociales.`;
 
-    const modelsToTry = ['gemini-2.5-flash', 'gemini-1.5-flash', 'gemini-1.5-pro', 'gemini-1.0-pro'];
+    const modelsToTry = [
+        'gemini-3.5-flash-lite',
+        'gemini-flash-latest',
+        'gemini-3.5-flash',
+        'gemini-3.1-flash-lite',
+        'gemini-flash-lite-latest'
+    ];
     let lastError = null;
 
     for (const modelName of modelsToTry) {
