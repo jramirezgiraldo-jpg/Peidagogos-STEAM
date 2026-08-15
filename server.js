@@ -3,6 +3,7 @@ const express = require('express');
 const path = require('path');
 const fs = require('fs');
 const cors = require('cors');
+const cron = require('node-cron');
 const https = require('https');
 const { GoogleGenAI } = require('@google/genai');
 const { exec } = require('child_process');
@@ -1174,10 +1175,15 @@ app.listen(PORT, () => {
     console.log(`Servidor ejecutándose en el puerto ${PORT}`);
     console.log(`Backend de IA listo (Esperando API Key en .env)`);
     
-    // Iniciar generador de contenido para redes sociales (Ej: cada 8 horas = 28800000 ms)
-    setInterval(triggerSocialPostGeneration, 8 * 60 * 60 * 1000);
-    // Ejecutar uno de prueba al iniciar (después de 30 segundos)
-    setTimeout(triggerSocialPostGeneration, 30000);
+    // Programar generación de posts para redes sociales:
+    // - 6:55 AM (Faltando 5 min para las 7am)
+    cron.schedule('55 6 * * *', triggerSocialPostGeneration, { timezone: "America/Bogota" });
+    
+    // - 1:00 PM
+    cron.schedule('0 13 * * *', triggerSocialPostGeneration, { timezone: "America/Bogota" });
+    
+    // - 6:55 PM (Faltando 5 min para las 7pm)
+    cron.schedule('55 18 * * *', triggerSocialPostGeneration, { timezone: "America/Bogota" });
 
     // [APAGADO DE EMERGENCIA]
     // El generador_cron.js ha sido desactivado porque generaba cientos de miles de combinaciones
