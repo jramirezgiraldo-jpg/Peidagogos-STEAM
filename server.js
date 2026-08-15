@@ -1144,7 +1144,8 @@ app.listen(PORT, () => {
     // Ejecutar uno de prueba al iniciar (después de 30 segundos)
     setTimeout(triggerSocialPostGeneration, 30000);
 
-    // Iniciar el generador masivo en segundo plano
-    const cronProcess = require('child_process').spawn('node', ['generador_cron.js'], { stdio: 'inherit' });
-    console.log('Generador masivo de guías (CRON) inicializado en segundo plano.');
+    // [APAGADO DE EMERGENCIA]
+    // El generador_cron.js ha sido desactivado porque generaba cientos de miles de combinaciones
+    // y agotaba la cuota de la API (Gemini/OpenAI).
+    console.log('[SISTEMA] Generador masivo de guías (CRON) desactivado para proteger el saldo de la API.');
 });
