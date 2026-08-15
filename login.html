@@ -165,7 +165,7 @@
         <h2 style="font-size: 2rem; font-weight: 800; color: #111827; margin: 0;">Portal de Acceso</h2>
         <p style="font-size: 1rem; color: #6B7280; margin: 10px 0 25px 0;">Selecciona tu vía de ingreso a la plataforma.</p>
         
-        <form id="login-form" onsubmit="return false;" style="display: flex; flex-direction: column; gap: 15px; margin-bottom: 20px;">
+        <form id="login-form" onsubmit="window.ejecutarLogin(event); return false;" style="display: flex; flex-direction: column; gap: 15px; margin-bottom: 20px;">
             <div style="display: flex; flex-direction: column; gap: 5px; text-align: left;">
                 <label for="login-role" style="font-weight: 800; color: #111827; font-size: 0.95rem;">Selecciona tu perfil de ingreso:</label>
                 <select id="login-role" style="padding: 12px; border: 2px solid #3B82F6; border-radius: 8px; font-weight: bold; color: #111827; cursor: pointer; background-color: #F0F9FF;">
@@ -178,7 +178,7 @@
             </div>
             <input type="text" id="admin-user" placeholder="Número de Identificación" style="padding: 12px; border: 1px solid #d1d5db; border-radius: 8px;">
             <input type="password" id="admin-pass" placeholder="Contraseña" style="padding: 12px; border: 1px solid #d1d5db; border-radius: 8px;">
-            <button type="submit" id="btn-login-core" style="background-color: #2563EB; color: white; padding: 14px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 6px rgba(37,99,235,0.25); transition: 0.2s;">Iniciar Sesión</button>
+            <button type="submit" id="btn-login-core" onclick="window.ejecutarLogin(event)" style="background-color: #2563EB; color: white; padding: 14px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 6px rgba(37,99,235,0.25); transition: 0.2s;">Iniciar Sesión</button>
             <div id="login-error-msg" style="color: #e74c3c; font-size: 0.85rem; display: none;">Credenciales incorrectas.</div>
         </form>
 
@@ -1532,8 +1532,8 @@
         </div>
     </div>
 
-    <script src="diagnostico_nocturno.js?v=20260806_v30"></script>
-    <script src="app.js?v=20260806_v30"></script>
+    <script src="diagnostico_nocturno.js?v=20260815_v31"></script>
+    <script src="app.js?v=20260815_v31"></script>
     <script>
         // --- BLINDAJE DE PROPIEDAD INTELECTUAL Y SEGURIDAD ---
         (function() {

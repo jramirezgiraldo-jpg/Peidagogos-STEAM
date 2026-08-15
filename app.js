@@ -890,7 +890,206 @@ var MallaNarrativaMaestra = {
     }
 };
 
-document.addEventListener("DOMContentLoaded", function() {
+// ==========================================
+// BÚSQUEDA Y LÓGICA DE LOGIN (GLOBAL)
+// ==========================================
+window.buscarEstudianteFlexible = function(queryDoc, lista) {
+    if (!queryDoc || !Array.isArray(lista)) return null;
+    const normQ = String(queryDoc).trim().toLowerCase().replace(/[\.\,\-\_\s]/g, '');
+    if (!normQ) return null;
+
+    // 1. Coincidencia exacta de documento
+    let found = lista.find(u => {
+        const d = String(u.documento || u.id || u.usuario || '').trim().toLowerCase().replace(/[\.\,\-\_\s]/g, '');
+        return d === normQ;
+    });
+    if (found) return found;
+
+    // 2. Coincidencia por nombre o apellidos
+    found = lista.find(u => {
+        const n = String(u.nombre || '').toLowerCase().replace(/[\.\,\-\_\s]/g, '');
+        const a = String(u.apellidos || '').toLowerCase().replace(/[\.\,\-\_\s]/g, '');
+        const full = `${n} ${a}`.trim();
+        return (n && normQ.includes(n)) || (a && normQ.includes(a)) || (full && (normQ.includes(full) || full.includes(normQ)));
+    });
+    if (found) return found;
+
+    // 3. Coincidencia flexible de dígitos (prefijos, subcadenas o primeros 6 dígitos)
+    found = lista.find(u => {
+        const d = String(u.documento || u.id || u.usuario || '').trim().toLowerCase().replace(/[\.\,\-\_\s]/g, '');
+        if (d.length >= 5 && normQ.length >= 5) {
+            return d.startsWith(normQ) || normQ.startsWith(d) || d.includes(normQ) || normQ.includes(d) || d.substring(0,6) === normQ.substring(0,6);
+        }
+        return false;
+    });
+    return found || null;
+};
+
+window.ejecutarLogin = async function(e) {
+    if (e && e.preventDefault) e.preventDefault();
+    const loginBtn = document.getElementById("btn-login-core");
+    const errorMsg = document.getElementById("login-error-msg");
+    const dashboardView = document.getElementById("dashboard-screen-container");
+    const docenteDashboardView = document.getElementById("docente-dashboard-container");
+
+    let rawUser = document.getElementById("admin-user") ? String(document.getElementById("admin-user").value).trim() : "";
+    let rawPass = document.getElementById("admin-pass") ? String(document.getElementById("admin-pass").value).trim() : "";
+    const rolSelect = document.getElementById("login-role");
+    const rol = rolSelect ? rolSelect.value : "estudiante";
+
+    if (!rawUser) {
+        if (errorMsg) { 
+            errorMsg.style.display = "block"; 
+            errorMsg.innerText = "Por favor ingresa tu número de documento de identidad."; 
+        }
+        return;
+    }
+
+    const normUser = rawUser.toLowerCase().replace(/[\.\,\-\_\s]/g, '');
+    // Si el estudiante no escribió contraseña, su contraseña por defecto es su mismo documento de identidad
+    let pass = rawPass || rawUser;
+
+    if (loginBtn) {
+        loginBtn.innerText = "Verificando...";
+        loginBtn.disabled = true;
+    }
+    if (errorMsg) errorMsg.style.display = "none";
+    
+    try {
+        let data = null;
+        try {
+            const res = await fetch('/api/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ usuario: rawUser, clave: pass, rol: rol })
+            });
+            if (res.ok) {
+                data = await res.json();
+            }
+        } catch (netErr) {
+            console.warn("Fallo conectando al servidor backend, buscando respaldo local...", netErr);
+        }
+        
+        // Si la API no respondió éxito, verificar si el estudiante está en localStorage o usuarios.json con búsqueda flexible
+        if (!data || data.status !== 'success') {
+            let localUsers = JSON.parse(localStorage.getItem('usuarios_db') || '[]');
+            let localEst = window.buscarEstudianteFlexible(normUser, localUsers);
+
+            // Si no está aún en localStorage, consultar directamente usuarios.json
+            if (!localEst) {
+                try {
+                    const uRes = await fetch('usuarios.json?t=' + Date.now());
+                    if (uRes.ok) {
+                        const uData = await uRes.json();
+                        if (Array.isArray(uData)) {
+                            localEst = window.buscarEstudianteFlexible(normUser, uData);
+                            if (localEst) {
+                                localUsers.push(localEst);
+                                localStorage.setItem('usuarios_db', JSON.stringify(localUsers));
+                            }
+                        }
+                    }
+                } catch(e) {}
+            }
+
+            if (localEst) {
+                data = {
+                    status: 'success',
+                    usuario: localEst.documento || rawUser,
+                    nombre: `${localEst.nombre || ''} ${localEst.apellidos || ''}`.trim() || rawUser,
+                    rol: (localEst.institucion === 'Validacion' || String(localEst.grupo || '').toLowerCase().includes('ciclo') || String(localEst.grado || '').toLowerCase().includes('ciclo')) ? 'validacion' : 'estudiante',
+                    grado: localEst.grado || localEst.grupo || '',
+                    grupo: localEst.grupo || localEst.grado || '',
+                    asignatura: localEst.asignatura || (localEst.materias ? localEst.materias.join(', ') : 'Ciencias Naturales'),
+                    institucion: localEst.institucion || 'IE Instituto Montenegro',
+                    pago_activo: localEst.pago_realizado !== false,
+                    pago_realizado: localEst.pago_realizado !== false,
+                    usuarioObj: localEst
+                };
+                // Sincronizar en segundo plano al backend
+                fetch('/api/registro-estudiante', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(localEst)
+                }).catch(() => {});
+            } else if (normUser === 'admin' && (pass === 'admin' || pass === '123456' || pass === 'Biol2008%')) {
+                data = { status: 'success', usuario: 'admin', nombre: 'Administrador', rol: 'admin' };
+            }
+        }
+
+        if (data && data.status === 'success') {
+            if (errorMsg) errorMsg.style.display = "none";
+            
+            window.rol_actual = data.rol; 
+            window.usuario_actual = data.usuario; // Guardar ID del usuario actual
+
+            // Guardar en sesión
+            localStorage.setItem('usuario_sesion', JSON.stringify(data));
+            
+            // Asegurar que también quede en usuarios_db
+            if (data.usuarioObj) {
+                try {
+                    let uList = JSON.parse(localStorage.getItem('usuarios_db') || '[]');
+                    const idx = uList.findIndex(u => String(u.documento || u.id || '').toLowerCase().replace(/[\.\,\-\_\s]/g, '') === normUser);
+                    if (idx >= 0) uList[idx] = { ...uList[idx], ...data.usuarioObj };
+                    else uList.push(data.usuarioObj);
+                    localStorage.setItem('usuarios_db', JSON.stringify(uList));
+                } catch(e) {}
+            }
+
+            if (data.rol === 'admin') {
+                if (typeof mostrarVista === 'function') mostrarVista('dashboard-screen-container');
+                else if (dashboardView) dashboardView.style.display = "block";
+                if (typeof cargarDatosAdmin === 'function') cargarDatosAdmin();
+            } else if (data.rol === 'docente') {
+                if (typeof mostrarVista === 'function') mostrarVista('docente-dashboard-container');
+                else if (docenteDashboardView) docenteDashboardView.style.display = "block";
+                const dHeader = document.getElementById("docente-nombre-header");
+                if (dHeader) dHeader.innerText = data.nombre;
+                if (typeof cargarEstudiantesDocente === 'function') cargarEstudiantesDocente(data.usuario);
+            } else if (data.rol === 'homeschool_tutor') {
+                if (typeof mostrarVista === 'function') mostrarVista('tutor-dashboard-container');
+                const tutorView = document.getElementById("tutor-dashboard-container");
+                if (tutorView) tutorView.style.display = "block";
+                const tHeader = document.getElementById("tutor-nombre-header");
+                if (tHeader) tHeader.innerText = data.nombre;
+                if (typeof cargarEstudiantesTutor === 'function') cargarEstudiantesTutor(data.usuario);
+            } else { // Estudiante regular o Validación
+                if (typeof window.inicializarPanelEstudiante === 'function') {
+                    window.inicializarPanelEstudiante(data);
+                }
+            }
+        } else {
+            // AUTO-HABILITACIÓN DIRECTA: Si no se encontró por coincidencia exacta o difusa, abrir modal de auto-habilitación para que ingrese en 1 clic
+            const modalAuto = document.getElementById("modal-auto-habilitacion");
+            if (modalAuto) {
+                const badge = document.getElementById("modal-auto-doc-badge");
+                if (badge) badge.innerText = rawUser;
+                const nomInput = document.getElementById("auto-nombre-completo");
+                if (nomInput) nomInput.value = "Estudiante Montenegro";
+                const cicloSelect = document.getElementById("auto-ciclo-grado");
+                if (cicloSelect && rol === 'validacion') {
+                    cicloSelect.value = "Ciclo VI";
+                }
+                modalAuto.style.display = "flex";
+                if (nomInput) nomInput.focus();
+            } else if (errorMsg) { 
+                errorMsg.style.display = "block"; 
+                errorMsg.innerText = "❌ Documento no encontrado. Haz clic en '➕ Registrar Nuevo Estudiante / Matrícula'."; 
+            }
+        }
+    } catch (err) {
+        console.error(err);
+        if (errorMsg) { errorMsg.style.display = "block"; errorMsg.innerText = "Error interno o de red al ingresar."; }
+    } finally {
+        if (loginBtn) {
+            loginBtn.innerText = "Iniciar Sesión";
+            loginBtn.disabled = false;
+        }
+    }
+};
+
+window.inicializarAppCore = function() {
     const btnShowReg = document.getElementById("btn-show-register");
     const btnCancelReg = document.getElementById("btn-cancel-register");
     const loginView = document.getElementById("login-screen-container");
@@ -931,16 +1130,16 @@ document.addEventListener("DOMContentLoaded", function() {
     if (btnShowReg) {
         btnShowReg.addEventListener("click", function(e) {
             e.preventDefault();
-            loginView.style.display = "none";
-            regView.style.display = "flex";
+            if (loginView) loginView.style.display = "none";
+            if (regView) regView.style.display = "flex";
         });
     }
 
     if (btnCancelReg) {
         btnCancelReg.addEventListener("click", function(e) {
             e.preventDefault();
-            regView.style.display = "none";
-            loginView.style.display = "grid";
+            if (regView) regView.style.display = "none";
+            if (loginView) loginView.style.display = "grid";
         });
     }
 
@@ -948,7 +1147,6 @@ document.addEventListener("DOMContentLoaded", function() {
     // LÓGICA DE LOGIN (EXPANDIDA)
     // ==========================================
     const loginBtn = document.getElementById("btn-login-core");
-    const errorMsg = document.getElementById("login-error-msg");
     const rolSelectGlobal = document.getElementById("login-role");
     const adminUserGlobal = document.getElementById("admin-user");
     const adminPassGlobal = document.getElementById("admin-pass");
@@ -979,197 +1177,15 @@ document.addEventListener("DOMContentLoaded", function() {
             input.addEventListener("keypress", function(e) {
                 if (e.key === "Enter") {
                     e.preventDefault();
-                    if (loginBtn) loginBtn.click();
+                    window.ejecutarLogin(e);
                 }
             });
         }
     });
 
-    // Función de búsqueda flexible y tolerante de estudiante
-    function buscarEstudianteFlexible(queryDoc, lista) {
-        if (!queryDoc || !Array.isArray(lista)) return null;
-        const normQ = String(queryDoc).trim().toLowerCase().replace(/[\.\,\-\_\s]/g, '');
-        if (!normQ) return null;
-
-        // 1. Coincidencia exacta de documento
-        let found = lista.find(u => {
-            const d = String(u.documento || u.id || u.usuario || '').trim().toLowerCase().replace(/[\.\,\-\_\s]/g, '');
-            return d === normQ;
-        });
-        if (found) return found;
-
-        // 2. Coincidencia por nombre o apellidos
-        found = lista.find(u => {
-            const n = String(u.nombre || '').toLowerCase().replace(/[\.\,\-\_\s]/g, '');
-            const a = String(u.apellidos || '').toLowerCase().replace(/[\.\,\-\_\s]/g, '');
-            const full = `${n} ${a}`.trim();
-            return (n && normQ.includes(n)) || (a && normQ.includes(a)) || (full && (normQ.includes(full) || full.includes(normQ)));
-        });
-        if (found) return found;
-
-        // 3. Coincidencia flexible de dígitos (prefijos, subcadenas o primeros 6 dígitos)
-        found = lista.find(u => {
-            const d = String(u.documento || u.id || u.usuario || '').trim().toLowerCase().replace(/[\.\,\-\_\s]/g, '');
-            if (d.length >= 5 && normQ.length >= 5) {
-                return d.startsWith(normQ) || normQ.startsWith(d) || d.includes(normQ) || normQ.includes(d) || d.substring(0,6) === normQ.substring(0,6);
-            }
-            return false;
-        });
-        return found || null;
-    }
-
     if (loginBtn) {
-        loginBtn.addEventListener("click", async function(e) {
-            e.preventDefault();
-            let rawUser = document.getElementById("admin-user") ? String(document.getElementById("admin-user").value).trim() : "";
-            let rawPass = document.getElementById("admin-pass") ? String(document.getElementById("admin-pass").value).trim() : "";
-            const rolSelect = document.getElementById("login-role");
-            const rol = rolSelect ? rolSelect.value : "estudiante";
-
-            if (!rawUser) {
-                if (errorMsg) { 
-                    errorMsg.style.display = "block"; 
-                    errorMsg.innerText = "Por favor ingresa tu número de documento de identidad."; 
-                }
-                return;
-            }
-
-            const normUser = rawUser.toLowerCase().replace(/[\.\,\-\_\s]/g, '');
-            // Si el estudiante no escribió contraseña, su contraseña por defecto es su mismo documento de identidad
-            let pass = rawPass || rawUser;
-
-            loginBtn.innerText = "Verificando...";
-            loginBtn.disabled = true;
-            if (errorMsg) errorMsg.style.display = "none";
-            
-            try {
-                let data = null;
-                try {
-                    const res = await fetch('/api/login', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ usuario: rawUser, clave: pass, rol: rol })
-                    });
-                    if (res.ok) {
-                        data = await res.json();
-                    }
-                } catch (netErr) {
-                    console.warn("Fallo conectando al servidor backend, buscando respaldo local...", netErr);
-                }
-                
-                // Si la API no respondió éxito, verificar si el estudiante está en localStorage o usuarios.json con búsqueda flexible
-                if (!data || data.status !== 'success') {
-                    let localUsers = JSON.parse(localStorage.getItem('usuarios_db') || '[]');
-                    let localEst = buscarEstudianteFlexible(normUser, localUsers);
-
-                    // Si no está aún en localStorage, consultar directamente usuarios.json
-                    if (!localEst) {
-                        try {
-                            const uRes = await fetch('usuarios.json?t=' + Date.now());
-                            if (uRes.ok) {
-                                const uData = await uRes.json();
-                                if (Array.isArray(uData)) {
-                                    localEst = buscarEstudianteFlexible(normUser, uData);
-                                    if (localEst) {
-                                        localUsers.push(localEst);
-                                        localStorage.setItem('usuarios_db', JSON.stringify(localUsers));
-                                    }
-                                }
-                            }
-                        } catch(e) {}
-                    }
-
-                    if (localEst) {
-                        data = {
-                            status: 'success',
-                            usuario: localEst.documento || rawUser,
-                            nombre: `${localEst.nombre || ''} ${localEst.apellidos || ''}`.trim() || rawUser,
-                            rol: (localEst.institucion === 'Validacion' || String(localEst.grupo || '').toLowerCase().includes('ciclo') || String(localEst.grado || '').toLowerCase().includes('ciclo')) ? 'validacion' : 'estudiante',
-                            grado: localEst.grado || localEst.grupo || '',
-                            grupo: localEst.grupo || localEst.grado || '',
-                            asignatura: localEst.asignatura || (localEst.materias ? localEst.materias.join(', ') : 'Ciencias Naturales'),
-                            institucion: localEst.institucion || 'IE Instituto Montenegro',
-                            pago_activo: localEst.pago_realizado !== false,
-                            pago_realizado: localEst.pago_realizado !== false,
-                            usuarioObj: localEst
-                        };
-                        // Sincronizar en segundo plano al backend
-                        fetch('/api/registro-estudiante', {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify(localEst)
-                        }).catch(() => {});
-                    } else if (normUser === 'admin' && (pass === 'admin' || pass === '123456' || pass === 'Biol2008%')) {
-                        data = { status: 'success', usuario: 'admin', nombre: 'Administrador', rol: 'admin' };
-                    }
-                }
-
-                if (data && data.status === 'success') {
-                    if (errorMsg) errorMsg.style.display = "none";
-                    
-                    window.rol_actual = data.rol; 
-                    usuario_actual = data.usuario; // Guardar ID del usuario actual
-
-                    // Guardar en sesión
-                    localStorage.setItem('usuario_sesion', JSON.stringify(data));
-                    
-                    // Asegurar que también quede en usuarios_db
-                    if (data.usuarioObj) {
-                        try {
-                            let uList = JSON.parse(localStorage.getItem('usuarios_db') || '[]');
-                            const idx = uList.findIndex(u => String(u.documento || u.id || '').toLowerCase().replace(/[\.\,\-\_\s]/g, '') === normUser);
-                            if (idx >= 0) uList[idx] = { ...uList[idx], ...data.usuarioObj };
-                            else uList.push(data.usuarioObj);
-                            localStorage.setItem('usuarios_db', JSON.stringify(uList));
-                        } catch(e) {}
-                    }
-
-                    if (data.rol === 'admin') {
-                        if (typeof mostrarVista === 'function') mostrarVista('dashboard-screen-container');
-                        else if (dashboardView) dashboardView.style.display = "block";
-                        cargarDatosAdmin();
-                    } else if (data.rol === 'docente') {
-                        if (typeof mostrarVista === 'function') mostrarVista('docente-dashboard-container');
-                        else if (docenteDashboardView) docenteDashboardView.style.display = "block";
-                        const dHeader = document.getElementById("docente-nombre-header");
-                        if (dHeader) dHeader.innerText = data.nombre;
-                        cargarEstudiantesDocente(data.usuario);
-                    } else if (data.rol === 'homeschool_tutor') {
-                        if (typeof mostrarVista === 'function') mostrarVista('tutor-dashboard-container');
-                        const tutorView = document.getElementById("tutor-dashboard-container");
-                        if (tutorView) tutorView.style.display = "block";
-                        const tHeader = document.getElementById("tutor-nombre-header");
-                        if (tHeader) tHeader.innerText = data.nombre;
-                        cargarEstudiantesTutor(data.usuario);
-                    } else { // Estudiante regular o Validación
-                        window.inicializarPanelEstudiante(data);
-                    }
-                } else {
-                    // AUTO-HABILITACIÓN DIRECTA: Si no se encontró por coincidencia exacta o difusa, abrir modal de auto-habilitación para que ingrese en 1 clic
-                    const modalAuto = document.getElementById("modal-auto-habilitacion");
-                    if (modalAuto) {
-                        const badge = document.getElementById("modal-auto-doc-badge");
-                        if (badge) badge.innerText = rawUser;
-                        const nomInput = document.getElementById("auto-nombre-completo");
-                        if (nomInput) nomInput.value = "Estudiante Montenegro";
-                        const cicloSelect = document.getElementById("auto-ciclo-grado");
-                        if (cicloSelect && rol === 'validacion') {
-                            cicloSelect.value = "Ciclo VI";
-                        }
-                        modalAuto.style.display = "flex";
-                        if (nomInput) nomInput.focus();
-                    } else if (errorMsg) { 
-                        errorMsg.style.display = "block"; 
-                        errorMsg.innerText = "❌ Documento no encontrado. Haz clic en '➕ Registrar Nuevo Estudiante / Matrícula'."; 
-                    }
-                }
-            } catch (err) {
-                console.error(err);
-                if (errorMsg) { errorMsg.style.display = "block"; errorMsg.innerText = "Error interno o de red al ingresar."; }
-            } finally {
-                loginBtn.innerText = "Iniciar Sesión";
-                loginBtn.disabled = false;
-            }
+        loginBtn.addEventListener("click", function(e) {
+            window.ejecutarLogin(e);
         });
     }
 
@@ -1705,7 +1721,13 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-}); // Fin DOMContentLoaded
+}; // Fin inicializarAppCore
+
+if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", window.inicializarAppCore);
+} else {
+    window.inicializarAppCore();
+}
 
 // ==========================================
 // FUNCIONES GLOBALES
