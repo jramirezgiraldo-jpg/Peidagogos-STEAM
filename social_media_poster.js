@@ -134,7 +134,71 @@ function publishToInstagram(imageUrl, caption, igAccountId, accessToken) {
     });
 }
 
+/**
+ * Publica una foto o video en Facebook usando Graph API
+ */
+function publishMediaToFacebook(message, mediaUrl, mediaType, pageId, accessToken) {
+    return new Promise((resolve, reject) => {
+        if (!pageId || !accessToken) {
+            return reject(new Error('Missing FB_PAGE_ID or META_ACCESS_TOKEN'));
+        }
+
+        let endpointPath = `/v20.0/${pageId}/photos`;
+        let payload = {
+            message: message,
+            access_token: accessToken
+        };
+
+        if (mediaType === 'video') {
+            endpointPath = `/v20.0/${pageId}/videos`;
+            payload = {
+                description: message,
+                file_url: mediaUrl,
+                access_token: accessToken
+            };
+        } else {
+            payload.url = mediaUrl;
+        }
+
+        const data = JSON.stringify(payload);
+
+        const options = {
+            hostname: 'graph.facebook.com',
+            port: 443,
+            path: endpointPath,
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Content-Length': Buffer.byteLength(data)
+            }
+        };
+
+        const req = https.request(options, (res) => {
+            let body = '';
+            res.on('data', (chunk) => {
+                body += chunk;
+            });
+            res.on('end', () => {
+                const response = JSON.parse(body);
+                if (response.error) {
+                    reject(new Error(response.error.message));
+                } else {
+                    resolve(response.id); // Devuelve el ID del post
+                }
+            });
+        });
+
+        req.on('error', (e) => {
+            reject(e);
+        });
+
+        req.write(data);
+        req.end();
+    });
+}
+
 module.exports = {
     publishToFacebook,
-    publishToInstagram
+    publishToInstagram,
+    publishMediaToFacebook
 };

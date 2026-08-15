@@ -1026,7 +1026,7 @@ app.get('/api/descargar-guias', (req, res) => {
 // INTEGRACIÓN REDES SOCIALES (META API)
 // ==========================================
 const { generateEducationalPost } = require('./ai_content_generator');
-const { publishToFacebook } = require('./social_media_poster');
+const { publishToFacebook, publishMediaToFacebook } = require('./social_media_poster');
 const crypto = require('crypto');
 
 // Memoria temporal para guardar posts pendientes de aprobación
@@ -1041,10 +1041,40 @@ async function generateAndProposePost() {
     
     const postText = await generateEducationalPost(keys[0]);
     
-    const postId = crypto.randomBytes(8).toString('hex');
-    pendingSocialPosts.set(postId, { text: postText, timestamp: Date.now() });
+    // Seleccionar multimedia al azar
+    let mediaUrl = null;
+    let mediaType = null;
+    try {
+        const mediaFiles = [];
+        const imagesDir = path.join(__dirname, 'marketing_kit', 'images');
+        if (fs.existsSync(imagesDir)) {
+            const files = fs.readdirSync(imagesDir).filter(f => f.match(/\.(png|jpg|jpeg|gif)$/i));
+            files.forEach(f => mediaFiles.push({ file: `marketing_kit/images/${f}`, type: 'photo' }));
+        }
+        const videosDir = path.join(__dirname, 'marketing_kit');
+        if (fs.existsSync(videosDir)) {
+            const files = fs.readdirSync(videosDir).filter(f => f.match(/\.(mp4|mov)$/i));
+            files.forEach(f => mediaFiles.push({ file: `marketing_kit/${f}`, type: 'video' }));
+        }
 
-    const telegramMsg = `🤖 PROPUESTA DE POST PARA REDES 🤖\n\n${postText}\n\n✅ APROBAR Y PUBLICAR:\nhttps://peidagogosteam.com/api/social/approve?id=${postId}\n\n❌ RECHAZAR:\nhttps://peidagogosteam.com/api/social/reject?id=${postId}`;
+        if (mediaFiles.length > 0) {
+            const randomMedia = mediaFiles[Math.floor(Math.random() * mediaFiles.length)];
+            mediaUrl = `https://peidagogosteam.com/${randomMedia.file}`;
+            mediaType = randomMedia.type;
+            console.log(`[SOCIAL] Multimedia seleccionada: ${mediaUrl} (${mediaType})`);
+        }
+    } catch (e) {
+        console.error('[SOCIAL] Error seleccionando multimedia:', e.message);
+    }
+
+    const postId = crypto.randomBytes(8).toString('hex');
+    pendingSocialPosts.set(postId, { text: postText, mediaUrl, mediaType, timestamp: Date.now() });
+
+    let telegramMsg = `🤖 PROPUESTA DE POST PARA REDES 🤖\n\n${postText}\n\n`;
+    if (mediaUrl) {
+        telegramMsg += `🖼️ Multimedia adjunta: ${mediaUrl}\n\n`;
+    }
+    telegramMsg += `✅ APROBAR Y PUBLICAR:\nhttps://peidagogosteam.com/api/social/approve?id=${postId}\n\n❌ RECHAZAR:\nhttps://peidagogosteam.com/api/social/reject?id=${postId}`;
     
     enviarAlertaTelegram(telegramMsg);
     console.log(`[SOCIAL] Post propuesto enviado a Telegram (ID: ${postId})`);
@@ -1078,7 +1108,12 @@ app.get('/api/social/approve', async (req, res) => {
             return res.status(500).send('<h1>Faltan FB_PAGE_ID o META_ACCESS_TOKEN en las variables de entorno.</h1>');
         }
 
-        const facebookId = await publishToFacebook(postData.text, pageId, metaToken);
+        let facebookId;
+        if (postData.mediaUrl) {
+            facebookId = await publishMediaToFacebook(postData.text, postData.mediaUrl, postData.mediaType, pageId, metaToken);
+        } else {
+            facebookId = await publishToFacebook(postData.text, pageId, metaToken);
+        }
         
         enviarAlertaTelegram(`✅ POST PUBLICADO EN FACEBOOK CON ÉXITO\nID: ${facebookId}`);
         res.send('<h1>¡Éxito! El post se ha publicado correctamente en Facebook.</h1><p>Ya puedes cerrar esta ventana.</p>');
