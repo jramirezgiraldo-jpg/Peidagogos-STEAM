@@ -790,6 +790,11 @@ window.inicializarPanelEstudiante = function(data) {
         }
     }
 
+    // 4.5. Cargar actividades y juegos asignados al estudiante
+    if (typeof window.cargarActividadesEstudiante === 'function') {
+        window.cargarActividadesEstudiante();
+    }
+
     // 5. Grid de Materias
     const subjectsGrid = document.getElementById("student-subjects-grid");
     if (subjectsGrid) {
@@ -3920,6 +3925,9 @@ window.abrirGrupo = async function(grupoName) {
                         <button onclick="verInformeEstudiante('${nomClean.replace(/'/g, "\\'")}', ${progreso}, '${grupoName}', '${docClean}')" style="background: #3B82F6; color: white; border: none; padding: 5px 10px; border-radius: 6px; font-weight: bold; font-size: 0.8rem; cursor: pointer; display: flex; align-items: center; gap: 4px;" title="Ver Ficha / Informe Pedagógico">
                             📊 Informe
                         </button>
+                        <button onclick="window.abrirModalAsignarActividad('estudiante', '${docClean}', '${grupoName}', '${nomClean.replace(/'/g, "\\'")}')" style="background: linear-gradient(135deg, #7C3AED, #6D28D9); color: white; border: none; padding: 5px 9px; border-radius: 6px; font-weight: bold; font-size: 0.8rem; cursor: pointer; display: flex; align-items: center; gap: 4px; box-shadow: 0 2px 5px rgba(124,58,237,0.25);" title="Asignar actividad o juego personalizado a este estudiante">
+                            🎮 Reto
+                        </button>
 
                         <!-- Menú Colgante Sanciones Disciplinarias (-10%) -->
                         <div class="dropdown-sancion-container" style="position: relative; display: inline-block;">
@@ -6904,6 +6912,9 @@ window.cargarEstudiantesTutor = async function(tutorId) {
                         <button onclick="verInformeEstudiante('${(est.nombre || '').replace(/'/g, "\\'")} ${(est.apellidos || '').replace(/'/g, "\\'")}', 0, '${est.grado || est.grupo || ''}', '${est.documento || ''}')" style="background: #4F46E5; color: white; border: none; padding: 6px 10px; border-radius: 6px; font-weight: 700; cursor: pointer; font-size: 0.8rem; display: inline-flex; align-items: center; gap: 4px; box-shadow: 0 1px 3px rgba(79,70,229,0.2);" title="Ver fichas de aprendizaje y orientar">
                             🧭 Orientar
                         </button>
+                        <button onclick="window.abrirModalAsignarActividad('estudiante', '${est.documento || ''}', '${est.grado || est.grupo || '7'}', '${(est.nombre || '').replace(/'/g, "\\'")} ${(est.apellidos || '').replace(/'/g, "\\'")}')" style="background: linear-gradient(135deg, #7C3AED, #6D28D9); color: white; border: none; padding: 6px 10px; border-radius: 6px; font-weight: 700; cursor: pointer; font-size: 0.8rem; display: inline-flex; align-items: center; gap: 4px; box-shadow: 0 1px 3px rgba(124,58,237,0.2);" title="Asignar reto o juego STEAM a este estudiante">
+                            🎮 Reto
+                        </button>
                         <button onclick="abrirMallaTutorDesdeEstudiante('${est.grado || est.grupo || '7'}', 'Naturales')" style="background: #059669; color: white; border: none; padding: 6px 10px; border-radius: 6px; font-weight: 700; cursor: pointer; font-size: 0.8rem; display: inline-flex; align-items: center; gap: 4px; box-shadow: 0 1px 3px rgba(5,150,105,0.2);" title="Ver Malla Curricular Oficial DBA de este grado">
                             📚 Malla DBA
                         </button>
@@ -7490,4 +7501,1421 @@ window.renderizarMallaEstudianteDBA = function() {
 
     container.innerHTML = window.generarHTMLDetalleMallaDBA(grado, materia, 'estudiante');
 };
+
+// ==========================================================================
+// MOTOR DE ACTIVIDADES Y JUEGOS PEDAGÓGICOS STEAM (10 TIPOS AUTOMATIZADOS)
+// ==========================================================================
+
+window.TIPOS_ACTIVIDADES_STEAM = [
+    { id: 'trivia', nombre: 'Trivia Contrarreloj', icon: '⚡', xp: 80, color: '#F59E0B', desc: '5 preguntas con cronómetro de 25s, racha de aciertos y bonus.' },
+    { id: 'crucigrama', nombre: 'Crucigrama Conceptual', icon: '🧩', xp: 100, color: '#3B82F6', desc: 'Cuadrícula interactiva con conceptos clave y pistas cruzadas.' },
+    { id: 'sopa_letras', nombre: 'Sopa de Letras con Pistas', icon: '🔍', xp: 70, color: '#10B981', desc: 'Pistas deductivas para buscar y descubrir términos ocultos.' },
+    { id: 'laboratorio', nombre: 'Laboratorio Casero', icon: '🧪', xp: 120, color: '#8B5CF6', desc: 'Reto experimental paso a paso con materiales del hogar.' },
+    { id: 'escape_room', nombre: 'Escape Room Virtual', icon: '🗺️', xp: 150, color: '#EC4899', desc: '3 enigmas encadenados para abrir el cofre del saber STEAM.' },
+    { id: 'duelo_parejas', nombre: 'Duelo de Emparejamiento', icon: '🃏', xp: 80, color: '#6366F1', desc: 'Memory game interactivo para asociar Conceptos y Definiciones.' },
+    { id: 'icfes_express', nombre: 'Simulacro Saber Express', icon: '🎯', xp: 100, color: '#DC2626', desc: '3 preguntas tipo ICFES con análisis de gráficas y distractores.' },
+    { id: 'dilema', nombre: 'Dilema Bioético / Caso Real', icon: '⚖️', xp: 110, color: '#0D9488', desc: 'Toma de decisiones ante un desafío de impacto real en la comunidad.' },
+    { id: 'redaccion_critica', nombre: 'Misión Redacción Anti-Copia', icon: '✍️', xp: 90, color: '#D97706', desc: 'Explicación creativa con detector de escritura y autoevaluación.' },
+    { id: 'debate_roleplay', nombre: 'Reto de Debate en Familia/Aula', icon: '🎭', xp: 100, color: '#4F46E5', desc: 'Asignación de roles y argumentos basados en evidencia científica.' }
+];
+
+// 1. Renderizador de Botones de Tipos de Actividades en el Modal de Asignación
+window.renderizarBotonesTiposActividad = function(seleccionadoId = 'trivia') {
+    const grid = document.getElementById('grid-tipos-actividad');
+    if (!grid) return;
+
+    grid.innerHTML = window.TIPOS_ACTIVIDADES_STEAM.map(t => {
+        const esActivo = t.id === seleccionadoId;
+        const bg = esActivo ? 'linear-gradient(135deg, #7C3AED, #6D28D9)' : '#FFFFFF';
+        const colorTexto = esActivo ? '#FFFFFF' : '#1E293B';
+        const borderColor = esActivo ? '#7C3AED' : '#E2E8F0';
+        const descColor = esActivo ? '#E9D5FF' : '#64748B';
+        const shadow = esActivo ? '0 4px 12px rgba(124,58,237,0.3)' : '0 1px 3px rgba(0,0,0,0.05)';
+
+        return `
+            <div onclick="window.seleccionarTipoActividad('${t.id}')" style="background: ${bg}; border: 1.5px solid ${borderColor}; border-radius: 12px; padding: 12px; cursor: pointer; transition: all 0.15s; box-shadow: ${shadow}; display: flex; flex-direction: column; justify-content: space-between;">
+                <div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                        <span style="font-size: 1.4rem;">${t.icon}</span>
+                        <span style="background: ${esActivo ? 'rgba(255,255,255,0.25)' : '#F3F4F6'}; color: ${esActivo ? '#FFFFFF' : '#4B5563'}; padding: 2px 8px; border-radius: 12px; font-weight: 800; font-size: 0.75rem;">
+                            +${t.xp} XP
+                        </span>
+                    </div>
+                    <div style="font-weight: 800; font-size: 0.9rem; color: ${colorTexto}; line-height: 1.25; margin-bottom: 4px;">
+                        ${t.nombre}
+                    </div>
+                    <div style="font-size: 0.75rem; color: ${descColor}; line-height: 1.3;">
+                        ${t.desc}
+                    </div>
+                </div>
+            </div>
+        `;
+    }).join('');
+};
+
+window.seleccionarTipoActividad = function(tipoId) {
+    const input = document.getElementById('asignar-tipo-actividad-seleccionada');
+    if (input) input.value = tipoId;
+    window.renderizarBotonesTiposActividad(tipoId);
+};
+
+// 2. Abrir y Cerrar Modal de Asignación
+window.abrirModalAsignarActividad = function(destinatarioTipo = 'grupo', idDestinatario = '6A', gradoDefecto = '7', nomDestinatario = '') {
+    const modal = document.getElementById('modal-asignar-actividad');
+    if (!modal) return;
+
+    const label = document.getElementById('modal-asignar-destinatario-label');
+    const badge = document.getElementById('modal-asignar-tipo-badge');
+    const inTipo = document.getElementById('asignar-destinatario-tipo');
+    const inId = document.getElementById('asignar-destinatario-id');
+    const inNom = document.getElementById('asignar-destinatario-nom');
+    const selGrado = document.getElementById('asignar-grado-select');
+
+    if (inTipo) inTipo.value = destinatarioTipo;
+    if (inId) inId.value = idDestinatario || 'General';
+    if (inNom) inNom.value = nomDestinatario || idDestinatario;
+
+    if (label) {
+        if (destinatarioTipo === 'estudiante') {
+            label.innerHTML = `<span>👤</span> ${nomDestinatario || idDestinatario} (Doc: ${idDestinatario})`;
+        } else if (idDestinatario === 'HomeSchool') {
+            label.innerHTML = `<span>🏡</span> Todos Mis Estudiantes Home School`;
+        } else {
+            label.innerHTML = `<span>🏫</span> Grupo ${idDestinatario}`;
+        }
+    }
+
+    if (badge) {
+        badge.innerText = destinatarioTipo === 'estudiante' ? 'Asignación Individual' : 'Asignación Grupal';
+        badge.style.background = destinatarioTipo === 'estudiante' ? '#FEF3C7' : '#E0E7FF';
+        badge.style.color = destinatarioTipo === 'estudiante' ? '#92400E' : '#4338CA';
+    }
+
+    if (selGrado && gradoDefecto) {
+        const limpioGrado = String(gradoDefecto).replace(/[^0-9a-zA-Z\s]/g, '').trim();
+        for (let opt of selGrado.options) {
+            if (opt.value === gradoDefecto || opt.value === limpioGrado || gradoDefecto.includes(opt.value)) {
+                selGrado.value = opt.value;
+                break;
+            }
+        }
+    }
+
+    window.seleccionarTipoActividad('trivia');
+    modal.style.display = 'flex';
+};
+
+window.cerrarModalAsignarActividad = function() {
+    const modal = document.getElementById('modal-asignar-actividad');
+    if (modal) modal.style.display = 'none';
+};
+
+// 3. Generador Dinámico de Contenido de Actividades (Offline & Universal)
+window.generarContenidoActividad = function(tipo, materia, grado, tema) {
+    const temaClean = tema && tema.trim() ? tema.trim() : `Fundamentos de ${materia} (Grado ${grado})`;
+
+    if (tipo === 'trivia') {
+        return {
+            titulo: `Desafío Arcade: ${temaClean}`,
+            preguntas: [
+                {
+                    q: `¿Cuál es el principio fundamental que rige en el estudio de ${temaClean}?`,
+                    opciones: ["Conservación y transformación de la energía", "Creación espontánea de materia", "Aislamiento total sin interacción", "Fuerza constante sin aceleración"],
+                    correcta: 0,
+                    explicacion: "En los sistemas naturales y físicos, la energía no se crea ni se destruye, solo se transforma."
+                },
+                {
+                    q: `En el contexto de ${materia}, ¿qué herramienta permite medir o validar una hipótesis?`,
+                    opciones: ["El método científico y la recolección de datos", "La intuición sin evidencia", "La repetición memorística", "El azar no controlado"],
+                    correcta: 0,
+                    explicacion: "El método científico aporta rigor mediante observación, experimentación y análisis cuantitativo."
+                },
+                {
+                    q: `¿Qué impacto tiene el desarrollo de ${temaClean} en la vida cotidiana y la tecnología?`,
+                    opciones: ["Optimiza procesos y mejora la sostenibilidad", "No tiene relación con la sociedad", "Genera retroceso en los modelos de producción", "Aplica únicamente en laboratorios cerrados"],
+                    correcta: 0,
+                    explicacion: "La ciencia aplicada permite resolver problemas comunitarios y optimizar recursos vitales."
+                },
+                {
+                    q: `¿Cuál de las siguientes magnitudes o variables es clave para modelar ${temaClean}?`,
+                    opciones: ["Variables independientes y dependientes cuantificables", "Opiniones no verificadas", "Valores subjetivos", "Magnitudes sin unidad de medida"],
+                    correcta: 0,
+                    explicacion: "Todo modelo científico requiere variables precisas con unidades del Sistema Internacional."
+                },
+                {
+                    q: `¿Cómo se vincula el enfoque STEAM en la resolución de problemas sobre ${temaClean}?`,
+                    opciones: ["Integrando Ciencia, Tecnología, Ingeniería, Arte y Matemáticas", "Estudiando solo teoría sin práctica", "Descartando el diseño y la creatividad", "Separando las matemáticas de la realidad"],
+                    correcta: 0,
+                    explicacion: "STEAM une disciplinas interdisciplinarias para generar soluciones innovadoras y contextualizadas."
+                }
+            ]
+        };
+    } else if (tipo === 'crucigrama') {
+        return {
+            titulo: `Crucigrama Conceptual: ${temaClean}`,
+            palabras: [
+                { num: 1, dir: 'H', palabra: 'ENERGIA', pista: 'Capacidad de realizar un trabajo o producir cambios en la materia.' },
+                { num: 2, dir: 'V', palabra: 'METODO', pista: 'Conjunto ordenado de pasos para investigar un fenómeno (científico).' },
+                { num: 3, dir: 'H', palabra: 'HIPOTESIS', pista: 'Explicación tentativa y comprobable ante una pregunta de investigación.' },
+                { num: 4, dir: 'V', palabra: 'SISTEMA', pista: 'Conjunto de elementos interrelacionados que funcionan como un todo.' },
+                { num: 5, dir: 'H', palabra: 'MATERIA', pista: 'Todo lo que ocupa un lugar en el espacio y tiene masa.' },
+                { num: 6, dir: 'V', palabra: 'MODELO', pista: 'Representación simplificada de la realidad para comprender un proceso.' }
+            ]
+        };
+    } else if (tipo === 'sopa_letras') {
+        return {
+            titulo: `Sopa de Letras y Pistas Deductivas: ${temaClean}`,
+            pistas: [
+                { pista: "Proceso biológico o físico donde se intercambia calor y masa", palabra: "TERMODINAMICA" },
+                { pista: "Capacidad de un ecosistema o sistema de mantenerse en equilibrio", palabra: "RESILIENCIA" },
+                { pista: "Elemento indispensable para el desarrollo de la vida y el solvente universal", palabra: "AGUA" },
+                { pista: "Unidad fundamental de la vida en los organismos", palabra: "CELULA" },
+                { pista: "Fuerza de atracción gravitacional o interacción molecular", palabra: "GRAVEDAD" }
+            ],
+            grid: [
+                ["T","E","R","M","O","D","I","N","A","M","I","C","A"],
+                ["X","R","E","S","I","L","I","E","N","C","I","A","Q"],
+                ["P","Z","A","G","U","A","M","K","L","P","W","S","E"],
+                ["C","E","L","U","L","A","B","F","G","R","A","V","E"],
+                ["G","R","A","V","E","D","A","D","O","P","T","N","M"],
+                ["N","O","T","A","S","T","E","A","M","C","I","E","N"],
+                ["E","Q","U","I","L","I","B","R","I","O","S","K","L"]
+            ]
+        };
+    } else if (tipo === 'laboratorio') {
+        return {
+            titulo: `Misión Experimental en Casa: ${temaClean}`,
+            materiales: ["1 Vaso o recipiente transparente", "Agua a temperatura ambiente", "Sal de cocina o azúcar", "Regla o cinta métrica", "Cronómetro del celular", "Hoja de registro de observaciones"],
+            pregunta_investigacion: `¿Cómo varía el comportamiento del sistema cuando modificamos una variable clave en ${temaClean}?`,
+            pasos: [
+                "1. Formula tu hipótesis previa: ¿Qué crees que sucederá al variar la concentración o la fuerza aplicada?",
+                "2. Prepara el montaje experimental y mide las condiciones iniciales con precisión.",
+                "3. Realiza la primera prueba de control y registra el tiempo exacto en segundos.",
+                "4. Introduce la variable independiente (ej: temperatura, mezcla o inclinación) y repite 3 veces.",
+                "5. Registra la tabla de datos y redacta tu conclusión basada en la evidencia."
+            ]
+        };
+    } else if (tipo === 'escape_room') {
+        return {
+            titulo: `Escape Room Virtual: El Enigma de ${temaClean}`,
+            enigmas: [
+                {
+                    numero: 1,
+                    titulo: "🔒 Candado 1: El Código Numérico Proporcional",
+                    pista: "Un sistema consume 12 Joules cada 3 segundos. ¿Cuántos Watts de potencia representa? (P = E / t). Ingresa el número:",
+                    codigo_correcto: "4",
+                    explicacion: "12 / 3 = 4 Watts de potencia."
+                },
+                {
+                    numero: 2,
+                    titulo: "🔒 Candado 2: La Clave Molecular",
+                    pista: "¿Cuál es el número atómico del Carbono, base de la química orgánica en nuestro planeta?",
+                    codigo_correcto: "6",
+                    explicacion: "El Carbono tiene número atómico Z = 6."
+                },
+                {
+                    numero: 3,
+                    titulo: "🔒 Candado 3: La Ecuación Final del Saber",
+                    pista: "Suma los dos códigos anteriores (4 + 6) y multiplícalo por 2:",
+                    codigo_correcto: "20",
+                    explicacion: "(4 + 6) * 2 = 20."
+                }
+            ]
+        };
+    } else if (tipo === 'duelo_parejas') {
+        return {
+            titulo: `Duelo de Emparejamiento: ${temaClean}`,
+            parejas: [
+                { id: 1, concepto: "Fuerza Neta", match: "Masa × Aceleración (2da Ley de Newton)" },
+                { id: 2, concepto: "Fotosíntesis", match: "Transformación de luz solar en energía química" },
+                { id: 3, concepto: "Densidad", match: "Relación entre Masa y Volumen (m/V)" },
+                { id: 4, concepto: "Ecosistema", match: "Interacción entre factores bióticos y abióticos" },
+                { id: 5, concepto: "Variable Independiente", match: "Factor manipulado por el investigador en el experimento" },
+                { id: 6, concepto: "Velocidad", match: "Cambio de posición en función del tiempo (Δx/Δt)" }
+            ]
+        };
+    } else if (tipo === 'icfes_express') {
+        return {
+            titulo: `Simulacro Saber 11 Express: ${temaClean}`,
+            preguntas: [
+                {
+                    q: `Un grupo de estudiantes realiza un experimento para medir la tasa fotosintética variando la intensidad lumínica. Los datos muestran que a partir de 800 lux la producción de oxígeno se estabiliza. Con base en esto, es correcto afirmar que:`,
+                    opciones: [
+                        "La luz deja de ser el factor limitante y la tasa máxima de las enzimas se ha alcanzado.",
+                        "La planta detiene por completo la respiración celular.",
+                        "El dióxido de carbono se destruyó espontáneamente.",
+                        "A mayor luz siempre habrá un aumento infinito en la producción."
+                    ],
+                    correcta: 0,
+                    justificacion: "La saturación enzimática y la disponibilidad de CO2 limitan la velocidad máxima del proceso biofísico."
+                },
+                {
+                    q: `En una gráfica de Posición vs. Tiempo, una línea horizontal paralela al eje del tiempo representa que el cuerpo:`,
+                    opciones: [
+                        "Se encuentra en reposo (velocidad igual a cero).",
+                        "Se desplaza con aceleración constante positiva.",
+                        "Se mueve a la velocidad de la luz.",
+                        "Posee velocidad infinita en un instante."
+                    ],
+                    correcta: 0,
+                    justificacion: "Si la posición no varía al transcurrir el tiempo, la derivada dx/dt (velocidad) es 0."
+                },
+                {
+                    q: `Frente a la contaminación hídrica por lixiviados en una cuenca del Quindío, ¿cuál propuesta STEAM combina bio-remediación con ingeniería sostenible?`,
+                    opciones: [
+                        "Implementar humedales artificiales con plantas macrofitas filtrantes y sensores IoT de pH.",
+                        "Canalizar el agua contaminada directamente al río principal sin tratamiento.",
+                        "Aplicar cloro masivo que destruya toda la fauna microbiana nativa.",
+                        "Ignorar el monitoreo y confiar en la evaporación natural."
+                    ],
+                    correcta: 0,
+                    justificacion: "Los humedales artificiales bio-filtran metales y materia orgánica de forma ecológica y monitoreada."
+                }
+            ]
+        };
+    } else if (tipo === 'dilema') {
+        return {
+            titulo: `Dilema Bioético y Caso Real: ${temaClean}`,
+            contexto: `En un municipio cordillerano, una empresa propone instalar un parque eólico en una reserva biológica que suministra el 40% del agua potable local. El proyecto reduciría la huella de carbono pero podría alterar el corredor biológico de aves migratorias y fuentes hídricas.`,
+            pregunta_central: `¿Cómo ponderarías la transición hacia energías limpias frente a la conservación del recurso hídrico y la biodiversidad?`,
+            opciones: [
+                {
+                    texto: "Aprobar el proyecto exigiendo rediseño en zonas de amortiguación no críticas y reforestación con especies nativas.",
+                    impacto: "Equilibra la generación de energía renovable con la protección estricta de las cuencas hídricas vitales."
+                },
+                {
+                    texto: "Rechazar de plano el proyecto priorizando la reserva hídrica y buscando predios degradados para la energía eólica.",
+                    impacto: "Garantiza el 100% de la seguridad hídrica comunitaria y promueve el ordenamiento territorial responsable."
+                },
+                {
+                    texto: "Aprobar sin modificaciones para acelerar el crecimiento económico a corto plazo.",
+                    impacto: "Riesgo crítico de daño irreversible en el abastecimiento de agua y biodiversidad local."
+                }
+            ]
+        };
+    } else if (tipo === 'redaccion_critica') {
+        return {
+            titulo: `Misión de Redacción Anti-Copia: ${temaClean}`,
+            consigna: `Explica con tus propias palabras y un ejemplo cotidiano: ¿Cómo aplicarías los conceptos de ${temaClean} para resolver un problema de tu hogar, escuela o barrio? (Mínimo 60 palabras).`,
+            rubrica: ["Originalidad del ejemplo", "Uso correcto del vocabulario técnico", "Coherencia argumentativa"]
+        };
+    } else {
+        // debate_roleplay
+        return {
+            titulo: `Reto de Debate STEAM: ${temaClean}`,
+            tema_debate: `¿Debe regularse estrictamente o liberarse el uso de nuevas tecnologías aplicadas a ${temaClean}?`,
+            roles: [
+                { rol: "🔬 Científico/Investigador", postura: "Defiende el avance riguroso con base en evidencia empírica y método científico." },
+                { rol: "🌿 Ambientalista / Líder Social", postura: "Exige el principio de precaución y la protección de los derechos colectivos." },
+                { rol: "⚙️ Ingeniero / Tecnólogo", postura: "Propone soluciones prácticas, escalabilidad y optimización de recursos." }
+            ]
+        };
+    }
+};
+
+// 4. Ejecutar Asignación de Actividad (Envío a API y LocalStorage)
+window.ejecutarAsignacionActividad = async function() {
+    const btn = document.getElementById('btn-ejecutar-asignar-actividad');
+    const inTipo = document.getElementById('asignar-destinatario-tipo');
+    const inId = document.getElementById('asignar-destinatario-id');
+    const inNom = document.getElementById('asignar-destinatario-nom');
+    const inTipoAct = document.getElementById('asignar-tipo-actividad-seleccionada');
+    const selMat = document.getElementById('asignar-materia-select');
+    const selGra = document.getElementById('asignar-grado-select');
+    const selPer = document.getElementById('asignar-periodo-select');
+    const inTema = document.getElementById('asignar-tema-input');
+
+    const tipo_actividad = inTipoAct ? inTipoAct.value : 'trivia';
+    const destinatario_tipo = inTipo ? inTipo.value : 'grupo';
+    const destinatario_id = inId ? inId.value : 'General';
+    const destinatario_nombre = inNom ? inNom.value : destinatario_id;
+    const materia = selMat ? selMat.value : 'Ciencias Naturales';
+    const grado = selGra ? selGra.value : '7';
+    const periodo = selPer ? selPer.value : '3';
+    const tema = inTema && inTema.value.trim() ? inTema.value.trim() : `Fundamentos de ${materia}`;
+
+    if (btn) {
+        btn.disabled = true;
+        btn.innerHTML = `<span>⏳</span> Generando Actividad STEAM...`;
+    }
+
+    try {
+        const actividad_data = window.generarContenidoActividad(tipo_actividad, materia, grado, tema);
+
+        const payload = {
+            tipo_actividad,
+            destinatario_tipo,
+            destinatario_id,
+            destinatario_nombre,
+            materia,
+            grado,
+            periodo,
+            tema,
+            actividad_data,
+            creador_id: window.usuario_actual || 'ADMIN'
+        };
+
+        // Guardar en backend
+        let asignada = null;
+        try {
+            const res = await fetch('/api/asignar-actividad', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+            if (res.ok) {
+                const json = await res.json();
+                asignada = json.actividad;
+            }
+        } catch(e) {
+            console.warn("Fallo temporal en API backend, guardando localmente:", e);
+        }
+
+        if (!asignada) {
+            asignada = {
+                ...payload,
+                id: 'act_' + Date.now() + '_' + Math.random().toString(36).substr(2, 5),
+                fecha_creacion: new Date().toISOString(),
+                completada_por: []
+            };
+        }
+
+        // Respaldo en localStorage
+        let localActs = JSON.parse(localStorage.getItem('actividades_asignadas_db') || '[]');
+        localActs.unshift(asignada);
+        localStorage.setItem('actividades_asignadas_db', JSON.stringify(localActs));
+
+        window.cerrarModalAsignarActividad();
+
+        // Toast de confirmación
+        if (typeof window.mostrarToastXP === 'function') {
+            window.mostrarToastXP(`🎮 ¡Actividad asignada con éxito a ${destinatario_nombre}!`);
+        } else {
+            alert(`✅ ¡Actividad asignada con éxito a ${destinatario_nombre}!`);
+        }
+
+    } catch (err) {
+        console.error("Error asignando actividad:", err);
+        alert("Ocurrió un error al generar y asignar la actividad.");
+    } finally {
+        if (btn) {
+            btn.disabled = false;
+            btn.innerHTML = `<span>✨</span> Generar y Asignar Actividad`;
+        }
+    }
+};
+
+// 5. Cargar Actividades Asignadas en el Panel del Estudiante
+window.cargarActividadesEstudiante = async function() {
+    const container = document.getElementById('student-actividades-container');
+    const list = document.getElementById('student-actividades-list');
+    const badgeCount = document.getElementById('badge-actividades-pendientes-count');
+    if (!container || !list) return;
+
+    const estudiante = window.usuarioEstudianteActual || {};
+    const doc = String(estudiante.documento || estudiante.usuario || window.usuario_actual || '').trim();
+    const grupo = String(estudiante.grupo || estudiante.grado || '').trim().toLowerCase();
+    const grado = String(estudiante.grado || '').trim().toLowerCase();
+
+    if (!doc) {
+        container.style.display = 'none';
+        return;
+    }
+
+    let actividades = [];
+
+    // Consultar API
+    try {
+        const res = await fetch(`/api/actividades-estudiante?documento=${encodeURIComponent(doc)}&grupo=${encodeURIComponent(grupo)}&grado=${encodeURIComponent(grado)}`);
+        if (res.ok) {
+            actividades = await res.json();
+        }
+    } catch(e) {}
+
+    // Combinar con localStorage
+    const localActs = JSON.parse(localStorage.getItem('actividades_asignadas_db') || '[]');
+    localActs.forEach(la => {
+        if (!actividades.some(a => a.id === la.id)) {
+            if (la.destinatario_tipo === 'estudiante' && String(la.destinatario_id).trim() === doc) {
+                actividades.push(la);
+            } else if (la.destinatario_tipo === 'grupo') {
+                const destG = String(la.destinatario_id || '').trim().toLowerCase();
+                if (destG === 'todos' || destG === 'homeschool' || destG === grupo || destG === grado || grupo.includes(destG)) {
+                    actividades.push(la);
+                }
+            }
+        }
+    });
+
+    if (actividades.length === 0) {
+        container.style.display = 'none';
+        return;
+    }
+
+    container.style.display = 'block';
+
+    // Contar pendientes
+    let pendientes = 0;
+    list.innerHTML = '';
+
+    actividades.forEach(act => {
+        const completada = (act.completada_por && act.completada_por.some(c => String(c.documento).trim() === doc)) ||
+                           localStorage.getItem(`act_completada_${act.id}_${doc}`) === 'true';
+
+        if (!completada) pendientes++;
+
+        const tipoMeta = window.TIPOS_ACTIVIDADES_STEAM.find(t => t.id === act.tipo_actividad) || { icon: '🎮', nombre: 'Actividad STEAM', xp: 80, color: '#3B82F6' };
+
+        const card = document.createElement('div');
+        card.style.cssText = `
+            background: white;
+            border: 1.5px solid ${completada ? '#A7F3D0' : '#C7D2FE'};
+            border-radius: 14px;
+            padding: 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+        `;
+
+        card.innerHTML = `
+            <div>
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+                    <span style="font-size: 1.8rem;">${tipoMeta.icon}</span>
+                    <span style="background: ${completada ? '#DEF7EC' : '#EEF2FF'}; color: ${completada ? '#03543F' : '#4338CA'}; padding: 3px 10px; border-radius: 20px; font-weight: 800; font-size: 0.78rem;">
+                        ${completada ? '✅ Completada' : `⭐ +${tipoMeta.xp} XP`}
+                    </span>
+                </div>
+                <div style="font-weight: 800; font-size: 1.05rem; color: #1E1B4B; margin-bottom: 4px;">
+                    ${act.tema || tipoMeta.nombre}
+                </div>
+                <div style="font-size: 0.8rem; color: #64748B; margin-bottom: 12px;">
+                    📚 ${act.materia} • Grado ${act.grado} • Periodo ${act.periodo}
+                </div>
+            </div>
+            <div>
+                ${completada ? `
+                    <div style="background: #F0FDF4; border: 1px solid #BBF7D0; color: #166534; padding: 8px; border-radius: 8px; font-size: 0.82rem; font-weight: 700; text-align: center;">
+                        🏆 ¡Reto Superado con Éxito!
+                    </div>
+                ` : `
+                    <button onclick="window.iniciarJuegoActividad('${act.id}')" style="width: 100%; background: linear-gradient(135deg, #7C3AED, #6D28D9); color: white; border: none; padding: 10px; border-radius: 10px; font-weight: 800; font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px; box-shadow: 0 4px 10px rgba(124,58,237,0.25);">
+                        <span>🎮</span> ¡Jugar Misión Ahora!
+                    </button>
+                `}
+            </div>
+        `;
+        list.appendChild(card);
+    });
+
+    if (badgeCount) {
+        badgeCount.innerText = `${pendientes} Pendiente${pendientes !== 1 ? 's' : ''}`;
+        badgeCount.style.background = pendientes > 0 ? '#EC4899' : '#10B981';
+    }
+};
+
+// 6. Iniciar y Ejecutar Juego Interactivo para el Estudiante
+window.actividadEnJuegoActual = null;
+window.triviaTimerInterval = null;
+
+window.iniciarJuegoActividad = function(actividadId) {
+    const modal = document.getElementById('modal-juego-actividad');
+    const container = document.getElementById('juego-actividad-contenido');
+    const iconHeader = document.getElementById('juego-icono-actividad');
+    const tituloHeader = document.getElementById('juego-titulo-actividad');
+    const materiaBadge = document.getElementById('juego-materia-badge');
+    const xpBadge = document.getElementById('juego-xp-badge');
+    const timerContainer = document.getElementById('juego-timer-container');
+
+    if (!modal || !container) return;
+
+    // Buscar actividad en memoria o localStorage
+    let localActs = JSON.parse(localStorage.getItem('actividades_asignadas_db') || '[]');
+    let act = localActs.find(a => a.id === actividadId);
+
+    if (!act) {
+        alert("Actividad no encontrada.");
+        return;
+    }
+
+    window.actividadEnJuegoActual = act;
+    const tipoMeta = window.TIPOS_ACTIVIDADES_STEAM.find(t => t.id === act.tipo_actividad) || { icon: '🎮', nombre: 'Reto STEAM', xp: 80 };
+
+    if (iconHeader) iconHeader.innerText = tipoMeta.icon;
+    if (tituloHeader) tituloHeader.innerText = act.tema || tipoMeta.nombre;
+    if (materiaBadge) materiaBadge.innerText = `📚 ${act.materia}`;
+    if (xpBadge) xpBadge.innerText = `⭐ +${tipoMeta.xp} XP`;
+    if (timerContainer) timerContainer.style.display = (act.tipo_actividad === 'trivia') ? 'flex' : 'none';
+
+    container.innerHTML = '';
+    modal.style.display = 'flex';
+
+    // Despachar al motor específico
+    if (act.tipo_actividad === 'trivia') {
+        window.renderizarMotorTrivia(act, container);
+    } else if (act.tipo_actividad === 'crucigrama') {
+        window.renderizarMotorCrucigrama(act, container);
+    } else if (act.tipo_actividad === 'sopa_letras') {
+        window.renderizarMotorSopaLetras(act, container);
+    } else if (act.tipo_actividad === 'laboratorio') {
+        window.renderizarMotorLaboratorio(act, container);
+    } else if (act.tipo_actividad === 'escape_room') {
+        window.renderizarMotorEscapeRoom(act, container);
+    } else if (act.tipo_actividad === 'duelo_parejas') {
+        window.renderizarMotorMemoryCards(act, container);
+    } else if (act.tipo_actividad === 'icfes_express') {
+        window.renderizarMotorIcfesExpress(act, container);
+    } else if (act.tipo_actividad === 'dilema') {
+        window.renderizarMotorDilema(act, container);
+    } else if (act.tipo_actividad === 'redaccion_critica') {
+        window.renderizarMotorRedaccion(act, container);
+    } else {
+        window.renderizarMotorDebate(act, container);
+    }
+};
+
+window.cerrarModalJuegoActividad = function() {
+    const modal = document.getElementById('modal-juego-actividad');
+    if (modal) modal.style.display = 'none';
+    if (window.triviaTimerInterval) {
+        clearInterval(window.triviaTimerInterval);
+        window.triviaTimerInterval = null;
+    }
+};
+
+// --- MOTOR 1: TRIVIA CONTRARRELOJ ---
+window.renderizarMotorTrivia = function(act, container) {
+    const data = act.actividad_data || window.generarContenidoActividad('trivia', act.materia, act.grado, act.tema);
+    const preguntas = data.preguntas || [];
+    let qIdx = 0;
+    let aciertos = 0;
+    let streak = 0;
+    let tiempoRestante = 25;
+
+    function renderPregunta() {
+        if (qIdx >= preguntas.length) {
+            // Fin de la trivia
+            if (window.triviaTimerInterval) clearInterval(window.triviaTimerInterval);
+            const puntaje = Math.round((aciertos / preguntas.length) * 100);
+            window.finalizarJuegoPantalla(act, puntaje, 80);
+            return;
+        }
+
+        const p = preguntas[qIdx];
+        tiempoRestante = 25;
+        const timerSeg = document.getElementById('juego-timer-segundos');
+        if (timerSeg) timerSeg.innerText = tiempoRestante;
+
+        if (window.triviaTimerInterval) clearInterval(window.triviaTimerInterval);
+        window.triviaTimerInterval = setInterval(() => {
+            tiempoRestante--;
+            if (timerSeg) timerSeg.innerText = tiempoRestante;
+            if (tiempoRestante <= 0) {
+                clearInterval(window.triviaTimerInterval);
+                responder(-1); // Tiempo agotado
+            }
+        }, 1000);
+
+        container.innerHTML = `
+            <div style="text-align: left;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                    <span style="font-weight: 800; color: #4338CA; background: #EEF2FF; padding: 4px 12px; border-radius: 20px; font-size: 0.85rem;">
+                        Pregunta ${qIdx + 1} de ${preguntas.length}
+                    </span>
+                    <span style="font-weight: 800; color: #D97706; font-size: 0.9rem;">
+                        🔥 Racha: ${streak} | Aciertos: ${aciertos}
+                    </span>
+                </div>
+                <h4 style="font-size: 1.25rem; font-weight: 900; color: #1E1B4B; line-height: 1.4; margin-bottom: 20px;">
+                    ${p.q}
+                </h4>
+                <div style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px;">
+                    ${p.opciones.map((opt, idx) => `
+                        <button id="opt-trivia-${idx}" onclick="window.responderTrivia(${idx})" style="background: white; border: 2px solid #E2E8F0; padding: 14px 18px; border-radius: 12px; font-size: 1rem; font-weight: 700; color: #1E293B; text-align: left; cursor: pointer; transition: all 0.15s; display: flex; align-items: center; gap: 10px;">
+                            <span style="background: #F1F5F9; color: #475569; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 0.85rem;">${['A','B','C','D'][idx]}</span>
+                            <span>${opt}</span>
+                        </button>
+                    `).join('')}
+                </div>
+                <div id="trivia-feedback" style="display: none; padding: 12px 16px; border-radius: 10px; font-weight: 700; font-size: 0.95rem; margin-top: 10px;"></div>
+            </div>
+        `;
+    }
+
+    window.responderTrivia = function(seleccionadoIdx) {
+        if (window.triviaTimerInterval) clearInterval(window.triviaTimerInterval);
+        const p = preguntas[qIdx];
+        const feedback = document.getElementById('trivia-feedback');
+
+        for (let i = 0; i < p.opciones.length; i++) {
+            const btn = document.getElementById(`opt-trivia-${i}`);
+            if (btn) {
+                btn.disabled = true;
+                if (i === p.correcta) {
+                    btn.style.background = '#DEF7EC';
+                    btn.style.borderColor = '#10B981';
+                    btn.style.color = '#03543F';
+                } else if (i === seleccionadoIdx) {
+                    btn.style.background = '#FDE8E8';
+                    btn.style.borderColor = '#F87171';
+                    btn.style.color = '#9B1C1C';
+                }
+            }
+        }
+
+        if (seleccionadoIdx === p.correcta) {
+            aciertos++;
+            streak++;
+            if (feedback) {
+                feedback.style.display = 'block';
+                feedback.style.background = '#ECFDF5';
+                feedback.style.color = '#065F46';
+                feedback.style.border = '1px solid #A7F3D0';
+                feedback.innerHTML = `✨ ¡Excelente! ${p.explicacion || ''}`;
+            }
+        } else {
+            streak = 0;
+            if (feedback) {
+                feedback.style.display = 'block';
+                feedback.style.background = '#FEF2F2';
+                feedback.style.color = '#991B1B';
+                feedback.style.border = '1px solid #FECACA';
+                feedback.innerHTML = `💡 ${p.explicacion || 'Revisa el concepto e inténtalo de nuevo.'}`;
+            }
+        }
+
+        setTimeout(() => {
+            qIdx++;
+            renderPregunta();
+        }, 1800);
+    };
+
+    renderPregunta();
+};
+
+// --- MOTOR 2: CRUCIGRAMA CONCEPTUAL ---
+window.renderizarMotorCrucigrama = function(act, container) {
+    const data = act.actividad_data || window.generarContenidoActividad('crucigrama', act.materia, act.grado, act.tema);
+    const palabras = data.palabras || [];
+
+    container.innerHTML = `
+        <div style="text-align: left;">
+            <p style="color: #475569; font-size: 0.95rem; margin-bottom: 20px;">
+                Deduce cada concepto a partir de su pista y completa las casillas con las letras correctas:
+            </p>
+            <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 25px; align-items: start;">
+                <div style="background: #F8FAFC; border: 1.5px solid #E2E8F0; padding: 20px; border-radius: 16px;">
+                    <h5 style="margin: 0 0 15px 0; font-size: 1.05rem; font-weight: 800; color: #1E293B;">Conceptos a Descubrir:</h5>
+                    <div style="display: flex; flex-direction: column; gap: 14px;">
+                        ${palabras.map(p => `
+                            <div style="background: white; border: 1px solid #CBD5E1; padding: 12px; border-radius: 10px;">
+                                <div style="font-weight: 800; font-size: 0.85rem; color: #4338CA; margin-bottom: 4px;">
+                                    ${p.num}. [${p.dir === 'H' ? 'Horizontal' : 'Vertical'}] (${p.palabra.length} Letras)
+                                </div>
+                                <div style="font-size: 0.88rem; color: #334155; margin-bottom: 8px;">
+                                    ${p.pista}
+                                </div>
+                                <input type="text" id="input-crucigrama-${p.num}" maxlength="${p.palabra.length}" placeholder="Escribe tu respuesta..." style="width: 100%; padding: 8px 12px; border: 1.5px solid #94A3B8; border-radius: 6px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; box-sizing: border-box;">
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+
+                <div style="background: #EEF2FF; border: 1.5px solid #C7D2FE; padding: 20px; border-radius: 16px; text-align: center;">
+                    <div style="font-size: 3rem; margin-bottom: 10px;">🧩</div>
+                    <h4 style="margin: 0 0 8px 0; font-weight: 900; color: #1E1B4B;">Verificación de Respuestas</h4>
+                    <p style="font-size: 0.85rem; color: #475569; margin-bottom: 20px;">
+                        Una vez hayas completado todos los términos, valida tu crucigrama para reclamar tus XP.
+                    </p>
+                    <button onclick="window.validarCrucigrama()" style="width: 100%; background: linear-gradient(135deg, #2563EB, #1D4ED8); color: white; border: none; padding: 14px; border-radius: 12px; font-weight: 900; font-size: 1rem; cursor: pointer; box-shadow: 0 4px 12px rgba(37,99,235,0.3);">
+                        ✓ Comprobar Crucigrama
+                    </button>
+                    <div id="crucigrama-resultado" style="margin-top: 15px; font-weight: 800; font-size: 0.95rem;"></div>
+                </div>
+            </div>
+        </div>
+    `;
+
+    window.validarCrucigrama = function() {
+        let aciertos = 0;
+        palabras.forEach(p => {
+            const input = document.getElementById(`input-crucigrama-${p.num}`);
+            if (input) {
+                const val = input.value.trim().toUpperCase();
+                if (val === p.palabra.toUpperCase()) {
+                    aciertos++;
+                    input.style.borderColor = '#10B981';
+                    input.style.background = '#ECFDF5';
+                } else {
+                    input.style.borderColor = '#F87171';
+                    input.style.background = '#FEF2F2';
+                }
+            }
+        });
+
+        const resDiv = document.getElementById('crucigrama-resultado');
+        if (aciertos === palabras.length) {
+            if (resDiv) {
+                resDiv.style.color = '#059669';
+                resDiv.innerText = '🎉 ¡Crucigrama 100% Correcto!';
+            }
+            setTimeout(() => window.finalizarJuegoPantalla(act, 100, 100), 1200);
+        } else {
+            if (resDiv) {
+                resDiv.style.color = '#D97706';
+                resDiv.innerText = `Llevas ${aciertos} de ${palabras.length} correctas. ¡Revisa las casillas en rojo!`;
+            }
+        }
+    };
+};
+
+// --- MOTOR 3: SOPA DE LETRAS CON PISTAS ---
+window.renderizarMotorSopaLetras = function(act, container) {
+    const data = act.actividad_data || window.generarContenidoActividad('sopa_letras', act.materia, act.grado, act.tema);
+    const pistas = data.pistas || [];
+    const grid = data.grid || [];
+
+    container.innerHTML = `
+        <div style="text-align: left;">
+            <p style="color: #475569; font-size: 0.95rem; margin-bottom: 15px;">
+                Resuelve las pistas deductivas y encuentra las palabras ocultas en la cuadrícula:
+            </p>
+            <div style="display: grid; grid-template-columns: 1.4fr 1fr; gap: 20px; align-items: start;">
+                
+                <!-- Cuadrícula de Letras -->
+                <div style="background: white; border: 2px solid #E2E8F0; padding: 15px; border-radius: 16px; overflow-x: auto; text-align: center;">
+                    <table style="margin: 0 auto; border-collapse: separate; border-spacing: 4px;">
+                        ${grid.map((fila, rIdx) => `
+                            <tr>
+                                ${fila.map((letra, cIdx) => `
+                                    <td onclick="this.style.background = (this.style.background === 'rgb(124, 58, 237)' ? 'white' : '#7C3AED'); this.style.color = (this.style.color === 'white' ? '#1E293B' : 'white');" style="width: 32px; height: 32px; border: 1.5px solid #CBD5E1; border-radius: 6px; font-weight: 900; font-size: 1rem; color: #1E293B; cursor: pointer; user-select: none; transition: 0.1s; background: white;">
+                                        ${letra}
+                                    </td>
+                                `).join('')}
+                            </tr>
+                        `).join('')}
+                    </table>
+                </div>
+
+                <!-- Lista de Pistas -->
+                <div style="background: #F8FAFC; border: 1.5px solid #E2E8F0; padding: 16px; border-radius: 16px;">
+                    <h5 style="margin: 0 0 10px 0; font-weight: 800; color: #1E1B4B; font-size: 1rem;">🔍 Pistas Deductivas:</h5>
+                    <div style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 15px;">
+                        ${pistas.map((p, idx) => `
+                            <div style="background: white; border: 1px solid #CBD5E1; padding: 10px; border-radius: 8px;">
+                                <div style="font-size: 0.82rem; color: #334155; margin-bottom: 4px;">
+                                    <b>${idx + 1}.</b> ${p.pista}
+                                </div>
+                                <input type="text" id="input-sopa-${idx}" placeholder="Palabra encontrada..." style="width: 100%; padding: 6px 10px; border: 1px solid #94A3B8; border-radius: 6px; font-size: 0.85rem; font-weight: 800; text-transform: uppercase; box-sizing: border-box;">
+                            </div>
+                        `).join('')}
+                    </div>
+
+                    <button onclick="window.validarSopaLetras()" style="width: 100%; background: linear-gradient(135deg, #10B981, #059669); color: white; border: none; padding: 12px; border-radius: 10px; font-weight: 900; font-size: 0.95rem; cursor: pointer; box-shadow: 0 4px 10px rgba(16,185,129,0.3);">
+                        ✓ Validar Palabras
+                    </button>
+                    <div id="sopa-resultado" style="margin-top: 10px; font-weight: 800; font-size: 0.9rem; text-align: center;"></div>
+                </div>
+
+            </div>
+        </div>
+    `;
+
+    window.validarSopaLetras = function() {
+        let aciertos = 0;
+        pistas.forEach((p, idx) => {
+            const input = document.getElementById(`input-sopa-${idx}`);
+            if (input) {
+                if (input.value.trim().toUpperCase() === p.palabra.toUpperCase()) {
+                    aciertos++;
+                    input.style.borderColor = '#10B981';
+                    input.style.background = '#ECFDF5';
+                } else {
+                    input.style.borderColor = '#F87171';
+                    input.style.background = '#FEF2F2';
+                }
+            }
+        });
+
+        const resDiv = document.getElementById('sopa-resultado');
+        if (aciertos === pistas.length) {
+            if (resDiv) {
+                resDiv.style.color = '#059669';
+                resDiv.innerText = '🎉 ¡Encontraste todas las palabras!';
+            }
+            setTimeout(() => window.finalizarJuegoPantalla(act, 100, 70), 1200);
+        } else {
+            if (resDiv) {
+                resDiv.style.color = '#D97706';
+                resDiv.innerText = `Llevas ${aciertos} de ${pistas.length} palabras.`;
+            }
+        }
+    };
+};
+
+// --- MOTOR 4: LABORATORIO CASERO ---
+window.renderizarMotorLaboratorio = function(act, container) {
+    const data = act.actividad_data || window.generarContenidoActividad('laboratorio', act.materia, act.grado, act.tema);
+
+    container.innerHTML = `
+        <div style="text-align: left;">
+            <div style="background: #F3E8FF; border: 1.5px solid #D8B4FE; padding: 15px; border-radius: 12px; margin-bottom: 20px;">
+                <h4 style="margin: 0 0 6px 0; color: #6B21A8; font-weight: 900; font-size: 1.15rem;">
+                    🧪 ${data.titulo}
+                </h4>
+                <p style="margin: 0; color: #581C87; font-size: 0.9rem;">
+                    <b>Pregunta Clave:</b> ${data.pregunta_investigacion || ''}
+                </p>
+            </div>
+
+            <!-- Materiales y Pasos -->
+            <div style="display: grid; grid-template-columns: 1fr 1.5fr; gap: 20px; margin-bottom: 20px;">
+                <div style="background: white; border: 1px solid #E2E8F0; padding: 15px; border-radius: 12px;">
+                    <h5 style="margin: 0 0 8px 0; font-weight: 800; color: #1E293B;">📦 Materiales del Hogar:</h5>
+                    <ul style="margin: 0; padding-left: 18px; color: #475569; font-size: 0.88rem; line-height: 1.6;">
+                        ${(data.materiales || []).map(m => `<li>${m}</li>`).join('')}
+                    </ul>
+                </div>
+
+                <div style="background: white; border: 1px solid #E2E8F0; padding: 15px; border-radius: 12px;">
+                    <h5 style="margin: 0 0 8px 0; font-weight: 800; color: #1E293B;">📋 Procedimiento Experimental:</h5>
+                    <div style="display: flex; flex-direction: column; gap: 6px; font-size: 0.85rem; color: #334155;">
+                        ${(data.pasos || []).map((paso, idx) => `
+                            <label style="display: flex; align-items: flex-start; gap: 8px; cursor: pointer;">
+                                <input type="checkbox" id="check-lab-paso-${idx}" style="margin-top: 3px;">
+                                <span>${paso}</span>
+                            </label>
+                        `).join('')}
+                    </div>
+                </div>
+            </div>
+
+            <!-- Registro de Conclusiones -->
+            <div style="background: #FAFAFA; border: 1.5px solid #E5E7EB; padding: 18px; border-radius: 12px; margin-bottom: 20px;">
+                <label style="font-weight: 800; color: #1E293B; font-size: 0.92rem; display: block; margin-bottom: 6px;">
+                    ✍️ Registro de Observaciones y Conclusión Científica:
+                </label>
+                <textarea id="textarea-lab-conclusion" rows="3" placeholder="Describe qué observaste al realizar el montaje y si tu hipótesis inicial fue confirmada o refutada..." style="width: 100%; padding: 10px 12px; border: 1.5px solid #CBD5E1; border-radius: 8px; font-family: Inter, sans-serif; font-size: 0.9rem; box-sizing: border-box;"></textarea>
+            </div>
+
+            <button onclick="window.completarLaboratorio()" style="width: 100%; background: linear-gradient(135deg, #8B5CF6, #7C3AED); color: white; border: none; padding: 14px; border-radius: 12px; font-weight: 900; font-size: 1rem; cursor: pointer; box-shadow: 0 4px 14px rgba(139,92,246,0.35);">
+                🚀 Entregar Informe de Laboratorio (+120 XP)
+            </button>
+        </div>
+    `;
+
+    window.completarLaboratorio = function() {
+        const text = document.getElementById('textarea-lab-conclusion');
+        const txtVal = text ? text.value.trim() : '';
+
+        if (txtVal.length < 20) {
+            alert("Por favor escribe una conclusión más completa (mínimo 20 caracteres) sobre lo observado en el experimento.");
+            return;
+        }
+
+        window.finalizarJuegoPantalla(act, 100, 120, { conclusion: txtVal });
+    };
+};
+
+// --- MOTOR 5: ESCAPE ROOM VIRTUAL ---
+window.renderizarMotorEscapeRoom = function(act, container) {
+    const data = act.actividad_data || window.generarContenidoActividad('escape_room', act.materia, act.grado, act.tema);
+    const enigmas = data.enigmas || [];
+
+    container.innerHTML = `
+        <div style="text-align: left;">
+            <div style="background: #FDF2F8; border: 1.5px solid #FBCFE8; padding: 16px; border-radius: 12px; margin-bottom: 20px; display: flex; align-items: center; gap: 12px;">
+                <span style="font-size: 2.2rem;">🗺️</span>
+                <div>
+                    <h4 style="margin: 0; color: #9D174D; font-weight: 900; font-size: 1.15rem;">El Cofre Secreto del Conocimiento STEAM</h4>
+                    <p style="margin: 2px 0 0 0; color: #831843; font-size: 0.88rem;">Para abrir el cofre, resuelve los 3 candados secuenciales introduciendo sus claves exactas.</p>
+                </div>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 15px; margin-bottom: 25px;">
+                ${enigmas.map((e, idx) => `
+                    <div style="background: white; border: 1.5px solid #E2E8F0; padding: 16px; border-radius: 12px;">
+                        <h5 style="margin: 0 0 6px 0; font-weight: 800; color: #1E1B4B; font-size: 1rem;">${e.titulo}</h5>
+                        <p style="margin: 0 0 10px 0; color: #475569; font-size: 0.9rem;">${e.pista}</p>
+                        <div style="display: flex; gap: 10px; align-items: center;">
+                            <input type="text" id="input-escape-${idx}" placeholder="Clave..." style="padding: 8px 12px; border: 1.5px solid #94A3B8; border-radius: 8px; font-weight: 900; width: 140px; font-size: 1rem; text-align: center;">
+                            <span id="badge-escape-status-${idx}" style="font-size: 0.85rem; font-weight: 800; color: #64748B;">🔒 Bloqueado</span>
+                        </div>
+                    </div>
+                `).join('')}
+            </div>
+
+            <button onclick="window.validarEscapeRoom()" style="width: 100%; background: linear-gradient(135deg, #EC4899, #DB2777); color: white; border: none; padding: 14px; border-radius: 12px; font-weight: 900; font-size: 1rem; cursor: pointer; box-shadow: 0 4px 14px rgba(236,72,153,0.35);">
+                🔓 Intentar Desbloquear el Cofre (+150 XP)
+            </button>
+            <div id="escape-resultado" style="margin-top: 12px; font-weight: 800; font-size: 0.95rem; text-align: center;"></div>
+        </div>
+    `;
+
+    window.validarEscapeRoom = function() {
+        let aciertos = 0;
+        enigmas.forEach((e, idx) => {
+            const input = document.getElementById(`input-escape-${idx}`);
+            const badge = document.getElementById(`badge-escape-status-${idx}`);
+            if (input) {
+                if (input.value.trim().toLowerCase() === String(e.codigo_correcto).trim().toLowerCase()) {
+                    aciertos++;
+                    input.style.borderColor = '#10B981';
+                    input.style.background = '#ECFDF5';
+                    if (badge) {
+                        badge.innerText = '🔓 ¡Desbloqueado!';
+                        badge.style.color = '#059669';
+                    }
+                } else {
+                    input.style.borderColor = '#F87171';
+                    input.style.background = '#FEF2F2';
+                    if (badge) {
+                        badge.innerText = '🔒 Clave Incorrecta';
+                        badge.style.color = '#DC2626';
+                    }
+                }
+            }
+        });
+
+        const resDiv = document.getElementById('escape-resultado');
+        if (aciertos === enigmas.length) {
+            if (resDiv) {
+                resDiv.style.color = '#059669';
+                resDiv.innerText = '🎉 ¡TODOS LOS CANDADOS ABIERTOS! ¡EL COFRE ES TUYO!';
+            }
+            setTimeout(() => window.finalizarJuegoPantalla(act, 100, 150), 1200);
+        } else {
+            if (resDiv) {
+                resDiv.style.color = '#D97706';
+                resDiv.innerText = `Has desbloqueado ${aciertos} de ${enigmas.length} candados.`;
+            }
+        }
+    };
+};
+
+// --- MOTOR 6: DUELO DE EMPAREJAMIENTO (MEMORY GAME) ---
+window.renderizarMotorMemoryCards = function(act, container) {
+    const data = act.actividad_data || window.generarContenidoActividad('duelo_parejas', act.materia, act.grado, act.tema);
+    const parejas = data.parejas || [];
+
+    // Crear 12 cartas (6 conceptos y 6 definiciones)
+    let cartas = [];
+    parejas.forEach(p => {
+        cartas.push({ id: p.id, tipo: 'concepto', texto: p.concepto });
+        cartas.push({ id: p.id, tipo: 'match', texto: p.match });
+    });
+    // Barajar
+    cartas.sort(() => Math.random() - 0.5);
+
+    let seleccionadas = [];
+    let parejasEncontradas = 0;
+
+    container.innerHTML = `
+        <div style="text-align: left;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                <p style="color: #475569; font-size: 0.95rem; margin: 0;">
+                    Encuentra las 6 parejas volteando las cartas correspondientes:
+                </p>
+                <span id="memory-counter" style="font-weight: 800; color: #4F46E5; background: #EEF2FF; padding: 4px 12px; border-radius: 20px; font-size: 0.85rem;">
+                    Parejas: 0 / ${parejas.length}
+                </span>
+            </div>
+
+            <div id="grid-memory-cards" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 20px;">
+                ${cartas.map((c, idx) => `
+                    <div id="card-memory-${idx}" onclick="window.voltearCarta(${idx})" style="background: #1E293B; border-radius: 12px; min-height: 90px; padding: 10px; display: flex; align-items: center; justify-content: center; text-align: center; color: white; font-weight: 800; font-size: 0.82rem; cursor: pointer; user-select: none; transition: transform 0.2s; box-shadow: 0 4px 8px rgba(0,0,0,0.15);">
+                        <span id="card-text-${idx}" style="display: none;">${c.texto}</span>
+                        <span id="card-cover-${idx}" style="font-size: 1.5rem;">🃏</span>
+                    </div>
+                `).join('')}
+            </div>
+        </div>
+    `;
+
+    window.voltearCarta = function(idx) {
+        if (seleccionadas.length >= 2) return;
+        const card = document.getElementById(`card-memory-${idx}`);
+        const text = document.getElementById(`card-text-${idx}`);
+        const cover = document.getElementById(`card-cover-${idx}`);
+        if (!card || card.classList.contains('matched') || seleccionadas.some(s => s.idx === idx)) return;
+
+        // Mostrar carta
+        card.style.background = '#FFFFFF';
+        card.style.border = '2px solid #6366F1';
+        card.style.color = '#1E1B4B';
+        if (cover) cover.style.display = 'none';
+        if (text) text.style.display = 'block';
+
+        seleccionadas.push({ idx, carta: cartas[idx] });
+
+        if (seleccionadas.length === 2) {
+            const [c1, c2] = seleccionadas;
+            if (c1.carta.id === c2.carta.id && c1.carta.tipo !== c2.carta.tipo) {
+                // Match exitoso
+                parejasEncontradas++;
+                document.getElementById(`card-memory-${c1.idx}`).style.background = '#DEF7EC';
+                document.getElementById(`card-memory-${c1.idx}`).style.borderColor = '#10B981';
+                document.getElementById(`card-memory-${c1.idx}`).classList.add('matched');
+
+                document.getElementById(`card-memory-${c2.idx}`).style.background = '#DEF7EC';
+                document.getElementById(`card-memory-${c2.idx}`).style.borderColor = '#10B981';
+                document.getElementById(`card-memory-${c2.idx}`).classList.add('matched');
+
+                const counter = document.getElementById('memory-counter');
+                if (counter) counter.innerText = `Parejas: ${parejasEncontradas} / ${parejas.length}`;
+
+                seleccionadas = [];
+
+                if (parejasEncontradas === parejas.length) {
+                    setTimeout(() => window.finalizarJuegoPantalla(act, 100, 80), 1000);
+                }
+            } else {
+                // No coincide, volver a tapar
+                setTimeout(() => {
+                    [c1, c2].forEach(c => {
+                        const el = document.getElementById(`card-memory-${c.idx}`);
+                        const t = document.getElementById(`card-text-${c.idx}`);
+                        const cov = document.getElementById(`card-cover-${c.idx}`);
+                        if (el) {
+                            el.style.background = '#1E293B';
+                            el.style.borderColor = 'transparent';
+                            el.style.color = 'white';
+                        }
+                        if (cov) cov.style.display = 'block';
+                        if (t) t.style.display = 'none';
+                    });
+                    seleccionadas = [];
+                }, 1100);
+            }
+        }
+    };
+};
+
+// --- MOTOR 7: SIMULACRO SABER 11 / ICFES EXPRESS ---
+window.renderizarMotorIcfesExpress = function(act, container) {
+    const data = act.actividad_data || window.generarContenidoActividad('icfes_express', act.materia, act.grado, act.tema);
+    const preguntas = data.preguntas || [];
+    let qIdx = 0;
+    let aciertos = 0;
+
+    function renderIcfes() {
+        if (qIdx >= preguntas.length) {
+            const puntaje = Math.round((aciertos / preguntas.length) * 100);
+            window.finalizarJuegoPantalla(act, puntaje, 100);
+            return;
+        }
+
+        const p = preguntas[qIdx];
+        container.innerHTML = `
+            <div style="text-align: left;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                    <span style="font-weight: 800; color: #DC2626; background: #FEF2F2; padding: 4px 12px; border-radius: 20px; font-size: 0.85rem;">
+                        Pregunta Saber ${qIdx + 1} de ${preguntas.length}
+                    </span>
+                    <span style="font-size: 0.85rem; color: #64748B; font-weight: 700;">Aciertos: ${aciertos}</span>
+                </div>
+                <div style="background: #F8FAFC; border-left: 4px solid #DC2626; padding: 15px; border-radius: 8px; margin-bottom: 18px; font-size: 1rem; color: #1E293B; line-height: 1.5; font-weight: 600;">
+                    ${p.q}
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px;">
+                    ${p.opciones.map((opt, idx) => `
+                        <button id="btn-icfes-${idx}" onclick="window.responderIcfes(${idx})" style="background: white; border: 1.5px solid #CBD5E1; padding: 12px 16px; border-radius: 10px; font-size: 0.95rem; font-weight: 700; color: #334155; text-align: left; cursor: pointer; transition: all 0.15s; display: flex; align-items: center; gap: 10px;">
+                            <span style="background: #F1F5F9; color: #1E293B; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 0.8rem;">${['A','B','C','D'][idx]}</span>
+                            <span>${opt}</span>
+                        </button>
+                    `).join('')}
+                </div>
+                <div id="icfes-feedback" style="display: none; padding: 12px 16px; border-radius: 10px; font-size: 0.9rem; font-weight: 700;"></div>
+            </div>
+        `;
+    }
+
+    window.responderIcfes = function(idx) {
+        const p = preguntas[qIdx];
+        const feedback = document.getElementById('icfes-feedback');
+
+        for (let i = 0; i < p.opciones.length; i++) {
+            const btn = document.getElementById(`btn-icfes-${i}`);
+            if (btn) {
+                btn.disabled = true;
+                if (i === p.correcta) {
+                    btn.style.background = '#DEF7EC';
+                    btn.style.borderColor = '#10B981';
+                    btn.style.color = '#03543F';
+                } else if (i === idx) {
+                    btn.style.background = '#FDE8E8';
+                    btn.style.borderColor = '#F87171';
+                }
+            }
+        }
+
+        if (idx === p.correcta) {
+            aciertos++;
+            if (feedback) {
+                feedback.style.display = 'block';
+                feedback.style.background = '#ECFDF5';
+                feedback.style.color = '#065F46';
+                feedback.style.border = '1px solid #A7F3D0';
+                feedback.innerHTML = `✨ <b>¡Correcto!</b> ${p.justificacion || ''}`;
+            }
+        } else {
+            if (feedback) {
+                feedback.style.display = 'block';
+                feedback.style.background = '#FEF2F2';
+                feedback.style.color = '#991B1B';
+                feedback.style.border = '1px solid #FECACA';
+                feedback.innerHTML = `💡 <b>Análisis Pedagógico:</b> ${p.justificacion || 'Revisa la clave explicativa.'}`;
+            }
+        }
+
+        setTimeout(() => {
+            qIdx++;
+            renderIcfes();
+        }, 2200);
+    };
+
+    renderIcfes();
+};
+
+// --- MOTOR 8: DILEMA BIOÉTICO / CASO REAL ---
+window.renderizarMotorDilema = function(act, container) {
+    const data = act.actividad_data || window.generarContenidoActividad('dilema', act.materia, act.grado, act.tema);
+
+    container.innerHTML = `
+        <div style="text-align: left;">
+            <div style="background: #F0FDFA; border: 1.5px solid #99F6E4; padding: 18px; border-radius: 12px; margin-bottom: 20px;">
+                <h4 style="margin: 0 0 8px 0; color: #0F766E; font-weight: 900; font-size: 1.15rem;">
+                    ⚖️ Caso de Estudio: ${data.titulo}
+                </h4>
+                <p style="margin: 0; color: #115E59; font-size: 0.92rem; line-height: 1.5;">
+                    ${data.contexto || ''}
+                </p>
+            </div>
+
+            <h5 style="margin: 0 0 12px 0; font-weight: 900; color: #1E293B; font-size: 1rem;">
+                ${data.pregunta_central || '¿Qué decisión fundamentada tomas tú?'}
+            </h5>
+
+            <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px;">
+                ${(data.opciones || []).map((opt, idx) => `
+                    <div onclick="window.seleccionarOpcionDilema(${idx})" id="dilema-opt-${idx}" style="background: white; border: 2px solid #E2E8F0; padding: 14px; border-radius: 12px; cursor: pointer; transition: all 0.15s;">
+                        <div style="font-weight: 800; font-size: 0.95rem; color: #1E293B; margin-bottom: 4px;">
+                            ${idx + 1}. ${opt.texto}
+                        </div>
+                        <div style="font-size: 0.82rem; color: #64748B;">
+                            Impacto: ${opt.impacto}
+                        </div>
+                    </div>
+                `).join('')}
+            </div>
+
+            <button id="btn-resolver-dilema" onclick="window.confirmarDecisionDilema()" style="display: none; width: 100%; background: linear-gradient(135deg, #0D9488, #0F766E); color: white; border: none; padding: 14px; border-radius: 12px; font-weight: 900; font-size: 1rem; cursor: pointer; box-shadow: 0 4px 14px rgba(13,148,136,0.35);">
+                ✓ Sustentar Decisión Ética (+110 XP)
+            </button>
+        </div>
+    `;
+
+    let optSeleccionada = null;
+    window.seleccionarOpcionDilema = function(idx) {
+        optSeleccionada = idx;
+        data.opciones.forEach((_, i) => {
+            const el = document.getElementById(`dilema-opt-${i}`);
+            if (el) {
+                el.style.background = i === idx ? '#F0FDFA' : '#FFFFFF';
+                el.style.borderColor = i === idx ? '#0D9488' : '#E2E8F0';
+            }
+        });
+        const btn = document.getElementById('btn-resolver-dilema');
+        if (btn) btn.style.display = 'block';
+    };
+
+    window.confirmarDecisionDilema = function() {
+        if (optSeleccionada === null) return;
+        window.finalizarJuegoPantalla(act, 100, 110, { opcion_elegida: data.opciones[optSeleccionada] });
+    };
+};
+
+// --- MOTOR 9: REDACCIÓN CRÍTICA ANTI-COPIA ---
+window.renderizarMotorRedaccion = function(act, container) {
+    const data = act.actividad_data || window.generarContenidoActividad('redaccion_critica', act.materia, act.grado, act.tema);
+
+    container.innerHTML = `
+        <div style="text-align: left;">
+            <div style="background: #FFFBEB; border: 1.5px solid #FDE68A; padding: 16px; border-radius: 12px; margin-bottom: 18px;">
+                <h4 style="margin: 0 0 6px 0; color: #92400E; font-weight: 900; font-size: 1.1rem;">
+                    ✍️ Desafío de Explicación Creativa
+                </h4>
+                <p style="margin: 0; color: #78350F; font-size: 0.92rem; line-height: 1.45;">
+                    ${data.consigna || ''}
+                </p>
+            </div>
+
+            <div style="margin-bottom: 15px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                    <label style="font-weight: 800; color: #1E293B; font-size: 0.88rem;">Tu Respuesta Argumentada:</label>
+                    <span id="palabras-count" style="font-size: 0.8rem; font-weight: 800; color: #64748B;">0 / 60 palabras</span>
+                </div>
+                <textarea id="textarea-redaccion" oninput="window.contarPalabrasRedaccion()" rows="5" placeholder="Escribe aquí tu análisis..." style="width: 100%; padding: 12px; border: 1.5px solid #CBD5E1; border-radius: 10px; font-family: Inter, sans-serif; font-size: 0.95rem; box-sizing: border-box;"></textarea>
+            </div>
+
+            <button onclick="window.enviarRedaccion()" style="width: 100%; background: linear-gradient(135deg, #D97706, #B45309); color: white; border: none; padding: 14px; border-radius: 12px; font-weight: 900; font-size: 1rem; cursor: pointer; box-shadow: 0 4px 14px rgba(217,119,6,0.35);">
+                🚀 Entregar Redacción (+90 XP)
+            </button>
+        </div>
+    `;
+
+    window.contarPalabrasRedaccion = function() {
+        const txt = document.getElementById('textarea-redaccion');
+        const countSpan = document.getElementById('palabras-count');
+        if (txt && countSpan) {
+            const count = txt.value.trim() ? txt.value.trim().split(/\s+/).length : 0;
+            countSpan.innerText = `${count} / 60 palabras`;
+            countSpan.style.color = count >= 60 ? '#059669' : '#64748B';
+        }
+    };
+
+    window.enviarRedaccion = function() {
+        const txt = document.getElementById('textarea-redaccion');
+        const val = txt ? txt.value.trim() : '';
+        const count = val ? val.split(/\s+/).length : 0;
+
+        if (count < 25) {
+            alert("Tu respuesta es muy breve. Por favor argumenta con al menos 25 palabras para fundamentar tu idea.");
+            return;
+        }
+
+        window.finalizarJuegoPantalla(act, 100, 90, { texto: val });
+    };
+};
+
+// --- MOTOR 10: DEBATE Y ROLEPLAY STEAM ---
+window.renderizarMotorDebate = function(act, container) {
+    const data = act.actividad_data || window.generarContenidoActividad('debate_roleplay', act.materia, act.grado, act.tema);
+
+    container.innerHTML = `
+        <div style="text-align: left;">
+            <div style="background: #EEF2FF; border: 1.5px solid #C7D2FE; padding: 16px; border-radius: 12px; margin-bottom: 20px;">
+                <h4 style="margin: 0 0 6px 0; color: #3730A3; font-weight: 900; font-size: 1.15rem;">
+                    🎭 Ficha de Debate: ${data.tema_debate || ''}
+                </h4>
+                <p style="margin: 0; color: #4338CA; font-size: 0.88rem;">
+                    Elige uno de los roles a continuación y redacta tu argumento principal basado en evidencias:
+                </p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 20px;">
+                ${(data.roles || []).map((r, idx) => `
+                    <div onclick="window.seleccionarRolDebate(${idx})" id="rol-debate-${idx}" style="background: white; border: 2px solid #E2E8F0; padding: 12px; border-radius: 10px; cursor: pointer; transition: all 0.15s; text-align: center;">
+                        <div style="font-weight: 900; font-size: 0.95rem; color: #1E293B; margin-bottom: 4px;">${r.rol}</div>
+                        <div style="font-size: 0.78rem; color: #64748B; line-height: 1.3;">${r.postura}</div>
+                    </div>
+                `).join('')}
+            </div>
+
+            <div style="margin-bottom: 20px;">
+                <label style="font-weight: 800; color: #1E293B; font-size: 0.88rem; display: block; margin-bottom: 6px;">
+                    Tu Argumento de Defensa del Rol:
+                </label>
+                <textarea id="textarea-debate-arg" rows="3" placeholder="Sustenta tu posición con datos y ejemplos..." style="width: 100%; padding: 10px; border: 1.5px solid #CBD5E1; border-radius: 8px; font-family: Inter, sans-serif; font-size: 0.9rem; box-sizing: border-box;"></textarea>
+            </div>
+
+            <button onclick="window.enviarDebate()" style="width: 100%; background: linear-gradient(135deg, #4F46E5, #4338CA); color: white; border: none; padding: 14px; border-radius: 12px; font-weight: 900; font-size: 1rem; cursor: pointer; box-shadow: 0 4px 14px rgba(79,70,229,0.35);">
+                ✓ Registrar Argumento en el Salón STEAM (+100 XP)
+            </button>
+        </div>
+    `;
+
+    let rolIdx = 0;
+    window.seleccionarRolDebate = function(idx) {
+        rolIdx = idx;
+        data.roles.forEach((_, i) => {
+            const el = document.getElementById(`rol-debate-${i}`);
+            if (el) {
+                el.style.background = i === idx ? '#EEF2FF' : '#FFFFFF';
+                el.style.borderColor = i === idx ? '#4F46E5' : '#E2E8F0';
+            }
+        });
+    };
+
+    window.enviarDebate = function() {
+        const txt = document.getElementById('textarea-debate-arg');
+        const val = txt ? txt.value.trim() : '';
+        if (val.length < 15) {
+            alert("Por favor redacta tu argumento (mínimo 15 caracteres).");
+            return;
+        }
+        window.finalizarJuegoPantalla(act, 100, 100, { rol: data.roles[rolIdx], argumento: val });
+    };
+};
+
+// 7. Pantalla Final de Victoria y Otorgamiento de XP
+window.finalizarJuegoPantalla = async function(act, puntaje = 100, xpOtorgado = 80, respuestas = {}) {
+    const container = document.getElementById('juego-actividad-contenido');
+    const timerContainer = document.getElementById('juego-timer-container');
+    if (timerContainer) timerContainer.style.display = 'none';
+
+    const estudiante = window.usuarioEstudianteActual || {};
+    const doc = String(estudiante.documento || estudiante.usuario || window.usuario_actual || '').trim();
+
+    // Guardar en backend
+    try {
+        await fetch('/api/completar-actividad', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                actividad_id: act.id,
+                documento: doc,
+                respuestas,
+                puntaje,
+                xp_ganado: xpOtorgado
+            })
+        });
+    } catch(e) {}
+
+    // Guardar localmente
+    localStorage.setItem(`act_completada_${act.id}_${doc}`, 'true');
+
+    // Aumentar XP local
+    const xpKey = `xp_${doc}`;
+    let actualXP = parseInt(localStorage.getItem(xpKey)) || 0;
+    actualXP += xpOtorgado;
+    localStorage.setItem(xpKey, actualXP);
+
+    // Actualizar badges
+    const pScore = document.getElementById('student-score-display');
+    if (pScore) pScore.innerText = actualXP;
+
+    if (container) {
+        container.innerHTML = `
+            <div style="text-align: center; padding: 25px 15px;">
+                <div style="font-size: 4rem; animation: pulse 1s infinite;">🏆</div>
+                <h2 style="font-size: 2rem; font-weight: 900; color: #1E1B4B; margin: 10px 0 6px 0;">
+                    ¡Misión Cumplida con Éxito!
+                </h2>
+                <p style="font-size: 1.05rem; color: #475569; margin: 0 0 20px 0;">
+                    Has demostrado tus competencias en <strong>${act.materia}</strong>.
+                </p>
+
+                <div style="display: inline-flex; align-items: center; gap: 10px; background: #ECFDF5; border: 2px solid #34D399; padding: 12px 28px; border-radius: 30px; margin-bottom: 25px; box-shadow: 0 4px 15px rgba(16,185,129,0.2);">
+                    <span style="font-size: 1.6rem;">⭐</span>
+                    <span style="font-size: 1.4rem; font-weight: 900; color: #065F46;">+${xpOtorgado} XP Ganados</span>
+                </div>
+
+                <div>
+                    <button onclick="window.cerrarModalJuegoActividad(); window.cargarActividadesEstudiante();" style="background: linear-gradient(135deg, #10B981, #059669); color: white; border: none; padding: 14px 32px; border-radius: 12px; font-weight: 900; font-size: 1.05rem; cursor: pointer; box-shadow: 0 6px 20px rgba(16,185,129,0.35);">
+                        🚀 Continuar en Mi Aula STEAM
+                    </button>
+                </div>
+            </div>
+        `;
+    }
+
+    if (typeof window.mostrarToastXP === 'function') {
+        window.mostrarToastXP(`✨ +${xpOtorgado} XP | ¡Reto Superado!`);
+    }
+};
+
+// ==========================================================================
 

@@ -758,7 +758,10 @@
                 <div id="admin-estudiantes-grupo-container" style="display: none;">
                     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 10px;">
                         <h4 id="admin-titulo-grupo-actual" style="font-weight: 800; font-size: 1.2rem; color: #111827;">Grupo...</h4>
-                        <div style="display: flex; gap: 10px;">
+                        <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+                            <button onclick="window.abrirModalAsignarActividad('grupo', window.gradoActualPlaneacion, window.gradoActualPlaneacion)" style="padding: 8px 16px; background: linear-gradient(135deg, #7C3AED, #6D28D9); color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 800; display: flex; align-items: center; gap: 6px; box-shadow: 0 4px 10px rgba(124,58,237,0.3);">
+                                <span>🎮</span> Asignar Reto/Juego al Grupo
+                            </button>
                             <button onclick="volverAGrupos()" style="padding: 8px 16px; background: #E5E7EB; color: #374151; border: none; border-radius: 8px; cursor: pointer; font-weight: bold;">← Volver a Instituciones</button>
                         </div>
                     </div>
@@ -1020,7 +1023,12 @@
                             <p style="margin: 2px 0 0 0; font-size: 0.85rem; color: #6B7280;">Estudiantes matriculados bajo tu tutoría</p>
                         </div>
                     </div>
-                    <button onclick="cargarEstudiantesTutor(usuario_actual)" style="background: #F3F4F6; border: 1px solid #D1D5DB; color: #374151; padding: 6px 14px; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 0.85rem; display: flex; align-items: center; gap: 5px;">🔄 Actualizar</button>
+                    <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+                        <button onclick="window.abrirModalAsignarActividad('grupo', 'HomeSchool', 'HomeSchool')" style="background: linear-gradient(135deg, #7C3AED, #6D28D9); color: white; border: none; padding: 7px 14px; border-radius: 8px; font-weight: 800; font-size: 0.85rem; cursor: pointer; display: flex; align-items: center; gap: 6px; box-shadow: 0 4px 10px rgba(124,58,237,0.25);">
+                            <span>🎮</span> Asignar Actividad a Todos
+                        </button>
+                        <button onclick="cargarEstudiantesTutor(usuario_actual)" style="background: #F3F4F6; border: 1px solid #D1D5DB; color: #374151; padding: 6px 14px; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 0.85rem; display: flex; align-items: center; gap: 5px;">🔄 Actualizar</button>
+                    </div>
                 </div>
 
                 <div style="overflow-x: auto;">
@@ -1197,6 +1205,26 @@
             <!-- Banner de Estado de Pago (Para Validación y Home School) -->
             <div id="banner-pago-estado" style="display: none; margin-bottom: 25px; border-radius: 12px; padding: 20px; border: 2px solid #E5E7EB; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
                 <!-- Inyectado por JS -->
+            </div>
+
+            <!-- Sección de Misiones y Juegos Especiales Asignados -->
+            <div id="student-actividades-container" style="display: none; margin-bottom: 30px; background: linear-gradient(135deg, #EEF2FF, #FAF5FF); border: 2px solid #C7D2FE; border-radius: 16px; padding: 22px 25px; box-shadow: 0 4px 15px rgba(99,102,241,0.08);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; flex-wrap: wrap; gap: 10px;">
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <span style="font-size: 1.8rem;">🎮</span>
+                        <div>
+                            <h3 style="margin: 0; font-size: 1.3rem; font-weight: 900; color: #1E1B4B; display: flex; align-items: center; gap: 8px;">
+                                Misiones y Juegos Asignados
+                                <span id="badge-actividades-pendientes-count" style="background: #EC4899; color: white; padding: 2px 10px; border-radius: 20px; font-size: 0.8rem; font-weight: 800;">0 Pendientes</span>
+                            </h3>
+                            <p style="margin: 2px 0 0 0; font-size: 0.88rem; color: #475569;">Retos, trivias, escape rooms y laboratorios asignados por tu docente o tutor.</p>
+                        </div>
+                    </div>
+                    <button onclick="window.cargarActividadesEstudiante()" style="background: white; border: 1px solid #CBD5E1; color: #475569; padding: 6px 12px; border-radius: 8px; font-size: 0.85rem; font-weight: 700; cursor: pointer;">🔄 Actualizar</button>
+                </div>
+                <div id="student-actividades-list" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 15px;">
+                    <!-- Tarjetas de actividades inyectadas por JS -->
+                </div>
             </div>
 
             <h2 style="font-weight: 900; color: #111827; margin-bottom: 25px; font-size: 1.8rem; border-left: 5px solid #3B82F6; padding-left: 15px;">Mis Asignaturas Matriculadas</h2>
@@ -1482,6 +1510,158 @@
         </div>
     </div>
 
+    <!-- ========================================== -->
+    <!-- MODAL ASIGNAR ACTIVIDAD O JUEGO STEAM (10 TIPOS) -->
+    <!-- ========================================== -->
+    <div id="modal-asignar-actividad" style="display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); align-items: center; justify-content: center; z-index: 100000; padding: 20px; overflow-y: auto;">
+        <div style="background: white; border-radius: 20px; padding: 30px; max-width: 780px; width: 100%; box-shadow: 0 25px 60px -15px rgba(0,0,0,0.35); text-align: left; max-height: 90vh; overflow-y: auto;">
+            
+            <!-- Header Modal -->
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 2px solid #F1F5F9; padding-bottom: 15px; margin-bottom: 20px;">
+                <div style="display: flex; align-items: center; gap: 12px;">
+                    <div style="width: 48px; height: 48px; background: linear-gradient(135deg, #7C3AED, #6D28D9); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; color: white;">
+                        🎮
+                    </div>
+                    <div>
+                        <h3 style="margin: 0; font-size: 1.4rem; font-weight: 900; color: #1E1B4B;">Asignar Actividad o Juego STEAM</h3>
+                        <p style="margin: 2px 0 0 0; color: #64748B; font-size: 0.9rem;">Genera y asigna retos gamificados y actividades constructivistas con 1 clic.</p>
+                    </div>
+                </div>
+                <button onclick="window.cerrarModalAsignarActividad()" style="background: #F1F5F9; border: none; font-size: 1.2rem; width: 36px; height: 36px; border-radius: 50%; cursor: pointer; color: #64748B; font-weight: bold; display: flex; align-items: center; justify-content: center;">✕</button>
+            </div>
+
+            <!-- Destinatario Badge & Inputs -->
+            <div style="background: #F8FAFC; border: 1.5px solid #E2E8F0; border-radius: 12px; padding: 14px 18px; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+                <div>
+                    <span style="font-size: 0.8rem; font-weight: 800; color: #64748B; text-transform: uppercase;">Destinatario:</span>
+                    <div id="modal-asignar-destinatario-label" style="font-size: 1.1rem; font-weight: 800; color: #1E3A8A; display: flex; align-items: center; gap: 6px; margin-top: 2px;">
+                        <span>🏫</span> Grupo 6A
+                    </div>
+                </div>
+                <div id="modal-asignar-tipo-badge" style="background: #E0E7FF; color: #4338CA; padding: 4px 12px; border-radius: 20px; font-weight: 800; font-size: 0.85rem;">
+                    Asignación Grupal
+                </div>
+                <input type="hidden" id="asignar-destinatario-tipo" value="grupo">
+                <input type="hidden" id="asignar-destinatario-id" value="">
+                <input type="hidden" id="asignar-destinatario-nom" value="">
+            </div>
+
+            <!-- 10 Tipos de Actividades Selector (Grid) -->
+            <label style="font-size: 0.9rem; font-weight: 800; color: #1E293B; display: block; margin-bottom: 10px;">
+                1. Selecciona el Tipo de Actividad o Reto STEAM:
+            </label>
+            <div id="grid-tipos-actividad" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; margin-bottom: 22px;">
+                <!-- Renderizado dinámico de los 10 botones de actividad -->
+            </div>
+            <input type="hidden" id="asignar-tipo-actividad-seleccionada" value="trivia">
+
+            <!-- Configuración Pedagógica -->
+            <div style="background: #FAFAFA; border: 1px solid #E5E7EB; border-radius: 14px; padding: 18px; margin-bottom: 20px;">
+                <label style="font-size: 0.9rem; font-weight: 800; color: #1E293B; display: block; margin-bottom: 12px;">
+                    2. Configuración Curricular:
+                </label>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 12px;">
+                    <div>
+                        <label style="font-size: 0.82rem; font-weight: 700; color: #475569; display: block; margin-bottom: 4px;">Asignatura:</label>
+                        <select id="asignar-materia-select" style="width: 100%; padding: 9px 12px; border: 1.5px solid #CBD5E1; border-radius: 8px; font-weight: bold; background: white;">
+                            <option value="Ciencias Naturales">🌿 Ciencias Naturales (Física/Química/Bio)</option>
+                            <option value="Matemáticas">📐 Matemáticas</option>
+                            <option value="Lengua Castellana">📖 Lengua Castellana y Comunicación</option>
+                            <option value="Ciencias Sociales">🌍 Ciencias Sociales y Ciudadanas</option>
+                            <option value="Inglés">🇬🇧 Inglés STEAM</option>
+                            <option value="Tecnología">💻 Tecnología e Informática</option>
+                            <option value="Educación Artística">🎨 Educación Artística y Música</option>
+                            <option value="Ética y Valores">🕊️ Ética y Valores Humanos</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label style="font-size: 0.82rem; font-weight: 700; color: #475569; display: block; margin-bottom: 4px;">Grado o Ciclo:</label>
+                        <select id="asignar-grado-select" style="width: 100%; padding: 9px 12px; border: 1.5px solid #CBD5E1; border-radius: 8px; font-weight: bold; background: white;">
+                            <option value="1">1° Primaria</option>
+                            <option value="2">2° Primaria</option>
+                            <option value="3">3° Primaria</option>
+                            <option value="4">4° Primaria</option>
+                            <option value="5">5° Primaria</option>
+                            <option value="6">6° Secundaria</option>
+                            <option value="7" selected>7° Secundaria</option>
+                            <option value="8">8° Secundaria</option>
+                            <option value="9">9° Secundaria</option>
+                            <option value="10">10° Media</option>
+                            <option value="11">11° Media (Saber 11)</option>
+                            <option value="Ciclo I">Ciclo I (1°-3°)</option>
+                            <option value="Ciclo II">Ciclo II (4°-5°)</option>
+                            <option value="Ciclo III">Ciclo III (6°-7°)</option>
+                            <option value="Ciclo IV">Ciclo IV (8°-9°)</option>
+                            <option value="Ciclo V">Ciclo V (10°)</option>
+                            <option value="Ciclo VI">Ciclo VI (11°)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 2.5fr; gap: 14px;">
+                    <div>
+                        <label style="font-size: 0.82rem; font-weight: 700; color: #475569; display: block; margin-bottom: 4px;">Periodo:</label>
+                        <select id="asignar-periodo-select" style="width: 100%; padding: 9px 12px; border: 1.5px solid #CBD5E1; border-radius: 8px; font-weight: bold; background: white;">
+                            <option value="1">Periodo 1</option>
+                            <option value="2">Periodo 2</option>
+                            <option value="3" selected>Periodo 3</option>
+                            <option value="4">Periodo 4</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label style="font-size: 0.82rem; font-weight: 700; color: #475569; display: block; margin-bottom: 4px;">Tema o DBA Específico (Opcional):</label>
+                        <input type="text" id="asignar-tema-input" placeholder="Ej: Leyes de Newton, Ecosistemas, Álgebra..." style="width: 100%; padding: 9px 12px; border: 1.5px solid #CBD5E1; border-radius: 8px; box-sizing: border-box;">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Botones de Acción -->
+            <div style="display: flex; justify-content: flex-end; gap: 12px;">
+                <button type="button" onclick="window.cerrarModalAsignarActividad()" style="background: #F1F5F9; color: #475569; border: none; padding: 12px 22px; border-radius: 10px; font-weight: 700; cursor: pointer;">Cancelar</button>
+                <button type="button" id="btn-ejecutar-asignar-actividad" onclick="window.ejecutarAsignacionActividad()" style="background: linear-gradient(135deg, #7C3AED, #6D28D9); color: white; border: none; padding: 12px 26px; border-radius: 10px; font-weight: 800; cursor: pointer; display: flex; align-items: center; gap: 8px; box-shadow: 0 4px 14px rgba(124,58,237,0.35);">
+                    <span>✨</span> Generar y Asignar Actividad
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- MODAL DE JUEGO / RESOLUCIÓN PARA EL ESTUDIANTE -->
+    <!-- ========================================== -->
+    <div id="modal-juego-actividad" style="display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.92); backdrop-filter: blur(10px); align-items: center; justify-content: center; z-index: 100000; padding: 20px; overflow-y: auto;">
+        <div style="background: white; border-radius: 24px; padding: 30px; max-width: 850px; width: 100%; box-shadow: 0 25px 60px -15px rgba(0,0,0,0.5); text-align: left; max-height: 92vh; overflow-y: auto; position: relative;">
+            
+            <!-- Header del Juego -->
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #F1F5F9; padding-bottom: 16px; margin-bottom: 20px; flex-wrap: wrap; gap: 10px;">
+                <div style="display: flex; align-items: center; gap: 12px;">
+                    <span id="juego-icono-actividad" style="font-size: 2.2rem;">🎮</span>
+                    <div>
+                        <h3 id="juego-titulo-actividad" style="margin: 0; font-size: 1.4rem; font-weight: 900; color: #1E1B4B;">Reto STEAM</h3>
+                        <div style="display: flex; gap: 8px; align-items: center; margin-top: 3px;">
+                            <span id="juego-materia-badge" style="background: #EFF6FF; color: #1D4ED8; padding: 2px 10px; border-radius: 12px; font-weight: 800; font-size: 0.8rem;">🌿 Ciencias</span>
+                            <span id="juego-xp-badge" style="background: #ECFDF5; color: #059669; padding: 2px 10px; border-radius: 12px; font-weight: 800; font-size: 0.8rem;">⭐ +80 XP</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="display: flex; align-items: center; gap: 12px;">
+                    <!-- Temporizador para trivia si aplica -->
+                    <div id="juego-timer-container" style="display: none; background: #FEF2F2; border: 1.5px solid #F87171; color: #DC2626; padding: 6px 14px; border-radius: 20px; font-weight: 900; font-size: 1rem; align-items: center; gap: 6px;">
+                        ⏱️ <span id="juego-timer-segundos">25</span>s
+                    </div>
+                    <button onclick="window.cerrarModalJuegoActividad()" style="background: #F1F5F9; border: none; font-size: 1.2rem; width: 36px; height: 36px; border-radius: 50%; cursor: pointer; color: #64748B; font-weight: bold; display: flex; align-items: center; justify-content: center;">✕</button>
+                </div>
+            </div>
+
+            <!-- Contenedor dinámico del Juego actual -->
+            <div id="juego-actividad-contenido">
+                <!-- Inyectado dinámicamente por app.js según el tipo de actividad -->
+            </div>
+
+        </div>
+    </div>
+
     <!-- Modal de Notificación Disciplinaria y Sanción de Puntos (Estudiante) -->
     <div id="modal-notificacion-disciplinaria" style="display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); align-items: center; justify-content: center; z-index: 100000; padding: 20px;">
         <div style="background: linear-gradient(180deg, #FFFFFF 0%, #FEF2F2 100%); border-radius: 24px; padding: 35px 30px; max-width: 520px; width: 100%; box-shadow: 0 25px 60px -15px rgba(220, 38, 38, 0.5), 0 0 0 2px rgba(239, 68, 68, 0.4); text-align: center; position: relative; animation: popInAlert 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);">
@@ -1532,8 +1712,8 @@
         </div>
     </div>
 
-    <script src="diagnostico_nocturno.js?v=20260815_v31"></script>
-    <script src="app.js?v=20260815_v31"></script>
+    <script src="diagnostico_nocturno.js?v=20260815_v32"></script>
+    <script src="app.js?v=20260815_v32"></script>
     <script>
         // --- BLINDAJE DE PROPIEDAD INTELECTUAL Y SEGURIDAD ---
         (function() {

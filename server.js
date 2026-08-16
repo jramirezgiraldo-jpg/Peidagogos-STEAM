@@ -996,7 +996,105 @@ app.post('/api/login', (req, res) => {
     }
 });
 
+// ==========================================
+// MÓDULO DE ACTIVIDADES Y JUEGOS PEDAGÓGICOS STEAM
+// ==========================================
+app.get('/api/actividades-asignadas', (req, res) => {
+    const actividades = readJSON('actividades_asignadas.json');
+    res.json(actividades);
+});
 
+app.get('/api/actividades-estudiante', (req, res) => {
+    const doc = String(req.query.documento || '').trim();
+    const grupo = String(req.query.grupo || '').trim().toLowerCase();
+    const grado = String(req.query.grado || '').trim().toLowerCase();
+    
+    if (!doc && !grupo) {
+        return res.json([]);
+    }
+    
+    const actividades = readJSON('actividades_asignadas.json');
+    const filtradas = actividades.filter(act => {
+        // Asignada individualmente
+        if (act.destinatario_tipo === 'estudiante' && String(act.destinatario_id).trim() === doc) {
+            return true;
+        }
+        // Asignada a todo el grupo / ciclo / homeschool
+        if (act.destinatario_tipo === 'grupo') {
+            const destG = String(act.destinatario_id || '').trim().toLowerCase();
+            if (destG === 'todos' || destG === 'homeschool' || destG === grupo || destG === grado || grupo.includes(destG) || (destG.includes('ciclo') && grupo.includes(destG))) {
+                return true;
+            }
+        }
+        return false;
+    });
+    
+    res.json(filtradas);
+});
+
+app.post('/api/asignar-actividad', (req, res) => {
+    const { tipo_actividad, destinatario_tipo, destinatario_id, destinatario_nombre, materia, grado, periodo, tema, actividad_data, creador_id } = req.body || {};
+    
+    if (!tipo_actividad || !destinatario_tipo || !destinatario_id) {
+        return res.status(400).json({ error: "Faltan campos obligatorios para asignar la actividad." });
+    }
+    
+    let actividades = readJSON('actividades_asignadas.json');
+    if (!Array.isArray(actividades)) actividades = [];
+    
+    const nuevaActividad = {
+        id: 'act_' + Date.now() + '_' + Math.random().toString(36).substr(2, 5),
+        tipo_actividad, // trivia, crucigrama, sopa_letras, laboratorio, escape_room, duelo_parejas, icfes_express, dilema, redaccion_critica, debate_roleplay
+        destinatario_tipo, // 'grupo' o 'estudiante'
+        destinatario_id, // ej: '6A', 'Ciclo VI', 'HomeSchool' o documento '18460767'
+        destinatario_nombre: destinatario_nombre || destinatario_id,
+        materia: materia || 'Ciencias Naturales',
+        grado: grado || '7',
+        periodo: periodo || '1',
+        tema: tema || 'Conceptos Fundamentales STEAM',
+        actividad_data: actividad_data || {},
+        creador_id: creador_id || 'ADMIN',
+        fecha_creacion: new Date().toISOString(),
+        completada_por: []
+    };
+    
+    actividades.unshift(nuevaActividad);
+    writeJSON('actividades_asignadas.json', actividades);
+    
+    enviarAlertaTelegram(`🎮 *NUEVA ACTIVIDAD STEAM ASIGNADA*\nTipo: ${tipo_actividad}\nDestino: ${destinatario_nombre} (${destinatario_tipo})\nMateria: ${materia}\nTema: ${tema}`);
+    
+    res.json({ status: "success", actividad: nuevaActividad });
+});
+
+app.post('/api/completar-actividad', (req, res) => {
+    const { actividad_id, documento, respuestas, puntaje, xp_ganado } = req.body || {};
+    if (!actividad_id || !documento) {
+        return res.status(400).json({ error: "Parámetros incompletos." });
+    }
+    
+    let actividades = readJSON('actividades_asignadas.json');
+    const act = actividades.find(a => a.id === actividad_id);
+    if (!act) {
+        return res.status(404).json({ error: "Actividad no encontrada." });
+    }
+    
+    if (!Array.isArray(act.completada_por)) act.completada_por = [];
+    const yaCompleto = act.completada_por.find(c => String(c.documento).trim() === String(documento).trim());
+    
+    const xpOtorgado = Number(xp_ganado) || 80;
+    if (!yaCompleto) {
+        act.completada_por.push({
+            documento: String(documento).trim(),
+            fecha: new Date().toISOString(),
+            puntaje: puntaje || 100,
+            xp_ganado: xpOtorgado,
+            respuestas: respuestas || {}
+        });
+        writeJSON('actividades_asignadas.json', actividades);
+    }
+    
+    res.json({ status: "success", xp_ganado: xpOtorgado, ya_completado: !!yaCompleto });
+});
 
 // ==========================================
 // DESCARGA DEL BACKUP DE GUÍAS (ZIP/TAR)
