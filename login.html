@@ -439,6 +439,9 @@
             <img src="logo-peidagogos.png" alt="Peidagogos STEAM" style="height: 55px; width: auto; object-fit: contain;">
         </div>
         <div style="display: flex; align-items: center; gap: 15px;">
+            <button onclick="window.abrirConfiguradorDiapositivas('docente')" style="background: linear-gradient(135deg, #7C3AED, #6D28D9); color: white; border: none; padding: 8px 18px; border-radius: 8px; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 8px; font-size: 0.9rem; box-shadow: 0 4px 10px rgba(124,58,237,0.25);">
+                <span>📽️</span> Diapositivas de la Semana
+            </button>
             <a href="proyector-qr.html" target="_blank" style="background: linear-gradient(135deg, #2563EB, #1D4ED8); color: white; border: none; padding: 8px 18px; border-radius: 8px; font-weight: bold; text-decoration: none; display: flex; align-items: center; gap: 8px; font-size: 0.9rem; box-shadow: 0 4px 10px rgba(37,99,235,0.25);"><span>📽️</span> Proyectar QR Matrícula</a>
             <a href="proyector.html" target="_blank" style="background: #10B981; color: white; border: none; padding: 8px 20px; border-radius: 8px; font-weight: bold; text-decoration: none; display: flex; align-items: center; gap: 8px;"><i class="ph ph-projector-screen-chart" style="font-size: 1.2rem;"></i> Modo Proyector</a>
             <div style="background: #F3F4F6; padding: 8px 15px; border-radius: 20px; font-size: 0.9rem; font-weight: 700; color: #374151;">
@@ -539,6 +542,9 @@
     <!-- Header Superior -->
     <header style="background: white; border-bottom: 1px solid #E5E7EB; padding: 15px 30px; display: flex; justify-content: flex-end; align-items: center;">
         <div style="display: flex; align-items: center; gap: 15px;">
+            <button onclick="window.abrirConfiguradorDiapositivas('admin')" style="background: linear-gradient(135deg, #7C3AED, #6D28D9); color: white; border: none; padding: 8px 18px; border-radius: 8px; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 8px; font-size: 0.9rem; box-shadow: 0 4px 10px rgba(124,58,237,0.25);">
+                <span>📽️</span> Diapositivas de la Semana
+            </button>
             <a href="proyector-qr.html" target="_blank" style="background: linear-gradient(135deg, #2563EB, #1D4ED8); color: white; border: none; padding: 8px 18px; border-radius: 8px; font-weight: bold; text-decoration: none; display: flex; align-items: center; gap: 8px; font-size: 0.9rem; box-shadow: 0 4px 10px rgba(37,99,235,0.25);"><span>📽️</span> Proyectar QR Matrícula</a>
             <a href="proyector.html" target="_blank" style="background: #10B981; color: white; border: none; padding: 8px 20px; border-radius: 8px; font-weight: bold; text-decoration: none; display: flex; align-items: center; gap: 8px;"><i class="ph ph-projector-screen-chart" style="font-size: 1.2rem;"></i> Modo Proyector</a>
             <div style="background: #F3F4F6; padding: 8px 15px; border-radius: 20px; font-size: 0.9rem; font-weight: 700; color: #374151;">
@@ -859,6 +865,9 @@
             </div>
         </div>
         <div style="display: flex; align-items: center; gap: 15px;">
+            <button onclick="window.abrirConfiguradorDiapositivas('homeschool_tutor')" style="background: linear-gradient(135deg, #7C3AED, #6D28D9); color: white; border: none; padding: 8px 18px; border-radius: 8px; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 8px; font-size: 0.9rem; box-shadow: 0 4px 10px rgba(124,58,237,0.25);">
+                <span>📽️</span> Diapositivas Semanales
+            </button>
             <a href="proyector-qr.html" target="_blank" style="background: linear-gradient(135deg, #2563EB, #1D4ED8); color: white; border: none; padding: 8px 18px; border-radius: 8px; font-weight: bold; text-decoration: none; display: flex; align-items: center; gap: 8px; font-size: 0.9rem; box-shadow: 0 4px 10px rgba(37,99,235,0.25);"><span>📽️</span> Proyectar QR Matrícula</a>
             <a href="proyector.html" target="_blank" style="background: #10B981; color: white; border: none; padding: 8px 18px; border-radius: 8px; font-weight: bold; text-decoration: none; display: flex; align-items: center; gap: 8px; font-size: 0.9rem;"><i class="ph ph-projector-screen-chart"></i> Modo Proyector</a>
             <button onclick="location.reload()" style="background: #EF4444; color: white; border: none; padding: 8px 18px; border-radius: 8px; font-weight: bold; cursor: pointer; font-family: Inter, sans-serif; font-size: 0.9rem;">Cerrar Sesión</button>
@@ -1710,10 +1719,133 @@
                 🤝 Entendido y Me Comprometo a Mejorar
             </button>
         </div>
+    <!-- ========================================== -->
+    <!-- MODAL CONFIGURADOR DE DIAPOSITIVAS (10 SLIDES) -->
+    <!-- ========================================== -->
+    <div id="modal-generar-diapositivas" style="display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); align-items: center; justify-content: center; z-index: 100000; padding: 20px;">
+        <div style="background: white; border-radius: 20px; padding: 30px; max-width: 620px; width: 100%; box-shadow: 0 25px 60px -15px rgba(0,0,0,0.35); text-align: left;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 2px solid #F1F5F9; padding-bottom: 15px; margin-bottom: 20px;">
+                <div style="display: flex; align-items: center; gap: 12px;">
+                    <div style="width: 48px; height: 48px; background: linear-gradient(135deg, #7C3AED, #6D28D9); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; color: white;">
+                        📽️
+                    </div>
+                    <div>
+                        <h3 style="margin: 0; font-size: 1.35rem; font-weight: 900; color: #1E1B4B;">Generador de Diapositivas Semanales</h3>
+                        <p style="margin: 2px 0 0 0; color: #64748B; font-size: 0.88rem;">10 diapositivas ilustradas, estructuradas y de alta calidad para tu clase o tutoría.</p>
+                    </div>
+                </div>
+                <button onclick="window.cerrarConfiguradorDiapositivas()" style="background: #F1F5F9; border: none; font-size: 1.2rem; width: 36px; height: 36px; border-radius: 50%; cursor: pointer; color: #64748B; font-weight: bold; display: flex; align-items: center; justify-content: center;">✕</button>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 14px; margin-bottom: 22px;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                    <div>
+                        <label style="font-size: 0.82rem; font-weight: 800; color: #334155; display: block; margin-bottom: 4px;">Asignatura:</label>
+                        <select id="slides-materia-select" style="width: 100%; padding: 9px 12px; border: 1.5px solid #CBD5E1; border-radius: 8px; font-weight: bold; background: white;">
+                            <option value="Ciencias Naturales">🌿 Ciencias Naturales (Física/Bio/Química)</option>
+                            <option value="Matemáticas">📐 Matemáticas</option>
+                            <option value="Lengua Castellana">📖 Lengua Castellana y Comunicación</option>
+                            <option value="Ciencias Sociales">🌍 Ciencias Sociales y Ciudadanía</option>
+                            <option value="Inglés">🇬🇧 Inglés STEAM</option>
+                            <option value="Tecnología">💻 Tecnología e Informática</option>
+                            <option value="Educación Artística">🎨 Educación Artística y Música</option>
+                            <option value="Ética y Valores">🕊️ Ética y Valores Humanos</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label style="font-size: 0.82rem; font-weight: 800; color: #334155; display: block; margin-bottom: 4px;">Grado o Ciclo:</label>
+                        <select id="slides-grado-select" style="width: 100%; padding: 9px 12px; border: 1.5px solid #CBD5E1; border-radius: 8px; font-weight: bold; background: white;">
+                            <option value="1">1° Primaria</option><option value="2">2° Primaria</option><option value="3">3° Primaria</option><option value="4">4° Primaria</option><option value="5">5° Primaria</option>
+                            <option value="6">6° Secundaria</option><option value="7" selected>7° Secundaria</option><option value="8">8° Secundaria</option><option value="9">9° Secundaria</option><option value="10">10° Media</option><option value="11">11° Media</option>
+                            <option value="Ciclo I">Ciclo I</option><option value="Ciclo II">Ciclo II</option><option value="Ciclo III">Ciclo III</option><option value="Ciclo IV">Ciclo IV</option><option value="Ciclo V">Ciclo V</option><option value="Ciclo VI">Ciclo VI</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                    <div>
+                        <label style="font-size: 0.82rem; font-weight: 800; color: #334155; display: block; margin-bottom: 4px;">Periodo:</label>
+                        <select id="slides-periodo-select" style="width: 100%; padding: 9px 12px; border: 1.5px solid #CBD5E1; border-radius: 8px; font-weight: bold; background: white;">
+                            <option value="1">Periodo 1</option><option value="2">Periodo 2</option><option value="3" selected>Periodo 3</option><option value="4">Periodo 4</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label style="font-size: 0.82rem; font-weight: 800; color: #334155; display: block; margin-bottom: 4px;">Semana del Periodo:</label>
+                        <select id="slides-semana-select" style="width: 100%; padding: 9px 12px; border: 1.5px solid #CBD5E1; border-radius: 8px; font-weight: bold; background: white;">
+                            <option value="1" selected>Semana 1</option><option value="2">Semana 2</option><option value="3">Semana 3</option><option value="4">Semana 4</option>
+                            <option value="5">Semana 5</option><option value="6">Semana 6</option><option value="7">Semana 7</option><option value="8">Semana 8</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label style="font-size: 0.82rem; font-weight: 800; color: #334155; display: block; margin-bottom: 4px;">Tema o Pregunta Clave de la Semana (Opcional):</label>
+                    <input type="text" id="slides-tema-custom" placeholder="Ej: Leyes de la Dinámica, Ecosistemas Colombianos, Fracciones..." style="width: 100%; padding: 9px 12px; border: 1.5px solid #CBD5E1; border-radius: 8px; font-size: 0.9rem; box-sizing: border-box;">
+                </div>
+            </div>
+
+            <div style="display: flex; justify-content: flex-end; gap: 12px;">
+                <button onclick="window.cerrarConfiguradorDiapositivas()" style="background: #F1F5F9; color: #475569; border: none; padding: 12px 20px; border-radius: 10px; font-weight: 700; cursor: pointer;">Cancelar</button>
+                <button onclick="window.ejecutarGeneracionDiapositivas()" style="background: linear-gradient(135deg, #7C3AED, #6D28D9); color: white; border: none; padding: 12px 24px; border-radius: 10px; font-weight: 800; cursor: pointer; display: flex; align-items: center; gap: 8px; box-shadow: 0 4px 14px rgba(124,58,237,0.35);">
+                    <span>📽️</span> Generar y Presentar (10 Slides)
+                </button>
+            </div>
+        </div>
     </div>
 
-    <script src="diagnostico_nocturno.js?v=20260815_v32"></script>
-    <script src="app.js?v=20260815_v32"></script>
+    <!-- ========================================== -->
+    <!-- MODAL PRESENTADOR DE DIAPOSITIVAS PROFESIONALES -->
+    <!-- ========================================== -->
+    <div id="modal-diapositivas-presentador" style="display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.96); backdrop-filter: blur(12px); z-index: 100001; flex-direction: column; justify-content: space-between; padding: 20px; box-sizing: border-box;">
+        <!-- Barra Superior de Controles -->
+        <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; background: rgba(30, 41, 59, 0.7); border-radius: 14px; border: 1px solid rgba(255,255,255,0.1); color: white; flex-wrap: wrap; gap: 10px;">
+            <div style="display: flex; align-items: center; gap: 14px;">
+                <span style="font-size: 1.6rem;">📽️</span>
+                <div>
+                    <div id="slides-deck-title" style="font-size: 1.15rem; font-weight: 900; color: #F8FAFC;">Diapositivas de la Semana</div>
+                    <div id="slides-deck-subtitle" style="font-size: 0.82rem; color: #94A3B8;">Ciencias Naturales • Grado 7° • Semana 1</div>
+                </div>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <button onclick="window.togglePantallaCompletaSlides()" style="background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); color: white; padding: 7px 14px; border-radius: 8px; font-weight: 700; font-size: 0.85rem; cursor: pointer; display: flex; align-items: center; gap: 6px;">
+                    ⛶ Pantalla Completa
+                </button>
+                <button onclick="window.imprimirDiapositivas()" style="background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); color: white; padding: 7px 14px; border-radius: 8px; font-weight: 700; font-size: 0.85rem; cursor: pointer; display: flex; align-items: center; gap: 6px;">
+                    🖨️ Imprimir / PDF
+                </button>
+                <button onclick="window.cerrarPresentadorDiapositivas()" style="background: #EF4444; border: none; color: white; padding: 7px 16px; border-radius: 8px; font-weight: 800; font-size: 0.9rem; cursor: pointer;">
+                    ✕ Salir
+                </button>
+            </div>
+        </div>
+
+        <!-- Lienzo Principal de la Diapositiva (Proporción 16:9) -->
+        <div style="flex: 1; display: flex; align-items: center; justify-content: center; padding: 20px 0; overflow: hidden;">
+            <div id="slide-stage" style="width: 100%; max-width: 1100px; aspect-ratio: 16/9; background: white; border-radius: 20px; box-shadow: 0 25px 60px rgba(0,0,0,0.6); overflow: hidden; display: flex; flex-direction: column; position: relative;">
+                <!-- Contenido inyectado por JS de la diapositiva actual -->
+            </div>
+        </div>
+
+        <!-- Barra Inferior de Navegación -->
+        <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; background: rgba(30, 41, 59, 0.7); border-radius: 14px; border: 1px solid rgba(255,255,255,0.1); flex-wrap: wrap; gap: 10px;">
+            <button id="btn-slide-prev" onclick="window.navegarSlide(-1)" style="background: #3B82F6; color: white; border: none; padding: 10px 20px; border-radius: 10px; font-weight: 800; font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; gap: 6px;">
+                ◀ Anterior
+            </button>
+
+            <!-- Indicador de Puntos 1-10 -->
+            <div id="slides-dots-container" style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap; justify-content: center;">
+                <!-- 10 dots inyectados por JS -->
+            </div>
+
+            <button id="btn-slide-next" onclick="window.navegarSlide(1)" style="background: #3B82F6; color: white; border: none; padding: 10px 20px; border-radius: 10px; font-weight: 800; font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; gap: 6px;">
+                Siguiente ▶
+            </button>
+        </div>
+    </div>
+
+    <script src="diagnostico_nocturno.js?v=20260815_v33"></script>
+    <script src="app.js?v=20260815_v33"></script>
     <script>
         // --- BLINDAJE DE PROPIEDAD INTELECTUAL Y SEGURIDAD ---
         (function() {

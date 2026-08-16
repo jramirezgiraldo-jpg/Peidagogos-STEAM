@@ -8918,4 +8918,612 @@ window.finalizarJuegoPantalla = async function(act, puntaje = 100, xpOtorgado = 
 };
 
 // ==========================================================================
+// MOTOR DE GENERACIÓN Y PRESENTACIÓN DE DIAPOSITIVAS SEMANALES (10 SLIDES)
+// ==========================================================================
+
+window.diapositivasDeckActual = null;
+window.slideIndexActual = 0;
+
+// Paletas de color dinámicas por materia
+window.PALETAS_MATERIAS_SLIDES = {
+    'Ciencias Naturales': { bgGrad: 'linear-gradient(135deg, #064E3B, #047857)', accent: '#10B981', badgeBg: '#ECFDF5', badgeText: '#065F46', icon: '🌿' },
+    'Matemáticas': { bgGrad: 'linear-gradient(135deg, #1E1B4B, #3730A3)', accent: '#6366F1', badgeBg: '#EEF2FF', badgeText: '#3730A3', icon: '📐' },
+    'Lengua Castellana': { bgGrad: 'linear-gradient(135deg, #78350F, #B45309)', accent: '#F59E0B', badgeBg: '#FEF3C7', badgeText: '#92400E', icon: '📖' },
+    'Ciencias Sociales': { bgGrad: 'linear-gradient(135deg, #881337, #BE123C)', accent: '#F43F5E', badgeBg: '#FFE4E6', badgeText: '#9F1239', icon: '🌍' },
+    'Inglés': { bgGrad: 'linear-gradient(135deg, #0C4A6E, #0284C7)', accent: '#38BDF8', badgeBg: '#E0F2FE', badgeText: '#0369A1', icon: '🇬🇧' },
+    'Tecnología': { bgGrad: 'linear-gradient(135deg, #312E81, #4338CA)', accent: '#818CF8', badgeBg: '#EEF2FF', badgeText: '#312E81', icon: '💻' },
+    'Educación Artística': { bgGrad: 'linear-gradient(135deg, #701A75, #A21CAF)', accent: '#E879F9', badgeBg: '#FDF4FF', badgeText: '#701A75', icon: '🎨' },
+    'Ética y Valores': { bgGrad: 'linear-gradient(135deg, #134E4A, #0F766E)', accent: '#2DD4BF', badgeBg: '#F0FDFA', badgeText: '#134E4A', icon: '🕊️' }
+};
+
+window.abrirConfiguradorDiapositivas = function(rol = 'docente', materiaDef = '', gradoDef = '', perDef = '3', semDef = '1') {
+    const modal = document.getElementById('modal-generar-diapositivas');
+    if (!modal) return;
+
+    const selMat = document.getElementById('slides-materia-select');
+    const selGra = document.getElementById('slides-grado-select');
+    const selPer = document.getElementById('slides-periodo-select');
+    const selSem = document.getElementById('slides-semana-select');
+
+    if (selMat && materiaDef) selMat.value = materiaDef;
+    if (selGra && gradoDef) selGra.value = gradoDef;
+    if (selPer && perDef) selPer.value = perDef;
+    if (selSem && semDef) selSem.value = semDef;
+
+    modal.style.display = 'flex';
+};
+
+window.cerrarConfiguradorDiapositivas = function() {
+    const modal = document.getElementById('modal-generar-diapositivas');
+    if (modal) modal.style.display = 'none';
+};
+
+// Generador de Contenido de Alta Calidad para las 10 Diapositivas
+window.generar10DiapositivasPedagogicas = function(materia, grado, periodo, semana, temaCustom) {
+    const paleta = window.PALETAS_MATERIAS_SLIDES[materia] || window.PALETAS_MATERIAS_SLIDES['Ciencias Naturales'];
+    const temaPrincipal = temaCustom && temaCustom.trim() ? temaCustom.trim() : `Unidad Temática Semanal: ${materia} (Grado ${grado} • Periodo ${periodo} • Semana ${semana})`;
+
+    return {
+        materia,
+        grado,
+        periodo,
+        semana,
+        temaPrincipal,
+        paleta,
+        slides: [
+            // Slide 1: Portada y Pregunta Detonante
+            {
+                tipo: 'portada',
+                numero: 1,
+                titulo: temaPrincipal,
+                subtitulo: `Ruta de Aprendizaje STEAM • Grado ${grado}° • Periodo ${periodo} • Semana ${semana}`,
+                pregunta_detonante: `¿Cómo podemos usar los principios de ${temaPrincipal} para comprender el mundo y diseñar soluciones sostenibles?`,
+                icon: paleta.icon
+            },
+            // Slide 2: ¿Por Qué Importa? (Contexto Cotidiano)
+            {
+                tipo: 'contexto',
+                numero: 2,
+                titulo: '¿Por Qué es Fundamental Este Tema?',
+                subtitulo: 'Conexión con tu vida diaria, tu comunidad y el entorno',
+                puntos: [
+                    { icon: '🏠', titulo: 'En Tu Hogar y Vida Diaria', desc: 'Permite explicar fenómenos que observas a diario y tomar mejores decisiones prácticas.' },
+                    { icon: '🌱', titulo: 'En el Entorno y la Naturaleza', desc: 'Ayuda a conservar los recursos hídricos, energéticos y la biodiversidad de nuestra región.' },
+                    { icon: '🚀', titulo: 'En la Ciencia y el Futuro', desc: 'Es la base de las tecnologías modernas, la ingeniería verde y la innovación digital.' }
+                ]
+            },
+            // Slide 3: Mapa de Ruta Semanal (3 Saberes)
+            {
+                tipo: 'objetivos',
+                numero: 3,
+                titulo: 'Nuestra Ruta de Aprendizaje STEAM',
+                subtitulo: 'Lo que lograremos paso a paso durante esta semana',
+                objetivos: [
+                    { num: '1', saber: 'Saber Conceptual', titulo: 'Explorar y Comprender', desc: 'Identificar las leyes, conceptos y variables centrales del tema.' },
+                    { num: '2', saber: 'Saber Procedimental', titulo: 'Experimentar y Modelar', desc: 'Aplicar el método científico y herramientas matemáticas en situaciones reales.' },
+                    { num: '3', saber: 'Saber Axiológico', titulo: 'Crear y Transformar', desc: 'Proponer soluciones colaborativas con impacto ético y ambiental.' }
+                ]
+            },
+            // Slide 4: Concepto Clave 1 (El Fundamento & Analogía)
+            {
+                tipo: 'concepto_clave',
+                numero: 4,
+                titulo: 'El Concepto Central',
+                subtitulo: 'La idea fundamental explicada de forma clara y visual',
+                definicion: `En el estudio de ${temaPrincipal}, los elementos interactúan bajo principios de causa, conservación y flujo dinámico.`,
+                analogia_titulo: '💡 Analogía Intuitiva:',
+                analogia_texto: 'Imagina este fenómeno como una red de engranajes donde cada variable ajusta la velocidad y el equilibrio de todo el sistema.'
+            },
+            // Slide 5: ¿Cómo Funciona? (Diagrama de Proceso)
+            {
+                tipo: 'mecanismo',
+                numero: 5,
+                titulo: '¿Cómo Funciona en la Práctica?',
+                subtitulo: 'Flujo secuencial del fenómeno en 3 momentos clave',
+                pasos: [
+                    { paso: 'Fase Inicial', icon: '🔍', desc: 'Entrada de energía / variables iniciales que activan el proceso.' },
+                    { paso: 'Fase de Transformación', icon: '⚙️', desc: 'Interacción dinámica donde ocurren las relaciones proporcionales.' },
+                    { paso: 'Fase de Resultado', icon: '📊', desc: 'Equilibrio final, producto medible o trabajo útil generado.' }
+                ]
+            },
+            // Slide 6: Infografía Comparativa (Mito vs Realidad)
+            {
+                tipo: 'comparativa',
+                numero: 6,
+                titulo: 'Claridad Conceptual: Mito vs. Evidencia',
+                subtitulo: 'Derribando ideas preconcebidas con rigor científico',
+                filas: [
+                    { mito: '❌ "El fenómeno ocurre de forma aislada sin interacción."', realidad: '✅ Todo sistema intercambia materia, energía o información con su entorno.' },
+                    { mito: '❌ "Solo se puede estudiar con fórmulas complejas."', realidad: '✅ Comienza con la observación directa, modelos cualitativos y ejemplos cotidianos.' }
+                ]
+            },
+            // Slide 7: Caso Real y Aplicación en el Territorio
+            {
+                tipo: 'caso_real',
+                numero: 7,
+                titulo: 'Impacto Real en Nuestro Territorio',
+                subtitulo: 'Aplicación contextual en el Quindío y Colombia',
+                caso_titulo: 'Gestión Sostenible y Bioeconomía',
+                caso_desc: `Los conocimientos sobre ${temaPrincipal} son hoy aplicados por científicos y emprendedores para optimizar los cultivos cafeteros, proteger las cuencas de agua y diseñar fuentes de energía limpia comunitaria.`,
+                impacto_badge: '🌎 Competencia Ciudadana y Ambiental'
+            },
+            // Slide 8: Mini-Desafío de Activación Mental
+            {
+                tipo: 'desafio',
+                numero: 8,
+                titulo: '⚡ Mini-Desafío de Activación Mental',
+                subtitulo: 'Pensemos juntos durante 2 minutos antes de continuar',
+                pregunta_reto: `Si duplicamos una de las variables principales en ${temaPrincipal}, ¿qué esperarías que suceda con el resultado final?`,
+                pistas: [
+                    '¿Es una relación directamente proporcional o inversa?',
+                    '¿Qué pasaría en un caso extremo?',
+                    'Compara tu hipótesis con la de tu compañero o tutor.'
+                ]
+            },
+            // Slide 9: Semáforo de Buenas Prácticas
+            {
+                tipo: 'semaforo',
+                numero: 9,
+                titulo: 'Tips para Dominar el Tema',
+                subtitulo: 'Lo que debes evitar y lo que te llevará a la excelencia',
+                items: [
+                    { tipo: 'error', icon: '🛑', label: 'Evita:', desc: 'Memorizar sin entender la relación de causa y efecto.' },
+                    { tipo: 'alerta', icon: '⚠️', label: 'Ten cuidado con:', desc: 'Olvidar las unidades de medida y las condiciones iniciales.' },
+                    { tipo: 'exito', icon: '✅', label: 'Aplica siempre:', desc: 'Explicar el concepto con tus propias palabras y un esquema gráfico.' }
+                ]
+            },
+            // Slide 10: Misión de la Semana y Cierre
+            {
+                tipo: 'cierre',
+                numero: 10,
+                titulo: '¡Misión STEAM Semanal Activada!',
+                subtitulo: 'Manos a la obra: aprende, crea y supera tu récord',
+                mision_texto: `Tu desafío esta semana es desarrollar la guía de ${materia}, resolver las misiones interactivas y poner a prueba tu conocimiento.`,
+                frase_motivacional: '"La ciencia no es solo un conjunto de saberes, es una forma apasionante de pensar y transformar el mundo."',
+                xp_badge: '🌟 +100 XP por Completar la Guía Semanal'
+            }
+        ]
+    };
+};
+
+window.ejecutarGeneracionDiapositivas = function() {
+    const selMat = document.getElementById('slides-materia-select');
+    const selGra = document.getElementById('slides-grado-select');
+    const selPer = document.getElementById('slides-periodo-select');
+    const selSem = document.getElementById('slides-semana-select');
+    const inTema = document.getElementById('slides-tema-custom');
+
+    const materia = selMat ? selMat.value : 'Ciencias Naturales';
+    const grado = selGra ? selGra.value : '7';
+    const periodo = selPer ? selPer.value : '3';
+    const semana = selSem ? selSem.value : '1';
+    const temaCustom = inTema ? inTema.value.trim() : '';
+
+    const deck = window.generar10DiapositivasPedagogicas(materia, grado, periodo, semana, temaCustom);
+
+    window.cerrarConfiguradorDiapositivas();
+    window.abrirPresentadorDiapositivas(deck);
+};
+
+window.abrirPresentadorDiapositivas = function(deck) {
+    const modal = document.getElementById('modal-diapositivas-presentador');
+    if (!modal) return;
+
+    window.diapositivasDeckActual = deck;
+    window.slideIndexActual = 0;
+
+    const titleHeader = document.getElementById('slides-deck-title');
+    const subtitleHeader = document.getElementById('slides-deck-subtitle');
+
+    if (titleHeader) titleHeader.innerText = deck.temaPrincipal;
+    if (subtitleHeader) subtitleHeader.innerText = `${deck.materia} • Grado ${deck.grado}° • Periodo ${deck.periodo} • Semana ${deck.semana}`;
+
+    // Renderizar los 10 puntos inferiores
+    const dotsContainer = document.getElementById('slides-dots-container');
+    if (dotsContainer) {
+        dotsContainer.innerHTML = deck.slides.map((s, idx) => `
+            <button onclick="window.irASlide(${idx})" id="slide-dot-${idx}" style="width: 28px; height: 28px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,0.4); background: ${idx === 0 ? '#3B82F6' : 'rgba(255,255,255,0.15)'}; color: white; font-weight: 800; font-size: 0.75rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.15s;">
+                ${idx + 1}
+            </button>
+        `).join('');
+    }
+
+    modal.style.display = 'flex';
+    window.renderizarSlideActual();
+
+    // Escuchador de teclado
+    window.removeEventListener('keydown', window.manejarTecladoSlides);
+    window.addEventListener('keydown', window.manejarTecladoSlides);
+};
+
+window.cerrarPresentadorDiapositivas = function() {
+    const modal = document.getElementById('modal-diapositivas-presentador');
+    if (modal) modal.style.display = 'none';
+    window.removeEventListener('keydown', window.manejarTecladoSlides);
+};
+
+window.manejarTecladoSlides = function(e) {
+    if (e.key === 'ArrowRight' || e.key === ' ') {
+        window.navegarSlide(1);
+    } else if (e.key === 'ArrowLeft') {
+        window.navegarSlide(-1);
+    } else if (e.key === 'Escape') {
+        window.cerrarPresentadorDiapositivas();
+    }
+};
+
+window.navegarSlide = function(delta) {
+    if (!window.diapositivasDeckActual) return;
+    const total = window.diapositivasDeckActual.slides.length;
+    const nuevoIdx = window.slideIndexActual + delta;
+    if (nuevoIdx >= 0 && nuevoIdx < total) {
+        window.irASlide(nuevoIdx);
+    }
+};
+
+window.irASlide = function(idx) {
+    if (!window.diapositivasDeckActual) return;
+    window.slideIndexActual = idx;
+
+    // Actualizar dots
+    for (let i = 0; i < window.diapositivasDeckActual.slides.length; i++) {
+        const dot = document.getElementById(`slide-dot-${i}`);
+        if (dot) {
+            dot.style.background = (i === idx) ? '#3B82F6' : 'rgba(255,255,255,0.15)';
+            dot.style.transform = (i === idx) ? 'scale(1.15)' : 'scale(1)';
+            dot.style.borderColor = (i === idx) ? '#60A5FA' : 'rgba(255,255,255,0.4)';
+        }
+    }
+
+    // Botones prev / next estado
+    const btnPrev = document.getElementById('btn-slide-prev');
+    const btnNext = document.getElementById('btn-slide-next');
+    if (btnPrev) btnPrev.disabled = (idx === 0);
+    if (btnNext) btnNext.disabled = (idx === window.diapositivasDeckActual.slides.length - 1);
+
+    window.renderizarSlideActual();
+};
+
+window.renderizarSlideActual = function() {
+    const stage = document.getElementById('slide-stage');
+    if (!stage || !window.diapositivasDeckActual) return;
+
+    const deck = window.diapositivasDeckActual;
+    const s = deck.slides[window.slideIndexActual];
+    const paleta = deck.paleta;
+
+    let slideHTML = '';
+
+    if (s.tipo === 'portada') {
+        slideHTML = `
+            <div style="flex: 1; background: ${paleta.bgGrad}; color: white; padding: 45px 50px; display: flex; flex-direction: column; justify-content: space-between; text-align: left; position: relative;">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                        <span style="font-size: 2.2rem; background: rgba(255,255,255,0.15); padding: 8px 14px; border-radius: 14px;">${s.icon}</span>
+                        <div>
+                            <span style="background: rgba(255,255,255,0.25); color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;">
+                                ${deck.materia}
+                            </span>
+                        </div>
+                    </div>
+                    <div style="font-size: 0.95rem; font-weight: 800; color: #E2E8F0; background: rgba(0,0,0,0.25); padding: 6px 14px; border-radius: 20px;">
+                        Diapositiva ${s.numero} de 10
+                    </div>
+                </div>
+
+                <div style="margin: 20px 0;">
+                    <h1 style="font-size: 2.6rem; font-weight: 900; line-height: 1.15; margin: 0 0 10px 0; letter-spacing: -0.5px; text-shadow: 0 2px 10px rgba(0,0,0,0.2);">
+                        ${s.titulo}
+                    </h1>
+                    <p style="font-size: 1.2rem; color: #E0E7FF; margin: 0; font-weight: 600;">
+                        ${s.subtitulo}
+                    </p>
+                </div>
+
+                <div style="background: rgba(255,255,255,0.12); backdrop-filter: blur(8px); border: 1.5px solid rgba(255,255,255,0.3); border-radius: 16px; padding: 18px 24px; box-shadow: 0 8px 20px rgba(0,0,0,0.15);">
+                    <div style="font-size: 0.85rem; font-weight: 900; color: #FEF08A; text-transform: uppercase; margin-bottom: 4px; display: flex; align-items: center; gap: 6px;">
+                        <span>❓</span> Gran Pregunta Detonante de la Semana:
+                    </div>
+                    <div style="font-size: 1.15rem; font-weight: 700; color: #FFFFFF; line-height: 1.4;">
+                        ${s.pregunta_detonante}
+                    </div>
+                </div>
+            </div>
+        `;
+    } else if (s.tipo === 'contexto') {
+        slideHTML = `
+            <div style="flex: 1; background: #FFFFFF; padding: 40px 45px; display: flex; flex-direction: column; justify-content: space-between; text-align: left;">
+                <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #F1F5F9; padding-bottom: 12px;">
+                    <div>
+                        <span style="font-size: 0.82rem; font-weight: 800; color: ${paleta.accent}; text-transform: uppercase;">Módulo de Relevancia</span>
+                        <h2 style="font-size: 1.8rem; font-weight: 900; color: #1E1B4B; margin: 2px 0 0 0;">${s.titulo}</h2>
+                    </div>
+                    <span style="background: #F1F5F9; color: #475569; padding: 4px 12px; border-radius: 20px; font-weight: 800; font-size: 0.85rem;">Slide ${s.numero}/10</span>
+                </div>
+
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin: 20px 0;">
+                    ${s.puntos.map(p => `
+                        <div style="background: #F8FAFC; border: 1.5px solid #E2E8F0; border-radius: 16px; padding: 22px; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 4px 10px rgba(0,0,0,0.03);">
+                            <div>
+                                <span style="font-size: 2.2rem; display: inline-block; margin-bottom: 10px;">${p.icon}</span>
+                                <h4 style="margin: 0 0 8px 0; font-size: 1.15rem; font-weight: 900; color: #1E293B;">${p.titulo}</h4>
+                                <p style="margin: 0; color: #64748B; font-size: 0.95rem; line-height: 1.5;">${p.desc}</p>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+
+                <div style="background: ${paleta.badgeBg}; border-left: 4px solid ${paleta.accent}; padding: 12px 18px; border-radius: 8px; color: ${paleta.badgeText}; font-weight: 700; font-size: 0.95rem;">
+                    💡 <b>Conclusión Práctica:</b> Lo que aprendes en el aula o en casa tiene una aplicación directa en cómo entiendes y cuidas tu entorno.
+                </div>
+            </div>
+        `;
+    } else if (s.tipo === 'objetivos') {
+        slideHTML = `
+            <div style="flex: 1; background: #FFFFFF; padding: 40px 45px; display: flex; flex-direction: column; justify-content: space-between; text-align: left;">
+                <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #F1F5F9; padding-bottom: 12px;">
+                    <div>
+                        <span style="font-size: 0.82rem; font-weight: 800; color: #7C3AED; text-transform: uppercase;">Objetivos de Aprendizaje</span>
+                        <h2 style="font-size: 1.8rem; font-weight: 900; color: #1E1B4B; margin: 2px 0 0 0;">${s.titulo}</h2>
+                    </div>
+                    <span style="background: #F1F5F9; color: #475569; padding: 4px 12px; border-radius: 20px; font-weight: 800; font-size: 0.85rem;">Slide ${s.numero}/10</span>
+                </div>
+
+                <div style="display: flex; flex-direction: column; gap: 14px; margin: 20px 0;">
+                    ${s.objetivos.map(obj => `
+                        <div style="background: #F8FAFC; border: 1.5px solid #E2E8F0; border-radius: 14px; padding: 16px 20px; display: flex; align-items: center; gap: 18px;">
+                            <div style="width: 44px; height: 44px; background: linear-gradient(135deg, #7C3AED, #6D28D9); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; font-weight: 900; flex-shrink: 0;">
+                                ${obj.num}
+                            </div>
+                            <div style="flex: 1;">
+                                <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <h4 style="margin: 0; font-size: 1.1rem; font-weight: 900; color: #1E1B4B;">${obj.titulo}</h4>
+                                    <span style="background: #EEF2FF; color: #4338CA; padding: 2px 10px; border-radius: 12px; font-weight: 800; font-size: 0.78rem;">${obj.saber}</span>
+                                </div>
+                                <p style="margin: 4px 0 0 0; color: #475569; font-size: 0.95rem;">${obj.desc}</p>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+
+                <div style="text-align: center; color: #64748B; font-size: 0.9rem; font-weight: 600;">
+                    🎯 Estándares alineados con los Derechos Básicos de Aprendizaje (DBA V2 - MEN Colombia).
+                </div>
+            </div>
+        `;
+    } else if (s.tipo === 'concepto_clave') {
+        slideHTML = `
+            <div style="flex: 1; background: #FFFFFF; padding: 40px 45px; display: flex; flex-direction: column; justify-content: space-between; text-align: left;">
+                <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #F1F5F9; padding-bottom: 12px;">
+                    <div>
+                        <span style="font-size: 0.82rem; font-weight: 800; color: #2563EB; text-transform: uppercase;">Fundamento Teórico</span>
+                        <h2 style="font-size: 1.8rem; font-weight: 900; color: #1E1B4B; margin: 2px 0 0 0;">${s.titulo}</h2>
+                    </div>
+                    <span style="background: #F1F5F9; color: #475569; padding: 4px 12px; border-radius: 20px; font-weight: 800; font-size: 0.85rem;">Slide ${s.numero}/10</span>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 25px; margin: 20px 0; align-items: stretch;">
+                    <div style="background: linear-gradient(135deg, #1E293B, #0F172A); color: white; border-radius: 18px; padding: 28px; display: flex; flex-direction: column; justify-content: center; box-shadow: 0 10px 25px rgba(0,0,0,0.15);">
+                        <span style="color: #38BDF8; font-size: 0.85rem; font-weight: 800; text-transform: uppercase; margin-bottom: 8px;">Definición Cristalina:</span>
+                        <p style="font-size: 1.35rem; font-weight: 700; line-height: 1.45; margin: 0; color: #F8FAFC;">
+                            ${s.definicion}
+                        </p>
+                    </div>
+
+                    <div style="background: #FEF3C7; border: 1.5px solid #FCD34D; border-radius: 18px; padding: 28px; display: flex; flex-direction: column; justify-content: center;">
+                        <h4 style="margin: 0 0 8px 0; color: #92400E; font-size: 1.15rem; font-weight: 900;">${s.analogia_titulo}</h4>
+                        <p style="margin: 0; color: #78350F; font-size: 1.05rem; line-height: 1.5; font-weight: 600;">
+                            ${s.analogia_texto}
+                        </p>
+                    </div>
+                </div>
+
+                <div style="background: #F0FDF4; border: 1px solid #BBF7D0; padding: 12px 18px; border-radius: 8px; color: #166534; font-size: 0.95rem; font-weight: 700;">
+                    🧠 <b>Palabra Clave:</b> La conceptualización clara es la base para resolver cualquier problema científico posterior.
+                </div>
+            </div>
+        `;
+    } else if (s.tipo === 'mecanismo') {
+        slideHTML = `
+            <div style="flex: 1; background: #FFFFFF; padding: 40px 45px; display: flex; flex-direction: column; justify-content: space-between; text-align: left;">
+                <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #F1F5F9; padding-bottom: 12px;">
+                    <div>
+                        <span style="font-size: 0.82rem; font-weight: 800; color: #059669; text-transform: uppercase;">Proceso y Dinámica</span>
+                        <h2 style="font-size: 1.8rem; font-weight: 900; color: #1E1B4B; margin: 2px 0 0 0;">${s.titulo}</h2>
+                    </div>
+                    <span style="background: #F1F5F9; color: #475569; padding: 4px 12px; border-radius: 20px; font-weight: 800; font-size: 0.85rem;">Slide ${s.numero}/10</span>
+                </div>
+
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin: 25px 0; position: relative;">
+                    ${s.pasos.map((p, idx) => `
+                        <div style="background: #F8FAFC; border: 2px solid #CBD5E1; border-radius: 16px; padding: 22px; text-align: center; display: flex; flex-direction: column; justify-content: space-between;">
+                            <div>
+                                <span style="font-size: 2.5rem; display: block; margin-bottom: 10px;">${p.icon}</span>
+                                <span style="background: #E2E8F0; color: #1E293B; padding: 3px 12px; border-radius: 12px; font-weight: 800; font-size: 0.8rem; text-transform: uppercase;">Paso ${idx + 1}</span>
+                                <h4 style="margin: 10px 0 8px 0; font-size: 1.15rem; font-weight: 900; color: #0F172A;">${p.paso}</h4>
+                                <p style="margin: 0; color: #475569; font-size: 0.92rem; line-height: 1.45;">${p.desc}</p>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+
+                <div style="text-align: center; color: #64748B; font-size: 0.95rem; font-weight: 600;">
+                    🔄 Observa cómo una alteración en la Fase 1 impacta directamente el resultado de la Fase 3.
+                </div>
+            </div>
+        `;
+    } else if (s.tipo === 'comparativa') {
+        slideHTML = `
+            <div style="flex: 1; background: #FFFFFF; padding: 40px 45px; display: flex; flex-direction: column; justify-content: space-between; text-align: left;">
+                <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #F1F5F9; padding-bottom: 12px;">
+                    <div>
+                        <span style="font-size: 0.82rem; font-weight: 800; color: #DC2626; text-transform: uppercase;">Rigor y Pensamiento Crítico</span>
+                        <h2 style="font-size: 1.8rem; font-weight: 900; color: #1E1B4B; margin: 2px 0 0 0;">${s.titulo}</h2>
+                    </div>
+                    <span style="background: #F1F5F9; color: #475569; padding: 4px 12px; border-radius: 20px; font-weight: 800; font-size: 0.85rem;">Slide ${s.numero}/10</span>
+                </div>
+
+                <div style="display: flex; flex-direction: column; gap: 16px; margin: 20px 0;">
+                    ${s.filas.map(f => `
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                            <div style="background: #FEF2F2; border: 1.5px solid #FECACA; border-radius: 14px; padding: 18px; color: #991B1B;">
+                                <div style="font-weight: 900; font-size: 0.85rem; text-transform: uppercase; margin-bottom: 4px;">Mito o Error Común:</div>
+                                <div style="font-size: 1.05rem; font-weight: 700; line-height: 1.4;">${f.mito}</div>
+                            </div>
+                            <div style="background: #ECFDF5; border: 1.5px solid #A7F3D0; border-radius: 14px; padding: 18px; color: #065F46;">
+                                <div style="font-weight: 900; font-size: 0.85rem; text-transform: uppercase; margin-bottom: 4px;">Evidencia Científica:</div>
+                                <div style="font-size: 1.05rem; font-weight: 700; line-height: 1.4;">${f.realidad}</div>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+
+                <div style="background: #F8FAFC; border: 1px solid #E2E8F0; padding: 12px 18px; border-radius: 8px; text-align: center; color: #334155; font-size: 0.95rem; font-weight: 700;">
+                    🧐 El pensamiento científico consiste en contrastar creencias con observaciones reproducibles.
+                </div>
+            </div>
+        `;
+    } else if (s.tipo === 'caso_real') {
+        slideHTML = `
+            <div style="flex: 1; background: #FFFFFF; padding: 40px 45px; display: flex; flex-direction: column; justify-content: space-between; text-align: left;">
+                <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #F1F5F9; padding-bottom: 12px;">
+                    <div>
+                        <span style="font-size: 0.82rem; font-weight: 800; color: #0D9488; text-transform: uppercase;">Contexto Regional y Global</span>
+                        <h2 style="font-size: 1.8rem; font-weight: 900; color: #1E1B4B; margin: 2px 0 0 0;">${s.titulo}</h2>
+                    </div>
+                    <span style="background: #F1F5F9; color: #475569; padding: 4px 12px; border-radius: 20px; font-weight: 800; font-size: 0.85rem;">Slide ${s.numero}/10</span>
+                </div>
+
+                <div style="background: linear-gradient(135deg, #F0FDFA, #CCFBF1); border: 2px solid #5EEAD4; border-radius: 20px; padding: 30px; margin: 20px 0; box-shadow: 0 8px 20px rgba(13,148,136,0.1);">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                        <h3 style="margin: 0; font-size: 1.45rem; font-weight: 900; color: #0F766E;">
+                            🌱 ${s.caso_titulo}
+                        </h3>
+                        <span style="background: #0F766E; color: white; padding: 4px 14px; border-radius: 20px; font-weight: 800; font-size: 0.82rem;">
+                            ${s.impacto_badge}
+                        </span>
+                    </div>
+                    <p style="font-size: 1.15rem; color: #115E59; line-height: 1.6; margin: 0; font-weight: 600;">
+                        ${s.caso_desc}
+                    </p>
+                </div>
+
+                <div style="display: flex; gap: 15px; align-items: center; background: #F8FAFC; padding: 12px 18px; border-radius: 10px;">
+                    <span style="font-size: 1.6rem;">🤝</span>
+                    <span style="font-size: 0.95rem; color: #475569; font-weight: 600;">¿Cómo podrías tú aplicar esta misma idea en un proyecto escolar o familiar?</span>
+                </div>
+            </div>
+        `;
+    } else if (s.tipo === 'desafio') {
+        slideHTML = `
+            <div style="flex: 1; background: #FFFFFF; padding: 40px 45px; display: flex; flex-direction: column; justify-content: space-between; text-align: left;">
+                <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #F1F5F9; padding-bottom: 12px;">
+                    <div>
+                        <span style="font-size: 0.82rem; font-weight: 800; color: #EA580C; text-transform: uppercase;">Participación Activa</span>
+                        <h2 style="font-size: 1.8rem; font-weight: 900; color: #1E1B4B; margin: 2px 0 0 0;">${s.titulo}</h2>
+                    </div>
+                    <span style="background: #F1F5F9; color: #475569; padding: 4px 12px; border-radius: 20px; font-weight: 800; font-size: 0.85rem;">Slide ${s.numero}/10</span>
+                </div>
+
+                <div style="background: #FFF7ED; border: 2px solid #FDBA74; border-radius: 20px; padding: 28px; margin: 20px 0;">
+                    <div style="font-size: 0.9rem; font-weight: 900; color: #C2410C; text-transform: uppercase; margin-bottom: 6px;">Pregunta Reto en Vivo:</div>
+                    <p style="font-size: 1.35rem; font-weight: 800; color: #7C2D12; margin: 0 0 20px 0; line-height: 1.4;">
+                        ${s.pregunta_reto}
+                    </p>
+
+                    <div style="background: white; border: 1px dashed #FB923C; border-radius: 12px; padding: 16px;">
+                        <div style="font-weight: 800; color: #9A3412; font-size: 0.9rem; margin-bottom: 6px;">Pistas para el análisis:</div>
+                        <ul style="margin: 0; padding-left: 20px; color: #431407; font-size: 0.95rem; line-height: 1.5;">
+                            ${s.pistas.map(p => `<li>${p}</li>`).join('')}
+                        </ul>
+                    </div>
+                </div>
+
+                <div style="text-align: center; color: #EA580C; font-weight: 800; font-size: 1rem;">
+                    ⏱️ Tómate 2 minutos para dialogar con tu grupo o tutor antes de dar la respuesta.
+                </div>
+            </div>
+        `;
+    } else if (s.tipo === 'semaforo') {
+        slideHTML = `
+            <div style="flex: 1; background: #FFFFFF; padding: 40px 45px; display: flex; flex-direction: column; justify-content: space-between; text-align: left;">
+                <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #F1F5F9; padding-bottom: 12px;">
+                    <div>
+                        <span style="font-size: 0.82rem; font-weight: 800; color: #4F46E5; text-transform: uppercase;">Estrategias de Estudio</span>
+                        <h2 style="font-size: 1.8rem; font-weight: 900; color: #1E1B4B; margin: 2px 0 0 0;">${s.titulo}</h2>
+                    </div>
+                    <span style="background: #F1F5F9; color: #475569; padding: 4px 12px; border-radius: 20px; font-weight: 800; font-size: 0.85rem;">Slide ${s.numero}/10</span>
+                </div>
+
+                <div style="display: flex; flex-direction: column; gap: 14px; margin: 20px 0;">
+                    ${s.items.map(item => `
+                        <div style="background: #F8FAFC; border: 1.5px solid #E2E8F0; border-radius: 14px; padding: 18px 22px; display: flex; align-items: center; gap: 18px;">
+                            <span style="font-size: 2.2rem;">${item.icon}</span>
+                            <div>
+                                <div style="font-weight: 900; font-size: 1.05rem; color: #1E293B; margin-bottom: 2px;">${item.label}</div>
+                                <div style="font-size: 0.95rem; color: #475569; font-weight: 600;">${item.desc}</div>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+
+                <div style="text-align: center; color: #64748B; font-size: 0.95rem; font-weight: 700;">
+                    🌟 La constancia y el método son los mejores aliados del aprendizaje significativo.
+                </div>
+            </div>
+        `;
+    } else {
+        // Slide 10: Cierre y Misión Semanal
+        slideHTML = `
+            <div style="flex: 1; background: ${paleta.bgGrad}; color: white; padding: 45px 50px; display: flex; flex-direction: column; justify-content: space-between; text-align: center; position: relative;">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <span style="background: rgba(255,255,255,0.25); color: white; padding: 4px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 800; text-transform: uppercase;">
+                        Cierre & Misión Semanal
+                    </span>
+                    <span style="font-size: 0.95rem; font-weight: 800; color: #E2E8F0; background: rgba(0,0,0,0.25); padding: 6px 14px; border-radius: 20px;">
+                        Diapositiva ${s.numero} de 10
+                    </span>
+                </div>
+
+                <div style="margin: 15px 0;">
+                    <div style="font-size: 3.5rem; margin-bottom: 10px;">🏆</div>
+                    <h1 style="font-size: 2.3rem; font-weight: 900; margin: 0 0 10px 0;">${s.titulo}</h1>
+                    <p style="font-size: 1.15rem; color: #E0E7FF; max-width: 750px; margin: 0 auto; line-height: 1.5; font-weight: 600;">
+                        ${s.mision_texto}
+                    </p>
+                </div>
+
+                <div style="background: rgba(255,255,255,0.15); backdrop-filter: blur(8px); border: 1.5px solid rgba(255,255,255,0.3); border-radius: 16px; padding: 18px; max-width: 650px; margin: 0 auto;">
+                    <p style="font-style: italic; font-size: 1rem; color: #FEF08A; margin: 0 0 8px 0; font-weight: 700;">
+                        ${s.frase_motivacional}
+                    </p>
+                    <span style="background: #10B981; color: white; padding: 4px 14px; border-radius: 20px; font-weight: 900; font-size: 0.85rem; display: inline-block;">
+                        ${s.xp_badge}
+                    </span>
+                </div>
+            </div>
+        `;
+    }
+
+    stage.innerHTML = slideHTML;
+};
+
+window.togglePantallaCompletaSlides = function() {
+    const modal = document.getElementById('modal-diapositivas-presentador');
+    if (!modal) return;
+
+    if (!document.fullscreenElement) {
+        modal.requestFullscreen().catch(err => {
+            console.warn("Fullscreen no permitido:", err);
+        });
+    } else {
+        document.exitFullscreen();
+    }
+};
+
+window.imprimirDiapositivas = function() {
+    window.print();
+};
+
+// ==========================================================================
 
