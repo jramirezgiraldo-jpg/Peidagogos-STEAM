@@ -1903,138 +1903,283 @@
     <!-- ========================================== -->
     <!-- MODAL PRINCIPAL: CAJA DE HERRAMIENTAS PEDAGÓGICAS (40 HERRAMIENTAS) -->
     <!-- ========================================== -->
+    <!-- MODAL PRINCIPAL: CAJA DE HERRAMIENTAS PEDAGÓGICAS (40 HERRAMIENTAS EN 6 CAJAS TEMÁTICAS) -->
+    <!-- ========================================== -->
     <div id="modal-caja-herramientas" style="display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.88); backdrop-filter: blur(10px); align-items: center; justify-content: center; z-index: 100000; padding: 20px;">
-        <div style="background: #F8FAFC; border-radius: 24px; padding: 30px; max-width: 1200px; width: 100%; max-height: 92vh; display: flex; flex-direction: column; box-shadow: 0 25px 70px -15px rgba(0,0,0,0.5); text-align: left; overflow: hidden; border: 1px solid #CBD5E1;">
+        <div style="background: #F8FAFC; border-radius: 24px; padding: 26px 30px; max-width: 1200px; width: 100%; max-height: 92vh; display: flex; flex-direction: column; box-shadow: 0 25px 70px -15px rgba(0,0,0,0.5); text-align: left; overflow: hidden; border: 1px solid #CBD5E1;">
             
             <!-- Header Modal -->
-            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #E2E8F0; padding-bottom: 18px; margin-bottom: 18px; flex-wrap: wrap; gap: 12px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #E2E8F0; padding-bottom: 15px; margin-bottom: 16px; flex-wrap: wrap; gap: 12px;">
                 <div style="display: flex; align-items: center; gap: 14px;">
-                    <div style="width: 52px; height: 52px; background: linear-gradient(135deg, #EC4899, #BE185D); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; color: white; box-shadow: 0 6px 16px rgba(236,72,153,0.35);">
+                    <div style="width: 48px; height: 48px; background: linear-gradient(135deg, #EC4899, #BE185D); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.7rem; color: white; box-shadow: 0 6px 16px rgba(236,72,153,0.35);">
                         🧰
                     </div>
                     <div>
-                        <h2 style="margin: 0; font-size: 1.5rem; font-weight: 900; color: #1E1B4B;">Caja de Herramientas Pedagógicas STEAM</h2>
-                        <p style="margin: 2px 0 0 0; color: #64748B; font-size: 0.9rem;">40 motores interactivos, juegos, mentefactos, gestión de aula y generadores imprimibles.</p>
+                        <h2 style="margin: 0; font-size: 1.45rem; font-weight: 900; color: #1E1B4B;">Caja de Herramientas Pedagógicas STEAM</h2>
+                        <p style="margin: 2px 0 0 0; color: #64748B; font-size: 0.88rem;">40 motores interactivos, juegos, mentefactos, gestión de aula y generadores imprimibles.</p>
                     </div>
                 </div>
                 <div style="display: flex; align-items: center; gap: 10px;">
-                    <button onclick="window.cerrarCajaHerramientas()" style="background: #E2E8F0; border: none; font-size: 1.2rem; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; color: #475569; font-weight: bold; display: flex; align-items: center; justify-content: center;">✕</button>
+                    <button onclick="window.cerrarCajaHerramientas()" style="background: #E2E8F0; border: none; font-size: 1.2rem; width: 38px; height: 38px; border-radius: 50%; cursor: pointer; color: #475569; font-weight: bold; display: flex; align-items: center; justify-content: center;">✕</button>
                 </div>
             </div>
 
-            <!-- Ingesta Multimodal (4 Modos de Creación) -->
-            <div style="background: white; border: 1.5px solid #E2E8F0; border-radius: 16px; padding: 18px; margin-bottom: 18px; box-shadow: 0 4px 12px rgba(0,0,0,0.03);">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 10px;">
-                    <div style="font-size: 0.85rem; font-weight: 800; color: #334155; text-transform: uppercase; display: flex; align-items: center; gap: 6px;">
-                        <span>📥</span> Fuente de Contenido (Ingesta Inteligente):
+            <!-- ============================================================== -->
+            <!-- NIVEL 1: VISTA PRINCIPAL DE LAS 6 CAJAS TEMÁTICAS GRANDES -->
+            <!-- ============================================================== -->
+            <div id="vista-cajas-hub" style="flex: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 16px;">
+                <div style="font-size: 0.95rem; font-weight: 800; color: #334155; display: flex; align-items: center; gap: 8px;">
+                    <span>📦</span> Selecciona una Caja Temática para explorar y generar sus herramientas:
+                </div>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 18px; padding-bottom: 8px;">
+                    
+                    <!-- Caja 1: Juegos Dinámicos -->
+                    <div onclick="window.abrirDetalleCajaTematica('juegos')" style="background: white; border: 2px solid #E0E7FF; border-radius: 20px; padding: 22px; cursor: pointer; transition: transform 0.15s, box-shadow 0.15s; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 4px 15px rgba(79,70,229,0.06);" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 12px 28px rgba(79,70,229,0.15)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(79,70,229,0.06)';">
+                        <div>
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                                <div style="width: 50px; height: 50px; background: linear-gradient(135deg, #4F46E5, #7C3AED); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; color: white; box-shadow: 0 6px 14px rgba(79,70,229,0.3);">
+                                    🕹️
+                                </div>
+                                <span style="background: #EEF2FF; color: #4338CA; font-weight: 900; font-size: 0.8rem; padding: 4px 12px; border-radius: 20px; border: 1px solid #C7D2FE;">
+                                    10 Herramientas
+                                </span>
+                            </div>
+                            <h3 style="margin: 0 0 6px 0; font-size: 1.2rem; font-weight: 900; color: #1E1B4B;">Caja 1: Juegos Dinámicos y Activación</h3>
+                            <p style="margin: 0 0 14px 0; color: #64748B; font-size: 0.86rem; line-height: 1.45;">
+                                Sopa de letras, Crucigramas, Gran Bingo STEAM con balotera y 30 cartones PDF, Concurso Jeopardy ($100-$500), Memory Cards, Criptogramas, Sudokus...
+                            </p>
+                        </div>
+                        <button style="background: linear-gradient(135deg, #4F46E5, #7C3AED); color: white; border: none; padding: 11px 16px; border-radius: 12px; font-weight: 900; font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 12px rgba(79,70,229,0.3);">
+                            <span>📦</span> Abrir Caja de Juegos (10) ➔
+                        </button>
                     </div>
-                    <!-- Tabs de Ingesta -->
+
+                    <!-- Caja 2: Gestión de Aula -->
+                    <div onclick="window.abrirDetalleCajaTematica('aula')" style="background: white; border: 2px solid #D1FAE5; border-radius: 20px; padding: 22px; cursor: pointer; transition: transform 0.15s, box-shadow 0.15s; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 4px 15px rgba(5,150,105,0.06);" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 12px 28px rgba(5,150,105,0.15)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(5,150,105,0.06)';">
+                        <div>
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                                <div style="width: 50px; height: 50px; background: linear-gradient(135deg, #059669, #0D9488); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; color: white; box-shadow: 0 6px 14px rgba(5,150,105,0.3);">
+                                    📺
+                                </div>
+                                <span style="background: #ECFDF5; color: #065F46; font-weight: 900; font-size: 0.8rem; padding: 4px 12px; border-radius: 20px; border: 1px solid #A7F3D0;">
+                                    6 Herramientas
+                                </span>
+                            </div>
+                            <h3 style="margin: 0 0 6px 0; font-size: 1.2rem; font-weight: 900; color: #1E1B4B;">Caja 2: Gestión de Aula y Pantalla Gigante</h3>
+                            <p style="margin: 0 0 14px 0; color: #64748B; font-size: 0.86rem; line-height: 1.45;">
+                                Ruleta digital de turnos con alumnos reales, Semáforo de ruido ambiental con micrófono (Web Audio), Marcador de casas STEAM, Cronómetro Pomodoro con alarmas...
+                            </p>
+                        </div>
+                        <button style="background: linear-gradient(135deg, #059669, #0D9488); color: white; border: none; padding: 11px 16px; border-radius: 12px; font-weight: 900; font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 12px rgba(5,150,105,0.3);">
+                            <span>📦</span> Abrir Caja de Aula (6) ➔
+                        </button>
+                    </div>
+
+                    <!-- Caja 3: Pensamiento Visual -->
+                    <div onclick="window.abrirDetalleCajaTematica('visual')" style="background: white; border: 2px solid #FCE7F3; border-radius: 20px; padding: 22px; cursor: pointer; transition: transform 0.15s, box-shadow 0.15s; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 4px 15px rgba(219,39,119,0.06);" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 12px 28px rgba(219,39,119,0.15)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(219,39,119,0.06)';">
+                        <div>
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                                <div style="width: 50px; height: 50px; background: linear-gradient(135deg, #DB2777, #E11D48); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; color: white; box-shadow: 0 6px 14px rgba(219,39,119,0.3);">
+                                    🧠
+                                </div>
+                                <span style="background: #FDF2F8; color: #9D174D; font-weight: 900; font-size: 0.8rem; padding: 4px 12px; border-radius: 20px; border: 1px solid #FBCFE8;">
+                                    8 Herramientas
+                                </span>
+                            </div>
+                            <h3 style="margin: 0 0 6px 0; font-size: 1.2rem; font-weight: 900; color: #1E1B4B;">Caja 3: Pensamiento Visual & Mentefactos</h3>
+                            <p style="margin: 0 0 14px 0; color: #64748B; font-size: 0.86rem; line-height: 1.45;">
+                                Generador de Mentefactos Conceptuales Pro (Pedagogía Conceptual), Mapas Conceptuales Novak, Mapas Mentales Buzan, Pizarra Digital interactiva, Muro de Post-its...
+                            </p>
+                        </div>
+                        <button style="background: linear-gradient(135deg, #DB2777, #E11D48); color: white; border: none; padding: 11px 16px; border-radius: 12px; font-weight: 900; font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 12px rgba(219,39,119,0.3);">
+                            <span>📦</span> Abrir Caja Visual (8) ➔
+                        </button>
+                    </div>
+
+                    <!-- Caja 4: Fichas Imprimibles -->
+                    <div onclick="window.abrirDetalleCajaTematica('imprimibles')" style="background: white; border: 2px solid #E0F2FE; border-radius: 20px; padding: 22px; cursor: pointer; transition: transform 0.15s, box-shadow 0.15s; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 4px 15px rgba(2,132,199,0.06);" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 12px 28px rgba(2,132,199,0.15)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(2,132,199,0.06)';">
+                        <div>
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                                <div style="width: 50px; height: 50px; background: linear-gradient(135deg, #0284C7, #2563EB); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; color: white; box-shadow: 0 6px 14px rgba(2,132,199,0.3);">
+                                    🖨️
+                                </div>
+                                <span style="background: #F0F9FF; color: #0369A1; font-weight: 900; font-size: 0.8rem; padding: 4px 12px; border-radius: 20px; border: 1px solid #BAE6FD;">
+                                    6 Herramientas
+                                </span>
+                            </div>
+                            <h3 style="margin: 0 0 6px 0; font-size: 1.2rem; font-weight: 900; color: #1E1B4B;">Caja 4: Fichas y Material Imprimible</h3>
+                            <p style="margin: 0 0 14px 0; color: #64748B; font-size: 0.86rem; line-height: 1.45;">
+                                Fichas de Laboratorio oficiales con Método Científico, Flashcards didácticas recortables de dos caras, Diagramas de Venn, Texto mutilado (Cloze test), Cómics...
+                            </p>
+                        </div>
+                        <button style="background: linear-gradient(135deg, #0284C7, #2563EB); color: white; border: none; padding: 11px 16px; border-radius: 12px; font-weight: 900; font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 12px rgba(2,132,199,0.3);">
+                            <span>📦</span> Abrir Caja Imprimibles (6) ➔
+                        </button>
+                    </div>
+
+                    <!-- Caja 5: Evaluación y Reconocimientos -->
+                    <div onclick="window.abrirDetalleCajaTematica('evaluacion')" style="background: white; border: 2px solid #FEF3C7; border-radius: 20px; padding: 22px; cursor: pointer; transition: transform 0.15s, box-shadow 0.15s; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 4px 15px rgba(217,119,6,0.06);" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 12px 28px rgba(217,119,6,0.15)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(217,119,6,0.06)';">
+                        <div>
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                                <div style="width: 50px; height: 50px; background: linear-gradient(135deg, #D97706, #EA580C); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; color: white; box-shadow: 0 6px 14px rgba(217,119,6,0.3);">
+                                    🏆
+                                </div>
+                                <span style="background: #FFFBEB; color: #92400E; font-weight: 900; font-size: 0.8rem; padding: 4px 12px; border-radius: 20px; border: 1px solid #FDE68A;">
+                                    4 Herramientas
+                                </span>
+                            </div>
+                            <h3 style="margin: 0 0 6px 0; font-size: 1.2rem; font-weight: 900; color: #1E1B4B;">Caja 5: Evaluación & Reconocimientos</h3>
+                            <p style="margin: 0 0 14px 0; color: #64748B; font-size: 0.86rem; line-height: 1.45;">
+                                Generador de Diplomas y Certificados oficiales con sellos STEAM, Boletos de salida (Exit tickets de 3 min), Rúbricas analíticas oficiales MEN, Pasaportes de sellos...
+                            </p>
+                        </div>
+                        <button style="background: linear-gradient(135deg, #D97706, #EA580C); color: white; border: none; padding: 11px 16px; border-radius: 12px; font-weight: 900; font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 12px rgba(217,119,6,0.3);">
+                            <span>📦</span> Abrir Caja de Evaluación (4) ➔
+                        </button>
+                    </div>
+
+                    <!-- Caja 6: Organización y Home School -->
+                    <div onclick="window.abrirDetalleCajaTematica('homeschool')" style="background: white; border: 2px solid #DCFCE7; border-radius: 20px; padding: 22px; cursor: pointer; transition: transform 0.15s, box-shadow 0.15s; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 4px 15px rgba(22,163,74,0.06);" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 12px 28px rgba(22,163,74,0.15)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(22,163,74,0.06)';">
+                        <div>
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                                <div style="width: 50px; height: 50px; background: linear-gradient(135deg, #15803D, #16A34A); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; color: white; box-shadow: 0 6px 14px rgba(22,163,74,0.3);">
+                                    🏡
+                                </div>
+                                <span style="background: #F0FDF4; color: #166534; font-weight: 900; font-size: 0.8rem; padding: 4px 12px; border-radius: 20px; border: 1px solid #BBF7D0;">
+                                    6 Herramientas
+                                </span>
+                            </div>
+                            <h3 style="margin: 0 0 6px 0; font-size: 1.2rem; font-weight: 900; color: #1E1B4B;">Caja 6: Organización & Home School</h3>
+                            <p style="margin: 0 0 14px 0; color: #64748B; font-size: 0.86rem; line-height: 1.45;">
+                                Planificador semanal de hábitos y estudio en casa, Contrato de convivencia y aprendizaje firmado, Rincón de calma y pausas activas mindfulness, Cacería del tesoro...
+                            </p>
+                        </div>
+                        <button style="background: linear-gradient(135deg, #15803D, #16A34A); color: white; border: none; padding: 11px 16px; border-radius: 12px; font-weight: 900; font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 12px rgba(22,163,74,0.3);">
+                            <span>📦</span> Abrir Caja Home School (6) ➔
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ============================================================== -->
+            <!-- NIVEL 2: VISTA INTERIOR DE LA CAJA SELECCIONADA -->
+            <!-- ============================================================== -->
+            <div id="vista-categoria-detalle" style="display: none; flex: 1; overflow-y: auto; flex-direction: column; gap: 14px;">
+                
+                <!-- Barra Superior de Navegación de la Categoría -->
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; background: white; padding: 12px 18px; border-radius: 16px; border: 1.5px solid #E2E8F0;">
+                    <button onclick="window.volverACajasHub()" style="background: #1E293B; color: white; border: none; padding: 8px 18px; border-radius: 10px; font-weight: 800; font-size: 0.88rem; cursor: pointer; display: flex; align-items: center; gap: 8px; box-shadow: 0 3px 8px rgba(30,41,59,0.2);">
+                        <span>◀</span> Volver a las 6 Cajas Temáticas
+                    </button>
+
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <span id="categoria-detalle-icono" style="font-size: 1.5rem;">📦</span>
+                        <div id="categoria-detalle-titulo" style="font-weight: 900; font-size: 1.15rem; color: #1E1B4B;">Caja Temática</div>
+                    </div>
+
+                    <!-- Accesos Rápidos a Otras Cajas -->
                     <div style="display: flex; gap: 6px; flex-wrap: wrap;">
-                        <button id="tab-ingesta-palabras" onclick="window.cambiarModoIngesta('palabras')" style="background: #3B82F6; color: white; border: none; padding: 6px 14px; border-radius: 8px; font-weight: 800; font-size: 0.82rem; cursor: pointer;">
-                            🏷️ Palabras Clave / DBA
-                        </button>
-                        <button id="tab-ingesta-texto" onclick="window.cambiarModoIngesta('texto')" style="background: #F1F5F9; color: #475569; border: 1px solid #CBD5E1; padding: 6px 14px; border-radius: 8px; font-weight: 800; font-size: 0.82rem; cursor: pointer;">
-                            📋 Pegar Texto Libre
-                        </button>
-                        <button id="tab-ingesta-archivo" onclick="window.cambiarModoIngesta('archivo')" style="background: #F1F5F9; color: #475569; border: 1px solid #CBD5E1; padding: 6px 14px; border-radius: 8px; font-weight: 800; font-size: 0.82rem; cursor: pointer;">
-                            📄 Archivo (PDF/Word/TXT)
-                        </button>
-                        <button id="tab-ingesta-imagen" onclick="window.cambiarModoIngesta('imagen')" style="background: #F1F5F9; color: #475569; border: 1px solid #CBD5E1; padding: 6px 14px; border-radius: 8px; font-weight: 800; font-size: 0.82rem; cursor: pointer;">
-                            📷 Imagen / Foto
-                        </button>
+                        <button onclick="window.abrirDetalleCajaTematica('juegos')" style="background: #F1F5F9; border: 1px solid #CBD5E1; padding: 5px 10px; border-radius: 8px; font-weight: 800; font-size: 0.78rem; cursor: pointer;">🕹️ Juegos</button>
+                        <button onclick="window.abrirDetalleCajaTematica('aula')" style="background: #F1F5F9; border: 1px solid #CBD5E1; padding: 5px 10px; border-radius: 8px; font-weight: 800; font-size: 0.78rem; cursor: pointer;">📺 Aula</button>
+                        <button onclick="window.abrirDetalleCajaTematica('visual')" style="background: #F1F5F9; border: 1px solid #CBD5E1; padding: 5px 10px; border-radius: 8px; font-weight: 800; font-size: 0.78rem; cursor: pointer;">🧠 Visual</button>
+                        <button onclick="window.abrirDetalleCajaTematica('imprimibles')" style="background: #F1F5F9; border: 1px solid #CBD5E1; padding: 5px 10px; border-radius: 8px; font-weight: 800; font-size: 0.78rem; cursor: pointer;">🖨️ Fichas</button>
+                        <button onclick="window.abrirDetalleCajaTematica('evaluacion')" style="background: #F1F5F9; border: 1px solid #CBD5E1; padding: 5px 10px; border-radius: 8px; font-weight: 800; font-size: 0.78rem; cursor: pointer;">🏆 Eval</button>
+                        <button onclick="window.abrirDetalleCajaTematica('homeschool')" style="background: #F1F5F9; border: 1px solid #CBD5E1; padding: 5px 10px; border-radius: 8px; font-weight: 800; font-size: 0.78rem; cursor: pointer;">🏡 Home</button>
                     </div>
                 </div>
 
-                <!-- Campos de Configuración Curricular -->
-                <div style="display: grid; grid-template-columns: 1.2fr 1fr 0.8fr 0.8fr 1.6fr; gap: 10px; align-items: center;" id="fila-controles-curriculares">
-                    <div>
-                        <label style="font-size: 0.78rem; font-weight: 800; color: #475569; display: block; margin-bottom: 3px;">Asignatura:</label>
-                        <select id="toolbox-materia-select" style="width: 100%; padding: 8px 10px; border: 1.5px solid #CBD5E1; border-radius: 8px; font-weight: bold; font-size: 0.85rem; background: white;">
-                            <option value="Ciencias Naturales">🌿 Ciencias Naturales</option>
-                            <option value="Matemáticas">📐 Matemáticas</option>
-                            <option value="Lengua Castellana">📖 Lengua Castellana</option>
-                            <option value="Ciencias Sociales">🌍 Ciencias Sociales</option>
-                            <option value="Inglés">🇬🇧 Inglés STEAM</option>
-                            <option value="Tecnología">💻 Tecnología</option>
-                            <option value="Educación Artística">🎨 Educación Artística</option>
-                            <option value="Ética y Valores">🕊️ Ética y Valores</option>
-                        </select>
+                <!-- Ingesta Multimodal (4 Modos de Creación) -->
+                <div style="background: white; border: 1.5px solid #E2E8F0; border-radius: 16px; padding: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.03);">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; flex-wrap: wrap; gap: 8px;">
+                        <div style="font-size: 0.82rem; font-weight: 800; color: #334155; text-transform: uppercase; display: flex; align-items: center; gap: 6px;">
+                            <span>📥</span> Ingesta de Contenido para esta Caja:
+                        </div>
+                        <!-- Tabs de Ingesta -->
+                        <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+                            <button id="tab-ingesta-palabras" onclick="window.cambiarModoIngesta('palabras')" style="background: #3B82F6; color: white; border: none; padding: 5px 12px; border-radius: 8px; font-weight: 800; font-size: 0.8rem; cursor: pointer;">
+                                🏷️ Palabras Clave / DBA
+                            </button>
+                            <button id="tab-ingesta-texto" onclick="window.cambiarModoIngesta('texto')" style="background: #F1F5F9; color: #475569; border: 1px solid #CBD5E1; padding: 5px 12px; border-radius: 8px; font-weight: 800; font-size: 0.8rem; cursor: pointer;">
+                                📋 Pegar Texto Libre
+                            </button>
+                            <button id="tab-ingesta-archivo" onclick="window.cambiarModoIngesta('archivo')" style="background: #F1F5F9; color: #475569; border: 1px solid #CBD5E1; padding: 5px 12px; border-radius: 8px; font-weight: 800; font-size: 0.8rem; cursor: pointer;">
+                                📄 Archivo (PDF/Word/TXT)
+                            </button>
+                            <button id="tab-ingesta-imagen" onclick="window.cambiarModoIngesta('imagen')" style="background: #F1F5F9; color: #475569; border: 1px solid #CBD5E1; padding: 5px 12px; border-radius: 8px; font-weight: 800; font-size: 0.8rem; cursor: pointer;">
+                                📷 Imagen / Foto
+                            </button>
+                        </div>
                     </div>
-                    <div>
-                        <label style="font-size: 0.78rem; font-weight: 800; color: #475569; display: block; margin-bottom: 3px;">Grado/Ciclo:</label>
-                        <select id="toolbox-grado-select" style="width: 100%; padding: 8px 10px; border: 1.5px solid #CBD5E1; border-radius: 8px; font-weight: bold; font-size: 0.85rem; background: white;">
-                            <option value="1">1° Primaria</option><option value="2">2° Primaria</option><option value="3">3° Primaria</option><option value="4">4° Primaria</option><option value="5">5° Primaria</option>
-                            <option value="6">6° Secundaria</option><option value="7" selected>7° Secundaria</option><option value="8">8° Secundaria</option><option value="9">9° Secundaria</option><option value="10">10° Media</option><option value="11">11° Media</option>
-                            <option value="Ciclo I">Ciclo I</option><option value="Ciclo II">Ciclo II</option><option value="Ciclo III">Ciclo III</option><option value="Ciclo IV">Ciclo IV</option><option value="Ciclo V">Ciclo V</option><option value="Ciclo VI">Ciclo VI</option>
-                        </select>
+
+                    <!-- Campos de Configuración Curricular -->
+                    <div style="display: grid; grid-template-columns: 1.2fr 1fr 0.8fr 0.8fr 1.6fr; gap: 10px; align-items: center;" id="fila-controles-curriculares">
+                        <div>
+                            <label style="font-size: 0.75rem; font-weight: 800; color: #475569; display: block; margin-bottom: 3px;">Asignatura:</label>
+                            <select id="toolbox-materia-select" style="width: 100%; padding: 7px 10px; border: 1.5px solid #CBD5E1; border-radius: 8px; font-weight: bold; font-size: 0.82rem; background: white;">
+                                <option value="Ciencias Naturales">🌿 Ciencias Naturales</option>
+                                <option value="Matemáticas">📐 Matemáticas</option>
+                                <option value="Lengua Castellana">📖 Lengua Castellana</option>
+                                <option value="Ciencias Sociales">🌍 Ciencias Sociales</option>
+                                <option value="Inglés">🇬🇧 Inglés STEAM</option>
+                                <option value="Tecnología">💻 Tecnología</option>
+                                <option value="Educación Artística">🎨 Educación Artística</option>
+                                <option value="Ética y Valores">🕊️ Ética y Valores</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label style="font-size: 0.75rem; font-weight: 800; color: #475569; display: block; margin-bottom: 3px;">Grado/Ciclo:</label>
+                            <select id="toolbox-grado-select" style="width: 100%; padding: 7px 10px; border: 1.5px solid #CBD5E1; border-radius: 8px; font-weight: bold; font-size: 0.82rem; background: white;">
+                                <option value="1">1° Primaria</option><option value="2">2° Primaria</option><option value="3">3° Primaria</option><option value="4">4° Primaria</option><option value="5">5° Primaria</option>
+                                <option value="6">6° Secundaria</option><option value="7" selected>7° Secundaria</option><option value="8">8° Secundaria</option><option value="9">9° Secundaria</option><option value="10">10° Media</option><option value="11">11° Media</option>
+                                <option value="Ciclo I">Ciclo I</option><option value="Ciclo II">Ciclo II</option><option value="Ciclo III">Ciclo III</option><option value="Ciclo IV">Ciclo IV</option><option value="Ciclo V">Ciclo V</option><option value="Ciclo VI">Ciclo VI</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label style="font-size: 0.75rem; font-weight: 800; color: #475569; display: block; margin-bottom: 3px;">Periodo:</label>
+                            <select id="toolbox-periodo-select" style="width: 100%; padding: 7px 10px; border: 1.5px solid #CBD5E1; border-radius: 8px; font-weight: bold; font-size: 0.82rem; background: white;">
+                                <option value="1">P1</option><option value="2">P2</option><option value="3" selected>P3</option><option value="4">P4</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label style="font-size: 0.75rem; font-weight: 800; color: #475569; display: block; margin-bottom: 3px;">Semana:</label>
+                            <select id="toolbox-semana-select" style="width: 100%; padding: 7px 10px; border: 1.5px solid #CBD5E1; border-radius: 8px; font-weight: bold; font-size: 0.82rem; background: white;">
+                                <option value="1" selected>Sem 1</option><option value="2">Sem 2</option><option value="3">Sem 3</option><option value="4">Sem 4</option>
+                                <option value="5">Sem 5</option><option value="6">Sem 6</option><option value="7">Sem 7</option><option value="8">Sem 8</option>
+                            </select>
+                        </div>
+                        <div id="contenedor-input-palabras">
+                            <label style="font-size: 0.75rem; font-weight: 800; color: #475569; display: block; margin-bottom: 3px;">Concepto / Palabras Clave:</label>
+                            <input type="text" id="toolbox-input-palabras" placeholder="Ej: Fotosíntesis, Célula, Glucosa..." style="width: 100%; padding: 7px 10px; border: 1.5px solid #CBD5E1; border-radius: 8px; font-size: 0.85rem; box-sizing: border-box;">
+                        </div>
                     </div>
-                    <div>
-                        <label style="font-size: 0.78rem; font-weight: 800; color: #475569; display: block; margin-bottom: 3px;">Periodo:</label>
-                        <select id="toolbox-periodo-select" style="width: 100%; padding: 8px 10px; border: 1.5px solid #CBD5E1; border-radius: 8px; font-weight: bold; font-size: 0.85rem; background: white;">
-                            <option value="1">P1</option><option value="2">P2</option><option value="3" selected>P3</option><option value="4">P4</option>
-                        </select>
+
+                    <!-- Input Texto Pegado (Oculto inicialmente) -->
+                    <div id="contenedor-input-texto" style="display: none; margin-top: 8px;">
+                        <label style="font-size: 0.75rem; font-weight: 800; color: #475569; display: block; margin-bottom: 3px;">Pega aquí el texto, artículo o párrafo:</label>
+                        <textarea id="toolbox-textarea-texto" rows="2" placeholder="Pega el texto aquí..." style="width: 100%; padding: 8px; border: 1.5px solid #CBD5E1; border-radius: 8px; font-size: 0.82rem; box-sizing: border-box; resize: vertical;"></textarea>
                     </div>
-                    <div>
-                        <label style="font-size: 0.78rem; font-weight: 800; color: #475569; display: block; margin-bottom: 3px;">Semana:</label>
-                        <select id="toolbox-semana-select" style="width: 100%; padding: 8px 10px; border: 1.5px solid #CBD5E1; border-radius: 8px; font-weight: bold; font-size: 0.85rem; background: white;">
-                            <option value="1" selected>Sem 1</option><option value="2">Sem 2</option><option value="3">Sem 3</option><option value="4">Sem 4</option>
-                            <option value="5">Sem 5</option><option value="6">Sem 6</option><option value="7">Sem 7</option><option value="8">Sem 8</option>
-                        </select>
+
+                    <!-- Input Archivo PDF/Word (Oculto inicialmente) -->
+                    <div id="contenedor-input-archivo" style="display: none; margin-top: 8px; background: #F8FAFC; border: 1.5px dashed #CBD5E1; padding: 10px; border-radius: 8px; text-align: center;">
+                        <input type="file" id="toolbox-file-archivo" accept=".pdf,.doc,.docx,.txt" style="font-size: 0.82rem;" onchange="window.leerArchivoIngesta(this)">
+                        <div style="font-size: 0.75rem; color: #64748B; margin-top: 3px;">Sube un archivo PDF, Word (.docx) o TXT para extraer sus conceptos.</div>
                     </div>
-                    <div id="contenedor-input-palabras">
-                        <label style="font-size: 0.78rem; font-weight: 800; color: #475569; display: block; margin-bottom: 3px;">Concepto / Palabras Clave:</label>
-                        <input type="text" id="toolbox-input-palabras" placeholder="Ej: Fotosíntesis, Célula, Glucosa..." style="width: 100%; padding: 8px 12px; border: 1.5px solid #CBD5E1; border-radius: 8px; font-size: 0.88rem; box-sizing: border-box;">
+
+                    <!-- Input Imagen (Oculto inicialmente) -->
+                    <div id="contenedor-input-imagen" style="display: none; margin-top: 8px; background: #F8FAFC; border: 1.5px dashed #CBD5E1; padding: 10px; border-radius: 8px; text-align: center;">
+                        <input type="file" id="toolbox-file-imagen" accept="image/*" style="font-size: 0.82rem;" onchange="window.leerImagenIngesta(this)">
+                        <div style="font-size: 0.75rem; color: #64748B; margin-top: 3px;">Sube una foto de página de libro o apunte para generar la actividad.</div>
                     </div>
                 </div>
 
-                <!-- Input Texto Pegado (Oculto inicialmente) -->
-                <div id="contenedor-input-texto" style="display: none; margin-top: 10px;">
-                    <label style="font-size: 0.78rem; font-weight: 800; color: #475569; display: block; margin-bottom: 3px;">Pega aquí el texto, artículo o párrafo a convertir en actividad:</label>
-                    <textarea id="toolbox-textarea-texto" rows="3" placeholder="Pega el texto aquí..." style="width: 100%; padding: 10px; border: 1.5px solid #CBD5E1; border-radius: 8px; font-size: 0.85rem; box-sizing: border-box; resize: vertical;"></textarea>
-                </div>
-
-                <!-- Input Archivo PDF/Word (Oculto inicialmente) -->
-                <div id="contenedor-input-archivo" style="display: none; margin-top: 10px; background: #F8FAFC; border: 1.5px dashed #CBD5E1; padding: 12px; border-radius: 8px; text-align: center;">
-                    <input type="file" id="toolbox-file-archivo" accept=".pdf,.doc,.docx,.txt" style="font-size: 0.85rem;" onchange="window.leerArchivoIngesta(this)">
-                    <div style="font-size: 0.78rem; color: #64748B; margin-top: 4px;">Sube un archivo PDF, Word (.docx) o texto plano para extraer sus conceptos.</div>
-                </div>
-
-                <!-- Input Imagen (Oculto inicialmente) -->
-                <div id="contenedor-input-imagen" style="display: none; margin-top: 10px; background: #F8FAFC; border: 1.5px dashed #CBD5E1; padding: 12px; border-radius: 8px; text-align: center;">
-                    <input type="file" id="toolbox-file-imagen" accept="image/*" style="font-size: 0.85rem;" onchange="window.leerImagenIngesta(this)">
-                    <div style="font-size: 0.78rem; color: #64748B; margin-top: 4px;">Sube una foto de página de libro o apunte para generar la actividad.</div>
+                <!-- Contenedor con las Tarjetas de la Categoría Seleccionada -->
+                <div id="grid-caja-herramientas-cards" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; padding-bottom: 10px;">
+                    <!-- Se inyectan las tarjetas de la categoría por JS -->
                 </div>
             </div>
 
-            <!-- Filtros de Categoría (Pestañas de las Cajas Temáticas) -->
-            <div style="display: flex; gap: 8px; margin-bottom: 16px; overflow-x: auto; padding-bottom: 6px; flex-shrink: 0;">
-                <button onclick="window.filtrarCajasHerramientas('todas')" class="btn-toolbox-filter" id="btn-filtro-todas" style="background: #1E293B; color: white; border: none; padding: 8px 16px; border-radius: 10px; font-weight: 800; font-size: 0.85rem; cursor: pointer; white-space: nowrap;">
-                    ✨ Todas (40)
-                </button>
-                <button onclick="window.filtrarCajasHerramientas('juegos')" class="btn-toolbox-filter" id="btn-filtro-juegos" style="background: white; color: #475569; border: 1px solid #CBD5E1; padding: 8px 16px; border-radius: 10px; font-weight: 800; font-size: 0.85rem; cursor: pointer; white-space: nowrap;">
-                    🕹️ Juegos Dinámicos (10)
-                </button>
-                <button onclick="window.filtrarCajasHerramientas('aula')" class="btn-toolbox-filter" id="btn-filtro-aula" style="background: white; color: #475569; border: 1px solid #CBD5E1; padding: 8px 16px; border-radius: 10px; font-weight: 800; font-size: 0.85rem; cursor: pointer; white-space: nowrap;">
-                    📺 Gestión de Aula en Vivo (6)
-                </button>
-                <button onclick="window.filtrarCajasHerramientas('visual')" class="btn-toolbox-filter" id="btn-filtro-visual" style="background: white; color: #475569; border: 1px solid #CBD5E1; padding: 8px 16px; border-radius: 10px; font-weight: 800; font-size: 0.85rem; cursor: pointer; white-space: nowrap;">
-                    🧠 Pensamiento Visual & Mentefactos (8)
-                </button>
-                <button onclick="window.filtrarCajasHerramientas('imprimibles')" class="btn-toolbox-filter" id="btn-filtro-imprimibles" style="background: white; color: #475569; border: 1px solid #CBD5E1; padding: 8px 16px; border-radius: 10px; font-weight: 800; font-size: 0.85rem; cursor: pointer; white-space: nowrap;">
-                    🖨️ Fichas Imprimibles (6)
-                </button>
-                <button onclick="window.filtrarCajasHerramientas('evaluacion')" class="btn-toolbox-filter" id="btn-filtro-evaluacion" style="background: white; color: #475569; border: 1px solid #CBD5E1; padding: 8px 16px; border-radius: 10px; font-weight: 800; font-size: 0.85rem; cursor: pointer; white-space: nowrap;">
-                    🏆 Evaluación & Reconocimientos (4)
-                </button>
-                <button onclick="window.filtrarCajasHerramientas('homeschool')" class="btn-toolbox-filter" id="btn-filtro-homeschool" style="background: white; color: #475569; border: 1px solid #CBD5E1; padding: 8px 16px; border-radius: 10px; font-weight: 800; font-size: 0.85rem; cursor: pointer; white-space: nowrap;">
-                    🏡 Organización & Home School (6)
-                </button>
-            </div>
-
-            <!-- Contenedor Scrollable con las 40 Herramientas -->
-            <div id="grid-caja-herramientas-cards" style="flex: 1; overflow-y: auto; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; padding-right: 6px;">
-                <!-- Se inyectan las 40 tarjetas con JS -->
-            </div>
         </div>
     </div>
 
@@ -2076,8 +2221,8 @@
         </div>
     </div>
 
-    <script src="diagnostico_nocturno.js?v=20260816_v36"></script>
-    <script src="app.js?v=20260816_v36"></script>
+    <script src="diagnostico_nocturno.js?v=20260816_v37"></script>
+    <script src="app.js?v=20260816_v37"></script>
     <script>
         // --- BLINDAJE DE PROPIEDAD INTELECTUAL Y SEGURIDAD ---
         (function() {

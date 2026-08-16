@@ -10031,13 +10031,29 @@ window.obtenerContenidoBaseIngesta = function() {
     };
 };
 
-// Modal Caja de Herramientas
+// Modal Caja de Herramientas (Navegación 2 Niveles: Hub de 6 Cajas Grandes y Detalle de Categoría)
+window.categoriaToolboxActual = 'juegos';
+
+window.METADATOS_CAJAS_TEMATICAS = {
+    'juegos': { icono: '🕹️', titulo: 'Caja 1: Juegos Dinámicos y Activación (10 Herramientas)' },
+    'aula': { icono: '📺', titulo: 'Caja 2: Gestión de Aula y Pantalla Gigante (6 Herramientas)' },
+    'visual': { icono: '🧠', titulo: 'Caja 3: Pensamiento Visual & Mentefactos (8 Herramientas)' },
+    'imprimibles': { icono: '🖨️', titulo: 'Caja 4: Fichas y Material de Trabajo Imprimible (6 Herramientas)' },
+    'evaluacion': { icono: '🏆', titulo: 'Caja 5: Evaluación Formativa y Reconocimientos (4 Herramientas)' },
+    'homeschool': { icono: '🏡', titulo: 'Caja 6: Organización, Hábitos y Home School (6 Herramientas)' }
+};
+
 window.abrirCajaHerramientas = function(categoria = 'todas', rol = 'docente') {
     const modal = document.getElementById('modal-caja-herramientas');
     if (!modal) return;
 
     modal.style.display = 'flex';
-    window.filtrarCajasHerramientas(categoria);
+
+    if (categoria && categoria !== 'todas' && window.METADATOS_CAJAS_TEMATICAS[categoria]) {
+        window.abrirDetalleCajaTematica(categoria);
+    } else {
+        window.volverACajasHub();
+    }
 };
 
 window.cerrarCajaHerramientas = function() {
@@ -10045,47 +10061,52 @@ window.cerrarCajaHerramientas = function() {
     if (modal) modal.style.display = 'none';
 };
 
-window.filtrarCajasHerramientas = function(categoria = 'todas') {
-    document.querySelectorAll('.btn-toolbox-filter').forEach(btn => {
-        btn.style.background = 'white';
-        btn.style.color = '#475569';
-        btn.style.border = '1px solid #CBD5E1';
-    });
+window.volverACajasHub = function() {
+    const hub = document.getElementById('vista-cajas-hub');
+    const det = document.getElementById('vista-categoria-detalle');
+    if (hub) hub.style.display = 'flex';
+    if (det) det.style.display = 'none';
+};
 
-    const activeBtn = document.getElementById(`btn-filtro-${categoria}`);
-    if (activeBtn) {
-        activeBtn.style.background = '#1E293B';
-        activeBtn.style.color = 'white';
-        activeBtn.style.border = 'none';
-    }
+window.abrirDetalleCajaTematica = function(categoria = 'juegos') {
+    window.categoriaToolboxActual = categoria;
+    const hub = document.getElementById('vista-cajas-hub');
+    const det = document.getElementById('vista-categoria-detalle');
+    const icon = document.getElementById('categoria-detalle-icono');
+    const title = document.getElementById('categoria-detalle-titulo');
+
+    if (hub) hub.style.display = 'none';
+    if (det) det.style.display = 'flex';
+
+    const meta = window.METADATOS_CAJAS_TEMATICAS[categoria] || window.METADATOS_CAJAS_TEMATICAS['juegos'];
+    if (icon) icon.innerText = meta.icono;
+    if (title) title.innerText = meta.titulo;
 
     window.renderizarTarjetasCajaHerramientas(categoria);
 };
 
-window.renderizarTarjetasCajaHerramientas = function(categoria = 'todas') {
+window.renderizarTarjetasCajaHerramientas = function(categoria = 'juegos') {
     const grid = document.getElementById('grid-caja-herramientas-cards');
     if (!grid) return;
 
-    const filtradas = (categoria === 'todas') 
-        ? window.LISTA_HERRAMIENTAS_PEDAGOGICAS 
-        : window.LISTA_HERRAMIENTAS_PEDAGOGICAS.filter(h => h.categoria === categoria);
+    const filtradas = window.LISTA_HERRAMIENTAS_PEDAGOGICAS.filter(h => h.categoria === categoria);
 
     grid.innerHTML = filtradas.map(tool => `
-        <div style="background: white; border: 1.5px solid #E2E8F0; border-radius: 18px; padding: 18px; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 4px 12px rgba(0,0,0,0.03); transition: transform 0.15s, box-shadow 0.15s;" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.08)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.03)';">
+        <div style="background: white; border: 1.5px solid #E2E8F0; border-radius: 18px; padding: 20px; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 4px 14px rgba(0,0,0,0.04); transition: transform 0.15s, box-shadow 0.15s;" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 10px 24px rgba(0,0,0,0.08)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 14px rgba(0,0,0,0.04)';">
             <div>
-                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px;">
-                    <span style="font-size: 2.2rem; background: #F8FAFC; padding: 6px 10px; border-radius: 12px; border: 1px solid #E2E8F0;">${tool.icono}</span>
-                    <span style="font-size: 0.72rem; font-weight: 800; color: #64748B; background: #F1F5F9; padding: 3px 8px; border-radius: 8px; text-transform: uppercase;">${tool.caja.split(':')[0]}</span>
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+                    <span style="font-size: 2.3rem; background: #F8FAFC; padding: 8px 12px; border-radius: 14px; border: 1px solid #E2E8F0;">${tool.icono}</span>
+                    <span style="font-size: 0.75rem; font-weight: 800; color: #4338CA; background: #EEF2FF; padding: 4px 10px; border-radius: 8px; text-transform: uppercase;">${tool.caja.split(':')[0]}</span>
                 </div>
-                <h4 style="margin: 0 0 6px 0; font-size: 1.05rem; font-weight: 900; color: #1E293B; line-height: 1.3;">${tool.titulo}</h4>
-                <p style="margin: 0 0 12px 0; color: #64748B; font-size: 0.84rem; line-height: 1.45;">${tool.desc}</p>
+                <h4 style="margin: 0 0 6px 0; font-size: 1.12rem; font-weight: 900; color: #1E293B; line-height: 1.3;">${tool.titulo}</h4>
+                <p style="margin: 0 0 14px 0; color: #64748B; font-size: 0.86rem; line-height: 1.45;">${tool.desc}</p>
                 
-                <div style="display: flex; gap: 4px; flex-wrap: wrap; margin-bottom: 14px;">
-                    ${tool.badges.map(b => `<span style="font-size: 0.72rem; font-weight: 800; background: #EEF2FF; color: #4338CA; padding: 2px 7px; border-radius: 6px;">${b}</span>`).join('')}
+                <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 16px;">
+                    ${tool.badges.map(b => `<span style="font-size: 0.75rem; font-weight: 800; background: #F1F5F9; color: #334155; padding: 3px 8px; border-radius: 6px; border: 1px solid #E2E8F0;">${b}</span>`).join('')}
                 </div>
             </div>
 
-            <button onclick="window.abrirVisorHerramienta('${tool.id}')" style="background: linear-gradient(135deg, #2563EB, #1D4ED8); color: white; border: none; padding: 10px 14px; border-radius: 10px; font-weight: 800; font-size: 0.88rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px; box-shadow: 0 4px 10px rgba(37,99,235,0.25);">
+            <button onclick="window.abrirVisorHerramienta('${tool.id}')" style="background: linear-gradient(135deg, #2563EB, #1D4ED8); color: white; border: none; padding: 11px 16px; border-radius: 12px; font-weight: 800; font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 12px rgba(37,99,235,0.25);">
                 <span>⚡</span> Generar y Abrir
             </button>
         </div>
