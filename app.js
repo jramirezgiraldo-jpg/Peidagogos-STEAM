@@ -9525,5 +9525,49 @@ window.imprimirDiapositivas = function() {
     window.print();
 };
 
+window.abrirRankingDocenteNuevaPestana = function() {
+    const grupoSel = document.getElementById('filtro-grupo');
+    const asigSel = document.getElementById('filtro-asignatura');
+    const grupo = (grupoSel && grupoSel.value !== 'Todos los Grupos') ? grupoSel.value : '6A';
+    const asig = (asigSel && asigSel.value !== 'Todas las Asignaturas') ? asigSel.value : '';
+    
+    let url = 'ranking.html?grupo=' + encodeURIComponent(grupo);
+    if (asig) url += '&asignatura=' + encodeURIComponent(asig);
+    window.open(url, '_blank');
+};
+
+window.abrirProyectorGrupoActualAdmin = function() {
+    const grupo = window.gradoActualPlaneacion || '6A';
+    const asigElem = document.getElementById('select-planeacion-asignatura');
+    const semElem = document.getElementById('select-planeacion-semana');
+    const asig = asigElem ? asigElem.value : '';
+    const sem = semElem ? semElem.value : '1';
+    
+    let url = 'proyector.html?grupo=' + encodeURIComponent(grupo) + '&semana=' + encodeURIComponent(sem);
+    if (asig) url += '&asignatura=' + encodeURIComponent(asig);
+    window.open(url, '_blank');
+};
+
+window.abrirDiapositivasSemanaActualAdmin = function() {
+    const grupo = window.gradoActualPlaneacion || '7';
+    const asigElem = document.getElementById('select-planeacion-asignatura');
+    const perElem = document.getElementById('select-planeacion-periodo');
+    const semElem = document.getElementById('select-planeacion-semana');
+    
+    const materia = asigElem ? asigElem.value : 'Ciencias Naturales';
+    const periodo = perElem ? perElem.value : '3';
+    const semana = semElem ? semElem.value : '1';
+    
+    window.abrirConfiguradorDiapositivas('admin', materia, grupo, periodo, semana);
+};
+
+window.abrirDiapositivasSemanaActualTutor = function() {
+    const semElem = document.getElementById('tutor-select-semana-malla');
+    const graElem = document.getElementById('select-tutor-malla-grado');
+    const semana = semElem ? semElem.value : '1';
+    const grado = graElem ? graElem.value : '7';
+    window.abrirConfiguradorDiapositivas('homeschool_tutor', 'Ciencias Naturales', grado, '3', semana);
+};
+
 // ==========================================================================
 
