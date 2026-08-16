@@ -12099,18 +12099,18 @@ window.ejecutarDiagnosticoAuditorFrontend = async function() {
                 const badgeText = esPassed ? '100% OK' : suite.estado;
 
                 html += `
-                    <div style="background: #1E293B; border: 1px solid #334155; border-radius: 12px; overflow: hidden;">
-                        <div style="padding: 12px 16px; background: rgba(255,255,255,0.02); display: flex; justify-content: space-between; align-items: center; cursor: pointer;" onclick="const el = document.getElementById('suite-detalles-${idx}'); el.style.display = el.style.display === 'none' ? 'block' : 'none';">
+                    <div style="background: #1E293B; border: 1px solid #334155; border-radius: 12px; overflow: hidden; margin-bottom: 8px;">
+                        <div style="padding: 12px 16px; background: rgba(255,255,255,0.03); display: flex; justify-content: space-between; align-items: center; cursor: pointer;" onclick="const el = document.getElementById('suite-detalles-${idx}'); el.style.display = el.style.display === 'none' ? 'block' : 'none';">
                             <div>
-                                <span style="font-weight: 800; font-size: 0.9rem; color: #F8FAFC;">${suite.nombre}</span>
-                                <span style="font-size: 0.78rem; color: #94A3B8; margin-left: 8px;">(${suite.pruebas.length} verificaciones)</span>
+                                <span style="font-weight: 800; font-size: 0.92rem; color: #F8FAFC;">${suite.nombre}</span>
+                                <span style="font-size: 0.78rem; color: #94A3B8; margin-left: 8px;">(${suite.pruebas.length} verificaciones en caliente)</span>
                             </div>
-                            <span style="background: ${badgeColor}22; color: ${badgeColor}; border: 1px solid ${badgeColor}44; font-size: 0.75rem; font-weight: 800; padding: 2px 10px; border-radius: 10px;">
+                            <span style="background: ${badgeColor}22; color: ${badgeColor}; border: 1px solid ${badgeColor}44; font-size: 0.75rem; font-weight: 800; padding: 3px 12px; border-radius: 10px; display: flex; align-items: center; gap: 4px;">
                                 ${badgeText} ▾
                             </span>
                         </div>
-                        <div id="suite-detalles-${idx}" style="display: ${esPassed ? 'none' : 'block'}; padding: 12px 16px; border-top: 1px solid #334155; background: #0F172A; font-size: 0.8rem;">
-                            <div style="color: #94A3B8; margin-bottom: 8px; font-style: italic;">${suite.descripcion}</div>
+                        <div id="suite-detalles-${idx}" style="display: block; padding: 12px 16px; border-top: 1px solid #334155; background: #0F172A; font-size: 0.8rem;">
+                            <div style="color: #94A3B8; margin-bottom: 10px; font-style: italic;">${suite.descripcion}</div>
                             <div style="display: flex; flex-direction: column; gap: 6px;">
                 `;
 
@@ -12118,9 +12118,9 @@ window.ejecutarDiagnosticoAuditorFrontend = async function() {
                     const icon = p.resultado === 'PASSED' ? '✅' : (p.resultado === 'WARNING' ? '⚠️' : '❌');
                     const color = p.resultado === 'PASSED' ? '#E2E8F0' : '#FCA5A5';
                     html += `
-                        <div style="display: flex; justify-content: space-between; align-items: center; padding: 4px 8px; background: #1E293B44; border-radius: 6px;">
-                            <span style="color: ${color};">${icon} <b>${p.nombre}</b></span>
-                            <span style="color: #94A3B8; font-size: 0.76rem;">${p.detalle}</span>
+                        <div style="display: flex; justify-content: space-between; align-items: center; padding: 6px 10px; background: rgba(30, 41, 59, 0.6); border: 1px solid rgba(255,255,255,0.05); border-radius: 8px; flex-wrap: wrap; gap: 6px;">
+                            <span style="color: ${color}; font-weight: 700;">${icon} ${p.nombre}</span>
+                            <span style="color: #38BDF8; font-size: 0.76rem; font-family: monospace; background: rgba(14,165,233,0.1); padding: 2px 8px; border-radius: 6px;">${p.detalle}</span>
                         </div>
                     `;
                 });
