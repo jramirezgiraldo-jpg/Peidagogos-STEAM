@@ -975,13 +975,17 @@ window.ejecutarLogin = async function(e) {
             console.warn("Fallo conectando al servidor backend, buscando respaldo local...", netErr);
         }
         
-        // Si la API no respondió éxito, verificar si el estudiante está en localStorage o usuarios.json con búsqueda flexible
+        // Si la API no respondió éxito, verificar si el estudiante o docente está en localStorage o usuarios.json con búsqueda flexible
         if (!data || data.status !== 'success') {
+            // 1. Buscar primero en docentes_db
+            let localDocentes = JSON.parse(localStorage.getItem('docentes_db') || '[]');
+            let localDoc = localDocentes.find(d => String(d.documento || d.cedula || d.usuario || '').toLowerCase().replace(/[\.\,\-\_\s]/g, '') === normUser);
+
             let localUsers = JSON.parse(localStorage.getItem('usuarios_db') || '[]');
             let localEst = window.buscarEstudianteFlexible(normUser, localUsers);
 
             // Si no está aún en localStorage, consultar directamente usuarios.json
-            if (!localEst) {
+            if (!localEst && !localDoc) {
                 try {
                     const uRes = await fetch('usuarios.json?t=' + Date.now());
                     if (uRes.ok) {
@@ -997,12 +1001,27 @@ window.ejecutarLogin = async function(e) {
                 } catch(e) {}
             }
 
-            if (localEst) {
+            if (localDoc && (rol === 'docente' || rol === 'homeschool_tutor' || !localEst)) {
+                data = {
+                    status: 'success',
+                    usuario: localDoc.documento || localDoc.usuario || rawUser,
+                    nombre: localDoc.nombre_completo || `${localDoc.nombre || ''} ${localDoc.apellidos || ''}`.trim() || rawUser,
+                    rol: localDoc.rol || (rol === 'homeschool_tutor' ? 'homeschool_tutor' : 'docente'),
+                    grado: localDoc.grado || 'Todos',
+                    grupo: localDoc.grupo || 'Todos',
+                    institucion: localDoc.institucion || 'IE Instituto Montenegro',
+                    asignatura: localDoc.asignatura || 'Ciencias Naturales',
+                    pago_activo: true,
+                    pago_realizado: true,
+                    usuarioObj: localDoc
+                };
+            } else if (localEst) {
+                const rolDeterminado = localEst.rol ? localEst.rol : ((localEst.institucion === 'Validacion' || String(localEst.grupo || '').toLowerCase().includes('ciclo') || String(localEst.grado || '').toLowerCase().includes('ciclo')) ? 'validacion' : (rol === 'docente' ? 'docente' : 'estudiante'));
                 data = {
                     status: 'success',
                     usuario: localEst.documento || rawUser,
                     nombre: `${localEst.nombre || ''} ${localEst.apellidos || ''}`.trim() || rawUser,
-                    rol: (localEst.institucion === 'Validacion' || String(localEst.grupo || '').toLowerCase().includes('ciclo') || String(localEst.grado || '').toLowerCase().includes('ciclo')) ? 'validacion' : 'estudiante',
+                    rol: rolDeterminado,
                     grado: localEst.grado || localEst.grupo || '',
                     grupo: localEst.grupo || localEst.grado || '',
                     asignatura: localEst.asignatura || (localEst.materias ? localEst.materias.join(', ') : 'Ciencias Naturales'),
@@ -1481,6 +1500,125 @@ window.inicializarAppCore = function() {
             if (document.documentElement) document.documentElement.scrollTop = 0;
             if (document.body) document.body.scrollTop = 0;
             if (tutorView) tutorView.scrollTop = 0;
+            return;
+        }
+
+        // ==========================================
+        // CASO: REGISTRO DE DOCENTE REGULAR (COLEGIO / INSTITUCIÓN)
+        // ==========================================
+        if (ie === "DocenteRegular") {
+            const normCod = codigoInst.toLowerCase().replace(/[\.\,\-\_\s]/g, '');
+            if (normCod !== "ieinstituto2026" && normCod !== "instituto2026" && normCod !== "docente2026" && normCod !== "steam2026" && normCod !== "admin") {
+                mostrarErrorReg("❌ Código institucional / verificación docente incorrecto.\n\nPara inscribirte como Docente debes ingresar el código oficial: ieinstituto2026");
+                if (codElem) {
+                    codElem.focus();
+                    codElem.style.borderColor = "#EF4444";
+                }
+                return;
+            }
+
+            if (btnSubmit) {
+                btnSubmit.innerText = "⏳ Creando Cuenta de Docente...";
+                btnSubmit.disabled = true;
+            }
+            if (feedback) {
+                feedback.style.display = "block";
+                feedback.style.background = "#F5F3FF";
+                feedback.style.color = "#5B21B6";
+                feedback.style.border = "1px solid #DDD6FE";
+                feedback.innerText = "⏳ Registrando cuenta de Docente Regular e ingresando...";
+            }
+
+            const selDocAsig = document.getElementById("reg-docente-asignatura-select");
+            let asigDoc = selDocAsig ? selDocAsig.value : (asig || "Ciencias Naturales y Educación Ambiental");
+            let graDoc = gra || grupo || "Todos";
+            let grupoDoc = grupo || gra || "Todos";
+
+            const payloadDocente = {
+                tipo_doc: tipoDoc,
+                tipo_documento: tipoDoc,
+                documento: doc,
+                cedula: doc,
+                usuario: doc,
+                nombre: nom,
+                nombres: nom,
+                apellidos: ap,
+                nombre_completo: `${nom} ${ap}`.trim(),
+                edad: ed || '30',
+                genero: gen || 'otro',
+                rol: 'docente',
+                tipo: 'docente_regular',
+                institucion: 'IE Instituto Montenegro',
+                codigo_institucional: codigoInst,
+                asignatura: asigDoc,
+                materias: [asigDoc],
+                grado: graDoc,
+                grupo: grupoDoc,
+                pago_realizado: true,
+                pago_activo: true,
+                fecha_registro: new Date().toISOString()
+            };
+
+            // 1. Guardar localmente en docentes_db y usuarios_db
+            try {
+                let dList = JSON.parse(localStorage.getItem('docentes_db') || '[]');
+                const idx = dList.findIndex(d => String(d.documento || d.usuario || d.cedula || '').toLowerCase().replace(/[\.\,\-\_\s]/g, '') === normDoc);
+                if (idx >= 0) dList[idx] = { ...dList[idx], ...payloadDocente };
+                else dList.push(payloadDocente);
+                localStorage.setItem('docentes_db', JSON.stringify(dList));
+
+                let uList = JSON.parse(localStorage.getItem('usuarios_db') || '[]');
+                const uIdx = uList.findIndex(u => String(u.documento || u.id || '').toLowerCase().replace(/[\.\,\-\_\s]/g, '') === normDoc);
+                if (uIdx >= 0) uList[uIdx] = { ...uList[uIdx], ...payloadDocente };
+                else uList.push(payloadDocente);
+                localStorage.setItem('usuarios_db', JSON.stringify(uList));
+            } catch(e) {}
+
+            const sessionData = {
+                status: 'success',
+                usuario: doc,
+                nombre: `${nom} ${ap}`.trim(),
+                rol: 'docente',
+                tipo: 'docente_regular',
+                institucion: 'IE Instituto Montenegro',
+                asignatura: asigDoc,
+                grado: graDoc,
+                grupo: grupoDoc,
+                pago_activo: true,
+                pago_realizado: true,
+                usuarioObj: payloadDocente
+            };
+            localStorage.setItem('usuario_sesion', JSON.stringify(sessionData));
+
+            // 2. Enviar a servidor
+            try {
+                await fetch("/api/registro-estudiante", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(payloadDocente)
+                });
+            } catch(err) {
+                console.warn("Registro docente guardado localmente:", err);
+            }
+
+            alert(`✅ ¡Inscripción de Docente Regular Exitosa!\n\nBienvenido(a) Profesor(a) ${nom} ${ap}.\n\nHas ingresado a tu Panel Docente. Desde aquí puedes proyectar la clase, consultar el Leaderboard en vivo, evaluar con rúbricas formativas y utilizar la Caja de Herramientas STEAM.`);
+
+            // 3. Activar Panel de Docente
+            window.usuario_actual = doc;
+            window.rol_actual = 'docente';
+            if (typeof mostrarVista === 'function') mostrarVista('docente-dashboard-container');
+            const docenteView = document.getElementById("docente-dashboard-container");
+            if (docenteView) docenteView.style.display = "block";
+            const dHeader = document.getElementById('docente-nombre-header');
+            if (dHeader) dHeader.innerText = `${nom} ${ap}`.trim();
+            if (typeof window.cargarEstudiantesDocente === 'function') {
+                window.cargarEstudiantesDocente(doc);
+            }
+
+            window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+            if (document.documentElement) document.documentElement.scrollTop = 0;
+            if (document.body) document.body.scrollTop = 0;
+            if (docenteView) docenteView.scrollTop = 0;
             return;
         }
 
@@ -2069,6 +2207,15 @@ async function cargarDatosAdmin() {
             if (resDocentes.ok) docentes = await resDocentes.json();
         } catch(e) {}
         
+        // Unir con respaldo local de docentes_db
+        const localDocentes = JSON.parse(localStorage.getItem('docentes_db') || '[]');
+        localDocentes.forEach(ld => {
+            const normDoc = String(ld.documento || ld.cedula || ld.usuario || '').trim().toLowerCase().replace(/[\.\,\-\_\s]/g, '');
+            if (normDoc && !docentes.some(d => String(d.documento || d.cedula || d.usuario || '').trim().toLowerCase().replace(/[\.\,\-\_\s]/g, '') === normDoc)) {
+                docentes.push(ld);
+            }
+        });
+        
         // Cargar Estudiantes
         let estudiantes = [];
         try {
@@ -2091,7 +2238,7 @@ async function cargarDatosAdmin() {
         if (tbodyDoc) {
             tbodyDoc.innerHTML = '';
             docentes.forEach(d => {
-                const tipoVinculacion = d.institucion ? d.institucion : "Homeschool";
+                const tipoVinculacion = d.institucion ? d.institucion : (d.rol === 'docente' ? 'Docente Regular' : 'Homeschool');
                 tbodyDoc.innerHTML += `
                 <tr>
                     <td style="padding: 15px;">${d.documento}</td>
