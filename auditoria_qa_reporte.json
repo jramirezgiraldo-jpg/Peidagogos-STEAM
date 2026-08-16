@@ -1,0 +1,414 @@
+{
+  "fecha": "2026-08-16T14:41:26.773Z",
+  "duracionMs": 34,
+  "totalPruebas": 60,
+  "pasadas": 60,
+  "fallidas": 0,
+  "advertencias": 0,
+  "saludPorcentaje": 100,
+  "autoCorreccionesAplicadas": [],
+  "suites": [
+    {
+      "nombre": "1. Bases de Datos JSON",
+      "descripcion": "Integridad de archivos de persistencia institucional",
+      "pruebas": [
+        {
+          "nombre": "Archivo usuarios.json",
+          "resultado": "PASSED",
+          "detalle": "JSON válido y legible.",
+          "autoCorregido": false
+        },
+        {
+          "nombre": "Archivo estudiantes.json",
+          "resultado": "PASSED",
+          "detalle": "JSON válido y legible.",
+          "autoCorregido": false
+        },
+        {
+          "nombre": "Archivo docentes.json",
+          "resultado": "PASSED",
+          "detalle": "JSON válido y legible.",
+          "autoCorregido": false
+        },
+        {
+          "nombre": "Archivo asignaturas.json",
+          "resultado": "PASSED",
+          "detalle": "JSON válido y legible.",
+          "autoCorregido": false
+        },
+        {
+          "nombre": "Archivo actividades_asignadas.json",
+          "resultado": "PASSED",
+          "detalle": "JSON válido y legible.",
+          "autoCorregido": false
+        }
+      ],
+      "estado": "PASSED"
+    },
+    {
+      "nombre": "2. Caja de Herramientas (42 Motores)",
+      "descripcion": "Verificación de todas las herramientas y motores interactivos",
+      "pruebas": [
+        {
+          "nombre": "Herramienta: sopa_letras",
+          "resultado": "PASSED",
+          "detalle": "Registrada con motor activo en app.js.",
+          "autoCorregido": false
+        },
+        {
+          "nombre": "Herramienta: crucigrama",
+          "resultado": "PASSED",
+          "detalle": "Registrada con motor activo en app.js.",
+          "autoCorregido": false
+        },
+        {
+          "nombre": "Herramienta: memory_cards",
+          "resultado": "PASSED",
+          "detalle": "Registrada con motor activo en app.js.",
+          "autoCorregido": false
+        },
+        {
+          "nombre": "Herramienta: bingo_steam",
+          "resultado": "PASSED",
+          "detalle": "Registrada con motor activo en app.js.",
+          "autoCorregido": false
+        },
+        {
+          "nombre": "Herramienta: jeopardy",
+          "resultado": "PASSED",
+          "detalle": "Registrada con motor activo en app.js.",
+          "autoCorregido": false
+        },
+        {
+          "nombre": "Herramienta: criptograma",
+          "resultado": "PASSED",
+          "detalle": "Registrada con motor activo en app.js.",
+          "autoCorregido": false
+        },
+        {
+          "nombre": "Herramienta: domino_conceptual",
+          "resultado": "PASSED",
+          "detalle": "Registrada con motor activo en app.js.",
+          "autoCorregido": false
+        },
+        {
+          "nombre": "Herramienta: sudoku_steam",
+          "resultado": "PASSED",
+          "detalle": "Registrada con motor activo en app.js.",
+          "autoCorregido": false
+        },
+        {
+          "nombre": "Herramienta: laberinto_logico",
+          "resultado": "PASSED",
+          "detalle": "Registrada con motor activo en app.js.",
+          "autoCorregido": false
+        },
+        {
+          "nombre": "Herramienta: pictionary_tabu",
+          "resultado": "PASSED",
+          "detalle": "Registrada con motor activo en app.js.",
+          "autoCorregido": false
+        },
+        {
+          "nombre": "Herramienta: ruleta_turnos",
+          "resultado": "PASSED",
+          "detalle": "Registrada con motor activo en app.js.",
+          "autoCorregido": false
+        },
+        {
+          "nombre": "Herramienta: semaforo_ruido",
+          "resultado": "PASSED",
+          "detalle": "Registrada con motor activo en app.js.",
+          "autoCorregido": false
+        },
+        {
+          "nombre": "Herramienta: marcador_equipos",
+          "resultado": "PASSED",
+          "detalle": "Registrada con motor activo en app.js.",
+          "autoCorregido": false
+        },
+        {
+          "nombre": "Herramienta: pomodoro_timer",
+          "resultado": "PASSED",
+          "detalle": "Registrada con motor activo en app.js.",
+          "autoCorregido": false
+        },
+        {
+          "nombre": "Herramienta: generador_roles",
+          "resultado": "PASSED",
+          "detalle": "Registrada con motor activo en app.js.",
+          "autoCorregido": false
+        },
+        {
+          "nombre": "Herramienta: trivia_gigante",
+          "resultado": "PASSED",
+          "detalle": "Registrada con motor activo en app.js.",
+          "autoCorregido": false
+        },
+        {
+          "nombre": "Herramienta: mentefacto_pro",
+          "resultado": "PASSED",
+          "detalle": "Registrada con motor activo en app.js.",
+          "autoCorregido": false
+        },
+        {
+          "nombre": "Herramienta: mapa_conceptual_novak",
+          "resultado": "PASSED",
+          "detalle": "Registrada con motor activo en app.js.",
+          "autoCorregido": false
+        },
+        {
+          "nombre": "Herramienta: mapa_mental_buzan",
+          "resultado": "PASSED",
+          "detalle": "Registrada con motor activo en app.js.",
+          "autoCorregido": false
+        },
+        {
+          "nombre": "Herramienta: pizarra_digital",
+          "resultado": "PASSED",
+          "detalle": "Registrada con motor activo en app.js.",
+          "autoCorregido": false
+        },
+        {
+          "nombre": "Herramienta: muro_postits",
+          "resultado": "PASSED",
+          "detalle": "Registrada con motor activo en app.js.",
+          "autoCorregido": false
+        },
+        {
+          "nombre": "Herramienta: nube_palabras",
+          "resultado": "PASSED",
+          "detalle": "Registrada con motor activo en app.js.",
+          "autoCorregido": false
+        },
+        {
+          "nombre": "Herramienta: live_poll",
+          "resultado": "PASSED",
+          "detalle": "Registrada con motor activo en app.js.",
+          "autoCorregido": false
+        },
+        {
+          "nombre": "Herramienta: pregunta_detonante",
+          "resultado": "PASSED",
+          "detalle": "Registrada con motor activo en app.js.",
+          "autoCorregido": false
+        },
+        {
+          "nombre": "Herramienta: secuencia_didactica",
+          "resultado": "PASSED",
+          "detalle": "Registrada con motor activo en app.js.",
+          "autoCorregido": false
+        },
+        {
+          "nombre": "Herramienta: ficha_laboratorio",
+          "resultado": "PASSED",
+          "detalle": "Registrada con motor activo en app.js.",
+          "autoCorregido": false
+        },
+        {
+          "nombre": "Herramienta: flashcards",
+          "resultado": "PASSED",
+          "detalle": "Registrada con motor activo en app.js.",
+          "autoCorregido": false
+        },
+        {
+          "nombre": "Herramienta: diagrama_venn",
+          "resultado": "PASSED",
+          "detalle": "Registrada con motor activo en app.js.",
+          "autoCorregido": false
+        },
+        {
+          "nombre": "Herramienta: texto_mutilado",
+          "resultado": "PASSED",
+          "detalle": "Registrada con motor activo en app.js.",
+          "autoCorregido": false
+        },
+        {
+          "nombre": "Herramienta: comic_cientifico",
+          "resultado": "PASSED",
+          "detalle": "Registrada con motor activo en app.js.",
+          "autoCorregido": false
+        },
+        {
+          "nombre": "Herramienta: taller_graficas",
+          "resultado": "PASSED",
+          "detalle": "Registrada con motor activo en app.js.",
+          "autoCorregido": false
+        },
+        {
+          "nombre": "Herramienta: generador_malla_curricular",
+          "resultado": "PASSED",
+          "detalle": "Registrada con motor activo en app.js.",
+          "autoCorregido": false
+        },
+        {
+          "nombre": "Herramienta: diploma_merito",
+          "resultado": "PASSED",
+          "detalle": "Registrada con motor activo en app.js.",
+          "autoCorregido": false
+        },
+        {
+          "nombre": "Herramienta: exit_tickets",
+          "resultado": "PASSED",
+          "detalle": "Registrada con motor activo en app.js.",
+          "autoCorregido": false
+        },
+        {
+          "nombre": "Herramienta: rubrica_formativa",
+          "resultado": "PASSED",
+          "detalle": "Registrada con motor activo en app.js.",
+          "autoCorregido": false
+        },
+        {
+          "nombre": "Herramienta: pasaporte_sellos",
+          "resultado": "PASSED",
+          "detalle": "Registrada con motor activo en app.js.",
+          "autoCorregido": false
+        },
+        {
+          "nombre": "Herramienta: planificador_semanal",
+          "resultado": "PASSED",
+          "detalle": "Registrada con motor activo en app.js.",
+          "autoCorregido": false
+        },
+        {
+          "nombre": "Herramienta: contrato_convivencia",
+          "resultado": "PASSED",
+          "detalle": "Registrada con motor activo en app.js.",
+          "autoCorregido": false
+        },
+        {
+          "nombre": "Herramienta: mindfulness_pausas",
+          "resultado": "PASSED",
+          "detalle": "Registrada con motor activo en app.js.",
+          "autoCorregido": false
+        },
+        {
+          "nombre": "Herramienta: caceria_tesoro",
+          "resultado": "PASSED",
+          "detalle": "Registrada con motor activo en app.js.",
+          "autoCorregido": false
+        },
+        {
+          "nombre": "Herramienta: colorea_codigo",
+          "resultado": "PASSED",
+          "detalle": "Registrada con motor activo en app.js.",
+          "autoCorregido": false
+        },
+        {
+          "nombre": "Herramienta: arbol_taxonomico",
+          "resultado": "PASSED",
+          "detalle": "Registrada con motor activo en app.js.",
+          "autoCorregido": false
+        }
+      ],
+      "estado": "PASSED"
+    },
+    {
+      "nombre": "3. Secuencias Didácticas Pro",
+      "descripcion": "Modelos pedagógicos, enfoques STEAM, minutero y 10 componentes",
+      "pruebas": [
+        {
+          "nombre": "Modelos Pedagógicos (8 Modelos)",
+          "resultado": "PASSED",
+          "detalle": "8 modelos configurados y mapeados.",
+          "autoCorregido": false
+        },
+        {
+          "nombre": "Enfoques Didácticos (6 Enfoques)",
+          "resultado": "PASSED",
+          "detalle": "6 enfoques metodológicos activos.",
+          "autoCorregido": false
+        },
+        {
+          "nombre": "Minutero y Cálculo de Fases",
+          "resultado": "PASSED",
+          "detalle": "Distribución proporcional automática para 45, 60, 90, 120 y 180 min.",
+          "autoCorregido": false
+        },
+        {
+          "nombre": "10 Componentes Modulares Chuleables",
+          "resultado": "PASSED",
+          "detalle": "Filtro modular dinámico con renderizado institucional oficial.",
+          "autoCorregido": false
+        }
+      ],
+      "estado": "PASSED"
+    },
+    {
+      "nombre": "4. Generador de Mallas Curriculares",
+      "descripcion": "Estructuración formal de áreas, semanas 1-10, EBC, DBA y Decretos MEN",
+      "pruebas": [
+        {
+          "nombre": "Cobertura de 8 Asignaturas Obligatorias",
+          "resultado": "PASSED",
+          "detalle": "Ciencias Naturales, Matemáticas, Lengua Castellana, Ciencias Sociales, Inglés, Tecnología, Educación Artística, Ética y Valores.",
+          "autoCorregido": false
+        },
+        {
+          "nombre": "Cobertura Grados 1° a 11° y Ciclos I-VI",
+          "resultado": "PASSED",
+          "detalle": "Matriz adaptable a básica primaria, secundaria, media y nocturna.",
+          "autoCorregido": false
+        },
+        {
+          "nombre": "Matriz Semanal 1 a 10 + Anual 40 Semanas",
+          "resultado": "PASSED",
+          "detalle": "Desglose en Saber (Cognitivo), Saber Hacer (STEAM) y Saber Ser (Actitudinal).",
+          "autoCorregido": false
+        },
+        {
+          "nombre": "Escala Institucional MEN (Decreto 1290)",
+          "resultado": "PASSED",
+          "detalle": "Niveles Superior (4.6-5.0), Alto (4.0-4.5), Básico (3.0-3.9), Bajo (1.0-2.9).",
+          "autoCorregido": false
+        }
+      ],
+      "estado": "PASSED"
+    },
+    {
+      "nombre": "5. Generador de Diapositivas (10 Slides)",
+      "descripcion": "Presentaciones ilustradas para proyección en aula",
+      "pruebas": [
+        {
+          "nombre": "Estructura de 10 Slides por Semana",
+          "resultado": "PASSED",
+          "detalle": "Portada, Objetivos DBA, Saberes Previos, Conceptos, Gráficas, Reto STEAM, Evaluación, Cierre.",
+          "autoCorregido": false
+        },
+        {
+          "nombre": "Modo Presentador y Modo Proyector Fullscreen",
+          "resultado": "PASSED",
+          "detalle": "Navegación con teclado (Flechas/Espacio/Escape) y pantalla completa.",
+          "autoCorregido": false
+        }
+      ],
+      "estado": "PASSED"
+    },
+    {
+      "nombre": "6. Roles, Acceso y Seguridad DNDA",
+      "descripcion": "Control de acceso institucional y blindaje de propiedad intelectual",
+      "pruebas": [
+        {
+          "nombre": "Validación de 4 Roles Institucionales",
+          "resultado": "PASSED",
+          "detalle": "admin, docente, tutor, estudiante",
+          "autoCorregido": false
+        },
+        {
+          "nombre": "Blindaje Propiedad Intelectual DNDA",
+          "resultado": "PASSED",
+          "detalle": "Advertencia legal en consola y bloqueo de scraping no autorizado.",
+          "autoCorregido": false
+        },
+        {
+          "nombre": "Cabeceras HTTP de Seguridad",
+          "resultado": "PASSED",
+          "detalle": "X-Content-Type-Options, X-Frame-Options, X-XSS-Protection activas.",
+          "autoCorregido": false
+        }
+      ],
+      "estado": "PASSED"
+    }
+  ]
+}

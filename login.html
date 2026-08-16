@@ -516,8 +516,11 @@
                     <option value="Ciclo VI (11°)">Ciclo VI (11°)</option>
                 </select>
                 <div style="display: flex; gap: 10px; align-items: center; margin-left: auto; flex-wrap: wrap;">
-                    <button onclick="window.abrirCajaHerramientas('todas', 'docente')" style="background: linear-gradient(135deg, #EC4899, #BE185D); color: white; border: none; padding: 10px 16px; border-radius: 10px; font-weight: 800; font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; gap: 6px; box-shadow: 0 4px 12px rgba(236,72,153,0.35);" title="Abre el kit completo con las 40 herramientas y generadores de aula">
-                        <span>🧰</span> Caja de Herramientas (40)
+                    <button onclick="window.abrirModalAuditorQA()" style="background: linear-gradient(135deg, #0EA5E9, #0284C7); color: white; border: none; padding: 10px 16px; border-radius: 10px; font-weight: 800; font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; gap: 6px; box-shadow: 0 4px 12px rgba(14,165,233,0.35);" title="Verifica una a una todas las funciones de la plataforma y auto-corrige">
+                        <span>🩺</span> Agente Auditor QA
+                    </button>
+                    <button onclick="window.abrirCajaHerramientas('todas', 'docente')" style="background: linear-gradient(135deg, #EC4899, #BE185D); color: white; border: none; padding: 10px 16px; border-radius: 10px; font-weight: 800; font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; gap: 6px; box-shadow: 0 4px 12px rgba(236,72,153,0.35);" title="Abre el kit completo con las 42 herramientas y generadores de aula">
+                        <span>🧰</span> Caja de Herramientas (42)
                     </button>
                     <button onclick="window.abrirConfiguradorDiapositivas('docente')" style="background: linear-gradient(135deg, #7C3AED, #6D28D9); color: white; border: none; padding: 10px 16px; border-radius: 10px; font-weight: 800; font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; gap: 6px; box-shadow: 0 4px 12px rgba(124,58,237,0.3);" title="Genera 10 diapositivas para introducir el tema de la semana">
                         <span>📽️</span> 10 Diapositivas Semanales
@@ -556,8 +559,11 @@
     <!-- Header Superior -->
     <header style="background: white; border-bottom: 1px solid #E5E7EB; padding: 15px 30px; display: flex; justify-content: flex-end; align-items: center;">
         <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+            <button onclick="window.abrirModalAuditorQA()" style="background: linear-gradient(135deg, #0EA5E9, #0284C7); color: white; border: none; padding: 8px 18px; border-radius: 8px; font-weight: 800; cursor: pointer; display: flex; align-items: center; gap: 8px; font-size: 0.9rem; box-shadow: 0 4px 10px rgba(14,165,233,0.3);" title="Agente autónomo de auditoría y auto-corrección">
+                <span>🩺</span> Agente Auditor QA
+            </button>
             <button onclick="window.abrirCajaHerramientas('todas', 'admin')" style="background: linear-gradient(135deg, #EC4899, #BE185D); color: white; border: none; padding: 8px 18px; border-radius: 8px; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 8px; font-size: 0.9rem; box-shadow: 0 4px 10px rgba(236,72,153,0.3);">
-                <span>🧰</span> Caja de Herramientas
+                <span>🧰</span> Caja de Herramientas (42)
             </button>
             <button onclick="window.abrirConfiguradorDiapositivas('admin')" style="background: linear-gradient(135deg, #7C3AED, #6D28D9); color: white; border: none; padding: 8px 18px; border-radius: 8px; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 8px; font-size: 0.9rem; box-shadow: 0 4px 10px rgba(124,58,237,0.25);">
                 <span>📽️</span> Diapositivas de la Semana
@@ -2219,9 +2225,134 @@
                 <!-- Contenido inyectado por JS -->
             </div>
         </div>
+    <!-- MODAL AGENTE AUDITOR Y AUTO-CORRECTOR QA (EN LÍNEA / OFFLINE) -->
+    <div id="modal-auditor-qa" style="display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.85); z-index: 100000; backdrop-filter: blur(10px); justify-content: center; align-items: center; padding: 20px;">
+        <div style="background: #0F172A; border: 1px solid #334155; border-radius: 24px; width: 100%; max-width: 1050px; max-height: 90vh; display: flex; flex-direction: column; overflow: hidden; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7); color: #F8FAFC; font-family: 'Inter', sans-serif;">
+            
+            <!-- Encabezado del Modal -->
+            <div style="padding: 20px 25px; background: linear-gradient(135deg, #1E293B, #0F172A); border-bottom: 1px solid #334155; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
+                <div style="display: flex; align-items: center; gap: 14px;">
+                    <div style="width: 48px; height: 48px; border-radius: 14px; background: linear-gradient(135deg, #0EA5E9, #2563EB); display: flex; align-items: center; justify-content: center; font-size: 1.6rem; box-shadow: 0 0 20px rgba(14, 165, 233, 0.4);">
+                        🤖
+                    </div>
+                    <div>
+                        <div style="font-size: 1.25rem; font-weight: 900; color: #FFFFFF; display: flex; align-items: center; gap: 8px;">
+                            Agente Guardián & Auditor QA STEAM
+                            <span style="background: rgba(16, 185, 129, 0.2); color: #34D399; font-size: 0.75rem; padding: 3px 10px; border-radius: 12px; border: 1px solid rgba(52, 211, 153, 0.3);">En Línea & Offline</span>
+                        </div>
+                        <div style="font-size: 0.85rem; color: #94A3B8;">
+                            Verificación sistemática de motores pedagógicos, mallas DBA, base de datos y auto-reparación inteligente.
+                        </div>
+                    </div>
+                </div>
+                <div style="display: flex; gap: 10px; align-items: center;">
+                    <button onclick="window.ejecutarDiagnosticoAuditorFrontend()" style="background: linear-gradient(135deg, #0EA5E9, #0284C7); color: white; border: none; padding: 8px 16px; border-radius: 10px; font-weight: 800; font-size: 0.85rem; cursor: pointer; display: flex; align-items: center; gap: 6px; box-shadow: 0 4px 12px rgba(14, 165, 233, 0.3);">
+                        🔄 Re-ejecutar Diagnóstico
+                    </button>
+                    <button onclick="window.cerrarModalAuditorQA()" style="background: #334155; color: #94A3B8; border: none; width: 36px; height: 36px; border-radius: 10px; font-size: 1.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center;">
+                        ✕
+                    </button>
+                </div>
+            </div>
+
+            <!-- Cuerpo del Modal -->
+            <div style="padding: 25px; overflow-y: auto; flex: 1; display: flex; flex-direction: column; gap: 20px;">
+                
+                <!-- Tarjetas de Métricas de Salud -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                    <div style="background: #1E293B; border: 1px solid #334155; border-radius: 16px; padding: 18px; display: flex; align-items: center; gap: 15px;">
+                        <div style="width: 44px; height: 44px; border-radius: 12px; background: rgba(52, 211, 153, 0.15); color: #34D399; display: flex; align-items: center; justify-content: center; font-size: 1.4rem;">
+                            🩺
+                        </div>
+                        <div>
+                            <div style="font-size: 0.78rem; color: #94A3B8; font-weight: 700; text-transform: uppercase;">Salud del Sistema</div>
+                            <div id="qa-salud-porcentaje" style="font-size: 1.6rem; font-weight: 900; color: #34D399;">100%</div>
+                        </div>
+                    </div>
+
+                    <div style="background: #1E293B; border: 1px solid #334155; border-radius: 16px; padding: 18px; display: flex; align-items: center; gap: 15px;">
+                        <div style="width: 44px; height: 44px; border-radius: 12px; background: rgba(14, 165, 233, 0.15); color: #38BDF8; display: flex; align-items: center; justify-content: center; font-size: 1.4rem;">
+                            📊
+                        </div>
+                        <div>
+                            <div style="font-size: 0.78rem; color: #94A3B8; font-weight: 700; text-transform: uppercase;">Pruebas Ejecutadas</div>
+                            <div id="qa-total-pruebas" style="font-size: 1.6rem; font-weight: 900; color: #F8FAFC;">60 / 60</div>
+                        </div>
+                    </div>
+
+                    <div style="background: #1E293B; border: 1px solid #334155; border-radius: 16px; padding: 18px; display: flex; align-items: center; gap: 15px;">
+                        <div style="width: 44px; height: 44px; border-radius: 12px; background: rgba(239, 68, 68, 0.15); color: #F87171; display: flex; align-items: center; justify-content: center; font-size: 1.4rem;">
+                            ❌
+                        </div>
+                        <div>
+                            <div style="font-size: 0.78rem; color: #94A3B8; font-weight: 700; text-transform: uppercase;">Fallos Detectados</div>
+                            <div id="qa-fallos-count" style="font-size: 1.6rem; font-weight: 900; color: #F87171;">0</div>
+                        </div>
+                    </div>
+
+                    <div style="background: #1E293B; border: 1px solid #334155; border-radius: 16px; padding: 18px; display: flex; align-items: center; gap: 15px;">
+                        <div style="width: 44px; height: 44px; border-radius: 12px; background: rgba(245, 158, 11, 0.15); color: #FBBF24; display: flex; align-items: center; justify-content: center; font-size: 1.4rem;">
+                            🔧
+                        </div>
+                        <div>
+                            <div style="font-size: 0.78rem; color: #94A3B8; font-weight: 700; text-transform: uppercase;">Auto-Correcciones</div>
+                            <div id="qa-autofix-count" style="font-size: 1.6rem; font-weight: 900; color: #FBBF24;">1</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Barra de Progreso y Estado de Escaneo -->
+                <div style="background: #1E293B; border: 1px solid #334155; border-radius: 14px; padding: 15px;">
+                    <div style="display: flex; justify-content: space-between; font-size: 0.85rem; font-weight: 700; margin-bottom: 8px;">
+                        <span id="qa-status-texto" style="color: #38BDF8;">⚡ Auditoría completada. Todas las suites han sido verificadas con éxito.</span>
+                        <span id="qa-tiempo-ms" style="color: #94A3B8;">⏱️ 95 ms</span>
+                    </div>
+                    <div style="width: 100%; height: 8px; background: #0F172A; border-radius: 4px; overflow: hidden;">
+                        <div id="qa-progress-bar" style="width: 100%; height: 100%; background: linear-gradient(90deg, #10B981, #0EA5E9); border-radius: 4px; transition: width 0.4s ease;"></div>
+                    </div>
+                </div>
+
+                <!-- Consola de Resultados y Suites Verificadas -->
+                <div style="display: flex; flex-direction: column; gap: 12px;">
+                    <div style="font-weight: 800; font-size: 0.95rem; color: #F1F5F9; display: flex; justify-content: space-between; align-items: center;">
+                        <span>📋 Desglose de Suites y Verificación de Motores</span>
+                        <div style="display: flex; gap: 8px;">
+                            <button onclick="window.descargarReporteQA()" style="background: #334155; color: #E2E8F0; border: none; padding: 6px 12px; border-radius: 8px; font-size: 0.8rem; font-weight: 700; cursor: pointer;">
+                                📥 Descargar Reporte (.md)
+                            </button>
+                            <button onclick="window.enviarReporteQATelegram()" style="background: #2563EB; color: white; border: none; padding: 6px 12px; border-radius: 8px; font-size: 0.8rem; font-weight: 700; cursor: pointer;">
+                                📱 Enviar a Telegram
+                            </button>
+                        </div>
+                    </div>
+
+                    <div id="qa-suites-container" style="display: flex; flex-direction: column; gap: 10px;">
+                        <!-- Inyectado dinámicamente -->
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Footer del Modal -->
+            <div style="padding: 15px 25px; background: #1E293B; border-top: 1px solid #334155; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+                <div style="font-size: 0.8rem; color: #94A3B8;">
+                    🛡️ Blindaje y Auditoría Automática • Peidagogos STEAM 2026
+                </div>
+                <div style="display: flex; gap: 10px;">
+                    <button onclick="window.ejecutarAutoCorreccionFrontend()" style="background: linear-gradient(135deg, #10B981, #059669); color: white; border: none; padding: 9px 18px; border-radius: 10px; font-weight: 800; font-size: 0.85rem; cursor: pointer; display: flex; align-items: center; gap: 6px; box-shadow: 0 4px 12px rgba(16, 185, 129, 0.35);">
+                        🔧 Forzar Auto-Corrección Inmediata
+                    </button>
+                    <button onclick="window.cerrarModalAuditorQA()" style="background: #475569; color: white; border: none; padding: 9px 18px; border-radius: 10px; font-weight: 800; font-size: 0.85rem; cursor: pointer;">
+                        Cerrar
+                    </button>
+                </div>
+            </div>
+
+        </div>
     </div>
 
     <script src="diagnostico_nocturno.js?v=20260816_v38"></script>
+    <script src="agente_auditor_qa.js?v=20260816_v38"></script>
     <script src="app.js?v=20260816_v38"></script>
     <script>
         // --- BLINDAJE DE PROPIEDAD INTELECTUAL Y SEGURIDAD ---

@@ -1267,22 +1267,31 @@ app.get('/api/social/force-trigger', async (req, res) => {
     }
 });
 
-// Endpoint temporal para listar modelos
-app.get('/api/social/list-models', async (req, res) => {
+// Endpoint del Agente Auditor y Auto-Corrector QA (En Línea)
+const AgenteAuditorQA = require('./agente_auditor_qa');
+
+app.get('/api/auditor/ejecutar', async (req, res) => {
     try {
-        const { GoogleGenAI } = require('@google/genai');
-        const apiKey = process.env.GEMINI_API_KEYS || process.env.GEMINI_API_KEY;
-        const keys = apiKey ? apiKey.split(',').map(k => k.trim()) : [];
-        const ai = new GoogleGenAI({ apiKey: keys[0] });
-        
-        let output = '<h1>Modelos Disponibles:</h1><ul>';
-        for await (const model of ai.models.list()) {
-            output += `<li>${model.name}</li>`;
+        const autofix = req.query.autofix !== 'false';
+        const alertar = req.query.alertar === 'true';
+        const reporte = await AgenteAuditorQA.ejecutarAuditoriaCompleta({ autofix, alertar, entorno: 'node' });
+        res.json({ exito: true, reporte });
+    } catch(e) {
+        res.status(500).json({ exito: false, error: e.message });
+    }
+});
+
+app.get('/api/auditor/reporte', (req, res) => {
+    try {
+        const p = path.join(__dirname, 'auditoria_qa_reporte.json');
+        if (fs.existsSync(p)) {
+            const data = JSON.parse(fs.readFileSync(p, 'utf8'));
+            res.json({ exito: true, reporte: data });
+        } else {
+            res.json({ exito: false, mensaje: 'Aún no se ha ejecutado una auditoría previa.' });
         }
-        output += '</ul>';
-        res.send(output);
-    } catch (e) {
-        res.status(500).send('Error: ' + e.message);
+    } catch(e) {
+        res.status(500).json({ exito: false, error: e.message });
     }
 });
 
