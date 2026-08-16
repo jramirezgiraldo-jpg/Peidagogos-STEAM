@@ -1933,14 +1933,38 @@
             <!-- ============================================================== -->
             <!-- NIVEL 1: VISTA PRINCIPAL DE LAS 6 CAJAS TEMÁTICAS GRANDES -->
             <!-- ============================================================== -->
-            <div id="vista-cajas-hub" style="flex: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 16px;">
-                <div style="font-size: 0.95rem; font-weight: 800; color: #334155; display: flex; align-items: center; gap: 8px;">
-                    <span>📦</span> Selecciona una Caja Temática para explorar y generar sus herramientas:
+                <!-- ============================================================== -->
+                <!-- HERO CARD PRINCIPAL: CAJA 1 - PLANIFICACIÓN CURRICULAR -->
+                <!-- ============================================================== -->
+                <div onclick="window.abrirDetalleCajaTematica('imprimibles')" style="background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 40%, #FFFFFF 100%); border: 3px solid #2563EB; border-radius: 22px; padding: 26px; cursor: pointer; transition: transform 0.15s, box-shadow 0.15s; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; box-shadow: 0 12px 35px rgba(37,99,235,0.22);" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 18px 45px rgba(37,99,235,0.3)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 12px 35px rgba(37,99,235,0.22)';">
+                    <div style="flex: 1; min-width: 280px;">
+                        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px; flex-wrap: wrap;">
+                            <span style="background: linear-gradient(135deg, #2563EB, #1D4ED8); color: white; font-weight: 900; font-size: 0.82rem; padding: 5px 14px; border-radius: 20px; box-shadow: 0 4px 10px rgba(37,99,235,0.35); display: flex; align-items: center; gap: 6px;">
+                                ⭐ NÚCLEO PEDAGÓGICO PRINCIPAL
+                            </span>
+                            <span style="background: #FEF3C7; color: #92400E; font-weight: 900; font-size: 0.8rem; padding: 4px 12px; border-radius: 20px; border: 1px solid #FDE68A;">
+                                7 Herramientas Pro
+                            </span>
+                        </div>
+                        <h2 style="margin: 0 0 8px 0; font-size: 1.55rem; font-weight: 900; color: #1E3A8A; display: flex; align-items: center; gap: 10px;">
+                            <span>📋</span> Caja 1: Planificación Curricular, Secuencias Didácticas & Mallas Oficiales
+                        </h2>
+                        <p style="margin: 0; color: #334155; font-size: 0.94rem; line-height: 1.55; max-width: 800px;">
+                            Diseñador de <strong>Secuencias Didácticas Pro</strong> (8 Modelos Pedagógicos, Enfoques STEAM, Minutero Proporcional, Horas Semanales, Ingesta de Temas o Archivos PDF/Word y Selección de Herramientas Digitales), <strong>Generador de Mallas Curriculares Oficiales MEN (1° a 11° y Ciclos)</strong>, Fichas de Laboratorio y Rúbricas.
+                        </p>
+                    </div>
+                    <button style="background: linear-gradient(135deg, #2563EB, #1E40AF); color: white; border: none; padding: 14px 24px; border-radius: 14px; font-weight: 900; font-size: 1rem; cursor: pointer; display: flex; align-items: center; gap: 10px; box-shadow: 0 6px 18px rgba(37,99,235,0.4); white-space: nowrap;">
+                        <span>⚡</span> Abrir Núcleo de Planificación ➔
+                    </button>
+                </div>
+
+                <div style="font-size: 0.95rem; font-weight: 800; color: #334155; display: flex; align-items: center; gap: 8px; margin-top: 4px;">
+                    <span>🧰</span> Otras Cajas Temáticas del Ecosistema STEAM:
                 </div>
 
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 18px; padding-bottom: 8px;">
                     
-                    <!-- Caja 1: Juegos Dinámicos -->
+                    <!-- Caja 2: Juegos Dinámicos -->
                     <div onclick="window.abrirDetalleCajaTematica('juegos')" style="background: white; border: 2px solid #E0E7FF; border-radius: 20px; padding: 22px; cursor: pointer; transition: transform 0.15s, box-shadow 0.15s; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 4px 15px rgba(79,70,229,0.06);" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 12px 28px rgba(79,70,229,0.15)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(79,70,229,0.06)';">
                         <div>
                             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
@@ -1951,7 +1975,7 @@
                                     10 Herramientas
                                 </span>
                             </div>
-                            <h3 style="margin: 0 0 6px 0; font-size: 1.2rem; font-weight: 900; color: #1E1B4B;">Caja 1: Juegos Dinámicos y Activación</h3>
+                            <h3 style="margin: 0 0 6px 0; font-size: 1.2rem; font-weight: 900; color: #1E1B4B;">Caja 2: Juegos Dinámicos y Activación</h3>
                             <p style="margin: 0 0 14px 0; color: #64748B; font-size: 0.86rem; line-height: 1.45;">
                                 Sopa de letras, Crucigramas, Gran Bingo STEAM con balotera y 30 cartones PDF, Concurso Jeopardy ($100-$500), Memory Cards, Criptogramas, Sudokus...
                             </p>
@@ -1961,7 +1985,7 @@
                         </button>
                     </div>
 
-                    <!-- Caja 2: Gestión de Aula -->
+                    <!-- Caja 3: Gestión de Aula -->
                     <div onclick="window.abrirDetalleCajaTematica('aula')" style="background: white; border: 2px solid #D1FAE5; border-radius: 20px; padding: 22px; cursor: pointer; transition: transform 0.15s, box-shadow 0.15s; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 4px 15px rgba(5,150,105,0.06);" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 12px 28px rgba(5,150,105,0.15)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(5,150,105,0.06)';">
                         <div>
                             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
@@ -1972,7 +1996,7 @@
                                     6 Herramientas
                                 </span>
                             </div>
-                            <h3 style="margin: 0 0 6px 0; font-size: 1.2rem; font-weight: 900; color: #1E1B4B;">Caja 2: Gestión de Aula y Pantalla Gigante</h3>
+                            <h3 style="margin: 0 0 6px 0; font-size: 1.2rem; font-weight: 900; color: #1E1B4B;">Caja 3: Gestión de Aula y Pantalla Gigante</h3>
                             <p style="margin: 0 0 14px 0; color: #64748B; font-size: 0.86rem; line-height: 1.45;">
                                 Ruleta digital de turnos con alumnos reales, Semáforo de ruido ambiental con micrófono (Web Audio), Marcador de casas STEAM, Cronómetro Pomodoro con alarmas...
                             </p>
@@ -1982,7 +2006,7 @@
                         </button>
                     </div>
 
-                    <!-- Caja 3: Pensamiento Visual -->
+                    <!-- Caja 4: Pensamiento Visual -->
                     <div onclick="window.abrirDetalleCajaTematica('visual')" style="background: white; border: 2px solid #FCE7F3; border-radius: 20px; padding: 22px; cursor: pointer; transition: transform 0.15s, box-shadow 0.15s; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 4px 15px rgba(219,39,119,0.06);" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 12px 28px rgba(219,39,119,0.15)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(219,39,119,0.06)';">
                         <div>
                             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
@@ -1993,34 +2017,13 @@
                                     8 Herramientas
                                 </span>
                             </div>
-                            <h3 style="margin: 0 0 6px 0; font-size: 1.2rem; font-weight: 900; color: #1E1B4B;">Caja 3: Pensamiento Visual & Mentefactos</h3>
+                            <h3 style="margin: 0 0 6px 0; font-size: 1.2rem; font-weight: 900; color: #1E1B4B;">Caja 4: Pensamiento Visual & Mentefactos</h3>
                             <p style="margin: 0 0 14px 0; color: #64748B; font-size: 0.86rem; line-height: 1.45;">
                                 Generador de Mentefactos Conceptuales Pro (Pedagogía Conceptual), Mapas Conceptuales Novak, Mapas Mentales Buzan, Pizarra Digital interactiva, Muro de Post-its...
                             </p>
                         </div>
                         <button style="background: linear-gradient(135deg, #DB2777, #E11D48); color: white; border: none; padding: 11px 16px; border-radius: 12px; font-weight: 900; font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 12px rgba(219,39,119,0.3);">
                             <span>📦</span> Abrir Caja Visual (8) ➔
-                        </button>
-                    </div>
-
-                    <!-- Caja 4: Fichas y Planificación Curricular -->
-                    <div onclick="window.abrirDetalleCajaTematica('imprimibles')" style="background: white; border: 2px solid #E0F2FE; border-radius: 20px; padding: 22px; cursor: pointer; transition: transform 0.15s, box-shadow 0.15s; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 4px 15px rgba(2,132,199,0.06);" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 12px 28px rgba(2,132,199,0.15)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(2,132,199,0.06)';">
-                        <div>
-                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-                                <div style="width: 50px; height: 50px; background: linear-gradient(135deg, #0284C7, #2563EB); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; color: white; box-shadow: 0 6px 14px rgba(2,132,199,0.3);">
-                                    🖨️
-                                </div>
-                                <span style="background: #F0F9FF; color: #0369A1; font-weight: 900; font-size: 0.8rem; padding: 4px 12px; border-radius: 20px; border: 1px solid #BAE6FD;">
-                                    7 Herramientas
-                                </span>
-                            </div>
-                            <h3 style="margin: 0 0 6px 0; font-size: 1.2rem; font-weight: 900; color: #1E1B4B;">Caja 4: Fichas y Planificación Curricular</h3>
-                            <p style="margin: 0 0 14px 0; color: #64748B; font-size: 0.86rem; line-height: 1.45;">
-                                <strong>Planificador de Clase y Secuencia Didáctica Pro (con modelos pedagógicos, DUA y minutero)</strong>, Fichas de Laboratorio, Flashcards, Diagramas de Venn, Cloze test, Cómics...
-                            </p>
-                        </div>
-                        <button style="background: linear-gradient(135deg, #0284C7, #2563EB); color: white; border: none; padding: 11px 16px; border-radius: 12px; font-weight: 900; font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 12px rgba(2,132,199,0.3);">
-                            <span>📦</span> Abrir Caja Imprimibles y Planificación (7) ➔
                         </button>
                     </div>
 
@@ -2037,7 +2040,7 @@
                             </div>
                             <h3 style="margin: 0 0 6px 0; font-size: 1.2rem; font-weight: 900; color: #1E1B4B;">Caja 5: Evaluación & Diseño Curricular</h3>
                             <p style="margin: 0 0 14px 0; color: #64748B; font-size: 0.86rem; line-height: 1.45;">
-                                <strong>Generador de Mallas Curriculares Oficiales (MEN / DBA / EBC / Semanas 1 a 10)</strong>, Diplomas Oficiales con sello STEAM, Boletos de salida (Exit tickets), Rúbricas MEN...
+                                Generador de Mallas Curriculares Oficiales (MEN / DBA / EBC / Semanas 1 a 10), Diplomas Oficiales con sello STEAM, Boletos de salida (Exit tickets), Rúbricas MEN...
                             </p>
                         </div>
                         <button style="background: linear-gradient(135deg, #D97706, #EA580C); color: white; border: none; padding: 11px 16px; border-radius: 12px; font-weight: 900; font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 12px rgba(217,119,6,0.3);">
@@ -2081,18 +2084,18 @@
                     </button>
 
                     <div style="display: flex; align-items: center; gap: 10px;">
-                        <span id="categoria-detalle-icono" style="font-size: 1.5rem;">📦</span>
-                        <div id="categoria-detalle-titulo" style="font-weight: 900; font-size: 1.15rem; color: #1E1B4B;">Caja Temática</div>
+                        <span id="categoria-detalle-icono" style="font-size: 1.5rem;">📋</span>
+                        <div id="categoria-detalle-titulo" style="font-weight: 900; font-size: 1.15rem; color: #1E1B4B;">Caja 1: Planificación Curricular</div>
                     </div>
 
                     <!-- Accesos Rápidos a Otras Cajas -->
                     <div style="display: flex; gap: 6px; flex-wrap: wrap;">
-                        <button onclick="window.abrirDetalleCajaTematica('juegos')" style="background: #F1F5F9; border: 1px solid #CBD5E1; padding: 5px 10px; border-radius: 8px; font-weight: 800; font-size: 0.78rem; cursor: pointer;">🕹️ Juegos</button>
-                        <button onclick="window.abrirDetalleCajaTematica('aula')" style="background: #F1F5F9; border: 1px solid #CBD5E1; padding: 5px 10px; border-radius: 8px; font-weight: 800; font-size: 0.78rem; cursor: pointer;">📺 Aula</button>
-                        <button onclick="window.abrirDetalleCajaTematica('visual')" style="background: #F1F5F9; border: 1px solid #CBD5E1; padding: 5px 10px; border-radius: 8px; font-weight: 800; font-size: 0.78rem; cursor: pointer;">🧠 Visual</button>
-                        <button onclick="window.abrirDetalleCajaTematica('imprimibles')" style="background: #F1F5F9; border: 1px solid #CBD5E1; padding: 5px 10px; border-radius: 8px; font-weight: 800; font-size: 0.78rem; cursor: pointer;">🖨️ Fichas</button>
-                        <button onclick="window.abrirDetalleCajaTematica('evaluacion')" style="background: #F1F5F9; border: 1px solid #CBD5E1; padding: 5px 10px; border-radius: 8px; font-weight: 800; font-size: 0.78rem; cursor: pointer;">🏆 Eval</button>
-                        <button onclick="window.abrirDetalleCajaTematica('homeschool')" style="background: #F1F5F9; border: 1px solid #CBD5E1; padding: 5px 10px; border-radius: 8px; font-weight: 800; font-size: 0.78rem; cursor: pointer;">🏡 Home</button>
+                        <button onclick="window.abrirDetalleCajaTematica('imprimibles')" style="background: #2563EB; color: white; border: none; padding: 5px 12px; border-radius: 8px; font-weight: 800; font-size: 0.78rem; cursor: pointer;">📋 1. Planificación</button>
+                        <button onclick="window.abrirDetalleCajaTematica('juegos')" style="background: #F1F5F9; border: 1px solid #CBD5E1; padding: 5px 10px; border-radius: 8px; font-weight: 800; font-size: 0.78rem; cursor: pointer;">🕹️ 2. Juegos</button>
+                        <button onclick="window.abrirDetalleCajaTematica('aula')" style="background: #F1F5F9; border: 1px solid #CBD5E1; padding: 5px 10px; border-radius: 8px; font-weight: 800; font-size: 0.78rem; cursor: pointer;">📺 3. Aula</button>
+                        <button onclick="window.abrirDetalleCajaTematica('visual')" style="background: #F1F5F9; border: 1px solid #CBD5E1; padding: 5px 10px; border-radius: 8px; font-weight: 800; font-size: 0.78rem; cursor: pointer;">🧠 4. Visual</button>
+                        <button onclick="window.abrirDetalleCajaTematica('evaluacion')" style="background: #F1F5F9; border: 1px solid #CBD5E1; padding: 5px 10px; border-radius: 8px; font-weight: 800; font-size: 0.78rem; cursor: pointer;">🏆 5. Eval</button>
+                        <button onclick="window.abrirDetalleCajaTematica('homeschool')" style="background: #F1F5F9; border: 1px solid #CBD5E1; padding: 5px 10px; border-radius: 8px; font-weight: 800; font-size: 0.78rem; cursor: pointer;">🏡 6. Home</button>
                     </div>
                 </div>
 
@@ -2354,8 +2357,8 @@
     </div>
 
     <script src="diagnostico_nocturno.js?v=20260816_v40"></script>
-    <script src="agente_auditor_qa.js?v=20260816_v40"></script>
-    <script src="app.js?v=20260816_v40"></script>
+    <script src="agente_auditor_qa.js?v=20260816_v41"></script>
+    <script src="app.js?v=20260816_v41"></script>
     <script>
         // --- BLINDAJE DE PROPIEDAD INTELECTUAL Y SEGURIDAD ---
         (function() {
