@@ -2195,9 +2195,9 @@
     <!-- ========================================== -->
     <!-- MODAL VISOR INTERACTIVO Y PROYECTOR DE HERRAMIENTA -->
     <!-- ========================================== -->
-    <div id="modal-visor-herramienta" style="display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.96); backdrop-filter: blur(12px); z-index: 100002; flex-direction: column; justify-content: space-between; padding: 18px; box-sizing: border-box;">
-        <!-- Barra Superior de Controles -->
-        <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; background: rgba(30, 41, 59, 0.7); border-radius: 14px; border: 1px solid rgba(255,255,255,0.1); color: white; flex-wrap: wrap; gap: 10px;">
+    <div id="modal-visor-herramienta" style="display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.96); backdrop-filter: blur(12px); z-index: 100002; flex-direction: column; justify-content: space-between; padding: 14px 18px; box-sizing: border-box; overflow-y: auto;">
+        <!-- Barra Superior de Título y Controles de Ventana -->
+        <div style="display: flex; justify-content: space-between; align-items: center; padding: 8px 18px; background: rgba(30, 41, 59, 0.7); border-radius: 14px; border: 1px solid rgba(255,255,255,0.1); color: white; flex-wrap: wrap; gap: 10px;">
             <div style="display: flex; align-items: center; gap: 12px;">
                 <span id="visor-tool-icon" style="font-size: 1.6rem;">🧰</span>
                 <div>
@@ -2207,23 +2207,118 @@
             </div>
 
             <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
-                <button onclick="window.togglePantallaCompletaVisorTool()" style="background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); color: white; padding: 7px 14px; border-radius: 8px; font-weight: 700; font-size: 0.85rem; cursor: pointer; display: flex; align-items: center; gap: 6px;">
+                <button onclick="window.togglePantallaCompletaVisorTool()" style="background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); color: white; padding: 6px 12px; border-radius: 8px; font-weight: 700; font-size: 0.82rem; cursor: pointer; display: flex; align-items: center; gap: 6px;">
                     ⛶ Pantalla Completa
                 </button>
-                <button onclick="window.imprimirHerramientaActual()" style="background: #10B981; border: none; color: white; padding: 7px 14px; border-radius: 8px; font-weight: 800; font-size: 0.85rem; cursor: pointer; display: flex; align-items: center; gap: 6px; box-shadow: 0 4px 10px rgba(16,185,129,0.3);">
+                <button onclick="window.imprimirHerramientaActual()" style="background: #10B981; border: none; color: white; padding: 6px 14px; border-radius: 8px; font-weight: 800; font-size: 0.82rem; cursor: pointer; display: flex; align-items: center; gap: 6px; box-shadow: 0 4px 10px rgba(16,185,129,0.3);">
                     🖨️ Imprimir / Guardar PDF
                 </button>
-                <button onclick="window.reGenerarHerramientaActual()" style="background: #3B82F6; border: none; color: white; padding: 7px 14px; border-radius: 8px; font-weight: 800; font-size: 0.85rem; cursor: pointer; display: flex; align-items: center; gap: 6px;">
+                <button onclick="window.reGenerarHerramientaActual()" style="background: #3B82F6; border: none; color: white; padding: 6px 14px; border-radius: 8px; font-weight: 800; font-size: 0.82rem; cursor: pointer; display: flex; align-items: center; gap: 6px;">
                     🔄 Re-generar
                 </button>
-                <button onclick="window.cerrarVisorHerramienta()" style="background: #EF4444; border: none; color: white; padding: 7px 16px; border-radius: 8px; font-weight: 800; font-size: 0.9rem; cursor: pointer;">
+                <button onclick="window.cerrarVisorHerramienta()" style="background: #EF4444; border: none; color: white; padding: 6px 14px; border-radius: 8px; font-weight: 800; font-size: 0.85rem; cursor: pointer;">
                     ✕ Salir
                 </button>
             </div>
         </div>
 
+        <!-- BARRA INTERACTIVA DE PERSONALIZACIÓN Y GENERACIÓN POR DEMANDA -->
+        <div id="visor-tool-control-bar" style="background: rgba(15, 23, 42, 0.85); border: 1.5px solid #334155; border-radius: 14px; padding: 10px 16px; margin: 8px 0; display: flex; flex-wrap: wrap; gap: 10px; align-items: flex-end; justify-content: space-between; box-shadow: 0 4px 16px rgba(0,0,0,0.3);">
+            <div style="display: flex; flex-wrap: wrap; gap: 10px; align-items: flex-end; flex: 1; min-width: 300px;">
+                <!-- Asignatura -->
+                <div style="display: flex; flex-direction: column; gap: 3px;">
+                    <label style="font-size: 0.72rem; font-weight: 800; color: #94A3B8;">📚 Asignatura:</label>
+                    <select id="visor-select-materia" onchange="window.aplicarCambiosVisorTool()" style="background: #1E293B; color: #38BDF8; border: 1px solid #475569; padding: 6px 8px; border-radius: 8px; font-weight: 800; font-size: 0.82rem;">
+                        <option value="Ciencias Naturales">🌱 Ciencias Naturales</option>
+                        <option value="Matemáticas">📐 Matemáticas</option>
+                        <option value="Lengua Castellana">📖 Lengua Castellana</option>
+                        <option value="Ciencias Sociales">🌍 Ciencias Sociales</option>
+                        <option value="Inglés STEAM">🇬🇧 Inglés STEAM</option>
+                        <option value="Tecnología e Informática">💻 Tecnología</option>
+                        <option value="Física">⚡ Física</option>
+                        <option value="Química">🧪 Química</option>
+                        <option value="Educación Artística">🎨 Artística</option>
+                        <option value="Ética y Valores">🕊️ Ética</option>
+                        <option value="Filosofía">🏛️ Filosofía</option>
+                    </select>
+                </div>
+
+                <!-- Grado / Ciclo -->
+                <div style="display: flex; flex-direction: column; gap: 3px;">
+                    <label style="font-size: 0.72rem; font-weight: 800; color: #94A3B8;">🎓 Grado / Ciclo:</label>
+                    <select id="visor-select-grado" onchange="window.aplicarCambiosVisorTool()" style="background: #1E293B; color: white; border: 1px solid #475569; padding: 6px 8px; border-radius: 8px; font-weight: 800; font-size: 0.82rem;">
+                        <option value="1">1° Primaria</option>
+                        <option value="2">2° Primaria</option>
+                        <option value="3">3° Primaria</option>
+                        <option value="4">4° Primaria</option>
+                        <option value="5">5° Primaria</option>
+                        <option value="6">6° Secundaria</option>
+                        <option value="7" selected>7° Secundaria</option>
+                        <option value="8">8° Secundaria</option>
+                        <option value="9">9° Secundaria</option>
+                        <option value="10">10° Media</option>
+                        <option value="11">11° Media</option>
+                        <option value="Ciclo I">Ciclo I Nocturno (1°-3°)</option>
+                        <option value="Ciclo II">Ciclo II Nocturno (4°-5°)</option>
+                        <option value="Ciclo III">Ciclo III Nocturno (6°-7°)</option>
+                        <option value="Ciclo IV">Ciclo IV Nocturno (8°-9°)</option>
+                        <option value="Ciclo V">Ciclo V Nocturno (10°)</option>
+                        <option value="Ciclo VI">Ciclo VI Nocturno (11°)</option>
+                    </select>
+                </div>
+
+                <!-- Periodo y Semana -->
+                <div style="display: flex; flex-direction: column; gap: 3px;">
+                    <label style="font-size: 0.72rem; font-weight: 800; color: #94A3B8;">📅 Periodo / Sem:</label>
+                    <div style="display: flex; gap: 4px;">
+                        <select id="visor-select-periodo" onchange="window.aplicarCambiosVisorTool()" style="background: #1E293B; color: white; border: 1px solid #475569; padding: 6px 6px; border-radius: 8px; font-weight: 800; font-size: 0.82rem;">
+                            <option value="1">P1</option>
+                            <option value="2">P2</option>
+                            <option value="3" selected>P3</option>
+                            <option value="4">P4</option>
+                        </select>
+                        <select id="visor-select-semana" onchange="window.aplicarCambiosVisorTool()" style="background: #1E293B; color: white; border: 1px solid #475569; padding: 6px 6px; border-radius: 8px; font-weight: 800; font-size: 0.82rem;">
+                            <option value="1" selected>Sem 1</option>
+                            <option value="2">Sem 2</option>
+                            <option value="3">Sem 3</option>
+                            <option value="4">Sem 4</option>
+                            <option value="5">Sem 5</option>
+                            <option value="6">Sem 6</option>
+                            <option value="7">Sem 7</option>
+                            <option value="8">Sem 8</option>
+                            <option value="9">Sem 9</option>
+                            <option value="10">Sem 10</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Tema / Eje Personalizado -->
+                <div style="display: flex; flex-direction: column; gap: 3px; flex: 1; min-width: 220px;">
+                    <label style="font-size: 0.72rem; font-weight: 800; color: #94A3B8;">🎯 Tema o Palabras Clave de la Actividad (Personalizable):</label>
+                    <input type="text" id="visor-input-tema-personalizado" placeholder="Escribe el tema o términos separados por comas..." onkeypress="if(event.key==='Enter') window.aplicarCambiosVisorTool()" style="width: 100%; background: #0F172A; color: #FEF08A; border: 1.5px solid #0284C7; padding: 6px 12px; border-radius: 8px; font-weight: 800; font-size: 0.84rem; box-sizing: border-box;">
+                </div>
+
+                <!-- Nivel / Dificultad -->
+                <div style="display: flex; flex-direction: column; gap: 3px;">
+                    <label style="font-size: 0.72rem; font-weight: 800; color: #94A3B8;">⚙️ Nivel:</label>
+                    <select id="visor-select-dificultad" onchange="window.aplicarCambiosVisorTool()" style="background: #1E293B; color: #F59E0B; border: 1px solid #475569; padding: 6px 8px; border-radius: 8px; font-weight: 800; font-size: 0.82rem;">
+                        <option value="facil">🌱 Básico</option>
+                        <option value="medio" selected>⚡ Estándar</option>
+                        <option value="dificil">🔥 Avanzado STEAM</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Botón Generar -->
+            <div style="display: flex; align-items: flex-end;">
+                <button onclick="window.aplicarCambiosVisorTool()" style="background: linear-gradient(135deg, #059669, #0D9488); color: white; border: none; padding: 7px 16px; border-radius: 9px; font-weight: 900; font-size: 0.85rem; cursor: pointer; display: flex; align-items: center; gap: 6px; box-shadow: 0 4px 12px rgba(5,150,105,0.35); white-space: nowrap;">
+                    <span>⚡</span> Generar Actividad
+                </button>
+            </div>
+        </div>
+
         <!-- Lienzo / Escenario de la Herramienta -->
-        <div style="flex: 1; display: flex; align-items: center; justify-content: center; padding: 15px 0; overflow-y: auto;">
+        <div style="flex: 1; display: flex; align-items: center; justify-content: center; padding: 8px 0; overflow-y: auto;">
             <div id="herramienta-stage" style="width: 100%; max-width: 1150px; min-height: 520px; background: white; border-radius: 20px; box-shadow: 0 25px 60px rgba(0,0,0,0.6); overflow: hidden; display: flex; flex-direction: column; position: relative;">
                 <!-- Contenido inyectado por JS -->
             </div>
@@ -2356,9 +2451,9 @@
         </div>
     </div>
 
-    <script src="diagnostico_nocturno.js?v=20260816_v40"></script>
-    <script src="agente_auditor_qa.js?v=20260816_v41"></script>
-    <script src="app.js?v=20260816_v41"></script>
+    <script src="diagnostico_nocturno.js?v=20260816_v42"></script>
+    <script src="agente_auditor_qa.js?v=20260816_v42"></script>
+    <script src="app.js?v=20260816_v42"></script>
     <script>
         // --- BLINDAJE DE PROPIEDAD INTELECTUAL Y SEGURIDAD ---
         (function() {

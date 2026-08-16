@@ -10016,26 +10016,53 @@ window.leerImagenIngesta = function(input) {
 };
 
 window.obtenerContenidoBaseIngesta = function() {
-    const selMat = document.getElementById('toolbox-materia-select');
-    const selGra = document.getElementById('toolbox-grado-select');
-    const selPer = document.getElementById('toolbox-periodo-select');
-    const selSem = document.getElementById('toolbox-semana-select');
-    const inPal = document.getElementById('toolbox-input-palabras');
-    const inTex = document.getElementById('toolbox-textarea-texto');
+    const visorModal = document.getElementById('modal-visor-herramienta');
+    const visorActivo = visorModal && visorModal.style.display !== 'none';
 
-    const materia = selMat ? selMat.value : 'Ciencias Naturales';
-    const grado = selGra ? selGra.value : '7';
-    const periodo = selPer ? selPer.value : '3';
-    const semana = selSem ? selSem.value : '1';
-
+    let materia = 'Ciencias Naturales';
+    let grado = '7';
+    let periodo = '3';
+    let semana = '1';
     let concepto = '';
-    if (window.modoIngestaActual === 'palabras' && inPal && inPal.value.trim()) {
-        concepto = inPal.value.trim();
-    } else if (window.modoIngestaActual === 'texto' && inTex && inTex.value.trim()) {
-        concepto = inTex.value.trim().substring(0, 80);
-    } else if (window.textoIngestaExtraido) {
-        concepto = window.textoIngestaExtraido.substring(0, 80);
+    let dificultad = 'medio';
+
+    if (visorActivo) {
+        const vMat = document.getElementById('visor-select-materia');
+        const vGra = document.getElementById('visor-select-grado');
+        const vPer = document.getElementById('visor-select-periodo');
+        const vSem = document.getElementById('visor-select-semana');
+        const vTem = document.getElementById('visor-input-tema-personalizado');
+        const vDif = document.getElementById('visor-select-dificultad');
+
+        if (vMat) materia = vMat.value;
+        if (vGra) grado = vGra.value;
+        if (vPer) periodo = vPer.value;
+        if (vSem) semana = vSem.value;
+        if (vTem && vTem.value.trim()) concepto = vTem.value.trim();
+        if (vDif) dificultad = vDif.value;
     } else {
+        const selMat = document.getElementById('toolbox-materia-select');
+        const selGra = document.getElementById('toolbox-grado-select');
+        const selPer = document.getElementById('toolbox-periodo-select');
+        const selSem = document.getElementById('toolbox-semana-select');
+        const inPal = document.getElementById('toolbox-input-palabras');
+        const inTex = document.getElementById('toolbox-textarea-texto');
+
+        if (selMat) materia = selMat.value;
+        if (selGra) grado = selGra.value;
+        if (selPer) periodo = selPer.value;
+        if (selSem) semana = selSem.value;
+
+        if (window.modoIngestaActual === 'palabras' && inPal && inPal.value.trim()) {
+            concepto = inPal.value.trim();
+        } else if (window.modoIngestaActual === 'texto' && inTex && inTex.value.trim()) {
+            concepto = inTex.value.trim().substring(0, 80);
+        } else if (window.textoIngestaExtraido) {
+            concepto = window.textoIngestaExtraido.substring(0, 80);
+        }
+    }
+
+    if (!concepto) {
         concepto = `${materia} (Grado ${grado}° • Periodo ${periodo} • Semana ${semana})`;
     }
 
@@ -10045,7 +10072,8 @@ window.obtenerContenidoBaseIngesta = function() {
         periodo,
         semana,
         concepto,
-        textoCompleto: (inTex && inTex.value) ? inTex.value : (window.textoIngestaExtraido || concepto)
+        dificultad,
+        textoCompleto: window.textoIngestaExtraido || concepto
     };
 };
 
@@ -10131,12 +10159,38 @@ window.renderizarTarjetasCajaHerramientas = function(categoria = 'juegos') {
     `).join('');
 };
 
-// Modal Visor de Herramientas
+// Modal Visor de Herramientas y Sincronización de Controles
 window.abrirVisorHerramienta = function(herramientaId) {
     const tool = window.LISTA_HERRAMIENTAS_PEDAGOGICAS.find(h => h.id === herramientaId);
     if (!tool) return;
 
     window.herramientaActualActiva = tool;
+
+    // Sincronizar controles del visor con la selección previa
+    const selMat = document.getElementById('toolbox-materia-select');
+    const selGra = document.getElementById('toolbox-grado-select');
+    const selPer = document.getElementById('toolbox-periodo-select');
+    const selSem = document.getElementById('toolbox-semana-select');
+    const inPal = document.getElementById('toolbox-input-palabras');
+
+    const vMat = document.getElementById('visor-select-materia');
+    const vGra = document.getElementById('visor-select-grado');
+    const vPer = document.getElementById('visor-select-periodo');
+    const vSem = document.getElementById('visor-select-semana');
+    const vTem = document.getElementById('visor-input-tema-personalizado');
+
+    if (vMat && selMat) vMat.value = selMat.value;
+    if (vGra && selGra) vGra.value = selGra.value;
+    if (vPer && selPer) vPer.value = selPer.value;
+    if (vSem && selSem) vSem.value = selSem.value;
+    if (vTem) {
+        if (inPal && inPal.value.trim()) {
+            vTem.value = inPal.value.trim();
+        } else if (!vTem.value.trim()) {
+            vTem.value = `${vMat ? vMat.value : 'Ciencias Naturales'} (Grado ${vGra ? vGra.value : '7'}°)`;
+        }
+    }
+
     const base = window.obtenerContenidoBaseIngesta();
 
     const modal = document.getElementById('modal-visor-herramienta');
@@ -10161,7 +10215,6 @@ window.cerrarVisorHerramienta = function() {
     const modal = document.getElementById('modal-visor-herramienta');
     if (modal) modal.style.display = 'none';
 
-    // Detener procesos activos si los hay (micrófono, timers, etc.)
     if (window.audioContextSemaforo) {
         try { window.audioContextSemaforo.close(); } catch(e){}
         window.audioContextSemaforo = null;
@@ -10172,11 +10225,17 @@ window.cerrarVisorHerramienta = function() {
     }
 };
 
-window.reGenerarHerramientaActual = function() {
+window.aplicarCambiosVisorTool = function() {
     if (!window.herramientaActualActiva) return;
     const stage = document.getElementById('herramienta-stage');
     const base = window.obtenerContenidoBaseIngesta();
+    const subtitle = document.getElementById('visor-tool-subtitle');
+    if (subtitle) subtitle.innerText = `${base.materia} • Grado ${base.grado}° • P${base.periodo} Sem ${base.semana} • Tema: ${base.concepto}`;
     window.ejecutarRenderizadorHerramienta(window.herramientaActualActiva.id, stage, base);
+};
+
+window.reGenerarHerramientaActual = function() {
+    window.aplicarCambiosVisorTool();
 };
 
 window.imprimirHerramientaActual = function() {
@@ -10192,6 +10251,135 @@ window.togglePantallaCompletaVisorTool = function() {
     } else {
         document.exitFullscreen();
     }
+};
+
+// ==========================================================================
+// MOTOR DE GENERACIÓN DE CONTENIDO PEDAGÓGICO DINÁMICO POR DEMANDA
+// ==========================================================================
+window.generarDatosPedagogicosDinamicos = function(materia, grado, tema, dificultad = 'medio') {
+    materia = materia || 'Ciencias Naturales';
+    grado = grado || '7';
+    tema = (tema && tema.trim()) ? tema.trim() : `${materia} Grado ${grado}°`;
+
+    // 1. Extraer palabras custom si el docente escribió términos separados por comas
+    let palabrasCustom = [];
+    if (tema.includes(',') || tema.includes(';') || tema.includes('-')) {
+        palabrasCustom = tema.split(/[,;\-]+/).map(p => p.trim().toUpperCase()).filter(p => p.length >= 3);
+    }
+
+    let palabras = [];
+    if (palabrasCustom.length >= 3) {
+        palabras = palabrasCustom.slice(0, 10);
+    } else {
+        // Generación dinámica de términos clave a partir del tema ingresado
+        const tokens = tema.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ0-9\s]/g, '').split(/\s+/).filter(w => w.length > 3).map(w => w.toUpperCase());
+        const sufijosArea = {
+            'Matemáticas': ['ECUACION', 'VARIABLE', 'TEOREMA', 'FUNCION', 'ALGEBRA', 'CALCULO', 'GRAFICA', 'COORDENADA'],
+            'Ciencias Naturales': ['CELULA', 'ECOSISTEMA', 'ENERGIA', 'MOLECULA', 'ADAPTACION', 'BIODIVERSIDAD', 'ORGANISMO', 'REACCION'],
+            'Física': ['FUERZA', 'VELOCIDAD', 'ACELERACION', 'INERCIA', 'GRAVEDAD', 'TRABAJO', 'POTENCIA', 'VECTOR'],
+            'Química': ['ELEMENTO', 'ATOMO', 'ENLACE', 'COMPUESTO', 'SOLUCION', 'VALENCIA', 'MOL', 'REACCION'],
+            'Lengua Castellana': ['NARRATIVA', 'METAFORA', 'ARGUMENTO', 'SEMANTICA', 'SINTAXIS', 'COHERENCIA', 'TEXTO', 'ENSAYO'],
+            'Ciencias Sociales': ['SOCIEDAD', 'HISTORIA', 'CULTURA', 'TERRITORIO', 'DEMOCRACIA', 'CIUDADANIA', 'ESTADO', 'DERECHOS'],
+            'Inglés STEAM': ['RESEARCH', 'HYPOTHESIS', 'EXPERIMENT', 'DATA', 'ANALYSIS', 'INNOVATION', 'STRUCTURE', 'EVIDENCE'],
+            'Tecnología e Informática': ['ALGORITMO', 'CODIGO', 'CIRCUITO', 'ROBOTICA', 'DATOS', 'SISTEMA', 'RED', 'PROTOTIPO'],
+            'Filosofía': ['LOGICA', 'ETICA', 'EPISTEMOLOGIA', 'RAZON', 'ONTOLOGIA', 'DIALECTICA', 'CRITICA', 'PENSAMIENTO'],
+            'Ética y Valores': ['EMPATIA', 'RESPETO', 'JUSTICIA', 'DIGNIDAD', 'SOLIDARIDAD', 'DIALOGO', 'RESPONSABILIDAD', 'PAZ'],
+            'Educación Artística': ['COMPOSICION', 'COLOR', 'PERSPECTIVA', 'TEXTURA', 'ARMONIA', 'EXPRESION', 'ESTETICA', 'TECNICA']
+        };
+
+        const listaBase = sufijosArea[materia] || ['PRINCIPIO', 'SISTEMA', 'ESTRUCTURA', 'PROCESO', 'METODO', 'ANALISIS', 'INNOVACION', 'EQUILIBRIO'];
+        palabras = Array.from(new Set([...tokens, ...listaBase])).slice(0, 8);
+    }
+
+    // Crucigrama y Flashcards (Pistas y Respuestas)
+    const definiciones = palabras.map((p, idx) => ({
+        palabra: p,
+        pista: `Término ${idx + 1}: Concepto clave vinculado a ${tema} en ${materia} (Grado ${grado}°).`
+    }));
+
+    // Jeopardy dinámico
+    const categoriasJeopardy = ['Fundamentos', 'Leyes & Modelos', 'Experimentos', 'Mundo Real', 'Reto Maestro'];
+    const preguntasJeopardy = [
+        { cat: 'Fundamentos', q: `¿Cuál es el principio esencial que define a "${palabras[0] || tema}" en ${materia}?`, pts: 100 },
+        { cat: 'Leyes & Modelos', q: `¿Qué fórmula, postulado o modelo formal rige el comportamiento de ${tema}?`, pts: 200 },
+        { cat: 'Experimentos', q: `¿Cómo se comprueba experimentalmente la variable de "${palabras[1] || 'proceso'}" en el laboratorio?`, pts: 300 },
+        { cat: 'Mundo Real', q: `¿Qué problema tecnológico o ambiental de Colombia se resuelve aplicando ${tema}?`, pts: 400 },
+        { cat: 'Reto Maestro', q: `Diseña una propuesta STEAM integrando ${materia} y ${tema} con impacto comunitario.`, pts: 500 }
+    ];
+
+    // Mentefacto Pro (Pedagogía Conceptual)
+    const supraordinada = `Sistema / Eje Fundamental de ${materia} (Grado ${grado}°)`;
+    const isoordinadas = [
+        `Principio causal y leyes cuantitativas de ${tema}.`,
+        `Intercambio dinámico y equilibrio de variables en ${materia}.`,
+        `Comprobación empírica y metodológica en el entorno real.`
+    ];
+    const exclusiones = [
+        `≠ Nociones intuitivas no fundamentadas en ${materia}.`,
+        `≠ Sistemas estáticos sin transferencia de materia/energía.`,
+        `≠ Fenómenos descriptivos sin modelación científica.`
+    ];
+    const infraordinadas = [
+        `1. Fundamento Teórico de ${tema}`,
+        `2. Modelo Matemático / Experimental`,
+        `3. Aplicación e Innovación STEAM`
+    ];
+
+    // Mapa Conceptual Novak
+    const proposicionesNovak = [
+        { nodo: '1. Bases Teóricas', conector: '⬇️ regulado por', desc: `Leyes y principios formales de ${materia}.` },
+        { nodo: '2. Procesos Dinámicos', conector: '⬇️ que generan', desc: `Interacciones de ${palabras.slice(0, 2).join(' y ')}.` },
+        { nodo: '3. Aplicación Contextual', conector: '⬇️ que impacta en', desc: `Soluciones tecnológicas en Grado ${grado}°.` }
+    ];
+
+    // Mapa Mental Buzan
+    const ramasBuzan = [
+        { titulo: '🌿 1. Origen & Contexto', desc: `Historia, antecedentes y marco de ${tema}.` },
+        { titulo: '🔬 2. Componentes Clave', desc: `Elementos: ${palabras.slice(0, 3).join(', ')}.` },
+        { titulo: '⚙️ 3. Leyes y Operación', desc: `Modelos y reglas aplicadas en ${materia}.` },
+        { titulo: '🚀 4. Innovación STEAM', desc: `Retos del futuro y bioética comunitaria.` }
+    ];
+
+    // Ficha de Laboratorio
+    const experimentoLab = {
+        pregunta: `¿De qué manera la variación de condiciones afecta a ${tema}?`,
+        hipotesis: `Si se incrementa la magnitud de ${palabras[0] || 'la variable'}, se observará una respuesta medible y proporcional en el sistema de ${materia}.`,
+        materiales: `Guía didáctica, instrumentos de medición directa, libreta de campo, cronómetro y muestras caseras del entorno.`,
+        pasos: [
+            `1. Formular la hipótesis y registrar las condiciones iniciales de ${tema}.`,
+            `2. Manipular la variable independiente de forma sistemática y controlada.`,
+            `3. Tomar 3 lecturas repetidas y tabularlas en la matriz de datos.`,
+            `4. Graficar la relación y contrastar con los principios de ${materia}.`
+        ]
+    };
+
+    // Cloze Test
+    const textoCloze = `El estudio de <b>${tema}</b> en el área de <b>${materia}</b> (Grado <b>${grado}°</b>) demuestra que cuando actúan las fuerzas del sistema, se genera una respuesta en <b>[ _________ ]</b>. Para garantizar el equilibrio, es indispensable regular <b>[ _________ ]</b> y modelar la interacción con <b>[ _________ ]</b>.`;
+    const bancoCloze = palabras.slice(0, 5);
+
+    // Pregunta Detonante / Socrática
+    const debateDetonante = `Si pudieras transformar una sola propiedad o ley de ${tema} en ${materia}, ¿qué consecuencias éticas y ambientales tendría en la vida cotidiana de tu comunidad?`;
+
+    return {
+        tema,
+        materia,
+        grado,
+        dificultad,
+        palabras,
+        definiciones,
+        categoriasJeopardy,
+        preguntasJeopardy,
+        supraordinada,
+        isoordinadas,
+        exclusiones,
+        infraordinadas,
+        proposicionesNovak,
+        ramasBuzan,
+        experimentoLab,
+        textoCloze,
+        bancoCloze,
+        debateDetonante
+    };
 };
 
 // Dispatcher de Renderizadores
@@ -10264,67 +10452,61 @@ window.ejecutarRenderizadorHerramienta = function(id, stage, base) {
 
 // 1. MENTEFACTO CONCEPTUAL PRO (Pedagogía Conceptual)
 window.renderizarMentefactoPro = function(stage, base) {
-    const c = base.concepto;
+    const data = window.generarDatosPedagogicosDinamicos(base.materia, base.grado, base.concepto, base.dificultad);
     stage.innerHTML = `
-        <div style="flex: 1; padding: 30px; background: #F8FAFC; display: flex; flex-direction: column; justify-content: space-between; text-align: left;">
-            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #E2E8F0; padding-bottom: 12px;">
+        <div style="flex: 1; padding: 25px; background: #F8FAFC; display: flex; flex-direction: column; justify-content: space-between; text-align: left;">
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #E2E8F0; padding-bottom: 10px;">
                 <div>
-                    <span style="font-size: 0.8rem; font-weight: 800; color: #2563EB; text-transform: uppercase;">Pedagogía Conceptual • Estructura Formal</span>
-                    <h2 style="margin: 2px 0 0 0; font-size: 1.5rem; font-weight: 900; color: #0F172A;">Mentefacto Conceptual: ${c}</h2>
+                    <span style="font-size: 0.8rem; font-weight: 800; color: #2563EB; text-transform: uppercase;">Pedagogía Conceptual • Estructura Formal (${base.materia} - Grado ${base.grado}°)</span>
+                    <h2 style="margin: 2px 0 0 0; font-size: 1.45rem; font-weight: 900; color: #0F172A;">Mentefacto Conceptual: ${data.tema}</h2>
                 </div>
-                <span style="background: #EFF6FF; color: #1D4ED8; padding: 4px 12px; border-radius: 20px; font-weight: 800; font-size: 0.85rem;">Diagrama Riguroso</span>
+                <span style="background: #EFF6FF; color: #1D4ED8; padding: 4px 12px; border-radius: 20px; font-weight: 800; font-size: 0.85rem;">Nivel ${data.dificultad.toUpperCase()}</span>
             </div>
 
             <!-- Estructura en Cruz del Mentefacto -->
-            <div style="margin: 20px 0; display: flex; flex-direction: column; align-items: center; gap: 15px;">
+            <div style="margin: 15px 0; display: flex; flex-direction: column; align-items: center; gap: 12px;">
                 <!-- 1. SUPRAORDINADA (Arriba) -->
-                <div style="background: #FEF3C7; border: 2px solid #F59E0B; border-radius: 12px; padding: 12px 24px; text-align: center; max-width: 420px; box-shadow: 0 4px 10px rgba(245,158,11,0.15);">
-                    <div style="font-size: 0.75rem; font-weight: 900; color: #92400E; text-transform: uppercase;">⬆️ Supraordinada (Clase Mayor)</div>
-                    <div style="font-size: 1.05rem; font-weight: 800; color: #78350F; margin-top: 2px;">Sistema o Fenómeno de ${base.materia}</div>
+                <div style="background: #FEF3C7; border: 2px solid #F59E0B; border-radius: 12px; padding: 10px 20px; text-align: center; max-width: 500px; box-shadow: 0 4px 10px rgba(245,158,11,0.15);">
+                    <div style="font-size: 0.72rem; font-weight: 900; color: #92400E; text-transform: uppercase;">⬆️ Supraordinada (Clase Mayor)</div>
+                    <div style="font-size: 1rem; font-weight: 800; color: #78350F; margin-top: 2px;">${data.supraordinada}</div>
                 </div>
 
                 <!-- 2. FILA CENTRAL: ISOORDINADAS (Izq) - CONCEPTO CENTRAL - EXCLUSIONES (Der) -->
-                <div style="display: grid; grid-template-columns: 1.2fr 1fr 1.2fr; gap: 15px; width: 100%; align-items: center;">
+                <div style="display: grid; grid-template-columns: 1.2fr 1fr 1.2fr; gap: 12px; width: 100%; align-items: center;">
                     <!-- Isoordinadas -->
-                    <div style="background: #ECFDF5; border: 2px solid #10B981; border-radius: 14px; padding: 16px;">
-                        <div style="font-size: 0.75rem; font-weight: 900; color: #065F46; text-transform: uppercase; margin-bottom: 6px;">⬅️ Isoordinadas (Cualidades Esenciales)</div>
-                        <ul style="margin: 0; padding-left: 18px; font-size: 0.88rem; color: #047857; line-height: 1.45; font-weight: 600;">
-                            <li>Principio de causalidad y equilibrio dinámico.</li>
-                            <li>Regulado por leyes cuantitativas comprobables.</li>
-                            <li>Intercambio de materia, energía o información.</li>
+                    <div style="background: #ECFDF5; border: 2px solid #10B981; border-radius: 14px; padding: 14px;">
+                        <div style="font-size: 0.72rem; font-weight: 900; color: #065F46; text-transform: uppercase; margin-bottom: 6px;">⬅️ Isoordinadas (Cualidades Esenciales)</div>
+                        <ul style="margin: 0; padding-left: 16px; font-size: 0.82rem; color: #047857; line-height: 1.45; font-weight: 600;">
+                            ${data.isoordinadas.map(iso => `<li>${iso}</li>`).join('')}
                         </ul>
                     </div>
 
                     <!-- Concepto Central -->
-                    <div style="background: linear-gradient(135deg, #1E293B, #0F172A); color: white; border: 3px solid #3B82F6; border-radius: 16px; padding: 22px; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.25);">
-                        <div style="font-size: 0.75rem; font-weight: 900; color: #60A5FA; text-transform: uppercase;">Concepto Central</div>
-                        <div style="font-size: 1.35rem; font-weight: 900; color: #FFFFFF; margin-top: 4px; line-height: 1.2;">${c}</div>
+                    <div style="background: linear-gradient(135deg, #1E293B, #0F172A); color: white; border: 3px solid #3B82F6; border-radius: 16px; padding: 20px; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.25);">
+                        <div style="font-size: 0.72rem; font-weight: 900; color: #60A5FA; text-transform: uppercase;">Concepto Central</div>
+                        <div style="font-size: 1.25rem; font-weight: 900; color: #FFFFFF; margin-top: 4px; line-height: 1.2;">${data.tema}</div>
                     </div>
 
                     <!-- Exclusiones -->
-                    <div style="background: #FEF2F2; border: 2px solid #EF4444; border-radius: 14px; padding: 16px;">
-                        <div style="font-size: 0.75rem; font-weight: 900; color: #991B1B; text-transform: uppercase; margin-bottom: 6px;">➡️ Exclusiones (Difiere de)</div>
-                        <ul style="margin: 0; padding-left: 18px; font-size: 0.88rem; color: #B91C1C; line-height: 1.45; font-weight: 600;">
-                            <li>≠ Fenómenos aislados sin transformación.</li>
-                            <li>≠ Procesos estáticos o de equilibrio inerte.</li>
-                            <li>≠ Creencias no comprobables experimentalmente.</li>
+                    <div style="background: #FEF2F2; border: 2px solid #EF4444; border-radius: 14px; padding: 14px;">
+                        <div style="font-size: 0.72rem; font-weight: 900; color: #991B1B; text-transform: uppercase; margin-bottom: 6px;">➡️ Exclusiones (Difiere de)</div>
+                        <ul style="margin: 0; padding-left: 16px; font-size: 0.82rem; color: #B91C1C; line-height: 1.45; font-weight: 600;">
+                            ${data.exclusiones.map(exc => `<li>${exc}</li>`).join('')}
                         </ul>
                     </div>
                 </div>
 
                 <!-- 3. INFRAORDINADAS (Abajo) -->
-                <div style="background: #EEF2FF; border: 2px solid #6366F1; border-radius: 12px; padding: 12px 24px; text-align: center; max-width: 550px; box-shadow: 0 4px 10px rgba(99,102,241,0.15);">
-                    <div style="font-size: 0.75rem; font-weight: 900; color: #3730A3; text-transform: uppercase;">⬇️ Infraordinadas (Tipos o Clases Derivadas)</div>
-                    <div style="font-size: 0.92rem; font-weight: 700; color: #4338CA; margin-top: 4px; display: flex; justify-content: center; gap: 15px;">
-                        <span>🔹 Tipo A: Fundamento Teórico</span>
-                        <span>🔹 Tipo B: Modelo Aplicado</span>
-                        <span>🔹 Tipo C: Caso Contextual</span>
+                <div style="background: #EEF2FF; border: 2px solid #6366F1; border-radius: 12px; padding: 10px 20px; text-align: center; max-width: 600px; box-shadow: 0 4px 10px rgba(99,102,241,0.15);">
+                    <div style="font-size: 0.72rem; font-weight: 900; color: #3730A3; text-transform: uppercase;">⬇️ Infraordinadas (Tipos o Clases Derivadas)</div>
+                    <div style="font-size: 0.88rem; font-weight: 700; color: #4338CA; margin-top: 4px; display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;">
+                        ${data.infraordinadas.map(inf => `<span>🔹 ${inf}</span>`).join('')}
                     </div>
                 </div>
             </div>
 
-            <div style="background: white; border: 1px solid #CBD5E1; padding: 10px 16px; border-radius: 8px; font-size: 0.85rem; color: #475569; text-align: center;">
-                💡 <b>Operación Intelectual:</b> El mentefacto conceptual permite diferenciar las características esenciales de las accidentales.
+            <div style="background: white; border: 1px solid #CBD5E1; padding: 8px 14px; border-radius: 8px; font-size: 0.82rem; color: #475569; text-align: center;">
+                💡 <b>Operación Intelectual:</b> Mentefacto riguroso adaptado a ${data.materia} (Grado ${data.grado}°).
             </div>
         </div>
     `;
@@ -10332,49 +10514,39 @@ window.renderizarMentefactoPro = function(stage, base) {
 
 // 2. MAPA CONCEPTUAL JERÁRQUICO (Novak)
 window.renderizarMapaConceptualNovak = function(stage, base) {
-    const c = base.concepto;
+    const data = window.generarDatosPedagogicosDinamicos(base.materia, base.grado, base.concepto, base.dificultad);
     stage.innerHTML = `
-        <div style="flex: 1; padding: 30px; background: #FFFFFF; display: flex; flex-direction: column; justify-content: space-between; text-align: center;">
+        <div style="flex: 1; padding: 25px; background: #FFFFFF; display: flex; flex-direction: column; justify-content: space-between; text-align: center;">
             <div style="border-bottom: 2px solid #F1F5F9; padding-bottom: 10px;">
-                <span style="font-size: 0.8rem; font-weight: 800; color: #059669; text-transform: uppercase;">Modelo Novak • Proposiciones Lógicas</span>
-                <h2 style="margin: 2px 0 0 0; font-size: 1.45rem; font-weight: 900; color: #0F172A;">Mapa Conceptual: ${c}</h2>
+                <span style="font-size: 0.8rem; font-weight: 800; color: #059669; text-transform: uppercase;">Modelo Novak • Proposiciones Lógicas (${base.materia})</span>
+                <h2 style="margin: 2px 0 0 0; font-size: 1.45rem; font-weight: 900; color: #0F172A;">Mapa Conceptual: ${data.tema}</h2>
             </div>
 
-            <div style="display: flex; flex-direction: column; align-items: center; gap: 10px; margin: 20px 0;">
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; margin: 15px 0;">
                 <!-- Nivel 1: Concepto Raíz -->
-                <div style="background: #1E293B; color: white; padding: 12px 30px; border-radius: 12px; font-size: 1.25rem; font-weight: 900; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
-                    ${c}
+                <div style="background: #1E293B; color: white; padding: 12px 28px; border-radius: 12px; font-size: 1.2rem; font-weight: 900; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+                    ${data.tema}
                 </div>
 
                 <!-- Conector 1 -->
-                <div style="color: #2563EB; font-weight: 800; font-size: 0.85rem; background: #EFF6FF; padding: 3px 12px; border-radius: 12px; border: 1px dashed #93C5FD;">
-                    ⬇️ se compone de / se fundamenta en
+                <div style="color: #2563EB; font-weight: 800; font-size: 0.82rem; background: #EFF6FF; padding: 3px 12px; border-radius: 12px; border: 1px dashed #93C5FD;">
+                    ⬇️ se estructura y fundamenta en
                 </div>
 
                 <!-- Nivel 2: 3 Pilares -->
-                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; width: 100%;">
-                    <div style="background: #F0FDF4; border: 1.5px solid #86EFAC; border-radius: 12px; padding: 14px; text-align: center;">
-                        <h4 style="margin: 0 0 4px 0; color: #166534; font-size: 1.05rem; font-weight: 900;">1. Principios Físicos/Químicos</h4>
-                        <div style="color: #2563EB; font-size: 0.75rem; font-weight: 800; margin: 6px 0;">⬇️ regulados por</div>
-                        <p style="margin: 0; color: #15803D; font-size: 0.85rem;">Leyes de conservación y balances matemáticos.</p>
-                    </div>
-
-                    <div style="background: #EFF6FF; border: 1.5px solid #93C5FD; border-radius: 12px; padding: 14px; text-align: center;">
-                        <h4 style="margin: 0 0 4px 0; color: #1E40AF; font-size: 1.05rem; font-weight: 900;">2. Procesos Dinámicos</h4>
-                        <div style="color: #2563EB; font-size: 0.75rem; font-weight: 800; margin: 6px 0;">⬇️ que producen</div>
-                        <p style="margin: 0; color: #1D4ED8; font-size: 0.85rem;">Transformación de estados y generación de trabajo.</p>
-                    </div>
-
-                    <div style="background: #FEF3C7; border: 1.5px solid #FCD34D; border-radius: 12px; padding: 14px; text-align: center;">
-                        <h4 style="margin: 0 0 4px 0; color: #92400E; font-size: 1.05rem; font-weight: 900;">3. Aplicación Contextual</h4>
-                        <div style="color: #2563EB; font-size: 0.75rem; font-weight: 800; margin: 6px 0;">⬇️ que impacta en</div>
-                        <p style="margin: 0; color: #B45309; font-size: 0.85rem;">Soluciones tecnológicas y desarrollo regional.</p>
-                    </div>
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; width: 100%;">
+                    ${data.proposicionesNovak.map((pilar, idx) => `
+                        <div style="background: ${idx === 0 ? '#F0FDF4' : idx === 1 ? '#EFF6FF' : '#FEF3C7'}; border: 1.5px solid ${idx === 0 ? '#86EFAC' : idx === 1 ? '#93C5FD' : '#FCD34D'}; border-radius: 12px; padding: 12px; text-align: center;">
+                            <h4 style="margin: 0 0 4px 0; color: ${idx === 0 ? '#166534' : idx === 1 ? '#1E40AF' : '#92400E'}; font-size: 0.95rem; font-weight: 900;">${pilar.nodo}</h4>
+                            <div style="color: #2563EB; font-size: 0.72rem; font-weight: 800; margin: 4px 0;">${pilar.conector}</div>
+                            <p style="margin: 0; color: #334155; font-size: 0.82rem; line-height: 1.4;">${pilar.desc}</p>
+                        </div>
+                    `).join('')}
                 </div>
             </div>
 
-            <div style="background: #F8FAFC; border: 1px solid #E2E8F0; padding: 10px; border-radius: 8px; font-size: 0.85rem; color: #64748B;">
-                🎯 Los enlaces verbales conectan conceptos formando proposiciones científicas válidas.
+            <div style="background: #F8FAFC; border: 1px solid #E2E8F0; padding: 8px; border-radius: 8px; font-size: 0.82rem; color: #64748B;">
+                🎯 Los enlaces verbales conectan conceptos formando proposiciones científicas válidas para Grado ${data.grado}°.
             </div>
         </div>
     `;
@@ -10382,49 +10554,49 @@ window.renderizarMapaConceptualNovak = function(stage, base) {
 
 // 3. MAPA MENTAL RADIAL (Buzan)
 window.renderizarMapaMentalBuzan = function(stage, base) {
-    const c = base.concepto;
+    const data = window.generarDatosPedagogicosDinamicos(base.materia, base.grado, base.concepto, base.dificultad);
     stage.innerHTML = `
-        <div style="flex: 1; padding: 30px; background: radial-gradient(circle, #FFFFFF 60%, #F8FAFC 100%); display: flex; flex-direction: column; justify-content: space-between; text-align: center;">
+        <div style="flex: 1; padding: 25px; background: radial-gradient(circle, #FFFFFF 60%, #F8FAFC 100%); display: flex; flex-direction: column; justify-content: space-between; text-align: center;">
             <div style="border-bottom: 2px solid #F1F5F9; padding-bottom: 8px;">
-                <span style="font-size: 0.8rem; font-weight: 800; color: #7C3AED; text-transform: uppercase;">Modelo Buzan • Pensamiento Radial</span>
-                <h2 style="margin: 2px 0 0 0; font-size: 1.45rem; font-weight: 900; color: #0F172A;">Mapa Mental Creativo: ${c}</h2>
+                <span style="font-size: 0.8rem; font-weight: 800; color: #7C3AED; text-transform: uppercase;">Modelo Buzan • Pensamiento Radial (${base.materia})</span>
+                <h2 style="margin: 2px 0 0 0; font-size: 1.45rem; font-weight: 900; color: #0F172A;">Mapa Mental Creativo: ${data.tema}</h2>
             </div>
 
             <!-- Estructura Radial -->
-            <div style="display: grid; grid-template-columns: 1fr 1.2fr 1fr; gap: 15px; margin: 20px 0; align-items: center;">
+            <div style="display: grid; grid-template-columns: 1fr 1.1fr 1fr; gap: 12px; margin: 15px 0; align-items: center;">
                 <!-- Ramas Izquierda -->
-                <div style="display: flex; flex-direction: column; gap: 14px;">
-                    <div style="background: #FDF2F8; border-left: 4px solid #DB2777; border-radius: 10px; padding: 12px; text-align: right;">
-                        <h4 style="margin: 0; color: #9D174D; font-size: 0.95rem; font-weight: 900;">🌿 Rama 1: Origen</h4>
-                        <p style="margin: 2px 0 0 0; color: #BE185D; font-size: 0.82rem;">Evolución conceptual y antecedentes históricos.</p>
+                <div style="display: flex; flex-direction: column; gap: 12px;">
+                    <div style="background: #FDF2F8; border-left: 4px solid #DB2777; border-radius: 10px; padding: 10px; text-align: right;">
+                        <h4 style="margin: 0; color: #9D174D; font-size: 0.9rem; font-weight: 900;">${data.ramasBuzan[0].titulo}</h4>
+                        <p style="margin: 2px 0 0 0; color: #BE185D; font-size: 0.78rem;">${data.ramasBuzan[0].desc}</p>
                     </div>
-                    <div style="background: #EFF6FF; border-left: 4px solid #2563EB; border-radius: 10px; padding: 12px; text-align: right;">
-                        <h4 style="margin: 0; color: #1E40AF; font-size: 0.95rem; font-weight: 900;">🔬 Rama 2: Estructura</h4>
-                        <p style="margin: 2px 0 0 0; color: #1D4ED8; font-size: 0.82rem;">Componentes esenciales y relaciones internas.</p>
+                    <div style="background: #EFF6FF; border-left: 4px solid #2563EB; border-radius: 10px; padding: 10px; text-align: right;">
+                        <h4 style="margin: 0; color: #1E40AF; font-size: 0.9rem; font-weight: 900;">${data.ramasBuzan[1].titulo}</h4>
+                        <p style="margin: 2px 0 0 0; color: #1D4ED8; font-size: 0.78rem;">${data.ramasBuzan[1].desc}</p>
                     </div>
                 </div>
 
                 <!-- Nodo Central Radial -->
-                <div style="background: linear-gradient(135deg, #7C3AED, #6D28D9); color: white; border-radius: 50%; width: 170px; height: 170px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 15px; box-shadow: 0 10px 25px rgba(124,58,237,0.3); border: 4px solid #DDD6FE;">
-                    <span style="font-size: 1.8rem; margin-bottom: 2px;">💡</span>
-                    <span style="font-size: 1rem; font-weight: 900; line-height: 1.2; text-shadow: 0 2px 6px rgba(0,0,0,0.3);">${c}</span>
+                <div style="background: linear-gradient(135deg, #7C3AED, #6D28D9); color: white; border-radius: 50%; width: 160px; height: 160px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 12px; box-shadow: 0 10px 25px rgba(124,58,237,0.3); border: 4px solid #DDD6FE;">
+                    <span style="font-size: 1.6rem; margin-bottom: 2px;">💡</span>
+                    <span style="font-size: 0.95rem; font-weight: 900; line-height: 1.2; text-shadow: 0 2px 6px rgba(0,0,0,0.3);">${data.tema}</span>
                 </div>
 
                 <!-- Ramas Derecha -->
-                <div style="display: flex; flex-direction: column; gap: 14px;">
-                    <div style="background: #ECFDF5; border-right: 4px solid #059669; border-radius: 10px; padding: 12px; text-align: left;">
-                        <h4 style="margin: 0; color: #065F46; font-size: 0.95rem; font-weight: 900;">⚙️ Rama 3: Dinámica</h4>
-                        <p style="margin: 2px 0 0 0; color: #047857; font-size: 0.82rem;">Funcionamiento y leyes que lo gobiernan.</p>
+                <div style="display: flex; flex-direction: column; gap: 12px;">
+                    <div style="background: #ECFDF5; border-right: 4px solid #059669; border-radius: 10px; padding: 10px; text-align: left;">
+                        <h4 style="margin: 0; color: #065F46; font-size: 0.9rem; font-weight: 900;">${data.ramasBuzan[2].titulo}</h4>
+                        <p style="margin: 2px 0 0 0; color: #047857; font-size: 0.78rem;">${data.ramasBuzan[2].desc}</p>
                     </div>
-                    <div style="background: #FFFBEB; border-right: 4px solid #D97706; border-radius: 10px; padding: 12px; text-align: left;">
-                        <h4 style="margin: 0; color: #92400E; font-size: 0.95rem; font-weight: 900;">🚀 Rama 4: Futuro</h4>
-                        <p style="margin: 2px 0 0 0; color: #B45309; font-size: 0.82rem;">Innovación, bioética y tecnología sostenible.</p>
+                    <div style="background: #FFFBEB; border-right: 4px solid #D97706; border-radius: 10px; padding: 10px; text-align: left;">
+                        <h4 style="margin: 0; color: #92400E; font-size: 0.9rem; font-weight: 900;">${data.ramasBuzan[3].titulo}</h4>
+                        <p style="margin: 2px 0 0 0; color: #B45309; font-size: 0.78rem;">${data.ramasBuzan[3].desc}</p>
                     </div>
                 </div>
             </div>
 
-            <div style="background: #F8FAFC; border: 1px solid #E2E8F0; padding: 10px; border-radius: 8px; font-size: 0.85rem; color: #64748B;">
-                🎨 El uso de colores y ramas curvas activa ambos hemisferios cerebrales para un aprendizaje duradero.
+            <div style="background: #F8FAFC; border: 1px solid #E2E8F0; padding: 8px; border-radius: 8px; font-size: 0.82rem; color: #64748B;">
+                🎨 Activación cerebral y conexiones interdisciplinares para Grado ${data.grado}°.
             </div>
         </div>
     `;
@@ -10432,6 +10604,7 @@ window.renderizarMapaMentalBuzan = function(stage, base) {
 
 // 4. PIZARRA DIGITAL INTERACTIVA
 window.renderizarPizarraDigital = function(stage, base) {
+    const data = window.generarDatosPedagogicosDinamicos(base.materia, base.grado, base.concepto, base.dificultad);
     stage.innerHTML = `
         <div style="flex: 1; display: flex; flex-direction: column; background: #1E293B; color: white;">
             <!-- Barra de Herramientas de la Pizarra -->
@@ -10447,7 +10620,7 @@ window.renderizarPizarraDigital = function(stage, base) {
                     <button onclick="window.limpiarPizarra()" style="background: #EF4444; color: white; border: none; padding: 6px 12px; border-radius: 6px; font-weight: 800; font-size: 0.8rem; cursor: pointer;">🗑️ Limpiar</button>
                 </div>
                 <div style="font-size: 0.85rem; color: #94A3B8; font-weight: 700;">
-                    Pizarra Digital: ${base.concepto}
+                    Pizarra Digital: ${data.tema} (${base.materia})
                 </div>
             </div>
             <!-- Canvas de Dibujo -->
@@ -10513,23 +10686,23 @@ window.limpiarPizarra = function() {
 
 // 5. TABLERO DE CONCURSO JEOPARDY ($100 A $500)
 window.renderizarJeopardyTool = function(stage, base) {
-    const categorias = ['Fundamentos', 'Leyes & Fórmulas', 'Experimentos', 'Mundo Real', 'Reto Maestro'];
+    const data = window.generarDatosPedagogicosDinamicos(base.materia, base.grado, base.concepto, base.dificultad);
     stage.innerHTML = `
         <div style="flex: 1; padding: 25px; background: #0F172A; color: white; display: flex; flex-direction: column; justify-content: space-between;">
             <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #334155; padding-bottom: 10px;">
-                <h2 style="margin: 0; font-size: 1.5rem; font-weight: 900; color: #FACC15;">🎪 Tablero Concurso Jeopardy STEAM</h2>
-                <div style="font-size: 0.9rem; color: #94A3B8;">Tema: <b>${base.concepto}</b></div>
+                <h2 style="margin: 0; font-size: 1.45rem; font-weight: 900; color: #FACC15;">🎪 Tablero Concurso Jeopardy STEAM</h2>
+                <div style="font-size: 0.85rem; color: #94A3B8;">${base.materia} (Grado ${base.grado}°) • Tema: <b style="color: #38BDF8;">${data.tema}</b></div>
             </div>
 
             <!-- Tablero de Columnas -->
             <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin: 15px 0;">
-                ${categorias.map((cat, colIdx) => `
+                ${data.categoriasJeopardy.map((cat, colIdx) => `
                     <div style="display: flex; flex-direction: column; gap: 8px;">
-                        <div style="background: #1E293B; border: 2px solid #3B82F6; padding: 10px; border-radius: 8px; text-align: center; font-size: 0.85rem; font-weight: 900; color: #93C5FD; text-transform: uppercase;">
+                        <div style="background: #1E293B; border: 2px solid #3B82F6; padding: 10px; border-radius: 8px; text-align: center; font-size: 0.82rem; font-weight: 900; color: #93C5FD; text-transform: uppercase;">
                             ${cat}
                         </div>
                         ${[100, 200, 300, 400, 500].map((pts, rowIdx) => `
-                            <button onclick="window.abrirTarjetaJeopardy('${cat}', ${pts}, '${base.concepto}')" id="btn-jeopardy-${colIdx}-${rowIdx}" style="background: #1E3A8A; color: #FEF08A; border: 1.5px solid #60A5FA; padding: 14px 0; border-radius: 8px; font-weight: 900; font-size: 1.15rem; cursor: pointer; transition: transform 0.15s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                            <button onclick="window.abrirTarjetaJeopardy('${cat}', ${pts})" id="btn-jeopardy-${colIdx}-${rowIdx}" style="background: #1E3A8A; color: #FEF08A; border: 1.5px solid #60A5FA; padding: 12px 0; border-radius: 8px; font-weight: 900; font-size: 1.1rem; cursor: pointer; transition: transform 0.15s;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
                                 $${pts} XP
                             </button>
                         `).join('')}
@@ -10538,7 +10711,7 @@ window.renderizarJeopardyTool = function(stage, base) {
             </div>
 
             <!-- Marcador de Equipos en Vivo -->
-            <div style="display: flex; justify-content: space-around; background: #1E293B; padding: 12px; border-radius: 12px; border: 1px solid #334155;">
+            <div style="display: flex; justify-content: space-around; background: #1E293B; padding: 10px; border-radius: 12px; border: 1px solid #334155;">
                 <div style="text-align: center;"><span style="color: #60A5FA; font-weight: 800;">Equipo Azul:</span> <b id="pts-team-1" style="color: #FEF08A; font-size: 1.1rem;">0 XP</b></div>
                 <div style="text-align: center;"><span style="color: #4ADE80; font-weight: 800;">Equipo Verde:</span> <b id="pts-team-2" style="color: #FEF08A; font-size: 1.1rem;">0 XP</b></div>
                 <div style="text-align: center;"><span style="color: #F87171; font-weight: 800;">Equipo Rojo:</span> <b id="pts-team-3" style="color: #FEF08A; font-size: 1.1rem;">0 XP</b></div>
@@ -10547,85 +10720,87 @@ window.renderizarJeopardyTool = function(stage, base) {
     `;
 };
 
-window.abrirTarjetaJeopardy = function(categoria, pts, tema) {
-    alert(`🎪 JEOPARDY [${categoria} - $${pts} XP]\n\nPregunta para el aula:\n¿Cuál es el principio científico clave en ${tema} que explica este fenómeno?\n\n(El equipo que levante primero la mano responde y suma los puntos en pantalla)`);
+window.abrirTarjetaJeopardy = function(categoria, pts) {
+    const base = window.obtenerContenidoBaseIngesta();
+    const data = window.generarDatosPedagogicosDinamicos(base.materia, base.grado, base.concepto, base.dificultad);
+    const catIdx = data.categoriasJeopardy.indexOf(categoria);
+    const q = (catIdx >= 0 && data.preguntasJeopardy[catIdx]) ? data.preguntasJeopardy[catIdx].q : `¿Cuál es el principio científico clave en ${data.tema} que explica este fenómeno?`;
+    alert(`🎪 JEOPARDY [${categoria} - $${pts} XP]\n\nTema: ${data.tema}\n\nPregunta para el aula:\n${q}\n\n(El equipo que levante primero la mano responde y suma los puntos en pantalla)`);
 };
 
-// 6. BINGO STEAM (Balotera Digital + Generador de 30 Cartones PDF)
+// 6. BINGO STEAM (Balotera Digital + Generador de Cartones PDF)
 window.renderizarBingoSteamTool = function(stage, base) {
+    const data = window.generarDatosPedagogicosDinamicos(base.materia, base.grado, base.concepto, base.dificultad);
     stage.innerHTML = `
-        <div style="flex: 1; padding: 30px; background: #F8FAFC; display: flex; flex-direction: column; justify-content: space-between; text-align: center;">
-            <div style="border-bottom: 2px solid #E2E8F0; padding-bottom: 12px;">
-                <h2 style="margin: 0; font-size: 1.5rem; font-weight: 900; color: #1E1B4B;">🎯 Gran Bingo Pedagógico STEAM</h2>
-                <p style="margin: 2px 0 0 0; color: #64748B; font-size: 0.9rem;">Tema: <b>${base.concepto}</b></p>
+        <div style="flex: 1; padding: 25px; background: #F8FAFC; display: flex; flex-direction: column; justify-content: space-between; text-align: center;">
+            <div style="border-bottom: 2px solid #E2E8F0; padding-bottom: 10px;">
+                <h2 style="margin: 0; font-size: 1.45rem; font-weight: 900; color: #1E1B4B;">🎯 Gran Bingo Pedagógico STEAM: ${data.tema}</h2>
+                <p style="margin: 2px 0 0 0; color: #64748B; font-size: 0.85rem;">Asignatura: <b>${base.materia}</b> • Grado ${base.grado}°</p>
             </div>
 
             <!-- Balotera Digital y Cartón Demostrativo -->
-            <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 25px; margin: 20px 0; align-items: center;">
-                <div style="background: linear-gradient(135deg, #1E293B, #0F172A); color: white; padding: 25px; border-radius: 18px; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.2);">
-                    <div style="font-size: 0.85rem; font-weight: 800; color: #38BDF8; text-transform: uppercase; margin-bottom: 8px;">Balota Cantada en Vivo:</div>
-                    <div id="bingo-balota-actual" style="font-size: 1.4rem; font-weight: 900; color: #FEF08A; min-height: 50px; display: flex; align-items: center; justify-content: center;">
+            <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 20px; margin: 15px 0; align-items: center;">
+                <div style="background: linear-gradient(135deg, #1E293B, #0F172A); color: white; padding: 20px; border-radius: 16px; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.2);">
+                    <div style="font-size: 0.8rem; font-weight: 800; color: #38BDF8; text-transform: uppercase; margin-bottom: 6px;">Balota Cantada en Vivo:</div>
+                    <div id="bingo-balota-actual" style="font-size: 1.25rem; font-weight: 900; color: #FEF08A; min-height: 45px; display: flex; align-items: center; justify-content: center;">
                         ¡Haz clic en "Girar Balotera"!
                     </div>
-                    <button onclick="window.girarBalotaBingo('${base.concepto}')" style="margin-top: 15px; background: linear-gradient(135deg, #F59E0B, #D97706); color: white; border: none; padding: 12px 24px; border-radius: 12px; font-weight: 900; font-size: 1rem; cursor: pointer; box-shadow: 0 4px 12px rgba(245,158,11,0.35);">
+                    <button onclick="window.girarBalotaBingo()" style="margin-top: 12px; background: linear-gradient(135deg, #F59E0B, #D97706); color: white; border: none; padding: 10px 20px; border-radius: 10px; font-weight: 900; font-size: 0.95rem; cursor: pointer; box-shadow: 0 4px 12px rgba(245,158,11,0.35);">
                         🎲 Girar Balotera Digital
                     </button>
                 </div>
 
-                <!-- Generador de Cartones Imprimibles -->
-                <div style="background: white; border: 2px dashed #3B82F6; border-radius: 18px; padding: 20px; text-align: center;">
-                    <span style="font-size: 2.5rem;">🖨️</span>
-                    <h4 style="margin: 8px 0 4px 0; font-size: 1.1rem; font-weight: 900; color: #1E293B;">30 Cartones Únicos Listos</h4>
-                    <p style="margin: 0 0 15px 0; color: #64748B; font-size: 0.85rem;">Genera el PDF con cartones aleatorizados para imprimir a toda la clase.</p>
-                    <button onclick="window.imprimirHerramientaActual()" style="background: #10B981; color: white; border: none; padding: 10px 18px; border-radius: 8px; font-weight: 800; font-size: 0.88rem; cursor: pointer;">
+                <!-- Cartón Demostrativo de Términos -->
+                <div style="background: white; border: 2px dashed #3B82F6; border-radius: 16px; padding: 15px; text-align: center;">
+                    <span style="font-size: 2rem;">🖨️</span>
+                    <h4 style="margin: 4px 0 2px 0; font-size: 1rem; font-weight: 900; color: #1E1B4B;">30 Cartones con Términos Oficiales</h4>
+                    <p style="margin: 0 0 10px 0; color: #64748B; font-size: 0.8rem;">Generados a partir de los conceptos clave de <b>${data.tema}</b>.</p>
+                    <div style="display: flex; gap: 4px; flex-wrap: wrap; justify-content: center; margin-bottom: 10px;">
+                        ${data.palabras.slice(0, 6).map(w => `<span style="background: #EFF6FF; color: #1D4ED8; font-size: 0.72rem; padding: 2px 6px; border-radius: 4px; font-weight: 800;">${w}</span>`).join('')}
+                    </div>
+                    <button onclick="window.imprimirHerramientaActual()" style="background: #10B981; color: white; border: none; padding: 8px 16px; border-radius: 8px; font-weight: 800; font-size: 0.85rem; cursor: pointer;">
                         📄 Imprimir Cartones PDF
                     </button>
                 </div>
             </div>
 
-            <div style="background: #EFF6FF; border: 1px solid #BFDBFE; padding: 10px; border-radius: 8px; font-size: 0.85rem; color: #1E40AF;">
+            <div style="background: #EFF6FF; border: 1px solid #BFDBFE; padding: 8px; border-radius: 8px; font-size: 0.82rem; color: #1E40AF;">
                 🎉 Cuando un estudiante completa una línea o el cartón completo, grita <b>"¡STEAM!"</b> y sustenta sus conceptos.
             </div>
         </div>
     `;
 };
 
-window.girarBalotaBingo = function(tema) {
-    const balotas = [
-        `Término: Causa y Efecto en ${tema}`,
-        `Definición: Variable dependiente que reacciona en el sistema`,
-        `Fórmula: Ecuación fundamental que rige el proceso`,
-        `Concepto: Intercambio de energía y materia con el medio`,
-        `Ejemplo: Aplicación en el entorno natural del Quindío`,
-        `Término: Equilibrio dinámico y conservación`
-    ];
-    const elegida = balotas[Math.floor(Math.random() * balotas.length)];
+window.girarBalotaBingo = function() {
+    const base = window.obtenerContenidoBaseIngesta();
+    const data = window.generarDatosPedagogicosDinamicos(base.materia, base.grado, base.concepto, base.dificultad);
+    const elegida = data.palabras[Math.floor(Math.random() * data.palabras.length)] || `Principio Clave en ${data.tema}`;
     const elem = document.getElementById('bingo-balota-actual');
-    if (elem) elem.innerText = elegida;
+    if (elem) elem.innerText = `🎯 TÉRMINO: "${elegida}"`;
 };
 
 // 7. SEMÁFORO DE RUIDO AMBIENTAL EN VIVO (Web Audio API)
 window.renderizarSemaforoRuidoTool = function(stage, base) {
     stage.innerHTML = `
-        <div style="flex: 1; padding: 30px; background: #0F172A; color: white; display: flex; flex-direction: column; justify-content: space-between; text-align: center;">
+        <div style="flex: 1; padding: 25px; background: #0F172A; color: white; display: flex; flex-direction: column; justify-content: space-between; text-align: center;">
             <div>
-                <h2 style="margin: 0; font-size: 1.6rem; font-weight: 900; color: #F8FAFC;">🔊 Semáforo y Medidor de Ruido en Vivo</h2>
-                <p style="margin: 4px 0 0 0; color: #94A3B8; font-size: 0.9rem;">Detección de decibeles con micrófono en tiempo real para autorregulación del aula</p>
+                <h2 style="margin: 0; font-size: 1.5rem; font-weight: 900; color: #F8FAFC;">🔊 Semáforo y Medidor de Ruido en Vivo</h2>
+                <p style="margin: 4px 0 0 0; color: #94A3B8; font-size: 0.85rem;">Detección de decibeles con micrófono en tiempo real para autorregulación del aula (${base.materia})</p>
             </div>
 
             <!-- Semáforo Visual -->
-            <div style="display: flex; justify-content: center; gap: 30px; margin: 25px 0;">
-                <div id="luz-verde" style="width: 90px; height: 90px; border-radius: 50%; background: #22C55E; box-shadow: 0 0 35px #22C55E; display: flex; align-items: center; justify-content: center; font-size: 2rem;">🟢</div>
-                <div id="luz-amarilla" style="width: 90px; height: 90px; border-radius: 50%; background: #334155; opacity: 0.3; display: flex; align-items: center; justify-content: center; font-size: 2rem;">🟡</div>
-                <div id="luz-roja" style="width: 90px; height: 90px; border-radius: 50%; background: #334155; opacity: 0.3; display: flex; align-items: center; justify-content: center; font-size: 2rem;">🔴</div>
+            <div style="display: flex; justify-content: center; gap: 25px; margin: 20px 0;">
+                <div id="luz-verde" style="width: 80px; height: 80px; border-radius: 50%; background: #22C55E; box-shadow: 0 0 35px #22C55E; display: flex; align-items: center; justify-content: center; font-size: 1.8rem;">🟢</div>
+                <div id="luz-amarilla" style="width: 80px; height: 80px; border-radius: 50%; background: #334155; opacity: 0.3; display: flex; align-items: center; justify-content: center; font-size: 1.8rem;">🟡</div>
+                <div id="luz-roja" style="width: 80px; height: 80px; border-radius: 50%; background: #334155; opacity: 0.3; display: flex; align-items: center; justify-content: center; font-size: 1.8rem;">🔴</div>
             </div>
 
-            <div id="estado-ruido-texto" style="font-size: 1.3rem; font-weight: 900; color: #4ADE80;">
+            <div id="estado-ruido-texto" style="font-size: 1.2rem; font-weight: 900; color: #4ADE80;">
                 Nivel Óptimo: Concentración y Trabajo Armónico
             </div>
 
-            <div style="margin-top: 15px;">
-                <button onclick="window.activarMicrofonoSemaforo()" style="background: linear-gradient(135deg, #3B82F6, #1D4ED8); color: white; border: none; padding: 12px 24px; border-radius: 12px; font-weight: 900; font-size: 1rem; cursor: pointer; box-shadow: 0 4px 12px rgba(37,99,235,0.3);">
+            <div style="margin-top: 10px;">
+                <button onclick="window.activarMicrofonoSemaforo()" style="background: linear-gradient(135deg, #3B82F6, #1D4ED8); color: white; border: none; padding: 10px 20px; border-radius: 10px; font-weight: 900; font-size: 0.95rem; cursor: pointer; box-shadow: 0 4px 12px rgba(37,99,235,0.3);">
                     🎤 Iniciar Medición con Micrófono
                 </button>
             </div>
@@ -10647,27 +10822,28 @@ window.activarMicrofonoSemaforo = function() {
 
 // 8. RULETA DE TURNOS DE CLASE
 window.renderizarRuletaTurnosTool = function(stage, base) {
+    const data = window.generarDatosPedagogicosDinamicos(base.materia, base.grado, base.concepto, base.dificultad);
     stage.innerHTML = `
-        <div style="flex: 1; padding: 30px; background: #F8FAFC; display: flex; flex-direction: column; justify-content: space-between; text-align: center;">
+        <div style="flex: 1; padding: 25px; background: #F8FAFC; display: flex; flex-direction: column; justify-content: space-between; text-align: center;">
             <div>
-                <h2 style="margin: 0; font-size: 1.5rem; font-weight: 900; color: #1E1B4B;">🎯 Ruleta Digital de Participación</h2>
-                <p style="margin: 2px 0 0 0; color: #64748B; font-size: 0.9rem;">Grado ${base.grado}° • Asignatura: ${base.materia}</p>
+                <h2 style="margin: 0; font-size: 1.45rem; font-weight: 900; color: #1E1B4B;">🎯 Ruleta Digital de Participación & Retos</h2>
+                <p style="margin: 2px 0 0 0; color: #64748B; font-size: 0.85rem;">Grado ${base.grado}° • Asignatura: <b>${base.materia}</b> • Tema: <b>${data.tema}</b></p>
             </div>
 
             <!-- Disco de la Ruleta -->
-            <div style="margin: 20px auto; position: relative; width: 220px; height: 220px; border-radius: 50%; background: conic-gradient(#3B82F6 0deg 90deg, #10B981 90deg 180deg, #F59E0B 180deg 270deg, #EF4444 270deg 360deg); display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 30px rgba(0,0,0,0.15); border: 6px solid white;">
-                <div style="width: 100px; height: 100px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.2rem; font-weight: 900; color: #1E293B; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+            <div style="margin: 15px auto; position: relative; width: 200px; height: 200px; border-radius: 50%; background: conic-gradient(#3B82F6 0deg 90deg, #10B981 90deg 180deg, #F59E0B 180deg 270deg, #EF4444 270deg 360deg); display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 30px rgba(0,0,0,0.15); border: 6px solid white;">
+                <div style="width: 90px; height: 90px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; font-weight: 900; color: #1E293B; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
                     🎲
                 </div>
             </div>
 
-            <div id="estudiante-seleccionado-ruleta" style="font-size: 1.45rem; font-weight: 900; color: #1E293B; min-height: 40px;">
+            <div id="estudiante-seleccionado-ruleta" style="font-size: 1.3rem; font-weight: 900; color: #1E293B; min-height: 40px;">
                 ¡Haz clic en "Girar Ruleta"!
             </div>
 
             <div>
-                <button onclick="window.girarRuletaEstudiante()" style="background: linear-gradient(135deg, #7C3AED, #6D28D9); color: white; border: none; padding: 14px 28px; border-radius: 12px; font-weight: 900; font-size: 1.05rem; cursor: pointer; box-shadow: 0 4px 14px rgba(124,58,237,0.35);">
-                    🎯 Girar Ruleta de Participación
+                <button onclick="window.girarRuletaEstudiante()" style="background: linear-gradient(135deg, #7C3AED, #6D28D9); color: white; border: none; padding: 12px 24px; border-radius: 12px; font-weight: 900; font-size: 1rem; cursor: pointer; box-shadow: 0 4px 14px rgba(124,58,237,0.35);">
+                    🎯 Girar Ruleta de Preguntas y Turnos
                 </button>
             </div>
         </div>
@@ -10675,236 +10851,154 @@ window.renderizarRuletaTurnosTool = function(stage, base) {
 };
 
 window.girarRuletaEstudiante = function() {
-    const lista = ['Juan Felipe Gómez', 'Mariana Ramírez', 'Santiago Morales', 'Valentina Torres', 'Andrés Felipe Castro', 'Sofía Ospina'];
-    const sel = lista[Math.floor(Math.random() * lista.length)];
+    const base = window.obtenerContenidoBaseIngesta();
+    const data = window.generarDatosPedagogicosDinamicos(base.materia, base.grado, base.concepto, base.dificultad);
+    const retos = [
+        `Explica el concepto de "${data.palabras[0] || 'la ley fundamental'}" en tus propias palabras.`,
+        `¿Qué relación tiene "${data.palabras[1] || 'el fenómeno'}" con la vida diaria?`,
+        `Propón una hipótesis para resolver el problema de ${data.tema}.`,
+        `Menciona un ejemplo real donde se aplique este conocimiento.`,
+        `¿Qué ocurriría si cambiamos una de las variables del sistema?`
+    ];
+    const sel = retos[Math.floor(Math.random() * retos.length)];
     const elem = document.getElementById('estudiante-seleccionado-ruleta');
-    if (elem) elem.innerText = `🎉 ¡Turno de: ${sel}!`;
-};
-
-// 9. CRONÓMETRO POMODORO CON ALARMA
-window.renderizarPomodoroTimerTool = function(stage, base) {
-    stage.innerHTML = `
-        <div style="flex: 1; padding: 30px; background: #0F172A; color: white; display: flex; flex-direction: column; justify-content: space-between; text-align: center;">
-            <div>
-                <h2 style="margin: 0; font-size: 1.5rem; font-weight: 900; color: #F8FAFC;">⏱️ Temporizador Pomodoro STEAM</h2>
-                <p style="margin: 2px 0 0 0; color: #94A3B8; font-size: 0.9rem;">Gestión de tiempo para retos de concentración y resolución de guías</p>
-            </div>
-
-            <!-- Reloj Gigante -->
-            <div id="display-pomodoro" style="font-size: 5rem; font-weight: 900; color: #38BDF8; font-family: monospace; letter-spacing: 2px; text-shadow: 0 0 30px rgba(56,189,248,0.4);">
-                25:00
-            </div>
-
-            <!-- Botones de Duración Rápida -->
-            <div style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
-                <button onclick="window.fijarPomodoro(1)" style="background: #1E293B; border: 1px solid #475569; color: white; padding: 8px 14px; border-radius: 8px; font-weight: 800; cursor: pointer;">1 min (Flash)</button>
-                <button onclick="window.fijarPomodoro(5)" style="background: #1E293B; border: 1px solid #475569; color: white; padding: 8px 14px; border-radius: 8px; font-weight: 800; cursor: pointer;">5 min (Reto)</button>
-                <button onclick="window.fijarPomodoro(15)" style="background: #1E293B; border: 1px solid #475569; color: white; padding: 8px 14px; border-radius: 8px; font-weight: 800; cursor: pointer;">15 min (Taller)</button>
-                <button onclick="window.fijarPomodoro(25)" style="background: #1E293B; border: 1px solid #475569; color: white; padding: 8px 14px; border-radius: 8px; font-weight: 800; cursor: pointer;">25 min (Pomodoro)</button>
-            </div>
-
-            <!-- Botones de Control -->
-            <div style="display: flex; justify-content: center; gap: 15px;">
-                <button onclick="window.iniciarPomodoroTimer()" style="background: #10B981; color: white; border: none; padding: 12px 28px; border-radius: 12px; font-weight: 900; font-size: 1rem; cursor: pointer;">▶️ Iniciar</button>
-                <button onclick="window.pausarPomodoroTimer()" style="background: #F59E0B; color: white; border: none; padding: 12px 28px; border-radius: 12px; font-weight: 900; font-size: 1rem; cursor: pointer;">⏸️ Pausar</button>
-                <button onclick="window.fijarPomodoro(25)" style="background: #EF4444; color: white; border: none; padding: 12px 28px; border-radius: 12px; font-weight: 900; font-size: 1rem; cursor: pointer;">🔄 Reiniciar</button>
-            </div>
-        </div>
-    `;
-};
-
-window.segundosPomodoroRestantes = 1500;
-window.pomodoroCorriendo = false;
-
-window.fijarPomodoro = function(min) {
-    window.pausarPomodoroTimer();
-    window.segundosPomodoroRestantes = min * 60;
-    window.actualizarDisplayPomodoro();
-};
-
-window.actualizarDisplayPomodoro = function() {
-    const elem = document.getElementById('display-pomodoro');
-    if (!elem) return;
-    const m = Math.floor(window.segundosPomodoroRestantes / 60).toString().padStart(2, '0');
-    const s = (window.segundosPomodoroRestantes % 60).toString().padStart(2, '0');
-    elem.innerText = `${m}:${s}`;
-};
-
-window.iniciarPomodoroTimer = function() {
-    if (window.pomodoroCorriendo) return;
-    window.pomodoroCorriendo = true;
-    window.timerPomodoroInterval = setInterval(() => {
-        if (window.segundosPomodoroRestantes > 0) {
-            window.segundosPomodoroRestantes--;
-            window.actualizarDisplayPomodoro();
-        } else {
-            window.pausarPomodoroTimer();
-            alert("⏰ ¡TIEMPO CUMPLIDO! Reto finalizado.");
-        }
-    }, 1000);
-};
-
-window.pausarPomodoroTimer = function() {
-    window.pomodoroCorriendo = false;
-    if (window.timerPomodoroInterval) {
-        clearInterval(window.timerPomodoroInterval);
-        window.timerPomodoroInterval = null;
-    }
-};
-
-// 10. GENERADOR DE DIPLOMAS Y RECONOCIMIENTOS STEAM
-window.renderizarDiplomaMeritoTool = function(stage, base) {
-    stage.innerHTML = `
-        <div style="flex: 1; padding: 40px; background: white; display: flex; flex-direction: column; justify-content: space-between; border: 8px double #B45309; border-radius: 16px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
-            <div>
-                <div style="font-size: 0.9rem; font-weight: 800; color: #92400E; text-transform: uppercase; letter-spacing: 2px;">República de Colombia • Peidagogos STEAM</div>
-                <h1 style="font-size: 2.3rem; font-weight: 900; color: #1E1B4B; margin: 10px 0 0 0; font-family: serif;">DIPLOMA DE EXCELENCIA E INVESTIGACIÓN</h1>
-                <p style="color: #64748B; font-size: 0.95rem; margin: 2px 0 15px 0;">Se confiere con orgullo y reconocimiento oficial a:</p>
-            </div>
-
-            <div>
-                <div style="font-size: 2rem; font-weight: 900; color: #1E40AF; border-bottom: 2px solid #CBD5E1; display: inline-block; padding: 0 40px 4px 40px; margin-bottom: 10px;">
-                    Estudiante Destacado de Grado ${base.grado}°
-                </div>
-                <p style="font-size: 1.05rem; color: #334155; max-width: 650px; margin: 0 auto; line-height: 1.5; font-weight: 600;">
-                    Por su destacado desempeño, pensamiento crítico y liderazgo colaborativo en el desarrollo de la unidad temática de <b>${base.concepto}</b> en ${base.materia}.
-                </p>
-            </div>
-
-            <div style="display: flex; justify-content: space-around; align-items: flex-end; margin-top: 25px; border-top: 1px dashed #CBD5E1; padding-top: 20px;">
-                <div>
-                    <div style="border-bottom: 1.5px solid #1E293B; width: 160px; margin-bottom: 4px;"></div>
-                    <div style="font-size: 0.8rem; font-weight: 800; color: #475569;">Firma Docente / Tutor</div>
-                </div>
-                <div style="font-size: 2.2rem;">🏅</div>
-                <div>
-                    <div style="border-bottom: 1.5px solid #1E293B; width: 160px; margin-bottom: 4px;"></div>
-                    <div style="font-size: 0.8rem; font-weight: 800; color: #475569;">Dirección Pedagógica</div>
-                </div>
-            </div>
-        </div>
-    `;
 };
 
 // 11. FICHA DE LABORATORIO OFICIAL
 window.renderizarFichaLaboratorioTool = function(stage, base) {
+    const data = window.generarDatosPedagogicosDinamicos(base.materia, base.grado, base.concepto, base.dificultad);
     stage.innerHTML = `
-        <div style="flex: 1; padding: 30px; background: white; display: flex; flex-direction: column; justify-content: space-between; text-align: left;">
-            <div style="border-bottom: 2px solid #0F172A; padding-bottom: 10px; display: flex; justify-content: space-between; align-items: center;">
+        <div style="flex: 1; padding: 25px; background: white; display: flex; flex-direction: column; justify-content: space-between; text-align: left;">
+            <div style="border-bottom: 2px solid #0F172A; padding-bottom: 8px; display: flex; justify-content: space-between; align-items: center;">
                 <div>
                     <span style="font-size: 0.75rem; font-weight: 800; color: #2563EB; text-transform: uppercase;">Guía de Laboratorio Experimental</span>
-                    <h3 style="margin: 2px 0 0 0; font-size: 1.3rem; font-weight: 900; color: #0F172A;">Ficha Experimental: ${base.concepto}</h3>
+                    <h3 style="margin: 2px 0 0 0; font-size: 1.3rem; font-weight: 900; color: #0F172A;">Ficha Experimental: ${data.tema}</h3>
                 </div>
                 <span style="font-size: 0.8rem; font-weight: 800; color: #475569;">Grado ${base.grado}° • ${base.materia}</span>
             </div>
 
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 15px 0;">
-                <div style="background: #F8FAFC; border: 1.5px solid #CBD5E1; border-radius: 10px; padding: 12px;">
-                    <div style="font-weight: 900; font-size: 0.85rem; color: #1E293B; margin-bottom: 4px;">1. Pregunta e Hipótesis:</div>
-                    <p style="margin: 0; font-size: 0.82rem; color: #475569;">¿Qué relación observable existe entre las variables en ${base.concepto}?</p>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 12px 0;">
+                <div style="background: #F8FAFC; border: 1.5px solid #CBD5E1; border-radius: 10px; padding: 10px;">
+                    <div style="font-weight: 900; font-size: 0.82rem; color: #1E293B; margin-bottom: 3px;">1. Pregunta e Hipótesis:</div>
+                    <p style="margin: 0; font-size: 0.8rem; color: #475569;">${data.experimentoLab.pregunta}</p>
                 </div>
-                <div style="background: #F8FAFC; border: 1.5px solid #CBD5E1; border-radius: 10px; padding: 12px;">
-                    <div style="font-weight: 900; font-size: 0.85rem; color: #1E293B; margin-bottom: 4px;">2. Materiales Necesarios:</div>
-                    <p style="margin: 0; font-size: 0.82rem; color: #475569;">Instrumentos de medición, recipientes y muestras caseras del entorno.</p>
+                <div style="background: #F8FAFC; border: 1.5px solid #CBD5E1; border-radius: 10px; padding: 10px;">
+                    <div style="font-weight: 900; font-size: 0.82rem; color: #1E293B; margin-bottom: 3px;">2. Materiales Necesarios:</div>
+                    <p style="margin: 0; font-size: 0.8rem; color: #475569;">${data.experimentoLab.materiales}</p>
                 </div>
             </div>
 
-            <div style="background: white; border: 1px solid #CBD5E1; border-radius: 10px; padding: 12px;">
-                <div style="font-weight: 900; font-size: 0.85rem; color: #1E293B; margin-bottom: 6px;">3. Tabla de Registro de Datos:</div>
-                <table style="width: 100%; border-collapse: collapse; font-size: 0.8rem; text-align: center;">
+            <div style="background: white; border: 1px solid #CBD5E1; border-radius: 10px; padding: 10px;">
+                <div style="font-weight: 900; font-size: 0.82rem; color: #1E293B; margin-bottom: 6px;">3. Tabla de Registro de Datos:</div>
+                <table style="width: 100%; border-collapse: collapse; font-size: 0.78rem; text-align: center;">
                     <tr style="background: #F1F5F9; border-bottom: 1.5px solid #CBD5E1;">
                         <th style="padding: 6px;">Ensayo #</th>
-                        <th style="padding: 6px;">Variable Independiente</th>
-                        <th style="padding: 6px;">Variable Dependiente</th>
+                        <th style="padding: 6px;">Variable Independiente (${data.palabras[0] || 'X'})</th>
+                        <th style="padding: 6px;">Variable Dependiente (${data.palabras[1] || 'Y'})</th>
                         <th style="padding: 6px;">Observación Cualitativa</th>
                     </tr>
-                    <tr style="border-bottom: 1px solid #E2E8F0;"><td style="padding: 6px;">1</td><td>Valor inicial</td><td>Dato medido 1</td><td>Reacción estable</td></tr>
-                    <tr style="border-bottom: 1px solid #E2E8F0;"><td style="padding: 6px;">2</td><td>Valor duplicado</td><td>Dato medido 2</td><td>Cambio proporcional</td></tr>
+                    <tr style="border-bottom: 1px solid #E2E8F0;"><td style="padding: 6px;">1</td><td>Condición Inicial (Valor 1)</td><td>Dato medido 1</td><td>Respuesta estable</td></tr>
+                    <tr style="border-bottom: 1px solid #E2E8F0;"><td style="padding: 6px;">2</td><td>Condición Modificada (Valor 2)</td><td>Dato medido 2</td><td>Cambio proporcional</td></tr>
                 </table>
             </div>
 
-            <div style="margin-top: 10px; font-size: 0.82rem; color: #64748B; text-align: center;">
+            <div style="margin-top: 8px; font-size: 0.8rem; color: #64748B; text-align: center;">
                 📝 Documento listo para imprimir y diligenciar en mesa de laboratorio.
             </div>
         </div>
     `;
 };
 
-// Renderizadores de los demás componentes (Sopa, Crucigrama, Flashcards, Exit Tickets, etc.)
+// Sopa de Letras Dinámica
 window.renderizarSopaLetrasTool = function(stage, base) {
+    const data = window.generarDatosPedagogicosDinamicos(base.materia, base.grado, base.concepto, base.dificultad);
+    
+    // Generar cuadrícula de 10x10 con palabras insertadas
+    const tam = 10;
+    let grid = Array(tam).fill(null).map(() => Array(tam).fill(''));
+    const letras = 'ABCDEFGHILMNOPRSTUVZ';
+
+    // Insertar palabras horizontalmente si caben
+    data.palabras.slice(0, 5).forEach((pal, row) => {
+        const limpia = pal.replace(/[^A-Z]/g, '').substring(0, tam);
+        for (let c = 0; c < limpia.length; c++) {
+            if (row < tam && c < tam) grid[row][c] = limpia[c];
+        }
+    });
+
+    // Rellenar vacíos con letras aleatorias
+    for (let r = 0; r < tam; r++) {
+        for (let c = 0; c < tam; c++) {
+            if (!grid[r][c]) grid[r][c] = letras[Math.floor(Math.random() * letras.length)];
+        }
+    }
+
+    const htmlMatriz = grid.map(row => row.join(' ')).join('<br>');
+
     stage.innerHTML = `
         <div style="flex: 1; padding: 25px; background: white; display: flex; flex-direction: column; justify-content: space-between; text-align: center;">
             <div>
-                <h3 style="margin: 0; font-size: 1.4rem; font-weight: 900; color: #1E1B4B;">🔤 Sopa de Letras STEAM: ${base.concepto}</h3>
-                <p style="margin: 2px 0 0 0; color: #64748B; font-size: 0.85rem;">Encuentra los términos clave ocultos en la matriz</p>
+                <h3 style="margin: 0; font-size: 1.4rem; font-weight: 900; color: #1E1B4B;">🔤 Sopa de Letras STEAM: ${data.tema}</h3>
+                <p style="margin: 2px 0 0 0; color: #64748B; font-size: 0.85rem;">Asignatura: <b>${base.materia}</b> • Grado ${base.grado}° • Nivel ${data.dificultad.toUpperCase()}</p>
             </div>
-            <div style="background: #F8FAFC; border: 2px solid #CBD5E1; border-radius: 14px; padding: 15px; margin: 15px auto; font-family: monospace; font-size: 1.3rem; letter-spacing: 8px; line-height: 1.8; max-width: 480px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-                F O T O S I N T E S I S<br>
-                C L O R O P L A S T O S<br>
-                G L U C O S A E N E R G<br>
-                L U Z S O L A R A G U A<br>
-                C I E N C I A S T E A M
+            <div style="background: #F8FAFC; border: 2px solid #CBD5E1; border-radius: 14px; padding: 15px; margin: 12px auto; font-family: monospace; font-size: 1.25rem; letter-spacing: 7px; line-height: 1.7; max-width: 460px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+                ${htmlMatriz}
             </div>
-            <div style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
-                <span style="background: #EEF2FF; color: #4338CA; padding: 4px 12px; border-radius: 12px; font-weight: 800; font-size: 0.8rem;">Palabras: FOTOSÍNTESIS • CLOROPLASTOS • GLUCOSA • ENERGÍA • LUZ</span>
+            <div style="display: flex; justify-content: center; gap: 8px; flex-wrap: wrap;">
+                ${data.palabras.map(w => `<span style="background: #EEF2FF; color: #4338CA; padding: 4px 10px; border-radius: 10px; font-weight: 800; font-size: 0.78rem;">${w}</span>`).join('')}
             </div>
         </div>
     `;
 };
 
+// Crucigrama Dinámico
 window.renderizarCrucigramaTool = function(stage, base) {
+    const data = window.generarDatosPedagogicosDinamicos(base.materia, base.grado, base.concepto, base.dificultad);
+    const mitad = Math.ceil(data.definiciones.length / 2);
+    const horizontales = data.definiciones.slice(0, mitad);
+    const verticales = data.definiciones.slice(mitad);
+
     stage.innerHTML = `
         <div style="flex: 1; padding: 25px; background: white; display: flex; flex-direction: column; justify-content: space-between; text-align: left;">
             <div>
-                <h3 style="margin: 0; font-size: 1.4rem; font-weight: 900; color: #1E1B4B;">🧩 Crucigrama Conceptual: ${base.concepto}</h3>
-                <p style="margin: 2px 0 0 0; color: #64748B; font-size: 0.85rem;">Resuelve las pistas horizontales y verticales</p>
+                <h3 style="margin: 0; font-size: 1.4rem; font-weight: 900; color: #1E1B4B;">🧩 Crucigrama Conceptual: ${data.tema}</h3>
+                <p style="margin: 2px 0 0 0; color: #64748B; font-size: 0.85rem;">Asignatura: <b>${base.materia}</b> • Grado ${base.grado}°</p>
             </div>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 15px 0;">
-                <div style="background: #F8FAFC; border: 1.5px solid #CBD5E1; border-radius: 12px; padding: 15px;">
-                    <div style="font-weight: 900; color: #1E40AF; font-size: 0.9rem; margin-bottom: 6px;">Horizontales:</div>
-                    <ol style="margin: 0; padding-left: 18px; font-size: 0.85rem; color: #334155; line-height: 1.5;">
-                        <li>Organelo celular donde ocurre el proceso de absorción lumínica.</li>
-                        <li>Molécula energética fundamental producida.</li>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 12px 0;">
+                <div style="background: #F8FAFC; border: 1.5px solid #CBD5E1; border-radius: 12px; padding: 12px;">
+                    <div style="font-weight: 900; color: #1E40AF; font-size: 0.88rem; margin-bottom: 6px;">Horizontales:</div>
+                    <ol style="margin: 0; padding-left: 18px; font-size: 0.82rem; color: #334155; line-height: 1.5;">
+                        ${horizontales.map(h => `<li><b>(${h.palabra.length} letras):</b> ${h.pista}</li>`).join('')}
                     </ol>
                 </div>
-                <div style="background: #F8FAFC; border: 1.5px solid #CBD5E1; border-radius: 12px; padding: 15px;">
-                    <div style="font-weight: 900; color: #047857; font-size: 0.9rem; margin-bottom: 6px;">Verticales:</div>
-                    <ol style="margin: 0; padding-left: 18px; font-size: 0.85rem; color: #334155; line-height: 1.5;">
-                        <li>Gas atmosférico absorbido como reactivo.</li>
-                        <li>Pigmento verde receptor de radiación solar.</li>
+                <div style="background: #F8FAFC; border: 1.5px solid #CBD5E1; border-radius: 12px; padding: 12px;">
+                    <div style="font-weight: 900; color: #047857; font-size: 0.88rem; margin-bottom: 6px;">Verticales:</div>
+                    <ol style="margin: 0; padding-left: 18px; font-size: 0.82rem; color: #334155; line-height: 1.5;">
+                        ${verticales.map(v => `<li><b>(${v.palabra.length} letras):</b> ${v.pista}</li>`).join('')}
                     </ol>
                 </div>
             </div>
-            <div style="text-align: center; color: #64748B; font-size: 0.85rem;">📄 Incluye versión para estudiante y solucionario para el docente.</div>
+            <div style="text-align: center; color: #64748B; font-size: 0.82rem;">📄 Incluye versión para estudiante y solucionario para el docente (${data.palabras.join(' • ')}).</div>
         </div>
     `;
 };
 
 window.renderizarFlashcardsTool = function(stage, base) {
+    const data = window.generarDatosPedagogicosDinamicos(base.materia, base.grado, base.concepto, base.dificultad);
     stage.innerHTML = `
         <div style="flex: 1; padding: 25px; background: #F8FAFC; display: flex; flex-direction: column; justify-content: space-between; text-align: center;">
-            <h3 style="margin: 0; font-size: 1.4rem; font-weight: 900; color: #1E1B4B;">🃏 Flashcards Recortables de Dos Caras: ${base.concepto}</h3>
-            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin: 15px 0;">
-                <div style="background: white; border: 2px dashed #3B82F6; border-radius: 12px; padding: 15px;">
-                    <div style="font-size: 0.75rem; font-weight: 800; color: #3B82F6;">[FRENTE]</div>
-                    <h4 style="margin: 8px 0; color: #1E293B;">Concepto Clave</h4>
-                    <div style="font-size: 0.75rem; font-weight: 800; color: #10B981; margin-top: 10px;">[REVERSO]</div>
-                    <p style="margin: 0; font-size: 0.8rem; color: #475569;">Definición esencial y fórmula aplicada.</p>
-                </div>
-                <div style="background: white; border: 2px dashed #10B981; border-radius: 12px; padding: 15px;">
-                    <div style="font-size: 0.75rem; font-weight: 800; color: #10B981;">[FRENTE]</div>
-                    <h4 style="margin: 8px 0; color: #1E293B;">Ley Científica</h4>
-                    <div style="font-size: 0.75rem; font-weight: 800; color: #3B82F6; margin-top: 10px;">[REVERSO]</div>
-                    <p style="margin: 0; font-size: 0.8rem; color: #475569;">Enunciado y unidades de medida del SI.</p>
-                </div>
-                <div style="background: white; border: 2px dashed #F59E0B; border-radius: 12px; padding: 15px;">
-                    <div style="font-size: 0.75rem; font-weight: 800; color: #F59E0B;">[FRENTE]</div>
-                    <h4 style="margin: 8px 0; color: #1E293B;">Caso Real</h4>
-                    <div style="font-size: 0.75rem; font-weight: 800; color: #7C3AED; margin-top: 10px;">[REVERSO]</div>
-                    <p style="margin: 0; font-size: 0.8rem; color: #475569;">Ejemplo cotidiano y solución sostenible.</p>
-                </div>
+            <h3 style="margin: 0; font-size: 1.4rem; font-weight: 900; color: #1E1B4B;">🃏 Flashcards Recortables de Dos Caras: ${data.tema}</h3>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 12px 0;">
+                ${data.palabras.slice(0, 3).map((w, idx) => `
+                    <div style="background: white; border: 2px dashed ${idx === 0 ? '#3B82F6' : idx === 1 ? '#10B981' : '#F59E0B'}; border-radius: 12px; padding: 12px;">
+                        <div style="font-size: 0.72rem; font-weight: 800; color: #3B82F6;">[FRENTE]</div>
+                        <h4 style="margin: 6px 0; color: #1E293B; font-size: 1.05rem;">${w}</h4>
+                        <div style="font-size: 0.72rem; font-weight: 800; color: #10B981; margin-top: 8px;">[REVERSO]</div>
+                        <p style="margin: 0; font-size: 0.78rem; color: #475569;">${data.definiciones[idx] ? data.definiciones[idx].pista : 'Definición esencial.'}</p>
+                    </div>
+                `).join('')}
             </div>
-            <div style="color: #64748B; font-size: 0.85rem;">✂️ Imprime en hoja carta, dobla por el centro y recorta las tarjetas.</div>
+            <div style="color: #64748B; font-size: 0.82rem;">✂️ Imprime en hoja carta, dobla por el centro y recorta las tarjetas para Grado ${data.grado}°.</div>
         </div>
     `;
 };
@@ -10936,13 +11030,14 @@ window.renderizarExitTicketsTool = function(stage, base) {
 };
 
 window.renderizarRubricaFormativaTool = function(stage, base) {
+    const data = window.generarDatosPedagogicosDinamicos(base.materia, base.grado, base.concepto, base.dificultad);
     stage.innerHTML = `
         <div style="flex: 1; padding: 25px; background: white; display: flex; flex-direction: column; justify-content: space-between; text-align: left;">
             <div style="border-bottom: 2px solid #E2E8F0; padding-bottom: 8px;">
-                <h3 style="margin: 0; font-size: 1.35rem; font-weight: 900; color: #1E1B4B;">📋 Rúbrica Analítica de Evaluación: ${base.concepto}</h3>
-                <p style="margin: 2px 0 0 0; color: #64748B; font-size: 0.85rem;">Escala oficial MEN: Superior, Alto, Básico y Bajo</p>
+                <h3 style="margin: 0; font-size: 1.35rem; font-weight: 900; color: #1E1B4B;">📋 Rúbrica Analítica de Evaluación: ${data.tema}</h3>
+                <p style="margin: 2px 0 0 0; color: #64748B; font-size: 0.85rem;">Escala Oficial MEN • Grado ${base.grado}° • Asignatura: <b>${base.materia}</b></p>
             </div>
-            <table style="width: 100%; border-collapse: collapse; font-size: 0.78rem; margin: 15px 0;">
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.78rem; margin: 12px 0;">
                 <tr style="background: #F1F5F9; border-bottom: 2px solid #CBD5E1; text-align: left;">
                     <th style="padding: 8px;">Criterio</th>
                     <th style="padding: 8px; color: #166534;">Superior (4.6 - 5.0)</th>
@@ -10951,114 +11046,124 @@ window.renderizarRubricaFormativaTool = function(stage, base) {
                     <th style="padding: 8px; color: #991B1B;">Bajo (1.0 - 2.9)</th>
                 </tr>
                 <tr style="border-bottom: 1px solid #E2E8F0;">
-                    <td style="padding: 8px; font-weight: 800;">Dominio Conceptual</td>
-                    <td style="padding: 8px;">Explica y modela con rigor científico.</td>
-                    <td style="padding: 8px;">Comprende y describe con claridad.</td>
-                    <td style="padding: 8px;">Identifica nociones básicas con apoyo.</td>
-                    <td style="padding: 8px;">Presenta dificultades en la definición.</td>
+                    <td style="padding: 8px; font-weight: 800;">1. Dominio de ${data.palabras[0] || 'Concepto'}</td>
+                    <td style="padding: 8px;">Modela con rigor formal y solidez analítica.</td>
+                    <td style="padding: 8px;">Comprende y describe las propiedades centrales.</td>
+                    <td style="padding: 8px;">Identifica nociones elementales con apoyo docente.</td>
+                    <td style="padding: 8px;">Confunde conceptos y requiere nivelación.</td>
                 </tr>
                 <tr style="border-bottom: 1px solid #E2E8F0;">
-                    <td style="padding: 8px; font-weight: 800;">Aplicación STEAM</td>
-                    <td style="padding: 8px;">Diseña soluciones innovadoras.</td>
-                    <td style="padding: 8px;">Aplica el método en problemas reales.</td>
-                    <td style="padding: 8px;">Sigue procedimientos guiados.</td>
-                    <td style="padding: 8px;">Requiere orientación constante.</td>
+                    <td style="padding: 8px; font-weight: 800;">2. Aplicación Metodológica STEAM</td>
+                    <td style="padding: 8px;">Diseña hipótesis y experimentos innovadores.</td>
+                    <td style="padding: 8px;">Aplica el método en problemas contextuales reales.</td>
+                    <td style="padding: 8px;">Sigue protocolos guiados paso a paso.</td>
+                    <td style="padding: 8px;">Dificultad para registrar y analizar datos.</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #E2E8F0;">
+                    <td style="padding: 8px; font-weight: 800;">3. Argumentación y Comunicación</td>
+                    <td style="padding: 8px;">Sustenta con base en evidencias y leyes científicas.</td>
+                    <td style="padding: 8px;">Expone conclusiones claras y coherentes.</td>
+                    <td style="padding: 8px;">Comunica ideas básicas de forma descriptiva.</td>
+                    <td style="padding: 8px;">No logra sintetizar los hallazgos de la sesión.</td>
                 </tr>
             </table>
-            <div style="text-align: center; color: #64748B; font-size: 0.82rem;">📊 Documento estandarizado para evaluación y coevaluación.</div>
+            <div style="text-align: center; color: #64748B; font-size: 0.82rem;">📊 Matriz formativa estandarizada para autoevaluación, coevaluación y heteroevaluación.</div>
         </div>
     `;
 };
 
 window.renderizarMindfulnessTool = function(stage, base) {
+    const data = window.generarDatosPedagogicosDinamicos(base.materia, base.grado, base.concepto, base.dificultad);
     stage.innerHTML = `
         <div style="flex: 1; padding: 30px; background: radial-gradient(circle, #0F172A 40%, #020617 100%); color: white; display: flex; flex-direction: column; justify-content: space-between; text-align: center;">
             <div>
                 <h2 style="margin: 0; font-size: 1.6rem; font-weight: 900; color: #67E8F9;">🧘 Rincón de Calma & Pausa Activa STEAM</h2>
-                <p style="margin: 4px 0 0 0; color: #94A3B8; font-size: 0.9rem;">Oxigena tu cerebro con 2 minutos de respiración guiada</p>
+                <p style="margin: 4px 0 0 0; color: #94A3B8; font-size: 0.85rem;">Oxigena tu cerebro antes de abordar el reto de <b>${data.tema}</b></p>
             </div>
 
             <!-- Círculo de Respiración Animado -->
-            <div style="margin: 20px auto; width: 140px; height: 140px; border-radius: 50%; background: linear-gradient(135deg, #06B6D4, #3B82F6); box-shadow: 0 0 45px rgba(6,182,212,0.6); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; font-weight: 900; color: white; animation: pulse 4s infinite ease-in-out;">
+            <div style="margin: 20px auto; width: 140px; height: 140px; border-radius: 50%; background: linear-gradient(135deg, #06B6D4, #3B82F6); box-shadow: 0 0 45px rgba(6,182,212,0.6); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; font-weight: 900; color: white;">
                 Respira
             </div>
 
-            <div style="font-size: 1.15rem; color: #E2E8F0; font-weight: 600;">
+            <div style="font-size: 1.1rem; color: #E2E8F0; font-weight: 600;">
                 Inhala lentamente por la nariz (4s) ... Mantén el aire (4s) ... Exhala suavemente (4s)
             </div>
 
-            <div style="color: #64748B; font-size: 0.85rem;">
-                🌿 Las pausas conscientes mejoran la memoria de trabajo y la retención del aprendizaje.
+            <div style="color: #64748B; font-size: 0.82rem;">
+                🌿 Las pausas conscientes mejoran la memoria de trabajo y la retención del aprendizaje en Grado ${data.grado}°.
             </div>
         </div>
     `;
 };
 
 window.renderizarPreguntaDetonante = function(stage, base) {
+    const data = window.generarDatosPedagogicosDinamicos(base.materia, base.grado, base.concepto, base.dificultad);
     stage.innerHTML = `
         <div style="flex: 1; padding: 35px; background: linear-gradient(135deg, #1E1B4B, #312E81); color: white; display: flex; flex-direction: column; justify-content: space-between; text-align: center;">
             <span style="background: rgba(255,255,255,0.2); color: #FEF08A; padding: 4px 14px; border-radius: 20px; font-weight: 800; font-size: 0.85rem; text-transform: uppercase; display: inline-block; margin: 0 auto;">
-                🔥 Pregunta Detonante del Día (STEAM Spark)
+                🔥 Pregunta Detonante del Día (STEAM Spark) • ${base.materia}
             </span>
 
-            <div style="margin: 25px 0;">
-                <h1 style="font-size: 2.2rem; font-weight: 900; line-height: 1.3; color: #FFFFFF; max-width: 800px; margin: 0 auto;">
-                    "Si pudieras alterar una sola ley de la física o de la naturaleza en ${base.concepto}, ¿qué consecuencias tendría en la vida diaria de nuestra comunidad?"
+            <div style="margin: 20px 0;">
+                <h1 style="font-size: 1.9rem; font-weight: 900; line-height: 1.35; color: #FFFFFF; max-width: 800px; margin: 0 auto;">
+                    "${data.preguntaSocratica}"
                 </h1>
             </div>
 
-            <div style="background: rgba(255,255,255,0.1); border: 1.5px solid rgba(255,255,255,0.25); border-radius: 14px; padding: 14px 20px; max-width: 600px; margin: 0 auto;">
-                <div style="font-size: 0.9rem; font-weight: 800; color: #93C5FD;">Instrucción de Diálogo:</div>
-                <div style="font-size: 0.95rem; color: #E0E7FF; margin-top: 2px;">Comparte tu hipótesis en parejas durante 2 minutos y propón una solución ética.</div>
+            <div style="background: rgba(255,255,255,0.1); border: 1.5px solid rgba(255,255,255,0.25); border-radius: 14px; padding: 12px 20px; max-width: 620px; margin: 0 auto;">
+                <div style="font-size: 0.85rem; font-weight: 800; color: #93C5FD;">Instrucción de Diálogo Socrático:</div>
+                <div style="font-size: 0.9rem; color: #E0E7FF; margin-top: 2px;">Comparte tu hipótesis en parejas durante 2 minutos y formula una propuesta de solución para Grado ${data.grado}°.</div>
             </div>
         </div>
     `;
 };
 
 window.renderizarMarcadorEquiposTool = function(stage, base) {
+    const data = window.generarDatosPedagogicosDinamicos(base.materia, base.grado, base.concepto, base.dificultad);
     stage.innerHTML = `
-        <div style="flex: 1; padding: 30px; background: #0F172A; color: white; display: flex; flex-direction: column; justify-content: space-between; text-align: center;">
+        <div style="flex: 1; padding: 25px; background: #0F172A; color: white; display: flex; flex-direction: column; justify-content: space-between; text-align: center;">
             <div>
-                <h2 style="margin: 0; font-size: 1.6rem; font-weight: 900; color: #FACC15;">⚖️ Marcador de Puntos y Casas STEAM</h2>
-                <p style="margin: 2px 0 0 0; color: #94A3B8; font-size: 0.9rem;">Duelo de equipos en vivo para pantalla gigante</p>
+                <h2 style="margin: 0; font-size: 1.5rem; font-weight: 900; color: #FACC15;">⚖️ Marcador de Puntos y Casas STEAM</h2>
+                <p style="margin: 2px 0 0 0; color: #94A3B8; font-size: 0.85rem;">Duelo de equipos en vivo para <b>${data.tema}</b> (${base.materia})</p>
             </div>
 
-            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin: 20px 0;">
-                <div style="background: #1E293B; border: 2px solid #3B82F6; border-radius: 14px; padding: 15px;">
-                    <h3 style="margin: 0 0 8px 0; color: #60A5FA; font-size: 1.1rem;">Casa Galileo</h3>
-                    <div id="score-c1" style="font-size: 2.8rem; font-weight: 900; color: white; margin: 8px 0;">0</div>
-                    <div style="display: flex; justify-content: center; gap: 8px;">
-                        <button onclick="window.ajustarScore('score-c1', 10)" style="background: #2563EB; color: white; border: none; padding: 6px 12px; border-radius: 6px; font-weight: 800; cursor: pointer;">+10</button>
-                        <button onclick="window.ajustarScore('score-c1', -10)" style="background: #475569; color: white; border: none; padding: 6px 12px; border-radius: 6px; font-weight: 800; cursor: pointer;">-10</button>
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 15px 0;">
+                <div style="background: #1E293B; border: 2px solid #3B82F6; border-radius: 14px; padding: 12px;">
+                    <h3 style="margin: 0 0 6px 0; color: #60A5FA; font-size: 1rem;">Casa Galileo</h3>
+                    <div id="score-c1" style="font-size: 2.4rem; font-weight: 900; color: white; margin: 6px 0;">0</div>
+                    <div style="display: flex; justify-content: center; gap: 6px;">
+                        <button onclick="window.ajustarScore('score-c1', 10)" style="background: #2563EB; color: white; border: none; padding: 5px 10px; border-radius: 6px; font-weight: 800; cursor: pointer;">+10</button>
+                        <button onclick="window.ajustarScore('score-c1', -10)" style="background: #475569; color: white; border: none; padding: 5px 10px; border-radius: 6px; font-weight: 800; cursor: pointer;">-10</button>
                     </div>
                 </div>
-                <div style="background: #1E293B; border: 2px solid #10B981; border-radius: 14px; padding: 15px;">
-                    <h3 style="margin: 0 0 8px 0; color: #4ADE80; font-size: 1.1rem;">Casa Curie</h3>
-                    <div id="score-c2" style="font-size: 2.8rem; font-weight: 900; color: white; margin: 8px 0;">0</div>
-                    <div style="display: flex; justify-content: center; gap: 8px;">
-                        <button onclick="window.ajustarScore('score-c2', 10)" style="background: #059669; color: white; border: none; padding: 6px 12px; border-radius: 6px; font-weight: 800; cursor: pointer;">+10</button>
-                        <button onclick="window.ajustarScore('score-c2', -10)" style="background: #475569; color: white; border: none; padding: 6px 12px; border-radius: 6px; font-weight: 800; cursor: pointer;">-10</button>
+                <div style="background: #1E293B; border: 2px solid #10B981; border-radius: 14px; padding: 12px;">
+                    <h3 style="margin: 0 0 6px 0; color: #4ADE80; font-size: 1rem;">Casa Curie</h3>
+                    <div id="score-c2" style="font-size: 2.4rem; font-weight: 900; color: white; margin: 6px 0;">0</div>
+                    <div style="display: flex; justify-content: center; gap: 6px;">
+                        <button onclick="window.ajustarScore('score-c2', 10)" style="background: #059669; color: white; border: none; padding: 5px 10px; border-radius: 6px; font-weight: 800; cursor: pointer;">+10</button>
+                        <button onclick="window.ajustarScore('score-c2', -10)" style="background: #475569; color: white; border: none; padding: 5px 10px; border-radius: 6px; font-weight: 800; cursor: pointer;">-10</button>
                     </div>
                 </div>
-                <div style="background: #1E293B; border: 2px solid #F59E0B; border-radius: 14px; padding: 15px;">
-                    <h3 style="margin: 0 0 8px 0; color: #FBBF24; font-size: 1.1rem;">Casa Newton</h3>
-                    <div id="score-c3" style="font-size: 2.8rem; font-weight: 900; color: white; margin: 8px 0;">0</div>
-                    <div style="display: flex; justify-content: center; gap: 8px;">
-                        <button onclick="window.ajustarScore('score-c3', 10)" style="background: #D97706; color: white; border: none; padding: 6px 12px; border-radius: 6px; font-weight: 800; cursor: pointer;">+10</button>
-                        <button onclick="window.ajustarScore('score-c3', -10)" style="background: #475569; color: white; border: none; padding: 6px 12px; border-radius: 6px; font-weight: 800; cursor: pointer;">-10</button>
+                <div style="background: #1E293B; border: 2px solid #F59E0B; border-radius: 14px; padding: 12px;">
+                    <h3 style="margin: 0 0 6px 0; color: #FBBF24; font-size: 1rem;">Casa Newton</h3>
+                    <div id="score-c3" style="font-size: 2.4rem; font-weight: 900; color: white; margin: 6px 0;">0</div>
+                    <div style="display: flex; justify-content: center; gap: 6px;">
+                        <button onclick="window.ajustarScore('score-c3', 10)" style="background: #D97706; color: white; border: none; padding: 5px 10px; border-radius: 6px; font-weight: 800; cursor: pointer;">+10</button>
+                        <button onclick="window.ajustarScore('score-c3', -10)" style="background: #475569; color: white; border: none; padding: 5px 10px; border-radius: 6px; font-weight: 800; cursor: pointer;">-10</button>
                     </div>
                 </div>
-                <div style="background: #1E293B; border: 2px solid #EC4899; border-radius: 14px; padding: 15px;">
-                    <h3 style="margin: 0 0 8px 0; color: #F472B6; font-size: 1.1rem;">Casa Da Vinci</h3>
-                    <div id="score-c4" style="font-size: 2.8rem; font-weight: 900; color: white; margin: 8px 0;">0</div>
-                    <div style="display: flex; justify-content: center; gap: 8px;">
-                        <button onclick="window.ajustarScore('score-c4', 10)" style="background: #DB2777; color: white; border: none; padding: 6px 12px; border-radius: 6px; font-weight: 800; cursor: pointer;">+10</button>
-                        <button onclick="window.ajustarScore('score-c4', -10)" style="background: #475569; color: white; border: none; padding: 6px 12px; border-radius: 6px; font-weight: 800; cursor: pointer;">-10</button>
+                <div style="background: #1E293B; border: 2px solid #EC4899; border-radius: 14px; padding: 12px;">
+                    <h3 style="margin: 0 0 6px 0; color: #F472B6; font-size: 1rem;">Casa Da Vinci</h3>
+                    <div id="score-c4" style="font-size: 2.4rem; font-weight: 900; color: white; margin: 6px 0;">0</div>
+                    <div style="display: flex; justify-content: center; gap: 6px;">
+                        <button onclick="window.ajustarScore('score-c4', 10)" style="background: #DB2777; color: white; border: none; padding: 5px 10px; border-radius: 6px; font-weight: 800; cursor: pointer;">+10</button>
+                        <button onclick="window.ajustarScore('score-c4', -10)" style="background: #475569; color: white; border: none; padding: 5px 10px; border-radius: 6px; font-weight: 800; cursor: pointer;">-10</button>
                     </div>
                 </div>
             </div>
 
-            <div style="color: #94A3B8; font-size: 0.85rem;">🎉 Suma puntos por respuestas correctas, colaboración y respeto.</div>
+            <div style="color: #94A3B8; font-size: 0.82rem;">🎉 Suma puntos por respuestas correctas en ${data.tema}, colaboración y rigor científico.</div>
         </div>
     `;
 };
@@ -11071,223 +11176,284 @@ window.ajustarScore = function(id, delta) {
     elem.innerText = actual;
 };
 
-// Renderizadores de fallback con plantillas universales para las herramientas restantes
+// Roles STEAM dinámicos
 window.renderizarGeneradorRolesTool = function(stage, base) {
+    const data = window.generarDatosPedagogicosDinamicos(base.materia, base.grado, base.concepto, base.dificultad);
     stage.innerHTML = `
-        <div style="flex: 1; padding: 30px; background: white; display: flex; flex-direction: column; justify-content: space-between; text-align: center;">
-            <h3 style="margin: 0; font-size: 1.4rem; font-weight: 900; color: #1E1B4B;">🎲 Generador de Grupos y Roles STEAM</h3>
-            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin: 20px 0;">
-                <div style="background: #EFF6FF; border: 1.5px solid #93C5FD; border-radius: 12px; padding: 14px;"><span style="font-size: 2rem;">👑</span><h4 style="margin: 6px 0; color: #1E40AF;">Líder de Proyecto</h4><p style="margin: 0; font-size: 0.8rem; color: #1D4ED8;">Coordina las tareas y tiempos.</p></div>
-                <div style="background: #F0FDF4; border: 1.5px solid #86EFAC; border-radius: 12px; padding: 14px;"><span style="font-size: 2rem;">🔬</span><h4 style="margin: 6px 0; color: #166534;">Investigador</h4><p style="margin: 0; font-size: 0.8rem; color: #15803D;">Verifica las fuentes y datos.</p></div>
-                <div style="background: #FEF3C7; border: 1.5px solid #FCD34D; border-radius: 12px; padding: 14px;"><span style="font-size: 2rem;">🎨</span><h4 style="margin: 6px 0; color: #92400E;">Diseñador STEAM</h4><p style="margin: 0; font-size: 0.8rem; color: #B45309;">Estructura esquemas y maquetas.</p></div>
-                <div style="background: #FDF2F8; border: 1.5px solid #F472B6; border-radius: 12px; padding: 14px;"><span style="font-size: 2rem;">📢</span><h4 style="margin: 6px 0; color: #9D174D;">Portavoz</h4><p style="margin: 0; font-size: 0.8rem; color: #BE185D;">Sustenta la propuesta al aula.</p></div>
+        <div style="flex: 1; padding: 25px; background: white; display: flex; flex-direction: column; justify-content: space-between; text-align: center;">
+            <div>
+                <h3 style="margin: 0; font-size: 1.4rem; font-weight: 900; color: #1E1B4B;">🎲 Generador de Grupos y Roles STEAM: ${data.tema}</h3>
+                <p style="margin: 2px 0 0 0; color: #64748B; font-size: 0.85rem;">Distribución de responsabilidades colaborativas para Grado ${data.grado}°</p>
             </div>
-            <div style="color: #64748B; font-size: 0.85rem;">👥 Cada miembro del equipo asume una responsabilidad activa.</div>
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 15px 0;">
+                <div style="background: #EFF6FF; border: 1.5px solid #93C5FD; border-radius: 12px; padding: 12px;"><span style="font-size: 1.8rem;">👑</span><h4 style="margin: 4px 0; color: #1E40AF; font-size: 0.95rem;">Líder de Proyecto</h4><p style="margin: 0; font-size: 0.78rem; color: #1D4ED8;">Coordina tiempos y entregables sobre ${data.tema}.</p></div>
+                <div style="background: #F0FDF4; border: 1.5px solid #86EFAC; border-radius: 12px; padding: 12px;"><span style="font-size: 1.8rem;">🔬</span><h4 style="margin: 4px 0; color: #166534; font-size: 0.95rem;">Investigador</h4><p style="margin: 0; font-size: 0.78rem; color: #15803D;">Verifica las leyes de ${data.palabras[0] || 'la materia'}.</p></div>
+                <div style="background: #FEF3C7; border: 1.5px solid #FCD34D; border-radius: 12px; padding: 12px;"><span style="font-size: 1.8rem;">🎨</span><h4 style="margin: 4px 0; color: #92400E; font-size: 0.95rem;">Diseñador STEAM</h4><p style="margin: 0; font-size: 0.78rem; color: #B45309;">Estructura gráficos y diagramas de flujo.</p></div>
+                <div style="background: #FDF2F8; border: 1.5px solid #F472B6; border-radius: 12px; padding: 12px;"><span style="font-size: 1.8rem;">📢</span><h4 style="margin: 4px 0; color: #9D174D; font-size: 0.95rem;">Portavoz</h4><p style="margin: 0; font-size: 0.78rem; color: #BE185D;">Sustenta los resultados al aula y docente.</p></div>
+            </div>
+            <div style="color: #64748B; font-size: 0.82rem;">👥 Cada miembro del equipo asume una responsabilidad activa en la misión.</div>
         </div>
     `;
 };
 
 window.renderizarMemoryCardsTool = function(stage, base) {
+    const data = window.generarDatosPedagogicosDinamicos(base.materia, base.grado, base.concepto, base.dificultad);
     stage.innerHTML = `
         <div style="flex: 1; padding: 25px; background: #F8FAFC; display: flex; flex-direction: column; justify-content: space-between; text-align: center;">
-            <h3 style="margin: 0; font-size: 1.4rem; font-weight: 900; color: #1E1B4B;">🃏 Duelo de Emparejamiento (Memory Cards): ${base.concepto}</h3>
+            <div>
+                <h3 style="margin: 0; font-size: 1.4rem; font-weight: 900; color: #1E1B4B;">🃏 Duelo de Emparejamiento (Memory Cards): ${data.tema}</h3>
+                <p style="margin: 2px 0 0 0; color: #64748B; font-size: 0.85rem;">Encuentra los pares de Concepto vs Definición</p>
+            </div>
             <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 15px 0;">
-                ${[1, 2, 3, 4, 5, 6, 7, 8].map(num => `
-                    <div onclick="this.style.background='#3B82F6'; this.style.color='white';" style="background: white; border: 2px solid #CBD5E1; border-radius: 10px; padding: 20px 10px; font-weight: 900; font-size: 1.1rem; color: #3B82F6; cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,0.05);">
-                        ❓ Carta ${num}
+                ${data.palabras.slice(0, 4).map((w, idx) => `
+                    <div onclick="this.innerHTML='<b>${w}</b>'; this.style.background='#3B82F6'; this.style.color='white';" style="background: white; border: 2px solid #CBD5E1; border-radius: 10px; padding: 16px 8px; font-weight: 900; font-size: 0.95rem; color: #3B82F6; cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,0.05); min-height: 60px; display: flex; align-items: center; justify-content: center;">
+                        ❓ Carta Concepto ${idx + 1}
+                    </div>
+                `).join('')}
+                ${data.definiciones.slice(0, 4).map((d, idx) => `
+                    <div onclick="this.innerHTML='<span style=\\'font-size:0.75rem;\\'>${d.pista}</span>'; this.style.background='#10B981'; this.style.color='white';" style="background: white; border: 2px solid #CBD5E1; border-radius: 10px; padding: 16px 8px; font-weight: 900; font-size: 0.95rem; color: #10B981; cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,0.05); min-height: 60px; display: flex; align-items: center; justify-content: center;">
+                        ❓ Carta Pista ${idx + 1}
                     </div>
                 `).join('')}
             </div>
-            <div style="color: #64748B; font-size: 0.85rem;">🃏 Encuentra las parejas correspondientes de conceptos y definiciones.</div>
+            <div style="color: #64748B; font-size: 0.82rem;">🃏 Haz clic para voltear las cartas y encontrar las parejas correspondientes.</div>
         </div>
     `;
 };
 
 window.renderizarCriptogramaTool = function(stage, base) {
+    const data = window.generarDatosPedagogicosDinamicos(base.materia, base.grado, base.concepto, base.dificultad);
+    const palabraClave = (data.palabras[0] || data.tema).toUpperCase();
+    const abcd = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const tablaClave = "A=1 • B=2 • C=3 • D=4 • E=5 • F=6 • G=7 • L=8 • M=9 • N=10 • O=11 • P=12 • R=13 • S=14 • T=15 • U=16";
+    const cifrado = palabraClave.split('').map(char => {
+        const idx = abcd.indexOf(char);
+        return idx >= 0 ? (idx + 1) : '-';
+    }).join(' - ');
+
     stage.innerHTML = `
         <div style="flex: 1; padding: 25px; background: white; display: flex; flex-direction: column; justify-content: space-between; text-align: center;">
-            <h3 style="margin: 0; font-size: 1.4rem; font-weight: 900; color: #1E1B4B;">🔠 Criptograma Científico: ${base.concepto}</h3>
-            <div style="background: #F8FAFC; border: 1.5px solid #CBD5E1; padding: 15px; border-radius: 12px; margin: 15px 0;">
-                <div style="font-size: 0.85rem; font-weight: 800; color: #1E40AF; margin-bottom: 8px;">Tabla de Claves de Sustitución:</div>
-                <div style="font-family: monospace; font-size: 1.1rem; letter-spacing: 4px;">A=1 • E=2 • I=3 • O=4 • U=5 • S=6 • T=7 • C=8</div>
+            <div>
+                <h3 style="margin: 0; font-size: 1.4rem; font-weight: 900; color: #1E1B4B;">🔠 Criptograma Científico: ${data.tema}</h3>
+                <p style="margin: 2px 0 0 0; color: #64748B; font-size: 0.85rem;">Descifra el mensaje secreto de <b>${base.materia}</b></p>
             </div>
-            <div style="font-family: monospace; font-size: 1.3rem; letter-spacing: 6px; color: #0F172A; margin: 10px 0;">
-                7-4-6-4-6-3-2-8-3-6  /  6-7-2-1-3
+            <div style="background: #F8FAFC; border: 1.5px solid #CBD5E1; padding: 12px; border-radius: 12px; margin: 12px 0;">
+                <div style="font-size: 0.82rem; font-weight: 800; color: #1E40AF; margin-bottom: 6px;">Tabla de Claves de Sustitución:</div>
+                <div style="font-family: monospace; font-size: 0.95rem; letter-spacing: 2px;">${tablaClave}</div>
             </div>
-            <div style="color: #64748B; font-size: 0.85rem;">🔐 Descifra el mensaje oculto aplicando la tabla de claves.</div>
+            <div style="font-family: monospace; font-size: 1.4rem; letter-spacing: 4px; color: #0F172A; margin: 10px 0; font-weight: 900; background: #FEF3C7; padding: 12px; border-radius: 8px;">
+                ${cifrado}
+            </div>
+            <div style="color: #64748B; font-size: 0.82rem;">🔐 Aplica la regla criptográfica para descubrir la palabra clave.</div>
         </div>
     `;
 };
 
-window.renderizarDominoConceptualTool = function(stage, base) { window.renderizarFlashcardsTool(stage, base); };
+window.renderizarDominoConceptualTool = function(stage, base) {
+    const data = window.generarDatosPedagogicosDinamicos(base.materia, base.grado, base.concepto, base.dificultad);
+    stage.innerHTML = `
+        <div style="flex: 1; padding: 25px; background: #F8FAFC; display: flex; flex-direction: column; justify-content: space-between; text-align: center;">
+            <h3 style="margin: 0; font-size: 1.35rem; font-weight: 900; color: #1E1B4B;">🀄 Dominó Conceptual: ${data.tema}</h3>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 12px 0;">
+                ${data.palabras.slice(0, 3).map((w, idx) => `
+                    <div style="background: white; border: 2px solid #1E293B; border-radius: 10px; display: grid; grid-template-columns: 1fr 1fr; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.08);">
+                        <div style="background: #1E293B; color: white; padding: 10px; font-weight: 900; font-size: 0.88rem; display: flex; align-items: center; justify-content: center;">
+                            ${w}
+                        </div>
+                        <div style="background: #EFF6FF; color: #1E40AF; padding: 10px; font-weight: 700; font-size: 0.75rem; display: flex; align-items: center; justify-content: center; border-left: 2px dashed #94A3B8;">
+                            ${data.definiciones[idx] ? data.definiciones[idx].pista : 'Pista asociada'}
+                        </div>
+                    </div>
+                `).join('')}
+            </div>
+            <div style="color: #64748B; font-size: 0.82rem;">🀄 Conecta la ficha del concepto con la ficha de su definición en la cadena de juego.</div>
+        </div>
+    `;
+};
+
 window.renderizarSudokuSteamTool = function(stage, base) {
     stage.innerHTML = `
         <div style="flex: 1; padding: 25px; background: white; display: flex; flex-direction: column; justify-content: space-between; text-align: center;">
-            <h3 style="margin: 0; font-size: 1.4rem; font-weight: 900; color: #1E1B4B;">🔢 Sudoku Lógico STEAM (4x4)</h3>
-            <div style="display: grid; grid-template-columns: repeat(4, 50px); gap: 6px; justify-content: center; margin: 20px auto;">
+            <h3 style="margin: 0; font-size: 1.4rem; font-weight: 900; color: #1E1B4B;">🔢 Sudoku Lógico STEAM (4x4): Grado ${base.grado}°</h3>
+            <div style="display: grid; grid-template-columns: repeat(4, 50px); gap: 6px; justify-content: center; margin: 15px auto;">
                 ${['1', '', '3', '', '', '2', '', '4', '3', '', '2', '', '', '4', '', '1'].map(v => `
                     <div style="width: 50px; height: 50px; border: 2px solid #1E293B; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; font-weight: 900; background: ${v ? '#EFF6FF' : 'white'};">
                         ${v}
                     </div>
                 `).join('')}
             </div>
-            <div style="color: #64748B; font-size: 0.85rem;">🧩 Completa la cuadrícula sin repetir números ni símbolos por fila y columna.</div>
+            <div style="color: #64748B; font-size: 0.82rem;">🧩 Completa la cuadrícula sin repetir números ni símbolos por fila y columna.</div>
         </div>
     `;
 };
 
 window.renderizarLaberintoLogicoTool = function(stage, base) { window.renderizarCrucigramaTool(stage, base); };
+
 window.renderizarPictionaryTabuTool = function(stage, base) {
+    const data = window.generarDatosPedagogicosDinamicos(base.materia, base.grado, base.concepto, base.dificultad);
     stage.innerHTML = `
-        <div style="flex: 1; padding: 30px; background: linear-gradient(135deg, #701A75, #A21CAF); color: white; display: flex; flex-direction: column; justify-content: space-between; text-align: center;">
-            <span style="background: rgba(255,255,255,0.2); padding: 4px 14px; border-radius: 20px; font-weight: 800; font-size: 0.85rem; text-transform: uppercase; margin: 0 auto;">🎭 Reto Tabú STEAM</span>
-            <div style="margin: 20px 0;">
-                <h1 style="font-size: 2.2rem; font-weight: 900; color: #FEF08A; margin: 0 0 10px 0;">${base.concepto}</h1>
-                <div style="background: rgba(0,0,0,0.3); border: 2px solid rgba(255,255,255,0.3); border-radius: 14px; padding: 15px; max-width: 450px; margin: 0 auto;">
-                    <div style="font-size: 0.85rem; font-weight: 900; color: #FCA5A5; text-transform: uppercase; margin-bottom: 6px;">Palabras Prohibidas:</div>
-                    <div style="font-size: 1.1rem; font-weight: 700; color: white;">Luz • Planta • Sol • Hoja</div>
+        <div style="flex: 1; padding: 25px; background: linear-gradient(135deg, #701A75, #A21CAF); color: white; display: flex; flex-direction: column; justify-content: space-between; text-align: center;">
+            <span style="background: rgba(255,255,255,0.2); padding: 4px 14px; border-radius: 20px; font-weight: 800; font-size: 0.85rem; text-transform: uppercase; margin: 0 auto;">🎭 Reto Tabú STEAM • ${base.materia}</span>
+            <div style="margin: 15px 0;">
+                <h1 style="font-size: 2rem; font-weight: 900; color: #FEF08A; margin: 0 0 8px 0;">${data.tema}</h1>
+                <div style="background: rgba(0,0,0,0.3); border: 2px solid rgba(255,255,255,0.3); border-radius: 14px; padding: 14px; max-width: 480px; margin: 0 auto;">
+                    <div style="font-size: 0.82rem; font-weight: 900; color: #FCA5A5; text-transform: uppercase; margin-bottom: 6px;">Palabras Prohibidas (Tabú):</div>
+                    <div style="font-size: 1.05rem; font-weight: 700; color: white;">${data.palabras.slice(0, 4).join(' • ')}</div>
                 </div>
             </div>
-            <div style="font-size: 0.95rem; color: #F5D0FE;">¡Explica el concepto a tu equipo sin usar ninguna de las palabras prohibidas!</div>
+            <div style="font-size: 0.9rem; color: #F5D0FE;">¡Explica el concepto a tu equipo sin usar ninguna de las palabras prohibidas!</div>
         </div>
     `;
 };
 
 window.renderizarTriviaGiganteTool = function(stage, base) { window.renderizarPreguntaDetonante(stage, base); };
+
 window.renderizarMuroPostIts = function(stage, base) {
+    const data = window.generarDatosPedagogicosDinamicos(base.materia, base.grado, base.concepto, base.dificultad);
     stage.innerHTML = `
         <div style="flex: 1; padding: 25px; background: #F1F5F9; display: flex; flex-direction: column; justify-content: space-between;">
             <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #CBD5E1; padding-bottom: 8px;">
-                <h3 style="margin: 0; font-size: 1.35rem; font-weight: 900; color: #1E293B;">💭 Muro de Lluvia de Ideas: ${base.concepto}</h3>
+                <h3 style="margin: 0; font-size: 1.35rem; font-weight: 900; color: #1E293B;">💭 Muro de Lluvia de Ideas: ${data.tema}</h3>
                 <button onclick="alert('💡 Nota adhesiva agregada al muro.')" style="background: #3B82F6; color: white; border: none; padding: 6px 14px; border-radius: 8px; font-weight: 800; font-size: 0.85rem; cursor: pointer;">➕ Agregar Post-it</button>
             </div>
-            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin: 15px 0;">
-                <div style="background: #FEF08A; padding: 16px; border-radius: 8px; box-shadow: 2px 4px 10px rgba(0,0,0,0.1); color: #713F12; font-weight: 700; font-size: 0.95rem;">💡 Hipótesis: La luz solar activa la primera fase bioquímica.</div>
-                <div style="background: #BAE6FD; padding: 16px; border-radius: 8px; box-shadow: 2px 4px 10px rgba(0,0,0,0.1); color: #0369A1; font-weight: 700; font-size: 0.95rem;">🌱 Pregunta: ¿Qué pasa con las plantas en la noche?</div>
-                <div style="background: #BBF7D0; padding: 16px; border-radius: 8px; box-shadow: 2px 4px 10px rgba(0,0,0,0.1); color: #15803D; font-weight: 700; font-size: 0.95rem;">🚀 Aplicación: Paneles solares inspirados en hojas naturales.</div>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 12px 0;">
+                <div style="background: #FEF08A; padding: 14px; border-radius: 8px; box-shadow: 2px 4px 10px rgba(0,0,0,0.1); color: #713F12; font-weight: 700; font-size: 0.9rem;">💡 Hipótesis: ${data.palabras[0] || 'El fenómeno'} es la causa determinante del proceso.</div>
+                <div style="background: #BAE6FD; padding: 14px; border-radius: 8px; box-shadow: 2px 4px 10px rgba(0,0,0,0.1); color: #0369A1; font-weight: 700; font-size: 0.9rem;">🌱 Pregunta: ¿Cómo interactúa ${data.palabras[1] || 'la variable'} en el ecosistema?</div>
+                <div style="background: #BBF7D0; padding: 14px; border-radius: 8px; box-shadow: 2px 4px 10px rgba(0,0,0,0.1); color: #15803D; font-weight: 700; font-size: 0.9rem;">🚀 Aplicación: Solución comunitaria basada en ${data.tema}.</div>
             </div>
-            <div style="text-align: center; color: #64748B; font-size: 0.85rem;">Tablero interactivo para categorizar saberes previos en el aula.</div>
+            <div style="text-align: center; color: #64748B; font-size: 0.82rem;">Tablero interactivo para categorizar saberes previos en Grado ${data.grado}°.</div>
         </div>
     `;
 };
 
 window.renderizarNubePalabras = function(stage, base) {
+    const data = window.generarDatosPedagogicosDinamicos(base.materia, base.grado, base.concepto, base.dificultad);
+    const colores = ['#2563EB', '#10B981', '#F59E0B', '#7C3AED', '#EC4899', '#0D9488', '#EA580C'];
+    const tamanos = ['2.4rem', '1.9rem', '1.6rem', '1.4rem', '1.2rem', '1.1rem', '1.3rem'];
+
     stage.innerHTML = `
-        <div style="flex: 1; padding: 30px; background: white; display: flex; flex-direction: column; justify-content: space-between; text-align: center;">
-            <h3 style="margin: 0; font-size: 1.4rem; font-weight: 900; color: #1E1B4B;">💬 Nube de Palabras Colectiva: ${base.concepto}</h3>
-            <div style="display: flex; justify-content: center; align-items: center; gap: 18px; flex-wrap: wrap; margin: 25px 0; max-width: 650px; margin-left: auto; margin-right: auto;">
-                <span style="font-size: 2.5rem; font-weight: 900; color: #2563EB;">FOTOSÍNTESIS</span>
-                <span style="font-size: 1.8rem; font-weight: 800; color: #10B981;">ENERGÍA</span>
-                <span style="font-size: 1.4rem; font-weight: 700; color: #F59E0B;">CLOROFILA</span>
-                <span style="font-size: 2rem; font-weight: 900; color: #7C3AED;">GLUCOSA</span>
-                <span style="font-size: 1.2rem; font-weight: 700; color: #EC4899;">OXÍGENO</span>
-                <span style="font-size: 1.6rem; font-weight: 800; color: #0D9488;">AGUA</span>
+        <div style="flex: 1; padding: 25px; background: white; display: flex; flex-direction: column; justify-content: space-between; text-align: center;">
+            <h3 style="margin: 0; font-size: 1.4rem; font-weight: 900; color: #1E1B4B;">💬 Nube de Palabras Colectiva: ${data.tema}</h3>
+            <div style="display: flex; justify-content: center; align-items: center; gap: 16px; flex-wrap: wrap; margin: 20px 0; max-width: 650px; margin-left: auto; margin-right: auto;">
+                ${data.palabras.map((w, idx) => `
+                    <span style="font-size: ${tamanos[idx % tamanos.length]}; font-weight: 900; color: ${colores[idx % colores.length]}; padding: 4px 8px;">${w}</span>
+                `).join('')}
             </div>
-            <div style="color: #64748B; font-size: 0.85rem;">📊 Las palabras con mayor frecuencia visual se muestran en tamaño gigante.</div>
+            <div style="color: #64748B; font-size: 0.82rem;">📊 Frecuencia visual de los conceptos clave para ${base.materia} (Grado ${base.grado}°).</div>
         </div>
     `;
 };
 
 window.renderizarLivePoll = function(stage, base) {
+    const data = window.generarDatosPedagogicosDinamicos(base.materia, base.grado, base.concepto, base.dificultad);
     stage.innerHTML = `
-        <div style="flex: 1; padding: 30px; background: #F8FAFC; display: flex; flex-direction: column; justify-content: space-between; text-align: left;">
+        <div style="flex: 1; padding: 25px; background: #F8FAFC; display: flex; flex-direction: column; justify-content: space-between; text-align: left;">
             <div>
-                <h3 style="margin: 0; font-size: 1.4rem; font-weight: 900; color: #1E1B4B;">🗳️ Termómetro de Comprensión en Vivo: ${base.concepto}</h3>
-                <p style="margin: 2px 0 0 0; color: #64748B; font-size: 0.85rem;">Votación rápida a mano alzada o proyectada</p>
+                <h3 style="margin: 0; font-size: 1.35rem; font-weight: 900; color: #1E1B4B;">🗳️ Termómetro de Comprensión en Vivo: ${data.tema}</h3>
+                <p style="margin: 2px 0 0 0; color: #64748B; font-size: 0.85rem;">Votación rápida proyectada para autorregulación del grupo</p>
             </div>
-            <div style="display: flex; flex-direction: column; gap: 12px; margin: 15px 0;">
-                <div onclick="this.style.background='#EFF6FF'" style="background: white; border: 1.5px solid #CBD5E1; border-radius: 10px; padding: 12px 18px; display: flex; justify-content: space-between; align-items: center; cursor: pointer;">
-                    <span style="font-weight: 800; color: #1E293B;">A) Comprendo perfectamente el concepto y puedo explicarlo</span>
+            <div style="display: flex; flex-direction: column; gap: 10px; margin: 12px 0;">
+                <div onclick="this.style.background='#EFF6FF'" style="background: white; border: 1.5px solid #CBD5E1; border-radius: 10px; padding: 10px 16px; display: flex; justify-content: space-between; align-items: center; cursor: pointer;">
+                    <span style="font-weight: 800; color: #1E293B; font-size: 0.88rem;">A) Comprendo perfectamente el principio de ${data.palabras[0] || 'la temática'}</span>
                     <span style="background: #10B981; color: white; padding: 3px 10px; border-radius: 10px; font-weight: 800; font-size: 0.8rem;">65%</span>
                 </div>
-                <div onclick="this.style.background='#EFF6FF'" style="background: white; border: 1.5px solid #CBD5E1; border-radius: 10px; padding: 12px 18px; display: flex; justify-content: space-between; align-items: center; cursor: pointer;">
-                    <span style="font-weight: 800; color: #1E293B;">B) Tengo clara la idea general pero tengo dudas en las fórmulas</span>
+                <div onclick="this.style.background='#EFF6FF'" style="background: white; border: 1.5px solid #CBD5E1; border-radius: 10px; padding: 10px 16px; display: flex; justify-content: space-between; align-items: center; cursor: pointer;">
+                    <span style="font-weight: 800; color: #1E293B; font-size: 0.88rem;">B) Tengo clara la idea pero tengo dudas en cómo aplicar ${data.palabras[1] || 'la fórmula'}</span>
                     <span style="background: #3B82F6; color: white; padding: 3px 10px; border-radius: 10px; font-weight: 800; font-size: 0.8rem;">25%</span>
                 </div>
-                <div onclick="this.style.background='#EFF6FF'" style="background: white; border: 1.5px solid #CBD5E1; border-radius: 10px; padding: 12px 18px; display: flex; justify-content: space-between; align-items: center; cursor: pointer;">
-                    <span style="font-weight: 800; color: #1E293B;">C) Necesito otro ejemplo cotidiano para terminar de entender</span>
+                <div onclick="this.style.background='#EFF6FF'" style="background: white; border: 1.5px solid #CBD5E1; border-radius: 10px; padding: 10px 16px; display: flex; justify-content: space-between; align-items: center; cursor: pointer;">
+                    <span style="font-weight: 800; color: #1E293B; font-size: 0.88rem;">C) Necesito otro ejemplo cotidiano para terminar de comprender</span>
                     <span style="background: #F59E0B; color: white; padding: 3px 10px; border-radius: 10px; font-weight: 800; font-size: 0.8rem;">10%</span>
                 </div>
             </div>
-            <div style="text-align: center; color: #64748B; font-size: 0.85rem;">📊 Permite ajustar el ritmo pedagógico de la clase en tiempo real.</div>
+            <div style="text-align: center; color: #64748B; font-size: 0.82rem;">📊 Permite al docente calibrar la explicación en tiempo real.</div>
         </div>
     `;
 };
 
 window.renderizarDiagramaVennTool = function(stage, base) {
+    const data = window.generarDatosPedagogicosDinamicos(base.materia, base.grado, base.concepto, base.dificultad);
     stage.innerHTML = `
         <div style="flex: 1; padding: 25px; background: white; display: flex; flex-direction: column; justify-content: space-between; text-align: center;">
-            <h3 style="margin: 0; font-size: 1.35rem; font-weight: 900; color: #1E1B4B;">🗺️ Diagrama de Venn Comparativo: ${base.concepto}</h3>
-            <div style="display: flex; justify-content: center; align-items: center; margin: 20px 0; position: relative;">
-                <div style="width: 200px; height: 200px; border-radius: 50%; background: rgba(59,130,246,0.25); border: 2px solid #2563EB; display: flex; align-items: center; justify-content: center; padding: 20px; font-weight: 800; color: #1E40AF; margin-right: -40px;">
-                    Concepto A (Exclusivo)
+            <h3 style="margin: 0; font-size: 1.35rem; font-weight: 900; color: #1E1B4B;">🗺️ Diagrama de Venn Comparativo: ${data.tema}</h3>
+            <div style="display: flex; justify-content: center; align-items: center; margin: 15px 0; position: relative;">
+                <div style="width: 190px; height: 190px; border-radius: 50%; background: rgba(59,130,246,0.2); border: 2px solid #2563EB; display: flex; align-items: center; justify-content: center; padding: 15px; font-weight: 800; color: #1E40AF; margin-right: -35px; font-size: 0.85rem;">
+                    ${data.palabras[0] || 'Enfoque Teórico'}
                 </div>
-                <div style="width: 140px; height: 140px; border-radius: 50%; background: rgba(16,185,129,0.3); border: 2px dashed #059669; display: flex; align-items: center; justify-content: center; font-weight: 900; color: #065F46; z-index: 10; font-size: 0.85rem;">
-                    Semejanzas / Intersección
+                <div style="width: 130px; height: 130px; border-radius: 50%; background: rgba(16,185,129,0.3); border: 2px dashed #059669; display: flex; align-items: center; justify-content: center; font-weight: 900; color: #065F46; z-index: 10; font-size: 0.8rem;">
+                    Leyes Comunes / Intersección
                 </div>
-                <div style="width: 200px; height: 200px; border-radius: 50%; background: rgba(245,158,11,0.25); border: 2px solid #D97706; display: flex; align-items: center; justify-content: center; padding: 20px; font-weight: 800; color: #92400E; margin-left: -40px;">
-                    Concepto B (Exclusivo)
+                <div style="width: 190px; height: 190px; border-radius: 50%; background: rgba(245,158,11,0.2); border: 2px solid #D97706; display: flex; align-items: center; justify-content: center; padding: 15px; font-weight: 800; color: #92400E; margin-left: -35px; font-size: 0.85rem;">
+                    ${data.palabras[1] || 'Aplicación Práctica'}
                 </div>
             </div>
-            <div style="color: #64748B; font-size: 0.85rem;">🖨️ Plantilla lista para imprimir y comparar sistemas.</div>
+            <div style="color: #64748B; font-size: 0.82rem;">🖨️ Plantilla lista para imprimir y comparar estructuras en Grado ${data.grado}°.</div>
         </div>
     `;
 };
 
 window.renderizarTextoMutiladoTool = function(stage, base) {
+    const data = window.generarDatosPedagogicosDinamicos(base.materia, base.grado, base.concepto, base.dificultad);
     stage.innerHTML = `
         <div style="flex: 1; padding: 25px; background: white; display: flex; flex-direction: column; justify-content: space-between; text-align: left;">
-            <h3 style="margin: 0; font-size: 1.35rem; font-weight: 900; color: #1E1B4B;">📝 Texto Mutilado (Cloze Test): ${base.concepto}</h3>
-            <div style="background: #F8FAFC; border: 1.5px solid #CBD5E1; border-radius: 12px; padding: 18px; line-height: 2; font-size: 0.95rem; color: #1E293B; margin: 15px 0;">
-                El fenómeno de <b>${base.concepto}</b> ocurre principalmente cuando la energía __________ interactúa con la materia. Durante este proceso, se produce una transformación de __________ que permite generar __________, manteniendo el principio de conservación universal.
+            <div>
+                <h3 style="margin: 0; font-size: 1.35rem; font-weight: 900; color: #1E1B4B;">📝 Texto Mutilado (Cloze Test): ${data.tema}</h3>
+                <p style="margin: 2px 0 0 0; color: #64748B; font-size: 0.85rem;">Grado ${data.grado}° • Asignatura: <b>${base.materia}</b></p>
+            </div>
+            <div style="background: #F8FAFC; border: 1.5px solid #CBD5E1; border-radius: 12px; padding: 16px; line-height: 1.9; font-size: 0.92rem; color: #1E293B; margin: 12px 0;">
+                ${data.textoCloze.parrafo}
             </div>
             <div style="background: #EEF2FF; padding: 10px; border-radius: 8px; font-size: 0.85rem; color: #3730A3; font-weight: 800;">
-                Banco de Palabras: [ solar • glucosa • energía • cinética • equilibrio ]
+                Banco de Palabras: [ ${data.textoCloze.banco.join(' • ')} ]
             </div>
         </div>
     `;
 };
 
 window.renderizarComicCientificoTool = function(stage, base) {
+    const data = window.generarDatosPedagogicosDinamicos(base.materia, base.grado, base.concepto, base.dificultad);
     stage.innerHTML = `
         <div style="flex: 1; padding: 25px; background: white; display: flex; flex-direction: column; justify-content: space-between; text-align: center;">
-            <h3 style="margin: 0; font-size: 1.35rem; font-weight: 900; color: #1E1B4B;">📜 Taller Creador de Cómics STEAM: ${base.concepto}</h3>
-            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 15px 0;">
-                <div style="background: #F8FAFC; border: 2px dashed #94A3B8; border-radius: 10px; height: 160px; display: flex; flex-direction: column; justify-content: space-between; padding: 10px;">
+            <h3 style="margin: 0; font-size: 1.35rem; font-weight: 900; color: #1E1B4B;">📜 Taller Creador de Cómics STEAM: ${data.tema}</h3>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 12px 0;">
+                <div style="background: #F8FAFC; border: 2px dashed #94A3B8; border-radius: 10px; height: 150px; display: flex; flex-direction: column; justify-content: space-between; padding: 10px;">
                     <span style="font-weight: 800; font-size: 0.8rem; color: #64748B;">Viñeta 1: El Problema</span>
-                    <span style="font-size: 0.75rem; color: #94A3B8;">(Dibuja el inicio del fenómeno)</span>
+                    <span style="font-size: 0.72rem; color: #94A3B8;">(Situación inicial en ${data.tema})</span>
                 </div>
-                <div style="background: #F8FAFC; border: 2px dashed #94A3B8; border-radius: 10px; height: 160px; display: flex; flex-direction: column; justify-content: space-between; padding: 10px;">
+                <div style="background: #F8FAFC; border: 2px dashed #94A3B8; border-radius: 10px; height: 150px; display: flex; flex-direction: column; justify-content: space-between; padding: 10px;">
                     <span style="font-weight: 800; font-size: 0.8rem; color: #64748B;">Viñeta 2: La Transformación</span>
-                    <span style="font-size: 0.75rem; color: #94A3B8;">(Dibuja la reacción en acción)</span>
+                    <span style="font-size: 0.72rem; color: #94A3B8;">(Acción de ${data.palabras[0] || 'la ley'})</span>
                 </div>
-                <div style="background: #F8FAFC; border: 2px dashed #94A3B8; border-radius: 10px; height: 160px; display: flex; flex-direction: column; justify-content: space-between; padding: 10px;">
+                <div style="background: #F8FAFC; border: 2px dashed #94A3B8; border-radius: 10px; height: 150px; display: flex; flex-direction: column; justify-content: space-between; padding: 10px;">
                     <span style="font-weight: 800; font-size: 0.8rem; color: #64748B;">Viñeta 3: El Resultado</span>
-                    <span style="font-size: 0.75rem; color: #94A3B8;">(Dibuja el desenlace y aprendizaje)</span>
+                    <span style="font-size: 0.72rem; color: #94A3B8;">(Solución e impacto sostenible)</span>
                 </div>
             </div>
-            <div style="color: #64748B; font-size: 0.82rem;">🎨 Formato imprimible para síntesis gráfica y narrativa científica.</div>
+            <div style="color: #64748B; font-size: 0.82rem;">🎨 Formato imprimible para síntesis gráfica y narrativa científica en Grado ${data.grado}°.</div>
         </div>
     `;
 };
 
 window.renderizarTallerGraficasTool = function(stage, base) { window.renderizarFichaLaboratorioTool(stage, base); };
+
 window.renderizarPasaporteSellosTool = function(stage, base) {
+    const data = window.generarDatosPedagogicosDinamicos(base.materia, base.grado, base.concepto, base.dificultad);
     stage.innerHTML = `
         <div style="flex: 1; padding: 25px; background: #F8FAFC; display: flex; flex-direction: column; justify-content: space-between; text-align: center;">
             <h3 style="margin: 0; font-size: 1.35rem; font-weight: 900; color: #1E1B4B;">📊 Pasaporte de Competencias STEAM: Grado ${base.grado}°</h3>
             <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 15px 0;">
-                <div style="background: white; border: 2px dashed #3B82F6; border-radius: 10px; padding: 15px;"><span style="font-size: 1.8rem;">🔬</span><div style="font-weight: 900; font-size: 0.82rem; margin-top: 4px;">Ciencia DBA 1</div><span style="color: #10B981; font-size: 0.75rem;">[SELLO SUPERADO]</span></div>
-                <div style="background: white; border: 2px dashed #10B981; border-radius: 10px; padding: 15px;"><span style="font-size: 1.8rem;">💻</span><div style="font-weight: 900; font-size: 0.82rem; margin-top: 4px;">Tecnología</div><span style="color: #64748B; font-size: 0.75rem;">[PENDIENTE]</span></div>
-                <div style="background: white; border: 2px dashed #F59E0B; border-radius: 10px; padding: 15px;"><span style="font-size: 1.8rem;">⚙️</span><div style="font-weight: 900; font-size: 0.82rem; margin-top: 4px;">Ingeniería</div><span style="color: #64748B; font-size: 0.75rem;">[PENDIENTE]</span></div>
-                <div style="background: white; border: 2px dashed #EC4899; border-radius: 10px; padding: 15px;"><span style="font-size: 1.8rem;">📐</span><div style="font-weight: 900; font-size: 0.82rem; margin-top: 4px;">Matemáticas</div><span style="color: #64748B; font-size: 0.75rem;">[PENDIENTE]</span></div>
+                <div style="background: white; border: 2px dashed #3B82F6; border-radius: 10px; padding: 14px;"><span style="font-size: 1.8rem;">🔬</span><div style="font-weight: 900; font-size: 0.82rem; margin-top: 4px;">${base.materia}</div><span style="color: #10B981; font-size: 0.75rem;">[SELLO SUPERADO]</span></div>
+                <div style="background: white; border: 2px dashed #10B981; border-radius: 10px; padding: 14px;"><span style="font-size: 1.8rem;">💻</span><div style="font-weight: 900; font-size: 0.82rem; margin-top: 4px;">Tecnología</div><span style="color: #64748B; font-size: 0.75rem;">[PENDIENTE]</span></div>
+                <div style="background: white; border: 2px dashed #F59E0B; border-radius: 10px; padding: 14px;"><span style="font-size: 1.8rem;">⚙️</span><div style="font-weight: 900; font-size: 0.82rem; margin-top: 4px;">Ingeniería</div><span style="color: #64748B; font-size: 0.75rem;">[PENDIENTE]</span></div>
+                <div style="background: white; border: 2px dashed #EC4899; border-radius: 10px; padding: 14px;"><span style="font-size: 1.8rem;">📐</span><div style="font-weight: 900; font-size: 0.82rem; margin-top: 4px;">Matemáticas</div><span style="color: #64748B; font-size: 0.75rem;">[PENDIENTE]</span></div>
             </div>
-            <div style="color: #64748B; font-size: 0.82rem;">🏅 Estampa sellos y firmas a medida que el alumno supera cada reto.</div>
+            <div style="color: #64748B; font-size: 0.82rem;">🏅 Estampa sellos y firmas a medida que el alumno supera cada reto de <b>${data.tema}</b>.</div>
         </div>
     `;
 };
 
 window.renderizarPlanificadorSemanalTool = function(stage, base) {
+    const data = window.generarDatosPedagogicosDinamicos(base.materia, base.grado, base.concepto, base.dificultad);
     stage.innerHTML = `
         <div style="flex: 1; padding: 25px; background: white; display: flex; flex-direction: column; justify-content: space-between; text-align: left;">
             <h3 style="margin: 0; font-size: 1.35rem; font-weight: 900; color: #1E1B4B;">📅 Planificador Semanal de Estudio Home School: Grado ${base.grado}°</h3>
@@ -11295,9 +11461,9 @@ window.renderizarPlanificadorSemanalTool = function(stage, base) {
                 <tr style="background: #F1F5F9; border-bottom: 2px solid #CBD5E1;">
                     <th style="padding: 6px;">Día</th><th style="padding: 6px;">Asignatura</th><th style="padding: 6px;">Misión / Guía</th><th style="padding: 6px;">Hábito Diario</th><th style="padding: 6px;">Check</th>
                 </tr>
-                <tr style="border-bottom: 1px solid #E2E8F0;"><td style="padding: 6px; font-weight: 800;">Lunes</td><td>C. Naturales</td><td>Guía Semanal + Reto</td><td>30 min lectura</td><td>⬜</td></tr>
-                <tr style="border-bottom: 1px solid #E2E8F0;"><td style="padding: 6px; font-weight: 800;">Martes</td><td>Matemáticas</td><td>Problemas aplicados</td><td>Operaciones</td><td>⬜</td></tr>
-                <tr style="border-bottom: 1px solid #E2E8F0;"><td style="padding: 6px; font-weight: 800;">Miércoles</td><td>Lenguaje</td><td>Comprensión lectora</td><td>Redacción</td><td>⬜</td></tr>
+                <tr style="border-bottom: 1px solid #E2E8F0;"><td style="padding: 6px; font-weight: 800;">Lunes</td><td>${base.materia}</td><td>Guía de ${data.tema}</td><td>30 min indagación</td><td>⬜</td></tr>
+                <tr style="border-bottom: 1px solid #E2E8F0;"><td style="padding: 6px; font-weight: 800;">Martes</td><td>Matemáticas</td><td>Modelado de datos</td><td>Cálculo mental</td><td>⬜</td></tr>
+                <tr style="border-bottom: 1px solid #E2E8F0;"><td style="padding: 6px; font-weight: 800;">Miércoles</td><td>Lenguaje</td><td>Sustentación de hipótesis</td><td>Redacción</td><td>⬜</td></tr>
             </table>
             <div style="text-align: center; color: #64748B; font-size: 0.82rem;">🏡 Planificador semanal para el hogar con metas claras y seguimiento de hábitos.</div>
         </div>
@@ -11306,10 +11472,10 @@ window.renderizarPlanificadorSemanalTool = function(stage, base) {
 
 window.renderizarContratoConvivenciaTool = function(stage, base) {
     stage.innerHTML = `
-        <div style="flex: 1; padding: 30px; background: white; display: flex; flex-direction: column; justify-content: space-between; text-align: center; border: 2px solid #1E293B; border-radius: 14px;">
+        <div style="flex: 1; padding: 25px; background: white; display: flex; flex-direction: column; justify-content: space-between; text-align: center; border: 2px solid #1E293B; border-radius: 14px;">
             <div>
                 <h3 style="margin: 0; font-size: 1.4rem; font-weight: 900; color: #1E1B4B;">🛡️ Contrato de Convivencia y Compromiso de Estudio</h3>
-                <p style="margin: 2px 0 10px 0; color: #64748B; font-size: 0.85rem;">Acuerdo Ético y Pedagógico para el Aula y el Hogar</p>
+                <p style="margin: 2px 0 10px 0; color: #64748B; font-size: 0.85rem;">Acuerdo Ético y Pedagógico para el Aula y el Hogar • Grado ${base.grado}°</p>
             </div>
             <div style="text-align: left; font-size: 0.88rem; color: #334155; line-height: 1.6; max-width: 650px; margin: 0 auto;">
                 1. Me comprometo a cuidar los tiempos de estudio con puntualidad y responsabilidad.<br>
@@ -11317,7 +11483,7 @@ window.renderizarContratoConvivenciaTool = function(stage, base) {
                 3. Trataré con respeto y empatía a mis compañeros, docentes y tutores familiares.<br>
                 4. Daré mi mejor esfuerzo para superar cada misión y reto STEAM.
             </div>
-            <div style="display: flex; justify-content: space-around; margin-top: 20px;">
+            <div style="display: flex; justify-content: space-around; margin-top: 15px;">
                 <div><div style="border-bottom: 1px solid black; width: 140px; margin-bottom: 4px;"></div><span style="font-size: 0.78rem; font-weight: 800;">Firma del Estudiante</span></div>
                 <div><div style="border-bottom: 1px solid black; width: 140px; margin-bottom: 4px;"></div><span style="font-size: 0.78rem; font-weight: 800;">Firma del Tutor / Docente</span></div>
             </div>
