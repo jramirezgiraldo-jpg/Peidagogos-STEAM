@@ -9801,7 +9801,16 @@ window.LISTA_HERRAMIENTAS_PEDAGOGICAS = [
         badges: ['📺 Pantalla Gigante', '🔥 Hook Inicial', '💬 Debate']
     },
 
-    // --- CAJA 4: 🖨️ Fichas y Material de Trabajo Imprimible (25-30) ---
+    // --- CAJA 4: 🖨️ Fichas y Planificación Curricular (25-31) ---
+    {
+        id: 'secuencia_didactica',
+        categoria: 'imprimibles',
+        caja: 'Caja 4: Planificación y Material Imprimible',
+        icono: '📋',
+        titulo: 'Planificador de Clase y Secuencia Didáctica Pro',
+        desc: 'Diseñador didáctico con menú de modelos pedagógicos, enfoques STEAM, selector de tiempo y componentes modulares personalizables.',
+        badges: ['🖨️ Imprimible / PDF', '🎯 Modelos Pedagógicos', '⏱️ Minutero']
+    },
     {
         id: 'ficha_laboratorio',
         categoria: 'imprimibles',
@@ -9857,7 +9866,16 @@ window.LISTA_HERRAMIENTAS_PEDAGOGICAS = [
         badges: ['🖨️ Imprimible', '📐 Matemáticas', '📊 Gráficas']
     },
 
-    // --- CAJA 5: 🏆 Evaluación Formativa, Rúbricas y Reconocimientos (31-34) ---
+    // --- CAJA 5: 🏆 Evaluación Formativa y Diseño Curricular (32-36) ---
+    {
+        id: 'generador_malla_curricular',
+        categoria: 'evaluacion',
+        caja: 'Caja 5: Evaluación y Diseño Curricular',
+        icono: '🏛️',
+        titulo: 'Generador de Mallas Curriculares Oficiales (MEN / DBA)',
+        desc: 'Matriz curricular completa con EBC, DBA, semanas temáticas, desempeños cognitivos/procedimentales/actitudinales y rúbricas.',
+        badges: ['🖨️ Matriz PDF / Excel', '📜 Estándares MEN', '📅 10 Semanas / Anual']
+    },
     {
         id: 'diploma_merito',
         categoria: 'evaluacion',
@@ -10038,8 +10056,8 @@ window.METADATOS_CAJAS_TEMATICAS = {
     'juegos': { icono: '🕹️', titulo: 'Caja 1: Juegos Dinámicos y Activación (10 Herramientas)' },
     'aula': { icono: '📺', titulo: 'Caja 2: Gestión de Aula y Pantalla Gigante (6 Herramientas)' },
     'visual': { icono: '🧠', titulo: 'Caja 3: Pensamiento Visual & Mentefactos (8 Herramientas)' },
-    'imprimibles': { icono: '🖨️', titulo: 'Caja 4: Fichas y Material de Trabajo Imprimible (6 Herramientas)' },
-    'evaluacion': { icono: '🏆', titulo: 'Caja 5: Evaluación Formativa y Reconocimientos (4 Herramientas)' },
+    'imprimibles': { icono: '🖨️', titulo: 'Caja 4: Fichas y Planificación Curricular (7 Herramientas)' },
+    'evaluacion': { icono: '🏆', titulo: 'Caja 5: Evaluación y Diseño Curricular (5 Herramientas)' },
     'homeschool': { icono: '🏡', titulo: 'Caja 6: Organización, Hábitos y Home School (6 Herramientas)' }
 };
 
@@ -10211,7 +10229,8 @@ window.ejecutarRenderizadorHerramienta = function(id, stage, base) {
         case 'generador_roles': window.renderizarGeneradorRolesTool(stage, base); break;
         case 'trivia_gigante': window.renderizarTriviaGiganteTool(stage, base); break;
 
-        // Imprimibles y Formatos
+        // Imprimibles y Planificación Curricular
+        case 'secuencia_didactica': window.renderizarSecuenciaDidacticaTool(stage, base); break;
         case 'ficha_laboratorio': window.renderizarFichaLaboratorioTool(stage, base); break;
         case 'flashcards': window.renderizarFlashcardsTool(stage, base); break;
         case 'diagrama_venn': window.renderizarDiagramaVennTool(stage, base); break;
@@ -10219,7 +10238,8 @@ window.ejecutarRenderizadorHerramienta = function(id, stage, base) {
         case 'comic_cientifico': window.renderizarComicCientificoTool(stage, base); break;
         case 'taller_graficas': window.renderizarTallerGraficasTool(stage, base); break;
 
-        // Evaluación y Reconocimientos
+        // Evaluación y Diseño Curricular
+        case 'generador_malla_curricular': window.renderizarGeneradorMallaCurricularTool(stage, base); break;
         case 'diploma_merito': window.renderizarDiplomaMeritoTool(stage, base); break;
         case 'exit_tickets': window.renderizarExitTicketsTool(stage, base); break;
         case 'rubrica_formativa': window.renderizarRubricaFormativaTool(stage, base); break;
@@ -11305,22 +11325,690 @@ window.renderizarContratoConvivenciaTool = function(stage, base) {
     `;
 };
 
-window.renderizarCaceriaTesoroTool = function(stage, base) {
+// ==========================================================================
+// 41. PLANIFICADOR DE CLASE Y SECUENCIA DIDÁCTICA PRO
+// ==========================================================================
+window.renderizarSecuenciaDidacticaTool = function(stage, base) {
     stage.innerHTML = `
-        <div style="flex: 1; padding: 25px; background: white; display: flex; flex-direction: column; justify-content: space-between; text-align: left;">
-            <h3 style="margin: 0; font-size: 1.35rem; font-weight: 900; color: #1E1B4B;">🔎 Cacería del Tesoro Científica: ${base.concepto}</h3>
-            <div style="display: flex; flex-direction: column; gap: 10px; margin: 15px 0;">
-                <div style="background: #F8FAFC; border: 1px solid #CBD5E1; border-radius: 8px; padding: 10px;"><b>Pista 1:</b> Encuentra un objeto que refleje o refracte la luz solar.</div>
-                <div style="background: #F8FAFC; border: 1px solid #CBD5E1; border-radius: 8px; padding: 10px;"><b>Pista 2:</b> Localiza una muestra de hoja y observa sus nervaduras con lupa.</div>
-                <div style="background: #F8FAFC; border: 1px solid #CBD5E1; border-radius: 8px; padding: 10px;"><b>Pista 3:</b> Identifica una fuente de agua y explica su ciclo en el hogar.</div>
+        <div style="flex: 1; padding: 20px; background: #F8FAFC; display: flex; flex-direction: column; gap: 16px; text-align: left; overflow-y: auto;">
+            
+            <!-- Barra Superior de Configuración Pedagógica -->
+            <div style="background: white; border: 1.5px solid #CBD5E1; border-radius: 16px; padding: 18px; box-shadow: 0 4px 12px rgba(0,0,0,0.04);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 10px;">
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <span style="font-size: 1.6rem; background: #EEF2FF; padding: 6px 10px; border-radius: 10px;">📋</span>
+                        <div>
+                            <h3 style="margin: 0; font-size: 1.25rem; font-weight: 900; color: #1E1B4B;">Configurador de Secuencia Didáctica Pro</h3>
+                            <p style="margin: 2px 0 0 0; color: #64748B; font-size: 0.82rem;">Personaliza el modelo, enfoque, tiempo y componentes que integrará tu plan de clase.</p>
+                        </div>
+                    </div>
+                    <button onclick="window.actualizarContenidoSecuenciaDidactica()" style="background: linear-gradient(135deg, #2563EB, #1D4ED8); color: white; border: none; padding: 10px 18px; border-radius: 10px; font-weight: 800; font-size: 0.88rem; cursor: pointer; display: flex; align-items: center; gap: 8px; box-shadow: 0 4px 12px rgba(37,99,235,0.25);">
+                        <span>⚡</span> Actualizar y Diagramar Secuencia
+                    </button>
+                </div>
+
+                <!-- Selectores de Modelo, Enfoque y Tiempo -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; margin-bottom: 14px;">
+                    <div>
+                        <label style="font-size: 0.78rem; font-weight: 800; color: #334155; display: block; margin-bottom: 4px;">🎓 Modelo Pedagógico:</label>
+                        <select id="sec-select-modelo" onchange="window.actualizarContenidoSecuenciaDidactica()" style="width: 100%; padding: 8px 10px; border: 1.5px solid #CBD5E1; border-radius: 8px; font-weight: 700; font-size: 0.84rem; background: white;">
+                            <option value="Constructivismo (Piaget / Vygotsky / Ausubel)" selected>🌱 Constructivismo (Piaget / Vygotsky / Ausubel)</option>
+                            <option value="Pedagogía Conceptual (De Zubiría - Mentefactos)">🧠 Pedagogía Conceptual (De Zubiría - Mentefactos)</option>
+                            <option value="Aprendizaje Basado en Proyectos (ABP / PBL)">🚀 Aprendizaje Basado en Proyectos (ABP / PBL)</option>
+                            <option value="Enseñanza para la Comprensión (EpC - Harvard)">💡 Enseñanza para la Comprensión (EpC - Harvard)</option>
+                            <option value="Enfoque Socioformativo (Sergio Tobón - Retos)">🌍 Enfoque Socioformativo (Sergio Tobón - Retos)</option>
+                            <option value="Aula Invertida (Flipped Classroom)">🔄 Aula Invertida (Flipped Classroom)</option>
+                            <option value="Pensamiento de Diseño (Design Thinking STEAM)">🎨 Pensamiento de Diseño (Design Thinking STEAM)</option>
+                            <option value="Tradicional Estructurado">📖 Tradicional Estructurado</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label style="font-size: 0.78rem; font-weight: 800; color: #334155; display: block; margin-bottom: 4px;">🔬 Enfoque Pedagógico:</label>
+                        <select id="sec-select-enfoque" onchange="window.actualizarContenidoSecuenciaDidactica()" style="width: 100%; padding: 8px 10px; border: 1.5px solid #CBD5E1; border-radius: 8px; font-weight: 700; font-size: 0.84rem; background: white;">
+                            <option value="STEAM Integrado (Ciencia, Tech, Ing, Arte, Mat)" selected>⚡ STEAM Integrado (Ciencia, Tech, Ing, Arte, Mat)</option>
+                            <option value="Indagación Científica y Modelización">🧪 Indagación Científica y Modelización</option>
+                            <option value="Resolución de Problemas del Contexto Real">🎯 Resolución de Problemas del Contexto Real</option>
+                            <option value="Enfoque por Competencias MEN (Saber, Saber Hacer, Ser)">📜 Enfoque por Competencias MEN</option>
+                            <option value="Pensamiento Crítico y Ciudadano">🕊️ Pensamiento Crítico y Ciudadano</option>
+                            <option value="Diseño Universal para el Aprendizaje (DUA / Inclusión)">🤝 Diseño Universal para el Aprendizaje (DUA)</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label style="font-size: 0.78rem; font-weight: 800; color: #334155; display: block; margin-bottom: 4px;">⏱️ Tiempo de Duración de la Clase:</label>
+                        <select id="sec-select-tiempo" onchange="window.actualizarContenidoSecuenciaDidactica()" style="width: 100%; padding: 8px 10px; border: 1.5px solid #CBD5E1; border-radius: 8px; font-weight: 700; font-size: 0.84rem; background: white;">
+                            <option value="45">45 minutos (1 Hora Cátedra)</option>
+                            <option value="60">60 minutos (1 Hora Completa)</option>
+                            <option value="90" selected>90 minutos (Bloque Doble / Taller STEAM)</option>
+                            <option value="120">120 minutos (2 Horas de Laboratorio / Proyecto)</option>
+                            <option value="180">180 minutos (Secuencia Modular de 3 Sesiones)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Checkboxes de Elementos a Chulear -->
+                <div>
+                    <label style="font-size: 0.78rem; font-weight: 800; color: #334155; display: block; margin-bottom: 8px;">
+                        ☑️ Chulea los componentes que deseas incluir en tu Secuencia Didáctica:
+                    </label>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 8px;">
+                        <label style="display: flex; align-items: center; gap: 8px; font-size: 0.8rem; font-weight: 700; color: #475569; background: #F8FAFC; padding: 6px 10px; border-radius: 8px; border: 1px solid #E2E8F0; cursor: pointer;">
+                            <input type="checkbox" id="chk-sec-pregunta" checked onchange="window.actualizarContenidoSecuenciaDidactica()">
+                            <span>❓ Pregunta Orientadora / Problema</span>
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 8px; font-size: 0.8rem; font-weight: 700; color: #475569; background: #F8FAFC; padding: 6px 10px; border-radius: 8px; border: 1px solid #E2E8F0; cursor: pointer;">
+                            <input type="checkbox" id="chk-sec-dba" checked onchange="window.actualizarContenidoSecuenciaDidactica()">
+                            <span>📜 Estándares & DBA (MEN)</span>
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 8px; font-size: 0.8rem; font-weight: 700; color: #475569; background: #F8FAFC; padding: 6px 10px; border-radius: 8px; border: 1px solid #E2E8F0; cursor: pointer;">
+                            <input type="checkbox" id="chk-sec-f1" checked onchange="window.actualizarContenidoSecuenciaDidactica()">
+                            <span>🔥 Fase 1: Exploración / Hook</span>
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 8px; font-size: 0.8rem; font-weight: 700; color: #475569; background: #F8FAFC; padding: 6px 10px; border-radius: 8px; border: 1px solid #E2E8F0; cursor: pointer;">
+                            <input type="checkbox" id="chk-sec-f2" checked onchange="window.actualizarContenidoSecuenciaDidactica()">
+                            <span>🧠 Fase 2: Estructuración y Conceptos</span>
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 8px; font-size: 0.8rem; font-weight: 700; color: #475569; background: #F8FAFC; padding: 6px 10px; border-radius: 8px; border: 1px solid #E2E8F0; cursor: pointer;">
+                            <input type="checkbox" id="chk-sec-f3" checked onchange="window.actualizarContenidoSecuenciaDidactica()">
+                            <span>🧪 Fase 3: Práctica / Taller STEAM</span>
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 8px; font-size: 0.8rem; font-weight: 700; color: #475569; background: #F8FAFC; padding: 6px 10px; border-radius: 8px; border: 1px solid #E2E8F0; cursor: pointer;">
+                            <input type="checkbox" id="chk-sec-f4" checked onchange="window.actualizarContenidoSecuenciaDidactica()">
+                            <span>🚀 Fase 4: Transferencia & Producto</span>
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 8px; font-size: 0.8rem; font-weight: 700; color: #475569; background: #F8FAFC; padding: 6px 10px; border-radius: 8px; border: 1px solid #E2E8F0; cursor: pointer;">
+                            <input type="checkbox" id="chk-sec-f5" checked onchange="window.actualizarContenidoSecuenciaDidactica()">
+                            <span>🎯 Fase 5: Valoración Formativa</span>
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 8px; font-size: 0.8rem; font-weight: 700; color: #475569; background: #F8FAFC; padding: 6px 10px; border-radius: 8px; border: 1px solid #E2E8F0; cursor: pointer;">
+                            <input type="checkbox" id="chk-sec-recursos" checked onchange="window.actualizarContenidoSecuenciaDidactica()">
+                            <span>📦 Recursos & Herramientas Digitales</span>
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 8px; font-size: 0.8rem; font-weight: 700; color: #475569; background: #F8FAFC; padding: 6px 10px; border-radius: 8px; border: 1px solid #E2E8F0; cursor: pointer;">
+                            <input type="checkbox" id="chk-sec-dua" checked onchange="window.actualizarContenidoSecuenciaDidactica()">
+                            <span>🤝 Ajustes DUA / Inclusión</span>
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 8px; font-size: 0.8rem; font-weight: 700; color: #475569; background: #F8FAFC; padding: 6px 10px; border-radius: 8px; border: 1px solid #E2E8F0; cursor: pointer;">
+                            <input type="checkbox" id="chk-sec-tarea" checked onchange="window.actualizarContenidoSecuenciaDidactica()">
+                            <span>🏡 Misión Autónoma / Reto XP</span>
+                        </label>
+                    </div>
+                </div>
             </div>
-            <div style="text-align: center; color: #64748B; font-size: 0.82rem;">🏡 Ficha de exploración física para el aula o el hogar.</div>
+
+            <!-- Botones de Acción y Exportación -->
+            <div style="display: flex; justify-content: flex-end; gap: 10px; flex-wrap: wrap;">
+                <button onclick="window.copiarDocumentoSecuencia()" style="background: white; border: 1.5px solid #CBD5E1; color: #334155; padding: 8px 16px; border-radius: 10px; font-weight: 800; font-size: 0.85rem; cursor: pointer; display: flex; align-items: center; gap: 6px;">
+                    📋 Copiar Plan Didáctico
+                </button>
+                <button onclick="window.imprimirDocumentoSecuencia()" style="background: linear-gradient(135deg, #059669, #047857); color: white; border: none; padding: 8px 18px; border-radius: 10px; font-weight: 800; font-size: 0.85rem; cursor: pointer; display: flex; align-items: center; gap: 6px; box-shadow: 0 4px 12px rgba(5,150,105,0.25);">
+                    🖨️ Imprimir Secuencia Didáctica (PDF)
+                </button>
+            </div>
+
+            <!-- Documento Imprimible Diagramado -->
+            <div id="secuencia-didactica-contenedor-documento" style="background: white; border: 2px solid #CBD5E1; border-radius: 14px; padding: 26px 30px; box-shadow: 0 4px 16px rgba(0,0,0,0.05); color: #1E293B; font-family: 'Segoe UI', system-ui, sans-serif;">
+                <!-- Generado dinámicamente -->
+            </div>
         </div>
     `;
+
+    window.actualizarContenidoSecuenciaDidactica();
 };
 
-window.renderizarColoreaCodigoTool = function(stage, base) { window.renderizarFlashcardsTool(stage, base); };
-window.renderizarArbolTaxonomicoTool = function(stage, base) { window.renderizarMapaConceptualNovak(stage, base); };
+window.actualizarContenidoSecuenciaDidactica = function() {
+    const contenedor = document.getElementById('secuencia-didactica-contenedor-documento');
+    if (!contenedor) return;
+
+    const base = window.obtenerContenidoBaseIngesta();
+    const selMod = document.getElementById('sec-select-modelo');
+    const selEnf = document.getElementById('sec-select-enfoque');
+    const selTie = document.getElementById('sec-select-tiempo');
+
+    const modelo = selMod ? selMod.value : 'Constructivismo';
+    const enfoque = selEnf ? selEnf.value : 'STEAM Integrado';
+    const tiempoTotal = parseInt(selTie ? selTie.value : '90', 10);
+
+    // Minutaje proporcional según tiempo total
+    const tF1 = Math.round(tiempoTotal * 0.15);
+    const tF2 = Math.round(tiempoTotal * 0.30);
+    const tF3 = Math.round(tiempoTotal * 0.35);
+    const tF4 = Math.round(tiempoTotal * 0.15);
+    const tF5 = Math.max(5, tiempoTotal - (tF1 + tF2 + tF3 + tF4));
+
+    // Estado de checkboxes
+    const chkPregunta = document.getElementById('chk-sec-pregunta')?.checked ?? true;
+    const chkDBA = document.getElementById('chk-sec-dba')?.checked ?? true;
+    const chkF1 = document.getElementById('chk-sec-f1')?.checked ?? true;
+    const chkF2 = document.getElementById('chk-sec-f2')?.checked ?? true;
+    const chkF3 = document.getElementById('chk-sec-f3')?.checked ?? true;
+    const chkF4 = document.getElementById('chk-sec-f4')?.checked ?? true;
+    const chkF5 = document.getElementById('chk-sec-f5')?.checked ?? true;
+    const chkRecursos = document.getElementById('chk-sec-recursos')?.checked ?? true;
+    const chkDUA = document.getElementById('chk-sec-dua')?.checked ?? true;
+    const chkTarea = document.getElementById('chk-sec-tarea')?.checked ?? true;
+
+    const c = base.concepto;
+
+    let html = `
+        <!-- Encabezado Institucional -->
+        <div style="border-bottom: 2.5px solid #1E3A8A; padding-bottom: 14px; margin-bottom: 18px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+            <div>
+                <div style="font-size: 0.75rem; font-weight: 900; color: #2563EB; text-transform: uppercase; letter-spacing: 1.5px;">SISTEMA INSTITUCIONAL PEIDAGOGOS STEAM</div>
+                <h2 style="margin: 2px 0 0 0; font-size: 1.45rem; font-weight: 900; color: #0F172A;">FORMATO OFICIAL DE SECUENCIA DIDÁCTICA Y PLAN DE CLASE</h2>
+                <div style="font-size: 0.84rem; color: #475569; margin-top: 2px;">Diseño curricular alineado con Estándares Básicos de Competencias y DBA (MEN)</div>
+            </div>
+            <div style="text-align: right; background: #EFF6FF; border: 1.5px solid #BFDBFE; border-radius: 10px; padding: 6px 14px;">
+                <div style="font-size: 0.75rem; font-weight: 800; color: #1E40AF;">TIEMPO TOTAL</div>
+                <div style="font-size: 1.3rem; font-weight: 900; color: #1D4ED8;">⏱️ ${tiempoTotal} min</div>
+            </div>
+        </div>
+
+        <!-- Matriz de Identificación -->
+        <table style="width: 100%; border-collapse: collapse; margin-bottom: 18px; font-size: 0.85rem;">
+            <tr style="background: #F1F5F9;">
+                <td style="padding: 8px 12px; border: 1px solid #CBD5E1; font-weight: 800; width: 25%;">📚 Asignatura:</td>
+                <td style="padding: 8px 12px; border: 1px solid #CBD5E1; font-weight: 700; color: #1E3A8A;">${base.materia}</td>
+                <td style="padding: 8px 12px; border: 1px solid #CBD5E1; font-weight: 800; width: 25%;">🎓 Grado / Ciclo:</td>
+                <td style="padding: 8px 12px; border: 1px solid #CBD5E1; font-weight: 700;">Grado ${base.grado}°</td>
+            </tr>
+            <tr>
+                <td style="padding: 8px 12px; border: 1px solid #CBD5E1; font-weight: 800;">📅 Periodo / Semana:</td>
+                <td style="padding: 8px 12px; border: 1px solid #CBD5E1;">Periodo ${base.periodo} • Semana ${base.semana}</td>
+                <td style="padding: 8px 12px; border: 1px solid #CBD5E1; font-weight: 800;">🎯 Tema / Eje Central:</td>
+                <td style="padding: 8px 12px; border: 1px solid #CBD5E1; font-weight: 800; color: #0F172A;">${c}</td>
+            </tr>
+            <tr style="background: #F8FAFC;">
+                <td style="padding: 8px 12px; border: 1px solid #CBD5E1; font-weight: 800;">🏛️ Modelo Pedagógico:</td>
+                <td style="padding: 8px 12px; border: 1px solid #CBD5E1; color: #4338CA; font-weight: 700;">${modelo}</td>
+                <td style="padding: 8px 12px; border: 1px solid #CBD5E1; font-weight: 800;">🔬 Enfoque Metodológico:</td>
+                <td style="padding: 8px 12px; border: 1px solid #CBD5E1; color: #047857; font-weight: 700;">${enfoque}</td>
+            </tr>
+        </table>
+    `;
+
+    if (chkPregunta) {
+        html += `
+            <div style="background: #FEF3C7; border-left: 4px solid #F59E0B; padding: 12px 16px; border-radius: 0 10px 10px 0; margin-bottom: 16px;">
+                <div style="font-weight: 900; color: #92400E; font-size: 0.88rem; margin-bottom: 4px;">❓ PREGUNTA ORIENTADORA / SITUACIÓN PROBLEMA DEL CONTEXTO:</div>
+                <div style="font-size: 0.88rem; color: #78350F; line-height: 1.45;">
+                    ¿De qué manera los principios de <strong>${c}</strong> nos permiten solucionar desafíos reales en nuestra comunidad o entorno cotidiano mediante el pensamiento científico y creativo?
+                </div>
+            </div>
+        `;
+    }
+
+    if (chkDBA) {
+        html += `
+            <div style="background: #EFF6FF; border: 1.5px solid #BFDBFE; border-radius: 12px; padding: 14px; margin-bottom: 18px;">
+                <div style="font-weight: 900; color: #1E40AF; font-size: 0.9rem; margin-bottom: 6px;">📜 ESTÁNDARES BÁSICOS DE COMPETENCIAS & DERECHOS BÁSICOS DE APRENDIZAJE (MEN):</div>
+                <ul style="margin: 0; padding-left: 20px; font-size: 0.85rem; color: #1E293B; line-height: 1.5;">
+                    <li><strong>Estándar EBC:</strong> Explico y modelo fenómenos del entorno a partir de relaciones conceptuales sólidas de ${base.materia}, formulando hipótesis y contrastándolas con evidencias.</li>
+                    <li><strong>DBA Asociado:</strong> Comprende y aplica los conceptos fundamentales de <em>${c}</em> en Grado ${base.grado}°, argumentando su validez mediante el razonamiento lógico y cuantitativo.</li>
+                    <li><strong>Evidencia de Aprendizaje:</strong> Construye modelos explicativos, resuelve problemas estructurados y comunica sus hallazgos utilizando lenguaje técnico apropiado.</li>
+                </ul>
+            </div>
+        `;
+    }
+
+    // Fases de la Secuencia Didáctica
+    if (chkF1 || chkF2 || chkF3 || chkF4 || chkF5) {
+        html += `
+            <div style="margin-bottom: 20px;">
+                <div style="font-weight: 900; color: #0F172A; font-size: 1rem; border-bottom: 2px solid #E2E8F0; padding-bottom: 6px; margin-bottom: 12px;">
+                    🚀 FASES DE LA SECUENCIA DIDÁCTICA (DESARROLLO DE LA CLASE):
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 12px;">
+        `;
+
+        if (chkF1) {
+            html += `
+                <div style="border: 1.5px solid #E2E8F0; border-radius: 10px; overflow: hidden;">
+                    <div style="background: #EEF2FF; padding: 8px 14px; font-weight: 900; font-size: 0.88rem; color: #3730A3; display: flex; justify-content: space-between; align-items: center;">
+                        <span>🔥 FASE 1: Exploración y Activación de Saberes Previos (Hook Inicial)</span>
+                        <span style="background: white; color: #4338CA; padding: 2px 10px; border-radius: 12px; font-size: 0.78rem;">⏱️ ${tF1} min</span>
+                    </div>
+                    <div style="padding: 12px 16px; font-size: 0.85rem; color: #334155; line-height: 1.5;">
+                        <b>Actividad del Docente:</b> Presenta una situación detonante o experimento demostrativo relacionado con <em>${c}</em>. Plantea 2 preguntas abiertas para sondear concepciones alternativas.<br>
+                        <b>Actividad del Estudiante:</b> Participa en lluvia de ideas rápida, registra sus hipótesis iniciales en su cuaderno de campo o muro interactivo.
+                    </div>
+                </div>
+            `;
+        }
+
+        if (chkF2) {
+            html += `
+                <div style="border: 1.5px solid #E2E8F0; border-radius: 10px; overflow: hidden;">
+                    <div style="background: #ECFDF5; padding: 8px 14px; font-weight: 900; font-size: 0.88rem; color: #065F46; display: flex; justify-content: space-between; align-items: center;">
+                        <span>🧠 FASE 2: Estructuración y Conceptualización Rigurosa</span>
+                        <span style="background: white; color: #059669; padding: 2px 10px; border-radius: 12px; font-size: 0.78rem;">⏱️ ${tF2} min</span>
+                    </div>
+                    <div style="padding: 12px 16px; font-size: 0.85rem; color: #334155; line-height: 1.5;">
+                        <b>Actividad del Docente:</b> Modela el concepto central utilizando un organizador gráfico (mentefacto o mapa conceptual Novak). Introduce vocabulario científico y formaliza leyes clave.<br>
+                        <b>Actividad del Estudiante:</b> Toma notas estructuradas, identifica relaciones de supraordinación y exclusión, y plantea dudas conceptuales.
+                    </div>
+                </div>
+            `;
+        }
+
+        if (chkF3) {
+            html += `
+                <div style="border: 1.5px solid #E2E8F0; border-radius: 10px; overflow: hidden;">
+                    <div style="background: #FDF2F8; padding: 8px 14px; font-weight: 900; font-size: 0.88rem; color: #9D174D; display: flex; justify-content: space-between; align-items: center;">
+                        <span>🧪 FASE 3: Práctica Guiada / Taller Experimental STEAM</span>
+                        <span style="background: white; color: #DB2777; padding: 2px 10px; border-radius: 12px; font-size: 0.78rem;">⏱️ ${tF3} min</span>
+                    </div>
+                    <div style="padding: 12px 16px; font-size: 0.85rem; color: #334155; line-height: 1.5;">
+                        <b>Actividad del Docente:</b> Organiza a los alumnos en equipos cooperativos asignando roles (Líder, Diseñador, Investigador, Portavoz). Monitorea el taller experimental o simulación.<br>
+                        <b>Actividad del Estudiante:</b> Ejecutan el protocolo de indagación sobre <em>${c}</em>, recolectan datos empíricos y resuelven la guía de retos STEAM.
+                    </div>
+                </div>
+            `;
+        }
+
+        if (chkF4) {
+            html += `
+                <div style="border: 1.5px solid #E2E8F0; border-radius: 10px; overflow: hidden;">
+                    <div style="background: #FFFBEB; padding: 8px 14px; font-weight: 900; font-size: 0.88rem; color: #92400E; display: flex; justify-content: space-between; align-items: center;">
+                        <span>🚀 FASE 4: Transferencia y Creación de Producto STEAM</span>
+                        <span style="background: white; color: #D97706; padding: 2px 10px; border-radius: 12px; font-size: 0.78rem;">⏱️ ${tF4} min</span>
+                    </div>
+                    <div style="padding: 12px 16px; font-size: 0.85rem; color: #334155; line-height: 1.5;">
+                        <b>Actividad del Docente:</b> Facilita la socialización plenaria y guía la contrastación de resultados entre diferentes equipos.<br>
+                        <b>Actividad del Estudiante:</b> Presentan su prototipo, póster científico o solución al problema inicial en un formato elevator pitch de 2 minutos.
+                    </div>
+                </div>
+            `;
+        }
+
+        if (chkF5) {
+            html += `
+                <div style="border: 1.5px solid #E2E8F0; border-radius: 10px; overflow: hidden;">
+                    <div style="background: #F1F5F9; padding: 8px 14px; font-weight: 900; font-size: 0.88rem; color: #334155; display: flex; justify-content: space-between; align-items: center;">
+                        <span>🎯 FASE 5: Valoración Formativa, Cierre y Metacognición</span>
+                        <span style="background: white; color: #475569; padding: 2px 10px; border-radius: 12px; font-size: 0.78rem;">⏱️ ${tF5} min</span>
+                    </div>
+                    <div style="padding: 12px 16px; font-size: 0.85rem; color: #334155; line-height: 1.5;">
+                        <b>Actividad del Docente:</b> Aplica un boleto de salida (Exit Ticket) de 3 preguntas de autorreflexión y retroalimenta los logros de aprendizaje.<br>
+                        <b>Actividad del Estudiante:</b> Diligencia su rúbrica formativa personal respondiendo: ¿Qué aprendí hoy? ¿Qué se me dificultó? ¿Cómo lo aplico?
+                    </div>
+                </div>
+            `;
+        }
+
+        html += `
+                </div>
+            </div>
+        `;
+    }
+
+    // Bloques complementarios
+    if (chkRecursos || chkDUA || chkTarea) {
+        html += `<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; margin-top: 14px;">`;
+
+        if (chkRecursos) {
+            html += `
+                <div style="background: #F8FAFC; border: 1.5px solid #E2E8F0; border-radius: 10px; padding: 12px 14px;">
+                    <div style="font-weight: 800; color: #1E3A8A; font-size: 0.84rem; margin-bottom: 6px;">📦 RECURSOS Y HERRAMIENTAS:</div>
+                    <ul style="margin: 0; padding-left: 18px; font-size: 0.8rem; color: #475569; line-height: 1.45;">
+                        <li>Plataforma interactiva Peidagogos STEAM.</li>
+                        <li>Ficha didáctica y guía experimental impresa.</li>
+                        <li>Proyector / Pantalla para animaciones y simulaciones.</li>
+                        <li>Materiales de laboratorio o caseros de bajo costo.</li>
+                    </ul>
+                </div>
+            `;
+        }
+
+        if (chkDUA) {
+            html += `
+                <div style="background: #F0FDF4; border: 1.5px solid #BBF7D0; border-radius: 10px; padding: 12px 14px;">
+                    <div style="font-weight: 800; color: #166534; font-size: 0.84rem; margin-bottom: 6px;">🤝 AJUSTES RAZONABLES DUA (INCLUSIÓN):</div>
+                    <div style="font-size: 0.8rem; color: #14532D; line-height: 1.45;">
+                        • <b>Representación:</b> Uso de imágenes, esquemas gráficos y textos claros.<br>
+                        • <b>Acción y Expresión:</b> Opción de responder de forma oral, escrita o mediante dibujos técnicos.<br>
+                        • <b>Implicación:</b> Trabajo colaborativo por roles con apoyo de pares.
+                    </div>
+                </div>
+            `;
+        }
+
+        if (chkTarea) {
+            html += `
+                <div style="background: #FFFBEB; border: 1.5px solid #FDE68A; border-radius: 10px; padding: 12px 14px;">
+                    <div style="font-weight: 800; color: #92400E; font-size: 0.84rem; margin-bottom: 6px;">🏡 MISIÓN AUTÓNOMA / RETO GAMIFICADO:</div>
+                    <div style="font-size: 0.8rem; color: #78350F; line-height: 1.45;">
+                        Explorar en casa o en la biblioteca digital 1 aplicación de <em>${c}</em> en la vida diaria y registrar 3 observaciones en el cuaderno. <b>(+50 Puntos XP en la plataforma).</b>
+                    </div>
+                </div>
+            `;
+        }
+
+        html += `</div>`;
+    }
+
+    // Firmas Institucionales
+    html += `
+        <div style="display: flex; justify-content: space-around; margin-top: 35px; padding-top: 15px; border-top: 1.5px dashed #CBD5E1;">
+            <div style="text-align: center; width: 220px;">
+                <div style="border-bottom: 1.5px solid #1E293B; margin-bottom: 6px;"></div>
+                <div style="font-weight: 800; font-size: 0.82rem; color: #0F172A;">Firma del Docente / Tutor</div>
+                <div style="font-size: 0.74rem; color: #64748B;">Diseñador Pedagógico STEAM</div>
+            </div>
+            <div style="text-align: center; width: 220px;">
+                <div style="border-bottom: 1.5px solid #1E293B; margin-bottom: 6px;"></div>
+                <div style="font-weight: 800; font-size: 0.82rem; color: #0F172A;">Firma Coordinación Académica</div>
+                <div style="font-size: 0.74rem; color: #64748B;">Revisión Curricular MEN</div>
+            </div>
+        </div>
+    `;
+
+    contenedor.innerHTML = html;
+};
+
+window.imprimirDocumentoSecuencia = function() {
+    window.print();
+};
+
+window.copiarDocumentoSecuencia = function() {
+    const doc = document.getElementById('secuencia-didactica-contenedor-documento');
+    if (!doc) return;
+
+    if (navigator.clipboard) {
+        navigator.clipboard.writeText(doc.innerText).then(() => {
+            alert('📋 ¡Secuencia Didáctica copiada al portapapeles con éxito!');
+        });
+    } else {
+        alert('📋 Selecciona el texto del documento para copiarlo.');
+    }
+};
 
 // ==========================================================================
+// 42. GENERADOR DE MALLAS CURRICULARES OFICIALES (MEN / DBA / STEAM)
+// ==========================================================================
+window.renderizarGeneradorMallaCurricularTool = function(stage, base) {
+    stage.innerHTML = `
+        <div style="flex: 1; padding: 20px; background: #F8FAFC; display: flex; flex-direction: column; gap: 16px; text-align: left; overflow-y: auto;">
+            
+            <!-- Barra Superior de Configuración de la Malla -->
+            <div style="background: white; border: 1.5px solid #CBD5E1; border-radius: 16px; padding: 18px; box-shadow: 0 4px 12px rgba(0,0,0,0.04);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 10px;">
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <span style="font-size: 1.6rem; background: #FEF3C7; padding: 6px 10px; border-radius: 10px;">🏛️</span>
+                        <div>
+                            <h3 style="margin: 0; font-size: 1.25rem; font-weight: 900; color: #1E1B4B;">Generador de Mallas Curriculares Oficiales (MEN/DBA)</h3>
+                            <p style="margin: 2px 0 0 0; color: #64748B; font-size: 0.82rem;">Estructuración formal de áreas, semanas temáticas, desempeños y rúbricas analíticas.</p>
+                        </div>
+                    </div>
+                    <button onclick="window.actualizarContenidoMallaCurricular()" style="background: linear-gradient(135deg, #D97706, #EA580C); color: white; border: none; padding: 10px 18px; border-radius: 10px; font-weight: 800; font-size: 0.88rem; cursor: pointer; display: flex; align-items: center; gap: 8px; box-shadow: 0 4px 12px rgba(217,119,6,0.25);">
+                        <span>⚡</span> Generar Malla Curricular Completa
+                    </button>
+                </div>
+
+                <!-- Menús Colgantes de Configuración Curricular -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px;">
+                    <div>
+                        <label style="font-size: 0.78rem; font-weight: 800; color: #334155; display: block; margin-bottom: 4px;">📚 Asignatura:</label>
+                        <select id="malla-select-materia" onchange="window.actualizarContenidoMallaCurricular()" style="width: 100%; padding: 8px 10px; border: 1.5px solid #CBD5E1; border-radius: 8px; font-weight: 700; font-size: 0.84rem; background: white;">
+                            <option value="Ciencias Naturales">🌿 Ciencias Naturales (Física, Química, Bio)</option>
+                            <option value="Matemáticas">📐 Matemáticas y Razonamiento Lógico</option>
+                            <option value="Lengua Castellana">📖 Lengua Castellana y Comunicación</option>
+                            <option value="Ciencias Sociales">🌍 Ciencias Sociales y Ciudadanas</option>
+                            <option value="Inglés">🇬🇧 Inglés STEAM</option>
+                            <option value="Tecnología">💻 Tecnología e Informática</option>
+                            <option value="Educación Artística">🎨 Educación Artística y Diseño</option>
+                            <option value="Ética y Valores">🕊️ Ética y Valores Humanos</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label style="font-size: 0.78rem; font-weight: 800; color: #334155; display: block; margin-bottom: 4px;">🎓 Grado / Ciclo:</label>
+                        <select id="malla-select-grado" onchange="window.actualizarContenidoMallaCurricular()" style="width: 100%; padding: 8px 10px; border: 1.5px solid #CBD5E1; border-radius: 8px; font-weight: 700; font-size: 0.84rem; background: white;">
+                            <option value="1">1° Primaria</option><option value="2">2° Primaria</option><option value="3">3° Primaria</option><option value="4">4° Primaria</option><option value="5">5° Primaria</option>
+                            <option value="6">6° Secundaria</option><option value="7" selected>7° Secundaria</option><option value="8">8° Secundaria</option><option value="9">9° Secundaria</option><option value="10">10° Media</option><option value="11">11° Media</option>
+                            <option value="Ciclo I">Ciclo I (1°-3°)</option><option value="Ciclo II">Ciclo II (4°-5°)</option><option value="Ciclo III">Ciclo III (6°-7°)</option><option value="Ciclo IV">Ciclo IV (8°-9°)</option><option value="Ciclo V">Ciclo V (10°)</option><option value="Ciclo VI">Ciclo VI (11°)</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label style="font-size: 0.78rem; font-weight: 800; color: #334155; display: block; margin-bottom: 4px;">📅 Alcance / Periodo:</label>
+                        <select id="malla-select-periodo" onchange="window.actualizarContenidoMallaCurricular()" style="width: 100%; padding: 8px 10px; border: 1.5px solid #CBD5E1; border-radius: 8px; font-weight: 700; font-size: 0.84rem; background: white;">
+                            <option value="1">Periodo 1 (Semanas 1 a 10)</option>
+                            <option value="2">Periodo 2 (Semanas 1 a 10)</option>
+                            <option value="3" selected>Periodo 3 (Semanas 1 a 10)</option>
+                            <option value="4">Periodo 4 (Semanas 1 a 10)</option>
+                            <option value="anual">🌐 Malla Curricular Anual (4 Periodos / 40 Semanas)</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label style="font-size: 0.78rem; font-weight: 800; color: #334155; display: block; margin-bottom: 4px;">🔬 Enfoque Curricular:</label>
+                        <select id="malla-select-enfoque" onchange="window.actualizarContenidoMallaCurricular()" style="width: 100%; padding: 8px 10px; border: 1.5px solid #CBD5E1; border-radius: 8px; font-weight: 700; font-size: 0.84rem; background: white;">
+                            <option value="Estándares Básicos MEN + DBA Oficiales" selected>📜 Estándares Básicos MEN + DBA Oficiales</option>
+                            <option value="STEAM Transversal + Aprendizaje Basado en Proyectos">⚡ STEAM Transversal + Proyectos ABP</option>
+                            <option value="Competencias ICFES Saber 11°">🎯 Competencias ICFES Saber 11°</option>
+                            <option value="Educación Inclusiva DUA">🤝 Educación Inclusiva DUA</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label style="font-size: 0.78rem; font-weight: 800; color: #334155; display: block; margin-bottom: 4px;">⏱️ Intensidad Horaria Semanal:</label>
+                        <select id="malla-select-intensidad" onchange="window.actualizarContenidoMallaCurricular()" style="width: 100%; padding: 8px 10px; border: 1.5px solid #CBD5E1; border-radius: 8px; font-weight: 700; font-size: 0.84rem; background: white;">
+                            <option value="2 horas semanales">2 horas semanales</option>
+                            <option value="3 horas semanales">3 horas semanales</option>
+                            <option value="4 horas semanales" selected>4 horas semanales</option>
+                            <option value="5 horas semanales">5 horas semanales</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Botones de Acción -->
+            <div style="display: flex; justify-content: flex-end; gap: 10px; flex-wrap: wrap;">
+                <button onclick="window.copiarDocumentoMalla()" style="background: white; border: 1.5px solid #CBD5E1; color: #334155; padding: 8px 16px; border-radius: 10px; font-weight: 800; font-size: 0.85rem; cursor: pointer; display: flex; align-items: center; gap: 6px;">
+                    📋 Copiar Matriz Curricular
+                </button>
+                <button onclick="window.imprimirDocumentoMalla()" style="background: linear-gradient(135deg, #D97706, #EA580C); color: white; border: none; padding: 8px 18px; border-radius: 10px; font-weight: 800; font-size: 0.85rem; cursor: pointer; display: flex; align-items: center; gap: 6px; box-shadow: 0 4px 12px rgba(217,119,6,0.25);">
+                    🖨️ Imprimir Malla Curricular (PDF)
+                </button>
+            </div>
+
+            <!-- Documento Imprimible de la Malla -->
+            <div id="malla-curricular-contenedor-documento" style="background: white; border: 2px solid #CBD5E1; border-radius: 14px; padding: 26px 30px; box-shadow: 0 4px 16px rgba(0,0,0,0.05); color: #1E293B; font-family: 'Segoe UI', system-ui, sans-serif;">
+                <!-- Inyectado dinámicamente -->
+            </div>
+        </div>
+    `;
+
+    window.actualizarContenidoMallaCurricular();
+};
+
+window.actualizarContenidoMallaCurricular = function() {
+    const contenedor = document.getElementById('malla-curricular-contenedor-documento');
+    if (!contenedor) return;
+
+    const base = window.obtenerContenidoBaseIngesta();
+    const selMat = document.getElementById('malla-select-materia');
+    const selGra = document.getElementById('malla-select-grado');
+    const selPer = document.getElementById('malla-select-periodo');
+    const selEnf = document.getElementById('malla-select-enfoque');
+    const selInt = document.getElementById('malla-select-intensidad');
+
+    const materia = selMat ? selMat.value : base.materia;
+    const grado = selGra ? selGra.value : base.grado;
+    const periodo = selPer ? selPer.value : base.periodo;
+    const enfoque = selEnf ? selEnf.value : 'Estándares Básicos MEN';
+    const intensidad = selInt ? selInt.value : '4 horas semanales';
+    const c = base.concepto;
+
+    const esAnual = (periodo === 'anual');
+
+    let html = `
+        <!-- Encabezado Institucional de la Malla -->
+        <div style="border-bottom: 2.5px solid #92400E; padding-bottom: 14px; margin-bottom: 18px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+            <div>
+                <div style="font-size: 0.75rem; font-weight: 900; color: #D97706; text-transform: uppercase; letter-spacing: 1.5px;">SISTEMA INSTITUCIONAL DE GESTIÓN CURRICULAR PEIDAGOGOS STEAM</div>
+                <h2 style="margin: 2px 0 0 0; font-size: 1.45rem; font-weight: 900; color: #0F172A;">MALLA CURRICULAR INSTITUCIONAL Y PLAN DE ÁREA OFICIAL</h2>
+                <div style="font-size: 0.84rem; color: #475569; margin-top: 2px;">Estructura Pedagógica articulada con MEN (Ley 115 / Decretos 1290 y 1860)</div>
+            </div>
+            <div style="text-align: right; background: #FFFBEB; border: 1.5px solid #FDE68A; border-radius: 10px; padding: 6px 14px;">
+                <div style="font-size: 0.75rem; font-weight: 800; color: #92400E;">INTENSIDAD HORARIA</div>
+                <div style="font-size: 1.1rem; font-weight: 900; color: #B45309;">⏱️ ${intensidad}</div>
+            </div>
+        </div>
+
+        <!-- Tabla de Datos Generales -->
+        <table style="width: 100%; border-collapse: collapse; margin-bottom: 18px; font-size: 0.85rem;">
+            <tr style="background: #F1F5F9;">
+                <td style="padding: 8px 12px; border: 1px solid #CBD5E1; font-weight: 800; width: 20%;">Área / Asignatura:</td>
+                <td style="padding: 8px 12px; border: 1px solid #CBD5E1; font-weight: 700; color: #1E3A8A;">${materia}</td>
+                <td style="padding: 8px 12px; border: 1px solid #CBD5E1; font-weight: 800; width: 20%;">Grado / Nivel:</td>
+                <td style="padding: 8px 12px; border: 1px solid #CBD5E1; font-weight: 700;">Grado ${grado}°</td>
+            </tr>
+            <tr>
+                <td style="padding: 8px 12px; border: 1px solid #CBD5E1; font-weight: 800;">Periodo Académico:</td>
+                <td style="padding: 8px 12px; border: 1px solid #CBD5E1; font-weight: 700; color: #D97706;">${esAnual ? 'Malla Anual Completa (Periodos 1, 2, 3 y 4)' : `Periodo Académico ${periodo} (10 Semanas)`}</td>
+                <td style="padding: 8px 12px; border: 1px solid #CBD5E1; font-weight: 800;">Enfoque Curricular:</td>
+                <td style="padding: 8px 12px; border: 1px solid #CBD5E1;">${enfoque}</td>
+            </tr>
+        </table>
+
+        <!-- Pregunta Problematizadora y EBC/DBA -->
+        <div style="background: #EFF6FF; border: 1.5px solid #BFDBFE; border-radius: 12px; padding: 14px; margin-bottom: 18px;">
+            <div style="font-weight: 900; color: #1E40AF; font-size: 0.9rem; margin-bottom: 6px;">🎯 EJE ARTICULADOR Y PREGUNTA PROBLEMATIZADORA DEL PERIODO:</div>
+            <p style="margin: 0 0 10px 0; font-size: 0.85rem; color: #1E293B; line-height: 1.45;">
+                ¿Cómo intervienen los procesos y leyes de <strong>${materia}</strong> en la comprensión del mundo natural y tecnológico, y qué soluciones sostenibles podemos formular desde el pensamiento STEAM?
+            </p>
+            <div style="font-weight: 900; color: #1E40AF; font-size: 0.9rem; margin-bottom: 6px;">📜 ESTÁNDARES BÁSICOS DE COMPETENCIAS (EBC) Y DERECHOS BÁSICOS DE APRENDIZAJE (DBA):</div>
+            <ul style="margin: 0; padding-left: 20px; font-size: 0.84rem; color: #334155; line-height: 1.45;">
+                <li><strong>EBC Principal:</strong> Identifico y explico fenómenos científicos y aplicaciones tecnológicas a partir de conceptos estructurantes de ${materia}.</li>
+                <li><strong>DBA Oficial:</strong> Aplica modelos conceptuales y experimentales para describir la dinámica de <em>${c}</em> en diversos contextos.</li>
+            </ul>
+        </div>
+
+        <!-- Matriz Curricular Semanal Exhaustiva -->
+        <div style="margin-bottom: 20px;">
+            <div style="font-weight: 900; color: #0F172A; font-size: 1rem; border-bottom: 2px solid #E2E8F0; padding-bottom: 6px; margin-bottom: 12px;">
+                📊 MATRIZ SEMANAL DE CONTENIDOS, COMPETENCIAS Y DESEMPEÑOS:
+            </div>
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.8rem; text-align: left;">
+                <thead>
+                    <tr style="background: #1E293B; color: white;">
+                        <th style="padding: 8px 10px; border: 1px solid #334155; width: 8%;">Semana</th>
+                        <th style="padding: 8px 10px; border: 1px solid #334155; width: 22%;">Eje Temático / Contenido</th>
+                        <th style="padding: 8px 10px; border: 1px solid #334155; width: 22%;">Saber (Cognitivo)</th>
+                        <th style="padding: 8px 10px; border: 1px solid #334155; width: 24%;">Saber Hacer (Procedimental / STEAM)</th>
+                        <th style="padding: 8px 10px; border: 1px solid #334155; width: 24%;">Saber Ser & Evidencia Evaluativa</th>
+                    </tr>
+                </thead>
+                <tbody>
+    `;
+
+    const semanasMalla = [
+        { sem: 'Sem 1', tema: `Introducción a ${c}`, cog: `Define los conceptos fundamentales y el marco histórico de ${c}.`, proc: `Elabora un mapa mental radial clasificando los términos clave.`, ser: `Participa con respeto y entrega su ficha diagnóstica inicial.` },
+        { sem: 'Sem 2', tema: `Estructura y Propiedades de ${c}`, cog: `Reconoce los componentes internos y las variables intervinientes.`, proc: `Realiza mediciones y registra datos en tablas estructuradas.`, ser: `Trabaja en equipo asumiendo su rol con responsabilidad.` },
+        { sem: 'Sem 3', tema: `Leyes y Modelos Científicos`, cog: `Explica las leyes que gobiernan el comportamiento del fenómeno.`, proc: `Simula el proceso en laboratorio digital y valida hipótesis.`, ser: `Muestra curiosidad y rigor en la recolección de evidencias.` },
+        { sem: 'Sem 4', tema: `Relaciones Cuantitativas y Fórmulas`, cog: `Resuelve ecuaciones y modelos matemáticos asociados a ${c}.`, proc: `Aplica algoritmos y realiza conversiones de unidades del SI.`, ser: `Valora la precisión matemática como herramienta científica.` },
+        { sem: 'Sem 5', tema: `Taller Experimental y Reto STEAM`, cog: `Integra conceptos de ciencia, ingeniería y arte en un diseño.`, proc: `Construye un prototipo funcional o reporte de laboratorio formal.`, ser: `Demuestra creatividad y tolerancia a la frustración.` },
+        { sem: 'Sem 6', tema: `Análisis de Casos y Problemáticas`, cog: `Analiza situaciones cotidianas donde interviene ${c}.`, proc: `Formula soluciones sostenibles a partir del pensamiento crítico.`, ser: `Expresa empatía y compromiso ético ambiental.` },
+        { sem: 'Sem 7', tema: `Mentefactos y Organizadores Visuales`, cog: `Estructura proposiciones y clasifica según jerarquías conceptuales.`, proc: `Diagrama mentefactos conceptuales con supraordinadas y exclusiones.`, ser: `Comunica sus ideas con claridad y orden lógico.` },
+        { sem: 'Sem 8', tema: `Profundización y Preguntas ICFES`, cog: `Interpreta gráficas, tablas de datos y textos científicos complejos.`, proc: `Resuelve preguntas tipo prueba Saber argumentando su respuesta.`, ser: `Demuestra perseverancia y concentración en la prueba.` },
+        { sem: 'Sem 9', tema: `Socialización y Transferencia`, cog: `Sintetiza los aprendizajes del periodo y evalúa su impacto.`, proc: `Expone su producto STEAM final en formato pitch grupal.`, ser: `Practica la escucha activa y la coevaluación constructiva.` },
+        { sem: 'Sem 10', tema: `Evaluación Formativa y Cierre`, cog: `Autoevalúa su desempeño en los 4 niveles de competencia MEN.`, proc: `Sustenta su portafolio de evidencias y plan de mejoramiento.`, ser: `Asume compromisos formativos para el siguiente periodo.` }
+    ];
+
+    semanasMalla.forEach((s, idx) => {
+        const bg = (idx % 2 === 0) ? '#FFFFFF' : '#F8FAFC';
+        html += `
+            <tr style="background: ${bg};">
+                <td style="padding: 8px 10px; border: 1px solid #CBD5E1; font-weight: 800; text-align: center; color: #1E40AF;">${s.sem}</td>
+                <td style="padding: 8px 10px; border: 1px solid #CBD5E1; font-weight: 700; color: #0F172A;">${s.tema}</td>
+                <td style="padding: 8px 10px; border: 1px solid #CBD5E1; color: #334155;">${s.cog}</td>
+                <td style="padding: 8px 10px; border: 1px solid #CBD5E1; color: #334155;">${s.proc}</td>
+                <td style="padding: 8px 10px; border: 1px solid #CBD5E1; color: #334155;">${s.ser}</td>
+            </tr>
+        `;
+    });
+
+    html += `
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Criterios de Evaluación y Escala Institucional MEN -->
+        <div style="margin-bottom: 20px;">
+            <div style="font-weight: 900; color: #0F172A; font-size: 1rem; border-bottom: 2px solid #E2E8F0; padding-bottom: 6px; margin-bottom: 12px;">
+                📋 CRITERIOS DE EVALUACIÓN Y ESCALA VALORATIVA INSTITUCIONAL (DECRETO 1290):
+            </div>
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.8rem;">
+                <tr style="background: #ECFDF5; border: 1px solid #A7F3D0;">
+                    <td style="padding: 8px 12px; font-weight: 900; color: #065F46; width: 22%;">Desempeño Superior (4.6 - 5.0)</td>
+                    <td style="padding: 8px 12px; color: #047857;">Supera ampliamente todos los DBA de ${materia}, propone soluciones innovadoras STEAM, lidera debates y formula modelos explicativos sin necesidad de apoyo docente.</td>
+                </tr>
+                <tr style="background: #EFF6FF; border: 1px solid #BFDBFE;">
+                    <td style="padding: 8px 12px; font-weight: 900; color: #1E40AF;">Desempeño Alto (4.0 - 4.5)</td>
+                    <td style="padding: 8px 12px; color: #1D4ED8;">Alcanza la totalidad de los DBA previstos, resuelve problemas conceptuales y procedimentales de manera autónoma y entrega sus evidencias a tiempo.</td>
+                </tr>
+                <tr style="background: #FFFBEB; border: 1px solid #FDE68A;">
+                    <td style="padding: 8px 12px; font-weight: 900; color: #92400E;">Desempeño Básico (3.0 - 3.9)</td>
+                    <td style="padding: 8px 12px; color: #B45309;">Alcanza los niveles mínimos requeridos en los DBA de ${materia}, requiriendo en ocasiones orientación docente o refuerzo en ejercicios cuantitativos.</td>
+                </tr>
+                <tr style="background: #FEF2F2; border: 1px solid #FECACA;">
+                    <td style="padding: 8px 12px; font-weight: 900; color: #991B1B;">Desempeño Bajo (1.0 - 2.9)</td>
+                    <td style="padding: 8px 12px; color: #B91C1C;">Presenta dificultades significativas para apropiar los conceptos de ${c} y requiere plan de mejoramiento pedagógico y acompañamiento familiar.</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Estrategias DUA y Proyectos Transversales -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 20px;">
+            <div style="background: #F8FAFC; border: 1.5px solid #CBD5E1; border-radius: 10px; padding: 12px 14px;">
+                <div style="font-weight: 800; color: #1E3A8A; font-size: 0.85rem; margin-bottom: 4px;">🤝 ESTRATEGIAS DUA (DISEÑO UNIVERSAL DE APRENDIZAJE):</div>
+                <div style="font-size: 0.8rem; color: #475569; line-height: 1.45;">
+                    Uso de múltiples formatos representacionales (gráficos, auditivos, manipulativos), opciones para la acción y expresión mediante retos digitales, e incentivos de autorregulación.
+                </div>
+            </div>
+            <div style="background: #F8FAFC; border: 1.5px solid #CBD5E1; border-radius: 10px; padding: 12px 14px;">
+                <div style="font-weight: 800; color: #047857; font-size: 0.85rem; margin-bottom: 4px;">🌿 PROYECTOS PEDAGÓGICOS TRANSVERSALES (PRAE / PESCC):</div>
+                <div style="font-size: 0.8rem; color: #475569; line-height: 1.45;">
+                    Articulación directa con el Proyecto Ambiental Escolar (PRAE), Uso Racional de la Energía y la Tecnología, y Educación Económica y Financiera.
+                </div>
+            </div>
+        </div>
+
+        <!-- Firmas Institucionales -->
+        <div style="display: flex; justify-content: space-around; margin-top: 35px; padding-top: 15px; border-top: 1.5px dashed #CBD5E1;">
+            <div style="text-align: center; width: 220px;">
+                <div style="border-bottom: 1.5px solid #1E293B; margin-bottom: 6px;"></div>
+                <div style="font-weight: 800; font-size: 0.82rem; color: #0F172A;">Jefe de Área / Docente</div>
+                <div style="font-size: 0.74rem; color: #64748B;">Elaboración Curricular</div>
+            </div>
+            <div style="text-align: center; width: 220px;">
+                <div style="border-bottom: 1.5px solid #1E293B; margin-bottom: 6px;"></div>
+                <div style="font-weight: 800; font-size: 0.82rem; color: #0F172A;">Comité Curricular / Rectoría</div>
+                <div style="font-size: 0.74rem; color: #64748B;">Aprobación Institucional PEI</div>
+            </div>
+        </div>
+    `;
+
+    contenedor.innerHTML = html;
+};
+
+window.imprimirDocumentoMalla = function() {
+    window.print();
+};
+
+window.copiarDocumentoMalla = function() {
+    const doc = document.getElementById('malla-curricular-contenedor-documento');
+    if (!doc) return;
+
+    if (navigator.clipboard) {
+        navigator.clipboard.writeText(doc.innerText).then(() => {
+            alert('📋 ¡Malla Curricular copiada al portapapeles con éxito!');
+        });
+    } else {
+        alert('📋 Selecciona el texto del documento para copiarlo.');
+    }
+};
 
