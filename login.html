@@ -495,6 +495,7 @@
             <button onclick="window.abrirConfiguradorDiapositivas('docente')" style="background: linear-gradient(135deg, #7C3AED, #6D28D9); color: white; border: none; padding: 8px 18px; border-radius: 8px; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 8px; font-size: 0.9rem; box-shadow: 0 4px 10px rgba(124,58,237,0.25);">
                 <span>📽️</span> Diapositivas de la Semana
             </button>
+            <button onclick="mostrarReferidos()" style="background: linear-gradient(135deg, #EC4899, #BE185D); color: white; border: none; padding: 8px 18px; border-radius: 8px; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 8px; font-size: 0.9rem; box-shadow: 0 4px 10px rgba(236,72,153,0.25);"><span>🎁</span> Invita y Gana</button>
             <a href="proyector-qr.html" target="_blank" style="background: linear-gradient(135deg, #2563EB, #1D4ED8); color: white; border: none; padding: 8px 18px; border-radius: 8px; font-weight: bold; text-decoration: none; display: flex; align-items: center; gap: 8px; font-size: 0.9rem; box-shadow: 0 4px 10px rgba(37,99,235,0.25);"><span>📽️</span> Proyectar QR Matrícula</a>
             <a href="proyector.html" target="_blank" style="background: #10B981; color: white; border: none; padding: 8px 20px; border-radius: 8px; font-weight: bold; text-decoration: none; display: flex; align-items: center; gap: 8px;"><i class="ph ph-projector-screen-chart" style="font-size: 1.2rem;"></i> Modo Proyector</a>
             <div style="background: #F3F4F6; padding: 8px 15px; border-radius: 20px; font-size: 0.9rem; font-weight: 700; color: #374151;">
@@ -618,6 +619,7 @@
             <button onclick="window.abrirConfiguradorDiapositivas('admin')" style="background: linear-gradient(135deg, #7C3AED, #6D28D9); color: white; border: none; padding: 8px 18px; border-radius: 8px; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 8px; font-size: 0.9rem; box-shadow: 0 4px 10px rgba(124,58,237,0.25);">
                 <span>📽️</span> Diapositivas de la Semana
             </button>
+            <button onclick="mostrarReferidos()" style="background: linear-gradient(135deg, #EC4899, #BE185D); color: white; border: none; padding: 8px 18px; border-radius: 8px; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 8px; font-size: 0.9rem; box-shadow: 0 4px 10px rgba(236,72,153,0.25);"><span>🎁</span> Invita y Gana</button>
             <a href="proyector-qr.html" target="_blank" style="background: linear-gradient(135deg, #2563EB, #1D4ED8); color: white; border: none; padding: 8px 18px; border-radius: 8px; font-weight: bold; text-decoration: none; display: flex; align-items: center; gap: 8px; font-size: 0.9rem; box-shadow: 0 4px 10px rgba(37,99,235,0.25);"><span>📽️</span> Proyectar QR Matrícula</a>
             <a href="proyector.html" target="_blank" style="background: #10B981; color: white; border: none; padding: 8px 20px; border-radius: 8px; font-weight: bold; text-decoration: none; display: flex; align-items: center; gap: 8px;"><i class="ph ph-projector-screen-chart" style="font-size: 1.2rem;"></i> Modo Proyector</a>
             <div style="background: #F3F4F6; padding: 8px 15px; border-radius: 20px; font-size: 0.9rem; font-weight: 700; color: #374151;">
@@ -955,6 +957,7 @@
             <button onclick="window.abrirConfiguradorDiapositivas('homeschool_tutor')" style="background: linear-gradient(135deg, #7C3AED, #6D28D9); color: white; border: none; padding: 8px 18px; border-radius: 8px; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 8px; font-size: 0.9rem; box-shadow: 0 4px 10px rgba(124,58,237,0.25);">
                 <span>📽️</span> Diapositivas Semanales
             </button>
+            <button onclick="mostrarReferidos()" style="background: linear-gradient(135deg, #EC4899, #BE185D); color: white; border: none; padding: 8px 18px; border-radius: 8px; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 8px; font-size: 0.9rem; box-shadow: 0 4px 10px rgba(236,72,153,0.25);"><span>🎁</span> Invita y Gana</button>
             <a href="proyector-qr.html" target="_blank" style="background: linear-gradient(135deg, #2563EB, #1D4ED8); color: white; border: none; padding: 8px 18px; border-radius: 8px; font-weight: bold; text-decoration: none; display: flex; align-items: center; gap: 8px; font-size: 0.9rem; box-shadow: 0 4px 10px rgba(37,99,235,0.25);"><span>📽️</span> Proyectar QR Matrícula</a>
             <a href="proyector.html" target="_blank" style="background: #10B981; color: white; border: none; padding: 8px 18px; border-radius: 8px; font-weight: bold; text-decoration: none; display: flex; align-items: center; gap: 8px; font-size: 0.9rem;"><i class="ph ph-projector-screen-chart"></i> Modo Proyector</a>
             <button onclick="location.reload()" style="background: #EF4444; color: white; border: none; padding: 8px 18px; border-radius: 8px; font-weight: bold; cursor: pointer; font-family: Inter, sans-serif; font-size: 0.9rem;">Cerrar Sesión</button>
@@ -3122,5 +3125,38 @@
             </div>
         </div>
     </div>
+
+<!-- MODAL REFERIDOS -->
+<div id="modal-referidos" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 9999; justify-content: center; align-items: center; padding: 20px;">
+    <div style="background: white; border-radius: 16px; padding: 30px; max-width: 450px; width: 100%; text-align: center; position: relative;">
+        <button onclick="cerrarReferidos()" style="position: absolute; top: 15px; right: 15px; background: transparent; border: none; font-size: 1.5rem; cursor: pointer; color: #6B7280;">&times;</button>
+        <div style="font-size: 3rem; margin-bottom: 10px;">🎁</div>
+        <h2 style="font-weight: 900; color: #111827; margin-bottom: 10px;">¡Invita y Gana!</h2>
+        <p style="color: #4B5563; margin-bottom: 20px; font-size: 0.95rem;">Comparte tu código con otros profes o estudiantes. Recibirás un abono de <strong style="color: #10B981;">$20.000 COP</strong> por cada persona que se matricule usando tu código.</p>
+        <div style="background: #F3F4F6; border: 2px dashed #9CA3AF; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+            <div style="font-size: 0.8rem; color: #6B7280; font-weight: bold; margin-bottom: 5px;">TU CÓDIGO DE REFERIDO:</div>
+            <div id="codigo-referido-texto" style="font-size: 1.8rem; font-weight: 900; color: #4F46E5; letter-spacing: 2px;">CARGANDO...</div>
+        </div>
+        <button onclick="copiarCodigoReferido()" style="background: linear-gradient(135deg, #4F46E5, #3730A3); color: white; border: none; padding: 12px 20px; border-radius: 8px; font-weight: bold; width: 100%; cursor: pointer; font-size: 1rem; box-shadow: 0 4px 10px rgba(79,70,229,0.3);">📋 Copiar Código</button>
+    </div>
+</div>
+
+<script>
+function mostrarReferidos() {
+    const sesionInfo = JSON.parse(localStorage.getItem('usuario_sesion') || '{}');
+    let codigo = sesionInfo.codigo_referido || "PROXIMAMENTE";
+    document.getElementById('codigo-referido-texto').innerText = codigo;
+    document.getElementById('modal-referidos').style.display = 'flex';
+}
+function cerrarReferidos() {
+    document.getElementById('modal-referidos').style.display = 'none';
+}
+function copiarCodigoReferido() {
+    const code = document.getElementById('codigo-referido-texto').innerText;
+    navigator.clipboard.writeText(code);
+    alert('¡Código copiado al portapapeles!');
+}
+</script>
+
 </body>
 </html>
