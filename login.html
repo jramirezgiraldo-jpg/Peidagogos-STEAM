@@ -490,6 +490,9 @@
             <img src="logo-peidagogos.png" alt="Peidagogos STEAM" style="height: 55px; width: auto; object-fit: contain;">
         </div>
         <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+            <button onclick="window.abrirClasePrimerosAuxiliosEmocionales('docente')" style="background: linear-gradient(135deg, #EF4444, #DC2626); color: white; border: none; padding: 8px 18px; border-radius: 8px; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 8px; font-size: 0.9rem; box-shadow: 0 4px 10px rgba(239,68,68,0.25);" title="Proyectar o trabajar la clase interactiva de contención y primeros auxilios emocionales post-sismo">
+                <span>❤️‍🩹</span> Auxilios Emocionales (Terremoto)
+            </button>
             <button onclick="window.abrirCajaHerramientas('todas', 'docente')" style="background: linear-gradient(135deg, #EC4899, #BE185D); color: white; border: none; padding: 8px 18px; border-radius: 8px; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 8px; font-size: 0.9rem; box-shadow: 0 4px 10px rgba(236,72,153,0.3);">
                 <span>🧰</span> Caja de Herramientas
             </button>
@@ -952,6 +955,9 @@
             </div>
         </div>
         <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+            <button onclick="window.abrirClasePrimerosAuxiliosEmocionales('tutor')" style="background: linear-gradient(135deg, #EF4444, #DC2626); color: white; border: none; padding: 8px 18px; border-radius: 8px; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 8px; font-size: 0.9rem; box-shadow: 0 4px 10px rgba(239,68,68,0.25);" title="Abrir y guiar la clase interactiva de primeros auxilios emocionales en familia">
+                <span>❤️‍🩹</span> Auxilios Emocionales (Terremoto)
+            </button>
             <button onclick="window.abrirCajaHerramientas('todas', 'homeschool_tutor')" style="background: linear-gradient(135deg, #EC4899, #BE185D); color: white; border: none; padding: 8px 18px; border-radius: 8px; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 8px; font-size: 0.9rem; box-shadow: 0 4px 10px rgba(236,72,153,0.3);">
                 <span>🧰</span> Caja de Herramientas
             </button>
@@ -1330,6 +1336,31 @@
             <!-- Banner de Estado de Pago (Para Validación y Home School) -->
             <div id="banner-pago-estado" style="display: none; margin-bottom: 25px; border-radius: 12px; padding: 20px; border: 2px solid #E5E7EB; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
                 <!-- Inyectado por JS -->
+            </div>
+
+            <!-- Banner Especial Masterclass: Primeros Auxilios Emocionales luego del Terremoto -->
+            <div id="banner-clase-terremoto-emocional" style="margin-bottom: 28px; border-radius: 18px; padding: 24px 28px; border: 2px solid #FCA5A5; background: linear-gradient(135deg, #FFF1F2 0%, #FEF2F2 50%, #EFF6FF 100%); box-shadow: 0 10px 25px rgba(239, 68, 68, 0.12); position: relative; overflow: hidden;">
+                <div style="position: absolute; right: -15px; bottom: -15px; font-size: 7.5rem; opacity: 0.08; pointer-events: none;">❤️‍🩹</div>
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 18px; position: relative; z-index: 1;">
+                    <div style="max-width: 720px;">
+                        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px; flex-wrap: wrap;">
+                            <span style="background: #EF4444; color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.78rem; font-weight: 900; letter-spacing: 0.5px; text-transform: uppercase;">Módulo Especial Transversal</span>
+                            <span style="background: #DCFCE7; color: #166534; padding: 4px 10px; border-radius: 20px; font-size: 0.78rem; font-weight: 800; border: 1px solid #86EFAC;">🌟 100% Gratuito & Abierto</span>
+                            <span style="background: #FEF3C7; color: #92400E; padding: 4px 10px; border-radius: 20px; font-size: 0.78rem; font-weight: 800;">⚡ +150 XP & Insignia</span>
+                        </div>
+                        <h2 style="margin: 0 0 8px 0; font-size: 1.5rem; font-weight: 900; color: #991B1B; line-height: 1.25; display: flex; align-items: center; gap: 10px;">
+                            <span>❤️‍🩹</span> Primeros Auxilios Emocionales luego del Terremoto
+                        </h2>
+                        <p style="margin: 0; color: #475569; font-size: 0.93rem; line-height: 1.5; font-weight: 500;">
+                            Taller interactivo de regulación del miedo, respiración diafragmática 4-7-8, técnica del abrazo de la mariposa y construcción de tu <strong>Botiquín Emocional Familiar y Escolar</strong>. Fortaleciendo la resiliencia en Montenegro y el Eje Cafetero.
+                        </p>
+                    </div>
+                    <div>
+                        <button onclick="window.abrirClasePrimerosAuxiliosEmocionales('estudiante')" style="background: linear-gradient(135deg, #EF4444, #B91C1C); color: white; border: none; padding: 13px 26px; border-radius: 12px; font-weight: 900; font-size: 1rem; cursor: pointer; display: flex; align-items: center; gap: 10px; box-shadow: 0 6px 20px rgba(239, 68, 68, 0.35); transition: transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-2px) scale(1.02)'; this.style.boxShadow='0 8px 25px rgba(239,68,68,0.5)';" onmouseout="this.style.transform='none'; this.style.boxShadow='0 6px 20px rgba(239,68,68,0.35)';">
+                            <span>🚀</span> Iniciar Clase Interactiva Especial
+                        </button>
+                    </div>
+                </div>
             </div>
 
             <!-- Sección de Misiones y Juegos Especiales Asignados -->
@@ -2505,9 +2536,9 @@
         </div>
     </div>
 
-    <script src="diagnostico_nocturno.js?v=20260816_v43"></script>
-    <script src="agente_auditor_qa.js?v=20260816_v43"></script>
-    <script src="app.js?v=20260816_v43"></script>
+    <script src="diagnostico_nocturno.js?v=20260818_v44"></script>
+    <script src="agente_auditor_qa.js?v=20260818_v44"></script>
+    <script src="app.js?v=20260818_v44"></script>
     <script>
         // --- BLINDAJE DE PROPIEDAD INTELECTUAL Y SEGURIDAD ---
         (function() {

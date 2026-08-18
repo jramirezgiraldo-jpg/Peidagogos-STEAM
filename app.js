@@ -824,6 +824,26 @@ window.inicializarPanelEstudiante = function(data) {
             }
         }
 
+        // Tarjeta Transversal Especial: Primeros Auxilios Emocionales luego del Terremoto (Para todos los matriculados)
+        const specialCard = document.createElement("div");
+        specialCard.style.cssText = "background: linear-gradient(135deg, #FFF1F2 0%, #FFFFFF 100%); border-radius: 16px; padding: 25px; box-shadow: 0 4px 15px rgba(239,68,68,0.1); transition: transform 0.2s, box-shadow 0.2s; border-top: 5px solid #EF4444; border: 1.5px solid #FECDD3; display: flex; flex-direction: column; justify-content: space-between; height: 190px;";
+        specialCard.onmouseover = () => { specialCard.style.transform = "translateY(-5px)"; specialCard.style.boxShadow = "0 12px 20px rgba(239,68,68,0.2)"; };
+        specialCard.onmouseout = () => { specialCard.style.transform = "none"; specialCard.style.boxShadow = "0 4px 15px rgba(239,68,68,0.1)"; };
+        specialCard.innerHTML = `
+            <div>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                    <span style="font-size: 2.2rem;">❤️‍🩹</span>
+                    <span style="background: #FEE2E2; color: #991B1B; font-weight: 800; font-size: 0.8rem; padding: 3px 10px; border-radius: 12px; border: 1px solid #FCA5A5;">Transversal</span>
+                </div>
+                <h3 style="margin: 0; font-size: 1.25rem; color: #991B1B; font-weight: 800;">Primeros Auxilios Emocionales</h3>
+                <p style="margin: 4px 0 0 0; font-size: 0.85rem; color: #64748B;">Módulo Post-Terremoto • +150 XP</p>
+            </div>
+            <button style="background: linear-gradient(135deg, #EF4444, #DC2626); color: white; border: none; padding: 12px; border-radius: 10px; font-weight: 800; cursor: pointer; width: 100%; font-family: Inter, sans-serif; box-shadow: 0 4px 10px rgba(239,68,68,0.25); display: flex; align-items: center; justify-content: center; gap: 8px;" onclick="window.abrirClasePrimerosAuxiliosEmocionales('estudiante')">
+                🧘‍♂️ Entrar al Taller
+            </button>
+        `;
+        subjectsGrid.appendChild(specialCard);
+
         asignaturas.forEach(asig => {
             const card = document.createElement("div");
             card.style.cssText = "background: white; border-radius: 16px; padding: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.06); transition: transform 0.2s, box-shadow 0.2s; border-top: 5px solid #10B981; display: flex; flex-direction: column; justify-content: space-between; height: 190px;";
@@ -4690,6 +4710,17 @@ window.completarMisionActual = function() {
     const yaCompletada = localStorage.getItem(misKey) === 'true';
     localStorage.setItem(misKey, 'true');
     
+    // Verificación de Clase Especial: Primeros Auxilios Emocionales luego del Terremoto
+    if (asignatura.toLowerCase().includes('primeros auxilios') || asignatura.toLowerCase().includes('emocionales') || asignatura.toLowerCase().includes('terremoto')) {
+        localStorage.setItem(`insignia_resiliencia_${doc}`, 'true');
+        if (!yaCompletada && window.sumarXPEstudiante) {
+            window.sumarXPEstudiante(doc, 150, `Taller Especial: Primeros Auxilios Emocionales luego del Terremoto`);
+        }
+        alert(`🎉 ¡FELICITACIONES! Has completado con éxito la misión: 'Primeros Auxilios Emocionales luego del Terremoto'.\n\n🏆 Has ganado +150 XP y la Insignia de Honor: '🏅 Guardián de la Resiliencia Emocional'.\n\nRecuerda llevar siempre contigo tu Botiquín Emocional y tus técnicas de respiración diafragmática.`);
+        cerrarGuia();
+        return;
+    }
+
     // Sumar 100 XP si es la primera vez
     if (!yaCompletada && window.sumarXPEstudiante) {
         window.sumarXPEstudiante(doc, 100, `Misión Semana ${semanaStr} (${asignatura}) Completada`);
@@ -4955,6 +4986,392 @@ window.volverAlGridEstudiante = function() {
     if (sDash) sDash.scrollTop = 0;
 };
 
+// ==========================================
+// CLASE Y GUÍA INTERACTIVA: PRIMEROS AUXILIOS EMOCIONALES LUEGO DEL TERREMOTO
+// ==========================================
+window.obtenerGuiaPrimerosAuxiliosEmocionales = function() {
+    return {
+        titulo: "Misión de Resiliencia: Primeros Auxilios Emocionales luego del Terremoto y Manejo de Crisis",
+        asignatura: "Socioemocional & Gestión del Riesgo",
+        objetivo_aprendizaje: "Reconocer y normalizar las reacciones psicofisiológicas normales ante sismos (miedo, llanto, temblor, hiperactivación), aplicar el protocolo PAP (Primeros Auxilios Psicológicos: Observar, Escuchar, Conectar), dominar la técnica de respiración diafragmática 4-7-8, el abrazo de la mariposa, y construir el Botiquín Emocional personal y familiar para fortalecer la resiliencia en Montenegro y el Eje Cafetero.",
+        pregunta_problematizadora: "¿Cómo podemos transformar el miedo, el temblor y la incertidumbre tras un terremoto en calma, seguridad compartida y apoyo solidario para nuestra familia y compañeros?",
+        saberes_previos: [
+            {
+                pregunta: "¿Qué es lo más normal que experimente nuestro cuerpo y mente inmediatamente después de sentir un temblor fuerte o terremoto?",
+                opcion: [
+                    "A) Sentir taquicardia, temblor en las piernas, ganas de llorar o miedo intenso, porque el cerebro activó su sistema natural de supervivencia.",
+                    "B) No sentir absolutamente nada y actuar como si nada hubiera ocurrido.",
+                    "C) Sentir que somos débiles y que las demás personas nunca sienten miedo.",
+                    "D) Únicamente dolor de cabeza que desaparece en 1 segundo."
+                ],
+                correcta: 0,
+                explicacion: "La amígdala cerebral enciende la alarma de supervivencia natural ante el peligro. El temblor y el llanto son formas normales que tiene el cuerpo para liberar adrenalina."
+            },
+            {
+                pregunta: "Si un compañero o familiar está llorando con angustia o paralizado tras un sismo, ¿cuál es la primera acción de contención adecuada?",
+                opcion: [
+                    "A) Gritarle para que se calme rápido y decirle que no sea exagerado.",
+                    "B) Acercarnos con calma a su altura, validar que el temblor ya cesó, mirarlo a los ojos y recordarle: 'Estamos a salvo aquí y ahora; respiremos juntos'.",
+                    "C) Dejarlo completamente solo en una habitación oscura.",
+                    "D) Obligarlo a correr por las escaleras sin mirar."
+                ],
+                correcta: 1,
+                explicacion: "El contacto visual empático, la voz suave y el acompañamiento afectivo ayudan a que la persona recupere el sentido de seguridad y presencia."
+            },
+            {
+                pregunta: "¿Por qué la respiración diafragmática lenta (inhalar inflando el abdomen y exhalar despacio) calma el miedo tras una emergencia?",
+                opcion: [
+                    "A) Porque apaga el corazón por completo.",
+                    "B) Porque activa el nervio vago y el sistema parasimpático, enviándole al cerebro la señal biológica de que el peligro ya pasó y podemos relajarnos.",
+                    "C) Porque hace que olvidemos lo que pasó inmediatamente sin pensar.",
+                    "D) No tiene ningún efecto en el cuerpo."
+                ],
+                correcta: 1,
+                explicacion: "La respiración diafragmática profunda estimula el nervio vago, reduciendo la frecuencia cardíaca y restableciendo la calma autonómica."
+            }
+        ],
+        texto_deductivo: `
+### 🌋 1. La Memoria Sísmica y la Respuesta Natural de Supervivencia
+En el municipio de **Montenegro y en todo el Eje Cafetero**, vivimos en una hermosa geografía volcánica y montañosa que convive con fallas geológicas activas. Cuando la tierra tiembla, una pequeña estructura en nuestro cerebro llamada **amígdala cerebral** enciende una sirena de alarma instantánea, liberando adrenalina y cortisol.
+
+> **💡 Regla de Oro:** Sentir miedo, temblor en las manos, taquicardia, ganas de llorar o necesidad de abrazar a alguien **no es debilidad: es la respuesta biológica de tu cuerpo protegiéndote**.
+
+---
+
+### 🛡️ 2. El Protocolo de las 3C en Emergencias
+Cuando el movimiento sísmico se detiene y nos encontramos en un punto de encuentro seguro, aplicamos el protocolo **3C**:
+
+| Fase | Acción Clave | Cómo Aplicarla |
+| :--- | :--- | :--- |
+| **1. CALMA** | Regulación somática | Apoyar los pies firmes en el suelo y realizar 4 respiraciones diafragmáticas profundas. |
+| **2. CONTENCIÓN** | Presencia y afecto seguro | Mirar a los ojos a quien tiene miedo, ofrecer la mano o el **Abrazo de la Mariposa**. |
+| **3. COMUNICACIÓN** | Realidad y esperanza | Decir con voz suave: *"El temblor ya paró. Aquí estamos juntos y nos estamos cuidando"*. |
+
+---
+
+### 🦋 3. Técnicas Somáticas de Regulación Rápida
+
+#### A. El Abrazo de la Mariposa (Técnica Bilateral de Contención)
+1. Cruza tus brazos sobre el pecho, colocando las manos sobre los hombros o clavículas opuestas.
+2. Cierra los ojos o mira un punto fijo en el suelo.
+3. Da toquecitos suaves y rítmicos alternados (izquierda, derecha, izquierda, derecha) como el aleteo de una mariposa.
+4. Mantén el aleteo durante 1 a 2 minutos mientras respiras profundo. Esto equilibra ambos hemisferios cerebrales y disipa el pánico.
+
+#### B. Técnica de Enraizamiento Sensorial (Grounding 5-4-3-2-1)
+Para regresar al momento presente seguro, nombra en voz alta:
+- **5 cosas** que puedas ver a tu alrededor.
+- **4 cosas** que puedas tocar (tu ropa, el suelo, tus manos).
+- **3 sonidos** que puedas escuchar (el viento, los pájaros, una voz).
+- **2 olores** que puedas percibir.
+- **1 sensación** agradable de gratitud en tu pecho.
+
+---
+
+### 🫁 4. Simulador Interactivo de Respiración Diafragmática 4-7-8
+*Utiliza el siguiente simulador interactivo para regular tu ritmo cardíaco y experimentar la calma en tiempo real:*
+
+:::respirador_interactivo:::
+
+---
+
+### 🧰 5. Constructor de "Mi Botiquín Emocional Familiar y Escolar"
+*Así como tenemos un botiquín con gasas y alcohol, cada estudiante y familia debe tener un Botiquín Emocional con anclas de seguridad:*
+
+:::botiquin_emocional:::
+        `,
+        icfes: [
+            {
+                pregunta: "Durante una evacuación escolar por sismo en Montenegro, un estudiante de grado 7° entra en crisis de pánico en la zona verde de seguridad: hiperventila, no puede hablar y tiembla intensamente. Desde el enfoque de Primeros Auxilios Psicológicos y competencias ciudadanas, ¿cuál es la intervención más oportuna del brigadista o compañero?",
+                opciones: [
+                    "A) Apartarlo del grupo y pedirle que respire dentro de una bolsa plástica sin hablarle.",
+                    "B) Posicionarse a su nivel visual, sostener suavemente sus manos con su consentimiento, modelar una respiración diafragmática lenta contando '1, 2, 3' y validar su emoción diciéndole que está en un lugar seguro.",
+                    "C) Decirle enérgicamente que debe calmarse de inmediato porque está asustando a los niños de primaria.",
+                    "D) Darle una bebida azucarada y exigirle que vuelva a entrar al salón a recoger su maletín."
+                ],
+                correcta: 1,
+                justificacion: "La contención empática, el contacto visual tranquilizador, la validación emocional y el modelado de la respiración lenta activan el sistema nervioso parasimpático y restablecen la sensación de seguridad sin invalidar el miedo de la persona."
+            },
+            {
+                pregunta: "Una familia de Montenegro acuerda diseñar su Plan de Emergencia y Resiliencia Emocional tras un temblor. ¿Cuál de los siguientes elementos constituye un componente esencial del Botiquín Emocional Familiar?",
+                opciones: [
+                    "A) Guardar en secreto los temores personales para no preocupar a los demás miembros de la familia.",
+                    "B) Definir un punto de encuentro seguro, un contacto telefónico clave fuera de la zona, una lista de afirmaciones de calma y un espacio de diálogo familiar para expresar el miedo sin juzgar.",
+                    "C) Prohibir hablar de lo ocurrido durante los próximos seis meses.",
+                    "D) Asumir que la infraestructura nunca sufrirá daños y no practicar simulacros."
+                ],
+                correcta: 1,
+                justificacion: "La resiliencia familiar se construye combinando la preparación logística (punto de encuentro y contacto) con la seguridad psicológica (diálogo abierto, escucha activa y anclas de tranquilidad)."
+            }
+        ],
+        cierre_gamificado: {
+            sopa_letras: "CALMA,RESILIENCIA,EMPATIA,SEGURIDAD,RESPIRACION,SOLIDARIDAD,AUTOCUIDADO,ESPERANZA,VALOR,PAZ",
+            crucigrama: [
+                { palabra: "CALMA", pista: "Estado de sosiego y paz que recuperamos con respiración.", fila: 1, col: 1, horizontal: true },
+                { palabra: "RESILIENCIA", pista: "Capacidad de sobreponerse a situaciones de crisis y aprender.", fila: 3, col: 1, horizontal: true },
+                { palabra: "EMPATIA", pista: "Comprender y acompañar el miedo de otra persona con cariño.", fila: 5, col: 1, horizontal: true },
+                { palabra: "RESPIRACION", pista: "Herramienta que oxigena y calma el nervio vago.", fila: 7, col: 1, horizontal: true }
+            ]
+        }
+    };
+};
+
+window.simuladorRespiracionTimer = null;
+window.simuladorRespiracionEstado = 'pausado';
+window.simuladorRespiracionCiclos = 0;
+window.simuladorRespiracionSegundosRestantes = 4;
+
+window.toggleSimuladorRespiracion = function() {
+    const btn = document.getElementById('btn-toggle-breathing');
+    if (window.simuladorRespiracionTimer) {
+        clearInterval(window.simuladorRespiracionTimer);
+        window.simuladorRespiracionTimer = null;
+        if (btn) btn.innerHTML = '<span>▶️</span> Reanudar Ejercicio';
+        const txt = document.getElementById('breathing-instruction');
+        if (txt) txt.innerText = '⏸️ Ejercicio en pausa';
+    } else {
+        if (btn) btn.innerHTML = '<span>⏸️</span> Pausar Ejercicio';
+        if (window.simuladorRespiracionEstado === 'pausado') {
+            window.simuladorRespiracionEstado = 'inhalar';
+            window.simuladorRespiracionSegundosRestantes = 4;
+        }
+        window.ejecutarPasoSimuladorRespiracion();
+        window.simuladorRespiracionTimer = setInterval(() => {
+            window.simuladorRespiracionSegundosRestantes--;
+            const secElem = document.getElementById('breathing-seconds');
+            if (secElem) secElem.innerText = Math.max(1, window.simuladorRespiracionSegundosRestantes);
+
+            if (window.simuladorRespiracionSegundosRestantes <= 0) {
+                if (window.simuladorRespiracionEstado === 'inhalar') {
+                    window.simuladorRespiracionEstado = 'sostener';
+                    window.simuladorRespiracionSegundosRestantes = 7;
+                } else if (window.simuladorRespiracionEstado === 'sostener') {
+                    window.simuladorRespiracionEstado = 'exhalar';
+                    window.simuladorRespiracionSegundosRestantes = 8;
+                } else {
+                    window.simuladorRespiracionEstado = 'inhalar';
+                    window.simuladorRespiracionSegundosRestantes = 4;
+                    window.simuladorRespiracionCiclos++;
+                    const cCount = document.getElementById('breathing-cycles-count');
+                    if (cCount) cCount.innerText = window.simuladorRespiracionCiclos;
+                    
+                    if (window.simuladorRespiracionCiclos === 4) {
+                        const curUser = window.usuarioEstudianteActual || JSON.parse(localStorage.getItem('usuario_sesion') || '{}');
+                        const doc = curUser.documento || curUser.usuario || 'doc';
+                        if (window.sumarXPEstudiante) {
+                            window.sumarXPEstudiante(doc, 25, "4 Ciclos de Respiración Diafragmática 4-7-8 Completados");
+                        }
+                    }
+                }
+                window.ejecutarPasoSimuladorRespiracion();
+            }
+        }, 1000);
+    }
+};
+
+window.ejecutarPasoSimuladorRespiracion = function() {
+    const circle = document.getElementById('breathing-circle');
+    const icon = document.getElementById('breathing-phase-icon');
+    const instruction = document.getElementById('breathing-instruction');
+    const seconds = document.getElementById('breathing-seconds');
+
+    if (!circle || !instruction) return;
+
+    if (window.simuladorRespiracionEstado === 'inhalar') {
+        circle.style.transform = 'scale(1.5)';
+        circle.style.background = 'radial-gradient(circle, #38BDF8 0%, #0284C7 70%, #0369A1 100%)';
+        if (icon) icon.innerText = '🌬️';
+        instruction.innerText = '1. INHALA suavemente por la nariz (Inflando el abdomen)...';
+        instruction.style.color = '#38BDF8';
+        if (seconds) seconds.innerText = window.simuladorRespiracionSegundosRestantes;
+    } else if (window.simuladorRespiracionEstado === 'sostener') {
+        circle.style.transform = 'scale(1.5)';
+        circle.style.background = 'radial-gradient(circle, #F59E0B 0%, #D97706 70%, #B45309 100%)';
+        if (icon) icon.innerText = '🧘';
+        instruction.innerText = '2. SOSTÉN el aire... Siente la calma y el control en tu pecho.';
+        instruction.style.color = '#FDE047';
+        if (seconds) seconds.innerText = window.simuladorRespiracionSegundosRestantes;
+    } else if (window.simuladorRespiracionEstado === 'exhalar') {
+        circle.style.transform = 'scale(1.0)';
+        circle.style.background = 'radial-gradient(circle, #34D399 0%, #059669 70%, #047857 100%)';
+        if (icon) icon.innerText = '🍃';
+        instruction.innerText = '3. EXHALA despacio por la boca... Soltando todo el miedo y la tensión.';
+        instruction.style.color = '#34D399';
+        if (seconds) seconds.innerText = window.simuladorRespiracionSegundosRestantes;
+    }
+};
+
+window.reiniciarSimuladorRespiracion = function() {
+    if (window.simuladorRespiracionTimer) {
+        clearInterval(window.simuladorRespiracionTimer);
+        window.simuladorRespiracionTimer = null;
+    }
+    window.simuladorRespiracionEstado = 'pausado';
+    window.simuladorRespiracionCiclos = 0;
+    window.simuladorRespiracionSegundosRestantes = 4;
+    const btn = document.getElementById('btn-toggle-breathing');
+    if (btn) btn.innerHTML = '<span>▶️</span> Iniciar Ejercicio de Calma';
+    const cCount = document.getElementById('breathing-cycles-count');
+    if (cCount) cCount.innerText = '0';
+    const circle = document.getElementById('breathing-circle');
+    if (circle) {
+        circle.style.transform = 'scale(1.0)';
+        circle.style.background = 'radial-gradient(circle, #38BDF8 0%, #0284C7 70%, #0369A1 100%)';
+    }
+    const icon = document.getElementById('breathing-phase-icon');
+    if (icon) icon.innerText = '🫁';
+    const seconds = document.getElementById('breathing-seconds');
+    if (seconds) seconds.innerText = '4';
+    const instruction = document.getElementById('breathing-instruction');
+    if (instruction) {
+        instruction.innerText = 'Presiona "Iniciar Ejercicio de Calma" para comenzar';
+        instruction.style.color = '#FDE047';
+    }
+};
+
+window.generarCarnetResiliencia = function() {
+    const obj = document.getElementById('botiquin-objeto') ? document.getElementById('botiquin-objeto').value.trim() : 'Recuerdo seguro';
+    const per = document.getElementById('botiquin-persona') ? document.getElementById('botiquin-persona').value.trim() : 'Mi familia';
+    const fra = document.getElementById('botiquin-frase') ? document.getElementById('botiquin-frase').value : 'El temblor ya pasó, aquí y ahora estoy a salvo.';
+    const tec = document.getElementById('botiquin-tecnica') ? document.getElementById('botiquin-tecnica').value : 'Abrazo de la Mariposa';
+    
+    const curUser = window.usuarioEstudianteActual || JSON.parse(localStorage.getItem('usuario_sesion') || '{}');
+    const nombre = curUser.nombre || curUser.nombre_completo || 'Estudiante Montenegro';
+    const doc = curUser.documento || curUser.usuario || 'DOC';
+
+    const output = document.getElementById('carnet-resiliencia-output');
+    if (output) {
+        output.style.display = 'block';
+        output.innerHTML = `
+            <div style="background: linear-gradient(135deg, #1E1B4B 0%, #312E81 100%); border: 3px solid #F59E0B; border-radius: 16px; padding: 25px; color: white; box-shadow: 0 10px 25px rgba(0,0,0,0.25); max-width: 580px; margin: 0 auto; font-family: Inter, sans-serif; position: relative;">
+                <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid rgba(255,255,255,0.15); padding-bottom: 12px; margin-bottom: 15px;">
+                    <div>
+                        <div style="font-size: 0.75rem; color: #FDE047; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px;">Peidagogos STEAM • Gestión del Riesgo</div>
+                        <h4 style="margin: 2px 0 0 0; color: white; font-size: 1.2rem; font-weight: 900;">🏅 Carnet Oficial de Resiliencia Emocional</h4>
+                    </div>
+                    <span style="font-size: 2.2rem;">🛡️</span>
+                </div>
+
+                <div style="margin-bottom: 12px;">
+                    <div style="font-size: 0.8rem; color: #93C5FD; font-weight: 700;">TITULAR ACREDITADO:</div>
+                    <div style="font-size: 1.15rem; font-weight: 900; color: #F8FAFC;">${nombre} (ID: ${doc})</div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 14px; font-size: 0.85rem;">
+                    <div style="background: rgba(255,255,255,0.1); padding: 8px 12px; border-radius: 8px;">
+                        <span style="color: #FCA5A5; font-weight: bold;">🧸 Objeto Ancla:</span><br>${obj || 'Foto familiar'}
+                    </div>
+                    <div style="background: rgba(255,255,255,0.1); padding: 8px 12px; border-radius: 8px;">
+                        <span style="color: #93C5FD; font-weight: bold;">🫂 Persona Refugio:</span><br>${per || 'Mi familia'}
+                    </div>
+                </div>
+
+                <div style="background: rgba(255,255,255,0.1); padding: 10px 12px; border-radius: 8px; margin-bottom: 14px; font-size: 0.88rem;">
+                    <span style="color: #86EFAC; font-weight: bold;">🕊️ Mantra de Fortaleza:</span><br>
+                    <em style="color: #FDE047;">"${fra}"</em>
+                </div>
+
+                <div style="background: rgba(255,255,255,0.1); padding: 10px 12px; border-radius: 8px; margin-bottom: 15px; font-size: 0.85rem;">
+                    <span style="color: #DDD6FE; font-weight: bold;">🦋 Técnica Corporal de Calma:</span><br>${tec}
+                </div>
+
+                <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.75rem; color: #CBD5E1; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 10px;">
+                    <span>📍 Montenegro, Quindío • 2026</span>
+                    <button onclick="window.print()" style="background: #10B981; color: white; border: none; padding: 6px 14px; border-radius: 6px; font-weight: bold; cursor: pointer;">🖨️ Imprimir Carnet</button>
+                </div>
+            </div>
+        `;
+    }
+
+    if (window.sumarXPEstudiante) {
+        window.sumarXPEstudiante(doc, 35, "Botiquín Emocional Personalizado Creado");
+    }
+    alert("🎉 ¡Botiquín Emocional guardado con éxito! Has ganado +35 XP y generado tu Carnet Oficial de Resiliencia.");
+};
+
+window.abrirClasePrimerosAuxiliosEmocionales = function(modo = 'estudiante') {
+    const guideData = window.obtenerGuiaPrimerosAuxiliosEmocionales();
+    const curUser = window.usuarioEstudianteActual || JSON.parse(localStorage.getItem('usuario_sesion') || '{}');
+    
+    // Si viene de docente o tutor en pantalla de gestión, abrir modal de proyección grupal
+    if (modo === 'docente' || modo === 'tutor') {
+        const modalContainer = document.createElement('div');
+        modalContainer.id = 'modal-clase-terremoto-proyeccion';
+        modalContainer.style.cssText = 'position: fixed; inset: 0; background: rgba(15, 23, 42, 0.85); z-index: 9999; display: flex; justify-content: center; align-items: center; padding: 20px; overflow-y: auto; backdrop-filter: blur(8px);';
+        
+        modalContainer.innerHTML = `
+            <div style="background: white; border-radius: 20px; width: 100%; max-width: 950px; max-height: 90vh; overflow-y: auto; box-shadow: 0 25px 50px rgba(0,0,0,0.3); padding: 30px; position: relative;">
+                <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #E2E8F0; padding-bottom: 15px; margin-bottom: 20px;">
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <span style="font-size: 2rem;">❤️‍🩹</span>
+                        <div>
+                            <h3 style="margin: 0; color: #991B1B; font-size: 1.4rem; font-weight: 900;">Clase Magistral: Primeros Auxilios Emocionales luego del Terremoto</h3>
+                            <p style="margin: 2px 0 0 0; color: #6B7280; font-size: 0.85rem;">Modo Taller y Proyección para VideoBeam / Trabajo Grupal y Familiar</p>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 8px;">
+                        <button onclick="window.print()" style="background: #F1F5F9; border: 1px solid #CBD5E1; color: #334155; padding: 8px 14px; border-radius: 8px; font-weight: 700; cursor: pointer;">🖨️ Imprimir Taller</button>
+                        <button onclick="document.getElementById('modal-clase-terremoto-proyeccion').remove()" style="background: #EF4444; color: white; border: none; padding: 8px 16px; border-radius: 8px; font-weight: 800; cursor: pointer;">✕ Cerrar</button>
+                    </div>
+                </div>
+                <div id="proyeccion-guia-emocional-inner"></div>
+            </div>
+        `;
+        document.body.appendChild(modalContainer);
+
+        const inner = document.getElementById('proyeccion-guia-emocional-inner');
+        if (inner) {
+            window.isTeacherView = true;
+            window.guideDataCache = guideData;
+            let htmlGuide = `
+                <div style="background: #FEF2F2; border: 1.5px solid #FCA5A5; border-radius: 12px; padding: 18px; margin-bottom: 20px; color: #991B1B;">
+                    <div style="font-weight: 900; font-size: 1.1rem; margin-bottom: 4px;">🎯 Objetivo Pedagógico de la Clase:</div>
+                    <p style="margin: 0; font-size: 0.95rem; line-height: 1.45;">${guideData.objetivo_aprendizaje}</p>
+                </div>
+                <div style="font-size: 1.05rem; line-height: 1.6; color: #374151;">
+                    ${window.procesarJuegosEnTexto(guideData.texto_deductivo)}
+                </div>
+                ${window.renderizarSeccionIcfes(guideData.icfes, true)}
+                ${window.renderizarCierreGamificado(guideData.cierre_gamificado, true)}
+            `;
+            inner.innerHTML = htmlGuide;
+            if (window.renderizarBloquesEspeciales) window.renderizarBloquesEspeciales(inner);
+            if (window.juegosPendientes && window.juegosPendientes.length > 0) {
+                window.juegosPendientes.forEach(j => j());
+                window.juegosPendientes = [];
+            }
+        }
+        return;
+    }
+
+    // Modo Estudiante:
+    window.isTeacherView = false;
+    window.gradoActualEstudiante = curUser.grado || curUser.grupo || 'Ciclo VI';
+    const mainContent = document.getElementById("student-main-content");
+    const subjectView = document.getElementById("student-subject-view-container");
+    const subjectTitle = document.getElementById("student-subject-title");
+    const questContainer = document.getElementById("student-quest-container");
+    const guideContent = document.getElementById("student-guide-content");
+
+    if (mainContent && subjectView) {
+        mainContent.style.display = "none";
+        subjectView.style.display = "block";
+    }
+
+    if (subjectTitle) {
+        subjectTitle.innerText = "❤️‍🩹 Primeros Auxilios Emocionales (Terremoto)";
+    }
+
+    if (questContainer) questContainer.style.display = "none";
+    if (guideContent) guideContent.style.display = "block";
+
+    window.renderizarGuiaContenido(guideData, "1", "1", "Primeros Auxilios Emocionales", curUser);
+
+    // Auto-scroll al tope
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    const sDash = document.getElementById('student-dashboard-container');
+    if (sDash) sDash.scrollTop = 0;
+};
+
 window.procesarJuegosEnTexto = function(textoMarkdown) {
     if (!textoMarkdown) return "";
     let html = marked.parse(textoMarkdown);
@@ -5038,6 +5455,114 @@ window.procesarJuegosEnTexto = function(textoMarkdown) {
             ${solucionProfe}
         </div>`;
     });
+    
+    // 3. Procesar :::respirador_interactivo::: (Simulador de Respiración Diafragmática)
+    if (html.includes(':::respirador_interactivo:::') || html.includes('&colon;&colon;&colon;respirador_interactivo&colon;&colon;&colon;') || html.includes('respirador_interactivo')) {
+        const breathingHtml = `
+        <div id="simulador-respiracion-box" style="background: linear-gradient(135deg, #0F172A, #1E293B); border: 2px solid #38BDF8; border-radius: 18px; padding: 25px 20px; text-align: center; color: white; margin: 25px 0; box-shadow: 0 10px 25px rgba(0,0,0,0.3);">
+            <div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 8px;">
+                <span style="font-size: 1.8rem;">🌬️</span>
+                <h4 style="color: #38BDF8; font-size: 1.3rem; font-weight: 900; margin: 0;">Simulador Interactivo: Respiración Diafragmática 4-7-8</h4>
+            </div>
+            <p style="color: #94A3B8; font-size: 0.92rem; margin: 0 auto 20px auto; max-width: 600px;">
+                Esta técnica disminuye el ritmo cardíaco, oxigena el lóbulo frontal y envía una señal directa al nervio vago: <em>"El peligro ya pasó, aquí y ahora estoy a salvo"</em>.
+            </p>
+
+            <div style="position: relative; width: 200px; height: 200px; margin: 0 auto 20px auto; display: flex; align-items: center; justify-content: center;">
+                <div id="breathing-circle-outer" style="position: absolute; width: 190px; height: 190px; border-radius: 50%; border: 3px dashed rgba(56, 189, 248, 0.4); transition: transform 4s ease-in-out;"></div>
+                <div id="breathing-circle" style="width: 110px; height: 110px; border-radius: 50%; background: radial-gradient(circle, #38BDF8 0%, #0284C7 70%, #0369A1 100%); box-shadow: 0 0 25px rgba(56, 189, 248, 0.6); display: flex; flex-direction: column; align-items: center; justify-content: center; transition: transform 4s ease-in-out, background 1s;">
+                    <span id="breathing-phase-icon" style="font-size: 1.8rem;">🫁</span>
+                    <span id="breathing-seconds" style="font-size: 1.6rem; font-weight: 900; color: white;">4</span>
+                </div>
+            </div>
+
+            <div id="breathing-instruction" style="font-size: 1.3rem; font-weight: 900; color: #FDE047; min-height: 35px; margin-bottom: 18px;">
+                Presiona "Iniciar Ejercicio de Calma" para comenzar
+            </div>
+
+            <div style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;">
+                <button id="btn-toggle-breathing" onclick="window.toggleSimuladorRespiracion()" style="background: linear-gradient(135deg, #10B981, #059669); color: white; border: none; padding: 12px 26px; border-radius: 30px; font-weight: 800; font-size: 0.95rem; cursor: pointer; display: flex; align-items: center; gap: 8px; box-shadow: 0 4px 15px rgba(16,185,129,0.3);">
+                    <span>▶️</span> Iniciar Ejercicio de Calma
+                </button>
+                <button onclick="window.reiniciarSimuladorRespiracion()" style="background: rgba(255,255,255,0.1); color: #E2E8F0; border: 1px solid #475569; padding: 12px 18px; border-radius: 30px; font-weight: 700; font-size: 0.9rem; cursor: pointer;">
+                    🔄 Reiniciar
+                </button>
+            </div>
+
+            <div style="margin-top: 15px; font-size: 0.85rem; color: #34D399; font-weight: 700;">
+                Ciclos completados: <span id="breathing-cycles-count">0</span> / 4 recomendados (+25 XP al completar)
+            </div>
+        </div>
+        `;
+        html = html.replace(/:::respirador_interactivo:::/g, breathingHtml)
+                   .replace(/&colon;&colon;&colon;respirador_interactivo&colon;&colon;&colon;/g, breathingHtml)
+                   .replace(/<p>:::respirador_interactivo:::<\/p>/g, breathingHtml);
+    }
+
+    // 4. Procesar :::botiquin_emocional::: (Constructor Interactivo)
+    if (html.includes(':::botiquin_emocional:::') || html.includes('&colon;&colon;&colon;botiquin_emocional&colon;&colon;&colon;') || html.includes('botiquin_emocional')) {
+        const botiquinHtml = `
+        <div id="constructor-botiquin-emocional" style="background: white; border: 2px solid #FBCFE8; border-radius: 18px; padding: 25px; margin: 25px 0; box-shadow: 0 6px 20px rgba(244, 114, 182, 0.1);">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 15px;">
+                <span style="font-size: 2.2rem;">🧰</span>
+                <div>
+                    <h4 style="margin: 0; color: #9D174D; font-size: 1.3rem; font-weight: 900;">Taller Práctico: Constructor de "Mi Botiquín Emocional"</h4>
+                    <p style="margin: 2px 0 0 0; color: #6B7280; font-size: 0.9rem;">Personaliza tus 4 anclas de seguridad emocional para tener listas ante cualquier emergencia o momento de miedo.</p>
+                </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 15px; margin-bottom: 20px;">
+                <div style="background: #FFF1F2; border: 1px solid #FECDD3; border-radius: 12px; padding: 14px;">
+                    <label style="font-weight: 800; color: #9F1239; font-size: 0.88rem; display: flex; align-items: center; gap: 6px; margin-bottom: 6px;">
+                        <span>1. 🧸</span> Mi Objeto o Recuerdo Ancla:
+                    </label>
+                    <input type="text" id="botiquin-objeto" placeholder="Ej: Peluche favorito, foto familiar, piedra suave" value="Foto de mi familia y mi mascota" style="width: 100%; padding: 8px 12px; border: 1px solid #FDA4AF; border-radius: 8px; box-sizing: border-box; font-size: 0.9rem;">
+                </div>
+
+                <div style="background: #EFF6FF; border: 1px solid #BFDBFE; border-radius: 12px; padding: 14px;">
+                    <label style="font-weight: 800; color: #1E40AF; font-size: 0.88rem; display: flex; align-items: center; gap: 6px; margin-bottom: 6px;">
+                        <span>2. 🫂</span> Mi Persona de Refugio:
+                    </label>
+                    <input type="text" id="botiquin-persona" placeholder="Ej: Mi mamá, abuela, profe guía" value="Mi madre y mi profesor guía" style="width: 100%; padding: 8px 12px; border: 1px solid #93C5FD; border-radius: 8px; box-sizing: border-box; font-size: 0.9rem;">
+                </div>
+
+                <div style="background: #F0FDF4; border: 1px solid #BBF7D0; border-radius: 12px; padding: 14px;">
+                    <label style="font-weight: 800; color: #166534; font-size: 0.88rem; display: flex; align-items: center; gap: 6px; margin-bottom: 6px;">
+                        <span>3. 🕊️</span> Mi Frase de Fortaleza:
+                    </label>
+                    <select id="botiquin-frase" style="width: 100%; padding: 8px 12px; border: 1px solid #86EFAC; border-radius: 8px; box-sizing: border-box; font-size: 0.88rem; font-weight: 600;">
+                        <option value="El temblor ya pasó, aquí y ahora estoy a salvo y acompañado.">"El temblor ya pasó, aquí y ahora estoy a salvo y acompañado."</option>
+                        <option value="Puedo respirar profundo y calmar mi cuerpo paso a paso.">"Puedo respirar profundo y calmar mi cuerpo paso a paso."</option>
+                        <option value="El miedo es normal; soy valiente y nos cuidamos juntos en Montenegro.">"El miedo es normal; soy valiente y nos cuidamos juntos en Montenegro."</option>
+                        <option value="Somos una comunidad fuerte que se apoya y sale adelante.">"Somos una comunidad fuerte que se apoya y sale adelante."</option>
+                    </select>
+                </div>
+
+                <div style="background: #FAF5FF; border: 1px solid #E9D5FF; border-radius: 12px; padding: 14px;">
+                    <label style="font-weight: 800; color: #6B21A8; font-size: 0.88rem; display: flex; align-items: center; gap: 6px; margin-bottom: 6px;">
+                        <span>4. 🦋</span> Mi Técnica Corporal de Calma:
+                    </label>
+                    <select id="botiquin-tecnica" style="width: 100%; padding: 8px 12px; border: 1px solid #D8B4FE; border-radius: 8px; box-sizing: border-box; font-size: 0.88rem; font-weight: 600;">
+                        <option value="Abrazo de la Mariposa (toques suaves alternados en el pecho)">Abrazo de la Mariposa (toques suaves alternados en el pecho)</option>
+                        <option value="Técnica 5-4-3-2-1 de Enraizamiento Sensorial">Técnica 5-4-3-2-1 de Enraizamiento Sensorial</option>
+                        <option value="Respiración Diafragmática 4-7-8 con la mano en el abdomen">Respiración Diafragmática 4-7-8 con la mano en el abdomen</option>
+                    </select>
+                </div>
+            </div>
+
+            <div style="text-align: center;">
+                <button onclick="window.generarCarnetResiliencia()" style="background: linear-gradient(135deg, #EC4899, #DB2777); color: white; border: none; padding: 12px 26px; border-radius: 10px; font-weight: 800; font-size: 0.95rem; cursor: pointer; box-shadow: 0 4px 12px rgba(236,72,153,0.3); display: inline-flex; align-items: center; gap: 8px;">
+                    <span>🪪</span> Guardar y Generar Mi Carnet de Resiliencia (+35 XP)
+                </button>
+            </div>
+
+            <div id="carnet-resiliencia-output" style="display: none; margin-top: 20px;"></div>
+        </div>
+        `;
+        html = html.replace(/:::botiquin_emocional:::/g, botiquinHtml)
+                   .replace(/&colon;&colon;&colon;botiquin_emocional&colon;&colon;&colon;/g, botiquinHtml)
+                   .replace(/<p>:::botiquin_emocional:::<\/p>/g, botiquinHtml);
+    }
     
     return html;
 };
