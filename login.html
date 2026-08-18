@@ -549,217 +549,216 @@
 
 <!-- DASHBOARD DOCENTE (NUEVO) -->
 <div id="docente-dashboard-container" style="display: none; height: 100vh; overflow-y: auto; background-color: #F8FAFC;">
-    <header style="background: white; border-bottom: 2px solid #E2E8F0; padding: 16px 35px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.04);">
-        <div style="display: flex; align-items: center; gap: 18px;">
-            <!-- LOGO PEIDAGOGOS STEAM MÁS GRANDE Y VISIBLE -->
-            <img src="logo-peidagogos.png" alt="Peidagogos STEAM" style="height: 75px; width: auto; object-fit: contain; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.08));">
-            <div style="border-left: 2px solid #CBD5E1; padding-left: 18px;">
-                <div style="font-weight: 900; font-size: 1.45rem; color: #0F172A; display: flex; align-items: center; gap: 8px;">
+    <header style="background: white; border-bottom: 2px solid #E2E8F0; padding: 18px 40px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.04);">
+        <div style="display: flex; align-items: center; gap: 22px;">
+            <!-- LOGO OFICIAL PEIDAGOGOS STEAM MÁS GRANDE Y PROMINENTE (85px) -->
+            <img src="logo-peidagogos.png" alt="Peidagogos STEAM" style="height: 85px; width: auto; object-fit: contain; filter: drop-shadow(0 6px 14px rgba(0,0,0,0.12));">
+            <div style="border-left: 3px solid #CBD5E1; padding-left: 20px;">
+                <div style="font-weight: 900; font-size: 1.6rem; color: #0F172A; display: flex; align-items: center; gap: 10px;">
                     <span>👨‍🏫</span> <span id="docente-nombre-header">Docente</span>
                 </div>
-                <div id="docente-institucion-subhead" style="font-size: 0.9rem; color: #475569; font-weight: 700; margin-top: 2px;">
+                <div id="docente-institucion-subhead" style="font-size: 0.95rem; color: #475569; font-weight: 700; margin-top: 3px;">
                     🏛️ IE Instituto Montenegro • Sede Principal
                 </div>
             </div>
         </div>
 
-        <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
-            <button onclick="location.reload()" style="background: #FEE2E2; color: #991B1B; border: 1.5px solid #FCA5A5; padding: 10px 20px; border-radius: 10px; font-weight: 800; cursor: pointer; font-size: 0.9rem; display: flex; align-items: center; gap: 6px; box-shadow: 0 2px 6px rgba(239,68,68,0.15);" onmouseover="this.style.background='#FCA5A5'" onmouseout="this.style.background='#FEE2E2'">
+        <div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap;">
+            <button onclick="location.reload()" style="background: #FEE2E2; color: #991B1B; border: 1.5px solid #FCA5A5; padding: 12px 24px; border-radius: 12px; font-weight: 900; cursor: pointer; font-size: 0.95rem; display: flex; align-items: center; gap: 8px; box-shadow: 0 3px 8px rgba(239,68,68,0.2);" onmouseover="this.style.background='#FCA5A5'" onmouseout="this.style.background='#FEE2E2'">
                 <span>🚪</span> Cerrar Sesión
             </button>
         </div>
     </header>
 
-    <div style="padding: 35px 30px; max-width: 1420px; margin: 0 auto;">
+    <div style="padding: 40px 35px; max-width: 1440px; margin: 0 auto;">
         
-        <!-- SECCIÓN DE CAJONES DE HERRAMIENTAS Y GESTIÓN PEDAGÓGICA STEAM -->
-        <div style="margin-bottom: 35px;">
-            <div style="margin-bottom: 18px;">
-                <h2 style="font-size: 1.65rem; font-weight: 900; color: #0F172A; margin: 0; display: flex; align-items: center; gap: 10px;">
-                    <span>🧰</span> Centro de Herramientas y Gestión Pedagógica
+        <!-- SECCIÓN 1: GRANDES CAJONES DE SERVICIOS Y HERRAMIENTAS PEDAGÓGICAS (10 Módulos) -->
+        <div style="margin-bottom: 45px;">
+            <div style="margin-bottom: 22px;">
+                <h2 style="font-size: 1.85rem; font-weight: 900; color: #0F172A; margin: 0; display: flex; align-items: center; gap: 12px;">
+                    <span>🧰</span> Centro de Servicios y Herramientas Pedagógicas
                 </h2>
-                <p style="color: #64748B; margin: 4px 0 0 0; font-size: 0.95rem;">
-                    Accede a todos los módulos interactivos, proyectores de clase, generadores de diapositivas y creadores curriculares.
+                <p style="color: #64748B; margin: 6px 0 0 0; font-size: 1.05rem;">
+                    Selecciona un servicio para abrir proyectores de aula, creadores curriculares, simuladores o generadores de clase.
                 </p>
             </div>
 
-            <!-- Grid de Grandes Cajones de Herramientas (10 Módulos Oficiales) -->
-            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 18px;">
+            <!-- Grid de Grandes Cajones de Herramientas -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px;">
                 
                 <!-- 1. Crear Asignatura (IA) -->
-                <div style="background: white; border: 1.5px solid #E2E8F0; border-radius: 16px; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); display: flex; flex-direction: column; justify-content: space-between; transition: transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 10px 25px rgba(124,58,237,0.15)';" onmouseout="this.style.transform='none'; this.style.boxShadow='0 4px 15px rgba(0,0,0,0.03)';">
+                <div style="background: white; border: 2px solid #DDD6FE; border-radius: 20px; padding: 24px; box-shadow: 0 8px 25px rgba(124,58,237,0.08); display: flex; flex-direction: column; justify-content: space-between; min-height: 270px; transition: transform 0.25s, box-shadow 0.25s;" onmouseover="this.style.transform='translateY(-6px)'; this.style.boxShadow='0 16px 35px rgba(124,58,237,0.2)';" onmouseout="this.style.transform='none'; this.style.boxShadow='0 8px 25px rgba(124,58,237,0.08)';">
                     <div>
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-                            <span style="background: #F3E8FF; color: #7E22CE; font-size: 0.72rem; font-weight: 900; padding: 3px 10px; border-radius: 20px; text-transform: uppercase;">IA Curricular</span>
-                            <span style="font-size: 1.8rem;">✨</span>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                            <span style="background: #F3E8FF; color: #6D28D9; font-size: 0.78rem; font-weight: 900; padding: 4px 12px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px;">Inteligencia Artificial</span>
+                            <span style="font-size: 2.2rem;">✨</span>
                         </div>
-                        <h4 style="margin: 0 0 6px 0; font-size: 1.15rem; font-weight: 900; color: #1E293B;">Crear Asignatura (IA)</h4>
-                        <p style="margin: 0; color: #64748B; font-size: 0.84rem; line-height: 1.45;">
-                            Crea nuevas materias personalizadas y genera su Malla Curricular DBA automáticamente con IA a partir de documentos.
+                        <h3 style="margin: 0 0 8px 0; font-size: 1.35rem; font-weight: 900; color: #1E293B;">Crear Asignatura (IA)</h3>
+                        <p style="margin: 0; color: #475569; font-size: 0.92rem; line-height: 1.5;">
+                            Crea nuevas materias curriculares personalizadas y genera su Malla Curricular DBA automáticamente con IA a partir de tus documentos.
                         </p>
                     </div>
-                    <button onclick="window.abrirModalCrearAsignaturaDocente('docente')" style="margin-top: 14px; background: linear-gradient(135deg, #7C3AED, #6D28D9); color: white; border: none; padding: 10px; border-radius: 10px; font-weight: 800; font-size: 0.88rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px; box-shadow: 0 4px 10px rgba(124,58,237,0.25);">
-                        <span>📚</span> Crear Asignatura
+                    <button onclick="window.abrirModalCrearAsignaturaDocente('docente')" style="margin-top: 18px; background: linear-gradient(135deg, #7C3AED, #6D28D9); color: white; border: none; padding: 14px; border-radius: 12px; font-weight: 900; font-size: 1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 15px rgba(124,58,237,0.3);">
+                        <span>📚</span> Inscribir Nueva Materia <span>➔</span>
                     </button>
                 </div>
 
                 <!-- 2. Mis Materias y Grados -->
-                <div style="background: white; border: 1.5px solid #E2E8F0; border-radius: 16px; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); display: flex; flex-direction: column; justify-content: space-between; transition: transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 10px 25px rgba(37,99,235,0.15)';" onmouseout="this.style.transform='none'; this.style.boxShadow='0 4px 15px rgba(0,0,0,0.03)';">
+                <div style="background: white; border: 2px solid #BFDBFE; border-radius: 20px; padding: 24px; box-shadow: 0 8px 25px rgba(37,99,235,0.08); display: flex; flex-direction: column; justify-content: space-between; min-height: 270px; transition: transform 0.25s, box-shadow 0.25s;" onmouseover="this.style.transform='translateY(-6px)'; this.style.boxShadow='0 16px 35px rgba(37,99,235,0.2)';" onmouseout="this.style.transform='none'; this.style.boxShadow='0 8px 25px rgba(37,99,235,0.08)';">
                     <div>
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-                            <span style="background: #EFF6FF; color: #1E40AF; font-size: 0.72rem; font-weight: 900; padding: 3px 10px; border-radius: 20px; text-transform: uppercase;">Configuración</span>
-                            <span style="font-size: 1.8rem;">⚙️</span>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                            <span style="background: #EFF6FF; color: #1E40AF; font-size: 0.78rem; font-weight: 900; padding: 4px 12px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px;">Configuración</span>
+                            <span style="font-size: 2.2rem;">⚙️</span>
                         </div>
-                        <h4 style="margin: 0 0 6px 0; font-size: 1.15rem; font-weight: 900; color: #1E293B;">Mis Materias y Grados</h4>
-                        <p style="margin: 0; color: #64748B; font-size: 0.84rem; line-height: 1.45;">
-                            Administra qué asignaturas orientas y qué grados tienes a tu cargo para filtrar con exactitud los grupos de tu colegio.
+                        <h3 style="margin: 0 0 8px 0; font-size: 1.35rem; font-weight: 900; color: #1E293B;">Mis Materias y Grados</h3>
+                        <p style="margin: 0; color: #475569; font-size: 0.92rem; line-height: 1.5;">
+                            Selecciona las asignaturas que orientas y qué grados o ciclos tienes a tu cargo para filtrar y organizar automáticamente tus aulas.
                         </p>
                     </div>
-                    <button onclick="window.abrirModalGestionMateriasGradosDocente()" style="margin-top: 14px; background: linear-gradient(135deg, #2563EB, #1D4ED8); color: white; border: none; padding: 10px; border-radius: 10px; font-weight: 800; font-size: 0.88rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px; box-shadow: 0 4px 10px rgba(37,99,235,0.25);">
-                        <span>⚙️</span> Gestionar Materias
+                    <button onclick="window.abrirModalGestionMateriasGradosDocente()" style="margin-top: 18px; background: linear-gradient(135deg, #2563EB, #1D4ED8); color: white; border: none; padding: 14px; border-radius: 12px; font-weight: 900; font-size: 1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 15px rgba(37,99,235,0.3);">
+                        <span>⚙️</span> Configurar Mis Asignaturas <span>➔</span>
                     </button>
                 </div>
 
                 <!-- 3. Caja de Herramientas STEAM (42) -->
-                <div style="background: white; border: 1.5px solid #E2E8F0; border-radius: 16px; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); display: flex; flex-direction: column; justify-content: space-between; transition: transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 10px 25px rgba(236,72,153,0.15)';" onmouseout="this.style.transform='none'; this.style.boxShadow='0 4px 15px rgba(0,0,0,0.03)';">
+                <div style="background: white; border: 2px solid #FBCFE8; border-radius: 20px; padding: 24px; box-shadow: 0 8px 25px rgba(236,72,153,0.08); display: flex; flex-direction: column; justify-content: space-between; min-height: 270px; transition: transform 0.25s, box-shadow 0.25s;" onmouseover="this.style.transform='translateY(-6px)'; this.style.boxShadow='0 16px 35px rgba(236,72,153,0.2)';" onmouseout="this.style.transform='none'; this.style.boxShadow='0 8px 25px rgba(236,72,153,0.08)';">
                     <div>
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-                            <span style="background: #FDF2F8; color: #BE185D; font-size: 0.72rem; font-weight: 900; padding: 3px 10px; border-radius: 20px; text-transform: uppercase;">42 Simuladores</span>
-                            <span style="font-size: 1.8rem;">🧰</span>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                            <span style="background: #FDF2F8; color: #BE185D; font-size: 0.78rem; font-weight: 900; padding: 4px 12px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px;">Kit Completo</span>
+                            <span style="font-size: 2.2rem;">🧰</span>
                         </div>
-                        <h4 style="margin: 0 0 6px 0; font-size: 1.15rem; font-weight: 900; color: #1E293B;">Caja STEAM (42)</h4>
-                        <p style="margin: 0; color: #64748B; font-size: 0.84rem; line-height: 1.45;">
-                            Kit completo con simuladores interactivos, generadores de rúbricas formativas, dinámicas de aula y retos gamificados.
+                        <h3 style="margin: 0 0 8px 0; font-size: 1.35rem; font-weight: 900; color: #1E293B;">Caja STEAM (42 Apps)</h3>
+                        <p style="margin: 0; color: #475569; font-size: 0.92rem; line-height: 1.5;">
+                            Kit completo con 42 simuladores interactivos, generadores de rúbricas formativas, laboratorios virtuales y retos de aula.
                         </p>
                     </div>
-                    <button onclick="window.abrirCajaHerramientas('todas', 'docente')" style="margin-top: 14px; background: linear-gradient(135deg, #EC4899, #BE185D); color: white; border: none; padding: 10px; border-radius: 10px; font-weight: 800; font-size: 0.88rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px; box-shadow: 0 4px 10px rgba(236,72,153,0.25);">
-                        <span>🧰</span> Abrir Caja STEAM
+                    <button onclick="window.abrirCajaHerramientas('todas', 'docente')" style="margin-top: 18px; background: linear-gradient(135deg, #EC4899, #BE185D); color: white; border: none; padding: 14px; border-radius: 12px; font-weight: 900; font-size: 1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 15px rgba(236,72,153,0.3);">
+                        <span>🧰</span> Abrir Caja STEAM <span>➔</span>
                     </button>
                 </div>
 
                 <!-- 4. 10 Diapositivas Semanales -->
-                <div style="background: white; border: 1.5px solid #E2E8F0; border-radius: 16px; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); display: flex; flex-direction: column; justify-content: space-between; transition: transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 10px 25px rgba(99,102,241,0.15)';" onmouseout="this.style.transform='none'; this.style.boxShadow='0 4px 15px rgba(0,0,0,0.03)';">
+                <div style="background: white; border: 2px solid #C7D2FE; border-radius: 20px; padding: 24px; box-shadow: 0 8px 25px rgba(99,102,241,0.08); display: flex; flex-direction: column; justify-content: space-between; min-height: 270px; transition: transform 0.25s, box-shadow 0.25s;" onmouseover="this.style.transform='translateY(-6px)'; this.style.boxShadow='0 16px 35px rgba(99,102,241,0.2)';" onmouseout="this.style.transform='none'; this.style.boxShadow='0 8px 25px rgba(99,102,241,0.08)';">
                     <div>
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-                            <span style="background: #EEF2FF; color: #4338CA; font-size: 0.72rem; font-weight: 900; padding: 3px 10px; border-radius: 20px; text-transform: uppercase;">Presentaciones</span>
-                            <span style="font-size: 1.8rem;">📽️</span>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                            <span style="background: #EEF2FF; color: #4338CA; font-size: 0.78rem; font-weight: 900; padding: 4px 12px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px;">Presentaciones</span>
+                            <span style="font-size: 2.2rem;">📽️</span>
                         </div>
-                        <h4 style="margin: 0 0 6px 0; font-size: 1.15rem; font-weight: 900; color: #1E293B;">10 Diapositivas</h4>
-                        <p style="margin: 0; color: #64748B; font-size: 0.84rem; line-height: 1.45;">
-                            Genera y personaliza las diapositivas de la semana para introducir temas curriculares con explicaciones visuales.
+                        <h3 style="margin: 0 0 8px 0; font-size: 1.35rem; font-weight: 900; color: #1E293B;">10 Diapositivas Semanales</h3>
+                        <p style="margin: 0; color: #475569; font-size: 0.92rem; line-height: 1.5;">
+                            Genera y personaliza las 10 diapositivas para introducir el tema curricular de la semana con explicaciones visuales.
                         </p>
                     </div>
-                    <button onclick="window.abrirConfiguradorDiapositivas('docente')" style="margin-top: 14px; background: linear-gradient(135deg, #6366F1, #4F46E5); color: white; border: none; padding: 10px; border-radius: 10px; font-weight: 800; font-size: 0.88rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px; box-shadow: 0 4px 10px rgba(99,102,241,0.25);">
-                        <span>📽️</span> Ver Diapositivas
+                    <button onclick="window.abrirConfiguradorDiapositivas('docente')" style="margin-top: 18px; background: linear-gradient(135deg, #6366F1, #4F46E5); color: white; border: none; padding: 14px; border-radius: 12px; font-weight: 900; font-size: 1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 15px rgba(99,102,241,0.3);">
+                        <span>📽️</span> Generar Diapositivas <span>➔</span>
                     </button>
                 </div>
 
                 <!-- 5. Modo Proyector (Sin Computadores) -->
-                <div style="background: white; border: 1.5px solid #E2E8F0; border-radius: 16px; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); display: flex; flex-direction: column; justify-content: space-between; transition: transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 10px 25px rgba(16,185,129,0.15)';" onmouseout="this.style.transform='none'; this.style.boxShadow='0 4px 15px rgba(0,0,0,0.03)';">
+                <div style="background: white; border: 2px solid #A7F3D0; border-radius: 20px; padding: 24px; box-shadow: 0 8px 25px rgba(16,185,129,0.08); display: flex; flex-direction: column; justify-content: space-between; min-height: 270px; transition: transform 0.25s, box-shadow 0.25s;" onmouseover="this.style.transform='translateY(-6px)'; this.style.boxShadow='0 16px 35px rgba(16,185,129,0.2)';" onmouseout="this.style.transform='none'; this.style.boxShadow='0 8px 25px rgba(16,185,129,0.08)';">
                     <div>
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-                            <span style="background: #ECFDF5; color: #047857; font-size: 0.72rem; font-weight: 900; padding: 3px 10px; border-radius: 20px; text-transform: uppercase;">VideoBeam / Aula</span>
-                            <span style="font-size: 1.8rem;">📽️</span>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                            <span style="background: #ECFDF5; color: #047857; font-size: 0.78rem; font-weight: 900; padding: 4px 12px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px;">Aula Activa</span>
+                            <span style="font-size: 2.2rem;">📽️</span>
                         </div>
-                        <h4 style="margin: 0 0 6px 0; font-size: 1.15rem; font-weight: 900; color: #1E293B;">Modo Proyector</h4>
-                        <p style="margin: 0; color: #64748B; font-size: 0.84rem; line-height: 1.45;">
-                            Herramienta diseñada para dictar clase guiada e interactiva cuando los estudiantes no tienen computadores.
+                        <h3 style="margin: 0 0 8px 0; font-size: 1.35rem; font-weight: 900; color: #1E293B;">Modo Proyector (Sin PC)</h3>
+                        <p style="margin: 0; color: #475569; font-size: 0.92rem; line-height: 1.5;">
+                            Módulo interactivo diseñado para dictar clase con VideoBeam cuando los estudiantes no tienen computadores.
                         </p>
                     </div>
-                    <a href="proyector.html" target="_blank" style="margin-top: 14px; background: linear-gradient(135deg, #10B981, #059669); color: white; border: none; padding: 10px; border-radius: 10px; font-weight: 800; font-size: 0.88rem; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 6px; box-shadow: 0 4px 10px rgba(16,185,129,0.25);">
-                        <span>📽️</span> Modo Proyector
+                    <a href="proyector.html" target="_blank" style="margin-top: 18px; background: linear-gradient(135deg, #10B981, #059669); color: white; border: none; padding: 14px; border-radius: 12px; font-weight: 900; font-size: 1rem; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 15px rgba(16,185,129,0.3);">
+                        <span>📽️</span> Iniciar Modo Proyector <span>➔</span>
                     </a>
                 </div>
 
                 <!-- 6. Proyectar QR Matrícula -->
-                <div style="background: white; border: 1.5px solid #E2E8F0; border-radius: 16px; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); display: flex; flex-direction: column; justify-content: space-between; transition: transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 10px 25px rgba(37,99,235,0.15)';" onmouseout="this.style.transform='none'; this.style.boxShadow='0 4px 15px rgba(0,0,0,0.03)';">
+                <div style="background: white; border: 2px solid #BAE6FD; border-radius: 20px; padding: 24px; box-shadow: 0 8px 25px rgba(2,132,199,0.08); display: flex; flex-direction: column; justify-content: space-between; min-height: 270px; transition: transform 0.25s, box-shadow 0.25s;" onmouseover="this.style.transform='translateY(-6px)'; this.style.boxShadow='0 16px 35px rgba(2,132,199,0.2)';" onmouseout="this.style.transform='none'; this.style.boxShadow='0 8px 25px rgba(2,132,199,0.08)';">
                     <div>
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-                            <span style="background: #EFF6FF; color: #1E40AF; font-size: 0.72rem; font-weight: 900; padding: 3px 10px; border-radius: 20px; text-transform: uppercase;">Matrícula Fácil</span>
-                            <span style="font-size: 1.8rem;">📱</span>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                            <span style="background: #E0F2FE; color: #0369A1; font-size: 0.78rem; font-weight: 900; padding: 4px 12px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px;">Matrícula Fácil</span>
+                            <span style="font-size: 2.2rem;">📱</span>
                         </div>
-                        <h4 style="margin: 0 0 6px 0; font-size: 1.15rem; font-weight: 900; color: #1E293B;">Proyectar QR Matrícula</h4>
-                        <p style="margin: 0; color: #64748B; font-size: 0.84rem; line-height: 1.45;">
-                            Proyecta el código QR institucional gigante para que tus estudiantes se matriculen en segundos desde el celular.
+                        <h3 style="margin: 0 0 8px 0; font-size: 1.35rem; font-weight: 900; color: #1E293B;">Proyectar QR Matrícula</h3>
+                        <p style="margin: 0; color: #475569; font-size: 0.92rem; line-height: 1.5;">
+                            Proyecta el código QR institucional gigante en el aula para que tus estudiantes se matriculen en segundos desde el celular.
                         </p>
                     </div>
-                    <a href="proyector-qr.html" target="_blank" style="margin-top: 14px; background: linear-gradient(135deg, #2563EB, #1D4ED8); color: white; border: none; padding: 10px; border-radius: 10px; font-weight: 800; font-size: 0.88rem; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 6px; box-shadow: 0 4px 10px rgba(37,99,235,0.25);">
-                        <span>📷</span> Proyectar Código QR
+                    <a href="proyector-qr.html" target="_blank" style="margin-top: 18px; background: linear-gradient(135deg, #0284C7, #0369A1); color: white; border: none; padding: 14px; border-radius: 12px; font-weight: 900; font-size: 1rem; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 15px rgba(2,132,199,0.3);">
+                        <span>📷</span> Proyectar Código QR <span>➔</span>
                     </a>
                 </div>
 
                 <!-- 7. Ránking y Leaderboard en Vivo -->
-                <div style="background: white; border: 1.5px solid #E2E8F0; border-radius: 16px; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); display: flex; flex-direction: column; justify-content: space-between; transition: transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 10px 25px rgba(245,158,11,0.15)';" onmouseout="this.style.transform='none'; this.style.boxShadow='0 4px 15px rgba(0,0,0,0.03)';">
+                <div style="background: white; border: 2px solid #FDE68A; border-radius: 20px; padding: 24px; box-shadow: 0 8px 25px rgba(245,158,11,0.08); display: flex; flex-direction: column; justify-content: space-between; min-height: 270px; transition: transform 0.25s, box-shadow 0.25s;" onmouseover="this.style.transform='translateY(-6px)'; this.style.boxShadow='0 16px 35px rgba(245,158,11,0.2)';" onmouseout="this.style.transform='none'; this.style.boxShadow='0 8px 25px rgba(245,158,11,0.08)';">
                     <div>
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-                            <span style="background: #FEF3C7; color: #B45309; font-size: 0.72rem; font-weight: 900; padding: 3px 10px; border-radius: 20px; text-transform: uppercase;">Leaderboard</span>
-                            <span style="font-size: 1.8rem;">🏆</span>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                            <span style="background: #FEF3C7; color: #B45309; font-size: 0.78rem; font-weight: 900; padding: 4px 12px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px;">Leaderboard</span>
+                            <span style="font-size: 2.2rem;">🏆</span>
                         </div>
-                        <h4 style="margin: 0 0 6px 0; font-size: 1.15rem; font-weight: 900; color: #1E293B;">Ránking en Vivo</h4>
-                        <p style="margin: 0; color: #64748B; font-size: 0.84rem; line-height: 1.45;">
-                            Abre la tabla de posiciones con puntajes XP en una pestaña nueva para proyectar en Smart TV o VideoBeam.
+                        <h3 style="margin: 0 0 8px 0; font-size: 1.35rem; font-weight: 900; color: #1E293B;">Ránking en Vivo</h3>
+                        <p style="margin: 0; color: #475569; font-size: 0.92rem; line-height: 1.5;">
+                            Abre la tabla de posiciones con puntajes XP en una pestaña nueva para proyectar en Smart TV o VideoBeam del aula.
                         </p>
                     </div>
-                    <button onclick="window.abrirRankingDocenteNuevaPestana()" style="margin-top: 14px; background: linear-gradient(135deg, #F59E0B, #D97706); color: white; border: none; padding: 10px; border-radius: 10px; font-weight: 900; font-size: 0.88rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px; box-shadow: 0 4px 10px rgba(245,158,11,0.25);">
-                        <span>🏆</span> Proyectar Ránking
+                    <button onclick="window.abrirRankingDocenteNuevaPestana()" style="margin-top: 18px; background: linear-gradient(135deg, #F59E0B, #D97706); color: white; border: none; padding: 14px; border-radius: 12px; font-weight: 900; font-size: 1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 15px rgba(245,158,11,0.3);">
+                        <span>🏆</span> Proyectar Ránking <span>➔</span>
                     </button>
                 </div>
 
                 <!-- 8. Auxilios Emocionales (Terremoto) -->
-                <div style="background: white; border: 1.5px solid #E2E8F0; border-radius: 16px; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); display: flex; flex-direction: column; justify-content: space-between; transition: transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 10px 25px rgba(239,68,68,0.15)';" onmouseout="this.style.transform='none'; this.style.boxShadow='0 4px 15px rgba(0,0,0,0.03)';">
+                <div style="background: white; border: 2px solid #FECACA; border-radius: 20px; padding: 24px; box-shadow: 0 8px 25px rgba(239,68,68,0.08); display: flex; flex-direction: column; justify-content: space-between; min-height: 270px; transition: transform 0.25s, box-shadow 0.25s;" onmouseover="this.style.transform='translateY(-6px)'; this.style.boxShadow='0 16px 35px rgba(239,68,68,0.2)';" onmouseout="this.style.transform='none'; this.style.boxShadow='0 8px 25px rgba(239,68,68,0.08)';">
                     <div>
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-                            <span style="background: #FEE2E2; color: #B91C1C; font-size: 0.72rem; font-weight: 900; padding: 3px 10px; border-radius: 20px; text-transform: uppercase;">Contención y Apoyo</span>
-                            <span style="font-size: 1.8rem;">❤️‍🩹</span>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                            <span style="background: #FEE2E2; color: #B91C1C; font-size: 0.78rem; font-weight: 900; padding: 4px 12px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px;">Contención y Apoyo</span>
+                            <span style="font-size: 2.2rem;">❤️‍🩹</span>
                         </div>
-                        <h4 style="margin: 0 0 6px 0; font-size: 1.15rem; font-weight: 900; color: #1E293B;">Auxilios Emocionales</h4>
-                        <p style="margin: 0; color: #64748B; font-size: 0.84rem; line-height: 1.45;">
+                        <h3 style="margin: 0 0 8px 0; font-size: 1.35rem; font-weight: 900; color: #1E293B;">Auxilios Emocionales</h3>
+                        <p style="margin: 0; color: #475569; font-size: 0.92rem; line-height: 1.5;">
                             Clase y dinámicas interactivas para primeros auxilios emocionales, contención psicológica y resiliencia post-sismo.
                         </p>
                     </div>
-                    <button onclick="window.abrirClasePrimerosAuxiliosEmocionales('docente')" style="margin-top: 14px; background: linear-gradient(135deg, #EF4444, #DC2626); color: white; border: none; padding: 10px; border-radius: 10px; font-weight: 800; font-size: 0.88rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px; box-shadow: 0 4px 10px rgba(239,68,68,0.25);">
-                        <span>❤️‍🩹</span> Iniciar Taller Emocional
+                    <button onclick="window.abrirClasePrimerosAuxiliosEmocionales('docente')" style="margin-top: 18px; background: linear-gradient(135deg, #EF4444, #DC2626); color: white; border: none; padding: 14px; border-radius: 12px; font-weight: 900; font-size: 1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 15px rgba(239,68,68,0.3);">
+                        <span>❤️‍🩹</span> Iniciar Taller Emocional <span>➔</span>
                     </button>
                 </div>
 
                 <!-- 9. Agente Auditor QA -->
-                <div style="background: white; border: 1.5px solid #E2E8F0; border-radius: 16px; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); display: flex; flex-direction: column; justify-content: space-between; transition: transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 10px 25px rgba(14,165,233,0.15)';" onmouseout="this.style.transform='none'; this.style.boxShadow='0 4px 15px rgba(0,0,0,0.03)';">
+                <div style="background: white; border: 2px solid #BAE6FD; border-radius: 20px; padding: 24px; box-shadow: 0 8px 25px rgba(14,165,233,0.08); display: flex; flex-direction: column; justify-content: space-between; min-height: 270px; transition: transform 0.25s, box-shadow 0.25s;" onmouseover="this.style.transform='translateY(-6px)'; this.style.boxShadow='0 16px 35px rgba(14,165,233,0.2)';" onmouseout="this.style.transform='none'; this.style.boxShadow='0 8px 25px rgba(14,165,233,0.08)';">
                     <div>
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-                            <span style="background: #E0F2FE; color: #0369A1; font-size: 0.72rem; font-weight: 900; padding: 3px 10px; border-radius: 20px; text-transform: uppercase;">Diagnóstico 24/7</span>
-                            <span style="font-size: 1.8rem;">🩺</span>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                            <span style="background: #E0F2FE; color: #0369A1; font-size: 0.78rem; font-weight: 900; padding: 4px 12px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px;">Diagnóstico 24/7</span>
+                            <span style="font-size: 2.2rem;">🩺</span>
                         </div>
-                        <h4 style="margin: 0 0 6px 0; font-size: 1.15rem; font-weight: 900; color: #1E293B;">Agente Auditor QA</h4>
-                        <p style="margin: 0; color: #64748B; font-size: 0.84rem; line-height: 1.45;">
-                            Verifica y audita una a una todas las funciones de la plataforma, consistencia de datos de estudiantes y mallas DBA.
+                        <h3 style="margin: 0 0 8px 0; font-size: 1.35rem; font-weight: 900; color: #1E293B;">Agente Auditor QA</h3>
+                        <p style="margin: 0; color: #475569; font-size: 0.92rem; line-height: 1.5;">
+                            Verifica y audita una a una todas las funciones de la plataforma, consistencia de datos de tus estudiantes y mallas DBA.
                         </p>
                     </div>
-                    <button onclick="window.abrirModalAuditorQA()" style="margin-top: 14px; background: linear-gradient(135deg, #0EA5E9, #0284C7); color: white; border: none; padding: 10px; border-radius: 10px; font-weight: 800; font-size: 0.88rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px; box-shadow: 0 4px 10px rgba(14,165,233,0.25);">
-                        <span>🩺</span> Agente Auditor QA
+                    <button onclick="window.abrirModalAuditorQA()" style="margin-top: 18px; background: linear-gradient(135deg, #0EA5E9, #0284C7); color: white; border: none; padding: 14px; border-radius: 12px; font-weight: 900; font-size: 1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 15px rgba(14,165,233,0.3);">
+                        <span>🩺</span> Ejecutar Auditoría QA <span>➔</span>
                     </button>
                 </div>
 
                 <!-- 10. Invita y Gana -->
-                <div style="background: white; border: 1.5px solid #E2E8F0; border-radius: 16px; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); display: flex; flex-direction: column; justify-content: space-between; transition: transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 10px 25px rgba(236,72,153,0.15)';" onmouseout="this.style.transform='none'; this.style.boxShadow='0 4px 15px rgba(0,0,0,0.03)';">
+                <div style="background: white; border: 2px solid #FBCFE8; border-radius: 20px; padding: 24px; box-shadow: 0 8px 25px rgba(236,72,153,0.08); display: flex; flex-direction: column; justify-content: space-between; min-height: 270px; transition: transform 0.25s, box-shadow 0.25s;" onmouseover="this.style.transform='translateY(-6px)'; this.style.boxShadow='0 16px 35px rgba(236,72,153,0.2)';" onmouseout="this.style.transform='none'; this.style.boxShadow='0 8px 25px rgba(236,72,153,0.08)';">
                     <div>
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-                            <span style="background: #FDF2F8; color: #BE185D; font-size: 0.72rem; font-weight: 900; padding: 3px 10px; border-radius: 20px; text-transform: uppercase;">Beneficios</span>
-                            <span style="font-size: 1.8rem;">🎁</span>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                            <span style="background: #FDF2F8; color: #BE185D; font-size: 0.78rem; font-weight: 900; padding: 4px 12px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px;">Beneficios</span>
+                            <span style="font-size: 2.2rem;">🎁</span>
                         </div>
-                        <h4 style="margin: 0 0 6px 0; font-size: 1.15rem; font-weight: 900; color: #1E293B;">Invita y Gana</h4>
-                        <p style="margin: 0; color: #64748B; font-size: 0.84rem; line-height: 1.45;">
+                        <h3 style="margin: 0 0 8px 0; font-size: 1.35rem; font-weight: 900; color: #1E293B;">Invita y Gana</h3>
+                        <p style="margin: 0; color: #475569; font-size: 0.92rem; line-height: 1.5;">
                             Comparte tu código de recomendación con otros colegios o docentes y desbloquea funciones institucionales exclusivas.
                         </p>
                     </div>
-                    <button onclick="mostrarReferidos()" style="margin-top: 14px; background: linear-gradient(135deg, #EC4899, #BE185D); color: white; border: none; padding: 10px; border-radius: 10px; font-weight: 800; font-size: 0.88rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px; box-shadow: 0 4px 10px rgba(236,72,153,0.25);">
-                        <span>🎁</span> Invita y Gana
+                    <button onclick="mostrarReferidos()" style="margin-top: 18px; background: linear-gradient(135deg, #EC4899, #BE185D); color: white; border: none; padding: 14px; border-radius: 12px; font-weight: 900; font-size: 1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 15px rgba(236,72,153,0.3);">
+                        <span>🎁</span> Ver Mis Referidos <span>➔</span>
                     </button>
                 </div>
 
             </div>
         </div>
 
-        <!-- SECCIÓN 1: VISTA PRINCIPAL DE CAJONES DE GRUPOS (Por defecto visible) -->
         <div id="docente-vista-cajones-grupos" style="display: block;">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 22px; flex-wrap: wrap; gap: 12px;">
                 <div>
@@ -3193,9 +3192,9 @@
         </div>
     </div>
 
-    <script src="diagnostico_nocturno.js?v=20260818_v53"></script>
-    <script src="agente_auditor_qa.js?v=20260818_v53"></script>
-    <script src="app.js?v=20260818_v53"></script>
+    <script src="diagnostico_nocturno.js?v=20260818_v54"></script>
+    <script src="agente_auditor_qa.js?v=20260818_v54"></script>
+    <script src="app.js?v=20260818_v54"></script>
     <script>
         // --- BLINDAJE DE PROPIEDAD INTELECTUAL Y SEGURIDAD ---
         (function() {
