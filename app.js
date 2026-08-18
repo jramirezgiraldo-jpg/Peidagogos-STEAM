@@ -14327,3 +14327,301 @@ window.enviarAlertaTelegram = function(mensaje) {
 
     console.log('📱 [TELEGRAM] Notificación enviada a @jramirezgiraldo:', mensaje);
 };
+
+
+// =========================================================
+// MÓDULO DE GESTIÓN DE CAJONES DE GRUPOS DOCENTES Y FILTRADO ESTRICTO
+// =========================================================
+window.estudiantesDocenteCache = [];
+window.grupoDocenteActivo = null;
+
+window.cargarEstudiantesDocente = async function(docenteId) {
+    try {
+        let estudiantes = [];
+        try {
+            const res = await fetch('/api/estudiantes');
+            if (res.ok) estudiantes = await res.json();
+        } catch(netErr) {}
+
+        const localUsers = JSON.parse(localStorage.getItem('usuarios_db') || '[]');
+        localUsers.forEach(lu => {
+            const normDoc = String(lu.documento || lu.id || '').trim().toLowerCase().replace(/[.,-_s]/g, '');
+            if (normDoc && !estudiantes.some(e => String(e.documento || e.id || '').trim().toLowerCase().replace(/[.,-_s]/g, '') === normDoc)) {
+                estudiantes.push(lu);
+            }
+        });
+
+        // 1. Obtener perfil del docente logueado
+        let docentePerfil = null;
+        try {
+            const dList = JSON.parse(localStorage.getItem('docentes_db') || '[]');
+            const authSes = JSON.parse(sessionStorage.getItem('peidagogos_auth') || localStorage.getItem('usuario_actual') || '{}');
+            const docKey = String(docenteId || authSes.documento || authSes.usuario || '').trim().toLowerCase();
+            
+            docentePerfil = dList.find(d => {
+                const dDoc = String(d.documento || d.cedula || d.usuario || '').trim().toLowerCase();
+                return dDoc === docKey;
+            });
+
+            if (!docentePerfil && (authSes.rol === 'docente' || authSes.tipo === 'docente_regular')) {
+                docentePerfil = authSes;
+            }
+        } catch(e) {}
+
+        const ieDocente = docentePerfil ? String(docentePerfil.institucion || '').trim().toLowerCase() : '';
+        const gradosDocente = (docentePerfil && Array.isArray(docentePerfil.grados)) ? docentePerfil.grados.map(g => String(g).trim().toLowerCase()) : [];
+        const materiasDocente = (docentePerfil && Array.isArray(docentePerfil.materias)) ? docentePerfil.materias.map(m => String(m).trim().toLowerCase()) : [];
+
+        // 2. Filtrado estricto: Solo estudiantes matriculados con este docente
+        const misEstudiantes = estudiantes.filter(est => {
+            if (docenteId === 'admin' || docenteId === 'jramirezgiraldo') return true; // Administrador Maestro
+            
+            // Si el estudiante tiene asignado directamente el docente_id
+            if (est.docente_id && String(est.docente_id).trim().toLowerCase() === String(docenteId).trim().toLowerCase()) {
+                return true;
+            }
+
+            // Coincidencia por Institución y Grado/Ciclo asignado al docente
+            const estIE = String(est.institucion || '').trim().toLowerCase();
+            const estGra = String(est.grado || '').trim().toLowerCase();
+            const estGrp = String(est.grupo || '').trim().toLowerCase();
+
+            const coincideIE = ieDocente ? (estIE === ieDocente || estIE.includes(ieDocente) || ieDocente.includes(estIE) || (ieDocente.includes('instituto') && estIE.includes('instituto'))) : true;
+            
+            let coincideGrado = true;
+            if (gradosDocente.length > 0) {
+                coincideGrado = gradosDocente.some(gd => {
+                    const gdClean = gd.replace(/[^0-9cicloivpens]/g, '');
+                    const estGraClean = estGra.replace(/[^0-9cicloivpens]/g, '');
+                    const estGrpClean = estGrp.replace(/[^0-9cicloivpens]/g, '');
+                    return estGra === gd || estGrp === gd || estGra.startsWith(gd) || estGrp.startsWith(gd) || (gdClean && (estGraClean.includes(gdClean) || estGrpClean.includes(gdClean)));
+                });
+            }
+
+            return coincideIE && coincideGrado;
+        });
+
+        window.estudiantesDocenteCache = misEstudiantes;
+
+        // 3. Agrupar estudiantes por Grado/Grupo
+        const gruposMap = {};
+        misEstudiantes.forEach(est => {
+            const grp = est.grupo || est.grado || 'Sin Grupo';
+            if (!gruposMap[grp]) gruposMap[grp] = [];
+            gruposMap[grp].push(est);
+        });
+
+        // 4. Renderizar Cajones de Grupos
+        const gridCont = document.getElementById('docente-grid-cajones-grupos');
+        const badgeTotal = document.getElementById('docente-total-estudiantes-badge');
+        if (badgeTotal) badgeTotal.innerText = `👥 Total Alumnos: ${misEstudiantes.length}`;
+
+        if (gridCont) {
+            const nombresGrupos = Object.keys(gruposMap).sort();
+            
+            if (nombresGrupos.length === 0) {
+                gridCont.innerHTML = `
+                    <div style="grid-column: 1 / -1; background: white; border: 2px dashed #CBD5E1; border-radius: 16px; padding: 45px 20px; text-align: center;">
+                        <span style="font-size: 3rem;">🏫</span>
+                        <h3 style="color: #334155; margin: 12px 0 6px 0; font-weight: 900;">Aún no tienes estudiantes matriculados en tus grupos</h3>
+                        <p style="color: #64748B; font-size: 0.95rem; margin: 0; max-width: 550px; margin: auto;">
+                            Cuando los estudiantes se registren en la plataforma seleccionando tu institución y tus grados asignados (${gradosDocente.join(', ') || 'todos'}), aparecerán organizados en sus respectivos cajones de grupo.
+                        </p>
+                    </div>
+                `;
+            } else {
+                let htmlCajones = '';
+                const gradientes = [
+                    'linear-gradient(135deg, #3B82F6, #1D4ED8)',
+                    'linear-gradient(135deg, #10B981, #059669)',
+                    'linear-gradient(135deg, #8B5CF6, #6D28D9)',
+                    'linear-gradient(135deg, #F59E0B, #D97706)',
+                    'linear-gradient(135deg, #EC4899, #BE185D)',
+                    'linear-gradient(135deg, #06B6D4, #0891B2)'
+                ];
+
+                nombresGrupos.forEach((grpName, idx) => {
+                    const alumnosGrupo = gruposMap[grpName];
+                    const grad = gradientes[idx % gradientes.length];
+                    
+                    let xpTotalGrupo = 0;
+                    alumnosGrupo.forEach(al => {
+                        const docClean = al.documento || al.usuario || al.id || '';
+                        let xpEst = parseInt(localStorage.getItem(`xp_${docClean}`)) || 500;
+                        xpTotalGrupo += xpEst;
+                    });
+                    const promXP = Math.round(xpTotalGrupo / alumnosGrupo.length);
+
+                    htmlCajones += `
+                        <div style="background: white; border-radius: 16px; box-shadow: 0 6px 20px rgba(0,0,0,0.06); border: 1px solid #E2E8F0; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; transition: transform 0.2s, box-shadow 0.2s; min-height: 220px;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 12px 25px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='none'; this.style.boxShadow='0 6px 20px rgba(0,0,0,0.06)';">
+                            <div style="background: ${grad}; color: white; padding: 18px 20px; display: flex; justify-content: space-between; align-items: center;">
+                                <div>
+                                    <span style="font-size: 0.78rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0.9; font-weight: 700;">GRUPO / AULA</span>
+                                    <h3 style="margin: 2px 0 0 0; font-size: 1.4rem; font-weight: 900; color: white;">${grpName}</h3>
+                                </div>
+                                <span style="font-size: 2.2rem;">👥</span>
+                            </div>
+                            
+                            <div style="padding: 18px 20px; flex: 1; display: flex; flex-direction: column; justify-content: space-between; gap: 12px;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.88rem; color: #475569;">
+                                    <span style="font-weight: 700; color: #1E293B;">Alumnos Matriculados:</span>
+                                    <span style="background: #EFF6FF; color: #1E40AF; padding: 4px 10px; border-radius: 12px; font-weight: 800;">${alumnosGrupo.length}</span>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.88rem; color: #475569;">
+                                    <span style="font-weight: 700; color: #1E293B;">Promedio STEAM:</span>
+                                    <span style="background: #ECFDF5; color: #047857; padding: 4px 10px; border-radius: 12px; font-weight: 800;">🌟 ${promXP} XP</span>
+                                </div>
+
+                                <button onclick="window.abrirCajonGrupoDocente('${grpName.replace(/'/g, "\\'")}')" style="background: linear-gradient(135deg, #2563EB, #1D4ED8); color: white; border: none; padding: 12px; border-radius: 10px; font-weight: 800; cursor: pointer; width: 100%; font-size: 0.92rem; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 12px rgba(37,99,235,0.25); margin-top: 6px;">
+                                    <span>📂</span> Entrar a la Planilla
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                });
+                gridCont.innerHTML = htmlCajones;
+            }
+        }
+    } catch(err) {
+        console.error("Error al cargar estudiantes del docente:", err);
+    }
+};
+
+window.abrirCajonGrupoDocente = function(nombreGrupo) {
+    window.grupoDocenteActivo = nombreGrupo;
+    const vistaCajones = document.getElementById('docente-vista-cajones-grupos');
+    const vistaDetalle = document.getElementById('docente-vista-detalle-grupo');
+    const tituloActivo = document.getElementById('docente-grupo-titulo-activo');
+    const subTituloActivo = document.getElementById('docente-grupo-subtitulo-activo');
+
+    if (vistaCajones) vistaCajones.style.display = 'none';
+    if (vistaDetalle) vistaDetalle.style.display = 'block';
+
+    const alumnosGrupo = window.estudiantesDocenteCache.filter(e => (e.grupo === nombreGrupo || e.grado === nombreGrupo || (!e.grupo && !e.grado && nombreGrupo === 'Sin Grupo')));
+
+    if (tituloActivo) tituloActivo.innerHTML = `<span>🏫</span> Grupo ${nombreGrupo}`;
+    if (subTituloActivo) subTituloActivo.innerText = `Planilla Oficial • ${alumnosGrupo.length} Estudiante(s) Matriculado(s)`;
+
+    window.renderizarTablaEstudiantesGrupo(alumnosGrupo);
+};
+
+window.volverACajonesGruposDocente = function() {
+    const vistaCajones = document.getElementById('docente-vista-cajones-grupos');
+    const vistaDetalle = document.getElementById('docente-vista-detalle-grupo');
+    if (vistaCajones) vistaCajones.style.display = 'block';
+    if (vistaDetalle) vistaDetalle.style.display = 'none';
+    window.grupoDocenteActivo = null;
+    const inBusq = document.getElementById('buscador-estudiante-grupo');
+    if (inBusq) inBusq.value = '';
+};
+
+window.filtrarTablaGrupoEstudiantes = function(query) {
+    if (!window.grupoDocenteActivo) return;
+    const q = String(query || '').toLowerCase().trim();
+    const alumnosGrupo = window.estudiantesDocenteCache.filter(e => (e.grupo === window.grupoDocenteActivo || e.grado === window.grupoDocenteActivo));
+    
+    if (!q) {
+        window.renderizarTablaEstudiantesGrupo(alumnosGrupo);
+        return;
+    }
+
+    const filtrados = alumnosGrupo.filter(est => {
+        const nom = (est.nombres || est.nombre || est.nombre_completo || '').toLowerCase();
+        const ape = (est.apellidos || '').toLowerCase();
+        const doc = (est.documento || est.usuario || est.id || '').toLowerCase();
+        return nom.includes(q) || ape.includes(q) || doc.includes(q);
+    });
+
+    window.renderizarTablaEstudiantesGrupo(filtrados);
+};
+
+window.renderizarTablaEstudiantesGrupo = function(listaEstudiantes) {
+    const tbody = document.getElementById('tbody-docente-estudiantes');
+    if (!tbody) return;
+
+    if (listaEstudiantes.length === 0) {
+        tbody.innerHTML = `
+            <tr>
+                <td colspan="7" style="text-align: center; padding: 40px 20px; color: #64748B;">
+                    <span style="font-size: 2.2rem;">🔍</span>
+                    <h4 style="margin: 8px 0 4px 0; color: #334155;">No se encontraron estudiantes con ese criterio</h4>
+                </td>
+            </tr>
+        `;
+        return;
+    }
+
+    let htmlRows = '';
+    listaEstudiantes.forEach(est => {
+        const docClean = est.documento || est.usuario || est.id || '';
+        const tipoDoc = est.tipo_doc || est.tipo_documento || (docClean.length > 8 ? 'CC' : 'TI');
+        const nomClean = window.obtenerNombreCompletoEstudiante ? window.obtenerNombreCompletoEstudiante(est) : `${est.nombres || est.nombre || ''} ${est.apellidos || ''}`.trim();
+        const grupoClean = est.grupo || est.grado || '';
+        const asigClean = est.asignatura || 'Ciencias Naturales';
+        const edad = est.edad ? `${est.edad} años` : 'N/A';
+        const genero = est.genero === 'F' ? '♀ F' : (est.genero === 'M' ? '♂ M' : (est.genero || 'N/A'));
+        const inst = est.institucion === 'InstitutoMontenegro' ? 'IE Instituto Montenegro' : (est.institucion || 'IE Instituto Montenegro');
+
+        let xpEst = parseInt(localStorage.getItem(`xp_${docClean}`)) || 0;
+        if (xpEst === 0) {
+            const diagXP = parseInt(localStorage.getItem(`prog_${docClean}_diag_xp`)) || 0;
+            xpEst = diagXP || 500;
+        }
+        const bonusTotal = parseInt(localStorage.getItem(`bonus_total_${docClean}`)) || 0;
+        const penaltyTotal = parseInt(localStorage.getItem(`penalty_total_${docClean}`)) || 0;
+        let totalXPAcumulado = Math.max(0, xpEst + bonusTotal - penaltyTotal);
+
+        htmlRows += `
+            <tr style="border-bottom: 1px solid #F1F5F9;">
+                <td style="padding: 12px 10px; font-family: monospace; font-size: 0.9rem;">
+                    <span style="background: #F1F5F9; color: #475569; padding: 2px 6px; border-radius: 4px; font-weight: bold; font-size: 0.75rem;">${tipoDoc}</span>
+                    <strong style="color: #1E293B; margin-left: 4px;">${docClean}</strong>
+                </td>
+                <td style="padding: 12px 10px; font-weight: 800; color: #1E293B;">
+                    ${nomClean}
+                    <button onclick="abrirModalEditarEstudianteDocente('${docClean}', '${nomClean.replace(/'/g, "\\'")}')" style="background: #F3F4F6; border: 1px solid #CBD5E1; color: #374151; padding: 2px 8px; border-radius: 6px; font-size: 0.75rem; font-weight: bold; cursor: pointer; margin-left: 6px; display: inline-flex; align-items: center; gap: 4px;" title="Editar o asignar el nombre real de este estudiante">
+                        ✏️ Editar Nombre
+                    </button>
+                </td>
+                <td style="padding: 12px 10px; font-size: 0.85rem; color: #475569;">
+                    <b>${edad}</b> • <span>${genero}</span>
+                </td>
+                <td style="padding: 12px 10px; color: #334155; font-size: 0.9rem;">
+                    <span style="background: #F1F5F9; color: #334155; padding: 3px 8px; border-radius: 6px; font-weight: bold;">${grupoClean}</span>
+                </td>
+                <td style="padding: 12px 10px; font-size: 0.82rem;">
+                    <span style="background: #EFF6FF; color: #1E40AF; padding: 3px 8px; border-radius: 6px; font-weight: 600;">${inst}</span>
+                </td>
+                <td style="padding: 12px 10px;">
+                    <span style="background: #ECFDF5; color: #047857; border: 1px solid #A7F3D0; padding: 4px 10px; border-radius: 16px; font-weight: 900; font-size: 0.85rem;">
+                        🌟 ${totalXPAcumulado} XP
+                    </span>
+                </td>
+                <td style="padding: 12px 10px; text-align: center;">
+                    <div style="display: flex; gap: 6px; justify-content: center; flex-wrap: wrap; align-items: center;">
+                        <button onclick="abrirGuiaOrientadorDirecto('${docClean}', '${grupoClean}', '${asigClean}')" style="background: linear-gradient(135deg, #10B981, #059669); color: white; border: none; padding: 6px 10px; border-radius: 6px; font-weight: 800; cursor: pointer; font-size: 0.8rem; display: inline-flex; align-items: center; gap: 4px;" title="Ver la guía resuelta con respuestas oficiales para este estudiante">
+                            👁️ Guía
+                        </button>
+                        <button onclick="verInformeEstudiante('${nomClean}', 0, '${grupoClean}', '${docClean}')" style="background: #2563EB; color: white; border: none; padding: 6px 10px; border-radius: 6px; font-weight: 800; cursor: pointer; font-size: 0.8rem; display: inline-flex; align-items: center; gap: 4px;" title="Ver informe completo">
+                            📊 Informe
+                        </button>
+                        <button onclick="abrirMallaDocenteDesdeEstudiante('${grupoClean}', '${asigClean}')" style="background: #059669; color: white; border: none; padding: 6px 10px; border-radius: 6px; font-weight: 800; cursor: pointer; font-size: 0.8rem; display: inline-flex; align-items: center; gap: 4px; box-shadow: 0 1px 3px rgba(5,150,105,0.2);" title="Ver Malla Curricular Oficial DBA del grado de este estudiante">
+                            📚 Malla DBA
+                        </button>
+                        <button onclick="abrirModalBonificacion('${docClean}', '${nomClean}', '${grupoClean}')" style="background: #10B981; color: white; border: none; padding: 6px 10px; border-radius: 6px; font-weight: 800; cursor: pointer; font-size: 0.8rem; display: inline-flex; align-items: center; gap: 4px;" title="Otorgar bonificación del +10% XP">
+                            🎁 +10%
+                        </button>
+
+                        <div class="dropdown-sancion-container" style="position: relative; display: inline-block;">
+                            <button onclick="toggleMenuSancion('${docClean}', event)" style="background: linear-gradient(135deg, #DC2626, #B91C1C); color: white; border: none; padding: 6px 10px; border-radius: 6px; font-weight: 800; font-size: 0.8rem; cursor: pointer; display: inline-flex; align-items: center; gap: 4px; box-shadow: 0 2px 4px rgba(220,38,38,0.25);" title="Aplicar sanción disciplinaria del -10% de puntos">
+                                ⚡ -10% ▾
+                            </button>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        `;
+    });
+
+    tbody.innerHTML = htmlRows;
+};

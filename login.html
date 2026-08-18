@@ -599,70 +599,93 @@
     </header>
 
     <div style="padding: 30px 30px; max-width: 1350px; margin: 0 auto;">
-        <!-- Lista Estudiantes (Ancho Completo) -->
-        <div style="background: white; padding: 35px 30px; border-radius: 16px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border: 1px solid #E5E7EB;">
-            <h3 style="font-weight: 800; margin-bottom: 20px; color: #111827;">Mis Estudiantes Matriculados</h3>
-            
-            <div style="display: flex; gap: 15px; margin-bottom: 20px; align-items: center; flex-wrap: wrap;">
-                <select id="filtro-asignatura" style="padding: 10px; border: 1px solid #d1d5db; border-radius: 8px;" onchange="cargarEstudiantesDocente(usuario_actual)">
-                    <option value="Todas las Asignaturas">Todas las Asignaturas</option>
-                    <option value="Física">Física</option>
-                    <option value="Artística">Artística</option>
-                    <option value="Ética">Ética</option>
-                    <option value="Turismo">Turismo</option>
-                    <option value="Química">Química</option>
-                </select>
-                <select id="filtro-grupo" style="padding: 10px; border: 1px solid #d1d5db; border-radius: 8px;" onchange="cargarEstudiantesDocente(usuario_actual)">
-                    <option value="Todos los Grupos">Todos los Grupos</option>
-                    <option value="6A">6A</option><option value="6B">6B</option>
-                    <option value="7A">7A</option><option value="7B">7B</option><option value="7C">7C</option>
-                    <option value="8A">8A</option><option value="8B">8B</option>
-                    <option value="9A">9A</option>
-                    <option value="10A">10A</option><option value="10D">10D</option>
-                    <option value="PENS">PENS</option>
-                    <option value="Ciclo I (1°, 2°, 3°)">Ciclo I (1°, 2°, 3°)</option>
-                    <option value="Ciclo II (4°, 5°)">Ciclo II (4°, 5°)</option>
-                    <option value="Ciclo III (6°, 7°)">Ciclo III (6°, 7°)</option>
-                    <option value="Ciclo IV (8°, 9°)">Ciclo IV (8°, 9°)</option>
-                    <option value="Ciclo V (10°)">Ciclo V (10°)</option>
-                    <option value="Ciclo VI (11°)">Ciclo VI (11°)</option>
-                </select>
-                <div style="display: flex; gap: 10px; align-items: center; margin-left: auto; flex-wrap: wrap;">
-                    <button onclick="window.abrirModalAuditorQA()" style="background: linear-gradient(135deg, #0EA5E9, #0284C7); color: white; border: none; padding: 10px 16px; border-radius: 10px; font-weight: 800; font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; gap: 6px; box-shadow: 0 4px 12px rgba(14,165,233,0.35);" title="Verifica una a una todas las funciones de la plataforma y auto-corrige">
-                        <span>🩺</span> Agente Auditor QA
-                    </button>
-                    <button onclick="window.abrirCajaHerramientas('todas', 'docente')" style="background: linear-gradient(135deg, #EC4899, #BE185D); color: white; border: none; padding: 10px 16px; border-radius: 10px; font-weight: 800; font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; gap: 6px; box-shadow: 0 4px 12px rgba(236,72,153,0.35);" title="Abre el kit completo con las 42 herramientas y generadores de aula">
-                        <span>🧰</span> Caja de Herramientas (42)
-                    </button>
-                    <button onclick="window.abrirConfiguradorDiapositivas('docente')" style="background: linear-gradient(135deg, #7C3AED, #6D28D9); color: white; border: none; padding: 10px 16px; border-radius: 10px; font-weight: 800; font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; gap: 6px; box-shadow: 0 4px 12px rgba(124,58,237,0.3);" title="Genera 10 diapositivas para introducir el tema de la semana">
-                        <span>📽️</span> 10 Diapositivas Semanales
-                    </button>
-                    <a href="proyector.html" target="_blank" style="background: linear-gradient(135deg, #059669, #10B981); color: white; border: none; padding: 10px 16px; border-radius: 10px; font-weight: 800; font-size: 0.9rem; text-decoration: none; display: flex; align-items: center; gap: 6px; box-shadow: 0 4px 12px rgba(16,185,129,0.3);" title="Modo interactivo para cuando los estudiantes no tienen computadores">
-                        <span>📽️</span> Modo Proyector (Sin Computadores)
-                    </a>
-                    <button onclick="window.abrirRankingDocenteNuevaPestana()" style="background: linear-gradient(135deg, #F59E0B, #D97706); color: white; border: none; padding: 10px 16px; border-radius: 10px; font-weight: 900; font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; gap: 6px; box-shadow: 0 4px 12px rgba(245,158,11,0.35);" title="Abre la tabla de posiciones en una pestaña nueva para VideoBeam / Smart TV">
-                        <span>🏆</span> Proyectar Ránking en Pestaña Nueva
-                    </button>
+        
+        <!-- Barra de Botones Rápidos Docente -->
+        <div style="display: flex; gap: 10px; align-items: center; margin-bottom: 25px; flex-wrap: wrap;">
+            <button onclick="window.abrirModalAuditorQA()" style="background: linear-gradient(135deg, #0EA5E9, #0284C7); color: white; border: none; padding: 10px 16px; border-radius: 10px; font-weight: 800; font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; gap: 6px; box-shadow: 0 4px 12px rgba(14,165,233,0.35);" title="Verifica una a una todas las funciones de la plataforma y auto-corrige">
+                <span>🩺</span> Agente Auditor QA
+            </button>
+            <button onclick="window.abrirCajaHerramientas('todas', 'docente')" style="background: linear-gradient(135deg, #EC4899, #BE185D); color: white; border: none; padding: 10px 16px; border-radius: 10px; font-weight: 800; font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; gap: 6px; box-shadow: 0 4px 12px rgba(236,72,153,0.35);" title="Abre el kit completo con las 42 herramientas y generadores de aula">
+                <span>🧰</span> Caja de Herramientas (42)
+            </button>
+            <button onclick="window.abrirConfiguradorDiapositivas('docente')" style="background: linear-gradient(135deg, #7C3AED, #6D28D9); color: white; border: none; padding: 10px 16px; border-radius: 10px; font-weight: 800; font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; gap: 6px; box-shadow: 0 4px 12px rgba(124,58,237,0.3);" title="Genera 10 diapositivas para introducir el tema de la semana">
+                <span>📽️</span> 10 Diapositivas Semanales
+            </button>
+            <a href="proyector.html" target="_blank" style="background: linear-gradient(135deg, #059669, #10B981); color: white; border: none; padding: 10px 16px; border-radius: 10px; font-weight: 800; font-size: 0.9rem; text-decoration: none; display: flex; align-items: center; gap: 6px; box-shadow: 0 4px 12px rgba(16,185,129,0.3);" title="Modo interactivo para cuando los estudiantes no tienen computadores">
+                <span>📽️</span> Modo Proyector (Sin Computadores)
+            </a>
+            <button onclick="window.abrirRankingDocenteNuevaPestana()" style="background: linear-gradient(135deg, #F59E0B, #D97706); color: white; border: none; padding: 10px 16px; border-radius: 10px; font-weight: 900; font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; gap: 6px; box-shadow: 0 4px 12px rgba(245,158,11,0.35);" title="Abre la tabla de posiciones en una pestaña nueva para VideoBeam / Smart TV">
+                <span>🏆</span> Proyectar Ránking en Pestaña Nueva
+            </button>
+        </div>
+
+        <!-- SECCIÓN 1: VISTA PRINCIPAL DE CAJONES DE GRUPOS (Por defecto visible) -->
+        <div id="docente-vista-cajones-grupos" style="display: block;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 22px; flex-wrap: wrap; gap: 12px;">
+                <div>
+                    <h2 style="font-size: 1.65rem; font-weight: 900; color: #111827; margin: 0; display: flex; align-items: center; gap: 10px;">
+                        <span>👥</span> Mis Grupos Asignados
+                    </h2>
+                    <p style="color: #64748B; margin: 4px 0 0 0; font-size: 0.95rem;">
+                        Selecciona un cajón para ingresar a la planilla de estudiantes matriculados en cada grupo.
+                    </p>
+                </div>
+                <div id="docente-total-estudiantes-badge" style="background: #ECFDF5; border: 1px solid #A7F3D0; color: #047857; padding: 8px 16px; border-radius: 20px; font-weight: 800; font-size: 0.9rem; box-shadow: 0 2px 6px rgba(16,185,129,0.15);">
+                    👥 Total Alumnos: 0
                 </div>
             </div>
 
-            <table style="width: 100%; border-collapse: collapse; text-align: left;">
-                <thead>
-                    <tr style="border-bottom: 2px solid #E5E7EB; background: #F8FAFC;">
-                        <th style="padding: 12px 10px;">Documento</th>
-                        <th style="padding: 12px 10px;">Estudiante</th>
-                        <th style="padding: 12px 10px;">Edad / Género</th>
-                        <th style="padding: 12px 10px;">Grado / Grupo</th>
-                        <th style="padding: 12px 10px;">Institución / Modalidad</th>
-                        <th style="padding: 12px 10px;">Puntaje (XP)</th>
-                        <th style="padding: 12px 10px; text-align: center;">Acciones</th>
-                    </tr>
-                </thead>
-                <tbody id="tbody-docente-estudiantes">
-                    <!-- Se llena con JS -->
-                </tbody>
-            </table>
+            <!-- Grid de Cajones de Grupos -->
+            <div id="docente-grid-cajones-grupos" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 22px;">
+                <!-- Se inyecta dinámicamente con JS -->
+            </div>
         </div>
+
+        <!-- SECCIÓN 2: VISTA DETALLE DE PLANILLA DE ESTUDIANTES DE UN GRUPO SELECCIONADO -->
+        <div id="docente-vista-detalle-grupo" style="display: none; background: white; padding: 35px 30px; border-radius: 16px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border: 1px solid #E5E7EB;">
+            
+            <!-- Encabezado de Navegación del Grupo -->
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 22px; flex-wrap: wrap; gap: 15px; border-bottom: 1.5px solid #F1F5F9; padding-bottom: 18px;">
+                <div style="display: flex; align-items: center; gap: 14px;">
+                    <button onclick="window.volverACajonesGruposDocente()" style="background: #F8FAFC; border: 1.5px solid #CBD5E1; color: #1E293B; padding: 10px 16px; border-radius: 10px; font-weight: 800; font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; gap: 8px; transition: 0.2s;" onmouseover="this.style.background='#E2E8F0'" onmouseout="this.style.background='#F8FAFC'">
+                        <span>⬅️</span> Volver a mis Grupos
+                    </button>
+                    <div>
+                        <h3 id="docente-grupo-titulo-activo" style="font-weight: 900; margin: 0; color: #111827; font-size: 1.45rem; display: flex; align-items: center; gap: 8px;">
+                            <span>🏫</span> Grupo
+                        </h3>
+                        <span id="docente-grupo-subtitulo-activo" style="color: #6B7280; font-size: 0.88rem; font-weight: 500;">
+                            Planilla de Estudiantes Matriculados
+                        </span>
+                    </div>
+                </div>
+                
+                <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+                    <input type="text" id="buscador-estudiante-grupo" placeholder="🔍 Buscar estudiante por nombre o documento..." onkeyup="window.filtrarTablaGrupoEstudiantes(this.value)" style="padding: 10px 14px; border: 1.5px solid #CBD5E1; border-radius: 8px; font-size: 0.88rem; width: 300px; box-sizing: border-box;">
+                </div>
+            </div>
+
+            <!-- Tabla de Estudiantes del Grupo -->
+            <div style="overflow-x: auto;">
+                <table style="width: 100%; border-collapse: collapse; text-align: left;">
+                    <thead>
+                        <tr style="border-bottom: 2px solid #E2E8F0; background: #F8FAFC;">
+                            <th style="padding: 14px 12px; font-weight: 800; color: #475569;">Documento</th>
+                            <th style="padding: 14px 12px; font-weight: 800; color: #475569;">Estudiante</th>
+                            <th style="padding: 14px 12px; font-weight: 800; color: #475569;">Edad / Género</th>
+                            <th style="padding: 14px 12px; font-weight: 800; color: #475569;">Grado / Grupo</th>
+                            <th style="padding: 14px 12px; font-weight: 800; color: #475569;">Institución</th>
+                            <th style="padding: 14px 12px; font-weight: 800; color: #475569;">Puntaje (XP)</th>
+                            <th style="padding: 14px 12px; text-align: center; font-weight: 800; color: #475569;">Acciones Pedagógicas</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody-docente-estudiantes">
+                        <!-- Se llena con JS -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
     </div>
 </div>
 
@@ -3030,9 +3053,9 @@
         </div>
     </div>
 
-    <script src="diagnostico_nocturno.js?v=20260818_v50"></script>
-    <script src="agente_auditor_qa.js?v=20260818_v50"></script>
-    <script src="app.js?v=20260818_v50"></script>
+    <script src="diagnostico_nocturno.js?v=20260818_v51"></script>
+    <script src="agente_auditor_qa.js?v=20260818_v51"></script>
+    <script src="app.js?v=20260818_v51"></script>
     <script>
         // --- BLINDAJE DE PROPIEDAD INTELECTUAL Y SEGURIDAD ---
         (function() {
