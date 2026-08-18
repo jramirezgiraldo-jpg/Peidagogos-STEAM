@@ -14426,7 +14426,7 @@ window.cargarEstudiantesDocente = async function(docenteId) {
         if (badgeTotal) badgeTotal.innerText = `👥 Total Alumnos: ${misEstudiantes.length}`;
         
         if (window.renderizarCajonesGrandesGruposDocente) {
-            window.renderizarCajonesGrandesGruposDocente(gruposMap, gradosDocente);
+            window.renderizarCajonesGrandesGruposDocente(gruposMap, gradosDocente, docentePerfil);
             return;
         }
 
@@ -14803,29 +14803,57 @@ Tus cajones de grupos se han actualizado automáticamente.`);
 // =========================================================
 // RENDERIZADO DE CAJONES DE GRUPOS GRANDES Y DETALLADOS
 // =========================================================
-window.renderizarCajonesGrandesGruposDocente = function(gruposMap, gradosDocente) {
+
+// =========================================================
+// RENDERIZADO DE CAJONES DE GRUPOS SEPARADOS PARA CADA DOCENTE
+// =========================================================
+window.renderizarCajonesGrandesGruposDocente = function(gruposMap, gradosDocente, docentePerfil) {
     const gridCont = document.getElementById('docente-grid-cajones-grupos');
     if (!gridCont) return;
 
-    const nombresGrupos = Object.keys(gruposMap).sort();
-    
-    if (nombresGrupos.length === 0) {
-        gridCont.innerHTML = `
-            <div style="grid-column: 1 / -1; background: white; border: 2px dashed #CBD5E1; border-radius: 20px; padding: 50px 25px; text-align: center;">
-                <span style="font-size: 3.5rem;">🏫</span>
-                <h3 style="color: #1E293B; margin: 15px 0 8px 0; font-weight: 900; font-size: 1.35rem;">Aún no tienes estudiantes matriculados en tus grupos</h3>
-                <p style="color: #64748B; font-size: 0.95rem; margin: 0 auto 20px auto; max-width: 600px; line-height: 1.5;">
-                    Los estudiantes matriculados en tu institución que coincidan con tus grados asignados aparecerán automáticamente en sus respectivos cajones. Puedes verificar o añadir más grados y materias con el botón <strong>⚙️ Mis Materias y Grados</strong>.
-                </p>
-                <button onclick="window.abrirModalGestionMateriasGradosDocente()" style="background: #2563EB; color: white; border: none; padding: 10px 20px; border-radius: 10px; font-weight: 800; cursor: pointer; display: inline-flex; align-items: center; gap: 8px;">
-                    <span>⚙️</span> Configurar Grados y Materias
-                </button>
-            </div>
-        `;
-        return;
+    // 1. Obtener lista consolidada de todos los grupos del docente
+    let listaGruposNombres = Object.keys(gruposMap);
+
+    // Añadir grupos creados por el docente
+    if (docentePerfil && Array.isArray(docentePerfil.grupos)) {
+        docentePerfil.grupos.forEach(g => {
+            const gNom = (typeof g === 'object') ? g.nombre : String(g);
+            if (gNom && !listaGruposNombres.includes(gNom)) {
+                listaGruposNombres.push(gNom);
+            }
+        });
     }
 
-    let htmlCajones = '';
+    // Añadir grupos predeterminados según los grados asignados (ej: si tiene grado 7 -> 7A, 7B, 7C)
+    if (Array.isArray(gradosDocente) && gradosDocente.length > 0) {
+        gradosDocente.forEach(gr => {
+            const grStr = String(gr).trim();
+            if (grStr === '6' && !listaGruposNombres.some(n => n.startsWith('6'))) listaGruposNombres.push('6A', '6B');
+            else if (grStr === '7' && !listaGruposNombres.some(n => n.startsWith('7'))) listaGruposNombres.push('7A', '7B', '7C');
+            else if (grStr === '8' && !listaGruposNombres.some(n => n.startsWith('8'))) listaGruposNombres.push('8A', '8B');
+            else if (grStr === '9' && !listaGruposNombres.some(n => n.startsWith('9'))) listaGruposNombres.push('9A');
+            else if (grStr === '10' && !listaGruposNombres.some(n => n.startsWith('10'))) listaGruposNombres.push('10A', '10D');
+            else if (grStr === '11' && !listaGruposNombres.some(n => n.startsWith('11'))) listaGruposNombres.push('11A');
+            else if (grStr.includes('ciclo') && !listaGruposNombres.includes(grStr)) listaGruposNombres.push(grStr);
+            else if (!listaGruposNombres.includes(grStr)) listaGruposNombres.push(grStr);
+        });
+    }
+
+    // Si aún está vacío, asignar grupos por defecto para que el profesor siempre tenga salones
+    if (listaGruposNombres.length === 0) {
+        listaGruposNombres = ['7C', '6A', '8A'];
+    }
+
+    // Ordenar grupos alfanuméricamente
+    listaGruposNombres = Array.from(new Set(listaGruposNombres)).sort();
+
+    // Actualizar el selector rápido de la barra superior
+    const selRapido = document.getElementById('docente-selector-grupo-rapido');
+    if (selRapido) {
+        selRapido.innerHTML = '<option value="">Selecciona un Grupo...</option>' + 
+            listaGruposNombres.map(g => `<option value="${g}">Grupo ${g}</option>`).join('');
+    }
+
     const estilosGradientes = [
         { bg: 'linear-gradient(135deg, #1E40AF, #3B82F6)', border: '#93C5FD', icon: '🌌', label: 'Ciencias & Física' },
         { bg: 'linear-gradient(135deg, #065F46, #10B981)', border: '#A7F3D0', icon: '🌿', label: 'Educación Ambiental' },
@@ -14835,8 +14863,10 @@ window.renderizarCajonesGrandesGruposDocente = function(gruposMap, gradosDocente
         { bg: 'linear-gradient(135deg, #0E7490, #06B6D4)', border: '#A5F3FC', icon: '🧭', label: 'Turismo & Territorio' }
     ];
 
-    nombresGrupos.forEach((grpName, idx) => {
-        const alumnosGrupo = gruposMap[grpName];
+    let htmlCajones = '';
+
+    listaGruposNombres.forEach((grpName, idx) => {
+        const alumnosGrupo = gruposMap[grpName] || [];
         const tema = estilosGradientes[idx % estilosGradientes.length];
         
         let xpTotalGrupo = 0;
@@ -14845,80 +14875,75 @@ window.renderizarCajonesGrandesGruposDocente = function(gruposMap, gradosDocente
             let xpEst = parseInt(localStorage.getItem(`xp_${docClean}`)) || 500;
             xpTotalGrupo += xpEst;
         });
-        const promXP = Math.round(xpTotalGrupo / alumnosGrupo.length);
+        const promXP = alumnosGrupo.length > 0 ? Math.round(xpTotalGrupo / alumnosGrupo.length) : 0;
 
         htmlCajones += `
-            <div style="background: white; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.06); border: 1.5px solid #E2E8F0; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; transition: transform 0.25s, box-shadow 0.25s; min-height: 340px;" onmouseover="this.style.transform='translateY(-6px)'; this.style.boxShadow='0 18px 35px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='none'; this.style.boxShadow='0 10px 30px rgba(0,0,0,0.06)';">
+            <div style="background: white; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.06); border: 2px solid #E2E8F0; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; transition: transform 0.25s, box-shadow 0.25s; min-height: 380px;" onmouseover="this.style.transform='translateY(-6px)'; this.style.boxShadow='0 18px 35px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='none'; this.style.boxShadow='0 10px 30px rgba(0,0,0,0.06)';">
                 
                 <!-- Cabecera Vibrante del Cajón -->
                 <div style="background: ${tema.bg}; color: white; padding: 22px 24px; position: relative;">
                     <div style="display: flex; justify-content: space-between; align-items: flex-start;">
                         <div>
-                            <span style="background: rgba(255,255,255,0.22); color: white; padding: 3px 10px; border-radius: 20px; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 900; backdrop-filter: blur(4px);">
+                            <span style="background: rgba(255,255,255,0.22); color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 900; backdrop-filter: blur(4px);">
                                 ${tema.label}
                             </span>
-                            <h3 style="margin: 8px 0 2px 0; font-size: 1.65rem; font-weight: 900; color: white;">
+                            <h3 style="margin: 8px 0 2px 0; font-size: 1.75rem; font-weight: 900; color: white;">
                                 Grupo ${grpName}
                             </h3>
-                            <span style="font-size: 0.85rem; opacity: 0.92; font-weight: 600;">
+                            <span style="font-size: 0.88rem; opacity: 0.95; font-weight: 700;">
                                 Aula de Aprendizaje Activo
                             </span>
                         </div>
-                        <div style="background: rgba(255,255,255,0.25); width: 48px; height: 48px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; backdrop-filter: blur(4px);">
+                        <div style="background: rgba(255,255,255,0.25); width: 50px; height: 50px; border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 2rem; backdrop-filter: blur(4px);">
                             ${tema.icon}
                         </div>
                     </div>
                 </div>
                 
-                <!-- Cuerpo y Explicación Pedagógica del Contenido -->
+                <!-- Cuerpo con Estadísticas y Botones Directos -->
                 <div style="padding: 22px 24px; flex: 1; display: flex; flex-direction: column; justify-content: space-between; gap: 16px;">
                     
                     <!-- Métricas Principales -->
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
-                        <div style="background: #F8FAFC; border: 1px solid #E2E8F0; padding: 10px 12px; border-radius: 12px; text-align: center;">
-                            <span style="font-size: 0.75rem; color: #64748B; font-weight: 800; text-transform: uppercase;">Estudiantes</span>
-                            <div style="font-size: 1.3rem; font-weight: 900; color: #0F172A;">${alumnosGrupo.length}</div>
+                        <div style="background: #F8FAFC; border: 1.5px solid #E2E8F0; padding: 10px 12px; border-radius: 12px; text-align: center;">
+                            <span style="font-size: 0.75rem; color: #64748B; font-weight: 800; text-transform: uppercase;">Matriculados</span>
+                            <div style="font-size: 1.4rem; font-weight: 900; color: #0F172A;">${alumnosGrupo.length}</div>
                         </div>
-                        <div style="background: #ECFDF5; border: 1px solid #A7F3D0; padding: 10px 12px; border-radius: 12px; text-align: center;">
+                        <div style="background: #ECFDF5; border: 1.5px solid #A7F3D0; padding: 10px 12px; border-radius: 12px; text-align: center;">
                             <span style="font-size: 0.75rem; color: #047857; font-weight: 800; text-transform: uppercase;">Promedio STEAM</span>
-                            <div style="font-size: 1.3rem; font-weight: 900; color: #059669;">🌟 ${promXP} XP</div>
+                            <div style="font-size: 1.25rem; font-weight: 900; color: #059669;">${promXP > 0 ? '🌟 ' + promXP + ' XP' : 'Sin datos'}</div>
                         </div>
                     </div>
 
-                    <!-- Explicación de lo que encuentras en este Cajón -->
-                    <div style="background: #F1F5F9; border-radius: 12px; padding: 12px 14px; font-size: 0.82rem; color: #334155; line-height: 1.45;">
-                        <div style="font-weight: 900; color: #0F172A; margin-bottom: 4px; display: flex; align-items: center; gap: 4px;">
-                            <span>📋</span> Contenido del Cajón:
-                        </div>
-                        <ul style="margin: 0; padding-left: 18px;">
-                            <li><strong>Planilla en vivo:</strong> Seguimiento individual de avances formativos.</li>
-                            <li><strong>Guías Resueltas:</strong> Solucionario oficial para el orientador.</li>
-                            <li><strong>Malla Curricular DBA:</strong> Estándares y matriz MEN asociada.</li>
-                            <li><strong>Evaluación Formativa:</strong> Bonificaciones (+10%) y sanciones.</li>
-                        </ul>
+                    <!-- Botones de Acción de Matrícula Directa para este Grupo -->
+                    <div style="display: flex; flex-direction: column; gap: 8px;">
+                        
+                        <!-- Botón WhatsApp Directo -->
+                        <button onclick="window.abrirModalLinkContingenciaGrupo('${grpName.replace(/'/g, "\\'")}', '', ''); setTimeout(window.compartirLinkContingenciaWhatsApp, 250);" style="background: linear-gradient(135deg, #10B981, #059669); color: white; border: none; padding: 12px; border-radius: 12px; font-weight: 900; font-size: 0.95rem; cursor: pointer; width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 3px 10px rgba(16,185,129,0.25); transition: 0.2s;" onmouseover="this.style.filter='brightness(1.1)'" onmouseout="this.style.filter='none'">
+                            <span>📲</span> Enviar Link a WhatsApp del Grupo
+                        </button>
+
+                        <!-- Botón Copiar Enlace y Ver QR -->
+                        <button onclick="window.abrirModalLinkContingenciaGrupo('${grpName.replace(/'/g, "\\'")}', '', '')" style="background: #EFF6FF; border: 1.5px solid #93C5FD; color: #1E40AF; padding: 10px; border-radius: 12px; font-weight: 900; font-size: 0.88rem; cursor: pointer; width: 100%; display: flex; align-items: center; justify-content: center; gap: 6px; transition: 0.2s;" onmouseover="this.style.background='#DBEAFE'" onmouseout="this.style.background='#EFF6FF'">
+                            <span>🔗</span> Copiar Enlace y Ver QR de Matrícula
+                        </button>
+
+                        <!-- Botón Abrir Planilla de Estudiantes -->
+                        <button onclick="window.abrirCajonGrupoDocente('${grpName.replace(/'/g, "\\'")}')" style="background: #F1F5F9; border: 1.5px solid #CBD5E1; color: #334155; padding: 10px; border-radius: 12px; font-weight: 900; font-size: 0.88rem; cursor: pointer; width: 100%; display: flex; align-items: center; justify-content: center; gap: 6px; transition: 0.2s;" onmouseover="this.style.background='#E2E8F0'" onmouseout="this.style.background='#F1F5F9'">
+                            <span>📂</span> Ver Planilla de ${grpName} (${alumnosGrupo.length}) ➔
+                        </button>
+
                     </div>
-
-                    <!-- Botón de Entrada Principal -->
-                    <button onclick="window.abrirCajonGrupoDocente('${grpName.replace(/'/g, "\\'")}')" style="background: ${tema.bg}; color: white; border: none; padding: 14px; border-radius: 12px; font-weight: 900; cursor: pointer; width: 100%; font-size: 1rem; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.15); transition: 0.2s;" onmouseover="this.style.filter='brightness(1.1)'" onmouseout="this.style.filter='none'">
-                        <span>📂</span> Abrir Planilla de ${grpName} <span>➔</span>
-                    </button>
-
-                    <!-- Botón de Link Rápido de Redes / WhatsApp -->
-                    <button onclick="window.abrirModalLinkContingenciaGrupo('${grpName.replace(/'/g, "\\'")}', '', '')" style="background: #F8FAFC; border: 1.5px solid #CBD5E1; color: #1E293B; padding: 10px; border-radius: 10px; font-weight: 800; font-size: 0.85rem; cursor: pointer; width: 100%; display: flex; align-items: center; justify-content: center; gap: 6px; margin-top: 8px; transition: 0.2s;" onmouseover="this.style.background='#E2E8F0'" onmouseout="this.style.background='#F8FAFC'">
-                        <span>🔗</span> Link Matrícula (WhatsApp / Redes)
-                    </button>
 
                 </div>
             </div>
         `;
     });
+
     gridCont.innerHTML = htmlCajones;
 };
 
 
-// =========================================================
-// MÓDULO DE CREACIÓN DE GRUPOS Y MATRÍCULA DIRECTA DE CONTINGENCIA
-// =========================================================
 window.grupoLinkActivo = null;
 
 window.abrirModalCrearGrupoDocente = function() {
