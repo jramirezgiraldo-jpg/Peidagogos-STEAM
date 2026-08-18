@@ -17,9 +17,16 @@ body {
     font-family: 'Inter', system-ui, sans-serif !important;
     background-color: var(--bg-main);
     color: var(--dark);
-    /* 100vh Ocultando scroll */
-    height: 100vh;
-    overflow: hidden;
+    min-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+#register-screen-container {
+    height: 100vh !important;
+    max-height: 100vh !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
 }
 
 .view { display: none; }
