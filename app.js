@@ -846,20 +846,72 @@ window.inicializarPanelEstudiante = function(data) {
 
         asignaturas.forEach(asig => {
             const card = document.createElement("div");
-            card.style.cssText = "background: white; border-radius: 16px; padding: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.06); transition: transform 0.2s, box-shadow 0.2s; border-top: 5px solid #10B981; display: flex; flex-direction: column; justify-content: space-between; height: 190px;";
+            card.style.cssText = "background: white; border-radius: 16px; padding: 22px; box-shadow: 0 4px 15px rgba(0,0,0,0.06); transition: transform 0.2s, box-shadow 0.2s; border-top: 5px solid #10B981; display: flex; flex-direction: column; justify-content: space-between; min-height: 205px;";
             card.onmouseover = () => { card.style.transform = "translateY(-5px)"; card.style.boxShadow = "0 12px 20px rgba(0,0,0,0.12)"; };
             card.onmouseout = () => { card.style.transform = "none"; card.style.boxShadow = "0 4px 15px rgba(0,0,0,0.06)"; };
 
+            // 1. Icono temático
+            let iconAsig = "🔬";
+            const asigLow = asig.toLowerCase();
+            if (asigLow.includes('física') || asigLow.includes('fisica')) iconAsig = "⚛️";
+            else if (asigLow.includes('química') || asigLow.includes('quimica')) iconAsig = "🧪";
+            else if (asigLow.includes('matemática') || asigLow.includes('matematica')) iconAsig = "📐";
+            else if (asigLow.includes('social') || asigLow.includes('sociales')) iconAsig = "🌍";
+            else if (asigLow.includes('lengua') || asigLow.includes('castellano')) iconAsig = "📖";
+            else if (asigLow.includes('inglés') || asigLow.includes('ingles')) iconAsig = "🗣️";
+            else if (asigLow.includes('tecno') || asigLow.includes('informática')) iconAsig = "💻";
+            else if (asigLow.includes('turismo')) iconAsig = "✈️";
+            else if (asigLow.includes('artística') || asigLow.includes('artistica')) iconAsig = "🎨";
+            else if (asigLow.includes('ética') || asigLow.includes('filosofía')) iconAsig = "🤝";
+            else if (asigLow.includes('robot') || asigLow.includes('robótica')) iconAsig = "🤖";
+            else if (asigLow.includes('emprend')) iconAsig = "💡";
+            else {
+                try {
+                    const customAsigs = JSON.parse(localStorage.getItem('asignaturas_personalizadas_db') || '[]');
+                    const cMatch = customAsigs.find(c => c.nombre.toLowerCase().trim() === asigLow.trim());
+                    if (cMatch && cMatch.icono) iconAsig = cMatch.icono;
+                } catch(e) {}
+            }
+
+            // 2. Docente Titular Orientador
+            let docenteTitular = "Docente Titular STEAM";
+            try {
+                const dList = JSON.parse(localStorage.getItem('docentes_db') || '[]');
+                const ieEst = String(data.institucion || '').toLowerCase();
+                const gEst = String(gradoCiclo).toLowerCase();
+                
+                const dFound = dList.find(doc => {
+                    const dIE = String(doc.institucion || '').toLowerCase();
+                    const dMat = (Array.isArray(doc.materias) ? doc.materias.join(' ') : String(doc.asignatura || '')).toLowerCase();
+                    const dGra = (Array.isArray(doc.grados) ? doc.grados.join(' ') : String(doc.grado || doc.grupo || '')).toLowerCase();
+                    
+                    const coincideIE = !dIE || dIE.includes(ieEst) || ieEst.includes(dIE) || dIE.includes('instituto') || dIE.includes('todos');
+                    const coincideMat = dMat.includes(asigLow) || dMat.includes('todas') || asigLow.includes(dMat);
+                    const coincideGra = dGra.includes(gEst) || dGra.includes('todos') || dGra.includes(gEst.replace(/[^0-9CicloIVPENS]/g, ''));
+                    
+                    return coincideMat && (coincideGra || dGra.length === 0);
+                });
+
+                if (dFound) {
+                    docenteTitular = `Prof. ${dFound.nombre || dFound.nombres || dFound.nombre_completo || 'Docente'}`;
+                }
+            } catch(e) {}
+
             card.innerHTML = `
                 <div>
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-                        <span style="font-size: 2.2rem;">🔬</span>
-                        <span style="background: #ECFDF5; color: #047857; font-weight: 800; font-size: 0.8rem; padding: 3px 10px; border-radius: 12px; border: 1px solid #A7F3D0;">Activa</span>
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                        <span style="font-size: 2rem;">${iconAsig}</span>
+                        <span style="background: #ECFDF5; color: #047857; font-weight: 800; font-size: 0.78rem; padding: 3px 10px; border-radius: 12px; border: 1px solid #A7F3D0;">Activa</span>
                     </div>
-                    <h3 style="margin: 0; font-size: 1.35rem; color: #111827; font-weight: 800;">${asig}</h3>
-                    <p style="margin: 4px 0 0 0; font-size: 0.85rem; color: #6B7280;">${gradoCiclo} • STEAM 2026</p>
+                    <h3 style="margin: 0; font-size: 1.22rem; color: #111827; font-weight: 800; line-height: 1.25;">${asig}</h3>
+                    <div style="margin-top: 6px; font-size: 0.82rem; color: #4B5563;">
+                        <div style="font-weight: 700; color: #2563EB; display: flex; align-items: center; gap: 4px;">
+                            <span>👨‍🏫</span> ${docenteTitular}
+                        </div>
+                        <div style="color: #6B7280; margin-top: 2px;">${gradoCiclo} • STEAM 2026</div>
+                    </div>
                 </div>
-                <button style="background: linear-gradient(135deg, #10B981, #059669); color: white; border: none; padding: 12px; border-radius: 10px; font-weight: 800; cursor: pointer; width: 100%; font-family: Inter, sans-serif; box-shadow: 0 4px 10px rgba(16,185,129,0.25); display: flex; align-items: center; justify-content: center; gap: 8px;" onclick="abrirAsignaturaEstudiante('${asig}', '${gradoCiclo}')">
+                <button style="background: linear-gradient(135deg, #10B981, #059669); color: white; border: none; padding: 10px 12px; border-radius: 10px; font-weight: 800; cursor: pointer; width: 100%; font-family: Inter, sans-serif; box-shadow: 0 4px 10px rgba(16,185,129,0.25); display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 10px;" onclick="abrirAsignaturaEstudiante('${asig}', '${gradoCiclo}')">
                     🚀 Entrar al Aula
                 </button>
             `;
@@ -1133,6 +1185,433 @@ window.ejecutarLogin = async function(e) {
     }
 };
 
+
+// =========================================================
+// MÓDULO DE GESTIÓN DINÁMICA DE INSTITUCIONES EDUCATIVAS (IE)
+// =========================================================
+window.obtenerListaInstituciones = function() {
+    let listaDefecto = [
+        { id: "InstitutoMontenegro", nombre: "IE Instituto Montenegro", municipio: "Montenegro, Quindío", codigo: "ieinstituto2026", tipo: "oficial" },
+        { id: "RamonMessa", nombre: "Colegio Ramón Messa Londoño", municipio: "Montenegro, Quindío", codigo: "messa2026", tipo: "oficial" },
+        { id: "SantaMariaDelRio", nombre: "Colegio Santa María del Río", municipio: "Montenegro, Quindío", codigo: "santamaria2026", tipo: "oficial" },
+        { id: "HomeSchool", nombre: "Home School (Educación en Casa)", municipio: "Nacional / En Casa", codigo: "homeschool2026", tipo: "homeschool" },
+        { id: "Validacion", nombre: "Validación Bachillerato por Ciclos", municipio: "Virtual / Colombia", codigo: "validacion2026", tipo: "validacion" }
+    ];
+    try {
+        let guardadas = JSON.parse(localStorage.getItem('instituciones_db') || '[]');
+        guardadas.forEach(g => {
+            if (!listaDefecto.some(d => d.id === g.id || d.nombre.toLowerCase().trim() === g.nombre.toLowerCase().trim())) {
+                listaDefecto.push(g);
+            }
+        });
+    } catch(e) {}
+    return listaDefecto;
+};
+
+window.guardarNuevaInstitucion = function(nombre, municipio = "Colombia", codigo = "") {
+    if (!nombre || !nombre.trim()) return null;
+    const cleanNombre = nombre.trim();
+    const id = cleanNombre.toLowerCase().replace(/[^a-z0-9]/g, '_');
+    const codigoFinal = (codigo && codigo.trim()) ? codigo.trim() : (id.replace(/_/g, '') + '2026');
+    
+    const nuevaIE = {
+        id: id,
+        nombre: cleanNombre,
+        municipio: municipio.trim() || "Montenegro, Quindío",
+        codigo: codigoFinal,
+        tipo: "oficial",
+        fecha: new Date().toISOString()
+    };
+
+    try {
+        let guardadas = JSON.parse(localStorage.getItem('instituciones_db') || '[]');
+        const idx = guardadas.findIndex(g => g.id === id || g.nombre.toLowerCase().trim() === cleanNombre.toLowerCase());
+        if (idx >= 0) guardadas[idx] = nuevaIE;
+        else guardadas.push(nuevaIE);
+        localStorage.setItem('instituciones_db', JSON.stringify(guardadas));
+    } catch(e) {}
+
+    window.refrescarSelectoresInstituciones(id);
+    return nuevaIE;
+};
+
+window.refrescarSelectoresInstituciones = function(seleccionarId = null) {
+    const lista = window.obtenerListaInstituciones();
+    
+    // 1. Selector General de Registro (#reg-ie)
+    const selReg = document.getElementById("reg-ie");
+    if (selReg) {
+        const valActual = selReg.value;
+        let html = `<option value="">Institución / Modalidad / Perfil...</option>`;
+        
+        // Categoría Estudiantes por Institución
+        html += `<optgroup label="🏫 Instituciones Educativas (Colegios)">`;
+        lista.filter(i => i.tipo === 'oficial').forEach(i => {
+            html += `<option value="${i.id}">🏫 ${i.nombre} (${i.municipio})</option>`;
+        });
+        html += `<option value="__NUEVA_IE__" style="color: #2563EB; font-weight: 800;">➕ Registrar Nueva Institución Educativa...</option>`;
+        html += `</optgroup>`;
+
+        // Categoría Perfiles y Modalidades Especiales
+        html += `<optgroup label="👥 Perfiles y Modalidades Flexibles">`;
+        html += `<option value="DocenteRegular">👨‍🏫 Docente Regular (Colegio / Institución)</option>`;
+        html += `<option value="HomeSchool">🏡 Tutor Home School (Educación en Casa)</option>`;
+        html += `<option value="Validacion">🎓 Estudiante de Validación Bachillerato (Ciclos)</option>`;
+        html += `</optgroup>`;
+
+        selReg.innerHTML = html;
+        if (seleccionarId) selReg.value = seleccionarId;
+        else if (valActual && Array.from(selReg.options).some(o => o.value === valActual)) selReg.value = valActual;
+    }
+
+    // 2. Selector Específico de Docente (#reg-docente-ie-select)
+    const selDocIE = document.getElementById("reg-docente-ie-select");
+    if (selDocIE) {
+        const valDoc = selDocIE.value;
+        let htmlDoc = `<option value="">Selecciona tu Colegio / Institución...</option>`;
+        lista.forEach(i => {
+            htmlDoc += `<option value="${i.nombre}">🏫 ${i.nombre} (${i.municipio})</option>`;
+        });
+        selDocIE.innerHTML = htmlDoc;
+        if (seleccionarId) {
+            const match = lista.find(l => l.id === seleccionarId);
+            if (match) selDocIE.value = match.nombre;
+        } else if (valDoc) selDocIE.value = valDoc;
+    }
+};
+
+window.abrirModalCrearIE = function(origen = 'registro') {
+    window._origenModalIE = origen;
+    const modal = document.getElementById("modal-crear-institucion-educativa");
+    if (modal) {
+        modal.style.display = "flex";
+        const inNombre = document.getElementById("nueva-ie-nombre");
+        if (inNombre) { inNombre.value = ""; inNombre.focus(); }
+    }
+};
+
+window.cerrarModalCrearIE = function() {
+    const modal = document.getElementById("modal-crear-institucion-educativa");
+    if (modal) modal.style.display = "none";
+};
+
+window.ejecutarGuardarNuevaIE = function() {
+    const inNombre = document.getElementById("nueva-ie-nombre");
+    const inMun = document.getElementById("nueva-ie-municipio");
+    const inCod = document.getElementById("nueva-ie-codigo");
+
+    if (!inNombre || !inNombre.value.trim()) {
+        alert("Por favor ingresa el nombre de la Institución Educativa.");
+        return;
+    }
+
+    const res = window.guardarNuevaInstitucion(inNombre.value, inMun ? inMun.value : "", inCod ? inCod.value : "");
+    if (res) {
+        alert(`🎉 ¡Institución "${res.nombre}" registrada con éxito! Ya está disponible permanentemente para todos los docentes y estudiantes.`);
+        window.cerrarModalCrearIE();
+        if (window.toggleIEOptions) window.toggleIEOptions();
+    }
+};
+
+// =========================================================
+// MÓDULO DE CREACIÓN DE ASIGNATURAS Y APRENDIZAJE DE DOCUMENTOS
+// =========================================================
+window.obtenerCatalogoAsignaturas = function() {
+    let base = [
+        "Ciencias Naturales y Educación Ambiental",
+        "Física",
+        "Química",
+        "Matemáticas",
+        "Tecnología e Informática",
+        "Ciencias Sociales",
+        "Lengua Castellana",
+        "Idioma Extranjero Inglés",
+        "Educación Artística",
+        "Ética y Valores Humanos",
+        "Filosofía",
+        "Turismo y Proyectos Especiales",
+        "Educación Física"
+    ];
+    try {
+        let custom = JSON.parse(localStorage.getItem('asignaturas_personalizadas_db') || '[]');
+        custom.forEach(c => {
+            if (c.nombre && !base.includes(c.nombre)) base.push(c.nombre);
+        });
+    } catch(e) {}
+    return base;
+};
+
+window.renderizarPillsDocenteRegistro = function() {
+    // 1. Materias que orienta
+    const containerMat = document.getElementById("reg-docente-materias-pills");
+    if (containerMat) {
+        const todasMat = window.obtenerCatalogoAsignaturas();
+        containerMat.innerHTML = todasMat.map((mat, idx) => `
+            <label style="display: inline-flex; align-items: center; gap: 4px; background: #F8FAFC; border: 1px solid #CBD5E1; padding: 4px 10px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; cursor: pointer; user-select: none;">
+                <input type="checkbox" name="docente_materia_check" value="${mat}" ${idx === 0 ? 'checked' : ''} onchange="actualizarMaterias()">
+                <span>${mat}</span>
+            </label>
+        `).join('');
+    }
+
+    // 2. Grados / Ciclos a cargo
+    const containerGra = document.getElementById("reg-docente-grados-pills");
+    if (containerGra) {
+        const gradosList = [
+            { v: "1", l: "1° Primaria" }, { v: "2", l: "2° Primaria" }, { v: "3", l: "3° Primaria" },
+            { v: "4", l: "4° Primaria" }, { v: "5", l: "5° Primaria" }, { v: "6", l: "6° Secundaria" },
+            { v: "7", l: "7° Secundaria" }, { v: "8", l: "8° Secundaria" }, { v: "9", l: "9° Secundaria" },
+            { v: "10", l: "10° Media" }, { v: "11", l: "11° Media" },
+            { v: "Ciclo I", l: "Ciclo I" }, { v: "Ciclo II", l: "Ciclo II" }, { v: "Ciclo III", l: "Ciclo III" },
+            { v: "Ciclo IV", l: "Ciclo IV" }, { v: "Ciclo V", l: "Ciclo V" }, { v: "Ciclo VI", l: "Ciclo VI" }
+        ];
+        containerGra.innerHTML = gradosList.map((g, idx) => `
+            <label style="display: inline-flex; align-items: center; gap: 4px; background: #F8FAFC; border: 1px solid #CBD5E1; padding: 4px 8px; border-radius: 16px; font-size: 0.78rem; font-weight: 600; cursor: pointer; user-select: none;">
+                <input type="checkbox" name="docente_grado_check" value="${g.v}" ${idx >= 5 && idx <= 8 ? 'checked' : ''}>
+                <span>${g.l}</span>
+            </label>
+        `).join('');
+    }
+};
+
+window.obtenerMateriasDocenteSeleccionadas = function() {
+    const checks = document.querySelectorAll('input[name="docente_materia_check"]:checked');
+    const mats = Array.from(checks).map(c => c.value);
+    return mats.length > 0 ? mats : ["Ciencias Naturales y Educación Ambiental"];
+};
+
+window.obtenerGradosDocenteSeleccionados = function() {
+    const checks = document.querySelectorAll('input[name="docente_grado_check"]:checked');
+    const gras = Array.from(checks).map(c => c.value);
+    return gras.length > 0 ? gras : ["6", "7", "8", "9"];
+};
+
+window.abrirModalCrearAsignaturaDocente = function(origen = 'docente') {
+    window._origenModalAsig = origen;
+    const modal = document.getElementById("modal-crear-asignatura-docente");
+    if (modal) {
+        modal.style.display = "flex";
+        
+        // Renderizar pills de grados en modal
+        const gCont = document.getElementById("modal-asig-grados-container");
+        if (gCont) {
+            const gradosList = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "Ciclo I", "Ciclo II", "Ciclo III", "Ciclo IV", "Ciclo V", "Ciclo VI"];
+            gCont.innerHTML = gradosList.map(g => `
+                <label style="display: inline-flex; align-items: center; gap: 4px; background: #F1F5F9; border: 1px solid #CBD5E1; padding: 4px 8px; border-radius: 16px; font-size: 0.78rem; font-weight: 700; cursor: pointer;">
+                    <input type="checkbox" name="modal_asig_grado_check" value="${g}" ${['6','7','8','9','10','11'].includes(g) ? 'checked' : ''}>
+                    <span>${g.includes('Ciclo') ? g : g + '°'}</span>
+                </label>
+            `).join('');
+        }
+    }
+};
+
+window.cerrarModalCrearAsignaturaDocente = function() {
+    const modal = document.getElementById("modal-crear-asignatura-docente");
+    if (modal) modal.style.display = "none";
+};
+
+window._textoDocumentoAsignaturaDocente = "";
+window._nombreArchivoAsignaturaDocente = "";
+
+window.manejarArchivoAsignaturaDocente = function(event) {
+    const file = event.target.files ? event.target.files[0] : null;
+    if (!file) return;
+
+    window._nombreArchivoAsignaturaDocente = file.name;
+    const lbl = document.getElementById("modal-asig-archivo-nombre");
+    if (lbl) {
+        lbl.style.display = "block";
+        lbl.innerHTML = `✅ Archivo cargado: <strong>${file.name}</strong> (${(file.size / 1024).toFixed(1)} KB)`;
+    }
+
+    const reader = new FileReader();
+    reader.onload = function(e) {
+        window._textoDocumentoAsignaturaDocente = String(e.target.result || '');
+    };
+    reader.onerror = function() {
+        console.warn("No se pudo leer el archivo directamente en texto plano.");
+    };
+    reader.readAsText(file);
+};
+
+window.ejecutarCrearAsignaturaDocenteConIA = function() {
+    const inNom = document.getElementById("modal-asig-nombre");
+    const inIcono = document.getElementById("modal-asig-icono");
+    const inDesc = document.getElementById("modal-asig-desc");
+    const inTxt = document.getElementById("modal-asig-texto-directo");
+
+    if (!inNom || !inNom.value.trim()) {
+        alert("Por favor ingresa el nombre de la nueva asignatura.");
+        return;
+    }
+
+    const nombreAsig = inNom.value.trim();
+    const icono = inIcono ? inIcono.value : "💡";
+    const desc = inDesc ? inDesc.value.trim() : "";
+    const txtDirecto = inTxt ? inTxt.value.trim() : "";
+    const textoDoc = (window._textoDocumentoAsignaturaDocente + "\n" + txtDirecto).trim();
+
+    const gChecks = document.querySelectorAll('input[name="modal_asig_grado_check"]:checked');
+    const gradosArr = Array.from(gChecks).map(c => c.value);
+    if (gradosArr.length === 0) gradosArr.push("6", "7", "8", "9", "10", "11");
+
+    // Motor de Aprendizaje y Estructuración Curricular
+    const nuevaMalla = window.procesarDocumentoYCrearMalla(nombreAsig, gradosArr, desc, textoDoc, window._nombreArchivoAsignaturaDocente);
+    if (nuevaMalla) {
+        nuevaMalla.icono = icono;
+        let asigList = JSON.parse(localStorage.getItem('asignaturas_personalizadas_db') || '[]');
+        const ex = asigList.find(a => a.nombre.toLowerCase().trim() === nombreAsig.toLowerCase().trim());
+        if (ex) ex.icono = icono;
+        localStorage.setItem('asignaturas_personalizadas_db', JSON.stringify(asigList));
+    }
+
+    alert(`🎉 ¡Asignatura "${nombreAsig}" y su Malla Curricular Oficial creadas con éxito!\n\nSe han estructurado los 4 periodos académicos, temas quincenales y DBAs a partir de tus documentos.`);
+    window.cerrarModalCrearAsignaturaDocente();
+    
+    // Actualizar selectores e interfaz
+    if (window.renderizarPillsDocenteRegistro) window.renderizarPillsDocenteRegistro();
+    if (window.actualizarMaterias) window.actualizarMaterias();
+};
+
+window.procesarDocumentoYCrearMalla = function(nombreAsig, gradosArray, descripcion, textoDocumento, archivoNombre = "") {
+    let palabrasClave = [];
+    if (textoDocumento) {
+        const tokens = textoDocumento.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ0-9\s]/g, ' ').split(/\s+/).filter(w => w.length > 4);
+        const freqs = {};
+        tokens.forEach(t => { const w = t.toLowerCase(); freqs[w] = (freqs[w] || 0) + 1; });
+        palabrasClave = Object.keys(freqs).sort((a,b) => freqs[b] - freqs[a]).slice(0, 20);
+    }
+    
+    const objMeta = descripcion || `Desarrollar competencias teóricas, investigativas y prácticas en ${nombreAsig}, aplicando metodologías activas, indagación y resolución de problemas reales.`;
+    
+    const dbas = [
+        `DBA 1: Comprende los conceptos fundamentales y principios esenciales de ${nombreAsig} en su entorno.`,
+        `DBA 2: Analiza y modela situaciones problemáticas utilizando las herramientas metodológicas de ${nombreAsig}.`,
+        `DBA 3: Diseña y ejecuta proyectos o experimentos aplicando el pensamiento crítico y el trabajo colaborativo en ${nombreAsig}.`,
+        `DBA 4: Evalúa el impacto ético, tecnológico y social de los saberes de ${nombreAsig} en su comunidad.`
+    ];
+
+    const tBase = palabrasClave.length >= 8 ? palabrasClave : ["Fundamentos", "Estructura", "Metodología", "Análisis", "Aplicación", "Proyectos", "Evaluación", "Innovación"];
+    
+    const periodos = {
+        '1': {
+            '1': `Introducción a ${nombreAsig}: conceptos básicos y contexto.`,
+            '3': `Principios de ${tBase[0] || 'indagación'} y ${tBase[1] || 'marco conceptual'}.`,
+            '5': `Laboratorio y dinámicas de ${tBase[2] || 'observación y registro'}.`,
+            '7': `Evaluación de saberes iniciales y proyecto de periodo 1.`
+        },
+        '2': {
+            '1': `Profundización en ${tBase[3] || 'técnicas y modelos'} de ${nombreAsig}.`,
+            '3': `Modelado y aplicación de ${tBase[4] || 'herramientas clave'}.`,
+            '5': `Estudio de caso y análisis crítico en el contexto territorial.`,
+            '7': `Taller experimental y síntesis del periodo 2.`
+        },
+        '3': {
+            '1': `Desarrollo de proyectos interdisciplinares en ${nombreAsig}.`,
+            '3': `Integración con metodologías STEAM y tecnología aplicada.`,
+            '5': `Resolución de retos formativos y simulación práctica.`,
+            '7': `Presentación de avances y coevaluación del periodo 3.`
+        },
+        '4': {
+            '1': `Innovación, bioética e impacto social de ${nombreAsig}.`,
+            '3': `Solución de problemáticas comunitarias y transferencia del saber.`,
+            '5': `Preparación de la muestra final y feria del conocimiento.`,
+            '7': `Consolidación de aprendizajes y evaluación anual integral.`
+        }
+    };
+
+    const estructuraMallaPorGrado = {
+        objetivo: objMeta,
+        dba: dbas,
+        periodos: periodos,
+        documento_origen: archivoNombre || "Documento Curricular Cargado",
+        fecha_creacion: new Date().toISOString()
+    };
+
+    // Guardar en mallas_personalizadas_db
+    let mallasCustom = {};
+    try { mallasCustom = JSON.parse(localStorage.getItem('mallas_personalizadas_db') || '{}'); } catch(e) {}
+    if (!mallasCustom[nombreAsig]) mallasCustom[nombreAsig] = {};
+    
+    gradosArray.forEach(g => {
+        const gNorm = window.normalizarGradoOCiclo ? window.normalizarGradoOCiclo(g) : g;
+        mallasCustom[nombreAsig][g] = estructuraMallaPorGrado;
+        mallasCustom[nombreAsig][gNorm] = estructuraMallaPorGrado;
+    });
+    localStorage.setItem('mallas_personalizadas_db', JSON.stringify(mallasCustom));
+
+    // Guardar en asignaturas_personalizadas_db
+    let asigCustomList = [];
+    try { asigCustomList = JSON.parse(localStorage.getItem('asignaturas_personalizadas_db') || '[]'); } catch(e) {}
+    const asigPayload = {
+        id: nombreAsig.toLowerCase().replace(/[^a-z0-9]/g, '_'),
+        nombre: nombreAsig,
+        grados: gradosArray,
+        descripcion: objMeta,
+        icono: "💡",
+        color: "#6366F1",
+        colorFondo: "#EEF2FF",
+        malla: estructuraMallaPorGrado
+    };
+    const exIdx = asigCustomList.findIndex(a => a.nombre.toLowerCase().trim() === nombreAsig.toLowerCase().trim());
+    if (exIdx >= 0) asigCustomList[exIdx] = asigPayload;
+    else asigCustomList.push(asigPayload);
+    localStorage.setItem('asignaturas_personalizadas_db', JSON.stringify(asigCustomList));
+
+    return asigPayload;
+};
+
+window.refrescarPillsMallaCurricular = function(rol = 'estudiante') {
+    let container = null;
+    let clickFn = '';
+    let pillClass = '';
+    let materiaActual = '';
+
+    if (rol === 'estudiante') {
+        container = document.getElementById('estudiante-malla-pills-container');
+        clickFn = 'seleccionarMateriaEstudianteMalla';
+        pillClass = 'estudiante-materia-pill';
+        materiaActual = window.materiaEstudianteMallaActual || 'Naturales';
+    } else if (rol === 'homeschool_tutor' || rol === 'tutor') {
+        container = document.getElementById('tutor-malla-pills-container');
+        clickFn = 'seleccionarMateriaTutorMalla';
+        pillClass = 'tutor-materia-pill';
+        materiaActual = window.materiaTutorMallaActual || 'Naturales';
+    } else if (rol === 'docente') {
+        container = document.getElementById('docente-malla-pills-container');
+        clickFn = 'seleccionarMateriaDocenteMalla';
+        pillClass = 'docente-materia-pill';
+        materiaActual = window.materiaDocenteMallaActual || 'Naturales';
+    }
+
+    if (!container) return;
+
+    let basePills = [
+        { id: 'Naturales', label: '🌿 Ciencias Naturales' },
+        { id: 'Matematicas', label: '📐 Matemáticas' },
+        { id: 'Lenguaje', label: '📖 Lengua Castellana' },
+        { id: 'Sociales', label: '🌍 Ciencias Sociales' }
+    ];
+
+    try {
+        const custom = JSON.parse(localStorage.getItem('asignaturas_personalizadas_db') || '[]');
+        custom.forEach(c => {
+            if (!basePills.some(b => b.id === c.nombre)) {
+                basePills.push({ id: c.nombre, label: `${c.icono || '💡'} ${c.nombre}` });
+            }
+        });
+    } catch(e) {}
+
+    container.innerHTML = basePills.map(p => {
+        const esActivo = materiaActual === p.id;
+        const style = esActivo 
+            ? 'padding: 8px 14px; border-radius: 20px; font-weight: 800; font-size: 0.85rem; cursor: pointer; border: 2px solid #2563EB; background: #EFF6FF; color: #1D4ED8;'
+            : 'padding: 8px 14px; border-radius: 20px; font-weight: 800; font-size: 0.85rem; cursor: pointer; border: 1.5px solid #CBD5E1; background: white; color: #475569;';
+        return `<button class="${pillClass} ${esActivo ? 'active' : ''}" data-materia="${p.id}" onclick="${clickFn}('${p.id}')" style="${style}">${p.label}</button>`;
+    }).join('');
+};
+
 window.inicializarAppCore = function() {
     const btnShowReg = document.getElementById("btn-show-register");
     const btnCancelReg = document.getElementById("btn-cancel-register");
@@ -1170,6 +1649,8 @@ window.inicializarAppCore = function() {
         }
     }
     sincronizarUsuariosDB();
+    if (window.refrescarSelectoresInstituciones) window.refrescarSelectoresInstituciones();
+    if (window.renderizarPillsDocenteRegistro) window.renderizarPillsDocenteRegistro();
 
     if (btnShowReg) {
         btnShowReg.addEventListener("click", function(e) {
@@ -1549,10 +2030,14 @@ window.inicializarAppCore = function() {
                 feedback.innerText = "⏳ Registrando cuenta de Docente Regular e ingresando...";
             }
 
-            const selDocAsig = document.getElementById("reg-docente-asignatura-select");
-            let asigDoc = selDocAsig ? selDocAsig.value : (asig || "Ciencias Naturales y Educación Ambiental");
-            let graDoc = gra || grupo || "Todos";
-            let grupoDoc = grupo || gra || "Todos";
+            const selDocIE = document.getElementById("reg-docente-ie-select");
+            const ieDocenteSeleccionada = (selDocIE && selDocIE.value.trim()) ? selDocIE.value.trim() : "IE Instituto Montenegro";
+            
+            const materiasDocente = (window.obtenerMateriasDocenteSeleccionadas) ? window.obtenerMateriasDocenteSeleccionadas() : [asig || "Ciencias Naturales y Educación Ambiental"];
+            const gradosDocente = (window.obtenerGradosDocenteSeleccionados) ? window.obtenerGradosDocenteSeleccionados() : ["6", "7", "8", "9"];
+            let asigDoc = materiasDocente.join(', ');
+            let graDoc = gradosDocente.join(', ');
+            let grupoDoc = gradosDocente.join(', ');
 
             const payloadDocente = {
                 tipo_doc: tipoDoc,
@@ -1568,10 +2053,11 @@ window.inicializarAppCore = function() {
                 genero: gen || 'otro',
                 rol: 'docente',
                 tipo: 'docente_regular',
-                institucion: 'IE Instituto Montenegro',
+                institucion: ieDocenteSeleccionada,
                 codigo_institucional: codigoInst,
                 asignatura: asigDoc,
-                materias: [asigDoc],
+                materias: materiasDocente,
+                grados: gradosDocente,
                 grado: graDoc,
                 grupo: grupoDoc,
                 pago_realizado: true,
@@ -3897,6 +4383,21 @@ window.actualizarVisualizadorPlaneacion = function() {
         malla = window.mallaArtistica;
     } else if (asignatura.toLowerCase().includes('ética') || asignatura.toLowerCase().includes('etica') || asignatura.toLowerCase().includes('filosofía') || asignatura.toLowerCase().includes('filosofia')) {
         malla = window.mallaEtica;
+    }
+
+    if (!malla) {
+        try {
+            const mallasCustom = JSON.parse(localStorage.getItem('mallas_personalizadas_db') || '{}');
+            if (mallasCustom[asignatura]) {
+                malla = mallasCustom[asignatura];
+            } else {
+                const asigCustomList = JSON.parse(localStorage.getItem('asignaturas_personalizadas_db') || '[]');
+                const cObj = asigCustomList.find(a => a.nombre.toLowerCase().trim() === asignatura.toLowerCase().trim());
+                if (cObj && mallasCustom[cObj.nombre]) {
+                    malla = mallasCustom[cObj.nombre];
+                }
+            }
+        } catch(e) {}
     }
 
     const dataGrado = malla ? (malla[gradoNum] || malla[gradoSeleccionado] || malla['6']) : null;
@@ -7801,12 +8302,50 @@ window.generarHTMLDetalleMallaDBA = function(grado, materiaKey, rol) {
         iconoMateria = "🌍";
         colorTema = "#059669";
         colorFondo = "#ECFDF5";
-    } else {
+    } else if (materiaKey === 'Fisica' || materiaKey.includes('Fís') || materiaKey.includes('Fis')) {
+        malla = window.mallaFisica;
+        nombreMateria = "Física";
+        iconoMateria = "⚛️";
+        colorTema = "#0284C7";
+        colorFondo = "#F0F9FF";
+    } else if (materiaKey === 'Quimica' || materiaKey.includes('Quím') || materiaKey.includes('Quim')) {
+        malla = window.mallaQuimica;
+        nombreMateria = "Química";
+        iconoMateria = "🧪";
+        colorTema = "#D97706";
+        colorFondo = "#FFFBEB";
+    } else if (materiaKey === 'Naturales' || materiaKey.includes('Ciencias') || materiaKey.includes('Natur')) {
         malla = window.mallaNaturales;
         nombreMateria = "Ciencias Naturales";
         iconoMateria = "🌿";
         colorTema = "#2563EB";
         colorFondo = "#EFF6FF";
+    } else {
+        // Buscar en mallas personalizadas creadas por docentes
+        let mallasCustom = {};
+        try { mallasCustom = JSON.parse(localStorage.getItem('mallas_personalizadas_db') || '{}'); } catch(e) {}
+        let asigCustomList = [];
+        try { asigCustomList = JSON.parse(localStorage.getItem('asignaturas_personalizadas_db') || '[]'); } catch(e) {}
+
+        const foundCustomAsig = asigCustomList.find(a => a.nombre.toLowerCase().trim() === materiaKey.toLowerCase().trim() || a.id === materiaKey);
+
+        if (foundCustomAsig || mallasCustom[materiaKey]) {
+            const customMalla = mallasCustom[materiaKey] || (foundCustomAsig ? mallasCustom[foundCustomAsig.nombre] : null);
+            if (customMalla) {
+                malla = customMalla;
+                nombreMateria = foundCustomAsig ? foundCustomAsig.nombre : materiaKey;
+                iconoMateria = foundCustomAsig ? (foundCustomAsig.icono || "💡") : "💡";
+                colorTema = foundCustomAsig ? (foundCustomAsig.color || "#4F46E5") : "#4F46E5";
+                colorFondo = foundCustomAsig ? (foundCustomAsig.colorFondo || "#EEF2FF") : "#EEF2FF";
+            }
+        }
+        if (!malla) {
+            malla = window.mallaNaturales;
+            nombreMateria = materiaKey || "Ciencias Naturales";
+            iconoMateria = "💡";
+            colorTema = "#2563EB";
+            colorFondo = "#EFF6FF";
+        }
     }
 
     const dataGrado = malla ? (malla[grado] || malla[gradoNum] || malla['6']) : null;
@@ -8007,6 +8546,7 @@ window.abrirMallaTutorDesdeEstudiante = function(grado, materia) {
 };
 
 window.renderizarMallaTutorHomeSchool = function() {
+    if (window.refrescarPillsMallaCurricular) window.refrescarPillsMallaCurricular('homeschool_tutor');
     const selectGrado = document.getElementById('select-tutor-malla-grado');
     const container = document.getElementById('tutor-malla-detalle-container');
     if (!container) return;
@@ -8164,6 +8704,7 @@ window.seleccionarMateriaEstudianteMalla = function(materia) {
 };
 
 window.renderizarMallaEstudianteDBA = function() {
+    if (window.refrescarPillsMallaCurricular) window.refrescarPillsMallaCurricular('estudiante');
     const selectGrado = document.getElementById('select-estudiante-malla-grado');
     const container = document.getElementById('estudiante-malla-detalle-container');
     if (!container) return;

@@ -230,27 +230,44 @@
             <option value="Validacion">🎓 Estudiante de Validación Bachillerato (Ciclos)</option>
         </select>
 
-        <!-- Campo Selector de Asignatura para Docente Regular -->
-        <div id="campo-docente-asignatura" style="display: none; flex-direction: column; gap: 6px; background: #F5F3FF; padding: 12px; border: 1.5px solid #DDD6FE; border-radius: 8px;">
-            <label style="font-size: 0.85rem; font-weight: bold; color: #5B21B6; display: flex; align-items: center; gap: 6px; margin: 0;">
-                <span>📚</span> Asignatura Principal que Orientas:
-            </label>
-            <select id="reg-docente-asignatura-select" onchange="actualizarMaterias()" style="padding: 10px 12px; border: 1.5px solid #8B5CF6; border-radius: 6px; font-weight: bold; background-color: white; outline: none; font-size: 0.92rem;">
-                <option value="Todas las Asignaturas STEAM">🌟 Todas las Asignaturas (Enfoque STEAM Integrado)</option>
-                <option value="Ciencias Naturales y Educación Ambiental" selected>🌿 Ciencias Naturales y Educación Ambiental</option>
-                <option value="Física">⚛️ Física</option>
-                <option value="Química">🧪 Química</option>
-                <option value="Matemáticas">📐 Matemáticas</option>
-                <option value="Tecnología e Informática">💻 Tecnología e Informática</option>
-                <option value="Ciencias Sociales">🌎 Ciencias Sociales</option>
-                <option value="Lengua Castellana">📖 Lengua Castellana</option>
-                <option value="Idioma Extranjero Inglés">🗣️ Idioma Extranjero Inglés</option>
-                <option value="Educación Artística">🎨 Educación Artística</option>
-                <option value="Ética y Valores Humanos">🤝 Ética y Valores Humanos</option>
-                <option value="Filosofía">🏛️ Filosofía</option>
-                <option value="Turismo y Proyectos Especiales">✈️ Turismo y Proyectos Especiales</option>
-                <option value="Educación Física">🏃 Educación Física</option>
-            </select>
+        <!-- Campo Extendido de Configuración para Docente Regular -->
+        <div id="campo-docente-asignatura" style="display: none; flex-direction: column; gap: 12px; background: #F5F3FF; padding: 16px; border: 1.5px solid #DDD6FE; border-radius: 12px;">
+            <div>
+                <label style="font-size: 0.85rem; font-weight: bold; color: #5B21B6; display: flex; align-items: center; justify-content: space-between; margin-bottom: 5px;">
+                    <span>🏛️ Institución Educativa a la que Perteneces:</span>
+                </label>
+                <div style="display: flex; gap: 8px;">
+                    <select id="reg-docente-ie-select" style="flex: 1; padding: 10px; border: 1.5px solid #8B5CF6; border-radius: 8px; font-weight: bold; background-color: white; font-size: 0.9rem;">
+                        <!-- Se llena dinámicamente -->
+                    </select>
+                    <button type="button" onclick="window.abrirModalCrearIE('docente')" style="background: linear-gradient(135deg, #2563EB, #1D4ED8); color: white; border: none; padding: 8px 12px; border-radius: 8px; font-weight: bold; font-size: 0.8rem; cursor: pointer; white-space: nowrap;">
+                        ➕ Nueva IE
+                    </button>
+                </div>
+            </div>
+
+            <div>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                    <label style="font-size: 0.85rem; font-weight: bold; color: #5B21B6; display: flex; align-items: center; gap: 4px; margin: 0;">
+                        <span>📚</span> Materias que Orientas (Selecciona una o más):
+                    </label>
+                    <button type="button" onclick="window.abrirModalCrearAsignaturaDocente('registro')" style="background: #7C3AED; color: white; border: none; padding: 4px 10px; border-radius: 6px; font-weight: 800; font-size: 0.75rem; cursor: pointer;">
+                        ➕ Crear Asignatura (IA)
+                    </button>
+                </div>
+                <div id="reg-docente-materias-pills" style="display: flex; gap: 6px; flex-wrap: wrap; max-height: 140px; overflow-y: auto; background: white; padding: 10px; border-radius: 8px; border: 1px solid #DDD6FE;">
+                    <!-- Checkboxes dinámicos inyectados por JS -->
+                </div>
+            </div>
+
+            <div>
+                <label style="font-size: 0.85rem; font-weight: bold; color: #5B21B6; display: block; margin-bottom: 6px;">
+                    <span>🎓</span> Grados o Ciclos bajo tu cargo (Selección múltiple):
+                </label>
+                <div id="reg-docente-grados-pills" style="display: flex; gap: 6px; flex-wrap: wrap; background: white; padding: 10px; border-radius: 8px; border: 1px solid #DDD6FE;">
+                    <!-- Checkboxes dinámicos inyectados por JS -->
+                </div>
+            </div>
         </div>
 
         <div id="campo-codigo-institucional" style="display: none; flex-direction: column; gap: 6px; background: #EFF6FF; padding: 12px; border: 1.5px solid #93C5FD; border-radius: 8px;">
@@ -333,21 +350,28 @@
                 const materiasView = document.getElementById("materias-asignadas-view");
                 const btnSubmit = document.getElementById("btn-submit-register");
                 
+                if (ie === "__NUEVA_IE__") {
+                    window.abrirModalCrearIE('registro');
+                    document.getElementById("reg-ie").value = "";
+                    return;
+                }
+
                 if (ie === "DocenteRegular") {
                     if (campoCodigo) campoCodigo.style.display = "flex";
                     if (lblCodigo) lblCodigo.innerHTML = "<span>🔑</span> Código Institucional / Verificación Docente (ieinstituto2026):";
                     if (campoDocAsig) campoDocAsig.style.display = "flex";
-                    if (gradoSelect) { gradoSelect.style.display = "block"; }
-                    if (grupoSelect) { grupoSelect.style.display = "block"; }
-                    if (materiasView) materiasView.style.display = "block";
+                    if (gradoSelect) { gradoSelect.style.display = "none"; }
+                    if (grupoSelect) { grupoSelect.style.display = "none"; }
+                    if (materiasView) materiasView.style.display = "none";
                     if (btnSubmit) btnSubmit.innerText = "👨‍🏫 Registrarme como Docente Regular";
                     if (infoPago) {
                         infoPago.style.display = "block";
                         infoPago.style.background = "#F5F3FF";
                         infoPago.style.color = "#5B21B6";
                         infoPago.style.border = "1px solid #DDD6FE";
-                        infoPago.innerHTML = "👨‍🏫 <strong>Inscripción de Docente Regular:</strong> Registro oficial de profesor para la gestión pedagógica del aula, asignación de guías y retos interactivos, proyección de Leaderboard en vivo, rúbricas formativas MEN y uso integral de la Caja de Herramientas STEAM.";
+                        infoPago.innerHTML = "👨‍🏫 <strong>Inscripción de Docente Regular:</strong> Selecciona tu colegio, asignaturas y grados a cargo. Si tu materia no existe, créala y sube documentos para generar la Malla DBA con IA.";
                     }
+                    if (window.renderizarPillsDocenteRegistro) window.renderizarPillsDocenteRegistro();
                 } else if (ie === "HomeSchool") {
                     if (campoCodigo) campoCodigo.style.display = "none";
                     if (campoDocAsig) campoDocAsig.style.display = "none";
@@ -376,11 +400,12 @@
                         infoPago.style.border = "1px solid #FCD34D";
                         infoPago.innerHTML = "🎓 <strong>Modalidad Validación Bachillerato por Ciclos:</strong> Registro inicial gratis y observación de la Guía 1 de muestra. Tarifa de matrícula oficial para resolver guías y certificar: <strong>$85.000 COP</strong>.<br><span style='font-size:0.8rem; color:#78350F; display:block; margin-top:4px;'>⚠️ <em>Aviso: Esta plataforma desarrolla las competencias de los DBA del MEN. La vinculación oficial y boletín certificado en SIMAT con la IE Instituto Montenegro tiene un costo mensual de $15.000 COP.</em></span>";
                     }
-                } else if (ie === "InstitutoMontenegro") {
+                } else if (ie) {
+                    // Cualquier Institución Oficial Registrada o Instituto Montenegro
                     if (campoCodigo) campoCodigo.style.display = "flex";
-                    if (lblCodigo) lblCodigo.innerHTML = "<span>🔑</span> Código Institucional (IE Instituto Montenegro - $0 COP):";
+                    if (lblCodigo) lblCodigo.innerHTML = `<span>🔑</span> Código Institucional (${ie} - $0 COP):`;
                     if (campoDocAsig) campoDocAsig.style.display = "none";
-                    if (gradoSelect) { gradoSelect.style.display = "none"; gradoSelect.value = ""; }
+                    if (gradoSelect) { gradoSelect.style.display = "block"; }
                     if (grupoSelect) { grupoSelect.style.display = "block"; }
                     if (materiasView) materiasView.style.display = "block";
                     if (btnSubmit) btnSubmit.innerText = "Continuar con la Matrícula";
@@ -389,7 +414,7 @@
                         infoPago.style.background = "#F0FDF4";
                         infoPago.style.color = "#166534";
                         infoPago.style.border = "1px solid #86EFAC";
-                        infoPago.innerHTML = "🏫 <strong>Comunidad Oficial IE Instituto Montenegro:</strong> Ingresa el código institucional suministrado por la institución para matricularte con acceso total e ilimitado.";
+                        infoPago.innerHTML = `🏫 <strong>Comunidad Educativa Oficial (${ie}):</strong> Ingresa el código institucional suministrado por la institución para matricularte con acceso total e ilimitado.`;
                     }
                 } else {
                     if (campoCodigo) campoCodigo.style.display = "none";
@@ -411,10 +436,15 @@
                 let materias = null;
                 const grado = document.getElementById("reg-grado").value;
                 const grupo = document.getElementById("registro-grupo").value;
+                const gLimpio = grado || grupo || "";
                 
                 if (ie === "DocenteRegular") {
-                    const selAsig = document.getElementById("reg-docente-asignatura-select");
-                    materias = selAsig ? selAsig.value : "Ciencias Naturales y Educación Ambiental";
+                    if (window.obtenerMateriasDocenteSeleccionadas) {
+                        const mDoc = window.obtenerMateriasDocenteSeleccionadas();
+                        materias = mDoc.join(', ');
+                    } else {
+                        materias = "Ciencias Naturales y Educación Ambiental";
+                    }
                 } else if (ie === "HomeSchool") {
                     const mapaHome = {
                         "1": "Ciencias Naturales, Matemáticas, Lengua Castellana",
@@ -441,37 +471,60 @@
                         "Ciclo VI": "Ciencias Naturales, Matemáticas, Física, Química, Lengua Castellana, Ciencias Sociales, Inglés, Filosofía y Ética"
                     };
                     materias = mapaCiclos[cicloVal] || "Ciencias Naturales, Matemáticas, Física, Química, Lengua Castellana, Ciencias Sociales, Inglés, Filosofía y Ética";
-                } else if (ie === "InstitutoMontenegro") {
+                } else if (ie) {
+                    // 1. Base por defecto del horario
                     const mapaMontenegro = {
+                        "6": "Física, Matemáticas, Ciencias Naturales, Lengua Castellana, Ciencias Sociales, Inglés, Tecnología, Educación Artística, Ética",
                         "6A": "Física, Matemáticas, Ciencias Naturales, Lengua Castellana, Ciencias Sociales, Inglés, Tecnología, Educación Artística, Ética",
                         "6B": "Física, Matemáticas, Ciencias Naturales, Lengua Castellana, Ciencias Sociales, Inglés, Tecnología, Educación Artística, Ética",
+                        "7": "Física, Turismo, Matemáticas, Ciencias Naturales, Lengua Castellana, Ciencias Sociales, Inglés, Tecnología, Educación Artística, Ética",
                         "7A": "Física, Turismo, Matemáticas, Ciencias Naturales, Lengua Castellana, Ciencias Sociales, Inglés, Tecnología, Educación Artística, Ética",
                         "7B": "Física, Turismo, Matemáticas, Ciencias Naturales, Lengua Castellana, Ciencias Sociales, Inglés, Tecnología, Educación Artística, Ética",
                         "7C": "Física, Ética, Turismo, Matemáticas, Ciencias Naturales, Lengua Castellana, Ciencias Sociales, Inglés, Tecnología, Educación Artística",
+                        "8": "Artística, Matemáticas, Ciencias Naturales, Física, Lengua Castellana, Ciencias Sociales, Inglés, Tecnología, Ética",
                         "8A": "Artística, Matemáticas, Ciencias Naturales, Física, Lengua Castellana, Ciencias Sociales, Inglés, Tecnología, Ética",
                         "8B": "Artística, Matemáticas, Ciencias Naturales, Física, Lengua Castellana, Ciencias Sociales, Inglés, Tecnología, Ética",
+                        "9": "Artística, Matemáticas, Ciencias Naturales, Física, Lengua Castellana, Ciencias Sociales, Inglés, Tecnología, Ética",
                         "9A": "Artística, Matemáticas, Ciencias Naturales, Física, Lengua Castellana, Ciencias Sociales, Inglés, Tecnología, Ética",
+                        "10": "Ética, Matemáticas, Física, Química, Ciencias Naturales, Lengua Castellana, Ciencias Sociales, Inglés, Tecnología",
                         "10A": "Ética, Matemáticas, Física, Química, Ciencias Naturales, Lengua Castellana, Ciencias Sociales, Inglés, Tecnología",
                         "10D": "Ética, Matemáticas, Física, Química, Ciencias Naturales, Lengua Castellana, Ciencias Sociales, Inglés, Tecnología",
-                        "PENS": "Química, Turismo, Matemáticas, Física, Ciencias Naturales, Lengua Castellana, Ciencias Sociales, Inglés, Filosofía",
-                        "Ciclo I": "Ciencias Naturales, Matemáticas, Lengua Castellana, Ciencias Sociales",
-                        "Ciclo II": "Ciencias Naturales, Matemáticas, Lengua Castellana, Ciencias Sociales, Inglés",
-                        "Ciclo III": "Ciencias Naturales, Matemáticas, Física, Lengua Castellana, Ciencias Sociales, Inglés, Tecnología",
-                        "Ciclo IV": "Ciencias Naturales, Matemáticas, Física, Lengua Castellana, Ciencias Sociales, Inglés, Tecnología",
-                        "Ciclo V": "Ciencias Naturales, Matemáticas, Física, Química, Lengua Castellana, Ciencias Sociales, Inglés, Filosofía y Ética",
-                        "Ciclo VI": "Ciencias Naturales, Matemáticas, Física, Química, Lengua Castellana, Ciencias Sociales, Inglés, Filosofía y Ética"
+                        "11": "Química, Turismo, Matemáticas, Física, Ciencias Naturales, Lengua Castellana, Ciencias Sociales, Inglés, Filosofía",
+                        "PENS": "Química, Turismo, Matemáticas, Física, Ciencias Naturales, Lengua Castellana, Ciencias Sociales, Inglés, Filosofía"
                     };
-                    materias = mapaMontenegro[grupo] || "Ciencias Naturales, Matemáticas, Lengua Castellana, Ciencias Sociales, Inglés, Tecnología";
+                    let baseMat = mapaMontenegro[grupo] || mapaMontenegro[grado] || "Ciencias Naturales, Matemáticas, Lengua Castellana, Ciencias Sociales, Inglés, Tecnología";
+                    let arrMat = baseMat.split(',').map(s => s.trim());
+
+                    // 2. Incorporar materias de docentes registrados en esta IE para este grado
+                    try {
+                        const dList = JSON.parse(localStorage.getItem('docentes_db') || '[]');
+                        dList.forEach(doc => {
+                            const dIE = String(doc.institucion || '').toLowerCase();
+                            const ieCur = ie.toLowerCase();
+                            const gCur = gLimpio.toLowerCase();
+                            const dGra = (Array.isArray(doc.grados) ? doc.grados.join(' ') : String(doc.grado || doc.grupo || '')).toLowerCase();
+                            
+                            if ((dIE.includes(ieCur) || ieCur.includes(dIE) || dIE.includes('instituto')) && (dGra.includes(gCur) || dGra.includes('todos') || !gCur)) {
+                                if (Array.isArray(doc.materias)) {
+                                    doc.materias.forEach(m => {
+                                        if (m && !arrMat.includes(m) && m !== 'Todas las Asignaturas STEAM') arrMat.push(m);
+                                    });
+                                }
+                            }
+                        });
+                    } catch(e) {}
+
+                    materias = arrMat.join(', ');
                 }
                 
                 if (materias) {
                     input.value = materias;
-                    view.innerHTML = "<strong>Materias asignadas:</strong> " + materias;
+                    view.innerHTML = "<strong>Materias asignadas automáticamente:</strong> " + materias;
                     view.style.color = "#111827";
                     view.style.fontStyle = "normal";
                 } else {
                     input.value = "";
-                    view.innerHTML = "Sin asignaturas seleccionadas";
+                    view.innerHTML = "Selecciona institución y grado para asignar materias y docentes automáticamente";
                     view.style.color = "#e74c3c";
                     view.style.fontStyle = "italic";
                 }
@@ -492,6 +545,9 @@
         <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
             <button onclick="window.abrirClasePrimerosAuxiliosEmocionales('docente')" style="background: linear-gradient(135deg, #EF4444, #DC2626); color: white; border: none; padding: 8px 18px; border-radius: 8px; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 8px; font-size: 0.9rem; box-shadow: 0 4px 10px rgba(239,68,68,0.25);" title="Proyectar o trabajar la clase interactiva de contención y primeros auxilios emocionales post-sismo">
                 <span>❤️‍🩹</span> Auxilios Emocionales (Terremoto)
+            </button>
+            <button onclick="window.abrirModalCrearAsignaturaDocente('docente')" style="background: linear-gradient(135deg, #4F46E5, #7C3AED); color: white; border: none; padding: 8px 18px; border-radius: 8px; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 8px; font-size: 0.9rem; box-shadow: 0 4px 10px rgba(79,70,229,0.25);" title="Crear nueva materia y generar Malla DBA con IA/documentos">
+                <span>📚</span> Crear Asignatura (IA)
             </button>
             <button onclick="window.abrirCajaHerramientas('todas', 'docente')" style="background: linear-gradient(135deg, #EC4899, #BE185D); color: white; border: none; padding: 8px 18px; border-radius: 8px; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 8px; font-size: 0.9rem; box-shadow: 0 4px 10px rgba(236,72,153,0.3);">
                 <span>🧰</span> Caja de Herramientas
@@ -1232,8 +1288,8 @@
                     </div>
 
                     <div>
-                        <label style="display: block; font-size: 0.85rem; font-weight: 800; color: #334155; margin-bottom: 6px;">Materia Fundamental:</label>
-                        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                        <label style="display: block; font-size: 0.85rem; font-weight: 800; color: #334155; margin-bottom: 6px;">Materia Fundamental / Personalizada:</label>
+                        <div id="tutor-malla-pills-container" style="display: flex; gap: 8px; flex-wrap: wrap;">
                             <button class="tutor-materia-pill active" data-materia="Naturales" onclick="seleccionarMateriaTutorMalla('Naturales')" style="padding: 8px 14px; border-radius: 20px; font-weight: 800; font-size: 0.85rem; cursor: pointer; border: 2px solid #2563EB; background: #EFF6FF; color: #1D4ED8;">🌿 Ciencias Naturales</button>
                             <button class="tutor-materia-pill" data-materia="Matematicas" onclick="seleccionarMateriaTutorMalla('Matematicas')" style="padding: 8px 14px; border-radius: 20px; font-weight: 800; font-size: 0.85rem; cursor: pointer; border: 1.5px solid #CBD5E1; background: white; color: #475569;">📐 Matemáticas</button>
                             <button class="tutor-materia-pill" data-materia="Lenguaje" onclick="seleccionarMateriaTutorMalla('Lenguaje')" style="padding: 8px 14px; border-radius: 20px; font-weight: 800; font-size: 0.85rem; cursor: pointer; border: 1.5px solid #CBD5E1; background: white; color: #475569;">📖 Lengua Castellana</button>
@@ -1441,8 +1497,8 @@
                     </div>
 
                     <div>
-                        <label style="display: block; font-size: 0.85rem; font-weight: 800; color: #334155; margin-bottom: 6px;">Materia Fundamental:</label>
-                        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                        <label style="display: block; font-size: 0.85rem; font-weight: 800; color: #334155; margin-bottom: 6px;">Materia Fundamental / Personalizada:</label>
+                        <div id="estudiante-malla-pills-container" style="display: flex; gap: 8px; flex-wrap: wrap;">
                             <button class="estudiante-materia-pill active" data-materia="Naturales" onclick="seleccionarMateriaEstudianteMalla('Naturales')" style="padding: 8px 14px; border-radius: 20px; font-weight: 800; font-size: 0.85rem; cursor: pointer; border: 2px solid #2563EB; background: #EFF6FF; color: #1D4ED8;">🌿 Ciencias Naturales</button>
                             <button class="estudiante-materia-pill" data-materia="Matematicas" onclick="seleccionarMateriaEstudianteMalla('Matematicas')" style="padding: 8px 14px; border-radius: 20px; font-weight: 800; font-size: 0.85rem; cursor: pointer; border: 1.5px solid #CBD5E1; background: white; color: #475569;">📐 Matemáticas</button>
                             <button class="estudiante-materia-pill" data-materia="Lenguaje" onclick="seleccionarMateriaEstudianteMalla('Lenguaje')" style="padding: 8px 14px; border-radius: 20px; font-weight: 800; font-size: 0.85rem; cursor: pointer; border: 1.5px solid #CBD5E1; background: white; color: #475569;">📖 Lengua Castellana</button>
@@ -2536,9 +2592,117 @@
         </div>
     </div>
 
-    <script src="diagnostico_nocturno.js?v=20260818_v44"></script>
-    <script src="agente_auditor_qa.js?v=20260818_v44"></script>
-    <script src="app.js?v=20260818_v44"></script>
+    <!-- MODAL: REGISTRAR NUEVA INSTITUCIÓN EDUCATIVA -->
+    <div id="modal-crear-institucion-educativa" style="display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.8); z-index: 10001; justify-content: center; align-items: center; padding: 20px; backdrop-filter: blur(5px);">
+        <div style="background: white; border-radius: 20px; width: 100%; max-width: 540px; box-shadow: 0 25px 50px rgba(0,0,0,0.25); overflow: hidden; border: 1px solid #E2E8F0;">
+            <div style="background: linear-gradient(135deg, #1E3A8A, #2563EB); color: white; padding: 20px 25px; display: flex; justify-content: space-between; align-items: center;">
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <span style="font-size: 1.8rem;">🏛️</span>
+                    <div>
+                        <h3 style="margin: 0; font-size: 1.25rem; font-weight: 900;">Registrar Nueva Institución Educativa</h3>
+                        <p style="margin: 2px 0 0 0; font-size: 0.8rem; color: #DBEAFE;">Quedará disponible permanentemente para todos los docentes y estudiantes.</p>
+                    </div>
+                </div>
+                <button onclick="window.cerrarModalCrearIE()" style="background: rgba(255,255,255,0.2); border: none; color: white; width: 32px; height: 32px; border-radius: 50%; cursor: pointer; font-size: 1.1rem; font-weight: bold;">✕</button>
+            </div>
+            <div style="padding: 25px; display: flex; flex-direction: column; gap: 15px;">
+                <div>
+                    <label style="display: block; font-weight: 800; color: #1E293B; font-size: 0.88rem; margin-bottom: 5px;">Nombre de la Institución Educativa / Colegio:</label>
+                    <input type="text" id="nueva-ie-nombre" placeholder="Ej: IE General Santander / Colegio San José" style="width: 100%; padding: 12px; border: 1.5px solid #CBD5E1; border-radius: 8px; box-sizing: border-box; font-size: 0.95rem; font-weight: 600;">
+                </div>
+                <div>
+                    <label style="display: block; font-weight: 800; color: #1E293B; font-size: 0.88rem; margin-bottom: 5px;">Municipio / Departamento:</label>
+                    <input type="text" id="nueva-ie-municipio" placeholder="Ej: Montenegro, Quindío" value="Montenegro, Quindío" style="width: 100%; padding: 12px; border: 1.5px solid #CBD5E1; border-radius: 8px; box-sizing: border-box; font-size: 0.95rem;">
+                </div>
+                <div>
+                    <label style="display: block; font-weight: 800; color: #1E293B; font-size: 0.88rem; margin-bottom: 5px;">Código Institucional de Verificación Docente (Opcional):</label>
+                    <input type="text" id="nueva-ie-codigo" placeholder="Ej: santander2026 (por defecto automático)" style="width: 100%; padding: 12px; border: 1.5px solid #CBD5E1; border-radius: 8px; box-sizing: border-box; font-size: 0.95rem;">
+                </div>
+                <div style="display: flex; gap: 10px; justify-content: flex-end; margin-top: 10px;">
+                    <button onclick="window.cerrarModalCrearIE()" style="background: #F1F5F9; color: #475569; border: 1px solid #CBD5E1; padding: 10px 18px; border-radius: 8px; font-weight: 700; cursor: pointer;">Cancelar</button>
+                    <button onclick="window.ejecutarGuardarNuevaIE()" style="background: linear-gradient(135deg, #10B981, #059669); color: white; border: none; padding: 10px 22px; border-radius: 8px; font-weight: 800; cursor: pointer; box-shadow: 0 4px 10px rgba(16,185,129,0.3);">💾 Guardar y Seleccionar Colegio</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL: CREADOR DE ASIGNATURA Y APRENDIZAJE DE DOCUMENTOS -->
+    <div id="modal-crear-asignatura-docente" style="display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.85); z-index: 10002; justify-content: center; align-items: center; padding: 20px; overflow-y: auto; backdrop-filter: blur(6px);">
+        <div style="background: white; border-radius: 20px; width: 100%; max-width: 780px; max-height: 90vh; overflow-y: auto; box-shadow: 0 25px 50px rgba(0,0,0,0.3); border: 1px solid #E2E8F0;">
+            <div style="background: linear-gradient(135deg, #4F46E5, #7C3AED); color: white; padding: 22px 30px; display: flex; justify-content: space-between; align-items: center;">
+                <div style="display: flex; align-items: center; gap: 12px;">
+                    <span style="font-size: 2rem;">📚</span>
+                    <div>
+                        <h3 style="margin: 0; font-size: 1.35rem; font-weight: 900;">Crear Nueva Asignatura con Motor de Documentos</h3>
+                        <p style="margin: 2px 0 0 0; font-size: 0.85rem; color: #E0E7FF;">La plataforma aprende de tus planes de área, crea la Malla DBA y habilita guías interactivas.</p>
+                    </div>
+                </div>
+                <button onclick="window.cerrarModalCrearAsignaturaDocente()" style="background: rgba(255,255,255,0.2); border: none; color: white; width: 34px; height: 34px; border-radius: 50%; cursor: pointer; font-size: 1.1rem; font-weight: bold;">✕</button>
+            </div>
+            <div style="padding: 30px; display: flex; flex-direction: column; gap: 18px;">
+                <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 15px;">
+                    <div>
+                        <label style="display: block; font-weight: 800; color: #1E293B; font-size: 0.9rem; margin-bottom: 6px;">Nombre de la Asignatura:</label>
+                        <input type="text" id="modal-asig-nombre" placeholder="Ej: Robótica STEAM / Emprendimiento / Cátedra de la Paz" style="width: 100%; padding: 12px; border: 2px solid #818CF8; border-radius: 8px; box-sizing: border-box; font-size: 0.95rem; font-weight: 700;">
+                    </div>
+                    <div>
+                        <label style="display: block; font-weight: 800; color: #1E293B; font-size: 0.9rem; margin-bottom: 6px;">Icono Representativo:</label>
+                        <select id="modal-asig-icono" style="width: 100%; padding: 12px; border: 1.5px solid #CBD5E1; border-radius: 8px; box-sizing: border-box; font-size: 1rem;">
+                            <option value="🤖">🤖 Robótica / Domótica</option>
+                            <option value="💡">💡 Emprendimiento / Innovación</option>
+                            <option value="🕊️">🕊️ Paz y Ciudadanía</option>
+                            <option value="📊">📊 Estadística / Economía</option>
+                            <option value="🎨">🎨 Diseño y Artes Digitales</option>
+                            <option value="🌱">🌱 Agroecología y Café</option>
+                            <option value="🎼">🎼 Música y Expresión</option>
+                            <option value="🔬">🔬 Investigación Científica</option>
+                            <option value="💻">💻 Programación y Algoritmos</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label style="display: block; font-weight: 800; color: #1E293B; font-size: 0.9rem; margin-bottom: 6px;">Grados o Ciclos en los que se Dictará:</label>
+                    <div id="modal-asig-grados-container" style="display: flex; gap: 6px; flex-wrap: wrap;">
+                        <!-- Inyectado por JS con pills seleccionables -->
+                    </div>
+                </div>
+
+                <div>
+                    <label style="display: block; font-weight: 800; color: #1E293B; font-size: 0.9rem; margin-bottom: 6px;">Descripción General / Enfoque Pedagógico:</label>
+                    <textarea id="modal-asig-desc" rows="2" placeholder="Describe los propósitos y metas generales de comprensión del área..." style="width: 100%; padding: 10px 12px; border: 1.5px solid #CBD5E1; border-radius: 8px; box-sizing: border-box; font-family: Inter, sans-serif; font-size: 0.9rem;"></textarea>
+                </div>
+
+                <!-- Zona de Carga de Documentos de Referencia -->
+                <div style="background: #F8FAFC; border: 2px dashed #6366F1; border-radius: 12px; padding: 20px; text-align: center;">
+                    <div style="font-size: 2rem; margin-bottom: 6px;">📄</div>
+                    <div style="font-weight: 800; color: #3730A3; font-size: 1rem; margin-bottom: 4px;">Adjuntar Documentos de Referencia Curricular</div>
+                    <p style="margin: 0 0 12px 0; color: #64748B; font-size: 0.85rem;">Sube tu plan de área, estándares MEN, guías base o sílabo (PDF, Word, TXT, JSON, CSV).</p>
+                    <input type="file" id="modal-asig-archivo" accept=".pdf,.docx,.doc,.txt,.json,.csv" onchange="window.manejarArchivoAsignaturaDocente(event)" style="display: none;">
+                    <button type="button" onclick="document.getElementById('modal-asig-archivo').click()" style="background: white; border: 1.5px solid #6366F1; color: #4F46E5; padding: 8px 18px; border-radius: 8px; font-weight: 800; font-size: 0.9rem; cursor: pointer; display: inline-flex; align-items: center; gap: 6px;">
+                        <span>📂</span> Seleccionar Archivo del Computador
+                    </button>
+                    <div id="modal-asig-archivo-nombre" style="margin-top: 8px; font-size: 0.85rem; font-weight: 700; color: #059669; display: none;"></div>
+                </div>
+
+                <div>
+                    <label style="display: block; font-weight: 800; color: #1E293B; font-size: 0.85rem; margin-bottom: 4px;">O bien, escribe / pega aquí el texto curricular o temario directamente:</label>
+                    <textarea id="modal-asig-texto-directo" rows="3" placeholder="Pega aquí los contenidos temáticos, temas por periodo o estándares del área..." style="width: 100%; padding: 10px 12px; border: 1.5px solid #CBD5E1; border-radius: 8px; box-sizing: border-box; font-family: Inter, sans-serif; font-size: 0.88rem;"></textarea>
+                </div>
+
+                <div style="display: flex; gap: 10px; justify-content: flex-end; margin-top: 10px;">
+                    <button onclick="window.cerrarModalCrearAsignaturaDocente()" style="background: #F1F5F9; color: #475569; border: 1px solid #CBD5E1; padding: 12px 20px; border-radius: 8px; font-weight: 700; cursor: pointer;">Cancelar</button>
+                    <button onclick="window.ejecutarCrearAsignaturaDocenteConIA()" style="background: linear-gradient(135deg, #4F46E5, #7C3AED); color: white; border: none; padding: 12px 25px; border-radius: 8px; font-weight: 900; cursor: pointer; box-shadow: 0 4px 15px rgba(79,70,229,0.35); display: flex; align-items: center; gap: 8px;">
+                        <span>⚡</span> Procesar y Crear Malla Curricular
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="diagnostico_nocturno.js?v=20260818_v45"></script>
+    <script src="agente_auditor_qa.js?v=20260818_v45"></script>
+    <script src="app.js?v=20260818_v45"></script>
     <script>
         // --- BLINDAJE DE PROPIEDAD INTELECTUAL Y SEGURIDAD ---
         (function() {
