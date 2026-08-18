@@ -1010,6 +1010,68 @@
 
         </div> <!-- fin div bg white admin central -->
     </div> <!-- fin contenedor central -->
+
+            <!-- VISTA DE BUZÓN DE SUGERENCIAS Y AUDITORÍA DOCENTE (NUEVO) -->
+            <div id="admin-view-feedback" class="admin-view" style="display: none; padding: 25px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 15px;">
+                    <div>
+                        <h3 style="margin: 0; font-size: 1.4rem; color: #0F172A; font-weight: 900; display: flex; align-items: center; gap: 10px;">
+                            <span>📬</span> Buzón Central de Reportes y Sugerencias Docentes
+                        </h3>
+                        <p style="margin: 4px 0 0 0; color: #64748B; font-size: 0.9rem;">
+                            Monitoreo diario de anomalías, propuestas de mejora pedagógica y dificultades reportadas por los profesores.
+                        </p>
+                    </div>
+                    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                        <button onclick="window.enviarResumenDiarioWhatsApp()" style="background: #10B981; color: white; border: none; padding: 10px 18px; border-radius: 8px; font-weight: 800; cursor: pointer; display: flex; align-items: center; gap: 8px; box-shadow: 0 4px 10px rgba(16,185,129,0.25);">
+                            <span>📲</span> Enviar Resumen Diario a mi WhatsApp
+                        </button>
+                        <button onclick="window.exportarBuzonMarkdown()" style="background: #2563EB; color: white; border: none; padding: 10px 18px; border-radius: 8px; font-weight: 800; cursor: pointer; display: flex; align-items: center; gap: 8px; box-shadow: 0 4px 10px rgba(37,99,235,0.25);">
+                            <span>📥</span> Descargar Reporte (.md)
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Métricas Rápidas -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; margin-bottom: 25px;">
+                    <div style="background: white; border: 1px solid #E2E8F0; padding: 15px; border-radius: 12px; border-left: 4px solid #3B82F6;">
+                        <div style="font-size: 0.8rem; color: #64748B; font-weight: 700;">TOTAL REPORTES</div>
+                        <div id="stat-fb-total" style="font-size: 1.8rem; font-weight: 900; color: #1E293B; margin-top: 4px;">0</div>
+                    </div>
+                    <div style="background: white; border: 1px solid #E2E8F0; padding: 15px; border-radius: 12px; border-left: 4px solid #EF4444;">
+                        <div style="font-size: 0.8rem; color: #64748B; font-weight: 700;">ANOMALÍAS / ERRORES</div>
+                        <div id="stat-fb-bugs" style="font-size: 1.8rem; font-weight: 900; color: #EF4444; margin-top: 4px;">0</div>
+                    </div>
+                    <div style="background: white; border: 1px solid #E2E8F0; padding: 15px; border-radius: 12px; border-left: 4px solid #10B981;">
+                        <div style="font-size: 0.8rem; color: #64748B; font-weight: 700;">MEJORAS PEDAGÓGICAS</div>
+                        <div id="stat-fb-ideas" style="font-size: 1.8rem; font-weight: 900; color: #10B981; margin-top: 4px;">0</div>
+                    </div>
+                    <div style="background: white; border: 1px solid #E2E8F0; padding: 15px; border-radius: 12px; border-left: 4px solid #F59E0B;">
+                        <div style="font-size: 0.8rem; color: #64748B; font-weight: 700;">PENDIENTES DE APLICAR</div>
+                        <div id="stat-fb-pending" style="font-size: 1.8rem; font-weight: 900; color: #F59E0B; margin-top: 4px;">0</div>
+                    </div>
+                </div>
+
+                <!-- Tabla de Reportes -->
+                <div style="background: white; border-radius: 14px; border: 1px solid #E2E8F0; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.03);">
+                    <div style="padding: 15px 20px; background: #F8FAFC; border-bottom: 1px solid #E2E8F0; display: flex; justify-content: space-between; align-items: center;">
+                        <span style="font-weight: 800; color: #334155; font-size: 0.95rem;">Historial Detallado de Sugerencias y Auditoría</span>
+                        <div style="display: flex; gap: 8px;">
+                            <select id="filtro-fb-categoria" onchange="window.renderizarBuzonAdmin()" style="padding: 6px 12px; border-radius: 6px; border: 1px solid #CBD5E1; font-size: 0.85rem; font-weight: 600;">
+                                <option value="todas">Todas las categorías</option>
+                                <option value="bug">🐛 Errores / Bugs</option>
+                                <option value="mejora">💡 Mejoras Pedagógicas</option>
+                                <option value="dificultad">📚 Dificultades con Malla/Guía</option>
+                                <option value="emocional">❤️‍🩹 Auxilios Emocionales</option>
+                                <option value="otro">📝 Otros Aportes</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div id="admin-fb-table-container" style="overflow-x: auto; padding: 10px;">
+                        <!-- Renderizado dinámico desde app.js -->
+                    </div>
+                </div>
+            </div>
 </div> <!-- fin dashboard-screen-container -->
 
 <!-- PANEL DE TUTOR HOME SCHOOL -->
@@ -2717,6 +2779,101 @@
         </div>
     </div>
 
+
+    <!-- BOTÓN FLOTANTE CHATBOT PEIDABOT -->
+    <div id="btn-flotante-peidabot-soporte" onclick="window.toggleChatbotSoporte()" style="position: fixed; bottom: 25px; right: 25px; z-index: 99999; background: linear-gradient(135deg, #2563EB, #7C3AED); color: white; padding: 12px 20px; border-radius: 30px; font-weight: 800; font-size: 0.92rem; box-shadow: 0 8px 25px rgba(37,99,235,0.4); cursor: pointer; display: flex; align-items: center; gap: 10px; transition: transform 0.2s, box-shadow 0.2s; border: 2px solid rgba(255,255,255,0.25);" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" title="Abrir asistente de soporte y reporte de sugerencias para docentes">
+        <span style="font-size: 1.3rem;">🤖</span>
+        <span>PeidaBot: Soporte & Sugerencias</span>
+        <span style="background: #10B981; width: 10px; height: 10px; border-radius: 50%; display: inline-block; box-shadow: 0 0 6px #10B981;"></span>
+    </div>
+
+    <!-- MODAL CHATBOT FLOTANTE DE SOPORTE Y RETROALIMENTACIÓN DOCENTE -->
+    <div id="modal-chatbot-soporte-docente" style="display: none; position: fixed; bottom: 85px; right: 25px; z-index: 100000; width: 390px; max-width: calc(100vw - 30px); height: 580px; max-height: calc(100vh - 100px); background: white; border-radius: 20px; box-shadow: 0 20px 45px rgba(0,0,0,0.25); border: 1px solid #E2E8F0; flex-direction: column; overflow: hidden; font-family: Inter, sans-serif;">
+        
+        <!-- Header Chatbot -->
+        <div style="background: linear-gradient(135deg, #1E3A8A, #3B82F6); color: white; padding: 16px 20px; display: flex; justify-content: space-between; align-items: center;">
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <div style="background: rgba(255,255,255,0.2); width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.3rem;">
+                    🤖
+                </div>
+                <div>
+                    <h4 style="margin: 0; font-size: 1rem; font-weight: 800;">PeidaBot • Asistente</h4>
+                    <div style="font-size: 0.75rem; color: #DBEAFE; display: flex; align-items: center; gap: 4px;">
+                        <span style="width: 7px; height: 7px; background: #34D399; border-radius: 50%; display: inline-block;"></span> En línea para mejorar la app
+                    </div>
+                </div>
+            </div>
+            <button onclick="window.cerrarChatbotSoporte()" style="background: rgba(255,255,255,0.15); border: none; color: white; width: 30px; height: 30px; border-radius: 50%; cursor: pointer; font-size: 1rem; font-weight: bold;">✕</button>
+        </div>
+
+        <!-- Cuerpo de Conversación / Formulario -->
+        <div id="peidabot-chat-body" style="flex: 1; padding: 18px; overflow-y: auto; display: flex; flex-direction: column; gap: 14px; background: #F8FAFC;">
+            
+            <!-- Mensaje de Bienvenida -->
+            <div style="display: flex; gap: 8px; align-items: flex-start;">
+                <span style="font-size: 1.3rem;">🤖</span>
+                <div style="background: white; border: 1px solid #E2E8F0; padding: 12px 14px; border-radius: 0 14px 14px 14px; font-size: 0.86rem; color: #1E293B; line-height: 1.4; box-shadow: 0 2px 8px rgba(0,0,0,0.03);">
+                    ¡Hola! Soy <strong>PeidaBot</strong>. Mi misión es recolectar tus comentarios para que el administrador <strong>Juan Felipe</strong> optimice la plataforma diariamente. ¿Qué deseas compartir hoy?
+                </div>
+            </div>
+
+            <!-- Chips de Categorías Rápidas -->
+            <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+                <button type="button" class="peidabot-chip" onclick="window.seleccionarCategoriaChatbot('bug')" style="background: white; border: 1px solid #FCA5A5; color: #B91C1C; padding: 6px 10px; border-radius: 20px; font-size: 0.78rem; font-weight: 700; cursor: pointer; display: flex; align-items: center; gap: 4px;">
+                    <span>🐛</span> Reportar Error
+                </button>
+                <button type="button" class="peidabot-chip" onclick="window.seleccionarCategoriaChatbot('mejora')" style="background: white; border: 1px solid #86EFAC; color: #15803D; padding: 6px 10px; border-radius: 20px; font-size: 0.78rem; font-weight: 700; cursor: pointer; display: flex; align-items: center; gap: 4px;">
+                    <span>💡</span> Sugerir Mejora
+                </button>
+                <button type="button" class="peidabot-chip" onclick="window.seleccionarCategoriaChatbot('dificultad')" style="background: white; border: 1px solid #93C5FD; color: #1D4ED8; padding: 6px 10px; border-radius: 20px; font-size: 0.78rem; font-weight: 700; cursor: pointer; display: flex; align-items: center; gap: 4px;">
+                    <span>📚</span> Dificultad Guías
+                </button>
+                <button type="button" class="peidabot-chip" onclick="window.seleccionarCategoriaChatbot('emocional')" style="background: white; border: 1px solid #FDE68A; color: #B45309; padding: 6px 10px; border-radius: 20px; font-size: 0.78rem; font-weight: 700; cursor: pointer; display: flex; align-items: center; gap: 4px;">
+                    <span>❤️‍🩹</span> Auxilios Emocionales
+                </button>
+            </div>
+
+            <!-- Formulario de Reporte -->
+            <div id="peidabot-form-container" style="background: white; border: 1.5px solid #DBEAFE; border-radius: 12px; padding: 14px; display: flex; flex-direction: column; gap: 10px;">
+                <div>
+                    <label style="font-size: 0.78rem; font-weight: 800; color: #1E3A8A; display: block; margin-bottom: 3px;">Categoría seleccionada:</label>
+                    <select id="peidabot-categoria-select" style="width: 100%; padding: 8px 10px; border: 1px solid #CBD5E1; border-radius: 8px; font-size: 0.82rem; font-weight: 600; background: #F8FAFC;">
+                        <option value="bug">🐛 Anomalía / Error Técnico</option>
+                        <option value="mejora">💡 Sugerencia de Mejora Pedagógica</option>
+                        <option value="dificultad">📚 Dificultad con Guías o Mallas</option>
+                        <option value="emocional">❤️‍🩹 Feedback Primeros Auxilios Emocionales</option>
+                        <option value="otro">📝 Otra Consulta / Petición General</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label style="font-size: 0.78rem; font-weight: 800; color: #1E3A8A; display: block; margin-bottom: 3px;">Detalle del reporte o sugerencia:</label>
+                    <textarea id="peidabot-mensaje-input" rows="4" placeholder="Describe qué sucedió, qué te gustaría añadir o qué tema/materia necesita ajuste..." style="width: 100%; padding: 8px 10px; border: 1px solid #CBD5E1; border-radius: 8px; font-size: 0.82rem; box-sizing: border-box; font-family: Inter, sans-serif; resize: vertical;"></textarea>
+                </div>
+
+                <div>
+                    <label style="font-size: 0.75rem; font-weight: 700; color: #64748B; display: block; margin-bottom: 2px;">Tu Nombre / Institución (Opcional):</label>
+                    <input type="text" id="peidabot-docente-input" placeholder="Ej: Prof. Camilo - IE Montenegro" style="width: 100%; padding: 7px 10px; border: 1px solid #CBD5E1; border-radius: 8px; font-size: 0.8rem; box-sizing: border-box;">
+                </div>
+
+                <div style="display: flex; gap: 8px; margin-top: 4px;">
+                    <button type="button" onclick="window.enviarReporteFeedback('plataforma')" style="flex: 1; background: #2563EB; color: white; border: none; padding: 10px; border-radius: 8px; font-weight: 800; font-size: 0.82rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px; box-shadow: 0 3px 8px rgba(37,99,235,0.25);">
+                        <span>💾</span> Guardar en Buzón
+                    </button>
+                    <button type="button" onclick="window.enviarReporteFeedback('whatsapp')" style="flex: 1; background: #10B981; color: white; border: none; padding: 10px; border-radius: 8px; font-weight: 800; font-size: 0.82rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px; box-shadow: 0 3px 8px rgba(16,185,129,0.25);">
+                        <span>📲</span> Enviar por WhatsApp
+                    </button>
+                </div>
+            </div>
+
+            <div id="peidabot-confirmacion-msg" style="display: none; background: #ECFDF5; border: 1px solid #A7F3D0; border-radius: 12px; padding: 14px; color: #065F46; font-size: 0.84rem; line-height: 1.4;">
+                🎉 <strong>¡Reporte recibido con éxito!</strong><br>
+                Tu sugerencia ha quedado archivada en la consola del administrador para la ronda de mejoras continuas.
+            </div>
+
+        </div>
+    </div>
+
     <!-- MODAL: TÉRMINOS LEGALES, LICENCIA PILOTO Y REGISTRO DNDA -->
     <div id="modal-terminos-legales-dnda" style="display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.85); z-index: 10003; justify-content: center; align-items: center; padding: 20px; backdrop-filter: blur(6px); overflow-y: auto;">
         <div style="background: white; border-radius: 20px; width: 100%; max-width: 750px; max-height: 90vh; overflow-y: auto; box-shadow: 0 25px 50px rgba(0,0,0,0.3); border: 1px solid #E2E8F0;">
@@ -2771,6 +2928,15 @@
                     </ul>
                 </div>
 
+                <div style="background: #F8FAFC; border: 1.5px dashed #94A3B8; border-radius: 12px; padding: 14px 18px;">
+                    <h4 style="margin: 0 0 6px 0; color: #0F172A; font-weight: 900; font-size: 1.02rem; display: flex; align-items: center; gap: 6px;">
+                        <span>4.</span> Aportes, Sugerencias y Retroalimentación Docente (Feedback)
+                    </h4>
+                    <p style="margin: 0; color: #475569; font-size: 0.88rem;">
+                        Las anomalías reportadas, sugerencias metodológicas, propuestas de mejora o comentarios que los docentes y directivos compartan voluntariamente mediante el asistente virtual (PeidaBot) o canales de soporte se consideran contribuciones libres de regalías para la optimización técnica continua de la plataforma. La implementación de tales sugerencias no genera derechos de autor, copropiedad ni contraprestación económica alguna a favor del usuario aportante, manteniéndose la titularidad íntegra y exclusiva en cabeza de Juan Felipe Ramírez Giraldo (DNDA Radicado 1-2026-000055).
+                    </p>
+                </div>
+
                 <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #E2E8F0; padding-top: 15px; margin-top: 5px; flex-wrap: wrap; gap: 10px;">
                     <div style="font-size: 0.8rem; color: #64748B;">
                         © 2026 Juan Felipe Ramírez Giraldo • Peidagogos STEAM • DNDA 1-2026-000055
@@ -2784,9 +2950,9 @@
         </div>
     </div>
 
-    <script src="diagnostico_nocturno.js?v=20260818_v46"></script>
-    <script src="agente_auditor_qa.js?v=20260818_v46"></script>
-    <script src="app.js?v=20260818_v46"></script>
+    <script src="diagnostico_nocturno.js?v=20260818_v47"></script>
+    <script src="agente_auditor_qa.js?v=20260818_v47"></script>
+    <script src="app.js?v=20260818_v47"></script>
     <script>
         // --- BLINDAJE DE PROPIEDAD INTELECTUAL Y SEGURIDAD ---
         (function() {

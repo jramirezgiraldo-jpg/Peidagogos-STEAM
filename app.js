@@ -13951,3 +13951,300 @@ window.enviarReporteQATelegram = async function() {
     }
 };
 
+
+
+// =========================================================
+// MÓDULO PEIDABOT: CHATBOT DE SOPORTE Y RETROALIMENTACIÓN DOCENTE
+// =========================================================
+
+window.toggleChatbotSoporte = function() {
+    const modal = document.getElementById("modal-chatbot-soporte-docente");
+    if (!modal) return;
+    if (modal.style.display === "none" || !modal.style.display) {
+        window.abrirChatbotSoporte();
+    } else {
+        window.cerrarChatbotSoporte();
+    }
+};
+
+window.abrirChatbotSoporte = function(categoriaDefecto) {
+    const modal = document.getElementById("modal-chatbot-soporte-docente");
+    if (!modal) return;
+    modal.style.display = "flex";
+
+    if (categoriaDefecto) {
+        window.seleccionarCategoriaChatbot(categoriaDefecto);
+    }
+
+    // Auto-identificar docente logueado
+    try {
+        const ses = JSON.parse(sessionStorage.getItem('peidagogos_auth') || localStorage.getItem('usuario_actual') || '{}');
+        const inDoc = document.getElementById("peidabot-docente-input");
+        if (inDoc && !inDoc.value.trim() && (ses.nombre || ses.nombre_completo)) {
+            const nom = ses.nombre || ses.nombre_completo;
+            const ie = ses.institucion || 'IE Instituto Montenegro';
+            inDoc.value = `Prof. ${nom} (${ie})`;
+        }
+    } catch(e) {}
+};
+
+window.cerrarChatbotSoporte = function() {
+    const modal = document.getElementById("modal-chatbot-soporte-docente");
+    if (modal) modal.style.display = "none";
+};
+
+window.seleccionarCategoriaChatbot = function(cat) {
+    const sel = document.getElementById("peidabot-categoria-select");
+    if (sel) {
+        sel.value = cat;
+        sel.style.borderColor = "#2563EB";
+        setTimeout(() => { sel.style.borderColor = "#CBD5E1"; }, 1000);
+    }
+    const txtArea = document.getElementById("peidabot-mensaje-input");
+    if (txtArea) txtArea.focus();
+};
+
+window.obtenerBuzonFeedback = function() {
+    try {
+        return JSON.parse(localStorage.getItem('buzon_docente_db') || '[]');
+    } catch(e) {
+        return [];
+    }
+};
+
+window.guardarItemBuzonFeedback = function(item) {
+    let list = window.obtenerBuzonFeedback();
+    list.unshift(item);
+    localStorage.setItem('buzon_docente_db', JSON.stringify(list));
+    window.actualizarBadgeFeedbackAdmin();
+    return item;
+};
+
+window.enviarReporteFeedback = function(metodo) {
+    const inCat = document.getElementById("peidabot-categoria-select");
+    const inTxt = document.getElementById("peidabot-mensaje-input");
+    const inDoc = document.getElementById("peidabot-docente-input");
+
+    if (!inTxt || !inTxt.value.trim()) {
+        alert("Por favor describe el reporte o la sugerencia para poder procesarla.");
+        if (inTxt) inTxt.focus();
+        return;
+    }
+
+    const catVal = inCat ? inCat.value : "mejora";
+    const catLabels = {
+        bug: "🐛 Anomalía / Error Técnico",
+        mejora: "💡 Sugerencia Pedagógica / Interfaz",
+        dificultad: "📚 Dificultad con Guías o Mallas",
+        emocional: "❤️‍🩹 Auxilios Emocionales",
+        otro: "📝 Consulta General"
+    };
+
+    const nuevoItem = {
+        id: 'FB-' + Date.now().toString(36).toUpperCase(),
+        categoria: catVal,
+        categoriaTexto: catLabels[catVal] || catVal,
+        mensaje: inTxt.value.trim(),
+        docente: (inDoc && inDoc.value.trim()) ? inDoc.value.trim() : "Docente Anónimo / Usuario",
+        fecha: new Date().toLocaleString('es-CO'),
+        fechaIso: new Date().toISOString(),
+        estado: 'Pendiente' // 'Pendiente' | 'En Revisión' | 'Resuelto'
+    };
+
+    window.guardarItemBuzonFeedback(nuevoItem);
+
+    if (metodo === 'whatsapp') {
+        const textoWa = encodeURIComponent(`*REPORTE PEIDAGOGOS STEAM (${nuevoItem.id})*\n\n*Tipo:* ${nuevoItem.categoriaTexto}\n*Emisor:* ${nuevoItem.docente}\n*Fecha:* ${nuevoItem.fecha}\n\n*Detalle:*\n${nuevoItem.mensaje}\n\n_Enviado desde el Asistente PeidaBot_`);
+        window.open(`https://wa.me/?text=${textoWa}`, '_blank');
+    }
+
+    // Mostrar feedback en el chatbot
+    const confirmBox = document.getElementById("peidabot-confirmacion-msg");
+    const formBox = document.getElementById("peidabot-form-container");
+    if (confirmBox && formBox) {
+        confirmBox.style.display = "block";
+        formBox.style.display = "none";
+        setTimeout(() => {
+            confirmBox.style.display = "none";
+            formBox.style.display = "flex";
+            if (inTxt) inTxt.value = "";
+            window.cerrarChatbotSoporte();
+        }, 3000);
+    }
+};
+
+window.actualizarBadgeFeedbackAdmin = function() {
+    const badge = document.getElementById("admin-feedback-badge");
+    if (!badge) return;
+    const buzon = window.obtenerBuzonFeedback();
+    const pendientes = buzon.filter(b => b.estado === 'Pendiente').length;
+    if (pendientes > 0) {
+        badge.innerText = pendientes;
+        badge.style.display = "inline-block";
+    } else {
+        badge.style.display = "none";
+    }
+};
+
+window.renderizarBuzonAdmin = function() {
+    const cont = document.getElementById("admin-fb-table-container");
+    if (!cont) return;
+
+    const buzon = window.obtenerBuzonFeedback();
+    const filtroCat = document.getElementById("filtro-fb-categoria") ? document.getElementById("filtro-fb-categoria").value : "todas";
+
+    // Actualizar métricas
+    const stTotal = document.getElementById("stat-fb-total");
+    const stBugs = document.getElementById("stat-fb-bugs");
+    const stIdeas = document.getElementById("stat-fb-ideas");
+    const stPending = document.getElementById("stat-fb-pending");
+
+    if (stTotal) stTotal.innerText = buzon.length;
+    if (stBugs) stBugs.innerText = buzon.filter(b => b.categoria === 'bug').length;
+    if (stIdeas) stIdeas.innerText = buzon.filter(b => b.categoria === 'mejora').length;
+    if (stPending) stPending.innerText = buzon.filter(b => b.estado === 'Pendiente').length;
+
+    let itemsFiltrados = buzon;
+    if (filtroCat !== 'todas') {
+        itemsFiltrados = buzon.filter(b => b.categoria === filtroCat);
+    }
+
+    if (itemsFiltrados.length === 0) {
+        cont.innerHTML = `
+            <div style="text-align: center; padding: 40px 20px; color: #64748B;">
+                <span style="font-size: 2.5rem;">📭</span>
+                <h4 style="margin: 10px 0 4px 0; color: #334155;">No hay reportes ni sugerencias en esta categoría</h4>
+                <p style="font-size: 0.85rem; margin: 0;">Los aportes enviados por los docentes a través de PeidaBot aparecerán aquí.</p>
+            </div>
+        `;
+        return;
+    }
+
+    let html = `
+        <table style="width: 100%; border-collapse: collapse; font-size: 0.86rem; text-align: left;">
+            <thead>
+                <tr style="background: #F1F5F9; color: #475569; border-bottom: 2px solid #CBD5E1;">
+                    <th style="padding: 12px;">ID / Fecha</th>
+                    <th style="padding: 12px;">Categoría</th>
+                    <th style="padding: 12px;">Docente / Emisor</th>
+                    <th style="padding: 12px; width: 40%;">Mensaje / Sugerencia</th>
+                    <th style="padding: 12px;">Estado</th>
+                    <th style="padding: 12px; text-align: center;">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+    `;
+
+    itemsFiltrados.forEach(item => {
+        const bgEstado = item.estado === 'Resuelto' ? '#DCFCE7' : (item.estado === 'En Revisión' ? '#FEF3C7' : '#FEE2E2');
+        const colEstado = item.estado === 'Resuelto' ? '#15803D' : (item.estado === 'En Revisión' ? '#B45309' : '#B91C1C');
+
+        html += `
+            <tr style="border-bottom: 1px solid #E2E8F0;">
+                <td style="padding: 12px; font-weight: 700; color: #1E293B;">
+                    <div>${item.id}</div>
+                    <div style="font-size: 0.75rem; color: #64748B; font-weight: 400;">${item.fecha}</div>
+                </td>
+                <td style="padding: 12px;">
+                    <span style="font-weight: 700; font-size: 0.8rem; color: #1E3A8A;">${item.categoriaTexto}</span>
+                </td>
+                <td style="padding: 12px; color: #334155; font-weight: 600;">${item.docente}</td>
+                <td style="padding: 12px; color: #1E293B; line-height: 1.4;">${item.mensaje}</td>
+                <td style="padding: 12px;">
+                    <span style="background: ${bgEstado}; color: ${colEstado}; padding: 3px 8px; border-radius: 6px; font-weight: 800; font-size: 0.75rem;">
+                        ${item.estado}
+                    </span>
+                </td>
+                <td style="padding: 12px; text-align: center;">
+                    <div style="display: flex; gap: 6px; justify-content: center;">
+                        <button onclick="window.cambiarEstadoFeedback('${item.id}', 'Resuelto')" style="background: #10B981; color: white; border: none; padding: 5px 8px; border-radius: 6px; font-size: 0.75rem; font-weight: 700; cursor: pointer;" title="Marcar como resuelto / aplicado">
+                            ✓ Resuelto
+                        </button>
+                        <button onclick="window.cambiarEstadoFeedback('${item.id}', 'En Revisión')" style="background: #F59E0B; color: white; border: none; padding: 5px 8px; border-radius: 6px; font-size: 0.75rem; font-weight: 700; cursor: pointer;" title="Marcar en revisión">
+                            ⏳ En Curso
+                        </button>
+                    </div>
+                </td>
+            </tr>
+        `;
+    });
+
+    html += `</tbody></table>`;
+    cont.innerHTML = html;
+};
+
+window.cambiarEstadoFeedback = function(id, nuevoEstado) {
+    let list = window.obtenerBuzonFeedback();
+    const idx = list.findIndex(b => b.id === id);
+    if (idx !== -1) {
+        list[idx].estado = nuevoEstado;
+        localStorage.setItem('buzon_docente_db', JSON.stringify(list));
+        window.renderizarBuzonAdmin();
+        window.actualizarBadgeFeedbackAdmin();
+    }
+};
+
+window.enviarResumenDiarioWhatsApp = function() {
+    const buzon = window.obtenerBuzonFeedback();
+    if (buzon.length === 0) {
+        alert("No hay reportes registrados para generar el resumen.");
+        return;
+    }
+
+    const hoyStr = new Date().toLocaleDateString('es-CO');
+    let msg = `*RESUMEN DIARIO DE AUDITORÍA Y FEEDBACK DOCENTE (${hoyStr})*\n*Peidagogos STEAM*\n\n`;
+
+    buzon.forEach((b, i) => {
+        msg += `*${i+1}. [${b.categoriaTexto}] - ${b.docente}*` +
+               `\nEstado: ${b.estado}` +
+               `\nDetalle: ${b.mensaje}\n\n`;
+    });
+
+    window.open(`https://wa.me/?text=${encodeURIComponent(msg)}`, '_blank');
+};
+
+window.exportarBuzonMarkdown = function() {
+    const buzon = window.obtenerBuzonFeedback();
+    const hoyStr = new Date().toLocaleDateString('es-CO');
+    let md = `# Reporte Diario de Auditoría y Sugerencias Docentes\n**Plataforma:** Peidagogos STEAM (DNDA Radicado 1-2026-000055)\n**Fecha:** ${hoyStr}\n\n---\n\n`;
+
+    buzon.forEach((b, i) => {
+        md += `### ${i+1}. ${b.id} - ${b.categoriaTexto}\n- **Emisor:** ${b.docente}\n- **Fecha:** ${b.fecha}\n- **Estado:** ${b.estado}\n- **Detalle:** ${b.mensaje}\n\n`;
+    });
+
+    const blob = new Blob([md], { type: 'text/markdown;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `Reporte_Feedback_Docente_${Date.now()}.md`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+};
+
+window.cambiarTabAdmin = function(tabName) {
+    document.querySelectorAll('.admin-tab-btn').forEach(btn => {
+        if (btn.getAttribute('data-tab') === tabName) {
+            btn.classList.add('active');
+            btn.style.background = 'white';
+            btn.style.borderBottom = '3px solid #3B82F6';
+            btn.style.color = '#111827';
+        } else {
+            btn.classList.remove('active');
+            btn.style.background = 'transparent';
+            btn.style.borderBottom = 'none';
+            btn.style.color = '#6B7280';
+        }
+    });
+
+    const viewGrupos = document.getElementById('admin-view-grupos');
+    const viewDocentes = document.getElementById('admin-view-docentes');
+    const viewFeedback = document.getElementById('admin-view-feedback');
+
+    if (viewGrupos) viewGrupos.style.display = tabName === 'grupos' ? 'block' : 'none';
+    if (viewDocentes) viewDocentes.style.display = tabName === 'docentes' ? 'block' : 'none';
+    if (viewFeedback) {
+        viewFeedback.style.display = tabName === 'feedback' ? 'block' : 'none';
+        if (tabName === 'feedback') window.renderizarBuzonAdmin();
+    }
+};
