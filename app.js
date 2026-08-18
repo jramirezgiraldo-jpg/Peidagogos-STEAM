@@ -14269,7 +14269,7 @@ window.cerrarModalPoliticaDatos = function() {
 };
 
 window.obtenerNumeroWhatsAppAdmin = function() {
-    return localStorage.getItem('admin_whatsapp_soporte') || '';
+    return localStorage.getItem('admin_whatsapp_soporte') || '573005590679';
 };
 
 window.guardarConfiguracionWhatsAppAdmin = function() {
