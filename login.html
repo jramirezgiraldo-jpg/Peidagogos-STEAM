@@ -3315,9 +3315,9 @@
         </div>
     </div>
 
-    <script src="diagnostico_nocturno.js?v=20260818_v57"></script>
-    <script src="agente_auditor_qa.js?v=20260818_v57"></script>
-    <script src="app.js?v=20260818_v57"></script>
+    <script src="diagnostico_nocturno.js?v=20260818_v58"></script>
+    <script src="agente_auditor_qa.js?v=20260818_v58"></script>
+    <script src="app.js?v=20260818_v58"></script>
     <script>
         // --- BLINDAJE DE PROPIEDAD INTELECTUAL Y SEGURIDAD ---
         (function() {
@@ -4119,44 +4119,72 @@ function copiarCodigoReferido() {
     </div>
 
     <!-- MODAL DE ENLACE DE CONTINGENCIA GENERADO PARA COMPARTIR -->
-    <div id="modal-link-contingencia-grupo" style="display: none; position: fixed; inset: 0; background: rgba(15,23,42,0.75); backdrop-filter: blur(4px); z-index: 100001; justify-content: center; align-items: center; padding: 20px;">
-        <div style="background: white; width: 100%; max-width: 580px; border-radius: 20px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25); border: 1px solid #E2E8F0; overflow: hidden; display: flex; flex-direction: column;">
+    <div id="modal-link-contingencia-grupo" style="display: none; position: fixed; inset: 0; background: rgba(15,23,42,0.8); backdrop-filter: blur(6px); z-index: 100001; justify-content: center; align-items: center; padding: 20px;">
+        <div style="background: white; width: 100%; max-width: 640px; border-radius: 24px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.3); border: 1.5px solid #E2E8F0; overflow: hidden; display: flex; flex-direction: column;">
             
-            <div style="background: linear-gradient(135deg, #2563EB, #1D4ED8); padding: 22px 26px; color: white; display: flex; justify-content: space-between; align-items: center;">
-                <div style="display: flex; align-items: center; gap: 12px;">
-                    <span style="font-size: 1.8rem;">🔗</span>
+            <div style="background: linear-gradient(135deg, #1E40AF, #3B82F6); padding: 22px 28px; color: white; display: flex; justify-content: space-between; align-items: center;">
+                <div style="display: flex; align-items: center; gap: 14px;">
+                    <span style="font-size: 2.2rem;">🔗</span>
                     <div>
-                        <h3 style="margin: 0; font-size: 1.35rem; font-weight: 900; color: white;">Enlace de Matrícula Directa</h3>
-                        <p style="margin: 3px 0 0 0; font-size: 0.85rem; opacity: 0.95;">Listo para pegar en WhatsApp o Redes Sociales</p>
+                        <h3 style="margin: 0; font-size: 1.45rem; font-weight: 900; color: white;">Enlace y QR Exclusivo del Aula</h3>
+                        <p style="margin: 3px 0 0 0; font-size: 0.88rem; opacity: 0.95;">Matrícula instantánea para tus estudiantes sin códigos de verificación</p>
                     </div>
                 </div>
-                <button onclick="document.getElementById('modal-link-contingencia-grupo').style.display='none'" style="background: rgba(255,255,255,0.2); border: none; color: white; width: 32px; height: 32px; border-radius: 50%; cursor: pointer; font-weight: 900; font-size: 1.1rem; display: flex; align-items: center; justify-content: center;">✕</button>
+                <button onclick="document.getElementById('modal-link-contingencia-grupo').style.display='none'" style="background: rgba(255,255,255,0.25); border: none; color: white; width: 36px; height: 36px; border-radius: 50%; cursor: pointer; font-weight: 900; font-size: 1.2rem; display: flex; align-items: center; justify-content: center;">✕</button>
             </div>
 
-            <div style="padding: 26px; display: flex; flex-direction: column; gap: 18px;">
+            <div style="padding: 28px; display: flex; flex-direction: column; gap: 20px; max-height: 80vh; overflow-y: auto;">
                 
-                <div>
-                    <span style="font-size: 0.82rem; font-weight: 800; color: #64748B; text-transform: uppercase;">AULA ASIGNADA</span>
-                    <h3 id="modal-link-grupo-titulo" style="margin: 4px 0 10px 0; color: #0F172A; font-size: 1.35rem; font-weight: 900;">Grupo 7C</h3>
-                    
-                    <div style="background: #F1F5F9; border: 1.5px solid #CBD5E1; border-radius: 12px; padding: 12px; display: flex; align-items: center; gap: 10px;">
-                        <input type="text" id="modal-link-input-url" readonly style="flex: 1; background: transparent; border: none; font-size: 0.88rem; font-weight: 700; color: #1E293B; outline: none;">
-                        <button onclick="window.copiarLinkContingenciaDesdeModal()" style="background: #2563EB; color: white; border: none; padding: 8px 16px; border-radius: 8px; font-weight: 800; font-size: 0.82rem; cursor: pointer; white-space: nowrap;">
-                            📋 Copiar Link
-                        </button>
+                <!-- Identificación del Aula -->
+                <div style="background: #F8FAFC; border: 1.5px solid #E2E8F0; border-radius: 16px; padding: 18px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+                    <div>
+                        <span style="font-size: 0.75rem; font-weight: 900; color: #64748B; text-transform: uppercase; letter-spacing: 0.5px;">AULA EXCLUSIVA</span>
+                        <h3 id="modal-link-grupo-titulo" style="margin: 2px 0 0 0; color: #0F172A; font-size: 1.45rem; font-weight: 900;">Grupo 7C</h3>
+                        <div id="modal-link-grupo-subtitulo" style="font-size: 0.88rem; color: #475569; font-weight: 700; margin-top: 2px;">IE Instituto Montenegro</div>
+                    </div>
+                    <span style="background: #ECFDF5; color: #047857; border: 1.5px solid #A7F3D0; padding: 6px 14px; border-radius: 20px; font-weight: 900; font-size: 0.82rem;">
+                        ⚡ Matrícula Sin Códigos
+                    </span>
+                </div>
+
+                <!-- Contenedor Central: URL + Código QR Dinámico -->
+                <div style="display: grid; grid-template-columns: 1fr 180px; gap: 20px; align-items: center;">
+                    <div>
+                        <label style="display: block; font-weight: 800; color: #1E293B; font-size: 0.88rem; margin-bottom: 6px;">
+                            📋 Enlace Web para Redes Sociales:
+                        </label>
+                        <div style="background: #F1F5F9; border: 1.5px solid #CBD5E1; border-radius: 12px; padding: 10px 12px; display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
+                            <input type="text" id="modal-link-input-url" readonly style="flex: 1; background: transparent; border: none; font-size: 0.82rem; font-weight: 700; color: #1E293B; outline: none;">
+                            <button onclick="window.copiarLinkContingenciaDesdeModal()" style="background: #2563EB; color: white; border: none; padding: 8px 14px; border-radius: 8px; font-weight: 800; font-size: 0.82rem; cursor: pointer; white-space: nowrap;">
+                                Copiar
+                            </button>
+                        </div>
+                        <p style="margin: 0; color: #64748B; font-size: 0.8rem; line-height: 1.45;">
+                            💡 <em>Copia este link y pégalo en el grupo de WhatsApp de tu aula o de padres. Al abrirlo, el estudiante solo escribe sus datos básicos y entra directamente a tu planilla.</em>
+                        </p>
+                    </div>
+
+                    <!-- Visualizador del Código QR del Aula -->
+                    <div style="background: #FAF5FF; border: 2px solid #DDD6FE; border-radius: 16px; padding: 10px; text-align: center;">
+                        <img id="modal-link-grupo-qr-img" src="" alt="QR Aula" style="width: 150px; height: 150px; object-fit: contain; margin: 0 auto; display: block; background: white; border-radius: 10px; padding: 4px;">
+                        <span style="font-size: 0.72rem; font-weight: 800; color: #6D28D9; margin-top: 4px; display: block;">Escanear con Celular</span>
                     </div>
                 </div>
 
-                <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-                    <button onclick="window.compartirLinkContingenciaWhatsApp()" style="flex: 1; background: #10B981; color: white; border: none; padding: 14px; border-radius: 12px; font-weight: 900; font-size: 0.95rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 12px rgba(16,185,129,0.3);">
-                        <span>📲</span> Compartir en WhatsApp
+                <!-- Botones de Acción Inmediata -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px;">
+                    <button onclick="window.compartirLinkContingenciaWhatsApp()" style="background: #10B981; color: white; border: none; padding: 14px; border-radius: 12px; font-weight: 900; font-size: 0.95rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 12px rgba(16,185,129,0.3);">
+                        <span>📲</span> Enviar a WhatsApp
                     </button>
-                    <button onclick="window.copiarMensajeCompletoRedes()" style="flex: 1; background: #4F46E5; color: white; border: none; padding: 14px; border-radius: 12px; font-weight: 900; font-size: 0.95rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 12px rgba(79,70,229,0.3);">
-                        <span>📝</span> Copiar Mensaje Completo
+                    <button onclick="window.proyectarQRAulaPantallaCompleta()" style="background: #4F46E5; color: white; border: none; padding: 14px; border-radius: 12px; font-weight: 900; font-size: 0.95rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 12px rgba(79,70,229,0.3);">
+                        <span>📽️</span> Proyectar QR en Aula
+                    </button>
+                    <button onclick="window.copiarMensajeCompletoRedes()" style="background: #0284C7; color: white; border: none; padding: 14px; border-radius: 12px; font-weight: 900; font-size: 0.95rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 12px rgba(2,132,199,0.3);">
+                        <span>📝</span> Copiar Mensaje
                     </button>
                 </div>
 
-                <div id="modal-link-copiado-feedback" style="display: none; background: #ECFDF5; border: 1px solid #86EFAC; color: #065F46; padding: 10px; border-radius: 8px; text-align: center; font-weight: 800; font-size: 0.88rem;">
+                <div id="modal-link-copiado-feedback" style="display: none; background: #ECFDF5; border: 1px solid #86EFAC; color: #065F46; padding: 12px; border-radius: 10px; text-align: center; font-weight: 800; font-size: 0.9rem;">
                     ✅ ¡Enlace copiado al portapapeles! Pégalo en tu grupo de WhatsApp o red social.
                 </div>
 

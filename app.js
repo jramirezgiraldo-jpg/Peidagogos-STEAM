@@ -15389,3 +15389,133 @@ window.procesarTokenDocenteDesdeUrl = function() {
 window.addEventListener('DOMContentLoaded', () => {
     setTimeout(window.procesarTokenDocenteDesdeUrl, 250);
 });
+
+
+// =========================================================
+// ACTUALIZACIÓN DE MODAL DE ENLACE Y QR EXCLUSIVO DE AULA
+// =========================================================
+window.abrirModalLinkContingenciaGrupo = function(nombreGrupo, grado, materia) {
+    const modal = document.getElementById('modal-link-contingencia-grupo');
+    if (!modal) return;
+
+    let authSes = {};
+    try {
+        authSes = JSON.parse(sessionStorage.getItem('peidagogos_auth') || localStorage.getItem('usuario_actual') || '{}');
+    } catch(e) {}
+
+    const docId = String(window.usuario_actual || authSes.documento || authSes.usuario || 'docente').trim();
+    const docNom = (document.getElementById('docente-nombre-header') ? document.getElementById('docente-nombre-header').innerText : (authSes.nombre || 'Docente')).trim();
+    const docIE = (authSes.institucion || 'IE Instituto Montenegro').trim();
+
+    // Generar token exclusivo de aula
+    const tokenAula = 'AULA-' + Math.random().toString(36).substring(2, 8).toUpperCase();
+    const baseUrl = window.location.origin + window.location.pathname;
+    const linkFinal = `${baseUrl}?token_aula=${tokenAula}&reg=directo&docente=${encodeURIComponent(docId)}&nombre_doc=${encodeURIComponent(docNom)}&ie=${encodeURIComponent(docIE)}&grupo=${encodeURIComponent(nombreGrupo)}&grado=${encodeURIComponent(grado || '')}&materia=${encodeURIComponent(materia || '')}`;
+    const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=280x280&data=${encodeURIComponent(linkFinal)}`;
+
+    window.grupoLinkActivo = {
+        nombre: nombreGrupo,
+        grado: grado,
+        materia: materia,
+        docente: docNom,
+        ie: docIE,
+        token: tokenAula,
+        url: linkFinal,
+        qr: qrUrl
+    };
+
+    const inUrl = document.getElementById('modal-link-input-url');
+    const titGrupo = document.getElementById('modal-link-grupo-titulo');
+    const subGrupo = document.getElementById('modal-link-grupo-subtitulo');
+    const imgQR = document.getElementById('modal-link-grupo-qr-img');
+    const fbCopiado = document.getElementById('modal-link-copiado-feedback');
+
+    if (inUrl) inUrl.value = linkFinal;
+    if (titGrupo) titGrupo.innerText = `Grupo ${nombreGrupo}`;
+    if (subGrupo) subGrupo.innerText = `👨‍🏫 ${docNom} • 🏛️ ${docIE}`;
+    if (imgQR) imgQR.src = qrUrl;
+    if (fbCopiado) fbCopiado.style.display = 'none';
+
+    modal.style.display = 'flex';
+};
+
+window.proyectarQRAulaPantallaCompleta = function() {
+    if (!window.grupoLinkActivo) return;
+    const g = window.grupoLinkActivo;
+    const w = window.open('', '_blank');
+    w.document.write(`
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Matrícula Directa - Grupo ${g.nombre}</title>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <style>
+                body {
+                    margin: 0;
+                    padding: 30px 20px;
+                    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+                    background: #0F172A;
+                    color: white;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    min-height: 100vh;
+                    box-sizing: border-box;
+                    text-align: center;
+                }
+                .card {
+                    background: white;
+                    color: #0F172A;
+                    padding: 35px 40px;
+                    border-radius: 28px;
+                    box-shadow: 0 25px 60px rgba(0,0,0,0.6);
+                    max-width: 520px;
+                    width: 100%;
+                }
+                .qr-box {
+                    background: #F8FAFC;
+                    border: 2px solid #E2E8F0;
+                    border-radius: 20px;
+                    padding: 16px;
+                    display: inline-block;
+                    margin: 20px 0;
+                }
+                .btn-copy {
+                    background: #2563EB;
+                    color: white;
+                    border: none;
+                    padding: 12px 24px;
+                    border-radius: 12px;
+                    font-weight: 800;
+                    font-size: 1rem;
+                    cursor: pointer;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="card">
+                <span style="background: #ECFDF5; color: #047857; font-weight: 900; font-size: 0.85rem; padding: 4px 14px; border-radius: 20px; text-transform: uppercase;">
+                    Matrícula Directa Sin Códigos
+                </span>
+                <h1 style="margin: 12px 0 4px 0; font-size: 2.2rem; font-weight: 900;">Grupo ${g.nombre}</h1>
+                <p style="margin: 0; color: #475569; font-weight: 700; font-size: 1.1rem;">Profesor(a) ${g.docente}</p>
+                <p style="margin: 4px 0 0 0; color: #64748B; font-size: 0.95rem;">🏛️ ${g.ie}</p>
+
+                <div class="qr-box">
+                    <img src="${g.qr}" style="width: 280px; height: 280px; display: block;">
+                </div>
+
+                <div style="font-size: 1.05rem; font-weight: 800; color: #1E293B; margin-bottom: 15px;">
+                    📷 Abre la cámara de tu celular y escanea el código para matricularte al instante.
+                </div>
+
+                <button class="btn-copy" onclick="navigator.clipboard.writeText('${g.url}'); alert('✅ Enlace copiado al portapapeles');">
+                    📋 Copiar Enlace Directo
+                </button>
+            </div>
+        </body>
+        </html>
+    `);
+};
