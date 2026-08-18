@@ -2170,7 +2170,7 @@ window.inicializarAppCore = function() {
         const normCod = codigoInst.toLowerCase().replace(/[\.\,\-\_\s]/g, '');
         // Validación estricta del código institucional para IE Instituto Montenegro
         if (ie === "InstitutoMontenegro") {
-            if (normCod !== "ieinstituto2026" && normCod !== "instituto2026") {
+            if (!window.matriculaContingenciaActiva && normCod !== "ieinstituto2026" && normCod !== "instituto2026") {
                 mostrarErrorReg("❌ Código institucional incorrecto.\n\nPara matricularte en la IE Instituto Montenegro debes ingresar el código oficial: ieinstituto2026");
                 if (codElem) {
                     codElem.focus();
@@ -14893,9 +14893,254 @@ window.renderizarCajonesGrandesGruposDocente = function(gruposMap, gradosDocente
                         <span>📂</span> Abrir Planilla de ${grpName} <span>➔</span>
                     </button>
 
+                    <!-- Botón de Link Rápido de Redes / WhatsApp -->
+                    <button onclick="window.abrirModalLinkContingenciaGrupo('${grpName.replace(/'/g, "\\'")}', '', '')" style="background: #F8FAFC; border: 1.5px solid #CBD5E1; color: #1E293B; padding: 10px; border-radius: 10px; font-weight: 800; font-size: 0.85rem; cursor: pointer; width: 100%; display: flex; align-items: center; justify-content: center; gap: 6px; margin-top: 8px; transition: 0.2s;" onmouseover="this.style.background='#E2E8F0'" onmouseout="this.style.background='#F8FAFC'">
+                        <span>🔗</span> Link Matrícula (WhatsApp / Redes)
+                    </button>
+
                 </div>
             </div>
         `;
     });
     gridCont.innerHTML = htmlCajones;
 };
+
+
+// =========================================================
+// MÓDULO DE CREACIÓN DE GRUPOS Y MATRÍCULA DIRECTA DE CONTINGENCIA
+// =========================================================
+window.grupoLinkActivo = null;
+
+window.abrirModalCrearGrupoDocente = function() {
+    const modal = document.getElementById('modal-crear-grupo-docente');
+    if (!modal) return;
+    modal.style.display = 'flex';
+    const inNom = document.getElementById('nuevo-grupo-nombre-input');
+    if (inNom) {
+        inNom.value = '';
+        inNom.focus();
+    }
+};
+
+window.cerrarModalCrearGrupoDocente = function() {
+    const modal = document.getElementById('modal-crear-grupo-docente');
+    if (modal) modal.style.display = 'none';
+};
+
+window.guardarNuevoGrupoDocente = function() {
+    const inNom = document.getElementById('nuevo-grupo-nombre-input');
+    const selGra = document.getElementById('nuevo-grupo-grado-select');
+    const selMat = document.getElementById('nuevo-grupo-materia-select');
+
+    const nombreGrupo = inNom ? inNom.value.trim() : '';
+    const grado = selGra ? selGra.value : '7';
+    const materia = selMat ? selMat.value : 'Ciencias Naturales';
+
+    if (!nombreGrupo) {
+        alert("⚠️ Por favor ingresa el nombre o código del grupo (ej: 7C, 8A, Física 9).");
+        if (inNom) inNom.focus();
+        return;
+    }
+
+    try {
+        let dList = JSON.parse(localStorage.getItem('docentes_db') || '[]');
+        const authSes = JSON.parse(sessionStorage.getItem('peidagogos_auth') || localStorage.getItem('usuario_actual') || '{}');
+        const docKey = String(window.usuario_actual || authSes.documento || authSes.usuario || '').trim().toLowerCase();
+
+        let docItem = dList.find(d => {
+            const dDoc = String(d.documento || d.cedula || d.usuario || '').trim().toLowerCase();
+            return dDoc === docKey;
+        });
+
+        if (!docItem) {
+            docItem = {
+                documento: docKey || 'docente',
+                nombre: (document.getElementById('docente-nombre-header') ? document.getElementById('docente-nombre-header').innerText : 'Docente'),
+                institucion: 'IE Instituto Montenegro',
+                grados: [],
+                grupos: []
+            };
+            dList.push(docItem);
+        }
+
+        if (!docItem.grados) docItem.grados = [];
+        if (!docItem.grados.includes(grado) && !docItem.grados.includes(nombreGrupo)) {
+            docItem.grados.push(nombreGrupo);
+            if (!docItem.grados.includes(grado)) docItem.grados.push(grado);
+        }
+
+        if (!docItem.grupos) docItem.grupos = [];
+        if (!docItem.grupos.some(g => g.nombre === nombreGrupo)) {
+            docItem.grupos.push({ nombre: nombreGrupo, grado: grado, materia: materia, fecha: new Date().toISOString() });
+        }
+
+        localStorage.setItem('docentes_db', JSON.stringify(dList));
+
+        // Actualizar sesión
+        authSes.grados = docItem.grados;
+        sessionStorage.setItem('peidagogos_auth', JSON.stringify(authSes));
+
+        window.cerrarModalCrearGrupoDocente();
+
+        // Recargar vista docente
+        if (typeof window.cargarEstudiantesDocente === 'function') {
+            window.cargarEstudiantesDocente(docKey);
+        }
+
+        // Abrir modal con el enlace listo para compartir
+        window.abrirModalLinkContingenciaGrupo(nombreGrupo, grado, materia);
+
+    } catch(e) {
+        console.error("Error creando grupo docente:", e);
+    }
+};
+
+window.abrirModalLinkContingenciaGrupo = function(nombreGrupo, grado, materia) {
+    const modal = document.getElementById('modal-link-contingencia-grupo');
+    if (!modal) return;
+
+    let authSes = {};
+    try {
+        authSes = JSON.parse(sessionStorage.getItem('peidagogos_auth') || localStorage.getItem('usuario_actual') || '{}');
+    } catch(e) {}
+
+    const docId = String(window.usuario_actual || authSes.documento || authSes.usuario || 'docente').trim();
+    const docNom = (document.getElementById('docente-nombre-header') ? document.getElementById('docente-nombre-header').innerText : (authSes.nombre || 'Docente')).trim();
+    const docIE = (authSes.institucion || 'IE Instituto Montenegro').trim();
+
+    const baseUrl = window.location.origin + window.location.pathname;
+    const linkFinal = `${baseUrl}?reg=directo&docente=${encodeURIComponent(docId)}&nombre_doc=${encodeURIComponent(docNom)}&ie=${encodeURIComponent(docIE)}&grupo=${encodeURIComponent(nombreGrupo)}&grado=${encodeURIComponent(grado || '')}&materia=${encodeURIComponent(materia || '')}`;
+
+    window.grupoLinkActivo = {
+        nombre: nombreGrupo,
+        grado: grado,
+        materia: materia,
+        docente: docNom,
+        ie: docIE,
+        url: linkFinal
+    };
+
+    const inUrl = document.getElementById('modal-link-input-url');
+    const titGrupo = document.getElementById('modal-link-grupo-titulo');
+    const fbCopiado = document.getElementById('modal-link-copiado-feedback');
+
+    if (inUrl) inUrl.value = linkFinal;
+    if (titGrupo) titGrupo.innerText = `Grupo ${nombreGrupo} • ${docIE}`;
+    if (fbCopiado) fbCopiado.style.display = 'none';
+
+    modal.style.display = 'flex';
+};
+
+window.copiarLinkContingenciaDesdeModal = function() {
+    const inUrl = document.getElementById('modal-link-input-url');
+    if (!inUrl) return;
+    inUrl.select();
+    navigator.clipboard.writeText(inUrl.value).then(() => {
+        const fb = document.getElementById('modal-link-copiado-feedback');
+        if (fb) {
+            fb.style.display = 'block';
+            setTimeout(() => { fb.style.display = 'none'; }, 4000);
+        }
+    });
+};
+
+window.compartirLinkContingenciaWhatsApp = function() {
+    if (!window.grupoLinkActivo) return;
+    const g = window.grupoLinkActivo;
+    const texto = `¡Hola a todos! 👋\n\nSoy el(la) Profesor(a) *${g.docente}* de la *${g.ie}*.\n\n📚 Les comparto el enlace oficial de matrícula para el aula *${g.nombre}* en la plataforma *Peidagogos STEAM*:\n\n👉 ${g.url}\n\n*(Solo abre el enlace, escribe tus datos básicos y listo. ¡No necesitas ningún código de verificación!)*`;
+    const waUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(texto)}`;
+    window.open(waUrl, '_blank');
+};
+
+window.copiarMensajeCompletoRedes = function() {
+    if (!window.grupoLinkActivo) return;
+    const g = window.grupoLinkActivo;
+    const texto = `¡Hola a todos! 👋\n\nSoy el(la) Profesor(a) ${g.docente} de la ${g.ie}.\n\n📚 Les comparto el enlace oficial de matrícula para el aula ${g.nombre} en la plataforma Peidagogos STEAM:\n\n👉 ${g.url}\n\n(Solo abre el enlace, escribe tus datos básicos y listo. ¡No necesitas ningún código de verificación!)`;
+    navigator.clipboard.writeText(texto).then(() => {
+        alert("✅ ¡Mensaje completo copiado con éxito!\n\nPégalo directamente en tu grupo de WhatsApp, Facebook, Telegram o correo electrónico.");
+    });
+};
+
+// =========================================================
+// AUTO-DETECCIÓN Y PROCESAMIENTO DE LINK DIRECTO DE MATRÍCULA
+// =========================================================
+window.verificarParametrosMatriculaDirecta = function() {
+    const params = new URLSearchParams(window.location.search);
+    const regDirecto = params.get('reg');
+    const docId = params.get('docente');
+    const docNom = params.get('nombre_doc') || 'Docente Orientador';
+    const ieParam = params.get('ie');
+    const grupoParam = params.get('grupo');
+    const gradoParam = params.get('grado');
+    const materiaParam = params.get('materia');
+
+    if (regDirecto === 'directo' || docId) {
+        console.log("🚀 [CONTINGENCIA] Matrícula directa por enlace de redes activada:", { docId, docNom, grupoParam, ieParam });
+
+        // Cambiar a la vista de matrícula
+        if (typeof mostrarVista === 'function') {
+            mostrarVista('register-screen-container');
+        }
+
+        window.matriculaContingenciaActiva = {
+            docenteId: docId,
+            docenteNombre: decodeURIComponent(docNom),
+            institucion: ieParam ? decodeURIComponent(ieParam) : 'IE Instituto Montenegro',
+            grupo: grupoParam ? decodeURIComponent(grupoParam) : '',
+            grado: gradoParam ? decodeURIComponent(gradoParam) : '',
+            materia: materiaParam ? decodeURIComponent(materiaParam) : ''
+        };
+
+        // Prellenar campos
+        const selRol = document.getElementById('reg-rol');
+        if (selRol) {
+            selRol.value = 'estudiante_regular';
+            if (typeof toggleCamposRegistroPorRol === 'function') toggleCamposRegistroPorRol();
+        }
+
+        const selIE = document.getElementById('reg-ie');
+        if (selIE) {
+            selIE.value = 'InstitutoMontenegro';
+            if (typeof toggleIEOptions === 'function') toggleIEOptions();
+        }
+
+        const selGrado = document.getElementById('reg-grado');
+        if (selGrado && gradoParam) selGrado.value = decodeURIComponent(gradoParam);
+
+        const selGrupo = document.getElementById('registro-grupo');
+        if (selGrupo && grupoParam) selGrupo.value = decodeURIComponent(grupoParam);
+
+        // Ocultar campo de código institucional porque este link viene pre-autorizado por el docente
+        const codBox = document.getElementById('campo-codigo-institucional');
+        if (codBox) codBox.style.display = 'none';
+
+        // Inyectar Banner de Bienvenida de Contingencia en la parte superior del formulario
+        const regCard = document.querySelector('#register-screen-container > div');
+        if (regCard && !document.getElementById('banner-contingencia-matricula')) {
+            const banner = document.createElement('div');
+            banner.id = 'banner-contingencia-matricula';
+            banner.style.background = 'linear-gradient(135deg, #ECFDF5, #D1FAE5)';
+            banner.style.border = '2px solid #10B981';
+            banner.style.borderRadius = '14px';
+            banner.style.padding = '14px 18px';
+            banner.style.marginBottom = '12px';
+            banner.style.color = '#065F46';
+            banner.innerHTML = `
+                <div style="font-weight: 900; font-size: 1.05rem; display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
+                    <span>✨</span> Matrícula Directa de Contingencia
+                </div>
+                <div style="font-size: 0.88rem; line-height: 1.4;">
+                    Te estás matriculando en el <strong>Grupo ${decodeURIComponent(grupoParam || 'General')}</strong> con el(la) Profesor(a) <strong>${decodeURIComponent(docNom)}</strong> (${decodeURIComponent(ieParam || 'IE Instituto Montenegro')}).
+                </div>
+                <div style="font-size: 0.8rem; margin-top: 6px; font-weight: 800; color: #047857;">
+                    ⚡ Acceso inmediato sin códigos de verificación. Solo completa tus datos personales.
+                </div>
+            `;
+            regCard.insertBefore(banner, regCard.children[1]);
+        }
+    }
+};
+
+window.addEventListener('DOMContentLoaded', () => {
+    setTimeout(window.verificarParametrosMatriculaDirecta, 200);
+});

@@ -760,17 +760,22 @@
         </div>
 
         <div id="docente-vista-cajones-grupos" style="display: block;">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 22px; flex-wrap: wrap; gap: 12px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; flex-wrap: wrap; gap: 15px;">
                 <div>
-                    <h2 style="font-size: 1.65rem; font-weight: 900; color: #111827; margin: 0; display: flex; align-items: center; gap: 10px;">
-                        <span>👥</span> Mis Grupos Asignados
+                    <h2 style="font-size: 1.75rem; font-weight: 900; color: #0F172A; margin: 0; display: flex; align-items: center; gap: 12px;">
+                        <span>👥</span> Mis Grupos Asignados y Aulas
                     </h2>
-                    <p style="color: #64748B; margin: 4px 0 0 0; font-size: 0.95rem;">
-                        Selecciona un cajón para ingresar a la planilla de estudiantes matriculados en cada grupo.
+                    <p style="color: #64748B; margin: 4px 0 0 0; font-size: 0.98rem;">
+                        Selecciona un cajón para ver la planilla, o copia el link directo para que tus estudiantes se matriculen por WhatsApp o redes sociales.
                     </p>
                 </div>
-                <div id="docente-total-estudiantes-badge" style="background: #ECFDF5; border: 1px solid #A7F3D0; color: #047857; padding: 8px 16px; border-radius: 20px; font-weight: 800; font-size: 0.9rem; box-shadow: 0 2px 6px rgba(16,185,129,0.15);">
-                    👥 Total Alumnos: 0
+                <div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
+                    <button onclick="window.abrirModalCrearGrupoDocente()" style="background: linear-gradient(135deg, #10B981, #059669); color: white; border: none; padding: 12px 20px; border-radius: 12px; font-weight: 900; font-size: 0.95rem; cursor: pointer; display: flex; align-items: center; gap: 8px; box-shadow: 0 4px 14px rgba(16,185,129,0.35); transition: 0.2s;" onmouseover="this.style.filter='brightness(1.1)'" onmouseout="this.style.filter='none'">
+                        <span>➕</span> Crear Nuevo Grupo / Aula
+                    </button>
+                    <div id="docente-total-estudiantes-badge" style="background: #ECFDF5; border: 1.5px solid #A7F3D0; color: #047857; padding: 10px 18px; border-radius: 12px; font-weight: 900; font-size: 0.95rem; box-shadow: 0 2px 8px rgba(16,185,129,0.15);">
+                        👥 Total Alumnos: 0
+                    </div>
                 </div>
             </div>
 
@@ -3192,9 +3197,9 @@
         </div>
     </div>
 
-    <script src="diagnostico_nocturno.js?v=20260818_v54"></script>
-    <script src="agente_auditor_qa.js?v=20260818_v54"></script>
-    <script src="app.js?v=20260818_v54"></script>
+    <script src="diagnostico_nocturno.js?v=20260818_v55"></script>
+    <script src="agente_auditor_qa.js?v=20260818_v55"></script>
+    <script src="app.js?v=20260818_v55"></script>
     <script>
         // --- BLINDAJE DE PROPIEDAD INTELECTUAL Y SEGURIDAD ---
         (function() {
@@ -3902,6 +3907,142 @@ function copiarCodigoReferido() {
                 </button>
             </div>
 
+        </div>
+    </div>
+
+
+    <!-- MODAL PARA CREAR NUEVO GRUPO Y GENERAR ENLACE DE CONTINGENCIA REDES -->
+    <div id="modal-crear-grupo-docente" style="display: none; position: fixed; inset: 0; background: rgba(15,23,42,0.75); backdrop-filter: blur(4px); z-index: 100000; justify-content: center; align-items: center; padding: 20px;">
+        <div style="background: white; width: 100%; max-width: 580px; border-radius: 20px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25); border: 1px solid #E2E8F0; overflow: hidden; display: flex; flex-direction: column;">
+            
+            <div style="background: linear-gradient(135deg, #059669, #10B981); padding: 22px 26px; color: white; display: flex; justify-content: space-between; align-items: center;">
+                <div style="display: flex; align-items: center; gap: 12px;">
+                    <span style="font-size: 1.8rem;">👥</span>
+                    <div>
+                        <h3 style="margin: 0; font-size: 1.35rem; font-weight: 900; color: white;">Crear Nuevo Grupo / Aula</h3>
+                        <p style="margin: 3px 0 0 0; font-size: 0.85rem; opacity: 0.95;">Genera un enlace de contingencia sin códigos para tus redes sociales</p>
+                    </div>
+                </div>
+                <button onclick="window.cerrarModalCrearGrupoDocente()" style="background: rgba(255,255,255,0.2); border: none; color: white; width: 32px; height: 32px; border-radius: 50%; cursor: pointer; font-weight: 900; font-size: 1.1rem; display: flex; align-items: center; justify-content: center;">✕</button>
+            </div>
+
+            <div style="padding: 26px; display: flex; flex-direction: column; gap: 16px;">
+                
+                <div>
+                    <label style="display: block; font-weight: 800; color: #1E293B; margin-bottom: 6px; font-size: 0.92rem;">
+                        🏷️ Nombre o Código del Grupo / Aula:
+                    </label>
+                    <input type="text" id="nuevo-grupo-nombre-input" placeholder="Ej: 7C, 8A, 10-1, Física 9, Robótica" style="width: 100%; padding: 12px 14px; border: 1.5px solid #CBD5E1; border-radius: 10px; font-weight: 800; font-size: 1rem; box-sizing: border-box; color: #0F172A;">
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                    <div>
+                        <label style="display: block; font-weight: 800; color: #1E293B; margin-bottom: 6px; font-size: 0.88rem;">
+                            🎓 Grado o Ciclo Base:
+                        </label>
+                        <select id="nuevo-grupo-grado-select" style="width: 100%; padding: 12px; border: 1.5px solid #CBD5E1; border-radius: 10px; font-weight: 700; font-size: 0.9rem; background: white; box-sizing: border-box;">
+                            <option value="6">6° de Secundaria</option>
+                            <option value="7">7° de Secundaria</option>
+                            <option value="8">8° de Secundaria</option>
+                            <option value="9">9° de Secundaria</option>
+                            <option value="10">10° Media</option>
+                            <option value="11">11° Media</option>
+                            <option value="1">1° Primaria</option>
+                            <option value="2">2° Primaria</option>
+                            <option value="3">3° Primaria</option>
+                            <option value="4">4° Primaria</option>
+                            <option value="5">5° Primaria</option>
+                            <option value="Ciclo I">Ciclo I (1°,2°,3°)</option>
+                            <option value="Ciclo II">Ciclo II (4°,5°)</option>
+                            <option value="Ciclo III">Ciclo III (6°,7°)</option>
+                            <option value="Ciclo IV">Ciclo IV (8°,9°)</option>
+                            <option value="Ciclo V">Ciclo V (10°)</option>
+                            <option value="Ciclo VI">Ciclo VI (11°)</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label style="display: block; font-weight: 800; color: #1E293B; margin-bottom: 6px; font-size: 0.88rem;">
+                            📚 Asignatura Principal:
+                        </label>
+                        <select id="nuevo-grupo-materia-select" style="width: 100%; padding: 12px; border: 1.5px solid #CBD5E1; border-radius: 10px; font-weight: 700; font-size: 0.9rem; background: white; box-sizing: border-box;">
+                            <option value="Física">Física</option>
+                            <option value="Ciencias Naturales y Educación Ambiental">Ciencias Naturales</option>
+                            <option value="Química">Química</option>
+                            <option value="Matemáticas">Matemáticas</option>
+                            <option value="Lengua Castellana">Lengua Castellana</option>
+                            <option value="Tecnología e Informática">Tecnología e Informática</option>
+                            <option value="Educación Artística">Educación Artística</option>
+                            <option value="Ética y Valores Humanos">Ética y Valores</option>
+                            <option value="Turismo y Patrimonio">Turismo</option>
+                            <option value="Auxilios Emocionales">Auxilios Emocionales</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Explicación de Contingencia -->
+                <div style="background: #F0FDF4; border: 1.5px solid #86EFAC; border-radius: 12px; padding: 14px; color: #166534; font-size: 0.86rem; line-height: 1.45;">
+                    <strong>🚀 Matrícula de Contingencia Sin Fricción:</strong>
+                    Al crear este grupo se generará un enlace web que podrás pegar directamente en grupos de <strong>WhatsApp, Facebook, Telegram o Teams</strong>. Cuando tus estudiantes abran el link, <strong>no necesitarán ingresar ningún código de verificación</strong> y quedarán matriculados de inmediato en este salón bajo tu perfil docente.
+                </div>
+
+            </div>
+
+            <div style="background: #F8FAFC; border-top: 1px solid #E2E8F0; padding: 16px 26px; display: flex; justify-content: space-between; align-items: center;">
+                <button onclick="window.cerrarModalCrearGrupoDocente()" style="background: transparent; color: #64748B; border: none; font-weight: 700; cursor: pointer; font-size: 0.9rem;">
+                    Cancelar
+                </button>
+                <button onclick="window.guardarNuevoGrupoDocente()" style="background: linear-gradient(135deg, #10B981, #059669); color: white; border: none; padding: 12px 24px; border-radius: 10px; font-weight: 900; font-size: 0.95rem; cursor: pointer; box-shadow: 0 4px 12px rgba(16,185,129,0.3);">
+                    🚀 Crear Grupo y Obtener Link
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- MODAL DE ENLACE DE CONTINGENCIA GENERADO PARA COMPARTIR -->
+    <div id="modal-link-contingencia-grupo" style="display: none; position: fixed; inset: 0; background: rgba(15,23,42,0.75); backdrop-filter: blur(4px); z-index: 100001; justify-content: center; align-items: center; padding: 20px;">
+        <div style="background: white; width: 100%; max-width: 580px; border-radius: 20px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25); border: 1px solid #E2E8F0; overflow: hidden; display: flex; flex-direction: column;">
+            
+            <div style="background: linear-gradient(135deg, #2563EB, #1D4ED8); padding: 22px 26px; color: white; display: flex; justify-content: space-between; align-items: center;">
+                <div style="display: flex; align-items: center; gap: 12px;">
+                    <span style="font-size: 1.8rem;">🔗</span>
+                    <div>
+                        <h3 style="margin: 0; font-size: 1.35rem; font-weight: 900; color: white;">Enlace de Matrícula Directa</h3>
+                        <p style="margin: 3px 0 0 0; font-size: 0.85rem; opacity: 0.95;">Listo para pegar en WhatsApp o Redes Sociales</p>
+                    </div>
+                </div>
+                <button onclick="document.getElementById('modal-link-contingencia-grupo').style.display='none'" style="background: rgba(255,255,255,0.2); border: none; color: white; width: 32px; height: 32px; border-radius: 50%; cursor: pointer; font-weight: 900; font-size: 1.1rem; display: flex; align-items: center; justify-content: center;">✕</button>
+            </div>
+
+            <div style="padding: 26px; display: flex; flex-direction: column; gap: 18px;">
+                
+                <div>
+                    <span style="font-size: 0.82rem; font-weight: 800; color: #64748B; text-transform: uppercase;">AULA ASIGNADA</span>
+                    <h3 id="modal-link-grupo-titulo" style="margin: 4px 0 10px 0; color: #0F172A; font-size: 1.35rem; font-weight: 900;">Grupo 7C</h3>
+                    
+                    <div style="background: #F1F5F9; border: 1.5px solid #CBD5E1; border-radius: 12px; padding: 12px; display: flex; align-items: center; gap: 10px;">
+                        <input type="text" id="modal-link-input-url" readonly style="flex: 1; background: transparent; border: none; font-size: 0.88rem; font-weight: 700; color: #1E293B; outline: none;">
+                        <button onclick="window.copiarLinkContingenciaDesdeModal()" style="background: #2563EB; color: white; border: none; padding: 8px 16px; border-radius: 8px; font-weight: 800; font-size: 0.82rem; cursor: pointer; white-space: nowrap;">
+                            📋 Copiar Link
+                        </button>
+                    </div>
+                </div>
+
+                <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                    <button onclick="window.compartirLinkContingenciaWhatsApp()" style="flex: 1; background: #10B981; color: white; border: none; padding: 14px; border-radius: 12px; font-weight: 900; font-size: 0.95rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 12px rgba(16,185,129,0.3);">
+                        <span>📲</span> Compartir en WhatsApp
+                    </button>
+                    <button onclick="window.copiarMensajeCompletoRedes()" style="flex: 1; background: #4F46E5; color: white; border: none; padding: 14px; border-radius: 12px; font-weight: 900; font-size: 0.95rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 12px rgba(79,70,229,0.3);">
+                        <span>📝</span> Copiar Mensaje Completo
+                    </button>
+                </div>
+
+                <div id="modal-link-copiado-feedback" style="display: none; background: #ECFDF5; border: 1px solid #86EFAC; color: #065F46; padding: 10px; border-radius: 8px; text-align: center; font-weight: 800; font-size: 0.88rem;">
+                    ✅ ¡Enlace copiado al portapapeles! Pégalo en tu grupo de WhatsApp o red social.
+                </div>
+
+            </div>
         </div>
     </div>
 
