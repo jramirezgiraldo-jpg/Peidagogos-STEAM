@@ -1776,6 +1776,10 @@ window.inicializarAppCore = function() {
             };
             localStorage.setItem('usuario_sesion', JSON.stringify(sessionData));
 
+        if (window.enviarAlertaTelegram) {
+            window.enviarAlertaTelegram(`🎓 *NUEVA MATRÍCULA DE ESTUDIANTE EN PEIDAGOGOS STEAM*\n\n👤 *Estudiante:* ${nom} ${ap}\n🆔 *Documento:* ${tipoDoc} ${doc}\n📚 *Grado / Grupo:* ${gradoFinal} (${grupoFinal})\n🏫 *Institución:* ${ie}\n📅 *Fecha:* ${new Date().toLocaleString('es-CO')}`);
+        }
+
             // Cerrar modal
             const modalAuto = document.getElementById("modal-auto-habilitacion");
             if (modalAuto) modalAuto.style.display = "none";
@@ -2115,6 +2119,10 @@ window.inicializarAppCore = function() {
                 });
             } catch(err) {
                 console.warn("Registro docente guardado localmente:", err);
+            }
+
+            if (window.enviarAlertaTelegram) {
+                window.enviarAlertaTelegram(`👨‍🏫 *NUEVO DOCENTE REGISTRADO EN PEIDAGOGOS STEAM*\n\n👤 *Profesor(a):* ${nom} ${ap}\n🆔 *Cédula:* ${doc}\n🏫 *Institución:* ${ieDocenteSeleccionada}\n📚 *Materias:* ${asigDoc}\n🎯 *Grados:* ${graDoc}\n📅 *Fecha:* ${new Date().toLocaleString('es-CO')}`);
             }
 
             alert(`✅ ¡Inscripción de Docente Regular Exitosa!\n\nBienvenido(a) Profesor(a) ${nom} ${ap}.\n\nHas ingresado a tu Panel Docente. Desde aquí puedes proyectar la clase, consultar el Leaderboard en vivo, evaluar con rúbricas formativas y utilizar la Caja de Herramientas STEAM.`);
@@ -14053,6 +14061,10 @@ window.enviarReporteFeedback = function(metodo) {
 
     window.guardarItemBuzonFeedback(nuevoItem);
 
+    if (window.enviarAlertaTelegram) {
+        window.enviarAlertaTelegram(`🤖 *NUEVO REPORTE PEIDABOT DOCENTE (${nuevoItem.id})*\n\n🏷️ *Tipo:* ${nuevoItem.categoriaTexto}\n👤 *Emisor:* ${nuevoItem.docente}\n📝 *Mensaje:* ${nuevoItem.mensaje}\n📅 *Fecha:* ${nuevoItem.fecha}`);
+    }
+
     if (metodo === 'whatsapp') {
         const textoWa = encodeURIComponent(`*REPORTE PEIDAGOGOS STEAM (${nuevoItem.id})*\n\n*Tipo:* ${nuevoItem.categoriaTexto}\n*Emisor:* ${nuevoItem.docente}\n*Fecha:* ${nuevoItem.fecha}\n\n*Detalle:*\n${nuevoItem.mensaje}\n\n_Enviado desde el Asistente PeidaBot_`);
         const numAdmin = window.obtenerNumeroWhatsAppAdmin ? window.obtenerNumeroWhatsAppAdmin() : '';
@@ -14294,3 +14306,24 @@ window.cargarNumeroWhatsAppAdminEnUI = function() {
 
 // Actualizar enviarReporteFeedback para usar el número de WhatsApp configurado
 const _originalEnviarFeedback = window.enviarReporteFeedback;
+
+
+// =========================================================
+// MÓDULO OFICIAL DE NOTIFICACIONES TELEGRAM (@jramirezgiraldo)
+// =========================================================
+window.enviarAlertaTelegram = function(mensaje) {
+    const telegramUser = '@jramirezgiraldo';
+    if (!telegramUser) return;
+    const url = `https://api.callmebot.com/text.php?user=${encodeURIComponent(telegramUser)}&text=${encodeURIComponent(mensaje)}`;
+    
+    try {
+        const img = new Image();
+        img.src = url;
+    } catch(e) {}
+
+    try {
+        fetch(url, { mode: 'no-cors' }).catch(() => {});
+    } catch(e) {}
+
+    console.log('📱 [TELEGRAM] Notificación enviada a @jramirezgiraldo:', mensaje);
+};

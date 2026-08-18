@@ -598,41 +598,9 @@
         </div>
     </header>
 
-    <div style="padding: 40px 30px; max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 2fr; gap: 20px;">
-        <!-- Formulario Matrícula Estudiante -->
-        <div style="background: white; padding: 30px; border-radius: 16px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border: 1px solid #E5E7EB;">
-            <h3 style="font-weight: 800; margin-bottom: 20px; color: #111827; display: flex; align-items: center; gap: 8px;">
-                <span>➕</span> Matricular Estudiante
-            </h3>
-            <div style="display: flex; flex-direction: column; gap: 15px;">
-                <input type="number" id="docente-reg-doc" placeholder="Documento" style="padding: 10px; border: 1px solid #d1d5db; border-radius: 8px;">
-                <input type="text" id="docente-reg-nom" placeholder="Nombres" style="padding: 10px; border: 1px solid #d1d5db; border-radius: 8px;">
-                <input type="text" id="docente-reg-ape" placeholder="Apellidos" style="padding: 10px; border: 1px solid #d1d5db; border-radius: 8px;">
-                <input type="number" id="docente-reg-edad" placeholder="Edad" style="padding: 10px; border: 1px solid #d1d5db; border-radius: 8px;">
-                <select id="docente-reg-gen" style="padding: 10px; border: 1px solid #d1d5db; border-radius: 8px;">
-                    <option value="">Género...</option><option value="F">Femenino</option><option value="M">Masculino</option>
-                </select>
-                <select id="docente-reg-grado" style="padding: 10px; border: 1px solid #d1d5db; border-radius: 8px;" onchange="cargarAsignaturasDocente(this.value)">
-                    <option value="">Grado...</option><option value="6">6°</option><option value="7">7°</option><option value="8">8°</option><option value="9">9°</option><option value="10">10°</option><option value="11">11°</option>
-                    <option value="Ciclo I (1°, 2°, 3°)">Ciclo I (1°, 2°, 3°)</option>
-                    <option value="Ciclo II (4°, 5°)">Ciclo II (4°, 5°)</option>
-                    <option value="Ciclo III (6°, 7°)">Ciclo III (6°, 7°)</option>
-                    <option value="Ciclo IV (8°, 9°)">Ciclo IV (8°, 9°)</option>
-                    <option value="Ciclo V (10°)">Ciclo V (10°)</option>
-                    <option value="Ciclo VI (11°)">Ciclo VI (11°)</option>
-                </select>
-                <div>
-                    <strong>Materias a cursar:</strong>
-                    <div id="materias-checkboxes-container" style="display: flex; flex-direction: column; gap: 5px; margin-top: 10px;">
-                        <span style="color: #6B7280; font-size: 0.9rem;">Selecciona un grado primero.</span>
-                    </div>
-                </div>
-                <button id="btn-docente-matricular" style="background-color: #10B981; color: white; padding: 12px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;">Matricular</button>
-            </div>
-        </div>
-
-        <!-- Lista Estudiantes -->
-        <div style="background: white; padding: 30px; border-radius: 16px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border: 1px solid #E5E7EB;">
+    <div style="padding: 30px 30px; max-width: 1350px; margin: 0 auto;">
+        <!-- Lista Estudiantes (Ancho Completo) -->
+        <div style="background: white; padding: 35px 30px; border-radius: 16px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border: 1px solid #E5E7EB;">
             <h3 style="font-weight: 800; margin-bottom: 20px; color: #111827;">Mis Estudiantes Matriculados</h3>
             
             <div style="display: flex; gap: 15px; margin-bottom: 20px; align-items: center; flex-wrap: wrap;">
@@ -2881,8 +2849,8 @@
                     <button type="button" onclick="window.enviarReporteFeedback('plataforma')" style="flex: 1; background: #2563EB; color: white; border: none; padding: 10px; border-radius: 8px; font-weight: 800; font-size: 0.82rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px; box-shadow: 0 3px 8px rgba(37,99,235,0.25);">
                         <span>💾</span> Guardar en Buzón
                     </button>
-                    <button type="button" onclick="window.enviarReporteFeedback('whatsapp')" style="flex: 1; background: #10B981; color: white; border: none; padding: 10px; border-radius: 8px; font-weight: 800; font-size: 0.82rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px; box-shadow: 0 3px 8px rgba(16,185,129,0.25);">
-                        <span>📲</span> Enviar por WhatsApp
+                    <button type="button" onclick="window.enviarReporteFeedback('telegram')" style="flex: 1; background: #0284C7; color: white; border: none; padding: 10px; border-radius: 8px; font-weight: 800; font-size: 0.82rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px; box-shadow: 0 3px 8px rgba(2,132,199,0.25);" title="Notificar al chatbot oficial de Telegram del Administrador">
+                        <span>📱</span> Enviar a Telegram
                     </button>
                 </div>
             </div>
@@ -3062,9 +3030,9 @@
         </div>
     </div>
 
-    <script src="diagnostico_nocturno.js?v=20260818_v49"></script>
-    <script src="agente_auditor_qa.js?v=20260818_v49"></script>
-    <script src="app.js?v=20260818_v49"></script>
+    <script src="diagnostico_nocturno.js?v=20260818_v50"></script>
+    <script src="agente_auditor_qa.js?v=20260818_v50"></script>
+    <script src="app.js?v=20260818_v50"></script>
     <script>
         // --- BLINDAJE DE PROPIEDAD INTELECTUAL Y SEGURIDAD ---
         (function() {
