@@ -530,13 +530,23 @@
                 }
             }
         </script>
-        <!-- Casilla de Autorización de Tratamiento de Datos (Ley 1581 de 2012 / Protección a Menores) -->
-        <div style="background: #F8FAFC; border: 1.5px solid #CBD5E1; border-radius: 10px; padding: 12px 14px; margin-top: 5px; text-align: left;">
+        <!-- Bloque de Consentimiento Legal, Protección DNDA y Tratamiento de Datos Obligatorio -->
+        <div style="background: #F8FAFC; border: 1.5px solid #CBD5E1; border-radius: 12px; padding: 14px 16px; margin-top: 6px; text-align: left;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
+                <span style="font-weight: 900; font-size: 0.88rem; color: #1E293B; display: flex; align-items: center; gap: 6px;">
+                    <span>🛡️</span> Términos Legales y Tratamiento de Datos:
+                </span>
+                <a href="javascript:void(0)" onclick="window.abrirModalPoliticaDatos()" style="color: #2563EB; font-weight: 800; font-size: 0.8rem; text-decoration: underline;">
+                    📖 Leer Política Completa (Ley 1581)
+                </a>
+            </div>
+            <p style="margin: 0 0 10px 0; color: #64748B; font-size: 0.78rem; line-height: 1.4;">
+                Software registrado ante la DNDA (Radicado 1-2026-000055). Uso educativo y formativo no comercial por contingencia sísmica.
+            </p>
             <label style="display: flex; align-items: flex-start; gap: 10px; cursor: pointer; font-size: 0.82rem; color: #334155; line-height: 1.35;">
-                <input type="checkbox" id="reg-check-tratamiento-datos" style="margin-top: 3px; cursor: pointer; width: 16px; height: 16px; accent-color: #2563EB;" checked>
+                <input type="checkbox" id="reg-check-tratamiento-datos" style="margin-top: 2px; cursor: pointer; width: 18px; height: 18px; accent-color: #2563EB;">
                 <span>
-                    Autorizo el <strong>Tratamiento de Datos Personales</strong> conforme a la <strong>Ley 1581 de 2012</strong> y Decreto 1377 de 2013, con fines estrictamente formativos, pedagógicos y de atención educativa de menores de edad en el marco institucional.
-                    <a href="javascript:void(0)" onclick="window.abrirModalPoliticaDatos()" style="color: #2563EB; font-weight: 700; text-decoration: underline; display: inline-block; margin-top: 2px;">Leer Política de Privacidad y Salvaguarda de Menores</a>
+                    <strong>Acepto los Términos de Uso en Contingencia</strong> y autorizo el <strong>Tratamiento de Datos Personales</strong> conforme a la <strong>Ley 1581 de 2012</strong>, Decreto 1377 de 2013 y Ley 1098 de 2006 (Código de Infancia) con fines estrictamente pedagógicos.
                 </span>
             </label>
         </div>
@@ -3197,9 +3207,9 @@
         </div>
     </div>
 
-    <script src="diagnostico_nocturno.js?v=20260818_v55"></script>
-    <script src="agente_auditor_qa.js?v=20260818_v55"></script>
-    <script src="app.js?v=20260818_v55"></script>
+    <script src="diagnostico_nocturno.js?v=20260818_v56"></script>
+    <script src="agente_auditor_qa.js?v=20260818_v56"></script>
+    <script src="app.js?v=20260818_v56"></script>
     <script>
         // --- BLINDAJE DE PROPIEDAD INTELECTUAL Y SEGURIDAD ---
         (function() {

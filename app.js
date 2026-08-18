@@ -1926,6 +1926,16 @@ window.inicializarAppCore = function() {
         let asig = asigElem ? asigElem.value : "";
         const codigoInst = codElem ? codElem.value.trim() : "";
 
+        // Validación obligatoria de Habeas Data y Términos de Uso en Contingencia (Ley 1581 / DNDA 1-2026-000055)
+        const checkHabeas = document.getElementById("reg-check-tratamiento-datos");
+        if (checkHabeas && !checkHabeas.checked) {
+            if (typeof window.abrirModalPoliticaDatos === 'function') {
+                window.abrirModalPoliticaDatos();
+            }
+            mostrarErrorReg("⚠️ Debes aceptar los Términos de Uso en Contingencia y autorizar el Tratamiento de Datos Personales (Ley 1581 de 2012) para continuar.");
+            return;
+        }
+
         if (!doc) { mostrarErrorReg("⚠️ El campo Número de Documento es obligatorio."); return; }
         if (!nom) { mostrarErrorReg("⚠️ El campo Nombres es obligatorio."); return; }
         if (!ap) { mostrarErrorReg("⚠️ El campo Apellidos es obligatorio."); return; }
@@ -2125,7 +2135,7 @@ window.inicializarAppCore = function() {
                 window.enviarAlertaTelegram(`👨‍🏫 *NUEVO DOCENTE REGISTRADO EN PEIDAGOGOS STEAM*\n\n👤 *Profesor(a):* ${nom} ${ap}\n🆔 *Cédula:* ${doc}\n🏫 *Institución:* ${ieDocenteSeleccionada}\n📚 *Materias:* ${asigDoc}\n🎯 *Grados:* ${graDoc}\n📅 *Fecha:* ${new Date().toLocaleString('es-CO')}`);
             }
 
-            alert(`✅ ¡Inscripción de Docente Regular Exitosa!\n\nBienvenido(a) Profesor(a) ${nom} ${ap}.\n\nHas ingresado a tu Panel Docente. Desde aquí puedes proyectar la clase, consultar el Leaderboard en vivo, evaluar con rúbricas formativas y utilizar la Caja de Herramientas STEAM.`);
+            alert(`✅ ¡Inscripción de Docente Exitosa!\n\nBienvenido(a) Profesor(a) ${nom} ${ap}.\n\n🛡️ AVISO LEGAL Y TÉRMINOS DE CONTINGENCIA:\n• Titular de Software: Juan Felipe Ramírez Giraldo (DNDA Radicado 1-2026-000055)\n• Finalidad: Piloto Pedagógico de Contingencia no comercial\n• Protección de Datos: Ley 1581 de 2012 y Ley 1098 de 2006 (Código de Infancia)\n• Referentes MEN: Estándares DBA propiedad del Ministerio de Educación Nacional\n\nHas ingresado a tu Panel Docente. Ya puedes crear tus grupos, compartir los enlaces directos para redes y proyectar tus clases STEAM.`);
 
             // 3. Activar Panel de Docente
             window.usuario_actual = doc;
