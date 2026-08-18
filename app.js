@@ -14928,6 +14928,11 @@ window.renderizarCajonesGrandesGruposDocente = function(gruposMap, gradosDocente
                             <span>🔗</span> Copiar Enlace y Ver QR de Matrícula
                         </button>
 
+                        <!-- Botón Asignar Equipo Docente (Director de Grupo) -->
+                        <button onclick="window.abrirModalAsignarDocentesGrupo('${grpName.replace(/'/g, "\\'")}')" style="background: #FAF5FF; border: 1.5px solid #DDD6FE; color: #6D28D9; padding: 10px; border-radius: 12px; font-weight: 900; font-size: 0.88rem; cursor: pointer; width: 100%; display: flex; align-items: center; justify-content: center; gap: 6px; transition: 0.2s;" onmouseover="this.style.background='#F3E8FF'" onmouseout="this.style.background='#FAF5FF'">
+                            <span>👨‍🏫</span> Profesores del Grupo (Equipo Docente)
+                        </button>
+
                         <!-- Botón Abrir Planilla de Estudiantes -->
                         <button onclick="window.abrirCajonGrupoDocente('${grpName.replace(/'/g, "\\'")}')" style="background: #F1F5F9; border: 1.5px solid #CBD5E1; color: #334155; padding: 10px; border-radius: 12px; font-weight: 900; font-size: 0.88rem; cursor: pointer; width: 100%; display: flex; align-items: center; justify-content: center; gap: 6px; transition: 0.2s;" onmouseover="this.style.background='#E2E8F0'" onmouseout="this.style.background='#F1F5F9'">
                             <span>📂</span> Ver Planilla de ${grpName} (${alumnosGrupo.length}) ➔
@@ -15543,4 +15548,209 @@ window.proyectarQRAulaPantallaCompleta = function() {
         </body>
         </html>
     `);
+};
+
+
+// =========================================================
+// MÓDULO DE ASIGNACIÓN DE EQUIPO DOCENTE POR DIRECTOR DE GRUPO
+// =========================================================
+window.grupoDocenteAsignando = null;
+
+window.abrirModalAsignarDocentesGrupo = function(nombreGrupo) {
+    window.grupoDocenteAsignando = nombreGrupo;
+    const modal = document.getElementById('modal-asignar-docentes-grupo');
+    if (!modal) return;
+
+    let authSes = {};
+    try {
+        authSes = JSON.parse(sessionStorage.getItem('peidagogos_auth') || localStorage.getItem('usuario_actual') || '{}');
+    } catch(e) {}
+
+    const ieDoc = (authSes.institucion || 'IE Instituto Montenegro').trim();
+
+    const tit = document.getElementById('modal-asig-doc-titulo');
+    const sub = document.getElementById('modal-asig-doc-subtitulo');
+    if (tit) tit.innerText = `Equipo Docente: Grupo ${nombreGrupo}`;
+    if (sub) sub.innerText = `Como Director de Grupo de ${nombreGrupo}, vincula los profesores de la ${ieDoc} que dictan clase aquí.`;
+
+    // Cargar lista de docentes del colegio
+    window.renderizarListaDocentesParaAsignar(nombreGrupo, ieDoc);
+    modal.style.display = 'flex';
+};
+
+window.renderizarListaDocentesParaAsignar = function(nombreGrupo, ieDoc) {
+    const cont = document.getElementById('modal-asig-doc-lista-contenedor');
+    if (!cont) return;
+
+    let dList = JSON.parse(localStorage.getItem('docentes_db') || '[]');
+    let mapaAsignaciones = JSON.parse(localStorage.getItem('docentes_por_grupo_db') || '{}');
+    let asignadosActuales = mapaAsignaciones[nombreGrupo] || [];
+
+    // Si la lista de docentes está vacía, incluir los docentes estándar del colegio
+    if (dList.length === 0) {
+        dList = [
+            { documento: '109772671', nombre: 'Juan Felipe Ramírez Giraldo', institucion: ieDoc, materia: 'Ciencias Naturales y Física' },
+            { documento: 'doc_matematicas', nombre: 'Profesor de Matemáticas', institucion: ieDoc, materia: 'Matemáticas' },
+            { documento: 'doc_lenguaje', nombre: 'Profesor de Lengua Castellana', institucion: ieDoc, materia: 'Lengua Castellana' },
+            { documento: 'doc_quimica', nombre: 'Profesor de Química', institucion: ieDoc, materia: 'Química' },
+            { documento: 'doc_sociales', nombre: 'Profesor de Ciencias Sociales', institucion: ieDoc, materia: 'Ciencias Sociales' },
+            { documento: 'doc_ingles', nombre: 'Profesor de Idioma Extranjero (Inglés)', institucion: ieDoc, materia: 'Inglés' },
+            { documento: 'doc_tecnologia', nombre: 'Profesor de Tecnología e Informática', institucion: ieDoc, materia: 'Tecnología e Informática' },
+            { documento: 'doc_artistica', nombre: 'Profesor de Educación Artística', institucion: ieDoc, materia: 'Educación Artística' },
+            { documento: 'doc_etica', nombre: 'Profesor de Ética y Valores', institucion: ieDoc, materia: 'Ética y Valores' }
+        ];
+        localStorage.setItem('docentes_db', JSON.stringify(dList));
+    }
+
+    const materiasOpciones = [
+        "Ciencias Naturales y Educación Ambiental",
+        "Física",
+        "Química",
+        "Matemáticas",
+        "Lengua Castellana",
+        "Ciencias Sociales",
+        "Idioma Extranjero (Inglés)",
+        "Tecnología e Informática",
+        "Educación Artística",
+        "Ética y Valores Humanos",
+        "Educación Física",
+        "Filosofía",
+        "Turismo y Patrimonio",
+        "Auxilios Emocionales"
+    ];
+
+    cont.innerHTML = dList.map((doc, idx) => {
+        const docId = String(doc.documento || doc.usuario || doc.id || `doc_${idx}`).trim();
+        const docNom = doc.nombre || doc.nombre_completo || `Docente ${idx+1}`;
+        
+        // Verificar si ya está asignado
+        const asigDoc = asignadosActuales.find(a => String(a.documento || a.id).trim().toLowerCase() === docId.toLowerCase());
+        const isChecked = asigDoc ? 'checked' : '';
+        const materiaSeleccionada = asigDoc ? (asigDoc.materia || doc.materia) : (doc.materia || doc.asignatura || 'Matemáticas');
+
+        return `
+            <div style="background: #F8FAFC; border: 1.5px solid #CBD5E1; border-radius: 12px; padding: 12px 16px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
+                <label style="display: flex; align-items: center; gap: 12px; cursor: pointer; flex: 1; min-width: 240px;">
+                    <input type="checkbox" class="check-docente-grupo" data-doc-id="${docId}" data-doc-nom="${docNom}" ${isChecked} style="width: 20px; height: 20px; cursor: pointer; accent-color: #4338CA;">
+                    <div>
+                        <div style="font-weight: 800; color: #0F172A; font-size: 0.95rem;">${docNom}</div>
+                        <span style="font-size: 0.78rem; color: #64748B;">Doc: ${docId}</span>
+                    </div>
+                </label>
+
+                <div style="display: flex; align-items: center; gap: 8px;">
+                    <span style="font-size: 0.8rem; font-weight: 700; color: #475569;">Materia:</span>
+                    <select class="select-materia-docente-grupo" data-doc-id="${docId}" style="padding: 8px 10px; border: 1.5px solid #CBD5E1; border-radius: 8px; font-weight: 700; font-size: 0.85rem; background: white; color: #1E293B;">
+                        ${materiasOpciones.map(m => `<option value="${m}" ${m === materiaSeleccionada ? 'selected' : ''}>${m}</option>`).join('')}
+                    </select>
+                </div>
+            </div>
+        `;
+    }).join('');
+};
+
+window.agregarNuevoDocenteRapidoGrupo = function() {
+    const nombre = prompt("Ingresa el Nombre Completo del nuevo Profesor:");
+    if (!nombre || !nombre.trim()) return;
+
+    const materia = prompt("Asignatura o Área que orienta (ej: Matemáticas, Lenguaje, Física):", "Matemáticas");
+    const cedula = prompt("Cédula o Identificación (Opcional):", "doc_" + Math.random().toString(36).substring(2, 7));
+
+    let authSes = {};
+    try { authSes = JSON.parse(sessionStorage.getItem('peidagogos_auth') || '{}'); } catch(e) {}
+    const ieDoc = (authSes.institucion || 'IE Instituto Montenegro').trim();
+
+    const nuevoDoc = {
+        documento: cedula || ('doc_' + Date.now()),
+        cedula: cedula,
+        usuario: cedula,
+        nombre: nombre.trim(),
+        nombre_completo: nombre.trim(),
+        institucion: ieDoc,
+        materia: materia || 'Matemáticas',
+        asignatura: materia || 'Matemáticas',
+        grados: [],
+        grupos: []
+    };
+
+    let dList = JSON.parse(localStorage.getItem('docentes_db') || '[]');
+    dList.push(nuevoDoc);
+    localStorage.setItem('docentes_db', JSON.stringify(dList));
+
+    if (window.grupoDocenteAsignando) {
+        window.renderizarListaDocentesParaAsignar(window.grupoDocenteAsignando, ieDoc);
+    }
+};
+
+window.guardarEquipoDocenteGrupo = function() {
+    if (!window.grupoDocenteAsignando) return;
+    const nombreGrupo = window.grupoDocenteAsignando;
+
+    const checks = document.querySelectorAll('.check-docente-grupo');
+    const selects = document.querySelectorAll('.select-materia-docente-grupo');
+
+    let docentesAsignados = [];
+    checks.forEach(chk => {
+        if (chk.checked) {
+            const docId = chk.getAttribute('data-doc-id');
+            const docNom = chk.getAttribute('data-doc-nom');
+            
+            let materia = 'General';
+            selects.forEach(sel => {
+                if (sel.getAttribute('data-doc-id') === docId) {
+                    materia = sel.value;
+                }
+            });
+
+            docentesAsignados.push({
+                documento: docId,
+                nombre: docNom,
+                materia: materia,
+                fecha: new Date().toISOString()
+            });
+        }
+    });
+
+    // 1. Guardar en mapa de asignaciones
+    let mapaAsignaciones = JSON.parse(localStorage.getItem('docentes_por_grupo_db') || '{}');
+    mapaAsignaciones[nombreGrupo] = docentesAsignados;
+    localStorage.setItem('docentes_por_grupo_db', JSON.stringify(mapaAsignaciones));
+
+    // 2. Sincronizar en cada perfil docente de docentes_db
+    let dList = JSON.parse(localStorage.getItem('docentes_db') || '[]');
+    dList.forEach(d => {
+        const dId = String(d.documento || d.usuario || d.id || '').trim().toLowerCase();
+        const estaAsignado = docentesAsignados.some(a => String(a.documento).trim().toLowerCase() === dId);
+        
+        if (estaAsignado) {
+            if (!d.grupos) d.grupos = [];
+            if (!d.grupos.some(g => (typeof g === 'object' ? g.nombre : g) === nombreGrupo)) {
+                d.grupos.push({ nombre: nombreGrupo, fecha: new Date().toISOString() });
+            }
+            if (!d.grados) d.grados = [];
+            if (!d.grados.includes(nombreGrupo)) {
+                d.grados.push(nombreGrupo);
+            }
+        }
+    });
+    localStorage.setItem('docentes_db', JSON.stringify(dList));
+
+    // 3. Notificación Telegram a @jramirezgiraldo
+    let authSes = {};
+    try { authSes = JSON.parse(sessionStorage.getItem('peidagogos_auth') || '{}'); } catch(e) {}
+    const directorNom = (document.getElementById('docente-nombre-header') ? document.getElementById('docente-nombre-header').innerText : (authSes.nombre || 'Director de Grupo')).trim();
+    const ieDoc = (authSes.institucion || 'IE Instituto Montenegro').trim();
+
+    if (window.enviarAlertaTelegram) {
+        const resumenDocs = docentesAsignados.map(d => `• ${d.nombre} (${d.materia})`).join('\n');
+        window.enviarAlertaTelegram(`👨‍🏫 *EQUIPO DOCENTE ASIGNADO AL GRUPO*\n\n👥 *Grupo:* ${nombreGrupo}\n🏫 *IE:* ${ieDoc}\n👨‍🏫 *Director de Grupo:* ${directorNom}\n\n📚 *Profesores Vinculados (${docentesAsignados.length}):*\n${resumenDocs || 'Ninguno'}`);
+    }
+
+    document.getElementById('modal-asignar-docentes-grupo').style.display = 'none';
+    alert(`✅ ¡Equipo Docente guardado con éxito!\n\nSe han vinculado ${docentesAsignados.length} profesores al Grupo ${nombreGrupo}.\n\nAhora todos ellos verán este grupo y su planilla en sus respectivos Paneles Docentes.`);
+
+    // Recargar vista docente
+    if (typeof window.cargarEstudiantesDocente === 'function') {
+        window.cargarEstudiantesDocente(window.usuario_actual || 'docente');
+    }
 };
