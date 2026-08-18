@@ -14411,10 +14411,14 @@ window.cargarEstudiantesDocente = async function(docenteId) {
             gruposMap[grp].push(est);
         });
 
-        // 4. Renderizar Cajones de Grupos
-        const gridCont = document.getElementById('docente-grid-cajones-grupos');
+        // 4. Renderizar Cajones de Grupos con Diseño Amplio y Explicaciones
         const badgeTotal = document.getElementById('docente-total-estudiantes-badge');
         if (badgeTotal) badgeTotal.innerText = `👥 Total Alumnos: ${misEstudiantes.length}`;
+        
+        if (window.renderizarCajonesGrandesGruposDocente) {
+            window.renderizarCajonesGrandesGruposDocente(gruposMap, gradosDocente);
+            return;
+        }
 
         if (gridCont) {
             const nombresGrupos = Object.keys(gruposMap).sort();
@@ -14624,4 +14628,274 @@ window.renderizarTablaEstudiantesGrupo = function(listaEstudiantes) {
     });
 
     tbody.innerHTML = htmlRows;
+};
+
+
+// =========================================================
+// GESTOR DE MATERIAS Y GRADOS DEL DOCENTE EN SU PANEL
+// =========================================================
+window.abrirModalGestionMateriasGradosDocente = function() {
+    const modal = document.getElementById('modal-gestionar-materias-grados');
+    if (!modal) return;
+    modal.style.display = 'flex';
+
+    // 1. Obtener perfil docente activo
+    let docentePerfil = null;
+    try {
+        const dList = JSON.parse(localStorage.getItem('docentes_db') || '[]');
+        const authSes = JSON.parse(sessionStorage.getItem('peidagogos_auth') || localStorage.getItem('usuario_actual') || '{}');
+        const docKey = String(window.usuario_actual || authSes.documento || authSes.usuario || '').trim().toLowerCase();
+        docentePerfil = dList.find(d => {
+            const dDoc = String(d.documento || d.cedula || d.usuario || '').trim().toLowerCase();
+            return dDoc === docKey;
+        });
+        if (!docentePerfil) docentePerfil = authSes;
+    } catch(e) {}
+
+    const materiasActivas = (docentePerfil && Array.isArray(docentePerfil.materias)) ? docentePerfil.materias : ['Física', 'Ciencias Naturales'];
+    const gradosActivos = (docentePerfil && Array.isArray(docentePerfil.grados)) ? docentePerfil.grados : ['6', '7', '8', '9'];
+
+    // 2. Renderizar catálogo de materias (Oficiales + Creadas por IA)
+    const containerMaterias = document.getElementById('gestor-materias-pills-container');
+    if (containerMaterias) {
+        const catalogoBase = [
+            'Física', 'Ciencias Naturales y Educación Ambiental', 'Química', 'Matemáticas',
+            'Lengua Castellana', 'Ciencias Sociales', 'Tecnología e Informática',
+            'Educación Artística', 'Ética y Valores Humanos', 'Turismo y Patrimonio',
+            'Filosofía', 'Inglés', 'Auxilios Emocionales y Prevención del Riesgo'
+        ];
+
+        // Añadir materias creadas
+        try {
+            const materiasCreadas = JSON.parse(localStorage.getItem('asignaturas_creadas_db') || '[]');
+            materiasCreadas.forEach(mc => {
+                if (mc.nombre && !catalogoBase.includes(mc.nombre)) catalogoBase.push(mc.nombre);
+            });
+        } catch(e) {}
+
+        containerMaterias.innerHTML = catalogoBase.map(m => {
+            const isChecked = materiasActivas.some(ma => ma.toLowerCase() === m.toLowerCase()) ? 'checked' : '';
+            return `
+                <label style="display: inline-flex; align-items: center; gap: 6px; background: white; border: 1.5px solid ${isChecked ? '#3B82F6' : '#CBD5E1'}; padding: 6px 12px; border-radius: 8px; font-size: 0.85rem; font-weight: 700; color: #1E293B; cursor: pointer;">
+                    <input type="checkbox" name="gestor_docente_materia_chk" value="${m}" ${isChecked} style="accent-color: #2563EB;">
+                    ${m}
+                </label>
+            `;
+        }).join('');
+    }
+
+    // 3. Renderizar catálogo de Grados
+    const containerGrados = document.getElementById('gestor-grados-pills-container');
+    if (containerGrados) {
+        const gradosLista = [
+            { val: '1', txt: '1° Primaria' },
+            { val: '2', txt: '2° Primaria' },
+            { val: '3', txt: '3° Primaria' },
+            { val: '4', txt: '4° Primaria' },
+            { val: '5', txt: '5° Primaria' },
+            { val: '6', txt: '6° Secundaria' },
+            { val: '7', txt: '7° Secundaria' },
+            { val: '8', txt: '8° Secundaria' },
+            { val: '9', txt: '9° Secundaria' },
+            { val: '10', txt: '10° Media' },
+            { val: '11', txt: '11° Media' },
+            { val: 'Ciclo I', txt: 'Ciclo I (1°,2°,3°)' },
+            { val: 'Ciclo II', txt: 'Ciclo II (4°,5°)' },
+            { val: 'Ciclo III', txt: 'Ciclo III (6°,7°)' },
+            { val: 'Ciclo IV', txt: 'Ciclo IV (8°,9°)' },
+            { val: 'Ciclo V', txt: 'Ciclo V (10°)' },
+            { val: 'Ciclo VI', txt: 'Ciclo VI (11°)' }
+        ];
+
+        containerGrados.innerHTML = gradosLista.map(g => {
+            const isChecked = gradosActivos.some(ga => String(ga).toLowerCase() === g.val.toLowerCase() || String(ga).toLowerCase() === g.txt.toLowerCase()) ? 'checked' : '';
+            return `
+                <label style="display: inline-flex; align-items: center; gap: 6px; background: white; border: 1.5px solid ${isChecked ? '#10B981' : '#CBD5E1'}; padding: 6px 12px; border-radius: 8px; font-size: 0.85rem; font-weight: 700; color: #1E293B; cursor: pointer;">
+                    <input type="checkbox" name="gestor_docente_grado_chk" value="${g.val}" ${isChecked} style="accent-color: #10B981;">
+                    ${g.txt}
+                </label>
+            `;
+        }).join('');
+    }
+};
+
+window.cerrarModalGestionMateriasGradosDocente = function() {
+    const modal = document.getElementById('modal-gestionar-materias-grados');
+    if (modal) modal.style.display = 'none';
+};
+
+window.guardarConfiguracionMateriasGradosDocente = function() {
+    const chkMaterias = document.querySelectorAll('input[name="gestor_docente_materia_chk"]:checked');
+    const chkGrados = document.querySelectorAll('input[name="gestor_docente_grado_chk"]:checked');
+
+    const materiasSel = Array.from(chkMaterias).map(c => c.value);
+    const gradosSel = Array.from(chkGrados).map(c => c.value);
+
+    if (materiasSel.length === 0) {
+        alert("⚠️ Por favor selecciona al menos una materia que orientas.");
+        return;
+    }
+    if (gradosSel.length === 0) {
+        alert("⚠️ Por favor selecciona al menos un grado o ciclo a tu cargo.");
+        return;
+    }
+
+    try {
+        let dList = JSON.parse(localStorage.getItem('docentes_db') || '[]');
+        const authSes = JSON.parse(sessionStorage.getItem('peidagogos_auth') || localStorage.getItem('usuario_actual') || '{}');
+        const docKey = String(window.usuario_actual || authSes.documento || authSes.usuario || '').trim().toLowerCase();
+
+        let docItem = dList.find(d => {
+            const dDoc = String(d.documento || d.cedula || d.usuario || '').trim().toLowerCase();
+            return dDoc === docKey;
+        });
+
+        if (!docItem) {
+            docItem = {
+                documento: docKey || 'docente',
+                nombre: (document.getElementById('docente-nombre-header') ? document.getElementById('docente-nombre-header').innerText : 'Docente'),
+                institucion: 'IE Instituto Montenegro'
+            };
+            dList.push(docItem);
+        }
+
+        docItem.materias = materiasSel;
+        docItem.asignatura = materiasSel.join(', ');
+        docItem.grados = gradosSel;
+        docItem.grado = gradosSel.join(', ');
+
+        localStorage.setItem('docentes_db', JSON.stringify(dList));
+
+        // Actualizar sesión actual
+        authSes.materias = materiasSel;
+        authSes.grados = gradosSel;
+        sessionStorage.setItem('peidagogos_auth', JSON.stringify(authSes));
+
+        window.cerrarModalGestionMateriasGradosDocente();
+        
+        // Recargar cajones de grupos
+        if (typeof window.cargarEstudiantesDocente === 'function') {
+            window.cargarEstudiantesDocente(window.usuario_actual || docKey);
+        }
+
+        alert(`✅ Configuración guardada con éxito:
+
+📚 ${materiasSel.length} Materias asignadas
+🎓 ${gradosSel.length} Grados a cargo
+
+Tus cajones de grupos se han actualizado automáticamente.`);
+    } catch(e) {
+        console.error("Error al guardar configuración docente:", e);
+    }
+};
+
+
+// =========================================================
+// RENDERIZADO DE CAJONES DE GRUPOS GRANDES Y DETALLADOS
+// =========================================================
+window.renderizarCajonesGrandesGruposDocente = function(gruposMap, gradosDocente) {
+    const gridCont = document.getElementById('docente-grid-cajones-grupos');
+    if (!gridCont) return;
+
+    const nombresGrupos = Object.keys(gruposMap).sort();
+    
+    if (nombresGrupos.length === 0) {
+        gridCont.innerHTML = `
+            <div style="grid-column: 1 / -1; background: white; border: 2px dashed #CBD5E1; border-radius: 20px; padding: 50px 25px; text-align: center;">
+                <span style="font-size: 3.5rem;">🏫</span>
+                <h3 style="color: #1E293B; margin: 15px 0 8px 0; font-weight: 900; font-size: 1.35rem;">Aún no tienes estudiantes matriculados en tus grupos</h3>
+                <p style="color: #64748B; font-size: 0.95rem; margin: 0 auto 20px auto; max-width: 600px; line-height: 1.5;">
+                    Los estudiantes matriculados en tu institución que coincidan con tus grados asignados aparecerán automáticamente en sus respectivos cajones. Puedes verificar o añadir más grados y materias con el botón <strong>⚙️ Mis Materias y Grados</strong>.
+                </p>
+                <button onclick="window.abrirModalGestionMateriasGradosDocente()" style="background: #2563EB; color: white; border: none; padding: 10px 20px; border-radius: 10px; font-weight: 800; cursor: pointer; display: inline-flex; align-items: center; gap: 8px;">
+                    <span>⚙️</span> Configurar Grados y Materias
+                </button>
+            </div>
+        `;
+        return;
+    }
+
+    let htmlCajones = '';
+    const estilosGradientes = [
+        { bg: 'linear-gradient(135deg, #1E40AF, #3B82F6)', border: '#93C5FD', icon: '🌌', label: 'Ciencias & Física' },
+        { bg: 'linear-gradient(135deg, #065F46, #10B981)', border: '#A7F3D0', icon: '🌿', label: 'Educación Ambiental' },
+        { bg: 'linear-gradient(135deg, #5B21B6, #8B5CF6)', border: '#DDD6FE', icon: '🧪', label: 'Química & STEAM' },
+        { bg: 'linear-gradient(135deg, #9A3412, #F97316)', border: '#FDBA74', icon: '⚙️', label: 'Tecnología & Robótica' },
+        { bg: 'linear-gradient(135deg, #9D174D, #EC4899)', border: '#FBCFE8', icon: '🎨', label: 'Arte & Creatividad' },
+        { bg: 'linear-gradient(135deg, #0E7490, #06B6D4)', border: '#A5F3FC', icon: '🧭', label: 'Turismo & Territorio' }
+    ];
+
+    nombresGrupos.forEach((grpName, idx) => {
+        const alumnosGrupo = gruposMap[grpName];
+        const tema = estilosGradientes[idx % estilosGradientes.length];
+        
+        let xpTotalGrupo = 0;
+        alumnosGrupo.forEach(al => {
+            const docClean = al.documento || al.usuario || al.id || '';
+            let xpEst = parseInt(localStorage.getItem(`xp_${docClean}`)) || 500;
+            xpTotalGrupo += xpEst;
+        });
+        const promXP = Math.round(xpTotalGrupo / alumnosGrupo.length);
+
+        htmlCajones += `
+            <div style="background: white; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.06); border: 1.5px solid #E2E8F0; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; transition: transform 0.25s, box-shadow 0.25s; min-height: 340px;" onmouseover="this.style.transform='translateY(-6px)'; this.style.boxShadow='0 18px 35px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='none'; this.style.boxShadow='0 10px 30px rgba(0,0,0,0.06)';">
+                
+                <!-- Cabecera Vibrante del Cajón -->
+                <div style="background: ${tema.bg}; color: white; padding: 22px 24px; position: relative;">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                        <div>
+                            <span style="background: rgba(255,255,255,0.22); color: white; padding: 3px 10px; border-radius: 20px; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 900; backdrop-filter: blur(4px);">
+                                ${tema.label}
+                            </span>
+                            <h3 style="margin: 8px 0 2px 0; font-size: 1.65rem; font-weight: 900; color: white;">
+                                Grupo ${grpName}
+                            </h3>
+                            <span style="font-size: 0.85rem; opacity: 0.92; font-weight: 600;">
+                                Aula de Aprendizaje Activo
+                            </span>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.25); width: 48px; height: 48px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; backdrop-filter: blur(4px);">
+                            ${tema.icon}
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Cuerpo y Explicación Pedagógica del Contenido -->
+                <div style="padding: 22px 24px; flex: 1; display: flex; flex-direction: column; justify-content: space-between; gap: 16px;">
+                    
+                    <!-- Métricas Principales -->
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                        <div style="background: #F8FAFC; border: 1px solid #E2E8F0; padding: 10px 12px; border-radius: 12px; text-align: center;">
+                            <span style="font-size: 0.75rem; color: #64748B; font-weight: 800; text-transform: uppercase;">Estudiantes</span>
+                            <div style="font-size: 1.3rem; font-weight: 900; color: #0F172A;">${alumnosGrupo.length}</div>
+                        </div>
+                        <div style="background: #ECFDF5; border: 1px solid #A7F3D0; padding: 10px 12px; border-radius: 12px; text-align: center;">
+                            <span style="font-size: 0.75rem; color: #047857; font-weight: 800; text-transform: uppercase;">Promedio STEAM</span>
+                            <div style="font-size: 1.3rem; font-weight: 900; color: #059669;">🌟 ${promXP} XP</div>
+                        </div>
+                    </div>
+
+                    <!-- Explicación de lo que encuentras en este Cajón -->
+                    <div style="background: #F1F5F9; border-radius: 12px; padding: 12px 14px; font-size: 0.82rem; color: #334155; line-height: 1.45;">
+                        <div style="font-weight: 900; color: #0F172A; margin-bottom: 4px; display: flex; align-items: center; gap: 4px;">
+                            <span>📋</span> Contenido del Cajón:
+                        </div>
+                        <ul style="margin: 0; padding-left: 18px;">
+                            <li><strong>Planilla en vivo:</strong> Seguimiento individual de avances formativos.</li>
+                            <li><strong>Guías Resueltas:</strong> Solucionario oficial para el orientador.</li>
+                            <li><strong>Malla Curricular DBA:</strong> Estándares y matriz MEN asociada.</li>
+                            <li><strong>Evaluación Formativa:</strong> Bonificaciones (+10%) y sanciones.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Botón de Entrada Principal -->
+                    <button onclick="window.abrirCajonGrupoDocente('${grpName.replace(/'/g, "\\'")}')" style="background: ${tema.bg}; color: white; border: none; padding: 14px; border-radius: 12px; font-weight: 900; cursor: pointer; width: 100%; font-size: 1rem; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.15); transition: 0.2s;" onmouseover="this.style.filter='brightness(1.1)'" onmouseout="this.style.filter='none'">
+                        <span>📂</span> Abrir Planilla de ${grpName} <span>➔</span>
+                    </button>
+
+                </div>
+            </div>
+        `;
+    });
+    gridCont.innerHTML = htmlCajones;
 };

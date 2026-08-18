@@ -253,43 +253,21 @@
         </select>
 
         <!-- Campo Extendido de Configuración para Docente Regular -->
-        <div id="campo-docente-asignatura" style="display: none; flex-direction: column; gap: 12px; background: #F5F3FF; padding: 16px; border: 1.5px solid #DDD6FE; border-radius: 12px;">
-            <div>
-                <label style="font-size: 0.85rem; font-weight: bold; color: #5B21B6; display: flex; align-items: center; justify-content: space-between; margin-bottom: 5px;">
-                    <span>🏛️ Institución Educativa a la que Perteneces:</span>
-                </label>
-                <div style="display: flex; gap: 8px;">
-                    <select id="reg-docente-ie-select" style="flex: 1; padding: 10px; border: 1.5px solid #8B5CF6; border-radius: 8px; font-weight: bold; background-color: white; font-size: 0.9rem;">
-                        <!-- Se llena dinámicamente -->
-                    </select>
-                    <button type="button" onclick="window.abrirModalCrearIE('docente')" style="background: linear-gradient(135deg, #2563EB, #1D4ED8); color: white; border: none; padding: 8px 12px; border-radius: 8px; font-weight: bold; font-size: 0.8rem; cursor: pointer; white-space: nowrap;">
-                        ➕ Nueva IE
-                    </button>
-                </div>
+        <div id="campo-docente-asignatura" style="display: none; flex-direction: column; gap: 10px; background: #F5F3FF; padding: 16px; border: 1.5px solid #DDD6FE; border-radius: 12px;">
+            <label style="font-size: 0.88rem; font-weight: 800; color: #5B21B6; display: flex; align-items: center; justify-content: space-between; margin: 0;">
+                <span>🏛️ Institución Educativa a la que Perteneces:</span>
+            </label>
+            <div style="display: flex; gap: 8px;">
+                <select id="reg-docente-ie-select" style="flex: 1; padding: 10px; border: 1.5px solid #8B5CF6; border-radius: 8px; font-weight: bold; background-color: white; font-size: 0.9rem;">
+                    <!-- Se llena dinámicamente -->
+                </select>
+                <button type="button" onclick="window.abrirModalCrearIE('docente')" style="background: linear-gradient(135deg, #2563EB, #1D4ED8); color: white; border: none; padding: 8px 14px; border-radius: 8px; font-weight: bold; font-size: 0.82rem; cursor: pointer; white-space: nowrap;">
+                    ➕ Nueva IE
+                </button>
             </div>
-
-            <div>
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
-                    <label style="font-size: 0.85rem; font-weight: bold; color: #5B21B6; display: flex; align-items: center; gap: 4px; margin: 0;">
-                        <span>📚</span> Materias que Orientas (Selecciona una o más):
-                    </label>
-                    <button type="button" onclick="window.abrirModalCrearAsignaturaDocente('registro')" style="background: #7C3AED; color: white; border: none; padding: 4px 10px; border-radius: 6px; font-weight: 800; font-size: 0.75rem; cursor: pointer;">
-                        ➕ Crear Asignatura (IA)
-                    </button>
-                </div>
-                <div id="reg-docente-materias-pills" style="display: flex; gap: 6px; flex-wrap: wrap; max-height: 140px; overflow-y: auto; background: white; padding: 10px; border-radius: 8px; border: 1px solid #DDD6FE;">
-                    <!-- Checkboxes dinámicos inyectados por JS -->
-                </div>
-            </div>
-
-            <div>
-                <label style="font-size: 0.85rem; font-weight: bold; color: #5B21B6; display: block; margin-bottom: 6px;">
-                    <span>🎓</span> Grados o Ciclos bajo tu cargo (Selección múltiple):
-                </label>
-                <div id="reg-docente-grados-pills" style="display: flex; gap: 6px; flex-wrap: wrap; background: white; padding: 10px; border-radius: 8px; border: 1px solid #DDD6FE;">
-                    <!-- Checkboxes dinámicos inyectados por JS -->
-                </div>
-            </div>
+            <p style="margin: 0; color: #6D28D9; font-size: 0.8rem; line-height: 1.4;">
+                ℹ️ <em>Tus materias y grados a cargo los configurarás y personalizarás con total comodidad directamente desde tu Panel Docente.</em>
+            </p>
         </div>
 
         <div id="campo-codigo-institucional" style="display: none; flex-direction: column; gap: 6px; background: #EFF6FF; padding: 12px; border: 1.5px solid #93C5FD; border-radius: 8px;">
@@ -571,52 +549,68 @@
 
 <!-- DASHBOARD DOCENTE (NUEVO) -->
 <div id="docente-dashboard-container" style="display: none; height: 100vh; overflow-y: auto; background-color: #F8FAFC;">
-    <header style="background: white; border-bottom: 1px solid #E5E7EB; padding: 15px 30px; display: flex; justify-content: space-between; align-items: center;">
-        <div style="font-weight: 900; font-size: 1.4rem; color: #111827;">
-            <img src="logo-peidagogos.png" alt="Peidagogos STEAM" style="height: 55px; width: auto; object-fit: contain;">
-        </div>
-        <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
-            <button onclick="window.abrirClasePrimerosAuxiliosEmocionales('docente')" style="background: linear-gradient(135deg, #EF4444, #DC2626); color: white; border: none; padding: 8px 18px; border-radius: 8px; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 8px; font-size: 0.9rem; box-shadow: 0 4px 10px rgba(239,68,68,0.25);" title="Proyectar o trabajar la clase interactiva de contención y primeros auxilios emocionales post-sismo">
-                <span>❤️‍🩹</span> Auxilios Emocionales (Terremoto)
-            </button>
-            <button onclick="window.abrirModalCrearAsignaturaDocente('docente')" style="background: linear-gradient(135deg, #4F46E5, #7C3AED); color: white; border: none; padding: 8px 18px; border-radius: 8px; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 8px; font-size: 0.9rem; box-shadow: 0 4px 10px rgba(79,70,229,0.25);" title="Crear nueva materia y generar Malla DBA con IA/documentos">
-                <span>📚</span> Crear Asignatura (IA)
-            </button>
-            <button onclick="window.abrirCajaHerramientas('todas', 'docente')" style="background: linear-gradient(135deg, #EC4899, #BE185D); color: white; border: none; padding: 8px 18px; border-radius: 8px; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 8px; font-size: 0.9rem; box-shadow: 0 4px 10px rgba(236,72,153,0.3);">
-                <span>🧰</span> Caja de Herramientas
-            </button>
-            <button onclick="window.abrirConfiguradorDiapositivas('docente')" style="background: linear-gradient(135deg, #7C3AED, #6D28D9); color: white; border: none; padding: 8px 18px; border-radius: 8px; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 8px; font-size: 0.9rem; box-shadow: 0 4px 10px rgba(124,58,237,0.25);">
-                <span>📽️</span> Diapositivas de la Semana
-            </button>
-            <button onclick="mostrarReferidos()" style="background: linear-gradient(135deg, #EC4899, #BE185D); color: white; border: none; padding: 8px 18px; border-radius: 8px; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 8px; font-size: 0.9rem; box-shadow: 0 4px 10px rgba(236,72,153,0.25);"><span>🎁</span> Invita y Gana</button>
-            <a href="proyector-qr.html" target="_blank" style="background: linear-gradient(135deg, #2563EB, #1D4ED8); color: white; border: none; padding: 8px 18px; border-radius: 8px; font-weight: bold; text-decoration: none; display: flex; align-items: center; gap: 8px; font-size: 0.9rem; box-shadow: 0 4px 10px rgba(37,99,235,0.25);"><span>📽️</span> Proyectar QR Matrícula</a>
-            <a href="proyector.html" target="_blank" style="background: #10B981; color: white; border: none; padding: 8px 20px; border-radius: 8px; font-weight: bold; text-decoration: none; display: flex; align-items: center; gap: 8px;"><i class="ph ph-projector-screen-chart" style="font-size: 1.2rem;"></i> Modo Proyector</a>
-            <div style="background: #F3F4F6; padding: 8px 15px; border-radius: 20px; font-size: 0.9rem; font-weight: 700; color: #374151;">
-                Panel Docente: <span id="docente-nombre-header">Docente</span>
+    <header style="background: white; border-bottom: 1.5px solid #E2E8F0; padding: 14px 30px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.03);">
+        <div style="display: flex; align-items: center; gap: 14px;">
+            <img src="logo-peidagogos.png" alt="Peidagogos STEAM" style="height: 48px; width: auto; object-fit: contain;">
+            <div style="border-left: 2px solid #E2E8F0; padding-left: 14px;">
+                <div style="font-weight: 900; font-size: 1.25rem; color: #0F172A; display: flex; align-items: center; gap: 8px;">
+                    <span>👨‍🏫</span> <span id="docente-nombre-header">Docente</span>
+                </div>
+                <div id="docente-institucion-subhead" style="font-size: 0.82rem; color: #64748B; font-weight: 600;">
+                    🏛️ IE Instituto Montenegro • Sede Principal
+                </div>
             </div>
-            <button onclick="location.reload()" style="background: #EF4444; color: white; border: none; padding: 8px 20px; border-radius: 8px; font-weight: bold; cursor: pointer;">Cerrar Sesi&oacute;n</button>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+            <button onclick="window.abrirClasePrimerosAuxiliosEmocionales('docente')" style="background: linear-gradient(135deg, #EF4444, #DC2626); color: white; border: none; padding: 8px 16px; border-radius: 8px; font-weight: 800; cursor: pointer; display: flex; align-items: center; gap: 6px; font-size: 0.85rem; box-shadow: 0 3px 8px rgba(239,68,68,0.25);" title="Clase de Primeros Auxilios Emocionales post-sismo">
+                <span>❤️‍🩹</span> Auxilios Emocionales
+            </button>
+            <button onclick="mostrarReferidos()" style="background: linear-gradient(135deg, #EC4899, #BE185D); color: white; border: none; padding: 8px 16px; border-radius: 8px; font-weight: 800; cursor: pointer; display: flex; align-items: center; gap: 6px; font-size: 0.85rem; box-shadow: 0 3px 8px rgba(236,72,153,0.25);">
+                <span>🎁</span> Invita y Gana
+            </button>
+            <button onclick="location.reload()" style="background: #F1F5F9; color: #475569; border: 1px solid #CBD5E1; padding: 8px 16px; border-radius: 8px; font-weight: 800; cursor: pointer; font-size: 0.85rem;" onmouseover="this.style.background='#E2E8F0'" onmouseout="this.style.background='#F1F5F9'">
+                <span>🚪</span> Cerrar Sesión
+            </button>
         </div>
     </header>
 
-    <div style="padding: 30px 30px; max-width: 1350px; margin: 0 auto;">
+    <div style="padding: 30px 30px; max-width: 1400px; margin: 0 auto;">
         
-        <!-- Barra de Botones Rápidos Docente -->
-        <div style="display: flex; gap: 10px; align-items: center; margin-bottom: 25px; flex-wrap: wrap;">
-            <button onclick="window.abrirModalAuditorQA()" style="background: linear-gradient(135deg, #0EA5E9, #0284C7); color: white; border: none; padding: 10px 16px; border-radius: 10px; font-weight: 800; font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; gap: 6px; box-shadow: 0 4px 12px rgba(14,165,233,0.35);" title="Verifica una a una todas las funciones de la plataforma y auto-corrige">
-                <span>🩺</span> Agente Auditor QA
-            </button>
-            <button onclick="window.abrirCajaHerramientas('todas', 'docente')" style="background: linear-gradient(135deg, #EC4899, #BE185D); color: white; border: none; padding: 10px 16px; border-radius: 10px; font-weight: 800; font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; gap: 6px; box-shadow: 0 4px 12px rgba(236,72,153,0.35);" title="Abre el kit completo con las 42 herramientas y generadores de aula">
-                <span>🧰</span> Caja de Herramientas (42)
-            </button>
-            <button onclick="window.abrirConfiguradorDiapositivas('docente')" style="background: linear-gradient(135deg, #7C3AED, #6D28D9); color: white; border: none; padding: 10px 16px; border-radius: 10px; font-weight: 800; font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; gap: 6px; box-shadow: 0 4px 12px rgba(124,58,237,0.3);" title="Genera 10 diapositivas para introducir el tema de la semana">
-                <span>📽️</span> 10 Diapositivas Semanales
-            </button>
-            <a href="proyector.html" target="_blank" style="background: linear-gradient(135deg, #059669, #10B981); color: white; border: none; padding: 10px 16px; border-radius: 10px; font-weight: 800; font-size: 0.9rem; text-decoration: none; display: flex; align-items: center; gap: 6px; box-shadow: 0 4px 12px rgba(16,185,129,0.3);" title="Modo interactivo para cuando los estudiantes no tienen computadores">
-                <span>📽️</span> Modo Proyector (Sin Computadores)
-            </a>
-            <button onclick="window.abrirRankingDocenteNuevaPestana()" style="background: linear-gradient(135deg, #F59E0B, #D97706); color: white; border: none; padding: 10px 16px; border-radius: 10px; font-weight: 900; font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; gap: 6px; box-shadow: 0 4px 12px rgba(245,158,11,0.35);" title="Abre la tabla de posiciones en una pestaña nueva para VideoBeam / Smart TV">
-                <span>🏆</span> Proyectar Ránking en Pestaña Nueva
-            </button>
+        <!-- BARRA PRINCIPAL DE GESTIÓN Y HERRAMIENTAS STEAM -->
+        <div style="background: white; border: 1.5px solid #E2E8F0; border-radius: 16px; padding: 18px 22px; margin-bottom: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
+            
+            <!-- Grupo Izquierdo: Gestión Curricular y Asignaturas -->
+            <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+                <span style="font-weight: 900; font-size: 0.92rem; color: #1E293B; display: flex; align-items: center; gap: 6px;">
+                    <span>📚</span> Gestión de Materias:
+                </span>
+                <button onclick="window.abrirModalCrearAsignaturaDocente('docente')" style="background: linear-gradient(135deg, #7C3AED, #6D28D9); color: white; border: none; padding: 9px 16px; border-radius: 10px; font-weight: 800; font-size: 0.88rem; cursor: pointer; display: flex; align-items: center; gap: 6px; box-shadow: 0 4px 10px rgba(124,58,237,0.25);" title="Crear nueva materia y generar Malla Curricular DBA con IA">
+                    <span>✨</span> Crear Asignatura (IA)
+                </button>
+                <button onclick="window.abrirModalGestionMateriasGradosDocente()" style="background: linear-gradient(135deg, #2563EB, #1D4ED8); color: white; border: none; padding: 9px 16px; border-radius: 10px; font-weight: 800; font-size: 0.88rem; cursor: pointer; display: flex; align-items: center; gap: 6px; box-shadow: 0 4px 10px rgba(37,99,235,0.25);" title="Seleccionar qué materias dictas y qué grados tienes a cargo">
+                    <span>⚙️</span> Mis Materias y Grados
+                </button>
+            </div>
+
+            <!-- Grupo Derecho: Herramientas de Aula y Proyección -->
+            <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
+                <button onclick="window.abrirCajaHerramientas('todas', 'docente')" style="background: linear-gradient(135deg, #EC4899, #BE185D); color: white; border: none; padding: 9px 14px; border-radius: 10px; font-weight: 800; font-size: 0.85rem; cursor: pointer; display: flex; align-items: center; gap: 6px; box-shadow: 0 3px 8px rgba(236,72,153,0.25);" title="Caja con las 42 herramientas interactivas STEAM">
+                    <span>🧰</span> Caja STEAM (42)
+                </button>
+                <button onclick="window.abrirConfiguradorDiapositivas('docente')" style="background: #6366F1; color: white; border: none; padding: 9px 14px; border-radius: 10px; font-weight: 800; font-size: 0.85rem; cursor: pointer; display: flex; align-items: center; gap: 6px; box-shadow: 0 3px 8px rgba(99,102,241,0.25);" title="Generador de 10 Diapositivas Semanales">
+                    <span>📽️</span> Diapositivas
+                </button>
+                <a href="proyector.html" target="_blank" style="background: #10B981; color: white; border: none; padding: 9px 14px; border-radius: 10px; font-weight: 800; font-size: 0.85rem; text-decoration: none; display: flex; align-items: center; gap: 6px; box-shadow: 0 3px 8px rgba(16,185,129,0.25);" title="Modo interactivo de aula sin computadores">
+                    <span>📽️</span> Proyector
+                </a>
+                <button onclick="window.abrirRankingDocenteNuevaPestana()" style="background: #F59E0B; color: white; border: none; padding: 9px 14px; border-radius: 10px; font-weight: 900; font-size: 0.85rem; cursor: pointer; display: flex; align-items: center; gap: 6px; box-shadow: 0 3px 8px rgba(245,158,11,0.25);" title="Ránking en vivo para VideoBeam / Smart TV">
+                    <span>🏆</span> Ránking
+                </button>
+                <button onclick="window.abrirModalAuditorQA()" style="background: #0284C7; color: white; border: none; padding: 9px 14px; border-radius: 10px; font-weight: 800; font-size: 0.85rem; cursor: pointer; display: flex; align-items: center; gap: 6px;" title="Agente Auditor QA">
+                    <span>🩺</span> QA
+                </button>
+            </div>
         </div>
 
         <!-- SECCIÓN 1: VISTA PRINCIPAL DE CAJONES DE GRUPOS (Por defecto visible) -->
@@ -3053,9 +3047,9 @@
         </div>
     </div>
 
-    <script src="diagnostico_nocturno.js?v=20260818_v51"></script>
-    <script src="agente_auditor_qa.js?v=20260818_v51"></script>
-    <script src="app.js?v=20260818_v51"></script>
+    <script src="diagnostico_nocturno.js?v=20260818_v52"></script>
+    <script src="agente_auditor_qa.js?v=20260818_v52"></script>
+    <script src="app.js?v=20260818_v52"></script>
     <script>
         // --- BLINDAJE DE PROPIEDAD INTELECTUAL Y SEGURIDAD ---
         (function() {
@@ -3706,6 +3700,65 @@ function copiarCodigoReferido() {
     alert('¡Código copiado al portapapeles!');
 }
 </script>
+
+
+    <!-- MODAL DE GESTIÓN DE MATERIAS Y GRADOS DEL DOCENTE -->
+    <div id="modal-gestionar-materias-grados" style="display: none; position: fixed; inset: 0; background: rgba(15,23,42,0.7); backdrop-filter: blur(4px); z-index: 100000; justify-content: center; align-items: center; padding: 20px;">
+        <div style="background: white; width: 100%; max-width: 650px; border-radius: 20px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25); border: 1px solid #E2E8F0; overflow: hidden; display: flex; flex-direction: column; max-height: 90vh;">
+            
+            <div style="background: linear-gradient(135deg, #1E40AF, #3B82F6); padding: 20px 24px; color: white; display: flex; justify-content: space-between; align-items: center;">
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <span style="font-size: 1.6rem;">⚙️</span>
+                    <div>
+                        <h3 style="margin: 0; font-size: 1.25rem; font-weight: 900; color: white;">Configuración de Materias y Grados</h3>
+                        <p style="margin: 2px 0 0 0; font-size: 0.82rem; opacity: 0.9;">Selecciona qué asignaturas dictas y qué grupos tienes bajo tu cargo</p>
+                    </div>
+                </div>
+                <button onclick="window.cerrarModalGestionMateriasGradosDocente()" style="background: rgba(255,255,255,0.2); border: none; color: white; width: 32px; height: 32px; border-radius: 50%; cursor: pointer; font-weight: 900; font-size: 1.1rem; display: flex; align-items: center; justify-content: center;">✕</button>
+            </div>
+
+            <div style="padding: 24px; overflow-y: auto; flex: 1; display: flex; flex-direction: column; gap: 20px;">
+                
+                <!-- Sección 1: Materias Asignadas -->
+                <div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                        <label style="font-weight: 900; color: #1E293B; font-size: 0.95rem; display: flex; align-items: center; gap: 6px;">
+                            <span>📚</span> 1. Materias que Orientas:
+                        </label>
+                        <button type="button" onclick="window.abrirModalCrearAsignaturaDocente('docente'); window.cerrarModalGestionMateriasGradosDocente();" style="background: #7C3AED; color: white; border: none; padding: 4px 10px; border-radius: 6px; font-weight: 800; font-size: 0.78rem; cursor: pointer;">
+                            ➕ Inscribir Materia Nueva (IA)
+                        </button>
+                    </div>
+                    <p style="margin: 0 0 10px 0; color: #64748B; font-size: 0.82rem;">Marca las materias del catálogo que orientas en tu institución:</p>
+                    <div id="gestor-materias-pills-container" style="display: flex; gap: 8px; flex-wrap: wrap; background: #F8FAFC; padding: 12px; border-radius: 12px; border: 1px solid #E2E8F0; max-height: 160px; overflow-y: auto;">
+                        <!-- Se inyectan checkboxes dinámicos -->
+                    </div>
+                </div>
+
+                <!-- Sección 2: Grados Asignados -->
+                <div>
+                    <label style="font-weight: 900; color: #1E293B; font-size: 0.95rem; display: flex; align-items: center; gap: 6px; margin-bottom: 8px;">
+                        <span>🎓</span> 2. Grados o Ciclos a tu Cargo:
+                    </label>
+                    <p style="margin: 0 0 10px 0; color: #64748B; font-size: 0.82rem;">Marca los grados de los cuales quieres ver estudiantes y cajones en tu panel:</p>
+                    <div id="gestor-grados-pills-container" style="display: flex; gap: 8px; flex-wrap: wrap; background: #F8FAFC; padding: 12px; border-radius: 12px; border: 1px solid #E2E8F0;">
+                        <!-- Se inyectan checkboxes de grados -->
+                    </div>
+                </div>
+
+            </div>
+
+            <div style="background: #F8FAFC; border-top: 1px solid #E2E8F0; padding: 16px 24px; display: flex; justify-content: space-between; align-items: center;">
+                <button onclick="window.cerrarModalGestionMateriasGradosDocente()" style="background: transparent; color: #64748B; border: none; font-weight: 700; cursor: pointer; font-size: 0.9rem;">
+                    Cancelar
+                </button>
+                <button onclick="window.guardarConfiguracionMateriasGradosDocente()" style="background: linear-gradient(135deg, #10B981, #059669); color: white; border: none; padding: 10px 24px; border-radius: 10px; font-weight: 800; font-size: 0.95rem; cursor: pointer; box-shadow: 0 4px 12px rgba(16,185,129,0.3);">
+                    💾 Guardar y Actualizar Grupos
+                </button>
+            </div>
+
+        </div>
+    </div>
 
 </body>
 </html>
