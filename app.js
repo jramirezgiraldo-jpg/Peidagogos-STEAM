@@ -1313,6 +1313,16 @@ window.ejecutarGuardarNuevaIE = function() {
     }
 };
 
+window.abrirModalTerminosDNDA = function() {
+    const modal = document.getElementById("modal-terminos-legales-dnda");
+    if (modal) modal.style.display = "flex";
+};
+
+window.cerrarModalTerminosDNDA = function() {
+    const modal = document.getElementById("modal-terminos-legales-dnda");
+    if (modal) modal.style.display = "none";
+};
+
 // =========================================================
 // MÓDULO DE CREACIÓN DE ASIGNATURAS Y APRENDIZAJE DE DOCUMENTOS
 // =========================================================

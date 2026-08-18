@@ -160,7 +160,24 @@
     <div style="padding: 5% 10%; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
         <img src="logo-peidagogos.png" alt="Logo Peidagogos STEAM" style="max-width: 200px; height: auto; object-fit: contain; margin-bottom: 20px;">
         <h2 style="font-size: 2.2rem; font-weight: 800; color: #111827; margin: 0; line-height: 1.2;">Arquitectura del Aprendizaje</h2>
-        <p style="font-size: 1rem; color: #6B7280; margin: 10px 0 30px 0;">Plataforma dise&ntilde;ada para la era digital.</p>
+        <p style="font-size: 1rem; color: #6B7280; margin: 10px 0 20px 0;">Plataforma dise&ntilde;ada para la era digital.</p>
+        
+        <!-- Sello Oficial de Registro DNDA y Deslinde Curricular -->
+        <div style="background: white; border-radius: 12px; padding: 14px 18px; border: 1.5px solid #DBEAFE; box-shadow: 0 4px 12px rgba(37,99,235,0.06); max-width: 360px; text-align: left;">
+            <div style="display: flex; align-items: center; gap: 8px; font-weight: 800; color: #1E3A8A; font-size: 0.85rem; margin-bottom: 4px;">
+                <span style="font-size: 1.15rem;">🛡️</span> Registro Oficial DNDA • Software
+            </div>
+            <div style="font-size: 0.78rem; color: #334155; line-height: 1.35; margin-bottom: 8px;">
+                <strong>Radicado:</strong> 1-2026-000055 (Software)<br>
+                <strong>Titular:</strong> Juan Felipe Ramírez Giraldo<br>
+                <span style="color: #64748B; font-size: 0.73rem; display: block; margin-top: 3px;">
+                    *Los DBA y estándares curriculares pertenecen al MEN. Toda la ingeniería, software y desarrollo pertenecen al autor.
+                </span>
+            </div>
+            <button type="button" onclick="window.abrirModalTerminosDNDA()" style="background: #EFF6FF; border: 1px solid #93C5FD; color: #1D4ED8; padding: 5px 10px; border-radius: 6px; font-weight: 700; font-size: 0.75rem; cursor: pointer; display: flex; align-items: center; gap: 4px; width: 100%; justify-content: center;">
+                <span>⚖️</span> Términos de Uso y Deslinde Legal
+            </button>
+        </div>
     </div>
     <div style="padding: 5% 15%; display: flex; flex-direction: column; justify-content: center; background-color: #ffffff; border-left: 1px solid #e5e7eb;">
         <h2 style="font-size: 2rem; font-weight: 800; color: #111827; margin: 0;">Portal de Acceso</h2>
@@ -2700,15 +2717,82 @@
         </div>
     </div>
 
-    <script src="diagnostico_nocturno.js?v=20260818_v45"></script>
-    <script src="agente_auditor_qa.js?v=20260818_v45"></script>
-    <script src="app.js?v=20260818_v45"></script>
+    <!-- MODAL: TÉRMINOS LEGALES, LICENCIA PILOTO Y REGISTRO DNDA -->
+    <div id="modal-terminos-legales-dnda" style="display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.85); z-index: 10003; justify-content: center; align-items: center; padding: 20px; backdrop-filter: blur(6px); overflow-y: auto;">
+        <div style="background: white; border-radius: 20px; width: 100%; max-width: 750px; max-height: 90vh; overflow-y: auto; box-shadow: 0 25px 50px rgba(0,0,0,0.3); border: 1px solid #E2E8F0;">
+            <div style="background: linear-gradient(135deg, #1E3A8A, #1D4ED8); color: white; padding: 22px 30px; display: flex; justify-content: space-between; align-items: center;">
+                <div style="display: flex; align-items: center; gap: 12px;">
+                    <span style="font-size: 2rem;">⚖️</span>
+                    <div>
+                        <h3 style="margin: 0; font-size: 1.3rem; font-weight: 900;">Términos de Uso Piloto y Propiedad Intelectual</h3>
+                        <p style="margin: 2px 0 0 0; font-size: 0.82rem; color: #DBEAFE;">Registro DNDA Radicado N.° 1-2026-000055 (Software) • República de Colombia</p>
+                    </div>
+                </div>
+                <button onclick="window.cerrarModalTerminosDNDA()" style="background: rgba(255,255,255,0.2); border: none; color: white; width: 34px; height: 34px; border-radius: 50%; cursor: pointer; font-size: 1.1rem; font-weight: bold;">✕</button>
+            </div>
+            
+            <div style="padding: 28px; display: flex; flex-direction: column; gap: 18px; color: #1E293B; font-size: 0.9rem; line-height: 1.6;">
+                
+                <div style="background: #F0FDF4; border-left: 4px solid #10B981; padding: 14px 18px; border-radius: 0 10px 10px 0;">
+                    <div style="font-weight: 800; color: #065F46; font-size: 0.95rem; margin-bottom: 3px;">
+                        🏛️ Licencia de Uso Solidario Post-Emergencia Sísmica (Fase Piloto)
+                    </div>
+                    <p style="margin: 0; color: #166534; font-size: 0.87rem;">
+                        La plataforma <strong>Peidagogos STEAM</strong> se dispone de manera solidaria y gratuita para el fortalecimiento pedagógico, primeros auxilios emocionales y mediación interactiva en la comunidad educativa tras la emergencia sísmica.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 style="margin: 0 0 6px 0; color: #0F172A; font-weight: 900; font-size: 1.05rem; display: flex; align-items: center; gap: 6px;">
+                        <span>1.</span> Titularidad y Derechos de Autor del Software
+                    </h4>
+                    <p style="margin: 0; color: #334155;">
+                        Toda la <strong>ingeniería de software, código fuente, algoritmos de secuenciación curricular, arquitectura cliente-servidor, motores interactivos STEAM, generador dinámico de guías didácticas, Leaderboard en vivo, simulador de respiración y diseño de interfaz</strong> son creación y propiedad intelectual exclusiva de <strong>Juan Felipe Ramírez Giraldo</strong>, formalmente radicados ante la <strong>Dirección Nacional de Derecho de Autor (DNDA)</strong> bajo el número de radicado <strong>1-2026-000055</strong> (Categoría: Software - Fecha: 12/08/2026 03:37 PM), protegida por la Ley 23 de 1982, la Decisión Andina 351 de 1993 y convenios internacionales.
+                    </p>
+                </div>
+
+                <div style="background: #FFFBEB; border: 1px solid #FCD34D; border-radius: 12px; padding: 14px 18px;">
+                    <h4 style="margin: 0 0 6px 0; color: #92400E; font-weight: 900; font-size: 1.02rem; display: flex; align-items: center; gap: 6px;">
+                        <span>2.</span> Deslinde y Atribución de Referentes Curriculares del MEN
+                    </h4>
+                    <p style="margin: 0; color: #78350F; font-size: 0.88rem;">
+                        Se reconoce expresamente que los <strong>Derechos Básicos de Aprendizaje (DBA), Matrices Curriculares Oficiales, Estándares Básicos de Competencias (EBC) y Lineamientos Pedagógicos</strong> pertenecen al <strong>Ministerio de Educación Nacional de Colombia (MEN)</strong> y son de naturaleza pública e institucional. Asimismo, los planes de área o documentos suministrados por cada colegio o docente pertenecen a sus respectivos autores e instituciones. La plataforma opera como una herramienta tecnológica de mediación e interactividad sin atribuirse la autoría de dichos estándares oficiales.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 style="margin: 0 0 6px 0; color: #0F172A; font-weight: 900; font-size: 1.05rem; display: flex; align-items: center; gap: 6px;">
+                        <span>3.</span> Condiciones de la Licencia de Prueba y Prohibiciones
+                    </h4>
+                    <ul style="margin: 0; padding-left: 20px; color: #334155; display: flex; flex-direction: column; gap: 6px;">
+                        <li>El acceso institucional otorgado a directivos, docentes y estudiantes constituye una licencia de uso personal y académico intransferible.</li>
+                        <li>Queda expresamente prohibida la copia, reproducción no autorizada, ingeniería inversa, descompilación, extracción masiva de datos (web scraping), redistribución o explotación comercial del software sin el consentimiento expreso y por escrito del autor.</li>
+                        <li>El uso de la plataforma no transfiere ningún derecho patrimonial ni moral sobre el soporte lógico ni sobre sus algoritmos.</li>
+                    </ul>
+                </div>
+
+                <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #E2E8F0; padding-top: 15px; margin-top: 5px; flex-wrap: wrap; gap: 10px;">
+                    <div style="font-size: 0.8rem; color: #64748B;">
+                        © 2026 Juan Felipe Ramírez Giraldo • Peidagogos STEAM • DNDA 1-2026-000055
+                    </div>
+                    <button onclick="window.cerrarModalTerminosDNDA()" style="background: #2563EB; color: white; border: none; padding: 10px 22px; border-radius: 8px; font-weight: 800; cursor: pointer; box-shadow: 0 4px 10px rgba(37,99,235,0.25);">
+                        Entendido y Aceptar
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="diagnostico_nocturno.js?v=20260818_v46"></script>
+    <script src="agente_auditor_qa.js?v=20260818_v46"></script>
+    <script src="app.js?v=20260818_v46"></script>
     <script>
         // --- BLINDAJE DE PROPIEDAD INTELECTUAL Y SEGURIDAD ---
         (function() {
             // Advertencia disuasiva en consola de desarrollador
-            console.log("%c🛡️ ADVERTENCIA LEGAL DE PROPIEDAD INTELECTUAL - PEIDAGOGOS STEAM", "color: #1D4ED8; font-size: 15px; font-weight: 900;");
-            console.log("%cEl software, mallas curriculares DBA, guías didácticas, preguntas ICFES y algoritmos de esta plataforma están registrados y protegidos por leyes de Propiedad Intelectual y Derechos de Autor (Ley 23 de 1982 / DNDA). Queda expresamente prohibida la copia, reproducción, scraping, distribución o ingeniería inversa total o parcial sin autorización escrita de Peidagogos STEAM.", "font-size: 11px; color: #4B5563; line-height: 1.5;");
+            console.log("%c🛡️ AVISO LEGAL DE PROPIEDAD INTELECTUAL - PEIDAGOGOS STEAM", "color: #1D4ED8; font-size: 15px; font-weight: 900;");
+            console.log("%cSoftware registrado ante la Dirección Nacional de Derecho de Autor (DNDA) - Radicado N.° 1-2026-000055 (Software) a nombre de Juan Felipe Ramírez Giraldo. Toda la ingeniería de software, arquitectura computacional, algoritmos y motores interactivos STEAM están protegidos bajo la Ley 23 de 1982 y la Decisión Andina 351 de 1993. Los estándares DBA y matrices curriculares del MEN se reconocen como propiedad del Ministerio de Educación Nacional.", "font-size: 11px; color: #4B5563; line-height: 1.5;");
 
             // Deshabilitar clic derecho en áreas pedagógicas protegidas
             document.addEventListener('contextmenu', function(e) {
