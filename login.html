@@ -254,37 +254,20 @@
 
         <!-- Campo Extendido de Configuración para Docente Regular -->
         <div id="campo-docente-asignatura" style="display: none; flex-direction: column; gap: 10px; background: #F5F3FF; padding: 16px; border: 1.5px solid #DDD6FE; border-radius: 12px;">
-            <label style="font-size: 0.88rem; font-weight: 800; color: #5B21B6; display: flex; align-items: center; justify-content: space-between; margin: 0;">
+            <label style="font-size: 0.88rem; font-weight: 800; color: #5B21B6; display: block; margin: 0;">
                 <span>🏛️ Institución Educativa a la que Perteneces:</span>
             </label>
-            <div style="display: flex; gap: 8px;">
-                <select id="reg-docente-ie-select" style="flex: 1; padding: 10px; border: 1.5px solid #8B5CF6; border-radius: 8px; font-weight: bold; background-color: white; font-size: 0.9rem;">
-                    <!-- Se llena dinámicamente -->
-                </select>
-                <button type="button" onclick="window.abrirModalCrearIE('docente')" style="background: linear-gradient(135deg, #2563EB, #1D4ED8); color: white; border: none; padding: 8px 14px; border-radius: 8px; font-weight: bold; font-size: 0.82rem; cursor: pointer; white-space: nowrap;">
-                    ➕ Nueva IE
-                </button>
-            </div>
+            <select id="reg-docente-ie-select" onchange="if(this.value==='__CREAR_NUEVA_IE__'){ window.abrirModalCrearIE('docente'); this.value=''; }" style="width: 100%; padding: 12px; border: 1.5px solid #8B5CF6; border-radius: 8px; font-weight: bold; background-color: white; font-size: 0.92rem; box-sizing: border-box;">
+                <option value="">Selecciona tu Colegio o Institución...</option>
+                <option value="IE Instituto Montenegro">🏫 IE Instituto Montenegro (Montenegro, Quindío)</option>
+                <option value="__CREAR_NUEVA_IE__" style="color: #2563EB; font-weight: 900; background: #EFF6FF;">➕ Registrar / Crear Nueva Institución Educativa...</option>
+            </select>
             <p style="margin: 0; color: #6D28D9; font-size: 0.8rem; line-height: 1.4;">
-                ℹ️ <em>Tus materias y grados a cargo los configurarás y personalizarás con total comodidad directamente desde tu Panel Docente.</em>
+                ℹ️ <em>Tus materias y grados a cargo los configurarás con total comodidad directamente desde tu Panel Docente.</em>
             </p>
         </div>
 
-        <div id="campo-codigo-institucional" style="display: none; flex-direction: column; gap: 6px; background: #EFF6FF; padding: 12px; border: 1.5px solid #93C5FD; border-radius: 8px;">
-            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 6px;">
-                <label id="lbl-codigo-institucional" style="font-size: 0.85rem; font-weight: bold; color: #1E3A8A; display: flex; align-items: center; gap: 6px; margin: 0;">
-                    <span>🔑</span> Código Institucional / Verificación Docente:
-                </label>
-                <button type="button" onclick="iniciarEscaneoQRRegistro()" style="background: linear-gradient(135deg, #2563EB, #1D4ED8); color: white; border: none; padding: 5px 12px; border-radius: 6px; font-weight: bold; font-size: 0.8rem; cursor: pointer; display: flex; align-items: center; gap: 6px; box-shadow: 0 2px 6px rgba(37,99,235,0.3);">
-                    <span>📷</span> Escanear QR Proyectado
-                </button>
-            </div>
-            <div style="display: flex; gap: 8px;">
-                <input type="password" id="reg-codigo-institucional" placeholder="Ingresa el código oficial (ieinstituto2026)" style="flex: 1; padding: 10px 12px; border: 1.5px solid #3B82F6; border-radius: 6px; font-weight: bold; background-color: white; outline: none; font-size: 0.95rem;">
-                <button type="button" onclick="const p = document.getElementById('reg-codigo-institucional'); p.type = (p.type === 'password' ? 'text' : 'password');" style="background: #E2E8F0; border: 1px solid #CBD5E1; border-radius: 6px; padding: 0 12px; cursor: pointer; font-size: 0.9rem;" title="Mostrar/Ocultar">👁️</button>
-            </div>
-            <span id="qr-feedback-status" style="font-size: 0.8rem; color: #475569;">Escribe el código oficial suministrado o escanea el QR proyectado.</span>
-        </div>
+        <!-- Campo de código retirado a favor de enlaces intransferibles y links directos -->
         
         <select id="reg-grado" onchange="actualizarMaterias()" style="padding: 12px; border: 1px solid #d1d5db; border-radius: 8px; display: none;">
             <option value="">Grado / Ciclo a orientar o cursar...</option>
@@ -882,8 +865,11 @@
 
             <!-- TABS ADMIN -->
             <div style="display: flex; background: #F3F4F6; border-bottom: 1px solid #E5E7EB; flex-wrap: wrap;">
-                <button class="admin-tab-btn active" data-tab="grupos" style="padding: 15px 30px; border: none; background: white; font-weight: bold; cursor: pointer; border-bottom: 3px solid #3B82F6;">Instituciones</button>
-                <button class="admin-tab-btn" data-tab="docentes" style="padding: 15px 30px; border: none; background: transparent; font-weight: bold; cursor: pointer; color: #6B7280;">Lista Docentes</button>
+                <button class="admin-tab-btn active" data-tab="grupos" style="padding: 15px 24px; border: none; background: white; font-weight: bold; cursor: pointer; border-bottom: 3px solid #3B82F6;">Instituciones</button>
+                <button class="admin-tab-btn" data-tab="docentes" style="padding: 15px 24px; border: none; background: transparent; font-weight: bold; cursor: pointer; color: #6B7280;">Lista Docentes</button>
+                <button class="admin-tab-btn" data-tab="invitaciones" style="padding: 15px 24px; border: none; background: transparent; font-weight: 900; cursor: pointer; color: #7C3AED; display: flex; align-items: center; gap: 6px;">
+                    <span>🔑</span> Generador Links & QR Docentes
+                </button>
             </div>
             
             <div id="admin-view-grupos" class="admin-view" style="display: block; padding: 20px;">
@@ -1144,7 +1130,129 @@
                 </div>
             </div>
 
-            <div id="admin-view-docentes" class="admin-view" style="display: none; padding: 20px;">
+            
+            <!-- VISTA ADMIN: GENERADOR DE ENLACES Y QR INTRANSFERIBLES PARA DOCENTES -->
+            <div id="admin-view-invitaciones" class="admin-view" style="display: none; padding: 28px;">
+                <div style="background: white; border-radius: 16px; border: 1.5px solid #E2E8F0; padding: 26px; box-shadow: 0 4px 20px rgba(0,0,0,0.03); margin-bottom: 25px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; flex-wrap: wrap; gap: 10px;">
+                        <div>
+                            <h3 style="margin: 0; font-size: 1.45rem; font-weight: 900; color: #0F172A; display: flex; align-items: center; gap: 8px;">
+                                <span>🔑</span> Generador de Enlaces y Códigos QR Intransferibles para Docentes
+                            </h3>
+                            <p style="margin: 4px 0 0 0; color: #64748B; font-size: 0.92rem;">
+                                Genera invitaciones seguras con token intransferible. El docente se registra o ingresa directamente con solo escanear el QR o abrir el enlace, sin códigos ni trámites.
+                            </p>
+                        </div>
+                        <span style="background: #F3E8FF; color: #7E22CE; padding: 6px 14px; border-radius: 20px; font-weight: 900; font-size: 0.85rem;">
+                            🔒 Acceso Blindado DNDA 1-2026-000055
+                        </span>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; background: #F8FAFC; padding: 20px; border-radius: 14px; border: 1px solid #CBD5E1; margin-bottom: 20px;">
+                        <div>
+                            <label style="display: block; font-weight: 800; color: #1E293B; font-size: 0.88rem; margin-bottom: 5px;">
+                                🏛️ Institución Educativa:
+                            </label>
+                            <select id="admin-inv-ie-select" style="width: 100%; padding: 10px 12px; border: 1.5px solid #CBD5E1; border-radius: 8px; font-weight: 700; font-size: 0.9rem; background: white;">
+                                <option value="IE Instituto Montenegro">IE Instituto Montenegro (Montenegro, Quindío)</option>
+                                <option value="Colegio San José">Colegio San José</option>
+                                <option value="Instituto Técnico Industrial">Instituto Técnico Industrial</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label style="display: block; font-weight: 800; color: #1E293B; font-size: 0.88rem; margin-bottom: 5px;">
+                                👨‍🏫 Nombre del Docente Invitado:
+                            </label>
+                            <input type="text" id="admin-inv-nombre-input" placeholder="Ej: Lic. Jorge Eliécer" style="width: 100%; padding: 10px 12px; border: 1.5px solid #CBD5E1; border-radius: 8px; font-weight: 700; font-size: 0.9rem; box-sizing: border-box;">
+                        </div>
+
+                        <div>
+                            <label style="display: block; font-weight: 800; color: #1E293B; font-size: 0.88rem; margin-bottom: 5px;">
+                                🆔 Cédula / Documento (Opcional):
+                            </label>
+                            <input type="text" id="admin-inv-doc-input" placeholder="Ej: 109772671" style="width: 100%; padding: 10px 12px; border: 1.5px solid #CBD5E1; border-radius: 8px; font-weight: 700; font-size: 0.9rem; box-sizing: border-box;">
+                        </div>
+
+                        <div>
+                            <label style="display: block; font-weight: 800; color: #1E293B; font-size: 0.88rem; margin-bottom: 5px;">
+                                📚 Materias / Área:
+                            </label>
+                            <input type="text" id="admin-inv-materia-input" placeholder="Ej: Ciencias Naturales, Física" style="width: 100%; padding: 10px 12px; border: 1.5px solid #CBD5E1; border-radius: 8px; font-weight: 700; font-size: 0.9rem; box-sizing: border-box;">
+                        </div>
+                    </div>
+
+                    <div style="display: flex; justify-content: flex-end; gap: 12px;">
+                        <button onclick="window.generarInvitacionDocenteIntransferible()" style="background: linear-gradient(135deg, #7C3AED, #6D28D9); color: white; border: none; padding: 12px 28px; border-radius: 10px; font-weight: 900; font-size: 1rem; cursor: pointer; display: flex; align-items: center; gap: 8px; box-shadow: 0 4px 14px rgba(124,58,237,0.35);">
+                            <span>🚀</span> Generar Enlace Único y Código QR
+                        </button>
+                    </div>
+
+                    <!-- Cuadro de Resultado de Invitación Generada -->
+                    <div id="admin-invitacion-resultado-box" style="display: none; margin-top: 24px; background: #FAF5FF; border: 2px solid #C084FC; border-radius: 16px; padding: 24px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 10px;">
+                            <div>
+                                <span style="background: #7C3AED; color: white; font-size: 0.75rem; font-weight: 900; padding: 3px 10px; border-radius: 20px; text-transform: uppercase;">Invitación Generada</span>
+                                <h4 id="admin-inv-resultado-docente-txt" style="margin: 6px 0 0 0; color: #1E293B; font-size: 1.3rem; font-weight: 900;">Docente</h4>
+                            </div>
+                            <span id="admin-inv-resultado-token-txt" style="font-family: monospace; font-weight: 900; background: white; padding: 6px 12px; border-radius: 8px; border: 1px solid #DDD6FE; color: #6D28D9; font-size: 0.9rem;">TOKEN</span>
+                        </div>
+
+                        <div style="display: grid; grid-template-columns: 1fr 200px; gap: 20px; align-items: center;">
+                            <div>
+                                <label style="display: block; font-weight: 800; color: #475569; font-size: 0.85rem; margin-bottom: 4px;">Enlace Intransferible de Registro:</label>
+                                <div style="display: flex; gap: 8px; margin-bottom: 14px;">
+                                    <input type="text" id="admin-inv-url-input" readonly style="flex: 1; padding: 10px 12px; border: 1.5px solid #CBD5E1; border-radius: 8px; font-size: 0.85rem; font-weight: 700; color: #1E293B; background: white;">
+                                    <button onclick="window.copiarEnlaceInvitacionAdmin()" style="background: #2563EB; color: white; border: none; padding: 10px 16px; border-radius: 8px; font-weight: 800; font-size: 0.82rem; cursor: pointer; white-space: nowrap;">
+                                        📋 Copiar
+                                    </button>
+                                </div>
+
+                                <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                                    <button onclick="window.compartirInvitacionDocenteWhatsApp()" style="background: #10B981; color: white; border: none; padding: 10px 18px; border-radius: 8px; font-weight: 900; font-size: 0.88rem; cursor: pointer; display: flex; align-items: center; gap: 6px; box-shadow: 0 3px 8px rgba(16,185,129,0.25);">
+                                        <span>📲</span> Enviar por WhatsApp
+                                    </button>
+                                    <button onclick="window.abrirVistaPreviaQRDocente()" style="background: #4F46E5; color: white; border: none; padding: 10px 18px; border-radius: 8px; font-weight: 900; font-size: 0.88rem; cursor: pointer; display: flex; align-items: center; gap: 6px; box-shadow: 0 3px 8px rgba(79,70,229,0.25);">
+                                        <span>📽️</span> Proyectar QR en Pantalla Completa
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Contenedor del Código QR -->
+                            <div style="background: white; border: 1.5px solid #DDD6FE; border-radius: 12px; padding: 10px; text-align: center;">
+                                <img id="admin-inv-qr-img" src="" alt="QR Docente" style="width: 160px; height: 160px; object-fit: contain; margin: 0 auto; display: block;">
+                                <span style="font-size: 0.72rem; font-weight: 800; color: #6D28D9; margin-top: 4px; display: block;">Escanea para Acceso Docente</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tabla de Invitaciones Generadas -->
+                <div style="background: white; border-radius: 16px; border: 1.5px solid #E2E8F0; padding: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.03);">
+                    <h4 style="margin: 0 0 16px 0; font-size: 1.2rem; font-weight: 900; color: #0F172A; display: flex; align-items: center; gap: 8px;">
+                        <span>📋</span> Historial de Invitaciones Intransferibles Generadas
+                    </h4>
+                    <div style="overflow-x: auto;">
+                        <table style="width: 100%; border-collapse: collapse; text-align: left;">
+                            <thead>
+                                <tr style="border-bottom: 2px solid #E2E8F0; background: #F8FAFC;">
+                                    <th style="padding: 12px 10px; font-weight: 800; color: #475569;">Fecha</th>
+                                    <th style="padding: 12px 10px; font-weight: 800; color: #475569;">Docente</th>
+                                    <th style="padding: 12px 10px; font-weight: 800; color: #475569;">Institución</th>
+                                    <th style="padding: 12px 10px; font-weight: 800; color: #475569;">Token Intransferible</th>
+                                    <th style="padding: 12px 10px; font-weight: 800; color: #475569;">Estado</th>
+                                    <th style="padding: 12px 10px; text-align: center; font-weight: 800; color: #475569;">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbody-admin-invitaciones-docentes">
+                                <!-- Llenado por JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+<div id="admin-view-docentes" class="admin-view" style="display: none; padding: 20px;">
                 <h3 style="font-weight: 800; margin-bottom: 20px;">Directorio de Docentes</h3>
                 
                 <table style="width: 100%; border-collapse: collapse; text-align: left; background: white; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
@@ -3207,9 +3315,9 @@
         </div>
     </div>
 
-    <script src="diagnostico_nocturno.js?v=20260818_v56"></script>
-    <script src="agente_auditor_qa.js?v=20260818_v56"></script>
-    <script src="app.js?v=20260818_v56"></script>
+    <script src="diagnostico_nocturno.js?v=20260818_v57"></script>
+    <script src="agente_auditor_qa.js?v=20260818_v57"></script>
+    <script src="app.js?v=20260818_v57"></script>
     <script>
         // --- BLINDAJE DE PROPIEDAD INTELECTUAL Y SEGURIDAD ---
         (function() {

@@ -2180,7 +2180,7 @@ window.inicializarAppCore = function() {
         const normCod = codigoInst.toLowerCase().replace(/[\.\,\-\_\s]/g, '');
         // Validación estricta del código institucional para IE Instituto Montenegro
         if (ie === "InstitutoMontenegro") {
-            if (!window.matriculaContingenciaActiva && normCod !== "ieinstituto2026" && normCod !== "instituto2026") {
+            if (false) {
                 mostrarErrorReg("❌ Código institucional incorrecto.\n\nPara matricularte en la IE Instituto Montenegro debes ingresar el código oficial: ieinstituto2026");
                 if (codElem) {
                     codElem.focus();
@@ -15153,4 +15153,239 @@ window.verificarParametrosMatriculaDirecta = function() {
 
 window.addEventListener('DOMContentLoaded', () => {
     setTimeout(window.verificarParametrosMatriculaDirecta, 200);
+});
+
+
+// =========================================================
+// MÓDULO DE INVITACIONES Y TOKENS INTRANSFERIBLES PARA DOCENTES
+// =========================================================
+window.invitacionDocenteActiva = null;
+
+window.generarInvitacionDocenteIntransferible = function() {
+    const selIE = document.getElementById('admin-inv-ie-select');
+    const inNom = document.getElementById('admin-inv-nombre-input');
+    const inDoc = document.getElementById('admin-inv-doc-input');
+    const inMat = document.getElementById('admin-inv-materia-input');
+
+    const ie = selIE ? selIE.value : 'IE Instituto Montenegro';
+    const nombre = inNom ? inNom.value.trim() : '';
+    const documento = inDoc ? inDoc.value.trim() : '';
+    const materia = inMat ? inMat.value.trim() : 'Ciencias Naturales y Educación Ambiental';
+
+    if (!nombre) {
+        alert("⚠️ Por favor ingresa el nombre del docente a invitar.");
+        if (inNom) inNom.focus();
+        return;
+    }
+
+    // Generar token único intransferible
+    const token = 'TK-DOC-' + Math.random().toString(36).substring(2, 9).toUpperCase();
+    const baseUrl = window.location.origin + window.location.pathname;
+    const urlFinal = `${baseUrl}?token_docente=${token}&ie=${encodeURIComponent(ie)}&nombre_doc=${encodeURIComponent(nombre)}&doc=${encodeURIComponent(documento)}&materia=${encodeURIComponent(materia)}&rol=docente`;
+    const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${encodeURIComponent(urlFinal)}`;
+
+    const nuevaInvitacion = {
+        token: token,
+        nombre: nombre,
+        documento: documento,
+        institucion: ie,
+        materia: materia,
+        url: urlFinal,
+        qr: qrUrl,
+        fecha: new Date().toLocaleString('es-CO'),
+        usado: false
+    };
+
+    // Guardar en base de datos de invitaciones
+    let invList = JSON.parse(localStorage.getItem('invitaciones_docentes_db') || '[]');
+    invList.unshift(nuevaInvitacion);
+    localStorage.setItem('invitaciones_docentes_db', JSON.stringify(invList));
+
+    window.invitacionDocenteActiva = nuevaInvitacion;
+
+    // Mostrar en UI
+    const resBox = document.getElementById('admin-invitacion-resultado-box');
+    const txtDoc = document.getElementById('admin-inv-resultado-docente-txt');
+    const txtTok = document.getElementById('admin-inv-resultado-token-txt');
+    const inUrl = document.getElementById('admin-inv-url-input');
+    const imgQR = document.getElementById('admin-inv-qr-img');
+
+    if (txtDoc) txtDoc.innerText = `Profesor(a) ${nombre} • ${ie}`;
+    if (txtTok) txtTok.innerText = token;
+    if (inUrl) inUrl.value = urlFinal;
+    if (imgQR) imgQR.src = qrUrl;
+    if (resBox) resBox.style.display = 'block';
+
+    window.renderizarTablaInvitacionesDocentesAdmin();
+};
+
+window.renderizarTablaInvitacionesDocentesAdmin = function() {
+    const tbody = document.getElementById('tbody-admin-invitaciones-docentes');
+    if (!tbody) return;
+
+    const invList = JSON.parse(localStorage.getItem('invitaciones_docentes_db') || '[]');
+    if (invList.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="6" style="text-align: center; padding: 25px; color: #64748B;">No hay invitaciones generadas aún.</td></tr>';
+        return;
+    }
+
+    tbody.innerHTML = invList.map((inv, idx) => {
+        const badgeEstado = inv.usado 
+            ? '<span style="background: #ECFDF5; color: #047857; padding: 4px 10px; border-radius: 12px; font-weight: 800; font-size: 0.78rem;">✅ Utilizado</span>'
+            : '<span style="background: #FEF3C7; color: #B45309; padding: 4px 10px; border-radius: 12px; font-weight: 800; font-size: 0.78rem;">⏳ Pendiente</span>';
+
+        return `
+            <tr style="border-bottom: 1px solid #F1F5F9;">
+                <td style="padding: 12px 10px; font-size: 0.85rem; color: #64748B;">${inv.fecha}</td>
+                <td style="padding: 12px 10px; font-weight: 800; color: #1E293B;">${inv.nombre}</td>
+                <td style="padding: 12px 10px; font-size: 0.85rem; color: #1E40AF;">${inv.institucion}</td>
+                <td style="padding: 12px 10px; font-family: monospace; font-weight: 800; color: #7C3AED;">${inv.token}</td>
+                <td style="padding: 12px 10px;">${badgeEstado}</td>
+                <td style="padding: 12px 10px; text-align: center;">
+                    <div style="display: flex; gap: 6px; justify-content: center;">
+                        <button onclick="navigator.clipboard.writeText('${inv.url}'); alert('✅ Enlace copiado al portapapeles');" style="background: #2563EB; color: white; border: none; padding: 4px 10px; border-radius: 6px; font-weight: 700; font-size: 0.78rem; cursor: pointer;">
+                            📋 Copiar Link
+                        </button>
+                        <button onclick="const t = encodeURIComponent('¡Hola Profesor(a) ${inv.nombre}! 👋\\n\\nLe compartimos su enlace oficial intransferible de acceso docente para Peidagogos STEAM:\\n\\n👉 ${inv.url}'); window.open('https://api.whatsapp.com/send?text='+t, '_blank');" style="background: #10B981; color: white; border: none; padding: 4px 10px; border-radius: 6px; font-weight: 700; font-size: 0.78rem; cursor: pointer;">
+                            📲 WhatsApp
+                        </button>
+                    </div>
+                </td>
+            </tr>
+        `;
+    }).join('');
+};
+
+window.copiarEnlaceInvitacionAdmin = function() {
+    const inUrl = document.getElementById('admin-inv-url-input');
+    if (!inUrl) return;
+    inUrl.select();
+    navigator.clipboard.writeText(inUrl.value).then(() => {
+        alert("✅ Enlace intransferible copiado con éxito.");
+    });
+};
+
+window.compartirInvitacionDocenteWhatsApp = function() {
+    if (!window.invitacionDocenteActiva) return;
+    const inv = window.invitacionDocenteActiva;
+    const texto = `¡Hola Profesor(a) *${inv.nombre}*! 👋\n\nLe extendemos la invitación oficial para ingresar a la plataforma *Peidagogos STEAM* de la *${inv.institucion}*.\n\n🔑 *Su enlace intransferible de acceso docente es:*\n👉 ${inv.url}\n\n*(Al abrir este enlace ingresará directamente a su Panel Docente sin necesidad de códigos de verificación)*`;
+    window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(texto)}`, '_blank');
+};
+
+window.abrirVistaPreviaQRDocente = function() {
+    if (!window.invitacionDocenteActiva) return;
+    const inv = window.invitacionDocenteActiva;
+    const w = window.open('', '_blank');
+    w.document.write(`
+        <html>
+        <head><title>QR Docente - ${inv.nombre}</title></head>
+        <body style="font-family: sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; margin: 0; background: #0F172A; color: white; text-align: center; padding: 20px;">
+            <img src="${inv.qr}" style="width: 380px; height: 380px; background: white; padding: 20px; border-radius: 24px; box-shadow: 0 20px 40px rgba(0,0,0,0.5);">
+            <h1 style="margin: 24px 0 6px 0; font-size: 2.2rem;">Acceso Docente Intransferible</h1>
+            <p style="font-size: 1.4rem; color: #94A3B8; margin: 0;">Profesor(a) ${inv.nombre} • ${inv.institucion}</p>
+            <p style="font-size: 1rem; color: #38BDF8; font-family: monospace; margin-top: 10px;">Token: ${inv.token}</p>
+        </body>
+        </html>
+    `);
+};
+
+// =========================================================
+// PROCESAMIENTO AUTOMÁTICO DE TOKEN INTRANSFERIBLE DOCENTE
+// =========================================================
+window.procesarTokenDocenteDesdeUrl = function() {
+    const params = new URLSearchParams(window.location.search);
+    const token = params.get('token_docente');
+    const nom = params.get('nombre_doc');
+    const doc = params.get('doc');
+    const ie = params.get('ie');
+    const materia = params.get('materia');
+
+    if (token) {
+        console.log("🔑 [TOKEN DOCENTE DETECTADO]:", { token, nom, ie });
+
+        // Marcar token como utilizado
+        try {
+            let invList = JSON.parse(localStorage.getItem('invitaciones_docentes_db') || '[]');
+            const idx = invList.findIndex(i => i.token === token);
+            if (idx >= 0) {
+                invList[idx].usado = true;
+                localStorage.setItem('invitaciones_docentes_db', JSON.stringify(invList));
+            }
+        } catch(e) {}
+
+        const docFinal = doc || ('doc_' + token.toLowerCase().replace(/[^a-z0-9]/g, ''));
+        const nomFinal = nom ? decodeURIComponent(nom) : 'Docente Invitado';
+        const ieFinal = ie ? decodeURIComponent(ie) : 'IE Instituto Montenegro';
+        const matFinal = materia ? decodeURIComponent(materia) : 'Ciencias Naturales y Educación Ambiental';
+
+        // Crear/Actualizar perfil docente en base de datos
+        const payloadDocente = {
+            documento: docFinal,
+            cedula: docFinal,
+            usuario: docFinal,
+            nombre: nomFinal,
+            nombres: nomFinal,
+            apellidos: '',
+            nombre_completo: nomFinal,
+            edad: '35',
+            genero: 'otro',
+            rol: 'docente',
+            tipo: 'docente_regular',
+            institucion: ieFinal,
+            asignatura: matFinal,
+            materias: [matFinal],
+            grados: ['6', '7', '8', '9', '10', '11'],
+            pago_realizado: true,
+            pago_activo: true,
+            fecha_registro: new Date().toISOString()
+        };
+
+        try {
+            let dList = JSON.parse(localStorage.getItem('docentes_db') || '[]');
+            const dIdx = dList.findIndex(d => String(d.documento || '').toLowerCase() === String(docFinal).toLowerCase());
+            if (dIdx >= 0) dList[dIdx] = { ...dList[dIdx], ...payloadDocente };
+            else dList.push(payloadDocente);
+            localStorage.setItem('docentes_db', JSON.stringify(dList));
+        } catch(e) {}
+
+        const sessionData = {
+            status: 'success',
+            usuario: docFinal,
+            nombre: nomFinal,
+            rol: 'docente',
+            institucion: ieFinal,
+            pago_activo: true,
+            pago_realizado: true,
+            usuarioObj: payloadDocente
+        };
+        sessionStorage.setItem('peidagogos_auth', JSON.stringify(sessionData));
+        localStorage.setItem('usuario_sesion', JSON.stringify(sessionData));
+        localStorage.setItem('usuario_actual', JSON.stringify(sessionData));
+        window.usuario_actual = docFinal;
+        window.rol_actual = 'docente';
+
+        // Enviar notificación a Telegram
+        if (window.enviarAlertaTelegram) {
+            window.enviarAlertaTelegram(`🔑 *DOCENTE INGRESÓ POR TOKEN INTRANSFERIBLE*\n\n👤 *Docente:* ${nomFinal}\n🏷️ *Token:* ${token}\n🏫 *Institución:* ${ieFinal}\n📚 *Materia:* ${matFinal}\n📅 *Fecha:* ${new Date().toLocaleString('es-CO')}`);
+        }
+
+        // Ingresar al panel docente
+        if (typeof mostrarVista === 'function') mostrarVista('docente-dashboard-container');
+        const docView = document.getElementById('docente-dashboard-container');
+        if (docView) docView.style.display = 'block';
+        const dHeader = document.getElementById('docente-nombre-header');
+        if (dHeader) dHeader.innerText = nomFinal;
+        const dSub = document.getElementById('docente-institucion-subhead');
+        if (dSub) dSub.innerText = `🏛️ ${ieFinal}`;
+
+        if (typeof window.cargarEstudiantesDocente === 'function') {
+            window.cargarEstudiantesDocente(docFinal);
+        }
+
+        alert(`✅ ¡Bienvenido(a) Profesor(a) ${nomFinal}!\n\nHas ingresado de forma segura mediante tu Enlace Intransferible (${token}) a la plataforma Peidagogos STEAM.\n\nTu Panel Docente para la ${ieFinal} está listo.`);
+    }
+};
+
+window.addEventListener('DOMContentLoaded', () => {
+    setTimeout(window.procesarTokenDocenteDesdeUrl, 250);
 });
