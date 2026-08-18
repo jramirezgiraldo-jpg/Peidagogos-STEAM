@@ -14055,7 +14055,9 @@ window.enviarReporteFeedback = function(metodo) {
 
     if (metodo === 'whatsapp') {
         const textoWa = encodeURIComponent(`*REPORTE PEIDAGOGOS STEAM (${nuevoItem.id})*\n\n*Tipo:* ${nuevoItem.categoriaTexto}\n*Emisor:* ${nuevoItem.docente}\n*Fecha:* ${nuevoItem.fecha}\n\n*Detalle:*\n${nuevoItem.mensaje}\n\n_Enviado desde el Asistente PeidaBot_`);
-        window.open(`https://wa.me/?text=${textoWa}`, '_blank');
+        const numAdmin = window.obtenerNumeroWhatsAppAdmin ? window.obtenerNumeroWhatsAppAdmin() : '';
+        const urlWa = numAdmin ? `https://wa.me/${numAdmin}?text=${textoWa}` : `https://wa.me/?text=${textoWa}`;
+        window.open(urlWa, '_blank');
     }
 
     // Mostrar feedback en el chatbot
@@ -14200,7 +14202,9 @@ window.enviarResumenDiarioWhatsApp = function() {
                `\nDetalle: ${b.mensaje}\n\n`;
     });
 
-    window.open(`https://wa.me/?text=${encodeURIComponent(msg)}`, '_blank');
+    const numAdmin = window.obtenerNumeroWhatsAppAdmin ? window.obtenerNumeroWhatsAppAdmin() : '';
+    const urlWa = numAdmin ? `https://wa.me/${numAdmin}?text=${encodeURIComponent(msg)}` : `https://wa.me/?text=${encodeURIComponent(msg)}`;
+    window.open(urlWa, '_blank');
 };
 
 window.exportarBuzonMarkdown = function() {
@@ -14223,6 +14227,7 @@ window.exportarBuzonMarkdown = function() {
 };
 
 window.cambiarTabAdmin = function(tabName) {
+    if (window.cargarNumeroWhatsAppAdminEnUI) window.cargarNumeroWhatsAppAdminEnUI();
     document.querySelectorAll('.admin-tab-btn').forEach(btn => {
         if (btn.getAttribute('data-tab') === tabName) {
             btn.classList.add('active');
@@ -14248,3 +14253,44 @@ window.cambiarTabAdmin = function(tabName) {
         if (tabName === 'feedback') window.renderizarBuzonAdmin();
     }
 };
+
+// =========================================================
+// MÓDULO DE POLÍTICA DE DATOS PERSONALES (LEY 1581) Y WHATSAPP ADMIN
+// =========================================================
+
+window.abrirModalPoliticaDatos = function() {
+    const modal = document.getElementById("modal-politica-tratamiento-datos");
+    if (modal) modal.style.display = "flex";
+};
+
+window.cerrarModalPoliticaDatos = function() {
+    const modal = document.getElementById("modal-politica-tratamiento-datos");
+    if (modal) modal.style.display = "none";
+};
+
+window.obtenerNumeroWhatsAppAdmin = function() {
+    return localStorage.getItem('admin_whatsapp_soporte') || '';
+};
+
+window.guardarConfiguracionWhatsAppAdmin = function() {
+    const input = document.getElementById("admin-whatsapp-numero-config");
+    if (!input) return;
+    const num = input.value.replace(/[^0-9]/g, '').trim();
+    if (!num || num.length < 10) {
+        alert("Por favor ingresa un número de teléfono válido (ej: 573101234567).");
+        return;
+    }
+    const numFinal = num.startsWith('57') ? num : ('57' + num);
+    localStorage.setItem('admin_whatsapp_soporte', numFinal);
+    alert(`✅ Número de WhatsApp de Soporte configurado con éxito: +${numFinal}`);
+};
+
+window.cargarNumeroWhatsAppAdminEnUI = function() {
+    const input = document.getElementById("admin-whatsapp-numero-config");
+    if (input) {
+        input.value = window.obtenerNumeroWhatsAppAdmin();
+    }
+};
+
+// Actualizar enviarReporteFeedback para usar el número de WhatsApp configurado
+const _originalEnviarFeedback = window.enviarReporteFeedback;

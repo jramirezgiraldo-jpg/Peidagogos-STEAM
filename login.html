@@ -174,9 +174,14 @@
                     *Los DBA y estándares curriculares pertenecen al MEN. Toda la ingeniería, software y desarrollo pertenecen al autor.
                 </span>
             </div>
-            <button type="button" onclick="window.abrirModalTerminosDNDA()" style="background: #EFF6FF; border: 1px solid #93C5FD; color: #1D4ED8; padding: 5px 10px; border-radius: 6px; font-weight: 700; font-size: 0.75rem; cursor: pointer; display: flex; align-items: center; gap: 4px; width: 100%; justify-content: center;">
-                <span>⚖️</span> Términos de Uso y Deslinde Legal
-            </button>
+            <div style="display: flex; gap: 6px; margin-top: 4px;">
+                <button type="button" onclick="window.abrirModalTerminosDNDA()" style="flex: 1; background: #EFF6FF; border: 1px solid #93C5FD; color: #1D4ED8; padding: 5px 8px; border-radius: 6px; font-weight: 700; font-size: 0.73rem; cursor: pointer; display: flex; align-items: center; gap: 4px; justify-content: center;">
+                    <span>⚖️</span> Términos y DNDA
+                </button>
+                <button type="button" onclick="window.abrirModalPoliticaDatos()" style="flex: 1; background: #F0FDF4; border: 1px solid #86EFAC; color: #15803D; padding: 5px 8px; border-radius: 6px; font-weight: 700; font-size: 0.73rem; cursor: pointer; display: flex; align-items: center; gap: 4px; justify-content: center;">
+                    <span>🔒</span> Habeas Data (Ley 1581)
+                </button>
+            </div>
         </div>
     </div>
     <div style="padding: 5% 15%; display: flex; flex-direction: column; justify-content: center; background-color: #ffffff; border-left: 1px solid #e5e7eb;">
@@ -547,6 +552,17 @@
                 }
             }
         </script>
+        <!-- Casilla de Autorización de Tratamiento de Datos (Ley 1581 de 2012 / Protección a Menores) -->
+        <div style="background: #F8FAFC; border: 1.5px solid #CBD5E1; border-radius: 10px; padding: 12px 14px; margin-top: 5px; text-align: left;">
+            <label style="display: flex; align-items: flex-start; gap: 10px; cursor: pointer; font-size: 0.82rem; color: #334155; line-height: 1.35;">
+                <input type="checkbox" id="reg-check-tratamiento-datos" style="margin-top: 3px; cursor: pointer; width: 16px; height: 16px; accent-color: #2563EB;" checked>
+                <span>
+                    Autorizo el <strong>Tratamiento de Datos Personales</strong> conforme a la <strong>Ley 1581 de 2012</strong> y Decreto 1377 de 2013, con fines estrictamente formativos, pedagógicos y de atención educativa de menores de edad en el marco institucional.
+                    <a href="javascript:void(0)" onclick="window.abrirModalPoliticaDatos()" style="color: #2563EB; font-weight: 700; text-decoration: underline; display: inline-block; margin-top: 2px;">Leer Política de Privacidad y Salvaguarda de Menores</a>
+                </span>
+            </label>
+        </div>
+
         <button type="button" id="btn-submit-register" onclick="window.ejecutarRegistroEstudiante(event)" style="background-color: #10B981; color: white; padding: 14px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 10px rgba(16,185,129,0.3); font-size: 1rem; width: 100%;">Continuar con la Matrícula</button>
         <button type="button" id="btn-cancel-register" onclick="mostrarVista('login-screen-container')" style="background-color: transparent; color: #6B7280; padding: 10px; border: none; cursor: pointer; text-decoration: underline; text-align: center;">Volver al Acceso Principal</button>
         <div id="reg-feedback-msg" style="text-align: center; font-size: 0.95rem; display: none; font-weight: bold; padding: 10px; border-radius: 8px;"></div>
@@ -1022,9 +1038,14 @@
                             Monitoreo diario de anomalías, propuestas de mejora pedagógica y dificultades reportadas por los profesores.
                         </p>
                     </div>
-                    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                    <div style="display: flex; gap: 10px; flex-wrap: wrap; align-items: center;">
+                        <div style="background: #F1F5F9; border: 1px solid #CBD5E1; padding: 6px 10px; border-radius: 8px; display: flex; align-items: center; gap: 6px;">
+                            <span style="font-size: 0.8rem; font-weight: 700; color: #475569;">📱 WhatsApp Admin:</span>
+                            <input type="text" id="admin-whatsapp-numero-config" placeholder="Ej: 573101234567" style="padding: 4px 8px; border: 1px solid #94A3B8; border-radius: 4px; font-size: 0.8rem; width: 130px; font-weight: 700; color: #1E293B;">
+                            <button onclick="window.guardarConfiguracionWhatsAppAdmin()" style="background: #2563EB; color: white; border: none; padding: 4px 8px; border-radius: 4px; font-weight: 700; font-size: 0.75rem; cursor: pointer;">Guardar</button>
+                        </div>
                         <button onclick="window.enviarResumenDiarioWhatsApp()" style="background: #10B981; color: white; border: none; padding: 10px 18px; border-radius: 8px; font-weight: 800; cursor: pointer; display: flex; align-items: center; gap: 8px; box-shadow: 0 4px 10px rgba(16,185,129,0.25);">
-                            <span>📲</span> Enviar Resumen Diario a mi WhatsApp
+                            <span>📲</span> Enviar Resumen Diario a WhatsApp
                         </button>
                         <button onclick="window.exportarBuzonMarkdown()" style="background: #2563EB; color: white; border: none; padding: 10px 18px; border-radius: 8px; font-weight: 800; cursor: pointer; display: flex; align-items: center; gap: 8px; box-shadow: 0 4px 10px rgba(37,99,235,0.25);">
                             <span>📥</span> Descargar Reporte (.md)
@@ -2874,6 +2895,97 @@
         </div>
     </div>
 
+
+    <!-- MODAL: POLÍTICA DE TRATAMIENTO DE DATOS PERSONALES Y SALVAGUARDA DE MENORES (LEY 1581 DE 2012) -->
+    <div id="modal-politica-tratamiento-datos" style="display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.85); z-index: 10004; justify-content: center; align-items: center; padding: 20px; backdrop-filter: blur(6px); overflow-y: auto;">
+        <div style="background: white; border-radius: 20px; width: 100%; max-width: 780px; max-height: 90vh; overflow-y: auto; box-shadow: 0 25px 50px rgba(0,0,0,0.3); border: 1px solid #E2E8F0;">
+            <div style="background: linear-gradient(135deg, #065F46, #059669); color: white; padding: 22px 30px; display: flex; justify-content: space-between; align-items: center;">
+                <div style="display: flex; align-items: center; gap: 12px;">
+                    <span style="font-size: 2rem;">🔒</span>
+                    <div>
+                        <h3 style="margin: 0; font-size: 1.3rem; font-weight: 900;">Política de Tratamiento de Datos y Protección a Menores</h3>
+                        <p style="margin: 2px 0 0 0; font-size: 0.82rem; color: #D1FAE5;">Conforme a la Ley Estatutaria 1581 de 2012, Decreto 1377 de 2013 y Ley 1098 de 2006</p>
+                    </div>
+                </div>
+                <button onclick="window.cerrarModalPoliticaDatos()" style="background: rgba(255,255,255,0.2); border: none; color: white; width: 34px; height: 34px; border-radius: 50%; cursor: pointer; font-size: 1.1rem; font-weight: bold;">✕</button>
+            </div>
+            
+            <div style="padding: 28px; display: flex; flex-direction: column; gap: 18px; color: #1E293B; font-size: 0.9rem; line-height: 1.6;">
+                
+                <div style="background: #ECFDF5; border-left: 4px solid #10B981; padding: 14px 18px; border-radius: 0 10px 10px 0;">
+                    <div style="font-weight: 800; color: #065F46; font-size: 0.95rem; margin-bottom: 3px;">
+                        🛡️ Compromiso Institucional de Privacidad y Salvaguarda
+                    </div>
+                    <p style="margin: 0; color: #047857; font-size: 0.87rem;">
+                        La plataforma <strong>Peidagogos STEAM</strong>, desarrollada y administrada por <strong>Juan Felipe Ramírez Giraldo</strong> (DNDA Radicado 1-2026-000055), garantiza la confidencialidad, integridad y seguridad de la información personal de estudiantes, docentes y tutores, con especial protección a los derechos prevalentes de niños, niñas y adolescentes.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 style="margin: 0 0 6px 0; color: #0F172A; font-weight: 900; font-size: 1.02rem; display: flex; align-items: center; gap: 6px;">
+                        <span>1.</span> Finalidad Exclusivamente Pedagógica y Formativa
+                    </h4>
+                    <p style="margin: 0; color: #334155;">
+                        Los datos personales recopilados (nombres, grado, institución educativa, avances en mallas curriculares y respuestas a actividades didácticas) tienen como <strong>única y exclusiva finalidad</strong>:
+                    </p>
+                    <ul style="margin: 6px 0 0 0; padding-left: 20px; color: #475569; display: flex; flex-direction: column; gap: 4px;">
+                        <li>La gestión del proceso de aprendizaje, asignación de guías quincenales y evaluación formativa.</li>
+                        <li>La orientación de dinámicas de Primeros Auxilios Emocionales y bienestar escolar ante la contingencia sísmica.</li>
+                        <li>La generación de reportes pedagógicos de progreso para los docentes titulares y padres/tutores.</li>
+                    </ul>
+                </div>
+
+                <div style="background: #EFF6FF; border: 1px solid #BFDBFE; border-radius: 12px; padding: 14px 18px;">
+                    <h4 style="margin: 0 0 6px 0; color: #1E40AF; font-weight: 900; font-size: 1.02rem; display: flex; align-items: center; gap: 6px;">
+                        <span>2.</span> Protección Especial de Datos de Menores de Edad (Art. 7 Ley 1581 / Dec. 1377)
+                    </h4>
+                    <p style="margin: 0; color: #1E3A8A; font-size: 0.88rem;">
+                        En cumplimiento estricto del Artículo 7 de la Ley 1581 de 2012 y el Artículo 12 del Decreto 1377 de 2013:
+                    </p>
+                    <ul style="margin: 6px 0 0 0; padding-left: 20px; color: #1E3A8A; display: flex; flex-direction: column; gap: 4px; font-size: 0.85rem;">
+                        <li><strong>Prevalencia de Derechos:</strong> Se asegura en todo momento el respeto de los derechos fundamentales y el interés superior de los menores.</li>
+                        <li><strong>Prohibición Comercial Total:</strong> Está terminantemente prohibida la comercialización, venta, cesión publicitaria o elaboración de perfiles comerciales de los menores de edad.</li>
+                        <li><strong>No se exigen datos sensibles:</strong> La plataforma no solicita datos biométricos, médicos confidenciales ni de orientación política/religiosa.</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 style="margin: 0 0 6px 0; color: #0F172A; font-weight: 900; font-size: 1.02rem; display: flex; align-items: center; gap: 6px;">
+                        <span>3.</span> Medidas Técnicas de Salvaguarda y Seguridad (Privacy by Design)
+                    </h4>
+                    <ul style="margin: 0; padding-left: 20px; color: #334155; display: flex; flex-direction: column; gap: 5px;">
+                        <li><strong>Minimización de Datos:</strong> Solo se capturan los campos indispensables para el funcionamiento escolar.</li>
+                        <li><strong>Anonimización en Proyecciones:</strong> En el Modo Proyector y Leaderboard público no se exponen identificaciones completas ni información privada sensible.</li>
+                        <li><strong>Almacenamiento Local Seguro:</strong> La arquitectura de datos prioriza el control local (Local-First) y previene la fuga de información hacia redes publicitarias de terceros.</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 style="margin: 0 0 6px 0; color: #0F172A; font-weight: 900; font-size: 1.02rem; display: flex; align-items: center; gap: 6px;">
+                        <span>4.</span> Derechos de los Titulares y Representantes Legales (Derechos ARCO)
+                    </h4>
+                    <p style="margin: 0; color: #334155; font-size: 0.88rem;">
+                        Los estudiantes, docentes y representantes legales tienen derecho a:
+                        <strong>a)</strong> Conocer, actualizar y rectificar sus datos personales.<br>
+                        <strong>b)</strong> Solicitar prueba de la autorización otorgada.<br>
+                        <strong>c)</strong> Solicitar la supresión del dato o revocar la autorización cuando no exista un deber legal o institucional de permanencia.<br>
+                        Para ejercer estos derechos, pueden contactar directamente al Administrador Maestro mediante el canal de soporte oficial (PeidaBot o correo institucional).
+                    </p>
+                </div>
+
+                <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #E2E8F0; padding-top: 15px; margin-top: 5px; flex-wrap: wrap; gap: 10px;">
+                    <div style="font-size: 0.8rem; color: #64748B;">
+                        © 2026 Peidagogos STEAM • Responsable: Juan Felipe Ramírez Giraldo • Ley 1581 de 2012
+                    </div>
+                    <button onclick="window.cerrarModalPoliticaDatos()" style="background: #059669; color: white; border: none; padding: 10px 22px; border-radius: 8px; font-weight: 800; cursor: pointer; box-shadow: 0 4px 10px rgba(5,150,105,0.25);">
+                        Entendido y Aceptar
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
     <!-- MODAL: TÉRMINOS LEGALES, LICENCIA PILOTO Y REGISTRO DNDA -->
     <div id="modal-terminos-legales-dnda" style="display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.85); z-index: 10003; justify-content: center; align-items: center; padding: 20px; backdrop-filter: blur(6px); overflow-y: auto;">
         <div style="background: white; border-radius: 20px; width: 100%; max-width: 750px; max-height: 90vh; overflow-y: auto; box-shadow: 0 25px 50px rgba(0,0,0,0.3); border: 1px solid #E2E8F0;">
@@ -2950,9 +3062,9 @@
         </div>
     </div>
 
-    <script src="diagnostico_nocturno.js?v=20260818_v47"></script>
-    <script src="agente_auditor_qa.js?v=20260818_v47"></script>
-    <script src="app.js?v=20260818_v47"></script>
+    <script src="diagnostico_nocturno.js?v=20260818_v48"></script>
+    <script src="agente_auditor_qa.js?v=20260818_v48"></script>
+    <script src="app.js?v=20260818_v48"></script>
     <script>
         // --- BLINDAJE DE PROPIEDAD INTELECTUAL Y SEGURIDAD ---
         (function() {
