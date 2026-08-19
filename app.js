@@ -15942,3 +15942,286 @@ window.addEventListener('DOMContentLoaded', () => {
         }
     }, 500);
 });
+
+
+// =========================================================
+// MÓDULO DE ASIGNACIÓN DIRECTA DESDE TOOLBOX Y BUZÓN ESTUDIANTE
+// =========================================================
+
+window.asignarHerramientaActualAGrupo = function() {
+    if (!window.herramientaActualActiva) {
+        alert("Selecciona primero una herramienta para asignar.");
+        return;
+    }
+
+    const tool = window.herramientaActualActiva;
+    const vMat = document.getElementById('visor-select-materia');
+    const vGra = document.getElementById('visor-select-grado');
+    const vTem = document.getElementById('visor-input-tema-personalizado');
+
+    const materia = vMat ? vMat.value : 'Ciencias Naturales';
+    const grado = vGra ? vGra.value : '7';
+    const tema = vTem && vTem.value.trim() ? vTem.value.trim() : `${tool.titulo} de ${materia}`;
+
+    // Obtener grupos del docente para asignar
+    let authSes = {};
+    try { authSes = JSON.parse(sessionStorage.getItem('peidagogos_auth') || localStorage.getItem('usuario_actual') || '{}'); } catch(e) {}
+    const docKey = String(window.usuario_actual || authSes.documento || authSes.usuario || '').trim().toLowerCase();
+
+    let dList = JSON.parse(localStorage.getItem('docentes_db') || '[]');
+    let docItem = dList.find(d => String(d.documento || d.usuario || '').trim().toLowerCase() === docKey) || authSes;
+    let gruposDocente = (docItem && Array.isArray(docItem.grupos)) ? docItem.grupos.map(g => (typeof g === 'object' ? g.nombre : g)) : ['7C', '6A', '8A'];
+
+    const grupoElegido = prompt(`¿A qué grupo deseas asignar esta actividad de ${tool.titulo}?\n\nTus grupos disponibles:\n${gruposDocente.join(', ') || 'Todos'}\n\nEscribe el nombre del grupo (o presiona Aceptar para '${gruposDocente[0] || 'Todos'}'):`, gruposDocente[0] || 'Todos');
+    
+    if (grupoElegido === null) return; // Cancelado
+    const grupoFinal = grupoElegido.trim() || 'Todos';
+
+    const profesorNombre = (document.getElementById('docente-nombre-header') ? document.getElementById('docente-nombre-header').innerText : (docItem.nombre || 'Docente Orientador')).trim();
+
+    const nuevaActividad = {
+        id: 'act_' + Date.now() + '_' + Math.random().toString(36).substr(2, 6),
+        titulo: `${tool.icono} ${tool.titulo}: ${tema}`,
+        herramienta_id: tool.id,
+        herramienta_titulo: tool.titulo,
+        herramienta_icono: tool.icono,
+        materia: materia,
+        grado: grado,
+        grupo_destino: grupoFinal,
+        profesor_nombre: profesorNombre,
+        profesor_doc: docKey,
+        tema: tema,
+        xp_recompensa: 250,
+        fecha_creacion: new Date().toLocaleDateString('es-CO'),
+        completada_por: []
+    };
+
+    let localActs = JSON.parse(localStorage.getItem('actividades_asignadas_db') || '[]');
+    localActs.unshift(nuevaActividad);
+    localStorage.setItem('actividades_asignadas_db', JSON.stringify(localActs));
+
+    // Notificación Telegram a @jramirezgiraldo
+    if (window.enviarAlertaTelegram) {
+        window.enviarAlertaTelegram(`🎮 *NUEVA ACTIVIDAD ASIGNADA AL GRUPO*\n\n📚 *Materia:* ${materia}\n👥 *Grupo:* ${grupoFinal}\n👨‍🏫 *Profesor:* ${profesorNombre}\n🎯 *Actividad:* ${tool.icono} ${tool.titulo}\n📝 *Tema:* ${tema}\n🌟 *Recompensa:* +250 XP`);
+    }
+
+    alert(`✅ ¡Actividad asignada con éxito!\n\n🎮 ${tool.icono} ${tool.titulo}\n👥 Asignada a: Grupo ${grupoFinal}\n📚 Materia: ${materia}\n\nTus estudiantes ya tienen esta tarea disponible en su Buzón de Entrada.`);
+};
+
+// Cargar y Renderizar el Buzón de Actividades del Estudiante con Profesor y Materia
+window.cargarActividadesEstudiante = function() {
+    const container = document.getElementById('student-actividades-container');
+    const list = document.getElementById('student-actividades-list');
+    const badgeCount = document.getElementById('badge-actividades-pendientes-count');
+    if (!list) return;
+
+    let authSes = {};
+    try { authSes = JSON.parse(sessionStorage.getItem('peidagogos_auth') || localStorage.getItem('usuario_actual') || '{}'); } catch(e) {}
+    const docEstudiante = String(window.usuario_actual || authSes.documento || authSes.usuario || 'estudiante').trim().toLowerCase();
+    const grupoEstudiante = String(authSes.grupo || authSes.grado || '7C').trim().toLowerCase();
+    const gradoEstudiante = String(authSes.grado || '7').trim().toLowerCase();
+
+    let localActs = JSON.parse(localStorage.getItem('actividades_asignadas_db') || '[]');
+
+    // Si está vacío, generar 2 tareas de demostración iniciales
+    if (localActs.length === 0) {
+        localActs = [
+            {
+                id: 'act_demo_1',
+                titulo: '🧠 Mentefacto Pro: Leyes de la Dinámica y Newton',
+                herramienta_id: 'mentefacto_pro',
+                herramienta_titulo: 'Mentefacto Conceptual Pro',
+                herramienta_icono: '🧠',
+                materia: 'Ciencias Naturales y Física',
+                grado: '7',
+                grupo_destino: 'Todos',
+                profesor_nombre: 'Lic. Juan Felipe Ramírez Giraldo',
+                tema: 'Leyes de Newton y Fuerzas',
+                xp_recompensa: 250,
+                fecha_creacion: 'Hoy',
+                completada_por: []
+            },
+            {
+                id: 'act_demo_2',
+                titulo: '🧩 Crucigrama STEAM: Célula, Tejidos y Órganos',
+                herramienta_id: 'crucigrama',
+                herramienta_titulo: 'Crucigrama Conceptual STEAM',
+                herramienta_icono: '🧩',
+                materia: 'Ciencias Naturales',
+                grado: '7',
+                grupo_destino: 'Todos',
+                profesor_nombre: 'Lic. Juan Felipe Ramírez Giraldo',
+                tema: 'Célula Eucariota y Tejidos',
+                xp_recompensa: 250,
+                fecha_creacion: 'Hoy',
+                completada_por: []
+            }
+        ];
+        localStorage.setItem('actividades_asignadas_db', JSON.stringify(localActs));
+    }
+
+    // Filtrar tareas que corresponden a este estudiante por Grupo, Grado o si son para Todos
+    const tareasParaEstudiante = localActs.filter(a => {
+        const dest = String(a.grupo_destino || '').trim().toLowerCase();
+        return dest === 'todos' || dest === 'general' || dest === grupoEstudiante || dest === gradoEstudiante || grupoEstudiante.includes(dest);
+    });
+
+    let pendientesCount = 0;
+
+    if (tareasParaEstudiante.length === 0) {
+        list.innerHTML = `
+            <div style="grid-column: 1 / -1; background: #F8FAFC; border: 1.5px dashed #CBD5E1; border-radius: 16px; padding: 30px; text-align: center; color: #64748B;">
+                <span style="font-size: 2.5rem;">🎉</span>
+                <h4 style="margin: 8px 0 4px 0; color: #1E293B; font-weight: 800;">¡Estás al día con tus tareas!</h4>
+                <p style="margin: 0; font-size: 0.88rem;">No tienes misiones pendientes asignadas por tus profesores en este momento.</p>
+            </div>
+        `;
+        if (badgeCount) {
+            badgeCount.innerText = '0 Pendientes';
+            badgeCount.style.background = '#10B981';
+        }
+        return;
+    }
+
+    list.innerHTML = tareasParaEstudiante.map(act => {
+        const estaCompletada = (Array.isArray(act.completada_por) && act.completada_por.includes(docEstudiante)) || localStorage.getItem(`tarea_completada_${act.id}_${docEstudiante}`) === 'true';
+        if (!estaCompletada) pendientesCount++;
+
+        return `
+            <div style="background: ${estaCompletada ? '#F0FDF4' : 'white'}; border: 2px solid ${estaCompletada ? '#86EFAC' : '#E2E8F0'}; border-radius: 16px; padding: 20px; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 4px 15px rgba(0,0,0,0.04); transition: transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 8px 25px rgba(0,0,0,0.08)';" onmouseout="this.style.transform='none'; this.style.boxShadow='0 4px 15px rgba(0,0,0,0.04)';">
+                
+                <div>
+                    <!-- Badge Superior: Materia + Estado -->
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                        <span style="background: #EFF6FF; color: #1D4ED8; font-weight: 800; font-size: 0.75rem; padding: 3px 10px; border-radius: 20px; border: 1px solid #BFDBFE;">
+                            📚 ${act.materia || 'Ciencias Naturales'}
+                        </span>
+                        <span style="background: ${estaCompletada ? '#DCFCE7' : '#FEF3C7'}; color: ${estaCompletada ? '#166534' : '#92400E'}; font-weight: 900; font-size: 0.75rem; padding: 3px 10px; border-radius: 20px; border: 1px solid ${estaCompletada ? '#86EFAC' : '#FDE68A'};">
+                            ${estaCompletada ? '✅ Completada' : '⏳ Pendiente'}
+                        </span>
+                    </div>
+
+                    <!-- Título de la Tarea -->
+                    <h4 style="margin: 0 0 6px 0; font-size: 1.15rem; font-weight: 900; color: #0F172A; line-height: 1.35;">
+                        ${act.titulo || act.herramienta_titulo}
+                    </h4>
+
+                    <!-- Profesor Orientador -->
+                    <div style="font-size: 0.85rem; color: #475569; font-weight: 700; display: flex; align-items: center; gap: 6px; margin-bottom: 8px;">
+                        <span>👨‍🏫</span> Asignada por: <strong>${act.profesor_nombre || 'Docente'}</strong>
+                    </div>
+
+                    <!-- Recompensa XP -->
+                    <div style="display: inline-flex; align-items: center; gap: 6px; background: #FAF5FF; border: 1px solid #E9D5FF; color: #7E22CE; padding: 4px 10px; border-radius: 8px; font-weight: 800; font-size: 0.8rem; margin-bottom: 14px;">
+                        <span>🌟</span> Recompensa: +${act.xp_recompensa || 250} XP
+                    </div>
+                </div>
+
+                <!-- Botón de Redirección para Desarrollar la Tarea -->
+                <div>
+                    ${estaCompletada ? `
+                        <button onclick="window.abrirActividadParaEstudiante('${act.id}')" style="background: #F1F5F9; color: #475569; border: 1px solid #CBD5E1; padding: 11px; border-radius: 10px; font-weight: 800; font-size: 0.9rem; cursor: pointer; width: 100%; display: flex; align-items: center; justify-content: center; gap: 6px;">
+                            <span>🔄</span> Repasar Actividad Resuelta
+                        </button>
+                    ` : `
+                        <button onclick="window.abrirActividadParaEstudiante('${act.id}')" style="background: linear-gradient(135deg, #2563EB, #1D4ED8); color: white; border: none; padding: 12px; border-radius: 10px; font-weight: 900; font-size: 0.95rem; cursor: pointer; width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 12px rgba(37,99,235,0.3); transition: 0.2s;" onmouseover="this.style.filter='brightness(1.1)'" onmouseout="this.style.filter='none'">
+                            <span>🚀</span> Desarrollar Tarea Ahora <span>➔</span>
+                        </button>
+                    `}
+                </div>
+
+            </div>
+        `;
+    }).join('');
+
+    if (badgeCount) {
+        badgeCount.innerText = `${pendientesCount} Pendientes`;
+        badgeCount.style.background = pendientesCount > 0 ? '#EF4444' : '#10B981';
+    }
+};
+
+// Redireccionar y Abrir la Herramienta para que el Estudiante la Desarrolle
+window.abrirActividadParaEstudiante = function(actividadId) {
+    let localActs = JSON.parse(localStorage.getItem('actividades_asignadas_db') || '[]');
+    const act = localActs.find(a => a.id === actividadId);
+    if (!act) {
+        alert("Actividad no encontrada.");
+        return;
+    }
+
+    // Configurar visor de herramientas con los parámetros de la tarea asignada
+    const tool = window.LISTA_HERRAMIENTAS_PEDAGOGICAS.find(h => h.id === act.herramienta_id) || window.LISTA_HERRAMIENTAS_PEDAGOGICAS[0];
+    window.herramientaActualActiva = tool;
+
+    const base = {
+        materia: act.materia || 'Ciencias Naturales',
+        grado: act.grado || '7',
+        concepto: act.tema || 'Actividad Asignada',
+        dificultad: 'medio',
+        periodo: '3',
+        semana: '1'
+    };
+
+    const modal = document.getElementById('modal-visor-herramienta');
+    const stage = document.getElementById('herramienta-stage');
+    const icon = document.getElementById('visor-tool-icon');
+    const title = document.getElementById('visor-tool-title');
+    const subtitle = document.getElementById('visor-tool-subtitle');
+
+    if (!modal || !stage) return;
+
+    if (icon) icon.innerText = tool.icono;
+    if (title) title.innerText = `Misión de ${act.materia}: ${tool.titulo}`;
+    if (subtitle) subtitle.innerText = `👨‍🏫 Asignada por: ${act.profesor_nombre} • Tema: ${act.tema}`;
+
+    // Renderizar la herramienta
+    window.ejecutarRenderizadorHerramienta(tool.id, stage, base);
+
+    // Añadir botón de Completar Tarea y Reclamar XP en el escenario
+    const bannerCompletar = document.createElement('div');
+    bannerCompletar.style.cssText = 'background: #ECFDF5; border: 2px solid #10B981; border-radius: 14px; padding: 16px; margin-top: 15px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;';
+    bannerCompletar.innerHTML = `
+        <div>
+            <div style="font-weight: 900; color: #065F46; font-size: 1rem;">🎯 Misión en Desarrollo</div>
+            <div style="font-size: 0.85rem; color: #047857;">Al finalizar el ejercicio, haz clic en el botón para enviar tu tarea y recibir tus <strong>+250 XP</strong>.</div>
+        </div>
+        <button onclick="window.finalizarTareaEstudiante('${act.id}')" style="background: linear-gradient(135deg, #10B981, #059669); color: white; border: none; padding: 10px 22px; border-radius: 10px; font-weight: 900; font-size: 0.95rem; cursor: pointer; box-shadow: 0 4px 12px rgba(16,185,129,0.35);">
+            ✅ Enviar Tarea y Ganar +250 XP
+        </button>
+    `;
+    stage.appendChild(bannerCompletar);
+
+    modal.style.display = 'flex';
+};
+
+window.finalizarTareaEstudiante = function(actividadId) {
+    let authSes = {};
+    try { authSes = JSON.parse(sessionStorage.getItem('peidagogos_auth') || localStorage.getItem('usuario_actual') || '{}'); } catch(e) {}
+    const docEstudiante = String(window.usuario_actual || authSes.documento || authSes.usuario || 'estudiante').trim().toLowerCase();
+
+    // 1. Marcar como completada
+    localStorage.setItem(`tarea_completada_${actividadId}_${docEstudiante}`, 'true');
+
+    let localActs = JSON.parse(localStorage.getItem('actividades_asignadas_db') || '[]');
+    const idx = localActs.findIndex(a => a.id === actividadId);
+    if (idx >= 0) {
+        if (!localActs[idx].completada_por) localActs[idx].completada_por = [];
+        if (!localActs[idx].completada_por.includes(docEstudiante)) {
+            localActs[idx].completada_por.push(docEstudiante);
+        }
+        localStorage.setItem('actividades_asignadas_db', JSON.stringify(localActs));
+    }
+
+    // 2. Sumar +250 XP
+    let xpActual = parseInt(localStorage.getItem(`xp_${docEstudiante}`)) || 500;
+    xpActual += 250;
+    localStorage.setItem(`xp_${docEstudiante}`, xpActual.toString());
+
+    // Actualizar score en UI
+    const scoreElem = document.getElementById('student-score-display');
+    if (scoreElem) scoreElem.innerText = xpActual;
+
+    alert("🎉 ¡FELICITACIONES!\n\nHas completado tu tarea exitosamente y ganado +250 XP.\n\nTu profesor ya puede ver tu avance formativo en su planilla de seguimiento.");
+    window.cerrarVisorHerramienta();
+    window.cargarActividadesEstudiante();
+};
