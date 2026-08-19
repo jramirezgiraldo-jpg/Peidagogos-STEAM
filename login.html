@@ -152,6 +152,41 @@
     </style>
 
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6687777187750189" crossorigin="anonymous"></script>
+
+<style id="global-fix-scroll-modals">
+    /* Garantizar que el body y html permitan scroll */
+    html, body {
+        overflow-x: hidden !important;
+        overflow-y: auto !important;
+        height: auto !important;
+        min-height: 100vh !important;
+        -webkit-overflow-scrolling: touch !important;
+    }
+
+    /* Todos los modales fijos con scroll garantizado */
+    div[id^="modal-"], .modal-overlay, [id*="-modal"] {
+        overflow-y: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        box-sizing: border-box !important;
+    }
+
+    /* El contenido interior de los modales nunca queda atrapado sin scroll */
+    div[id^="modal-"] > div, .modal-card, .modal-content {
+        max-height: 92vh !important;
+        overflow-y: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        box-sizing: border-box !important;
+    }
+
+    /* Vistas de pantallas completas con scroll fluido */
+    [id$="-screen-container"], [id$="-dashboard-container"], [id^="screen-"] {
+        overflow-y: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        height: auto !important;
+        min-height: 100vh !important;
+    }
+</style>
+
 </head>
 <body>
     <div id="app-container">
@@ -1673,14 +1708,27 @@
                 🎓 <span id="header-student-grade">Ciclo VI</span>
             </div>
         </div>
-        <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
-            <button onclick="abrirModalPerfilEstudiante()" style="background: linear-gradient(135deg, #6366F1, #4F46E5); color: white; border: none; padding: 8px 16px; border-radius: 8px; font-weight: 800; font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; gap: 6px; box-shadow: 0 2px 8px rgba(99,102,241,0.3); transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">
+        <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+            
+            <!-- Indicador de Tiempo de Clase Activa -->
+            <div id="indicador-tiempo-clase-box" style="background: #FEF3C7; border: 1.5px solid #FDE68A; color: #92400E; padding: 6px 14px; border-radius: 12px; font-weight: 800; font-size: 0.85rem; display: flex; align-items: center; gap: 6px;" title="Tiempo de clase transcurrido">
+                <span>⏱️</span> <span id="txt-tiempo-clase-transcurrido">Clase: 00:00 / 45 min</span>
+            </div>
+
+            <!-- Botón Perfil -->
+            <button onclick="abrirModalPerfilEstudiante()" style="background: linear-gradient(135deg, #6366F1, #4F46E5); color: white; border: none; padding: 8px 14px; border-radius: 10px; font-weight: 800; font-size: 0.88rem; cursor: pointer; display: flex; align-items: center; gap: 6px; box-shadow: 0 2px 8px rgba(99,102,241,0.25); transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">
                 🎨 Mi Perfil
             </button>
-            <div style="background: linear-gradient(135deg, #10B981, #059669); padding: 8px 18px; border-radius: 20px; font-size: 1rem; font-weight: 800; color: white; box-shadow: 0 4px 6px rgba(16, 185, 129, 0.2); display: flex; align-items: center; gap: 6px;">
-                🌟 <span id="student-score-display">0</span> Puntos
+
+            <!-- Puntos XP -->
+            <div style="background: linear-gradient(135deg, #10B981, #059669); padding: 8px 16px; border-radius: 20px; font-size: 0.95rem; font-weight: 800; color: white; box-shadow: 0 4px 6px rgba(16, 185, 129, 0.2); display: flex; align-items: center; gap: 6px;">
+                🌟 <span id="student-score-display">0</span> XP
             </div>
-            <button onclick="location.reload()" style="background: #EF4444; color: white; border: none; padding: 8px 16px; border-radius: 8px; font-weight: bold; cursor: pointer; font-family: Inter, sans-serif;">Cerrar Sesión</button>
+
+            <!-- BOTÓN OFICIAL: GUARDAR PROGRESO Y FINALIZAR CLASE (CONTROL ANTI-EVASIÓN) -->
+            <button id="btn-guardar-progreso-finalizar-clase" onclick="window.intentarGuardarProgresoYFinalizarClase()" style="background: linear-gradient(135deg, #2563EB, #1D4ED8); color: white; border: none; padding: 8px 18px; border-radius: 10px; font-weight: 900; font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; gap: 6px; box-shadow: 0 3px 10px rgba(37,99,235,0.3); transition: 0.2s;">
+                <span>💾</span> Guardar Progreso & Salir
+            </button>
         </div>
     </header>
     <!-- Hero Banner -->
@@ -1993,7 +2041,7 @@
     </div>
 
     <!-- Modal de Informe Detallado -->
-    <div id="modal-informe-estudiante" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); align-items: center; justify-content: center; z-index: 1000;">
+    <div id="modal-informe-estudiante" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); align-items: center; justify-content: center; z-index: 1000;; overflow-y: auto; -webkit-overflow-scrolling: touch;">
         <div style="background: white; padding: 30px; border-radius: 12px; max-width: 800px; width: 90%; max-height: 90vh; overflow-y: auto;">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
                 <h3 id="informe-nombre-estudiante" style="font-weight: 800; font-size: 1.5rem; margin: 0; color: #111827;">Informe Detallado</h3>
@@ -2009,8 +2057,8 @@
     </div>
 
     <!-- MODAL ESCANER QR DE REGISTRO INSTITUCIONAL -->
-    <div id="modal-scanner-qr" style="display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); align-items: center; justify-content: center; z-index: 10000; padding: 20px;">
-        <div style="background: white; border-radius: 20px; max-width: 460px; width: 100%; padding: 25px; position: relative; box-shadow: 0 25px 50px rgba(0,0,0,0.3); text-align: center;">
+    <div id="modal-scanner-qr" style="display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); align-items: center; justify-content: center; z-index: 10000; padding: 20px;; overflow-y: auto; -webkit-overflow-scrolling: touch;">
+        <div style="background: white; border-radius: 20px; max-width: 460px; width: 100%; padding: 25px; position: relative; box-shadow: 0 25px 50px rgba(0,0,0,0.3); text-align: center;; overflow-y: auto !important; max-height: 90vh; -webkit-overflow-scrolling: touch;">
             <button onclick="detenerEscaneoQR()" style="position: absolute; top: 15px; right: 15px; background: #F1F5F9; border: none; font-size: 1.4rem; cursor: pointer; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #475569;">✕</button>
             <div style="width: 50px; height: 50px; background: #EFF6FF; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px auto; font-size: 1.8rem;">📷</div>
             <h3 style="margin: 0 0 6px 0; color: #1E3A8A; font-weight: 800; font-size: 1.25rem;">Escanear QR de Matrícula</h3>
@@ -2032,8 +2080,8 @@
     </div>
 
     <!-- Modal de Auto-Habilitación e Ingreso Inmediato de Estudiantes -->
-    <div id="modal-auto-habilitacion" style="display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.75); backdrop-filter: blur(6px); align-items: center; justify-content: center; z-index: 9999; padding: 20px;">
-        <div style="background: white; border-radius: 16px; padding: 32px; max-width: 480px; width: 100%; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); text-align: center; position: relative; border: 1px solid #E2E8F0;">
+    <div id="modal-auto-habilitacion" style="display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.75); backdrop-filter: blur(6px); align-items: center; justify-content: center; z-index: 9999; padding: 20px;; overflow-y: auto; -webkit-overflow-scrolling: touch;">
+        <div style="background: white; border-radius: 16px; padding: 32px; max-width: 480px; width: 100%; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); text-align: center; position: relative; border: 1px solid #E2E8F0;; overflow-y: auto !important; max-height: 90vh; -webkit-overflow-scrolling: touch;">
             <button onclick="document.getElementById('modal-auto-habilitacion').style.display='none'" style="position: absolute; top: 16px; right: 16px; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: #94A3B8; line-height: 1;">&times;</button>
             <div style="width: 60px; height: 60px; background: #EFF6FF; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px auto; font-size: 2rem; color: #2563EB;">🎓</div>
             <h3 style="font-size: 1.4rem; font-weight: 800; color: #0F172A; margin: 0 0 8px 0;">¡Bienvenido(a) a tu Aula Virtual!</h3>
@@ -2228,8 +2276,8 @@
     </div>
 
     <!-- Modal de Notificación Disciplinaria y Sanción de Puntos (Estudiante) -->
-    <div id="modal-notificacion-disciplinaria" style="display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); align-items: center; justify-content: center; z-index: 100000; padding: 20px;">
-        <div style="background: linear-gradient(180deg, #FFFFFF 0%, #FEF2F2 100%); border-radius: 24px; padding: 35px 30px; max-width: 520px; width: 100%; box-shadow: 0 25px 60px -15px rgba(220, 38, 38, 0.5), 0 0 0 2px rgba(239, 68, 68, 0.4); text-align: center; position: relative; animation: popInAlert 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);">
+    <div id="modal-notificacion-disciplinaria" style="display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); align-items: center; justify-content: center; z-index: 100000; padding: 20px;; overflow-y: auto; -webkit-overflow-scrolling: touch;">
+        <div style="background: linear-gradient(180deg, #FFFFFF 0%, #FEF2F2 100%); border-radius: 24px; padding: 35px 30px; max-width: 520px; width: 100%; box-shadow: 0 25px 60px -15px rgba(220, 38, 38, 0.5), 0 0 0 2px rgba(239, 68, 68, 0.4); text-align: center; position: relative; animation: popInAlert 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);; overflow-y: auto !important; max-height: 90vh; -webkit-overflow-scrolling: touch;">
             
             <!-- Icono animado -->
             <div style="width: 76px; height: 76px; background: linear-gradient(135deg, #FEE2E2, #FECACA); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px auto; font-size: 2.5rem; box-shadow: 0 8px 20px rgba(239,68,68,0.25); border: 2px solid #F87171;">
@@ -2279,8 +2327,8 @@
     <!-- ========================================== -->
     <!-- MODAL CONFIGURADOR DE DIAPOSITIVAS (10 SLIDES) -->
     <!-- ========================================== -->
-    <div id="modal-generar-diapositivas" style="display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); align-items: center; justify-content: center; z-index: 100000; padding: 20px;">
-        <div style="background: white; border-radius: 20px; padding: 30px; max-width: 620px; width: 100%; box-shadow: 0 25px 60px -15px rgba(0,0,0,0.35); text-align: left;">
+    <div id="modal-generar-diapositivas" style="display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); align-items: center; justify-content: center; z-index: 100000; padding: 20px;; overflow-y: auto; -webkit-overflow-scrolling: touch;">
+        <div style="background: white; border-radius: 20px; padding: 30px; max-width: 620px; width: 100%; box-shadow: 0 25px 60px -15px rgba(0,0,0,0.35); text-align: left;; overflow-y: auto !important; max-height: 90vh; -webkit-overflow-scrolling: touch;">
             <div style="display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 2px solid #F1F5F9; padding-bottom: 15px; margin-bottom: 20px;">
                 <div style="display: flex; align-items: center; gap: 12px;">
                     <div style="width: 48px; height: 48px; background: linear-gradient(135deg, #7C3AED, #6D28D9); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; color: white;">
@@ -2405,8 +2453,8 @@
     <!-- ========================================== -->
     <!-- MODAL PRINCIPAL: CAJA DE HERRAMIENTAS PEDAGÓGICAS (40 HERRAMIENTAS EN 6 CAJAS TEMÁTICAS) -->
     <!-- ========================================== -->
-    <div id="modal-caja-herramientas" style="display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.88); backdrop-filter: blur(10px); align-items: center; justify-content: center; z-index: 100000; padding: 20px;">
-        <div style="background: #F8FAFC; border-radius: 24px; padding: 26px 30px; max-width: 1200px; width: 100%; max-height: 92vh; display: flex; flex-direction: column; box-shadow: 0 25px 70px -15px rgba(0,0,0,0.5); text-align: left; overflow: hidden; border: 1px solid #CBD5E1;">
+    <div id="modal-caja-herramientas" style="display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.88); backdrop-filter: blur(10px); align-items: center; justify-content: center; z-index: 100000; padding: 20px; overflow-y: auto;">
+        <div style="background: #F8FAFC; border-radius: 24px; padding: 26px 30px; max-width: 1200px; width: 100%; max-height: 92vh; display: flex; flex-direction: column; box-shadow: 0 25px 70px -15px rgba(0,0,0,0.5); text-align: left; overflow-y: auto; -webkit-overflow-scrolling: touch; border: 1px solid #CBD5E1;">
             
             <!-- Header Modal -->
             <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #E2E8F0; padding-bottom: 15px; margin-bottom: 16px; flex-wrap: wrap; gap: 12px;">
@@ -2820,8 +2868,8 @@
     </div>
 
     <!-- MODAL AGENTE AUDITOR Y AUTO-CORRECTOR QA (EN LÍNEA / OFFLINE) -->
-    <div id="modal-auditor-qa" style="display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.85); z-index: 100005; backdrop-filter: blur(10px); justify-content: center; align-items: center; padding: 20px;">
-        <div style="background: #0F172A; border: 1px solid #334155; border-radius: 24px; width: 100%; max-width: 1050px; max-height: 90vh; display: flex; flex-direction: column; overflow: hidden; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7); color: #F8FAFC; font-family: 'Inter', sans-serif;">
+    <div id="modal-auditor-qa" style="display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.85); z-index: 100005; backdrop-filter: blur(10px); justify-content: center; align-items: center; padding: 20px;; overflow-y: auto; -webkit-overflow-scrolling: touch;">
+        <div style="background: #0F172A; border: 1px solid #334155; border-radius: 24px; width: 100%; max-width: 1050px; max-height: 90vh; display: flex; flex-direction: column;  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7); color: #F8FAFC; font-family: ; overflow-y: auto !important; max-height: 90vh; -webkit-overflow-scrolling: touch;'Inter', sans-serif;">
             
             <!-- Encabezado del Modal -->
             <div style="padding: 20px 25px; background: linear-gradient(135deg, #1E293B, #0F172A); border-bottom: 1px solid #334155; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
@@ -2946,8 +2994,8 @@
     </div>
 
     <!-- MODAL: REGISTRAR NUEVA INSTITUCIÓN EDUCATIVA -->
-    <div id="modal-crear-institucion-educativa" style="display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.8); z-index: 10001; justify-content: center; align-items: center; padding: 20px; backdrop-filter: blur(5px);">
-        <div style="background: white; border-radius: 20px; width: 100%; max-width: 540px; box-shadow: 0 25px 50px rgba(0,0,0,0.25); overflow: hidden; border: 1px solid #E2E8F0;">
+    <div id="modal-crear-institucion-educativa" style="display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.8); z-index: 10001; justify-content: center; align-items: center; padding: 20px; backdrop-filter: blur(5px);; overflow-y: auto; -webkit-overflow-scrolling: touch;">
+        <div style="background: white; border-radius: 20px; width: 100%; max-width: 540px; box-shadow: 0 25px 50px rgba(0,0,0,0.25);  border: 1px solid #E2E8F0;; overflow-y: auto !important; max-height: 90vh; -webkit-overflow-scrolling: touch;">
             <div style="background: linear-gradient(135deg, #1E3A8A, #2563EB); color: white; padding: 20px 25px; display: flex; justify-content: space-between; align-items: center;">
                 <div style="display: flex; align-items: center; gap: 10px;">
                     <span style="font-size: 1.8rem;">🏛️</span>
@@ -3315,9 +3363,9 @@
         </div>
     </div>
 
-    <script src="diagnostico_nocturno.js?v=20260818_v60"></script>
-    <script src="agente_auditor_qa.js?v=20260818_v60"></script>
-    <script src="app.js?v=20260818_v60"></script>
+    <script src="diagnostico_nocturno.js?v=20260819_v62"></script>
+    <script src="agente_auditor_qa.js?v=20260819_v62"></script>
+    <script src="app.js?v=20260819_v62"></script>
     <script>
         // --- BLINDAJE DE PROPIEDAD INTELECTUAL Y SEGURIDAD ---
         (function() {
@@ -3509,8 +3557,8 @@
     <script>mermaid.initialize({startOnLoad:true});</script>
     
     <!-- Modal Ranking Global -->
-    <div id="modal-ranking-global" style="display: none; position: fixed; inset: 0; background: rgba(17, 24, 39, 0.85); backdrop-filter: blur(10px); align-items: center; justify-content: center; z-index: 2000; padding: 20px;">
-        <div style="background: white; border-radius: 20px; max-width: 850px; width: 100%; max-height: 90vh; overflow: hidden; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); display: flex; flex-direction: column;">
+    <div id="modal-ranking-global" style="display: none; position: fixed; inset: 0; background: rgba(17, 24, 39, 0.85); backdrop-filter: blur(10px); align-items: center; justify-content: center; z-index: 2000; padding: 20px;; overflow-y: auto; -webkit-overflow-scrolling: touch;">
+        <div style="background: white; border-radius: 20px; max-width: 850px; width: 100%; max-height: 90vh;  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); display: flex; flex-direction: column;; overflow-y: auto !important; max-height: 90vh; -webkit-overflow-scrolling: touch;">
             <div style="background: linear-gradient(90deg, #1E3A8A, #3B82F6); padding: 25px 30px; display: flex; justify-content: space-between; align-items: center;">
                 <div style="display: flex; align-items: center; gap: 15px;">
                     <span style="font-size: 2.5rem;">🏆</span>
@@ -3541,7 +3589,7 @@
     </div>
 
     <!-- MODAL PASARELA DE PAGO SEGURA -->
-    <div id="modal-pasarela-pago" style="display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(8px); align-items: center; justify-content: center; z-index: 3000; padding: 20px;">
+    <div id="modal-pasarela-pago" style="display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(8px); align-items: center; justify-content: center; z-index: 3000; padding: 20px;; overflow-y: auto; -webkit-overflow-scrolling: touch;">
         <div style="background: white; border-radius: 20px; max-width: 580px; width: 100%; max-height: 95vh; overflow-y: auto; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); border: 1px solid #E2E8F0;">
             
             <!-- Header Pasarela -->
@@ -3665,7 +3713,7 @@
     </div>
 
     <!-- Modal Personalización de Perfil de Estudiante -->
-    <div id="modal-perfil-estudiante" style="display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.75); backdrop-filter: blur(8px); align-items: center; justify-content: center; z-index: 2500; padding: 20px;">
+    <div id="modal-perfil-estudiante" style="display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.75); backdrop-filter: blur(8px); align-items: center; justify-content: center; z-index: 2500; padding: 20px;; overflow-y: auto; -webkit-overflow-scrolling: touch;">
         <div style="background: white; border-radius: 20px; max-width: 550px; width: 100%; max-height: 90vh; overflow-y: auto; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4); border: 1px solid #E2E8F0;">
             <!-- Header Modal -->
             <div style="background: linear-gradient(135deg, #1E3A8A, #3B82F6); padding: 20px 25px; color: white; display: flex; justify-content: space-between; align-items: center; border-radius: 20px 20px 0 0;">
@@ -3751,7 +3799,7 @@
     </div>
 
     <!-- Modal para que el Docente Aplique Penalización (-10% XP) -->
-    <div id="modal-penalizacion-estudiante" style="display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(8px); align-items: center; justify-content: center; z-index: 2600; padding: 20px;">
+    <div id="modal-penalizacion-estudiante" style="display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(8px); align-items: center; justify-content: center; z-index: 2600; padding: 20px;; overflow-y: auto; -webkit-overflow-scrolling: touch;">
         <div style="background: white; border-radius: 20px; max-width: 560px; width: 100%; max-height: 90vh; overflow-y: auto; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); border: 1px solid #E2E8F0;">
             <!-- Header Modal -->
             <div style="background: linear-gradient(135deg, #DC2626, #EF4444); padding: 20px 25px; color: white; display: flex; justify-content: space-between; align-items: center; border-radius: 20px 20px 0 0;">
@@ -3822,7 +3870,7 @@
     </div>
 
     <!-- Modal para Otorgar Bonificación (+10% XP) -->
-    <div id="modal-bonificacion-estudiante" style="display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(8px); align-items: center; justify-content: center; z-index: 2650; padding: 20px;">
+    <div id="modal-bonificacion-estudiante" style="display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(8px); align-items: center; justify-content: center; z-index: 2650; padding: 20px;; overflow-y: auto; -webkit-overflow-scrolling: touch;">
         <div style="background: white; border-radius: 20px; max-width: 560px; width: 100%; max-height: 90vh; overflow-y: auto; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); border: 1px solid #E2E8F0;">
             <div style="background: linear-gradient(135deg, #059669, #10B981); padding: 20px 25px; color: white; display: flex; justify-content: space-between; align-items: center; border-radius: 20px 20px 0 0;">
                 <div style="display: flex; align-items: center; gap: 12px;">
@@ -3938,8 +3986,8 @@
     </div>
 
 <!-- MODAL REFERIDOS -->
-<div id="modal-referidos" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 9999; justify-content: center; align-items: center; padding: 20px;">
-    <div style="background: white; border-radius: 16px; padding: 30px; max-width: 450px; width: 100%; text-align: center; position: relative;">
+<div id="modal-referidos" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 9999; justify-content: center; align-items: center; padding: 20px;; overflow-y: auto; -webkit-overflow-scrolling: touch;">
+    <div style="background: white; border-radius: 16px; padding: 30px; max-width: 450px; width: 100%; text-align: center; position: relative;; overflow-y: auto !important; max-height: 90vh; -webkit-overflow-scrolling: touch;">
         <button onclick="cerrarReferidos()" style="position: absolute; top: 15px; right: 15px; background: transparent; border: none; font-size: 1.5rem; cursor: pointer; color: #6B7280;">&times;</button>
         <div style="font-size: 3rem; margin-bottom: 10px;">🎁</div>
         <h2 style="font-weight: 900; color: #111827; margin-bottom: 10px;">¡Invita y Gana!</h2>
@@ -3971,8 +4019,8 @@ function copiarCodigoReferido() {
 
 
     <!-- MODAL DE GESTIÓN DE MATERIAS Y GRADOS DEL DOCENTE -->
-    <div id="modal-gestionar-materias-grados" style="display: none; position: fixed; inset: 0; background: rgba(15,23,42,0.7); backdrop-filter: blur(4px); z-index: 100000; justify-content: center; align-items: center; padding: 20px;">
-        <div style="background: white; width: 100%; max-width: 650px; border-radius: 20px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25); border: 1px solid #E2E8F0; overflow: hidden; display: flex; flex-direction: column; max-height: 90vh;">
+    <div id="modal-gestionar-materias-grados" style="display: none; position: fixed; inset: 0; background: rgba(15,23,42,0.7); backdrop-filter: blur(4px); z-index: 100000; justify-content: center; align-items: center; padding: 20px;; overflow-y: auto; -webkit-overflow-scrolling: touch;">
+        <div style="background: white; width: 100%; max-width: 650px; border-radius: 20px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25); border: 1px solid #E2E8F0;  display: flex; flex-direction: column; max-height: 90vh;; overflow-y: auto !important; max-height: 90vh; -webkit-overflow-scrolling: touch;">
             
             <div style="background: linear-gradient(135deg, #1E40AF, #3B82F6); padding: 20px 24px; color: white; display: flex; justify-content: space-between; align-items: center;">
                 <div style="display: flex; align-items: center; gap: 10px;">
@@ -4030,8 +4078,8 @@ function copiarCodigoReferido() {
 
 
     <!-- MODAL PARA CREAR NUEVO GRUPO Y GENERAR ENLACE DE CONTINGENCIA REDES -->
-    <div id="modal-crear-grupo-docente" style="display: none; position: fixed; inset: 0; background: rgba(15,23,42,0.75); backdrop-filter: blur(4px); z-index: 100000; justify-content: center; align-items: center; padding: 20px;">
-        <div style="background: white; width: 100%; max-width: 580px; border-radius: 20px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25); border: 1px solid #E2E8F0; overflow: hidden; display: flex; flex-direction: column;">
+    <div id="modal-crear-grupo-docente" style="display: none; position: fixed; inset: 0; background: rgba(15,23,42,0.75); backdrop-filter: blur(4px); z-index: 100000; justify-content: center; align-items: center; padding: 20px;; overflow-y: auto; -webkit-overflow-scrolling: touch;">
+        <div style="background: white; width: 100%; max-width: 580px; border-radius: 20px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25); border: 1px solid #E2E8F0;  display: flex; flex-direction: column;; overflow-y: auto !important; max-height: 90vh; -webkit-overflow-scrolling: touch;">
             
             <div style="background: linear-gradient(135deg, #059669, #10B981); padding: 22px 26px; color: white; display: flex; justify-content: space-between; align-items: center;">
                 <div style="display: flex; align-items: center; gap: 12px;">
@@ -4119,8 +4167,8 @@ function copiarCodigoReferido() {
     </div>
 
     <!-- MODAL DE ENLACE DE CONTINGENCIA GENERADO PARA COMPARTIR -->
-    <div id="modal-link-contingencia-grupo" style="display: none; position: fixed; inset: 0; background: rgba(15,23,42,0.8); backdrop-filter: blur(6px); z-index: 100001; justify-content: center; align-items: center; padding: 20px;">
-        <div style="background: white; width: 100%; max-width: 640px; border-radius: 24px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.3); border: 1.5px solid #E2E8F0; overflow: hidden; display: flex; flex-direction: column;">
+    <div id="modal-link-contingencia-grupo" style="display: none; position: fixed; inset: 0; background: rgba(15,23,42,0.8); backdrop-filter: blur(6px); z-index: 100001; justify-content: center; align-items: center; padding: 20px;; overflow-y: auto; -webkit-overflow-scrolling: touch;">
+        <div style="background: white; width: 100%; max-width: 640px; border-radius: 24px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.3); border: 1.5px solid #E2E8F0;  display: flex; flex-direction: column;; overflow-y: auto !important; max-height: 90vh; -webkit-overflow-scrolling: touch;">
             
             <div style="background: linear-gradient(135deg, #1E40AF, #3B82F6); padding: 22px 28px; color: white; display: flex; justify-content: space-between; align-items: center;">
                 <div style="display: flex; align-items: center; gap: 14px;">
@@ -4194,8 +4242,8 @@ function copiarCodigoReferido() {
 
 
     <!-- MODAL PARA ASIGNAR EQUIPO DOCENTE DEL GRUPO (DIRECTOR DE GRUPO) -->
-    <div id="modal-asignar-docentes-grupo" style="display: none; position: fixed; inset: 0; background: rgba(15,23,42,0.8); backdrop-filter: blur(6px); z-index: 100002; justify-content: center; align-items: center; padding: 20px;">
-        <div style="background: white; width: 100%; max-width: 720px; border-radius: 24px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.3); border: 1.5px solid #E2E8F0; overflow: hidden; display: flex; flex-direction: column; max-height: 90vh;">
+    <div id="modal-asignar-docentes-grupo" style="display: none; position: fixed; inset: 0; background: rgba(15,23,42,0.8); backdrop-filter: blur(6px); z-index: 100002; justify-content: center; align-items: center; padding: 20px;; overflow-y: auto; -webkit-overflow-scrolling: touch;">
+        <div style="background: white; width: 100%; max-width: 720px; border-radius: 24px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.3); border: 1.5px solid #E2E8F0;  display: flex; flex-direction: column; max-height: 90vh;; overflow-y: auto !important; max-height: 90vh; -webkit-overflow-scrolling: touch;">
             
             <div style="background: linear-gradient(135deg, #4338CA, #6366F1); padding: 22px 28px; color: white; display: flex; justify-content: space-between; align-items: center;">
                 <div style="display: flex; align-items: center; gap: 14px;">
@@ -4238,6 +4286,33 @@ function copiarCodigoReferido() {
                 <button onclick="window.guardarEquipoDocenteGrupo()" style="background: linear-gradient(135deg, #4338CA, #6366F1); color: white; border: none; padding: 12px 28px; border-radius: 12px; font-weight: 900; font-size: 0.95rem; cursor: pointer; box-shadow: 0 4px 14px rgba(67,56,202,0.35);">
                     💾 Guardar y Asignar Profesores
                 </button>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- MODAL DE CONTROL ANTI-EVASIÓN Y GUARDADO SEGURO DE FIN DE CLASE -->
+    <div id="modal-control-fin-clase" style="display: none; position: fixed; inset: 0; background: rgba(15,23,42,0.85); backdrop-filter: blur(8px); z-index: 100003; justify-content: center; align-items: center; padding: 20px;">
+        <div style="background: white; width: 100%; max-width: 540px; border-radius: 24px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.35); border: 1.5px solid #CBD5E1; overflow: hidden; display: flex; flex-direction: column;">
+            
+            <div id="modal-fin-clase-header" style="background: linear-gradient(135deg, #2563EB, #1D4ED8); padding: 22px 26px; color: white; display: flex; justify-content: space-between; align-items: center;">
+                <div style="display: flex; align-items: center; gap: 12px;">
+                    <span id="modal-fin-clase-icon" style="font-size: 2rem;">💾</span>
+                    <div>
+                        <h3 id="modal-fin-clase-titulo" style="margin: 0; font-size: 1.35rem; font-weight: 900; color: white;">Guardar Progreso & Fin de Clase</h3>
+                        <p id="modal-fin-clase-subtitulo" style="margin: 2px 0 0 0; font-size: 0.85rem; opacity: 0.95;">Control Académico y Salida Segura</p>
+                    </div>
+                </div>
+                <button onclick="document.getElementById('modal-control-fin-clase').style.display='none'" style="background: rgba(255,255,255,0.25); border: none; color: white; width: 34px; height: 34px; border-radius: 50%; cursor: pointer; font-weight: 900; font-size: 1.1rem; display: flex; align-items: center; justify-content: center;">✕</button>
+            </div>
+
+            <div id="modal-fin-clase-cuerpo" style="padding: 26px; display: flex; flex-direction: column; gap: 16px;">
+                <!-- Se llena dinámicamente según si la clase finalizó o sigue en curso -->
+            </div>
+
+            <div id="modal-fin-clase-footer" style="background: #F8FAFC; border-top: 1px solid #E2E8F0; padding: 16px 26px; display: flex; justify-content: space-between; align-items: center;">
+                <!-- Botones inyectados dinámicamente -->
             </div>
 
         </div>

@@ -248,6 +248,7 @@ window.ejecutarPenalizacionEstudiante = function() {
     window.cerrarModalPenalizacion();
 
     // Recargar tabla docente
+    if (typeof window.iniciarControlTiempoClaseEstudiante === 'function') { window.iniciarControlTiempoClaseEstudiante(); }
     if (typeof window.cargarEstudiantesDocente === 'function') {
         window.cargarEstudiantesDocente(window.usuario_actual || 'docente');
     }
@@ -15754,3 +15755,190 @@ window.guardarEquipoDocenteGrupo = function() {
         window.cargarEstudiantesDocente(window.usuario_actual || 'docente');
     }
 };
+
+
+// =========================================================
+// MÓDULO DE CONTROL DE TIEMPO DE CLASE Y GUARDADO ANTI-EVASIÓN
+// =========================================================
+window.DURACION_MINIMA_CLASE_MINUTOS = 45; // 45 minutos reglamentarios de clase
+window.timerClaseInterval = null;
+
+window.iniciarControlTiempoClaseEstudiante = function() {
+    if (!sessionStorage.getItem('hora_inicio_clase_steam')) {
+        sessionStorage.setItem('hora_inicio_clase_steam', Date.now().toString());
+    }
+
+    if (window.timerClaseInterval) clearInterval(window.timerClaseInterval);
+
+    window.timerClaseInterval = setInterval(() => {
+        const inicioStr = sessionStorage.getItem('hora_inicio_clase_steam');
+        if (!inicioStr) return;
+
+        const inicio = parseInt(inicioStr);
+        const ahora = Date.now();
+        const transcurridoSeg = Math.floor((ahora - inicio) / 1000);
+        const minutos = Math.floor(transcurridoSeg / 60);
+        const segundos = transcurridoSeg % 60;
+
+        const pad = (n) => n.toString().padStart(2, '0');
+        const txtElem = document.getElementById('txt-tiempo-clase-transcurrido');
+        const boxElem = document.getElementById('indicador-tiempo-clase-box');
+        const btnGuardar = document.getElementById('btn-guardar-progreso-finalizar-clase');
+
+        if (txtElem) {
+            txtElem.innerText = `Clase: ${pad(minutos)}:${pad(segundos)} / ${window.DURACION_MINIMA_CLASE_MINUTOS} min`;
+        }
+
+        // Si ya pasaron los 45 minutos (o fue desbloqueado por docente)
+        if (minutos >= window.DURACION_MINIMA_CLASE_MINUTOS || sessionStorage.getItem('clase_desbloqueada_docente') === 'true') {
+            if (boxElem) {
+                boxElem.style.background = '#ECFDF5';
+                boxElem.style.borderColor = '#86EFAC';
+                boxElem.style.color = '#065F46';
+                txtElem.innerText = `✅ Fin de Clase (${pad(minutos)}:${pad(segundos)})`;
+            }
+            if (btnGuardar) {
+                btnGuardar.style.background = 'linear-gradient(135deg, #10B981, #059669)';
+                btnGuardar.style.boxShadow = '0 0 15px rgba(16, 185, 129, 0.6)';
+                btnGuardar.innerHTML = '<span>✨</span> Guardar Progreso & Salir';
+            }
+        }
+    }, 1000);
+};
+
+// Intentar Guardar Progreso & Salir
+window.intentarGuardarProgresoYFinalizarClase = function() {
+    const inicioStr = sessionStorage.getItem('hora_inicio_clase_steam');
+    const inicio = inicioStr ? parseInt(inicioStr) : Date.now();
+    const minutosTranscurridos = Math.floor((Date.now() - inicio) / 60000);
+    const esFinDeClase = minutosTranscurridos >= window.DURACION_MINIMA_CLASE_MINUTOS || sessionStorage.getItem('clase_desbloqueada_docente') === 'true';
+
+    const modal = document.getElementById('modal-control-fin-clase');
+    const mHead = document.getElementById('modal-fin-clase-header');
+    const mIcon = document.getElementById('modal-fin-clase-icon');
+    const mTit = document.getElementById('modal-fin-clase-titulo');
+    const mSub = document.getElementById('modal-fin-clase-subtitulo');
+    const mBody = document.getElementById('modal-fin-clase-cuerpo');
+    const mFoot = document.getElementById('modal-fin-clase-footer');
+
+    if (!modal || !mBody) return;
+
+    let authSes = {};
+    try { authSes = JSON.parse(sessionStorage.getItem('peidagogos_auth') || localStorage.getItem('usuario_actual') || '{}'); } catch(e) {}
+    const docClean = authSes.documento || authSes.usuario || 'estudiante';
+    const xpActual = parseInt(localStorage.getItem(`xp_${docClean}`)) || 500;
+
+    if (!esFinDeClase) {
+        // CASO BLOQUEO ANTI-EVASIÓN: Clase aún en curso
+        mHead.style.background = 'linear-gradient(135deg, #D97706, #B45309)';
+        mIcon.innerText = '⏳';
+        mTit.innerText = 'Clase en Curso (Control Anti-Evasión)';
+        mSub.innerText = 'No es posible cerrar sesión antes de finalizar la hora';
+
+        const faltanMin = window.DURACION_MINIMA_CLASE_MINUTOS - minutosTranscurridos;
+
+        mBody.innerHTML = `
+            <div style="background: #FFFBEB; border: 1.5px solid #FCD34D; border-radius: 16px; padding: 18px; color: #78350F; font-size: 0.92rem; line-height: 1.5;">
+                <div style="font-weight: 900; font-size: 1.1rem; color: #92400E; margin-bottom: 6px; display: flex; align-items: center; gap: 8px;">
+                    <span>🛡️</span> Regla Académica STEAM:
+                </div>
+                Tu hora académica continúa activa (<strong>${minutosTranscurridos} minutos</strong> transcurridos). Faltan aproximadamente <strong>${faltanMin} minutos</strong> para terminar la jornada de hoy.
+                <div style="margin-top: 10px; padding: 10px; background: white; border-radius: 10px; font-weight: 800; color: #B45309;">
+                    ⚠️ Cerrar la sesión a mitad de clase para evadir evaluaciones o retos se considera falta de presencia y no guarda bonificaciones.
+                </div>
+            </div>
+
+            <div style="background: #F8FAFC; border: 1.5px solid #CBD5E1; border-radius: 14px; padding: 14px; text-align: center;">
+                <span style="font-size: 0.85rem; color: #64748B; font-weight: 700;">Tu puntaje acumulado actual:</span>
+                <div style="font-size: 1.5rem; font-weight: 900; color: #10B981; margin-top: 2px;">🌟 ${xpActual} XP</div>
+            </div>
+        `;
+
+        mFoot.innerHTML = `
+            <button onclick="window.solicitarAutorizacionDocenteFinClase()" style="background: #F1F5F9; border: 1px solid #CBD5E1; color: #475569; padding: 10px 16px; border-radius: 10px; font-weight: 800; font-size: 0.85rem; cursor: pointer;">
+                👨‍🏫 Autorización Docente
+            </button>
+            <button onclick="document.getElementById('modal-control-fin-clase').style.display='none'" style="background: linear-gradient(135deg, #2563EB, #1D4ED8); color: white; border: none; padding: 10px 22px; border-radius: 10px; font-weight: 900; font-size: 0.95rem; cursor: pointer;">
+                🚀 Continuar en Clase
+            </button>
+        `;
+
+    } else {
+        // CASO ÉXITO: Fin de clase alcanzado
+        mHead.style.background = 'linear-gradient(135deg, #059669, #10B981)';
+        mIcon.innerText = '🎉';
+        mTit.innerText = '¡Jornada de Clase Completada!';
+        mSub.innerText = 'Tu progreso quedará salvaguardado sin penalizaciones';
+
+        mBody.innerHTML = `
+            <div style="background: #ECFDF5; border: 1.5px solid #86EFAC; border-radius: 16px; padding: 20px; color: #065F46; font-size: 0.95rem; line-height: 1.5; text-align: center;">
+                <div style="font-size: 2.2rem; margin-bottom: 6px;">🏆</div>
+                <div style="font-weight: 900; font-size: 1.25rem; color: #047857; margin-bottom: 4px;">
+                    ¡Excelente Trabajo en Clase!
+                </div>
+                Has cumplido satisfactoriamente con tu tiempo de aprendizaje de hoy (<strong>${minutosTranscurridos} minutos</strong>).
+                <div style="margin-top: 14px; background: white; border-radius: 12px; padding: 12px; border: 1px solid #A7F3D0;">
+                    <span style="font-size: 0.85rem; color: #64748B; font-weight: 700;">Progreso Final a Guardar:</span>
+                    <div style="font-size: 1.7rem; font-weight: 900; color: #059669;">🌟 ${xpActual} XP</div>
+                    <span style="font-size: 0.8rem; color: #047857; font-weight: 800;">✅ Estado: Salida Legítima Autorizada (Sin Penalización)</span>
+                </div>
+            </div>
+        `;
+
+        mFoot.innerHTML = `
+            <button onclick="document.getElementById('modal-control-fin-clase').style.display='none'" style="background: transparent; border: none; color: #64748B; font-weight: 700; cursor: pointer;">
+                Seguir Explorando
+            </button>
+            <button onclick="window.ejecutarGuardadoYSalidaSeguraEstudiante()" style="background: linear-gradient(135deg, #10B981, #059669); color: white; border: none; padding: 12px 26px; border-radius: 12px; font-weight: 900; font-size: 1rem; cursor: pointer; box-shadow: 0 4px 14px rgba(16,185,129,0.4);">
+                💾 Guardar y Salir Limpiamente
+            </button>
+        `;
+    }
+
+    modal.style.display = 'flex';
+};
+
+window.solicitarAutorizacionDocenteFinClase = function() {
+    const pin = prompt("👨‍🏫 Ingrese el PIN de autorización del docente orientador para finalizar la clase anticipadamente:");
+    if (!pin) return;
+    const cleanPin = pin.trim().toLowerCase();
+    if (cleanPin === '2026' || cleanPin === 'docente' || cleanPin === 'steam' || cleanPin === 'admin' || cleanPin === 'ieinstituto2026') {
+        sessionStorage.setItem('clase_desbloqueada_docente', 'true');
+        alert("✅ Autorización docente validada. Ya puedes guardar tu progreso y finalizar.");
+        window.intentarGuardarProgresoYFinalizarClase();
+    } else {
+        alert("❌ PIN de docente incorrecto. Continúa en clase hasta completar el tiempo reglamentario.");
+    }
+};
+
+window.ejecutarGuardadoYSalidaSeguraEstudiante = function() {
+    let authSes = {};
+    try { authSes = JSON.parse(sessionStorage.getItem('peidagogos_auth') || localStorage.getItem('usuario_actual') || '{}'); } catch(e) {}
+    const docClean = authSes.documento || authSes.usuario || 'estudiante';
+    const xpActual = parseInt(localStorage.getItem(`xp_${docClean}`)) || 500;
+
+    // 1. Marcar salida legítima autorizada para desactivar advertencias
+    sessionStorage.setItem('cierre_clase_autorizado', 'true');
+    localStorage.setItem(`cierre_clase_legitimo_${docClean}`, JSON.stringify({
+        fecha: new Date().toISOString(),
+        xp: xpActual,
+        duracion_min: Math.floor((Date.now() - parseInt(sessionStorage.getItem('hora_inicio_clase_steam') || Date.now())) / 60000)
+    }));
+
+    // 2. Limpiar sesión de clase
+    sessionStorage.removeItem('hora_inicio_clase_steam');
+    sessionStorage.removeItem('clase_desbloqueada_docente');
+
+    alert("✨ ¡Progreso y calificaciones sincronizadas exitosamente!\n\nHasta la próxima clase STEAM.");
+    location.reload();
+};
+
+// Activar temporizador de clase cuando el estudiante entra a su panel
+window.addEventListener('DOMContentLoaded', () => {
+    setTimeout(() => {
+        const studentView = document.getElementById('student-dashboard-container') || document.getElementById('student-screen-container');
+        if (studentView && studentView.style.display !== 'none') {
+            window.iniciarControlTiempoClaseEstudiante();
+        }
+    }, 500);
+});
