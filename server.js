@@ -437,7 +437,8 @@ global.db = {
     usuarios: [],
     docentes: [],
     actividades_asignadas: [],
-    asignaturas: []
+    asignaturas: [],
+    herramientas_guardadas: []
 };
 
 // Cargar la DB al iniciar el servidor
@@ -450,6 +451,8 @@ async function initDB() {
     if (a) global.db.asignaturas = a;
     const { data: aa } = await supabase.from('actividades_asignadas').select('*');
     if (aa) global.db.actividades_asignadas = aa;
+    const { data: hg } = await supabase.from('herramientas_guardadas').select('*');
+    if (hg) global.db.herramientas_guardadas = hg;
     console.log("🚀 [DB] Supabase sincronizado en memoria exitosamente.");
 }
 initDB();
@@ -852,6 +855,57 @@ app.post('/api/crear-preferencia-mercadopago', async (req, res) => {
     } catch (err) {
         console.error('Error creando preferencia Mercado Pago:', err);
         res.status(500).json({ status: 'error', message: err.message });
+    }
+});
+
+// Endpoint para Caja de Herramientas Dinámica (IA)
+app.post('/api/generate-tool-ai', async (req, res) => {
+    const { materia, grado, tema, dificultad } = req.body;
+    
+    if (!materia || !grado || !tema) {
+        return res.status(400).json({ error: "Faltan datos de la herramienta." });
+    }
+
+    const prompt = `Eres un diseñador instruccional experto. Genera contenido STEAM para una clase de ${materia}, grado ${grado} sobre el tema "${tema}" con dificultad ${dificultad || 'media'}.
+Debes devolver UNICAMENTE un objeto JSON estrictamente válido, sin markdown, con la siguiente estructura y datos reales relacionados al tema:
+{
+  "palabras": ["PALABRA1", "PALABRA2", "PALABRA3", "PALABRA4", "PALABRA5", "PALABRA6", "PALABRA7", "PALABRA8", "PALABRA9", "PALABRA10"],
+  "definiciones": [ {"palabra": "PALABRA1", "pista": "Pista conceptual aquí"}, ... ],
+  "categoriasJeopardy": ["Cat 1", "Cat 2", "Cat 3", "Cat 4", "Cat 5"],
+  "preguntasJeopardy": [ {"cat": "Cat 1", "q": "Pregunta de 100", "pts": 100}, {"cat": "Cat 1", "q": "Pregunta de 200", "pts": 200} ... 5 por categoria = 25 preguntas en total ],
+  "supraordinada": "Concepto mayor",
+  "isoordinadas": ["Característica 1", "Característica 2", "Característica 3"],
+  "exclusiones": ["≠ Lo que no es 1", "≠ Lo que no es 2"],
+  "infraordinadas": ["Subtipo 1", "Subtipo 2", "Subtipo 3"],
+  "proposicionesNovak": [ {"nodo": "Concepto A", "conector": "se divide en", "desc": "Descripción B"}, ... (3 objetos) ],
+  "ramasBuzan": [ {"titulo": "Rama 1", "desc": "Detalle 1"}, ... (4 ramas) ],
+  "experimentoLab": { "pregunta": "Pregunta de lab", "hipotesis": "Hipótesis", "materiales": "Lista de materiales", "pasos": ["1. Paso 1", "2. Paso 2"] },
+  "textoCloze": "Texto con espacios [ _________ ] para rellenar (usa la notación exacta [ _________ ] para los huecos)",
+  "bancoCloze": ["Palabra1", "Palabra2"],
+  "debateDetonante": "Pregunta socrática profunda"
+}
+Asegúrate de que las definiciones coincidan con las 'palabras', el Jeopardy tenga 25 preguntas, y que todo el contenido sea muy rico, exacto pedagógicamente y relacionado al tema ${tema}.`;
+
+    try {
+        const ai = getAIClient();
+        if (!ai) return res.status(500).json({ error: "No hay keys disponibles." });
+        
+        const response = await geminiQueue.add(() => ai.models.generateContent({
+            model: "gemini-2.5-flash",
+            contents: prompt,
+            config: {
+                responseMimeType: "application/json"
+            }
+        }));
+
+        if (response && response.text) {
+            res.json(JSON.parse(response.text));
+        } else {
+            res.status(500).json({ error: "Respuesta vacía de Gemini." });
+        }
+    } catch (error) {
+        console.error("Error generando herramienta AI:", error.message);
+        res.status(500).json({ error: "Falló la generación de la herramienta AI." });
     }
 });
 

@@ -1,0 +1,106 @@
+36: app.use(express.json()); // Permitir parseo de JSON en el body
+137: if (!fs.existsSync(cacheDir)) {
+138: fs.mkdirSync(cacheDir, { recursive: true });
+153: ].map(s => s ? s.toString().toLowerCase().replace(/[^a-z0-9]/g, '_') : 'na').join('_') + '.json';
+158: if (fs.existsSync(cacheFilePath)) {
+160: const cacheData = fs.readFileSync(cacheFilePath, 'utf-8');
+167: return res.json({ text: typeof cacheData === 'string' ? cacheData : JSON.stringify(cacheData) });
+170: fs.unlinkSync(cacheFilePath);
+173: try { fs.unlinkSync(cacheFilePath); } catch(err) {}
+184: fs.writeFileSync(cacheFilePath, JSON.stringify(guiaPredeterminada, null, 2), 'utf-8');
+186: return res.json({ text: JSON.stringify(guiaPredeterminada) });
+364: fs.writeFileSync(cacheFilePath, JSON.stringify(fallbackGuia, null, 2), 'utf-8');
+366: return res.json({ text: JSON.stringify(fallbackGuia) });
+381: return res.status(500).json({ error: "La IA generó una respuesta pero el formato JSON vino incompleto. Por favor inténtalo de nuevo." });
+386: fs.writeFileSync(cacheFilePath, JSON.stringify(finalJson, null, 2), 'utf-8');
+392: res.json({ text: JSON.stringify(finalJson) });
+396: res.status(500).json({ error: `Error en el servidor: ${error.message || "Ocurrió un error inesperado al procesar la guía."}` });
+405: return JSON.parse(fs.readFileSync(path.join(__dirname, file), 'utf-8'));
+411: fs.writeFileSync(path.join(__dirname, file), JSON.stringify(data, null, 4), 'utf-8');
+421: app.get('/api/usuarios', (req, res) => res.json(readJSON('usuarios.json')));
+422: app.get('/api/estudiantes', (req, res) => res.json(readJSON('usuarios.json')));
+423: app.get('/api/docentes', (req, res) => res.json(readJSON('docentes.json')));
+424: app.get('/api/asignaturas', (req, res) => res.json(readJSON('asignaturas.json')));
+429: let usuarios = readJSON('usuarios.json');
+437: return res.status(400).json({ error: "❌ El número de documento es obligatorio." });
+442: return res.status(400).json({ error: "❌ Debes ingresar un Nombre (o Nombres) real y válido." });
+446: return res.status(400).json({ error: "❌ Debes ingresar los Apellidos reales del estudiante." });
+450: return res.status(400).json({ error: "❌ El Grado o Ciclo es obligatorio." });
+471: return res.status(403).json({
+497: writeJSON('usuarios.json', usuarios);
+518: res.json({ status: "success", estudiante: nuevo });
+522: const docentes = readJSON('docentes.json');
+524: writeJSON('docentes.json', docentes);
+536: res.json({ status: "success" });
+540: const docentes = readJSON('docentes.json');
+547: writeJSON('docentes.json', docentes);
+558: res.json({ status: "success", tutor });
+563: let usuarios = readJSON('usuarios.json');
+580: writeJSON('usuarios.json', usuarios);
+592: return res.json({
+608: res.json({
+648: let usuarios = readJSON('usuarios.json');
+657: writeJSON('usuarios.json', usuarios);
+671: res.status(200).json({ status: "received" });
+674: res.status(200).json({ status: "error", message: err.message });
+693: let usuarios = readJSON('usuarios.json');
+702: writeJSON('usuarios.json', usuarios);
+714: res.status(200).json({ status: "success" });
+717: res.status(200).json({ status: "error", message: err.message });
+771: const mpData = await mpRes.json();
+773: return res.json({
+784: res.json({
+795: res.status(500).json({ status: 'error', message: err.message });
+815: const paymentData = await checkRes.json();
+824: let usuarios = readJSON('usuarios.json');
+833: writeJSON('usuarios.json', usuarios);
+851: res.status(200).json({ status: 'success' });
+854: res.status(200).json({ status: 'error', message: err.message });
+861: let usuarios = readJSON('usuarios.json');
+868: writeJSON('usuarios.json', usuarios);
+870: return res.json({ status: "success", puntos: nuevoTotal });
+872: res.json({ status: "not_found" });
+875: res.status(500).json({ error: e.message });
+880: let usuarios = readJSON('usuarios.json');
+882: writeJSON('usuarios.json', usuarios);
+883: res.json({ status: "success" });
+887: const asignaturas = readJSON('asignaturas.json');
+889: writeJSON('asignaturas.json', asignaturas);
+890: res.json({ status: "success" });
+906: return res.status(400).json({ status: "error", message: "Ingresa tu número de identificación." });
+921: const docentes = readJSON('docentes.json');
+940: const usuarios = readJSON('usuarios.json');
+979: res.json({
+994: res.status(401).json({ status: "error", message: "Credenciales incorrectas o estudiante no registrado." });
+1002: const actividades = readJSON('actividades_asignadas.json');
+1003: res.json(actividades);
+1012: return res.json([]);
+1015: const actividades = readJSON('actividades_asignadas.json');
+1031: res.json(filtradas);
+1038: return res.status(400).json({ error: "Faltan campos obligatorios para asignar la actividad." });
+1041: let actividades = readJSON('actividades_asignadas.json');
+1061: writeJSON('actividades_asignadas.json', actividades);
+1065: res.json({ status: "success", actividad: nuevaActividad });
+1071: return res.status(400).json({ error: "Parámetros incompletos." });
+1074: let actividades = readJSON('actividades_asignadas.json');
+1077: return res.status(404).json({ error: "Actividad no encontrada." });
+1092: writeJSON('actividades_asignadas.json', actividades);
+1095: res.json({ status: "success", xp_ganado: xpOtorgado, ya_completado: !!yaCompleto });
+1106: if (!fs.existsSync(cacheDir)) {
+1118: if (fs.existsSync(tarPath)) fs.unlinkSync(tarPath);
+1150: if (fs.existsSync(videosDir)) {
+1151: const files = fs.readdirSync(videosDir).filter(f => f.match(/\.(mp4|mov)$/i));
+1156: if (fs.existsSync(infoDir)) {
+1157: const files = fs.readdirSync(infoDir).filter(f => f.match(/\.(png|jpg|jpeg|gif)$/i));
+1163: if (fs.existsSync(imagesDir)) {
+1164: const files = fs.readdirSync(imagesDir).filter(f => f.match(/\.(png|jpg|jpeg|gif)$/i));
+1170: if (fs.existsSync(imagesDir)) {
+1172: const files = fs.readdirSync(imagesDir, { withFileTypes: true })
+1277: res.json({ exito: true, reporte });
+1279: res.status(500).json({ exito: false, error: e.message });
+1285: const p = path.join(__dirname, 'auditoria_qa_reporte.json');
+1286: if (fs.existsSync(p)) {
+1287: const data = JSON.parse(fs.readFileSync(p, 'utf8'));
+1288: res.json({ exito: true, reporte: data });
+1290: res.json({ exito: false, mensaje: 'Aún no se ha ejecutado una auditoría previa.' });
+1293: res.status(500).json({ exito: false, error: e.message });

@@ -11441,10 +11441,15 @@ window.abrirVisorHerramienta = function(herramientaId) {
     if (title) title.innerText = tool.titulo;
     if (subtitle) subtitle.innerText = `${base.materia} • Grado ${base.grado}° • P${base.periodo} Sem ${base.semana} • Tema: ${base.concepto}`;
 
-    // Renderizar la herramienta seleccionada
-    window.ejecutarRenderizadorHerramienta(tool.id, stage, base);
-
     modal.style.display = 'flex';
+
+    // Pedir datos a la IA antes de renderizar
+    window.prepararHerramientaIA(base, stage).then(() => {
+        window.ejecutarRenderizadorHerramienta(tool.id, stage, base);
+    }).catch(() => {
+        // Fallback a herramienta estática si falla la IA
+        window.ejecutarRenderizadorHerramienta(tool.id, stage, base);
+    });
 };
 
 window.cerrarVisorHerramienta = function() {
@@ -11467,7 +11472,12 @@ window.aplicarCambiosVisorTool = function() {
     const base = window.obtenerContenidoBaseIngesta();
     const subtitle = document.getElementById('visor-tool-subtitle');
     if (subtitle) subtitle.innerText = `${base.materia} • Grado ${base.grado}° • P${base.periodo} Sem ${base.semana} • Tema: ${base.concepto}`;
-    window.ejecutarRenderizadorHerramienta(window.herramientaActualActiva.id, stage, base);
+    
+    window.prepararHerramientaIA(base, stage).then(() => {
+        window.ejecutarRenderizadorHerramienta(window.herramientaActualActiva.id, stage, base);
+    }).catch(() => {
+        window.ejecutarRenderizadorHerramienta(window.herramientaActualActiva.id, stage, base);
+    });
 };
 
 window.reGenerarHerramientaActual = function() {
@@ -11493,6 +11503,13 @@ window.togglePantallaCompletaVisorTool = function() {
 // MOTOR DE GENERACIÓN DE CONTENIDO PEDAGÓGICO DINÁMICO POR DEMANDA
 // ==========================================================================
 window.generarDatosPedagogicosDinamicos = function(materia, grado, tema, dificultad = 'medio') {
+    if (window._cacheDataDinamicaIA) {
+        return window._cacheDataDinamicaIA;
+    }
+    return window.datosDinamicosFallback(materia, grado, tema, dificultad);
+};
+
+window.datosDinamicosFallback = function(materia, grado, tema, dificultad = 'medio') {
     materia = materia || 'Ciencias Naturales';
     grado = grado || '7';
     tema = (tema && tema.trim()) ? tema.trim() : `${materia} Grado ${grado}°`;
@@ -11616,6 +11633,43 @@ window.generarDatosPedagogicosDinamicos = function(materia, grado, tema, dificul
         bancoCloze,
         debateDetonante
     };
+};
+
+// Función para preparar datos desde IA
+window.prepararHerramientaIA = async function(base, stage) {
+    stage.innerHTML = `<div style="padding: 100px; text-align: center; color: #4338CA;">
+        <span style="font-size: 3rem; display: inline-block; animation: spin 1s linear infinite;">⚙️</span>
+        <h3>Diseñando herramienta con Inteligencia Artificial...</h3>
+        <p style="color:#64748B;">Esto puede tardar unos segundos dependiendo de la complejidad del tema.</p>
+    </div>`;
+    
+    try {
+        const res = await fetch('/api/generate-tool-ai', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                materia: base.materia,
+                grado: base.grado,
+                tema: base.concepto,
+                dificultad: base.dificultad
+            })
+        });
+        if (!res.ok) throw new Error("Fallo en el servidor al contactar Gemini.");
+        const data = await res.json();
+        if (data.error) throw new Error(data.error);
+        
+        // Agregar propiedades base requeridas
+        data.materia = base.materia;
+        data.grado = base.grado;
+        data.tema = base.concepto;
+        data.dificultad = base.dificultad;
+        
+        window._cacheDataDinamicaIA = data;
+    } catch(e) {
+        console.error("Error en prepararHerramientaIA:", e);
+        window._cacheDataDinamicaIA = null; // Fuerza a usar el fallback
+        throw e;
+    }
 };
 
 // Dispatcher de Renderizadores
@@ -15942,7 +15996,7 @@ window.addEventListener('DOMContentLoaded', () => {
 // MÓDULO DE ASIGNACIÓN DIRECTA DESDE TOOLBOX Y BUZÓN ESTUDIANTE
 // =========================================================
 
-window.asignarHerramientaActualAGrupo = function() {
+window.asignarHerramientaActualAGrupo = async function() {
     if (!window.herramientaActualActiva) {
         alert("Selecciona primero una herramienta para asignar.");
         return;
@@ -15973,6 +16027,9 @@ window.asignarHerramientaActualAGrupo = function() {
 
     const profesorNombre = (document.getElementById('docente-nombre-header') ? document.getElementById('docente-nombre-header').innerText : (docItem.nombre || 'Docente Orientador')).trim();
 
+    // Guardar la DATA real de IA de la herramienta actual para que el estudiante la vea igualita
+    const actividad_data = window._cacheDataDinamicaIA ? JSON.parse(JSON.stringify(window._cacheDataDinamicaIA)) : null;
+
     const nuevaActividad = {
         id: 'act_' + Date.now() + '_' + Math.random().toString(36).substr(2, 6),
         titulo: `${tool.icono} ${tool.titulo}: ${tema}`,
@@ -15986,9 +16043,30 @@ window.asignarHerramientaActualAGrupo = function() {
         profesor_doc: docKey,
         tema: tema,
         xp_recompensa: 250,
+        actividad_data: actividad_data,
         fecha_creacion: new Date().toLocaleDateString('es-CO'),
         completada_por: []
     };
+
+    try {
+        await fetch('/api/asignar-actividad', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                tipo_actividad: tool.id,
+                destinatario_tipo: 'grupo',
+                destinatario_id: grupoFinal,
+                destinatario_nombre: grupoFinal,
+                materia,
+                grado,
+                tema,
+                actividad_data: actividad_data,
+                creador_id: docKey
+            })
+        });
+    } catch(e) {
+        console.warn("Fallo guardando en BD nube:", e);
+    }
 
     let localActs = JSON.parse(localStorage.getItem('actividades_asignadas_db') || '[]');
     localActs.unshift(nuevaActividad);
@@ -15999,7 +16077,7 @@ window.asignarHerramientaActualAGrupo = function() {
         window.enviarAlertaTelegram(`🎮 *NUEVA ACTIVIDAD ASIGNADA AL GRUPO*\n\n📚 *Materia:* ${materia}\n👥 *Grupo:* ${grupoFinal}\n👨‍🏫 *Profesor:* ${profesorNombre}\n🎯 *Actividad:* ${tool.icono} ${tool.titulo}\n📝 *Tema:* ${tema}\n🌟 *Recompensa:* +250 XP`);
     }
 
-    alert(`✅ ¡Actividad asignada con éxito!\n\n🎮 ${tool.icono} ${tool.titulo}\n👥 Asignada a: Grupo ${grupoFinal}\n📚 Materia: ${materia}\n\nTus estudiantes ya tienen esta tarea disponible en su Buzón de Entrada.`);
+    alert(`✅ ¡Actividad generada con IA y asignada con éxito!\n\n🎮 ${tool.icono} ${tool.titulo}\n👥 Asignada a: Grupo ${grupoFinal}\n📚 Materia: ${materia}\n\nTus estudiantes ya tienen esta tarea disponible en su Buzón de Entrada y la verán exactamente igual.`);
 };
 
 // Cargar y Renderizar el Buzón de Actividades del Estudiante con Profesor y Materia
@@ -16167,6 +16245,13 @@ window.abrirActividadParaEstudiante = function(actividadId) {
     if (icon) icon.innerText = tool.icono;
     if (title) title.innerText = `Misión de ${act.materia}: ${tool.titulo}`;
     if (subtitle) subtitle.innerText = `👨‍🏫 Asignada por: ${act.profesor_nombre} • Tema: ${act.tema}`;
+
+    // Si la actividad fue generada por IA y se guardó su data, usarla directamente
+    if (act.actividad_data) {
+        window._cacheDataDinamicaIA = act.actividad_data;
+    } else {
+        window._cacheDataDinamicaIA = null;
+    }
 
     // Renderizar la herramienta
     window.ejecutarRenderizadorHerramienta(tool.id, stage, base);
