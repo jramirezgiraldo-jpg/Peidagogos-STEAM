@@ -401,21 +401,50 @@ DEBES DEVOLVER EXCLUSIVAMENTE UN OBJETO JSON VÁLIDO CON LA SIGUIENTE ESTRUCTURA
 // ==========================================
 // NUEVOS ENDPOINTS DE USUARIOS (MIGRADOS DE PYTHON)
 // ==========================================
+const { createClient } = require('@supabase/supabase-js');
+const supabase = createClient('https://oalrwnautbpxfdznfisf.supabase.co', process.env.SUPABASE_KEY || process.env.SUPABASE_SECRET);
+
+global.db = {
+    usuarios: [],
+    docentes: [],
+    actividades_asignadas: [],
+    asignaturas: []
+};
+
+// Cargar la DB al iniciar el servidor
+async function initDB() {
+    const { data: u } = await supabase.from('usuarios').select('*');
+    if (u) global.db.usuarios = u;
+    const { data: d } = await supabase.from('docentes').select('*');
+    if (d) global.db.docentes = d;
+    const { data: a } = await supabase.from('asignaturas').select('*');
+    if (a) global.db.asignaturas = a;
+    const { data: aa } = await supabase.from('actividades_asignadas').select('*');
+    if (aa) global.db.actividades_asignadas = aa;
+    console.log("🚀 [DB] Supabase sincronizado en memoria exitosamente.");
+}
+initDB();
+
 const readJSON = (file) => {
     try {
-        return JSON.parse(fs.readFileSync(path.join(__dirname, file), 'utf-8'));
-    } catch(e) {
-        return [];
-    }
+        const table = file.replace('.json', '');
+        return global.db[table] || [];
+    } catch(e) { return []; }
 };
+
 const writeJSON = (file, data) => {
-    fs.writeFileSync(path.join(__dirname, file), JSON.stringify(data, null, 4), 'utf-8');
-    exec(`git add ${file} && git commit -m "sync: actualizar ${file} desde el panel admin" && git push`, (err, stdout, stderr) => {
-        if (err) {
-            console.error(`Error sincronizando ${file}:`, err.message);
-        } else {
-            console.log(`[GIT SYNC] ${file} sincronizado exitosamente en GitHub.`);
-        }
+    const table = file.replace('.json', '');
+    global.db[table] = data; // Respuesta instantánea para 1000 usuarios
+    
+    // Identificar la llave primaria para upsert
+    let conflictKey = 'id';
+    if (table === 'usuarios' || table === 'docentes') {
+        conflictKey = 'documento';
+    }
+    
+    // Backup asíncrono en la nube (sin bloquear el hilo de Node.js)
+    supabase.from(table).upsert(data, { onConflict: conflictKey }).then(({error}) => {
+        if (error) console.error(`[DB ERROR] Sincronizando ${table}:`, error.message);
     });
 };
 
