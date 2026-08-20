@@ -9,6 +9,35 @@ const { GoogleGenAI } = require('@google/genai');
 const { exec } = require('child_process');
 const { generarGuiaPredeterminada } = require('./diagnosticos_predeterminados');
 
+// ==========================================
+// SISTEMA DE ENCOLAMIENTO PARA GEMINI IA
+// ==========================================
+class RequestQueue {
+    constructor(concurrency) {
+        this.concurrency = concurrency;
+        this.running = 0;
+        this.queue = [];
+    }
+    
+    async add(task) {
+        if (this.running >= this.concurrency) {
+            await new Promise(resolve => this.queue.push(resolve));
+        }
+        this.running++;
+        try {
+            return await task();
+        } finally {
+            this.running--;
+            if (this.queue.length > 0) {
+                const next = this.queue.shift();
+                next();
+            }
+        }
+    }
+}
+// Permitimos máximo 2 peticiones concurrentes a la API gratuita de Gemini
+const geminiQueue = new RequestQueue(2);
+
 // Función para enviar alertas instantáneas a Telegram (@jramirezgiraldo)
 function enviarAlertaTelegram(mensaje) {
     try {
@@ -311,13 +340,13 @@ DEBES DEVOLVER EXCLUSIVAMENTE UN OBJETO JSON VÁLIDO CON LA SIGUIENTE ESTRUCTURA
             for (let i = 0; i < modelos.length; i++) {
                 try {
                     console.log(`[IA] Generando guía con modelo: ${modelos[i]} (Intento key #${k+1})...`);
-                    const response = await ai.models.generateContent({
+                    const response = await geminiQueue.add(() => ai.models.generateContent({
                         model: modelos[i],
                         contents: prompt,
                         config: {
                             responseMimeType: "application/json"
                         }
-                    });
+                    }));
                     if (response && response.text) {
                         responseText = response.text;
                         console.log(`[IA] ✅ Guía generada exitosamente con ${modelos[i]}`);
