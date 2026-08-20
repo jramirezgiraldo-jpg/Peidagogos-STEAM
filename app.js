@@ -2034,14 +2034,8 @@ window.inicializarAppCore = function() {
         // ==========================================
         if (ie === "DocenteRegular") {
             const normCod = codigoInst.toLowerCase().replace(/[\.\,\-\_\s]/g, '');
-            if (normCod !== "ieinstituto2026" && normCod !== "instituto2026" && normCod !== "docente2026" && normCod !== "steam2026" && normCod !== "admin") {
-                mostrarErrorReg("❌ Código institucional / verificación docente incorrecto.\n\nPara inscribirte como Docente debes ingresar el código oficial: ieinstituto2026");
-                if (codElem) {
-                    codElem.focus();
-                    codElem.style.borderColor = "#EF4444";
-                }
-                return;
-            }
+            // VERIFICACIÓN ELIMINADA - Registro directo
+
 
             if (btnSubmit) {
                 btnSubmit.innerText = "⏳ Creando Cuenta de Docente...";

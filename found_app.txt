@@ -1,0 +1,197 @@
+592: const ieName = data.institucion === 'InstitutoMontenegro' ? 'IE Instituto Montenegro' : (data.institucion || 'Instituto Montenegro');
+597: const esHomeSchool = data.institucion === 'HomeSchool' || data.rol === 'homeschool' || data.rol === 'homeschool_tutor' || String(data.grupo || '').startsWith('HS-');
+598: const esValidacionVirtual = data.rol === 'validacion' || data.institucion === 'Validacion' || String(data.grado || data.grupo || '').toLowerCase().includes('ciclo') || String(data.institucion || '').toLowerCase().includes('nocturn');
+755: if (data.rol === 'validacion' || data.institucion === 'Validacion' || data.institucion === 'HomeSchool') {
+880: const ieEst = String(data.institucion || '').toLowerCase();
+884: const dIE = String(doc.institucion || '').toLowerCase();
+1084: institucion: localDoc.institucion || 'IE Instituto Montenegro',
+1091: const rolDeterminado = localEst.rol ? localEst.rol : ((localEst.institucion === 'Validacion' || String(localEst.grupo || '').toLowerCase().includes('ciclo') || String(localEst.grado || '').toLowerCase().includes('ciclo')) ? 'validacion' : (rol === 'docente' ? 'docente' : 'estudiante'));
+1100: institucion: localEst.institucion || 'IE Instituto Montenegro',
+1190: // MÓDULO DE GESTIÓN DINÁMICA DE INSTITUCIONES EDUCATIVAS (IE)
+1192: window.obtenerListaInstituciones = function() {
+1194: { id: "InstitutoMontenegro", nombre: "IE Instituto Montenegro", municipio: "Montenegro, Quindío", codigo: "ieinstituto2026", tipo: "oficial" },
+1195: { id: "RamonMessa", nombre: "Colegio Ramón Messa Londoño", municipio: "Montenegro, Quindío", codigo: "messa2026", tipo: "oficial" },
+1196: { id: "SantaMariaDelRio", nombre: "Colegio Santa María del Río", municipio: "Montenegro, Quindío", codigo: "santamaria2026", tipo: "oficial" },
+1197: { id: "HomeSchool", nombre: "Home School (Educación en Casa)", municipio: "Nacional / En Casa", codigo: "homeschool2026", tipo: "homeschool" },
+1198: { id: "Validacion", nombre: "Validación Bachillerato por Ciclos", municipio: "Virtual / Colombia", codigo: "validacion2026", tipo: "validacion" }
+1201: let guardadas = JSON.parse(localStorage.getItem('instituciones_db') || '[]');
+1211: window.guardarNuevaInstitucion = function(nombre, municipio = "Colombia", codigo = "") {
+1215: const codigoFinal = (codigo && codigo.trim()) ? codigo.trim() : (id.replace(/_/g, '') + '2026');
+1221: codigo: codigoFinal,
+1227: let guardadas = JSON.parse(localStorage.getItem('instituciones_db') || '[]');
+1231: localStorage.setItem('instituciones_db', JSON.stringify(guardadas));
+1234: window.refrescarSelectoresInstituciones(id);
+1238: window.refrescarSelectoresInstituciones = function(seleccionarId = null) {
+1239: const lista = window.obtenerListaInstituciones();
+1245: let html = `<option value="">Institución / Modalidad / Perfil...</option>`;
+1247: // Categoría Estudiantes por Institución
+1248: html += `<optgroup label="🏫 Instituciones Educativas (Colegios)">`;
+1252: html += `<option value="__NUEVA_IE__" style="color: #2563EB; font-weight: 800;">➕ Registrar Nueva Institución Educativa...</option>`;
+1257: html += `<option value="DocenteRegular">👨‍🏫 Docente Regular (Colegio / Institución)</option>`;
+1271: let htmlDoc = `<option value="">Selecciona tu Colegio / Institución...</option>`;
+1285: const modal = document.getElementById("modal-crear-institucion-educativa");
+1294: const modal = document.getElementById("modal-crear-institucion-educativa");
+1301: const inCod = document.getElementById("nueva-ie-codigo");
+1304: alert("Por favor ingresa el nombre de la Institución Educativa.");
+1308: const res = window.guardarNuevaInstitucion(inNombre.value, inMun ? inMun.value : "", inCod ? inCod.value : "");
+1310: alert(`🎉 ¡Institución "${res.nombre}" registrada con éxito! Ya está disponible permanentemente para todos los docentes y estudiantes.`);
+1662: if (window.refrescarSelectoresInstituciones) window.refrescarSelectoresInstituciones();
+1745: institucion: "InstitutoMontenegro",
+1746: codigo_institucional: "ieinstituto2026",
+1754: tipo_acceso: "institucional_ilimitado"
+1772: institucion: "InstitutoMontenegro",
+1780: window.enviarAlertaTelegram(`🎓 *NUEVA MATRÍCULA DE ESTUDIANTE EN PEIDAGOGOS STEAM*\n\n👤 *Estudiante:* ${nom} ${ap}\n🆔 *Documento:* ${tipoDoc} ${doc}\n📚 *Grado / Grupo:* ${gradoFinal} (${grupoFinal})\n🏫 *Institución:* ${ie}\n📅 *Fecha:* ${new Date().toLocaleString('es-CO')}`);
+1844: institucion: 'IE Instituto Montenegro',
+1845: codigo_institucional: 'ieinstituto2026',
+1849: tipo_acceso: 'institucional_ilimitado'
+1915: const codElem = document.getElementById("reg-codigo-institucional");
+1927: const codigoInst = codElem ? codElem.value.trim() : "";
+1942: if (!ie) { mostrarErrorReg("⚠️ Debes seleccionar tu Institución o Modalidad de estudio."); return; }
+1976: institucion: 'HomeSchool'
+1994: institucion: 'HomeSchool',
+2032: // CASO: REGISTRO DE DOCENTE REGULAR (COLEGIO / INSTITUCIÓN)
+2035: const normCod = codigoInst.toLowerCase().replace(/[\.\,\-\_\s]/g, '');
+2037: mostrarErrorReg("❌ Código institucional / verificación docente incorrecto.\n\nPara inscribirte como Docente debes ingresar el código oficial: ieinstituto2026");
+2080: institucion: ieDocenteSeleccionada,
+2081: codigo_institucional: codigoInst,
+2113: institucion: 'IE Instituto Montenegro',
+2135: window.enviarAlertaTelegram(`👨‍🏫 *NUEVO DOCENTE REGISTRADO EN PEIDAGOGOS STEAM*\n\n👤 *Profesor(a):* ${nom} ${ap}\n🆔 *Cédula:* ${doc}\n🏫 *Institución:* ${ieDocenteSeleccionada}\n📚 *Materias:* ${asigDoc}\n🎯 *Grados:* ${graDoc}\n📅 *Fecha:* ${new Date().toLocaleString('es-CO')}`);
+2180: const normCod = codigoInst.toLowerCase().replace(/[\.\,\-\_\s]/g, '');
+2181: // Validación estricta del código institucional para IE Instituto Montenegro
+2184: mostrarErrorReg("❌ Código institucional incorrecto.\n\nPara matricularte en la IE Instituto Montenegro debes ingresar el código oficial: ieinstituto2026");
+2213: institucion: ie,
+2214: codigo_institucional: codigoInst,
+2222: tipo_acceso: ie === "InstitutoMontenegro" ? "institucional_ilimitado" : "freemium_primera_guia_gratis"
+2248: institucion: ie,
+2525: const isMyStudent = !est.docente_id || est.docente_id === docenteId || docenteId === 'jramirezgiraldo' || docenteId === 'admin' || est.institucion === 'InstitutoMontenegro' || est.institucion === 'IE Instituto Montenegro';
+2535: const inst = est.institucion === 'InstitutoMontenegro' ? 'IE Instituto Montenegro' : (est.institucion || 'IE Instituto Montenegro');
+2775: const tipoVinculacion = d.institucion ? d.institucion : (d.rol === 'docente' ? 'Docente Regular' : 'Homeschool');
+2867: // Disabled to prevent overwriting the static 'Instituciones' layout.
+3192: '4': { '1': 'Ubicación espacial: arriba, abajo, izquierda, derecha.', '3': 'El reloj y la noción del tiempo (días de la semana, meses).', '5': 'Resolución de desafíos matemáticos infantiles.', '7': 'Feria de juegos matemáticos de 1°.' }
+3206: '3': { '1': 'Tablas de multiplicar del 6 al 9.', '3': 'Noción de reparto equitativo.', '5': 'El reloj de manecillas y digital (horas y minutos).', '7': 'Gráficos de barras y recolección de datos.' },
+3220: '2': { '1': 'Multiplicación por una y dos cifras.', '3': 'Reparto equitativo e iniciación a la división.', '5': 'Figuras geométricas básicas y simetría.', '7': 'Medición de longitud y tiempo (reloj y calendario).' },
+3301: '2': { '1': 'Introducción a la multiplicación.', '3': 'Lectura del reloj y medidas de tiempo.', '5': 'Medición de longitudes con cinta métrica.', '7': 'Formas geométricas en el entorno.' },
+4567: const inst = est.institucion === 'InstitutoMontenegro' ? 'IE Instituto Montenegro' : (est.institucion || 'IE Instituto Montenegro');
+4856: institucion: 'HomeSchool',
+4869: const institucion = est.institucion || (est.rol === 'validacion' ? 'Validacion' : 'HomeSchool');
+4870: const modo = est.rol || (institucion === 'Validacion' ? 'validacion' : (institucion === 'HomeSchool' ? 'homeschool' : 'regular'));
+4916: institucion: institucion,
+5212: const esInstitucional = (curUser.institucion === 'IE Instituto Montenegro' || curUser.codigo_institucional === 'ieinstituto2026');
+5213: const estaPagado = (curUser.pago_realizado === true || curUser.pago_activo === true || esInstitucional);
+5242: // Verificación de Clase Especial: Primeros Auxilios Emocionales luego del Terremoto
+5647: window.simuladorRespiracionTimer = null;
+5654: if (window.simuladorRespiracionTimer) {
+5655: clearInterval(window.simuladorRespiracionTimer);
+5656: window.simuladorRespiracionTimer = null;
+5667: window.simuladorRespiracionTimer = setInterval(() => {
+5733: if (window.simuladorRespiracionTimer) {
+5734: clearInterval(window.simuladorRespiracionTimer);
+5735: window.simuladorRespiracionTimer = null;
+6301: // Verificación de Modelo Freemium: Primera guía (Semana 1, Periodo 1) es 100% gratuita. A partir de la segunda se solicita suscripción
+6303: const esInstitucional = (curUser.institucion === 'IE Instituto Montenegro' || curUser.codigo_institucional === 'ieinstituto2026');
+6304: const estaPagado = (curUser.pago_realizado === true || curUser.pago_activo === true || esInstitucional);
+6308: const concepto = (curUser.rol === 'validacion' || curUser.institucion === 'Validacion')
+6391: const userInstitucion = currentUser.institucion || (currentUser.rol === 'validacion' ? 'Validacion' : 'IE Instituto Montenegro');
+6392: const userModo = currentUser.rol || (currentUser.institucion === 'Validacion' ? 'validacion' : (currentUser.institucion === 'HomeSchool' ? 'homeschool' : 'regular'));
+6407: institucion: userInstitucion,
+6548: const esInstitucional = (user && (user.institucion === 'IE Instituto Montenegro' || user.codigo_institucional === 'ieinstituto2026'));
+6549: const estaPagado = (user && (user.pago_realizado === true || user.pago_activo === true || esInstitucional));
+6805: const esInstitucional = (user.institucion === 'IE Instituto Montenegro' || user.codigo_institucional === 'ieinstituto2026');
+6806: const estaPagado = (user.pago_realizado === true || user.pago_activo === true || esInstitucional);
+7212: // Detección automática Anti-Cheat al cambiar de pestaña o salir de la página
+7639: user.institucion === 'Validacion' ||
+7642: (user.institucion && user.institucion.toString().toLowerCase().includes('nocturn'));
+7680: user.institucion === 'Validacion' ||
+7683: (user.institucion && user.institucion.toString().toLowerCase().includes('nocturn'));
+8011: institucion: tieneSIMAT ? 'IE Instituto Montenegro (SIMAT Certificado)' : 'HomeSchool',
+8070: (e.institucion && (e.institucion.toLowerCase() === 'homeschool' || e.institucion.toLowerCase() === 'home school')) ||
+8261: feedback.innerHTML = `✅ ¡Transacción Aprobada!<br><span style="font-size: 0.8rem; font-weight: normal;">Referencia: ${data.comprobante.referencia} • Autorización: ${data.comprobante.codigo_aprobacion}</span>`;
+8751: { id: 'trivia', nombre: 'Trivia Contrarreloj', icon: '⚡', xp: 80, color: '#F59E0B', desc: '5 preguntas con cronómetro de 25s, racha de aciertos y bonus.' },
+8947: codigo_correcto: "4",
+8954: codigo_correcto: "6",
+8961: codigo_correcto: "20",
+9262: window.triviaTimerInterval = null;
+9271: const timerContainer = document.getElementById('juego-timer-container');
+9291: if (timerContainer) timerContainer.style.display = (act.tipo_actividad === 'trivia') ? 'flex' : 'none';
+9323: if (window.triviaTimerInterval) {
+9324: clearInterval(window.triviaTimerInterval);
+9325: window.triviaTimerInterval = null;
+9329: // --- MOTOR 1: TRIVIA CONTRARRELOJ ---
+9341: if (window.triviaTimerInterval) clearInterval(window.triviaTimerInterval);
+9349: const timerSeg = document.getElementById('juego-timer-segundos');
+9350: if (timerSeg) timerSeg.innerText = tiempoRestante;
+9352: if (window.triviaTimerInterval) clearInterval(window.triviaTimerInterval);
+9353: window.triviaTimerInterval = setInterval(() => {
+9355: if (timerSeg) timerSeg.innerText = tiempoRestante;
+9357: clearInterval(window.triviaTimerInterval);
+9389: if (window.triviaTimerInterval) clearInterval(window.triviaTimerInterval);
+9469: <h4 style="margin: 0 0 8px 0; font-weight: 900; color: #1E1B4B;">Verificación de Respuestas</h4>
+9704: if (input.value.trim().toLowerCase() === String(e.codigo_correcto).trim().toLowerCase()) {
+10097: const timerContainer = document.getElementById('juego-timer-container');
+10098: if (timerContainer) timerContainer.style.display = 'none';
+10944: id: 'pomodoro_timer',
+11135: desc: 'Fichas recortables de 3 preguntas de autorreflexión rápida para entregar antes de salir del aula.',
+11195: id: 'colorea_codigo',
+11463: if (window.timerPomodoroInterval) {
+11464: clearInterval(window.timerPomodoroInterval);
+11465: window.timerPomodoroInterval = null;
+11525: 'Tecnología e Informática': ['ALGORITMO', 'CODIGO', 'CIRCUITO', 'ROBOTICA', 'DATOS', 'SISTEMA', 'RED', 'PROTOTIPO'],
+11657: case 'pomodoro_timer': window.renderizarPomodoroTimerTool(stage, base); break;
+11682: case 'colorea_codigo': window.renderizarColoreaCodigoTool(stage, base); break;
+13095: <span>✍️ Firmas Institucionales</span>
+13194: <!-- Encabezado Institucional -->
+13197: <div style="font-size: 0.75rem; font-weight: 900; color: #2563EB; text-transform: uppercase; letter-spacing: 1.5px;">SISTEMA INSTITUCIONAL PEIDAGOGOS STEAM</div>
+13213: <!-- Matriz de Identificación Institucional -->
+13461: // Firmas Institucionales Formales
+13473: <div style="font-size: 0.74rem; color: #64748B;">Comité Curricular Institucional</div>
+13625: <!-- Encabezado Institucional de la Malla -->
+13628: <div style="font-size: 0.75rem; font-weight: 900; color: #D97706; text-transform: uppercase; letter-spacing: 1.5px;">SISTEMA INSTITUCIONAL DE GESTIÓN CURRICULAR PEIDAGOGOS STEAM</div>
+13629: <h2 style="margin: 2px 0 0 0; font-size: 1.45rem; font-weight: 900; color: #0F172A;">MALLA CURRICULAR INSTITUCIONAL Y PLAN DE ÁREA OFICIAL</h2>
+13716: <!-- Criterios de Evaluación y Escala Institucional MEN -->
+13719: 📋 CRITERIOS DE EVALUACIÓN Y ESCALA VALORATIVA INSTITUCIONAL (DECRETO 1290):
+13757: <!-- Firmas Institucionales -->
+13767: <div style="font-size: 0.74rem; color: #64748B;">Aprobación Institucional PEI</div>
+13883: <span style="font-size: 0.78rem; color: #94A3B8; margin-left: 8px;">(${suite.pruebas.length} verificaciones en caliente)</span>
+14003: const ie = ses.institucion || 'IE Instituto Montenegro';
+14381: const ieDocente = docentePerfil ? String(docentePerfil.institucion || '').trim().toLowerCase() : '';
+14394: // Coincidencia por Institución y Grado/Ciclo asignado al docente
+14395: const estIE = String(est.institucion || '').trim().toLowerCase();
+14442: Cuando los estudiantes se registren en la plataforma seleccionando tu institución y tus grados asignados (${gradosDocente.join(', ') || 'todos'}), aparecerán organizados en sus respectivos cajones de grupo.
+14577: const inst = est.institucion === 'InstitutoMontenegro' ? 'IE Instituto Montenegro' : (est.institucion || 'IE Instituto Montenegro');
+14767: institucion: 'IE Instituto Montenegro'
+14999: institucion: 'IE Instituto Montenegro',
+15049: const docIE = (authSes.institucion || 'IE Instituto Montenegro').trim();
+15090: const texto = `¡Hola a todos! 👋\n\nSoy el(la) Profesor(a) *${g.docente}* de la *${g.ie}*.\n\n📚 Les comparto el enlace oficial de matrícula para el aula *${g.nombre}* en la plataforma *Peidagogos STEAM*:\n\n👉 ${g.url}\n\n*(Solo abre el enlace, escribe tus datos básicos y listo. ¡No necesitas ningún código de verificación!)*`;
+15098: const texto = `¡Hola a todos! 👋\n\nSoy el(la) Profesor(a) ${g.docente} de la ${g.ie}.\n\n📚 Les comparto el enlace oficial de matrícula para el aula ${g.nombre} en la plataforma Peidagogos STEAM:\n\n👉 ${g.url}\n\n(Solo abre el enlace, escribe tus datos básicos y listo. ¡No necesitas ningún código de verificación!)`;
+15128: institucion: ieParam ? decodeURIComponent(ieParam) : 'IE Instituto Montenegro',
+15153: // Ocultar campo de código institucional porque este link viene pre-autorizado por el docente
+15154: const codBox = document.getElementById('campo-codigo-institucional');
+15176: ⚡ Acceso inmediato sin códigos de verificación. Solo completa tus datos personales.
+15221: institucion: ie,
+15271: <td style="padding: 12px 10px; font-size: 0.85rem; color: #1E40AF;">${inv.institucion}</td>
+15301: const texto = `¡Hola Profesor(a) *${inv.nombre}*! 👋\n\nLe extendemos la invitación oficial para ingresar a la plataforma *Peidagogos STEAM* de la *${inv.institucion}*.\n\n🔑 *Su enlace intransferible de acceso docente es:*\n👉 ${inv.url}\n\n*(Al abrir este enlace ingresará directamente a su Panel Docente sin necesidad de códigos de verificación)*`;
+15315: <p style="font-size: 1.4rem; color: #94A3B8; margin: 0;">Profesor(a) ${inv.nombre} • ${inv.institucion}</p>
+15364: institucion: ieFinal,
+15386: institucion: ieFinal,
+15399: window.enviarAlertaTelegram(`🔑 *DOCENTE INGRESÓ POR TOKEN INTRANSFERIBLE*\n\n👤 *Docente:* ${nomFinal}\n🏷️ *Token:* ${token}\n🏫 *Institución:* ${ieFinal}\n📚 *Materia:* ${matFinal}\n📅 *Fecha:* ${new Date().toLocaleString('es-CO')}`);
+15408: const dSub = document.getElementById('docente-institucion-subhead');
+15438: const docIE = (authSes.institucion || 'IE Instituto Montenegro').trim();
+15569: const ieDoc = (authSes.institucion || 'IE Instituto Montenegro').trim();
+15592: { documento: '109772671', nombre: 'Juan Felipe Ramírez Giraldo', institucion: ieDoc, materia: 'Ciencias Naturales y Física' },
+15593: { documento: 'doc_matematicas', nombre: 'Profesor de Matemáticas', institucion: ieDoc, materia: 'Matemáticas' },
+15594: { documento: 'doc_lenguaje', nombre: 'Profesor de Lengua Castellana', institucion: ieDoc, materia: 'Lengua Castellana' },
+15595: { documento: 'doc_quimica', nombre: 'Profesor de Química', institucion: ieDoc, materia: 'Química' },
+15596: { documento: 'doc_sociales', nombre: 'Profesor de Ciencias Sociales', institucion: ieDoc, materia: 'Ciencias Sociales' },
+15597: { documento: 'doc_ingles', nombre: 'Profesor de Idioma Extranjero (Inglés)', institucion: ieDoc, materia: 'Inglés' },
+15598: { documento: 'doc_tecnologia', nombre: 'Profesor de Tecnología e Informática', institucion: ieDoc, materia: 'Tecnología e Informática' },
+15599: { documento: 'doc_artistica', nombre: 'Profesor de Educación Artística', institucion: ieDoc, materia: 'Educación Artística' },
+15600: { documento: 'doc_etica', nombre: 'Profesor de Ética y Valores', institucion: ieDoc, materia: 'Ética y Valores' }
+15661: const ieDoc = (authSes.institucion || 'IE Instituto Montenegro').trim();
+15669: institucion: ieDoc,
+15742: const ieDoc = (authSes.institucion || 'IE Instituto Montenegro').trim();
+15763: window.timerClaseInterval = null;
+15770: if (window.timerClaseInterval) clearInterval(window.timerClaseInterval);
+15772: window.timerClaseInterval = setInterval(() => {
+15802: btnGuardar.innerHTML = '<span>✨</span> Guardar Progreso & Salir';
+15808: // Intentar Guardar Progreso & Salir
+15892: 💾 Guardar y Salir Limpiamente

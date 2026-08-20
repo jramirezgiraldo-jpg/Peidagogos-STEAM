@@ -149,7 +149,13 @@
             0% { transform: translate(-50%, -40px); opacity: 0; }
             100% { transform: translate(-50%, 0); opacity: 1; }
         }
-    </style>
+        /* Corrección Universal de Scroll */
+    div[id^="modal-"], div[id*="-modal"], .modal-container, .modal-content, .modal-overlay { 
+        overflow-y: auto !important; 
+        -webkit-overflow-scrolling: touch !important; 
+        max-height: 100vh !important; 
+    }
+</style>
 
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6687777187750189" crossorigin="anonymous"></script>
 
@@ -184,6 +190,12 @@
         -webkit-overflow-scrolling: touch !important;
         height: auto !important;
         min-height: 100vh !important;
+    }
+    /* Corrección Universal de Scroll */
+    div[id^="modal-"], div[id*="-modal"], .modal-container, .modal-content, .modal-overlay { 
+        overflow-y: auto !important; 
+        -webkit-overflow-scrolling: touch !important; 
+        max-height: 100vh !important; 
     }
 </style>
 
@@ -1073,7 +1085,13 @@
                         .grupo-materias { font-size: 0.85rem; color: #6B7280; font-weight: normal; text-align: center; line-height: 1.3; }
                         .grupo-btn:hover { border-color: #3B82F6; transform: translateY(-2px); box-shadow: 0 6px 12px rgba(59,130,246,0.15); }
                         .grupo-btn:hover .grupo-nombre { color: #3B82F6; }
-                    </style>
+                        /* Corrección Universal de Scroll */
+    div[id^="modal-"], div[id*="-modal"], .modal-container, .modal-content, .modal-overlay { 
+        overflow-y: auto !important; 
+        -webkit-overflow-scrolling: touch !important; 
+        max-height: 100vh !important; 
+    }
+</style>
 
                     <script>
                         function mostrarGruposInstitucion(inst) {
@@ -1105,7 +1123,13 @@
                             <button onclick="volverAGrupos()" style="padding: 8px 16px; background: #E5E7EB; color: #374151; border: none; border-radius: 8px; cursor: pointer; font-weight: bold;">← Volver a Instituciones</button>
                         </div>
                     </div>
-                    <style>@keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.02); } 100% { transform: scale(1); } }</style>
+                    <style>@keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.02); } 100% { transform: scale(1); } }    /* Corrección Universal de Scroll */
+    div[id^="modal-"], div[id*="-modal"], .modal-container, .modal-content, .modal-overlay { 
+        overflow-y: auto !important; 
+        -webkit-overflow-scrolling: touch !important; 
+        max-height: 100vh !important; 
+    }
+</style>
                     <div id="admin-materias-grupo-actual" style="margin-bottom: 20px;"></div>
                     
                     <div id="visualizador-planeacion-container" style="background: white; border: 1px solid #E5E7EB; border-radius: 8px; padding: 20px; margin-bottom: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); display: none;">

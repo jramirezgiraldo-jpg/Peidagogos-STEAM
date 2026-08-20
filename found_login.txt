@@ -1,0 +1,198 @@
+228: <select id="login-role" style="padding: 12px; border: 2px solid #3B82F6; border-radius: 8px; font-weight: bold; color: #111827; cursor: pointer; background-color: #F0F9FF;">
+234: </select>
+265: <select id="reg-tipo-doc" style="padding: 12px; border: 1px solid #d1d5db; border-radius: 8px; width: 30%;">
+270: </select>
+277: <select id="reg-genero" style="padding: 12px; border: 1px solid #d1d5db; border-radius: 8px;">
+279: </select>
+281: <select id="reg-ie" onchange="toggleIEOptions()" style="padding: 12px; border: 2px solid #3B82F6; border-radius: 8px; font-weight: bold; background-color: #F8FAFC;" required>
+282: <option value="">Institución / Modalidad / Perfil...</option>
+284: <option value="DocenteRegular">👨‍🏫 Docente Regular (Colegio / Institución)</option>
+287: </select>
+292: <span>🏛️ Institución Educativa a la que Perteneces:</span>
+294: <select id="reg-docente-ie-select" onchange="if(this.value==='__CREAR_NUEVA_IE__'){ window.abrirModalCrearIE('docente'); this.value=''; }" style="width: 100%; padding: 12px; border: 1.5px solid #8B5CF6; border-radius: 8px; font-weight: bold; background-color: white; font-size: 0.92rem; box-sizing: border-box;">
+295: <option value="">Selecciona tu Colegio o Institución...</option>
+297: <option value="__CREAR_NUEVA_IE__" style="color: #2563EB; font-weight: 900; background: #EFF6FF;">➕ Registrar / Crear Nueva Institución Educativa...</option>
+298: </select>
+306: <select id="reg-grado" onchange="actualizarMaterias()" style="padding: 12px; border: 1px solid #d1d5db; border-radius: 8px; display: none;">
+325: </select>
+327: <select id="registro-grupo" onchange="actualizarMaterias()" style="padding: 12px; border: 1px solid #d1d5db; border-radius: 8px; display: none;">
+341: </select>
+350: const select = document.getElementById('login-role');
+351: if (select) {
+352: select.value = rol;
+353: select.dispatchEvent(new Event('change'));
+361: const gradoSelect = document.getElementById("reg-grado");
+362: const grupoSelect = document.getElementById("registro-grupo");
+363: const campoCodigo = document.getElementById("campo-codigo-institucional");
+365: const lblCodigo = document.getElementById("lbl-codigo-institucional");
+377: if (campoCodigo) campoCodigo.style.display = "flex";
+378: if (lblCodigo) lblCodigo.innerHTML = "<span>🔑</span> Código Institucional / Verificación Docente (ieinstituto2026):";
+380: if (gradoSelect) { gradoSelect.style.display = "none"; }
+381: if (grupoSelect) { grupoSelect.style.display = "none"; }
+393: if (campoCodigo) campoCodigo.style.display = "none";
+395: if (gradoSelect) { gradoSelect.style.display = "none"; gradoSelect.value = ""; }
+396: if (grupoSelect) { grupoSelect.style.display = "none"; grupoSelect.value = ""; }
+407: if (campoCodigo) campoCodigo.style.display = "none";
+409: if (gradoSelect) { gradoSelect.style.display = "block"; }
+410: if (grupoSelect) { grupoSelect.style.display = "none"; grupoSelect.value = ""; }
+421: // Cualquier Institución Oficial Registrada o Instituto Montenegro
+422: if (campoCodigo) campoCodigo.style.display = "flex";
+423: if (lblCodigo) lblCodigo.innerHTML = `<span>🔑</span> Código Institucional (${ie} - $0 COP):`;
+425: if (gradoSelect) { gradoSelect.style.display = "block"; }
+426: if (grupoSelect) { grupoSelect.style.display = "block"; }
+434: infoPago.innerHTML = `🏫 <strong>Comunidad Educativa Oficial (${ie}):</strong> Ingresa el código institucional suministrado por la institución para matricularte con acceso total e ilimitado.`;
+437: if (campoCodigo) campoCodigo.style.display = "none";
+439: if (gradoSelect) { gradoSelect.style.display = "none"; gradoSelect.value = ""; }
+440: if (grupoSelect) { grupoSelect.style.display = "none"; grupoSelect.value = ""; }
+519: const dIE = String(doc.institucion || '').toLowerCase();
+544: view.innerHTML = "Selecciona institución y grado para asignar materias y docentes automáticamente";
+587: <div id="docente-institucion-subhead" style="font-size: 0.95rem; color: #475569; font-weight: 700; margin-top: 3px;">
+710: Proyecta el código QR institucional gigante en el aula para que tus estudiantes se matriculen en segundos desde el celular.
+778: Comparte tu código de recomendación con otros colegios o docentes y desbloquea funciones institucionales exclusivas.
+848: <th style="padding: 14px 12px; font-weight: 800; color: #475569;">Institución</th>
+902: <button class="admin-tab-btn active" data-tab="grupos" style="padding: 15px 24px; border: none; background: white; font-weight: bold; cursor: pointer; border-bottom: 3px solid #3B82F6;">Instituciones</button>
+912: <button class="admin-inst-btn" data-inst="montenegro" onclick="mostrarGruposInstitucion('montenegro')" style="padding: 14px 24px; background: #2563EB; color: white; border: none; border-radius: 10px; cursor: pointer; font-weight: 800; font-size: 1rem; box-shadow: 0 4px 10px rgba(37,99,235,0.3); display: flex; align-items: center; gap: 8px; transition: 0.2s;">🏫 IE Instituto Montenegro</button>
+913: <button class="admin-inst-btn" data-inst="homeschool" onclick="mostrarGruposInstitucion('homeschool')" style="padding: 14px 24px; background: #4B5563; color: white; border: none; border-radius: 10px; cursor: pointer; font-weight: 800; font-size: 1rem; display: flex; align-items: center; gap: 8px; transition: 0.2s;">🏡 Tutores Home School</button>
+914: <button class="admin-inst-btn" data-inst="validacion" onclick="mostrarGruposInstitucion('validacion')" style="padding: 14px 24px; background: #4B5563; color: white; border: none; border-radius: 10px; cursor: pointer; font-weight: 800; font-size: 1rem; display: flex; align-items: center; gap: 8px; transition: 0.2s;">🎓 Validación Bachillerato</button>
+1078: function mostrarGruposInstitucion(inst) {
+1084: document.querySelectorAll('.admin-inst-btn').forEach(btn => {
+1104: <button onclick="volverAGrupos()" style="padding: 8px 16px; background: #E5E7EB; color: #374151; border: none; border-radius: 8px; cursor: pointer; font-weight: bold;">← Volver a Instituciones</button>
+1128: <select id="select-planeacion-asignatura" style="display: none; padding: 8px 12px; border-radius: 6px; border: 1px solid #D1D5DB; font-weight: bold; cursor: pointer;" onchange="actualizarVisualizadorPlaneacion()">
+1129: </select>
+1130: <select id="select-planeacion-periodo" style="padding: 8px 12px; border-radius: 6px; border: 1px solid #D1D5DB; font-weight: bold; cursor: pointer;" onchange="actualizarVisualizadorPlaneacion()">
+1133: <option value="3" selected>Periodo 3</option>
+1135: </select>
+1136: <select id="select-planeacion-semana" style="padding: 8px 12px; border-radius: 6px; border: 1.5px solid #2563EB; font-weight: 800; cursor: pointer; background: #EFF6FF; color: #1D4ED8;" onchange="actualizarVisualizadorPlaneacion()">
+1145: </select>
+1157: <th style="padding: 14px 10px; font-size: 0.88rem; color: #1E293B;">Institución / Modalidad</th>
+1188: 🏛️ Institución Educativa:
+1190: <select id="admin-inv-ie-select" style="width: 100%; padding: 10px 12px; border: 1.5px solid #CBD5E1; border-radius: 8px; font-weight: 700; font-size: 0.9rem; background: white;">
+1194: </select>
+1275: <th style="padding: 12px 10px; font-weight: 800; color: #475569;">Institución</th>
+1301: <select id="admin-asig-grado" style="padding: 12px; border: 1px solid #d1d5db; border-radius: 8px;">
+1309: </select>
+1368: <select id="filtro-fb-categoria" onchange="window.renderizarBuzonAdmin()" style="padding: 6px 12px; border-radius: 6px; border: 1px solid #CBD5E1; font-size: 0.85rem; font-weight: 600;">
+1375: </select>
+1485: Con esta suscripción a <strong>Peidagogos STEAM</strong>, el estudiante <strong>no queda matriculado automáticamente en una institución educativa tradicional ni registrado en el SIMAT</strong>. Esta es una plataforma para el aprendizaje en casa orientada a desarrollar las competencias de acuerdo a los estándares y DBA del MEN. Si deseas registro oficial en SIMAT y boletín por periodo, activa la opción certificada abajo.
+1490: <select id="tutor-reg-tipo-doc" style="padding: 10px; border: 1px solid #D1D5DB; border-radius: 8px; width: 32%; font-weight: bold;">
+1492: </select>
+1501: <select id="tutor-reg-gen" style="padding: 10px 12px; border: 1px solid #D1D5DB; border-radius: 8px;">
+1503: </select>
+1507: <select id="tutor-reg-grado" onchange="actualizarMateriasTutor()" style="width: 100%; padding: 10px 12px; border: 2px solid #3B82F6; border-radius: 8px; font-weight: bold; background: #F8FAFC;" required>
+1526: </select>
+1648: <select id="select-tutor-malla-grado" onchange="renderizarMallaTutorHomeSchool()" style="width: 100%; padding: 10px 14px; border: 2px solid #3B82F6; border-radius: 8px; font-weight: 800; font-size: 0.95rem; background: white; color: #1E293B;">
+1658: <option value="7" selected>7° de Secundaria</option>
+1674: </select>
+1880: <select id="select-estudiante-malla-grado" onchange="renderizarMallaEstudianteDBA()" style="width: 100%; padding: 10px 14px; border: 2px solid #3B82F6; border-radius: 8px; font-weight: 800; font-size: 0.95rem; background: white; color: #1E293B;">
+1887: <option value="Ciclo VI" selected>Ciclo VI (11° Bachillerato)</option>
+1906: </select>
+1939: <select id="student-select-periodo" style="padding: 10px; border-radius: 8px; border: 1px solid #D1D5DB; font-weight: bold;" onchange="actualizarPlaneacionEstudiante()">
+1942: <option value="3" selected>Periodo 3</option>
+1944: </select>
+1948: <select id="student-select-semana" style="padding: 10px; border-radius: 8px; border: 1px solid #D1D5DB; font-weight: bold;" onchange="actualizarPlaneacionEstudiante()">
+1951: </select>
+1966: <select id="student-quest-rol" style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #93C5FD; margin-top: 5px;">
+1972: </select>
+1976: <select id="student-quest-ambiente" style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #93C5FD; margin-top: 5px;">
+1982: </select>
+1986: <select id="student-quest-nivel" style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #93C5FD; margin-top: 5px;">
+1992: </select>
+1996: <select id="student-quest-enfoque" style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #93C5FD; margin-top: 5px;">
+2002: </select>
+2068: <!-- MODAL ESCANER QR DE REGISTRO INSTITUCIONAL -->
+2081: <button type="button" onclick="aplicarCodigoManualQR('ieinstituto2026')" style="background: #DEF7EC; border: 1px solid #31C48D; color: #03543F; padding: 10px 16px; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 0.9rem;">
+2106: <select id="auto-ciclo-grado" style="width: 100%; padding: 12px; border: 2px solid #3B82F6; border-radius: 8px; font-size: 0.95rem; font-weight: bold; background: #F8FAFC; color: #1E293B; box-sizing: border-box;">
+2119: </select>
+2171: <!-- 10 Tipos de Actividades Selector (Grid) -->
+2188: <select id="asignar-materia-select" style="width: 100%; padding: 9px 12px; border: 1.5px solid #CBD5E1; border-radius: 8px; font-weight: bold; background: white;">
+2197: </select>
+2201: <select id="asignar-grado-select" style="width: 100%; padding: 9px 12px; border: 1.5px solid #CBD5E1; border-radius: 8px; font-weight: bold; background: white;">
+2208: <option value="7" selected>7° Secundaria</option>
+2219: </select>
+2226: <select id="asignar-periodo-select" style="width: 100%; padding: 9px 12px; border: 1.5px solid #CBD5E1; border-radius: 8px; font-weight: bold; background: white;">
+2229: <option value="3" selected>Periodo 3</option>
+2231: </select>
+2358: <select id="slides-materia-select" style="width: 100%; padding: 9px 12px; border: 1.5px solid #CBD5E1; border-radius: 8px; font-weight: bold; background: white;">
+2367: </select>
+2371: <select id="slides-grado-select" style="width: 100%; padding: 9px 12px; border: 1.5px solid #CBD5E1; border-radius: 8px; font-weight: bold; background: white;">
+2373: <option value="6">6° Secundaria</option><option value="7" selected>7° Secundaria</option><option value="8">8° Secundaria</option><option value="9">9° Secundaria</option><option value="10">10° Media</option><option value="11">11° Media</option>
+2375: </select>
+2382: <select id="slides-periodo-select" style="width: 100%; padding: 9px 12px; border: 1.5px solid #CBD5E1; border-radius: 8px; font-weight: bold; background: white;">
+2383: <option value="1">Periodo 1</option><option value="2">Periodo 2</option><option value="3" selected>Periodo 3</option><option value="4">Periodo 4</option>
+2384: </select>
+2388: <select id="slides-semana-select" style="width: 100%; padding: 9px 12px; border: 1.5px solid #CBD5E1; border-radius: 8px; font-weight: bold; background: white;">
+2389: <option value="1" selected>Semana 1</option><option value="2">Semana 2</option><option value="3">Semana 3</option><option value="4">Semana 4</option>
+2391: </select>
+2680: <select id="toolbox-materia-select" style="width: 100%; padding: 7px 10px; border: 1.5px solid #CBD5E1; border-radius: 8px; font-weight: bold; font-size: 0.82rem; background: white;">
+2689: </select>
+2693: <select id="toolbox-grado-select" style="width: 100%; padding: 7px 10px; border: 1.5px solid #CBD5E1; border-radius: 8px; font-weight: bold; font-size: 0.82rem; background: white;">
+2695: <option value="6">6° Secundaria</option><option value="7" selected>7° Secundaria</option><option value="8">8° Secundaria</option><option value="9">9° Secundaria</option><option value="10">10° Media</option><option value="11">11° Media</option>
+2697: </select>
+2701: <select id="toolbox-periodo-select" style="width: 100%; padding: 7px 10px; border: 1.5px solid #CBD5E1; border-radius: 8px; font-weight: bold; font-size: 0.82rem; background: white;">
+2702: <option value="1">P1</option><option value="2">P2</option><option value="3" selected>P3</option><option value="4">P4</option>
+2703: </select>
+2707: <select id="toolbox-semana-select" style="width: 100%; padding: 7px 10px; border: 1.5px solid #CBD5E1; border-radius: 8px; font-weight: bold; font-size: 0.82rem; background: white;">
+2708: <option value="1" selected>Sem 1</option><option value="2">Sem 2</option><option value="3">Sem 3</option><option value="4">Sem 4</option>
+2710: </select>
+2786: <select id="visor-select-materia" onchange="window.aplicarCambiosVisorTool()" style="background: #1E293B; color: #38BDF8; border: 1px solid #475569; padding: 6px 8px; border-radius: 8px; font-weight: 800; font-size: 0.82rem;">
+2798: </select>
+2804: <select id="visor-select-grado" onchange="window.aplicarCambiosVisorTool()" style="background: #1E293B; color: white; border: 1px solid #475569; padding: 6px 8px; border-radius: 8px; font-weight: 800; font-size: 0.82rem;">
+2811: <option value="7" selected>7° Secundaria</option>
+2822: </select>
+2829: <select id="visor-select-periodo" onchange="window.aplicarCambiosVisorTool()" style="background: #1E293B; color: white; border: 1px solid #475569; padding: 6px 6px; border-radius: 8px; font-weight: 800; font-size: 0.82rem;">
+2832: <option value="3" selected>P3</option>
+2834: </select>
+2835: <select id="visor-select-semana" onchange="window.aplicarCambiosVisorTool()" style="background: #1E293B; color: white; border: 1px solid #475569; padding: 6px 6px; border-radius: 8px; font-weight: 800; font-size: 0.82rem;">
+2836: <option value="1" selected>Sem 1</option>
+2846: </select>
+2859: <select id="visor-select-dificultad" onchange="window.aplicarCambiosVisorTool()" style="background: #1E293B; color: #F59E0B; border: 1px solid #475569; padding: 6px 8px; border-radius: 8px; font-weight: 800; font-size: 0.82rem;">
+2861: <option value="medio" selected>⚡ Estándar</option>
+2863: </select>
+2899: Verificación sistemática de motores pedagógicos, mallas DBA, base de datos y auto-reparación inteligente.
+2973: <span>📋 Desglose de Suites y Verificación de Motores</span>
+3009: <!-- MODAL: REGISTRAR NUEVA INSTITUCIÓN EDUCATIVA -->
+3010: <div id="modal-crear-institucion-educativa" style="display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.8); z-index: 10001; justify-content: center; align-items: center; padding: 20px; backdrop-filter: blur(5px);; overflow-y: auto; -webkit-overflow-scrolling: touch;">
+3016: <h3 style="margin: 0; font-size: 1.25rem; font-weight: 900;">Registrar Nueva Institución Educativa</h3>
+3024: <label style="display: block; font-weight: 800; color: #1E293B; font-size: 0.88rem; margin-bottom: 5px;">Nombre de la Institución Educativa / Colegio:</label>
+3032: <label style="display: block; font-weight: 800; color: #1E293B; font-size: 0.88rem; margin-bottom: 5px;">Código Institucional de Verificación Docente (Opcional):</label>
+3033: <input type="text" id="nueva-ie-codigo" placeholder="Ej: santander2026 (por defecto automático)" style="width: 100%; padding: 12px; border: 1.5px solid #CBD5E1; border-radius: 8px; box-sizing: border-box; font-size: 0.95rem;">
+3064: <select id="modal-asig-icono" style="width: 100%; padding: 12px; border: 1.5px solid #CBD5E1; border-radius: 8px; box-sizing: border-box; font-size: 1rem;">
+3074: </select>
+3175: <select id="peidabot-categoria-select" style="width: 100%; padding: 8px 10px; border: 1px solid #CBD5E1; border-radius: 8px; font-size: 0.82rem; font-weight: 600; background: #F8FAFC;">
+3181: </select>
+3190: <label style="font-size: 0.75rem; font-weight: 700; color: #64748B; display: block; margin-bottom: 2px;">Tu Nombre / Institución (Opcional):</label>
+3231: 🛡️ Compromiso Institucional de Privacidad y Salvaguarda
+3243: Los datos personales recopilados (nombres, grado, institución educativa, avances en mallas curriculares y respuestas a actividades didácticas) tienen como <strong>única y exclusiva finalidad</strong>:
+3285: <strong>c)</strong> Solicitar la supresión del dato o revocar la autorización cuando no exista un deber legal o institucional de permanencia.<br>
+3286: Para ejercer estos derechos, pueden contactar directamente al Administrador Maestro mediante el canal de soporte oficial (PeidaBot o correo institucional).
+3342: Se reconoce expresamente que los <strong>Derechos Básicos de Aprendizaje (DBA), Matrices Curriculares Oficiales, Estándares Básicos de Competencias (EBC) y Lineamientos Pedagógicos</strong> pertenecen al <strong>Ministerio de Educación Nacional de Colombia (MEN)</strong> y son de naturaleza pública e institucional. Asimismo, los planes de área o documentos suministrados por cada colegio o docente pertenecen a sus respectivos autores e instituciones. La plataforma opera como una herramienta tecnológica de mediación e interactividad sin atribuirse la autoría de dichos estándares oficiales.
+3351: <li>El acceso institucional otorgado a directivos, docentes y estudiantes constituye una licencia de uso personal y académico intransferible.</li>
+3446: // --- CONTROLADOR DE ESCANER QR PARA MATRÍCULA INSTITUCIONAL ---
+3489: if (texto.includes('ieinstituto2026') || texto.includes('codigo=') || texto.includes('registro=instituto')) {
+3490: aplicarCodigoManualQR('ieinstituto2026');
+3502: aplicarCodigoManualQR(texto.trim());
+3506: function aplicarCodigoManualQR(cod) {
+3507: const codInput = document.getElementById('reg-codigo-institucional');
+3540: const codParam = params.get('codigo');
+3552: const codInput = document.getElementById('reg-codigo-institucional');
+3634: <!-- Selector de Métodos de Pago (Tabs) -->
+3655: <select id="pse-banco" style="width: 100%; padding: 10px; border: 1px solid #CBD5E1; border-radius: 8px; font-weight: 600;">
+3664: </select>
+3745: <!-- Avatar Selector -->
+3748: <div id="grid-selector-avatar" style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; margin-bottom: 10px;">
+3763: <input type="hidden" id="perfil-avatar-selected" value="🚀">
+3781: <select id="perfil-grado-ciclo-select" style="width: 100%; padding: 10px 12px; border: 1px solid #CBD5E1; border-radius: 8px; font-weight: 600; font-size: 0.95rem; box-sizing: border-box; background: white;">
+3794: </select>
+4010: <div id="codigo-referido-texto" style="font-size: 1.8rem; font-weight: 900; color: #4F46E5; letter-spacing: 2px;">CARGANDO...</div>
+4012: <button onclick="copiarCodigoReferido()" style="background: linear-gradient(135deg, #4F46E5, #3730A3); color: white; border: none; padding: 12px 20px; border-radius: 8px; font-weight: bold; width: 100%; cursor: pointer; font-size: 1rem; box-shadow: 0 4px 10px rgba(79,70,229,0.3);">📋 Copiar Código</button>
+4019: let codigo = sesionInfo.codigo_referido || "PROXIMAMENTE";
+4020: document.getElementById('codigo-referido-texto').innerText = codigo;
+4026: function copiarCodigoReferido() {
+4027: const code = document.getElementById('codigo-referido-texto').innerText;
+4061: <p style="margin: 0 0 10px 0; color: #64748B; font-size: 0.82rem;">Marca las materias del catálogo que orientas en tu institución:</p>
+4122: <select id="nuevo-grupo-grado-select" style="width: 100%; padding: 12px; border: 1.5px solid #CBD5E1; border-radius: 10px; font-weight: 700; font-size: 0.9rem; background: white; box-sizing: border-box;">
+4140: </select>
+4147: <select id="nuevo-grupo-materia-select" style="width: 100%; padding: 12px; border: 1.5px solid #CBD5E1; border-radius: 10px; font-weight: 700; font-size: 0.9rem; background: white; box-sizing: border-box;">
+4158: </select>
+4165: Al crear este grupo se generará un enlace web que podrás pegar directamente en grupos de <strong>WhatsApp, Facebook, Telegram o Teams</strong>. Cuando tus estudiantes abran el link, <strong>no necesitarán ingresar ningún código de verificación</strong> y quedarán matriculados de inmediato en este salón bajo tu perfil docente.
+4191: <p style="margin: 3px 0 0 0; font-size: 0.88rem; opacity: 0.95;">Matrícula instantánea para tus estudiantes sin códigos de verificación</p>

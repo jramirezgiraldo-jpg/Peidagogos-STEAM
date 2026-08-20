@@ -1,0 +1,24 @@
+363: const campoCodigo = document.getElementById("campo-codigo-institucional");
+365: const lblCodigo = document.getElementById("lbl-codigo-institucional");
+377: if (campoCodigo) campoCodigo.style.display = "flex";
+378: if (lblCodigo) lblCodigo.innerHTML = "<span>🔑</span> Código Institucional / Verificación Docente (ieinstituto2026):";
+393: if (campoCodigo) campoCodigo.style.display = "none";
+407: if (campoCodigo) campoCodigo.style.display = "none";
+422: if (campoCodigo) campoCodigo.style.display = "flex";
+423: if (lblCodigo) lblCodigo.innerHTML = `<span>🔑</span> Código Institucional (${ie} - $0 COP):`;
+437: if (campoCodigo) campoCodigo.style.display = "none";
+2081: <button type="button" onclick="aplicarCodigoManualQR('ieinstituto2026')" style="background: #DEF7EC; border: 1px solid #31C48D; color: #03543F; padding: 10px 16px; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 0.9rem;">
+3033: <input type="text" id="nueva-ie-codigo" placeholder="Ej: santander2026 (por defecto automático)" style="width: 100%; padding: 12px; border: 1.5px solid #CBD5E1; border-radius: 8px; box-sizing: border-box; font-size: 0.95rem;">
+3489: if (texto.includes('ieinstituto2026') || texto.includes('codigo=') || texto.includes('registro=instituto')) {
+3490: aplicarCodigoManualQR('ieinstituto2026');
+3502: aplicarCodigoManualQR(texto.trim());
+3506: function aplicarCodigoManualQR(cod) {
+3507: const codInput = document.getElementById('reg-codigo-institucional');
+3540: const codParam = params.get('codigo');
+3552: const codInput = document.getElementById('reg-codigo-institucional');
+4010: <div id="codigo-referido-texto" style="font-size: 1.8rem; font-weight: 900; color: #4F46E5; letter-spacing: 2px;">CARGANDO...</div>
+4012: <button onclick="copiarCodigoReferido()" style="background: linear-gradient(135deg, #4F46E5, #3730A3); color: white; border: none; padding: 12px 20px; border-radius: 8px; font-weight: bold; width: 100%; cursor: pointer; font-size: 1rem; box-shadow: 0 4px 10px rgba(79,70,229,0.3);">📋 Copiar Código</button>
+4019: let codigo = sesionInfo.codigo_referido || "PROXIMAMENTE";
+4020: document.getElementById('codigo-referido-texto').innerText = codigo;
+4026: function copiarCodigoReferido() {
+4027: const code = document.getElementById('codigo-referido-texto').innerText;
