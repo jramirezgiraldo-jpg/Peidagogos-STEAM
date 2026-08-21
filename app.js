@@ -15155,6 +15155,19 @@ window.copiarMensajeCompletoRedes = function() {
 // =========================================================
 window.verificarParametrosMatriculaDirecta = function() {
     const params = new URLSearchParams(window.location.search);
+    if (params.get('reg') === 'docente') {
+        setTimeout(() => {
+            const el = document.getElementById('perfil-ingreso-select');
+            if (el) {
+                el.value = 'docente';
+                el.disabled = true;
+                if (typeof abrirModalRegistroDocente === 'function') {
+                    abrirModalRegistroDocente();
+                }
+            }
+        }, 500);
+    }
+
     const regDirecto = params.get('reg');
     const docId = params.get('docente');
     const docNom = params.get('nombre_doc') || 'Docente Orientador';
@@ -15242,25 +15255,15 @@ window.invitacionDocenteActiva = null;
 
 window.generarInvitacionDocenteIntransferible = function() {
     const selIE = document.getElementById('admin-inv-ie-select');
-    const inNom = document.getElementById('admin-inv-nombre-input');
-    const inDoc = document.getElementById('admin-inv-doc-input');
-    const inMat = document.getElementById('admin-inv-materia-input');
-
     const ie = selIE ? selIE.value : 'IE Instituto Montenegro';
-    const nombre = inNom ? inNom.value.trim() : '';
-    const documento = inDoc ? inDoc.value.trim() : '';
-    const materia = inMat ? inMat.value.trim() : 'Ciencias Naturales y Educación Ambiental';
-
-    if (!nombre) {
-        alert("⚠️ Por favor ingresa el nombre del docente a invitar.");
-        if (inNom) inNom.focus();
-        return;
-    }
+    const nombre = "Enlace General Docentes";
+    const documento = "";
+    const materia = "Todas";
 
     // Generar token único intransferible
     const token = 'TK-DOC-' + Math.random().toString(36).substring(2, 9).toUpperCase();
     const baseUrl = window.location.origin + window.location.pathname;
-    const urlFinal = `${baseUrl}?token_docente=${token}&ie=${encodeURIComponent(ie)}&nombre_doc=${encodeURIComponent(nombre)}&doc=${encodeURIComponent(documento)}&materia=${encodeURIComponent(materia)}&rol=docente`;
+    const urlFinal = `${baseUrl}?reg=docente`;
     const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${encodeURIComponent(urlFinal)}`;
 
     const nuevaInvitacion = {
