@@ -15157,13 +15157,32 @@ window.verificarParametrosMatriculaDirecta = function() {
     const params = new URLSearchParams(window.location.search);
     if (params.get('reg') === 'docente') {
         setTimeout(() => {
-            const el = document.getElementById('perfil-ingreso-select');
-            if (el) {
-                el.value = 'docente';
-                el.disabled = true;
-                if (typeof abrirModalRegistroDocente === 'function') {
-                    abrirModalRegistroDocente();
-                }
+            if (typeof mostrarVista === 'function') {
+                mostrarVista('register-screen-container');
+            }
+            
+            const selIE = document.getElementById('reg-ie');
+            if (selIE) {
+                selIE.value = 'DocenteRegular';
+                selIE.style.display = 'none'; // Hide it as requested by user
+                if (typeof toggleIEOptions === 'function') toggleIEOptions();
+            }
+
+            const campoDocenteAsignatura = document.getElementById('campo-docente-asignatura');
+            if (campoDocenteAsignatura) {
+                campoDocenteAsignatura.style.display = 'none'; // Hide it as requested by user
+            }
+            
+            const regDocenteIe = document.getElementById('reg-docente-ie-select');
+            const ieParam = params.get('ie');
+            if (regDocenteIe && ieParam) {
+                // If it's a select and the value doesn't exist, we can't easily set it. 
+                // But in this logic, we will force the value to be stored elsewhere or we inject an option.
+                const option = document.createElement('option');
+                option.value = ieParam;
+                option.text = ieParam;
+                regDocenteIe.appendChild(option);
+                regDocenteIe.value = ieParam;
             }
         }, 500);
     }
@@ -15263,7 +15282,7 @@ window.generarInvitacionDocenteIntransferible = function() {
     // Generar token único intransferible
     const token = 'TK-DOC-' + Math.random().toString(36).substring(2, 9).toUpperCase();
     const baseUrl = window.location.origin + window.location.pathname;
-    const urlFinal = `${baseUrl}?reg=docente`;
+    const urlFinal = `${baseUrl}?reg=docente&ie=${encodeURIComponent(ie)}`;
     const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${encodeURIComponent(urlFinal)}`;
 
     const nuevaInvitacion = {
