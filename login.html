@@ -3420,7 +3420,12 @@
         // Función global para navegación SPA instantánea y sin scroll residual
         function mostrarVista(id, pushState = true) {
             if (pushState && id !== 'login-screen-container') {
-                history.pushState({ vistaId: id }, '', '?view=' + id);
+                const currentSearch = window.location.search;
+                if (currentSearch.includes('reg=')) {
+                    // Do not overwrite URL if we are in a special registration link
+                } else {
+                    history.pushState({ vistaId: id }, '', '?view=' + id);
+                }
             }
             const vistas = [
                 'login-screen-container',
