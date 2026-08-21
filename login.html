@@ -1267,14 +1267,7 @@
                                     </button>
                                 </div>
 
-                                <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-                                    <button onclick="window.compartirInvitacionDocenteWhatsApp()" style="background: #10B981; color: white; border: none; padding: 10px 18px; border-radius: 8px; font-weight: 900; font-size: 0.88rem; cursor: pointer; display: flex; align-items: center; gap: 6px; box-shadow: 0 3px 8px rgba(16,185,129,0.25);">
-                                        <span>📲</span> Enviar por WhatsApp
-                                    </button>
-                                    <button onclick="window.abrirVistaPreviaQRDocente()" style="background: #4F46E5; color: white; border: none; padding: 10px 18px; border-radius: 8px; font-weight: 900; font-size: 0.88rem; cursor: pointer; display: flex; align-items: center; gap: 6px; box-shadow: 0 3px 8px rgba(79,70,229,0.25);">
-                                        <span>📽️</span> Proyectar QR en Pantalla Completa
-                                    </button>
-                                </div>
+                                
                             </div>
 
                             <!-- Contenedor del Código QR -->
@@ -3435,7 +3428,10 @@
         })();
 
         // Función global para navegación SPA instantánea y sin scroll residual
-        function mostrarVista(id) {
+        function mostrarVista(id, pushState = true) {
+            if (pushState && id !== 'login-screen-container') {
+                history.pushState({ vistaId: id }, '', '?view=' + id);
+            }
             const vistas = [
                 'login-screen-container',
                 'register-screen-container',
