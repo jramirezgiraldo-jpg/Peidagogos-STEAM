@@ -6371,7 +6371,7 @@ window.generarCarnetResiliencia = function() {
 };
 
 window.abrirClasePrimerosAuxiliosEmocionales = function(modo = 'estudiante') {
-    if(typeof pushSubView === \'function\') pushSubView();
+    if(typeof pushSubView === 'function') pushSubView();
 
     const guideData = window.obtenerGuiaPrimerosAuxiliosEmocionales();
     const curUser = window.usuarioEstudianteActual || JSON.parse(localStorage.getItem('usuario_sesion') || '{}');
@@ -8370,7 +8370,7 @@ window.ejecutarRobo = function(premio) {
 let subviewsDepth = 0;
 
 
-let subviewsDepth = 0;
+subviewsDepth = 0;
 window.pushSubView = function() {
     subviewsDepth++;
     history.pushState({ depth: subviewsDepth, isModal: true }, "", location.href);
@@ -10816,7 +10816,7 @@ window.PALETAS_MATERIAS_SLIDES = {
 };
 
 window.abrirConfiguradorDiapositivas = function(rol = 'docente', materiaDef = '', gradoDef = '', perDef = '3', semDef = '1') {
-    if(typeof pushSubView === \'function\') pushSubView();
+    if(typeof pushSubView === 'function') pushSubView();
 
     const modal = document.getElementById('modal-generar-diapositivas');
     if (!modal) return;
@@ -12034,7 +12034,7 @@ window.METADATOS_CAJAS_TEMATICAS = {
 };
 
 window.abrirCajaHerramientas = function(categoria = 'todas', rol = 'docente') {
-    if(typeof pushSubView === \'function\') pushSubView();
+    if(typeof pushSubView === 'function') pushSubView();
 
     const modal = document.getElementById('modal-caja-herramientas');
     if (!modal) return;
@@ -12095,7 +12095,7 @@ window._nombreArchivoJuegoIA = '';
 window._palabrasArchivoJuegoIA = '';
 
 window.abrirConfiguracionJuegoIA = function(toolId) {
-    if(typeof pushSubView === \'function\') pushSubView();
+    if(typeof pushSubView === 'function') pushSubView();
 
     const tool = (typeof toolId === 'object' && toolId !== null) 
         ? toolId 
@@ -12392,7 +12392,7 @@ window.renderizarTarjetasCajaHerramientas = function(categoria = 'juegos') {
 
 // Modal Visor de Herramientas y Sincronización de Controles
 window.abrirVisorHerramienta = function(herramientaId, omitirIntercepcionIA = false) {
-    if(typeof pushSubView === \'function\') pushSubView();
+    if(typeof pushSubView === 'function') pushSubView();
 
     const tool = window.LISTA_HERRAMIENTAS_PEDAGOGICAS.find(h => h.id === herramientaId);
     if (!tool) return;
@@ -15555,7 +15555,7 @@ window.cargarEstudiantesDocente = async function(docenteId) {
 };
 
 window.abrirCajonGrupoDocente = function(nombreGrupo) {
-    if(typeof pushSubView === \'function\') pushSubView();
+    if(typeof pushSubView === 'function') pushSubView();
 
     window.grupoDocenteActivo = nombreGrupo;
     const vistaCajones = document.getElementById('docente-vista-cajones-grupos');
