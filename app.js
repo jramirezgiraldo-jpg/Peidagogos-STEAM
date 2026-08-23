@@ -6371,6 +6371,8 @@ window.generarCarnetResiliencia = function() {
 };
 
 window.abrirClasePrimerosAuxiliosEmocionales = function(modo = 'estudiante') {
+    if(typeof pushSubView === \'function\') pushSubView();
+
     const guideData = window.obtenerGuiaPrimerosAuxiliosEmocionales();
     const curUser = window.usuarioEstudianteActual || JSON.parse(localStorage.getItem('usuario_sesion') || '{}');
     
@@ -8367,10 +8369,45 @@ window.ejecutarRobo = function(premio) {
 // ==========================================
 let subviewsDepth = 0;
 
+
+let subviewsDepth = 0;
 window.pushSubView = function() {
     subviewsDepth++;
-    history.pushState({ depth: subviewsDepth }, "", location.href);
+    history.pushState({ depth: subviewsDepth, isModal: true }, "", location.href);
 };
+
+window.addEventListener('popstate', (e) => {
+    let closedSomething = false;
+    
+    // Lista de IDs de modales o contenedores que queremos cerrar con el botn atrs
+    const modalesIds = [
+        'modal-visor-herramienta',
+        'modal-configuracion-juego-ia',
+        'modal-informe-estudiante',
+        'caja-1-planificacion-contenedor',
+        'caja-2-juegos-dinamicos-contenedor',
+        'caja-3-gestion-aula-contenedor',
+        'caja-4-pensamiento-visual-contenedor',
+        'caja-5-evaluacion-contenedor',
+        'caja-6-organizacion-contenedor',
+        'admin-estudiantes-grupo-container',
+        'modal-clase-terremoto-proyeccion',
+        'modal-configurador-diapositivas'
+    ];
+    
+    modalesIds.forEach(id => {
+        const el = document.getElementById(id);
+        if (el && (el.style.display === 'block' || el.style.display === 'flex')) {
+            el.style.display = 'none';
+            closedSomething = true;
+        }
+    });
+
+    if (closedSomething) {
+        // Restaurar estado para no salir de la app si quedaban ms modales abiertos
+        history.pushState(null, "", location.href);
+    }
+});
 
 window.addEventListener('popstate', (e) => {
     if (subviewsDepth > 0) {
@@ -10779,6 +10816,8 @@ window.PALETAS_MATERIAS_SLIDES = {
 };
 
 window.abrirConfiguradorDiapositivas = function(rol = 'docente', materiaDef = '', gradoDef = '', perDef = '3', semDef = '1') {
+    if(typeof pushSubView === \'function\') pushSubView();
+
     const modal = document.getElementById('modal-generar-diapositivas');
     if (!modal) return;
 
@@ -10928,23 +10967,62 @@ window.generar10DiapositivasPedagogicas = function(materia, grado, periodo, sema
     };
 };
 
-window.ejecutarGeneracionDiapositivas = function() {
-    const selMat = document.getElementById('slides-materia-select');
-    const selGra = document.getElementById('slides-grado-select');
-    const selPer = document.getElementById('slides-periodo-select');
-    const selSem = document.getElementById('slides-semana-select');
-    const inTema = document.getElementById('slides-tema-custom');
-
-    const materia = selMat ? selMat.value : 'Ciencias Naturales';
+window.ejecutarGeneracionDiapositivas = async function() {
+    const selMat = document.getElementById('modal-config-diapositivas-materia');
+    const selGra = document.getElementById('modal-config-diapositivas-grado');
+    const inputTema = document.getElementById('modal-config-diapositivas-tema');
+    const btn = document.getElementById('btn-ejecutar-generacion-diapositivas');
+    
+    const materia = selMat ? selMat.value : 'General';
     const grado = selGra ? selGra.value : '7';
-    const periodo = selPer ? selPer.value : '3';
-    const semana = selSem ? selSem.value : '1';
-    const temaCustom = inTema ? inTema.value.trim() : '';
-
-    const deck = window.generar10DiapositivasPedagogicas(materia, grado, periodo, semana, temaCustom);
-
-    window.cerrarConfiguradorDiapositivas();
-    window.abrirPresentadorDiapositivas(deck);
+    const temaCustom = inputTema ? inputTema.value.trim() : '';
+    
+    if (btn) btn.innerHTML = '⏳ Diseñando Presentación (IA)...';
+    
+    try {
+        const response = await fetch('/api/generate-guide', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                asignatura: materia,
+                grado: grado,
+                topico: temaCustom,
+                meta: 'Generar Diapositivas',
+                modo: 'diapositivas',
+                periodo: '1',
+                semana: '1',
+                ambiente: 'Aula Virtual'
+            })
+        });
+        
+        if (response.ok) {
+            const result = await response.json();
+            // result should contain an array of slides if generated properly, or html
+            // but we need it as a deck object for the presenter
+            let deck = { slides: [] };
+            if (result.diapositivas) {
+                deck.slides = result.diapositivas.map((s, i) => ({
+                    numero: i + 1,
+                    titulo: s.titulo || s.title || `Diapositiva ${i+1}`,
+                    contenido_html: s.contenido_html || s.content || `<p>${s.texto || ''}</p>`,
+                    notas_orador: s.notas_orador || s.notes || ''
+                }));
+            } else {
+                // If it returns raw HTML string instead of object
+                deck.slides = [
+                    { numero: 1, titulo: "Presentación", contenido_html: result.html || result.contenido_html || JSON.stringify(result) }
+                ];
+            }
+            window.cerrarConfiguradorDiapositivas();
+            window.abrirPresentadorDiapositivas(deck);
+        } else {
+            alert('Error generando diapositivas.');
+        }
+    } catch(e) {
+        console.error(e);
+        alert('Fallo al conectar con la IA de Diapositivas.');
+    }
+    if (btn) btn.innerHTML = '🚀 Generar y Presentar';
 };
 
 window.abrirPresentadorDiapositivas = function(deck) {
@@ -11956,6 +12034,8 @@ window.METADATOS_CAJAS_TEMATICAS = {
 };
 
 window.abrirCajaHerramientas = function(categoria = 'todas', rol = 'docente') {
+    if(typeof pushSubView === \'function\') pushSubView();
+
     const modal = document.getElementById('modal-caja-herramientas');
     if (!modal) return;
 
@@ -12015,6 +12095,8 @@ window._nombreArchivoJuegoIA = '';
 window._palabrasArchivoJuegoIA = '';
 
 window.abrirConfiguracionJuegoIA = function(toolId) {
+    if(typeof pushSubView === \'function\') pushSubView();
+
     const tool = (typeof toolId === 'object' && toolId !== null) 
         ? toolId 
         : window.LISTA_HERRAMIENTAS_PEDAGOGICAS.find(h => h.id === toolId);
@@ -12235,192 +12317,37 @@ window.ejecutarGeneracionJuegoIA = async function(opciones = {}) {
     const tool = window._toolJuegoIAActivo || window._herramientaConfigurandoIA || window.LISTA_HERRAMIENTAS_PEDAGOGICAS[0];
     if (!tool) return;
 
-    const selMat = document.getElementById('modal-config-juego-materia') || document.getElementById('modal-juego-materia-select') || document.getElementById('modal-juego-ia-materia-select');
-    const selGra = document.getElementById('modal-config-juego-grado') || document.getElementById('modal-juego-grado-select') || document.getElementById('modal-juego-ia-grado-select');
-    const selGrp = document.getElementById('modal-config-juego-grupo') || document.getElementById('modal-juego-grupo-select') || document.getElementById('modal-juego-ia-grupo-select');
-    const selXp = document.getElementById('modal-config-juego-xp') || document.getElementById('modal-juego-xp-select') || document.getElementById('modal-juego-ia-xp-select');
-    const inKw = document.getElementById('modal-config-juego-keywords') || document.getElementById('modal-juego-input-keywords') || document.getElementById('modal-juego-ia-keywords');
-    const inTema = document.getElementById('modal-config-juego-tema') || document.getElementById('modal-juego-ia-tema');
+    const selMat = document.getElementById('modal-config-juego-materia');
+    const selGra = document.getElementById('modal-config-juego-grado');
+    const inTema = document.getElementById('modal-config-juego-tema');
 
     const materia = (selMat && selMat.value) ? selMat.value : 'Ciencias Naturales';
     const grado = (selGra && selGra.value) ? selGra.value : '7';
-    const grupo = (selGrp && selGrp.value) ? selGrp.value : 'Todos';
-    const xp = (selXp && selXp.value) ? parseInt(selXp.value) : 250;
+    const keywords = (inTema && inTema.value.trim()) ? inTema.value.trim() : materia;
 
-    let keywords = '';
-    if (inTema && inTema.value.trim()) {
-        keywords = inTema.value.trim();
-    } else if (window._modoConfigJuegoIA === 'keywords') {
-        keywords = (inKw && inKw.value.trim()) ? inKw.value.trim() : `${materia} Grado ${grado}`;
-    } else {
-        keywords = window._palabrasArchivoJuegoIA || window._textoArchivoConfigJuegoIA || window._nombreArchivoJuegoIA || `${materia} Grado ${grado}`;
-    }
+    const btn = document.getElementById('btn-ejecutar-generacion-juego-ia');
+    if (btn) btn.innerHTML = '⏳ Generando IA...';
 
-    const btnAsignar = document.getElementById('btn-ejecutar-generacion-juego-ia') || document.getElementById('btn-modal-juego-ia-asignar');
-    if (btnAsignar) {
-        btnAsignar.disabled = true;
-        btnAsignar.innerHTML = `<span>⚙️</span> Generando con IA...`;
-    }
-
-    // 1. Obtener datos de sesión del docente
-    let authSes = {};
-    try {
-        authSes = JSON.parse(sessionStorage.getItem('peidagogos_auth') || localStorage.getItem('usuario_sesion') || localStorage.getItem('usuario_actual') || '{}');
-    } catch(e) {}
-    const docKey = String(window.usuario_actual || authSes.documento || authSes.usuario || 'docente').trim();
-    let dList = [];
-    try { dList = JSON.parse(localStorage.getItem('docentes_db') || '[]'); } catch(e) {}
-    const docItem = dList.find(d => String(d.documento || d.usuario || '').trim().toLowerCase() === docKey.toLowerCase()) || authSes;
-    const profesorNombre = (document.getElementById('docente-nombre-header') ? document.getElementById('docente-nombre-header').innerText : (docItem.nombre || 'Docente Orientador')).trim();
-
-    // 2. Generar payload de IA o Fallback
-    let payload = null;
     try {
         const res = await fetch('/api/generate-tool-ai', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ materia, grado, tema: keywords, dificultad: 'medio' })
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({ materia, grado, tema: keywords, dificultad: 'media' })
         });
         if (res.ok) {
-            const json = await res.json();
-            if (json && !json.error) payload = json;
+            window._aiGameData = await res.json();
+            window.cerrarConfiguracionJuegoIA();
+            if (typeof window.abrirCajaTool === 'function') {
+                window.abrirCajaTool(tool.id, true);
+            }
+        } else {
+            alert('Error IA.');
         }
-    } catch(e) {
-        console.warn("Fallo endpoint IA, usando generador procedural dinámico:", e);
+    } catch (e) {
+        console.error(e);
+        alert('Error.');
     }
-
-    if (!payload && typeof window.datosDinamicosFallback === 'function') {
-        payload = window.datosDinamicosFallback(materia, grado, keywords, 'medio');
-    } else if (!payload) {
-        payload = {
-            toolId: tool.id,
-            materia,
-            grado,
-            palabras: keywords.split(/[,;\n]+/).map(w => w.trim()).filter(Boolean)
-        };
-    }
-
-    payload.toolId = tool.id;
-    payload.materia = materia;
-    payload.grado = grado;
-    payload.tema = keywords;
-    payload.dificultad = 'medio';
-
-    window._cacheDataDinamicaIA = payload;
-
-    // 3. Si no es solo proyectar, asignar actividad a los estudiantes del grupo
-    if (!soloProyectar) {
-        const actId = 'act_' + Date.now() + '_' + Math.random().toString(36).substr(2, 6);
-        const assignedActivity = {
-            id: actId,
-            herramienta_id: tool.id,
-            titulo: `${tool.icono || '⚡'} ${tool.titulo || 'Actividad'}: ${keywords.split(',')[0].trim()}`,
-            materia: materia,
-            grado: grado,
-            grupo: grupo,
-            profesor_nombre: profesorNombre,
-            profesor_id: docKey,
-            fecha_asignacion: new Date().toISOString(),
-            estado: 'pendiente',
-            xp_recompensa: xp,
-            configuracion_juego: {
-                modo: window._modoConfigJuegoIA,
-                tema: keywords,
-                palabrasClave: keywords,
-                archivoNombre: window._nombreArchivoJuegoIA || null
-            },
-            datos_juego: payload,
-            // Aliases de compatibilidad total
-            tipo_actividad: tool.id,
-            herramienta_titulo: tool.titulo,
-            herramienta_icono: tool.icono,
-            destinatario_tipo: 'grupo',
-            destinatario_id: grupo,
-            destinatario_nombre: grupo === 'Todos' ? 'Todos los Grupos' : `Grupo ${grupo}`,
-            grupo_destino: grupo,
-            tema: keywords,
-            creador_id: docKey,
-            fecha_creacion: new Date().toISOString(),
-            actividad_data: payload,
-            completada_por: []
-        };
-
-        // Guardar en localStorage
-        let localActs = [];
-        try { localActs = JSON.parse(localStorage.getItem('actividades_asignadas_db') || '[]'); } catch(e) {}
-        localActs.unshift(assignedActivity);
-        localStorage.setItem('actividades_asignadas_db', JSON.stringify(localActs));
-
-        // Enviar a servidor backend
-        try {
-            await fetch('/api/asignar-actividad', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    id: assignedActivity.id,
-                    tipo_actividad: tool.id,
-                    herramienta_id: tool.id,
-                    titulo: assignedActivity.titulo,
-                    destinatario_tipo: 'grupo',
-                    destinatario_id: grupo,
-                    destinatario_nombre: assignedActivity.destinatario_nombre,
-                    grupo_destino: grupo,
-                    grupo: grupo,
-                    materia: materia,
-                    grado: grado,
-                    periodo: '3',
-                    tema: keywords,
-                    profesor_nombre: profesorNombre,
-                    creador_id: docKey,
-                    profesor_id: docKey,
-                    xp_recompensa: xp,
-                    configuracion_juego: assignedActivity.configuracion_juego,
-                    datos_juego: payload,
-                    actividad_data: payload
-                })
-            });
-        } catch(e) {
-            console.warn("Fallo sincronización nube de actividad asignada:", e);
-        }
-
-        if (window.enviarAlertaTelegram) {
-            window.enviarAlertaTelegram(`🎮 *NUEVA ACTIVIDAD STEAM ASIGNADA*\n\n🎯 *Juego:* ${tool.icono || '⚡'} ${tool.titulo}\n📚 *Materia:* ${materia} (Grado ${grado}°)\n👥 *Grupo:* ${grupo}\n👨‍🏫 *Profesor:* ${profesorNombre}\n📝 *Tema:* ${keywords}\n🌟 *Recompensa:* +${xp} XP`);
-        }
-    }
-
-    // 4. Cerrar modal de configuración
-    window.cerrarConfiguracionJuegoIA();
-    if (btnAsignar) {
-        btnAsignar.disabled = false;
-        btnAsignar.innerHTML = `<span>🚀</span> Generar y Asignar a Estudiantes ➔`;
-    }
-
-    // 5. Abrir visor interactivo de la herramienta en pantalla completa
-    window.herramientaActualActiva = tool;
-    const base = {
-        materia,
-        grado,
-        periodo: '3',
-        semana: '1',
-        concepto: keywords,
-        dificultad: 'medio'
-    };
-
-    const modalVisor = document.getElementById('modal-visor-herramienta');
-    const stage = document.getElementById('herramienta-stage');
-    const iconVisor = document.getElementById('visor-tool-icon');
-    const titleVisor = document.getElementById('visor-tool-title');
-    const subtitleVisor = document.getElementById('visor-tool-subtitle');
-
-    if (iconVisor) iconVisor.innerText = tool.icono || '🧰';
-    if (titleVisor) titleVisor.innerText = tool.titulo;
-    if (subtitleVisor) subtitleVisor.innerText = `${materia} • Grado ${grado}° • Grupo: ${grupo} • Tema: ${keywords}`;
-
-    if (modalVisor) modalVisor.style.display = 'flex';
-
-    if (stage && typeof window.ejecutarRenderizadorHerramienta === 'function') {
-        window.ejecutarRenderizadorHerramienta(tool.id, stage, base);
-    }
+    if (btn) btn.innerHTML = '🚀 Generar y Asignar';
 };
 
 // Aliases Universales para Configuración y Generación de Herramientas IA (R3)
@@ -12465,6 +12392,8 @@ window.renderizarTarjetasCajaHerramientas = function(categoria = 'juegos') {
 
 // Modal Visor de Herramientas y Sincronización de Controles
 window.abrirVisorHerramienta = function(herramientaId, omitirIntercepcionIA = false) {
+    if(typeof pushSubView === \'function\') pushSubView();
+
     const tool = window.LISTA_HERRAMIENTAS_PEDAGOGICAS.find(h => h.id === herramientaId);
     if (!tool) return;
 
@@ -12576,6 +12505,8 @@ window.togglePantallaCompletaVisorTool = function() {
 // MOTOR DE GENERACIÓN DE CONTENIDO PEDAGÓGICO DINÁMICO POR DEMANDA
 // ==========================================================================
 window.generarDatosPedagogicosDinamicos = function(materia, grado, tema, dificultad = 'medio') {
+    if (window._aiGameData) return window._aiGameData;
+
     if (window._cacheDataDinamicaIA) {
         return window._cacheDataDinamicaIA;
     }
@@ -15624,6 +15555,8 @@ window.cargarEstudiantesDocente = async function(docenteId) {
 };
 
 window.abrirCajonGrupoDocente = function(nombreGrupo) {
+    if(typeof pushSubView === \'function\') pushSubView();
+
     window.grupoDocenteActivo = nombreGrupo;
     const vistaCajones = document.getElementById('docente-vista-cajones-grupos');
     const vistaDetalle = document.getElementById('docente-vista-detalle-grupo');

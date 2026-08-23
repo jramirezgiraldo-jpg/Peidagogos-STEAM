@@ -918,25 +918,61 @@ Debes devolver UNICAMENTE un objeto JSON estrictamente válido, sin markdown, co
 Asegúrate de que las definiciones coincidan con las 'palabras', el Jeopardy tenga 25 preguntas, y que todo el contenido sea muy rico, exacto pedagógicamente y relacionado al tema ${tema}.`;
 
     try {
-        const ai = getAIClient();
-        if (!ai) return res.status(500).json({ error: "No hay keys disponibles." });
+        let responseText = '';
         
-        const response = await geminiQueue.add(() => ai.models.generateContent({
-            model: "gemini-2.5-flash",
-            contents: prompt,
-            config: {
-                responseMimeType: "application/json"
+        // Try Gemini first
+        try {
+            const ai = getAIClient();
+            if (ai) {
+                const response = await geminiQueue.add(() => ai.models.generateContent({
+                    model: "gemini-2.5-flash",
+                    contents: prompt,
+                    config: {
+                        responseMimeType: "application/json"
+                    }
+                }));
+                if (response && response.text) responseText = response.text;
             }
-        }));
+        } catch(e) {
+            console.error("Gemini falló en tool:", e.message);
+        }
 
-        if (response && response.text) {
-            res.json(JSON.parse(response.text));
+        // DeepSeek Fallback
+        if (!responseText && process.env.DEEPSEEK_API_KEY) {
+            console.log(`[IA] Usando DeepSeek para generate-tool-ai...`);
+            const ds_response = await fetch('https://api.deepseek.com/chat/completions', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + process.env.DEEPSEEK_API_KEY
+                },
+                body: JSON.stringify({
+                    model: 'deepseek-chat',
+                    messages: [{ role: 'user', content: prompt }],
+                    response_format: { type: 'json_object' }
+                })
+            });
+            
+            if (ds_response.ok) {
+                const ds_data = await ds_response.json();
+                if (ds_data.choices && ds_data.choices.length > 0) {
+                    responseText = ds_data.choices[0].message.content;
+                }
+            } else {
+                console.error('DeepSeek Status:', ds_response.status);
+            }
+        }
+
+        if (responseText) {
+            // Eliminar posibles backticks de markdown que Deepseek pueda devolver aunque se pida json_object
+            responseText = responseText.replace(/```json/g, '').replace(/```/g, '').trim();
+            res.json(JSON.parse(responseText));
         } else {
-            res.status(500).json({ error: "Respuesta vacía de Gemini." });
+            res.status(500).json({ error: "No se pudo generar con IA." });
         }
     } catch (error) {
-        console.error("Error generando herramienta AI:", error.message);
-        res.status(500).json({ error: "Falló la generación de la herramienta AI." });
+        console.error("Error general AI:", error);
+        res.status(500).json({ error: "Falló la generación AI." });
     }
 });
 

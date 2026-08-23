@@ -1,0 +1,160 @@
+
+        // Unir con respaldo local de usuarios_db para garantizar visibilidad inmediata de todos los matriculados
+        const localUsers = JSON.parse(localStorage.getItem('usuarios_db') || '[]');
+        localUsers.forEach(lu => {
+            const normDoc = String(lu.documento || lu.id || lu.usuario || '').trim().toLowerCase().replace(/[\.\,\-\_\s]/g, '');
+            if (normDoc && !estudiantes.some(e => String(e.documento || e.id || e.usuario || '').trim().toLowerCase().replace(/[\.\,\-\_\s]/g, '') === normDoc)) {
+                estudiantes.push(lu);
+            }
+        });
+
+        const tbodyDoc = document.getElementById('tbody-admin-docentes');
+        const tbodyEst = document.getElementById('tbody-admin-todos-estudiantes');
+
+        if (tbodyDoc) {
+            tbodyDoc.innerHTML = '';
+            docentes.forEach(d => {
+                const tipoVinculacion = d.institucion ? d.institucion : (d.rol === 'docente' ? 'Docente Regular' : 'Homeschool');
+                tbodyDoc.innerHTML += `
+                <tr>
+                    <td style="padding: 15px;">${d.documento}</td>
+                    <td style="padding: 15px; font-weight: bold;">${d.nombre} ${d.apellidos}</td>
+                    <td style="padding: 15px;"><span class="badge" style="background: #EFF6FF; color: #1D4ED8; padding: 5px 10px; border-radius: 20px; font-size: 0.85em;">${tipoVinculacion}</span></td>
+                </tr>`;
+            });
+        }
+
+        // Renderizado del Admin
+        window.todosEstudiantes = estudiantes;
+        
+        // Actualizar automáticamente los contadores de estudiantes en los botones de grupos
+        document.querySelectorAll('#grupos-montenegro .grupo-btn, #grupos-ramon_messa .grupo-btn').forEach(btn => {
+            const onclickAttr = btn.getAttribute('onclick') || '';
+            const match = onclickAttr.match(/abrirGrupo\(['"]([^'"]+)['"]\)/);
+            if (match) {
+                const gName = match[1];
+                const count = estudiantes.filter(e => window.perteneceAlGrupo(e, gName)).length;
+                let badge = btn.querySelector('.grupo-badge-count');
+                if (!badge) {
+                    badge = document.createElement('span');
+                    badge.className = 'grupo-badge-count';
+                    badge.style.fontSize = '0.75rem';
+                    badge.style.padding = '3px 8px';
+                    badge.style.borderRadius = '12px';
+                    badge.style.fontWeight = 'bold';
+                    badge.style.marginTop = '4px';
+                    btn.appendChild(badge);
+                }
+                if (count > 0) {
+                    badge.style.background = '#DCFCE7';
+                    badge.style.color = '#15803D';
+                    badge.textContent = `👤 ${count} ${count === 1 ? 'estudiante' : 'estudiantes'}`;
+                } else {
+                    badge.style.background = '#F3F4F6';
+                    badge.style.color = '#9CA3AF';
+                    badge.textContent = '0 estudiantes';
+                }
+            }
+        });
+
+        const filtroGrupo = document.getElementById('admin-grupo-filtro');
+        if (filtroGrupo) {
+            // Guardar selección actual si existe
+            const currentSelection = filtroGrupo.value;
+            
+            const gruposUnicos = [...new Set(estudiantes.map(e => e.grupo).filter(g => g))];
+            filtroGrupo.innerHTML = '<option value="todos">Todos los Grupos</option>';
+            gruposUnicos.sort().forEach(g => {
+                filtroGrupo.innerHTML += `<option value="${g}">${g}</option>`;
+            });
+            
+            // Restaurar selección si el grupo todavía existe
+            if(gruposUnicos.includes(currentSelection)) {
+                filtroGrupo.value = currentSelection;
+            }
+            
+            filtroGrupo.onchange = renderizarTablaAdmin;
+        }
+
+        renderizarTablaAdmin();
+        
+    } catch(e) { console.error(e); }
+}
+
+window.eliminarEstudiante = async function(documento) {
+    if(!confirm("¿Estás seguro de que deseas eliminar este estudiante? Esta acción no se puede deshacer.")) return;
+    
+    try {
+        const res = await fetch('/api/eliminar-estudiante', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ documento: String(documento) })
+        });
+        if(res.ok) {
+            alert("Estudiante eliminado correctamente.");
+            await cargarDatosAdmin(); // recargar
+            if (window.gradoActualPlaneacion && document.getElementById('admin-estudiantes-grupo-container').style.display !== 'none') {
+                window.abrirGrupo(window.gradoActualPlaneacion);
+            }
+        } else {
+            const data = await res.json();
+            alert("Error: " + data.message);
+        }
+    } catch(e) {
+        alert("Error de red al intentar eliminar.");
+    }
+};
+
+function renderizarTablaAdmin() {
+    // Disabled to prevent overwriting the static 'Instituciones' layout.
+}
+
+
+function obtenerMateriasPorGrupo(grupoName, est) {
+    if (est && est.asignatura) {
+        const asigs = est.asignatura.split(',').map(s => s.trim()).filter(Boolean);
+        if (asigs.length > 0) {
+            return asigs.map(a => ({ nombre: a, horas: 'Semanal', estado: 'Habilitada', color: '#10B981' }));
+        }
+    }
+    if (est && Array.isArray(est.materias) && est.materias.length > 0) {
+        return est.materias.map(a => ({ nombre: typeof a === 'string' ? a : (a.nombre || a), horas: 'Semanal', estado: 'Habilitada', color: '#10B981' }));
+    }
+
+    if (!grupoName) return [{ nombre: 'Ciencias Naturales', horas: '2h', estado: 'Habilitada', color: '#10B981' }];
+
+    const gUpper = String(grupoName).toUpperCase().trim();
+    if (gUpper === '6A' || gUpper === '6B') {
+        return [{ nombre: 'Física', horas: '2h', estado: 'Habilitada', color: '#10B981' }];
+    } else if (gUpper === '7A') {
+        return [
+            { nombre: 'Turismo', horas: '1h', estado: 'Habilitada', color: '#10B981' },
+            { nombre: 'Física', horas: '3h', estado: 'Habilitada', color: '#10B981' }
+        ];
+    } else if (gUpper === '7B') {
+        return [
+            { nombre: 'Turismo', horas: '1h', estado: 'Habilitada', color: '#10B981' },
+            { nombre: 'Física', horas: '2h', estado: 'Habilitada', color: '#10B981' }
+        ];
+    } else if (gUpper === '7C') {
+        return [
+            { nombre: 'Turismo', horas: '1h', estado: 'Habilitada', color: '#10B981' },
+            { nombre: 'Ética', horas: '1h', estado: 'Habilitada', color: '#10B981' },
+            { nombre: 'Física', horas: '2h', estado: 'Habilitada', color: '#10B981' }
+        ];
+    } else if (gUpper === '8A' || gUpper === '8B' || gUpper === '9A') {
+        return [{ nombre: 'Artística', horas: '1h', estado: 'Habilitada', color: '#10B981' }];
+    } else if (gUpper === '10A' || gUpper === '10D') {
+        return [{ nombre: 'Ética', horas: '1h', estado: 'Habilitada', color: '#10B981' }];
+    } else if (gUpper === 'PENS') {
+        return [
+            { nombre: 'Turismo', horas: '1h', estado: 'Habilitada', color: '#10B981' },
+            { nombre: 'Química', horas: '2h', estado: 'Habilitada', color: '#10B981' }
+        ];
+    } else if (gUpper.includes('CICLO')) {
+        return [{ nombre: 'Ciencias Naturales', horas: '2h', estado: 'Habilitada', color: '#059669' }];
+    } else if (gUpper === '3' || gUpper === '4' || gUpper === '5' || gUpper.includes('PRIMARIA')) {
+        return [
+            { nombre: 'Matemáticas', horas: '5h', estado: 'Habilitada', color: '#10B981' },
+            { nombre: 'Ciencias Naturales', horas: '4h', estado: 'Habilitada', color: '#10B981' },
+            { nombre: 'Lengua Castellana', horas: '5h', estado: 'Habilitada', color: '#10B981' },
