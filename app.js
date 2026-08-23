@@ -1327,8 +1327,138 @@ window.cerrarModalTerminosDNDA = function() {
 // =========================================================
 // MÓDULO DE CREACIÓN DE ASIGNATURAS Y APRENDIZAJE DE DOCUMENTOS
 // =========================================================
+window.CATALOGO_AREAS_FUNDAMENTALES = [
+    { nombre: "Ciencias Naturales y Educación Ambiental", icono: "🌿", desc: "Desarrollo del pensamiento científico, indagación, relaciones ecológicas y preservación ambiental." },
+    { nombre: "Biología", icono: "🧬", desc: "Estudio de los seres vivos, genética, biodiversidad, sistemas biológicos y biotecnología." },
+    { nombre: "Física", icono: "⚛️", desc: "Comprensión de las leyes de la materia, la energía, el movimiento, fuerzas y electromagnetismo." },
+    { nombre: "Química", icono: "🧪", desc: "Estructura atómica, transformaciones de la materia, reacciones químicas y estequiometría." },
+    { nombre: "Matemáticas", icono: "📐", desc: "Pensamiento numérico, espacial, métrico, aleatorio y variacional para resolución de problemas." },
+    { nombre: "Lengua Castellana", icono: "📖", desc: "Competencias comunicativas, comprensión lectora, producción textual, literatura y análisis crítico." },
+    { nombre: "Ciencias Sociales", icono: "🌍", desc: "Historia, geografía, ordenamiento territorial, relaciones sociales y memoria histórica." },
+    { nombre: "Idioma Extranjero Inglés", icono: "🇬🇧", desc: "Habilidades de listening, reading, writing y speaking alineadas con el marco MCER (A1-B2)." },
+    { nombre: "Tecnología e Informática", icono: "🖥️", desc: "Solución de problemas tecnológicos, diseño, alfabetización digital, hardware y sistemas." },
+    { nombre: "Educación Artística", icono: "🎨", desc: "Sensibilidad estética, expresión creativa visual, plástica, teatral y apreciación cultural." },
+    { nombre: "Educación Física", icono: "⚽", desc: "Desarrollo motriz, condición física, juego limpio, hábitos saludables y deporte formativo." },
+    { nombre: "Filosofía", icono: "🏛️", desc: "Pensamiento crítico, epistemología, lógica, ontología y dilemas ético-políticos contemporáneos." },
+    { nombre: "Ética y Valores Humanos", icono: "🤝", desc: "Formación ciudadana, dilemas morales, empatía, derechos humanos y convivencia pacífica." },
+    { nombre: "Turismo y Patrimonio", icono: "🧭", desc: "Identidad cultural, ecoturismo sostenible, patrimonio material/inmaterial y desarrollo regional." },
+    { nombre: "Robótica STEAM", icono: "🤖", desc: "Automatización, sensores, pensamiento computacional, diseño mecatrónico y prototipado." },
+    { nombre: "Emprendimiento", icono: "💡", desc: "Cultura emprendedora, modelos de negocio, innovación social, finanzas y liderazgo." },
+    { nombre: "Paz y Convivencia", icono: "🕊️", desc: "Cátedra de la Paz, resolución dialógica de conflictos, derechos humanos y memoria." },
+    { nombre: "Estadística", icono: "📊", desc: "Recolección, organización, análisis e interpretación de datos, probabilidad y muestreo." },
+    { nombre: "Agroecología", icono: "🌱", desc: "Sistemas agropecuarios sostenibles, soberanía alimentaria, suelos y cultivos orgánicos." },
+    { nombre: "Música", icono: "🎼", desc: "Lenguaje musical, ritmo, solfeo, práctica coral/instrumental y apreciación sonora." },
+    { nombre: "Investigación", icono: "🔬", desc: "Metodología de la investigación científica, formulación de hipótesis y proyectos de indagación." },
+    { nombre: "Programación", icono: "💻", desc: "Pensamiento algorítmico, lógica de código, desarrollo de software y estructuras de datos." }
+];
+
+window.verificarEsDirectorOAdmin = function() {
+    let authSes = {};
+    try {
+        authSes = JSON.parse(sessionStorage.getItem('peidagogos_auth') || localStorage.getItem('usuario_sesion') || localStorage.getItem('usuario_actual') || '{}');
+    } catch(e) {}
+
+    let docentePerfil = null;
+    try {
+        const dList = JSON.parse(localStorage.getItem('docentes_db') || '[]');
+        const docKey = String(window.usuario_actual || authSes.usuario || authSes.documento || (authSes.usuarioObj && (authSes.usuarioObj.documento || authSes.usuarioObj.usuario)) || '').trim().toLowerCase();
+        docentePerfil = dList.find(d => {
+            const dDoc = String(d.documento || d.cedula || d.usuario || '').trim().toLowerCase();
+            return dDoc === docKey;
+        });
+    } catch(e) {}
+
+    const esAdmin = (authSes.rol === 'admin' || window.rol_actual === 'admin' || (authSes.usuarioObj && authSes.usuarioObj.rol === 'admin'));
+    const esDirectorDocente = Boolean(
+        authSes.es_director === true ||
+        (authSes.usuarioObj && authSes.usuarioObj.es_director === true) ||
+        (docentePerfil && docentePerfil.es_director === true) ||
+        (authSes.grupos_direccion && Array.isArray(authSes.grupos_direccion) && authSes.grupos_direccion.length > 0) ||
+        (docentePerfil && Array.isArray(docentePerfil.grupos_direccion) && docentePerfil.grupos_direccion.length > 0)
+    );
+
+    return esAdmin || esDirectorDocente;
+};
+
+window.obtenerIconoAsignatura = function(asig) {
+    if (!asig) return "📚";
+    const asigLow = String(asig).toLowerCase().trim();
+
+    try {
+        const customAsigs = JSON.parse(localStorage.getItem('asignaturas_personalizadas_db') || '[]');
+        const cMatch = customAsigs.find(c => c.nombre && c.nombre.toLowerCase().trim() === asigLow);
+        if (cMatch && cMatch.icono) return cMatch.icono;
+    } catch(e) {}
+
+    if (Array.isArray(window.CATALOGO_AREAS_FUNDAMENTALES)) {
+        const fMatch = window.CATALOGO_AREAS_FUNDAMENTALES.find(f => f.nombre.toLowerCase().trim() === asigLow);
+        if (fMatch && fMatch.icono) return fMatch.icono;
+    }
+
+    if (asigLow.includes('biolog') || asigLow.includes('biológ')) return "🧬";
+    if (asigLow.includes('físic') || asigLow.includes('fisic')) return "⚛️";
+    if (asigLow.includes('químic') || asigLow.includes('quimic')) return "🧪";
+    if (asigLow.includes('matemát') || asigLow.includes('matemat') || asigLow.includes('álgebra') || asigLow.includes('geometr')) return "📐";
+    if (asigLow.includes('social') || asigLow.includes('historia') || asigLow.includes('geograf')) return "🌍";
+    if (asigLow.includes('lengua') || asigLow.includes('castell') || asigLow.includes('español') || asigLow.includes('literat')) return "📖";
+    if (asigLow.includes('inglés') || asigLow.includes('ingles') || asigLow.includes('idioma') || asigLow.includes('english')) return "🇬🇧";
+    if (asigLow.includes('tecno') || asigLow.includes('informát') || asigLow.includes('informat')) return "🖥️";
+    if (asigLow.includes('turismo') || asigLow.includes('patrimon')) return "🧭";
+    if (asigLow.includes('artístic') || asigLow.includes('artist') || asigLow.includes('artes') || asigLow.includes('dibujo')) return "🎨";
+    if ((asigLow.includes('física') && asigLow.includes('educación')) || asigLow.includes('educacion fisica') || asigLow.includes('deporte')) return "⚽";
+    if (asigLow.includes('filosof') || asigLow.includes('filosóf')) return "🏛️";
+    if (asigLow.includes('ética') || asigLow.includes('etica') || asigLow.includes('valores') || asigLow.includes('relig')) return "🤝";
+    if (asigLow.includes('robot') || asigLow.includes('robót') || asigLow.includes('steam')) return "🤖";
+    if (asigLow.includes('emprend') || asigLow.includes('innovac') || asigLow.includes('financ')) return "💡";
+    if (asigLow.includes('paz') || asigLow.includes('conviv') || asigLow.includes('ciudadan')) return "🕊️";
+    if (asigLow.includes('estadíst') || asigLow.includes('estadist') || asigLow.includes('econom')) return "📊";
+    if (asigLow.includes('agro') || asigLow.includes('café') || asigLow.includes('cafe') || asigLow.includes('ambient') || asigLow.includes('ecolog')) return "🌱";
+    if (asigLow.includes('músic') || asigLow.includes('music') || asigLow.includes('sonor')) return "🎼";
+    if (asigLow.includes('investig') || asigLow.includes('cienc')) return "🔬";
+    if (asigLow.includes('program') || asigLow.includes('algorit') || asigLow.includes('software') || asigLow.includes('código')) return "💻";
+    if (asigLow.includes('natural')) return "🌿";
+
+    return "📚";
+};
+
+window.seleccionarPlantillaAsignatura = function(idx) {
+    const item = window.CATALOGO_AREAS_FUNDAMENTALES ? window.CATALOGO_AREAS_FUNDAMENTALES[idx] : null;
+    if (!item) return;
+    const inNom = document.getElementById("modal-asig-nombre");
+    const inIco = document.getElementById("modal-asig-icono");
+    const inDesc = document.getElementById("modal-asig-desc");
+    if (inNom) inNom.value = item.nombre;
+    if (inIco) {
+        for (let opt of inIco.options) {
+            if (opt.value === item.icono) {
+                inIco.value = item.icono;
+                break;
+            }
+        }
+    }
+    if (inDesc && !inDesc.value.trim()) inDesc.value = item.desc;
+};
+
+window.autoSeleccionarIconoAsignatura = function(nombre) {
+    const ico = window.obtenerIconoAsignatura ? window.obtenerIconoAsignatura(nombre) : "📚";
+    const inIco = document.getElementById("modal-asig-icono");
+    if (inIco && ico) {
+        for (let opt of inIco.options) {
+            if (opt.value === ico) {
+                inIco.value = ico;
+                break;
+            }
+        }
+    }
+};
+
 window.obtenerCatalogoAsignaturas = function() {
-    let base = [
+    let base = (Array.isArray(window.CATALOGO_AREAS_FUNDAMENTALES) && window.CATALOGO_AREAS_FUNDAMENTALES.length > 0)
+        ? window.CATALOGO_AREAS_FUNDAMENTALES.map(a => a.nombre)
+        : [
+            "Ciencias Naturales y Educación Ambiental", "Biología", "Física", "Química", "Matemáticas", "Tecnología e Informática", "Ciencias Sociales", "Lengua Castellana", "Idioma Extranjero Inglés", "Educación Artística", "Educación Física", "Ética y Valores Humanos", "Filosofía", "Turismo y Patrimonio", "Robótica STEAM", "Emprendimiento", "Paz y Convivencia", "Estadística", "Agroecología", "Música", "Investigación", "Programación"
+        ];
+    const _oldBase = [
         "Ciencias Naturales y Educación Ambiental",
         "Física",
         "Química",
@@ -1400,6 +1530,57 @@ window.obtenerGradosDocenteSeleccionados = function() {
 window.abrirModalCrearAsignaturaDocente = function(origen = 'docente') {
     window._origenModalAsig = origen;
     const modal = document.getElementById("modal-crear-asignatura-docente");
+    if (!modal) return;
+
+    modal.style.display = "flex";
+
+    // 1. Renderizar pills de plantillas de áreas fundamentales si el contenedor existe
+    const pCont = document.getElementById("modal-asig-presets-container");
+    if (pCont && Array.isArray(window.CATALOGO_AREAS_FUNDAMENTALES)) {
+        pCont.innerHTML = window.CATALOGO_AREAS_FUNDAMENTALES.map((cat, idx) => `
+            <button type="button" onclick="window.seleccionarPlantillaAsignatura(${idx})" style="background: white; border: 1px solid #CBD5E1; color: #1E293B; padding: 4px 10px; border-radius: 16px; font-size: 0.78rem; font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; gap: 4px; transition: all 0.2s;" onmouseover="this.style.borderColor='#6366F1'; this.style.background='#EEF2FF';" onmouseout="this.style.borderColor='#CBD5E1'; this.style.background='white';">
+                <span>${cat.icono}</span>
+                <span>${cat.nombre}</span>
+            </button>
+        `).join('');
+    }
+
+    // 2. Verificar permisos de Director de Grupo / Administrador
+    const esDirectorOAdmin = (typeof window.verificarEsDirectorOAdmin === 'function') ? window.verificarEsDirectorOAdmin() : false;
+
+    const gCont = document.getElementById("modal-asig-grados-container");
+    const noticeCont = document.getElementById("modal-asig-director-notice");
+    const badgeDirector = document.getElementById("modal-asig-director-badge");
+
+    if (esDirectorOAdmin) {
+        // DIRECTOR DE GRUPO / ADMIN: Selección completa de grados y cohortes habilitada
+        if (badgeDirector) badgeDirector.style.display = "inline-block";
+        if (noticeCont) noticeCont.style.display = "none";
+        if (gCont) {
+            gCont.style.display = "flex";
+            const gradosList = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "Ciclo I", "Ciclo II", "Ciclo III", "Ciclo IV", "Ciclo V", "Ciclo VI"];
+            gCont.innerHTML = gradosList.map(g => `
+                <label style="display: inline-flex; align-items: center; gap: 4px; background: #F1F5F9; border: 1px solid #CBD5E1; padding: 4px 8px; border-radius: 16px; font-size: 0.78rem; font-weight: 700; cursor: pointer;">
+                    <input type="checkbox" name="modal_asig_grado_check" value="${g}" ${['6','7','8','9','10','11'].includes(g) ? 'checked' : ''}>
+                    <span>${g.includes('Ciclo') ? g : g + '°'}</span>
+                </label>
+            `).join('');
+        }
+    } else {
+        // DOCENTE DE ÁREA (NO DIRECTOR): Ocultar selector y desplegar aviso pedagógico
+        if (badgeDirector) badgeDirector.style.display = "none";
+        if (noticeCont) noticeCont.style.display = "flex";
+        if (gCont) {
+            gCont.style.display = "none";
+            const gradosBase = ["6", "7", "8", "9", "10", "11"];
+            gCont.innerHTML = gradosBase.map(g => `<input type="hidden" name="modal_asig_grado_check" value="${g}">`).join('');
+        }
+    }
+};
+
+window._old_abrirModalCrearAsignaturaDocente = function(origen = 'docente') {
+    window._origenModalAsig = origen;
+    const modal = document.getElementById("modal-crear-asignatura-docente");
     if (modal) {
         modal.style.display = "flex";
         
@@ -1422,30 +1603,312 @@ window.cerrarModalCrearAsignaturaDocente = function() {
     if (modal) modal.style.display = "none";
 };
 
+// ============================================================================
+// GESTIÓN DE DOCUMENTOS MULTI-ARCHIVO Y MALLAS CURRICULARES (R2)
+// ============================================================================
+
+window._archivosAsignaturaDocente = [];
 window._textoDocumentoAsignaturaDocente = "";
 window._nombreArchivoAsignaturaDocente = "";
+window._nombresArchivosAsignaturaDocente = [];
 
-window.manejarArchivoAsignaturaDocente = function(event) {
-    const file = event.target.files ? event.target.files[0] : null;
-    if (!file) return;
+/**
+ * Helper: Validación y límite de archivos múltiples (hasta 20 archivos)
+ */
+window.procesarArchivosMultiples = function(files, maxLimit = 20) {
+    const extensionesPermitidas = ['.pdf', '.doc', '.docx', '.ppt', '.pptx', '.txt', '.json', '.csv'];
+    const resultado = {
+        archivosValidos: [],
+        archivosRechazados: [],
+        errorLimite: false,
+        totalBytes: 0
+    };
 
-    window._nombreArchivoAsignaturaDocente = file.name;
-    const lbl = document.getElementById("modal-asig-archivo-nombre");
-    if (lbl) {
-        lbl.style.display = "block";
-        lbl.innerHTML = `✅ Archivo cargado: <strong>${file.name}</strong> (${(file.size / 1024).toFixed(1)} KB)`;
+    if (!files || files.length === 0) {
+        return resultado;
     }
 
-    const reader = new FileReader();
-    reader.onload = function(e) {
-        window._textoDocumentoAsignaturaDocente = String(e.target.result || '');
-    };
-    reader.onerror = function() {
-        console.warn("No se pudo leer el archivo directamente en texto plano.");
-    };
-    reader.readAsText(file);
+    let filesArray = Array.from(files);
+    if (filesArray.length > maxLimit) {
+        resultado.errorLimite = true;
+        filesArray = filesArray.slice(0, maxLimit);
+    }
+
+    for (const f of filesArray) {
+        const ext = '.' + (f.name.split('.').pop() || '').toLowerCase();
+        if (extensionesPermitidas.includes(ext)) {
+            resultado.archivosValidos.push(f);
+            resultado.totalBytes += (f.size || 0);
+        } else {
+            resultado.archivosRechazados.push(f);
+        }
+    }
+
+    return resultado;
 };
 
+/**
+ * Helper: Agregación de texto y extracción de tokens sustantivos
+ */
+window.agregarTextoDocumentos = function(documentos) {
+    if (!documentos || documentos.length === 0) return { textoCompleto: '', tokens: [] };
+    
+    let textoAcumulado = '';
+    for (const doc of documentos) {
+        const nombre = doc.name || doc.nombre || 'Documento';
+        const contenido = doc.contenido || doc.text || doc.texto || '';
+        textoAcumulado += `\n--- DOCUMENTO: ${nombre} ---\n` + contenido;
+    }
+
+    const rawWords = textoAcumulado.toLowerCase().match(/[a-záéíóúñ]{4,}/g) || [];
+    const stopWords = new Set(['para', 'como', 'este', 'esta', 'estos', 'estas', 'sobre', 'desde', 'hacia', 'entre', 'todos', 'todas', 'donde', 'quien', 'cuando', 'porque', 'cual', 'cuales']);
+    const tokens = rawWords.filter(w => !stopWords.has(w));
+
+    return {
+        textoCompleto: textoAcumulado.trim(),
+        tokens: Array.from(new Set(tokens))
+    };
+};
+
+/**
+ * Helper: Extracción asíncrona segura de texto y tokens por archivo
+ */
+window.extraerTextoYTokensDeArchivo = function(file) {
+    return new Promise((resolve) => {
+        if (!file || file.size === 0) {
+            const nombreBase = file ? (file.name || '').replace(/\.[^/.]+$/, '').replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ0-9\s]/g, ' ') : '';
+            return resolve({
+                nombre: file ? file.name : 'Documento_Vacio',
+                name: file ? file.name : 'Documento_Vacio',
+                contenido: nombreBase,
+                tokens: (nombreBase.toLowerCase().match(/[a-záéíóúñ]{4,}/g) || [])
+            });
+        }
+
+        const ext = '.' + (file.name.split('.').pop() || '').toLowerCase();
+        const reader = new FileReader();
+
+        reader.onload = function(e) {
+            let raw = e.target.result || '';
+            let contenidoLimpio = '';
+
+            if (typeof raw === 'string') {
+                if (ext === '.txt' || ext === '.json' || ext === '.csv') {
+                    contenidoLimpio = raw.trim();
+                } else {
+                    const sanitized = raw.replace(/[^\x20-\x7EáéíóúÁÉÍÓÚñÑ\n\r\t]/g, ' ');
+                    const meaningfulChunks = sanitized
+                        .split(/\s+/)
+                        .filter(w => {
+                            if (w.length < 4 || w.length > 30) return false;
+                            if (/^(word|docProps|schemas|openxmlformats|package|xml|rels|theme|contentType)/i.test(w)) return false;
+                            return /[a-zA-ZáéíóúÁÉÍÓÚñÑ]/.test(w);
+                        });
+                    const nombreBase = file.name.replace(/\.[^/.]+$/, '').replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ0-9\s]/g, ' ');
+                    contenidoLimpio = (nombreBase + ' ' + meaningfulChunks.slice(0, 500).join(' ')).trim();
+                }
+            } else {
+                contenidoLimpio = file.name.replace(/\.[^/.]+$/, '').replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ0-9\s]/g, ' ');
+            }
+
+            const rawWords = contenidoLimpio.toLowerCase().match(/[a-záéíóúñ]{4,}/g) || [];
+            const stopWords = new Set(['para', 'como', 'este', 'esta', 'estos', 'estas', 'sobre', 'desde', 'hacia', 'entre', 'todos', 'todas', 'donde', 'quien', 'cuando', 'porque', 'cual', 'cuales']);
+            const tokens = Array.from(new Set(rawWords.filter(w => !stopWords.has(w))));
+
+            resolve({
+                nombre: file.name,
+                name: file.name,
+                contenido: contenidoLimpio,
+                tokens: tokens
+            });
+        };
+
+        reader.onerror = function() {
+            const fallbackTexto = file.name.replace(/\.[^/.]+$/, '').replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ0-9\s]/g, ' ');
+            resolve({
+                nombre: file.name,
+                name: file.name,
+                contenido: fallbackTexto,
+                tokens: fallbackTexto.toLowerCase().match(/[a-záéíóúñ]{4,}/g) || []
+            });
+        };
+
+        if (ext === '.txt' || ext === '.json' || ext === '.csv') {
+            reader.readAsText(file);
+        } else {
+            if (typeof file.slice === 'function') {
+                reader.readAsText(file.slice(0, 32768));
+            } else {
+                reader.readAsText(file);
+            }
+        }
+    });
+};
+
+/**
+ * Sincroniza variables globales de agregación
+ */
+window.sincronizarEstadoArchivosAsignaturaDocente = function() {
+    if (!Array.isArray(window._archivosAsignaturaDocente)) {
+        window._archivosAsignaturaDocente = [];
+    }
+
+    const agg = window.agregarTextoDocumentos(window._archivosAsignaturaDocente);
+    window._textoDocumentoAsignaturaDocente = agg.textoCompleto;
+    window._nombresArchivosAsignaturaDocente = window._archivosAsignaturaDocente.map(f => f.name || f.nombre);
+    window._nombreArchivoAsignaturaDocente = window._nombresArchivosAsignaturaDocente.join(', ');
+};
+
+/**
+ * Limpiar toda la cola de archivos cargados
+ */
+window.limpiarArchivosAsignaturaDocente = function() {
+    window._archivosAsignaturaDocente = [];
+    window._textoDocumentoAsignaturaDocente = "";
+    window._nombreArchivoAsignaturaDocente = "";
+    window._nombresArchivosAsignaturaDocente = [];
+    const inArchivo = document.getElementById("modal-asig-archivo");
+    if (inArchivo) inArchivo.value = "";
+    window.renderizarPreviewArchivosAsignaturaDocente();
+};
+
+/**
+ * Elimina un archivo individual de la cola
+ */
+window.removerArchivoAsignaturaDocente = function(index) {
+    if (Array.isArray(window._archivosAsignaturaDocente) && index >= 0 && index < window._archivosAsignaturaDocente.length) {
+        window._archivosAsignaturaDocente.splice(index, 1);
+    }
+    window.sincronizarEstadoArchivosAsignaturaDocente();
+    window.renderizarPreviewArchivosAsignaturaDocente();
+};
+
+/**
+ * Renderiza la previsualización interactiva con chips y badges
+ */
+window.renderizarPreviewArchivosAsignaturaDocente = function() {
+    const badge = document.getElementById("modal-asig-archivos-badge");
+    const countText = document.getElementById("modal-asig-archivos-count-text");
+    const btnLimpiar = document.getElementById("modal-asig-archivos-limpiar");
+    const previewCont = document.getElementById("modal-asig-archivos-preview");
+    const alerta = document.getElementById("modal-asig-archivos-alerta");
+    const lbl = document.getElementById("modal-asig-archivo-nombre");
+    const files = window._archivosAsignaturaDocente || [];
+
+    if (files.length === 0) {
+        if (badge) badge.style.display = "none";
+        if (btnLimpiar) btnLimpiar.style.display = "none";
+        if (previewCont) {
+            previewCont.style.display = "none";
+            previewCont.innerHTML = "";
+        }
+        if (alerta) {
+            alerta.style.display = "none";
+            alerta.innerHTML = "";
+        }
+        if (lbl) {
+            lbl.style.display = "none";
+            lbl.innerHTML = "";
+        }
+        return;
+    }
+
+    if (badge) badge.style.display = "inline-flex";
+    if (countText) countText.textContent = `${files.length} / 20 archivos`;
+    if (btnLimpiar) btnLimpiar.style.display = "inline-flex";
+
+    const totalBytes = files.reduce((acc, f) => acc + (f.size || 0), 0);
+    const totalKB = Math.round(totalBytes / 1024);
+
+    if (lbl) {
+        lbl.style.display = "block";
+        lbl.innerHTML = `📚 <strong>${files.length} / 20 documentos adjuntos</strong> (${totalKB} KB)`;
+    }
+
+    if (previewCont) {
+        previewCont.style.display = "flex";
+        previewCont.innerHTML = files.map((f, idx) => {
+            const kb = Math.round((f.size || 0) / 1024);
+            const ext = (f.name.split('.').pop() || '').toLowerCase();
+            let icon = "📄";
+            if (ext === 'pdf') icon = "📕";
+            else if (ext === 'doc' || ext === 'docx') icon = "📘";
+            else if (ext === 'ppt' || ext === 'pptx') icon = "📙";
+            else if (ext === 'txt') icon = "📄";
+
+            return `
+                <div class="file-chip" style="display: inline-flex; align-items: center; justify-content: space-between; background: #EEF2FF; border: 1.5px solid #C7D2FE; border-radius: 8px; padding: 6px 12px; margin: 4px; font-size: 0.82rem; color: #3730A3; gap: 8px;">
+                    <span style="display: inline-flex; align-items: center; gap: 6px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 260px;">
+                        ${icon} <strong>${f.name}</strong> (${kb} KB)
+                    </span>
+                    <button type="button" onclick="window.removerArchivoAsignaturaDocente(${idx})" title="Eliminar archivo" style="background: #FEE2E2; border: 1px solid #FECACA; color: #DC2626; border-radius: 50%; width: 22px; height: 22px; font-size: 0.75rem; font-weight: 900; cursor: pointer; display: flex; align-items: center; justify-content: center; line-height: 1; padding: 0; transition: transform 0.15s;" onmouseover="this.style.transform='scale(1.15)'" onmouseout="this.style.transform='scale(1)'">✕</button>
+                </div>
+            `;
+        }).join('');
+    }
+};
+
+/**
+ * Manejador del evento de selección de archivos múltiples en el modal
+ */
+window.manejarArchivoAsignaturaDocente = async function(event) {
+    const rawFiles = event && event.target && event.target.files ? Array.from(event.target.files) : [];
+    if (!rawFiles || rawFiles.length === 0) return;
+
+    if (!Array.isArray(window._archivosAsignaturaDocente)) {
+        window._archivosAsignaturaDocente = [];
+    }
+
+    const espacioDisponible = 20 - window._archivosAsignaturaDocente.length;
+    if (espacioDisponible <= 0) {
+        alert("⚠️ Has alcanzado el límite máximo de 20 documentos adjuntos para esta asignatura.");
+        return;
+    }
+
+    const res = window.procesarArchivosMultiples(rawFiles, espacioDisponible);
+
+    if (res.errorLimite || rawFiles.length > espacioDisponible) {
+        const alerta = document.getElementById("modal-asig-archivos-alerta");
+        if (alerta) {
+            alerta.style.display = "block";
+            alerta.textContent = `⚠️ Límite de carga: Se permite un máximo de 20 archivos simultáneos. Se han tomado los primeros ${res.archivosValidos.length} documentos válidos.`;
+        }
+        alert(`⚠️ Límite de carga: Se permite un máximo de 20 archivos simultáneos. Se han tomado los primeros ${res.archivosValidos.length} documentos válidos.`);
+    }
+
+    if (res.archivosRechazados.length > 0) {
+        const nombresRechazados = res.archivosRechazados.map(f => f.name).join(', ');
+        console.warn(`Formatos no admitidos descartados: ${nombresRechazados}`);
+    }
+
+    if (res.archivosValidos.length === 0) {
+        alert("❌ Ninguno de los archivos seleccionados tiene un formato compatible (.pdf, .doc, .docx, .ppt, .pptx, .txt).");
+        return;
+    }
+
+    // Extraer contenido y tokens de forma asíncrona y segura
+    const docsProcesados = await Promise.all(res.archivosValidos.map(f => window.extraerTextoYTokensDeArchivo(f)));
+
+    docsProcesados.forEach((doc, idx) => {
+        const originalFile = res.archivosValidos[idx];
+        window._archivosAsignaturaDocente.push({
+            name: originalFile.name,
+            nombre: doc.nombre || originalFile.name,
+            size: originalFile.size,
+            type: originalFile.type,
+            contenido: doc.contenido,
+            tokens: doc.tokens,
+            file: originalFile
+        });
+    });
+
+    window.sincronizarEstadoArchivosAsignaturaDocente();
+    window.renderizarPreviewArchivosAsignaturaDocente();
+};
+
+/**
+ * Ejecutar la creación de asignatura y malla curricular a partir de los documentos compilados
+ */
 window.ejecutarCrearAsignaturaDocenteConIA = function() {
     const inNom = document.getElementById("modal-asig-nombre");
     const inIcono = document.getElementById("modal-asig-icono");
@@ -1461,36 +1924,78 @@ window.ejecutarCrearAsignaturaDocenteConIA = function() {
     const icono = inIcono ? inIcono.value : "💡";
     const desc = inDesc ? inDesc.value.trim() : "";
     const txtDirecto = inTxt ? inTxt.value.trim() : "";
-    const textoDoc = (window._textoDocumentoAsignaturaDocente + "\n" + txtDirecto).trim();
 
-    const gChecks = document.querySelectorAll('input[name="modal_asig_grado_check"]:checked');
-    const gradosArr = Array.from(gChecks).map(c => c.value);
-    if (gradosArr.length === 0) gradosArr.push("6", "7", "8", "9", "10", "11");
+    // Compilar texto y metadatos de todos los archivos adjuntos (hasta 20)
+    let textoDocsMultiples = "";
+    let nombresArchivos = [];
+
+    if (Array.isArray(window._archivosAsignaturaDocente) && window._archivosAsignaturaDocente.length > 0) {
+        textoDocsMultiples = window._archivosAsignaturaDocente.map(doc => {
+            const n = doc.name || doc.nombre || 'Documento';
+            const c = doc.contenido || doc.text || doc.texto || '';
+            return `--- DOCUMENTO: ${n} ---\n${c}`;
+        }).join('\n\n');
+        nombresArchivos = window._archivosAsignaturaDocente.map(f => f.name || f.nombre || 'Archivo');
+    } else if (window._textoDocumentoAsignaturaDocente) {
+        textoDocsMultiples = window._textoDocumentoAsignaturaDocente;
+        if (window._nombreArchivoAsignaturaDocente) {
+            nombresArchivos = [window._nombreArchivoAsignaturaDocente];
+        }
+    }
+
+    // Sincronizar estados globales
+    window._textoDocumentoAsignaturaDocente = textoDocsMultiples;
+    window._nombresArchivosAsignaturaDocente = nombresArchivos;
+    window._nombreArchivoAsignaturaDocente = nombresArchivos.join(', ');
+
+    const textoDoc = [textoDocsMultiples, txtDirecto].filter(Boolean).join('\n\n').trim();
+
+    const gChecks = document.querySelectorAll('input[name="modal_asig_grado_check"]:checked, input[name="modal_asig_grado_check"][type="hidden"]');
+    let gradosArr = Array.from(gChecks).map(c => c.value);
+    if (gradosArr.length === 0) gradosArr = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "Ciclo I", "Ciclo II", "Ciclo III", "Ciclo IV", "Ciclo V", "Ciclo VI"];
 
     // Motor de Aprendizaje y Estructuración Curricular
-    const nuevaMalla = window.procesarDocumentoYCrearMalla(nombreAsig, gradosArr, desc, textoDoc, window._nombreArchivoAsignaturaDocente);
+    const nuevaMalla = window.procesarDocumentoYCrearMalla(nombreAsig, gradosArr, desc, textoDoc, window._nombreArchivoAsignaturaDocente, icono);
     if (nuevaMalla) {
         nuevaMalla.icono = icono;
         let asigList = JSON.parse(localStorage.getItem('asignaturas_personalizadas_db') || '[]');
         const ex = asigList.find(a => a.nombre.toLowerCase().trim() === nombreAsig.toLowerCase().trim());
-        if (ex) ex.icono = icono;
+        if (ex) {
+            ex.icono = icono;
+            ex.documentos_origen = nombresArchivos;
+        }
         localStorage.setItem('asignaturas_personalizadas_db', JSON.stringify(asigList));
     }
 
-    alert(`🎉 ¡Asignatura "${nombreAsig}" y su Malla Curricular Oficial creadas con éxito!\n\nSe han estructurado los 4 periodos académicos, temas quincenales y DBAs a partir de tus documentos.`);
+    const cantDocs = nombresArchivos.length > 0 ? ` a partir de ${nombresArchivos.length} documento(s) adjunto(s)` : '';
+    alert(`🎉 ¡Asignatura "${nombreAsig}" y su Malla Curricular Oficial creadas con éxito!\n\nSe han estructurado los 4 periodos académicos, temas quincenales y DBAs${cantDocs}.`);
+    
     window.cerrarModalCrearAsignaturaDocente();
     
+    // Limpiar cola y estado tras creación exitosa
+    window.limpiarArchivosAsignaturaDocente();
+
     // Actualizar selectores e interfaz
     if (window.renderizarPillsDocenteRegistro) window.renderizarPillsDocenteRegistro();
     if (window.actualizarMaterias) window.actualizarMaterias();
+    if (window.refrescarPillsMallaCurricular) window.refrescarPillsMallaCurricular('docente');
 };
 
-window.procesarDocumentoYCrearMalla = function(nombreAsig, gradosArray, descripcion, textoDocumento, archivoNombre = "") {
+/**
+ * Motor de Generación Curricular Procedural Avanzado
+ */
+window.procesarDocumentoYCrearMalla = function(nombreAsig, gradosArray, descripcion, textoDocumento, archivoNombre = "", icono = "") {
     let palabrasClave = [];
-    if (textoDocumento) {
-        const tokens = textoDocumento.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ0-9\s]/g, ' ').split(/\s+/).filter(w => w.length > 4);
+    if (textoDocumento && typeof textoDocumento === 'string' && textoDocumento.trim().length > 0) {
+        const stopWords = new Set([
+            'para', 'como', 'este', 'esta', 'estos', 'estas', 'sobre', 'desde', 'hacia',
+            'entre', 'todos', 'todas', 'donde', 'quien', 'cuando', 'porque', 'cual', 'cuales',
+            'documento', 'archivo', 'seccion', 'capitulo', 'unidad', 'modulo', 'periodo', 'grado'
+        ]);
+        const rawWords = textoDocumento.toLowerCase().match(/[a-záéíóúñ]{4,}/g) || [];
+        const tokens = rawWords.filter(w => !stopWords.has(w));
         const freqs = {};
-        tokens.forEach(t => { const w = t.toLowerCase(); freqs[w] = (freqs[w] || 0) + 1; });
+        tokens.forEach(t => { freqs[t] = (freqs[t] || 0) + 1; });
         palabrasClave = Object.keys(freqs).sort((a,b) => freqs[b] - freqs[a]).slice(0, 20);
     }
     
@@ -1503,7 +2008,9 @@ window.procesarDocumentoYCrearMalla = function(nombreAsig, gradosArray, descripc
         `DBA 4: Evalúa el impacto ético, tecnológico y social de los saberes de ${nombreAsig} en su comunidad.`
     ];
 
-    const tBase = palabrasClave.length >= 8 ? palabrasClave : ["Fundamentos", "Estructura", "Metodología", "Análisis", "Aplicación", "Proyectos", "Evaluación", "Innovación"];
+    const tBase = palabrasClave.length >= 8 
+        ? palabrasClave.map(w => w.charAt(0).toUpperCase() + w.slice(1))
+        : ["Fundamentos", "Estructura", "Metodología", "Análisis", "Aplicación", "Proyectos", "Evaluación", "Innovación"];
     
     const periodos = {
         '1': {
@@ -1520,23 +2027,33 @@ window.procesarDocumentoYCrearMalla = function(nombreAsig, gradosArray, descripc
         },
         '3': {
             '1': `Desarrollo de proyectos interdisciplinares en ${nombreAsig}.`,
-            '3': `Integración con metodologías STEAM y tecnología aplicada.`,
-            '5': `Resolución de retos formativos y simulación práctica.`,
+            '3': `Integración con metodologías STEAM y tecnología aplicada (${tBase[5] || 'innovación'}).`,
+            '5': `Resolución de retos formativos y simulación práctica (${tBase[6] || 'desarrollo'}).`,
             '7': `Presentación de avances y coevaluación del periodo 3.`
         },
         '4': {
-            '1': `Innovación, bioética e impacto social de ${nombreAsig}.`,
+            '1': `Innovación, bioética e impacto social de ${nombreAsig} (${tBase[7] || 'transferencia'}).`,
             '3': `Solución de problemáticas comunitarias y transferencia del saber.`,
             '5': `Preparación de la muestra final y feria del conocimiento.`,
             '7': `Consolidación de aprendizajes y evaluación anual integral.`
         }
     };
 
+    let nombresAdjuntos = [];
+    if (Array.isArray(window._nombresArchivosAsignaturaDocente) && window._nombresArchivosAsignaturaDocente.length > 0) {
+        nombresAdjuntos = window._nombresArchivosAsignaturaDocente;
+    } else if (archivoNombre) {
+        nombresAdjuntos = archivoNombre.split(', ').map(s => s.trim()).filter(Boolean);
+    }
+
     const estructuraMallaPorGrado = {
         objetivo: objMeta,
         dba: dbas,
         periodos: periodos,
         documento_origen: archivoNombre || "Documento Curricular Cargado",
+        documentos_adjuntos: nombresAdjuntos,
+        total_documentos: nombresAdjuntos.length,
+        palabras_clave_extraidas: palabrasClave,
         fecha_creacion: new Date().toISOString()
     };
 
@@ -1560,9 +2077,10 @@ window.procesarDocumentoYCrearMalla = function(nombreAsig, gradosArray, descripc
         nombre: nombreAsig,
         grados: gradosArray,
         descripcion: objMeta,
-        icono: "💡",
+        icono: (icono || (window.obtenerIconoAsignatura ? window.obtenerIconoAsignatura(nombreAsig) : "💡")),
         color: "#6366F1",
         colorFondo: "#EEF2FF",
+        documentos_origen: nombresAdjuntos,
         malla: estructuraMallaPorGrado
     };
     const exIdx = asigCustomList.findIndex(a => a.nombre.toLowerCase().trim() === nombreAsig.toLowerCase().trim());
@@ -2773,6 +3291,9 @@ async function cargarDatosAdmin() {
                     <td style="padding: 15px;">${d.documento}</td>
                     <td style="padding: 15px; font-weight: bold;">${d.nombre} ${d.apellidos}</td>
                     <td style="padding: 15px;"><span class="badge" style="background: #EFF6FF; color: #1D4ED8; padding: 5px 10px; border-radius: 20px; font-size: 0.85em;">${tipoVinculacion}</span></td>
+                    <td style="padding: 15px;">
+                        <button onclick="window.eliminarDocenteAdmin('${d.documento}')" style="background: #FEE2E2; color: #DC2626; border: none; padding: 6px 12px; border-radius: 6px; cursor: pointer; font-weight: bold;">🗑️ Eliminar</button>
+                    </td>
                 </tr>`;
             });
         }
@@ -2833,6 +3354,25 @@ async function cargarDatosAdmin() {
         
     } catch(e) { console.error(e); }
 }
+
+window.eliminarDocenteAdmin = async function(documento) {
+    if(!confirm('¿Estás seguro de que deseas eliminar a este docente? Esta acción no se puede deshacer.')) return;
+    try {
+        const res = await fetch('/api/eliminar-usuario', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ documento: String(documento), tipo: 'docente' })
+        });
+        if(res.ok) {
+            alert('Docente eliminado correctamente.');
+            await window.cargarDatosAdmin();
+        } else {
+            alert('Error al eliminar docente.');
+        }
+    } catch(e) {
+        alert('Error de red.');
+    }
+};
 
 window.eliminarEstudiante = async function(documento) {
     if(!confirm("¿Estás seguro de que deseas eliminar este estudiante? Esta acción no se puede deshacer.")) return;
@@ -5554,7 +6094,25 @@ window.obtenerGuiaPrimerosAuxiliosEmocionales = function() {
                 explicacion: "La respiración diafragmática profunda estimula el nervio vago, reduciendo la frecuencia cardíaca y restableciendo la calma autonómica."
             }
         ],
-        texto_deductivo: `
+        
+        texto_inductivo: `
+### 👋 Bienvenidos a esta Misión Especial de Apoyo Emocional
+
+En estos momentos, es completamente normal sentir que el suelo, y nuestras emociones, se tambalean. Queremos que sepas que **estás en un lugar seguro**.
+
+> **🌟 Recuerda:** Todas las emociones que sientes (miedo, ganas de llorar, angustia o incluso no sentir nada al principio) son válidas. Tu cuerpo y tu mente están procesando algo extraordinario.
+
+Para empezar, vamos a realizar juntos la **respiración del abrazo de mariposa**: cruza tus brazos sobre tu pecho, cierra los ojos y date pequeños toquecitos alternando las manos mientras respiras profundamente.
+
+[ACTIVIDAD:CUADERNO:Dibuja o escribe en tu cuaderno cómo te sientes en este momento. No hay respuestas correctas o incorrectas, solo lo que tú sientes.]
+
+[ACTIVIDAD:PLATAFORMA:¿Qué es lo primero que haces para calmarte cuando te sientes asustado?|Respirar, buscar a alguien, abrazar]
+
+[JUEGO:ORDENAR_LETRAS:CALMA]
+[JUEGO:ORDENAR_LETRAS:ABRAZO]
+[JUEGO:ORDENAR_FRASE:RESPIRAR PROFUNDO NOS AYUDA A ESTAR TRANQUILOS]
+`,
+texto_deductivo: `
 ### 🌋 1. La Memoria Sísmica y la Respuesta Natural de Supervivencia
 En el municipio de **Montenegro y en todo el Eje Cafetero**, vivimos en una hermosa geografía volcánica y montañosa que convive con fallas geológicas activas. Cuando la tierra tiembla, una pequeña estructura en nuestro cerebro llamada **amígdala cerebral** enciende una sirena de alarma instantánea, liberando adrenalina y cortisol.
 
@@ -5819,24 +6377,72 @@ window.abrirClasePrimerosAuxiliosEmocionales = function(modo = 'estudiante') {
     // Si viene de docente o tutor en pantalla de gestión, abrir modal de proyección grupal
     if (modo === 'docente' || modo === 'tutor') {
         const modalContainer = document.createElement('div');
-        modalContainer.id = 'modal-clase-terremoto-proyeccion';
+        modalContainer.id = 'modal-primeros-auxilios-emocionales';
+        modalContainer.className = 'modal-clase-terremoto-proyeccion';
         modalContainer.style.cssText = 'position: fixed; inset: 0; background: rgba(15, 23, 42, 0.85); z-index: 9999; display: flex; justify-content: center; align-items: center; padding: 20px; overflow-y: auto; backdrop-filter: blur(8px);';
         
         modalContainer.innerHTML = `
+            <div id="modal-clase-terremoto-proyeccion" style="display: contents;"></div>
             <div style="background: white; border-radius: 20px; width: 100%; max-width: 950px; max-height: 90vh; overflow-y: auto; box-shadow: 0 25px 50px rgba(0,0,0,0.3); padding: 30px; position: relative;">
                 <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #E2E8F0; padding-bottom: 15px; margin-bottom: 20px;">
                     <div style="display: flex; align-items: center; gap: 10px;">
                         <span style="font-size: 2rem;">❤️‍🩹</span>
                         <div>
                             <h3 style="margin: 0; color: #991B1B; font-size: 1.4rem; font-weight: 900;">Clase Magistral: Primeros Auxilios Emocionales luego del Terremoto</h3>
-                            <p style="margin: 2px 0 0 0; color: #6B7280; font-size: 0.85rem;">Modo Taller y Proyección para VideoBeam / Trabajo Grupal y Familiar</p>
+                            <p style="margin: 2px 0 0 0; color: #6B7280; font-size: 0.85rem;">Modo Taller y Proyección para VideoBeam / Trabajo Grupal, Psicosocial y Familiar</p>
                         </div>
                     </div>
                     <div style="display: flex; gap: 8px;">
-                        <button onclick="window.print()" style="background: #F1F5F9; border: 1px solid #CBD5E1; color: #334155; padding: 8px 14px; border-radius: 8px; font-weight: 700; cursor: pointer;">🖨️ Imprimir Taller</button>
-                        <button onclick="document.getElementById('modal-clase-terremoto-proyeccion').remove()" style="background: #EF4444; color: white; border: none; padding: 8px 16px; border-radius: 8px; font-weight: 800; cursor: pointer;">✕ Cerrar</button>
+                        <button onclick="window.abrirActividadEmocionalIA()" style="background: linear-gradient(135deg, #10B981, #059669); color: white; border: none; padding: 8px 14px; border-radius: 8px; font-weight: 800; cursor: pointer; display: flex; align-items: center; gap: 6px; box-shadow: 0 4px 10px rgba(16,185,129,0.25);"><span>❤️‍🩹</span> Actividad Dinámica IA</button>
+                        <button onclick="const m = document.getElementById('modal-primeros-auxilios-emocionales') || document.getElementById('modal-clase-terremoto-proyeccion'); if(m) m.remove();" style="background: #EF4444; color: white; border: none; padding: 8px 16px; border-radius: 8px; font-weight: 800; cursor: pointer;">✕ Cerrar</button>
                     </div>
                 </div>
+
+                <!-- SECCIÓN DE ACTIVIDADES INTERACTIVAS ONLINE CON IA (POST-TERREMOTO) -->
+                <div style="background: linear-gradient(135deg, #FEF2F2, #FFF1F2); border: 2px solid #FCA5A5; border-radius: 16px; padding: 20px; margin-bottom: 24px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+                        <h4 style="margin: 0; color: #991B1B; font-size: 1.15rem; font-weight: 900; display: flex; align-items: center; gap: 8px;">
+                            <span>🧘‍♀️</span> Dinámicas Interactivas de Contención Psicológica Online
+                        </h4>
+                        <span style="background: #FEE2E2; color: #991B1B; font-size: 0.78rem; font-weight: 800; padding: 3px 10px; border-radius: 20px; border: 1px solid #FECACA;">Protocolo PAP / Resiliencia</span>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; margin-bottom: 14px;">
+                        <!-- Dinámica 1: Respiración Pautada 4-7-8 -->
+                        <div style="background: white; border: 1.5px solid #FECDD3; border-radius: 12px; padding: 14px; display: flex; flex-direction: column; justify-content: space-between;">
+                            <div>
+                                <div style="font-weight: 800; color: #9F1239; font-size: 0.92rem; margin-bottom: 4px;">🌬️ Respiración Guiada 4-7-8</div>
+                                <p style="margin: 0 0 10px 0; color: #64748B; font-size: 0.82rem; line-height: 1.4;">Inhala en 4s, sostén en 7s y exhala suavemente en 8s para desactivar la alerta del sistema nervioso.</p>
+                            </div>
+                            <button type="button" onclick="if(window.iniciarRespiracionGuiadaIA) window.iniciarRespiracionGuiadaIA(); else alert('Inhalar (4s)... Sostener (7s)... Exhalar lentamente (8s)... Siente tus pies firmes sobre la tierra.');" style="background: #FFE4E6; border: 1.5px solid #FDA4AF; color: #9F1239; padding: 7px 12px; border-radius: 8px; font-weight: 800; font-size: 0.82rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px;">
+                                <span>▶</span> Iniciar Ciclo de Calma
+                            </button>
+                        </div>
+
+                        <!-- Dinámica 2: Anclaje 5-4-3-2-1 -->
+                        <div style="background: white; border: 1.5px solid #FECDD3; border-radius: 12px; padding: 14px; display: flex; flex-direction: column; justify-content: space-between;">
+                            <div>
+                                <div style="font-weight: 800; color: #9F1239; font-size: 0.92rem; margin-bottom: 4px;">👁️ Anclaje Sensorial (5-4-3-2-1)</div>
+                                <p style="margin: 0 0 10px 0; color: #64748B; font-size: 0.82rem; line-height: 1.4;">Identifica 5 cosas que ves, 4 que tocas, 3 que oyes, 2 que hueles y 1 que agradeces en el presente.</p>
+                            </div>
+                            <button type="button" onclick="alert('Ejercicio 5-4-3-2-1:\n1. Mira 5 objetos seguros a tu alrededor.\n2. Toca 4 texturas cercanas.\n3. Escucha 3 sonidos del ambiente.\n4. Reconoce 2 sensaciones de tu cuerpo.\n5. Respira y di 1 palabra de agradecimiento.');" style="background: #FFE4E6; border: 1.5px solid #FDA4AF; color: #9F1239; padding: 7px 12px; border-radius: 8px; font-weight: 800; font-size: 0.82rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px;">
+                                <span>🧭</span> Guiar Anclaje Sensorial
+                            </button>
+                        </div>
+
+                        <!-- Dinámica 3: Mensaje de Resiliencia IA -->
+                        <div style="background: white; border: 1.5px solid #FECDD3; border-radius: 12px; padding: 14px; display: flex; flex-direction: column; justify-content: space-between;">
+                            <div>
+                                <div style="font-weight: 800; color: #9F1239; font-size: 0.92rem; margin-bottom: 4px;">💬 Red de Apoyo y Esperanza</div>
+                                <p style="margin: 0 0 10px 0; color: #64748B; font-size: 0.82rem; line-height: 1.4;">Genera preguntas detonantes para que los estudiantes expresen sus emociones en un espacio seguro.</p>
+                            </div>
+                            <button type="button" onclick="window.abrirActividadEmocionalIA()" style="background: linear-gradient(135deg, #E11D48, #BE123C); color: white; border: none; padding: 7px 12px; border-radius: 8px; font-weight: 800; font-size: 0.82rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px; box-shadow: 0 3px 8px rgba(225,29,72,0.3);">
+                                <span>✨</span> Abrir Juego de Empatía IA
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
                 <div id="proyeccion-guia-emocional-inner"></div>
             </div>
         `;
@@ -10762,15 +11368,39 @@ window.imprimirDiapositivas = function() {
 };
 
 window.abrirRankingDocenteNuevaPestana = function() {
-    const grupoSel = document.getElementById('filtro-grupo');
+    let authSes = {};
+    try { authSes = JSON.parse(sessionStorage.getItem('peidagogos_auth') || localStorage.getItem('usuario_sesion') || localStorage.getItem('usuario_actual') || '{}'); } catch(e) {}
+    const docKey = String(window.usuario_actual || authSes.documento || authSes.usuario || '').trim().toLowerCase();
+    let dList = [];
+    try { dList = JSON.parse(localStorage.getItem('docentes_db') || '[]'); } catch(e) {}
+    let docItem = dList.find(d => String(d.documento || d.usuario || '').trim().toLowerCase() === docKey) || authSes;
+
+    let grupos = [];
+    if (docItem && Array.isArray(docItem.grupos) && docItem.grupos.length > 0) {
+        grupos = docItem.grupos.map(g => (typeof g === 'object' ? g.nombre : g));
+    } else if (docItem && Array.isArray(docItem.grupos_direccion) && docItem.grupos_direccion.length > 0) {
+        grupos = [...docItem.grupos_direccion];
+    } else if (authSes && Array.isArray(authSes.grupos_direccion) && authSes.grupos_direccion.length > 0) {
+        grupos = [...authSes.grupos_direccion];
+    } else if (authSes && Array.isArray(authSes.grados) && authSes.grados.length > 0) {
+        grupos = [...authSes.grados];
+    } else {
+        grupos = ['7C', '6A', '8A'];
+    }
+
+    const gruposUnicos = Array.from(new Set(grupos.filter(Boolean)));
+    const grupoDefault = gruposUnicos[0] || '7C';
+    const grupoSeleccionado = prompt(`¿Qué grupo deseas proyectar en el Ránking en Vivo?\n\nGrupos disponibles: ${gruposUnicos.join(', ')}`, grupoDefault);
+    if (!grupoSeleccionado) return;
+
     const asigSel = document.getElementById('filtro-asignatura');
-    const grupo = (grupoSel && grupoSel.value !== 'Todos los Grupos') ? grupoSel.value : '6A';
     const asig = (asigSel && asigSel.value !== 'Todas las Asignaturas') ? asigSel.value : '';
     
-    let url = 'ranking.html?grupo=' + encodeURIComponent(grupo);
+    let url = 'ranking.html?grupo=' + encodeURIComponent(grupoSeleccionado.trim());
     if (asig) url += '&asignatura=' + encodeURIComponent(asig);
     window.open(url, '_blank');
 };
+window.abrirRankingEnVivo = window.abrirRankingDocenteNuevaPestana;
 
 window.abrirProyectorGrupoActualAdmin = function() {
     const grupo = window.gradoActualPlaneacion || '6A';
@@ -11348,6 +11978,8 @@ window.volverACajasHub = function() {
     const det = document.getElementById('vista-categoria-detalle');
     if (hub) hub.style.display = 'flex';
     if (det) det.style.display = 'none';
+    const card = hub ? hub.parentElement : null;
+    if (card) card.scrollTop = 0;
 };
 
 window.abrirDetalleCajaTematica = function(categoria = 'juegos') {
@@ -11365,6 +11997,442 @@ window.abrirDetalleCajaTematica = function(categoria = 'juegos') {
     if (title) title.innerText = meta.titulo;
 
     window.renderizarTarjetasCajaHerramientas(categoria);
+
+    const card = det ? det.parentElement : null;
+    if (card) card.scrollTop = 0;
+    if (det) det.scrollTop = 0;
+};
+
+// ==========================================================================
+// R3: CONFIGURACIÓN PRE-GENERACIÓN Y ASIGNACIÓN DE HERRAMIENTAS / JUEGOS IA
+// ==========================================================================
+window._toolJuegoIAActivo = null;
+window._herramientaConfigurandoIA = null;
+window._modoConfigJuegoIA = 'keywords';
+window._archivoConfigJuegoIA = null;
+window._textoArchivoConfigJuegoIA = '';
+window._nombreArchivoJuegoIA = '';
+window._palabrasArchivoJuegoIA = '';
+
+window.abrirConfiguracionJuegoIA = function(toolId) {
+    const tool = (typeof toolId === 'object' && toolId !== null) 
+        ? toolId 
+        : window.LISTA_HERRAMIENTAS_PEDAGOGICAS.find(h => h.id === toolId);
+        
+    if (!tool) {
+        if (typeof toolId === 'string') {
+            window.abrirVisorHerramienta(toolId, true);
+        }
+        return;
+    }
+
+    window._toolJuegoIAActivo = tool;
+    window._herramientaConfigurandoIA = tool;
+    window._modoConfigJuegoIA = 'keywords';
+    window._archivoConfigJuegoIA = null;
+    window._textoArchivoConfigJuegoIA = '';
+    window._nombreArchivoJuegoIA = '';
+    window._palabrasArchivoJuegoIA = '';
+
+    const modal = document.getElementById('modal-configuracion-juego-ia');
+    const ico = document.getElementById('modal-config-juego-icono') || document.getElementById('modal-juego-icono') || document.getElementById('modal-juego-ia-icono');
+    const tit = document.getElementById('modal-config-juego-titulo') || document.getElementById('modal-juego-titulo') || document.getElementById('modal-juego-ia-titulo');
+    const desc = document.getElementById('modal-config-juego-desc') || document.getElementById('modal-juego-desc') || document.getElementById('modal-juego-ia-desc');
+    const inKw = document.getElementById('modal-config-juego-keywords') || document.getElementById('modal-juego-input-keywords') || document.getElementById('modal-juego-ia-keywords');
+    const selMat = document.getElementById('modal-config-juego-materia') || document.getElementById('modal-juego-materia-select') || document.getElementById('modal-juego-ia-materia-select');
+    const selGra = document.getElementById('modal-config-juego-grado') || document.getElementById('modal-juego-grado-select') || document.getElementById('modal-juego-ia-grado-select');
+    const selGrp = document.getElementById('modal-config-juego-grupo') || document.getElementById('modal-juego-grupo-select') || document.getElementById('modal-juego-ia-grupo-select');
+    const inTema = document.getElementById('modal-config-juego-tema') || document.getElementById('modal-juego-ia-tema');
+    const infoArch = document.getElementById('modal-config-juego-archivo-info') || document.getElementById('modal-juego-archivo-badge') || document.getElementById('modal-juego-ia-archivo-info');
+
+    if (ico) ico.innerText = tool.icono || '🎮';
+    if (tit) tit.innerText = `${tool.icono || '⚡'} Configurar ${tool.titulo || 'Herramienta Pedagógica'}`;
+    if (desc) desc.innerText = tool.desc || 'Personaliza los conceptos pedagógicos antes de generar con IA y asignar al aula.';
+    if (inKw) inKw.value = '';
+    if (inTema) inTema.value = '';
+    if (infoArch) { infoArch.style.display = 'none'; infoArch.innerText = ''; }
+
+    // Sincronizar materia y grado si hay selección previa
+    const curMat = document.getElementById('toolbox-materia-select');
+    const curGra = document.getElementById('toolbox-grado-select');
+    const curPal = document.getElementById('toolbox-input-palabras');
+    if (selMat && curMat && curMat.value) selMat.value = curMat.value;
+    if (selGra && curGra && curGra.value) selGra.value = curGra.value;
+    if (inKw && curPal && curPal.value.trim()) inKw.value = curPal.value.trim();
+
+    // Poblar grupos asignados del docente autenticado con fallbacks
+    if (selGrp) {
+        let authSes = {};
+        try {
+            authSes = JSON.parse(sessionStorage.getItem('peidagogos_auth') || localStorage.getItem('usuario_sesion') || localStorage.getItem('usuario_actual') || '{}');
+        } catch(e) {}
+
+        const docKey = String(window.usuario_actual || authSes.usuario || authSes.documento || (authSes.usuarioObj && (authSes.usuarioObj.documento || authSes.usuarioObj.usuario)) || '').trim().toLowerCase();
+        let dList = [];
+        try { dList = JSON.parse(localStorage.getItem('docentes_db') || '[]'); } catch(e) {}
+        const docItem = dList.find(d => String(d.documento || d.cedula || d.usuario || '').trim().toLowerCase() === docKey) || authSes;
+
+        let grupos = [];
+        if (docItem && Array.isArray(docItem.grupos) && docItem.grupos.length > 0) {
+            grupos = docItem.grupos.map(g => (typeof g === 'object' ? g.nombre : g));
+        } else if (docItem && Array.isArray(docItem.grupos_direccion) && docItem.grupos_direccion.length > 0) {
+            grupos = [...docItem.grupos_direccion];
+        } else if (authSes && Array.isArray(authSes.grupos_direccion) && authSes.grupos_direccion.length > 0) {
+            grupos = [...authSes.grupos_direccion];
+        } else if (authSes && Array.isArray(authSes.grados) && authSes.grados.length > 0) {
+            grupos = [...authSes.grados];
+        } else {
+            grupos = ['7C', '6A', '8A'];
+        }
+
+        const gruposUnicos = Array.from(new Set(grupos.filter(Boolean)));
+        selGrp.innerHTML = '<option value="Todos">🏫 Todos los Grupos</option>' +
+            gruposUnicos.map(g => `<option value="${g}">Grupo ${g}</option>`).join('');
+        if (gruposUnicos.length > 0) selGrp.value = gruposUnicos[0];
+    }
+
+    window.cambiarModoConfigJuegoIA('keywords');
+    if (modal) modal.style.display = 'flex';
+};
+
+window.cerrarConfiguracionJuegoIA = function() {
+    const modal = document.getElementById('modal-configuracion-juego-ia');
+    if (modal) modal.style.display = 'none';
+};
+
+window.cambiarModoConfigJuegoIA = function(modo) {
+    window._modoConfigJuegoIA = modo;
+    const tabKw = document.getElementById('tab-config-juego-keywords') || document.getElementById('tab-juego-modo-keywords') || document.getElementById('modal-juego-tab-keywords');
+    const tabUp = document.getElementById('tab-config-juego-upload') || document.getElementById('tab-juego-modo-upload') || document.getElementById('modal-juego-tab-upload');
+    const panKw = document.getElementById('contenedor-config-juego-keywords') || document.getElementById('panel-juego-modo-keywords') || document.getElementById('modal-juego-panel-keywords');
+    const panUp = document.getElementById('contenedor-config-juego-upload') || document.getElementById('panel-juego-modo-upload') || document.getElementById('modal-juego-panel-upload');
+
+    if (modo === 'keywords') {
+        if (tabKw) {
+            tabKw.style.background = '#EFF6FF';
+            tabKw.style.color = '#1D4ED8';
+            tabKw.style.border = '2px solid #3B82F6';
+            tabKw.style.fontWeight = '800';
+            tabKw.style.boxShadow = '0 4px 10px rgba(59,130,246,0.25)';
+        }
+        if (tabUp) {
+            tabUp.style.background = '#F8FAFC';
+            tabUp.style.color = '#64748B';
+            tabUp.style.border = '1.5px solid #CBD5E1';
+            tabUp.style.fontWeight = '700';
+            tabUp.style.boxShadow = 'none';
+        }
+        if (panKw) panKw.style.display = 'block';
+        if (panUp) panUp.style.display = 'none';
+    } else {
+        if (tabUp) {
+            tabUp.style.background = '#EFF6FF';
+            tabUp.style.color = '#1D4ED8';
+            tabUp.style.border = '2px solid #3B82F6';
+            tabUp.style.fontWeight = '800';
+            tabUp.style.boxShadow = '0 4px 10px rgba(59,130,246,0.25)';
+        }
+        if (tabKw) {
+            tabKw.style.background = '#F8FAFC';
+            tabKw.style.color = '#64748B';
+            tabKw.style.border = '1.5px solid #CBD5E1';
+            tabKw.style.fontWeight = '700';
+            tabKw.style.boxShadow = 'none';
+        }
+        if (panKw) panKw.style.display = 'none';
+        if (panUp) panUp.style.display = 'block';
+    }
+};
+
+window.manejarArchivoConfigJuegoIA = function(event) {
+    const file = event.target.files && event.target.files[0];
+    if (!file) return;
+
+    window._archivoConfigJuegoIA = file;
+    window._nombreArchivoJuegoIA = file.name;
+    const info = document.getElementById('modal-config-juego-archivo-info') || document.getElementById('modal-juego-archivo-badge') || document.getElementById('modal-juego-ia-archivo-info');
+    const nomSpan = document.getElementById('modal-config-juego-archivo-nombre') || document.getElementById('modal-juego-archivo-nombre') || document.getElementById('modal-juego-ia-archivo-nombre');
+
+    const sizeKb = (file.size / 1024).toFixed(1);
+    if (nomSpan) nomSpan.innerText = `${file.name} (${sizeKb} KB)`;
+    if (info) {
+        info.innerText = `✅ Archivo cargado: ${file.name} (${sizeKb} KB)`;
+        info.style.display = 'inline-flex';
+    }
+
+    const reader = new FileReader();
+    reader.onload = function(e) {
+        const text = String(e.target.result || '');
+        window._textoArchivoConfigJuegoIA = text;
+        const tokens = text.toLowerCase().match(/[a-záéíóúñÁÉÍÓÚÑ]{4,}/g) || [];
+        if (tokens.length >= 3) {
+            const freq = {};
+            tokens.forEach(t => freq[t] = (freq[t] || 0) + 1);
+            const sorted = Object.keys(freq).sort((a, b) => freq[b] - freq[a]);
+            window._palabrasArchivoJuegoIA = sorted.slice(0, 15).join(', ');
+        } else {
+            const clean = file.name.replace(/\.[a-zA-Z0-9]+$/, '').replace(/[_\\-]+/g, ' ');
+            window._palabrasArchivoJuegoIA = clean;
+        }
+    };
+    reader.onerror = function() {
+        const clean = file.name.replace(/\.[a-zA-Z0-9]+$/, '').replace(/[_\\-]+/g, ' ');
+        window._textoArchivoConfigJuegoIA = clean;
+        window._palabrasArchivoJuegoIA = clean;
+    };
+    try {
+        reader.readAsText(file.slice(0, 100000));
+    } catch(err) {
+        const clean = file.name.replace(/\.[a-zA-Z0-9]+$/, '').replace(/[_\\-]+/g, ' ');
+        window._textoArchivoConfigJuegoIA = clean;
+        window._palabrasArchivoJuegoIA = clean;
+    }
+};
+window.manejarArchivoJuegoIA = window.manejarArchivoConfigJuegoIA;
+
+window.manejarArchivoDiapositivas = function(event) {
+    const file = event.target.files && event.target.files[0];
+    if (!file) return;
+
+    window._archivoDiapositivas = file;
+    const info = document.getElementById('slides-archivo-info');
+    if (info) {
+        info.innerText = `📄 Documento de apoyo: ${file.name} (${(file.size / 1024).toFixed(1)} KB)`;
+        info.style.display = 'block';
+    }
+
+    const reader = new FileReader();
+    reader.onload = function(e) {
+        const text = String(e.target.result || '');
+        const tokens = text.toLowerCase().match(/[a-záéíóúñÁÉÍÓÚÑ]{4,}/g) || [];
+        if (tokens.length >= 3) {
+            const inTema = document.getElementById('slides-tema-custom');
+            if (inTema && !inTema.value.trim()) {
+                const freq = {};
+                tokens.forEach(t => freq[t] = (freq[t] || 0) + 1);
+                const sorted = Object.keys(freq).sort((a, b) => freq[b] - freq[a]);
+                inTema.value = sorted.slice(0, 6).join(', ');
+            }
+        }
+    };
+    reader.readAsText(file.slice(0, 50000));
+};
+
+window.abrirActividadEmocionalIA = function() {
+    const modalTerremoto = document.getElementById('modal-clase-terremoto-proyeccion');
+    if (modalTerremoto) modalTerremoto.remove();
+    window.abrirConfiguracionJuegoIA('memory_cards');
+    const inKw = document.getElementById('modal-config-juego-keywords') || document.getElementById('modal-juego-input-keywords') || document.getElementById('modal-juego-ia-keywords');
+    const inTema = document.getElementById('modal-config-juego-tema') || document.getElementById('modal-juego-ia-tema');
+    const selMat = document.getElementById('modal-config-juego-materia') || document.getElementById('modal-juego-materia-select');
+    if (inKw) inKw.value = 'Resiliencia, Calma, Respiración Profunda, Apoyo Mutuo, Red de Seguridad, Empatía, Escucha Activa, Esperanza';
+    if (inTema) inTema.value = 'Primeros Auxilios Emocionales Post-Sismo';
+    if (selMat) selMat.value = 'Ética y Valores Humanos';
+};
+
+window.ejecutarGeneracionJuegoIA = async function(opciones = {}) {
+    const soloProyectar = Boolean(opciones && opciones.soloProyectar);
+    const tool = window._toolJuegoIAActivo || window._herramientaConfigurandoIA || window.LISTA_HERRAMIENTAS_PEDAGOGICAS[0];
+    if (!tool) return;
+
+    const selMat = document.getElementById('modal-config-juego-materia') || document.getElementById('modal-juego-materia-select') || document.getElementById('modal-juego-ia-materia-select');
+    const selGra = document.getElementById('modal-config-juego-grado') || document.getElementById('modal-juego-grado-select') || document.getElementById('modal-juego-ia-grado-select');
+    const selGrp = document.getElementById('modal-config-juego-grupo') || document.getElementById('modal-juego-grupo-select') || document.getElementById('modal-juego-ia-grupo-select');
+    const selXp = document.getElementById('modal-config-juego-xp') || document.getElementById('modal-juego-xp-select') || document.getElementById('modal-juego-ia-xp-select');
+    const inKw = document.getElementById('modal-config-juego-keywords') || document.getElementById('modal-juego-input-keywords') || document.getElementById('modal-juego-ia-keywords');
+    const inTema = document.getElementById('modal-config-juego-tema') || document.getElementById('modal-juego-ia-tema');
+
+    const materia = (selMat && selMat.value) ? selMat.value : 'Ciencias Naturales';
+    const grado = (selGra && selGra.value) ? selGra.value : '7';
+    const grupo = (selGrp && selGrp.value) ? selGrp.value : 'Todos';
+    const xp = (selXp && selXp.value) ? parseInt(selXp.value) : 250;
+
+    let keywords = '';
+    if (inTema && inTema.value.trim()) {
+        keywords = inTema.value.trim();
+    } else if (window._modoConfigJuegoIA === 'keywords') {
+        keywords = (inKw && inKw.value.trim()) ? inKw.value.trim() : `${materia} Grado ${grado}`;
+    } else {
+        keywords = window._palabrasArchivoJuegoIA || window._textoArchivoConfigJuegoIA || window._nombreArchivoJuegoIA || `${materia} Grado ${grado}`;
+    }
+
+    const btnAsignar = document.getElementById('btn-ejecutar-generacion-juego-ia') || document.getElementById('btn-modal-juego-ia-asignar');
+    if (btnAsignar) {
+        btnAsignar.disabled = true;
+        btnAsignar.innerHTML = `<span>⚙️</span> Generando con IA...`;
+    }
+
+    // 1. Obtener datos de sesión del docente
+    let authSes = {};
+    try {
+        authSes = JSON.parse(sessionStorage.getItem('peidagogos_auth') || localStorage.getItem('usuario_sesion') || localStorage.getItem('usuario_actual') || '{}');
+    } catch(e) {}
+    const docKey = String(window.usuario_actual || authSes.documento || authSes.usuario || 'docente').trim();
+    let dList = [];
+    try { dList = JSON.parse(localStorage.getItem('docentes_db') || '[]'); } catch(e) {}
+    const docItem = dList.find(d => String(d.documento || d.usuario || '').trim().toLowerCase() === docKey.toLowerCase()) || authSes;
+    const profesorNombre = (document.getElementById('docente-nombre-header') ? document.getElementById('docente-nombre-header').innerText : (docItem.nombre || 'Docente Orientador')).trim();
+
+    // 2. Generar payload de IA o Fallback
+    let payload = null;
+    try {
+        const res = await fetch('/api/generate-tool-ai', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ materia, grado, tema: keywords, dificultad: 'medio' })
+        });
+        if (res.ok) {
+            const json = await res.json();
+            if (json && !json.error) payload = json;
+        }
+    } catch(e) {
+        console.warn("Fallo endpoint IA, usando generador procedural dinámico:", e);
+    }
+
+    if (!payload && typeof window.datosDinamicosFallback === 'function') {
+        payload = window.datosDinamicosFallback(materia, grado, keywords, 'medio');
+    } else if (!payload) {
+        payload = {
+            toolId: tool.id,
+            materia,
+            grado,
+            palabras: keywords.split(/[,;\n]+/).map(w => w.trim()).filter(Boolean)
+        };
+    }
+
+    payload.toolId = tool.id;
+    payload.materia = materia;
+    payload.grado = grado;
+    payload.tema = keywords;
+    payload.dificultad = 'medio';
+
+    window._cacheDataDinamicaIA = payload;
+
+    // 3. Si no es solo proyectar, asignar actividad a los estudiantes del grupo
+    if (!soloProyectar) {
+        const actId = 'act_' + Date.now() + '_' + Math.random().toString(36).substr(2, 6);
+        const assignedActivity = {
+            id: actId,
+            herramienta_id: tool.id,
+            titulo: `${tool.icono || '⚡'} ${tool.titulo || 'Actividad'}: ${keywords.split(',')[0].trim()}`,
+            materia: materia,
+            grado: grado,
+            grupo: grupo,
+            profesor_nombre: profesorNombre,
+            profesor_id: docKey,
+            fecha_asignacion: new Date().toISOString(),
+            estado: 'pendiente',
+            xp_recompensa: xp,
+            configuracion_juego: {
+                modo: window._modoConfigJuegoIA,
+                tema: keywords,
+                palabrasClave: keywords,
+                archivoNombre: window._nombreArchivoJuegoIA || null
+            },
+            datos_juego: payload,
+            // Aliases de compatibilidad total
+            tipo_actividad: tool.id,
+            herramienta_titulo: tool.titulo,
+            herramienta_icono: tool.icono,
+            destinatario_tipo: 'grupo',
+            destinatario_id: grupo,
+            destinatario_nombre: grupo === 'Todos' ? 'Todos los Grupos' : `Grupo ${grupo}`,
+            grupo_destino: grupo,
+            tema: keywords,
+            creador_id: docKey,
+            fecha_creacion: new Date().toISOString(),
+            actividad_data: payload,
+            completada_por: []
+        };
+
+        // Guardar en localStorage
+        let localActs = [];
+        try { localActs = JSON.parse(localStorage.getItem('actividades_asignadas_db') || '[]'); } catch(e) {}
+        localActs.unshift(assignedActivity);
+        localStorage.setItem('actividades_asignadas_db', JSON.stringify(localActs));
+
+        // Enviar a servidor backend
+        try {
+            await fetch('/api/asignar-actividad', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    id: assignedActivity.id,
+                    tipo_actividad: tool.id,
+                    herramienta_id: tool.id,
+                    titulo: assignedActivity.titulo,
+                    destinatario_tipo: 'grupo',
+                    destinatario_id: grupo,
+                    destinatario_nombre: assignedActivity.destinatario_nombre,
+                    grupo_destino: grupo,
+                    grupo: grupo,
+                    materia: materia,
+                    grado: grado,
+                    periodo: '3',
+                    tema: keywords,
+                    profesor_nombre: profesorNombre,
+                    creador_id: docKey,
+                    profesor_id: docKey,
+                    xp_recompensa: xp,
+                    configuracion_juego: assignedActivity.configuracion_juego,
+                    datos_juego: payload,
+                    actividad_data: payload
+                })
+            });
+        } catch(e) {
+            console.warn("Fallo sincronización nube de actividad asignada:", e);
+        }
+
+        if (window.enviarAlertaTelegram) {
+            window.enviarAlertaTelegram(`🎮 *NUEVA ACTIVIDAD STEAM ASIGNADA*\n\n🎯 *Juego:* ${tool.icono || '⚡'} ${tool.titulo}\n📚 *Materia:* ${materia} (Grado ${grado}°)\n👥 *Grupo:* ${grupo}\n👨‍🏫 *Profesor:* ${profesorNombre}\n📝 *Tema:* ${keywords}\n🌟 *Recompensa:* +${xp} XP`);
+        }
+    }
+
+    // 4. Cerrar modal de configuración
+    window.cerrarConfiguracionJuegoIA();
+    if (btnAsignar) {
+        btnAsignar.disabled = false;
+        btnAsignar.innerHTML = `<span>🚀</span> Generar y Asignar a Estudiantes ➔`;
+    }
+
+    // 5. Abrir visor interactivo de la herramienta en pantalla completa
+    window.herramientaActualActiva = tool;
+    const base = {
+        materia,
+        grado,
+        periodo: '3',
+        semana: '1',
+        concepto: keywords,
+        dificultad: 'medio'
+    };
+
+    const modalVisor = document.getElementById('modal-visor-herramienta');
+    const stage = document.getElementById('herramienta-stage');
+    const iconVisor = document.getElementById('visor-tool-icon');
+    const titleVisor = document.getElementById('visor-tool-title');
+    const subtitleVisor = document.getElementById('visor-tool-subtitle');
+
+    if (iconVisor) iconVisor.innerText = tool.icono || '🧰';
+    if (titleVisor) titleVisor.innerText = tool.titulo;
+    if (subtitleVisor) subtitleVisor.innerText = `${materia} • Grado ${grado}° • Grupo: ${grupo} • Tema: ${keywords}`;
+
+    if (modalVisor) modalVisor.style.display = 'flex';
+
+    if (stage && typeof window.ejecutarRenderizadorHerramienta === 'function') {
+        window.ejecutarRenderizadorHerramienta(tool.id, stage, base);
+    }
+};
+
+// Aliases Universales para Configuración y Generación de Herramientas IA (R3)
+window.abrirConfiguracionHerramientaIA = window.abrirConfiguracionJuegoIA;
+window.cerrarConfiguracionHerramientaIA = window.cerrarConfiguracionJuegoIA;
+window.cambiarModoConfiguracionIA = window.cambiarModoConfigJuegoIA;
+window.manejarArchivoConfiguracionIA = window.manejarArchivoConfigJuegoIA;
+window.ejecutarGeneracionYAsignacionHerramientaIA = function() {
+    return window.ejecutarGeneracionJuegoIA({ soloProyectar: false });
+};
+window.ejecutarGeneracionSinAsignarHerramientaIA = function() {
+    return window.ejecutarGeneracionJuegoIA({ soloProyectar: true });
 };
 
 window.renderizarTarjetasCajaHerramientas = function(categoria = 'juegos') {
@@ -11388,17 +12456,22 @@ window.renderizarTarjetasCajaHerramientas = function(categoria = 'juegos') {
                 </div>
             </div>
 
-            <button onclick="window.abrirVisorHerramienta('${tool.id}')" style="background: linear-gradient(135deg, #2563EB, #1D4ED8); color: white; border: none; padding: 11px 16px; border-radius: 12px; font-weight: 800; font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 12px rgba(37,99,235,0.25);">
-                <span>⚡</span> Generar y Abrir
+            <button onclick="window.abrirConfiguracionJuegoIA('${tool.id}')" style="background: linear-gradient(135deg, #2563EB, #1D4ED8); color: white; border: none; padding: 11px 16px; border-radius: 12px; font-weight: 800; font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 12px rgba(37,99,235,0.25);">
+                <span>⚡</span> Configurar y Generar IA
             </button>
         </div>
     `).join('');
 };
 
 // Modal Visor de Herramientas y Sincronización de Controles
-window.abrirVisorHerramienta = function(herramientaId) {
+window.abrirVisorHerramienta = function(herramientaId, omitirIntercepcionIA = false) {
     const tool = window.LISTA_HERRAMIENTAS_PEDAGOGICAS.find(h => h.id === herramientaId);
     if (!tool) return;
+
+    if (!omitirIntercepcionIA && typeof window.abrirConfiguracionJuegoIA === 'function') {
+        window.abrirConfiguracionJuegoIA(herramientaId);
+        return;
+    }
 
     window.herramientaActualActiva = tool;
 
@@ -14890,7 +15963,7 @@ window.renderizarCajonesGrandesGruposDocente = function(gruposMap, gradosDocente
 
     // Si aún está vacío, asignar grupos por defecto para que el profesor siempre tenga salones
     if (listaGruposNombres.length === 0) {
-        listaGruposNombres = ['7C', '6A', '8A'];
+        // listaGruposNombres = ['7C', '6A', '8A'];
     }
 
     // Ordenar grupos alfanuméricamente
@@ -15155,7 +16228,27 @@ window.copiarMensajeCompletoRedes = function() {
 // =========================================================
 window.verificarParametrosMatriculaDirecta = function() {
     const params = new URLSearchParams(window.location.search);
-    if (params.get('reg') === 'docente') {
+    const regParam = params.get('reg');
+    const docIdInj = params.get('docente');
+    
+    // Inject CSS to forcefully hide complex fields if coming from a registration link
+    if (regParam || docIdInj) {
+        const style = document.createElement('style');
+        style.innerHTML = `
+            #reg-ie, 
+            #campo-docente-asignatura, 
+            #reg-grado, 
+            #registro-grupo, 
+            #reg-docente-ie-select,
+            #reg-codigo-institucional,
+            #campo-codigo-institucional {
+                display: none !important;
+            }
+        `;
+        document.head.appendChild(style);
+    }
+    
+    if (regParam === 'docente') {
         setTimeout(() => {
             if (typeof mostrarVista === 'function') {
                 mostrarVista('register-screen-container');
@@ -15194,6 +16287,22 @@ window.verificarParametrosMatriculaDirecta = function() {
     const grupoParam = params.get('grupo');
     const gradoParam = params.get('grado');
     const materiaParam = params.get('materia');
+
+    
+    const isDocenteReg = params.get('reg') === 'docente';
+    const tokenParam = params.get('token');
+    
+    // Si es registro de docente, validar el token en la base de datos de invitaciones
+    if (isDocenteReg && tokenParam) {
+        const invList = JSON.parse(localStorage.getItem('invitaciones_docentes_db') || '[]');
+        const tokenValido = invList.some(inv => inv.token === tokenParam);
+        if (!tokenValido) {
+            alert('❌ Este enlace de invitación ha sido eliminado o ya no es válido.');
+            // redirigir o limpiar
+            window.location.href = window.location.pathname;
+            return;
+        }
+    }
 
     if (regDirecto === 'directo' || docId) {
         console.log("🚀 [CONTINGENCIA] Matrícula directa por enlace de redes activada:", { docId, docNom, grupoParam, ieParam });
@@ -16040,7 +17149,7 @@ window.asignarHerramientaActualAGrupo = async function() {
 
     let dList = JSON.parse(localStorage.getItem('docentes_db') || '[]');
     let docItem = dList.find(d => String(d.documento || d.usuario || '').trim().toLowerCase() === docKey) || authSes;
-    let gruposDocente = (docItem && Array.isArray(docItem.grupos)) ? docItem.grupos.map(g => (typeof g === 'object' ? g.nombre : g)) : ['7C', '6A', '8A'];
+    let gruposDocente = (docItem && Array.isArray(docItem.grupos)) ? docItem.grupos.map(g => (typeof g === 'object' ? g.nombre : g)) : [];
 
     const grupoElegido = prompt(`¿A qué grupo deseas asignar esta actividad de ${tool.titulo}?\n\nTus grupos disponibles:\n${gruposDocente.join(', ') || 'Todos'}\n\nEscribe el nombre del grupo (o presiona Aceptar para '${gruposDocente[0] || 'Todos'}'):`, gruposDocente[0] || 'Todos');
     
@@ -16178,7 +17287,7 @@ window.cargarActividadesEstudiante = function() {
     }
 
     list.innerHTML = tareasParaEstudiante.map(act => {
-        const estaCompletada = (Array.isArray(act.completada_por) && act.completada_por.includes(docEstudiante)) || localStorage.getItem(`tarea_completada_${act.id}_${docEstudiante}`) === 'true';
+        const estaCompletada = (Array.isArray(act.completada_por) && act.completada_por.some(c => String(c.documento || c).trim().toLowerCase() === docEstudiante)) || localStorage.getItem(`tarea_completada_${act.id}_${docEstudiante}`) === 'true' || localStorage.getItem(`act_completada_${act.id}_${docEstudiante}`) === 'true';
         if (!estaCompletada) pendientesCount++;
 
         return `
@@ -16325,4 +17434,35 @@ window.finalizarTareaEstudiante = function(actividadId) {
     alert("🎉 ¡FELICITACIONES!\n\nHas completado tu tarea exitosamente y ganado +250 XP.\n\nTu profesor ya puede ver tu avance formativo en su planilla de seguimiento.");
     window.cerrarVisorHerramienta();
     window.cargarActividadesEstudiante();
+};
+
+
+// NUEVA LÓGICA RÁNKING EN VIVO
+window.abrirModalSeleccionGrupoRanking = function() {
+    let authSes = {};
+    try { authSes = JSON.parse(sessionStorage.getItem('peidagogos_auth') || localStorage.getItem('usuario_actual') || '{}'); } catch(e) {}
+    let dList = JSON.parse(localStorage.getItem('docentes_db') || '[]');
+    let docKey = authSes.documento || authSes.usuario || '';
+    let docItem = dList.find(d => String(d.documento || d.usuario || '').trim().toLowerCase() === docKey) || authSes;
+    
+    let gruposDocente = (docItem && Array.isArray(docItem.grupos)) ? docItem.grupos.map(g => (typeof g === 'object' ? g.nombre : g)) : [];
+    
+    if (gruposDocente.length === 0) {
+        alert("Aún no tienes grupos registrados para proyectar el ránking.");
+        return;
+    }
+
+    const grupoElegido = prompt(`¿A qué grupo deseas proyectar el Ránking en Vivo?\n\nTus grupos disponibles:\n${gruposDocente.join(', ')}\n\nEscribe el nombre del grupo (o presiona Aceptar para '${gruposDocente[0]}'):`, gruposDocente[0]);
+    
+    if (grupoElegido === null) return;
+    
+    let grupoFinal = grupoElegido.trim() || gruposDocente[0];
+    localStorage.setItem('grupo_ranking_proyectar', grupoFinal);
+    window.open('ranking.html', '_blank');
+};
+
+// NUEVA LÓGICA AUXILIOS EMOCIONALES IA
+window.abrirModalAuxiliosIA = function() {
+    alert("Iniciando generación IA de Actividades Interactivas Post-Terremoto... (Simulado)");
+    document.getElementById('modal-auxilios').style.display = 'none';
 };

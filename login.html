@@ -644,7 +644,7 @@
                 </div>
 
                 <!-- 2. Mis Materias y Grados -->
-                <div style="background: white; border: 2px solid #BFDBFE; border-radius: 20px; padding: 24px; box-shadow: 0 8px 25px rgba(37,99,235,0.08); display: flex; flex-direction: column; justify-content: space-between; min-height: 270px; transition: transform 0.25s, box-shadow 0.25s;" onmouseover="this.style.transform='translateY(-6px)'; this.style.boxShadow='0 16px 35px rgba(37,99,235,0.2)';" onmouseout="this.style.transform='none'; this.style.boxShadow='0 8px 25px rgba(37,99,235,0.08)';">
+                <div style="background: white; border: 2px solid #BFDBFE; border-radius: 20px; padding: 24px; box-shadow: 0 8px 25px rgba(37,99,235,0.08); display: none !important; flex-direction: column; justify-content: space-between; min-height: 270px; transition: transform 0.25s, box-shadow 0.25s;" onmouseover="this.style.transform='translateY(-6px)'; this.style.boxShadow='0 16px 35px rgba(37,99,235,0.2)';" onmouseout="this.style.transform='none'; this.style.boxShadow='0 8px 25px rgba(37,99,235,0.08)';">
                     <div>
                         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
                             <span style="background: #EFF6FF; color: #1E40AF; font-size: 0.78rem; font-weight: 900; padding: 4px 12px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px;">Configuración</span>
@@ -712,7 +712,7 @@
                 </div>
 
                 <!-- 6. Proyectar QR Matrícula -->
-                <div style="background: white; border: 2px solid #BAE6FD; border-radius: 20px; padding: 24px; box-shadow: 0 8px 25px rgba(2,132,199,0.08); display: flex; flex-direction: column; justify-content: space-between; min-height: 270px; transition: transform 0.25s, box-shadow 0.25s;" onmouseover="this.style.transform='translateY(-6px)'; this.style.boxShadow='0 16px 35px rgba(2,132,199,0.2)';" onmouseout="this.style.transform='none'; this.style.boxShadow='0 8px 25px rgba(2,132,199,0.08)';">
+                <div style="background: white; border: 2px solid #BAE6FD; border-radius: 20px; padding: 24px; box-shadow: 0 8px 25px rgba(2,132,199,0.08); display: none !important; flex-direction: column; justify-content: space-between; min-height: 270px; transition: transform 0.25s, box-shadow 0.25s;" onmouseover="this.style.transform='translateY(-6px)'; this.style.boxShadow='0 16px 35px rgba(2,132,199,0.2)';" onmouseout="this.style.transform='none'; this.style.boxShadow='0 8px 25px rgba(2,132,199,0.08)';">
                     <div>
                         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
                             <span style="background: #E0F2FE; color: #0369A1; font-size: 0.78rem; font-weight: 900; padding: 4px 12px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px;">Matrícula Fácil</span>
@@ -888,7 +888,7 @@
                 <span>📽️</span> Diapositivas de la Semana
             </button>
             <button onclick="mostrarReferidos()" style="background: linear-gradient(135deg, #EC4899, #BE185D); color: white; border: none; padding: 8px 18px; border-radius: 8px; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 8px; font-size: 0.9rem; box-shadow: 0 4px 10px rgba(236,72,153,0.25);"><span>🎁</span> Invita y Gana</button>
-            <a href="proyector-qr.html" target="_blank" style="background: linear-gradient(135deg, #2563EB, #1D4ED8); color: white; border: none; padding: 8px 18px; border-radius: 8px; font-weight: bold; text-decoration: none; display: flex; align-items: center; gap: 8px; font-size: 0.9rem; box-shadow: 0 4px 10px rgba(37,99,235,0.25);"><span>📽️</span> Proyectar QR Matrícula</a>
+            <a href="proyector-qr.html" target="_blank" style="background: linear-gradient(135deg, #2563EB, #1D4ED8); color: white; border: none; padding: 8px 18px; border-radius: 8px; font-weight: bold; text-decoration: none; display: none !important; align-items: center; gap: 8px; font-size: 0.9rem; box-shadow: 0 4px 10px rgba(37,99,235,0.25);"><span>📽️</span> Proyectar QR Matrícula</a>
             <a href="proyector.html" target="_blank" style="background: #10B981; color: white; border: none; padding: 8px 20px; border-radius: 8px; font-weight: bold; text-decoration: none; display: flex; align-items: center; gap: 8px;"><i class="ph ph-projector-screen-chart" style="font-size: 1.2rem;"></i> Modo Proyector</a>
             <div style="background: #F3F4F6; padding: 8px 15px; border-radius: 20px; font-size: 0.9rem; font-weight: 700; color: #374151;">
                 Administrador Maestro ADMINISTRADOR
@@ -1298,7 +1298,7 @@
                 <h3 style="font-weight: 800; margin-bottom: 20px;">Directorio de Docentes</h3>
                 
                 <table style="width: 100%; border-collapse: collapse; text-align: left; background: white; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
-                    <thead><tr style="border-bottom: 2px solid #E5E7EB;"><th style="padding: 15px;">Documento</th><th style="padding: 15px;">Nombre del Docente</th><th style="padding: 15px;">Tipo de Vinculación</th></tr></thead>
+                    <thead><tr style="border-bottom: 2px solid #E5E7EB;"><th style="padding: 15px;">Documento</th><th style="padding: 15px;">Nombre del Docente</th><th style="padding: 15px;">Tipo de Vinculación</th><th style="padding: 15px;">Acciones</th></tr></thead>
                     <tbody id="tbody-admin-docentes"></tbody>
                 </table>
             </div>
@@ -1416,7 +1416,7 @@
                 <span>📽️</span> Diapositivas Semanales
             </button>
             <button onclick="mostrarReferidos()" style="background: linear-gradient(135deg, #EC4899, #BE185D); color: white; border: none; padding: 8px 18px; border-radius: 8px; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 8px; font-size: 0.9rem; box-shadow: 0 4px 10px rgba(236,72,153,0.25);"><span>🎁</span> Invita y Gana</button>
-            <a href="proyector-qr.html" target="_blank" style="background: linear-gradient(135deg, #2563EB, #1D4ED8); color: white; border: none; padding: 8px 18px; border-radius: 8px; font-weight: bold; text-decoration: none; display: flex; align-items: center; gap: 8px; font-size: 0.9rem; box-shadow: 0 4px 10px rgba(37,99,235,0.25);"><span>📽️</span> Proyectar QR Matrícula</a>
+            <a href="proyector-qr.html" target="_blank" style="background: linear-gradient(135deg, #2563EB, #1D4ED8); color: white; border: none; padding: 8px 18px; border-radius: 8px; font-weight: bold; text-decoration: none; display: none !important; align-items: center; gap: 8px; font-size: 0.9rem; box-shadow: 0 4px 10px rgba(37,99,235,0.25);"><span>📽️</span> Proyectar QR Matrícula</a>
             <a href="proyector.html" target="_blank" style="background: #10B981; color: white; border: none; padding: 8px 18px; border-radius: 8px; font-weight: bold; text-decoration: none; display: flex; align-items: center; gap: 8px; font-size: 0.9rem;"><i class="ph ph-projector-screen-chart"></i> Modo Proyector</a>
             <button onclick="location.reload()" style="background: #EF4444; color: white; border: none; padding: 8px 18px; border-radius: 8px; font-weight: bold; cursor: pointer; font-family: Inter, sans-serif; font-size: 0.9rem;">Cerrar Sesión</button>
         </div>
@@ -1456,9 +1456,7 @@
                 <a href="proyector.html" target="_blank" style="background: linear-gradient(135deg, #059669, #10B981); color: white; border: none; padding: 10px 18px; border-radius: 10px; font-weight: 800; font-size: 0.9rem; text-decoration: none; display: flex; align-items: center; gap: 8px; box-shadow: 0 4px 12px rgba(16,185,129,0.3);" title="Modo interactivo para cuando no podemos usar los computadores">
                     <span>📽️</span> Modo Proyector (Sin Computadores)
                 </a>
-                <a href="ranking.html" target="_blank" style="background: linear-gradient(135deg, #F59E0B, #D97706); color: white; border: none; padding: 10px 18px; border-radius: 10px; font-weight: 900; font-size: 0.9rem; text-decoration: none; display: flex; align-items: center; gap: 8px; box-shadow: 0 4px 12px rgba(245,158,11,0.35);" title="Abre la tabla de posiciones en una pestaña nueva para VideoBeam / Smart TV">
-                    <span>🏆</span> Proyectar Ránking en Pestaña Nueva
-                </a>
+                <button onclick="window.abrirModalSeleccionGrupoRanking()" style="background: linear-gradient(135deg, #F59E0B, #D97706); color: white; border: none; padding: 10px 18px; border-radius: 10px; font-weight: 900; font-size: 0.9rem; text-decoration: none; display: flex; align-items: center; gap: 8px; box-shadow: 0 4px 12px rgba(245,158,11,0.35);; cursor:pointer;" title="Abre la tabla de posiciones en una pestaña nueva para VideoBeam / Smart TV"><span>🏆</span> Proyectar Ránking en Pestaña Nueva</button>
             </div>
         </div>
 
@@ -2404,6 +2402,20 @@
                     <label style="font-size: 0.82rem; font-weight: 800; color: #334155; display: block; margin-bottom: 4px;">Tema o Pregunta Clave de la Semana (Opcional):</label>
                     <input type="text" id="slides-tema-custom" placeholder="Ej: Leyes de la Dinámica, Ecosistemas Colombianos, Fracciones..." style="width: 100%; padding: 9px 12px; border: 1.5px solid #CBD5E1; border-radius: 8px; font-size: 0.9rem; box-sizing: border-box;">
                 </div>
+
+                <!-- Carga de Documento de Referencia para Diapositivas (PDF, Word, PPT) -->
+                <div style="background: #F8FAFC; border: 1.5px dashed #818CF8; border-radius: 10px; padding: 12px 14px; text-align: center;">
+                    <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 4px;">
+                        <span style="font-size: 1.2rem;">📄</span>
+                        <span style="font-weight: 800; color: #3730A3; font-size: 0.85rem;">Alimentar Diapositivas desde Documento (Opcional):</span>
+                    </div>
+                    <p style="margin: 0 0 8px 0; color: #64748B; font-size: 0.78rem;">Sube una guía, plan de clase o resumen (PDF, Word, PPT, TXT) para generar las 10 diapositivas.</p>
+                    <input type="file" id="slides-input-documento" accept=".pdf,.doc,.docx,.ppt,.pptx,.txt" style="display: none;" onchange="window.manejarArchivoDiapositivas(event)">
+                    <button type="button" onclick="document.getElementById('slides-input-documento').click()" style="background: white; border: 1.5px solid #6366F1; color: #4F46E5; padding: 6px 14px; border-radius: 8px; font-weight: 800; font-size: 0.82rem; cursor: pointer; display: inline-flex; align-items: center; gap: 6px;">
+                        <span>📂</span> Seleccionar Guía o Documento
+                    </button>
+                    <div id="slides-documento-nombre" style="margin-top: 6px; font-size: 0.8rem; font-weight: 700; color: #059669; display: none;"></div>
+                </div>
             </div>
 
             <div style="display: flex; justify-content: flex-end; gap: 12px;">
@@ -2468,33 +2480,217 @@
     <!-- ========================================== -->
     <!-- MODAL PRINCIPAL: CAJA DE HERRAMIENTAS PEDAGÓGICAS (40 HERRAMIENTAS) -->
     <!-- ========================================== -->
-    <!-- MODAL PRINCIPAL: CAJA DE HERRAMIENTAS PEDAGÓGICAS (40 HERRAMIENTAS EN 6 CAJAS TEMÁTICAS) -->
-    <!-- ========================================== -->
-    <div id="modal-caja-herramientas" style="display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.88); backdrop-filter: blur(10px); align-items: center; justify-content: center; z-index: 100000; padding: 20px; overflow-y: auto;">
-        <div style="background: #F8FAFC; border-radius: 24px; padding: 26px 30px; max-width: 1200px; width: 100%; max-height: 92vh; display: flex; flex-direction: column; box-shadow: 0 25px 70px -15px rgba(0,0,0,0.5); text-align: left; overflow-y: auto; -webkit-overflow-scrolling: touch; border: 1px solid #CBD5E1;">
-            
-            <!-- Header Modal -->
-            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #E2E8F0; padding-bottom: 15px; margin-bottom: 16px; flex-wrap: wrap; gap: 12px;">
-                <div style="display: flex; align-items: center; gap: 14px;">
-                    <div style="width: 48px; height: 48px; background: linear-gradient(135deg, #EC4899, #BE185D); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.7rem; color: white; box-shadow: 0 6px 16px rgba(236,72,153,0.35);">
-                        🧰
-                    </div>
-                    <div>
-                        <h2 style="margin: 0; font-size: 1.45rem; font-weight: 900; color: #1E1B4B;">Caja de Herramientas Pedagógicas STEAM</h2>
-                        <p style="margin: 2px 0 0 0; color: #64748B; font-size: 0.88rem;">40 motores interactivos, juegos, mentefactos, gestión de aula y generadores imprimibles.</p>
-                    </div>
                 </div>
-                <div style="display: flex; align-items: center; gap: 10px;">
-                    <button onclick="window.cerrarCajaHerramientas()" style="background: #E2E8F0; border: none; font-size: 1.2rem; width: 38px; height: 38px; border-radius: 50%; cursor: pointer; color: #475569; font-weight: bold; display: flex; align-items: center; justify-content: center;">✕</button>
+                
+                <div style="display: flex; align-items: center; gap: 12px;">
+                    <!-- Temporizador para trivia si aplica -->
+                    <div id="juego-timer-container" style="display: none; background: #FEF2F2; border: 1.5px solid #F87171; color: #DC2626; padding: 6px 14px; border-radius: 20px; font-weight: 900; font-size: 1rem; align-items: center; gap: 6px;">
+                        ⏱️ <span id="juego-timer-segundos">25</span>s
+                    </div>
+                    <button onclick="window.cerrarModalJuegoActividad()" style="background: #F1F5F9; border: none; font-size: 1.2rem; width: 36px; height: 36px; border-radius: 50%; cursor: pointer; color: #64748B; font-weight: bold; display: flex; align-items: center; justify-content: center;">✕</button>
                 </div>
             </div>
 
-            <!-- ============================================================== -->
-            <!-- NIVEL 1: VISTA PRINCIPAL DE LAS 6 CAJAS TEMÁTICAS GRANDES -->
-            <!-- ============================================================== -->
-                <!-- ============================================================== -->
+            <!-- Contenedor dinámico del Juego actual -->
+            <div id="juego-actividad-contenido">
+                <!-- Inyectado dinámicamente por app.js según el tipo de actividad -->
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Modal de Notificación Disciplinaria y Sanción de Puntos (Estudiante) -->
+    <div id="modal-notificacion-disciplinaria" style="display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); align-items: center; justify-content: center; z-index: 100000; padding: 20px;; overflow-y: auto; -webkit-overflow-scrolling: touch;">
+        <div style="background: linear-gradient(180deg, #FFFFFF 0%, #FEF2F2 100%); border-radius: 24px; padding: 35px 30px; max-width: 520px; width: 100%; box-shadow: 0 25px 60px -15px rgba(220, 38, 38, 0.5), 0 0 0 2px rgba(239, 68, 68, 0.4); text-align: center; position: relative; animation: popInAlert 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);; overflow-y: auto !important; max-height: 90vh; -webkit-overflow-scrolling: touch;">
+            
+            <!-- Icono animado -->
+            <div style="width: 76px; height: 76px; background: linear-gradient(135deg, #FEE2E2, #FECACA); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px auto; font-size: 2.5rem; box-shadow: 0 8px 20px rgba(239,68,68,0.25); border: 2px solid #F87171;">
+                🚨
+            </div>
+
+            <h3 style="font-size: 1.5rem; font-weight: 900; color: #991B1B; margin: 0 0 6px 0; letter-spacing: -0.5px;">
+                Notificación Disciplinaria
+            </h3>
+            <p style="color: #7F1D1D; font-size: 0.95rem; margin: 0 0 20px 0; font-weight: 600;">
+                Ajuste Formativo en tu Puntaje de Convivencia STEAM
+            </p>
+
+            <!-- Tarjeta de la Infracción -->
+            <div style="background: white; border: 1.5px solid #FCA5A5; border-radius: 16px; padding: 18px; text-align: left; margin-bottom: 20px; box-shadow: 0 4px 12px rgba(239,68,68,0.08);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; border-bottom: 1px dashed #FECACA; padding-bottom: 8px;">
+                    <span style="font-size: 0.85rem; font-weight: 800; color: #991B1B; text-transform: uppercase;">Infracción Registrada:</span>
+                    <span id="modal-sancion-descuento-badge" style="background: #EF4444; color: white; padding: 3px 10px; border-radius: 20px; font-weight: 900; font-size: 0.85rem; box-shadow: 0 2px 6px rgba(239,68,68,0.3);">-10% XP</span>
+                </div>
+                
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+                    <span id="modal-sancion-icono" style="font-size: 1.8rem;">⚡</span>
+                    <div>
+                        <div id="modal-sancion-motivo-texto" style="font-size: 1.05rem; font-weight: 800; color: #1E293B;">Indisciplina en clase</div>
+                        <div id="modal-sancion-fecha-texto" style="font-size: 0.8rem; color: #64748B;">Fecha y hora del registro</div>
+                    </div>
+                </div>
+
+                <!-- Puntos descontados -->
+                <div style="background: #FEF2F2; border-radius: 10px; padding: 10px 14px; display: flex; justify-content: space-between; align-items: center;">
+                    <span style="font-size: 0.85rem; color: #7F1D1D; font-weight: 700;">Puntos descontados:</span>
+                    <span id="modal-sancion-puntos-descontados" style="font-size: 1rem; font-weight: 900; color: #DC2626;">-50 XP</span>
+                </div>
+            </div>
+
+            <!-- Mensaje Reflexivo -->
+            <p style="color: #4B5563; font-size: 0.88rem; line-height: 1.5; margin: 0 0 22px 0; background: rgba(255,255,255,0.7); padding: 12px; border-radius: 10px; border-left: 4px solid #EF4444; text-align: left;">
+                💡 <strong>Reflexión Pedagógica:</strong> En el aula STEAM el respeto mutuo, la atención y el cuidado de los acuerdos de convivencia son fundamentales. Aprovecha esta oportunidad formativa para reflexionar y recuperar tu puntaje con las próximas misiones académicas.
+            </p>
+
+            <!-- Botón de Compromiso -->
+            <button onclick="confirmarLecturaSancion()" style="background: linear-gradient(135deg, #DC2626, #B91C1C); color: white; border: none; width: 100%; padding: 14px; border-radius: 12px; font-weight: 900; font-size: 1rem; cursor: pointer; box-shadow: 0 6px 18px rgba(220,38,38,0.35); transition: transform 0.15s, box-shadow 0.15s;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
+                🤝 Entendido y Me Comprometo a Mejorar
+            </button>
+        </div>
+    </div>
+    <!-- ========================================== -->
+    <!-- MODAL CONFIGURADOR DE DIAPOSITIVAS (10 SLIDES) -->
+    <!-- ========================================== -->
+    <div id="modal-generar-diapositivas" style="display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); align-items: center; justify-content: center; z-index: 100000; padding: 20px;; overflow-y: auto; -webkit-overflow-scrolling: touch;">
+        <div style="background: white; border-radius: 20px; padding: 30px; max-width: 620px; width: 100%; box-shadow: 0 25px 60px -15px rgba(0,0,0,0.35); text-align: left;; overflow-y: auto !important; max-height: 90vh; -webkit-overflow-scrolling: touch;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 2px solid #F1F5F9; padding-bottom: 15px; margin-bottom: 20px;">
+                <div style="display: flex; align-items: center; gap: 12px;">
+                    <div style="width: 48px; height: 48px; background: linear-gradient(135deg, #7C3AED, #6D28D9); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; color: white;">
+                        📽️
+                    </div>
+                    <div>
+                        <h3 style="margin: 0; font-size: 1.35rem; font-weight: 900; color: #1E1B4B;">Generador de Diapositivas Semanales</h3>
+                        <p style="margin: 2px 0 0 0; color: #64748B; font-size: 0.88rem;">10 diapositivas ilustradas, estructuradas y de alta calidad para tu clase o tutoría.</p>
+                    </div>
+                </div>
+                <button onclick="window.cerrarConfiguradorDiapositivas()" style="background: #F1F5F9; border: none; font-size: 1.2rem; width: 36px; height: 36px; border-radius: 50%; cursor: pointer; color: #64748B; font-weight: bold; display: flex; align-items: center; justify-content: center;">✕</button>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 14px; margin-bottom: 22px;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                    <div>
+                        <label style="font-size: 0.82rem; font-weight: 800; color: #334155; display: block; margin-bottom: 4px;">Asignatura:</label>
+                        <select id="slides-materia-select" style="width: 100%; padding: 9px 12px; border: 1.5px solid #CBD5E1; border-radius: 8px; font-weight: bold; background: white;">
+                            <option value="Ciencias Naturales">🌿 Ciencias Naturales (Física/Bio/Química)</option>
+                            <option value="Matemáticas">📐 Matemáticas</option>
+                            <option value="Lengua Castellana">📖 Lengua Castellana y Comunicación</option>
+                            <option value="Ciencias Sociales">🌍 Ciencias Sociales y Ciudadanía</option>
+                            <option value="Inglés">🇬🇧 Inglés STEAM</option>
+                            <option value="Tecnología">💻 Tecnología e Informática</option>
+                            <option value="Educación Artística">🎨 Educación Artística y Música</option>
+                            <option value="Ética y Valores">🕊️ Ética y Valores Humanos</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label style="font-size: 0.82rem; font-weight: 800; color: #334155; display: block; margin-bottom: 4px;">Grado o Ciclo:</label>
+                        <select id="slides-grado-select" style="width: 100%; padding: 9px 12px; border: 1.5px solid #CBD5E1; border-radius: 8px; font-weight: bold; background: white;">
+                            <option value="1">1° Primaria</option><option value="2">2° Primaria</option><option value="3">3° Primaria</option><option value="4">4° Primaria</option><option value="5">5° Primaria</option>
+                            <option value="6">6° Secundaria</option><option value="7" selected>7° Secundaria</option><option value="8">8° Secundaria</option><option value="9">9° Secundaria</option><option value="10">10° Media</option><option value="11">11° Media</option>
+                            <option value="Ciclo I">Ciclo I</option><option value="Ciclo II">Ciclo II</option><option value="Ciclo III">Ciclo III</option><option value="Ciclo IV">Ciclo IV</option><option value="Ciclo V">Ciclo V</option><option value="Ciclo VI">Ciclo VI</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                    <div>
+                        <label style="font-size: 0.82rem; font-weight: 800; color: #334155; display: block; margin-bottom: 4px;">Periodo:</label>
+                        <select id="slides-periodo-select" style="width: 100%; padding: 9px 12px; border: 1.5px solid #CBD5E1; border-radius: 8px; font-weight: bold; background: white;">
+                            <option value="1">Periodo 1</option><option value="2">Periodo 2</option><option value="3" selected>Periodo 3</option><option value="4">Periodo 4</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label style="font-size: 0.82rem; font-weight: 800; color: #334155; display: block; margin-bottom: 4px;">Semana del Periodo:</label>
+                        <select id="slides-semana-select" style="width: 100%; padding: 9px 12px; border: 1.5px solid #CBD5E1; border-radius: 8px; font-weight: bold; background: white;">
+                            <option value="1" selected>Semana 1</option><option value="2">Semana 2</option><option value="3">Semana 3</option><option value="4">Semana 4</option>
+                            <option value="5">Semana 5</option><option value="6">Semana 6</option><option value="7">Semana 7</option><option value="8">Semana 8</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label style="font-size: 0.82rem; font-weight: 800; color: #334155; display: block; margin-bottom: 4px;">Tema o Pregunta Clave de la Semana (Opcional):</label>
+                    <input type="text" id="slides-tema-custom" placeholder="Ej: Leyes de la Dinámica, Ecosistemas Colombianos, Fracciones..." style="width: 100%; padding: 9px 12px; border: 1.5px solid #CBD5E1; border-radius: 8px; font-size: 0.9rem; box-sizing: border-box;">
+                </div>
+
+                <!-- Subida de Documento de Referencia (PDF, Word, PPT) -->
+                <div>
+                    <label style="font-size: 0.82rem; font-weight: 800; color: #334155; display: block; margin-bottom: 4px;">Subir Documento o Guía de Apoyo (PDF, Word, PPT):</label>
+                    <div style="background: #F8FAFC; border: 1.5px dashed #CBD5E1; padding: 12px; border-radius: 10px; text-align: center;">
+                        <input type="file" id="slides-archivo-input" accept=".pdf,.doc,.docx,.ppt,.pptx,.txt" onchange="window.manejarArchivoDiapositivas(event)" style="display: none;">
+                        <button type="button" onclick="document.getElementById('slides-archivo-input').click()" style="background: white; border: 1.5px solid #7C3AED; color: #7C3AED; padding: 7px 14px; border-radius: 8px; font-weight: 700; font-size: 0.82rem; cursor: pointer; display: inline-flex; align-items: center; gap: 6px;">
+                            <span>📁</span> Adjuntar Documento Base
+                        </button>
+                        <div id="slides-archivo-info" style="display: none; margin-top: 6px; font-size: 0.8rem; font-weight: 700; color: #059669;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="display: flex; justify-content: flex-end; gap: 12px;">
+                <button onclick="window.cerrarConfiguradorDiapositivas()" style="background: #F1F5F9; color: #475569; border: none; padding: 12px 20px; border-radius: 10px; font-weight: 700; cursor: pointer;">Cancelar</button>
+                <button onclick="window.ejecutarGeneracionDiapositivas()" style="background: linear-gradient(135deg, #7C3AED, #6D28D9); color: white; border: none; padding: 12px 24px; border-radius: 10px; font-weight: 800; cursor: pointer; display: flex; align-items: center; gap: 8px; box-shadow: 0 4px 14px rgba(124,58,237,0.35);">
+                    <span>📽️</span> Generar y Presentar (10 Slides)
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- MODAL PRESENTADOR DE DIAPOSITIVAS PROFESIONALES -->
+    <!-- ========================================== -->
+    <div id="modal-diapositivas-presentador" style="display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.96); backdrop-filter: blur(12px); z-index: 100001; flex-direction: column; justify-content: space-between; padding: 20px; box-sizing: border-box;">
+        <!-- Barra Superior de Controles -->
+        <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; background: rgba(30, 41, 59, 0.7); border-radius: 14px; border: 1px solid rgba(255,255,255,0.1); color: white; flex-wrap: wrap; gap: 10px;">
+            <div style="display: flex; align-items: center; gap: 14px;">
+                <span style="font-size: 1.6rem;">📽️</span>
+                <div>
+                    <div id="slides-deck-title" style="font-size: 1.15rem; font-weight: 900; color: #F8FAFC;">Diapositivas de la Semana</div>
+                    <div id="slides-deck-subtitle" style="font-size: 0.82rem; color: #94A3B8;">Ciencias Naturales • Grado 7° • Semana 1</div>
+                </div>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <button onclick="window.togglePantallaCompletaSlides()" style="background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); color: white; padding: 7px 14px; border-radius: 8px; font-weight: 700; font-size: 0.85rem; cursor: pointer; display: flex; align-items: center; gap: 6px;">
+                    ⛶ Pantalla Completa
+                </button>
+                <button onclick="window.imprimirDiapositivas()" style="background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); color: white; padding: 7px 14px; border-radius: 8px; font-weight: 700; font-size: 0.85rem; cursor: pointer; display: flex; align-items: center; gap: 6px;">
+                    🖨️ Imprimir / PDF
+                </button>
+                <button onclick="window.cerrarPresentadorDiapositivas()" style="background: #EF4444; border: none; color: white; padding: 7px 16px; border-radius: 8px; font-weight: 800; font-size: 0.9rem; cursor: pointer;">
+                    ✕ Salir
+                </button>
+            </div>
+        </div>
+
+        <!-- Lienzo Principal de la Diapositiva (Proporción 16:9) -->
+        <div style="flex: 1; display: flex; align-items: center; justify-content: center; padding: 20px 0; overflow: hidden;">
+            <div id="slide-stage" style="width: 100%; max-width: 1100px; aspect-ratio: 16/9; background: white; border-radius: 20px; box-shadow: 0 25px 60px rgba(0,0,0,0.6); overflow: hidden; display: flex; flex-direction: column; position: relative;">
+                <!-- Contenido inyectado por JS de la diapositiva actual -->
+            </div>
+        </div>
+
+        <!-- Barra Inferior de Navegación -->
+        <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; background: rgba(30, 41, 59, 0.7); border-radius: 14px; border: 1px solid rgba(255,255,255,0.1); flex-wrap: wrap; gap: 10px;">
+            <button id="btn-slide-prev" onclick="window.navegarSlide(-1)" style="background: #3B82F6; color: white; border: none; padding: 10px 20px; border-radius: 10px; font-weight: 800; font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; gap: 6px;">
+                ◀ Anterior
+            </button>
+
+            <!-- Indicador de Puntos 1-10 -->
+            <div id="slides-dots-container" style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap; justify-content: center;">
+                <!-- 10 dots inyectados por JS -->
+            </div>
+
+            <button id="btn-slide-next" onclick="window.navegarSlide(1)" style="background: #3B82F6; color: white; border: none; padding: 10px 20px; border-radius: 10px; font-weight: 800; font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; gap: 6px;">
+                Siguiente ▶
+            </button>
+        </div>
+    </div>
+    <!-- ========================================== -->
+    <!-- MODAL PRINCIPAL: CAJA DE HERRAMIENTAS PEDAGÓGICAS (40 HERRAMIENTAS EN 6 CAJAS TEMÁTICAS) -->
+    <div id="modal-caja-herramientas" style="display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.88); backdrop-filter: blur(10px); align-items: center; justify-content: center; z-index: 100000; padding: 20px; overflow-y: auto;">
+        <div style="background: #F8FAFC; border-radius: 24px; padding: 26px 30px; max-width: 1200px; width: 100%; max-height: 92vh; display: flex; flex-direction: column; box-shadow: 0 25px 70px -15px rgba(0,0,0,0.5); text-align: left; overflow-y: auto; -webkit-overflow-scrolling: touch; border: 1px solid #CBD5E1;">
+            
+            <div id="vista-cajas-hub" style="display: flex; flex-direction: column; gap: 18px;">
                 <!-- HERO CARD PRINCIPAL: CAJA 1 - PLANIFICACIÓN CURRICULAR -->
-                <!-- ============================================================== -->
                 <div onclick="window.abrirDetalleCajaTematica('imprimibles')" style="background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 40%, #FFFFFF 100%); border: 3px solid #2563EB; border-radius: 22px; padding: 26px; cursor: pointer; transition: transform 0.15s, box-shadow 0.15s; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; box-shadow: 0 12px 35px rgba(37,99,235,0.22);" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 18px 45px rgba(37,99,235,0.3)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 12px 35px rgba(37,99,235,0.22)';">
                     <div style="flex: 1; min-width: 280px;">
                         <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px; flex-wrap: wrap;">
@@ -2658,93 +2854,170 @@
                     </div>
                 </div>
 
-                <!-- Ingesta Multimodal (4 Modos de Creación) -->
-                <div style="background: white; border: 1.5px solid #E2E8F0; border-radius: 16px; padding: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.03);">
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; flex-wrap: wrap; gap: 8px;">
-                        <div style="font-size: 0.82rem; font-weight: 800; color: #334155; text-transform: uppercase; display: flex; align-items: center; gap: 6px;">
-                            <span>📥</span> Ingesta de Contenido para esta Caja:
-                        </div>
-                        <!-- Tabs de Ingesta -->
-                        <div style="display: flex; gap: 6px; flex-wrap: wrap;">
-                            <button id="tab-ingesta-palabras" onclick="window.cambiarModoIngesta('palabras')" style="background: #3B82F6; color: white; border: none; padding: 5px 12px; border-radius: 8px; font-weight: 800; font-size: 0.8rem; cursor: pointer;">
-                                🏷️ Palabras Clave / DBA
-                            </button>
-                            <button id="tab-ingesta-texto" onclick="window.cambiarModoIngesta('texto')" style="background: #F1F5F9; color: #475569; border: 1px solid #CBD5E1; padding: 5px 12px; border-radius: 8px; font-weight: 800; font-size: 0.8rem; cursor: pointer;">
-                                📋 Pegar Texto Libre
-                            </button>
-                            <button id="tab-ingesta-archivo" onclick="window.cambiarModoIngesta('archivo')" style="background: #F1F5F9; color: #475569; border: 1px solid #CBD5E1; padding: 5px 12px; border-radius: 8px; font-weight: 800; font-size: 0.8rem; cursor: pointer;">
-                                📄 Archivo (PDF/Word/TXT)
-                            </button>
-                            <button id="tab-ingesta-imagen" onclick="window.cambiarModoIngesta('imagen')" style="background: #F1F5F9; color: #475569; border: 1px solid #CBD5E1; padding: 5px 12px; border-radius: 8px; font-weight: 800; font-size: 0.8rem; cursor: pointer;">
-                                📷 Imagen / Foto
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Campos de Configuración Curricular -->
-                    <div style="display: grid; grid-template-columns: 1.2fr 1fr 0.8fr 0.8fr 1.6fr; gap: 10px; align-items: center;" id="fila-controles-curriculares">
-                        <div>
-                            <label style="font-size: 0.75rem; font-weight: 800; color: #475569; display: block; margin-bottom: 3px;">Asignatura:</label>
-                            <select id="toolbox-materia-select" style="width: 100%; padding: 7px 10px; border: 1.5px solid #CBD5E1; border-radius: 8px; font-weight: bold; font-size: 0.82rem; background: white;">
-                                <option value="Ciencias Naturales">🌿 Ciencias Naturales</option>
-                                <option value="Matemáticas">📐 Matemáticas</option>
-                                <option value="Lengua Castellana">📖 Lengua Castellana</option>
-                                <option value="Ciencias Sociales">🌍 Ciencias Sociales</option>
-                                <option value="Inglés">🇬🇧 Inglés STEAM</option>
-                                <option value="Tecnología">💻 Tecnología</option>
-                                <option value="Educación Artística">🎨 Educación Artística</option>
-                                <option value="Ética y Valores">🕊️ Ética y Valores</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label style="font-size: 0.75rem; font-weight: 800; color: #475569; display: block; margin-bottom: 3px;">Grado/Ciclo:</label>
-                            <select id="toolbox-grado-select" style="width: 100%; padding: 7px 10px; border: 1.5px solid #CBD5E1; border-radius: 8px; font-weight: bold; font-size: 0.82rem; background: white;">
-                                <option value="1">1° Primaria</option><option value="2">2° Primaria</option><option value="3">3° Primaria</option><option value="4">4° Primaria</option><option value="5">5° Primaria</option>
-                                <option value="6">6° Secundaria</option><option value="7" selected>7° Secundaria</option><option value="8">8° Secundaria</option><option value="9">9° Secundaria</option><option value="10">10° Media</option><option value="11">11° Media</option>
-                                <option value="Ciclo I">Ciclo I</option><option value="Ciclo II">Ciclo II</option><option value="Ciclo III">Ciclo III</option><option value="Ciclo IV">Ciclo IV</option><option value="Ciclo V">Ciclo V</option><option value="Ciclo VI">Ciclo VI</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label style="font-size: 0.75rem; font-weight: 800; color: #475569; display: block; margin-bottom: 3px;">Periodo:</label>
-                            <select id="toolbox-periodo-select" style="width: 100%; padding: 7px 10px; border: 1.5px solid #CBD5E1; border-radius: 8px; font-weight: bold; font-size: 0.82rem; background: white;">
-                                <option value="1">P1</option><option value="2">P2</option><option value="3" selected>P3</option><option value="4">P4</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label style="font-size: 0.75rem; font-weight: 800; color: #475569; display: block; margin-bottom: 3px;">Semana:</label>
-                            <select id="toolbox-semana-select" style="width: 100%; padding: 7px 10px; border: 1.5px solid #CBD5E1; border-radius: 8px; font-weight: bold; font-size: 0.82rem; background: white;">
-                                <option value="1" selected>Sem 1</option><option value="2">Sem 2</option><option value="3">Sem 3</option><option value="4">Sem 4</option>
-                                <option value="5">Sem 5</option><option value="6">Sem 6</option><option value="7">Sem 7</option><option value="8">Sem 8</option>
-                            </select>
-                        </div>
-                        <div id="contenedor-input-palabras">
-                            <label style="font-size: 0.75rem; font-weight: 800; color: #475569; display: block; margin-bottom: 3px;">Concepto / Palabras Clave:</label>
-                            <input type="text" id="toolbox-input-palabras" placeholder="Ej: Fotosíntesis, Célula, Glucosa..." style="width: 100%; padding: 7px 10px; border: 1.5px solid #CBD5E1; border-radius: 8px; font-size: 0.85rem; box-sizing: border-box;">
-                        </div>
-                    </div>
-
-                    <!-- Input Texto Pegado (Oculto inicialmente) -->
-                    <div id="contenedor-input-texto" style="display: none; margin-top: 8px;">
-                        <label style="font-size: 0.75rem; font-weight: 800; color: #475569; display: block; margin-bottom: 3px;">Pega aquí el texto, artículo o párrafo:</label>
-                        <textarea id="toolbox-textarea-texto" rows="2" placeholder="Pega el texto aquí..." style="width: 100%; padding: 8px; border: 1.5px solid #CBD5E1; border-radius: 8px; font-size: 0.82rem; box-sizing: border-box; resize: vertical;"></textarea>
-                    </div>
-
-                    <!-- Input Archivo PDF/Word (Oculto inicialmente) -->
-                    <div id="contenedor-input-archivo" style="display: none; margin-top: 8px; background: #F8FAFC; border: 1.5px dashed #CBD5E1; padding: 10px; border-radius: 8px; text-align: center;">
-                        <input type="file" id="toolbox-file-archivo" accept=".pdf,.doc,.docx,.txt" style="font-size: 0.82rem;" onchange="window.leerArchivoIngesta(this)">
-                        <div style="font-size: 0.75rem; color: #64748B; margin-top: 3px;">Sube un archivo PDF, Word (.docx) o TXT para extraer sus conceptos.</div>
-                    </div>
-
-                    <!-- Input Imagen (Oculto inicialmente) -->
-                    <div id="contenedor-input-imagen" style="display: none; margin-top: 8px; background: #F8FAFC; border: 1.5px dashed #CBD5E1; padding: 10px; border-radius: 8px; text-align: center;">
-                        <input type="file" id="toolbox-file-imagen" accept="image/*" style="font-size: 0.82rem;" onchange="window.leerImagenIngesta(this)">
-                        <div style="font-size: 0.75rem; color: #64748B; margin-top: 3px;">Sube una foto de página de libro o apunte para generar la actividad.</div>
-                    </div>
+                <!-- Panel Global de Ingesta (Oculto Quirúrgicamente - R3) -->
+                <div id="panel-ingesta-global-caja" class="toolbox-ingesta-card toolbox-ingesta-container" style="display: none !important;">
+                    <div id="toolbox-ingesta-card" style="display: none !important;"></div>
+                    <div id="toolbox-ingesta-container" style="display: none !important;"></div>
+                    <div style="font-weight: bold;">INGESTA DE CONTENIDO PARA ESTA CAJA:</div>
+                    <select id="toolbox-materia-select"><option value="Ciencias Naturales">Ciencias Naturales</option></select>
+                    <select id="toolbox-grado-select"><option value="7">7</option></select>
+                    <select id="toolbox-periodo-select"><option value="3">3</option></select>
+                    <select id="toolbox-semana-select"><option value="1">1</option></select>
+                    <input type="text" id="toolbox-input-palabras" value="">
+                    <textarea id="toolbox-textarea-texto"></textarea>
+                    <input type="file" id="toolbox-file-imagen">
                 </div>
 
                 <!-- Contenedor con las Tarjetas de la Categoría Seleccionada -->
                 <div id="grid-caja-herramientas-cards" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; padding-bottom: 10px;">
                     <!-- Se inyectan las tarjetas de la categoría por JS -->
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- MODAL DE PRE-GENERACIÓN Y CONFIGURACIÓN DE JUEGOS Y HERRAMIENTAS IA (R3) -->
+    <!-- ========================================== -->
+    <div id="modal-configuracion-juego-ia" style="display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.88); backdrop-filter: blur(10px); align-items: center; justify-content: center; z-index: 100001; padding: 20px; overflow-y: auto;">
+        <div style="background: white; border-radius: 22px; padding: 28px 32px; max-width: 740px; width: 100%; box-shadow: 0 25px 65px -15px rgba(0,0,0,0.4); text-align: left; max-height: 92vh; overflow-y: auto; border: 1px solid #CBD5E1; font-family: Inter, sans-serif; display: flex; flex-direction: column; gap: 16px;">
+            
+            <!-- Header Modal -->
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 2px solid #F1F5F9; padding-bottom: 16px;">
+                <div style="display: flex; align-items: center; gap: 14px;">
+                    <div id="modal-config-juego-icono-box" style="width: 52px; height: 52px; background: linear-gradient(135deg, #4F46E5, #7C3AED); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; color: white; box-shadow: 0 6px 14px rgba(79,70,229,0.3);">
+                        <span id="modal-config-juego-icono">🔤</span>
+                    </div>
+                    <div>
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <h3 id="modal-config-juego-titulo" style="margin: 0; font-size: 1.35rem; font-weight: 900; color: #1E1B4B;">Configurar Herramienta Pedagógica con IA</h3>
+                            <span id="modal-config-juego-caja-badge" style="background: #EEF2FF; color: #4338CA; font-weight: 900; font-size: 0.75rem; padding: 3px 10px; border-radius: 12px; border: 1px solid #C7D2FE;">STEAM</span>
+                        </div>
+                        <p id="modal-config-juego-desc" style="margin: 3px 0 0 0; color: #64748B; font-size: 0.88rem;">Personaliza los conceptos o sube un documento para alimentar el motor pedagógico.</p>
+                    </div>
+                </div>
+                <button type="button" onclick="window.cerrarConfiguracionJuegoIA()" style="background: #F1F5F9; border: none; font-size: 1.2rem; width: 36px; height: 36px; border-radius: 50%; cursor: pointer; color: #64748B; font-weight: bold; display: flex; align-items: center; justify-content: center;">✕</button>
+            </div>
+
+            <!-- Campos Ocultos de Estado -->
+            <input type="hidden" id="modal-config-juego-herramienta-id" value="">
+            <input type="hidden" id="modal-config-juego-modo-activo" value="keywords">
+
+            <!-- Selector de Modos (Keywords vs Documento) -->
+            <div>
+                <label style="font-size: 0.85rem; font-weight: 800; color: #1E293B; display: block; margin-bottom: 8px;">
+                    1. Selecciona la Fuente de Contenido Pedagógico:
+                </label>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                    <button type="button" id="tab-config-juego-keywords" onclick="window.cambiarModoConfigJuegoIA('keywords')" style="padding: 12px; border-radius: 12px; border: 2px solid #3B82F6; background: #EFF6FF; color: #1D4ED8; font-weight: 800; font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; transition: all 0.2s;">
+                        <span>🏷️</span> Palabras Clave / Temas
+                    </button>
+                    <button type="button" id="tab-config-juego-upload" onclick="window.cambiarModoConfigJuegoIA('upload')" style="padding: 12px; border-radius: 12px; border: 2px solid #E2E8F0; background: #F8FAFC; color: #64748B; font-weight: 800; font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; transition: all 0.2s;">
+                        <span>📄</span> Subir un Documento (PDF, Word, PPT, JPG)
+                    </button>
+                </div>
+            </div>
+
+            <!-- Panel Modo 1: Palabras Clave -->
+            <div id="contenedor-config-juego-keywords" style="display: block; background: #F8FAFC; border: 1.5px solid #E2E8F0; border-radius: 14px; padding: 16px;">
+                <label style="font-size: 0.82rem; font-weight: 800; color: #334155; display: block; margin-bottom: 6px;">
+                    Conceptos o Términos Clave (separados por coma o salto de línea):
+                </label>
+                <textarea id="modal-config-juego-keywords" rows="3" placeholder="Ej: Fotosíntesis, Cloroplasto, Célula Vegetal, Glucosa, Oxígeno, Luz Solar..." style="width: 100%; padding: 10px 12px; border: 1.5px solid #CBD5E1; border-radius: 8px; font-size: 0.88rem; box-sizing: border-box; resize: vertical; font-family: Inter, sans-serif;"></textarea>
+                <p style="margin: 6px 0 0 0; font-size: 0.76rem; color: #64748B;">La IA generará definiciones, pistas deductivas, preguntas o dinámicas basadas en estos conceptos.</p>
+            </div>
+
+            <!-- Panel Modo 2: Subida de Documento -->
+            <div id="contenedor-config-juego-upload" style="display: none; background: #F8FAFC; border: 1.5px dashed #CBD5E1; border-radius: 14px; padding: 20px; text-align: center;">
+                <div style="font-size: 2rem; margin-bottom: 6px;">📁</div>
+                <label for="modal-config-juego-archivo" style="cursor: pointer; background: #3B82F6; color: white; padding: 9px 20px; border-radius: 10px; font-size: 0.86rem; font-weight: 800; display: inline-flex; align-items: center; gap: 8px; margin-bottom: 8px; box-shadow: 0 4px 10px rgba(59,130,246,0.3);">
+                    <span>📄</span> Seleccionar Documento o Imagen
+                </label>
+                <input type="file" id="modal-config-juego-archivo" accept=".pdf,.doc,.docx,.ppt,.pptx,.jpg,.jpeg,.png,.txt" onchange="window.manejarArchivoConfigJuegoIA(event)" style="display: none;">
+                <div id="modal-config-juego-archivo-info" style="display: none; margin-top: 10px; font-size: 0.85rem; font-weight: 700; color: #059669; background: #ECFDF5; border: 1px solid #A7F3D0; padding: 6px 14px; border-radius: 8px; align-items: center; justify-content: center; gap: 6px; width: fit-content; margin-left: auto; margin-right: auto;">
+                    <span>✅</span> <span id="modal-config-juego-archivo-nombre"></span>
+                </div>
+                <div style="font-size: 0.76rem; color: #64748B; margin-top: 6px;">Formatos aceptados: PDF, Word (.docx), PPTX, TXT o imágenes JPG/PNG de guías y libros.</div>
+            </div>
+
+            <!-- Contexto Curricular y Destinatario -->
+            <div style="background: white; border: 1.5px solid #E2E8F0; border-radius: 14px; padding: 18px;">
+                <label style="font-size: 0.85rem; font-weight: 800; color: #1E293B; display: block; margin-bottom: 12px;">
+                    2. Destinatario y Contexto Académico:
+                </label>
+                <div style="display: grid; grid-template-columns: 1.2fr 1fr 0.8fr; gap: 12px; margin-bottom: 12px;">
+                    <div>
+                        <label style="font-size: 0.78rem; font-weight: 800; color: #475569; display: block; margin-bottom: 4px;">👥 Asignar a Grupo / Grado:</label>
+                        <select id="modal-config-juego-grupo" style="width: 100%; padding: 9px 12px; border: 2px solid #3B82F6; border-radius: 8px; font-weight: 800; font-size: 0.85rem; background: #EFF6FF; color: #1E3A8A;">
+                            <option value="Todos">🏫 Todos los Grupos</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label style="font-size: 0.78rem; font-weight: 800; color: #475569; display: block; margin-bottom: 4px;">Asignatura / Área:</label>
+                        <select id="modal-config-juego-materia" style="width: 100%; padding: 9px 12px; border: 1.5px solid #CBD5E1; border-radius: 8px; font-weight: bold; font-size: 0.85rem; background: white;">
+                            <option value="Ciencias Naturales">🌿 Ciencias Naturales</option>
+                            <option value="Biología">🧬 Biología</option>
+                            <option value="Física">⚛️ Física</option>
+                            <option value="Química">🧪 Química</option>
+                            <option value="Matemáticas">📐 Matemáticas</option>
+                            <option value="Lengua Castellana">📖 Lengua Castellana</option>
+                            <option value="Ciencias Sociales">🌍 Ciencias Sociales</option>
+                            <option value="Idioma Extranjero Inglés">🇬🇧 Idioma Extranjero Inglés</option>
+                            <option value="Tecnología e Informática">🖥️ Tecnología e Informática</option>
+                            <option value="Educación Artística">🎨 Educación Artística</option>
+                            <option value="Educación Física">⚽ Educación Física</option>
+                            <option value="Filosofía">🏛️ Filosofía</option>
+                            <option value="Ética y Valores Humanos">🤝 Ética y Valores</option>
+                            <option value="Turismo y Patrimonio">🧭 Turismo y Patrimonio</option>
+                            <option value="Robótica STEAM">🤖 Robótica STEAM</option>
+                            <option value="Emprendimiento">💡 Emprendimiento</option>
+                            <option value="Paz y Convivencia">🕊️ Paz y Convivencia</option>
+                            <option value="Estadística">📊 Estadística</option>
+                            <option value="Agroecología">🌱 Agroecología</option>
+                            <option value="Música">🎼 Música</option>
+                            <option value="Investigación">🔬 Investigación</option>
+                            <option value="Programación">💻 Programación</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label style="font-size: 0.78rem; font-weight: 800; color: #475569; display: block; margin-bottom: 4px;">Grado Escolar:</label>
+                        <select id="modal-config-juego-grado" style="width: 100%; padding: 9px 12px; border: 1.5px solid #CBD5E1; border-radius: 8px; font-weight: bold; font-size: 0.85rem; background: white;">
+                            <option value="1">1° Primaria</option><option value="2">2° Primaria</option><option value="3">3° Primaria</option><option value="4">4° Primaria</option><option value="5">5° Primaria</option>
+                            <option value="6">6° Secundaria</option><option value="7" selected>7° Secundaria</option><option value="8">8° Secundaria</option><option value="9">9° Secundaria</option><option value="10">10° Media</option><option value="11">11° Media</option>
+                            <option value="Ciclo I">Ciclo I</option><option value="Ciclo II">Ciclo II</option><option value="Ciclo III">Ciclo III</option><option value="Ciclo IV">Ciclo IV</option><option value="Ciclo V">Ciclo V</option><option value="Ciclo VI">Ciclo VI</option>
+                        </select>
+                    </div>
+                </div>
+                <div style="display: grid; grid-template-columns: 1.3fr 0.7fr; gap: 12px;">
+                    <div>
+                        <label style="font-size: 0.78rem; font-weight: 800; color: #475569; display: block; margin-bottom: 4px;">Tema o Título Personalizado:</label>
+                        <input type="text" id="modal-config-juego-tema" placeholder="Ej: Ecosistemas y Cadenas Tróficas" style="width: 100%; padding: 9px 12px; border: 1.5px solid #CBD5E1; border-radius: 8px; font-size: 0.85rem; box-sizing: border-box;">
+                    </div>
+                    <div>
+                        <label style="font-size: 0.78rem; font-weight: 800; color: #475569; display: block; margin-bottom: 4px;">🌟 Recompensa XP:</label>
+                        <select id="modal-config-juego-xp" style="width: 100%; padding: 9px 12px; border: 1.5px solid #CBD5E1; border-radius: 8px; font-weight: bold; font-size: 0.85rem; background: white;">
+                            <option value="150">⭐ +150 XP (Básico)</option>
+                            <option value="250" selected>🌟 +250 XP (Estándar)</option>
+                            <option value="350">🏆 +350 XP (Avanzado)</option>
+                            <option value="500">👑 +500 XP (Reto Pro)</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer de Acciones -->
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; border-top: 1.5px solid #F1F5F9; padding-top: 16px;">
+                <button type="button" onclick="window.cerrarConfiguracionJuegoIA()" style="background: #F1F5F9; color: #475569; border: 1px solid #CBD5E1; padding: 11px 20px; border-radius: 12px; font-weight: 800; font-size: 0.9rem; cursor: pointer;">
+                    ✕ Cancelar
+                </button>
+                <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                    <button type="button" id="btn-modal-juego-ia-proyectar" onclick="window.ejecutarGeneracionJuegoIA({ soloProyectar: true })" style="background: #475569; color: white; border: none; padding: 11px 18px; border-radius: 12px; font-weight: 800; font-size: 0.88rem; cursor: pointer; display: flex; align-items: center; gap: 6px; box-shadow: 0 4px 10px rgba(71,85,105,0.25);">
+                        <span>📺</span> Solo Proyectar en Aula
+                    </button>
+                    <button type="button" id="btn-ejecutar-generacion-juego-ia" onclick="window.ejecutarGeneracionJuegoIA({ soloProyectar: false })" style="background: linear-gradient(135deg, #2563EB, #1D4ED8); color: white; border: none; padding: 11px 22px; border-radius: 12px; font-weight: 800; font-size: 0.92rem; cursor: pointer; display: flex; align-items: center; gap: 8px; box-shadow: 0 4px 14px rgba(37,99,235,0.35);">
+                        <span>🚀</span> Generar y Asignar a Estudiantes ➔
+                    </button>
                 </div>
             </div>
 
@@ -3062,31 +3335,64 @@
                 <button onclick="window.cerrarModalCrearAsignaturaDocente()" style="background: rgba(255,255,255,0.2); border: none; color: white; width: 34px; height: 34px; border-radius: 50%; cursor: pointer; font-size: 1.1rem; font-weight: bold;">✕</button>
             </div>
             <div style="padding: 30px; display: flex; flex-direction: column; gap: 18px;">
+                <!-- Selector / Chips Rápidos de Áreas Fundamentales -->
+                <div style="background: #F8FAFC; border: 1.5px dashed #CBD5E1; border-radius: 12px; padding: 12px 16px;">
+                    <div style="font-weight: 800; color: #4338CA; font-size: 0.85rem; margin-bottom: 8px; display: flex; align-items: center; gap: 6px;">
+                        <span>⚡</span> Plantillas Rápidas de Áreas Fundamentales (Haz clic para auto-llenar):
+                    </div>
+                    <div id="modal-asig-presets-container" style="display: flex; gap: 6px; flex-wrap: wrap; max-height: 90px; overflow-y: auto;">
+                        <!-- Inyectado dinámicamente por app.js -->
+                    </div>
+                </div>
                 <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 15px;">
                     <div>
                         <label style="display: block; font-weight: 800; color: #1E293B; font-size: 0.9rem; margin-bottom: 6px;">Nombre de la Asignatura:</label>
-                        <input type="text" id="modal-asig-nombre" placeholder="Ej: Robótica STEAM / Emprendimiento / Cátedra de la Paz" style="width: 100%; padding: 12px; border: 2px solid #818CF8; border-radius: 8px; box-sizing: border-box; font-size: 0.95rem; font-weight: 700;">
+                        <input type="text" id="modal-asig-nombre" placeholder="Ej: Robótica STEAM / Emprendimiento / Cátedra de la Paz" oninput="if(window.autoSeleccionarIconoAsignatura) window.autoSeleccionarIconoAsignatura(this.value)" style="width: 100%; padding: 12px; border: 2px solid #818CF8; border-radius: 8px; box-sizing: border-box; font-size: 0.95rem; font-weight: 700;">
                     </div>
                     <div>
                         <label style="display: block; font-weight: 800; color: #1E293B; font-size: 0.9rem; margin-bottom: 6px;">Icono Representativo:</label>
                         <select id="modal-asig-icono" style="width: 100%; padding: 12px; border: 1.5px solid #CBD5E1; border-radius: 8px; box-sizing: border-box; font-size: 1rem;">
-                            <option value="🤖">🤖 Robótica / Domótica</option>
-                            <option value="💡">💡 Emprendimiento / Innovación</option>
-                            <option value="🕊️">🕊️ Paz y Ciudadanía</option>
-                            <option value="📊">📊 Estadística / Economía</option>
-                            <option value="🎨">🎨 Diseño y Artes Digitales</option>
-                            <option value="🌱">🌱 Agroecología y Café</option>
-                            <option value="🎼">🎼 Música y Expresión</option>
-                            <option value="🔬">🔬 Investigación Científica</option>
-                            <option value="💻">💻 Programación y Algoritmos</option>
+                            <option value="🌿">🌿 Ciencias Naturales</option>
+                            <option value="🧬">🧬 Biología</option>
+                            <option value="⚛️">⚛️ Física</option>
+                            <option value="🧪">🧪 Química</option>
+                            <option value="📐">📐 Matemáticas</option>
+                            <option value="📖">📖 Lengua Castellana</option>
+                            <option value="🌍">🌍 Ciencias Sociales</option>
+                            <option value="🇬🇧">🇬🇧 Inglés / Idiomas</option>
+                            <option value="🖥️">🖥️ Tecnología e Informática</option>
+                            <option value="🎨">🎨 Educación Artística</option>
+                            <option value="⚽">⚽ Educación Física</option>
+                            <option value="🏛️">🏛️ Filosofía</option>
+                            <option value="🤝">🤝 Ética y Valores Humanos</option>
+                            <option value="🧭">🧭 Turismo y Patrimonio</option>
+                            <option value="🤖">🤖 Robótica STEAM</option>
+                            <option value="💡">💡 Emprendimiento</option>
+                            <option value="🕊️">🕊️ Paz y Convivencia</option>
+                            <option value="📊">📊 Estadística</option>
+                            <option value="🌱">🌱 Agroecología</option>
+                            <option value="🎼">🎼 Música</option>
+                            <option value="🔬">🔬 Investigación</option>
+                            <option value="💻">💻 Programación</option>
                         </select>
                     </div>
                 </div>
 
-                <div>
-                    <label style="display: block; font-weight: 800; color: #1E293B; font-size: 0.9rem; margin-bottom: 6px;">Grados o Ciclos en los que se Dictará:</label>
+                <div id="modal-asig-grados-wrapper">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                        <label style="display: block; font-weight: 800; color: #1E293B; font-size: 0.9rem; margin: 0;">Grados o Ciclos en los que se Dictará:</label>
+                        <span id="modal-asig-director-badge" style="display: none; background: #FEF3C7; color: #92400E; font-size: 0.75rem; font-weight: 800; padding: 2px 8px; border-radius: 12px; border: 1px solid #FDE68A;">👑 Director de Grupo</span>
+                    </div>
                     <div id="modal-asig-grados-container" style="display: flex; gap: 6px; flex-wrap: wrap;">
                         <!-- Inyectado por JS con pills seleccionables -->
+                    </div>
+                    <!-- Aviso Pedagógico para Docentes de Área (No Directores) -->
+                    <div id="modal-asig-director-notice" style="display: none; background: #EFF6FF; border: 1.5px solid #BFDBFE; border-radius: 10px; padding: 12px 14px; margin-top: 6px; font-size: 0.85rem; color: #1E40AF; line-height: 1.45; align-items: flex-start; gap: 10px;">
+                        <span style="font-size: 1.3rem; line-height: 1;">ℹ️</span>
+                        <div>
+                            <strong style="color: #1E3A8A; display: block; margin-bottom: 2px;">Vinculación de Cohortes Reservada</strong>
+                            <span>Como docente de área, puedes crear la estructura de la asignatura. La vinculación de cohortes de grupo está reservada para Directores de Grupo.</span>
+                        </div>
                     </div>
                 </div>
 
@@ -3095,17 +3401,48 @@
                     <textarea id="modal-asig-desc" rows="2" placeholder="Describe los propósitos y metas generales de comprensión del área..." style="width: 100%; padding: 10px 12px; border: 1.5px solid #CBD5E1; border-radius: 8px; box-sizing: border-box; font-family: Inter, sans-serif; font-size: 0.9rem;"></textarea>
                 </div>
 
-                <!-- Zona de Carga de Documentos de Referencia -->
+                <!-- Zona de Carga de Documentos de Referencia (Multi-archivo hasta 20 documentos) -->
                 <div style="background: #F8FAFC; border: 2px dashed #6366F1; border-radius: 12px; padding: 20px; text-align: center;">
-                    <div style="font-size: 2rem; margin-bottom: 6px;">📄</div>
+                    <div style="font-size: 2rem; margin-bottom: 6px;">📚</div>
                     <div style="font-weight: 800; color: #3730A3; font-size: 1rem; margin-bottom: 4px;">Adjuntar Documentos de Referencia Curricular</div>
-                    <p style="margin: 0 0 12px 0; color: #64748B; font-size: 0.85rem;">Sube tu plan de área, estándares MEN, guías base o sílabo (PDF, Word, TXT, JSON, CSV).</p>
-                    <input type="file" id="modal-asig-archivo" accept=".pdf,.docx,.doc,.txt,.json,.csv" onchange="window.manejarArchivoAsignaturaDocente(event)" style="display: none;">
-                    <button type="button" onclick="document.getElementById('modal-asig-archivo').click()" style="background: white; border: 1.5px solid #6366F1; color: #4F46E5; padding: 8px 18px; border-radius: 8px; font-weight: 800; font-size: 0.9rem; cursor: pointer; display: inline-flex; align-items: center; gap: 6px;">
-                        <span>📂</span> Seleccionar Archivo del Computador
-                    </button>
+                    <p style="margin: 0 0 12px 0; color: #64748B; font-size: 0.85rem;">Sube hasta 20 archivos: planes de área, estándares MEN, guías base o sílabos (PDF, Word, PPT, TXT).</p>
+                    <input type="file" id="modal-asig-archivo" multiple accept=".pdf,.doc,.docx,.ppt,.pptx,.txt,.json,.csv" onchange="window.manejarArchivoAsignaturaDocente(event)" style="display: none;">
+                    <div style="display: flex; justify-content: center; gap: 10px; align-items: center; flex-wrap: wrap;">
+                        <button type="button" onclick="document.getElementById('modal-asig-archivo').click()" style="background: white; border: 1.5px solid #6366F1; color: #4F46E5; padding: 8px 18px; border-radius: 8px; font-weight: 800; font-size: 0.9rem; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+                            <span>📂</span> Seleccionar Archivos del Computador (Máx 20)
+                        </button>
+                        <button type="button" id="modal-asig-archivos-limpiar" onclick="if(window.limpiarArchivosAsignaturaDocente) window.limpiarArchivosAsignaturaDocente()" style="display: none; background: #FEF2F2; border: 1.5px solid #FECACA; color: #DC2626; padding: 8px 14px; border-radius: 8px; font-weight: 700; font-size: 0.85rem; cursor: pointer; align-items: center; gap: 6px;">
+                            <span>🗑️</span> Limpiar Selección
+                        </button>
+                    </div>
+                    
+                    <!-- Contador y Badge de Archivos -->
+                    <div id="modal-asig-archivos-badge" style="display: none; margin-top: 12px; font-size: 0.82rem; font-weight: 800; color: #4338CA; background: #EEF2FF; border: 1px solid #C7D2FE; padding: 4px 14px; border-radius: 20px; width: fit-content; margin-left: auto; margin-right: auto; align-items: center; gap: 6px;">
+                        <span>📁</span> <span id="modal-asig-archivos-count-text">0 / 20 archivos</span>
+                    </div>
+
+                    <!-- Alerta de Límite o Formatos -->
+                    <div id="modal-asig-archivos-alerta" style="display: none; margin-top: 8px; font-size: 0.82rem; color: #DC2626; background: #FEF2F2; border: 1px solid #FECACA; border-radius: 8px; padding: 8px 12px; font-weight: 600;"></div>
+
+                    <!-- Contenedor Preview Multi-Archivo (Chips / Tags con botón de eliminación) -->
+                    <div id="modal-asig-archivos-preview" style="display: none; margin-top: 12px; max-height: 160px; overflow-y: auto; flex-wrap: wrap; gap: 8px; justify-content: center; padding: 4px;">
+                        <!-- Inyectado dinámicamente por app.js -->
+                    </div>
+
+                    <!-- Elemento Legacy preservado para compatibilidad y fallback -->
                     <div id="modal-asig-archivo-nombre" style="margin-top: 8px; font-size: 0.85rem; font-weight: 700; color: #059669; display: none;"></div>
+
                 </div>
+
+
+
+
+
+
+
+
+
+
 
                 <div>
                     <label style="display: block; font-weight: 800; color: #1E293B; font-size: 0.85rem; margin-bottom: 4px;">O bien, escribe / pega aquí el texto curricular o temario directamente:</label>

@@ -381,7 +381,38 @@ DEBES DEVOLVER EXCLUSIVAMENTE UN OBJETO JSON VÁLIDO CON LA SIGUIENTE ESTRUCTURA
                     console.log(`[IA Fallback] ✅ Guía generada exitosamente con OpenAI`);
                 }
             } catch (openaiErr) {
-                console.error(`[IA Fallback] OpenAI también falló:`, openaiErr.message);
+                                console.error(`[IA Fallback] OpenAI también falló:`, openaiErr.message);
+            }
+        }
+        
+        if (!responseText) {
+            console.log(`[IA Fallback] Intentando con DeepSeek API...`);
+            try {
+                const deepseekKey = process.env.DEEPSEEK_API_KEY;
+                // Usando fetch a deepseek
+                const ds_response = await fetch('https://api.deepseek.com/chat/completions', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer ' + deepseekKey
+                    },
+                    body: JSON.stringify({
+                        model: 'deepseek-chat',
+                        messages: [
+                            { role: 'system', content: 'Devuelve EXCLUSIVAMENTE UN OBJETO JSON VÁLIDO según las instrucciones. SIN markdown json.' },
+                            { role: 'user', content: prompt }
+                        ]
+                    })
+                });
+                if (ds_response.ok) {
+                    const ds_data = await ds_response.json();
+                    responseText = ds_data.choices[0].message.content;
+                    console.log(`[IA Fallback] Guía generada exitosamente con DeepSeek`);
+                } else {
+                    console.error(`[IA Fallback] Error DeepSeek:`, ds_response.status);
+                }
+            } catch (dsErr) {
+                console.error(`[IA Fallback] DeepSeek también falló:`, dsErr.message);
             }
         }
 
@@ -1145,35 +1176,59 @@ app.get('/api/actividades-estudiante', (req, res) => {
 });
 
 app.post('/api/asignar-actividad', (req, res) => {
-    const { tipo_actividad, destinatario_tipo, destinatario_id, destinatario_nombre, materia, grado, periodo, tema, actividad_data, creador_id } = req.body || {};
-    
-    if (!tipo_actividad || !destinatario_tipo || !destinatario_id) {
-        return res.status(400).json({ error: "Faltan campos obligatorios para asignar la actividad." });
+    const body = req.body || {};
+    const tipo_actividad = body.tipo_actividad || body.herramienta_id;
+    const destinatario_tipo = body.destinatario_tipo || 'grupo';
+    const destinatario_id = body.destinatario_id || body.grupo_destino || body.grupo || 'Todos';
+    const destinatario_nombre = body.destinatario_nombre || (destinatario_id === 'Todos' ? 'Todos los Grupos' : `Grupo ${destinatario_id}`);
+    const materia = body.materia || 'Ciencias Naturales';
+    const grado = body.grado || '7';
+    const periodo = body.periodo || '3';
+    const tema = body.tema || 'Conceptos Fundamentales STEAM';
+    const actividad_data = body.actividad_data || body.datos_juego || {};
+    const creador_id = body.creador_id || body.profesor_id || 'ADMIN';
+    const profesor_nombre = body.profesor_nombre || 'Docente Orientador';
+    const xp_recompensa = Number(body.xp_recompensa) || 250;
+    const titulo = body.titulo || `Actividad STEAM: ${tema}`;
+
+    if (!tipo_actividad) {
+        return res.status(400).json({ error: "Faltan campos obligatorios para asignar la actividad (tipo_actividad)." });
     }
     
     let actividades = readJSON('actividades_asignadas.json');
     if (!Array.isArray(actividades)) actividades = [];
     
     const nuevaActividad = {
-        id: 'act_' + Date.now() + '_' + Math.random().toString(36).substr(2, 5),
-        tipo_actividad, // trivia, crucigrama, sopa_letras, laboratorio, escape_room, duelo_parejas, icfes_express, dilema, redaccion_critica, debate_roleplay
-        destinatario_tipo, // 'grupo' o 'estudiante'
-        destinatario_id, // ej: '6A', 'Ciclo VI', 'HomeSchool' o documento '18460767'
-        destinatario_nombre: destinatario_nombre || destinatario_id,
-        materia: materia || 'Ciencias Naturales',
-        grado: grado || '7',
-        periodo: periodo || '1',
-        tema: tema || 'Conceptos Fundamentales STEAM',
-        actividad_data: actividad_data || {},
-        creador_id: creador_id || 'ADMIN',
-        fecha_creacion: new Date().toISOString(),
+        id: body.id || ('act_' + Date.now() + '_' + Math.random().toString(36).substr(2, 5)),
+        tipo_actividad,
+        herramienta_id: tipo_actividad,
+        titulo,
+        destinatario_tipo,
+        destinatario_id,
+        destinatario_nombre,
+        grupo_destino: destinatario_id,
+        grupo: destinatario_id,
+        materia,
+        grado,
+        periodo,
+        tema,
+        profesor_nombre,
+        creador_id,
+        profesor_id: creador_id,
+        xp_recompensa,
+        configuracion_juego: body.configuracion_juego || null,
+        datos_juego: actividad_data,
+        actividad_data,
+        fecha_creacion: body.fecha_creacion || new Date().toISOString(),
+        fecha_asignacion: body.fecha_asignacion || new Date().toISOString(),
+        estado: 'pendiente',
         completada_por: []
     };
     
     actividades.unshift(nuevaActividad);
     writeJSON('actividades_asignadas.json', actividades);
     
-    enviarAlertaTelegram(`🎮 *NUEVA ACTIVIDAD STEAM ASIGNADA*\nTipo: ${tipo_actividad}\nDestino: ${destinatario_nombre} (${destinatario_tipo})\nMateria: ${materia}\nTema: ${tema}`);
+    enviarAlertaTelegram(`🎮 *NUEVA ACTIVIDAD STEAM ASIGNADA*\nTipo: ${tipo_actividad}\nDestino: ${destinatario_nombre} (${destinatario_tipo})\nMateria: ${materia}\nTema: ${tema}\nProfesor: ${profesor_nombre}`);
     
     res.json({ status: "success", actividad: nuevaActividad });
 });

@@ -5,7 +5,9 @@
         "nombre": "Juan",
         "apellidos": "Pérez",
         "institucion": "IE Instituto Montenegro",
-        "tipo": "docente_colegio"
+        "tipo": "docente_colegio",
+        "es_director": true,
+        "grupos_direccion": ["7C"]
     },
     {
         "documento": "tutor123",
@@ -15,6 +17,8 @@
         "institucion": "HomeSchool",
         "tipo": "tutor_homeschool",
         "correo": "tutor.carlos@homeschool.edu.co",
-        "telefono": "3101234567"
+        "telefono": "3101234567",
+        "es_director": false,
+        "grupos_direccion": []
     }
 ]
