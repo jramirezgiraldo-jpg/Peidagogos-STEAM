@@ -16327,6 +16327,7 @@ window.verificarParametrosMatriculaDirecta = function() {
     
     // Inject CSS to forcefully hide complex fields if coming from a registration link
     if (regParam || docIdInj) {
+        const rolParamToHide = params.get('rol');
         const style = document.createElement('style');
         style.innerHTML = `
             #reg-ie, 
@@ -16335,7 +16336,7 @@ window.verificarParametrosMatriculaDirecta = function() {
             #registro-grupo, 
             #reg-docente-ie-select,
             #reg-codigo-institucional,
-            #campo-codigo-institucional {
+            #campo-codigo-institucional${rolParamToHide ? ', #campo-tipo-rol-docente' : ''} {
                 display: none !important;
             }
         `;
@@ -16358,6 +16359,16 @@ window.verificarParametrosMatriculaDirecta = function() {
             const campoDocenteAsignatura = document.getElementById('campo-docente-asignatura');
             if (campoDocenteAsignatura) {
                 campoDocenteAsignatura.style.display = 'none'; // Hide it as requested by user
+            }
+
+            const rolParam = params.get('rol');
+            const rolSelect = document.getElementById('reg-rol-docente-select');
+            const campoRol = document.getElementById('campo-tipo-rol-docente');
+            if (rolSelect && rolParam) {
+                rolSelect.value = rolParam;
+                if (campoRol) {
+                    campoRol.style.display = 'none !important';
+                }
             }
             
             const regDocenteIe = document.getElementById('reg-docente-ie-select');
@@ -16477,7 +16488,11 @@ window.invitacionDocenteActiva = null;
 
 window.generarInvitacionDocenteIntransferible = function() {
     const selIE = document.getElementById('admin-inv-ie-select');
+    const selRol = document.getElementById('admin-inv-rol-select');
+    
     const ie = selIE ? selIE.value : 'IE Instituto Montenegro';
+    const rol = (selRol && selRol.value) ? selRol.value : 'director';
+    
     const nombre = "Enlace General Docentes";
     const documento = "";
     const materia = "Todas";
@@ -16485,7 +16500,7 @@ window.generarInvitacionDocenteIntransferible = function() {
     // Generar token único intransferible
     const token = 'TK-DOC-' + Math.random().toString(36).substring(2, 9).toUpperCase();
     const baseUrl = window.location.origin + window.location.pathname;
-    const urlFinal = `${baseUrl}?reg=docente&ie=${encodeURIComponent(ie)}`;
+    const urlFinal = `${baseUrl}?reg=docente&ie=${encodeURIComponent(ie)}&rol=${encodeURIComponent(rol)}`;
     const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${encodeURIComponent(urlFinal)}`;
 
     const nuevaInvitacion = {
