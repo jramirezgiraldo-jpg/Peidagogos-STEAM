@@ -314,6 +314,17 @@
             </p>
         </div>
 
+                <!-- Campo Tipo de Rol Docente -->
+        <div id="campo-tipo-rol-docente" style="display: none; flex-direction: column; gap: 10px; background: #F5F3FF; padding: 16px; border: 1.5px solid #DDD6FE; border-radius: 12px; margin-top: 10px;">
+            <label style="font-size: 0.88rem; font-weight: 800; color: #5B21B6; display: block; margin: 0;">
+                <span>👨‍🏫 Tipo de Rol Docente:</span>
+            </label>
+            <select id="reg-rol-docente-select" style="width: 100%; padding: 12px; border: 1.5px solid #8B5CF6; border-radius: 8px; font-weight: bold; background-color: white; font-size: 0.92rem; box-sizing: border-box;">
+                <option value="regular">Docente Regular (Dicta clases en varios grupos)</option>
+                <option value="director">Director de Grupo (Crea y administra grupos base)</option>
+            </select>
+        </div>
+
         <!-- Campo de código retirado a favor de enlaces intransferibles y links directos -->
         
         <select id="reg-grado" onchange="actualizarMaterias()" style="padding: 12px; border: 1px solid #d1d5db; border-radius: 8px; display: none;">
@@ -375,6 +386,7 @@
                 const grupoSelect = document.getElementById("registro-grupo");
                 const campoCodigo = document.getElementById("campo-codigo-institucional");
                 const campoDocAsig = document.getElementById("campo-docente-asignatura");
+                const campoTipoRol = document.getElementById("campo-tipo-rol-docente");
                 const lblCodigo = document.getElementById("lbl-codigo-institucional");
                 const infoPago = document.getElementById("info-pago-modalidad");
                 const materiasView = document.getElementById("materias-asignadas-view");
@@ -390,6 +402,7 @@
                     if (campoCodigo) campoCodigo.style.display = "flex";
                     if (lblCodigo) lblCodigo.innerHTML = "<span>🔑</span> Código Institucional / Verificación Docente (ieinstituto2026):";
                     if (campoDocAsig) campoDocAsig.style.display = "flex";
+                    if (campoTipoRol) campoTipoRol.style.display = "flex";
                     if (gradoSelect) { gradoSelect.style.display = "none"; }
                     if (grupoSelect) { grupoSelect.style.display = "none"; }
                     if (materiasView) materiasView.style.display = "none";
@@ -405,6 +418,7 @@
                 } else if (ie === "HomeSchool") {
                     if (campoCodigo) campoCodigo.style.display = "none";
                     if (campoDocAsig) campoDocAsig.style.display = "none";
+                    if (campoTipoRol) campoTipoRol.style.display = "none";
                     if (gradoSelect) { gradoSelect.style.display = "none"; gradoSelect.value = ""; }
                     if (grupoSelect) { grupoSelect.style.display = "none"; grupoSelect.value = ""; }
                     if (materiasView) materiasView.style.display = "none";
@@ -419,6 +433,7 @@
                 } else if (ie === "Validacion") {
                     if (campoCodigo) campoCodigo.style.display = "none";
                     if (campoDocAsig) campoDocAsig.style.display = "none";
+                    if (campoTipoRol) campoTipoRol.style.display = "none";
                     if (gradoSelect) { gradoSelect.style.display = "block"; }
                     if (grupoSelect) { grupoSelect.style.display = "none"; grupoSelect.value = ""; }
                     if (materiasView) materiasView.style.display = "block";
@@ -435,6 +450,7 @@
                     if (campoCodigo) campoCodigo.style.display = "flex";
                     if (lblCodigo) lblCodigo.innerHTML = `<span>🔑</span> Código Institucional (${ie} - $0 COP):`;
                     if (campoDocAsig) campoDocAsig.style.display = "none";
+                    if (campoTipoRol) campoTipoRol.style.display = "none";
                     if (gradoSelect) { gradoSelect.style.display = "block"; }
                     if (grupoSelect) { grupoSelect.style.display = "block"; }
                     if (materiasView) materiasView.style.display = "block";
@@ -449,6 +465,7 @@
                 } else {
                     if (campoCodigo) campoCodigo.style.display = "none";
                     if (campoDocAsig) campoDocAsig.style.display = "none";
+                    if (campoTipoRol) campoTipoRol.style.display = "none";
                     if (gradoSelect) { gradoSelect.style.display = "none"; gradoSelect.value = ""; }
                     if (grupoSelect) { grupoSelect.style.display = "none"; grupoSelect.value = ""; }
                     if (materiasView) materiasView.style.display = "none";
@@ -589,22 +606,23 @@
 
 <!-- DASHBOARD DOCENTE (NUEVO) -->
 <div id="docente-dashboard-container" style="display: none; height: 100vh; overflow-y: auto; background-color: #F8FAFC;">
-    <header style="background: white; border-bottom: 2px solid #E2E8F0; padding: 18px 40px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.04);">
+    <header style="background: linear-gradient(135deg, #1E40AF, #2563EB, #3B82F6); border-bottom: 5px solid #60A5FA; padding: 35px 40px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; box-shadow: 0 8px 20px rgba(0,0,0,0.15);">
         <div style="display: flex; align-items: center; gap: 22px;">
-            <!-- LOGO OFICIAL PEIDAGOGOS STEAM MÁS GRANDE Y PROMINENTE (85px) -->
-            <img src="logo-peidagogos.png" alt="Peidagogos STEAM" style="height: 85px; width: auto; object-fit: contain; filter: drop-shadow(0 6px 14px rgba(0,0,0,0.12));">
-            <div style="border-left: 3px solid #CBD5E1; padding-left: 20px;">
-                <div style="font-weight: 900; font-size: 1.6rem; color: #0F172A; display: flex; align-items: center; gap: 10px;">
+            <div style="background: white; padding: 10px; border-radius: 16px; box-shadow: 0 8px 20px rgba(0,0,0,0.15); display: flex; align-items: center; justify-content: center;">
+                <img src="logo-peidagogos.png" alt="Peidagogos STEAM" style="height: 80px; width: auto; object-fit: contain;">
+            </div>
+            <div style="border-left: 3px solid rgba(255,255,255,0.3); padding-left: 20px;">
+                <div style="font-weight: 900; font-size: 2.2rem; color: white; display: flex; align-items: center; gap: 10px; letter-spacing: -0.5px;">
                     <span>👨‍🏫</span> <span id="docente-nombre-header">Docente</span>
                 </div>
-                <div id="docente-institucion-subhead" style="font-size: 0.95rem; color: #475569; font-weight: 700; margin-top: 3px;">
+                <div id="docente-institucion-subhead" style="font-size: 1.1rem; color: #DBEAFE; font-weight: 500; margin-top: 6px;">
                     🏛️ IE Instituto Montenegro • Sede Principal
                 </div>
             </div>
         </div>
 
         <div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap;">
-            <button onclick="location.reload()" style="background: #FEE2E2; color: #991B1B; border: 1.5px solid #FCA5A5; padding: 12px 24px; border-radius: 12px; font-weight: 900; cursor: pointer; font-size: 0.95rem; display: flex; align-items: center; gap: 8px; box-shadow: 0 3px 8px rgba(239,68,68,0.2);" onmouseover="this.style.background='#FCA5A5'" onmouseout="this.style.background='#FEE2E2'">
+            <button onclick="location.reload()" style="background: rgba(255,255,255,0.15); color: white; border: 1.5px solid rgba(255,255,255,0.3); padding: 12px 24px; border-radius: 12px; font-weight: 800; cursor: pointer; font-size: 0.95rem; display: flex; align-items: center; gap: 8px; transition: 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.25)'" onmouseout="this.style.background='rgba(255,255,255,0.15)'">
                 <span>🚪</span> Cerrar Sesión
             </button>
         </div>
@@ -1537,63 +1555,48 @@
 
 <!-- PANEL DE ESTUDIANTE -->
 <div id="student-dashboard-container" style="display: none; height: 100vh; overflow-y: auto; background-color: #F8FAFC;">
-    <!-- Header Superior Siempre Visible -->
-    <header style="background: white; border-bottom: 1px solid #E5E7EB; padding: 12px 30px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; flex-wrap: wrap; gap: 10px;">
-        <div style="display: flex; align-items: center; gap: 12px;">
-            <div style="font-weight: 800; color: #1E293B; font-size: 1.1rem; display: flex; align-items: center; gap: 10px;">
-                <span id="header-student-avatar" style="font-size: 1.6rem; background: #EEF2FF; padding: 4px 8px; border-radius: 50%; border: 1px solid #C7D2FE; display: inline-block;">🚀</span> 
-                <span id="header-student-name">Estudiante</span>
+    <!-- Header Integrado (Hero) -->
+    <header style="background: linear-gradient(135deg, #1E40AF, #2563EB, #3B82F6); border-bottom: 5px solid #60A5FA; padding: 25px 30px; display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 20px; box-shadow: 0 8px 20px rgba(0,0,0,0.15); position: sticky; top: 0; z-index: 100;">
+        
+        <div style="display: flex; align-items: center; gap: 20px;">
+            <div style="background: white; padding: 8px; border-radius: 16px; box-shadow: 0 8px 20px rgba(0,0,0,0.15); display: flex; align-items: center; justify-content: center;">
+                <img src="logo-peidagogos.png" alt="Peidagogos STEAM" style="height: 60px; width: auto; object-fit: contain;">
             </div>
-            <div style="background: #E0E7FF; color: #4338CA; padding: 4px 12px; border-radius: 12px; font-weight: bold; font-size: 0.9rem; display: flex; align-items: center; gap: 4px;">
-                🎓 <span id="header-student-grade">Ciclo VI</span>
+            <div onclick="abrirModalPerfilEstudiante()" style="cursor: pointer; position: relative; font-size: 2.5rem; background: white; width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 16px rgba(0,0,0,0.2); border: 3px solid #FCD34D; transition: transform 0.2s;" title="Haz clic para personalizar tu avatar y nombre" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'">
+                <span id="student-avatar-hero">🚀</span>
+                <div style="position: absolute; bottom: -2px; right: -2px; background: #F59E0B; color: white; border-radius: 50%; width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; border: 2px solid white; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">✏️</div>
             </div>
-        </div>
-        <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
             
-            <!-- Indicador de Tiempo de Clase Activa -->
-            <div id="indicador-tiempo-clase-box" style="background: #FEF3C7; border: 1.5px solid #FDE68A; color: #92400E; padding: 6px 14px; border-radius: 12px; font-weight: 800; font-size: 0.85rem; display: flex; align-items: center; gap: 6px;" title="Tiempo de clase transcurrido">
-                <span>⏱️</span> <span id="txt-tiempo-clase-transcurrido">Clase: 00:00 / 45 min</span>
-            </div>
-
-            <!-- Botón Perfil -->
-            <button onclick="abrirModalPerfilEstudiante()" style="background: linear-gradient(135deg, #6366F1, #4F46E5); color: white; border: none; padding: 8px 14px; border-radius: 10px; font-weight: 800; font-size: 0.88rem; cursor: pointer; display: flex; align-items: center; gap: 6px; box-shadow: 0 2px 8px rgba(99,102,241,0.25); transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">
-                🎨 Mi Perfil
-            </button>
-
-            <!-- Puntos XP -->
-            <div style="background: linear-gradient(135deg, #10B981, #059669); padding: 8px 16px; border-radius: 20px; font-size: 0.95rem; font-weight: 800; color: white; box-shadow: 0 4px 6px rgba(16, 185, 129, 0.2); display: flex; align-items: center; gap: 6px;">
-                🌟 <span id="student-score-display">0</span> XP
-            </div>
-
-            <!-- BOTÓN OFICIAL: GUARDAR PROGRESO Y FINALIZAR CLASE (CONTROL ANTI-EVASIÓN) -->
-            <button id="btn-guardar-progreso-finalizar-clase" onclick="window.intentarGuardarProgresoYFinalizarClase()" style="background: linear-gradient(135deg, #2563EB, #1D4ED8); color: white; border: none; padding: 8px 18px; border-radius: 10px; font-weight: 900; font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; gap: 6px; box-shadow: 0 3px 10px rgba(37,99,235,0.3); transition: 0.2s;">
-                <span>💾</span> Guardar Progreso & Salir
-            </button>
-        </div>
-    </header>
-    <!-- Hero Banner -->
-    <div style="background: linear-gradient(135deg, #1E40AF, #2563EB, #3B82F6); padding: 35px 30px; display: flex; align-items: center; justify-content: flex-start; gap: 25px; border-bottom: 5px solid #60A5FA; flex-wrap: wrap;">
-        <div style="background: white; padding: 10px; border-radius: 16px; box-shadow: 0 8px 20px rgba(0,0,0,0.15); display: flex; align-items: center; justify-content: center;">
-            <img src="logo-peidagogos.png" alt="Peidagogos STEAM" style="height: 80px; width: auto; object-fit: contain;">
-        </div>
-        <div onclick="abrirModalPerfilEstudiante()" style="cursor: pointer; position: relative; font-size: 3.2rem; background: white; width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 16px rgba(0,0,0,0.2); border: 3px solid #FCD34D; transition: transform 0.2s;" title="Haz clic para personalizar tu avatar y nombre" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'">
-            <span id="student-avatar-hero">🚀</span>
-            <div style="position: absolute; bottom: -2px; right: -2px; background: #F59E0B; color: white; border-radius: 50%; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; border: 2px solid white; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">✏️</div>
-        </div>
-        <div style="text-align: left; flex: 1; min-width: 250px;">
-            <h1 id="student-welcome-name" style="color: white; margin: 0; font-size: 2.2rem; font-weight: 900; letter-spacing: -0.5px;">¡Hola, Estudiante!</h1>
-            <p id="student-welcome-subtitle" style="color: #DBEAFE; margin: 6px 0 0 0; font-weight: 500; font-size: 1.1rem;">Bienvenido a tu panel de aprendizaje STEAM. Elige una asignatura para comenzar.</p>
-            <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-top: 14px;">
-                <div id="student-grade-badge" style="display: inline-block; background: rgba(255, 255, 255, 0.2); border: 1px solid rgba(255,255,255,0.4); padding: 5px 14px; border-radius: 20px; color: white; font-weight: bold; font-size: 0.9rem; letter-spacing: 0.5px;">
-                    🎓 Grado / Ciclo
+            <div style="text-align: left;">
+                <h1 id="student-welcome-name" style="color: white; margin: 0; font-size: 1.8rem; font-weight: 900; letter-spacing: -0.5px;">¡Hola, Estudiante!</h1>
+                <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-top: 6px;">
+                    <div id="student-grade-badge" style="display: inline-block; background: rgba(255, 255, 255, 0.2); border: 1px solid rgba(255,255,255,0.4); padding: 4px 12px; border-radius: 20px; color: white; font-weight: bold; font-size: 0.85rem; letter-spacing: 0.5px;">
+                        🎓 Grado / Ciclo
+                    </div>
                 </div>
-                <button onclick="abrirModalPerfilEstudiante()" style="background: #F59E0B; color: #78350F; border: none; padding: 5px 14px; border-radius: 20px; font-weight: 800; font-size: 0.85rem; cursor: pointer; box-shadow: 0 2px 8px rgba(245,158,11,0.3); display: flex; align-items: center; gap: 5px; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-                    ✏️ Personalizar Nombre y Avatar
+            </div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 12px; min-width: 300px;">
+            <div style="display: flex; align-items: center; gap: 10px; justify-content: flex-end; flex-wrap: wrap;">
+                <!-- Indicador de Tiempo de Clase Activa -->
+                <div id="indicador-tiempo-clase-box" style="background: rgba(255, 255, 255, 0.2); border: 1px solid rgba(255, 255, 255, 0.4); color: white; padding: 6px 14px; border-radius: 12px; font-weight: 800; font-size: 0.85rem; display: flex; align-items: center; gap: 6px;" title="Tiempo de clase transcurrido">
+                    <span>⏱️</span> <span id="txt-tiempo-clase-transcurrido">Clase: 00:00 / 45 min</span>
+                </div>
+
+                <!-- Puntos XP -->
+                <div style="background: linear-gradient(135deg, #10B981, #059669); padding: 8px 16px; border-radius: 20px; font-size: 0.95rem; font-weight: 800; color: white; box-shadow: 0 4px 6px rgba(16, 185, 129, 0.2); display: flex; align-items: center; gap: 6px;">
+                    🌟 <span id="student-score-display">0</span> XP
+                </div>
+
+                <!-- BOTÓN OFICIAL: GUARDAR PROGRESO Y FINALIZAR CLASE -->
+                <button id="btn-guardar-progreso-finalizar-clase" onclick="window.intentarGuardarProgresoYFinalizarClase()" style="background: #EF4444; color: white; border: none; padding: 8px 18px; border-radius: 10px; font-weight: 900; font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; gap: 6px; box-shadow: 0 3px 10px rgba(239,68,68,0.3); transition: 0.2s;" onmouseover="this.style.background='#DC2626'" onmouseout="this.style.background='#EF4444'">
+                    <span>💾</span> Guardar & Salir
                 </button>
             </div>
 
             <!-- Barra de Progreso de Nivel y Puntos Acumulados del Estudiante -->
-            <div style="margin-top: 15px; background: rgba(15, 23, 42, 0.45); border: 1px solid rgba(255, 255, 255, 0.25); border-radius: 14px; padding: 12px 18px; max-width: 550px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+            <div style="background: rgba(15, 23, 42, 0.45); border: 1px solid rgba(255, 255, 255, 0.25); border-radius: 14px; padding: 12px 18px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; flex-wrap: wrap; gap: 6px;">
                     <span id="student-xp-level-name" style="color: #FDE047; font-weight: 800; font-size: 0.92rem; letter-spacing: 0.3px;">🌱 Nivel 1: Novato STEAM</span>
                     <span id="student-xp-progress-text" style="color: #F8FAFC; font-weight: 700; font-size: 0.85rem;">0 / 300 XP (0%)</span>
@@ -1603,7 +1606,8 @@
                 </div>
             </div>
         </div>
-    </div>
+    </header>
+    <div style="display:none;" id="header-student-avatar"></div><div style="display:none;" id="header-student-name"></div><div style="display:none;" id="header-student-grade"></div><!-- Para que JS no falle -->
 
     <!-- Contenedor Principal (Grid de Materias & Malla DBA Estudiante) -->
     <div id="student-main-content" style="padding: 30px; max-width: 1200px; margin: 0 auto;">
@@ -1616,6 +1620,23 @@
             <button id="btn-tab-estudiante-malla" onclick="cambiarTabEstudiante('malla')" style="background: white; color: #475569; border: 1.5px solid #CBD5E1; padding: 12px 22px; border-radius: 10px; font-weight: 800; font-size: 0.95rem; cursor: pointer; display: flex; align-items: center; gap: 8px; transition: 0.2s;">
                 <span>📚</span> Mi Malla Curricular DBA (Estándares Oficiales)
             </button>
+            <button id="btn-tab-estudiante-inbox" onclick="cambiarTabEstudiante('inbox')" style="background: white; color: #475569; border: 1.5px solid #CBD5E1; padding: 12px 22px; border-radius: 10px; font-weight: 800; font-size: 0.95rem; cursor: pointer; display: flex; align-items: center; gap: 8px; transition: 0.2s; position: relative;">
+                <span>📬</span> Buzón de Actividades
+                <span id="student-inbox-badge" style="display: none; position: absolute; top: -8px; right: -8px; background: #EF4444; color: white; font-size: 0.75rem; font-weight: bold; border-radius: 50%; width: 22px; height: 22px; align-items: center; justify-content: center; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">0</span>
+            </button>
+        </div>
+        
+        <!-- Vista Inbox -->
+        <div id="vista-estudiante-inbox" style="display: none;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px;">
+                <h2 style="margin: 0; color: #1E293B; font-weight: 900; font-size: 1.6rem; display: flex; align-items: center; gap: 10px;">
+                    <span>📬</span> Buzón de Actividades Asignadas
+                </h2>
+                <button onclick="window.renderizarInboxEstudiante()" style="background: #E2E8F0; border: none; padding: 8px 14px; border-radius: 8px; font-weight: bold; cursor: pointer;">🔄 Actualizar</button>
+            </div>
+            <div id="inbox-estudiante-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px;">
+                <!-- Inyectado por JS -->
+            </div>
         </div>
 
         <!-- Vista 1: Mis Asignaturas y Misiones -->
@@ -2525,6 +2546,12 @@
         <div style="background: #F8FAFC; border-radius: 24px; padding: 26px 30px; max-width: 1200px; width: 100%; max-height: 92vh; display: flex; flex-direction: column; box-shadow: 0 25px 70px -15px rgba(0,0,0,0.5); text-align: left; overflow-y: auto; -webkit-overflow-scrolling: touch; border: 1px solid #CBD5E1;">
             
             <div id="vista-cajas-hub" style="display: flex; flex-direction: column; gap: 18px;">
+                <!-- Botón de Cerrar para el Hub -->
+                <div style="display: flex; justify-content: flex-end;">
+                    <button onclick="window.cerrarCajaHerramientas()" style="background: #F1F5F9; color: #475569; border: 1px solid #CBD5E1; padding: 8px 16px; border-radius: 10px; font-weight: 800; font-size: 0.9rem; cursor: pointer; transition: 0.2s;" onmouseover="this.style.background='#E2E8F0'; this.style.color='#1E293B';" onmouseout="this.style.background='#F1F5F9'; this.style.color='#475569';">
+                        ✖ Cerrar Ventana
+                    </button>
+                </div>
                 <!-- HERO CARD PRINCIPAL: CAJA 1 - PLANIFICACIÓN CURRICULAR -->
                 <div onclick="window.abrirDetalleCajaTematica('imprimibles')" style="background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 40%, #FFFFFF 100%); border: 3px solid #2563EB; border-radius: 22px; padding: 26px; cursor: pointer; transition: transform 0.15s, box-shadow 0.15s; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; box-shadow: 0 12px 35px rgba(37,99,235,0.22);" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 18px 45px rgba(37,99,235,0.3)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 12px 35px rgba(37,99,235,0.22)';">
                     <div style="flex: 1; min-width: 280px;">

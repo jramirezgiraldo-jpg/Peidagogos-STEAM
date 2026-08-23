@@ -220,7 +220,52 @@ Estructura la reflexión a partir de dilemas morales reales, toma de decisiones 
         // --- END CACHE LOGIC ---
 
         // Construir el Prompt Maestro alineado con Saber 11 y Pedagogía STEAM V11
-        const prompt = `Actúa como un ${rol}. Tu objetivo pedagógico es enseñar ${asignatura} en el contexto narrativo inmersivo de ${ambiente}.
+        
+        if (modo === 'diapositivas') {
+            const promptDiapositivas = `Actúa como un Diseñador Web Front-End y Experto en Narrativa Corporativa (Storytelling). Tu objetivo es generar el código completo de una presentación profesional de alto valor en un único archivo HTML autocontenido (Single File HTML). La presentación debe ser profunda, analítica y visualmente impactante, evitando generalidades.
+
+DATOS DE LA PRESENTACIÓN:
+- Asignatura: ${asignatura}
+- Grado: ${grado}
+- Tema: ${topico || meta}
+
+Requisitos estrictos:
+1. Usa HTML, CSS y JS integrados en un solo archivo.
+2. Usa librerías como Reveal.js desde CDN o crea tu propio motor de diapositivas con CSS/JS. (ejemplo: <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.js"></script>)
+3. El diseño debe ser moderno, corporativo y de alto impacto (Tome, Gamma style).
+4. No devuelvas markdown, JSON ni backticks, solo el código HTML completo. Empieza con <!DOCTYPE html>`;
+            
+            try {
+                const deepseekKey = (process.env.DEEPSEEK_API_KEY || 'sk-8bdd9c5adcfa4d8e958f1ea7a07e8167');
+                const ds_response = await fetch('https://api.deepseek.com/chat/completions', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer ' + deepseekKey
+                    },
+                    body: JSON.stringify({
+                        model: 'deepseek-chat',
+                        messages: [
+                            { role: 'system', content: 'Devuelve EXCLUSIVAMENTE HTML. SIN MARKDOWN. Empieza directamente con <!DOCTYPE html>' },
+                            { role: 'user', content: promptDiapositivas }
+                        ]
+                    })
+                });
+                
+                if (ds_response.ok) {
+                    const ds_data = await ds_response.json();
+                    let htmlRes = ds_data.choices[0].message.content;
+                    htmlRes = htmlRes.replace(/^```html/i, '').replace(/```$/i, '').trim();
+                    return res.json({ html: htmlRes });
+                } else {
+                    return res.status(500).json({error: 'Fallo al generar HTML'});
+                }
+            } catch (err) {
+                return res.status(500).json({error: 'Fallo IA'});
+            }
+        }
+        
+const prompt = `Actúa como un ${rol}. Tu objetivo pedagógico es enseñar ${asignatura} en el contexto narrativo inmersivo de ${ambiente}.
 
 CONTEXTO INSTITUCIONAL Y PEDAGÓGICO:
 ${contextoModalidad}
@@ -388,7 +433,7 @@ DEBES DEVOLVER EXCLUSIVAMENTE UN OBJETO JSON VÁLIDO CON LA SIGUIENTE ESTRUCTURA
         if (!responseText) {
             console.log(`[IA Fallback] Intentando con DeepSeek API...`);
             try {
-                const deepseekKey = process.env.DEEPSEEK_API_KEY;
+                const deepseekKey = (process.env.DEEPSEEK_API_KEY || 'sk-8bdd9c5adcfa4d8e958f1ea7a07e8167');
                 // Usando fetch a deepseek
                 const ds_response = await fetch('https://api.deepseek.com/chat/completions', {
                     method: 'POST',
@@ -938,13 +983,13 @@ Asegúrate de que las definiciones coincidan con las 'palabras', el Jeopardy ten
         }
 
         // DeepSeek Fallback
-        if (!responseText && process.env.DEEPSEEK_API_KEY) {
+        if (!responseText && (process.env.DEEPSEEK_API_KEY || 'sk-8bdd9c5adcfa4d8e958f1ea7a07e8167')) {
             console.log(`[IA] Usando DeepSeek para generate-tool-ai...`);
             const ds_response = await fetch('https://api.deepseek.com/chat/completions', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': 'Bearer ' + process.env.DEEPSEEK_API_KEY
+                    'Authorization': 'Bearer ' + (process.env.DEEPSEEK_API_KEY || 'sk-8bdd9c5adcfa4d8e958f1ea7a07e8167')
                 },
                 body: JSON.stringify({
                     model: 'deepseek-chat',
@@ -966,7 +1011,18 @@ Asegúrate de que las definiciones coincidan con las 'palabras', el Jeopardy ten
         if (responseText) {
             // Eliminar posibles backticks de markdown que Deepseek pueda devolver aunque se pida json_object
             responseText = responseText.replace(/```json/g, '').replace(/```/g, '').trim();
-            res.json(JSON.parse(responseText));
+            try {
+                const startIdx = responseText.indexOf('{');
+                const endIdx = responseText.lastIndexOf('}');
+                if (startIdx !== -1 && endIdx !== -1 && endIdx >= startIdx) {
+                    responseText = responseText.substring(startIdx, endIdx + 1);
+                }
+                const parsed = JSON.parse(responseText);
+                res.json(parsed);
+            } catch(e) {
+                console.error("JSON parse error from IA:", e, "Raw:", responseText);
+                res.status(500).json({ error: "Respuesta IA no válida" });
+            }
         } else {
             res.status(500).json({ error: "No se pudo generar con IA." });
         }

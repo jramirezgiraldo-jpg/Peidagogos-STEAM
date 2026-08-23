@@ -603,10 +603,15 @@ window.inicializarPanelEstudiante = function(data) {
     if (navTabs) {
         navTabs.style.display = (esHomeSchool || esValidacionVirtual) ? 'flex' : 'none';
     }
-    if (!esHomeSchool && !esValidacionVirtual) {
-        if (typeof window.cambiarTabEstudiante === 'function') {
-            window.cambiarTabEstudiante('materias');
-        }
+    // Always show nav tabs now since we have the Inbox
+    if (navTabs) {
+        navTabs.style.display = 'flex';
+    }
+    if (typeof window.cambiarTabEstudiante === 'function') {
+        window.cambiarTabEstudiante('materias');
+    }
+    if (typeof window.renderizarInboxEstudiante === 'function') {
+        window.renderizarInboxEstudiante();
     }
 
     // Sincronizar selector de Malla Curricular Oficial DBA del Estudiante
@@ -9312,11 +9317,91 @@ window.renderizarMallaDocenteColegio = function() {
 // --- CONTROLADORES DE PANEL ESTUDIANTE DE VALIDACIÓN / REGULAR ---
 window.materiaEstudianteMallaActual = 'Naturales';
 
+window.renderizarInboxEstudiante = function() {
+    const grid = document.getElementById('inbox-estudiante-grid');
+    const badge = document.getElementById('student-inbox-badge');
+    if (!grid) return;
+    
+    let authSes = {};
+    try { authSes = JSON.parse(sessionStorage.getItem('peidagogos_auth') || localStorage.getItem('usuario_sesion') || localStorage.getItem('usuario_actual') || '{}'); } catch(e) {}
+    
+    let curGrado = window.grado_estudiante || (authSes.usuarioObj && authSes.usuarioObj.grado) || authSes.grado || '7C';
+    let inbox = [];
+    try { inbox = JSON.parse(localStorage.getItem('inbox_estudiantes') || '[]'); } catch(e) {}
+    
+    // Filtrar inbox para este grado/grupo
+    let myInbox = inbox.filter(a => a.grupo === 'Todos' || String(a.grupo).trim().toLowerCase() === String(curGrado).trim().toLowerCase());
+    
+    // Sort desc
+    myInbox.sort((a, b) => new Date(b.fecha) - new Date(a.fecha));
+    
+    if (badge) {
+        if (myInbox.length > 0) {
+            badge.style.display = 'flex';
+            badge.innerText = myInbox.length;
+        } else {
+            badge.style.display = 'none';
+        }
+    }
+    
+    if (myInbox.length === 0) {
+        grid.innerHTML = `<div style="grid-column: 1/-1; background: white; border: 1.5px dashed #CBD5E1; padding: 40px; text-align: center; border-radius: 16px;">
+            <div style="font-size: 3rem; margin-bottom: 10px;">🍃</div>
+            <h3 style="color: #475569; margin:0;">Buzón Vacío</h3>
+            <p style="color: #94A3B8; font-size: 0.95rem;">No tienes actividades asignadas por el momento.</p>
+        </div>`;
+        return;
+    }
+    
+    grid.innerHTML = myInbox.map(a => `
+        <div style="background: white; border: 1px solid #E2E8F0; border-radius: 16px; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); display: flex; flex-direction: column; justify-content: space-between; transition: transform 0.2s;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
+            <div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 12px; align-items: flex-start;">
+                    <div style="font-size: 2.2rem; background: #F1F5F9; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; border-radius: 12px;">${a.toolIcono || '🎮'}</div>
+                    <div style="font-size: 0.75rem; background: #FEF3C7; color: #92400E; padding: 4px 10px; border-radius: 12px; font-weight: 800;">${new Date(a.fecha).toLocaleDateString()}</div>
+                </div>
+                <h3 style="margin: 0 0 5px 0; color: #1E293B; font-weight: 900; font-size: 1.15rem;">${a.toolTitulo || 'Actividad'}</h3>
+                <p style="margin: 0 0 10px 0; color: #64748B; font-size: 0.9rem; font-weight: 600;">${a.materia} • ${a.tema}</p>
+                <div style="font-size: 0.8rem; color: #94A3B8; display: flex; align-items: center; gap: 5px; margin-bottom: 15px;">
+                    <span>👨‍🏫</span> Asignado por: ${a.docente}
+                </div>
+            </div>
+            <button onclick="window.abrirActividadDesdeInbox('${a.id}')" style="width: 100%; background: #3B82F6; color: white; border: none; padding: 10px; border-radius: 10px; font-weight: bold; cursor: pointer; transition: 0.2s;">▶ Jugar Ahora</button>
+        </div>
+    `).join('');
+};
+
+window.abrirActividadDesdeInbox = function(id) {
+    let inbox = [];
+    try { inbox = JSON.parse(localStorage.getItem('inbox_estudiantes') || '[]'); } catch(e) {}
+    let actividad = inbox.find(a => a.id === id);
+    if (!actividad) return;
+    
+    // Cargar data en IA
+    window._aiGameData = actividad.dataIA;
+    
+    if (typeof window.abrirVisorHerramienta === 'function') {
+        window.abrirVisorHerramienta(actividad.toolId, true);
+    }
+};
+
 window.cambiarTabEstudiante = function(tab) {
     const btnMaterias = document.getElementById('btn-tab-estudiante-materias');
     const btnMalla = document.getElementById('btn-tab-estudiante-malla');
+    const btnInbox = document.getElementById('btn-tab-estudiante-inbox');
     const vistaMaterias = document.getElementById('vista-estudiante-materias');
     const vistaMalla = document.getElementById('vista-estudiante-malla');
+    const vistaInbox = document.getElementById('vista-estudiante-inbox');
+
+    const resetBtns = () => {
+        if(btnMaterias) { btnMaterias.style.background='white'; btnMaterias.style.color='#475569'; btnMaterias.style.border='1.5px solid #CBD5E1'; btnMaterias.style.boxShadow='none'; }
+        if(btnMalla) { btnMalla.style.background='white'; btnMalla.style.color='#475569'; btnMalla.style.border='1.5px solid #CBD5E1'; btnMalla.style.boxShadow='none'; }
+        if(btnInbox) { btnInbox.style.background='white'; btnInbox.style.color='#475569'; btnInbox.style.border='1.5px solid #CBD5E1'; btnInbox.style.boxShadow='none'; }
+        if(vistaMaterias) vistaMaterias.style.display='none';
+        if(vistaMalla) vistaMalla.style.display='none';
+        if(vistaInbox) vistaInbox.style.display='none';
+    };
+    resetBtns();
 
     if (tab === 'materias') {
         if (btnMaterias) {
@@ -9325,31 +9410,25 @@ window.cambiarTabEstudiante = function(tab) {
             btnMaterias.style.border = 'none';
             btnMaterias.style.boxShadow = '0 4px 10px rgba(37,99,235,0.25)';
         }
-        if (btnMalla) {
-            btnMalla.style.background = 'white';
-            btnMalla.style.color = '#475569';
-            btnMalla.style.border = '1.5px solid #CBD5E1';
-            btnMalla.style.boxShadow = 'none';
-        }
         if (vistaMaterias) vistaMaterias.style.display = 'block';
-        if (vistaMalla) vistaMalla.style.display = 'none';
-    } else {
-        if (btnMaterias) {
-            btnMaterias.style.background = 'white';
-            btnMaterias.style.color = '#475569';
-            btnMaterias.style.border = '1.5px solid #CBD5E1';
-            btnMaterias.style.boxShadow = 'none';
-        }
+    } else if (tab === 'malla') {
         if (btnMalla) {
             btnMalla.style.background = '#2563EB';
             btnMalla.style.color = 'white';
             btnMalla.style.border = 'none';
             btnMalla.style.boxShadow = '0 4px 10px rgba(37,99,235,0.25)';
         }
-        if (vistaMaterias) vistaMaterias.style.display = 'none';
         if (vistaMalla) vistaMalla.style.display = 'block';
-
         window.renderizarMallaEstudianteDBA();
+    } else if (tab === 'inbox') {
+        if (btnInbox) {
+            btnInbox.style.background = '#2563EB';
+            btnInbox.style.color = 'white';
+            btnInbox.style.border = 'none';
+            btnInbox.style.boxShadow = '0 4px 10px rgba(37,99,235,0.25)';
+        }
+        if (vistaInbox) vistaInbox.style.display = 'block';
+        window.renderizarInboxEstudiante();
     }
 };
 
@@ -10999,22 +11078,67 @@ window.ejecutarGeneracionDiapositivas = async function() {
             const result = await response.json();
             // result should contain an array of slides if generated properly, or html
             // but we need it as a deck object for the presenter
-            let deck = { slides: [] };
-            if (result.diapositivas) {
-                deck.slides = result.diapositivas.map((s, i) => ({
-                    numero: i + 1,
-                    titulo: s.titulo || s.title || `Diapositiva ${i+1}`,
-                    contenido_html: s.contenido_html || s.content || `<p>${s.texto || ''}</p>`,
-                    notas_orador: s.notas_orador || s.notes || ''
-                }));
+                        window.cerrarConfiguradorDiapositivas();
+            
+            if (result.html) {
+                const fullHTML = result.html;
+                let modalPresentacion = document.getElementById('modal-presentacion-html-fullscreen');
+                if (!modalPresentacion) {
+                    modalPresentacion = document.createElement('div');
+                    modalPresentacion.id = 'modal-presentacion-html-fullscreen';
+                    modalPresentacion.style.position = 'fixed';
+                    modalPresentacion.style.top = '0';
+                    modalPresentacion.style.left = '0';
+                    modalPresentacion.style.width = '100vw';
+                    modalPresentacion.style.height = '100vh';
+                    modalPresentacion.style.backgroundColor = '#000';
+                    modalPresentacion.style.zIndex = '999999';
+                    
+                    const closeBtn = document.createElement('button');
+                    closeBtn.innerHTML = '❌ Cerrar Presentación';
+                    closeBtn.style.position = 'absolute';
+                    closeBtn.style.top = '20px';
+                    closeBtn.style.right = '20px';
+                    closeBtn.style.zIndex = '1000000';
+                    closeBtn.style.padding = '10px 20px';
+                    closeBtn.style.background = '#EF4444';
+                    closeBtn.style.color = 'white';
+                    closeBtn.style.border = 'none';
+                    closeBtn.style.borderRadius = '8px';
+                    closeBtn.style.cursor = 'pointer';
+                    closeBtn.style.fontWeight = 'bold';
+                    closeBtn.onclick = () => { modalPresentacion.style.display = 'none'; };
+                    
+                    const iframe = document.createElement('iframe');
+                    iframe.id = 'iframe-presentacion-html';
+                    iframe.style.width = '100%';
+                    iframe.style.height = '100%';
+                    iframe.style.border = 'none';
+                    
+                    modalPresentacion.appendChild(closeBtn);
+                    modalPresentacion.appendChild(iframe);
+                    document.body.appendChild(modalPresentacion);
+                }
+                
+                modalPresentacion.style.display = 'block';
+                const iframeDoc = document.getElementById('iframe-presentacion-html').contentWindow.document;
+                iframeDoc.open();
+                iframeDoc.write(fullHTML);
+                iframeDoc.close();
             } else {
-                // If it returns raw HTML string instead of object
-                deck.slides = [
-                    { numero: 1, titulo: "Presentación", contenido_html: result.html || result.contenido_html || JSON.stringify(result) }
-                ];
+                let deck = { slides: [] };
+                if (result.diapositivas) {
+                    deck.slides = result.diapositivas.map((s, i) => ({
+                        numero: i + 1,
+                        titulo: s.titulo || s.title || `Diapositiva ${i+1}`,
+                        contenido_html: s.contenido_html || s.content || `<p>${s.texto || ''}</p>`,
+                        notas_orador: s.notas_orador || s.notes || ''
+                    }));
+                } else {
+                    deck.slides = [ { numero: 1, titulo: 'Presentación', contenido_html: result.contenido_html || JSON.stringify(result) } ];
+                }
+                window.abrirPresentadorDiapositivas(deck);
             }
-            window.cerrarConfiguradorDiapositivas();
-            window.abrirPresentadorDiapositivas(deck);
         } else {
             alert('Error generando diapositivas.');
         }
@@ -12163,6 +12287,8 @@ window.abrirConfiguracionJuegoIA = function(toolId) {
             grupos = [...authSes.grupos_direccion];
         } else if (authSes && Array.isArray(authSes.grados) && authSes.grados.length > 0) {
             grupos = [...authSes.grados];
+        } else if (window.grupos_db && window.grupos_db.length > 0) {
+            grupos = window.grupos_db.map(g => g.id);
         } else {
             grupos = ['7C', '6A', '8A'];
         }
@@ -12337,8 +12463,37 @@ window.ejecutarGeneracionJuegoIA = async function(opciones = {}) {
         if (res.ok) {
             window._aiGameData = await res.json();
             window.cerrarConfiguracionJuegoIA();
-            if (typeof window.abrirCajaTool === 'function') {
-                window.abrirCajaTool(tool.id, true);
+            
+            if (!soloProyectar) {
+                const selGrp = document.getElementById('modal-config-juego-grupo') || document.getElementById('modal-juego-grupo-select') || document.getElementById('modal-juego-ia-grupo-select');
+                const grupoDestino = (selGrp && selGrp.value) ? selGrp.value : 'Todos';
+                
+                let inbox = [];
+                try {
+                    inbox = JSON.parse(localStorage.getItem('inbox_estudiantes') || '[]');
+                } catch(e) {}
+                
+                inbox.push({
+                    id: Date.now().toString(),
+                    grupo: grupoDestino,
+                    materia: materia,
+                    grado: grado,
+                    tema: keywords,
+                    toolId: tool.id,
+                    toolTitulo: tool.titulo,
+                    toolIcono: tool.icono,
+                    dataIA: window._aiGameData,
+                    fecha: new Date().toISOString(),
+                    docente: window.usuario_actual || 'Tu Docente'
+                });
+                localStorage.setItem('inbox_estudiantes', JSON.stringify(inbox));
+                
+                // Mensaje de éxito
+                alert(`✅ ¡Actividad asignada exitosamente al grupo ${grupoDestino}!`);
+            }
+            
+            if (typeof window.abrirVisorHerramienta === 'function') {
+                window.abrirVisorHerramienta(tool.id, true);
             }
         } else {
             alert('Error IA.');
@@ -12383,9 +12538,15 @@ window.renderizarTarjetasCajaHerramientas = function(categoria = 'juegos') {
                 </div>
             </div>
 
+            ${tool.caja && tool.caja.includes('Caja 1') ? `
             <button onclick="window.abrirConfiguracionJuegoIA('${tool.id}')" style="background: linear-gradient(135deg, #2563EB, #1D4ED8); color: white; border: none; padding: 11px 16px; border-radius: 12px; font-weight: 800; font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 12px rgba(37,99,235,0.25);">
                 <span>⚡</span> Configurar y Generar IA
             </button>
+            ` : `
+            <button onclick="window.abrirVisorHerramienta('${tool.id}', true)" style="background: linear-gradient(135deg, #10B981, #059669); color: white; border: none; padding: 11px 16px; border-radius: 12px; font-weight: 800; font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 12px rgba(16,185,129,0.25);">
+                <span>▶</span> Abrir Herramienta
+            </button>
+            `}
         </div>
     `).join('');
 };
