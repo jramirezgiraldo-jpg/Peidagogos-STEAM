@@ -965,24 +965,7 @@ Asegúrate de que las definiciones coincidan con las 'palabras', el Jeopardy ten
     try {
         let responseText = '';
         
-        // Try Gemini first
-        try {
-            const ai = getAIClient();
-            if (ai) {
-                const response = await geminiQueue.add(() => ai.models.generateContent({
-                    model: "gemini-2.5-flash",
-                    contents: prompt,
-                    config: {
-                        responseMimeType: "application/json"
-                    }
-                }));
-                if (response && response.text) responseText = response.text;
-            }
-        } catch(e) {
-            console.error("Gemini falló en tool:", e.message);
-        }
-
-        // DeepSeek Fallback
+        // Usar EXCLUSIVAMENTE DeepSeek como fue requerido
         if (!responseText && (process.env.DEEPSEEK_API_KEY || 'sk-8bdd9c5adcfa4d8e958f1ea7a07e8167')) {
             console.log(`[IA] Usando DeepSeek para generate-tool-ai...`);
             const ds_response = await fetch('https://api.deepseek.com/chat/completions', {
@@ -1017,18 +1000,19 @@ Asegúrate de que las definiciones coincidan con las 'palabras', el Jeopardy ten
                 if (startIdx !== -1 && endIdx !== -1 && endIdx >= startIdx) {
                     responseText = responseText.substring(startIdx, endIdx + 1);
                 }
+                responseText = responseText.replace(/,\s*([\}\]])/g, '$1');
                 const parsed = JSON.parse(responseText);
                 res.json(parsed);
             } catch(e) {
                 console.error("JSON parse error from IA:", e, "Raw:", responseText);
-                res.status(500).json({ error: "Respuesta IA no válida" });
+                res.status(500).json({ error: "Respuesta IA no válida: " + e.message, raw: responseText });
             }
         } else {
-            res.status(500).json({ error: "No se pudo generar con IA." });
+            res.status(500).json({ error: "Respuesta vacía de DeepSeek." });
         }
     } catch (error) {
         console.error("Error general AI:", error);
-        res.status(500).json({ error: "Falló la generación AI." });
+        res.status(500).json({ error: "Excepción en el backend: " + error.message });
     }
 });
 

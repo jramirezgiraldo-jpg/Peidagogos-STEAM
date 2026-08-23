@@ -12496,7 +12496,12 @@ window.ejecutarGeneracionJuegoIA = async function(opciones = {}) {
                 window.abrirVisorHerramienta(tool.id, true);
             }
         } else {
-            alert('Error IA.');
+            try {
+                const errData = await res.json();
+                alert('Error IA: ' + (errData.error || res.statusText));
+            } catch(ex) {
+                alert('Error IA: Servidor no respondió correctamente (Status ' + res.status + ')');
+            }
         }
     } catch (e) {
         console.error(e);
