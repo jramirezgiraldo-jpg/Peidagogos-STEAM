@@ -630,120 +630,245 @@
 
     <div style="padding: 40px 35px; max-width: 1440px; margin: 0 auto;">
         
-        <!-- SECCIÓN 1: GRANDES CAJONES DE SERVICIOS Y HERRAMIENTAS PEDAGÓGICAS (10 Módulos) -->
-        <div style="margin-bottom: 45px;">
-            <div style="margin-bottom: 22px;">
-                <h2 style="font-size: 1.85rem; font-weight: 900; color: #0F172A; margin: 0; display: flex; align-items: center; gap: 12px;">
-                    <span>🧰</span> Centro de Servicios y Herramientas Pedagógicas
-                </h2>
-                <p style="color: #64748B; margin: 6px 0 0 0; font-size: 1.05rem;">
-                    Selecciona un servicio para abrir proyectores de aula, creadores curriculares, simuladores o generadores de clase.
-                </p>
+        <!-- Pestañas de Navegación del Panel Docente (R1) -->
+        <div id="docente-nav-tabs" style="display: flex; gap: 12px; margin-bottom: 30px; border-bottom: 2px solid #E2E8F0; padding-bottom: 14px; flex-wrap: wrap;">
+            <button id="btn-tab-docente-herramientas" onclick="window.cambiarTabDocente('herramientas')" style="background: #2563EB; color: white; border: none; padding: 12px 24px; border-radius: 12px; font-weight: 800; font-size: 1rem; cursor: pointer; display: flex; align-items: center; gap: 8px; box-shadow: 0 4px 12px rgba(37,99,235,0.25); transition: 0.2s;">
+                <span>🧰</span> Centro de Servicios & STEAM
+            </button>
+            <button id="btn-tab-docente-mi-grupo" onclick="window.cambiarTabDocente('mi-grupo')" style="display: none; background: white; color: #475569; border: 1.5px solid #CBD5E1; padding: 12px 24px; border-radius: 12px; font-weight: 800; font-size: 1rem; cursor: pointer; align-items: center; gap: 8px; transition: 0.2s;">
+                <span>👥</span> Mi Grupo
+            </button>
+        </div>
+
+        <!-- VISTA 1: CENTRO DE SERVICIOS Y HERRAMIENTAS PEDAGÓGICAS (HERRAMIENTAS EXISTENTES) -->
+        <div id="vista-docente-herramientas" style="display: block;">
+            <!-- SECCIÓN 1: GRANDES CAJONES DE SERVICIOS Y HERRAMIENTAS PEDAGÓGICAS (10 Módulos) -->
+            <div style="margin-bottom: 45px;">
+                <div style="margin-bottom: 22px;">
+                    <h2 style="font-size: 1.85rem; font-weight: 900; color: #0F172A; margin: 0; display: flex; align-items: center; gap: 12px;">
+                        <span>🧰</span> Centro de Servicios y Herramientas Pedagógicas
+                    </h2>
+                    <p style="color: #64748B; margin: 6px 0 0 0; font-size: 1.05rem;">
+                        Selecciona un servicio para abrir proyectores de aula, creadores curriculares, simuladores o generadores de clase.
+                    </p>
+                </div>
+
+                <!-- Grid de Grandes Cajones de Herramientas -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px;">
+                    
+                    <!-- 1. Crear Asignatura (IA) -->
+                    <div style="background: white; border: 2px solid #DDD6FE; border-radius: 20px; padding: 24px; box-shadow: 0 8px 25px rgba(124,58,237,0.08); display: flex; flex-direction: column; justify-content: space-between; min-height: 270px; transition: transform 0.25s, box-shadow 0.25s;" onmouseover="this.style.transform='translateY(-6px)'; this.style.boxShadow='0 16px 35px rgba(124,58,237,0.2)';" onmouseout="this.style.transform='none'; this.style.boxShadow='0 8px 25px rgba(124,58,237,0.08)';">
+                        <div>
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                                <span style="background: #F3E8FF; color: #6D28D9; font-size: 0.78rem; font-weight: 900; padding: 4px 12px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px;">Inteligencia Artificial</span>
+                                <span style="font-size: 2.2rem;">✨</span>
+                            </div>
+                            <h3 style="margin: 0 0 8px 0; font-size: 1.35rem; font-weight: 900; color: #1E293B;">Crear Asignatura (IA)</h3>
+                            <p style="margin: 0; color: #475569; font-size: 0.92rem; line-height: 1.5;">
+                                Crea nuevas materias curriculares personalizadas y genera su Malla Curricular DBA automáticamente con IA a partir de tus documentos.
+                            </p>
+                        </div>
+                        <button onclick="window.abrirModalCrearAsignaturaDocente('docente')" style="margin-top: 18px; background: linear-gradient(135deg, #7C3AED, #6D28D9); color: white; border: none; padding: 14px; border-radius: 12px; font-weight: 900; font-size: 1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 15px rgba(124,58,237,0.3);">
+                            <span>📚</span> Inscribir Nueva Materia <span>➔</span>
+                        </button>
+                    </div>
+
+                    <!-- 2. Mis Materias y Grados -->
+                    <div style="background: white; border: 2px solid #BFDBFE; border-radius: 20px; padding: 24px; box-shadow: 0 8px 25px rgba(37,99,235,0.08); display: none !important; flex-direction: column; justify-content: space-between; min-height: 270px; transition: transform 0.25s, box-shadow 0.25s;" onmouseover="this.style.transform='translateY(-6px)'; this.style.boxShadow='0 16px 35px rgba(37,99,235,0.2)';" onmouseout="this.style.transform='none'; this.style.boxShadow='0 8px 25px rgba(37,99,235,0.08)';">
+                        <div>
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                                <span style="background: #EFF6FF; color: #1E40AF; font-size: 0.78rem; font-weight: 900; padding: 4px 12px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px;">Configuración</span>
+                                <span style="font-size: 2.2rem;">⚙️</span>
+                            </div>
+                            <h3 style="margin: 0 0 8px 0; font-size: 1.35rem; font-weight: 900; color: #1E293B;">Mis Materias y Grados</h3>
+                            <p style="margin: 0; color: #475569; font-size: 0.92rem; line-height: 1.5;">
+                                Selecciona las asignaturas que orientas y qué grados o ciclos tienes a tu cargo para filtrar y organizar automáticamente tus aulas.
+                            </p>
+                        </div>
+                        <button onclick="window.abrirModalGestionMateriasGradosDocente()" style="margin-top: 18px; background: linear-gradient(135deg, #2563EB, #1D4ED8); color: white; border: none; padding: 14px; border-radius: 12px; font-weight: 900; font-size: 1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 15px rgba(37,99,235,0.3);">
+                            <span>⚙️</span> Configurar Mis Asignaturas <span>➔</span>
+                        </button>
+                    </div>
+
+                    <!-- 3. Caja de Herramientas STEAM (42) -->
+                    <div style="background: white; border: 2px solid #FBCFE8; border-radius: 20px; padding: 24px; box-shadow: 0 8px 25px rgba(236,72,153,0.08); display: flex; flex-direction: column; justify-content: space-between; min-height: 270px; transition: transform 0.25s, box-shadow 0.25s;" onmouseover="this.style.transform='translateY(-6px)'; this.style.boxShadow='0 16px 35px rgba(236,72,153,0.2)';" onmouseout="this.style.transform='none'; this.style.boxShadow='0 8px 25px rgba(236,72,153,0.08)';">
+                        <div>
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                                <span style="background: #FDF2F8; color: #BE185D; font-size: 0.78rem; font-weight: 900; padding: 4px 12px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px;">Kit Completo</span>
+                                <span style="font-size: 2.2rem;">🧰</span>
+                            </div>
+                            <h3 style="margin: 0 0 8px 0; font-size: 1.35rem; font-weight: 900; color: #1E293B;">Caja STEAM (42 Apps)</h3>
+                            <p style="margin: 0; color: #475569; font-size: 0.92rem; line-height: 1.5;">
+                                Kit completo con 42 simuladores interactivos, generadores de rúbricas formativas, laboratorios virtuales y retos de aula.
+                            </p>
+                        </div>
+                        <button onclick="window.abrirCajaHerramientas('todas', 'docente')" style="margin-top: 18px; background: linear-gradient(135deg, #EC4899, #BE185D); color: white; border: none; padding: 14px; border-radius: 12px; font-weight: 900; font-size: 1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 15px rgba(236,72,153,0.3);">
+                            <span>🧰</span> Abrir Caja STEAM <span>➔</span>
+                        </button>
+                    </div>
+
+                    <!-- 4. 10 Diapositivas Semanales -->
+                    <div style="background: white; border: 2px solid #C7D2FE; border-radius: 20px; padding: 24px; box-shadow: 0 8px 25px rgba(99,102,241,0.08); display: flex; flex-direction: column; justify-content: space-between; min-height: 270px; transition: transform 0.25s, box-shadow 0.25s;" onmouseover="this.style.transform='translateY(-6px)'; this.style.boxShadow='0 16px 35px rgba(99,102,241,0.2)';" onmouseout="this.style.transform='none'; this.style.boxShadow='0 8px 25px rgba(99,102,241,0.08)';">
+                        <div>
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                                <span style="background: #EEF2FF; color: #4338CA; font-size: 0.78rem; font-weight: 900; padding: 4px 12px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px;">Presentaciones</span>
+                                <span style="font-size: 2.2rem;">📽️</span>
+                            </div>
+                            <h3 style="margin: 0 0 8px 0; font-size: 1.35rem; font-weight: 900; color: #1E293B;">10 Diapositivas Semanales</h3>
+                            <p style="margin: 0; color: #475569; font-size: 0.92rem; line-height: 1.5;">
+                                Genera y personaliza las 10 diapositivas para introducir el tema curricular de la semana con explicaciones visuales.
+                            </p>
+                        </div>
+                        <button onclick="window.abrirConfiguradorDiapositivas('docente')" style="margin-top: 18px; background: linear-gradient(135deg, #6366F1, #4F46E5); color: white; border: none; padding: 14px; border-radius: 12px; font-weight: 900; font-size: 1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 15px rgba(99,102,241,0.3);">
+                            <span>📽️</span> Generar Diapositivas <span>➔</span>
+                        </button>
+                    </div>
+
+                    <!-- 5. Modo Proyector (Sin Computadores) -->
+                    <div style="background: white; border: 2px solid #A7F3D0; border-radius: 20px; padding: 24px; box-shadow: 0 8px 25px rgba(16,185,129,0.08); display: flex; flex-direction: column; justify-content: space-between; min-height: 270px; transition: transform 0.25s, box-shadow 0.25s;" onmouseover="this.style.transform='translateY(-6px)'; this.style.boxShadow='0 16px 35px rgba(16,185,129,0.2)';" onmouseout="this.style.transform='none'; this.style.boxShadow='0 8px 25px rgba(16,185,129,0.08)';">
+                        <div>
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                                <span style="background: #ECFDF5; color: #047857; font-size: 0.78rem; font-weight: 900; padding: 4px 12px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px;">Aula Activa</span>
+                                <span style="font-size: 2.2rem;">📽️</span>
+                            </div>
+                            <h3 style="margin: 0 0 8px 0; font-size: 1.35rem; font-weight: 900; color: #1E293B;">Modo Proyector (Sin PC)</h3>
+                            <p style="margin: 0; color: #475569; font-size: 0.92rem; line-height: 1.5;">
+                                Módulo interactivo diseñado para dictar clase con VideoBeam cuando los estudiantes no tienen computadores.
+                            </p>
+                        </div>
+                        <a href="proyector.html" target="_blank" style="margin-top: 18px; background: linear-gradient(135deg, #10B981, #059669); color: white; border: none; padding: 14px; border-radius: 12px; font-weight: 900; font-size: 1rem; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 15px rgba(16,185,129,0.3);">
+                            <span>📽️</span> Iniciar Modo Proyector <span>➔</span>
+                        </a>
+                    </div>
+
+                    <!-- 6. Proyectar QR Matrícula -->
+                    <div style="background: white; border: 2px solid #BAE6FD; border-radius: 20px; padding: 24px; box-shadow: 0 8px 25px rgba(2,132,199,0.08); display: none !important; flex-direction: column; justify-content: space-between; min-height: 270px; transition: transform 0.25s, box-shadow 0.25s;" onmouseover="this.style.transform='translateY(-6px)'; this.style.boxShadow='0 16px 35px rgba(2,132,199,0.2)';" onmouseout="this.style.transform='none'; this.style.boxShadow='0 8px 25px rgba(2,132,199,0.08)';">
+                        <div>
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                                <span style="background: #E0F2FE; color: #0369A1; font-size: 0.78rem; font-weight: 900; padding: 4px 12px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px;">Matrícula Fácil</span>
+                                <span style="font-size: 2.2rem;">📱</span>
+                            </div>
+                            <h3 style="margin: 0 0 8px 0; font-size: 1.35rem; font-weight: 900; color: #1E293B;">Proyectar QR Matrícula</h3>
+                            <p style="margin: 0; color: #475569; font-size: 0.92rem; line-height: 1.5;">
+                                Proyecta el código QR institucional gigante en el aula para que tus estudiantes se matriculen en segundos desde el celular.
+                            </p>
+                        </div>
+                        <button onclick="window.abrirProyectorQRMatricula()" style="margin-top: 18px; background: linear-gradient(135deg, #0284C7, #0369A1); color: white; border: none; padding: 14px; border-radius: 12px; font-weight: 900; font-size: 1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 15px rgba(2,132,199,0.3);">
+                            <span>📱</span> Abrir Proyector QR <span>➔</span>
+                        </button>
+                    </div>
+                </div>
             </div>
+        </div>
 
-            <!-- Grid de Grandes Cajones de Herramientas -->
-            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px;">
-                
-                <!-- 1. Crear Asignatura (IA) -->
-                <div style="background: white; border: 2px solid #DDD6FE; border-radius: 20px; padding: 24px; box-shadow: 0 8px 25px rgba(124,58,237,0.08); display: flex; flex-direction: column; justify-content: space-between; min-height: 270px; transition: transform 0.25s, box-shadow 0.25s;" onmouseover="this.style.transform='translateY(-6px)'; this.style.boxShadow='0 16px 35px rgba(124,58,237,0.2)';" onmouseout="this.style.transform='none'; this.style.boxShadow='0 8px 25px rgba(124,58,237,0.08)';">
-                    <div>
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-                            <span style="background: #F3E8FF; color: #6D28D9; font-size: 0.78rem; font-weight: 900; padding: 4px 12px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px;">Inteligencia Artificial</span>
-                            <span style="font-size: 2.2rem;">✨</span>
+        <!-- VISTA 2: MÓDULO DIRECTOR DE GRUPO (R1 - R5) -->
+        <div id="vista-docente-mi-grupo" style="display: none;">
+            <div id="docente-mi-grupo-contenido">
+                <!-- R2: Formulario Crear Mi Grupo -->
+                <div id="docente-seccion-crear-grupo" style="display: none; background: white; border-radius: 20px; padding: 30px; border: 2px solid #DBEAFE; box-shadow: 0 10px 25px rgba(37,99,235,0.08); margin-bottom: 30px;">
+                    <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 20px;">
+                        <div style="width: 50px; height: 50px; background: #EFF6FF; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; color: #2563EB;">✨</div>
+                        <div>
+                            <h3 style="margin: 0; font-size: 1.4rem; font-weight: 900; color: #1E293B;">Crear Mi Grupo Base (Director de Grupo)</h3>
+                            <p style="margin: 4px 0 0 0; color: #64748B; font-size: 0.95rem;">Selecciona el grado y grupo que tienes bajo tu dirección para matricular estudiantes y asignar docentes de apoyo.</p>
                         </div>
-                        <h3 style="margin: 0 0 8px 0; font-size: 1.35rem; font-weight: 900; color: #1E293B;">Crear Asignatura (IA)</h3>
-                        <p style="margin: 0; color: #475569; font-size: 0.92rem; line-height: 1.5;">
-                            Crea nuevas materias curriculares personalizadas y genera su Malla Curricular DBA automáticamente con IA a partir de tus documentos.
-                        </p>
                     </div>
-                    <button onclick="window.abrirModalCrearAsignaturaDocente('docente')" style="margin-top: 18px; background: linear-gradient(135deg, #7C3AED, #6D28D9); color: white; border: none; padding: 14px; border-radius: 12px; font-weight: 900; font-size: 1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 15px rgba(124,58,237,0.3);">
-                        <span>📚</span> Inscribir Nueva Materia <span>➔</span>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 24px;">
+                        <div>
+                            <label style="display: block; font-weight: 800; color: #1E3A8A; margin-bottom: 8px; font-size: 0.9rem;">Grado Escolar:</label>
+                            <select id="select-crear-grupo-grado" style="width: 100%; padding: 12px; border: 2px solid #CBD5E1; border-radius: 10px; font-weight: bold; font-size: 0.95rem; background: white;">
+                                <option value="">Selecciona el Grado...</option>
+                                <option value="Preescolar">Preescolar</option>
+                                <option value="1">1°</option>
+                                <option value="2">2°</option>
+                                <option value="3">3°</option>
+                                <option value="4">4°</option>
+                                <option value="5">5°</option>
+                                <option value="6">6°</option>
+                                <option value="7" selected>7°</option>
+                                <option value="8">8°</option>
+                                <option value="9">9°</option>
+                                <option value="10">10°</option>
+                                <option value="11">11°</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label style="display: block; font-weight: 800; color: #1E3A8A; margin-bottom: 8px; font-size: 0.9rem;">Grupo / Letra:</label>
+                            <select id="select-crear-grupo-letra" style="width: 100%; padding: 12px; border: 2px solid #CBD5E1; border-radius: 10px; font-weight: bold; font-size: 0.95rem; background: white;">
+                                <option value="">Selecciona el Grupo...</option>
+                                <option value="A">A</option><option value="B">B</option><option value="C" selected>C</option><option value="D">D</option><option value="E">E</option>
+                                <option value="F">F</option><option value="G">G</option><option value="H">H</option><option value="I">I</option><option value="J">J</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button id="btn-crear-grupo-director" onclick="window.crearGrupoDirector()" style="background: linear-gradient(135deg, #10B981, #059669); color: white; border: none; padding: 14px 28px; border-radius: 12px; font-weight: 900; font-size: 1rem; cursor: pointer; display: flex; align-items: center; gap: 8px; box-shadow: 0 4px 15px rgba(16,185,129,0.3);">
+                        <span>✅</span> Crear Grupo
                     </button>
                 </div>
 
-                <!-- 2. Mis Materias y Grados -->
-                <div style="background: white; border: 2px solid #BFDBFE; border-radius: 20px; padding: 24px; box-shadow: 0 8px 25px rgba(37,99,235,0.08); display: none !important; flex-direction: column; justify-content: space-between; min-height: 270px; transition: transform 0.25s, box-shadow 0.25s;" onmouseover="this.style.transform='translateY(-6px)'; this.style.boxShadow='0 16px 35px rgba(37,99,235,0.2)';" onmouseout="this.style.transform='none'; this.style.boxShadow='0 8px 25px rgba(37,99,235,0.08)';">
-                    <div>
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-                            <span style="background: #EFF6FF; color: #1E40AF; font-size: 0.78rem; font-weight: 900; padding: 4px 12px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px;">Configuración</span>
-                            <span style="font-size: 2.2rem;">⚙️</span>
+                <!-- R3 & R4: Panel de Gestión del Grupo Creado -->
+                <div id="docente-seccion-gestion-grupo" style="display: none; margin-bottom: 35px;">
+                    <!-- Tarjeta de Información del Grupo Creado -->
+                    <div style="background: linear-gradient(135deg, #1E40AF, #3B82F6); color: white; border-radius: 18px; padding: 25px 30px; box-shadow: 0 10px 25px rgba(37,99,235,0.2); margin-bottom: 25px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
+                        <div>
+                            <span style="background: rgba(255,255,255,0.2); color: white; padding: 4px 12px; border-radius: 20px; font-weight: 800; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.5px;">Mi Grupo Base</span>
+                            <h2 id="titulo-mi-grupo-director" style="margin: 8px 0 4px 0; font-size: 1.8rem; font-weight: 900;">Grado 7° C</h2>
+                            <p id="subhead-mi-grupo-director" style="margin: 0; color: #DBEAFE; font-size: 0.95rem;">Director(a): Docente • IE Instituto Montenegro</p>
                         </div>
-                        <h3 style="margin: 0 0 8px 0; font-size: 1.35rem; font-weight: 900; color: #1E293B;">Mis Materias y Grados</h3>
-                        <p style="margin: 0; color: #475569; font-size: 0.92rem; line-height: 1.5;">
-                            Selecciona las asignaturas que orientas y qué grados o ciclos tienes a tu cargo para filtrar y organizar automáticamente tus aulas.
-                        </p>
+                        <button onclick="window.reconfigurarGrupoDirector()" style="background: rgba(255,255,255,0.15); border: 1.5px solid rgba(255,255,255,0.4); color: white; padding: 10px 18px; border-radius: 10px; font-weight: bold; cursor: pointer; font-size: 0.9rem;">
+                            ⚙️ Cambiar Grupo
+                        </button>
                     </div>
-                    <button onclick="window.abrirModalGestionMateriasGradosDocente()" style="margin-top: 18px; background: linear-gradient(135deg, #2563EB, #1D4ED8); color: white; border: none; padding: 14px; border-radius: 12px; font-weight: 900; font-size: 1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 15px rgba(37,99,235,0.3);">
-                        <span>⚙️</span> Configurar Mis Asignaturas <span>➔</span>
-                    </button>
+
+                    <!-- R4: Generador de Link de Matrícula para Estudiantes -->
+                    <div style="background: white; border-radius: 18px; padding: 25px 30px; border: 2px solid #A7F3D0; box-shadow: 0 8px 20px rgba(16,185,129,0.08); margin-bottom: 25px;">
+                        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 15px;">
+                            <span style="font-size: 1.8rem;">🔗</span>
+                            <div>
+                                <h3 style="margin: 0; font-size: 1.25rem; font-weight: 900; color: #065F46;">Link de Matrícula para Estudiantes</h3>
+                                <p style="margin: 2px 0 0 0; color: #047857; font-size: 0.9rem;">Comparte este enlace con tus estudiantes para que se matriculen directamente en tu grupo sin códigos.</p>
+                            </div>
+                        </div>
+                        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                            <input type="text" id="input-link-matricula-estudiantes" readonly style="flex: 1; min-width: 280px; padding: 12px 16px; border: 2px solid #10B981; border-radius: 10px; font-family: monospace; font-size: 0.9rem; background: #F0FDF4; color: #065F46; font-weight: 700;">
+                            <button id="btn-copiar-link-estudiantes" onclick="window.copiarLinkMatriculaEstudiantes()" style="background: #10B981; color: white; border: none; padding: 12px 20px; border-radius: 10px; font-weight: 800; cursor: pointer; display: flex; align-items: center; gap: 6px; box-shadow: 0 4px 10px rgba(16,185,129,0.3);">
+                                📋 Copiar Link
+                            </button>
+                            <button id="btn-whatsapp-link-estudiantes" onclick="window.compartirLinkMatriculaWhatsApp()" style="background: #25D366; color: white; border: none; padding: 12px 20px; border-radius: 10px; font-weight: 800; cursor: pointer; display: flex; align-items: center; gap: 6px; box-shadow: 0 4px 10px rgba(37,211,102,0.3);">
+                                📲 WhatsApp
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- R3: Gestión de Docentes del Grupo -->
+                    <div style="background: white; border-radius: 18px; padding: 25px 30px; border: 2px solid #E2E8F0; box-shadow: 0 8px 20px rgba(0,0,0,0.04); margin-bottom: 25px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 12px;">
+                            <div>
+                                <h3 style="margin: 0; font-size: 1.3rem; font-weight: 900; color: #1E293B;">👨‍🏫 Docentes de Apoyo para este Grupo</h3>
+                                <p style="margin: 4px 0 0 0; color: #64748B; font-size: 0.92rem;">Agrega a los docentes de la institución que dictarán clases en este grupo.</p>
+                            </div>
+                            <span id="badge-contador-docentes-grupo" style="background: #EFF6FF; color: #1D4ED8; padding: 6px 16px; border-radius: 20px; font-weight: 800; font-size: 0.9rem; border: 1px solid #BFDBFE;">
+                                Docentes asignados: 0
+                            </span>
+                        </div>
+                        
+                        <div id="contenedor-lista-docentes-grupo" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px;">
+                            <!-- Renderizado dinámico vía JS -->
+                        </div>
+                    </div>
                 </div>
 
-                <!-- 3. Caja de Herramientas STEAM (42) -->
-                <div style="background: white; border: 2px solid #FBCFE8; border-radius: 20px; padding: 24px; box-shadow: 0 8px 25px rgba(236,72,153,0.08); display: flex; flex-direction: column; justify-content: space-between; min-height: 270px; transition: transform 0.25s, box-shadow 0.25s;" onmouseover="this.style.transform='translateY(-6px)'; this.style.boxShadow='0 16px 35px rgba(236,72,153,0.2)';" onmouseout="this.style.transform='none'; this.style.boxShadow='0 8px 25px rgba(236,72,153,0.08)';">
-                    <div>
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-                            <span style="background: #FDF2F8; color: #BE185D; font-size: 0.78rem; font-weight: 900; padding: 4px 12px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px;">Kit Completo</span>
-                            <span style="font-size: 2.2rem;">🧰</span>
-                        </div>
-                        <h3 style="margin: 0 0 8px 0; font-size: 1.35rem; font-weight: 900; color: #1E293B;">Caja STEAM (42 Apps)</h3>
-                        <p style="margin: 0; color: #475569; font-size: 0.92rem; line-height: 1.5;">
-                            Kit completo con 42 simuladores interactivos, generadores de rúbricas formativas, laboratorios virtuales y retos de aula.
-                        </p>
+                <!-- R5: Sección Mis Otros Grupos -->
+                <div id="docente-seccion-mis-otros-grupos" style="background: white; border-radius: 18px; padding: 25px 30px; border: 2px solid #E2E8F0; box-shadow: 0 8px 20px rgba(0,0,0,0.04);">
+                    <div style="margin-bottom: 20px;">
+                        <h3 style="margin: 0; font-size: 1.3rem; font-weight: 900; color: #1E293B; display: flex; align-items: center; gap: 8px;">
+                            <span>📚</span> Mis Otros Grupos
+                        </h3>
+                        <p style="margin: 4px 0 0 0; color: #64748B; font-size: 0.92rem;">Grupos de la institución donde has sido asignado como docente por otros directores.</p>
                     </div>
-                    <button onclick="window.abrirCajaHerramientas('todas', 'docente')" style="margin-top: 18px; background: linear-gradient(135deg, #EC4899, #BE185D); color: white; border: none; padding: 14px; border-radius: 12px; font-weight: 900; font-size: 1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 15px rgba(236,72,153,0.3);">
-                        <span>🧰</span> Abrir Caja STEAM <span>➔</span>
-                    </button>
-                </div>
-
-                <!-- 4. 10 Diapositivas Semanales -->
-                <div style="background: white; border: 2px solid #C7D2FE; border-radius: 20px; padding: 24px; box-shadow: 0 8px 25px rgba(99,102,241,0.08); display: flex; flex-direction: column; justify-content: space-between; min-height: 270px; transition: transform 0.25s, box-shadow 0.25s;" onmouseover="this.style.transform='translateY(-6px)'; this.style.boxShadow='0 16px 35px rgba(99,102,241,0.2)';" onmouseout="this.style.transform='none'; this.style.boxShadow='0 8px 25px rgba(99,102,241,0.08)';">
-                    <div>
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-                            <span style="background: #EEF2FF; color: #4338CA; font-size: 0.78rem; font-weight: 900; padding: 4px 12px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px;">Presentaciones</span>
-                            <span style="font-size: 2.2rem;">📽️</span>
-                        </div>
-                        <h3 style="margin: 0 0 8px 0; font-size: 1.35rem; font-weight: 900; color: #1E293B;">10 Diapositivas Semanales</h3>
-                        <p style="margin: 0; color: #475569; font-size: 0.92rem; line-height: 1.5;">
-                            Genera y personaliza las 10 diapositivas para introducir el tema curricular de la semana con explicaciones visuales.
-                        </p>
+                    <div id="grid-mis-otros-grupos" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px;">
+                        <!-- Renderizado dinámico o mensaje de lista vacía -->
                     </div>
-                    <button onclick="window.abrirConfiguradorDiapositivas('docente')" style="margin-top: 18px; background: linear-gradient(135deg, #6366F1, #4F46E5); color: white; border: none; padding: 14px; border-radius: 12px; font-weight: 900; font-size: 1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 15px rgba(99,102,241,0.3);">
-                        <span>📽️</span> Generar Diapositivas <span>➔</span>
-                    </button>
-                </div>
-
-                <!-- 5. Modo Proyector (Sin Computadores) -->
-                <div style="background: white; border: 2px solid #A7F3D0; border-radius: 20px; padding: 24px; box-shadow: 0 8px 25px rgba(16,185,129,0.08); display: flex; flex-direction: column; justify-content: space-between; min-height: 270px; transition: transform 0.25s, box-shadow 0.25s;" onmouseover="this.style.transform='translateY(-6px)'; this.style.boxShadow='0 16px 35px rgba(16,185,129,0.2)';" onmouseout="this.style.transform='none'; this.style.boxShadow='0 8px 25px rgba(16,185,129,0.08)';">
-                    <div>
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-                            <span style="background: #ECFDF5; color: #047857; font-size: 0.78rem; font-weight: 900; padding: 4px 12px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px;">Aula Activa</span>
-                            <span style="font-size: 2.2rem;">📽️</span>
-                        </div>
-                        <h3 style="margin: 0 0 8px 0; font-size: 1.35rem; font-weight: 900; color: #1E293B;">Modo Proyector (Sin PC)</h3>
-                        <p style="margin: 0; color: #475569; font-size: 0.92rem; line-height: 1.5;">
-                            Módulo interactivo diseñado para dictar clase con VideoBeam cuando los estudiantes no tienen computadores.
-                        </p>
-                    </div>
-                    <a href="proyector.html" target="_blank" style="margin-top: 18px; background: linear-gradient(135deg, #10B981, #059669); color: white; border: none; padding: 14px; border-radius: 12px; font-weight: 900; font-size: 1rem; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 15px rgba(16,185,129,0.3);">
-                        <span>📽️</span> Iniciar Modo Proyector <span>➔</span>
-                    </a>
-                </div>
-
-                <!-- 6. Proyectar QR Matrícula -->
-                <div style="background: white; border: 2px solid #BAE6FD; border-radius: 20px; padding: 24px; box-shadow: 0 8px 25px rgba(2,132,199,0.08); display: none !important; flex-direction: column; justify-content: space-between; min-height: 270px; transition: transform 0.25s, box-shadow 0.25s;" onmouseover="this.style.transform='translateY(-6px)'; this.style.boxShadow='0 16px 35px rgba(2,132,199,0.2)';" onmouseout="this.style.transform='none'; this.style.boxShadow='0 8px 25px rgba(2,132,199,0.08)';">
-                    <div>
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-                            <span style="background: #E0F2FE; color: #0369A1; font-size: 0.78rem; font-weight: 900; padding: 4px 12px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px;">Matrícula Fácil</span>
-                            <span style="font-size: 2.2rem;">📱</span>
-                        </div>
-                        <h3 style="margin: 0 0 8px 0; font-size: 1.35rem; font-weight: 900; color: #1E293B;">Proyectar QR Matrícula</h3>
-                                         <p style="margin: 0; color: #475569; font-size: 0.92rem; line-height: 1.5;">
-                            Proyecta el código QR institucional gigante en el aula para que tus estudiantes se matriculen en segundos desde el celular.
-                        </p>
-                    </div>
-                    <button onclick="window.abrirProyectorQRMatricula()" style="margin-top: 18px; background: linear-gradient(135deg, #0284C7, #0369A1); color: white; border: none; padding: 14px; border-radius: 12px; font-weight: 900; font-size: 1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 15px rgba(2,132,199,0.3);">
-                        <span>📱</span> Abrir Proyector QR <span>➔</span>
-                    </button>
                 </div>
             </div>
         </div>
@@ -1928,7 +2053,6 @@
 
         </div> <!-- fin student-dashboard-container -->
 
-    </div>
 
     <!-- Modal de Informe Detallado -->
     <div id="modal-informe-estudiante" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); align-items: center; justify-content: center; z-index: 1000;; overflow-y: auto; -webkit-overflow-scrolling: touch;">
