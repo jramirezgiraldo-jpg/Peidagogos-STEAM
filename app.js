@@ -1148,7 +1148,11 @@ window.ejecutarLogin = async function(e) {
                 else if (docenteDashboardView) docenteDashboardView.style.display = "block";
                 const dHeader = document.getElementById("docente-nombre-header");
                 if (dHeader) dHeader.innerText = data.nombre;
+                if (data.usuarioObj && (data.usuarioObj.rolDocente === 'director' || data.usuarioObj.tipo === 'director' || data.usuarioObj.rol === 'director' || data.usuarioObj.es_director === true)) {
+                    window.rolDocente = 'director';
+                }
                 if (typeof cargarEstudiantesDocente === 'function') cargarEstudiantesDocente(data.usuario);
+                if (typeof window.inicializarModuloDirectorGrupo === 'function') window.inicializarModuloDirectorGrupo();
             } else if (data.rol === 'homeschool_tutor') {
                 if (typeof mostrarVista === 'function') mostrarVista('tutor-dashboard-container');
                 const tutorView = document.getElementById("tutor-dashboard-container");
@@ -9232,43 +9236,85 @@ window.renderizarMallaTutorHomeSchool = function() {
 window.materiaDocenteMallaActual = 'Naturales';
 
 window.cambiarTabDocente = function(tab) {
+    const btnHerramientas = document.getElementById('btn-tab-docente-herramientas');
+    const btnMiGrupo = document.getElementById('btn-tab-docente-mi-grupo');
+    const vistaHerramientas = document.getElementById('vista-docente-herramientas');
+    const vistaMiGrupo = document.getElementById('vista-docente-mi-grupo');
+
     const btnEstudiantes = document.getElementById('btn-tab-docente-estudiantes');
     const btnMallas = document.getElementById('btn-tab-docente-mallas');
     const vistaEstudiantes = document.getElementById('vista-docente-estudiantes');
     const vistaMallas = document.getElementById('vista-docente-mallas');
 
-    if (tab === 'estudiantes') {
-        if (btnEstudiantes) {
-            btnEstudiantes.style.background = '#2563EB';
-            btnEstudiantes.style.color = 'white';
-            btnEstudiantes.style.border = 'none';
-            btnEstudiantes.style.boxShadow = '0 4px 10px rgba(37,99,235,0.25)';
+    if (tab === 'mi-grupo') {
+        if (btnHerramientas) {
+            btnHerramientas.style.background = 'white';
+            btnHerramientas.style.color = '#475569';
+            btnHerramientas.style.border = '1.5px solid #CBD5E1';
+            btnHerramientas.style.boxShadow = 'none';
         }
-        if (btnMallas) {
-            btnMallas.style.background = 'white';
-            btnMallas.style.color = '#475569';
-            btnMallas.style.border = '1.5px solid #CBD5E1';
-            btnMallas.style.boxShadow = 'none';
+        if (btnMiGrupo) {
+            btnMiGrupo.style.background = '#2563EB';
+            btnMiGrupo.style.color = 'white';
+            btnMiGrupo.style.border = 'none';
+            btnMiGrupo.style.boxShadow = '0 4px 10px rgba(37,99,235,0.25)';
         }
-        if (vistaEstudiantes) vistaEstudiantes.style.display = 'grid';
-        if (vistaMallas) vistaMallas.style.display = 'none';
-    } else {
-        if (btnEstudiantes) {
-            btnEstudiantes.style.background = 'white';
-            btnEstudiantes.style.color = '#475569';
-            btnEstudiantes.style.border = '1.5px solid #CBD5E1';
-            btnEstudiantes.style.boxShadow = 'none';
-        }
-        if (btnMallas) {
-            btnMallas.style.background = '#2563EB';
-            btnMallas.style.color = 'white';
-            btnMallas.style.border = 'none';
-            btnMallas.style.boxShadow = '0 4px 10px rgba(37,99,235,0.25)';
-        }
-        if (vistaEstudiantes) vistaEstudiantes.style.display = 'none';
-        if (vistaMallas) vistaMallas.style.display = 'block';
+        if (vistaHerramientas) vistaHerramientas.style.display = 'none';
+        if (vistaMiGrupo) vistaMiGrupo.style.display = 'block';
 
-        window.renderizarMallaDocenteColegio();
+        if (typeof window.inicializarModuloDirectorGrupo === 'function') {
+            window.inicializarModuloDirectorGrupo();
+        }
+    } else if (tab === 'estudiantes' || tab === 'mallas') {
+        if (tab === 'estudiantes') {
+            if (btnEstudiantes) {
+                btnEstudiantes.style.background = '#2563EB';
+                btnEstudiantes.style.color = 'white';
+                btnEstudiantes.style.border = 'none';
+                btnEstudiantes.style.boxShadow = '0 4px 10px rgba(37,99,235,0.25)';
+            }
+            if (btnMallas) {
+                btnMallas.style.background = 'white';
+                btnMallas.style.color = '#475569';
+                btnMallas.style.border = '1.5px solid #CBD5E1';
+                btnMallas.style.boxShadow = 'none';
+            }
+            if (vistaEstudiantes) vistaEstudiantes.style.display = 'grid';
+            if (vistaMallas) vistaMallas.style.display = 'none';
+        } else {
+            if (btnEstudiantes) {
+                btnEstudiantes.style.background = 'white';
+                btnEstudiantes.style.color = '#475569';
+                btnEstudiantes.style.border = '1.5px solid #CBD5E1';
+                btnEstudiantes.style.boxShadow = 'none';
+            }
+            if (btnMallas) {
+                btnMallas.style.background = '#2563EB';
+                btnMallas.style.color = 'white';
+                btnMallas.style.border = 'none';
+                btnMallas.style.boxShadow = '0 4px 10px rgba(37,99,235,0.25)';
+            }
+            if (vistaEstudiantes) vistaEstudiantes.style.display = 'none';
+            if (vistaMallas) vistaMallas.style.display = 'block';
+            if (typeof window.renderizarMallaDocenteColegio === 'function') {
+                window.renderizarMallaDocenteColegio();
+            }
+        }
+    } else { // 'herramientas' or default
+        if (btnHerramientas) {
+            btnHerramientas.style.background = '#2563EB';
+            btnHerramientas.style.color = 'white';
+            btnHerramientas.style.border = 'none';
+            btnHerramientas.style.boxShadow = '0 4px 10px rgba(37,99,235,0.25)';
+        }
+        if (btnMiGrupo) {
+            btnMiGrupo.style.background = 'white';
+            btnMiGrupo.style.color = '#475569';
+            btnMiGrupo.style.border = '1.5px solid #CBD5E1';
+            btnMiGrupo.style.boxShadow = 'none';
+        }
+        if (vistaHerramientas) vistaHerramientas.style.display = 'block';
+        if (vistaMiGrupo) vistaMiGrupo.style.display = 'none';
     }
 };
 
@@ -15715,6 +15761,9 @@ window.cargarEstudiantesDocente = async function(docenteId) {
                 gridCont.innerHTML = htmlCajones;
             }
         }
+        if (typeof window.inicializarModuloDirectorGrupo === 'function') {
+            window.inicializarModuloDirectorGrupo();
+        }
     } catch(err) {
         console.error("Error al cargar estudiantes del docente:", err);
     }
@@ -16330,8 +16379,8 @@ window.verificarParametrosMatriculaDirecta = function() {
     const regParam = params.get('reg');
     const docIdInj = params.get('docente');
     
-    // Inject CSS to forcefully hide complex fields if coming from a registration link
-    if (regParam || docIdInj) {
+    // Inject CSS to forcefully hide complex fields if coming from a teacher registration link
+    if (regParam === 'docente' || docIdInj) {
         const rolParamToHide = params.get('rol');
         const style = document.createElement('style');
         style.innerHTML = `
@@ -16379,8 +16428,6 @@ window.verificarParametrosMatriculaDirecta = function() {
             const regDocenteIe = document.getElementById('reg-docente-ie-select');
             const ieParam = params.get('ie');
             if (regDocenteIe && ieParam) {
-                // If it's a select and the value doesn't exist, we can't easily set it. 
-                // But in this logic, we will force the value to be stored elsewhere or we inject an option.
                 const option = document.createElement('option');
                 option.value = ieParam;
                 option.text = ieParam;
@@ -16397,7 +16444,7 @@ window.verificarParametrosMatriculaDirecta = function() {
     const grupoParam = params.get('grupo');
     const gradoParam = params.get('grado');
     const materiaParam = params.get('materia');
-
+    const directorParam = params.get('director');
     
     const isDocenteReg = params.get('reg') === 'docente';
     const tokenParam = params.get('token');
@@ -16408,10 +16455,64 @@ window.verificarParametrosMatriculaDirecta = function() {
         const tokenValido = invList.some(inv => inv.token === tokenParam);
         if (!tokenValido) {
             alert('❌ Este enlace de invitación ha sido eliminado o ya no es válido.');
-            // redirigir o limpiar
             window.location.href = window.location.pathname;
             return;
         }
+    }
+
+    // R4: Procesamiento de enlace de matrícula para estudiantes desde Director de Grupo
+    const isEstudianteReg = (regParam === 'estudiante') || !!directorParam;
+    if (isEstudianteReg) {
+        console.log("🎓 [MATRÍCULA DIRECTOR] Enlace de estudiante detectado:", { grupoParam, directorParam, ieParam });
+
+        setTimeout(() => {
+            if (typeof mostrarVista === 'function') {
+                mostrarVista('register-screen-container');
+            }
+
+            const selRol = document.getElementById('reg-rol');
+            if (selRol) {
+                selRol.value = 'estudiante_regular';
+                if (typeof toggleCamposRegistroPorRol === 'function') toggleCamposRegistroPorRol();
+            }
+
+            const selIE = document.getElementById('reg-ie');
+            if (selIE) {
+                selIE.value = 'InstitutoMontenegro';
+                if (typeof toggleIEOptions === 'function') toggleIEOptions();
+            }
+
+            const grupoVal = grupoParam ? decodeURIComponent(grupoParam) : '';
+            if (grupoVal) {
+                const match = grupoVal.match(/^([0-9]+|Preescolar|Ciclo\s+[IVX]+)(.*)$/i);
+                const gradoParsed = match ? match[1] : (gradoParam ? decodeURIComponent(gradoParam) : grupoVal);
+
+                const selGrado = document.getElementById('reg-grado');
+                if (selGrado) {
+                    selGrado.value = gradoParsed;
+                }
+
+                const selGrupo = document.getElementById('registro-grupo');
+                if (selGrupo) {
+                    let exists = Array.from(selGrupo.options).some(o => o.value.toLowerCase() === grupoVal.toLowerCase());
+                    if (!exists) {
+                        const opt = document.createElement('option');
+                        opt.value = grupoVal;
+                        opt.text = grupoVal;
+                        selGrupo.appendChild(opt);
+                    }
+                    selGrupo.value = grupoVal;
+                }
+            }
+
+            if (directorParam) {
+                window.directorMatriculaActual = directorParam;
+            }
+
+            if (typeof actualizarMaterias === 'function') {
+                actualizarMaterias();
+            }
+        }, 250);
     }
 
     if (regDirecto === 'directo' || docId) {
@@ -16702,8 +16803,16 @@ window.procesarTokenDocenteDesdeUrl = function() {
         const dSub = document.getElementById('docente-institucion-subhead');
         if (dSub) dSub.innerText = `🏛️ ${ieFinal}`;
 
+        const rolParam = params.get('rol');
+        if (rolParam) {
+            window.rolDocente = rolParam.toLowerCase().trim();
+        }
+
         if (typeof window.cargarEstudiantesDocente === 'function') {
             window.cargarEstudiantesDocente(docFinal);
+        }
+        if (typeof window.inicializarModuloDirectorGrupo === 'function') {
+            window.inicializarModuloDirectorGrupo();
         }
 
         alert(`✅ ¡Bienvenido(a) Profesor(a) ${nomFinal}!\n\nHas ingresado de forma segura mediante tu Enlace Intransferible (${token}) a la plataforma Peidagogos STEAM.\n\nTu Panel Docente para la ${ieFinal} está listo.`);
@@ -17580,3 +17689,383 @@ window.abrirModalAuxiliosIA = function() {
     alert("Iniciando generación IA de Actividades Interactivas Post-Terremoto... (Simulado)");
     document.getElementById('modal-auxilios').style.display = 'none';
 };
+
+
+// =========================================================
+// MÓDULO DIRECTOR DE GRUPO (R1 - R5)
+// =========================================================
+
+// Helper: Resolver Docente y Rol Actual
+window.obtenerDatosDocenteSesion = function() {
+    let authSes = {};
+    try {
+        authSes = JSON.parse(sessionStorage.getItem('peidagogos_auth') || localStorage.getItem('usuario_sesion') || localStorage.getItem('usuario_actual') || '{}');
+    } catch(e) {}
+
+    const doc = String(window.usuario_actual || authSes.documento || authSes.usuario || (authSes.usuarioObj && (authSes.usuarioObj.documento || authSes.usuarioObj.usuario)) || 'docente_123').trim();
+    let nom = (authSes.nombre || (authSes.usuarioObj && authSes.usuarioObj.nombre) || 'Docente').trim();
+    const dHeader = document.getElementById('docente-nombre-header');
+    if (dHeader && dHeader.innerText && dHeader.innerText !== 'Docente') {
+        nom = dHeader.innerText.trim();
+    }
+    const ie = (authSes.institucion || (authSes.usuarioObj && authSes.usuarioObj.institucion) || 'IE Instituto Montenegro').trim();
+    
+    // Resolver rol de director
+    let rolDoc = window.rolDocente;
+    if (!rolDoc) {
+        const params = new URLSearchParams(window.location.search);
+        if (params.get('rol')) rolDoc = params.get('rol').toLowerCase().trim();
+    }
+    if (!rolDoc) {
+        if (authSes.rolDocente) rolDoc = authSes.rolDocente;
+        else if (authSes.tipo === 'director' || authSes.rol === 'director' || (authSes.usuarioObj && (authSes.usuarioObj.rolDocente === 'director' || authSes.usuarioObj.tipo === 'director' || authSes.usuarioObj.rol === 'director' || authSes.usuarioObj.es_director === true))) {
+            rolDoc = 'director';
+        } else {
+            try {
+                const dList = JSON.parse(localStorage.getItem('docentes_db') || '[]');
+                const normDoc = doc.toLowerCase().replace(/[\.\,\-\_\s]/g, '');
+                const match = dList.find(d => String(d.documento || d.cedula || d.usuario || '').toLowerCase().replace(/[\.\,\-\_\s]/g, '') === normDoc);
+                if (match && (match.rol === 'director' || match.tipo === 'director' || match.rolDocente === 'director' || match.es_director === true)) {
+                    rolDoc = 'director';
+                }
+            } catch(e) {}
+        }
+    }
+    if (!rolDoc) rolDoc = 'regular';
+    window.rolDocente = rolDoc;
+
+    return { doc, nom, ie, rolDoc };
+};
+
+// R1: Inicializar Módulo Director de Grupo en el Dashboard Docente
+window.inicializarModuloDirectorGrupo = function() {
+    const { doc, nom, ie, rolDoc } = window.obtenerDatosDocenteSesion();
+    const btnTabMiGrupo = document.getElementById('btn-tab-docente-mi-grupo');
+    const secMiGrupo = document.getElementById('vista-docente-mi-grupo');
+    const secOtrosGrupos = document.getElementById('docente-seccion-mis-otros-grupos');
+
+    // R1: Visibilidad estricta de la pestaña por rol (display: flex para director, display: none para regular)
+    if (btnTabMiGrupo) {
+        if (rolDoc === 'director') {
+            btnTabMiGrupo.style.display = 'flex';
+        } else {
+            btnTabMiGrupo.style.display = 'none';
+        }
+    }
+
+    // Renderizar contenidos de Mi Grupo si es director o si la sección está presente
+    if (secMiGrupo) {
+        window.renderizarPanelMiGrupoDirector(doc, nom);
+    }
+
+    // R5: Mis Otros Grupos (Visible en la sección de grupos)
+    if (secOtrosGrupos) {
+        window.renderizarMisOtrosGruposDocente(doc);
+    }
+};
+
+// R2 & R3 & R4: Renderizar Panel Mi Grupo
+window.renderizarPanelMiGrupoDirector = function(doc, nom) {
+    if (!doc) {
+        const ses = window.obtenerDatosDocenteSesion();
+        doc = ses.doc;
+        nom = ses.nom;
+    }
+
+    const secCrear = document.getElementById('docente-seccion-crear-grupo');
+    const secGestion = document.getElementById('docente-seccion-gestion-grupo');
+    if (!secCrear || !secGestion) return;
+
+    const grupoGuardado = localStorage.getItem('grupo_director_' + doc);
+    let grupoData = null;
+    try { grupoData = JSON.parse(grupoGuardado); } catch(e) {}
+
+    if (!grupoData) {
+        // R2: Mostrar Formulario Crear Mi Grupo
+        secCrear.style.display = 'block';
+        secGestion.style.display = 'none';
+    } else {
+        // R3 & R4: Mostrar Panel de Gestión del Grupo Activo
+        secCrear.style.display = 'none';
+        secGestion.style.display = 'block';
+
+        const gradoVal = grupoData.grado || '7';
+        const grupoVal = grupoData.grupo || 'C';
+        const grupoCodigo = `${gradoVal}${grupoVal}`;
+        const urlMatricula = `https://peidagogosteam.com/login.html?reg=estudiante&grupo=${encodeURIComponent(grupoCodigo)}&inst=montenegro&director=${encodeURIComponent(doc)}`;
+
+        const tituloElem = document.getElementById('titulo-mi-grupo-director');
+        if (tituloElem) {
+            tituloElem.innerText = `Grado ${gradoVal}° - Grupo ${grupoVal} (${grupoCodigo})`;
+        }
+
+        const subheadElem = document.getElementById('subhead-mi-grupo-director');
+        if (subheadElem) {
+            subheadElem.innerText = `Director(a): ${grupoData.directorNombre || nom} • IE Instituto Montenegro`;
+        }
+
+        const inputLink = document.getElementById('input-link-matricula-estudiantes');
+        if (inputLink) {
+            inputLink.value = urlMatricula;
+        }
+
+        window.cargarDirectorioDocentesGrupoDirector(doc, grupoData);
+    }
+
+    // Actualizar sección Mis Otros Grupos
+    window.renderizarMisOtrosGruposDocente(doc);
+};
+
+// R2: Ejecutar Creación de Grupo
+window.crearGrupoDirector = async function(doc, nom) {
+    if (!doc) {
+        const ses = window.obtenerDatosDocenteSesion();
+        doc = ses.doc;
+        nom = ses.nom;
+    }
+
+    const selGra = document.getElementById('select-crear-grupo-grado') || document.getElementById('director-select-grado');
+    const selGrp = document.getElementById('select-crear-grupo-letra') || document.getElementById('director-select-grupo');
+    const grado = selGra && selGra.value ? selGra.value : '7';
+    const grupo = selGrp && selGrp.value ? selGrp.value : 'C';
+
+    const grupoData = {
+        grado: grado,
+        grupo: grupo,
+        docentes: [],
+        creadoEn: Date.now(),
+        directorDoc: doc,
+        directorNombre: nom
+    };
+
+    localStorage.setItem('grupo_director_' + doc, JSON.stringify(grupoData));
+
+    // Fallback POST a backend
+    try {
+        await fetch('/api/guardar-grupo-director', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                documento: doc,
+                documento_director: doc,
+                grado: grado,
+                grupo: grupo,
+                docentes: [],
+                creadoEn: grupoData.creadoEn,
+                directorNombre: nom,
+                grupo: grupoData
+            })
+        });
+    } catch(e) {}
+
+    window.renderizarPanelMiGrupoDirector(doc, nom);
+};
+
+window.crearGrupoDirectorEjecutar = window.crearGrupoDirector;
+
+// Reconfigurar / Cambiar Grupo
+window.reconfigurarGrupoDirector = function(doc, nom) {
+    if (!doc) {
+        const ses = window.obtenerDatosDocenteSesion();
+        doc = ses.doc;
+        nom = ses.nom;
+    }
+    if (confirm('¿Deseas reiniciar la configuración de tu grupo para crear uno nuevo?')) {
+        localStorage.removeItem('grupo_director_' + doc);
+        window.renderizarPanelMiGrupoDirector(doc, nom);
+    }
+};
+
+// R4: Copiar Enlace de Matrícula
+window.copiarLinkMatriculaEstudiantes = function() {
+    const inputLink = document.getElementById('input-link-matricula-estudiantes');
+    if (!inputLink || !inputLink.value) return;
+
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(inputLink.value).then(() => {
+            alert('✅ ¡Enlace de matrícula copiado al portapapeles!\n\nComparte este link con tus estudiantes para que se matriculen en tu grupo sin códigos de verificación.');
+        }).catch(() => {
+            inputLink.select();
+            document.execCommand('copy');
+            alert('✅ ¡Enlace copiado al portapapeles!');
+        });
+    } else {
+        inputLink.select();
+        document.execCommand('copy');
+        alert('✅ ¡Enlace copiado al portapapeles!');
+    }
+};
+
+// R4: Compartir en WhatsApp
+window.compartirLinkMatriculaWhatsApp = function() {
+    const inputLink = document.getElementById('input-link-matricula-estudiantes');
+    if (!inputLink || !inputLink.value) return;
+
+    const { nom } = window.obtenerDatosDocenteSesion();
+    const tituloElem = document.getElementById('titulo-mi-grupo-director');
+    const grupoNom = tituloElem ? tituloElem.innerText : 'tu grupo';
+    const msg = `¡Hola estudiantes! 👋\n\nSoy el(la) Profesor(a) ${nom}. Les comparto el enlace oficial para matricularse en Peidagogos STEAM para ${grupoNom}:\n\n👉 ${inputLink.value}\n\n(Acceso directo sin códigos de verificación)`;
+    
+    window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(msg)}`, '_blank');
+};
+
+// R3: Cargar y Renderizar Directorio de Docentes de Montenegro
+window.cargarDirectorioDocentesGrupoDirector = async function(docDirector, grupoData) {
+    const listCont = document.getElementById('contenedor-lista-docentes-grupo');
+    const contadorBadge = document.getElementById('badge-contador-docentes-grupo');
+    if (!listCont) return;
+
+    let docentes = [];
+    try {
+        const res = await fetch('/api/docentes');
+        if (res.ok) docentes = await res.json();
+    } catch(e) {}
+
+    const localDocentes = JSON.parse(localStorage.getItem('docentes_db') || '[]');
+    localDocentes.forEach(ld => {
+        const normDoc = String(ld.documento || ld.cedula || ld.usuario || '').trim().toLowerCase().replace(/[\.\,\-\_\s]/g, '');
+        if (normDoc && !docentes.some(d => String(d.documento || d.cedula || d.usuario || '').trim().toLowerCase().replace(/[\.\,\-\_\s]/g, '') === normDoc)) {
+            docentes.push(ld);
+        }
+    });
+
+    // Filtrar Montenegro (case-insensitive)
+    const docentesMontenegro = docentes.filter(d => {
+        const inst = String(d.institucion || '').toLowerCase();
+        return inst.includes('montenegro') || inst.includes('instituto') || !inst;
+    });
+
+    if (contadorBadge) {
+        contadorBadge.innerText = `Docentes asignados: ${(grupoData.docentes || []).length}`;
+    }
+
+    if (docentesMontenegro.length === 0) {
+        listCont.innerHTML = '<div style="color: #64748B; font-size: 0.9rem; padding: 15px; grid-column: 1 / -1;">No se encontraron docentes en la sede.</div>';
+        return;
+    }
+
+    const docentesAgregados = grupoData.docentes || [];
+
+    listCont.innerHTML = docentesMontenegro.map(d => {
+        const dDoc = String(d.documento || d.cedula || d.usuario || '').trim();
+        const dNom = d.nombre_completo || `${d.nombre || ''} ${d.apellidos || ''}`.trim() || 'Docente';
+        const esDirector = (d.rol === 'director' || d.tipo === 'director' || d.rolDocente === 'director' || d.es_director === true);
+        const rolBadge = esDirector 
+            ? '<span style="background: #F3E8FF; color: #7C3AED; font-size: 0.75rem; font-weight: 800; padding: 3px 10px; border-radius: 12px;">Director</span>'
+            : '<span style="background: #F1F5F9; color: #475569; font-size: 0.75rem; font-weight: 800; padding: 3px 10px; border-radius: 12px;">Docente Regular</span>';
+        
+        const isAgregado = docentesAgregados.includes(dDoc);
+        const btnStyle = isAgregado
+            ? 'background: #10B981; color: white; border: none; box-shadow: 0 2px 8px rgba(16,185,129,0.3);'
+            : 'background: white; color: #2563EB; border: 1.5px solid #3B82F6;';
+        const btnText = isAgregado ? '✓ Agregado' : '+ Agregar';
+
+        return `
+            <div style="background: #F8FAFC; border: 1.5px solid #E2E8F0; border-radius: 14px; padding: 14px 16px; display: flex; justify-content: space-between; align-items: center; gap: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.02);">
+                <div>
+                    <div style="font-weight: 800; font-size: 0.92rem; color: #1E293B;">${dNom}</div>
+                    <div style="margin-top: 4px;">${rolBadge}</div>
+                </div>
+                <button onclick="window.toggleDocenteGrupoDirector('${docDirector}', '${dDoc}')" style="${btnStyle} padding: 8px 14px; border-radius: 10px; font-weight: 800; font-size: 0.82rem; cursor: pointer; transition: 0.2s; white-space: nowrap;">
+                    ${btnText}
+                </button>
+            </div>
+        `;
+    }).join('');
+};
+
+// R3: Toggle Docente en Grupo
+window.toggleDocenteGrupoDirector = function(docDirector, docColega) {
+    const raw = localStorage.getItem('grupo_director_' + docDirector);
+    if (!raw) return;
+    let grupoData = JSON.parse(raw);
+    if (!Array.isArray(grupoData.docentes)) grupoData.docentes = [];
+
+    const idx = grupoData.docentes.indexOf(docColega);
+    if (idx >= 0) {
+        grupoData.docentes.splice(idx, 1);
+    } else {
+        grupoData.docentes.push(docColega);
+    }
+
+    localStorage.setItem('grupo_director_' + docDirector, JSON.stringify(grupoData));
+    
+    // Sync backend fallback
+    try {
+        fetch('/api/guardar-grupo-director', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                documento: docDirector,
+                documento_director: docDirector,
+                grado: grupoData.grado,
+                grupo: grupoData.grupo,
+                docentes: grupoData.docentes,
+                creadoEn: grupoData.creadoEn,
+                directorNombre: grupoData.directorNombre,
+                grupo: grupoData
+            })
+        }).catch(() => {});
+    } catch(e) {}
+
+    const authSes = window.obtenerDatosDocenteSesion();
+    window.renderizarPanelMiGrupoDirector(docDirector, authSes.nom);
+};
+
+// R5: Renderizar "Mis Otros Grupos"
+window.renderizarMisOtrosGruposDocente = function(docDocente) {
+    const container = document.getElementById('grid-mis-otros-grupos') || document.getElementById('docente-mis-otros-grupos-lista');
+    if (!container) return;
+
+    const normDoc = String(docDocente || '').trim().toLowerCase().replace(/[\.\,\-\_\s]/g, '');
+    const otrosGrupos = [];
+
+    for (let i = 0; i < localStorage.length; i++) {
+        const k = localStorage.key(i);
+        if (k && k.startsWith('grupo_director_')) {
+            try {
+                const g = JSON.parse(localStorage.getItem(k));
+                if (g && Array.isArray(g.docentes)) {
+                    const match = g.docentes.some(d => String(d).trim().toLowerCase().replace(/[\.\,\-\_\s]/g, '') === normDoc);
+                    if (match) otrosGrupos.push(g);
+                }
+            } catch(e) {}
+        }
+    }
+
+    if (otrosGrupos.length === 0) {
+        container.innerHTML = `
+            <div style="background: #F8FAFC; border: 1.5px dashed #CBD5E1; border-radius: 14px; padding: 25px; text-align: center; color: #64748B; font-size: 0.95rem; grid-column: 1 / -1;">
+                <span>📚</span> Aún no apareces en grupos de otros directores
+            </div>
+        `;
+        return;
+    }
+
+    container.innerHTML = otrosGrupos.map(g => `
+        <div style="background: white; border: 1.5px solid #DBEAFE; border-radius: 14px; padding: 18px; box-shadow: 0 4px 12px rgba(37,99,235,0.05);">
+            <div style="font-size: 0.78rem; font-weight: 800; color: #2563EB; text-transform: uppercase; letter-spacing: 0.5px;">Grupo Asignado</div>
+            <h3 style="margin: 6px 0 8px 0; font-size: 1.3rem; font-weight: 900; color: #1E293B;">
+                Grado ${g.grado}° Grupo ${g.grupo}
+            </h3>
+            <p style="margin: 0; color: #475569; font-size: 0.88rem;">
+                👨‍🏫 Director(a): <strong>${g.directorNombre || g.directorDoc || 'Docente Director'}</strong>
+            </p>
+            <div style="margin-top: 10px; font-size: 0.78rem; color: #94A3B8;">
+                Vinculado el ${new Date(g.creadoEn || Date.now()).toLocaleDateString('es-CO')}
+            </div>
+        </div>
+    `).join('');
+};
+
+window.addEventListener('DOMContentLoaded', () => {
+    setTimeout(() => {
+        const docView = document.getElementById('docente-dashboard-container');
+        if (docView && docView.style.display !== 'none') {
+            if (typeof window.inicializarModuloDirectorGrupo === 'function') {
+                window.inicializarModuloDirectorGrupo();
+            }
+        }
+    }, 400);
+});
+

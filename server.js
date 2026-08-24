@@ -696,6 +696,84 @@ app.post('/api/registro-tutor', (req, res) => {
     res.json({ status: "success", tutor });
 });
 
+app.post('/api/guardar-grupo-director', (req, res) => {
+    try {
+        const body = req.body || {};
+        const docDirector = String(body.documento_director || body.documento || (body.grupo && body.grupo.directorDoc) || '').trim();
+        const grado = String(body.grado || (body.grupo && body.grupo.grado) || '').trim();
+        const grupo = String(body.grupo && typeof body.grupo === 'object' ? body.grupo.grupo : body.grupo || '').trim();
+        const docentes = Array.isArray(body.docentes) ? body.docentes : (body.grupo && Array.isArray(body.grupo.docentes) ? body.grupo.docentes : []);
+        const creadoEn = body.creadoEn || (body.grupo && body.grupo.creadoEn) || Date.now();
+        const directorNombre = body.directorNombre || (body.grupo && body.grupo.directorNombre) || '';
+
+        if (!docDirector || !grado || !grupo) {
+            return res.status(400).json({ error: "Faltan datos obligatorios (documento, grado, grupo)." });
+        }
+
+        // 1. Guardar en memoria global.db
+        if (!Array.isArray(global.db.grupos_director)) {
+            global.db.grupos_director = [];
+        }
+        
+        const nuevoGrupo = {
+            id: `gd_${docDirector}_${grado}${grupo}`,
+            documento_director: docDirector,
+            documento: docDirector,
+            directorDoc: docDirector,
+            directorNombre: directorNombre,
+            grado,
+            grupo,
+            nombre_grupo: `${grado}${grupo}`,
+            docentes,
+            creadoEn,
+            actualizadoEn: Date.now()
+        };
+
+        const idx = global.db.grupos_director.findIndex(g => 
+            String(g.documento_director || g.directorDoc || g.documento).trim() === docDirector && 
+            (String(g.grupo).trim() === grupo || String(g.nombre_grupo).trim() === `${grado}${grupo}`)
+        );
+
+        if (idx !== -1) {
+            global.db.grupos_director[idx] = { ...global.db.grupos_director[idx], ...nuevoGrupo };
+        } else {
+            global.db.grupos_director.push(nuevoGrupo);
+        }
+
+        // 2. Actualizar el docente en docentes.json
+        let docentesList = readJSON('docentes.json');
+        const dIdx = docentesList.findIndex(d => normalizarStr(d.documento || d.id || d.usuario) === normalizarStr(docDirector));
+        if (dIdx !== -1) {
+            docentesList[dIdx].es_director = true;
+            docentesList[dIdx].rol = 'director';
+            if (!Array.isArray(docentesList[dIdx].grupos_direccion)) {
+                docentesList[dIdx].grupos_direccion = [];
+            }
+            const nomG = `${grado}${grupo}`;
+            if (!docentesList[dIdx].grupos_direccion.includes(nomG) && !docentesList[dIdx].grupos_direccion.includes(grupo)) {
+                docentesList[dIdx].grupos_direccion.push(nomG);
+            }
+            writeJSON('docentes.json', docentesList);
+        }
+
+        console.log(`[GRUPO DIRECTOR] Grupo ${grado}${grupo} guardado para director ${docDirector} con ${docentes.length} docentes.`);
+        res.json({ status: "success", data: nuevoGrupo });
+    } catch(err) {
+        console.error("Error guardando grupo director:", err);
+        res.status(500).json({ error: "Error en el servidor: " + err.message });
+    }
+});
+
+app.get('/api/grupos-director', (req, res) => {
+    const directorDoc = req.query.director;
+    if (directorDoc) {
+        const grupos = (global.db.grupos_director || []).filter(g => String(g.documento_director || g.directorDoc || g.documento).trim() === String(directorDoc).trim());
+        return res.json(grupos);
+    }
+    res.json(global.db.grupos_director || []);
+});
+
+
 app.post('/api/procesar-pago', (req, res) => {
     const { documento, tipo, monto, metodo, metodo_pago, concepto, referencia } = req.body;
     let usuarios = readJSON('usuarios.json');
