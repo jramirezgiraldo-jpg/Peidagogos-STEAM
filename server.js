@@ -588,8 +588,17 @@ app.post('/api/registro-estudiante', (req, res) => {
         return res.status(400).json({ error: "❌ El Grado o Ciclo es obligatorio." });
     }
     
+    // GUARD: Este endpoint es SOLO para estudiantes. Si el rol es docente, director o admin, ignorar silenciosamente.
+    const rolPayload = String(nuevo.rol || nuevo.tipo || '').toLowerCase().trim();
+    if (rolPayload === 'docente' || rolPayload === 'director' || rolPayload === 'admin' || 
+        rolPayload === 'homeschool_tutor' || rolPayload.includes('docente')) {
+        console.log(`[REGISTRO] Payload con rol="${rolPayload}" ignorado en /api/registro-estudiante (solo para estudiantes).`);
+        return res.status(200).json({ status: 'ok', message: 'Registro de docente no aplica aquí.' });
+    }
+
     // Si viene matriculado por un docente, se autoriza automáticamente
     const matriculadoPorDocente = !!nuevo.docente_id;
+
 
     // Validación de código institucional para IE Instituto Montenegro
     const esIEInstituto = nuevo.institucion === 'InstitutoMontenegro' || 
