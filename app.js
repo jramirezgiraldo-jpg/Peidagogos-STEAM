@@ -2772,15 +2772,26 @@ async function cargarDatosAdmin() {
 
         if (tbodyDoc) {
             tbodyDoc.innerHTML = '';
-            docentes.forEach(d => {
-                const tipoVinculacion = d.institucion ? d.institucion : (d.rol === 'docente' ? 'Docente Regular' : 'Homeschool');
-                tbodyDoc.innerHTML += `
-                <tr>
-                    <td style="padding: 15px;">${d.documento}</td>
-                    <td style="padding: 15px; font-weight: bold;">${d.nombre} ${d.apellidos}</td>
-                    <td style="padding: 15px;"><span class="badge" style="background: #EFF6FF; color: #1D4ED8; padding: 5px 10px; border-radius: 20px; font-size: 0.85em;">${tipoVinculacion}</span></td>
-                </tr>`;
-            });
+            if (docentes.length === 0) {
+                tbodyDoc.innerHTML = '<tr><td colspan="4" style="padding: 20px; text-align: center; color: #64748B;">No hay docentes registrados aún.</td></tr>';
+            } else {
+                docentes.forEach(d => {
+                    const docClean = d.documento || d.cedula || d.usuario || 'S/D';
+                    const nomClean = (d.nombre || d.nombres || d.nombre_completo || 'Docente').trim() + ' ' + (d.apellidos || '').trim();
+                    const tipoVinculacion = d.institucion ? d.institucion : (d.rol === 'docente' ? 'Docente Regular' : 'Homeschool');
+                    tbodyDoc.innerHTML += `
+                    <tr style="border-bottom: 1px solid #F1F5F9;">
+                        <td style="padding: 15px; font-family: monospace; font-weight: 700; color: #334155;">${docClean}</td>
+                        <td style="padding: 15px; font-weight: 800; color: #0F172A;">${nomClean}</td>
+                        <td style="padding: 15px;"><span class="badge" style="background: #EFF6FF; color: #1D4ED8; padding: 6px 14px; border-radius: 20px; font-weight: 800; font-size: 0.85em;">${tipoVinculacion}</span></td>
+                        <td style="padding: 15px;">
+                            <button onclick="window.eliminarDocenteAdmin('${docClean}')" style="background: #FEE2E2; color: #991B1B; border: 1px solid #FCA5A5; padding: 6px 14px; border-radius: 8px; font-weight: 800; font-size: 0.85rem; cursor: pointer; display: flex; align-items: center; gap: 4px; transition: 0.2s;" onmouseover="this.style.background='#FCA5A5'" onmouseout="this.style.background='#FEE2E2'">
+                                🗑️ Eliminar
+                            </button>
+                        </td>
+                    </tr>`;
+                });
+            }
         }
 
         // Renderizado del Admin
@@ -15377,6 +15388,23 @@ window.procesarTokenDocenteDesdeUrl = function() {
             if (dIdx >= 0) dList[dIdx] = { ...dList[dIdx], ...payloadDocente };
             else dList.push(payloadDocente);
             localStorage.setItem('docentes_db', JSON.stringify(dList));
+
+            let uList = JSON.parse(localStorage.getItem('usuarios_db') || '[]');
+            const uIdx = uList.findIndex(u => String(u.documento || '').toLowerCase() === String(docFinal).toLowerCase());
+            if (uIdx >= 0) uList[uIdx] = { ...uList[uIdx], ...payloadDocente };
+            else uList.push(payloadDocente);
+            localStorage.setItem('usuarios_db', JSON.stringify(uList));
+        } catch(e) {}
+
+        // Enviar a servidor para que quede registrado en docentes.json y usuarios.json
+        try {
+            fetch('/api/registro-docente', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payloadDocente)
+            }).then(() => {
+                if (typeof cargarDatosAdmin === 'function') cargarDatosAdmin();
+            }).catch(err => console.warn("Sincronización docente servidor diferida:", err));
         } catch(e) {}
 
         const sessionData = {
@@ -16224,4 +16252,42 @@ window.finalizarTareaEstudiante = function(actividadId) {
     alert("🎉 ¡FELICITACIONES!\n\nHas completado tu tarea exitosamente y ganado +250 XP.\n\nTu profesor ya puede ver tu avance formativo en su planilla de seguimiento.");
     window.cerrarVisorHerramienta();
     window.cargarActividadesEstudiante();
+};
+
+
+// =========================================================
+// FUNCIÓN ELIMINAR DOCENTE DESDE PANEL DE ADMINISTRADOR
+// =========================================================
+window.eliminarDocenteAdmin = async function(documentoDocente) {
+    if (!documentoDocente) return;
+    const normDoc = String(documentoDocente).trim().toLowerCase().replace(/[\.\,\-\s]/g, '');
+
+    if (!confirm(`⚠️ ¿Estás seguro de que deseas eliminar este docente (Documento: ${documentoDocente})?\n\nSe removerá de la lista de docentes y perfiles institucionales.`)) {
+        return;
+    }
+
+    // 1. Eliminar localmente de docentes_db y usuarios_db
+    try {
+        let dList = JSON.parse(localStorage.getItem('docentes_db') || '[]');
+        dList = dList.filter(d => String(d.documento || d.cedula || d.usuario || '').trim().toLowerCase().replace(/[\.\,\-\s]/g, '') !== normDoc);
+        localStorage.setItem('docentes_db', JSON.stringify(dList));
+
+        let uList = JSON.parse(localStorage.getItem('usuarios_db') || '[]');
+        uList = uList.filter(u => String(u.documento || u.cedula || u.usuario || u.id || '').trim().toLowerCase().replace(/[\.\,\-\s]/g, '') !== normDoc);
+        localStorage.setItem('usuarios_db', JSON.stringify(uList));
+    } catch(e) {}
+
+    // 2. Eliminar en el servidor
+    try {
+        await fetch('/api/eliminar-docente', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ documento: documentoDocente })
+        });
+    } catch(e) {
+        console.warn("Eliminación en servidor offline, procesada localmente:", e);
+    }
+
+    alert("✅ Docente eliminado correctamente.");
+    if (typeof cargarDatosAdmin === 'function') cargarDatosAdmin();
 };
