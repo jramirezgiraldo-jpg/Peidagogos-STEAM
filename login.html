@@ -630,10 +630,28 @@
 
     <div style="padding: 40px 35px; max-width: 1440px; margin: 0 auto;">
         
+        <!-- Banner Selector de Rol Docente (Director de Grupo / Docente Regular) -->
+        <div id="docente-rol-selector-banner" style="display: flex; align-items: center; gap: 14px; background: linear-gradient(135deg, #EFF6FF, #DBEAFE); border: 1.5px solid #93C5FD; border-radius: 14px; padding: 14px 20px; margin-bottom: 20px; flex-wrap: wrap;">
+            <span style="font-size: 1.3rem;">🏷️</span>
+            <div style="flex: 1; min-width: 200px;">
+                <div style="font-weight: 800; color: #1E3A8A; font-size: 0.95rem;">¿Cuál es tu rol en la institución?</div>
+                <div style="color: #3B82F6; font-size: 0.82rem; margin-top: 2px;">Selecciona tu rol para acceder a las funciones correspondientes.</div>
+            </div>
+            <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                <button id="btn-rol-director" onclick="window.seleccionarRolDocente('director')" style="padding: 10px 20px; background: white; color: #1E40AF; border: 2px solid #3B82F6; border-radius: 10px; font-weight: 800; font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; gap: 6px; transition: 0.2s;">
+                    👑 Director de Grupo
+                </button>
+                <button id="btn-rol-regular" onclick="window.seleccionarRolDocente('regular')" style="padding: 10px 20px; background: white; color: #374151; border: 2px solid #D1D5DB; border-radius: 10px; font-weight: 800; font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; gap: 6px; transition: 0.2s;">
+                    📚 Docente Regular
+                </button>
+            </div>
+            <div id="docente-rol-actual-badge" style="display: none; background: #2563EB; color: white; padding: 6px 14px; border-radius: 20px; font-size: 0.82rem; font-weight: 800;"></div>
+        </div>
+
         <!-- Pestañas de Navegación del Panel Docente (R1) -->
         <div id="docente-nav-tabs" style="display: flex; gap: 12px; margin-bottom: 30px; border-bottom: 2px solid #E2E8F0; padding-bottom: 14px; flex-wrap: wrap;">
             <button id="btn-tab-docente-herramientas" onclick="window.cambiarTabDocente('herramientas')" style="background: #2563EB; color: white; border: none; padding: 12px 24px; border-radius: 12px; font-weight: 800; font-size: 1rem; cursor: pointer; display: flex; align-items: center; gap: 8px; box-shadow: 0 4px 12px rgba(37,99,235,0.25); transition: 0.2s;">
-                <span>🧰</span> Centro de Servicios & STEAM
+                <span>🧰</span> Centro de Servicios &amp; STEAM
             </button>
             <button id="btn-tab-docente-mi-grupo" onclick="window.cambiarTabDocente('mi-grupo')" style="display: none; background: white; color: #475569; border: 1.5px solid #CBD5E1; padding: 12px 24px; border-radius: 12px; font-weight: 800; font-size: 1rem; cursor: pointer; align-items: center; gap: 8px; transition: 0.2s;">
                 <span>👥</span> Mi Grupo

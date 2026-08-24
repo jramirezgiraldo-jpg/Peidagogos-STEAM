@@ -16744,6 +16744,8 @@ window.procesarTokenDocenteDesdeUrl = function() {
         const matFinal = materia ? decodeURIComponent(materia) : 'Ciencias Naturales y Educación Ambiental';
 
         // Crear/Actualizar perfil docente en base de datos
+        const rolParamReg = (params.get('rol') || '').toLowerCase().trim();
+        const esDirectorReg = rolParamReg === 'director';
         const payloadDocente = {
             documento: docFinal,
             cedula: docFinal,
@@ -16755,7 +16757,9 @@ window.procesarTokenDocenteDesdeUrl = function() {
             edad: '35',
             genero: 'otro',
             rol: 'docente',
-            tipo: 'docente_regular',
+            tipo: esDirectorReg ? 'docente_director' : 'docente_regular',
+            rolDocente: esDirectorReg ? 'director' : 'regular',
+            es_director: esDirectorReg,
             institucion: ieFinal,
             asignatura: matFinal,
             materias: [matFinal],
@@ -16805,7 +16809,12 @@ window.procesarTokenDocenteDesdeUrl = function() {
 
         const rolParam = params.get('rol');
         if (rolParam) {
-            window.rolDocente = rolParam.toLowerCase().trim();
+            const rolNorm = rolParam.toLowerCase().trim();
+            window.rolDocente = rolNorm;
+            // Persist so it survives page reloads and normal logins
+            try {
+                localStorage.setItem('rolDocente_' + docFinal, rolNorm);
+            } catch(e) {}
         }
 
         if (typeof window.cargarEstudiantesDocente === 'function') {
@@ -17731,10 +17740,66 @@ window.obtenerDatosDocenteSesion = function() {
             } catch(e) {}
         }
     }
+    // FALLBACK: Check localStorage persisted role key
+    if (!rolDoc || rolDoc === 'regular') {
+        try {
+            const persisted = localStorage.getItem('rolDocente_' + doc);
+            if (persisted) rolDoc = persisted;
+        } catch(e) {}
+    }
     if (!rolDoc) rolDoc = 'regular';
     window.rolDocente = rolDoc;
 
     return { doc, nom, ie, rolDoc };
+};
+
+// Selector de Rol Docente: permite cambiar entre Director de Grupo y Docente Regular
+window.seleccionarRolDocente = function(rol) {
+    const { doc } = window.obtenerDatosDocenteSesion();
+    window.rolDocente = rol;
+    // Persistir en localStorage para futuros ingresos
+    try {
+        localStorage.setItem('rolDocente_' + doc, rol);
+        // También actualizar en docentes_db
+        let dList = JSON.parse(localStorage.getItem('docentes_db') || '[]');
+        const normDoc = doc.toLowerCase().replace(/[\\.\\,\\-\\_\\s]/g, '');
+        const idx = dList.findIndex(d => String(d.documento || d.cedula || d.usuario || '').toLowerCase().replace(/[\\.\\,\\-\\_\\s]/g, '') === normDoc);
+        if (idx >= 0) {
+            dList[idx].rolDocente = rol;
+            dList[idx].tipo = rol === 'director' ? 'docente_director' : 'docente_regular';
+            dList[idx].es_director = rol === 'director';
+        }
+        localStorage.setItem('docentes_db', JSON.stringify(dList));
+    } catch(e) {}
+
+    // Actualizar UI del banner
+    const badge = document.getElementById('docente-rol-actual-badge');
+    const btnDir = document.getElementById('btn-rol-director');
+    const btnReg = document.getElementById('btn-rol-regular');
+    if (badge) {
+        badge.style.display = 'flex';
+        badge.innerText = rol === 'director' ? '👑 Director de Grupo activo' : '📚 Docente Regular activo';
+        badge.style.background = rol === 'director' ? '#2563EB' : '#6B7280';
+    }
+    if (btnDir) {
+        btnDir.style.background = rol === 'director' ? '#2563EB' : 'white';
+        btnDir.style.color = rol === 'director' ? 'white' : '#1E40AF';
+        btnDir.style.borderColor = rol === 'director' ? '#2563EB' : '#3B82F6';
+    }
+    if (btnReg) {
+        btnReg.style.background = rol === 'regular' ? '#374151' : 'white';
+        btnReg.style.color = rol === 'regular' ? 'white' : '#374151';
+        btnReg.style.borderColor = rol === 'regular' ? '#374151' : '#D1D5DB';
+    }
+
+    // Reiicializar el módulo con el nuevo rol
+    if (typeof window.inicializarModuloDirectorGrupo === 'function') {
+        window.inicializarModuloDirectorGrupo();
+    }
+    // Si eligió director, cambiar automáticamente a la tab Mi Grupo
+    if (rol === 'director' && typeof window.cambiarTabDocente === 'function') {
+        window.cambiarTabDocente('mi-grupo');
+    }
 };
 
 // R1: Inicializar Módulo Director de Grupo en el Dashboard Docente
@@ -17743,6 +17808,26 @@ window.inicializarModuloDirectorGrupo = function() {
     const btnTabMiGrupo = document.getElementById('btn-tab-docente-mi-grupo');
     const secMiGrupo = document.getElementById('vista-docente-mi-grupo');
     const secOtrosGrupos = document.getElementById('docente-seccion-mis-otros-grupos');
+
+    // Sync banner UI state
+    const badge = document.getElementById('docente-rol-actual-badge');
+    const btnDir = document.getElementById('btn-rol-director');
+    const btnReg = document.getElementById('btn-rol-regular');
+    if (badge) {
+        badge.style.display = 'flex';
+        badge.innerText = rolDoc === 'director' ? '👑 Director de Grupo activo' : '📚 Docente Regular activo';
+        badge.style.background = rolDoc === 'director' ? '#2563EB' : '#6B7280';
+    }
+    if (btnDir) {
+        btnDir.style.background = rolDoc === 'director' ? '#2563EB' : 'white';
+        btnDir.style.color = rolDoc === 'director' ? 'white' : '#1E40AF';
+        btnDir.style.borderColor = rolDoc === 'director' ? '#2563EB' : '#3B82F6';
+    }
+    if (btnReg) {
+        btnReg.style.background = rolDoc === 'regular' ? '#374151' : 'white';
+        btnReg.style.color = rolDoc === 'regular' ? 'white' : '#374151';
+        btnReg.style.borderColor = rolDoc === 'regular' ? '#374151' : '#D1D5DB';
+    }
 
     // R1: Visibilidad estricta de la pestaña por rol (display: flex para director, display: none para regular)
     if (btnTabMiGrupo) {
