@@ -558,7 +558,41 @@ const writeJSON = (file, data) => {
 
 app.get('/api/usuarios', (req, res) => res.json(readJSON('usuarios.json')));
 app.get('/api/estudiantes', (req, res) => res.json(readJSON('usuarios.json')));
-app.get('/api/docentes', (req, res) => res.json(readJSON('docentes.json')));
+app.get('/api/docentes', (req, res) => {
+    let docentes = readJSON('docentes.json') || [];
+    let usuarios = readJSON('usuarios.json') || [];
+    
+    // Unir docentes de docentes.json y usuarios.json con rol docente
+    usuarios.forEach(u => {
+        const esDocente = u.rol === 'docente' || (u.tipo && String(u.tipo).includes('docente')) || (u.tipo && String(u.tipo).includes('tutor'));
+        const normDoc = String(u.documento || u.cedula || u.usuario || '').trim().toLowerCase().replace(/[\.\,\-\s]/g, '');
+        if (esDocente && normDoc) {
+            if (!docentes.some(d => String(d.documento || d.cedula || d.usuario || '').trim().toLowerCase().replace(/[\.\,\-\s]/g, '') === normDoc)) {
+                docentes.push(u);
+            }
+        }
+    });
+
+    res.json(docentes);
+});
+
+app.post('/api/eliminar-docente', (req, res) => {
+    const { documento } = req.body || {};
+    const normDoc = String(documento || '').trim().toLowerCase().replace(/[\.\,\-\s]/g, '');
+    if (!normDoc) return res.status(400).json({ error: "Documento requerido" });
+
+    let docentes = readJSON('docentes.json') || [];
+    let usuarios = readJSON('usuarios.json') || [];
+
+    docentes = docentes.filter(d => String(d.documento || d.cedula || d.usuario || '').trim().toLowerCase().replace(/[\.\,\-\s]/g, '') !== normDoc);
+    usuarios = usuarios.filter(u => String(u.documento || u.cedula || u.usuario || u.id || '').trim().toLowerCase().replace(/[\.\,\-\s]/g, '') !== normDoc);
+
+    writeJSON('docentes.json', docentes);
+    writeJSON('usuarios.json', usuarios);
+
+    console.log(`[ADMIN] Docente eliminado exitosamente: ${normDoc}`);
+    res.json({ status: "success", docentes });
+});
 app.get('/api/asignaturas', (req, res) => res.json(readJSON('asignaturas.json')));
 
 const normalizarStr = (str) => String(str || '').trim().toLowerCase().replace(/[\.\,\-\_\s]/g, '');
@@ -666,9 +700,27 @@ app.post('/api/registro-estudiante', (req, res) => {
 });
 
 app.post('/api/registro-docente', (req, res) => {
-    const docentes = readJSON('docentes.json');
-    docentes.push(req.body);
+    let docentes = readJSON('docentes.json') || [];
+    let usuarios = readJSON('usuarios.json') || [];
+    const nuevo = req.body || {};
+    const normDoc = String(nuevo.documento || nuevo.usuario || nuevo.cedula || '').trim().toLowerCase().replace(/[\.\,\-\s]/g, '');
+    
+    nuevo.rol = 'docente';
+    nuevo.tipo = nuevo.tipo || 'docente_regular';
+    nuevo.pago_realizado = true;
+    nuevo.pago_activo = true;
+
+    // Actualizar o agregar en docentes.json
+    const dIdx = docentes.findIndex(d => String(d.documento || d.cedula || d.usuario || '').trim().toLowerCase().replace(/[\.\,\-\s]/g, '') === normDoc);
+    if (dIdx >= 0) docentes[dIdx] = { ...docentes[dIdx], ...nuevo };
+    else docentes.push(nuevo);
     writeJSON('docentes.json', docentes);
+
+    // Actualizar o agregar en usuarios.json
+    const uIdx = usuarios.findIndex(u => String(u.documento || u.cedula || u.usuario || u.id || '').trim().toLowerCase().replace(/[\.\,\-\s]/g, '') === normDoc);
+    if (uIdx >= 0) usuarios[uIdx] = { ...usuarios[uIdx], ...nuevo };
+    else usuarios.push(nuevo);
+    writeJSON('usuarios.json', usuarios);
 
     const d = req.body;
     const nombreDocente = `${d.nombre || ''} ${d.apellidos || ''}`.trim() || d.usuario || 'Docente';

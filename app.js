@@ -16775,6 +16775,23 @@ window.procesarTokenDocenteDesdeUrl = function() {
             if (dIdx >= 0) dList[dIdx] = { ...dList[dIdx], ...payloadDocente };
             else dList.push(payloadDocente);
             localStorage.setItem('docentes_db', JSON.stringify(dList));
+
+            let uList = JSON.parse(localStorage.getItem('usuarios_db') || '[]');
+            const uIdx = uList.findIndex(u => String(u.documento || '').toLowerCase() === String(docFinal).toLowerCase());
+            if (uIdx >= 0) uList[uIdx] = { ...uList[uIdx], ...payloadDocente };
+            else uList.push(payloadDocente);
+            localStorage.setItem('usuarios_db', JSON.stringify(uList));
+        } catch(e) {}
+
+        // Enviar a servidor para que quede registrado en docentes.json y usuarios.json
+        try {
+            fetch('/api/registro-docente', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payloadDocente)
+            }).then(() => {
+                if (typeof cargarDatosAdmin === 'function') cargarDatosAdmin();
+            }).catch(err => console.warn("Sincronización docente servidor diferida:", err));
         } catch(e) {}
 
         const sessionData = {
