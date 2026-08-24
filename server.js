@@ -942,25 +942,24 @@ app.post('/api/generate-tool-ai', async (req, res) => {
         return res.status(400).json({ error: "Faltan datos de la herramienta." });
     }
 
-    const prompt = `Eres un diseñador instruccional experto. Genera contenido STEAM para una clase de ${materia}, grado ${grado} sobre el tema "${tema}" con dificultad ${dificultad || 'media'}.
-Debes devolver UNICAMENTE un objeto JSON estrictamente válido, sin markdown, con la siguiente estructura y datos reales relacionados al tema:
+    const prompt = `Eres un experto pedagógico STEAM. Para una clase de ${materia}, grado ${grado}, tema "${tema}" (dificultad: ${dificultad || 'media'}), genera EXACTAMENTE este JSON válido (sin markdown, sin explicaciones extra):
 {
-  "palabras": ["PALABRA1", "PALABRA2", "PALABRA3", "PALABRA4", "PALABRA5", "PALABRA6", "PALABRA7", "PALABRA8", "PALABRA9", "PALABRA10"],
-  "definiciones": [ {"palabra": "PALABRA1", "pista": "Pista conceptual aquí"}, ... ],
-  "categoriasJeopardy": ["Cat 1", "Cat 2", "Cat 3", "Cat 4", "Cat 5"],
-  "preguntasJeopardy": [ {"cat": "Cat 1", "q": "Pregunta de 100", "pts": 100}, {"cat": "Cat 1", "q": "Pregunta de 200", "pts": 200} ... 5 por categoria = 25 preguntas en total ],
-  "supraordinada": "Concepto mayor",
-  "isoordinadas": ["Característica 1", "Característica 2", "Característica 3"],
-  "exclusiones": ["≠ Lo que no es 1", "≠ Lo que no es 2"],
-  "infraordinadas": ["Subtipo 1", "Subtipo 2", "Subtipo 3"],
-  "proposicionesNovak": [ {"nodo": "Concepto A", "conector": "se divide en", "desc": "Descripción B"}, ... (3 objetos) ],
-  "ramasBuzan": [ {"titulo": "Rama 1", "desc": "Detalle 1"}, ... (4 ramas) ],
-  "experimentoLab": { "pregunta": "Pregunta de lab", "hipotesis": "Hipótesis", "materiales": "Lista de materiales", "pasos": ["1. Paso 1", "2. Paso 2"] },
-  "textoCloze": "Texto con espacios [ _________ ] para rellenar (usa la notación exacta [ _________ ] para los huecos)",
-  "bancoCloze": ["Palabra1", "Palabra2"],
-  "debateDetonante": "Pregunta socrática profunda"
+  "palabras": ["P1","P2","P3","P4","P5","P6","P7","P8","P9","P10"],
+  "definiciones": [{"palabra":"P1","pista":"Definición corta"},{"palabra":"P2","pista":"Definición corta"},{"palabra":"P3","pista":"Definición corta"},{"palabra":"P4","pista":"Definición corta"},{"palabra":"P5","pista":"Definición corta"},{"palabra":"P6","pista":"Definición corta"},{"palabra":"P7","pista":"Definición corta"},{"palabra":"P8","pista":"Definición corta"},{"palabra":"P9","pista":"Definición corta"},{"palabra":"P10","pista":"Definición corta"}],
+  "categoriasJeopardy": ["Cat1","Cat2","Cat3","Cat4","Cat5"],
+  "preguntasJeopardy": [{"cat":"Cat1","q":"Pregunta","pts":100},{"cat":"Cat1","q":"Pregunta","pts":200},{"cat":"Cat1","q":"Pregunta","pts":300},{"cat":"Cat1","q":"Pregunta","pts":400},{"cat":"Cat1","q":"Pregunta","pts":500},{"cat":"Cat2","q":"Pregunta","pts":100},{"cat":"Cat2","q":"Pregunta","pts":200},{"cat":"Cat2","q":"Pregunta","pts":300},{"cat":"Cat2","q":"Pregunta","pts":400},{"cat":"Cat2","q":"Pregunta","pts":500},{"cat":"Cat3","q":"Pregunta","pts":100},{"cat":"Cat3","q":"Pregunta","pts":200},{"cat":"Cat3","q":"Pregunta","pts":300},{"cat":"Cat3","q":"Pregunta","pts":400},{"cat":"Cat3","q":"Pregunta","pts":500},{"cat":"Cat4","q":"Pregunta","pts":100},{"cat":"Cat4","q":"Pregunta","pts":200},{"cat":"Cat4","q":"Pregunta","pts":300},{"cat":"Cat4","q":"Pregunta","pts":400},{"cat":"Cat4","q":"Pregunta","pts":500},{"cat":"Cat5","q":"Pregunta","pts":100},{"cat":"Cat5","q":"Pregunta","pts":200},{"cat":"Cat5","q":"Pregunta","pts":300},{"cat":"Cat5","q":"Pregunta","pts":400},{"cat":"Cat5","q":"Pregunta","pts":500}],
+  "supraordinada": "Concepto mayor del tema",
+  "isoordinadas": ["Característica 1","Característica 2","Característica 3"],
+  "exclusiones": ["Lo que NO es 1","Lo que NO es 2"],
+  "infraordinadas": ["Subtipo 1","Subtipo 2","Subtipo 3"],
+  "proposicionesNovak": [{"nodo":"A","conector":"se relaciona con","desc":"B"},{"nodo":"C","conector":"produce","desc":"D"},{"nodo":"E","conector":"se divide en","desc":"F"}],
+  "ramasBuzan": [{"titulo":"Rama 1","desc":"Detalle 1"},{"titulo":"Rama 2","desc":"Detalle 2"},{"titulo":"Rama 3","desc":"Detalle 3"},{"titulo":"Rama 4","desc":"Detalle 4"}],
+  "experimentoLab": {"pregunta":"¿Cómo se puede demostrar...?","hipotesis":"Si hacemos X entonces Y","materiales":"Material A, B, C","pasos":["1. Paso","2. Paso","3. Paso"]},
+  "textoCloze": "Texto con [ _________ ] para rellenar sobre el tema.",
+  "bancoCloze": ["Palabra1","Palabra2","Palabra3"],
+  "debateDetonante": "¿Pregunta socrática profunda sobre ${tema}?"
 }
-Asegúrate de que las definiciones coincidan con las 'palabras', el Jeopardy tenga 25 preguntas, y que todo el contenido sea muy rico, exacto pedagógicamente y relacionado al tema ${tema}.`;
+Remplaza TODOS los valores con contenido real y pedagógicamente correcto para el tema "${tema}" en ${materia} grado ${grado}. Las palabras deben ser términos clave del tema. Las definiciones deben coincidir con las palabras.`;
 
     try {
         let responseText = '';
@@ -988,6 +987,29 @@ Asegúrate de que las definiciones coincidan con las 'palabras', el Jeopardy ten
                 }
             } else {
                 console.error('DeepSeek Status:', ds_response.status);
+            }
+        }
+
+        // FALLBACK: Si DeepSeek no respondió, intentar con Gemini
+        if (!responseText) {
+            console.log('[IA] DeepSeek sin respuesta, usando Gemini como fallback...');
+            const geminiClient = getAIClient();
+            if (geminiClient) {
+                try {
+                    const gemResult = await geminiQueue.add(() =>
+                        geminiClient.models.generateContent({
+                            model: 'gemini-2.0-flash',
+                            contents: [{ role: 'user', parts: [{ text: prompt }] }]
+                        })
+                    );
+                    const gemText = gemResult?.candidates?.[0]?.content?.parts?.[0]?.text || '';
+                    if (gemText && gemText.trim()) {
+                        responseText = gemText;
+                        console.log('[IA] Gemini fallback exitoso, longitud:', responseText.length);
+                    }
+                } catch(gemErr) {
+                    console.error('[IA] Gemini fallback falló:', gemErr.message);
+                }
             }
         }
 
