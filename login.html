@@ -791,6 +791,7 @@
                             <p style="margin: 4px 0 0 0; color: #64748B; font-size: 0.95rem;">Selecciona el grado y grupo que tienes bajo tu dirección para matricular estudiantes y asignar docentes de apoyo.</p>
                         </div>
                     </div>
+                    <!-- Grado y Grupo -->
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 24px;">
                         <div>
                             <label style="display: block; font-weight: 800; color: #1E3A8A; margin-bottom: 8px; font-size: 0.9rem;">Grado Escolar:</label>
@@ -819,8 +820,23 @@
                             </select>
                         </div>
                     </div>
+
+                    <!-- Selección de Docentes del Grupo (ANTES de crear) -->
+                    <div style="background: #F8FAFC; border: 1.5px solid #E2E8F0; border-radius: 14px; padding: 20px; margin-bottom: 24px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                            <div>
+                                <h4 style="margin: 0; font-size: 1.1rem; font-weight: 900; color: #1E293B;">👨‍🏫 Docentes que dan clase en este grupo</h4>
+                                <p style="margin: 3px 0 0 0; color: #64748B; font-size: 0.85rem;">Selecciona los docentes de IE Instituto Montenegro que serán asignados a tu grupo.</p>
+                            </div>
+                            <button onclick="window.cargarListaDocentesParaCrearGrupo()" style="background: #EFF6FF; color: #2563EB; border: 1.5px solid #BFDBFE; padding: 8px 14px; border-radius: 8px; font-weight: 800; font-size: 0.82rem; cursor: pointer;">🔄 Cargar Docentes</button>
+                        </div>
+                        <div id="lista-docentes-para-crear-grupo" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 10px; max-height: 320px; overflow-y: auto;">
+                            <p style="color: #94A3B8; font-style: italic; font-size: 0.9rem; grid-column: 1/-1; text-align: center; padding: 20px 0;">Haz clic en "Cargar Docentes" para ver el directorio de la institución.</p>
+                        </div>
+                    </div>
+
                     <button id="btn-crear-grupo-director" onclick="window.crearGrupoDirector()" style="background: linear-gradient(135deg, #10B981, #059669); color: white; border: none; padding: 14px 28px; border-radius: 12px; font-weight: 900; font-size: 1rem; cursor: pointer; display: flex; align-items: center; gap: 8px; box-shadow: 0 4px 15px rgba(16,185,129,0.3);">
-                        <span>✅</span> Crear Grupo
+                        <span>✅</span> Crear Grupo y Generar Link de Matrícula
                     </button>
                 </div>
 
