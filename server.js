@@ -646,6 +646,13 @@ app.post('/api/registro-estudiante', (req, res) => {
         nuevo.pago_activo = true;
         nuevo.suscrito = true;
         nuevo.tipo_acceso = 'institucional_ilimitado';
+        // ── PD-2 FIX: guardar explícitamente la relación grupo/director ──
+        nuevo.director_doc  = nuevo.director_doc  || nuevo.docente_id || null;
+        nuevo.grupo_director = nuevo.grupo_director || nuevo.grupo    || nuevo.grado || null;
+        nuevo.grado  = nuevo.grado  || nuevo.grupo_director || null;
+        nuevo.grupo  = nuevo.grupo  || nuevo.grupo_director || null;
+        console.log(`[PD-2] Vinculación grupo guardada: estudiante=${nuevo.documento} grupo=${nuevo.grupo} director=${nuevo.director_doc}`);
+
     } else if (esIEInstituto) {
         const codigo = normalizarStr(nuevo.codigo_institucional || nuevo.codigo);
         if (codigo !== 'ieinstituto2026' && codigo !== 'instituto2026') {
@@ -1329,31 +1336,55 @@ app.post('/api/login', (req, res) => {
         });
 
         if (est) {
-            encontrado = true; 
-            nombre = `${est.nombre || ''} ${est.apellidos || ''}`.trim() || est.documento;
-            grado = est.grado || est.grupo || ""; 
-            grupo = est.grupo || est.grado || ""; 
-            asignatura = est.asignatura || (est.materias && Array.isArray(est.materias) ? est.materias.join(', ') : "Ciencias Naturales");
-            institucion = est.institucion || "IE Instituto Montenegro";
-            
-            // Asignar rol pedagógico correspondiente
-            const esVal = (rol === 'validacion' || 
-                           est.institucion === 'Validacion' || 
-                           String(est.grupo || '').toLowerCase().includes('ciclo') || 
-                           String(est.grado || '').toLowerCase().includes('ciclo'));
-            if (esVal) {
-                rol_asignado = "validacion";
-                pago_activo = est.pago_activo === true || est.pago_activo === "true" || est.pago_activo === 1 || est.pago_realizado === true;
-            } else if (est.institucion === 'HomeSchool') {
-                rol_asignado = "estudiante";
-                pago_activo = est.pago_activo === true || est.pago_activo === "true" || est.pago_activo === 1 || est.pago_realizado === true;
+            // ── PD-3 FIX: Si el registro en usuarios.json tiene rol/tipo docente,
+            //    buscar también en docentes.json y asignar sesión de docente correctamente ──
+            const esDocenteEnBD = est.rol === 'docente' ||
+                                  String(est.tipo || '').toLowerCase().includes('docente') ||
+                                  est.es_director === true ||
+                                  est.rolDocente === 'director';
+
+            if (esDocenteEnBD) {
+                const docentes = readJSON('docentes.json');
+                const docMatch = docentes.find(d =>
+                    normalizarStr(d.documento || d.cedula || d.usuario || d.id) === normUser
+                );
+                const perfil = docMatch || est;
+                encontrado = true;
+                nombre = `${perfil.nombre || ''} ${perfil.apellidos || ''}`.trim() || perfil.documento || uInput;
+                rol_asignado = 'docente';
+                institucion = perfil.institucion || 'IE Instituto Montenegro';
+                asignatura = perfil.asignatura || (Array.isArray(perfil.materias) ? perfil.materias[0] : '') || '';
+                pago_activo = true;
+                usuarioObj = perfil;
+                console.log(`[PD-3] Usuario ${uInput} tiene rol docente en BD → sesión forzada a 'docente'`);
             } else {
-                rol_asignado = "estudiante";
-                pago_activo = true; // Colegio regular
+                encontrado = true;
+                nombre = `${est.nombre || ''} ${est.apellidos || ''}`.trim() || est.documento;
+                grado = est.grado || est.grupo || "";
+                grupo = est.grupo || est.grado || "";
+                asignatura = est.asignatura || (est.materias && Array.isArray(est.materias) ? est.materias.join(', ') : "Ciencias Naturales");
+                institucion = est.institucion || "IE Instituto Montenegro";
+
+                // Asignar rol pedagógico correspondiente
+                const esVal = (rol === 'validacion' ||
+                               est.institucion === 'Validacion' ||
+                               String(est.grupo || '').toLowerCase().includes('ciclo') ||
+                               String(est.grado || '').toLowerCase().includes('ciclo'));
+                if (esVal) {
+                    rol_asignado = "validacion";
+                    pago_activo = est.pago_activo === true || est.pago_activo === "true" || est.pago_activo === 1 || est.pago_realizado === true;
+                } else if (est.institucion === 'HomeSchool') {
+                    rol_asignado = "estudiante";
+                    pago_activo = est.pago_activo === true || est.pago_activo === "true" || est.pago_activo === 1 || est.pago_realizado === true;
+                } else {
+                    rol_asignado = "estudiante";
+                    pago_activo = true; // Colegio regular
+                }
+                usuarioObj = est;
             }
-            usuarioObj = est;
         }
     }
+
 
     if (encontrado) {
         console.log(`[LOGIN] Ingreso exitoso: ${nombre} (${uInput}) - Rol: ${rol_asignado}`);
