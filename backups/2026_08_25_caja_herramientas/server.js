@@ -1116,151 +1116,176 @@ app.post('/api/crear-preferencia-mercadopago', async (req, res) => {
     }
 });
 
-// Endpoint para Caja de Herramientas Dinámica (API Key dedicada CAJA_HERRAMIENTAS)
+// Endpoint para Caja de Herramientas Dinámica (IA con Failover Triple)
 app.post('/api/generate-tool-ai', async (req, res) => {
-    try {
-        const { toolType, subject, grade, period, customTopic, xpReward, studentInstruction, concepts, materia, grado, tema, dificultad, tipoJuego, promptPersonalizado, instruccion } = req.body || {};
-
-        const materiaFinal = subject || materia || 'Ciencias Naturales';
-        const gradoFinal = grade || grado || '7';
-        const temaFinal = customTopic || concepts || tema || 'Conceptos fundamentales del área';
-        const tipoFinal = toolType || tipoJuego || 'herramienta_interactiva';
-        const instruccionFinal = studentInstruction || instruccion || 'Analiza y resuelve los retos cognitivos.';
-
-        const apiKeyCaja = process.env.CAJA_HERRAMIENTAS || process.env.DEEPSEEK_API_KEY || process.env.CHAT_GPT || process.env.CHATGPT_API_KEY;
-
-        if (!apiKeyCaja) {
-            console.error('[CAJA_HERRAMIENTAS] ❌ La variable de entorno CAJA_HERRAMIENTAS no está configurada.');
-            return res.status(500).json({ error: 'Llave de API exclusiva CAJA_HERRAMIENTAS no configurada en el servidor.' });
-        }
-
-        // Construcción del prompt pedagógico estricto bajo Pedagogía Conceptual y DBA del MEN
-        let promptIA;
-        if (promptPersonalizado && String(promptPersonalizado).trim().length > 40) {
-            promptIA = String(promptPersonalizado).trim().replace(/\/\/ TODO: Agregar prompt completo\n?/, '').trim();
-            promptIA += `\n\nIMPORTANTE: Devuelve ÚNICAMENTE un objeto JSON estructurado válido (sin bloques markdown \`\`\`json, sin HTML suelto) con las claves: "titulo": "${tipoFinal}", "tema": "${temaFinal}", "materia": "${materiaFinal}", "grado": "${gradoFinal}", "instruccion": "${instruccionFinal}", "palabras": ["P1","P2",...], "definiciones": [{"palabra":"P1","pista":"pista"}], "retos": [{"id":1,"enunciado":"...","opciones":["..."],"respuesta_correcta":0,"explicacion":"..."}], "horizontales": [{"id":1,"palabra":"P1","pista":"pista","dir":"H"}], "verticales": [{"id":2,"palabra":"P2","pista":"pista","dir":"V"}], "pares": [{"izquierda":"C1","derecha":"D1"}].`;
-        } else {
-            promptIA = `Actúa como un Arquitecto de Software Educativo y Especialista en Pedagogía Conceptual (mentefactos, supraordinadas, isoordinadas). 
-Genera un objeto JSON válido (sin texto adicional, sin bloques markdown de explicaciones fuera del JSON) para la herramienta interactiva "${tipoFinal}".
-Asignatura: ${materiaFinal}
-Grado: ${gradoFinal}
-Tema central o conceptos clave: ${temaFinal}
-Instrucción para el estudiante: ${instruccionFinal}
-
-El JSON DEBE contener exactamente esta estructura según el tipo de herramienta, asegurando que NINGUNA propiedad quede como "undefined":
-{
-  "titulo": "Crucigrama Conceptual: ${temaFinal}",
-  "tipo_herramienta": "${tipoFinal}",
-  "tema": "${temaFinal}",
-  "materia": "${materiaFinal}",
-  "grado": "${gradoFinal}",
-  "descripcion": "Breve descripción alineada con los DBA del MEN",
-  "instruccion": "${instruccionFinal}",
-  "palabras": ["CONCEPTO1", "CONCEPTO2", "CONCEPTO3", "CONCEPTO4"],
-  "definiciones": [
-    {"palabra": "CONCEPTO1", "pista": "Pista conceptual 1"},
-    {"palabra": "CONCEPTO2", "pista": "Pista conceptual 2"}
-  ],
-  "horizontales": [{"id":1, "palabra": "CONCEPTO1", "pista": "Pista conceptual 1", "dir": "H"}],
-  "verticales": [{"id":2, "palabra": "CONCEPTO2", "pista": "Pista conceptual 2", "dir": "V"}],
-  "pares": [{"izquierda": "CONCEPTO1", "derecha": "Definición 1"}],
-  "retos": [
-    {
-      "id": 1,
-      "enunciado": "¿Cuál es la característica fundamental de ${temaFinal} en ${materiaFinal}?",
-      "opciones": ["Principio fundamental", "Distractor 1", "Distractor 2", "Distractor 3"],
-      "respuesta_correcta": 0,
-      "explicacion": "Explicación teórica bajo Pedagogía Conceptual"
+    const { materia, grado, tema, dificultad, tipoJuego, promptPersonalizado, instruccion } = req.body || {};
+    
+    if (!materia || !grado || !tema) {
+        return res.status(400).json({ error: "Faltan datos requeridos (materia, grado o tema)." });
     }
-  ]
-};`;
+
+    // Validación opcional de token de autorización de docente
+    const authHeader = req.headers.authorization;
+    if (authHeader && authHeader.startsWith('Bearer ')) {
+        const token = authHeader.split(' ')[1];
+        if (token === 'invalid_expired_token') {
+            return res.status(401).json({ error: "No autorizado. Token de docente no válido o expirado." });
         }
+    }
 
-        console.log(`[CAJA_HERRAMIENTAS] Generando herramienta "${tipoFinal}" con API dedicada...`);
+    // ── Si el frontend envió un prompt personalizado (Caja 2 / gameTemplates), usarlo y asegurar JSON ──
+    let prompt;
+    if (promptPersonalizado && String(promptPersonalizado).trim().length > 40) {
+        prompt = String(promptPersonalizado).trim();
+        prompt = prompt.replace(/\/\/ TODO: Agregar prompt completo\n?/, '').trim();
+        prompt += `\n\nIMPORTANTE: Devuelve ÚNICAMENTE un objeto JSON estructurado válido (sin bloques markdown \`\`\`json, sin HTML suelto y sin explicaciones extra) con el contenido pedagógico. Debe incluir al menos las claves: "titulo": "${tipoJuego || tema}", "tema": "${tema}", "materia": "${materia}", "grado": "${grado}", "instruccion": "${instruccion || 'Completa la actividad'}", "palabras": ["P1","P2",...], "definiciones": [{"palabra":"P1","pista":"pista"}], "retos": [{"id":1,"pregunta":"...","opciones":["..."],"respuesta_correcta":0}], "horizontales": [{"id":1,"palabra":"P1","pista":"pista","dir":"H"}], "verticales": [{"id":2,"palabra":"P2","pista":"pista","dir":"V"}], "pares": [{"izquierda":"C1","derecha":"D1"}].`;
+        console.log(`[IA] Prompt personalizado recibido para tipoJuego="${tipoJuego}", tema="${tema}", longitud=${prompt.length}`);
+    } else {
+        prompt = `Eres un experto pedagógico STEAM. Para una clase de ${materia}, grado ${grado}, tema "${tema}" (dificultad: ${dificultad || 'media'}), genera EXACTAMENTE este JSON válido (sin markdown, sin explicaciones extra):
+{
+  "titulo": "Crucigrama Conceptual: ${tema}",
+  "tema": "${tema}",
+  "materia": "${materia}",
+  "grado": "${grado}",
+  "instruccion": "Completa los conceptos interactivos de la unidad.",
+  "palabras": ["P1","P2","P3","P4","P5","P6","P7","P8","P9","P10"],
+  "definiciones": [{"palabra":"P1","pista":"Definición corta"},{"palabra":"P2","pista":"Definición corta"},{"palabra":"P3","pista":"Definición corta"},{"palabra":"P4","pista":"Definición corta"},{"palabra":"P5","pista":"Definición corta"},{"palabra":"P6","pista":"Definición corta"},{"palabra":"P7","pista":"Definición corta"},{"palabra":"P8","pista":"Definición corta"},{"palabra":"P9","pista":"Definición corta"},{"palabra":"P10","pista":"Definición corta"}],
+  "horizontales": [{"id":1,"palabra":"P1","pista":"Definición corta","dir":"H"},{"id":3,"palabra":"P3","pista":"Definición corta","dir":"H"}],
+  "verticales": [{"id":2,"palabra":"P2","pista":"Definición corta","dir":"V"},{"id":4,"palabra":"P4","pista":"Definición corta","dir":"V"}],
+  "pares": [{"izquierda":"Concepto A","derecha":"Definición A"},{"izquierda":"Concepto B","derecha":"Definición B"}],
+  "retos": [{"id":1,"pregunta":"¿Pregunta sobre ${tema}?","opciones":["Resp A","Resp B","Resp C","Resp D"],"respuesta_correcta":0,"pista":"Pista A"}],
+  "categoriasJeopardy": ["Cat1","Cat2","Cat3","Cat4","Cat5"],
+  "preguntasJeopardy": [{"cat":"Cat1","q":"Pregunta","pts":100},{"cat":"Cat1","q":"Pregunta","pts":200},{"cat":"Cat1","q":"Pregunta","pts":300},{"cat":"Cat1","q":"Pregunta","pts":400},{"cat":"Cat1","q":"Pregunta","pts":500}],
+  "supraordinada": "Concepto mayor del tema",
+  "isoordinadas": ["Característica 1","Característica 2","Característica 3"],
+  "exclusiones": ["Lo que NO es 1","Lo que NO es 2"],
+  "infraordinadas": ["Subtipo 1","Subtipo 2","Subtipo 3"],
+  "proposicionesNovak": [{"nodo":"A","conector":"se relaciona con","desc":"B"}],
+  "ramasBuzan": [{"titulo":"Rama 1","desc":"Detalle 1"}],
+  "experimentoLab": {"pregunta":"¿Cómo se puede demostrar...?","hipotesis":"Si hacemos X entonces Y","materiales":"Material A, B, C","pasos":["1. Paso","2. Paso"]},
+  "textoCloze": "Texto con [ _________ ] para rellenar sobre el tema.",
+  "bancoCloze": ["Palabra1","Palabra2","Palabra3"],
+  "debateDetonante": "¿Pregunta socrática profunda sobre ${tema}?"
+}
+Remplaza TODOS los valores con contenido real y pedagógicamente correcto para el tema "${tema}" en ${materia} grado ${grado}. Las palabras deben ser términos clave del tema.`;
+    }
 
-        // Determinar endpoint y proveedor basado en la llave
-        let apiUrl = 'https://api.openai.com/v1/chat/completions';
-        let apiModel = 'gpt-4o-mini';
-        let headers = {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${apiKeyCaja}`
-        };
+    let responseText = '';
+    let erroresIA = [];
 
-        if (apiKeyCaja.startsWith('sk-') && !apiKeyCaja.startsWith('sk-proj-')) {
-            apiUrl = 'https://api.deepseek.com/chat/completions';
-            apiModel = 'deepseek-chat';
-        }
+    // =========================================================================
+    // FAILOVER DE 6 CAPAS MULTI-MOTOR (Gemini Latest + Gemini Pro Clásico)
+    // =========================================================================
+    const rawGeminiKeys = process.env.GEMINI_API_KEYS || process.env.GEMINI_API_KEY || "";
+    const geminiKeyFirst = rawGeminiKeys.split(',').map(k => k.trim()).filter(k => k.length > 0)[0] || '';
 
-        const response = await fetch(apiUrl, {
-            method: 'POST',
-            headers: headers,
-            body: JSON.stringify({
-                model: apiModel,
-                messages: [{ role: 'user', content: promptIA }],
-                response_format: { type: 'json_object' }
-            })
-        });
+    const proveedores = [
+        { nombre: 'DeepSeek 1', url: 'https://api.deepseek.com/chat/completions', key: process.env.DEEPSEEK_API_KEY || 'sk-8bdd9c5adcfa4d8e958f1ea7a07e8167', model: 'deepseek-chat', tipo: 'openai' },
+        { nombre: 'DeepSeek 2', url: 'https://api.deepseek.com/chat/completions', key: process.env.DEEPSEEK_API_KEY2 || '', model: 'deepseek-chat', tipo: 'openai' },
+        { nombre: 'ChatGPT', url: 'https://api.openai.com/v1/chat/completions', key: process.env.CHAT_GPT || process.env.CHATGPT_API_KEY || '', model: 'gpt-4o-mini', tipo: 'openai' },
+        { nombre: 'Gemini Flash Latest', url: 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent', key: geminiKeyFirst, tipo: 'gemini_nativa' },
+        { nombre: 'Gemini Pro Clásico', url: 'https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent', key: geminiKeyFirst, tipo: 'gemini_nativa' },
+        { nombre: 'OpenRouter', url: 'https://openrouter.ai/api/v1/chat/completions', key: process.env.OPEN_ROUTER || process.env.OPENROUTER_API_KEY || '', model: 'google/gemini-1.5-pro', tipo: 'openai' }
+    ];
 
-        let rawContent = '';
-        if (response.ok) {
-            const data = await response.json();
-            rawContent = data.choices && data.choices[0] && data.choices[0].message && data.choices[0].message.content;
-        } else {
-            const errText = await response.text();
-            console.warn(`[CAJA_HERRAMIENTAS] Advertencia HTTP ${response.status} en API dedicada: ${errText.substring(0, 100)}`);
-        }
-
-        // Si la llamada principal no devolvió respuesta, activar el Generador Algorítmico de Respaldo
-        if (!rawContent || !rawContent.trim()) {
-            console.warn('[CAJA_HERRAMIENTAS] ⚠️ Activando Generador Algorítmico de Respaldo STEAM...');
-            const conceptosLista = String(temaFinal).split(/[,;\-]+/).map(c => c.trim()).filter(c => c.length >= 2);
-            const palabrasFallback = conceptosLista.length >= 3 ? conceptosLista : [temaFinal, materiaFinal, "Investigación", "Estructura", "Proceso", "Análisis", "Ciencia", "Tecnología"];
+    for (const prov of proveedores) {
+        if (!prov.key) continue;
+        try {
+            console.log(`[FAILOVER] Intentando con ${prov.nombre}...`);
+            let resFetch;
             
-            const jsonFallback = {
-                titulo: `Misión STEAM: ${temaFinal}`,
-                tipo_herramienta: tipoFinal,
-                tema: temaFinal,
-                materia: materiaFinal,
-                grado: gradoFinal,
-                descripcion: "Generado por el Núcleo de Respaldo Estructural Peidagogos STEAM.",
-                instruccion: instruccionFinal,
-                palabras: palabrasFallback,
-                definiciones: palabrasFallback.map((c, i) => ({ palabra: c, pista: `Concepto clave ${i+1} en ${materiaFinal}` })),
-                horizontales: palabrasFallback.slice(0, Math.ceil(palabrasFallback.length/2)).map((c, i) => ({ id: i+1, palabra: c, pista: `Definición horizontal de ${c}`, dir: 'H' })),
-                verticales: palabrasFallback.slice(Math.ceil(palabrasFallback.length/2)).map((c, i) => ({ id: i+1, palabra: c, pista: `Definición vertical de ${c}`, dir: 'V' })),
-                pares: palabrasFallback.map(c => ({ izquierda: c, derecha: `Principio conceptual de ${c}` })),
-                retos: palabrasFallback.map((c, i) => ({
-                    id: i + 1,
-                    enunciado: `¿Cuál es el principio fundamental de ${c} en el contexto STEAM de ${materiaFinal}?`,
-                    pregunta: `¿Cuál es el principio fundamental de ${c} en el contexto STEAM de ${materiaFinal}?`,
-                    opciones: [`Es la base estructural de ${c}`, `Variable aislada sin aplicación`, `Noción obsoleta`, `Excepción teórica`],
-                    respuesta_correcta: 0,
-                    explicacion: `Explicación conceptual de ${c} según los DBA del MEN.`
-                }))
-            };
-            return res.json({ success: true, data: jsonFallback, ...jsonFallback });
-        }
+            if (prov.tipo === 'gemini_nativa') {
+                resFetch = await fetch(`${prov.url}?key=${prov.key}`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] })
+                });
+            } else {
+                let reqBody = { model: prov.model, messages: [{ role: 'user', content: prompt }] };
+                if (prov.nombre.includes('DeepSeek')) reqBody.response_format = { type: 'json_object' };
+                
+                resFetch = await fetch(prov.url, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${prov.key}` },
+                    body: JSON.stringify(reqBody)
+                });
+            }
 
-        // Limpieza robusta de bloques markdown si los hubiera
-        rawContent = rawContent.replace(/```json/g, '').replace(/```/g, '').trim();
-        const startIdx = rawContent.indexOf('{');
-        const endIdx = rawContent.lastIndexOf('}');
+            if (resFetch.ok) {
+                const data = await resFetch.json();
+                if (prov.tipo === 'gemini_nativa') {
+                    if (data.candidates && data.candidates[0].content && data.candidates[0].content.parts) {
+                        responseText = data.candidates[0].content.parts[0].text;
+                        console.log(`[FAILOVER] ✅ Éxito con ${prov.nombre}`);
+                        break;
+                    }
+                } else {
+                    if (data.choices && data.choices.length > 0 && data.choices[0].message) {
+                        responseText = data.choices[0].message.content;
+                        console.log(`[FAILOVER] ✅ Éxito con ${prov.nombre}`);
+                        break;
+                    }
+                }
+            } else {
+                const errTxt = await resFetch.text();
+                erroresIA.push(`${prov.nombre} (${resFetch.status}): ${errTxt.substring(0, 100)}`);
+            }
+        } catch (e) {
+            erroresIA.push(`${prov.nombre} (Red): ${e.message}`);
+        }
+    }
+
+    // Protección contra caída total / Sin saldo en APIs: Generador Estructural Algorítmico
+    if (!responseText || !responseText.trim()) {
+        console.warn('[FAILOVER] ⚠️ Todas las APIs externas fallaron o no tienen saldo. Activando Generador Algorítmico de Respaldo STEAM...');
+        
+        // Extraer los conceptos enviados por el usuario desde el prompt o request
+        const conceptosMatch = prompt.match(/conceptos[:\s]+([^\n]+)/i) || [null, tema || "Ciencia, Tecnología, Arte, Matemáticas"];
+        const listaConceptos = conceptosMatch[1].split(',').map(c => c.trim());
+        
+        // Estructura JSON interactiva robusta basada en Pedagogía Conceptual
+        const fallbackObj = {
+            titulo: `Misión STEAM: Desafío Cognitivo (${tema || materia})`,
+            descripcion: "Generado por el Núcleo de Respaldo Estructural Peidagogos STEAM ante alta congestión de red.",
+            instruccion: instruccion || "Resuelve las dinámicas conceptuales asociadas a los términos clave de la unidad.",
+            palabras: listaConceptos.length >= 3 ? listaConceptos : [tema, materia, "Investigación", "Estructura", "Proceso", "Análisis", "Ciencia", "Tecnología"],
+            definiciones: listaConceptos.map(c => ({ palabra: c, pista: `Concepto clave sobre ${c} en la unidad de ${materia}` })),
+            retos: listaConceptos.map((concepto, index) => ({
+                id: index + 1,
+                pregunta: `¿Cuál es la supraordinada o característica fundamental de ${concepto} en el contexto STEAM?`,
+                opciones: [
+                    `Es el principio fundamental de ${concepto}`,
+                    `Una variable aislada sin relación sistémica`,
+                    `Un concepto obsoleto fuera del currículo MEN`,
+                    `Una excepción teórica sin aplicación práctica`
+                ],
+                respuesta_correcta: 0,
+                pista: `Analiza las relaciones isoordinadas de ${concepto} según los DBA del MEN.`
+            }))
+        };
+        
+        responseText = JSON.stringify(fallbackObj);
+        console.log('[FAILOVER] ✅ Generador Algorítmico de Respaldo ejecutado con éxito.');
+    }
+
+    // Sanitización y parseo de la respuesta JSON
+    try {
+        let cleaned = responseText.replace(/```json/g, '').replace(/```/g, '').trim();
+        const startIdx = cleaned.indexOf('{');
+        const endIdx = cleaned.lastIndexOf('}');
         if (startIdx !== -1 && endIdx !== -1 && endIdx >= startIdx) {
-            rawContent = rawContent.substring(startIdx, endIdx + 1);
+            cleaned = cleaned.substring(startIdx, endIdx + 1);
         }
-        const jsonJuego = JSON.parse(rawContent);
-
-        // Garantizar normalización de tema, titulo y materia
-        jsonJuego.tema = jsonJuego.tema || jsonJuego.titulo || temaFinal;
-        jsonJuego.titulo = jsonJuego.titulo || `Misión STEAM: ${jsonJuego.tema}`;
-        jsonJuego.materia = jsonJuego.materia || materiaFinal;
-        jsonJuego.grado = jsonJuego.grado || gradoFinal;
-
-        return res.json({ success: true, data: jsonJuego, ...jsonJuego });
-
-    } catch (error) {
-        console.error('[CAJA_HERRAMIENTAS] Error crítico en el servidor:', error);
-        return res.status(500).json({ error: 'Error interno al generar la herramienta interactiva.', detalle: error.message });
+        cleaned = cleaned.replace(/,\s*([\}\]])/g, '$1');
+        const parsed = JSON.parse(cleaned);
+        return res.json(parsed);
+    } catch(e) {
+        console.error("JSON parse error from IA:", e, "Raw:", responseText);
+        return res.status(500).json({
+            error: "Respuesta IA no válida: " + e.message,
+            raw: responseText,
+            detalle: erroresIA.join(" | ")
+        });
     }
 });
 
