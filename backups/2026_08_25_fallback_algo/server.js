@@ -1225,37 +1225,8 @@ Remplaza TODOS los valores con contenido real y pedagógicamente correcto para e
         }
     }
 
-    // Protección contra caída total / Sin saldo en APIs: Generador Estructural Algorítmico
     if (!responseText || !responseText.trim()) {
-        console.warn('[FAILOVER] ⚠️ Todas las APIs externas fallaron o no tienen saldo. Activando Generador Algorítmico de Respaldo STEAM...');
-        
-        // Extraer los conceptos enviados por el usuario desde el prompt o request
-        const conceptosMatch = prompt.match(/conceptos[:\s]+([^\n]+)/i) || [null, tema || "Ciencia, Tecnología, Arte, Matemáticas"];
-        const listaConceptos = conceptosMatch[1].split(',').map(c => c.trim());
-        
-        // Estructura JSON interactiva robusta basada en Pedagogía Conceptual
-        const fallbackObj = {
-            titulo: `Misión STEAM: Desafío Cognitivo (${tema || materia})`,
-            descripcion: "Generado por el Núcleo de Respaldo Estructural Peidagogos STEAM ante alta congestión de red.",
-            instruccion: instruccion || "Resuelve las dinámicas conceptuales asociadas a los términos clave de la unidad.",
-            palabras: listaConceptos.length >= 3 ? listaConceptos : [tema, materia, "Investigación", "Estructura", "Proceso", "Análisis", "Ciencia", "Tecnología"],
-            definiciones: listaConceptos.map(c => ({ palabra: c, pista: `Concepto clave sobre ${c} en la unidad de ${materia}` })),
-            retos: listaConceptos.map((concepto, index) => ({
-                id: index + 1,
-                pregunta: `¿Cuál es la supraordinada o característica fundamental de ${concepto} en el contexto STEAM?`,
-                opciones: [
-                    `Es el principio fundamental de ${concepto}`,
-                    `Una variable aislada sin relación sistémica`,
-                    `Un concepto obsoleto fuera del currículo MEN`,
-                    `Una excepción teórica sin aplicación práctica`
-                ],
-                respuesta_correcta: 0,
-                pista: `Analiza las relaciones isoordinadas de ${concepto} según los DBA del MEN.`
-            }))
-        };
-        
-        responseText = JSON.stringify(fallbackObj);
-        console.log('[FAILOVER] ✅ Generador Algorítmico de Respaldo ejecutado con éxito.');
+        return res.status(500).json({ error: "Saturación total de APIs", detalle: erroresIA.join(" | ") });
     }
 
     // Sanitización y parseo de la respuesta JSON
