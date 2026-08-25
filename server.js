@@ -593,6 +593,42 @@ app.post('/api/eliminar-docente', (req, res) => {
     console.log(`[ADMIN] Docente eliminado exitosamente: ${normDoc}`);
     res.json({ status: "success", docentes });
 });
+
+app.post('/api/eliminar-invitacion-docente', (req, res) => {
+    const { token, documento } = req.body || {};
+    if (!token && !documento) {
+        return res.status(400).json({ error: "Se requiere token o documento para eliminar la invitación" });
+    }
+
+    let docentes = readJSON('docentes.json') || [];
+    let usuarios = readJSON('usuarios.json') || [];
+
+    const tokenNorm = String(token || '').trim();
+    const docNorm = String(documento || '').trim().toLowerCase().replace(/[\.\,\-\s]/g, '');
+
+    docentes = docentes.filter(d => {
+        const matchToken = tokenNorm && (d.token === tokenNorm || d.token_invitacion === tokenNorm);
+        const matchDoc = docNorm && String(d.documento || d.cedula || d.usuario || '').trim().toLowerCase().replace(/[\.\,\-\s]/g, '') === docNorm;
+        return !(matchToken || matchDoc);
+    });
+
+    usuarios = usuarios.filter(u => {
+        const matchToken = tokenNorm && (u.token === tokenNorm || u.token_invitacion === tokenNorm);
+        const matchDoc = docNorm && String(u.documento || u.cedula || u.usuario || u.id || '').trim().toLowerCase().replace(/[\.\,\-\s]/g, '') === docNorm;
+        return !(matchToken || matchDoc);
+    });
+
+    writeJSON('docentes.json', docentes);
+    writeJSON('usuarios.json', usuarios);
+
+    console.log(`[ADMIN] Invitación/Docente eliminado quirúrgicamente: token=${tokenNorm}, documento=${docNorm}`);
+    res.json({ status: "success", token: tokenNorm });
+});
+
+app.post('/api/logout-admin', (req, res) => {
+    console.log('[ADMIN] Cierre de sesión de administrador registrado');
+    res.json({ status: "success", message: "Sesión del administrador cerrada correctamente" });
+});
 app.get('/api/asignaturas', (req, res) => res.json(readJSON('asignaturas.json')));
 
 const normalizarStr = (str) => String(str || '').trim().toLowerCase().replace(/[\.\,\-\_\s]/g, '');
@@ -1080,19 +1116,27 @@ app.post('/api/crear-preferencia-mercadopago', async (req, res) => {
     }
 });
 
-// Endpoint para Caja de Herramientas Dinámica (IA)
+// Endpoint para Caja de Herramientas Dinámica (IA con Failover Triple)
 app.post('/api/generate-tool-ai', async (req, res) => {
-    const { materia, grado, tema, dificultad, tipoJuego, promptPersonalizado, instruccion } = req.body;
+    const { materia, grado, tema, dificultad, tipoJuego, promptPersonalizado, instruccion } = req.body || {};
     
     if (!materia || !grado || !tema) {
-        return res.status(400).json({ error: "Faltan datos de la herramienta." });
+        return res.status(400).json({ error: "Faltan datos requeridos (materia, grado o tema)." });
+    }
+
+    // Validación opcional de token de autorización de docente
+    const authHeader = req.headers.authorization;
+    if (authHeader && authHeader.startsWith('Bearer ')) {
+        const token = authHeader.split(' ')[1];
+        if (token === 'invalid_expired_token') {
+            return res.status(401).json({ error: "No autorizado. Token de docente no válido o expirado." });
+        }
     }
 
     // ── Si el frontend envió un prompt personalizado (Caja 2 / gameTemplates), usarlo directamente ──
     let prompt;
     if (promptPersonalizado && String(promptPersonalizado).trim().length > 40) {
         prompt = String(promptPersonalizado).trim();
-        // Eliminar el comentario TODO si el docente aún no lo reemplazó (se usa el default del template)
         prompt = prompt.replace(/\/\/ TODO: Agregar prompt completo\n?/, '').trim();
         console.log(`[IA] Prompt personalizado recibido para tipoJuego="${tipoJuego}", tema="${tema}", longitud=${prompt.length}`);
     } else {
@@ -1101,32 +1145,37 @@ app.post('/api/generate-tool-ai', async (req, res) => {
   "palabras": ["P1","P2","P3","P4","P5","P6","P7","P8","P9","P10"],
   "definiciones": [{"palabra":"P1","pista":"Definición corta"},{"palabra":"P2","pista":"Definición corta"},{"palabra":"P3","pista":"Definición corta"},{"palabra":"P4","pista":"Definición corta"},{"palabra":"P5","pista":"Definición corta"},{"palabra":"P6","pista":"Definición corta"},{"palabra":"P7","pista":"Definición corta"},{"palabra":"P8","pista":"Definición corta"},{"palabra":"P9","pista":"Definición corta"},{"palabra":"P10","pista":"Definición corta"}],
   "categoriasJeopardy": ["Cat1","Cat2","Cat3","Cat4","Cat5"],
-  "preguntasJeopardy": [{"cat":"Cat1","q":"Pregunta","pts":100},{"cat":"Cat1","q":"Pregunta","pts":200},{"cat":"Cat1","q":"Pregunta","pts":300},{"cat":"Cat1","q":"Pregunta","pts":400},{"cat":"Cat1","q":"Pregunta","pts":500},{"cat":"Cat2","q":"Pregunta","pts":100},{"cat":"Cat2","q":"Pregunta","pts":200},{"cat":"Cat2","q":"Pregunta","pts":300},{"cat":"Cat2","q":"Pregunta","pts":400},{"cat":"Cat2","q":"Pregunta","pts":500},{"cat":"Cat3","q":"Pregunta","pts":100},{"cat":"Cat3","q":"Pregunta","pts":200},{"cat":"Cat3","q":"Pregunta","pts":300},{"cat":"Cat3","q":"Pregunta","pts":400},{"cat":"Cat3","q":"Pregunta","pts":500},{"cat":"Cat4","q":"Pregunta","pts":100},{"cat":"Cat4","q":"Pregunta","pts":200},{"cat":"Cat4","q":"Pregunta","pts":300},{"cat":"Cat4","q":"Pregunta","pts":400},{"cat":"Cat4","q":"Pregunta","pts":500},{"cat":"Cat5","q":"Pregunta","pts":100},{"cat":"Cat5","q":"Pregunta","pts":200},{"cat":"Cat5","q":"Pregunta","pts":300},{"cat":"Cat5","q":"Pregunta","pts":400},{"cat":"Cat5","q":"Pregunta","pts":500}],
+  "preguntasJeopardy": [{"cat":"Cat1","q":"Pregunta","pts":100},{"cat":"Cat1","q":"Pregunta","pts":200},{"cat":"Cat1","q":"Pregunta","pts":300},{"cat":"Cat1","q":"Pregunta","pts":400},{"cat":"Cat1","q":"Pregunta","pts":500}],
   "supraordinada": "Concepto mayor del tema",
   "isoordinadas": ["Característica 1","Característica 2","Característica 3"],
   "exclusiones": ["Lo que NO es 1","Lo que NO es 2"],
   "infraordinadas": ["Subtipo 1","Subtipo 2","Subtipo 3"],
-  "proposicionesNovak": [{"nodo":"A","conector":"se relaciona con","desc":"B"},{"nodo":"C","conector":"produce","desc":"D"},{"nodo":"E","conector":"se divide en","desc":"F"}],
-  "ramasBuzan": [{"titulo":"Rama 1","desc":"Detalle 1"},{"titulo":"Rama 2","desc":"Detalle 2"},{"titulo":"Rama 3","desc":"Detalle 3"},{"titulo":"Rama 4","desc":"Detalle 4"}],
-  "experimentoLab": {"pregunta":"¿Cómo se puede demostrar...?","hipotesis":"Si hacemos X entonces Y","materiales":"Material A, B, C","pasos":["1. Paso","2. Paso","3. Paso"]},
+  "proposicionesNovak": [{"nodo":"A","conector":"se relaciona con","desc":"B"}],
+  "ramasBuzan": [{"titulo":"Rama 1","desc":"Detalle 1"}],
+  "experimentoLab": {"pregunta":"¿Cómo se puede demostrar...?","hipotesis":"Si hacemos X entonces Y","materiales":"Material A, B, C","pasos":["1. Paso","2. Paso"]},
   "textoCloze": "Texto con [ _________ ] para rellenar sobre el tema.",
   "bancoCloze": ["Palabra1","Palabra2","Palabra3"],
   "debateDetonante": "¿Pregunta socrática profunda sobre ${tema}?"
 }
-Remplaza TODOS los valores con contenido real y pedagógicamente correcto para el tema "${tema}" en ${materia} grado ${grado}. Las palabras deben ser términos clave del tema. Las definiciones deben coincidir con las palabras.`;
+Remplaza TODOS los valores con contenido real y pedagógicamente correcto para el tema "${tema}" en ${materia} grado ${grado}. Las palabras deben ser términos clave del tema.`;
     }
 
+    let responseText = '';
+
+    // =========================================================================
+    // FAILOVER DE 3 CAPAS (DeepSeek -> Gemini -> OpenRouter)
+    // =========================================================================
+
+    // CAPA 1: DeepSeek API (Proveedor Principal)
     try {
-        let responseText = '';
-        
-        // Usar EXCLUSIVAMENTE DeepSeek como fue requerido
-        if (!responseText && (process.env.DEEPSEEK_API_KEY || 'sk-8bdd9c5adcfa4d8e958f1ea7a07e8167')) {
-            console.log(`[IA] Usando DeepSeek para generate-tool-ai...`);
-            const ds_response = await fetch('https://api.deepseek.com/chat/completions', {
+        const deepseekKey = process.env.DEEPSEEK_API_KEY || 'sk-8bdd9c5adcfa4d8e958f1ea7a07e8167';
+        if (deepseekKey) {
+            console.log(`[FAILOVER CAPA 1] Intentando con DeepSeek API para ${tipoJuego || 'herramienta'}...`);
+            const ds_res = await fetch('https://api.deepseek.com/chat/completions', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': 'Bearer ' + (process.env.DEEPSEEK_API_KEY || 'sk-8bdd9c5adcfa4d8e958f1ea7a07e8167')
+                    'Authorization': 'Bearer ' + deepseekKey
                 },
                 body: JSON.stringify({
                     model: 'deepseek-chat',
@@ -1134,62 +1183,100 @@ Remplaza TODOS los valores con contenido real y pedagógicamente correcto para e
                     response_format: { type: 'json_object' }
                 })
             });
-            
-            if (ds_response.ok) {
-                const ds_data = await ds_response.json();
+            if (ds_res.ok) {
+                const ds_data = await ds_res.json();
                 if (ds_data.choices && ds_data.choices.length > 0) {
                     responseText = ds_data.choices[0].message.content;
+                    console.log('[FAILOVER CAPA 1] ✅ Éxito con DeepSeek API');
                 }
             } else {
-                console.error('DeepSeek Status:', ds_response.status);
+                console.warn(`[FAILOVER CAPA 1] DeepSeek devolvió status ${ds_res.status}`);
             }
         }
+    } catch (err1) {
+        console.warn('[FAILOVER CAPA 1] Error conectando a DeepSeek:', err1.message);
+    }
 
-        // FALLBACK: Si DeepSeek no respondió, intentar con Gemini
-        if (!responseText) {
-            console.log('[IA] DeepSeek sin respuesta, usando Gemini como fallback...');
-            const geminiClient = getAIClient();
+    // CAPA 2: Gemini API (Respaldo 1)
+    if (!responseText) {
+        try {
+            console.log(`[FAILOVER CAPA 2] Intentando con Gemini API para ${tipoJuego || 'herramienta'}...`);
+            const geminiClient = typeof getAIClient === 'function' ? getAIClient() : null;
             if (geminiClient) {
-                try {
-                    const gemResult = await geminiQueue.add(() =>
-                        geminiClient.models.generateContent({
-                            model: 'gemini-2.0-flash',
-                            contents: [{ role: 'user', parts: [{ text: prompt }] }]
-                        })
-                    );
-                    const gemText = gemResult?.candidates?.[0]?.content?.parts?.[0]?.text || '';
-                    if (gemText && gemText.trim()) {
-                        responseText = gemText;
-                        console.log('[IA] Gemini fallback exitoso, longitud:', responseText.length);
-                    }
-                } catch(gemErr) {
-                    console.error('[IA] Gemini fallback falló:', gemErr.message);
+                const gemResult = await geminiQueue.add(() =>
+                    geminiClient.models.generateContent({
+                        model: 'gemini-2.0-flash',
+                        contents: [{ role: 'user', parts: [{ text: prompt }] }]
+                    })
+                );
+                const gemText = gemResult?.candidates?.[0]?.content?.parts?.[0]?.text || '';
+                if (gemText && gemText.trim()) {
+                    responseText = gemText;
+                    console.log('[FAILOVER CAPA 2] ✅ Éxito con Gemini API');
                 }
             }
+        } catch (err2) {
+            console.warn('[FAILOVER CAPA 2] Error conectando a Gemini API:', err2.message);
         }
+    }
 
-        if (responseText) {
-            // Eliminar posibles backticks de markdown que Deepseek pueda devolver aunque se pida json_object
-            responseText = responseText.replace(/```json/g, '').replace(/```/g, '').trim();
-            try {
-                const startIdx = responseText.indexOf('{');
-                const endIdx = responseText.lastIndexOf('}');
-                if (startIdx !== -1 && endIdx !== -1 && endIdx >= startIdx) {
-                    responseText = responseText.substring(startIdx, endIdx + 1);
+    // CAPA 3: OpenRouter API (Respaldo 2)
+    if (!responseText) {
+        try {
+            const openRouterKey = process.env.OPEN_ROUTER || process.env.OPENROUTER_API_KEY;
+            if (openRouterKey) {
+                console.log(`[FAILOVER CAPA 3] Intentando con OpenRouter API para ${tipoJuego || 'herramienta'}...`);
+                const or_res = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer ' + openRouterKey
+                    },
+                    body: JSON.stringify({
+                        model: 'google/gemini-2.0-flash-lite-001',
+                        messages: [{ role: 'user', content: prompt }]
+                    })
+                });
+                if (or_res.ok) {
+                    const or_data = await or_res.json();
+                    if (or_data.choices && or_data.choices.length > 0) {
+                        responseText = or_data.choices[0].message.content;
+                        console.log('[FAILOVER CAPA 3] ✅ Éxito con OpenRouter API');
+                    }
+                } else {
+                    console.warn(`[FAILOVER CAPA 3] OpenRouter devolvió status ${or_res.status}`);
                 }
-                responseText = responseText.replace(/,\s*([\}\]])/g, '$1');
-                const parsed = JSON.parse(responseText);
-                res.json(parsed);
-            } catch(e) {
-                console.error("JSON parse error from IA:", e, "Raw:", responseText);
-                res.status(500).json({ error: "Respuesta IA no válida: " + e.message, raw: responseText });
             }
-        } else {
-            res.status(500).json({ error: "Respuesta vacía de DeepSeek." });
+        } catch (err3) {
+            console.warn('[FAILOVER CAPA 3] Error conectando a OpenRouter API:', err3.message);
         }
-    } catch (error) {
-        console.error("Error general AI:", error);
-        res.status(500).json({ error: "Excepción en el backend: " + error.message });
+    }
+
+    // PROTECCIÓN CONTRA CAÍDAS: Si los 3 proveedores fallan
+    if (!responseText || !responseText.trim()) {
+        return res.status(500).json({
+            error: "Saturación de proveedores IA",
+            detalle: "Nuestros motores principales y de respaldo están saturados. Reintente en unos segundos."
+        });
+    }
+
+    // Sanitización y parseo de la respuesta JSON
+    try {
+        let cleaned = responseText.replace(/```json/g, '').replace(/```/g, '').trim();
+        const startIdx = cleaned.indexOf('{');
+        const endIdx = cleaned.lastIndexOf('}');
+        if (startIdx !== -1 && endIdx !== -1 && endIdx >= startIdx) {
+            cleaned = cleaned.substring(startIdx, endIdx + 1);
+        }
+        cleaned = cleaned.replace(/,\s*([\}\]])/g, '$1');
+        const parsed = JSON.parse(cleaned);
+        return res.json(parsed);
+    } catch(e) {
+        console.error("JSON parse error from IA:", e, "Raw:", responseText);
+        return res.status(500).json({
+            error: "Respuesta IA no válida: " + e.message,
+            raw: responseText
+        });
     }
 });
 

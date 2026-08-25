@@ -12597,7 +12597,10 @@ window.ejecutarGeneracionJuegoIA = async function(opciones = {}) {
     const nivel       = `${grado}° grado — ${materia}`;
 
     const btn = document.getElementById('btn-ejecutar-generacion-juego-ia');
-    if (btn) btn.innerHTML = '⏳ Generando con IA...';
+    if (btn) {
+        btn.disabled = true;
+        btn.innerHTML = '⏳ Generando con IA...';
+    }
 
     // ── ¿Es un juego de Caja 2 con template? ─────────────────────────
     const esCaja2 = window.GAME_TEMPLATES && window.GAME_TEMPLATES[tool.id];
@@ -12621,9 +12624,23 @@ window.ejecutarGeneracionJuegoIA = async function(opciones = {}) {
             payload = { materia, grado, tema, dificultad: 'media' };
         }
 
+        // Obtener Token Activo del Docente/Administrador
+        let tokenActivo = '';
+        try {
+            const authSes = JSON.parse(sessionStorage.getItem('peidagogos_auth') || '{}');
+            tokenActivo = authSes.token || localStorage.getItem('admin_token') || localStorage.getItem('usuario_sesion') || '';
+        } catch(e) {
+            tokenActivo = localStorage.getItem('admin_token') || '';
+        }
+
+        const headers = { 'Content-Type': 'application/json' };
+        if (tokenActivo) {
+            headers['Authorization'] = 'Bearer ' + tokenActivo;
+        }
+
         const res = await fetch('/api/generate-tool-ai', {
             method: 'POST',
-            headers: {'Content-Type': 'application/json'},
+            headers: headers,
             body: JSON.stringify(payload)
         });
 
@@ -12673,18 +12690,22 @@ window.ejecutarGeneracionJuegoIA = async function(opciones = {}) {
                 }, 500);
             }
         } else {
+            let errorMsg = 'Error en el servidor de IA (Status ' + res.status + ')';
             try {
                 const errData = await res.json();
-                alert('⚠️ Error IA: ' + (errData.error || res.statusText));
-            } catch(ex) {
-                alert('⚠️ Error IA: Servidor no respondió correctamente (Status ' + res.status + ')');
-            }
+                errorMsg = errData.detalle ? `${errData.error}: ${errData.detalle}` : (errData.error || errorMsg);
+            } catch(ex) {}
+            alert('⚠️ ' + errorMsg);
         }
     } catch (e) {
         console.error('[JUEGO IA] Error:', e);
-        alert('⚠️ Error de red al conectar con la IA. Verifica tu conexión.');
+        alert('⚠️ Error de red al conectar con la IA. Verifica tu conexión a internet.');
+    } finally {
+        if (btn) {
+            btn.disabled = false;
+            btn.innerHTML = '⚡ Generar con IA';
+        }
     }
-    if (btn) btn.innerHTML = '🚀 Generar y Asignar a Estudiantes ➔';
 };
 
 // Aliases Universales para Configuración y Generación de Herramientas IA (R3)
@@ -13045,6 +13066,18 @@ window.ejecutarRenderizadorHerramienta = function(id, stage, base) {
         case 'sudoku_steam': window.renderizarSudokuSteamTool(stage, base); break;
         case 'laberinto_logico': window.renderizarLaberintoLogicoTool(stage, base); break;
         case 'pictionary_tabu': window.renderizarPictionaryTabuTool(stage, base); break;
+
+        // Caja 2: Juegos Dinámicos y Activación
+        case 'juego_sopa_letras': window.renderizarJuegoSopaLetras(stage, base); break;
+        case 'juego_crucigrama': window.renderizarJuegoCrucigrama(stage, base); break;
+        case 'juego_emparejar': window.renderizarJuegoEmparejar(stage, base); break;
+        case 'juego_concentrese': window.renderizarJuegoConcentrese(stage, base); break;
+        case 'juego_laberinto': window.renderizarJuegoLaberinto(stage, base); break;
+        case 'juego_tap_sort': window.renderizarJuegoTapSort(stage, base); break;
+        case 'juego_anagrama': window.renderizarJuegoAnagrama(stage, base); break;
+        case 'juego_ordenar_secuencias': window.renderizarJuegoOrdenarSecuencias(stage, base); break;
+        case 'juego_escape_room': window.renderizarJuegoEscapeRoom(stage, base); break;
+        case 'juego_completar_parrafo': window.renderizarJuegoCompletarParrafo(stage, base); break;
 
         // Gestión de Aula en Vivo
         case 'ruleta_turnos': window.renderizarRuletaTurnosTool(stage, base); break;
@@ -16805,12 +16838,93 @@ window.renderizarTablaInvitacionesDocentesAdmin = function() {
                         <button onclick="const t = encodeURIComponent('¡Hola Profesor(a) ${inv.nombre}! 👋\\n\\nLe compartimos su enlace oficial intransferible de acceso docente para Peidagogos STEAM:\\n\\n👉 ${inv.url}'); window.open('https://api.whatsapp.com/send?text='+t, '_blank');" style="background: #10B981; color: white; border: none; padding: 4px 10px; border-radius: 6px; font-weight: 700; font-size: 0.78rem; cursor: pointer;">
                             📲 WhatsApp
                         </button>
+                        <button onclick="window.deleteInvitationLink('${inv.token}')" style="background: #EF4444; color: white; border: none; padding: 4px 10px; border-radius: 6px; font-weight: 700; font-size: 0.78rem; cursor: pointer; display: inline-flex; align-items: center; gap: 4px;">
+                            🗑️ Borrar Link
+                        </button>
                     </div>
                 </td>
             </tr>
         `;
     }).join('');
 };
+
+window.deleteInvitationLink = async function(token) {
+    if (!token) return;
+    
+    const confirmacion = confirm(`⚠️ ¿Estás seguro de que deseas eliminar este enlace de invitación (${token})?\nEsta acción no se puede deshacer y el enlace dejará de ser válido.`);
+    if (!confirmacion) return;
+
+    // 1. Buscar la invitación en localStorage para obtener datos adicionales si existen
+    let invList = JSON.parse(localStorage.getItem('invitaciones_docentes_db') || '[]');
+    const targetInv = invList.find(i => i.token === token);
+    const documentoTarget = targetInv ? targetInv.documento : null;
+
+    // 2. Eliminar quirúrgicamente del almacenamiento local en tiempo real
+    invList = invList.filter(i => i.token !== token);
+    localStorage.setItem('invitaciones_docentes_db', JSON.stringify(invList));
+
+    if (documentoTarget) {
+        let docentesLocal = JSON.parse(localStorage.getItem('docentes_db') || '[]');
+        docentesLocal = docentesLocal.filter(d => String(d.documento || d.cedula || d.usuario || '') !== String(documentoTarget) && d.token !== token);
+        localStorage.setItem('docentes_db', JSON.stringify(docentesLocal));
+
+        let usuariosLocal = JSON.parse(localStorage.getItem('usuarios_db') || '[]');
+        usuariosLocal = usuariosLocal.filter(u => String(u.documento || u.cedula || u.usuario || u.id || '') !== String(documentoTarget) && u.token !== token);
+        localStorage.setItem('usuarios_db', JSON.stringify(usuariosLocal));
+    }
+
+    // 3. Sincronizar con el Backend (Node.js/Express)
+    try {
+        await fetch('/api/eliminar-invitacion-docente', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ token: token, documento: documentoTarget })
+        });
+    } catch (err) {
+        console.warn('⚠️ Error al comunicarse con el servidor:', err);
+    }
+
+    // 4. Actualizar vista en el DOM en tiempo real sin recargar la página
+    if (typeof window.renderizarTablaInvitacionesDocentesAdmin === 'function') {
+        window.renderizarTablaInvitacionesDocentesAdmin();
+    }
+};
+
+window.logoutAdmin = async function() {
+    try {
+        // 1. Notificar al backend si existe manejador de sesión (opcional)
+        await fetch('/api/logout-admin', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' }
+        }).catch(() => {});
+    } catch(e) {}
+
+    // 2. Eliminar EXCLUSIVAMENTE claves de sesión del administrador sin tocar bases de datos locales
+    const sessionKeys = [
+        'admin_token',
+        'admin_logged',
+        'admin_data',
+        'sesion_admin',
+        'admin_session',
+        'usuario_sesion',
+        'usuario_actual'
+    ];
+    sessionKeys.forEach(key => {
+        localStorage.removeItem(key);
+        sessionStorage.removeItem(key);
+    });
+    sessionStorage.removeItem('peidagogos_auth');
+
+    // 3. Limpiar variables globales en memoria
+    if (window.usuario_actual) window.usuario_actual = null;
+    if (window.rol_actual) window.rol_actual = null;
+    if (window.sesion_admin) window.sesion_admin = null;
+
+    // 4. Redirigir limpiamente a la pantalla de acceso principal
+    window.location.href = 'login.html';
+};
+
+window.cerrarSesion = window.logoutAdmin;
 
 window.copiarEnlaceInvitacionAdmin = function() {
     const inUrl = document.getElementById('admin-inv-url-input');
@@ -18416,14 +18530,786 @@ window.renderizarMisOtrosGruposDocente = function(docDocente) {
     `).join('');
 };
 
-window.addEventListener('DOMContentLoaded', () => {
-    setTimeout(() => {
-        const docView = document.getElementById('docente-dashboard-container');
-        if (docView && docView.style.display !== 'none') {
-            if (typeof window.inicializarModuloDirectorGrupo === 'function') {
-                window.inicializarModuloDirectorGrupo();
+// ==========================================================================
+// CAJA 2: MOTORES INTERACTIVOS DE LOS 10 JUEGOS DINÁMICOS Y ACTIVACIÓN
+// ==========================================================================
+
+window.abrirModalGeneradorIA = window.abrirConfiguracionJuegoIA;
+
+// Helper: Modal de Victoria con Confeti CSS
+window.mostrarModalVictoria = function(titulo, tiempoText, xp, callbackReiniciar) {
+    const modalDiv = document.createElement('div');
+    modalDiv.style.cssText = "position: fixed; inset: 0; background: rgba(15,23,42,0.88); backdrop-filter: blur(8px); display: flex; align-items: center; justify-content: center; z-index: 999999; padding: 20px; font-family: system-ui, sans-serif;";
+    modalDiv.innerHTML = `
+        <div style="background: white; border-radius: 24px; padding: 35px 25px; max-width: 420px; width: 100%; text-align: center; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.3); border: 3px solid #10B981; animation: popIn 0.3s ease-out;">
+            <div style="font-size: 3.5rem; margin-bottom: 10px;">🏆</div>
+            <h2 style="margin: 0 0 6px 0; color: #065F46; font-size: 1.6rem; font-weight: 900;">¡RETOS COMPLETADOS!</h2>
+            <p style="margin: 0 0 15px 0; color: #047857; font-weight: 700; font-size: 0.95rem;">${titulo}</p>
+            <div style="display: flex; gap: 10px; justify-content: center; margin-bottom: 20px;">
+                <div style="background: #ECFDF5; border: 1.5px solid #A7F3D0; padding: 10px 16px; border-radius: 14px;">
+                    <div style="font-size: 0.75rem; font-weight: 800; color: #047857; text-transform: uppercase;">TIEMPO</div>
+                    <div style="font-size: 1.2rem; font-weight: 900; color: #065F46;">⏱️ ${tiempoText}</div>
+                </div>
+                <div style="background: #FEF3C7; border: 1.5px solid #FDE68A; padding: 10px 16px; border-radius: 14px;">
+                    <div style="font-size: 0.75rem; font-weight: 800; color: #B45309; text-transform: uppercase;">RECOMPENSA</div>
+                    <div style="font-size: 1.2rem; font-weight: 900; color: #92400E;">🌟 +${xp} XP</div>
+                </div>
+            </div>
+            <button id="btn-victoria-reiniciar" style="background: linear-gradient(135deg, #10B981, #059669); color: white; border: none; padding: 14px 28px; border-radius: 14px; font-weight: 900; font-size: 1rem; cursor: pointer; width: 100%; box-shadow: 0 4px 14px rgba(16,185,129,0.4);">
+                🔄 Volver a Jugar
+            </button>
+        </div>
+    `;
+    document.body.appendChild(modalDiv);
+    document.getElementById('btn-victoria-reiniciar').onclick = () => {
+        document.body.removeChild(modalDiv);
+        if (typeof callbackReiniciar === 'function') callbackReiniciar();
+    };
+};
+
+// Helper: Cabecera con Cronómetro para Juegos
+window.crearCabeceraJuego = function(stage, titulo, xp, onRestart) {
+    let segundos = 0;
+    const header = document.createElement('div');
+    header.style.cssText = "display: flex; justify-content: space-between; align-items: center; background: #1E293B; color: white; padding: 12px 16px; border-radius: 14px; margin-bottom: 15px; font-family: system-ui, sans-serif;";
+    header.innerHTML = `
+        <div style="display: flex; align-items: center; gap: 8px;">
+            <span style="font-weight: 900; font-size: 0.95rem; color: #38BDF8;">${titulo}</span>
+            <span style="background: #0284C7; color: white; font-size: 0.72rem; font-weight: 800; padding: 2px 8px; border-radius: 10px;">+${xp} XP</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 12px;">
+            <div id="juego-cronometro-txt" style="font-family: monospace; font-weight: 800; font-size: 1rem; color: #4ADE80;">⏱️ 00:00</div>
+            <button id="btn-juego-reinicio" style="background: #334155; color: white; border: none; padding: 6px 12px; border-radius: 8px; font-weight: 700; font-size: 0.8rem; cursor: pointer;">🔄 Reiniciar</button>
+        </div>
+    `;
+    stage.innerHTML = '';
+    stage.appendChild(header);
+
+    const timerInterval = setInterval(() => {
+        segundos++;
+        const mins = String(Math.floor(segundos / 60)).padStart(2, '0');
+        const secs = String(segundos % 60).padStart(2, '0');
+        const txt = header.querySelector('#juego-cronometro-txt');
+        if (txt) txt.innerText = `⏱️ ${mins}:${secs}`;
+    }, 1000);
+
+    header.querySelector('#btn-juego-reinicio').onclick = () => {
+        clearInterval(timerInterval);
+        if (typeof onRestart === 'function') onRestart();
+    };
+
+    return {
+        stopTimer: () => clearInterval(timerInterval),
+        getTiempoFormatted: () => {
+            const mins = String(Math.floor(segundos / 60)).padStart(2, '0');
+            const secs = String(segundos % 60).padStart(2, '0');
+            return `${mins}:${secs}`;
+        }
+    };
+};
+
+// 1. SOPA DE LETRAS (`juego_sopa_letras`)
+window.renderizarJuegoSopaLetras = function(stage, base) {
+    const dataIA = window._aiGameData || {};
+    const palabras = (dataIA.palabras && dataIA.palabras.length) ? dataIA.palabras : ["CELULA", "GENETICA", "BIOLOGIA", "CIENCIA", "ADN", "PROTEINA", "ATOMO", "TECNOLOGIA"];
+    const palabrasClean = palabras.map(p => p.toUpperCase().replace(/[^A-Z]/g, '')).filter(p => p.length > 2).slice(0, 8);
+    
+    const cabecera = window.crearCabeceraJuego(stage, "🔤 Sopa de Letras", 100, () => window.renderizarJuegoSopaLetras(stage, base));
+    const size = 10;
+    let grid = Array(size).fill(null).map(() => Array(size).fill(''));
+
+    // Insertar palabras
+    palabrasClean.forEach(word => {
+        let placed = false, attempts = 0;
+        while(!placed && attempts < 100) {
+            attempts++;
+            const dir = Math.floor(Math.random() * 2); // 0 = Horizontal, 1 = Vertical
+            const r = Math.floor(Math.random() * (dir === 0 ? size : size - word.length));
+            const c = Math.floor(Math.random() * (dir === 0 ? size - word.length : size));
+            let canPlace = true;
+            for(let i=0; i<word.length; i++) {
+                const nr = dir === 0 ? r : r + i;
+                const nc = dir === 0 ? c + i : c;
+                if(grid[nr][nc] !== '' && grid[nr][nc] !== word[i]) { canPlace = false; break; }
+            }
+            if(canPlace) {
+                for(let i=0; i<word.length; i++) {
+                    const nr = dir === 0 ? r : r + i;
+                    const nc = dir === 0 ? c + i : c;
+                    grid[nr][nc] = word[i];
+                }
+                placed = true;
             }
         }
-    }, 400);
-});
+    });
+
+    const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    for(let r=0; r<size; r++) {
+        for(let c=0; c<size; c++) {
+            if(grid[r][c] === '') grid[r][c] = letters[Math.floor(Math.random() * letters.length)];
+        }
+    }
+
+    let encontradas = new Set();
+    let seleccionadas = [];
+
+    const container = document.createElement('div');
+    container.style.cssText = "max-width: 440px; margin: 0 auto; touch-action: none; text-align: center;";
+    container.innerHTML = `
+        <div id="sopa-grid" style="display: grid; grid-template-columns: repeat(${size}, 1fr); gap: 4px; background: #0F172A; padding: 8px; border-radius: 12px; margin-bottom: 15px;">
+            ${grid.map((row, r) => row.map((cell, c) => `
+                <div data-r="${r}" data-c="${c}" style="background: white; border-radius: 6px; aspect-ratio: 1; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 0.95rem; color: #1E293B; cursor: pointer; user-select: none;">${cell}</div>
+            `).join('')).join('')}
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 6px; justify-content: center;" id="sopa-badges">
+            ${palabrasClean.map(w => `<span data-word="${w}" style="background: #E2E8F0; color: #334155; font-size: 0.78rem; font-weight: 800; padding: 4px 10px; border-radius: 10px;">${w}</span>`).join('')}
+        </div>
+    `;
+    stage.appendChild(container);
+
+    const cells = container.querySelectorAll('[data-r]');
+    cells.forEach(cell => {
+        cell.onclick = () => {
+            const r = parseInt(cell.dataset.r);
+            const c = parseInt(cell.dataset.c);
+            cell.style.background = "#3B82F6";
+            cell.style.color = "white";
+            seleccionadas.push({r, c, char: cell.innerText});
+            
+            const currentStr = seleccionadas.map(s => s.char).join('');
+            if (palabrasClean.includes(currentStr) && !encontradas.has(currentStr)) {
+                encontradas.add(currentStr);
+                seleccionadas.forEach(s => {
+                    const el = container.querySelector(`[data-r="${s.r}"][data-c="${s.c}"]`);
+                    if(el) { el.style.background = "#10B981"; el.style.color = "white"; }
+                });
+                const badge = container.querySelector(`[data-word="${currentStr}"]`);
+                if (badge) { badge.style.background = "#10B981"; badge.style.color = "white"; badge.style.textDecoration = "line-through"; }
+                seleccionadas = [];
+
+                if (encontradas.size === palabrasClean.length) {
+                    cabecera.stopTimer();
+                    window.mostrarModalVictoria("Sopa de Letras Completada", cabecera.getTiempoFormatted(), 100, () => window.renderizarJuegoSopaLetras(stage, base));
+                }
+            }
+        };
+    });
+};
+
+// 2. CRUCIGRAMA (`juego_crucigrama`)
+window.renderizarJuegoCrucigrama = function(stage, base) {
+    const dataIA = window._aiGameData || {};
+    const pistas = (dataIA.palabras && dataIA.palabras.length) ? dataIA.palabras : [
+        { id: 1, palabra: "TECNOLOGIA", pista: "Conjunto de instrumentos y conocimientos científicos.", dir: "H" },
+        { id: 2, palabra: "CIENCIA", pista: "Estudio sistemático de la naturaleza.", dir: "V" },
+        { id: 3, palabra: "MATEMATICAS", pista: "Ciencia de los números y las formas.", dir: "H" },
+        { id: 4, palabra: "ROBOTICA", pista: "Rama de la tecnología que diseña robots.", dir: "V" }
+    ];
+
+    const cabecera = window.crearCabeceraJuego(stage, "🧩 Crucigrama Traditional", 120, () => window.renderizarJuegoCrucigrama(stage, base));
+    const container = document.createElement('div');
+    container.style.cssText = "max-width: 440px; margin: 0 auto; text-align: left;";
+    container.innerHTML = `
+        <div style="background: white; border: 1.5px solid #E2E8F0; border-radius: 14px; padding: 15px; margin-bottom: 15px;">
+            <h4 style="margin: 0 0 10px 0; color: #1E293B; font-size: 0.95rem; font-weight: 800;">Pistas:</h4>
+            ${pistas.map(p => `
+                <div style="font-size: 0.82rem; color: #475569; margin-bottom: 6px;">
+                    <strong>${p.id}. [${p.dir === 'H' ? 'Horiz' : 'Vert'}]</strong> ${p.pista || p.palabra}
+                </div>
+            `).join('')}
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 10px;" id="cruci-inputs">
+            ${pistas.map(p => `
+                <div style="background: #F8FAFC; border: 1.5px solid #CBD5E1; padding: 10px; border-radius: 10px; display: flex; align-items: center; justify-content: space-between;">
+                    <span style="font-weight: 800; font-size: 0.85rem; color: #1E40AF; min-width: 25px;">${p.id}.</span>
+                    <input type="text" maxlength="${p.palabra.length}" data-target="${p.palabra.toUpperCase()}" placeholder="${p.palabra.length} letras" style="flex: 1; margin: 0 10px; padding: 8px 12px; border: 1.5px solid #CBD5E1; border-radius: 8px; font-weight: 900; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; text-align: center;">
+                    <span class="cruci-status" style="font-size: 1.2rem;">⏳</span>
+                </div>
+            `).join('')}
+        </div>
+        <button id="btn-validar-crucigrama" style="width: 100%; margin-top: 15px; background: linear-gradient(135deg, #2563EB, #1D4ED8); color: white; border: none; padding: 12px; border-radius: 12px; font-weight: 800; font-size: 0.92rem; cursor: pointer;">
+            ✅ Verificar Respuestas
+        </button>
+    `;
+    stage.appendChild(container);
+
+    container.querySelector('#btn-validar-crucigrama').onclick = () => {
+        let correctos = 0;
+        const rows = container.querySelectorAll('#cruci-inputs > div');
+        rows.forEach(row => {
+            const input = row.querySelector('input');
+            const status = row.querySelector('.cruci-status');
+            if (input.value.trim().toUpperCase() === input.dataset.target) {
+                correctos++;
+                status.innerText = "✅";
+                input.style.borderColor = "#10B981";
+            } else {
+                status.innerText = "❌";
+                input.style.borderColor = "#EF4444";
+            }
+        });
+        if (correctos === pistas.length) {
+            cabecera.stopTimer();
+            window.mostrarModalVictoria("Crucigrama Resuelto", cabecera.getTiempoFormatted(), 120, () => window.renderizarJuegoCrucigrama(stage, base));
+        }
+    };
+};
+
+// 3. EMPAREJAR (`juego_emparejar`)
+window.renderizarJuegoEmparejar = function(stage, base) {
+    const dataIA = window._aiGameData || {};
+    const pares = (dataIA.pares && dataIA.pares.length) ? dataIA.pares : [
+        { izquierda: "Fotosíntesis", derecha: "Proceso de transformación de luz en energía química" },
+        { izquierda: "Mitocondria", derecha: "Central de energía celular" },
+        { izquierda: "ADN", derecha: "Molécula portadora del material genético" },
+        { izquierda: "Ecosistema", derecha: "Comunidad de seres vivos y su entorno" },
+        { izquierda: "Gravedad", derecha: "Fuerza de atracción entre cuerpos masivos" }
+    ];
+
+    const cabecera = window.crearCabeceraJuego(stage, "🔗 Emparejar Conceptos", 90, () => window.renderizarJuegoEmparejar(stage, base));
+    const container = document.createElement('div');
+    container.style.cssText = "max-width: 460px; margin: 0 auto;";
+
+    const conceptosLeft = [...pares].sort(() => Math.random() - 0.5);
+    const conceptosRight = [...pares].sort(() => Math.random() - 0.5);
+
+    let selectedLeft = null;
+    let aciertos = 0;
+
+    container.innerHTML = `
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+            <div id="col-left" style="display: flex; flex-direction: column; gap: 8px;">
+                ${conceptosLeft.map((p, i) => `
+                    <button data-id="${p.izquierda}" style="background: white; border: 2px solid #CBD5E1; padding: 12px; border-radius: 12px; font-weight: 800; font-size: 0.82rem; color: #1E293B; cursor: pointer; text-align: center; transition: 0.2s;">
+                        ${p.izquierda}
+                    </button>
+                `).join('')}
+            </div>
+            <div id="col-right" style="display: flex; flex-direction: column; gap: 8px;">
+                ${conceptosRight.map((p, i) => `
+                    <button data-id="${p.izquierda}" style="background: white; border: 2px solid #CBD5E1; padding: 12px; border-radius: 12px; font-weight: 700; font-size: 0.78rem; color: #475569; cursor: pointer; text-align: center; transition: 0.2s;">
+                        ${p.derecha}
+                    </button>
+                `).join('')}
+            </div>
+        </div>
+    `;
+    stage.appendChild(container);
+
+    const leftBtns = container.querySelectorAll('#col-left button');
+    const rightBtns = container.querySelectorAll('#col-right button');
+
+    leftBtns.forEach(btn => {
+        btn.onclick = () => {
+            leftBtns.forEach(b => { if(!b.disabled) b.style.borderColor = "#CBD5E1"; });
+            btn.style.borderColor = "#2563EB";
+            btn.style.background = "#EFF6FF";
+            selectedLeft = btn;
+        };
+    });
+
+    rightBtns.forEach(btn => {
+        btn.onclick = () => {
+            if (!selectedLeft) return;
+            if (btn.dataset.id === selectedLeft.dataset.id) {
+                // Correcto
+                selectedLeft.style.background = "#10B981"; selectedLeft.style.color = "white"; selectedLeft.disabled = true;
+                btn.style.background = "#10B981"; btn.style.color = "white"; btn.disabled = true;
+                selectedLeft = null;
+                aciertos++;
+                if (aciertos === pares.length) {
+                    cabecera.stopTimer();
+                    window.mostrarModalVictoria("Emparejamiento Exitoso", cabecera.getTiempoFormatted(), 90, () => window.renderizarJuegoEmparejar(stage, base));
+                }
+            } else {
+                // Error
+                btn.style.borderColor = "#EF4444";
+                setTimeout(() => { btn.style.borderColor = "#CBD5E1"; }, 600);
+            }
+        };
+    });
+};
+
+// 4. CONCÉNTRESE / MEMORIA (`juego_concentrese`)
+window.renderizarJuegoConcentrese = function(stage, base) {
+    const dataIA = window._aiGameData || {};
+    const pares = (dataIA.pares && dataIA.pares.length) ? dataIA.pares.slice(0, 8) : [
+        { carta_a: "🌿 Átomos", carta_b: "Partícula fundamental de la materia" },
+        { carta_a: "⚡ Energía", carta_b: "Capacidad para realizar un trabajo" },
+        { carta_a: "🧬 Genoma", carta_b: "Conjunto completo de ADN de un organismo" },
+        { carta_a: "🤖 Robótica", carta_b: "Tecnología de diseño de máquinas autónomas" },
+        { carta_a: "📐 Geometría", carta_b: "Estudio de las propiedades de las figuras" },
+        { carta_a: "🧪 Reacción", carta_b: "Transformación de sustancias químicas" }
+    ];
+
+    const cabecera = window.crearCabeceraJuego(stage, "🃏 Concéntrese (Memoria)", 100, () => window.renderizarJuegoConcentrese(stage, base));
+
+    let cardsData = [];
+    pares.forEach((p, idx) => {
+        cardsData.push({ pairId: idx, text: p.carta_a });
+        cardsData.push({ pairId: idx, text: p.carta_b });
+    });
+    cardsData.sort(() => Math.random() - 0.5);
+
+    const container = document.createElement('div');
+    container.style.cssText = "max-width: 440px; margin: 0 auto;";
+    container.innerHTML = `
+        <div id="memo-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px;">
+            ${cardsData.map((c, i) => `
+                <div data-idx="${i}" data-pair="${c.pairId}" style="height: 75px; background: #2563EB; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-weight: 800; font-size: 0.72rem; cursor: pointer; text-align: center; padding: 4px; transition: transform 0.3s; transform-style: preserve-3d;">
+                    <span class="card-val" style="display: none; padding: 4px;">${c.text}</span>
+                    <span class="card-back" style="font-size: 1.5rem;">❓</span>
+                </div>
+            `).join('')}
+        </div>
+    `;
+    stage.appendChild(container);
+
+    let flipped = [];
+    let lockBoard = false;
+    let aciertos = 0;
+
+    container.querySelectorAll('#memo-grid > div').forEach(card => {
+        card.onclick = () => {
+            if (lockBoard || flipped.includes(card) || card.dataset.matched) return;
+            
+            card.querySelector('.card-back').style.display = 'none';
+            card.querySelector('.card-val').style.display = 'block';
+            card.style.background = '#FFFFFF';
+            card.style.color = '#1E293B';
+            card.style.border = '2px solid #3B82F6';
+            flipped.push(card);
+
+            if (flipped.length === 2) {
+                lockBoard = true;
+                const [c1, c2] = flipped;
+                if (c1.dataset.pair === c2.dataset.pair) {
+                    c1.dataset.matched = "true"; c2.dataset.matched = "true";
+                    c1.style.borderColor = "#10B981"; c2.style.borderColor = "#10B981";
+                    c1.style.background = "#ECFDF5"; c2.style.background = "#ECFDF5";
+                    flipped = []; lockBoard = false;
+                    aciertos++;
+                    if (aciertos === pares.length) {
+                        cabecera.stopTimer();
+                        window.mostrarModalVictoria("Memoria Completada", cabecera.getTiempoFormatted(), 100, () => window.renderizarJuegoConcentrese(stage, base));
+                    }
+                } else {
+                    setTimeout(() => {
+                        [c1, c2].forEach(c => {
+                            c.querySelector('.card-back').style.display = 'block';
+                            c.querySelector('.card-val').style.display = 'none';
+                            c.style.background = '#2563EB';
+                            c.style.color = 'white';
+                            c.style.border = 'none';
+                        });
+                        flipped = []; lockBoard = false;
+                    }, 900);
+                }
+            }
+        };
+    });
+};
+
+// 5. LABERINTO DE DECISIONES (`juego_laberinto`)
+window.renderizarJuegoLaberinto = function(stage, base) {
+    const dataIA = window._aiGameData || {};
+    const nodos = (dataIA.nodos && dataIA.nodos.length) ? dataIA.nodos : [
+        { id: "inicio", texto: "Te encuentras en la entrada de una expedición científica sobre Ecosistemas. ¿Qué ruta eliges?", opciones: [{ texto: "🌲 Explorar el bosque tropical", siguiente: "n1" }, { texto: "🏜️ Adentrarte en el desierto", siguiente: "n2" }] },
+        { id: "n1", texto: "Encuentras una especie endémica en peligro. ¿Cómo procedes?", opciones: [{ texto: "📸 Registrar coordenadas y notificar biólogos", siguiente: "meta" }, { texto: "🌿 Extraer la planta del suelo", siguiente: "trampa1" }] },
+        { id: "n2", texto: "El calor es extremo y las reservas de agua son bajas. ¿Qué decisión tomas?", opciones: [{ texto: "🧭 Buscar refugio con sombra", siguiente: "meta" }, { texto: "🏃 Correr sin descanso", siguiente: "trampa2" }] },
+        { id: "trampa1", texto: "❌ Alteraste el ecosistema y la misión fue cancelada.", opciones: [{ texto: "🔄 Reintentar", siguiente: "inicio" }] },
+        { id: "trampa2", texto: "❌ Sufriste deshidratación y perdiste la ruta.", opciones: [{ texto: "🔄 Reintentar", siguiente: "inicio" }] },
+        { id: "meta", texto: "🏆 ¡Excelente decisión! Completaste la misión científica con éxito.", opciones: [] }
+    ];
+
+    const cabecera = window.crearCabeceraJuego(stage, "🗺️ Laberinto de Decisiones", 110, () => window.renderizarJuegoLaberinto(stage, base));
+    const container = document.createElement('div');
+    container.style.cssText = "max-width: 440px; margin: 0 auto; text-align: left;";
+
+    function renderNode(nodeId) {
+        const nodo = nodos.find(n => n.id === nodeId) || nodos[0];
+        container.innerHTML = `
+            <div style="background: white; border: 1.5px solid #CBD5E1; border-radius: 16px; padding: 20px; box-shadow: 0 4px 14px rgba(0,0,0,0.05); transition: opacity 0.3s;" id="nodo-box">
+                <div style="font-size: 0.78rem; font-weight: 800; color: #2563EB; text-transform: uppercase; margin-bottom: 8px;">Escenario Activo</div>
+                <p style="margin: 0 0 20px 0; font-size: 0.95rem; font-weight: 700; color: #1E293B; line-height: 1.5;">${nodo.texto}</p>
+                <div style="display: flex; flex-direction: column; gap: 10px;">
+                    ${nodo.opciones.map(op => `
+                        <button data-next="${op.siguiente}" style="background: #F8FAFC; border: 2px solid #3B82F6; color: #1D4ED8; padding: 12px 16px; border-radius: 12px; font-weight: 800; font-size: 0.88rem; cursor: pointer; text-align: left; transition: 0.2s;">
+                            ${op.texto}
+                        </button>
+                    `).join('')}
+                </div>
+            </div>
+        `;
+        if (nodo.id === "meta") {
+            cabecera.stopTimer();
+            setTimeout(() => {
+                window.mostrarModalVictoria("Laberinto Superado", cabecera.getTiempoFormatted(), 110, () => window.renderizarJuegoLaberinto(stage, base));
+            }, 600);
+        }
+        container.querySelectorAll('button[data-next]').forEach(btn => {
+            btn.onclick = () => renderNode(btn.dataset.next);
+        });
+    }
+
+    stage.appendChild(container);
+    renderNode("inicio");
+};
+
+// 6. CLASIFICADOR TAP & SORT (`juego_tap_sort`)
+window.renderizarJuegoTapSort = function(stage, base) {
+    const dataIA = window._aiGameData || {};
+    const categorias = (dataIA.categorias && dataIA.categorias.length) ? dataIA.categorias : ["Renovables", "No Renovables"];
+    const items = (dataIA.items && dataIA.items.length) ? dataIA.items : [
+        { texto: "Energía Solar", categoria_correcta: "Renovables" },
+        { texto: "Petróleo", categoria_correcta: "No Renovables" },
+        { texto: "Energía Eólica", categoria_correcta: "Renovables" },
+        { texto: "Carbón Mineral", categoria_correcta: "No Renovables" },
+        { texto: "Energía Hidroeléctrica", categoria_correcta: "Renovables" },
+        { texto: "Gas Natural", categoria_correcta: "No Renovables" }
+    ];
+
+    const cabecera = window.crearCabeceraJuego(stage, "👆 Clasificador Tap & Sort", 85, () => window.renderizarJuegoTapSort(stage, base));
+    const container = document.createElement('div');
+    container.style.cssText = "max-width: 440px; margin: 0 auto;";
+
+    let activeItem = null;
+    let aciertos = 0;
+
+    container.innerHTML = `
+        <div style="font-size: 0.82rem; font-weight: 800; color: #475569; margin-bottom: 10px;">1. Toca un elemento abajo -> 2. Toca su categoría arriba</div>
+        <div style="display: grid; grid-template-columns: repeat(${categorias.length}, 1fr); gap: 10px; margin-bottom: 20px;" id="cat-boxes">
+            ${categorias.map(cat => `
+                <div data-cat="${cat}" style="background: #EFF6FF; border: 2px dashed #3B82F6; padding: 15px 10px; border-radius: 14px; text-align: center; cursor: pointer;">
+                    <div style="font-weight: 900; color: #1E40AF; font-size: 0.88rem;">${cat}</div>
+                    <div class="cat-count" style="font-size: 0.72rem; color: #3B82F6; font-weight: 700; margin-top: 4px;">Toca para clasificar</div>
+                </div>
+            `).join('')}
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;" id="items-pool">
+            ${items.map((it, i) => `
+                <button data-idx="${i}" data-correct="${it.categoria_correcta}" style="background: white; border: 2px solid #CBD5E1; padding: 10px 14px; border-radius: 12px; font-weight: 800; font-size: 0.82rem; color: #1E293B; cursor: pointer; transition: 0.2s;">
+                    ${it.texto}
+                </button>
+            `).join('')}
+        </div>
+    `;
+    stage.appendChild(container);
+
+    const itemBtns = container.querySelectorAll('#items-pool button');
+    const catBoxes = container.querySelectorAll('#cat-boxes > div');
+
+    itemBtns.forEach(btn => {
+        btn.onclick = () => {
+            itemBtns.forEach(b => { if(!b.disabled) b.style.borderColor = "#CBD5E1"; });
+            btn.style.borderColor = "#2563EB";
+            btn.style.background = "#EFF6FF";
+            activeItem = btn;
+        };
+    });
+
+    catBoxes.forEach(box => {
+        box.onclick = () => {
+            if (!activeItem) return;
+            const targetCat = box.dataset.cat;
+            if (activeItem.dataset.correct === targetCat) {
+                activeItem.style.background = "#10B981";
+                activeItem.style.color = "white";
+                activeItem.disabled = true;
+                activeItem = null;
+                aciertos++;
+                if (aciertos === items.length) {
+                    cabecera.stopTimer();
+                    window.mostrarModalVictoria("Clasificación Correcta", cabecera.getTiempoFormatted(), 85, () => window.renderizarJuegoTapSort(stage, base));
+                }
+            } else {
+                box.style.borderColor = "#EF4444";
+                setTimeout(() => { box.style.borderColor = "#3B82F6"; }, 600);
+            }
+        };
+    });
+};
+
+// 7. ANAGRAMA (`juego_anagrama`)
+window.renderizarJuegoAnagrama = function(stage, base) {
+    const dataIA = window._aiGameData || {};
+    const palabras = (dataIA.palabras && dataIA.palabras.length) ? dataIA.palabras : [
+        { original: "CELULA", pista: "Unidad anatómica fundamental de los seres vivos" },
+        { original: "ENERGIA", pista: "Capacidad para realizar un trabajo o producir cambios" },
+        { original: "ATOMO", pista: "Unidad de materia con propiedades de un elemento" }
+    ];
+
+    const cabecera = window.crearCabeceraJuego(stage, "🔠 Anagrama", 75, () => window.renderizarJuegoAnagrama(stage, base));
+    const container = document.createElement('div');
+    container.style.cssText = "max-width: 420px; margin: 0 auto;";
+
+    let level = 0;
+    function renderLevel() {
+        const cur = palabras[level];
+        const origLetters = cur.original.toUpperCase().split('');
+        const scrambled = [...origLetters].sort(() => Math.random() - 0.5);
+
+        container.innerHTML = `
+            <div style="background: #F8FAFC; border: 1.5px solid #E2E8F0; padding: 14px; border-radius: 12px; margin-bottom: 15px; text-align: left;">
+                <div style="font-weight: 800; font-size: 0.78rem; color: #2563EB; text-transform: uppercase;">Pista (${level+1}/${palabras.length})</div>
+                <div style="font-weight: 700; font-size: 0.9rem; color: #1E293B; margin-top: 4px;">${cur.pista || cur.original}</div>
+            </div>
+            <div id="target-slots" style="display: flex; gap: 6px; justify-content: center; margin-bottom: 20px;">
+                ${origLetters.map(() => `<div class="slot" style="width: 38px; height: 44px; border: 2px dashed #94A3B8; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 1.1rem; color: #1E293B; background: white;"></div>`).join('')}
+            </div>
+            <div id="tiles-pool" style="display: flex; gap: 6px; justify-content: center;">
+                ${scrambled.map((char, i) => `<button data-idx="${i}" style="width: 38px; height: 44px; background: #2563EB; color: white; border: none; border-radius: 8px; font-weight: 900; font-size: 1.1rem; cursor: pointer;">${char}</button>`).join('')}
+            </div>
+        `;
+
+        const slots = container.querySelectorAll('.slot');
+        const tiles = container.querySelectorAll('#tiles-pool button');
+
+        tiles.forEach(tile => {
+            tile.onclick = () => {
+                const emptySlot = [...slots].find(s => s.innerText === '');
+                if (emptySlot) {
+                    emptySlot.innerText = tile.innerText;
+                    emptySlot.style.border = "2px solid #3B82F6";
+                    emptySlot.dataset.tileIdx = tile.dataset.idx;
+                    tile.style.visibility = 'hidden';
+
+                    // Verificar solución
+                    const currentWord = [...slots].map(s => s.innerText).join('');
+                    if (currentWord === cur.original.toUpperCase()) {
+                        level++;
+                        if (level < palabras.length) {
+                            setTimeout(renderLevel, 500);
+                        } else {
+                            cabecera.stopTimer();
+                            window.mostrarModalVictoria("Anagramas Resueltos", cabecera.getTiempoFormatted(), 75, () => window.renderizarJuegoAnagrama(stage, base));
+                        }
+                    }
+                }
+            };
+        });
+
+        slots.forEach(slot => {
+            slot.onclick = () => {
+                if (slot.innerText !== '') {
+                    const tileIdx = slot.dataset.tileIdx;
+                    const tile = container.querySelector(`button[data-idx="${tileIdx}"]`);
+                    if (tile) tile.style.visibility = 'visible';
+                    slot.innerText = '';
+                    slot.style.border = "2px dashed #94A3B8";
+                }
+            };
+        });
+    }
+
+    stage.appendChild(container);
+    renderLevel();
+};
+
+// 8. ORDENAR SECUENCIAS (`juego_ordenar_secuencias`)
+window.renderizarJuegoOrdenarSecuencias = function(stage, base) {
+    const dataIA = window._aiGameData || {};
+    const pasos = (dataIA.secuencias && dataIA.secuencias[0] && dataIA.secuencias[0].pasos_desordenados) ? dataIA.secuencias[0].pasos_desordenados : [
+        "1. Planteamiento de la hipótesis",
+        "2. Diseño del experimento",
+        "3. Recolección de datos y observaciones",
+        "4. Análisis de resultados y conclusiones"
+    ];
+
+    const cabecera = window.crearCabeceraJuego(stage, "🔢 Ordenar Secuencias", 80, () => window.renderizarJuegoOrdenarSecuencias(stage, base));
+    const container = document.createElement('div');
+    container.style.cssText = "max-width: 440px; margin: 0 auto;";
+
+    let items = [...pasos].sort(() => Math.random() - 0.5);
+
+    function renderList() {
+        container.innerHTML = `
+            <div style="font-size: 0.82rem; font-weight: 800; color: #475569; margin-bottom: 12px;">Usa los botones ⬆️ / ⬇️ para ordenar el proceso correctamente:</div>
+            <div style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px;">
+                ${items.map((it, idx) => `
+                    <div style="background: white; border: 1.5px solid #CBD5E1; padding: 10px 14px; border-radius: 12px; display: flex; align-items: center; justify-content: space-between; gap: 10px;">
+                        <span style="font-weight: 800; font-size: 0.85rem; color: #1E293B; flex: 1; text-align: left;">${it}</span>
+                        <div style="display: flex; gap: 4px;">
+                            <button onclick="window._moverSecuencia(${idx}, -1)" ${idx === 0 ? 'disabled' : ''} style="padding: 6px 10px; background: #F1F5F9; border: 1px solid #CBD5E1; border-radius: 6px; cursor: pointer;">⬆️</button>
+                            <button onclick="window._moverSecuencia(${idx}, 1)" ${idx === items.length - 1 ? 'disabled' : ''} style="padding: 6px 10px; background: #F1F5F9; border: 1px solid #CBD5E1; border-radius: 6px; cursor: pointer;">⬇️</button>
+                        </div>
+                    </div>
+                `).join('')}
+            </div>
+            <button id="btn-validar-secuencia" style="width: 100%; background: linear-gradient(135deg, #2563EB, #1D4ED8); color: white; border: none; padding: 12px; border-radius: 12px; font-weight: 800; font-size: 0.92rem; cursor: pointer;">
+                ✅ Validar Orden Lógico
+            </button>
+        `;
+
+        container.querySelector('#btn-validar-secuencia').onclick = () => {
+            const esCorrecto = items.every((it, idx) => it === pasos[idx]);
+            if (esCorrecto) {
+                cabecera.stopTimer();
+                window.mostrarModalVictoria("Secuencia Correcta", cabecera.getTiempoFormatted(), 80, () => window.renderizarJuegoOrdenarSecuencias(stage, base));
+            } else {
+                alert("❌ El orden no es correcto aún. Revisa la secuencia e intenta de nuevo.");
+            }
+        };
+    }
+
+    window._moverSecuencia = function(idx, dir) {
+        const targetIdx = idx + dir;
+        if (targetIdx >= 0 && targetIdx < items.length) {
+            const temp = items[idx];
+            items[idx] = items[targetIdx];
+            items[targetIdx] = temp;
+            renderList();
+        }
+    };
+
+    stage.appendChild(container);
+    renderList();
+};
+
+// 9. ESCAPE ROOM (`juego_escape_room`)
+window.renderizarJuegoEscapeRoom = function(stage, base) {
+    const dataIA = window._aiGameData || {};
+    const salas = (dataIA.salas && dataIA.salas.length) ? dataIA.salas : [
+        { id: "sala1", nombre: "Sala 1: El Laboratorio Secreto", acertijo: "Código de entrada: ¿Cuántos estados fundamentales de la materia tradicional existen? (Respuesta: 3)", codigo_salida: "3" },
+        { id: "sala2", nombre: "Sala 2: El Enigma de los Elementos", acertijo: "Código de salida: ¿Cuál es el número atómico del Carbono? (Respuesta: 6)", codigo_salida: "6" }
+    ];
+
+    const cabecera = window.crearCabeceraJuego(stage, "🚪 Escape Room STEAM", 200, () => window.renderizarJuegoEscapeRoom(stage, base));
+    const container = document.createElement('div');
+    container.style.cssText = "max-width: 400px; margin: 0 auto;";
+
+    let roomIdx = 0;
+    let inputCode = "";
+
+    function renderRoom() {
+        const sala = salas[roomIdx];
+        container.innerHTML = `
+            <div style="background: white; border: 1.5px solid #E2E8F0; border-radius: 14px; padding: 16px; margin-bottom: 15px; text-align: left;">
+                <span style="font-weight: 800; font-size: 0.78rem; color: #2563EB; text-transform: uppercase;">${sala.nombre}</span>
+                <p style="margin: 6px 0 0 0; font-weight: 700; font-size: 0.9rem; color: #1E293B;">${sala.acertijo}</p>
+            </div>
+            <div style="background: #0F172A; border-radius: 12px; padding: 15px; color: white; text-align: center; margin-bottom: 15px;">
+                <div style="font-size: 0.75rem; color: #94A3B8; margin-bottom: 4px;">CÓDIGO DE DESBLOQUEO:</div>
+                <div id="keypad-display" style="font-family: monospace; font-size: 1.8rem; font-weight: 900; letter-spacing: 4px; color: #4ADE80; min-height: 40px; display: flex; align-items: center; justify-content: center;">${inputCode || "____"}</div>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; max-width: 280px; margin: 0 auto;" id="keypad-buttons">
+                ${[1,2,3,4,5,6,7,8,9,0].map(n => `<button data-num="${n}" style="padding: 14px; background: #F8FAFC; border: 1.5px solid #CBD5E1; border-radius: 10px; font-weight: 900; font-size: 1.2rem; cursor: pointer;">${n}</button>`).join('')}
+                <button id="btn-keypad-clear" style="padding: 14px; background: #FEE2E2; color: #DC2626; border: none; border-radius: 10px; font-weight: 900; font-size: 1rem; cursor: pointer;">C</button>
+            </div>
+        `;
+
+        container.querySelectorAll('#keypad-buttons button[data-num]').forEach(btn => {
+            btn.onclick = () => {
+                if (inputCode.length < 4) {
+                    inputCode += btn.dataset.num;
+                    container.querySelector('#keypad-display').innerText = inputCode;
+                    if (inputCode === sala.codigo_salida) {
+                        roomIdx++;
+                        inputCode = "";
+                        if (roomIdx < salas.length) {
+                            setTimeout(renderRoom, 400);
+                        } else {
+                            cabecera.stopTimer();
+                            window.mostrarModalVictoria("Escape Room Superado", cabecera.getTiempoFormatted(), 200, () => window.renderizarJuegoEscapeRoom(stage, base));
+                        }
+                    }
+                }
+            };
+        });
+
+        const clearBtn = container.querySelector('#btn-keypad-clear');
+        if (clearBtn) {
+            clearBtn.onclick = () => {
+                inputCode = "";
+                container.querySelector('#keypad-display').innerText = "____";
+            };
+        }
+    }
+
+    stage.appendChild(container);
+    renderRoom();
+};
+
+// 10. COMPLETAR EL PÁRRAFO (`juego_completar_parrafo`)
+window.renderizarJuegoCompletarParrafo = function(stage, base) {
+    const dataIA = window._aiGameData || {};
+    const parrafoData = (dataIA.parrafos && dataIA.parrafos[0]) ? dataIA.parrafos[0] : {
+        texto_con_blancos: "La [ ___1___ ] es el proceso mediante el cual las plantas convierten agua y dióxido de carbono en [ ___2___ ] utilizando la energía de la [ ___3___ ].",
+        banco_palabras: ["Fotosíntesis", "Glucosa", "Luz Solar", "Respiración", "Oxígeno"],
+        respuestas: { "1": "Fotosíntesis", "2": "Glucosa", "3": "Luz Solar" }
+    };
+
+    const cabecera = window.crearCabeceraJuego(stage, "📝 Completar el Párrafo", 85, () => window.renderizarJuegoCompletarParrafo(stage, base));
+    const container = document.createElement('div');
+    container.style.cssText = "max-width: 440px; margin: 0 auto; text-align: left;";
+
+    let textoHTML = parrafoData.texto_con_blancos
+        .replace(/\[\s*___1___\s*\]/g, `<span class="cloze-slot" data-slot="1" style="display: inline-block; min-width: 80px; padding: 2px 8px; border-bottom: 2px solid #2563EB; font-weight: 800; color: #1E40AF; text-align: center; cursor: pointer;">[ ___ ]</span>`)
+        .replace(/\[\s*___2___\s*\]/g, `<span class="cloze-slot" data-slot="2" style="display: inline-block; min-width: 80px; padding: 2px 8px; border-bottom: 2px solid #2563EB; font-weight: 800; color: #1E40AF; text-align: center; cursor: pointer;">[ ___ ]</span>`)
+        .replace(/\[\s*___3___\s*\]/g, `<span class="cloze-slot" data-slot="3" style="display: inline-block; min-width: 80px; padding: 2px 8px; border-bottom: 2px solid #2563EB; font-weight: 800; color: #1E40AF; text-align: center; cursor: pointer;">[ ___ ]</span>`);
+
+    container.innerHTML = `
+        <div style="background: white; border: 1.5px solid #E2E8F0; padding: 18px; border-radius: 14px; font-size: 0.95rem; font-weight: 600; color: #1E293B; line-height: 1.8; margin-bottom: 15px;">
+            ${textoHTML}
+        </div>
+        <div style="font-size: 0.8rem; font-weight: 800; color: #475569; margin-bottom: 8px;">Banco de Palabras (Toca una palabra para insertarla):</div>
+        <div id="cloze-bank" style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px;">
+            ${parrafoData.banco_palabras.map(w => `<button style="background: #EFF6FF; border: 1.5px solid #3B82F6; color: #1D4ED8; padding: 8px 12px; border-radius: 10px; font-weight: 800; font-size: 0.85rem; cursor: pointer;">${w}</button>`).join('')}
+        </div>
+        <button id="btn-validar-cloze" style="width: 100%; background: linear-gradient(135deg, #2563EB, #1D4ED8); color: white; border: none; padding: 12px; border-radius: 12px; font-weight: 800; font-size: 0.92rem; cursor: pointer;">
+            ✅ Comprobar Párrafo
+        </button>
+    `;
+    stage.appendChild(container);
+
+    let activeWord = null;
+    const bankBtns = container.querySelectorAll('#cloze-bank button');
+    const slots = container.querySelectorAll('.cloze-slot');
+
+    bankBtns.forEach(btn => {
+        btn.onclick = () => {
+            bankBtns.forEach(b => b.style.borderColor = "#3B82F6");
+            btn.style.borderColor = "#10B981";
+            activeWord = btn;
+        };
+    });
+
+    slots.forEach(slot => {
+        slot.onclick = () => {
+            if (activeWord) {
+                slot.innerText = activeWord.innerText;
+                slot.style.borderBottom = "2px solid #10B981";
+                activeWord.style.opacity = "0.4";
+                activeWord.disabled = true;
+                activeWord = null;
+            } else if (slot.innerText !== '[ ___ ]') {
+                const wordText = slot.innerText;
+                const bankBtn = [...bankBtns].find(b => b.innerText === wordText);
+                if (bankBtn) { bankBtn.style.opacity = "1"; bankBtn.disabled = false; }
+                slot.innerText = '[ ___ ]';
+                slot.style.borderBottom = "2px solid #2563EB";
+            }
+        };
+    });
+
+    container.querySelector('#btn-validar-cloze').onclick = () => {
+        let correct = true;
+        slots.forEach(slot => {
+            const slotNum = slot.dataset.slot;
+            if (slot.innerText !== parrafoData.respuestas[slotNum]) {
+                correct = false;
+                slot.style.color = "#DC2626";
+            } else {
+                slot.style.color = "#059669";
+            }
+        });
+        if (correct) {
+            cabecera.stopTimer();
+            window.mostrarModalVictoria("Párrafo Completado", cabecera.getTiempoFormatted(), 85, () => window.renderizarJuegoCompletarParrafo(stage, base));
+        } else {
+            alert("❌ Hay algunos huecos incorrectos. Revisa e intenta de nuevo.");
+        }
+    };
+};
+
 
