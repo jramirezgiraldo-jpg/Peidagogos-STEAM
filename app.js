@@ -11785,7 +11785,100 @@ window.LISTA_HERRAMIENTAS_PEDAGOGICAS = [
         badges: ['📺 Dinámica de Aula', '🎭 Roleplay', '👥 Equipos']
     },
 
-    // --- CAJA 2: 📺 Gestión de Aula en Vivo y Pantalla Gigante (11-16) ---
+    // ─── CAJA 2: 🕹️ Juegos Dinámicos y Activación (titulos exactos) ────────────
+    {
+        id: 'juego_sopa_letras',
+        categoria: 'juegos',
+        caja: 'Caja 2: Juegos Dinámicos',
+        icono: '🔤',
+        titulo: 'Sopa de Letras',
+        desc: 'Genera una sopa de letras interactiva sobre cualquier tema con pistas y solucionario automático.',
+        badges: ['⚡ IA Generativa', '📺 Proyectable', '🖨️ Imprimible']
+    },
+    {
+        id: 'juego_crucigrama',
+        categoria: 'juegos',
+        caja: 'Caja 2: Juegos Dinámicos',
+        icono: '🧩',
+        titulo: 'Crucigrama',
+        desc: 'Crucigrama conceptual con definiciones horizontales y verticales generadas por IA según tu tema.',
+        badges: ['⚡ IA Generativa', '📺 Proyectable', '🖨️ Imprimible']
+    },
+    {
+        id: 'juego_emparejar',
+        categoria: 'juegos',
+        caja: 'Caja 2: Juegos Dinámicos',
+        icono: '🔗',
+        titulo: 'Emparejar',
+        desc: 'Asocia conceptos con definiciones, imágenes o ejemplos en una actividad drag & drop generada por IA.',
+        badges: ['⚡ IA Generativa', '📺 Proyectable', '🎮 +80 XP']
+    },
+    {
+        id: 'juego_concentrese',
+        categoria: 'juegos',
+        caja: 'Caja 2: Juegos Dinámicos',
+        icono: '🃏',
+        titulo: 'Concéntrese (Memoria)',
+        desc: 'Juego de memoria con pares de tarjetas (concepto + definición) generados por IA para tu tema.',
+        badges: ['⚡ IA Generativa', '📺 Proyectable', '🎮 +90 XP']
+    },
+    {
+        id: 'juego_laberinto',
+        categoria: 'juegos',
+        caja: 'Caja 2: Juegos Dinámicos',
+        icono: '🗺️',
+        titulo: 'Laberinto de Decisiones',
+        desc: 'Laberinto narrativo donde cada decisión correcta avanza al estudiante. Nodos generados por IA.',
+        badges: ['⚡ IA Generativa', '📺 Proyectable', '🧠 Pensamiento Crítico']
+    },
+    {
+        id: 'juego_tap_sort',
+        categoria: 'juegos',
+        caja: 'Caja 2: Juegos Dinámicos',
+        icono: '👆',
+        titulo: 'Clasificador Tap & Sort',
+        desc: 'Arrastra y clasifica elementos en categorías. IA genera los ítems y categorías según tu tema.',
+        badges: ['⚡ IA Generativa', '📺 Táctil', '🎮 +75 XP']
+    },
+    {
+        id: 'juego_anagrama',
+        categoria: 'juegos',
+        caja: 'Caja 2: Juegos Dinámicos',
+        icono: '🔠',
+        titulo: 'Anagrama',
+        desc: 'Descifra palabras clave del tema con letras desordenadas. IA genera los anagramas y pistas.',
+        badges: ['⚡ IA Generativa', '📺 Proyectable', '🎮 +70 XP']
+    },
+    {
+        id: 'juego_ordenar_secuencias',
+        categoria: 'juegos',
+        caja: 'Caja 2: Juegos Dinámicos',
+        icono: '🔢',
+        titulo: 'Ordenar Secuencias',
+        desc: 'Organiza pasos de un proceso, cronología o protocolo. IA crea las secuencias con tu tema.',
+        badges: ['⚡ IA Generativa', '📺 Proyectable', '🧠 Lógica']
+    },
+    {
+        id: 'juego_escape_room',
+        categoria: 'juegos',
+        caja: 'Caja 2: Juegos Dinámicos',
+        icono: '🚪',
+        titulo: 'Escape Room',
+        desc: 'Aventura pedagógica de 3 salas con acertijos, códigos y narrativa inmersiva. Todo generado por IA.',
+        badges: ['⚡ IA Generativa', '📺 Proyectable', '🏆 +200 XP']
+    },
+    {
+        id: 'juego_completar_parrafo',
+        categoria: 'juegos',
+        caja: 'Caja 2: Juegos Dinámicos',
+        icono: '📝',
+        titulo: 'Completar el Párrafo',
+        desc: 'Texto con espacios en blanco y banco de palabras. IA redacta el párrafo contextualizado a tu tema.',
+        badges: ['⚡ IA Generativa', '📺 Proyectable', '🖨️ Imprimible']
+    },
+
+    // --- CAJA 2 (interna): 📺 Gestión de Aula en Vivo y Pantalla Gigante (11-16) ---
+
     {
         id: 'ruleta_turnos',
         categoria: 'aula',
@@ -12489,71 +12582,109 @@ window.ejecutarGeneracionJuegoIA = async function(opciones = {}) {
     const tool = window._toolJuegoIAActivo || window._herramientaConfigurandoIA || window.LISTA_HERRAMIENTAS_PEDAGOGICAS[0];
     if (!tool) return;
 
-    const selMat = document.getElementById('modal-config-juego-materia');
-    const selGra = document.getElementById('modal-config-juego-grado');
-    const inTema = document.getElementById('modal-config-juego-tema');
+    const selMat  = document.getElementById('modal-config-juego-materia');
+    const selGra  = document.getElementById('modal-config-juego-grado');
+    const inTema  = document.getElementById('modal-config-juego-tema');
+    const inKw    = document.getElementById('modal-config-juego-keywords');
+    const inInstr = document.getElementById('modal-config-juego-instruccion');
 
-    const materia = (selMat && selMat.value) ? selMat.value : 'Ciencias Naturales';
-    const grado = (selGra && selGra.value) ? selGra.value : '7';
-    const keywords = (inTema && inTema.value.trim()) ? inTema.value.trim() : materia;
+    const materia     = (selMat  && selMat.value)  ? selMat.value  : 'Ciencias Naturales';
+    const grado       = (selGra  && selGra.value)  ? selGra.value  : '7';
+    const tema        = (inTema  && inTema.value.trim())  ? inTema.value.trim()  :
+                        (inKw    && inKw.value.trim())    ? inKw.value.trim()    : materia;
+    const instruccion = (inInstr && inInstr.value.trim()) ? inInstr.value.trim() :
+                        `Resuelve el juego sobre ${tema} para ${grado}° grado`;
+    const nivel       = `${grado}° grado — ${materia}`;
 
     const btn = document.getElementById('btn-ejecutar-generacion-juego-ia');
-    if (btn) btn.innerHTML = '⏳ Generando IA...';
+    if (btn) btn.innerHTML = '⏳ Generando con IA...';
+
+    // ── ¿Es un juego de Caja 2 con template? ─────────────────────────
+    const esCaja2 = window.GAME_TEMPLATES && window.GAME_TEMPLATES[tool.id];
 
     try {
+        let payload;
+        if (esCaja2) {
+            // Ensamblar prompt personalizado con los 3 campos del docente
+            const promptEnsamblado = window.ensamblarPromptJuego(tool.id, tema, nivel, instruccion);
+            payload = {
+                materia,
+                grado,
+                tema,
+                dificultad: 'media',
+                tipoJuego: tool.id,
+                promptPersonalizado: promptEnsamblado,
+                instruccion
+            };
+        } else {
+            // Comportamiento original para Caja 1
+            payload = { materia, grado, tema, dificultad: 'media' };
+        }
+
         const res = await fetch('/api/generate-tool-ai', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({ materia, grado, tema: keywords, dificultad: 'media' })
+            body: JSON.stringify(payload)
         });
+
         if (res.ok) {
             window._aiGameData = await res.json();
+            window._aiGameMeta = { tool, materia, grado, tema, instruccion, nivel };
             window.cerrarConfiguracionJuegoIA();
-            
+
             if (!soloProyectar) {
-                const selGrp = document.getElementById('modal-config-juego-grupo') || document.getElementById('modal-juego-grupo-select') || document.getElementById('modal-juego-ia-grupo-select');
+                const selGrp = document.getElementById('modal-config-juego-grupo');
                 const grupoDestino = (selGrp && selGrp.value) ? selGrp.value : 'Todos';
-                
+
                 let inbox = [];
-                try {
-                    inbox = JSON.parse(localStorage.getItem('inbox_estudiantes') || '[]');
-                } catch(e) {}
-                
+                try { inbox = JSON.parse(localStorage.getItem('inbox_estudiantes') || '[]'); } catch(e) {}
                 inbox.push({
-                    id: Date.now().toString(),
-                    grupo: grupoDestino,
-                    materia: materia,
-                    grado: grado,
-                    tema: keywords,
-                    toolId: tool.id,
-                    toolTitulo: tool.titulo,
-                    toolIcono: tool.icono,
-                    dataIA: window._aiGameData,
-                    fecha: new Date().toISOString(),
-                    docente: window.usuario_actual || 'Tu Docente'
+                    id:          Date.now().toString(),
+                    grupo:       grupoDestino,
+                    materia,
+                    grado,
+                    tema,
+                    instruccion,
+                    toolId:      tool.id,
+                    toolTitulo:  tool.titulo,
+                    toolIcono:   tool.icono,
+                    esCaja2:     !!esCaja2,
+                    dataIA:      window._aiGameData,
+                    fecha:       new Date().toISOString(),
+                    docente:     window.usuario_actual || 'Tu Docente'
                 });
                 localStorage.setItem('inbox_estudiantes', JSON.stringify(inbox));
-                
-                // Mensaje de éxito
-                alert(`✅ ¡Actividad asignada exitosamente al grupo ${grupoDestino}!`);
+                console.log(`[JUEGO IA] ✅ Asignado al grupo ${grupoDestino}: ${tool.titulo}`);
             }
-            
+
+            // ── Abrir visor ──────────────────────────────────────────────
             if (typeof window.abrirVisorHerramienta === 'function') {
                 window.abrirVisorHerramienta(tool.id, true);
+            }
+
+            if (!soloProyectar) {
+                const selGrp2 = document.getElementById('modal-config-juego-grupo');
+                const g2 = selGrp2 ? selGrp2.value : 'Todos';
+                setTimeout(() => {
+                    const msg = esCaja2
+                        ? `✅ ${tool.icono} "${tool.titulo}" generado y asignado al grupo ${g2}.\n\nTema: ${tema}\nNivel: ${nivel}\nInstrucción: ${instruccion}`
+                        : `✅ ¡Actividad asignada exitosamente al grupo ${g2}!`;
+                    alert(msg);
+                }, 500);
             }
         } else {
             try {
                 const errData = await res.json();
-                alert('Error IA: ' + (errData.error || res.statusText));
+                alert('⚠️ Error IA: ' + (errData.error || res.statusText));
             } catch(ex) {
-                alert('Error IA: Servidor no respondió correctamente (Status ' + res.status + ')');
+                alert('⚠️ Error IA: Servidor no respondió correctamente (Status ' + res.status + ')');
             }
         }
     } catch (e) {
-        console.error(e);
-        alert('Error.');
+        console.error('[JUEGO IA] Error:', e);
+        alert('⚠️ Error de red al conectar con la IA. Verifica tu conexión.');
     }
-    if (btn) btn.innerHTML = '🚀 Generar y Asignar';
+    if (btn) btn.innerHTML = '🚀 Generar y Asignar a Estudiantes ➔';
 };
 
 // Aliases Universales para Configuración y Generación de Herramientas IA (R3)
@@ -12589,7 +12720,7 @@ window.renderizarTarjetasCajaHerramientas = function(categoria = 'juegos') {
                 </div>
             </div>
 
-            ${tool.caja && tool.caja.includes('Caja 1') ? `
+            ${tool.caja && (tool.caja.includes('Caja 1') || tool.caja.includes('Caja 2')) ? `
             <button onclick="window.abrirConfiguracionJuegoIA('${tool.id}')" style="background: linear-gradient(135deg, #2563EB, #1D4ED8); color: white; border: none; padding: 11px 16px; border-radius: 12px; font-weight: 800; font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 12px rgba(37,99,235,0.25);">
                 <span>⚡</span> Configurar y Generar IA
             </button>
