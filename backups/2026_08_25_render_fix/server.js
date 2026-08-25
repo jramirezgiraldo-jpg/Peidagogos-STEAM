@@ -1133,27 +1133,17 @@ app.post('/api/generate-tool-ai', async (req, res) => {
         }
     }
 
-    // ── Si el frontend envió un prompt personalizado (Caja 2 / gameTemplates), usarlo y asegurar JSON ──
+    // ── Si el frontend envió un prompt personalizado (Caja 2 / gameTemplates), usarlo directamente ──
     let prompt;
     if (promptPersonalizado && String(promptPersonalizado).trim().length > 40) {
         prompt = String(promptPersonalizado).trim();
         prompt = prompt.replace(/\/\/ TODO: Agregar prompt completo\n?/, '').trim();
-        prompt += `\n\nIMPORTANTE: Devuelve ÚNICAMENTE un objeto JSON estructurado válido (sin bloques markdown \`\`\`json, sin HTML suelto y sin explicaciones extra) con el contenido pedagógico. Debe incluir al menos las claves: "titulo": "${tipoJuego || tema}", "tema": "${tema}", "materia": "${materia}", "grado": "${grado}", "instruccion": "${instruccion || 'Completa la actividad'}", "palabras": ["P1","P2",...], "definiciones": [{"palabra":"P1","pista":"pista"}], "retos": [{"id":1,"pregunta":"...","opciones":["..."],"respuesta_correcta":0}], "horizontales": [{"id":1,"palabra":"P1","pista":"pista","dir":"H"}], "verticales": [{"id":2,"palabra":"P2","pista":"pista","dir":"V"}], "pares": [{"izquierda":"C1","derecha":"D1"}].`;
         console.log(`[IA] Prompt personalizado recibido para tipoJuego="${tipoJuego}", tema="${tema}", longitud=${prompt.length}`);
     } else {
         prompt = `Eres un experto pedagógico STEAM. Para una clase de ${materia}, grado ${grado}, tema "${tema}" (dificultad: ${dificultad || 'media'}), genera EXACTAMENTE este JSON válido (sin markdown, sin explicaciones extra):
 {
-  "titulo": "Crucigrama Conceptual: ${tema}",
-  "tema": "${tema}",
-  "materia": "${materia}",
-  "grado": "${grado}",
-  "instruccion": "Completa los conceptos interactivos de la unidad.",
   "palabras": ["P1","P2","P3","P4","P5","P6","P7","P8","P9","P10"],
   "definiciones": [{"palabra":"P1","pista":"Definición corta"},{"palabra":"P2","pista":"Definición corta"},{"palabra":"P3","pista":"Definición corta"},{"palabra":"P4","pista":"Definición corta"},{"palabra":"P5","pista":"Definición corta"},{"palabra":"P6","pista":"Definición corta"},{"palabra":"P7","pista":"Definición corta"},{"palabra":"P8","pista":"Definición corta"},{"palabra":"P9","pista":"Definición corta"},{"palabra":"P10","pista":"Definición corta"}],
-  "horizontales": [{"id":1,"palabra":"P1","pista":"Definición corta","dir":"H"},{"id":3,"palabra":"P3","pista":"Definición corta","dir":"H"}],
-  "verticales": [{"id":2,"palabra":"P2","pista":"Definición corta","dir":"V"},{"id":4,"palabra":"P4","pista":"Definición corta","dir":"V"}],
-  "pares": [{"izquierda":"Concepto A","derecha":"Definición A"},{"izquierda":"Concepto B","derecha":"Definición B"}],
-  "retos": [{"id":1,"pregunta":"¿Pregunta sobre ${tema}?","opciones":["Resp A","Resp B","Resp C","Resp D"],"respuesta_correcta":0,"pista":"Pista A"}],
   "categoriasJeopardy": ["Cat1","Cat2","Cat3","Cat4","Cat5"],
   "preguntasJeopardy": [{"cat":"Cat1","q":"Pregunta","pts":100},{"cat":"Cat1","q":"Pregunta","pts":200},{"cat":"Cat1","q":"Pregunta","pts":300},{"cat":"Cat1","q":"Pregunta","pts":400},{"cat":"Cat1","q":"Pregunta","pts":500}],
   "supraordinada": "Concepto mayor del tema",

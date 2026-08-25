@@ -12869,39 +12869,12 @@ window.togglePantallaCompletaVisorTool = function() {
 // MOTOR DE GENERACIÓN DE CONTENIDO PEDAGÓGICO DINÁMICO POR DEMANDA
 // ==========================================================================
 window.generarDatosPedagogicosDinamicos = function(materia, grado, tema, dificultad = 'medio') {
-    let d = window._aiGameData || window._cacheDataDinamicaIA;
-    if (!d) {
-        d = window.datosDinamicosFallback(materia, grado, tema, dificultad);
-    }
-    // Normalización defensiva para garantizar que NUNCA exista "undefined" en pantalla
-    const fallbackTema = (tema && String(tema).trim()) ? String(tema).trim() : (materia ? `${materia}` : "Desafío Conceptual STEAM");
-    d.tema = d.tema || d.titulo || d.nombre || fallbackTema;
-    d.titulo = d.titulo || d.nombre || `Misión STEAM: ${d.tema}`;
-    d.materia = d.materia || materia || "Ciencias Naturales";
-    d.grado = d.grado || grado || "7";
-    d.dificultad = d.dificultad || dificultad || "medio";
+    if (window._aiGameData) return window._aiGameData;
 
-    if (!d.definiciones || !Array.isArray(d.definiciones) || !d.definiciones.length) {
-        if (d.palabras && Array.isArray(d.palabras) && d.palabras.length) {
-            d.definiciones = d.palabras.map((p, i) => ({
-                palabra: typeof p === 'string' ? p : (p.palabra || `TÉRMINO_${i+1}`),
-                pista: (typeof p === 'object' && p.pista) ? p.pista : `Término clave sobre ${d.tema}`
-            }));
-        } else if (d.retos && Array.isArray(d.retos) && d.retos.length) {
-            d.definiciones = d.retos.map((r, i) => ({
-                palabra: (r.opciones && r.opciones[r.respuesta_correcta]) ? r.opciones[r.respuesta_correcta].split(' ')[0].toUpperCase() : `CONCEPTO_${i+1}`,
-                pista: r.pregunta || r.pista || `Reto ${i+1} sobre ${d.tema}`
-            }));
-        } else {
-            d.definiciones = [
-                { palabra: "CIENCIA", pista: "Estudio sistemático del entorno" },
-                { palabra: "TECNOLOGIA", pista: "Herramientas e innovación" },
-                { palabra: "INGENIERIA", pista: "Diseño y construcción de soluciones" },
-                { palabra: "MATEMATICAS", pista: "Lenguaje formal del conocimiento" }
-            ];
-        }
+    if (window._cacheDataDinamicaIA) {
+        return window._cacheDataDinamicaIA;
     }
-    return d;
+    return window.datosDinamicosFallback(materia, grado, tema, dificultad);
 };
 
 window.datosDinamicosFallback = function(materia, grado, tema, dificultad = 'medio') {
@@ -13635,8 +13608,8 @@ window.renderizarSopaLetrasTool = function(stage, base) {
     stage.innerHTML = `
         <div style="flex: 1; padding: 25px; background: white; display: flex; flex-direction: column; justify-content: space-between; text-align: center;">
             <div>
-                <h3 style="margin: 0; font-size: 1.4rem; font-weight: 900; color: #1E1B4B;">🔤 Sopa de Letras STEAM: ${data.tema || data.titulo || "Desafío STEAM"}</h3>
-                <p style="margin: 2px 0 0 0; color: #64748B; font-size: 0.85rem;">Asignatura: <b>${base.materia}</b> • Grado ${base.grado}° • Nivel ${(data.dificultad || 'medio').toUpperCase()}</p>
+                <h3 style="margin: 0; font-size: 1.4rem; font-weight: 900; color: #1E1B4B;">🔤 Sopa de Letras STEAM: ${data.tema}</h3>
+                <p style="margin: 2px 0 0 0; color: #64748B; font-size: 0.85rem;">Asignatura: <b>${base.materia}</b> • Grado ${base.grado}° • Nivel ${data.dificultad.toUpperCase()}</p>
             </div>
             <div style="background: #F8FAFC; border: 2px solid #CBD5E1; border-radius: 14px; padding: 15px; margin: 12px auto; font-family: monospace; font-size: 1.25rem; letter-spacing: 7px; line-height: 1.7; max-width: 460px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
                 ${htmlMatriz}
@@ -13658,7 +13631,7 @@ window.renderizarCrucigramaTool = function(stage, base) {
     stage.innerHTML = `
         <div style="flex: 1; padding: 25px; background: white; display: flex; flex-direction: column; justify-content: space-between; text-align: left;">
             <div>
-                <h3 style="margin: 0; font-size: 1.4rem; font-weight: 900; color: #1E1B4B;">🧩 Crucigrama Conceptual: ${data.tema || data.titulo || "Desafío STEAM"}</h3>
+                <h3 style="margin: 0; font-size: 1.4rem; font-weight: 900; color: #1E1B4B;">🧩 Crucigrama Conceptual: ${data.tema}</h3>
                 <p style="margin: 2px 0 0 0; color: #64748B; font-size: 0.85rem;">Asignatura: <b>${base.materia}</b> • Grado ${base.grado}°</p>
             </div>
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 12px 0;">
@@ -18726,38 +18699,14 @@ window.renderizarJuegoSopaLetras = function(stage, base) {
 // 2. CRUCIGRAMA (`juego_crucigrama`)
 window.renderizarJuegoCrucigrama = function(stage, base) {
     const dataIA = window._aiGameData || {};
-    const tituloCruci = dataIA.titulo || dataIA.nombre || (dataIA.tema ? `🧩 Crucigrama: ${dataIA.tema}` : "🧩 Crucigrama Traditional");
-    
-    let pistas = [];
-    if (dataIA.horizontales || dataIA.verticales) {
-        const h = (dataIA.horizontales || []).map((x, i) => ({ id: x.id || (i+1), palabra: (x.palabra||"").toUpperCase(), pista: x.pista, dir: "H" }));
-        const v = (dataIA.verticales || []).map((x, i) => ({ id: x.id || (h.length + i + 1), palabra: (x.palabra||"").toUpperCase(), pista: x.pista, dir: "V" }));
-        pistas = [...h, ...v];
-    } else if (dataIA.definiciones && dataIA.definiciones.length) {
-        pistas = dataIA.definiciones.map((d, i) => ({
-            id: i + 1,
-            palabra: String(d.palabra || `CONCEPTO${i+1}`).toUpperCase().replace(/[^A-Z]/g, ''),
-            pista: d.pista || `Pista para ${d.palabra}`,
-            dir: i % 2 === 0 ? "H" : "V"
-        }));
-    } else if (dataIA.palabras && dataIA.palabras.length) {
-        pistas = dataIA.palabras.map((p, i) => ({
-            id: i + 1,
-            palabra: (typeof p === 'string' ? p : p.palabra).toUpperCase().replace(/[^A-Z]/g, ''),
-            pista: (typeof p === 'object' && p.pista) ? p.pista : `Definición didáctica ${i+1}`,
-            dir: (typeof p === 'object' && p.dir) ? p.dir : (i % 2 === 0 ? "H" : "V")
-        }));
-    } else {
-        pistas = [
-            { id: 1, palabra: "TECNOLOGIA", pista: "Conjunto de instrumentos y conocimientos científicos.", dir: "H" },
-            { id: 2, palabra: "CIENCIA", pista: "Estudio sistemático de la naturaleza.", dir: "V" },
-            { id: 3, palabra: "MATEMATICAS", pista: "Ciencia de los números y las formas.", dir: "H" },
-            { id: 4, palabra: "ROBOTICA", pista: "Rama de la tecnología que diseña robots.", dir: "V" }
-        ];
-    }
-    pistas = pistas.filter(p => p.palabra && p.palabra.length >= 2);
+    const pistas = (dataIA.palabras && dataIA.palabras.length) ? dataIA.palabras : [
+        { id: 1, palabra: "TECNOLOGIA", pista: "Conjunto de instrumentos y conocimientos científicos.", dir: "H" },
+        { id: 2, palabra: "CIENCIA", pista: "Estudio sistemático de la naturaleza.", dir: "V" },
+        { id: 3, palabra: "MATEMATICAS", pista: "Ciencia de los números y las formas.", dir: "H" },
+        { id: 4, palabra: "ROBOTICA", pista: "Rama de la tecnología que diseña robots.", dir: "V" }
+    ];
 
-    const cabecera = window.crearCabeceraJuego(stage, tituloCruci, 120, () => window.renderizarJuegoCrucigrama(stage, base));
+    const cabecera = window.crearCabeceraJuego(stage, "🧩 Crucigrama Traditional", 120, () => window.renderizarJuegoCrucigrama(stage, base));
     const container = document.createElement('div');
     container.style.cssText = "max-width: 440px; margin: 0 auto; text-align: left;";
     container.innerHTML = `
