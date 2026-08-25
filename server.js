@@ -1172,8 +1172,8 @@ Remplaza TODOS los valores con contenido real y pedagógicamente correcto para e
     const proveedores = [
         { nombre: 'DeepSeek 1', url: 'https://api.deepseek.com/chat/completions', key: process.env.DEEPSEEK_API_KEY || 'sk-8bdd9c5adcfa4d8e958f1ea7a07e8167', model: 'deepseek-chat' },
         { nombre: 'DeepSeek 2', url: 'https://api.deepseek.com/chat/completions', key: process.env.DEEPSEEK_API_KEY2 || '', model: 'deepseek-chat' },
-        { nombre: 'ChatGPT', url: 'https://api.openai.com/v1/chat/completions', key: process.env['CHAT-GPT'] || process.env.CHATGPT_API_KEY || '', model: 'gpt-4o-mini' },
-        { nombre: 'Gemini (OpenAI Compatible)', url: 'https://generativelanguage.googleapis.com/v1beta/openai/chat/completions', key: geminiKeyFirst, model: 'gemini-2.0-flash' },
+        { nombre: 'ChatGPT', url: 'https://api.openai.com/v1/chat/completions', key: process.env.CHAT_GPT || process.env['CHAT-GPT'] || process.env.CHATGPT_API_KEY || '', model: 'gpt-4o-mini' },
+        { nombre: 'Gemini (OpenAI Compatible)', url: 'https://generativelanguage.googleapis.com/v1beta/openai/chat/completions', key: geminiKeyFirst, model: 'gemini-1.5-flash' },
         { nombre: 'OpenRouter', url: 'https://openrouter.ai/api/v1/chat/completions', key: process.env.OPEN_ROUTER || process.env.OPENROUTER_API_KEY || '', model: 'google/gemini-2.0-flash-lite-001' }
     ];
 
