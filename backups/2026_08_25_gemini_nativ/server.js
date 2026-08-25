@@ -1164,17 +1164,17 @@ Remplaza TODOS los valores con contenido real y pedagógicamente correcto para e
     let erroresIA = [];
 
     // =========================================================================
-    // FAILOVER DE 5 CAPAS MULTI-MOTOR (Soporte Gemini Nativo + OpenAI Standard)
+    // FAILOVER DE 5 CAPAS MULTI-MOTOR (Formato Estándar OpenAI + Fetch Nativo)
     // =========================================================================
     const rawGeminiKeys = process.env.GEMINI_API_KEYS || process.env.GEMINI_API_KEY || "";
     const geminiKeyFirst = rawGeminiKeys.split(',').map(k => k.trim()).filter(k => k.length > 0)[0] || '';
 
     const proveedores = [
-        { nombre: 'DeepSeek 1', url: 'https://api.deepseek.com/chat/completions', key: process.env.DEEPSEEK_API_KEY || 'sk-8bdd9c5adcfa4d8e958f1ea7a07e8167', model: 'deepseek-chat', tipo: 'openai' },
-        { nombre: 'DeepSeek 2', url: 'https://api.deepseek.com/chat/completions', key: process.env.DEEPSEEK_API_KEY2 || '', model: 'deepseek-chat', tipo: 'openai' },
-        { nombre: 'ChatGPT', url: 'https://api.openai.com/v1/chat/completions', key: process.env.CHAT_GPT || process.env['CHAT-GPT'] || process.env.CHATGPT_API_KEY || '', model: 'gpt-4o-mini', tipo: 'openai' },
-        { nombre: 'Gemini (Nativo)', url: 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent', key: geminiKeyFirst, tipo: 'gemini_nativa' },
-        { nombre: 'OpenRouter', url: 'https://openrouter.ai/api/v1/chat/completions', key: process.env.OPEN_ROUTER || process.env.OPENROUTER_API_KEY || '', model: 'google/gemini-2.0-flash-lite-001', tipo: 'openai' }
+        { nombre: 'DeepSeek 1', url: 'https://api.deepseek.com/chat/completions', key: process.env.DEEPSEEK_API_KEY || 'sk-8bdd9c5adcfa4d8e958f1ea7a07e8167', model: 'deepseek-chat' },
+        { nombre: 'DeepSeek 2', url: 'https://api.deepseek.com/chat/completions', key: process.env.DEEPSEEK_API_KEY2 || '', model: 'deepseek-chat' },
+        { nombre: 'ChatGPT', url: 'https://api.openai.com/v1/chat/completions', key: process.env.CHAT_GPT || process.env['CHAT-GPT'] || process.env.CHATGPT_API_KEY || '', model: 'gpt-4o-mini' },
+        { nombre: 'Gemini (OpenAI Compatible)', url: 'https://generativelanguage.googleapis.com/v1beta/openai/chat/completions', key: geminiKeyFirst, model: 'gemini-1.5-flash' },
+        { nombre: 'OpenRouter', url: 'https://openrouter.ai/api/v1/chat/completions', key: process.env.OPEN_ROUTER || process.env.OPENROUTER_API_KEY || '', model: 'google/gemini-2.0-flash-lite-001' }
     ];
 
     for (const prov of proveedores) {
@@ -1184,39 +1184,31 @@ Remplaza TODOS los valores con contenido real y pedagógicamente correcto para e
         }
         try {
             console.log(`[FAILOVER 5-CAPAS] Intentando con ${prov.nombre}...`);
-            let reqUrl = prov.url;
-            let reqHeaders = { 'Content-Type': 'application/json' };
-            let reqBody = {};
-
-            if (prov.tipo === 'gemini_nativa') {
-                reqUrl = `${prov.url}?key=${prov.key}`;
-                reqBody = { contents: [{ parts: [{ text: prompt }] }] };
-            } else {
-                reqHeaders['Authorization'] = `Bearer ${prov.key}`;
-                reqBody = { model: prov.model, messages: [{ role: 'user', content: prompt }] };
-                if (prov.nombre.includes('DeepSeek')) reqBody.response_format = { type: 'json_object' };
+            const bodyPayload = {
+                model: prov.model,
+                messages: [{ role: 'user', content: prompt }]
+            };
+            if (prov.nombre.includes('DeepSeek')) {
+                bodyPayload.response_format = { type: 'json_object' };
             }
 
-            const resFetch = await fetch(reqUrl, { method: 'POST', headers: reqHeaders, body: JSON.stringify(reqBody) });
+            const resFetch = await fetch(prov.url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${prov.key}`
+                },
+                body: JSON.stringify(bodyPayload)
+            });
 
             if (resFetch.ok) {
                 const data = await resFetch.json();
-                if (prov.tipo === 'gemini_nativa') {
-                    if (data.candidates && data.candidates.length > 0 && data.candidates[0].content && data.candidates[0].content.parts && data.candidates[0].content.parts[0].text) {
-                        responseText = data.candidates[0].content.parts[0].text;
-                        console.log(`[FAILOVER 5-CAPAS] ✅ Éxito con ${prov.nombre}`);
-                        break;
-                    } else {
-                        erroresIA.push(`${prov.nombre}: Respuesta sin candidatos válidos`);
-                    }
+                if (data.choices && data.choices.length > 0 && data.choices[0].message && data.choices[0].message.content) {
+                    responseText = data.choices[0].message.content;
+                    console.log(`[FAILOVER 5-CAPAS] ✅ Éxito con ${prov.nombre}`);
+                    break; // Éxito: rompe el bucle
                 } else {
-                    if (data.choices && data.choices.length > 0 && data.choices[0].message && data.choices[0].message.content) {
-                        responseText = data.choices[0].message.content;
-                        console.log(`[FAILOVER 5-CAPAS] ✅ Éxito con ${prov.nombre}`);
-                        break;
-                    } else {
-                        erroresIA.push(`${prov.nombre}: Estructura de respuesta sin elecciones válidas`);
-                    }
+                    erroresIA.push(`${prov.nombre}: Estructura de respuesta sin elecciones válidas`);
                 }
             } else {
                 const errTxt = await resFetch.text();
