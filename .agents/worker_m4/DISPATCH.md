@@ -32,4 +32,29 @@ Tasks:
 4. Run tests:
    - node tests/test_r4_student_inbox.js
    - node test_e2e_runner.js
-5. Write your detailed handoff report to d:\Peidagogos_Oficial\.agents\worker_m4\handoff.md with passing build/test results, and send_message when complete.
+35: 5. Write your detailed handoff report to d:\Peidagogos_Oficial\.agents\worker_m4\handoff.md with passing build/test results, and send_message when complete.
+36: 
+37: ## 2026-08-24T01:38:00Z
+38: You are Worker 1 for the "Director de Grupo" module implementation in Peidagogos STEAM.
+39: 
+40: SCOPE OF IMPLEMENTATION (Requirements R1 to R5):
+41: - R1: Add `#docente-nav-tabs` (`#btn-tab-docente-herramientas` and `#btn-tab-docente-mi-grupo`) in `login.html`. Enclose existing tool cards in `#vista-docente-herramientas`. Add `#vista-docente-mi-grupo` (hidden by default). In `app.js`, show `#btn-tab-docente-mi-grupo` (`display: flex`) ONLY when `window.rolDocente === 'director'`; hide it (`display: none`) when `'regular'`. Implement smooth tab switching with `window.cambiarTabDocente(tab)`.
+42: - R2: In `#vista-docente-mi-grupo`, if no group is created in `localStorage.getItem('grupo_director_' + doc)`, render creation form with:
+43:   * Grado dropdown: `Preescolar`, `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `10`, `11`
+44:   * Grupo dropdown: `A`, `B`, `C`, `D`, `E`, `F`, `G`, `H`, `I`, `J`
+45:   * Button "✅ Crear Grupo"
+46:   * On submit: save `{ grado, grupo, docentes: [], creadoEn: Date.now(), directorDoc: doc, directorNombre: nom }` to `localStorage.getItem('grupo_director_' + doc)`. Also trigger `POST /api/guardar-grupo-director` with try-catch fallback. Immediately re-render to the group management panel.
+47: - R3: In group management panel, display group title (e.g. "Grupo 7° C"). Load teachers from `/api/docentes` (merged with `localStorage.docentes_db`), filter for Montenegro institution (`institucion.toLowerCase().includes('montenegro')`). Show name, role badge (`Director` vs `Docente Regular`), and button `+ Agregar` / `✓ Agregado`. Clicking button toggles the teacher in `grupoData.docentes[]` in `localStorage` in real-time.
+48: - R4: Display student registration link generator with:
+49:   * Input readonly containing: `https://peidagogosteam.com/login.html?reg=estudiante&grupo=<GRADO><GRUPO>&inst=montenegro&director=<doc>`
+50:   * Button "📋 Copiar Link" (copies to clipboard with feedback)
+51:   * Button "📲 WhatsApp"
+52:   * In `window.verificarParametrosMatriculaDirecta` in `app.js`: when student opens URL with `?reg=estudiante&grupo=...&inst=montenegro&director=...`, auto-open `register-screen-container`, set `#reg-ie` to `InstitutoMontenegro`, set `#reg-grado` and `#registro-grupo` to the group value, set `window.directorMatriculaActual`, and run `actualizarMaterias()`.
+53: - R5: Add "📚 Mis Otros Grupos" section at the bottom of the view. Scan `localStorage` for all keys starting with `grupo_director_` where `docentes[]` contains the current teacher's document. Render cards with Director name, Grado, Grupo, date, or display `"Aún no apareces en grupos de otros directores"` if none.
+54: - Backend (`server.js`): Surgically add `POST /api/guardar-grupo-director` and `GET /api/grupos-director` without altering any existing routes or handlers.
+55: 
+56: VERIFICATION:
+57: - Create an automated test suite `tests/test_director_grupo.js` covering R1-R5.
+58: - Run `node tests/test_director_grupo.js` and all existing tests (`node test_e2e_runner.js`).
+59: - Verify syntax with `node -c server.js` and `node -c app.js`.
+60: - Deliver a comprehensive handoff report with exact changes and test execution logs.

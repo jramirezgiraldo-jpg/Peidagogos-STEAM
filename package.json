@@ -4,7 +4,10 @@
   "description": "Peidagogos STEAM project",
   "main": "app.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "test": "npx playwright test",
+    "test:login": "npx playwright test tests/login-roles.spec.js",
+    "test:report": "npx playwright show-report playwright-report"
   },
   "author": "",
   "license": "ISC",
@@ -27,5 +30,8 @@
   "bugs": {
     "url": "https://github.com/jramirezgiraldo-jpg/Peidagogos-STEAM/issues"
   },
-  "homepage": "https://github.com/jramirezgiraldo-jpg/Peidagogos-STEAM#readme"
+  "homepage": "https://github.com/jramirezgiraldo-jpg/Peidagogos-STEAM#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.62.1"
+  }
 }

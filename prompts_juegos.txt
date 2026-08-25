@@ -1,0 +1,460 @@
+Sopa de letras
+<!-- ========================================== -->
+<!-- ✏️ SECCIÓN DE EDICIÓN: INGRESA TUS DATOS AQUÍ -->
+<!-- ========================================== -->
+TEMA: [la celula]
+INSTRUCCIÓN: [Escribe una breve guía, ej. Encuentra las 10 palabras sobre los planetas y el espacio]
+
+PALABRAS CLAVE (Exactamente 10):
+1. [Palabra 1]
+2. [Palabra 2]
+3. [Palabra 3]
+4. [Palabra 4]
+5. [Palabra 5]
+6. [Palabra 6]
+7. [Palabra 7]
+8. [Palabra 8]
+9. [Palabra 9]
+10. [Palabra 10]
+<!-- ========================================== -->
+
+Actúa como un desarrollador frontend senior y genera un archivo único e interactivo en formato `.html` (que integre HTML5, CSS3 y JavaScript vanilla sin librerías externas) basado estrictamente en los datos configurados arriba.
+
+### REQUISITOS TÉCNICOS Y FUNCIONALES:
+
+1. **Construcción y Lógica Dinámica:**
+   - Toma directamente las 10 palabras clave configuradas al inicio, normalízalas (mayúsculas, sin espacios ni tildes) y construye una cuadrícula proporcional óptima (12x12 o 13x13).
+   - Coloca las 10 palabras de forma aleatoria en direcciones válidas (horizontal, vertical y diagonal, tanto en sentido directo como inverso).
+   - Rellena todos los espacios vacíos con letras aleatorias.
+
+2. **Diseño Mobile-First y Responsivo:**
+   - La interfaz debe adaptarse automáticamente a cualquier smartphone (360px a 420px de ancho) sin causar scroll horizontal ni cortes.
+   - Diseño moderno, limpio y de alto contraste (estilo Material/Tailwind con bordes redondeados y fuentes sans-serif).
+   - Bloquear el desplazamiento involuntario de la página al jugar en el tablero mediante `touch-action: none;` y `user-select: none;`.
+
+3. **Interacción Táctil y Arrastre:**
+   - Selección continua fluida mediante eventos de puntero (`pointerdown`, `pointermove`, `pointerup` o eventos táctiles `touch*`), compatible con dedos en móviles y cursor en PC.
+   - Validar que el trazo sea en línea recta (horizontal, vertical o diagonal).
+   - Si la selección coincide con una palabra de la lista: fijarla con un color permanente y marcarla automáticamente en la lista de palabras inferior.
+   - Si no coincide: limpiar la selección inmediatamente.
+
+4. **Interfaz y Marcadores:**
+   - Encabezado con: Título del tema, Instrucción, Cronómetro activo y Contador de progreso (ej. "Encontradas: 0 / 10").
+   - Lista inferior con las 10 palabras en formato de etiquetas (badges) que se tachen o cambien a verde conforme se descubran.
+   - Modal o pantalla de victoria con confeti o animación CSS al encontrar las 10 palabras, mostrando el tiempo final obtenido y un botón de "Reiniciar juego".
+
+
+Crucigrama
+
+<!-- ========================================== -->
+<!-- ✏️ SECCIÓN DE EDICIÓN: INGRESA TUS DATOS AQUÍ -->
+<!-- ========================================== -->
+TEMA Y/O PALABRAS CLAVE: [la celula]
+NIVEL EDUCATIVO: [Ej. Estudiantes de secundaria, grados 6 a 11]
+INSTRUCCIÓN: [Escribe una breve guía, ej. Lee las pistas y completa el crucigrama tocando las casillas para escribir.]
+<!-- ========================================== -->
+
+Actúa como un desarrollador frontend senior y experto en pedagogía. 
+
+### FASE 1: GENERACIÓN DE CONTENIDO EDUCATIVO
+A partir del "TEMA Y/O PALABRAS CLAVE" y el "NIVEL EDUCATIVO" indicados arriba:
+1. Define exactamente **10 palabras** relevantes para el crucigrama.
+2. Redacta **10 pistas educativas** claras y precisas, adaptadas al nivel educativo.
+
+### FASE 2: DESARROLLO DEL INTERACTIVO (CORREGIDO - DISEÑO TRADICIONAL)
+Con las 10 palabras y pistas generadas, crea un archivo único e interactivo en formato `.html` (que integre HTML5, CSS3 y JavaScript vanilla sin librerías externas ni CDNs).
+
+### REQUISITOS TÉCNICOS Y FUNCIONALES:
+
+1. **Construcción y Lógica Dinámica (Generación del Crucigrama):**
+   - Normaliza las 10 palabras (mayúsculas, sin tildes ni espacios).
+   - Crea un algoritmo en JavaScript que acomode automáticamente las palabras en una cuadrícula cruzada (intersecciones). 
+   - **CUADRÍCULA INDIVIDUAL:** La cuadrícula debe consistir en celdas cuadradas individuales perfectamente definidas. Cada celda de letra debe tener bordes visibles para crear una cuadrícula tradicional. Eliminar cualquier efecto de barras continuas.
+   - **NUMERACIÓN CLARA:** Numera de forma pequeña y legible en la esquina superior izquierda *dentro* de la primera celda cuadrada de cada palabra para relacionarla nítidamente con su pista.
+
+2. **Diseño Mobile-First, Responsivo y Estético (CORREGIDO):**
+   - **FONDO CLARO:** Usar un fondo de página claro y limpio (ej. blanco puro `#fff` o un gris muy claro `#f9f9f9`) en lugar de un fondo oscuro.
+   - **ESTILO TRADICIONAL:** Implementar una cuadrícula de crucigrama tradicional y nítida. Cada celda activa es un cuadrado blanco con un borde gris claro definido. Celdas bloqueadas (sin letra) deben ser grises o del color del fondo para que no parezcan barras. El diseño general debe ser moderno pero respetar la forma clásica de un crucigrama.
+   - **ADAPTACIÓN:** La interfaz debe adaptarse automáticamente a cualquier smartphone (360px a 420px de ancho), escalando el tamaño de las casillas cuadradas para evitar el scroll horizontal.
+   - **EVITAR ZOOM:** Gestionar las entradas capturando eventos del teclado en un contenedor o usando inputs con `font-size: 16px;` para evitar el zoom automático en iOS/Android.
+
+3. **Interacción y Escritura (Navegación UX):**
+   - Al tocar una casilla, esta debe resaltarse junto con todas las celdas cuadradas individuales de la palabra activa actual. El trazo de resaltado debe seguir las celdas individuales, no ser una línea continua.
+   - **INTERSECCIONES:** Si es una intersección, un segundo toque debe alternar entre dirección horizontal y vertical.
+   - **AUTO-AVANCE:** Al escribir una letra, el foco debe saltar automáticamente a la siguiente casilla cuadrada. Permite borrar (tecla Backspace) regresando a la casilla anterior.
+   - Las celdas deben aceptar solo letras y convertirlas automáticamente a mayúsculas. El color de la celda de entrada (ej. amarillo) está bien.
+
+4. **Interfaz de Pistas y Marcadores:**
+   - Encabezado con: Título del tema, Instrucción, Cronómetro activo y Contador de progreso.
+   - Sección inferior (debajo de la cuadrícula) dividida en dos columnas: **Horizontales** y **Verticales**, mostrando el número y la pista generada en la Fase 1. El diseño de las pistas también debe ser claro sobre el fondo claro.
+   - Validación en tiempo real: Si las letras ingresadas en una palabra son correctas, resalta las celdas de esa palabra de un color de éxito (ej. verde pastel suave) y tacha la pista correspondiente en la lista inferior.
+   - Modal de victoria con confeti o animación CSS al completar el 100%, mostrando el tiempo final y un botón de "Reiniciar juego". Todo el código debe estar comentado en español.
+
+
+
+
+
+
+
+Emparejar 
+<!-- ========================================== -->
+<!-- ✏️ SECCIÓN DE EDICIÓN: INGRESA TUS DATOS AQUÍ -->
+<!-- ========================================== -->
+TEMA Y/O PALABRAS CLAVE: [La celula]
+NIVEL EDUCATIVO: [Ej. Estudiantes de secundaria, grados 6 a 11]
+INSTRUCCIÓN: [Escribe una breve guía, ej. Toca un concepto en la columna izquierda y luego su definición correspondiente en la derecha para emparejarlos.]
+<!-- ========================================== -->
+
+Actúa como un desarrollador frontend senior y experto en pedagogía. 
+
+### FASE 1: GENERACIÓN DE CONTENIDO EDUCATIVO
+A partir del "TEMA Y/O PALABRAS CLAVE" y el "NIVEL EDUCATIVO" indicados arriba:
+1. Define exactamente **8 a 10 conceptos** clave relevantes para el tema.
+2. Redacta **8 a 10 definiciones o descripciones** claras, precisas y pedagógicamente adaptadas al nivel educativo para cada uno de esos conceptos.
+
+### FASE 2: DESARROLLO DEL INTERACTIVO (JUEGO DE EMPAREJAR COLUMNAS)
+Con los conceptos y definiciones generados, crea un archivo único e interactivo en formato `.html` (que integre HTML5, CSS3 y JavaScript vanilla sin librerías externas ni CDNs).
+
+### REQUISITOS TÉCNICOS Y FUNCIONALES:
+
+1. **Construcción y Lógica Dinámica:**
+   - Crea un arreglo de objetos en JavaScript que vincule cada concepto con su definición.
+   - **Columnas Independientes:** Renderiza dos columnas visuales: Columna A (Conceptos) y Columna B (Definiciones).
+   - **Aleatorización:** Mezcla (shuffle) el orden de los elementos en la Columna A y en la Columna B de forma independiente cada vez que se cargue el juego, para que la respuesta correcta nunca esté en la misma posición.
+
+2. **Diseño Mobile-First, Responsivo y Estético:**
+   - **FONDO Y TARJETAS:** Usa un fondo de página claro (`#f9f9f9` o blanco). Cada concepto y definición debe estar dentro de una "tarjeta" o botón estilizado (bordes redondeados, sombra suave, fondo blanco).
+   - **ADAPTACIÓN MÓVIL:** La interfaz debe adaptarse a smartphones (360px a 420px de ancho). Para pantallas pequeñas, usa un diseño de grid de 2 columnas donde los conceptos y definiciones encajen sin scroll horizontal. El texto debe tener un tamaño legible (mínimo 14px) y ajustarse automáticamente al interior de su tarjeta.
+
+3. **Interacción y Retroalimentación (Navegación UX):**
+   - **Mecánica de Selección:** El usuario debe poder tocar/hacer clic en una tarjeta de la Columna A y luego en una de la Columna B (el orden de selección no importa).
+   - **Estado Activo:** Al seleccionar el primer elemento, este debe quedar resaltado (ej. borde azul grueso o fondo azul muy claro) indicando que está esperando su pareja. Un segundo toque sobre el mismo elemento debe deseleccionarlo.
+   - **Validación en Tiempo Real:** Al seleccionar el segundo elemento, el sistema evalúa inmediatamente:
+     - *Si es correcto:* Ambas tarjetas cambian permanentemente a un color de éxito (ej. verde pastel), se deshabilitan para futuros clics y se consideran resueltas.
+     - *Si es incorrecto:* Ambas tarjetas se pintan de rojo temporalmente, reproducen una breve animación CSS de error (efecto *shake*) y luego se deseleccionan solas tras 800ms.
+
+4. **Interfaz de Encabezado y Marcadores:**
+   - Encabezado limpio con: Título del tema, Instrucción, Cronómetro activo y Contador de progreso (ej. "Parejas encontradas: 0 / 10").
+   - Modal de victoria con confeti o animación CSS limpia al completar el 100% de las parejas, mostrando el tiempo final obtenido y un botón destacado para "Reiniciar juego". Todo el código debe estar comentado en español.
+
+Concéntrese
+<!-- ========================================== -->
+<!-- ✏️ SECCIÓN DE EDICIÓN: INGRESA TUS DATOS AQUÍ -->
+<!-- ========================================== -->
+TEMA Y/O PALABRAS CLAVE: [La celula]
+NIVEL EDUCATIVO: [Ej. Estudiantes de secundaria, grados 6 a 11]
+INSTRUCCIÓN: [Escribe una breve guía, ej. Toca las cartas para voltearlas y encuentra los pares. Debes emparejar cada concepto con su definición exacta.]
+<!-- ========================================== -->
+
+Actúa como un desarrollador frontend senior y experto en pedagogía. 
+
+### FASE 1: GENERACIÓN DE CONTENIDO EDUCATIVO
+A partir del "TEMA Y/O PALABRAS CLAVE" y el "NIVEL EDUCATIVO" indicados arriba:
+1. Define exactamente **10 conceptos** clave relevantes para el tema.
+2. Redacta **10 definiciones o descripciones** cortas, claras y precisas. 
+*(Esto formará 10 pares, creando un mazo de 20 cartas en total para el juego).*
+
+### FASE 2: DESARROLLO DEL INTERACTIVO (JUEGO DE CONCÉNTRESE / MEMORIA)
+Con los conceptos y definiciones generados, crea un archivo único e interactivo en formato `.html` (que integre HTML5, CSS3 y JavaScript vanilla sin librerías externas ni CDNs).
+
+### REQUISITOS TÉCNICOS Y FUNCIONALES:
+
+1. **Construcción y Lógica Dinámica:**
+   - Crea un arreglo con los 20 elementos (10 textos de conceptos y 10 textos de definiciones).
+   - **Aleatorización:** Mezcla (shuffle) el orden de las 20 cartas de forma totalmente aleatoria cada vez que se cargue la página o se reinicie el juego.
+   - **Estructura 3D:** Cada carta debe tener una estructura de doble cara: un "frente" (oculto, mostrando un color, patrón o ícono de interrogación) y un "dorso" (la cara que revela el texto del concepto o definición al girar).
+
+2. **Diseño Mobile-First, Responsivo y Estético:**
+   - **CUADRÍCULA (GRID):** Usa CSS Grid para disponer las cartas. En móviles (360px a 420px), la cuadrícula debe ser de 4 columnas x 5 filas, ajustándose al ancho de la pantalla sin scroll horizontal. 
+   - **ESTILO DE CARTAS:** Diseño moderno y limpio. Las cartas deben tener bordes redondeados, sombra suave y un tamaño suficiente para que el texto (mínimo 13-14px) sea fácil de leer.
+   - **ANIMACIÓN:** Implementa una transición CSS suave (flip 3D con `transform: rotateY`) para el giro de las cartas.
+
+3. **Interacción y Retroalimentación (Navegación UX):**
+   - **Mecánica de Giro:** Al tocar una carta, gira revelando su contenido. El usuario solo puede tener un máximo de 2 cartas volteadas simultáneamente.
+   - **Validación en Tiempo Real:** Al voltear la segunda carta, evalúa si hacen pareja (Concepto y su Definición correspondiente):
+     - *Si es correcto:* Las cartas permanecen boca arriba, cambian permanentemente a un color de éxito (ej. verde pastel) y se deshabilitan para más clics.
+     - *Si es incorrecto:* Las cartas se muestran brevemente (aprox. 1 a 1.5 segundos para que el usuario pueda leerlas), se pintan ligeramente de rojo o hacen una leve animación de error, y luego se voltean boca abajo automáticamente.
+   - **Bloqueo:** Mientras dos cartas se estén mostrando para evaluar, bloquea temporalmente los clics en el resto del tablero para evitar bugs.
+
+4. **Interfaz de Encabezado y Marcadores:**
+   - Encabezado limpio con: Título del tema, Instrucción, Cronómetro activo, Contador de Movimientos y Contador de Parejas (ej. "Parejas: 0 / 10").
+   - Modal de victoria con confeti o animación CSS limpia al completar el 100% de los pares, mostrando el tiempo final obtenido, el número de movimientos y un botón destacado para "Reiniciar juego". Todo el código debe estar comentado en español.
+
+
+
+
+
+Laberinto de decisiones .
+<!-- ========================================== -->
+<!-- ✏️ SECCIÓN DE EDICIÓN: INGRESA TUS DATOS AQUÍ -->
+<!-- ========================================== -->
+TEMA Y/O ESCENARIO: [la celula]
+NIVEL EDUCATIVO: [Ej. Estudiantes de secundaria, grados 6 a 11]
+INSTRUCCIÓN: [Escribe una breve guía, ej. Lee atentamente cada situación y elige la mejor decisión para salvar el ecosistema de la finca. ¡Cuidado, tus elecciones tienen consecuencias!]
+<!-- ========================================== -->
+
+Actúa como un desarrollador frontend senior, diseñador UX y experto en diseño instruccional y pedagogía.
+
+### FASE 1: GENERACIÓN DE CONTENIDO EDUCATIVO (EL ÁRBOL DE DECISIONES)
+A partir del "TEMA Y/O ESCENARIO" y el "NIVEL EDUCATIVO" indicados:
+1. Crea una historia interactiva ramificada con **al menos 8 nodos (escenas)** en total.
+2. **Estructura narrativa:**
+   - **1 Nodo de inicio (Planteamiento del problema).**
+   - **Nodos intermedios:** Cada escena debe presentar una situación pedagógica clara y ofrecer entre **2 y 3 opciones** de decisión.
+   - **Nodos finales (Al menos 3):** Debe haber un final "Exitoso" (donde se tomaron las mejores decisiones) y finales "De aprendizaje/Fracaso" (explicando por qué las decisiones tomadas tuvieron un impacto negativo y qué se debería mejorar).
+3. Redacta textos inmersivos, retadores y adaptados al nivel de secundaria.
+
+### FASE 2: DESARROLLO DEL INTERACTIVO (LABERINTO DE DECISIONES)
+Con la historia generada, crea un archivo único e interactivo en formato `.html` (que integre HTML5, CSS3 y JavaScript vanilla sin librerías externas ni CDNs).
+
+### REQUISITOS TÉCNICOS Y FUNCIONALES:
+
+1. **Construcción y Lógica Dinámica (El Motor del Juego):**
+   - Estructura la historia en un objeto o arreglo JSON dentro de JavaScript, donde cada nodo tenga un `id`, `texto` (la situación), un `tipo` (inicio, decisión, finalExito, finalFalla) y un arreglo de `opciones` (cada opción con su `texto` y el `id` del nodo al que dirige).
+   - Crea una función que renderice dinámicamente la escena actual basándose en el estado del juego y el ID del nodo activo.
+
+2. **Diseño Mobile-First, Responsivo y Estético:**
+   - **Diseño de Tarjetas:** La interfaz principal debe centrarse en una tarjeta (card) amplia y limpia en el centro de la pantalla. Usa un fondo de página suave (ej. `#f4f6f8` o un tono sutil acorde al tema). La tarjeta debe tener fondo blanco, bordes redondeados y sombra suave.
+   - **Tipografía y Espaciado:** El texto de la situación debe ser grande, legible (mínimo 16px) y estar bien espaciado para facilitar la lectura en móviles (360px a 420px de ancho).
+   - **Botones de Decisión:** Las opciones deben renderizarse como botones anchos, fáciles de tocar con el dedo pulgar (`padding` amplio, separación clara entre ellos). Al pasar el dedo o cursor (hover/active), deben tener un efecto visual sutil.
+
+3. **Interacción y Animaciones (Navegación UX):**
+   - **Transiciones:** Al elegir una opción, la tarjeta actual debe desvanecerse suavemente (fade out) y la nueva escena debe aparecer (fade in). Evita cambios bruscos o parpadeos.
+   - **Scroll Top:** Si el texto es largo, al cambiar de escena el contenedor debe volver automáticamente arriba para que el usuario no tenga que hacer scroll inverso.
+
+4. **Interfaz, Finales y Marcadores:**
+   - Encabezado persistente pero minimalista con el Título del tema y un indicador visual de progreso o pasos tomados (ej. "Decisión 1", "Decisión 2").
+   - **Pantallas Finales:** Al llegar a un nodo final, la interfaz debe cambiar para destacar el resultado. 
+     - Si es un final exitoso: Colores verdes/positivos, mensaje de felicitación y animación CSS (ej. confeti).
+     - Si es un final de aprendizaje: Colores cálidos/advertencia (naranja/rojo suave), retroalimentación constructiva sobre el error.
+   - Todo nodo final debe incluir un botón grande para "Volver a intentar / Reiniciar la historia".
+   - Todo el código debe estar debidamente comentado en español.
+
+
+Clasificador Tap & Sort
+<!-- ========================================== -->
+<!-- ✏️ SECCIÓN DE EDICIÓN: INGRESA TUS DATOS AQUÍ -->
+<!-- ========================================== -->
+TEMA PRINCIPAL: [La celula]
+CATEGORÍAS: [Organelos]
+NIVEL EDUCATIVO: [Ej. Estudiantes de secundaria, grados 6 a 11]
+INSTRUCCIÓN: [Escribe una breve guía, ej. Toca un elemento de la lista central y luego toca el contenedor correcto al que pertenece para clasificarlo.]
+<!-- ========================================== -->
+
+Actúa como un desarrollador frontend senior y experto en diseño de interfaces educativas interactivas.
+
+### FASE 1: GENERACIÓN DE CONTENIDO EDUCATIVO
+A partir del "TEMA PRINCIPAL", las "CATEGORÍAS" y el "NIVEL EDUCATIVO" indicados:
+1. Define entre **12 y 15 conceptos, características, ejemplos o elementos** clave que correspondan equitativamente a las categorías proporcionadas.
+2. Asegúrate de que los conceptos sean claros y pedagógicamente adecuados para el nivel educativo. Si aplica, acompaña el texto de cada concepto con un emoji representativo.
+
+### FASE 2: DESARROLLO DEL INTERACTIVO (CLASIFICADOR TAP & SORT)
+Crea un archivo único e interactivo en formato `.html` (que integre HTML5, CSS3 y JavaScript vanilla sin librerías externas ni CDNs).
+
+### REQUISITOS TÉCNICOS Y FUNCIONALES:
+
+1. **Construcción y Lógica Dinámica:**
+   - Estructura los datos en un arreglo de objetos en JavaScript (cada objeto con `texto` y `categoriaCorrecta`).
+   - **Aleatorización:** Mezcla (shuffle) el orden de los elementos para que aparezcan de forma aleatoria en la zona de juego en cada partida.
+
+2. **Diseño Mobile-First, Responsivo y Estético:**
+   - Usa un fondo de página claro (`#f4f6f8`). La interfaz debe encajar sin scroll horizontal en pantallas de smartphones (360px a 420px).
+   - **Zona de Contenedores (Categorías):** En la parte superior o inferior, coloca botones grandes y visualmente distintos (con colores de fondo diferenciados, bordes redondeados y sombra) que representen cada Categoría. 
+   - **Zona de Elementos (Pool):** En el centro, muestra los elementos a clasificar en formato de tarjetas o "chips" (etiquetas). Para no saturar la pantalla, puedes mostrarlos todos en una cuadrícula (grid) compacta, o mostrar solo uno a la vez en el centro (tipo flashcard).
+
+3. **Interacción y Animaciones (Tap & Sort):**
+   - **CERO Drag & Drop:** La mecánica debe ser estrictamente de toques (Tap & Sort).
+   - **Paso 1 (Seleccionar):** El usuario toca un elemento/concepto. Este elemento pasa a un estado "Activo" (ej. borde grueso azul, efecto de elevación o cambio de fondo) indicando que está seleccionado. Un segundo toque lo deselecciona.
+   - **Paso 2 (Clasificar):** Con el elemento activo, el usuario toca uno de los botones de Categoría.
+   - **Validación en Tiempo Real:** 
+     - *Si es correcto:* El elemento desaparece suavemente de la zona central (o se minimiza visualmente volando hacia el contenedor) y suma un punto.
+     - *Si es incorrecto:* El elemento se sacude (animación CSS `shake`), se pinta de rojo momentáneamente, pierde el estado de selección y se registra un error.
+
+4. **Interfaz de Marcadores y Pantalla Final:**
+   - Encabezado con: Título del tema, Instrucción, Cronómetro activo, Contador de Aciertos y Contador de Errores.
+   - **Modal de Victoria:** Al clasificar correctamente todos los elementos, muestra una pantalla final con confeti, el tiempo total, la cantidad de errores cometidos (para evaluar precisión) y un botón destacado para "Reiniciar juego". 
+   - Todo el código debe estar debidamente comentado en español.
+
+
+Anagrama
+<!-- ========================================== -->
+<!-- ✏️ SECCIÓN DE EDICIÓN: INGRESA TUS DATOS AQUÍ -->
+<!-- ========================================== -->
+TEMA Y/O PALABRAS CLAVE: [La Célula']
+NIVEL EDUCATIVO: [Ej. Estudiantes de secundaria, grados 6 a 11]
+INSTRUCCIÓN: [Escribe una breve guía, ej. Lee la pista y toca las letras en el orden correcto para descubrir la palabra oculta.]
+<!-- ========================================== -->
+
+Actúa como un desarrollador frontend senior y experto en diseño de interfaces educativas interactivas.
+
+### FASE 1: GENERACIÓN DE CONTENIDO EDUCATIVO
+A partir del "TEMA Y/O PALABRAS CLAVE" y el "NIVEL EDUCATIVO" indicados:
+1. Define exactamente **10 palabras clave** (conceptos de una sola palabra, sin espacios).
+2. Redacta **10 pistas o descripciones cortas** y pedagógicamente adecuadas que correspondan a cada una de esas palabras.
+
+### FASE 2: DESARROLLO DEL INTERACTIVO (JUEGO DE ORDENAR LETRAS)
+Crea un archivo único e interactivo en formato `.html` (que integre HTML5, CSS3 y JavaScript vanilla sin librerías externas ni CDNs). El juego debe presentar **10 palabras por actividad** (una por una en formato de niveles).
+
+### REQUISITOS TÉCNICOS Y FUNCIONALES:
+
+1. **Construcción y Lógica Dinámica:**
+   - Estructura los datos en un arreglo de 10 objetos en JavaScript (cada objeto con `palabra` en mayúsculas y su `pista`).
+   - Crea una función para desordenar (shuffle) las letras de la palabra activa actual.
+   - El juego avanza nivel por nivel: se muestra la pista 1 y sus letras. Al resolverla, se pasa automáticamente a la 2, y así sucesivamente hasta la 10.
+
+2. **Diseño Mobile-First, Responsivo y Estético:**
+   - Usa un fondo de página claro y moderno. La interfaz debe encajar sin scroll horizontal en pantallas de smartphones (360px a 420px).
+   - **Área de la Pista:** Una tarjeta superior clara que muestre el texto de la pista.
+   - **Área de Respuesta (Casillas vacías):** En el centro, muestra una fila de casillas vacías (cuadros con borde) que coincidan con la cantidad de letras de la palabra oculta.
+   - **Área de Letras Disponibles:** En la parte inferior, muestra las letras desordenadas como botones individuales, estilizados como fichas de Scrabble o teclas con sombras suaves.
+
+3. **Interacción y Animaciones (Mecánica Tap):**
+   - **CERO Drag & Drop:** Para garantizar compatibilidad móvil, usa toques.
+   - **Seleccionar Letra:** Al tocar una letra desordenada en el área inferior, esta "salta" (o se traslada) a la primera casilla vacía disponible en el área de respuesta.
+   - **Deshacer Letra:** Al tocar una letra que ya está en el área de respuesta, esta regresa automáticamente al área inferior.
+   - **Validación Automática:** Cuando todas las casillas de respuesta se llenan, el sistema evalúa inmediatamente:
+     - *Si es correcto:* Las letras se iluminan de verde pastel, reproducen un efecto de celebración rápido, y tras 1 segundo, el juego carga la siguiente palabra.
+     - *Si es incorrecto:* Las letras se sacuden (animación CSS `shake`), se pintan de rojo por medio segundo y automáticamente regresan al área inferior para que el estudiante intente de nuevo.
+
+4. **Interfaz de Marcadores y Pantalla Final:**
+   - Encabezado con: Título del tema, Instrucción, Cronómetro activo y Contador de Progreso (ej. "Palabra: 1 / 10").
+   - **Modal de Victoria:** Al completar las 10 palabras, muestra una pantalla final con confeti, el tiempo total logrado y un botón grande para "Reiniciar juego". 
+   - Todo el código debe estar debidamente comentado en español.
+
+Ordenar secuencias
+<!-- ========================================== -->
+<!-- ✏️ SECCIÓN DE EDICIÓN: INGRESA TUS DATOS AQUÍ -->
+<!-- ========================================== -->
+PROCESO O SECUENCIA: [Mitosis]
+NIVEL EDUCATIVO: [Ej. Estudiantes de secundaria, grados 6 a 11]
+INSTRUCCIÓN: [Escribe una breve guía, ej. Lee los pasos desordenados y usa las flechas (⬆️ ⬇️) para organizarlos en el orden cronológico o lógico correcto.]
+<!-- ========================================== -->
+
+Actúa como un desarrollador frontend senior y experto en diseño de interfaces educativas interactivas.
+
+### FASE 1: GENERACIÓN DE CONTENIDO EDUCATIVO
+A partir del "PROCESO O SECUENCIA" y el "NIVEL EDUCATIVO" indicados:
+1. Define el proceso dividiéndolo en exactamente **6 a 8 pasos cronológicos o lógicos**.
+2. Redacta el texto de cada paso de forma clara, precisa y pedagógicamente adecuada para el nivel educativo. 
+
+### FASE 2: DESARROLLO DEL INTERACTIVO (JUEGO DE ORDENAR SECUENCIA)
+Crea un archivo único e interactivo en formato `.html` (que integre HTML5, CSS3 y JavaScript vanilla sin librerías externas ni CDNs). 
+
+### REQUISITOS TÉCNICOS Y FUNCIONALES:
+
+1. **Construcción y Lógica Dinámica:**
+   - Estructura los datos en un arreglo de objetos en JavaScript (cada objeto con su `id` de orden correcto y el `texto` del paso).
+   - Crea una función para desordenar (shuffle) aleatoriamente el arreglo al iniciar el juego, asegurando que nunca empiece en el orden correcto.
+   - Renderiza los pasos en una lista vertical interactiva.
+
+2. **Diseño Mobile-First, Responsivo y Estético:**
+   - Usa un fondo de página claro y moderno (`#f4f6f8`). La interfaz debe encajar sin scroll horizontal en pantallas de smartphones (360px a 420px).
+   - **Tarjetas de Pasos:** Cada paso debe ser una tarjeta (card) horizontal con fondo blanco, bordes redondeados y sombra suave.
+   - **Distribución Interna (Flexbox):** 
+     - Lado izquierdo/centro: El texto del paso, legible y con buen espaciado.
+     - Lado derecho: Un contenedor vertical con dos botones grandes y táctiles: ⬆️ (Subir) y ⬇️ (Bajar).
+
+3. **Interacción y Animaciones (Mecánica Táctil Cero Drag & Drop):**
+   - **Botón Subir (⬆️):** Al tocarlo, la tarjeta actual intercambia su posición con la tarjeta inmediatamente superior en el DOM y en el arreglo lógico. Si es la primera tarjeta, el botón debe estar deshabilitado o invisible.
+   - **Botón Bajar (⬇️):** Al tocarlo, intercambia posición con la inferior. Si es la última tarjeta, el botón debe estar deshabilitado.
+   - **Transición:** Añade una transición CSS suave al reordenar las tarjetas para que el cambio no sea brusco.
+   - **Validación Automática:** Cada vez que el usuario mueve una tarjeta, el sistema evalúa inmediatamente si el orden actual del arreglo coincide al 100% con el orden cronológico original.
+     - *Si es correcto:* Todas las tarjetas se iluminan de verde pastel, los botones de flechas desaparecen y se activa la victoria.
+
+4. **Interfaz de Marcadores y Pantalla Final:**
+   - Encabezado con: Título del tema, Instrucción, Cronómetro activo y Contador de Movimientos (cada toque a una flecha suma 1).
+   - **Modal de Victoria:** Al lograr el orden correcto, muestra una pantalla final con confeti, el tiempo total, los movimientos realizados y un botón grande para "Reiniciar juego". 
+   - Todo el código debe estar debidamente comentado en español.
+
+
+
+
+
+
+Scape Room
+<!-- ========================================== -->
+<!-- ✏️ SECCIÓN DE EDICIÓN: INGRESA TUS DATOS AQUÍ -->
+<!-- ========================================== -->
+TEMA Y/O MISIÓN: [genetca]
+NIVEL EDUCATIVO: [Ej. Estudiantes de secundaria, grados 6 a 11]
+INSTRUCCIÓN: [Escribe una breve guía, ej. Resuelve el acertijo científico de cada sala para descubrir el código secreto. Usa el teclado digital para abrir el candado y avanzar.]
+<!-- ========================================== -->
+
+Actúa como un desarrollador frontend senior, diseñador UX y experto en diseño instruccional y gamificación educativa.
+
+### FASE 1: GENERACIÓN DE CONTENIDO EDUCATIVO (ACERTIJOS Y CÓDIGOS)
+A partir del "TEMA Y/O MISIÓN" y el "NIVEL EDUCATIVO" indicados:
+1. Diseña una misión de Escape Room dividida en exactamente **3 a 4 salas o niveles secuenciales**.
+2. Para cada sala, redacta un **acertijo científico, pista o cálculo** retador pero adecuado para el nivel educativo.
+3. Define un **código secreto de 3 a 4 dígitos numéricos** que sea la respuesta lógica a cada acertijo (ej. la cantidad de un organelo específico, un año importante, o un código asignado a opciones múltiples en el texto).
+
+### FASE 2: DESARROLLO DEL INTERACTIVO (ESCAPE ROOM / CANDADO DIGITAL)
+Crea un archivo único e interactivo en formato `.html` (que integre HTML5, CSS3 y JavaScript vanilla sin librerías externas ni CDNs). 
+
+### REQUISITOS TÉCNICOS Y FUNCIONALES:
+
+1. **Construcción y Lógica Dinámica:**
+   - Estructura los datos en un arreglo de objetos en JavaScript (cada objeto con `sala`, `acertijo` y `codigoRespuesta`).
+   - El juego debe gestionar el "estado" para avanzar desde la primera sala hasta la sala final secuencialmente.
+
+2. **Diseño Mobile-First, Responsivo y Estético (Tema Misterio/Laboratorio):**
+   - Usa un fondo inmersivo (ej. colores oscuros como gris carbón o azul marino, tipografía de alta legibilidad, con acentos en colores llamativos como verde neón o cian).
+   - **Pantalla del Acertijo:** Un panel superior claro y legible donde se muestre el texto del reto actual.
+   - **Pantalla del Candado (Display):** Un contenedor central que muestre los dígitos ingresados (ej. `_ _ _ _` que se van llenando como `4 2 _ _`).
+   - **Teclado Táctil en Pantalla (Keypad):** En la parte inferior, diseña una cuadrícula estilo caja fuerte con botones grandes y táctiles para los números del 0 al 9, un botón para "Borrar" (⌫) y un botón destacado para "Desbloquear" (🔓). **IMPORTANTE: No uses `<input type="number">` ni campos de texto nativos para evitar que se abra el teclado virtual del celular.**
+
+3. **Interacción y Animaciones (Mecánica Táctil):**
+   - Al tocar los números del teclado en pantalla, estos se reflejan en el Display del candado. Limita la longitud máxima a la cantidad de dígitos del código actual.
+   - **Botón Desbloquear:** Al presionarlo, el sistema valida la entrada contra el código secreto de la sala actual:
+     - *Si es correcto:* El display brilla en verde, reproduce un mensaje de éxito, y tras 1 a 1.5 segundos avanza a la siguiente sala.
+     - *Si es incorrecto:* El display parpadea en rojo, la pantalla hace una animación CSS de vibración (`shake`) y la entrada se limpia automáticamente para intentarlo de nuevo.
+
+4. **Interfaz de Marcadores y Pantalla Final:**
+   - Encabezado con: Título de la Misión, Cronómetro activo y Progreso (ej. "Sala: 1 / 4").
+   - **Modal de Victoria:** Al superar la última sala, muestra una pantalla final de éxito celebrando la misión cumplida, con animación CSS (ej. confeti), el tiempo total de escape y un botón grande para "Reiniciar misión". 
+   - Todo el código debe estar debidamente comentado en español.
+
+Completar el Párrafo
+<!-- ========================================== -->
+<!-- ✏️ SECCIÓN DE EDICIÓN: INGRESA TUS DATOS AQUÍ -->
+<!-- ========================================== -->
+TEMA DEL TEXTO: [fotosintesis]
+NIVEL EDUCATIVO: [Ej. Estudiantes de secundaria, grados 6 a 11]
+INSTRUCCIÓN: [Escribe una breve guía, ej. Toca una palabra del banco inferior y luego toca el espacio vacío en el texto para completarlo.]
+<!-- ========================================== -->
+
+Actúa como un desarrollador frontend senior, diseñador UX y experto en diseño instruccional y pedagogía.
+
+### FASE 1: GENERACIÓN DE CONTENIDO EDUCATIVO (TEXTO Y BANCO DE PALABRAS)
+A partir del "TEMA DEL TEXTO" y el "NIVEL EDUCATIVO" indicados:
+1. Redacta un **párrafo educativo, coherente y retador** sobre el tema, adecuado para el nivel educativo.
+2. Identifica y extrae entre **5 y 8 palabras clave** del párrafo, dejando en su lugar "huecos" o espacios en blanco.
+3. Crea un **banco de palabras** que contenga las palabras extraídas más **2 o 3 palabras "distractoras"** (conceptos relacionados pero incorrectos para el contexto) para aumentar el nivel de análisis.
+
+### FASE 2: DESARROLLO DEL INTERACTIVO (COMPLETAR EL PÁRRAFO)
+Crea un archivo único e interactivo en formato `.html` (que integre HTML5, CSS3 y JavaScript vanilla sin librerías externas ni CDNs). 
+
+### REQUISITOS TÉCNICOS Y FUNCIONALES:
+
+1. **Construcción y Lógica Dinámica:**
+   - Estructura los datos en JavaScript separando el texto (con identificadores para los huecos) y el banco de palabras (mezclado aleatoriamente al inicio de cada partida).
+   - Renderiza el texto en la parte superior y el banco de palabras en la parte inferior.
+
+2. **Diseño Mobile-First, Responsivo y Estético:**
+   - Usa un fondo de página claro y limpio (`#f4f6f8` o blanco). La interfaz debe adaptarse a smartphones (360px a 420px) sin scroll horizontal.
+   - **Área del Texto (Párrafo):** El texto debe tener un tamaño de fuente legible (mínimo 16px) y un interlineado amplio (line-height: 1.8).
+   - **Los Huecos (Blanks):** Deben renderizarse como botones o casillas en línea (`display: inline-block`) con un ancho fijo mínimo, un color de fondo sutil y un borde inferior marcado, indicando que son interactivos.
+   - **Banco de Palabras:** Un contenedor en la parte inferior con las palabras disponibles presentadas como "chips" o botones estilizados (bordes redondeados, sombra suave).
+
+3. **Interacción y Animaciones (Mecánica Táctil Cero Drag & Drop):**
+   - **Seleccionar Palabra:** Al tocar una palabra en el banco, esta queda "Activa" (se resalta con un borde de color o cambio de fondo). Si se toca otra, cambia la selección.
+   - **Llenar Hueco:** Con una palabra activa, al tocar un hueco vacío en el texto, la palabra se inserta allí. El "chip" original desaparece del banco de palabras.
+   - **Deshacer (Vaciar Hueco):** Al tocar un hueco que ya tiene una palabra, esta se elimina del texto y regresa automáticamente al banco de palabras inferior.
+   - **Validación Automática:** Cuando todos los huecos del texto estén llenos, el sistema evalúa inmediatamente:
+     - *Si todo es correcto:* Los huecos brillan en verde pastel, suena un efecto (opcional) y se activa la pantalla de victoria.
+     - *Si hay errores:* Solo las palabras incorrectas se sacuden (animación CSS `shake`), se pintan de rojo momentáneamente y regresan al banco de palabras, dejando esos huecos vacíos para que el estudiante corrija su error, mientras que las correctas se quedan fijas en verde.
+
+4. **Interfaz de Marcadores y Pantalla Final:**
+   - Encabezado con: Título del tema, Instrucción, Cronómetro activo y Contador de Progreso (ej. "Palabras: 0 / 6").
+   - **Modal de Victoria:** Al completar el párrafo correctamente, muestra un modal de éxito con confeti o animación CSS, el tiempo total y un botón grande para "Reiniciar juego". 
+   - Todo el código debe estar debidamente comentado en español.

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>Peidagogos STEAM - Kit de Actividades Interactivas</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="assets/logo-peidagogos.png" type="image/png">
+</head>
+<body>
+
+  <!-- ============ HEADER ============ -->
+  <header class="header">
+    <div class="header__logo">
+      <img src="assets/logo-peidagogos.png" alt="Peidagogos STEAM">
+    </div>
+    <h1 class="header__title">Kit de Actividades Interactivas</h1>
+    <button class="header__settings" id="btnSettings" title="Configuración de IA">⚙️</button>
+  </header>
+
+  <!-- ============ HERO / INTRO ============ -->
+  <section class="hero" id="heroSection">
+    <p class="hero__subtitle">Crea actividades educativas interactivas generadas por IA. 
+    Selecciona un tipo, ingresa el tema y descarga tu actividad lista para usar. 🚀</p>
+    <div class="hero__teacher">
+      <label for="teacherName">👩‍🏫 Docente:</label>
+      <input type="text" id="teacherName" placeholder="Ej. Prof. María García" autocomplete="name">
+    </div>
+    <div id="configStatus" style="margin-top:12px;"></div>
+  </section>
+
+  <!-- ============ GRID DE ACTIVIDADES ============ -->
+  <section class="activities-grid" id="activitiesGrid">
+    <!-- Las tarjetas se insertan dinámicamente por app.js -->
+  </section>
+
+  <!-- ============ PANEL DE CREACIÓN ============ -->
+  <section class="creation-panel" id="creationPanel" style="display:none;">
+    <div class="creation-panel__header">
+      <button class="btn-back" id="btnBack">← Volver</button>
+      <span class="creation-panel__icon" id="creationIcon"></span>
+      <h2 id="creationTitle">Crear Actividad</h2>
+    </div>
+    <form id="activityForm" autocomplete="off">
+      <!-- Campos dinámicos insertados por app.js según el tipo de actividad -->
+    </form>
+    <div style="margin-top:20px;">
+      <button type="button" class="btn-generate" id="btnGenerate">🤖 Generar Actividad con IA</button>
+    </div>
+    <!-- Estado de carga -->
+    <div class="loading" id="loadingState" style="display:none;">
+      <div class="spinner"></div>
+      <p id="loadingText">Generando actividad con IA... Esto puede tardar unos segundos.</p>
+    </div>
+    <!-- Errores -->
+    <div id="errorDisplay" style="display:none; margin-top:16px; padding:16px; background:#FFEBEE; border-radius:8px; color:#C62828; font-size:0.9rem;"></div>
+  </section>
+
+  <!-- ============ PANEL DE PREVISUALIZACIÓN ============ -->
+  <section class="preview-panel" id="previewPanel" style="display:none;">
+    <div class="preview-header">
+      <button class="btn-back" id="btnBackFromPreview">← Volver al formulario</button>
+      <div class="preview-actions">
+        <button class="btn-download" id="btnDownloadHTML">📥 Descargar HTML</button>
+        <button class="btn-print" id="btnPrint">🖨️ Imprimir / PDF</button>
+      </div>
+    </div>
+    <iframe id="previewFrame" class="preview-frame" sandbox="allow-scripts allow-same-origin"></iframe>
+  </section>
+
+  <!-- ============ MODAL DE CONFIGURACIÓN DE IA ============ -->
+  <div class="modal-overlay" id="settingsModal" style="display:none;">
+    <div class="modal">
+      <div class="modal__header">
+        <h3>⚙️ Configuración de IA</h3>
+        <button class="modal__close" id="closeSettings">✕</button>
+      </div>
+      <div class="modal__body">
+        <p style="font-size:0.85rem; color:#616161; margin-bottom:16px;">
+          Configura tu proveedor de IA para generar contenido educativo automáticamente. 
+          Tu API Key se guarda localmente en tu navegador y nunca sale de tu dispositivo (excepto hacia el proveedor seleccionado).
+        </p>
+        <div class="form-group">
+          <label for="aiProvider">Proveedor de IA:</label>
+          <select id="aiProvider">
+            <option value="openrouter">🌐 OpenRouter (Recomendado)</option>
+            <option value="gemini">🔵 Google Gemini</option>
+            <option value="deepseek">🟣 DeepSeek</option>
+            <option value="openai">🟢 OpenAI GPT</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="apiKey">API Key:</label>
+          <input type="password" id="apiKey" placeholder="sk-... o AIza...">
+          <small>Tu clave de API del proveedor seleccionado</small>
+        </div>
+        <div class="form-group">
+          <label for="aiModel">Modelo (opcional):</label>
+          <input type="text" id="aiModel" placeholder="Dejar vacío para usar el modelo por defecto">
+          <small id="modelHint">Por defecto: deepseek/deepseek-chat</small>
+        </div>
+        <button type="button" class="btn-save" id="btnSaveSettings">💾 Guardar Configuración</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <img src="assets/logo-peidagogos.png" alt="Peidagogos STEAM" class="footer__logo">
+    <p>© 2025 Peidagogos STEAM — Kit de Actividades Interactivas para Profesores</p>
+  </footer>
+
+  <!-- ============ SCRIPTS ============ -->
+  <!-- Utilidades globales -->
+  <script src="js/utils.js"></script>
+  <!-- Logo embebido en base64 para los HTML descargables -->
+  <script src="js/logo-data.js"></script>
+  <!-- Servicio de comunicación con APIs de IA -->
+  <script src="js/ai-service.js"></script>
+  <!-- Generadores de actividades (uno por tipo) -->
+  <script src="js/generators/sopa-de-letras.js"></script>
+  <script src="js/generators/crucigrama.js"></script>
+  <script src="js/generators/emparejar.js"></script>
+  <script src="js/generators/concentrese.js"></script>
+  <script src="js/generators/laberinto.js"></script>
+  <script src="js/generators/clasificador.js"></script>
+  <script src="js/generators/anagrama.js"></script>
+  <script src="js/generators/ordenar-secuencias.js"></script>
+  <script src="js/generators/escape-room.js"></script>
+  <script src="js/generators/completar-parrafo.js"></script>
+  <!-- Lógica principal de la aplicación (carga al final) -->
+  <script src="js/app.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,104 @@
+window.cargarDirectorioDocentesGrupoDirector(doc, grupoData);
+    }
+
+    // Actualizar sección Mis Otros Grupos
+    window.renderizarMisOtrosGruposDocente(doc);
+};
+
+// R2: Ejecutar Creación de Grupo
+window.crearGrupoDirector = async function(doc, nom) {
+    if (!doc) {
+        const ses = window.obtenerDatosDocenteSesion();
+        doc = ses.doc;
+        nom = ses.nom;
+    }
+
+    const selGra = document.getElementById('select-crear-grupo-grado') || document.getElementById('director-select-grado');
+    const selGrp = document.getElementById('select-crear-grupo-letra') || document.getElementById('director-select-grupo');
+    const grado = selGra && selGra.value ? selGra.value : '7';
+    const grupo = selGrp && selGrp.value ? selGrp.value : 'C';
+
+    const grupoData = {
+        grado: grado,
+        grupo: grupo,
+        docentes: [],
+        creadoEn: Date.now(),
+        directorDoc: doc,
+        directorNombre: nom
+    };
+
+    localStorage.setItem('grupo_director_' + doc, JSON.stringify(grupoData));
+
+    // Fallback POST a backend
+    try {
+        await fetch('/api/guardar-grupo-director', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                documento: doc,
+                documento_director: doc,
+                grado: grado,
+                grupo: grupo,
+                docentes: [],
+                creadoEn: grupoData.creadoEn,
+                directorNombre: nom,
+                grupo: grupoData
+            })
+        });
+    } catch(e) {}
+
+    window.renderizarPanelMiGrupoDirector(doc, nom);
+};
+
+window.crearGrupoDirectorEjecutar = window.crearGrupoDirector;
+
+// Reconfigurar / Cambiar Grupo
+window.reconfigurarGrupoDirector = function(doc, nom) {
+    if (!doc) {
+        const ses = window.obtenerDatosDocenteSesion();
+        doc = ses.doc;
+        nom = ses.nom;
+    }
+    if (confirm('¿Deseas reiniciar la configuración de tu grupo para crear uno nuevo?')) {
+        localStorage.removeItem('grupo_director_' + doc);
+        window.renderizarPanelMiGrupoDirector(doc, nom);
+    }
+};
+
+// R4: Copiar Enlace de Matrícula
+window.copiarLinkMatriculaEstudiantes = function() {
+    const inputLink = document.getElementById('input-link-matricula-estudiantes');
+    if (!inputLink || !inputLink.value) return;
+
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(inputLink.value).then(() => {
+            alert('✅ ¡Enlace de matrícula copiado al portapapeles!\n\nComparte este link con tus estudiantes para que se matriculen en tu grupo sin códigos de verificación.');
+        }).catch(() => {
+            inputLink.select();
+            document.execCommand('copy');
+            alert('✅ ¡Enlace copiado al portapapeles!');
+        });
+    } else {
+        inputLink.select();
+        document.execCommand('copy');
+        alert('✅ ¡Enlace copiado al portapapeles!');
+    }
+};
+
+// R4: Compartir en WhatsApp
+window.compartirLinkMatriculaWhatsApp = function() {
+    const inputLink = document.getElementById('input-link-matricula-estudiantes');
+    if (!inputLink || !inputLink.value) return;
+
+    const { nom } = window.obtenerDatosDocenteSesion();
+    const tituloElem = document.getElementById('titulo-mi-grupo-director');
+    const grupoNom = tituloElem ? tituloElem.innerText : 'tu grupo';
+    const msg = `¡Hola estudiantes! 👋\n\nSoy el(la) Profesor(a) ${nom}. Les comparto el enlace oficial para matricularse en Peidagogos STEAM para ${grupoNom}:\n\n👉 ${inputLink.value}\n\n(Acceso directo sin códigos de verificación)`;
+    
+    window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(msg)}`, '_blank');
+};
+
+// R3: Cargar y Renderizar Directorio de Docentes de Montenegro
+window.cargarDirectorioDocentesGrupoDirector = async function(docDirector, grupoData) {
+    const listCont = document.getElementById('contenedor-lista-docentes-grupo');
+    const contadorBadge = document.getElementById('badge-contador-docentes

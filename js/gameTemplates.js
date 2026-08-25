@@ -1,64 +1,7 @@
-Ran command: `powershell -NoProfile -Command "
-$templateContent = @'
 /**
- * js/gameTemplates.js — Peidagogos STEAM
- * Plantillas de prompt para los 10 juegos dinamicos de la Caja 2.
- * Valores inicializados en \"\" para personalizacion del usuario.
- */
-window.GAME_TEMPLATES = {
-    juego_sopa_letras: \"\",          // 1. Sopa de Letras
-    juego_crucigrama: \"\",            // 2. Crucigrama
-    juego_emparejar: \"\",             // 3. Emparejar
-    juego_concentrese: \"\",           // 4. Concentrese (Memoria)
-    juego_laberinto: \"\",             // 5. Laberinto de Decisiones
-    juego_tap_sort: \"\",              // 6. Clasificador Tap & Sort
-    juego_anagrama: \"\",              // 7. Anagrama
-    juego_ordenar_secuencias: \"\",    // 8. Ordenar Secuencias
-    juego_escape_room: \"\",           // 9. Escape Room
-    juego_completar_parrafo: \"\"      // 10. Completar el Parrafo
-};
-
-// Ensambla el prompt reemplazando los marcadores {{TEMA}}, {{NIVEL}}, {{INSTRUCCION}}
-window.ensamblarPromptJuego = function(juegoId, tema, nivel, instruccion) {
-    const rawTpl = (window.GAME_TEMPLATES && window.GAME_TEMPLATES[juegoId]) || \"\";
-    let basePrompt = rawTpl.trim();
-    if (!basePrompt) {
-        basePrompt = \`Eres un experto pedagogico STEAM. Genera la estructura de datos para el juego \"\${juegoId}\" sobre el tema \"{{TEMA}}\" para un nivel educativo de {{NIVEL}}.\nInstruccion para el estudiante: {{INSTRUCCION}}.\nDevuelve UNICAMENTE un JSON valido con los datos del juego.\`;
-    }
-    return basePrompt
-        .replace(/\\{\\{TEMA\\}\\}/g, tema || 'el tema indicado')
-        .replace(/\\{\\{NIVEL\\}\\}/g, nivel || 'grado escolar')
-        .replace(/\\{\\{INSTRUCCION\\}\\}/g, instruccion || 'Completa la actividad con atencion.');
-};
-
-console.log('[GAME_TEMPLATES] 10 plantillas de juegos dinamicos listas.');
-'@
-
-[System.IO.File]::WriteAllText('d:\Peidagogos_Oficial\js\gameTemplates.js', $templateContent, [System.Text.Encoding]::UTF8)
-Write-Output 'OK: gameTemplates.js guardado'
-"`
-Created write_game_templates.js
-Ran command: `node C:\Users\USUARIO\.gemini\antigravity\brain\5d7d19ed-b992-48de-af85-b9c56772b4d9\scratch\write_game_templates.js`
-Viewed app.js:12720-12735
-Edited app.js
-Viewed login.html:3768-3780
-Edited login.html
-Ran command: `git status`
-Ran command: `git add js/gameTemplates.js app.js login.html server.js`
-Ran command: `git commit -m "feat: conectar botones Caja 2 al modal de IA y gameTemplates"`
-Ran command: `git push origin master`
-
-### Archivos Guardados y Desplegados
-
-1. **[`js/gameTemplates.js`](file:///d:/Peidagogos_Oficial/js/gameTemplates.js)**: Objeto `window.GAME_TEMPLATES` con 10 claves inicializadas en `""` y función `window.ensamblarPromptJuego()`.
-2. **[`login.html`](file:///d:/Peidagogos_Oficial/login.html#L3774)**: Modal `#modal-configuracion-juego-ia` vinculado e inclusión de `js/gameTemplates.js?v=20260824_v1`.
-3. **[`app.js`](file:///d:/Peidagogos_Oficial/app.js#L12720)**: Botones `⚡ Configurar y Generar IA` habilitados en las tarjetas de la Caja 2 y conectados al modal de configuración y al endpoint de IA.
-4. **[`server.js`](file:///d:/Peidagogos_Oficial/server.js#L1084)**: Soporte de `promptPersonalizado` activo en `POST /api/generate-tool-ai`.
-
-Todos los cambios fueron guardados y sincronizados en la rama `master`. lo siguiente no lo puede hacer el agente: /**
- * js/gameTemplates.js — Peidagogos STEAM
- * Plantillas de prompt para los 10 juegos dinámicos de la Caja 2.
- */
+ * js/gameTemplates.js — Peidagogos STEAM
+ * Plantillas de prompt para los 10 juegos dinámicos de la Caja 2.
+ */
 window.GAME_TEMPLATES = {
     juego_sopa_letras: `Actúa como un desarrollador frontend senior y genera un archivo único e interactivo en formato .html (que integre HTML5, CSS3 y JavaScript vanilla sin librerías externas) basado estrictamente en estos datos:
 TEMA: {{TEMA}}

@@ -38,7 +38,10 @@ const testSuites = [
     { name: 'Tier 4: Real-World Scenarios', path: './tests/test_tier4_scenarios.js' },
     { name: 'Challenger M1: UI Layout & Roles Stress', path: './tests/test_challenger_m1.js' },
     { name: 'Challenger M2: Multi-file Ingestion Boundaries', path: './tests/test_challenger_m2.js' },
-    { name: 'Challenger Final: M3, M4 & 6 User Items', path: './tests/test_challenger_m3_m4_final.js' }
+    { name: 'Challenger Final: M3, M4 & 6 User Items', path: './tests/test_challenger_m3_m4_final.js' },
+    { name: 'Director de Grupo: R1 to R5', path: './tests/test_director_grupo.js' },
+    { name: 'Challenger M4: Director de Grupo Edge Cases', path: './tests/test_challenger_m4_edge_cases.js' },
+    { name: 'Challenger 2: Adversarial & Corner-Cases', path: './tests/test_adversarial_director.js' }
 ];
 
 console.log('📦 Loading and executing test suites...\n');

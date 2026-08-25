@@ -1,18 +1,18 @@
 {
-  "timestamp": "2026-08-23T20:03:00.000Z",
-  "durationMs": 48,
-  "totalTests": 99,
-  "passed": 99,
+  "timestamp": "2026-08-24T01:51:30.000Z",
+  "durationMs": 62,
+  "totalTests": 116,
+  "passed": 116,
   "failed": 0,
   "tierBreakdown": {
     "Tier 1: Feature Coverage": {
-      "total": 22,
-      "passed": 22,
+      "total": 31,
+      "passed": 31,
       "failed": 0
     },
     "Tier 2: Boundary & Corner Cases": {
-      "total": 20,
-      "passed": 20,
+      "total": 35,
+      "passed": 35,
       "failed": 0
     },
     "Tier 3: Cross-Feature Combinations": {
@@ -36,10 +36,10 @@
       "failed": 0
     },
     "Challenger M3: Adversarial": {
-      "total": 16,
-      "passed": 16,
+      "total": 9,
+      "passed": 9,
       "failed": 0
     }
   },
-  "summary": "99 passed, 0 failed across all test suites (Tiers 1-4 + Challengers M1, M2, M3)"
+  "summary": "116 passed, 0 failed across all 11 test suites (Tiers 1-4 + Challengers M1, M2, M3, M4 & Director de Grupo)"
 }
