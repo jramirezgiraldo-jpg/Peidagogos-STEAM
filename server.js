@@ -1161,16 +1161,17 @@ Remplaza TODOS los valores con contenido real y pedagógicamente correcto para e
     }
 
     let responseText = '';
+    let erroresIA = [];
 
     // =========================================================================
-    // FAILOVER DE 3 CAPAS (DeepSeek -> Gemini -> OpenRouter)
+    // FAILOVER DE 3 CAPAS NATIVO (Fetch de Node.js puro, cero SDKs externos)
     // =========================================================================
 
-    // CAPA 1: DeepSeek API (Proveedor Principal)
+    // CAPA 1: DeepSeek API (REST Native)
     try {
         const deepseekKey = process.env.DEEPSEEK_API_KEY || 'sk-8bdd9c5adcfa4d8e958f1ea7a07e8167';
         if (deepseekKey) {
-            console.log(`[FAILOVER CAPA 1] Intentando con DeepSeek API para ${tipoJuego || 'herramienta'}...`);
+            console.log(`[FAILOVER CAPA 1] Intentando con DeepSeek API...`);
             const ds_res = await fetch('https://api.deepseek.com/chat/completions', {
                 method: 'POST',
                 headers: {
@@ -1185,47 +1186,65 @@ Remplaza TODOS los valores con contenido real y pedagógicamente correcto para e
             });
             if (ds_res.ok) {
                 const ds_data = await ds_res.json();
-                if (ds_data.choices && ds_data.choices.length > 0) {
+                if (ds_data.choices && ds_data.choices.length > 0 && ds_data.choices[0].message.content) {
                     responseText = ds_data.choices[0].message.content;
                     console.log('[FAILOVER CAPA 1] ✅ Éxito con DeepSeek API');
+                } else {
+                    erroresIA.push(`Capa 1 (DeepSeek): Respuesta estructurada vacía`);
                 }
             } else {
-                console.warn(`[FAILOVER CAPA 1] DeepSeek devolvió status ${ds_res.status}`);
+                const errTxt = await ds_res.text();
+                erroresIA.push(`Capa 1 (DeepSeek HTTP ${ds_res.status}): ${errTxt.substring(0, 120)}`);
             }
+        } else {
+            erroresIA.push('Capa 1 (DeepSeek): DEEPSEEK_API_KEY no configurada');
         }
     } catch (err1) {
-        console.warn('[FAILOVER CAPA 1] Error conectando a DeepSeek:', err1.message);
+        erroresIA.push(`Capa 1 (DeepSeek Error Red): ${err1.message}`);
     }
 
-    // CAPA 2: Gemini API (Respaldo 1)
+    // CAPA 2: Gemini API (REST Native)
     if (!responseText) {
         try {
-            console.log(`[FAILOVER CAPA 2] Intentando con Gemini API para ${tipoJuego || 'herramienta'}...`);
-            const geminiClient = typeof getAIClient === 'function' ? getAIClient() : null;
-            if (geminiClient) {
-                const gemResult = await geminiQueue.add(() =>
-                    geminiClient.models.generateContent({
-                        model: 'gemini-2.0-flash',
-                        contents: [{ role: 'user', parts: [{ text: prompt }] }]
+            const rawGeminiKeys = process.env.GEMINI_API_KEYS || process.env.GEMINI_API_KEY || "";
+            const geminiKeys = rawGeminiKeys.split(',').map(k => k.trim()).filter(k => k.length > 0);
+            const geminiKey = geminiKeys.length > 0 ? geminiKeys[0] : '';
+            if (geminiKey) {
+                console.log(`[FAILOVER CAPA 2] Intentando con Gemini API REST Native (1.5-flash)...`);
+                const gem_res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${geminiKey}`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        contents: [{ parts: [{ text: prompt }] }]
                     })
-                );
-                const gemText = gemResult?.candidates?.[0]?.content?.parts?.[0]?.text || '';
-                if (gemText && gemText.trim()) {
-                    responseText = gemText;
-                    console.log('[FAILOVER CAPA 2] ✅ Éxito con Gemini API');
+                });
+                if (gem_res.ok) {
+                    const gem_data = await gem_res.json();
+                    const gemText = gem_data?.candidates?.[0]?.content?.parts?.[0]?.text || '';
+                    if (gemText && gemText.trim()) {
+                        responseText = gemText;
+                        console.log('[FAILOVER CAPA 2] ✅ Éxito con Gemini REST API');
+                    } else {
+                        erroresIA.push(`Capa 2 (Gemini REST): Respuesta sin candidatos o texto vacío`);
+                    }
+                } else {
+                    const errTxt = await gem_res.text();
+                    erroresIA.push(`Capa 2 (Gemini REST HTTP ${gem_res.status}): ${errTxt.substring(0, 120)}`);
                 }
+            } else {
+                erroresIA.push('Capa 2 (Gemini REST): GEMINI_API_KEYS no configurada');
             }
         } catch (err2) {
-            console.warn('[FAILOVER CAPA 2] Error conectando a Gemini API:', err2.message);
+            erroresIA.push(`Capa 2 (Gemini REST Error Red): ${err2.message}`);
         }
     }
 
-    // CAPA 3: OpenRouter API (Respaldo 2)
+    // CAPA 3: OpenRouter API (REST Native)
     if (!responseText) {
         try {
-            const openRouterKey = process.env.OPEN_ROUTER || process.env.OPENROUTER_API_KEY;
+            const openRouterKey = process.env.OPEN_ROUTER || process.env.OPENROUTER_API_KEY || '';
             if (openRouterKey) {
-                console.log(`[FAILOVER CAPA 3] Intentando con OpenRouter API para ${tipoJuego || 'herramienta'}...`);
+                console.log(`[FAILOVER CAPA 3] Intentando con OpenRouter API REST Native (gemini-flash-1.5)...`);
                 const or_res = await fetch('https://openrouter.ai/api/v1/chat/completions', {
                     method: 'POST',
                     headers: {
@@ -1233,30 +1252,36 @@ Remplaza TODOS los valores con contenido real y pedagógicamente correcto para e
                         'Authorization': 'Bearer ' + openRouterKey
                     },
                     body: JSON.stringify({
-                        model: 'google/gemini-2.0-flash-lite-001',
+                        model: 'google/gemini-flash-1.5',
                         messages: [{ role: 'user', content: prompt }]
                     })
                 });
                 if (or_res.ok) {
                     const or_data = await or_res.json();
-                    if (or_data.choices && or_data.choices.length > 0) {
+                    if (or_data.choices && or_data.choices.length > 0 && or_data.choices[0].message.content) {
                         responseText = or_data.choices[0].message.content;
                         console.log('[FAILOVER CAPA 3] ✅ Éxito con OpenRouter API');
+                    } else {
+                        erroresIA.push(`Capa 3 (OpenRouter): Respuesta vacía de la API`);
                     }
                 } else {
-                    console.warn(`[FAILOVER CAPA 3] OpenRouter devolvió status ${or_res.status}`);
+                    const errTxt = await or_res.text();
+                    erroresIA.push(`Capa 3 (OpenRouter HTTP ${or_res.status}): ${errTxt.substring(0, 120)}`);
                 }
+            } else {
+                erroresIA.push('Capa 3 (OpenRouter): OPEN_ROUTER API key no configurada');
             }
         } catch (err3) {
-            console.warn('[FAILOVER CAPA 3] Error conectando a OpenRouter API:', err3.message);
+            erroresIA.push(`Capa 3 (OpenRouter Error Red): ${err3.message}`);
         }
     }
 
-    // PROTECCIÓN CONTRA CAÍDAS: Si los 3 proveedores fallan
+    // PROTECCIÓN Y TRAZABILIDAD: Si las 3 fallan
     if (!responseText || !responseText.trim()) {
+        console.error('[IA] Fallo total de APIs:', erroresIA.join(" | "));
         return res.status(500).json({
-            error: "Saturación de proveedores IA",
-            detalle: "Nuestros motores principales y de respaldo están saturados. Reintente en unos segundos."
+            error: "Fallo total de APIs",
+            detalle: erroresIA.join(" | ")
         });
     }
 
@@ -1275,7 +1300,8 @@ Remplaza TODOS los valores con contenido real y pedagógicamente correcto para e
         console.error("JSON parse error from IA:", e, "Raw:", responseText);
         return res.status(500).json({
             error: "Respuesta IA no válida: " + e.message,
-            raw: responseText
+            raw: responseText,
+            detalle: erroresIA.join(" | ")
         });
     }
 });
