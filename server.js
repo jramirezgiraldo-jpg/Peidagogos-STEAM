@@ -1096,7 +1096,7 @@ app.post('/api/generate-tool-ai', async (req, res) => {
         prompt = prompt.replace(/\/\/ TODO: Agregar prompt completo\n?/, '').trim();
         console.log(`[IA] Prompt personalizado recibido para tipoJuego="${tipoJuego}", tema="${tema}", longitud=${prompt.length}`);
     } else {
- Para una clase de ${materia}, grado ${grado}, tema "${tema}" (dificultad: ${dificultad || 'media'}), genera EXACTAMENTE este JSON válido (sin markdown, sin explicaciones extra):
+        prompt = `Eres un experto pedagógico STEAM. Para una clase de ${materia}, grado ${grado}, tema "${tema}" (dificultad: ${dificultad || 'media'}), genera EXACTAMENTE este JSON válido (sin markdown, sin explicaciones extra):
 {
   "palabras": ["P1","P2","P3","P4","P5","P6","P7","P8","P9","P10"],
   "definiciones": [{"palabra":"P1","pista":"Definición corta"},{"palabra":"P2","pista":"Definición corta"},{"palabra":"P3","pista":"Definición corta"},{"palabra":"P4","pista":"Definición corta"},{"palabra":"P5","pista":"Definición corta"},{"palabra":"P6","pista":"Definición corta"},{"palabra":"P7","pista":"Definición corta"},{"palabra":"P8","pista":"Definición corta"},{"palabra":"P9","pista":"Definición corta"},{"palabra":"P10","pista":"Definición corta"}],
@@ -1114,6 +1114,7 @@ app.post('/api/generate-tool-ai', async (req, res) => {
   "debateDetonante": "¿Pregunta socrática profunda sobre ${tema}?"
 }
 Remplaza TODOS los valores con contenido real y pedagógicamente correcto para el tema "${tema}" en ${materia} grado ${grado}. Las palabras deben ser términos clave del tema. Las definiciones deben coincidir con las palabras.`;
+    }
 
     try {
         let responseText = '';
