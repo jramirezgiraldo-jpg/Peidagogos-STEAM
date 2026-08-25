@@ -1172,59 +1172,64 @@ Remplaza TODOS los valores con contenido real y pedagógicamente correcto para e
     const proveedores = [
         { nombre: 'DeepSeek 1', url: 'https://api.deepseek.com/chat/completions', key: process.env.DEEPSEEK_API_KEY || 'sk-8bdd9c5adcfa4d8e958f1ea7a07e8167', model: 'deepseek-chat', tipo: 'openai' },
         { nombre: 'DeepSeek 2', url: 'https://api.deepseek.com/chat/completions', key: process.env.DEEPSEEK_API_KEY2 || '', model: 'deepseek-chat', tipo: 'openai' },
-        { nombre: 'ChatGPT', url: 'https://api.openai.com/v1/chat/completions', key: process.env.CHAT_GPT || process.env.CHATGPT_API_KEY || '', model: 'gpt-4o-mini', tipo: 'openai' },
-        { nombre: 'Gemini Nativo', url: 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent', key: geminiKeyFirst, tipo: 'gemini_nativa' },
+        { nombre: 'ChatGPT', url: 'https://api.openai.com/v1/chat/completions', key: process.env.CHAT_GPT || process.env['CHAT-GPT'] || process.env.CHATGPT_API_KEY || '', model: 'gpt-4o-mini', tipo: 'openai' },
+        { nombre: 'Gemini (Nativo)', url: 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent', key: geminiKeyFirst, tipo: 'gemini_nativa' },
         { nombre: 'OpenRouter', url: 'https://openrouter.ai/api/v1/chat/completions', key: process.env.OPEN_ROUTER || process.env.OPENROUTER_API_KEY || '', model: 'google/gemini-2.0-flash-lite-001', tipo: 'openai' }
     ];
 
     for (const prov of proveedores) {
-        if (!prov.key) continue;
+        if (!prov.key) {
+            erroresIA.push(`${prov.nombre}: Key no configurada`);
+            continue;
+        }
         try {
-            console.log(`[FAILOVER] Intentando con ${prov.nombre}...`);
-            let resFetch;
-            
+            console.log(`[FAILOVER 5-CAPAS] Intentando con ${prov.nombre}...`);
+            let reqUrl = prov.url;
+            let reqHeaders = { 'Content-Type': 'application/json' };
+            let reqBody = {};
+
             if (prov.tipo === 'gemini_nativa') {
-                resFetch = await fetch(`${prov.url}?key=${prov.key}`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] })
-                });
+                reqUrl = `${prov.url}?key=${prov.key}`;
+                reqBody = { contents: [{ parts: [{ text: prompt }] }] };
             } else {
-                let reqBody = { model: prov.model, messages: [{ role: 'user', content: prompt }] };
+                reqHeaders['Authorization'] = `Bearer ${prov.key}`;
+                reqBody = { model: prov.model, messages: [{ role: 'user', content: prompt }] };
                 if (prov.nombre.includes('DeepSeek')) reqBody.response_format = { type: 'json_object' };
-                
-                resFetch = await fetch(prov.url, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${prov.key}` },
-                    body: JSON.stringify(reqBody)
-                });
             }
+
+            const resFetch = await fetch(reqUrl, { method: 'POST', headers: reqHeaders, body: JSON.stringify(reqBody) });
 
             if (resFetch.ok) {
                 const data = await resFetch.json();
                 if (prov.tipo === 'gemini_nativa') {
-                    if (data.candidates && data.candidates[0].content && data.candidates[0].content.parts) {
+                    if (data.candidates && data.candidates.length > 0 && data.candidates[0].content && data.candidates[0].content.parts && data.candidates[0].content.parts[0].text) {
                         responseText = data.candidates[0].content.parts[0].text;
-                        console.log(`[FAILOVER] ✅ Éxito con ${prov.nombre}`);
+                        console.log(`[FAILOVER 5-CAPAS] ✅ Éxito con ${prov.nombre}`);
                         break;
+                    } else {
+                        erroresIA.push(`${prov.nombre}: Respuesta sin candidatos válidos`);
                     }
                 } else {
-                    if (data.choices && data.choices.length > 0 && data.choices[0].message) {
+                    if (data.choices && data.choices.length > 0 && data.choices[0].message && data.choices[0].message.content) {
                         responseText = data.choices[0].message.content;
-                        console.log(`[FAILOVER] ✅ Éxito con ${prov.nombre}`);
+                        console.log(`[FAILOVER 5-CAPAS] ✅ Éxito con ${prov.nombre}`);
                         break;
+                    } else {
+                        erroresIA.push(`${prov.nombre}: Estructura de respuesta sin elecciones válidas`);
                     }
                 }
             } else {
                 const errTxt = await resFetch.text();
-                erroresIA.push(`${prov.nombre} (${resFetch.status}): ${errTxt.substring(0, 100)}`);
+                erroresIA.push(`${prov.nombre} (HTTP ${resFetch.status}): ${errTxt.substring(0, 100)}`);
             }
         } catch (e) {
             erroresIA.push(`${prov.nombre} (Red): ${e.message}`);
         }
     }
 
+    // Protección contra caída total:
     if (!responseText || !responseText.trim()) {
+        console.error('[IA] Saturación total de APIs:', erroresIA.join(" | "));
         return res.status(500).json({ error: "Saturación total de APIs", detalle: erroresIA.join(" | ") });
     }
 
