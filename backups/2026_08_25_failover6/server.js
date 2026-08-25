@@ -1164,7 +1164,7 @@ Remplaza TODOS los valores con contenido real y pedagógicamente correcto para e
     let erroresIA = [];
 
     // =========================================================================
-    // FAILOVER DE 6 CAPAS MULTI-MOTOR (Gemini Latest + Gemini Pro Clásico)
+    // FAILOVER DE 5 CAPAS MULTI-MOTOR (Soporte Gemini Nativo + OpenAI Standard)
     // =========================================================================
     const rawGeminiKeys = process.env.GEMINI_API_KEYS || process.env.GEMINI_API_KEY || "";
     const geminiKeyFirst = rawGeminiKeys.split(',').map(k => k.trim()).filter(k => k.length > 0)[0] || '';
@@ -1173,9 +1173,8 @@ Remplaza TODOS los valores con contenido real y pedagógicamente correcto para e
         { nombre: 'DeepSeek 1', url: 'https://api.deepseek.com/chat/completions', key: process.env.DEEPSEEK_API_KEY || 'sk-8bdd9c5adcfa4d8e958f1ea7a07e8167', model: 'deepseek-chat', tipo: 'openai' },
         { nombre: 'DeepSeek 2', url: 'https://api.deepseek.com/chat/completions', key: process.env.DEEPSEEK_API_KEY2 || '', model: 'deepseek-chat', tipo: 'openai' },
         { nombre: 'ChatGPT', url: 'https://api.openai.com/v1/chat/completions', key: process.env.CHAT_GPT || process.env.CHATGPT_API_KEY || '', model: 'gpt-4o-mini', tipo: 'openai' },
-        { nombre: 'Gemini Flash Latest', url: 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent', key: geminiKeyFirst, tipo: 'gemini_nativa' },
-        { nombre: 'Gemini Pro Clásico', url: 'https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent', key: geminiKeyFirst, tipo: 'gemini_nativa' },
-        { nombre: 'OpenRouter', url: 'https://openrouter.ai/api/v1/chat/completions', key: process.env.OPEN_ROUTER || process.env.OPENROUTER_API_KEY || '', model: 'google/gemini-1.5-pro', tipo: 'openai' }
+        { nombre: 'Gemini Nativo', url: 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent', key: geminiKeyFirst, tipo: 'gemini_nativa' },
+        { nombre: 'OpenRouter', url: 'https://openrouter.ai/api/v1/chat/completions', key: process.env.OPEN_ROUTER || process.env.OPENROUTER_API_KEY || '', model: 'google/gemini-2.0-flash-lite-001', tipo: 'openai' }
     ];
 
     for (const prov of proveedores) {
