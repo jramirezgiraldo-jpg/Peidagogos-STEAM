@@ -561,15 +561,58 @@ app.get('/api/estudiantes', (req, res) => res.json(readJSON('usuarios.json')));
 app.get('/api/docentes', (req, res) => {
     let docentes = readJSON('docentes.json') || [];
     let usuarios = readJSON('usuarios.json') || [];
+    let grupos = readJSON('grupos_director.json') || [];
     
-    // Unir docentes de docentes.json y usuarios.json con rol docente
+    // Unir docentes de docentes.json y usuarios.json con rol docente o director
     usuarios.forEach(u => {
-        const esDocente = u.rol === 'docente' || (u.tipo && String(u.tipo).includes('docente')) || (u.tipo && String(u.tipo).includes('tutor'));
-        const normDoc = String(u.documento || u.cedula || u.usuario || '').trim().toLowerCase().replace(/[\.\,\-\s]/g, '');
+        const esDocente = u.rol === 'docente' || u.rol === 'director' || u.rolDocente === 'director' || u.es_director === true || 
+                          (u.tipo && String(u.tipo).includes('docente')) || (u.tipo && String(u.tipo).includes('director')) || 
+                          (u.tipo && String(u.tipo).includes('tutor')) || Boolean(u.director_grupo_id || u.directorDoc);
+        const normDoc = String(u.documento || u.cedula || u.usuario || u.id || '').trim().toLowerCase().replace(/[\.\,\-\s]/g, '');
         if (esDocente && normDoc) {
             if (!docentes.some(d => String(d.documento || d.cedula || d.usuario || '').trim().toLowerCase().replace(/[\.\,\-\s]/g, '') === normDoc)) {
                 docentes.push(u);
             }
+        }
+    });
+
+    // Unir docentes registrados en grupos_director
+    grupos.forEach(g => {
+        const dirDoc = String(g.documento_director || g.directorDoc || g.documento || '').trim().toLowerCase().replace(/[\.\,\-\s]/g, '');
+        if (dirDoc && !docentes.some(d => String(d.documento || d.cedula || d.usuario || '').trim().toLowerCase().replace(/[\.\,\-\s]/g, '') === dirDoc)) {
+            docentes.push({
+                documento: g.documento_director || g.directorDoc,
+                nombre: g.directorNombre || 'Director de Grupo',
+                nombre_completo: g.directorNombre || 'Director de Grupo',
+                rol: 'director',
+                rolDocente: 'director',
+                tipo: 'docente_director',
+                es_director: true,
+                institucion: 'IE Instituto Montenegro',
+                fecha_creacion: new Date(g.creadoEn || Date.now()).toLocaleDateString('es-CO')
+            });
+        }
+
+        if (Array.isArray(g.docentes)) {
+            g.docentes.forEach(dId => {
+                const normD = String(dId).trim().toLowerCase().replace(/[\.\,\-\s]/g, '');
+                if (normD && !docentes.some(d => String(d.documento || d.cedula || d.usuario || '').trim().toLowerCase().replace(/[\.\,\-\s]/g, '') === normD)) {
+                    const matchUser = usuarios.find(u => String(u.documento || u.cedula || u.usuario || u.id || '').trim().toLowerCase().replace(/[\.\,\-\s]/g, '') === normD);
+                    if (matchUser) {
+                        docentes.push(matchUser);
+                    } else {
+                        docentes.push({
+                            documento: dId,
+                            nombre: `Docente ${dId}`,
+                            nombre_completo: `Docente ${dId}`,
+                            rol: 'docente',
+                            tipo: 'docente_regular',
+                            institucion: 'IE Instituto Montenegro',
+                            director_grupo_id: g.documento_director || g.directorDoc
+                        });
+                    }
+                }
+            });
         }
     });
 

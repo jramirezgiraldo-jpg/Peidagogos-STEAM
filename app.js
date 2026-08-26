@@ -3272,10 +3272,12 @@ async function cargarDatosAdmin() {
             }
         });
 
-        // Unir con usuarios_db si son docentes
+        // Unir con usuarios_db si son docentes o directores
         const localUsers = JSON.parse(localStorage.getItem('usuarios_db') || '[]');
         localUsers.forEach(lu => {
-            const esDocente = lu.rol === 'docente' || String(lu.tipo || '').includes('docente');
+            const esDocente = lu.rol === 'docente' || lu.rol === 'director' || lu.rolDocente === 'director' || lu.es_director === true ||
+                              String(lu.tipo || '').includes('docente') || String(lu.tipo || '').includes('director') || String(lu.tipo || '').includes('tutor') ||
+                              Boolean(lu.director_grupo_id || lu.directorDoc);
             if (esDocente) {
                 const normDoc = String(lu.documento || lu.id || lu.usuario || '').trim().toLowerCase().replace(/[\.\,\-\_\s]/g, '');
                 if (normDoc && !docentes.some(d => String(d.documento || d.cedula || d.usuario || '').trim().toLowerCase().replace(/[\.\,\-\_\s]/g, '') === normDoc)) {
