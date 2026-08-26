@@ -767,10 +767,6 @@ app.post('/api/registro-docente', (req, res) => {
     nuevo.pago_realizado = true;
     nuevo.pago_activo = true;
 
-    const fechaHoyCol = new Date().toLocaleDateString('es-CO', { day: '2-digit', month: '2-digit', year: 'numeric' });
-    nuevo.fecha_creacion = nuevo.fecha_creacion || nuevo.fecha_registro || fechaHoyCol;
-    nuevo.fecha_registro = nuevo.fecha_registro || nuevo.fecha_creacion || new Date().toISOString();
-
     const dirDoc = String(nuevo.director_grupo_id || nuevo.directorDoc || nuevo.director || '').trim();
     if (dirDoc) {
         nuevo.director_grupo_id = dirDoc;

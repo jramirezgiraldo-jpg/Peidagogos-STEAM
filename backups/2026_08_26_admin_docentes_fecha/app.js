@@ -3256,10 +3256,10 @@ window.perteneceAlGrupo = function(est, grupoName) {
 
 async function cargarDatosAdmin() {
     try {
-        // Cargar Docentes (Cache-Busting)
+        // Cargar Docentes
         let docentes = [];
         try {
-            const resDocentes = await fetch('/api/docentes?t=' + Date.now());
+            const resDocentes = await fetch('/api/docentes');
             if (resDocentes.ok) docentes = await resDocentes.json();
         } catch(e) {}
         
@@ -3271,34 +3271,20 @@ async function cargarDatosAdmin() {
                 docentes.push(ld);
             }
         });
-
-        // Unir con usuarios_db si son docentes
-        const localUsers = JSON.parse(localStorage.getItem('usuarios_db') || '[]');
-        localUsers.forEach(lu => {
-            const esDocente = lu.rol === 'docente' || String(lu.tipo || '').includes('docente');
-            if (esDocente) {
-                const normDoc = String(lu.documento || lu.id || lu.usuario || '').trim().toLowerCase().replace(/[\.\,\-\_\s]/g, '');
-                if (normDoc && !docentes.some(d => String(d.documento || d.cedula || d.usuario || '').trim().toLowerCase().replace(/[\.\,\-\_\s]/g, '') === normDoc)) {
-                    docentes.push(lu);
-                }
-            }
-        });
         
         // Cargar Estudiantes
         let estudiantes = [];
         try {
-            const resEstud = await fetch('/api/estudiantes?t=' + Date.now());
+            const resEstud = await fetch('/api/estudiantes');
             if (resEstud.ok) estudiantes = await resEstud.json();
         } catch(e) {}
 
-        // Unir con respaldo local de usuarios_db para estudiantes
+        // Unir con respaldo local de usuarios_db para garantizar visibilidad inmediata de todos los matriculados
+        const localUsers = JSON.parse(localStorage.getItem('usuarios_db') || '[]');
         localUsers.forEach(lu => {
-            const esEstudiante = lu.rol === 'estudiante' || String(lu.tipo || '').includes('estudiante');
-            if (esEstudiante) {
-                const normDoc = String(lu.documento || lu.id || lu.usuario || '').trim().toLowerCase().replace(/[\.\,\-\_\s]/g, '');
-                if (normDoc && !estudiantes.some(e => String(e.documento || e.id || e.usuario || '').trim().toLowerCase().replace(/[\.\,\-\_\s]/g, '') === normDoc)) {
-                    estudiantes.push(lu);
-                }
+            const normDoc = String(lu.documento || lu.id || lu.usuario || '').trim().toLowerCase().replace(/[\.\,\-\_\s]/g, '');
+            if (normDoc && !estudiantes.some(e => String(e.documento || e.id || e.usuario || '').trim().toLowerCase().replace(/[\.\,\-\_\s]/g, '') === normDoc)) {
+                estudiantes.push(lu);
             }
         });
 
@@ -3308,36 +3294,14 @@ async function cargarDatosAdmin() {
         if (tbodyDoc) {
             tbodyDoc.innerHTML = '';
             docentes.forEach(d => {
-                const docId = d.documento || d.cedula || d.usuario || 'S/D';
-                const docNom = d.nombre_completo || `${d.nombre || ''} ${d.apellidos || ''}`.trim() || d.usuario || 'Docente';
                 const tipoVinculacion = d.institucion ? d.institucion : (d.rol === 'docente' ? 'Docente Regular' : 'Homeschool');
-
-                // Formatear Fecha de Registro
-                let fechaRaw = d.fecha_creacion || d.fecha_registro || d.fecha_ingreso || d.fecha;
-                let fechaFormat = "Registro Antiguo";
-                if (fechaRaw) {
-                    try {
-                        if (/^\d{2}\/\d{2}\/\d{4}/.test(String(fechaRaw))) {
-                            fechaFormat = String(fechaRaw);
-                        } else {
-                            const dObj = new Date(fechaRaw);
-                            if (!isNaN(dObj.getTime())) {
-                                fechaFormat = dObj.toLocaleDateString('es-CO', { day: '2-digit', month: '2-digit', year: 'numeric' });
-                            }
-                        }
-                    } catch(e) {
-                        fechaFormat = "Fecha no disponible";
-                    }
-                }
-
                 tbodyDoc.innerHTML += `
                 <tr>
-                    <td style="padding: 15px;">${docId}</td>
-                    <td style="padding: 15px; font-weight: bold;">${docNom}</td>
+                    <td style="padding: 15px;">${d.documento}</td>
+                    <td style="padding: 15px; font-weight: bold;">${d.nombre} ${d.apellidos}</td>
                     <td style="padding: 15px;"><span class="badge" style="background: #EFF6FF; color: #1D4ED8; padding: 5px 10px; border-radius: 20px; font-size: 0.85em;">${tipoVinculacion}</span></td>
-                    <td style="padding: 15px; font-weight: bold; color: #475569;">${fechaFormat}</td>
                     <td style="padding: 15px;">
-                        <button onclick="window.eliminarDocenteAdmin('${docId}')" style="background: #FEE2E2; color: #DC2626; border: none; padding: 6px 12px; border-radius: 6px; cursor: pointer; font-weight: bold;">🗑️ Eliminar</button>
+                        <button onclick="window.eliminarDocenteAdmin('${d.documento}')" style="background: #FEE2E2; color: #DC2626; border: none; padding: 6px 12px; border-radius: 6px; cursor: pointer; font-weight: bold;">🗑️ Eliminar</button>
                     </td>
                 </tr>`;
             });
