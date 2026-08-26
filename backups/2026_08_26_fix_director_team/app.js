@@ -18067,7 +18067,7 @@ window.seleccionarRolDocente = function(rol) {
     const btnReg = document.getElementById('btn-rol-regular');
     if (badge) {
         badge.style.display = 'flex';
-        badge.innerText = rol === 'director' ? '👑 Director de Grupo activo' : '📚 Docente Regular activo';
+        badge.innerText = rol === 'director' ? '\u{1F451} Director de Grupo activo' : '\u{1F4DA} Docente Regular activo';
         badge.style.background = rol === 'director' ? '#2563EB' : '#6B7280';
     }
     if (btnDir) {
@@ -18212,12 +18212,6 @@ window.renderizarPanelMiGrupoDirector = function(doc, nom) {
             inputLink.value = urlMatricula;
         }
 
-        const inputLinkDocentes = document.getElementById('input-link-invitacion-docentes');
-        if (inputLinkDocentes) {
-            const urlDocentes = `https://peidagogosteam.com/login.html?reg=docente&director_grupo_id=${encodeURIComponent(doc)}&director=${encodeURIComponent(doc)}`;
-            inputLinkDocentes.value = urlDocentes;
-        }
-
         window.cargarDirectorioDocentesGrupoDirector(doc, grupoData);
     }
 
@@ -18225,154 +18219,125 @@ window.renderizarPanelMiGrupoDirector = function(doc, nom) {
     window.renderizarMisOtrosGruposDocente(doc);
 };
 
-// R4: Copiar Enlace de Invitación para Docentes
-window.copiarLinkInvitacionDocentes = function() {
-    const inputLink = document.getElementById('input-link-invitacion-docentes');
-    if (!inputLink || !inputLink.value) return;
-
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(inputLink.value).then(() => {
-            alert('✅ ¡Enlace de invitación docente copiado al portapapeles!\n\nComparte este link con tus compañeros docentes para vincularlos a tu equipo de trabajo.');
-        }).catch(() => {
-            inputLink.select();
-            document.execCommand('copy');
-            alert('✅ ¡Enlace copiado al portapapeles!');
-        });
-    } else {
-        inputLink.select();
-        document.execCommand('copy');
-        alert('✅ ¡Enlace copiado al portapapeles!');
+// R2: Ejecutar Creación de Grupo
+window.crearGrupoDirector = async function(doc, nom) {
+    if (!doc) {
+        const ses = window.obtenerDatosDocenteSesion();
+        doc = ses.doc;
+        nom = ses.nom;
     }
-};
 
-// R4: Compartir Invitación Docente en WhatsApp
-window.compartirLinkDocentesWhatsApp = function() {
-    const inputLink = document.getElementById('input-link-invitacion-docentes');
-    if (!inputLink || !inputLink.value) return;
+    const selGra = document.getElementById('select-crear-grupo-grado') || document.getElementById('director-select-grado');
+    const selGrp = document.getElementById('select-crear-grupo-letra') || document.getElementById('director-select-grupo');
+    const grado = selGra && selGra.value ? selGra.value : '7';
+    const grupo = selGrp && selGrp.value ? selGrp.value : 'C';
 
-    const { nom } = window.obtenerDatosDocenteSesion();
-    const msg = `¡Hola colega docente! 👋\n\nSoy el(la) Profesor(a) ${nom}. Te comparto el enlace oficial para registrarte e ingresar a Peidagogos STEAM en mi equipo docente:\n\n👉 ${inputLink.value}`;
-    window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(msg)}`, '_blank');
-};
-
-// Sincronización Dual: Eliminar Docente de la Plataforma y del Equipo
-window.eliminarDocenteDelGrupo = async function(docDirector, docColega, nomColega) {
-    if (!confirm(`¿Estás seguro de que deseas eliminar a ${nomColega || 'este docente'} de tu equipo y de la plataforma? Esta acción no se puede deshacer.`)) return;
-
-    // 1. Sincronización Dual Servidor
+    // Get selected docentes for this new group
+    let docentesSeleccionados = [];
     try {
-        await fetch('/api/eliminar-docente', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ documento: String(docColega), director_grupo_id: String(docDirector) })
-        });
-    } catch(e) {
-        console.warn("⚠️ Advertencia al eliminar docente en el servidor:", e);
-    }
-
-    // 2. Sincronización Dual Caché Local
-    try {
-        let docentesDb = JSON.parse(localStorage.getItem('docentes_db') || '[]');
-        docentesDb = docentesDb.filter(d => String(d.documento || d.cedula || d.usuario || '').trim().toLowerCase().replace(/[\.\,\-\_\s]/g, '') !== String(docColega).trim().toLowerCase().replace(/[\.\,\-\_\s]/g, ''));
-        localStorage.setItem('docentes_db', JSON.stringify(docentesDb));
-
-        let usuariosDb = JSON.parse(localStorage.getItem('usuarios_db') || '[]');
-        usuariosDb = usuariosDb.filter(u => String(u.documento || u.cedula || u.usuario || u.id || '').trim().toLowerCase().replace(/[\.\,\-\_\s]/g, '') !== String(docColega).trim().toLowerCase().replace(/[\.\,\-\_\s]/g, ''));
-        localStorage.setItem('usuarios_db', JSON.stringify(usuariosDb));
-
-        const rawGroup = localStorage.getItem('grupo_director_' + docDirector);
-        if (rawGroup) {
-            let gObj = JSON.parse(rawGroup);
-            if (Array.isArray(gObj.docentes)) {
-                gObj.docentes = gObj.docentes.filter(id => String(id).trim().toLowerCase().replace(/[\.\,\-\_\s]/g, '') !== String(docColega).trim().toLowerCase().replace(/[\.\,\-\_\s]/g, ''));
-                localStorage.setItem('grupo_director_' + docDirector, JSON.stringify(gObj));
-            }
-        }
-    } catch(e) {
-        console.error("Error en eliminación local:", e);
-    }
-
-    // 3. Re-renderizado Inmediato de la Tabla sin recargar la página
-    const rawG = localStorage.getItem('grupo_director_' + docDirector);
-    const gData = rawG ? JSON.parse(rawG) : { docentes: [] };
-    if (typeof window.cargarDirectorioDocentesGrupoDirector === 'function') {
-        await window.cargarDirectorioDocentesGrupoDirector(docDirector, gData);
-    }
-    if (typeof window.cargarDatosAdmin === 'function') {
-        await window.cargarDatosAdmin();
-    }
-};
-
-// R3: Cargar y Renderizar Directorio de Docentes de Montenegro
-window.cargarDirectorioDocentesGrupoDirector = async function(docDirector, grupoData) {
-    const listCont = document.getElementById('contenedor-lista-docentes-grupo');
-    const contadorBadge = document.getElementById('badge-contador-docentes-grupo');
-    if (!listCont) return;
-
-    let docentes = [];
-    try {
-        const res = await fetch('/api/docentes');
-        if (res.ok) docentes = await res.json();
+        docentesSeleccionados = JSON.parse(localStorage.getItem('docentes_seleccionados_nuevo_grupo_' + doc) || '[]');
+        localStorage.removeItem('docentes_seleccionados_nuevo_grupo_' + doc);
     } catch(e) {}
 
-    const localDocentes = JSON.parse(localStorage.getItem('docentes_db') || '[]');
-    localDocentes.forEach(ld => {
-        const normDoc = String(ld.documento || ld.cedula || ld.usuario || '').trim().toLowerCase().replace(/[\.\,\-\_\s]/g, '');
-        if (normDoc && !docentes.some(d => String(d.documento || d.cedula || d.usuario || '').trim().toLowerCase().replace(/[\.\,\-\_\s]/g, '') === normDoc)) {
-            docentes.push(ld);
+    const grupoData = {
+        grado: grado,
+        grupo: grupo,
+        docentes: docentesSeleccionados,
+        creadoEn: Date.now(),
+        directorDoc: doc,
+        directorNombre: nom
+    };
+
+    localStorage.setItem('grupo_director_' + doc, JSON.stringify(grupoData));
+
+    // Fallback POST a backend
+    try {
+        await fetch('/api/guardar-grupo-director', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                documento: doc,
+                documento_director: doc,
+                grado: grado,
+                grupo: grupo,
+                docentes: [],
+                creadoEn: grupoData.creadoEn,
+                directorNombre: nom,
+                grupo: grupoData
+            })
+        });
+    } catch(e) {}
+
+    window.renderizarPanelMiGrupoDirector(doc, nom);
+};
+
+window.crearGrupoDirectorEjecutar = window.crearGrupoDirector;
+
+// Cargar lista de docentes para seleccionar ANTES de crear el grupo
+window.cargarListaDocentesParaCrearGrupo = async function() {
+    const listCont = document.getElementById('lista-docentes-para-crear-grupo');
+    if (!listCont) return;
+    
+    listCont.innerHTML = '<p style="color: #94A3B8; font-style: italic; font-size: 0.9rem; grid-column: 1/-1; text-align: center; padding: 10px;">Cargando docentes...</p>';
+    
+    const { doc } = window.obtenerDatosDocenteSesion();
+    // Obtener docentes ya seleccionados (del localStorage temporal)
+    let selectedDocs = [];
+    try {
+        selectedDocs = JSON.parse(localStorage.getItem('docentes_seleccionados_nuevo_grupo_' + doc) || '[]');
+    } catch(e) {}
+    
+    let docentes = [];
+    // Intentar desde servidor
+    try {
+        const resp = await fetch('/api/docentes?institucion=IE+Instituto+Montenegro');
+        if (resp.ok) {
+            const json = await resp.json();
+            docentes = Array.isArray(json) ? json : (json.docentes || []);
         }
-    });
-
-    // Filtrar Montenegro o vinculados directamente por director_grupo_id
-    const docentesMontenegro = docentes.filter(d => {
-        const inst = String(d.institucion || '').toLowerCase();
-        const dDir = String(d.director_grupo_id || d.directorDoc || d.director_id || '').trim();
-        const esMiGrupo = dDir === String(docDirector).trim() || (grupoData.docentes || []).includes(String(d.documento || d.cedula || d.usuario || '').trim());
-        return esMiGrupo || inst.includes('montenegro') || inst.includes('instituto') || !inst;
-    });
-
-    if (contadorBadge) {
-        contadorBadge.innerText = `Docentes asignados: ${(grupoData.docentes || []).length}`;
+    } catch(e) {}
+    // Fallback localStorage
+    if (!docentes.length) {
+        try {
+            const localDocs = JSON.parse(localStorage.getItem('docentes_db') || '[]');
+            docentes = localDocs.filter(d => {
+                const inst = String(d.institucion || '').toLowerCase();
+                return inst.includes('montenegro') || inst.includes('instituto');
+            });
+        } catch(e) {}
     }
-
-    if (docentesMontenegro.length === 0) {
-        listCont.innerHTML = '<div style="color: #64748B; font-size: 0.9rem; padding: 15px; grid-column: 1 / -1;">No se encontraron docentes registrados en tu equipo o sede.</div>';
+    
+    if (!docentes.length) {
+        listCont.innerHTML = '<p style="color: #94A3B8; font-style: italic; font-size: 0.9rem; grid-column: 1/-1; text-align: center; padding: 20px 0;">No hay docentes registrados en IE Instituto Montenegro todavía. Se agregarán a medida que los docentes se registren.</p>';
         return;
     }
-
-    const docentesAgregados = grupoData.docentes || [];
-
-    listCont.innerHTML = docentesMontenegro.map(d => {
-        const dDoc = String(d.documento || d.cedula || d.usuario || '').trim();
-        const dNom = d.nombre_completo || `${d.nombre || ''} ${d.apellidos || ''}`.trim() || 'Docente';
-        const esDirector = (d.rol === 'director' || d.tipo === 'director' || d.rolDocente === 'director' || d.es_director === true);
-        const rolBadge = esDirector 
-            ? '<span style="background: #F3E8FF; color: #7C3AED; font-size: 0.75rem; font-weight: 800; padding: 3px 10px; border-radius: 12px;">Director</span>'
-            : '<span style="background: #F1F5F9; color: #475569; font-size: 0.75rem; font-weight: 800; padding: 3px 10px; border-radius: 12px;">Docente Regular</span>';
+    
+    let html = '';
+    docentes.forEach(d => {
+        const docId = String(d.documento || d.cedula || d.usuario || '').trim();
+        const nombre = String(d.nombre || d.nombre_completo || d.nombres || 'Docente').trim();
+        const materia = String(d.asignatura || d.materia || (Array.isArray(d.materias) ? d.materias[0] : '') || '').trim();
+        const esDir = d.rolDocente === 'director' || d.tipo === 'docente_director' || d.es_director === true;
+        const rolLabel = esDir ? '👑 Director' : '📚 Regular';
+        const rolColor = esDir ? '#7C3AED' : '#2563EB';
+        const rolBg = esDir ? '#F5F3FF' : '#EFF6FF';
+        const isSelected = selectedDocs.includes(docId);
         
-        const isAgregado = docentesAgregados.includes(dDoc);
-        const btnStyle = isAgregado
-            ? 'background: #10B981; color: white; border: none; box-shadow: 0 2px 8px rgba(16,185,129,0.3);'
-            : 'background: white; color: #2563EB; border: 1.5px solid #3B82F6;';
-        const btnText = isAgregado ? '✓ Agregado' : '+ Agregar';
-
-        return `
-            <div style="background: #F8FAFC; border: 1.5px solid #E2E8F0; border-radius: 14px; padding: 14px 16px; display: flex; justify-content: space-between; align-items: center; gap: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.02);">
-                <div>
-                    <div style="font-weight: 800; font-size: 0.92rem; color: #1E293B;">${dNom}</div>
-                    <div style="margin-top: 4px;">${rolBadge}</div>
-                </div>
-                <div style="display: flex; align-items: center; gap: 6px;">
-                    <button onclick="window.toggleDocenteGrupoDirector('${docDirector}', '${dDoc}')" style="${btnStyle} padding: 8px 14px; border-radius: 10px; font-weight: 800; font-size: 0.82rem; cursor: pointer; transition: 0.2s; white-space: nowrap;">
-                        ${btnText}
-                    </button>
-                    <button onclick="window.eliminarDocenteDelGrupo('${docDirector}', '${dDoc}', '${dNom.replace(/'/g, "\\'")}')" style="background: #FEE2E2; color: #DC2626; border: 1.5px solid #FCA5A5; padding: 8px 12px; border-radius: 10px; font-weight: 800; font-size: 0.82rem; cursor: pointer; transition: 0.2s; white-space: nowrap;">
-                        🗑️ Eliminar
-                    </button>
-                </div>
+        html += `<div style="background: ${isSelected ? '#EFF6FF' : 'white'}; border: ${isSelected ? '2px solid #2563EB' : '1.5px solid #E2E8F0'}; border-radius: 10px; padding: 12px 14px; display: flex; align-items: center; gap: 10px; cursor: pointer; transition: 0.2s;"
+            onclick="window.toggleDocenteNuevoGrupo('${docId}', '${nombre.replace(/'/g, "\'")}', '${materia.replace(/'/g, "\'")}', this)">
+            <div style="width: 38px; height: 38px; background: ${rolBg}; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0;">${esDir ? '👑' : '👨‍🏫'}</div>
+            <div style="flex: 1; min-width: 0;">
+                <div style="font-weight: 800; color: #1E293B; font-size: 0.88rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${nombre}</div>
+                <div style="font-size: 0.78rem; color: #64748B;">${materia || 'Sin materia asignada'}</div>
+                <span style="background: ${rolBg}; color: ${rolColor}; font-size: 0.7rem; font-weight: 800; padding: 2px 6px; border-radius: 10px;">${rolLabel}</span>
             </div>
-        `;
-    }).join('');
+            <div id="check-doc-${docId.replace(/[^a-z0-9]/gi, '_')}" style="width: 22px; height: 22px; border-radius: 50%; background: ${isSelected ? '#2563EB' : '#F1F5F9'}; border: 2px solid ${isSelected ? '#2563EB' : '#CBD5E1'}; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 0.75rem; color: white;">
+                ${isSelected ? '✓' : ''}
+            </div>
+        </div>`;
+    });
+    
+    listCont.innerHTML = html;
 };
 
 // Toggle selección de docente para nuevo grupo

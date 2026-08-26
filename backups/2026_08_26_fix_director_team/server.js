@@ -577,7 +577,7 @@ app.get('/api/docentes', (req, res) => {
 });
 
 app.post('/api/eliminar-docente', (req, res) => {
-    const { documento, director_grupo_id } = req.body || {};
+    const { documento } = req.body || {};
     const normDoc = String(documento || '').trim().toLowerCase().replace(/[\.\,\-\s]/g, '');
     if (!normDoc) return res.status(400).json({ error: "Documento requerido" });
 
@@ -589,20 +589,6 @@ app.post('/api/eliminar-docente', (req, res) => {
 
     writeJSON('docentes.json', docentes);
     writeJSON('usuarios.json', usuarios);
-
-    // Limpiar del registro de grupos_director.json
-    try {
-        let grupos = readJSON('grupos_director.json') || [];
-        let modificado = false;
-        grupos.forEach(g => {
-            if (Array.isArray(g.docentes)) {
-                const prevLen = g.docentes.length;
-                g.docentes = g.docentes.filter(dId => String(dId).trim().toLowerCase().replace(/[\.\,\-\s]/g, '') !== normDoc);
-                if (g.docentes.length !== prevLen) modificado = true;
-            }
-        });
-        if (modificado) writeJSON('grupos_director.json', grupos);
-    } catch(e) {}
 
     console.log(`[ADMIN] Docente eliminado exitosamente: ${normDoc}`);
     res.json({ status: "success", docentes });
@@ -767,25 +753,6 @@ app.post('/api/registro-docente', (req, res) => {
     nuevo.pago_realizado = true;
     nuevo.pago_activo = true;
 
-    const dirDoc = String(nuevo.director_grupo_id || nuevo.directorDoc || nuevo.director || '').trim();
-    if (dirDoc) {
-        nuevo.director_grupo_id = dirDoc;
-        nuevo.directorDoc = dirDoc;
-
-        try {
-            let grupos = readJSON('grupos_director.json') || [];
-            const gIdx = grupos.findIndex(g => String(g.documento_director || g.directorDoc || g.documento).trim() === dirDoc);
-            if (gIdx >= 0) {
-                if (!Array.isArray(grupos[gIdx].docentes)) grupos[gIdx].docentes = [];
-                const dNormDoc = String(nuevo.documento || nuevo.usuario || '').trim();
-                if (dNormDoc && !grupos[gIdx].docentes.includes(dNormDoc)) {
-                    grupos[gIdx].docentes.push(dNormDoc);
-                    writeJSON('grupos_director.json', grupos);
-                }
-            }
-        } catch(e) {}
-    }
-
     // Actualizar o agregar en docentes.json
     const dIdx = docentes.findIndex(d => String(d.documento || d.cedula || d.usuario || '').trim().toLowerCase().replace(/[\.\,\-\s]/g, '') === normDoc);
     if (dIdx >= 0) docentes[dIdx] = { ...docentes[dIdx], ...nuevo };
@@ -804,7 +771,6 @@ app.post('/api/registro-docente', (req, res) => {
 `👨‍🏫 ¡NUEVO DOCENTE REGISTRADO!
 👤 Nombre: ${nombreDocente}
 📄 Documento: ${d.documento || 'S/D'}
-👑 Director ID: ${dirDoc || 'N/A'}
 🏛️ Institución: ${d.institucion || 'IE Instituto Montenegro'}
 📚 Asignatura: ${d.asignatura || 'General'}`
     );
