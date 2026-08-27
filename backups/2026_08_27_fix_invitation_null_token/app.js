@@ -17081,12 +17081,10 @@ window.procesarTokenDocenteDesdeUrl = function() {
             }
         } catch(e) {}
 
-        const tokenClean = token ? String(token).toLowerCase().replace(/[^a-z0-9]/g, '') : (dirGrupoId ? 'dir_' + String(dirGrupoId) : Math.random().toString(36).substring(2, 9));
-        const docFinal = doc || ('doc_' + tokenClean);
+        const docFinal = doc || ('doc_' + token.toLowerCase().replace(/[^a-z0-9]/g, ''));
         const nomFinal = nom ? decodeURIComponent(nom) : 'Docente Invitado';
         const ieFinal = ie ? decodeURIComponent(ie) : 'IE Instituto Montenegro';
-        const materiaParam = params.get('materia');
-        const matFinal = materiaParam ? decodeURIComponent(materiaParam) : 'Ciencias Naturales y Educación Ambiental';
+        const matFinal = materia ? decodeURIComponent(materia) : 'Ciencias Naturales y Educación Ambiental';
 
         // Crear/Actualizar perfil docente en base de datos
         const rolParamReg = (params.get('rol') || '').toLowerCase().trim();
@@ -17111,8 +17109,6 @@ window.procesarTokenDocenteDesdeUrl = function() {
             grados: ['6', '7', '8', '9', '10', '11'],
             pago_realizado: true,
             pago_activo: true,
-            director_grupo_id: dirGrupoId || '',
-            directorDoc: dirGrupoId || '',
             fecha_registro: new Date().toISOString()
         };
 
