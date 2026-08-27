@@ -2644,7 +2644,7 @@ window.inicializarAppCore = function() {
 
             // 2. Enviar a servidor
             try {
-                await fetch("/api/registro-docente", {
+                await fetch("/api/registro-estudiante", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(payloadDocente)
@@ -17065,11 +17065,10 @@ window.procesarTokenDocenteDesdeUrl = function() {
     const nom = params.get('nombre_doc');
     const doc = params.get('doc');
     const ie = params.get('ie');
-    const regMode = (params.get('reg') || '').toLowerCase().trim();
-    const dirGrupoId = params.get('director_grupo_id') || params.get('director') || params.get('directorDoc');
+    const materia = params.get('materia');
 
-    if (token || (regMode === 'docente' && dirGrupoId)) {
-        console.log("🔑 [TOKEN/LINK DOCENTE DETECTADO]:", { token, nom, ie, dirGrupoId });
+    if (token) {
+        console.log("🔑 [TOKEN DOCENTE DETECTADO]:", { token, nom, ie });
 
         // Marcar token como utilizado
         try {

@@ -651,8 +651,8 @@ app.get('/api/docentes', (req, res) => {
     res.redirect('/api/todos-los-docentes');
 });
 
-// Función centralizada de eliminación con comparación estricta y borrado permanente en Supabase
-const ejecutarEliminacionUsuarioCentral = async (documentoReq) => {
+// Función centralizada de eliminación con comparación estricta de cadenas (String vs Number)
+const ejecutarEliminacionUsuarioCentral = (documentoReq) => {
     const targetNorm = normStr(documentoReq);
     if (!targetNorm) return false;
 
@@ -666,9 +666,6 @@ const ejecutarEliminacionUsuarioCentral = async (documentoReq) => {
     // Comparación FORZADA como String normalizado
     docentes = docentes.filter(d => normStr(d.documento || d.cedula || d.usuario || d.id || d.doc) !== targetNorm);
     usuarios = usuarios.filter(u => normStr(u.documento || u.cedula || u.usuario || u.id || u.doc) !== targetNorm);
-
-    global.db.docentes = docentes;
-    global.db.usuarios = usuarios;
 
     writeJSON('docentes.json', docentes);
     writeJSON('usuarios.json', usuarios);
@@ -684,25 +681,12 @@ const ejecutarEliminacionUsuarioCentral = async (documentoReq) => {
         writeJSON('grupos_director.json', grupos);
     } catch(e) {}
 
-    // ELIMINACIÓN PERMANENTE EN NUBE (SUPABASE) PARA EVITAR RESURRECCIÓN AL REINICIAR SERVIDOR
-    try {
-        if (supabase) {
-            await Promise.allSettled([
-                supabase.from('docentes').delete().or(`documento.eq.${documentoReq},usuario.eq.${documentoReq},cedula.eq.${documentoReq}`),
-                supabase.from('usuarios').delete().or(`documento.eq.${documentoReq},usuario.eq.${documentoReq},id.eq.${documentoReq}`)
-            ]);
-            console.log(`[SUPABASE DELETE] Registro ${targetNorm} eliminado permanentemente en la nube.`);
-        }
-    } catch(e) {
-        console.warn(`[SUPABASE DELETE WARN] ${e.message}`);
-    }
-
     const huboCambios = (docentes.length !== prevDocLen) || (usuarios.length !== prevUsuLen);
     console.log(`[ADMIN DELETE] Eliminación ejecutada para "${targetNorm}". Hubo cambios: ${huboCambios}`);
     return true;
 };
 
-app.post('/api/eliminar-usuario', async (req, res) => {
+app.post('/api/eliminar-usuario', (req, res) => {
     const body = req.body || {};
     const documentoReq = body.documento || body.id || body.cedula || body.usuario || body.doc;
     const targetNorm = normStr(documentoReq);
@@ -711,14 +695,14 @@ app.post('/api/eliminar-usuario', async (req, res) => {
         return res.status(400).json({ error: "Documento o ID de usuario es requerido" });
     }
 
-    await ejecutarEliminacionUsuarioCentral(documentoReq);
+    const exito = ejecutarEliminacionUsuarioCentral(documentoReq);
     return res.status(200).json({ 
         status: "success", 
         message: `Usuario ${targetNorm} eliminado correctamente de todas las bases de datos.`
     });
 });
 
-app.post('/api/eliminar-docente', async (req, res) => {
+app.post('/api/eliminar-docente', (req, res) => {
     const body = req.body || {};
     const documentoReq = body.documento || body.id || body.cedula || body.usuario || body.doc;
     const targetNorm = normStr(documentoReq);
@@ -727,7 +711,7 @@ app.post('/api/eliminar-docente', async (req, res) => {
         return res.status(400).json({ error: "Documento requerido" });
     }
 
-    await ejecutarEliminacionUsuarioCentral(documentoReq);
+    ejecutarEliminacionUsuarioCentral(documentoReq);
     return res.status(200).json({ 
         status: "success", 
         message: `Docente ${targetNorm} eliminado correctamente.`
