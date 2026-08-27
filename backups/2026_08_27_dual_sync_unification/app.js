@@ -3256,24 +3256,18 @@ window.perteneceAlGrupo = function(est, grupoName) {
 
 async function cargarDatosAdmin() {
     try {
-        // Cargar Docentes desde la ruta unificada /api/todos-los-docentes (Cache-Busting)
+        // Cargar Docentes (Cache-Busting)
         let docentes = [];
         try {
-            const resDocentes = await fetch('/api/todos-los-docentes?t=' + Date.now());
-            if (resDocentes.ok) {
-                docentes = await resDocentes.json();
-                // Sincronización Dual: actualizar la caché local docentes_db con los datos consolidados del servidor
-                try {
-                    localStorage.setItem('docentes_db', JSON.stringify(docentes));
-                } catch(e) {}
-            }
+            const resDocentes = await fetch('/api/docentes?t=' + Date.now());
+            if (resDocentes.ok) docentes = await resDocentes.json();
         } catch(e) {}
         
-        // Unir con respaldo local de docentes_db para offline/local-first
+        // Unir con respaldo local de docentes_db
         const localDocentes = JSON.parse(localStorage.getItem('docentes_db') || '[]');
         localDocentes.forEach(ld => {
-            const normDoc = String(ld.documento || ld.cedula || ld.usuario || ld.id || '').trim().toLowerCase().replace(/[\.\,\-\_\s]/g, '');
-            if (normDoc && !docentes.some(d => String(d.documento || d.cedula || d.usuario || d.id || '').trim().toLowerCase().replace(/[\.\,\-\_\s]/g, '') === normDoc)) {
+            const normDoc = String(ld.documento || ld.cedula || ld.usuario || '').trim().toLowerCase().replace(/[\.\,\-\_\s]/g, '');
+            if (normDoc && !docentes.some(d => String(d.documento || d.cedula || d.usuario || '').trim().toLowerCase().replace(/[\.\,\-\_\s]/g, '') === normDoc)) {
                 docentes.push(ld);
             }
         });
@@ -3286,7 +3280,7 @@ async function cargarDatosAdmin() {
                               Boolean(lu.director_grupo_id || lu.directorDoc);
             if (esDocente) {
                 const normDoc = String(lu.documento || lu.id || lu.usuario || '').trim().toLowerCase().replace(/[\.\,\-\_\s]/g, '');
-                if (normDoc && !docentes.some(d => String(d.documento || d.cedula || d.usuario || d.id || '').trim().toLowerCase().replace(/[\.\,\-\_\s]/g, '') === normDoc)) {
+                if (normDoc && !docentes.some(d => String(d.documento || d.cedula || d.usuario || '').trim().toLowerCase().replace(/[\.\,\-\_\s]/g, '') === normDoc)) {
                     docentes.push(lu);
                 }
             }
