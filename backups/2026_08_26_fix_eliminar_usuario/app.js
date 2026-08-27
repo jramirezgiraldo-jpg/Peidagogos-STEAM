@@ -3405,45 +3405,19 @@ async function cargarDatosAdmin() {
 window.eliminarDocenteAdmin = async function(documento) {
     if(!confirm('¿Estás seguro de que deseas eliminar a este docente? Esta acción no se puede deshacer.')) return;
     try {
-        const normDoc = String(documento || '').trim().toLowerCase().replace(/[\.\,\-\_\s]/g, '');
-
-        // 1. Sincronización Dual Local: Limpiar de inmediato en localStorage
-        try {
-            let dList = JSON.parse(localStorage.getItem('docentes_db') || '[]');
-            dList = dList.filter(d => String(d.documento || d.cedula || d.usuario || d.id || '').trim().toLowerCase().replace(/[\.\,\-\_\s]/g, '') !== normDoc);
-            localStorage.setItem('docentes_db', JSON.stringify(dList));
-
-            let uList = JSON.parse(localStorage.getItem('usuarios_db') || '[]');
-            uList = uList.filter(u => String(u.documento || u.cedula || u.usuario || u.id || '').trim().toLowerCase().replace(/[\.\,\-\_\s]/g, '') !== normDoc);
-            localStorage.setItem('usuarios_db', JSON.stringify(uList));
-        } catch(e) {}
-
-        // 2. Petición al Backend /api/eliminar-usuario
         const res = await fetch('/api/eliminar-usuario', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ documento: String(documento), tipo: 'docente' })
         });
-
         if(res.ok) {
             alert('Docente eliminado correctamente.');
             await window.cargarDatosAdmin();
         } else {
-            // Petición fallback a /api/eliminar-docente
-            const resFB = await fetch('/api/eliminar-docente', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ documento: String(documento) })
-            });
-            if (resFB.ok) {
-                alert('Docente eliminado correctamente.');
-                await window.cargarDatosAdmin();
-            } else {
-                alert('Error al eliminar docente en el servidor.');
-            }
+            alert('Error al eliminar docente.');
         }
     } catch(e) {
-        alert('Error de red al intentar eliminar el docente.');
+        alert('Error de red.');
     }
 };
 

@@ -619,36 +619,6 @@ app.get('/api/docentes', (req, res) => {
     res.json(docentes);
 });
 
-app.post('/api/eliminar-usuario', (req, res) => {
-    const { documento, tipo, id } = req.body || {};
-    const normDoc = String(documento || id || '').trim().toLowerCase().replace(/[\.\,\-\s]/g, '');
-    if (!normDoc) return res.status(400).json({ error: "Documento o ID de usuario es requerido" });
-
-    let docentes = readJSON('docentes.json') || [];
-    let usuarios = readJSON('usuarios.json') || [];
-
-    docentes = docentes.filter(d => String(d.documento || d.cedula || d.usuario || d.id || '').trim().toLowerCase().replace(/[\.\,\-\s]/g, '') !== normDoc);
-    usuarios = usuarios.filter(u => String(u.documento || u.cedula || u.usuario || u.id || '').trim().toLowerCase().replace(/[\.\,\-\s]/g, '') !== normDoc);
-
-    writeJSON('docentes.json', docentes);
-    writeJSON('usuarios.json', usuarios);
-
-    // Limpiar también del registro de grupos_director.json
-    try {
-        let grupos = readJSON('grupos_director.json') || [];
-        grupos = grupos.filter(g => String(g.documento_director || g.directorDoc || g.documento || '').trim().toLowerCase().replace(/[\.\,\-\s]/g, '') !== normDoc);
-        grupos.forEach(g => {
-            if (Array.isArray(g.docentes)) {
-                g.docentes = g.docentes.filter(dId => String(dId).trim().toLowerCase().replace(/[\.\,\-\s]/g, '') !== normDoc);
-            }
-        });
-        writeJSON('grupos_director.json', grupos);
-    } catch(e) {}
-
-    console.log(`[ADMIN] Usuario eliminado exitosamente: ${normDoc}`);
-    return res.status(200).json({ status: "success", message: "Usuario eliminado correctamente.", docentes, usuarios });
-});
-
 app.post('/api/eliminar-docente', (req, res) => {
     const { documento, director_grupo_id } = req.body || {};
     const normDoc = String(documento || '').trim().toLowerCase().replace(/[\.\,\-\s]/g, '');
