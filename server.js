@@ -8,6 +8,8 @@ const https = require('https');
 const { GoogleGenAI } = require('@google/genai');
 const { exec } = require('child_process');
 const { generarGuiaPredeterminada } = require('./diagnosticos_predeterminados');
+const { obtenerPromptJuego, PROMPTS_JUEGOS } = require('./prompts_juegos');
+
 
 // ==========================================
 // SISTEMA DE ENCOLAMIENTO PARA GEMINI IA
@@ -1459,6 +1461,168 @@ Garantiza contenido 100% real, específico sobre ${temaFinal} en ${materiaFinal}
     } catch (error) {
         console.error('[CAJA_HERRAMIENTAS] ❌ Error crítico en el servidor:', error);
         return res.status(500).json({ error: 'Error interno al generar la herramienta interactiva.', detalle: error.message });
+    }
+});
+
+// ============================================================================
+// ENDPOINT: Generación de Juegos Interactivos HTML5 en Tiempo Real con IA (Caja 2)
+// Basado estrictamente en los 18 templates de Promt Maestros.pdf
+// ============================================================================
+app.post('/api/generar-juego-ia', async (req, res) => {
+    try {
+        const body = req.body || {};
+        const tipo_juego = body.tipo_juego || body.tipoJuego || body.herramienta_id || 'sopa_letras';
+        const tema = body.tema || body.palabras || 'Conceptos Fundamentales STEAM';
+        const nivel_educativo = body.nivel_educativo || body.nivel || body.grado || '7° Secundaria';
+        const instruccion = body.instruccion || 'Completa la actividad con atención.';
+
+        console.log(`[JUEGOS_IA] Solicitud interactiva recibida: tipo="${tipo_juego}", tema="${tema}", nivel="${nivel_educativo}"`);
+
+        const promptGeneracion = typeof obtenerPromptJuego === 'function'
+            ? obtenerPromptJuego(tipo_juego, tema, nivel_educativo, instruccion)
+            : `Genera un archivo interactivo HTML5 autocontenido para el juego ${tipo_juego} sobre ${tema}.`;
+
+        const systemPrompt = `Actúa como un desarrollador frontend senior y experto pedagógico.
+Tu tarea es generar UN ARCHIVO ÚNICO .html completo y autocontenido (HTML5 + CSS3 + JS vanilla en etiquetas <style> y <script>).
+REGLAS ESTRICTAS:
+1. Responde ÚNICAMENTE con código HTML puro que comience con <!DOCTYPE html> y termine con </html>.
+2. NO incluyas bloques markdown (NUNCA uses \`\`\`html ni \`\`\`).
+3. NO agregues explicaciones, comentarios ni texto fuera de las etiquetas HTML.
+4. El archivo debe ser 100% funcional y renderizable directamente en un navegador web o iframe.`;
+
+        let htmlResponse = "";
+        let finalError = null;
+
+        // Modelos Gemini compatibles en @google/genai
+        const modelos = [
+            'gemini-2.5-flash',
+            'gemini-flash-latest',
+            'gemini-2.5-flash-lite',
+            'gemini-3.5-flash',
+            'gemini-flash-lite-latest'
+        ];
+
+        // 1. Intento con rotación de Gemini API Keys
+        const maxKeyAttempts = Math.max(apiKeys.length, 1);
+        for (let k = 0; k < maxKeyAttempts && !htmlResponse; k++) {
+            const ai = getAIClient();
+            if (!ai) break;
+            for (let i = 0; i < modelos.length; i++) {
+                try {
+                    console.log(`[JUEGOS_IA] Solicitando modelo ${modelos[i]} (Key #${k+1})...`);
+                    const response = await geminiQueue.add(() => ai.models.generateContent({
+                        model: modelos[i],
+                        contents: `${systemPrompt}\n\n${promptGeneracion}`,
+                        config: {
+                            systemInstruction: systemPrompt,
+                            temperature: 0.7
+                        }
+                    }));
+                    if (response && response.text) {
+                        htmlResponse = response.text;
+                        console.log(`[JUEGOS_IA] ✅ Juego HTML generado exitosamente con ${modelos[i]}`);
+                        break;
+                    }
+                } catch (err) {
+                    console.error(`[JUEGOS_IA] Fallo con ${modelos[i]}:`, err.message);
+                    finalError = err;
+                    if (err.status === 400) break;
+                    await new Promise(resolve => setTimeout(resolve, 400));
+                }
+            }
+        }
+
+        // 2. Fallback OpenAI si está disponible
+        if (!htmlResponse && process.env.OPENAI_API_KEY) {
+            console.log('[JUEGOS_IA Fallback] Intentando con OpenAI gpt-4o-mini...');
+            try {
+                const { OpenAI } = require('openai');
+                const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+                const completion = await openai.chat.completions.create({
+                    model: "gpt-4o-mini",
+                    messages: [
+                        { role: "system", content: systemPrompt },
+                        { role: "user", content: promptGeneracion }
+                    ],
+                    temperature: 0.7
+                });
+                if (completion.choices && completion.choices[0] && completion.choices[0].message) {
+                    htmlResponse = completion.choices[0].message.content;
+                    console.log('[JUEGOS_IA Fallback] ✅ Juego HTML generado con OpenAI');
+                }
+            } catch (openaiErr) {
+                console.error('[JUEGOS_IA Fallback] OpenAI falló:', openaiErr.message);
+            }
+        }
+
+        // 3. Fallback DeepSeek API
+        if (!htmlResponse) {
+            console.log('[JUEGOS_IA Fallback] Intentando con DeepSeek API...');
+            try {
+                const deepseekKey = (process.env.DEEPSEEK_API_KEY || 'sk-8bdd9c5adcfa4d8e958f1ea7a07e8167');
+                const ds_response = await fetch('https://api.deepseek.com/chat/completions', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer ' + deepseekKey
+                    },
+                    body: JSON.stringify({
+                        model: 'deepseek-chat',
+                        messages: [
+                            { role: 'system', content: systemPrompt },
+                            { role: 'user', content: promptGeneracion }
+                        ],
+                        temperature: 0.7
+                    })
+                });
+                if (ds_response.ok) {
+                    const ds_data = await ds_response.json();
+                    if (ds_data.choices && ds_data.choices[0] && ds_data.choices[0].message) {
+                        htmlResponse = ds_data.choices[0].message.content;
+                        console.log('[JUEGOS_IA Fallback] ✅ Juego HTML generado con DeepSeek');
+                    }
+                }
+            } catch (deepseekErr) {
+                console.error('[JUEGOS_IA Fallback] DeepSeek falló:', deepseekErr.message);
+            }
+        }
+
+        if (!htmlResponse || !htmlResponse.trim()) {
+            return res.status(500).json({
+                error: 'No se pudo generar el juego interactivo con los motores de IA disponibles.',
+                detalle: finalError ? finalError.message : 'Respuesta vacía del modelo'
+            });
+        }
+
+        // Limpieza de formato para garantizar HTML puro
+        let cleanHtml = htmlResponse.trim();
+        cleanHtml = cleanHtml.replace(/^```html\s*/i, '').replace(/^```\s*/i, '');
+        cleanHtml = cleanHtml.replace(/\s*```$/i, '').trim();
+
+        const docIdx = cleanHtml.indexOf('<!DOCTYPE');
+        if (docIdx !== -1) {
+            cleanHtml = cleanHtml.substring(docIdx);
+        }
+        const htmlEnd = cleanHtml.lastIndexOf('</html>');
+        if (htmlEnd !== -1) {
+            cleanHtml = cleanHtml.substring(0, htmlEnd + 7);
+        }
+
+        return res.json({
+            status: 'success',
+            success: true,
+            html: cleanHtml,
+            tipo_juego,
+            tema,
+            nivel: nivel_educativo
+        });
+
+    } catch (error) {
+        console.error('[JUEGOS_IA] ❌ Error general en /api/generar-juego-ia:', error);
+        return res.status(500).json({
+            error: 'Error interno al generar el juego con IA.',
+            detalle: error.message
+        });
     }
 });
 

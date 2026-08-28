@@ -118,7 +118,7 @@ REQUISITOS TÉCNICOS:
 3. Interacción: Tocar números refleja en el display. Botón Desbloquear valida: si correcto, brilla verde, éxito y avanza. Si incorrecto, parpadeo rojo, shake y limpia entrada.
 4. Interfaz: Encabezado con Título, Cronómetro y Progreso. Modal de victoria con confeti, tiempo total de escape y Reiniciar.`,
 
-    juego_completar_parrafo: `Actúa como desarrollador frontend senior y experto en diseño instruccional.
+    juego_completar_parrafo: `Actúa como desarrollador frontend senior y experto en diseño instruccional.
 TEMA DEL TEXTO: {{TEMA}}
 NIVEL EDUCATIVO: {{NIVEL}}
 INSTRUCCIÓN: {{INSTRUCCION}}
@@ -132,15 +132,31 @@ REQUISITOS TÉCNICOS:
 4. Interfaz: Encabezado con Título, Instrucción, Cronómetro y Progreso. Modal de victoria con confeti, tiempo y Reiniciar.`
 };
 
-// Ensambla el prompt reemplazando los marcadores {{TEMA}}, {{NIVEL}}, {{INSTRUCCION}}
+// Aliases para los 18 juegos interactivos de Caja 2
+[
+    'juego_sopa_letras', 'juego_crucigrama', 'juego_emparejar', 'juego_concentrese',
+    'juego_laberinto', 'juego_tap_sort', 'juego_escape_room', 'juego_completar_parrafo',
+    'juego_anagrama', 'juego_ordenar_secuencias', 'juego_etiquetar_diagrama',
+    'juego_tarjetas_deslizamiento', 'juego_ahorcado', 'juego_lluvia_conceptos',
+    'juego_rompecabezas_frases', 'juego_trivia', 'juego_ruleta', 'juego_criptograma'
+].forEach(id => {
+    if (!window.GAME_TEMPLATES[id]) {
+        window.GAME_TEMPLATES[id] = true;
+    }
+});
+
+// Ensambla el prompt reemplazando los marcadores o llamando al generador maestro
 window.ensamblarPromptJuego = function(juegoId, tema, nivel, instruccion) {
-    const rawTpl = (window.GAME_TEMPLATES && window.GAME_TEMPLATES[juegoId]) || "";
-    let basePrompt = rawTpl.trim();
-    if (!basePrompt) {
-        basePrompt = `Eres un experto pedagógico STEAM. Genera la estructura de datos para el juego "${juegoId}" sobre el tema "{{TEMA}}" para un nivel educativo de {{NIVEL}}.\nInstrucción para el estudiante: {{INSTRUCCION}}.\nDevuelve ÚNICAMENTE un JSON válido con los datos del juego.`;
-    }
-    return basePrompt
-        .replace(/\{\{TEMA\}\}/g, tema || 'el tema indicado')
-        .replace(/\{\{NIVEL\}\}/g, nivel || 'grado escolar')
-        .replace(/\{\{INSTRUCCION\}\}/g, instruccion || 'Completa la actividad con atención.');
+    if (typeof window.obtenerPromptJuego === 'function') {
+        return window.obtenerPromptJuego(juegoId, tema, nivel, instruccion);
+    }
+    const rawTpl = (window.GAME_TEMPLATES && window.GAME_TEMPLATES[juegoId]) || "";
+    let basePrompt = (typeof rawTpl === 'function') ? rawTpl(tema, nivel, instruccion) : String(rawTpl).trim();
+    if (!basePrompt || basePrompt === 'true') {
+        basePrompt = `Eres un experto pedagógico STEAM. Genera un interactivo HTML5 para el juego "${juegoId}" sobre el tema "{{TEMA}}" para un nivel educativo de {{NIVEL}}.\nInstrucción para el estudiante: {{INSTRUCCION}}.\nDevuelve ÚNICAMENTE código HTML5 puro.`;
+    }
+    return basePrompt
+        .replace(/\{\{TEMA\}\}/g, tema || 'el tema indicado')
+        .replace(/\{\{NIVEL\}\}/g, nivel || 'grado escolar')
+        .replace(/\{\{INSTRUCCION\}\}/g, instruccion || 'Completa la actividad con atención.');
 };

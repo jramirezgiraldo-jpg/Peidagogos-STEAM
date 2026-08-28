@@ -9502,13 +9502,25 @@ window.abrirActividadDesdeInbox = function(id) {
     let actividad = inbox.find(a => a.id === id);
     if (!actividad) return;
     
-    // Cargar data en IA
+    // Si la actividad cuenta con interactivo HTML5 generado de Caja 2
+    if (actividad.htmlJuego || (actividad.actividad_data && actividad.actividad_data.htmlJuego)) {
+        const htmlCode = actividad.htmlJuego || actividad.actividad_data.htmlJuego;
+        const titulo = actividad.toolTitulo || actividad.titulo || 'Juego Interactivo STEAM';
+        const xp = actividad.xp || actividad.xp_recompensa || 250;
+        if (typeof window.proyectarJuegoHTML === 'function') {
+            window.proyectarJuegoHTML(htmlCode, titulo, xp);
+            return;
+        }
+    }
+
+    // Cargar data en IA para actividades JSON convencionales
     window._aiGameData = actividad.dataIA;
     
     if (typeof window.abrirVisorHerramienta === 'function') {
         window.abrirVisorHerramienta(actividad.toolId, true);
     }
 };
+
 
 window.cambiarTabEstudiante = function(tab) {
     const btnMaterias = document.getElementById('btn-tab-estudiante-materias');
@@ -11966,6 +11978,78 @@ window.LISTA_HERRAMIENTAS_PEDAGOGICAS = [
         desc: 'Texto con espacios en blanco y banco de palabras. IA redacta el párrafo contextualizado a tu tema.',
         badges: ['⚡ IA Generativa', '📺 Proyectable', '🖨️ Imprimible']
     },
+    {
+        id: 'juego_etiquetar_diagrama',
+        categoria: 'juegos',
+        caja: 'Caja 2: Juegos Dinámicos',
+        icono: '🏷️',
+        titulo: 'Etiquetar el Diagrama',
+        desc: 'Diagrama interactivo SVG con puntos calientes (hotspots). El estudiante identifica y ubica las partes conceptuales.',
+        badges: ['⚡ IA Generativa', '📺 Táctil', '🧠 Visual']
+    },
+    {
+        id: 'juego_tarjetas_deslizamiento',
+        categoria: 'juegos',
+        caja: 'Caja 2: Juegos Dinámicos',
+        icono: '🃏',
+        titulo: 'Tarjetas de Deslizamiento (Tinder V/F)',
+        desc: 'Dinámica de deslizamiento (swipe) o botones de Verdadero / Falso con retroalimentación formativa inmediata.',
+        badges: ['⚡ IA Generativa', '📺 Swipe Táctil', '🎮 +95 XP']
+    },
+    {
+        id: 'juego_ahorcado',
+        categoria: 'juegos',
+        caja: 'Caja 2: Juegos Dinámicos',
+        icono: '🛡️',
+        titulo: 'Misión Rescate (Ahorcado Moderno)',
+        desc: 'Ahorcado educativo no violento con escudo de energía o cohete espacial y teclado virtual táctil.',
+        badges: ['⚡ IA Generativa', '📺 Proyectable', '🎮 +85 XP']
+    },
+    {
+        id: 'juego_lluvia_conceptos',
+        categoria: 'juegos',
+        caja: 'Caja 2: Juegos Dinámicos',
+        icono: '🌧️',
+        titulo: 'Lluvia de Conceptos (Arcade)',
+        desc: 'Palabras que caen del cielo. El estudiante debe tocar y explotar solo los términos de la categoría objetivo.',
+        badges: ['⚡ IA Generativa', '📺 Arcade', '🎮 +100 XP']
+    },
+    {
+        id: 'juego_rompecabezas_frases',
+        categoria: 'juegos',
+        caja: 'Caja 2: Juegos Dinámicos',
+        icono: '🧩',
+        titulo: 'Rompecabezas de Frases y Leyes',
+        desc: 'Reconstrucción táctil de definiciones formales y leyes científicas a partir de bloques de texto desordenados.',
+        badges: ['⚡ IA Generativa', '📺 Proyectable', '🧠 Estructura']
+    },
+    {
+        id: 'juego_trivia',
+        categoria: 'juegos',
+        caja: 'Caja 2: Juegos Dinámicos',
+        icono: '⏱️',
+        titulo: 'Trivia Contra Reloj (Quiz Show)',
+        desc: 'Preguntas de opción múltiple con barra regresiva de 15 segundos y sistema de racha multiplicadora de puntos.',
+        badges: ['⚡ IA Generativa', '📺 Quiz Show', '🔥 Racha XP']
+    },
+    {
+        id: 'juego_ruleta',
+        categoria: 'juegos',
+        caja: 'Caja 2: Juegos Dinámicos',
+        icono: '🎡',
+        titulo: 'Ruleta del Saber Pedagógica',
+        desc: 'Ruleta giratoria por categorías temáticas con preguntas de reto para completar los medidores de dominio.',
+        badges: ['⚡ IA Generativa', '📺 Ruleta Física', '🎮 +120 XP']
+    },
+    {
+        id: 'juego_criptograma',
+        categoria: 'juegos',
+        caja: 'Caja 2: Juegos Dinámicos',
+        icono: '🔐',
+        titulo: 'Criptograma Científico Secreto',
+        desc: 'Mensaje secreto codificado en runas o símbolos. Responde preguntas cognitivas para decodificar las letras.',
+        badges: ['⚡ IA Generativa', '📺 Proyectable', '🏆 +150 XP']
+    },
 
     // --- CAJA 2 (interna): 📺 Gestión de Aula en Vivo y Pantalla Gigante (11-16) ---
 
@@ -12692,28 +12776,13 @@ window.ejecutarGeneracionJuegoIA = async function(opciones = {}) {
         btn.innerHTML = '⏳ Generando con IA...';
     }
 
-    // ── ¿Es un juego de Caja 2 con template? ─────────────────────────
-    const esCaja2 = window.GAME_TEMPLATES && window.GAME_TEMPLATES[tool.id];
+    // ── ¿Es un juego de Caja 2 con template interactivo HTML5? ───────
+    const esCaja2 = (window.GAME_TEMPLATES && window.GAME_TEMPLATES[tool.id]) ||
+                    (window.PROMPTS_JUEGOS && window.PROMPTS_JUEGOS[tool.id]) ||
+                    (tool.caja && tool.caja.includes('Caja 2')) ||
+                    (tool.id && tool.id.startsWith('juego_'));
 
     try {
-        let payload;
-        if (esCaja2) {
-            // Ensamblar prompt personalizado con los 3 campos del docente
-            const promptEnsamblado = window.ensamblarPromptJuego(tool.id, tema, nivel, instruccion);
-            payload = {
-                materia,
-                grado,
-                tema,
-                dificultad: 'media',
-                tipoJuego: tool.id,
-                promptPersonalizado: promptEnsamblado,
-                instruccion
-            };
-        } else {
-            // Comportamiento original para Caja 1
-            payload = { materia, grado, tema, dificultad: 'media' };
-        }
-
         // Obtener Token Activo del Docente/Administrador
         let tokenActivo = '';
         try {
@@ -12728,6 +12797,67 @@ window.ejecutarGeneracionJuegoIA = async function(opciones = {}) {
             headers['Authorization'] = 'Bearer ' + tokenActivo;
         }
 
+        // Si es juego interactivo de Caja 2 -> Enviar al nuevo motor HTML5 en tiempo real
+        if (esCaja2) {
+            const res = await fetch('/api/generar-juego-ia', {
+                method: 'POST',
+                headers: headers,
+                body: JSON.stringify({
+                    tipo_juego: tool.id,
+                    tema,
+                    nivel_educativo: nivel,
+                    instruccion,
+                    materia,
+                    grado
+                })
+            });
+
+            if (!res.ok) {
+                let errorMsg = 'Error en el servidor de IA (Status ' + res.status + ')';
+                try {
+                    const errData = await res.json();
+                    errorMsg = errData.detalle ? `${errData.error}: ${errData.detalle}` : (errData.error || errorMsg);
+                } catch(ex) {}
+                alert('⚠️ ' + errorMsg);
+                return;
+            }
+
+            const data = await res.json();
+            const htmlGenerado = data.html;
+            if (!htmlGenerado) {
+                alert('⚠️ El servidor no devolvió código HTML para este juego interactivo.');
+                return;
+            }
+
+            const xpRecompensa = Number(document.getElementById('modal-config-juego-xp')?.value) || 250;
+            const selGrp = document.getElementById('modal-config-juego-grupo');
+            const grupoDestino = (selGrp && selGrp.value) ? selGrp.value : 'Todos';
+
+            window._ultimoJuegoHTMLGenerado = htmlGenerado;
+            const metaJuego = {
+                tool,
+                materia,
+                grado,
+                tema,
+                instruccion,
+                nivel,
+                xp: xpRecompensa,
+                grupoDestino
+            };
+            window._ultimoJuegoMeta = metaJuego;
+
+            window.cerrarConfiguracionJuegoIA();
+
+            if (soloProyectar) {
+                window.proyectarJuegoHTML(htmlGenerado, `${tool.icono || '🎮'} ${tool.titulo}: ${tema}`, xpRecompensa);
+            } else {
+                window.mostrarModalOpcionesJuegoIA(htmlGenerado, metaJuego);
+            }
+            return;
+        }
+
+        // Comportamiento original para Caja 1 (actividades estructuradas tradicionales)
+        const payload = { materia, grado, tema, dificultad: 'media' };
         const res = await fetch('/api/generate-tool-ai', {
             method: 'POST',
             headers: headers,
@@ -12755,7 +12885,7 @@ window.ejecutarGeneracionJuegoIA = async function(opciones = {}) {
                     toolId:      tool.id,
                     toolTitulo:  tool.titulo,
                     toolIcono:   tool.icono,
-                    esCaja2:     !!esCaja2,
+                    esCaja2:     false,
                     dataIA:      window._aiGameData,
                     fecha:       new Date().toISOString(),
                     docente:     window.usuario_actual || 'Tu Docente'
@@ -12764,7 +12894,7 @@ window.ejecutarGeneracionJuegoIA = async function(opciones = {}) {
                 console.log(`[JUEGO IA] ✅ Asignado al grupo ${grupoDestino}: ${tool.titulo}`);
             }
 
-            // ── Abrir visor ──────────────────────────────────────────────
+            // Abrir visor tradicional
             if (typeof window.abrirVisorHerramienta === 'function') {
                 window.abrirVisorHerramienta(tool.id, true);
             }
@@ -12773,10 +12903,7 @@ window.ejecutarGeneracionJuegoIA = async function(opciones = {}) {
                 const selGrp2 = document.getElementById('modal-config-juego-grupo');
                 const g2 = selGrp2 ? selGrp2.value : 'Todos';
                 setTimeout(() => {
-                    const msg = esCaja2
-                        ? `✅ ${tool.icono} "${tool.titulo}" generado y asignado al grupo ${g2}.\n\nTema: ${tema}\nNivel: ${nivel}\nInstrucción: ${instruccion}`
-                        : `✅ ¡Actividad asignada exitosamente al grupo ${g2}!`;
-                    alert(msg);
+                    alert(`✅ ¡Actividad asignada exitosamente al grupo ${g2}!`);
                 }, 500);
             }
         } else {
@@ -12797,6 +12924,228 @@ window.ejecutarGeneracionJuegoIA = async function(opciones = {}) {
         }
     }
 };
+
+// ============================================================================
+// MODAL DE OPCIONES POST-GENERACIÓN: Proyectar Ahora vs Enviar al Buzón
+// ============================================================================
+window.mostrarModalOpcionesJuegoIA = function(htmlCode, meta) {
+    window._ultimoJuegoHTMLGenerado = htmlCode;
+    window._ultimoJuegoMeta = meta;
+
+    let modal = document.getElementById('modal-opciones-juego-ia');
+    if (!modal) {
+        modal = document.createElement('div');
+        modal.id = 'modal-opciones-juego-ia';
+        modal.style.cssText = 'position: fixed; inset: 0; background: rgba(15, 23, 42, 0.88); backdrop-filter: blur(10px); display: flex; align-items: center; justify-content: center; z-index: 100005; padding: 20px;';
+        document.body.appendChild(modal);
+    }
+
+    const tool = meta.tool || { titulo: 'Juego Interactivo', icono: '🎮' };
+    modal.innerHTML = `
+        <div style="background: white; border-radius: 24px; padding: 32px; max-width: 520px; width: 100%; box-shadow: 0 25px 60px rgba(0,0,0,0.4); text-align: center; font-family: Inter, sans-serif; animation: popIn 0.25s ease-out;">
+            <div style="font-size: 3.5rem; margin-bottom: 8px;">🎉</div>
+            <h3 style="margin: 0 0 8px 0; color: #1E293B; font-size: 1.45rem; font-weight: 900;">¡Juego HTML5 Generado con Éxito!</h3>
+            <p style="color: #64748B; font-size: 0.92rem; margin: 0 0 18px 0; line-height: 1.45;">
+                El motor pedagógico estructuró <strong>${tool.icono || '🎮'} ${tool.titulo}</strong> sobre <em>"${meta.tema}"</em> en un interactivo autocontenido.
+            </p>
+            
+            <div style="background: #F8FAFC; border: 1.5px solid #E2E8F0; border-radius: 14px; padding: 14px; margin-bottom: 22px; text-align: left; font-size: 0.85rem; color: #334155; display: flex; flex-direction: column; gap: 6px;">
+                <div>👥 <strong>Destinatario:</strong> Grupo ${meta.grupoDestino || 'Todos'} (${meta.grado}° Grado)</div>
+                <div>📚 <strong>Asignatura:</strong> ${meta.materia || 'Ciencias Naturales'}</div>
+                <div>⭐ <strong>Recompensa Estudiante:</strong> +${meta.xp || 250} XP</div>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 12px;">
+                <button onclick="window.proyectarJuegoDesdeModalOpciones()" style="background: linear-gradient(135deg, #4F46E5, #3730A3); color: white; border: none; padding: 13px 20px; border-radius: 14px; font-weight: 900; font-size: 0.98rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; box-shadow: 0 6px 18px rgba(79,70,229,0.35); transition: transform 0.15s;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
+                    <span>📺</span> Proyectar Ahora en Aula
+                </button>
+
+                <button onclick="window.enviarJuegoAlBuzonDesdeModalOpciones()" style="background: linear-gradient(135deg, #059669, #047857); color: white; border: none; padding: 13px 20px; border-radius: 14px; font-weight: 900; font-size: 0.98rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; box-shadow: 0 6px 18px rgba(5,150,105,0.35); transition: transform 0.15s;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
+                    <span>📬</span> Enviar al Buzón de Tareas (+${meta.xp || 250} XP)
+                </button>
+
+                <button onclick="document.getElementById('modal-opciones-juego-ia').style.display='none'" style="background: #F1F5F9; color: #64748B; border: none; padding: 10px; border-radius: 12px; font-weight: 700; font-size: 0.85rem; cursor: pointer; margin-top: 4px;">
+                    ✕ Cerrar
+                </button>
+            </div>
+        </div>
+    `;
+    modal.style.display = 'flex';
+};
+
+window.proyectarJuegoDesdeModalOpciones = function() {
+    const modal = document.getElementById('modal-opciones-juego-ia');
+    if (modal) modal.style.display = 'none';
+    const meta = window._ultimoJuegoMeta || {};
+    window.proyectarJuegoHTML(window._ultimoJuegoHTMLGenerado, `${meta.tool?.icono || '🎮'} ${meta.tool?.titulo || 'Juego'}: ${meta.tema}`, meta.xp || 250);
+};
+
+window.enviarJuegoAlBuzonDesdeModalOpciones = function() {
+    window.enviarJuegoAlBuzonTareas(window._ultimoJuegoHTMLGenerado, window._ultimoJuegoMeta);
+};
+
+// ============================================================================
+// VISOR / PROYECCIÓN DE JUEGOS INTERACTIVOS HTML5
+// ============================================================================
+window.proyectarJuegoHTML = function(htmlCode, titulo = 'Juego STEAM Interactivo', xp = 250) {
+    if (!htmlCode) {
+        alert('⚠️ No hay código interactivo disponible para proyectar.');
+        return;
+    }
+
+    const modal = document.getElementById('modal-visor-herramienta');
+    const stage = document.getElementById('herramienta-stage');
+    const titleEl = document.getElementById('visor-tool-title');
+    const subtitleEl = document.getElementById('visor-tool-subtitle');
+    const controlBar = document.getElementById('visor-tool-control-bar');
+
+    if (modal && stage) {
+        if (titleEl) titleEl.innerText = titulo;
+        if (subtitleEl) subtitleEl.innerText = `🎮 Juego Interactivo Autocontenido HTML5 • Recompensa: +${xp} XP`;
+        if (controlBar) controlBar.style.display = 'none';
+
+        let safeHtml = htmlCode;
+        const xpScript = `
+        <script>
+        (function() {
+            window.addEventListener('message', function(e) {
+                if (e.data && (e.data.tipo === 'juego_completado' || e.data.victoria)) {
+                    if (window.parent && window.parent.sumarPuntosJuegoCompletado) {
+                        window.parent.sumarPuntosJuegoCompletado(${xp});
+                    }
+                }
+            });
+        })();
+        </script>
+        `;
+        if (safeHtml.includes('</body>')) {
+            safeHtml = safeHtml.replace('</body>', `${xpScript}</body>`);
+        } else {
+            safeHtml += xpScript;
+        }
+
+        stage.innerHTML = `
+            <div style="width: 100%; display: flex; flex-direction: column; background: #0F172A; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.5);">
+                <div style="background: #1E293B; padding: 10px 18px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #334155;">
+                    <div style="color: #94A3B8; font-size: 0.84rem; font-weight: 700;">📺 Modo Proyección En Vivo</div>
+                    <div style="display: flex; gap: 8px;">
+                        <button onclick="window.abrirJuegoEnNuevaVentana()" style="background: #3B82F6; color: white; border: none; padding: 6px 12px; border-radius: 8px; font-size: 0.8rem; font-weight: 700; cursor: pointer;">↗ Nueva Pestaña</button>
+                    </div>
+                </div>
+                <iframe id="iframe-juego-proyeccion" style="width: 100%; height: 78vh; border: none; background: white;" sandbox="allow-scripts allow-same-origin allow-modals allow-popups" allow="fullscreen"></iframe>
+            </div>
+        `;
+
+        const iframe = document.getElementById('iframe-juego-proyeccion');
+        if (iframe) {
+            iframe.srcdoc = safeHtml;
+        }
+
+        modal.style.display = 'flex';
+        if (typeof pushSubView === 'function') pushSubView();
+        return;
+    }
+
+    const win = window.open('', '_blank');
+    if (win) {
+        win.document.open();
+        win.document.write(htmlCode);
+        win.document.close();
+    } else {
+        alert('⚠️ Por favor permite las ventanas emergentes para proyectar el juego interactivo.');
+    }
+};
+
+window.abrirJuegoEnNuevaVentana = function() {
+    if (!window._ultimoJuegoHTMLGenerado) return;
+    const blob = new Blob([window._ultimoJuegoHTMLGenerado], { type: 'text/html;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    window.open(url, '_blank');
+};
+
+window.sumarPuntosJuegoCompletado = function(xp = 250) {
+    if (typeof window.finalizarJuegoPantalla === 'function') {
+        window.finalizarJuegoPantalla(xp);
+    } else if (typeof window.actualizarPuntosEstudianteUI === 'function') {
+        window.actualizarPuntosEstudianteUI(xp);
+    }
+};
+
+// ============================================================================
+// ASIGNACIÓN AL BUZÓN DE TAREAS (+XP)
+// ============================================================================
+window.enviarJuegoAlBuzonTareas = async function(htmlCode, meta) {
+    if (!meta) meta = window._ultimoJuegoMeta || {};
+    const html = htmlCode || window._ultimoJuegoHTMLGenerado;
+    if (!html) {
+        alert('⚠️ No se ha generado ningún interactivo para enviar.');
+        return;
+    }
+
+    const grupoDestino = meta.grupoDestino || 'Todos';
+    const xp = meta.xp || 250;
+    const tool = meta.tool || { id: 'juego_caja2', titulo: 'Juego Interactivo', icono: '🎮' };
+
+    // 1. Guardar localmente en inbox_estudiantes
+    let inbox = [];
+    try { inbox = JSON.parse(localStorage.getItem('inbox_estudiantes') || '[]'); } catch(e) {}
+    
+    const nuevaMision = {
+        id: Date.now().toString(),
+        grupo: grupoDestino,
+        materia: meta.materia || 'Ciencias Naturales',
+        grado: meta.grado || '7',
+        tema: meta.tema || 'Actividad STEAM',
+        instruccion: meta.instruccion || 'Completa el juego interactivo.',
+        toolId: tool.id,
+        toolTitulo: tool.titulo,
+        toolIcono: tool.icono || '🎮',
+        xp: xp,
+        htmlJuego: html,
+        esCaja2: true,
+        fecha: new Date().toISOString(),
+        docente: window.usuario_actual || 'Docente Orientador'
+    };
+
+    inbox.unshift(nuevaMision);
+    localStorage.setItem('inbox_estudiantes', JSON.stringify(inbox));
+
+    // 2. Sincronizar en servidor (actividades_asignadas.json)
+    try {
+        await fetch('/api/asignar-actividad', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                tipo_actividad: tool.id,
+                herramienta_id: tool.id,
+                destinatario_tipo: 'grupo',
+                destinatario_id: grupoDestino,
+                destinatario_nombre: grupoDestino === 'Todos' ? 'Todos los Grupos' : `Grupo ${grupoDestino}`,
+                materia: meta.materia || 'Ciencias Naturales',
+                grado: meta.grado || '7',
+                tema: meta.tema || 'Actividad STEAM',
+                titulo: `${tool.icono || '🎮'} ${tool.titulo}: ${meta.tema || 'Juego'}`,
+                xp_recompensa: xp,
+                actividad_data: { htmlJuego: html, meta },
+                creador_id: window.usuario_actual || 'DOCENTE',
+                profesor_nombre: window.usuario_actual || 'Docente'
+            })
+        });
+    } catch(err) {
+        console.warn('[BUZON_SYNC] Sincronización en servidor:', err.message);
+    }
+
+    // Cerrar modal de opciones
+    const modalOpciones = document.getElementById('modal-opciones-juego-ia');
+    if (modalOpciones) modalOpciones.style.display = 'none';
+
+    if (typeof window.mostrarToastXP === 'function') {
+        window.mostrarToastXP(xp, `📬 ¡Juego asignado al Buzón del grupo ${grupoDestino}!`);
+    } else {
+        alert(`📬 ¡Misión asignada exitosamente!\n\nGrupo: ${grupoDestino}\nRecompensa: +${xp} XP para cada estudiante.`);
+    }
+};
+
 
 // Aliases Universales para Configuración y Generación de Herramientas IA (R3)
 window.abrirConfiguracionHerramientaIA = window.abrirConfiguracionJuegoIA;
