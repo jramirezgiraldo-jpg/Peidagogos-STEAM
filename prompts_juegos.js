@@ -22,10 +22,20 @@ REQUISITOS TÉCNICOS Y FUNCIONALES:
 ○ Toma directamente las 10 palabras clave configuradas al inicio, normalízalas (mayúsculas, sin espacios ni tildes) y construye una cuadrícula proporcional óptima (12x12 o 13x13).
 ○ Coloca las 10 palabras de forma aleatoria en direcciones válidas (horizontal, vertical y diagonal, tanto en sentido directo como inverso).
 ○ Rellena todos los espacios vacíos con letras aleatorias.
-2. Diseño Mobile-First y Responsivo:
-○ La interfaz debe adaptarse automáticamente a cualquier smartphone (360px a 420px de ancho) sin causar scroll horizontal ni cortes.
-○ Diseño moderno, limpio y de alto contraste (estilo Material/Tailwind con bordes redondeados y fuentes sans-serif).
-○ Bloquear el desplazamiento involuntario de la página al jugar en el tablero mediante touch-action: none; y user-select: none;.
+2. Diseño Mobile-First, Responsivo y Arquitectura de Layout (ANTI-SUPERPOSICIÓN):
+○ PROHIBIDO USAR POSITION FIXED O ABSOLUTE EN EL FOOTER/LISTA DE PALABRAS: La lista de palabras/badges inferior NUNCA debe tener position: fixed ni position: absolute. Debe ser un elemento en el flujo normal (position: relative; flex-shrink: 0;) para evitar por completo que flote sobre la cuadrícula y tape las últimas filas.
+○ ESTRUCTURA FLEXBOX VERTICAL: Estructura el contenedor principal de la página con:
+  display: flex; flex-direction: column; min-height: 100vh; max-height: 100vh; box-sizing: border-box; overflow-y: auto;
+○ CONTENEDOR DEL TABLERO (ZONA CENTRAL): El tablero debe residir en un contenedor intermedio con:
+  flex: 1 1 auto; min-height: 0; display: flex; align-items: center; justify-content: center; padding: 6px; margin: 4px 0; overflow: auto;
+○ TAMAÑO RESPONSIVO DEL TABLERO (CUADRÍCULA 100% VISIBLE):
+  Para asegurar que la última fila NUNCA quede cortada ni oculta por los badges, dimensiona el tablero usando unidades duales responsivas:
+  width: min(90vw, 50vh); height: min(90vw, 50vh); aspect-ratio: 1 / 1; margin: 0 auto;
+  Las celdas deben estructurarse con CSS Grid: grid-template-columns: repeat(N, 1fr); grid-template-rows: repeat(N, 1fr); con font-size: clamp(10px, 3.2vw, 17px); font-weight: bold; para autoajustarse matemáticamente al espacio visible disponible.
+○ ZONA INFERIOR DE PALABRAS (BADGES): Debe ubicarse siempre DEBAJO del tablero en el flujo natural con:
+  flex-shrink: 0; max-height: 25vh; overflow-y: auto; padding: 10px; margin-top: 6px; padding-bottom: 20px; display: flex; flex-wrap: wrap; justify-content: center; gap: 6px;
+○ BLOQUEO TÁCTIL EXCLUSIVO DEL TABLERO: Aplica touch-action: none; y user-select: none; ÚNICAMENTE sobre la cuadrícula del tablero, permitiendo scroll normal en el resto del contenedor si la pantalla es reducida.
+
 3. Interacción Táctil y Arrastre:
 ○ Selección continua fluida mediante eventos de puntero (pointerdown, pointermove, pointerup o eventos táctiles touch*), compatible con dedos en móviles y cursor en PC.
 ○ Validar que el trazo sea en línea recta (horizontal, vertical o diagonal).

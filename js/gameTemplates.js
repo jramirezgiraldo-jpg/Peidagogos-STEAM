@@ -9,8 +9,9 @@ INSTRUCCIÓN: {{INSTRUCCION}}
 
 REQUISITOS TÉCNICOS Y FUNCIONALES:
 1. Construcción y Lógica Dinámica: Construye una cuadrícula proporcional óptima (12x12 o 13x13). Coloca 10 palabras relacionadas al tema de forma aleatoria en direcciones válidas (horizontal, vertical y diagonal, directo e inverso). Rellena los espacios vacíos con letras aleatorias.
-2. Diseño Mobile-First y Responsivo: Interfaz adaptable a smartphones (360px a 420px) sin scroll horizontal. Estilo moderno de alto contraste. Bloquear desplazamiento al jugar con touch-action: none y user-select: none.
-3. Interacción Táctil y Arrastre: Selección fluida compatible con dedos y cursor. Validar trazos en línea recta. Si coincide con una palabra, fijarla con color permanente y marcarla en la lista. Si no, limpiar selección.
+2. Diseño Mobile-First y Responsivo (ANTI-SUPERPOSICIÓN): Contenedor flex vertical (display: flex; flex-direction: column; min-height: 100vh; overflow-y: auto;). PROHIBIDO position fixed/absolute en footer de palabras: debe ser relative y ubicarse estrictamente debajo del tablero. Cuadrícula en zona central (flex: 1; min-height: 0;) con tamaño responsivo width: min(90vw, 50vh); height: min(90vw, 50vh); aspect-ratio: 1/1; para que la última fila jamás quede tapada ni cortada.
+3. Interacción Táctil y Arrastre: Selección fluida compatible con dedos y cursor. Validar trazos en línea recta. Si coincide con una palabra, fijarla con color permanente y marcarla en la lista. Si no, limpiar selección. Touch-action: none solo en el tablero.
+
 4. Interfaz y Marcadores: Encabezado con Título, Instrucción, Cronómetro y Contador. Lista inferior con las 10 palabras en formato de etiquetas. Modal de victoria con confeti, tiempo final y botón de Reiniciar.`,
 
     juego_crucigrama: `Actúa como un desarrollador frontend senior y experto en pedagogía.
