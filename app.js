@@ -3457,6 +3457,15 @@ window.eliminarEstudiante = async function(documento) {
     if(!confirm("¿Estás seguro de que deseas eliminar este estudiante? Esta acción no se puede deshacer.")) return;
     
     try {
+        const normDoc = String(documento || '').trim().toLowerCase().replace(/[\.\,\-\_\s]/g, '');
+
+        // 1. Sincronización Dual Local: Limpiar de inmediato en localStorage para evitar resurrección
+        try {
+            let uList = JSON.parse(localStorage.getItem('usuarios_db') || '[]');
+            uList = uList.filter(u => String(u.documento || u.cedula || u.usuario || u.id || '').trim().toLowerCase().replace(/[\.\,\-\_\s]/g, '') !== normDoc);
+            localStorage.setItem('usuarios_db', JSON.stringify(uList));
+        } catch(e) {}
+
         const res = await fetch('/api/eliminar-estudiante', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -10946,6 +10955,17 @@ window.finalizarJuegoPantalla = async function(act, puntaje = 100, xpOtorgado = 
                 xp_ganado: xpOtorgado
             })
         });
+
+        // Sincronizar XP ganado con usuarios.json en el servidor
+        await fetch('/api/actualizar-puntos', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                documento: doc,
+                xp: xpOtorgado,
+                motivo: `Misión completada: ${act.titulo || act.materia || 'Actividad STEAM'}`
+            })
+        }).catch(() => {});
     } catch(e) {}
 
     // Guardar localmente
@@ -16867,7 +16887,7 @@ window.generarInvitacionDocenteIntransferible = function() {
     // Generar token único intransferible
     const token = 'TK-DOC-' + Math.random().toString(36).substring(2, 9).toUpperCase();
     const baseUrl = window.location.origin + window.location.pathname;
-    const urlFinal = `${baseUrl}?reg=docente&ie=${encodeURIComponent(ie)}&rol=${encodeURIComponent(rol)}`;
+    const urlFinal = `${baseUrl}?reg=docente&token_docente=${encodeURIComponent(token)}&ie=${encodeURIComponent(ie)}&rol=${encodeURIComponent(rol)}`;
     const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${encodeURIComponent(urlFinal)}`;
 
     const nuevaInvitacion = {
@@ -17071,18 +17091,39 @@ window.procesarTokenDocenteDesdeUrl = function() {
     if (token || (regMode === 'docente' && dirGrupoId)) {
         console.log("🔑 [TOKEN/LINK DOCENTE DETECTADO]:", { token, nom, ie, dirGrupoId });
 
-        // Marcar token como utilizado
+        // Validar y marcar token como utilizado si existe
         try {
             let invList = JSON.parse(localStorage.getItem('invitaciones_docentes_db') || '[]');
             const idx = invList.findIndex(i => i.token === token);
             if (idx >= 0) {
                 invList[idx].usado = true;
                 localStorage.setItem('invitaciones_docentes_db', JSON.stringify(invList));
+            } else if (token && token.startsWith('TK-DOC-')) {
+                // Registrar token entrante válido para auditoría
+                invList.unshift({
+                    token: token,
+                    nombre: nom ? decodeURIComponent(nom) : "Docente Invitado",
+                    documento: doc || "",
+                    institucion: ie ? decodeURIComponent(ie) : "IE Instituto Montenegro",
+                    materia: "Todas",
+                    fecha: new Date().toLocaleString('es-CO'),
+                    usado: true
+                });
+                localStorage.setItem('invitaciones_docentes_db', JSON.stringify(invList));
             }
         } catch(e) {}
 
-        const tokenClean = token ? String(token).toLowerCase().replace(/[^a-z0-9]/g, '') : (dirGrupoId ? 'dir_' + String(dirGrupoId) : Math.random().toString(36).substring(2, 9));
-        const docFinal = doc || ('doc_' + tokenClean);
+        const tokenClean = token ? String(token).toLowerCase().replace(/[^a-z0-9]/g, '') : Math.random().toString(36).substring(2, 9);
+        let docFinal = doc;
+        if (!docFinal || docFinal.startsWith('doc_dir_')) {
+            const docPrompt = prompt("👨‍🏫 Vinculación Docente en Peidagogos STEAM\n\nPor favor ingresa tu número de cédula / documento de identidad real para completar tu registro:");
+            if (!docPrompt || !docPrompt.trim()) {
+                alert("❌ El número de documento es obligatorio para completar el registro docente.");
+                return;
+            }
+            docFinal = docPrompt.trim().toLowerCase().replace(/[\.\,\-\_\s]/g, '');
+        }
+
         const nomFinal = nom ? decodeURIComponent(nom) : 'Docente Invitado';
         const ieFinal = ie ? decodeURIComponent(ie) : 'IE Instituto Montenegro';
         const materiaParam = params.get('materia');
@@ -17541,6 +17582,22 @@ window.timerClaseInterval = null;
 window.iniciarControlTiempoClaseEstudiante = function() {
     if (!sessionStorage.getItem('hora_inicio_clase_steam')) {
         sessionStorage.setItem('hora_inicio_clase_steam', Date.now().toString());
+    }
+
+    if (!window.antiEvasionBeforeUnloadRegistrado) {
+        window.antiEvasionBeforeUnloadRegistrado = true;
+        window.addEventListener('beforeunload', function (e) {
+            const inicioStr = sessionStorage.getItem('hora_inicio_clase_steam');
+            const autorizado = sessionStorage.getItem('cierre_clase_autorizado') === 'true' || sessionStorage.getItem('clase_desbloqueada_docente') === 'true';
+            if (inicioStr && !autorizado) {
+                const transcurridoMin = Math.floor((Date.now() - parseInt(inicioStr)) / 60000);
+                if (transcurridoMin < (window.DURACION_MINIMA_CLASE_MINUTOS || 45)) {
+                    e.preventDefault();
+                    e.returnValue = '⚠️ Tu hora de clase continúa activa. Si sales sin guardar progreso mediante el botón oficial, no se registrarán tus bonificaciones de XP.';
+                    return e.returnValue;
+                }
+            }
+        });
     }
 
     if (window.timerClaseInterval) clearInterval(window.timerClaseInterval);
@@ -18289,7 +18346,9 @@ window.renderizarPanelMiGrupoDirector = function(doc, nom) {
 
         const inputLinkDocentes = document.getElementById('input-link-invitacion-docentes');
         if (inputLinkDocentes) {
-            const urlDocentes = `https://peidagogosteam.com/login.html?reg=docente&director_grupo_id=${encodeURIComponent(doc)}&director=${encodeURIComponent(doc)}`;
+            const tokenDoc = 'TK-DOC-' + Math.random().toString(36).substring(2, 9).toUpperCase();
+            const baseUrl = window.location.origin + window.location.pathname;
+            const urlDocentes = `${baseUrl}?reg=docente&token_docente=${encodeURIComponent(tokenDoc)}&director_grupo_id=${encodeURIComponent(doc)}&director=${encodeURIComponent(doc)}`;
             inputLinkDocentes.value = urlDocentes;
         }
 

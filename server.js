@@ -204,8 +204,8 @@ Estructura la reflexión a partir de dilemas morales reales, toma de decisiones 
             }
         }
         
-        // 2. Si es Semana 1 (Diagnóstico de Ciclos o Grados Regulares), servir la guía predeterminada garantizada
-        if (semana == '1' || periodo == '1' && semana == '1' || apiKeys.length === 0) {
+        // 2. Si no hay API Keys configuradas, servir la guía predeterminada garantizada
+        if (apiKeys.length === 0) {
             console.log(`[DIAGNÓSTICO] Sirviendo guía predeterminada garantizada para ${nombreEstudiante} (${grado})...`);
             const guiaPredeterminada = generarGuiaPredeterminada({
                 asignatura, grado, periodo, semana, rol, ambiente, nivel, enfoque, nombre_estudiante: nombreEstudiante, institucion, modo
@@ -556,8 +556,30 @@ const writeJSON = (file, data) => {
     });
 };
 
-app.get('/api/usuarios', (req, res) => res.json(readJSON('usuarios.json')));
-app.get('/api/estudiantes', (req, res) => res.json(readJSON('usuarios.json')));
+app.get('/api/usuarios', (req, res) => {
+    const list = readJSON('usuarios.json') || [];
+    const safeList = list.map(u => {
+        const copy = { ...u };
+        delete copy.password;
+        delete copy.clave;
+        delete copy.contrasena;
+        return copy;
+    });
+    res.json(safeList);
+});
+
+app.get('/api/estudiantes', (req, res) => {
+    const list = readJSON('usuarios.json') || [];
+    const estudiantes = list.filter(u => u.rol === 'estudiante' || String(u.tipo || '').includes('estudiante') || (!u.rol && !u.tipo));
+    const safeEstud = (estudiantes.length > 0 ? estudiantes : list).map(u => {
+        const copy = { ...u };
+        delete copy.password;
+        delete copy.clave;
+        delete copy.contrasena;
+        return copy;
+    });
+    res.json(safeEstud);
+});
 // Helper de normalización estricta de cadenas de documento
 const normStr = (val) => {
     if (val === null || val === undefined) return '';
@@ -643,7 +665,13 @@ app.get('/api/todos-los-docentes', (req, res) => {
         }
     });
 
-    const resultadoFinal = Array.from(docentesMap.values());
+    const resultadoFinal = Array.from(docentesMap.values()).map(d => {
+        const copy = { ...d };
+        delete copy.password;
+        delete copy.clave;
+        delete copy.contrasena;
+        return copy;
+    });
     res.json(resultadoFinal);
 });
 
@@ -1291,11 +1319,11 @@ app.post('/api/generate-tool-ai', async (req, res) => {
         const tipoFinal = toolType || tipoJuego || 'herramienta_interactiva';
         const instruccionFinal = studentInstruction || instruccion || 'Analiza y resuelve los retos cognitivos.';
 
-        const apiKeyCaja = process.env.CAJA_HERRAMIENTAS || process.env.DEEPSEEK_API_KEY || process.env.CHAT_GPT || process.env.CHATGPT_API_KEY;
+        const apiKeyCaja = process.env.CAJA_HERRAMIENTAS || (apiKeys.length > 0 ? apiKeys[0] : null) || process.env.DEEPSEEK_API_KEY || process.env.CHAT_GPT || process.env.CHATGPT_API_KEY;
 
         if (!apiKeyCaja) {
-            console.error('[CAJA_HERRAMIENTAS] ❌ La variable de entorno CAJA_HERRAMIENTAS no está configurada.');
-            return res.status(500).json({ error: 'Llave de API exclusiva CAJA_HERRAMIENTAS no configurada en el servidor.' });
+            console.error('[CAJA_HERRAMIENTAS] ❌ No hay llaves de API activas configuradas en el servidor.');
+            return res.status(500).json({ error: 'No hay llaves de API activas disponibles en el servidor para generar herramientas.' });
         }
 
         // Construcción del prompt pedagógico estricto guiado por el tipo exacto de herramienta

@@ -1,24 +1,26 @@
 [
-    {
-        "documento": "123456",
-        "clave": "profe123",
-        "nombre": "Juan",
-        "apellidos": "Pérez",
-        "institucion": "IE Instituto Montenegro",
-        "tipo": "docente_colegio",
-        "es_director": true,
-        "grupos_direccion": ["7C"]
-    },
-    {
-        "documento": "tutor123",
-        "clave": "tutor123",
-        "nombre": "Carlos",
-        "apellidos": "Gómez",
-        "institucion": "HomeSchool",
-        "tipo": "tutor_homeschool",
-        "correo": "tutor.carlos@homeschool.edu.co",
-        "telefono": "3101234567",
-        "es_director": false,
-        "grupos_direccion": []
-    }
+  {
+    "documento": "123456",
+    "clave": "profe123",
+    "nombre": "Juan",
+    "apellidos": "Pérez",
+    "institucion": "IE Instituto Montenegro",
+    "tipo": "docente_colegio",
+    "es_director": true,
+    "grupos_direccion": [
+      "7C"
+    ]
+  },
+  {
+    "documento": "tutor123",
+    "clave": "tutor123",
+    "nombre": "Carlos",
+    "apellidos": "Gómez",
+    "institucion": "HomeSchool",
+    "tipo": "tutor_homeschool",
+    "correo": "tutor.carlos@homeschool.edu.co",
+    "telefono": "3101234567",
+    "es_director": false,
+    "grupos_direccion": []
+  }
 ]
