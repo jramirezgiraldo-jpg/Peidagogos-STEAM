@@ -23,7 +23,7 @@ FASE 1: Genera 10 palabras clave y 10 pistas educativas adaptadas al nivel.
 FASE 2: Crea un archivo único .html (HTML5, CSS3, JS vanilla).
 REQUISITOS TÉCNICOS:
 1. Construcción y Lógica: Acomoda automáticamente las palabras en intersecciones. Cuadrícula individual con celdas cuadradas y bordes visibles. Numeración clara en la primera celda de cada palabra.
-2. Diseño Mobile-First: Fondo claro (#fff o #f9f9f9). Estilo de crucigrama tradicional nítido. Adaptable a smartphones (360px-420px). Evitar zoom automático en inputs.
+2. Diseño Mobile-First: Fondo claro (#fff o #f9f9f9). REQUISITO VISUAL ESTRICTO: Apariencia tradicional clásica, sin colores alternados ni franjas de fondo (cero nth-child even/odd). Fondo liso uniforme. Solo las celdas con letras son cuadros blancos con borde sólido. Celdas vacías sin barras continuas. Adaptable a smartphones (360px-420px). Evitar zoom automático en inputs.
 3. Interacción: Al tocar una casilla, resaltar todas las celdas de la palabra activa. Alternar dirección con segundo toque en intersecciones. Auto-avance al escribir y conversión a mayúsculas.
 4. Interfaz: Encabezado con Título, Instrucción, Cronómetro y Progreso. Lista inferior dividida en Horizontales y Verticales con las pistas. Validación en tiempo real con color de éxito. Modal de victoria con confeti y tiempo. Código comentado en español.`,
 
