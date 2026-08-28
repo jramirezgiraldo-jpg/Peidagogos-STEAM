@@ -19,6 +19,7 @@ Actúa como un desarrollador frontend senior y genera un archivo único e intera
 
 REQUISITOS TÉCNICOS Y FUNCIONALES:
 1. Construcción y Lógica Dinámica:
+○ REQUISITO ALGORÍTMICO ESTRICTO: El código JavaScript del juego DEBE incluir un algoritmo de cálculo de matrices omnidireccional. Inserta las palabras aleatoriamente en las 8 direcciones posibles: horizontal (izq-der, der-izq), vertical (arriba-abajo, abajo-arriba) y diagonal (las 4 direcciones). Implementa obligatoriamente un sistema de validación de colisiones (intersection check) en los ejes X e Y antes de imprimir cada letra.
 ○ Toma directamente las 10 palabras clave configuradas al inicio, normalízalas (mayúsculas, sin espacios ni tildes) y construye una cuadrícula proporcional óptima (12x12 o 13x13).
 ○ Coloca las 10 palabras de forma aleatoria en direcciones válidas (horizontal, vertical y diagonal, tanto en sentido directo como inverso).
 ○ Rellena todos los espacios vacíos con letras aleatorias.
