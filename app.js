@@ -13290,7 +13290,140 @@ window.reGenerarHerramientaActual = function() {
 };
 
 window.imprimirHerramientaActual = function() {
+    if (document.getElementById('bingo-balota-actual')) {
+        window.imprimir30CartonesBingoSteam();
+        return;
+    }
     window.print();
+};
+
+window.imprimir30CartonesBingoSteam = function() {
+    const base = (typeof window.obtenerContenidoBaseIngesta === 'function') ? window.obtenerContenidoBaseIngesta() : { materia: 'Ciencias Naturales', grado: '7', concepto: 'STEAM', dificultad: 'medio' };
+    const data = (typeof window.generarDatosPedagogicosDinamicos === 'function') ? window.generarDatosPedagogicosDinamicos(base.materia, base.grado, base.concepto, base.dificultad) : { tema: 'Bingo STEAM', palabras: [] };
+    
+    let palabras = (data.palabras && data.palabras.length >= 9) ? data.palabras : [
+        "HIPÓTESIS", "EXPERIMENTO", "OBSERVACIÓN", "VARIABLE", "ANÁLISIS",
+        "EVIDENCIA", "TEORÍA", "MÉTODO", "MODELO", "DATOS",
+        "CIENCIA", "TECNOLOGÍA", "INGENIERÍA", "ARTE", "MATEMÁTICAS",
+        "INNOVACIÓN", "DISEÑO", "PROTOTIPO", "SISTEMA", "ENERGÍA"
+    ];
+
+    let printArea = document.getElementById('print-area-bingo');
+    if (!printArea) {
+        printArea = document.createElement('div');
+        printArea.id = 'print-area-bingo';
+        document.body.appendChild(printArea);
+    }
+
+    let printStyle = document.getElementById('style-print-bingo');
+    if (!printStyle) {
+        printStyle = document.createElement('style');
+        printStyle.id = 'style-print-bingo';
+        printStyle.innerHTML = `
+            @media print {
+                body > *:not(#print-area-bingo) {
+                    display: none !important;
+                }
+                #print-area-bingo {
+                    display: block !important;
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    width: 100%;
+                    background: white;
+                    color: black;
+                }
+                .carton-hoja-bingo {
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: space-around;
+                    page-break-after: always;
+                    break-after: page;
+                    padding: 8mm;
+                    box-sizing: border-box;
+                    min-height: 98vh;
+                }
+                .carton-card-bingo {
+                    width: 48%;
+                    border: 2.5px solid #0F172A;
+                    border-radius: 8px;
+                    padding: 8px;
+                    margin-bottom: 10px;
+                    box-sizing: border-box;
+                    page-break-inside: avoid;
+                    break-inside: avoid;
+                    font-family: Arial, sans-serif;
+                }
+                .carton-grid-bingo {
+                    display: grid;
+                    grid-template-columns: repeat(3, 1fr);
+                    gap: 3px;
+                    margin-top: 6px;
+                }
+                .carton-cell-bingo {
+                    border: 1.5px solid #334155;
+                    min-height: 44px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    text-align: center;
+                    font-size: 10.5px;
+                    font-weight: bold;
+                    padding: 3px;
+                    word-break: break-word;
+                }
+            }
+            @media screen {
+                #print-area-bingo {
+                    display: none;
+                }
+            }
+        `;
+        document.head.appendChild(printStyle);
+    }
+
+    let htmlCartones = '';
+    const temaBingo = data.tema || base.concepto || 'Actividad STEAM';
+    
+    for (let c = 1; c <= 30; c++) {
+        const shuffled = [...palabras].sort(() => Math.random() - 0.5);
+        const seleccion = shuffled.slice(0, 9);
+        
+        if (c % 2 === 1) {
+            htmlCartones += '<div class="carton-hoja-bingo">';
+        }
+
+        htmlCartones += `
+            <div class="carton-card-bingo">
+                <div style="border-bottom: 2px solid #0F172A; padding-bottom: 3px; margin-bottom: 4px; text-align: center;">
+                    <div style="font-size: 13px; font-weight: 900; text-transform: uppercase; color: #0F172A;">🎯 BINGO PEDAGÓGICO STEAM</div>
+                    <div style="font-size: 10px; font-weight: 700; color: #334155;">Tema: ${temaBingo} • Grado ${base.grado || '7'}°</div>
+                    <div style="display: flex; justify-content: space-between; font-size: 8.5px; margin-top: 2px; color: #64748B;">
+                        <span>Estudiante: _______________________</span>
+                        <span><b>Cartón #${c}</b></span>
+                    </div>
+                </div>
+                <div class="carton-grid-bingo">
+                    ${seleccion.map((pal, idx) => {
+                        if (idx === 4) {
+                            return '<div class="carton-cell-bingo" style="background: #F1F5F9; font-size: 9.5px;">⭐ STEAM<br>LIBRE</div>';
+                        }
+                        return '<div class="carton-cell-bingo">' + pal + '</div>';
+                    }).join('')}
+                </div>
+            </div>
+        `;
+
+        if (c % 2 === 0 || c === 30) {
+            htmlCartones += '</div>';
+        }
+    }
+
+    printArea.innerHTML = htmlCartones;
+
+    setTimeout(() => {
+        window.print();
+    }, 150);
 };
 
 window.togglePantallaCompletaVisorTool = function() {

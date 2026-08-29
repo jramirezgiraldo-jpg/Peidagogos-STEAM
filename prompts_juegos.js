@@ -715,10 +715,88 @@ Interfaz de Marcadores y Pantalla Final:
 ● Encabezado permanente con: Título del tema y el Puntaje Actual destacado visualmente.
 ● Condición de Victoria: El juego termina cuando todas las casillas del tablero han sido respondidas (es decir, el tablero entero está inactivo).
 ● Sistema de Calificación: Al finalizar, el sistema calcula una nota numérica clásica de 1.0 a 5.0 basándose en el porcentaje de puntos obtenidos frente al puntaje máximo posible del tablero.
-● Modal de Victoria/Fin: Muestra un modal central con confeti (CSS puro), la calificación final obtenida (1.0 a 5.0), el puntaje total acumulado, un mensaje de felicitación según el rendimiento, y un botón grande para "Jugar de nuevo" que reinicie el tablero y el puntaje. Todo el código debe estar debidamente comentado en español.`
+● Modal de Victoria/Fin: Muestra un modal central con confeti (CSS puro), la calificación final obtenida (1.0 a 5.0), el puntaje total acumulado, un mensaje de felicitación según el rendimiento, y un botón grande para "Jugar de nuevo" que reinicie el tablero y el puntaje. Todo el código debe estar debidamente comentado en español.`,
+
+    // 20. Bingo Pedagógico STEAM (Balotera Digital + Generador de 30 Cartones PDF)
+    bingo_steam: (tema, nivel, instruccion) => `Bingo Pedagógico STEAM (Balotera Digital Proyectable + Generador de 30 Cartones PDF)
+TEMA PRINCIPAL: ${tema}
+NIVEL EDUCATIVO: ${nivel}
+INSTRUCCIÓN: ${instruccion || 'Gira la balotera digital en el aula mientras los estudiantes marcan los conceptos en sus cartones impresos.'}
+
+Actúa como un desarrollador frontend senior, diseñador UX y pedagogo especialista en gamificación STEAM.
+
+FASE 1: GENERACIÓN DE CONTENIDO EDUCATIVO (CONCEPTOS Y DEFINICIONES)
+1. Define EXACTAMENTE entre 20 y 25 conceptos clave, términos científicos o principios fundamentales sobre "${tema}".
+2. Para cada concepto, redacta una pista o definición pedagógica concisa (1 o 2 líneas) que el docente cantará o proyectará con la balotera digital.
+
+FASE 2: DESARROLLO DEL INTERACTIVO EN ARCHIVO ÚNICO .html (HTML5, CSS3 y JS Vanilla sin librerías externas ni CDNs)
+
+REQUISITOS TÉCNICOS Y FUNCIONALES:
+1. Estructura y Lógica Dinámica (Balotera Digital en Pantalla):
+   - Escenario interactivo para el docente proyectable en pantalla gigante:
+     * Título: "🎯 Gran Bingo Pedagógico STEAM: ${tema}".
+     * Visor central prominente de balotera que muestra el concepto cantado actual.
+     * Botón táctil grande: "🎲 Girar Balotera / Cantar Siguiente Término".
+     * Panel de historial con las balotas/conceptos ya cantados.
+     * Botón de reinicio de partida.
+
+2. GENERADOR MATEMÁTICO DE 30 CARTONES IMPRIMIBLES (REQUISITO ESTRICTO):
+   - En la interfaz debe incluirse el botón: "📄 Imprimir 30 Cartones PDF".
+   - EL BOTÓN NO DEBE HACER SOLO window.print(). DEBE ejecutar obligatoriamente una función JavaScript que:
+     a) Baraje (shuffle) matemáticamente el banco de 20-25 conceptos para construir EXACTAMENTE 30 matrices únicas (cartones) distintas e irrepetibles.
+     b) La cuadrícula de cada cartón debe ser de 3x3 (9 casillas) o 4x4 (16 casillas), con la casilla central como "⭐ STEAM LIBRE".
+     c) Inyecte dinámicamente estas 30 cuadrículas HTML dentro de un contenedor dedicado: <div id="print-area"></div>.
+     d) Cada cartón generado dentro de #print-area debe contener:
+        - Encabezado: "🎯 BINGO PEDAGÓGICO STEAM — ${tema}".
+        - Subtítulo: "Estudiante: _______________________ Grado: ${nivel} • Cartón N.° [1 al 30]".
+        - Cuadrícula con bordes sólidos negros y celdas legibles.
+     e) Inmediatamente tras poblar #print-area con los 30 cartones, ejecutar window.print().
+
+3. CSS DE IMPRESIÓN ESTRICTO (@media print):
+   - Configura la regla @media print para ocultar completamente la interfaz del juego y mostrar únicamente el área de cartones:
+     @media print {
+       body > *:not(#print-area) {
+         display: none !important;
+       }
+       #print-area {
+         display: block !important;
+         position: absolute;
+         left: 0;
+         top: 0;
+         width: 100%;
+       }
+       .carton-bingo {
+         page-break-inside: avoid;
+         break-inside: avoid;
+         border: 2px solid #000;
+         padding: 10px;
+         box-sizing: border-box;
+         width: 48%;
+         display: inline-block;
+         vertical-align: top;
+         margin-bottom: 15px;
+       }
+       .pagina-impresion {
+         page-break-after: always;
+         break-after: page;
+         display: flex;
+         flex-wrap: wrap;
+         justify-content: space-between;
+       }
+     }
+   - Distribuir 2 o 4 cartones por hoja tamaño carta para optimizar el papel.
+   - En pantalla normal (@media screen), #print-area debe tener display: none;.
+
+4. Gamificación y Final de Partida:
+   - Botón de verificación y modal de victoria festivo con confeti CSS cuando un alumno cante "¡BINGO STEAM!", mostrando calificación 5.0 y emitiendo postMessage({ tipo: 'juego_completado', victoria: true, xp: 250 }, '*').`
 };
 
 // Aliases para soportar todos los identificadores posibles (con prefijo 'juego_', abreviaciones y nombres exactos)
+PROMPTS_JUEGOS['bingo_steam'] = PROMPTS_JUEGOS.bingo_steam;
+PROMPTS_JUEGOS['juego_bingo_steam'] = PROMPTS_JUEGOS.bingo_steam;
+PROMPTS_JUEGOS['bingo'] = PROMPTS_JUEGOS.bingo_steam;
+PROMPTS_JUEGOS['juego_bingo'] = PROMPTS_JUEGOS.bingo_steam;
+
 PROMPTS_JUEGOS['juego_sopa_letras'] = PROMPTS_JUEGOS.sopa_letras;
 PROMPTS_JUEGOS['juego_crucigrama'] = PROMPTS_JUEGOS.crucigrama;
 PROMPTS_JUEGOS['juego_emparejar'] = PROMPTS_JUEGOS.emparejar;

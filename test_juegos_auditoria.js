@@ -25,7 +25,8 @@ const LISTA_18_JUEGOS = [
     { id: 'rompecabezas_frases', nombre: 'Rompecabezas de Frases / Leyes', alias: ['juego_rompecabezas_frases'] },
     { id: 'trivia', nombre: 'Trivia Contra Reloj', alias: ['juego_trivia', 'trivia_reloj'] },
     { id: 'ruleta_saber', nombre: 'Ruleta del Saber', alias: ['juego_ruleta', 'ruleta'] },
-    { id: 'criptograma', nombre: 'Criptograma Científico', alias: ['juego_criptograma', 'criptograma_cientifico'] }
+    { id: 'criptograma', nombre: 'Criptograma Científico', alias: ['juego_criptograma', 'criptograma_cientifico'] },
+    { id: 'bingo_steam', nombre: 'Bingo Pedagógico STEAM', alias: ['juego_bingo_steam', 'bingo', 'juego_bingo'] }
 ];
 
 console.log('======================================================================');
@@ -114,6 +115,14 @@ afirmar(promptSopa.includes('PROHIBIDO USAR POSITION FIXED O ABSOLUTE EN EL FOOT
 const promptCrucigrama = obtenerPromptJuego('crucigrama', 'Ecosistemas', '7°', 'Completa');
 afirmar(promptCrucigrama.includes('REQUISITO VISUAL ESTRICTO') && promptCrucigrama.includes('nth-child'), '[crucigrama] Prohíbe estilos de tabla alternada y franjas de fondo');
 afirmar(promptCrucigrama.includes('cuadros individuales blancos'), '[crucigrama] Exige celdas individuales cuadradas clásicas');
+
+// Bingo STEAM: Maquetación de 30 cartones y @media print
+const promptBingo = obtenerPromptJuego('bingo_steam', 'Microbiología', '9°', 'Bingo');
+afirmar(promptBingo.includes('@media print'), '[bingo_steam] Exige regla CSS @media print dedicada');
+afirmar(promptBingo.includes('#print-area'), '[bingo_steam] Exige contenedor exclusivo #print-area');
+afirmar(promptBingo.includes('30 matrices únicas'), '[bingo_steam] Exige generación matemática de 30 cartones únicos');
+afirmar(promptBingo.includes('page-break-inside: avoid;'), '[bingo_steam] Exige regla page-break-inside avoid');
+
 
 // ─────────────────────────────────────────────────────────────────────────────
 // PRUEBA 5: Simulación de Estructura de Respuesta HTML5
