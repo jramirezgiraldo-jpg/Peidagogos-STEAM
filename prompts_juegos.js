@@ -751,14 +751,39 @@ PROMPTS_JUEGOS['criptograma_cientifico'] = PROMPTS_JUEGOS.criptograma;
 PROMPTS_JUEGOS['juego_jeopardy'] = PROMPTS_JUEGOS.tablero_pistas;
 PROMPTS_JUEGOS['jeopardy'] = PROMPTS_JUEGOS.tablero_pistas;
 
+const DIRECTIVAS_UNIVERSALES_STEAM = `
+================================================================================
+REGLAS UNIVERSALES DE ARQUITECTURA Y CÓDIGO (OBLIGATORIAS PARA TODOS LOS JUEGOS):
+1. FORMATO DE ENTREGA ESTRICTO (CERO MARKDOWN):
+   - Devuelve ÚNICAMENTE código HTML5 puro que empiece estrictamente con <!DOCTYPE html> y termine con </html>.
+   - PROHIBIDO el uso de bloques markdown (NUNCA uses \`\`\`html ni \`\`\` ni texto explicativo antes o después).
+   - TODO el CSS debe ir en <style> y todo el JavaScript en <script> en el mismo archivo.
+   - CERO dependencias externas ni CDNs (código 100% Vanilla autocontenido, seguro y offline).
+2. CONTROL ESTRICTO DE OVERFLOW Y LAYOUT MOBILE-FIRST:
+   - Diseño optimizado para pantallas táctiles desde 360px de ancho hasta proyección en aula sin scroll horizontal.
+   - Aplica "box-sizing: border-box; margin: 0; padding: 0;" y "overflow-x: hidden;" en html y body.
+   - Ningún contenedor inferior (footer, badges, botones, barras o teclados) debe tener position: fixed o absolute que cubra, tape o mutile el tablero o contenido de juego superior.
+3. GAMIFICACIÓN, CALIFICACIÓN (1.0 A 5.0) Y TRANSMISIÓN DE XP:
+   - Al finalizar o ganar la partida, el juego debe calcular una calificación numérica de 1.0 a 5.0 y desplegar un modal de victoria con confeti CSS y botón de "Reiniciar juego".
+   - OBLIGATORIO: En el momento de la victoria, el JavaScript del juego DEBE emitir el evento postMessage hacia la plataforma principal para acreditar los puntos:
+     try {
+       if (window.parent && window.parent !== window) {
+         window.parent.postMessage({ tipo: 'juego_completado', victoria: true, xp: 250 }, '*');
+       }
+     } catch (e) {}
+================================================================================
+`;
+
 function obtenerPromptJuego(tipoJuego, tema, nivel, instruccion) {
     const key = String(tipoJuego || '').trim().toLowerCase();
     const generator = PROMPTS_JUEGOS[key] || PROMPTS_JUEGOS['sopa_letras'];
     const t = tema || 'Conceptos clave de la temática';
     const n = nivel || 'Estudiantes de secundaria, grados 6 a 11';
     const i = instruccion || 'Resuelve la actividad interactiva analizando cuidadosamente cada concepto.';
-    return generator(t, n, i);
+    const promptBase = typeof generator === 'function' ? generator(t, n, i) : String(generator);
+    return `${promptBase}\n\n${DIRECTIVAS_UNIVERSALES_STEAM}`;
 }
+
 
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = { PROMPTS_JUEGOS, obtenerPromptJuego };
