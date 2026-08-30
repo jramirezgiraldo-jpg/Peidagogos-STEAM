@@ -391,9 +391,9 @@ Requisitos estrictos:
                     codigo: 'CASCADE_EXHAUSTED'
                 });
             }
+        }
 
         
-        }
 
 const prompt = `Actúa como un ${rol}. Tu objetivo pedagógico es enseñar ${asignatura} en el contexto narrativo inmersivo de ${ambiente}.
 
