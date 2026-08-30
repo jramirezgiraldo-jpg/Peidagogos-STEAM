@@ -9618,6 +9618,16 @@ window.abrirActividadDesdeInbox = function(id) {
         return;
     }
 
+    // Si la actividad es Ruleta Pictionary y Tabú STEAM
+    const esPictionaryTabu = (actividad.toolId && (actividad.toolId.includes('pictionary') || actividad.toolId.includes('tabu') || actividad.toolId === 'ruleta_pictionary')) ||
+                            (actividad.tipo_actividad && (actividad.tipo_actividad.includes('pictionary') || actividad.tipo_actividad.includes('tabu'))) ||
+                            (actividad.toolTitulo && (actividad.toolTitulo.toLowerCase().includes('pictionary') || actividad.toolTitulo.toLowerCase().includes('tabú'))) ||
+                            (actividad.titulo && (actividad.titulo.toLowerCase().includes('pictionary') || actividad.titulo.toLowerCase().includes('tabú')));
+    if (esPictionaryTabu && typeof window.renderizarPictionaryTabuModal === 'function') {
+        window.renderizarPictionaryTabuModal(actividad);
+        return;
+    }
+
     // Si la actividad cuenta con interactivo HTML5 generado de Caja 2
     if (actividad.htmlJuego || (actividad.actividad_data && actividad.actividad_data.htmlJuego)) {
         const htmlCode = actividad.htmlJuego || actividad.actividad_data.htmlJuego;
@@ -13977,6 +13987,11 @@ window.ejecutarRenderizadorHerramienta = function(id, stage, base) {
             window.renderizarDominoConceptualTool(stage, base);
             break;
         case 'pictionary_tabu':
+        case 'ruleta_pictionary':
+        case 'ruleta_tabu':
+        case 'juego_pictionary_tabu':
+        case 'pictionary':
+        case 'tabu':
             window.renderizarPictionaryTabuTool(stage, base);
             break;
 
@@ -16737,21 +16752,521 @@ window.renderizarLaberintoLogicoTool = function(stage, base) {
     window.renderizarLaberintoDecisiones(stage, base);
 };
 
-window.renderizarPictionaryTabuTool = function(stage, base) {
-    const data = window.generarDatosPedagogicosDinamicos(base.materia, base.grado, base.concepto, base.dificultad);
-    stage.innerHTML = `
-        <div style="flex: 1; padding: 25px; background: linear-gradient(135deg, #701A75, #A21CAF); color: white; display: flex; flex-direction: column; justify-content: space-between; text-align: center;">
-            <span style="background: rgba(255,255,255,0.2); padding: 4px 14px; border-radius: 20px; font-weight: 800; font-size: 0.85rem; text-transform: uppercase; margin: 0 auto;">🎭 Reto Tabú STEAM • ${base.materia}</span>
-            <div style="margin: 15px 0;">
-                <h1 style="font-size: 2rem; font-weight: 900; color: #FEF08A; margin: 0 0 8px 0;">${data.tema}</h1>
-                <div style="background: rgba(0,0,0,0.3); border: 2px solid rgba(255,255,255,0.3); border-radius: 14px; padding: 14px; max-width: 480px; margin: 0 auto;">
-                    <div style="font-size: 0.82rem; font-weight: 900; color: #FCA5A5; text-transform: uppercase; margin-bottom: 6px;">Palabras Prohibidas (Tabú):</div>
-                    <div style="font-size: 1.05rem; font-weight: 700; color: white;">${data.palabras.slice(0, 4).join(' • ')}</div>
+// ============================================================================
+// MOTOR DE GAMIFICACIÓN EN AULA: RULETA PICTIONARY Y TABÚ STEAM
+// ============================================================================
+
+window.obtenerRetosPictionaryTabu = function(base, dataIA) {
+    dataIA = dataIA || window._aiGameData || base.dataIA || base.actividad_data || {};
+    base = base || {};
+
+    const fallbackRetos = [
+        { concepto: "Fotosíntesis", modalidad: "TABÚ", palabras_prohibidas: ["Planta", "Sol", "Luz", "Clorofila"], pista: "Transformación bioenergética autótrofa" },
+        { concepto: "Microscopio", modalidad: "PICTIONARY", palabras_prohibidas: [], pista: "Instrumento de aumento y resolución celular" },
+        { concepto: "Mitocondria", modalidad: "TABÚ", palabras_prohibidas: ["Energía", "ATP", "Célula", "Respiración"], pista: "Central energética de la célula eucariota" },
+        { concepto: "Telescopio", modalidad: "PICTIONARY", palabras_prohibidas: [], pista: "Instrumento óptico de observación astronómica" },
+        { concepto: "Ecosistema", modalidad: "TABÚ", palabras_prohibidas: ["Animales", "Plantas", "Medio", "Ambiente"], pista: "Red biológica de factores bióticos y abióticos" },
+        { concepto: "Gravedad", modalidad: "PICTIONARY", palabras_prohibidas: [], pista: "Fuerza atractiva de los cuerpos con masa" },
+        { concepto: "ADN", modalidad: "TABÚ", palabras_prohibidas: ["Gen", "Herencia", "Núcleo", "Hélice"], pista: "Macromolécula del código genético" },
+        { concepto: "Circuito Eléctrico", modalidad: "PICTIONARY", palabras_prohibidas: [], pista: "Trayectoria cerrada de corriente y electrones" },
+        { concepto: "Termómetro", modalidad: "TABÚ", palabras_prohibidas: ["Temperatura", "Calor", "Mercurio", "Grados"], pista: "Instrumento de medición térmica" },
+        { concepto: "Robot", modalidad: "PICTIONARY", palabras_prohibidas: [], pista: "Mecanismo electromecánico automatizado programable" }
+    ];
+
+    let candidatos = [];
+    if (Array.isArray(dataIA.retos) && dataIA.retos.length >= 8) {
+        candidatos = dataIA.retos;
+    } else if (Array.isArray(base.retos) && base.retos.length >= 8) {
+        candidatos = base.retos;
+    } else if (Array.isArray(dataIA.palabras) && dataIA.palabras.length >= 8) {
+        candidatos = dataIA.palabras.map((w, idx) => ({
+            concepto: w,
+            modalidad: idx % 2 === 0 ? "TABÚ" : "PICTIONARY",
+            palabras_prohibidas: ["Definición", "Concepto", "Ejemplo", "Elemento"],
+            pista: `Concepto clave sobre ${dataIA.tema || 'Ciencias'}`
+        }));
+    } else {
+        candidatos = fallbackRetos;
+    }
+
+    return candidatos.map((item, idx) => ({
+        id: `reto_${idx}`,
+        concepto: String(item.concepto || item.palabra || `Reto ${idx + 1}`).trim(),
+        modalidad: (String(item.modalidad || '').toUpperCase().includes('PICT') ? 'PICTIONARY' : 'TABÚ'),
+        palabras_prohibidas: Array.isArray(item.palabras_prohibidas) ? item.palabras_prohibidas : (item.modalidad === 'TABÚ' ? ["Clave", "Objeto", "Proceso"] : []),
+        pista: item.pista || 'Reto pedagógico activo',
+        completado: false
+    }));
+};
+
+window.iniciarRuletaPictionaryTabu = function(container, base) {
+    base = base || {};
+    const dataIA = window._aiGameData || base.dataIA || base.actividad_data || {};
+    const tema = base.tema || dataIA.tema || base.concepto || 'Ciencia y Tecnología STEAM';
+    const retos = window.obtenerRetosPictionaryTabu(base, dataIA);
+
+    window._estadoRuletaPictionaryTabu = {
+        container: container,
+        base: base,
+        tema: tema,
+        retos: retos,
+        anguloActual: 0,
+        estaGirando: false,
+        retosSuperados: 0,
+        totalIntentos: 0,
+        indiceSeleccionado: 0,
+        intervaloTimer: null,
+        segundosRestantes: 60
+    };
+
+    window.renderizarTableroRuletaPictionaryTabuUI();
+};
+
+window.renderizarTableroRuletaPictionaryTabuUI = function() {
+    const st = window._estadoRuletaPictionaryTabu;
+    if (!st || !st.container) return;
+
+    const restantes = st.retos.filter(r => !r.completado).length;
+
+    st.container.innerHTML = `
+        <div style="width: 100%; min-height: 560px; background: linear-gradient(135deg, #1E1B4B 0%, #0F172A 100%); color: white; display: flex; flex-direction: column; justify-content: space-between; align-items: center; padding: 16px 12px; box-sizing: border-box; font-family: system-ui, -apple-system, sans-serif; overflow-y: auto;">
+            
+            <!-- MARCADOR SUPERIOR (HUD) -->
+            <div style="width: 100%; max-width: 580px; background: rgba(255,255,255,0.07); backdrop-filter: blur(8px); border: 1.5px solid rgba(255,255,255,0.15); border-radius: 18px; padding: 12px 18px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 8px 20px rgba(0,0,0,0.25);">
+                <div>
+                    <div style="font-size: 0.75rem; color: #94A3B8; font-weight: 800; text-transform: uppercase;">
+                        🎭 Ruleta STEAM • ${st.tema}
+                    </div>
+                    <div style="font-size: 1.1rem; font-weight: 900; color: #38BDF8; margin-top: 2px;">
+                        Superados: <span style="color: #4ADE80;">${st.retosSuperados}</span> / Intentos: ${st.totalIntentos}
+                    </div>
+                </div>
+
+                <div style="display: flex; gap: 8px;">
+                    <span style="background: #3B82F6; color: white; padding: 4px 10px; border-radius: 10px; font-size: 0.75rem; font-weight: 800;">
+                        ${restantes} retos por jugar
+                    </span>
+                    <button onclick="window.finalizarJuegoPictionaryTabu()" style="background: linear-gradient(135deg, #10B981, #059669); color: white; border: none; padding: 6px 12px; border-radius: 8px; font-size: 0.78rem; font-weight: 800; cursor: pointer;">
+                        🏁 Finalizar
+                    </button>
                 </div>
             </div>
-            <div style="font-size: 0.9rem; color: #F5D0FE;">¡Explica el concepto a tu equipo sin usar ninguna de las palabras prohibidas!</div>
+
+            <!-- CONTENEDOR CENTRAL DE LA RULETA -->
+            <div style="position: relative; margin: 20px 0; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                
+                <!-- Puntero Superior Indicador -->
+                <div style="position: absolute; top: -14px; left: 50%; transform: translateX(-50%); width: 0; height: 0; border-left: 14px solid transparent; border-right: 14px solid transparent; border-top: 24px solid #F59E0B; z-index: 10; filter: drop-shadow(0 3px 6px rgba(0,0,0,0.5));"></div>
+
+                <!-- Canvas de la Ruleta -->
+                <canvas id="ruleta-pictionary-canvas" width="340" height="340" style="max-width: 90vw; max-height: 90vw; border-radius: 50%; box-shadow: 0 0 35px rgba(56,189,248,0.25), inset 0 0 20px rgba(0,0,0,0.5);"></canvas>
+
+                <!-- Botón de Eje Central Decorativo -->
+                <div style="position: absolute; width: 54px; height: 54px; background: radial-gradient(circle, #F59E0B, #B45309); border: 3px solid white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; box-shadow: 0 4px 12px rgba(0,0,0,0.4); z-index: 5; pointer-events: none;">
+                    🎡
+                </div>
+            </div>
+
+            <!-- BOTÓN DE ACCIÓN GIRAR -->
+            <div style="width: 100%; max-width: 420px; display: flex; flex-direction: column; gap: 8px; align-items: center;">
+                <button id="btn-girar-ruleta-pictionary" onclick="window.girarRuletaPictionaryTabu()" style="width: 100%; padding: 14px 24px; border-radius: 16px; border: none; background: ${st.estaGirando ? '#64748B' : 'linear-gradient(135deg, #F59E0B, #D97706)'}; color: white; font-size: 1.15rem; font-weight: 900; cursor: ${st.estaGirando ? 'default' : 'pointer'}; display: flex; align-items: center; justify-content: center; gap: 10px; box-shadow: 0 4px 16px rgba(245,158,11,0.4); transition: transform 0.1s;" ${st.estaGirando ? 'disabled' : ''}>
+                    <span>${st.estaGirando ? '⏳' : '🎲'}</span> ${st.estaGirando ? '¡Girando Ruleta...!' : '¡GIRAR RULETA!'}
+                </button>
+                <div style="font-size: 0.75rem; color: #94A3B8; text-align: center;">
+                    💡 Cada giro selecciona al azar un reto de Pictionary o Tabú con 60 segundos para responder en equipo.
+                </div>
+            </div>
         </div>
     `;
+
+    setTimeout(() => {
+        window.dibujarRuletaPictionaryCanvas();
+    }, 50);
+};
+
+// Dibujo de la Ruleta en Canvas
+window.dibujarRuletaPictionaryCanvas = function() {
+    const st = window._estadoRuletaPictionaryTabu;
+    if (!st) return;
+
+    const canvas = document.getElementById('ruleta-pictionary-canvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    const total = st.retos.length;
+    const arc = (2 * Math.PI) / total;
+    const cx = canvas.width / 2;
+    const cy = canvas.height / 2;
+    const r = cx - 8;
+
+    const colores = [
+        '#059669', '#2563EB', '#D97706', '#7C3AED', 
+        '#DC2626', '#0891B2', '#DB2777', '#4F46E5', 
+        '#16A34A', '#EA580C', '#0D9488', '#9333EA'
+    ];
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // Dibujar sectores
+    for (let i = 0; i < total; i++) {
+        const angle = st.anguloActual + i * arc;
+        const reto = st.retos[i];
+
+        ctx.beginPath();
+        ctx.fillStyle = reto.completado ? '#475569' : colores[i % colores.length];
+        ctx.moveTo(cx, cy);
+        ctx.arc(cx, cy, r, angle, angle + arc);
+        ctx.lineTo(cx, cy);
+        ctx.fill();
+
+        ctx.strokeStyle = '#FFFFFF';
+        ctx.lineWidth = 2;
+        ctx.stroke();
+
+        // Texto del concepto
+        ctx.save();
+        ctx.translate(cx, cy);
+        ctx.rotate(angle + arc / 2);
+        ctx.textAlign = 'right';
+        ctx.fillStyle = '#FFFFFF';
+        ctx.font = 'bold 11px system-ui, sans-serif';
+        const icono = reto.modalidad === 'PICTIONARY' ? '🎨 ' : '🚫 ';
+        const texto = reto.completado ? `✓ ${reto.concepto.slice(0, 10)}` : `${icono}${reto.concepto.slice(0, 11)}`;
+        ctx.fillText(texto, r - 16, 4);
+        ctx.restore();
+    }
+
+    // Borde exterior
+    ctx.beginPath();
+    ctx.arc(cx, cy, r, 0, 2 * Math.PI);
+    ctx.strokeStyle = '#F59E0B';
+    ctx.lineWidth = 6;
+    ctx.stroke();
+};
+
+// Animación de Giro con desaceleración suave (ease-out)
+window.girarRuletaPictionaryTabu = function() {
+    const st = window._estadoRuletaPictionaryTabu;
+    if (!st || st.estaGirando) return;
+
+    st.estaGirando = true;
+    const btn = document.getElementById('btn-girar-ruleta-pictionary');
+    if (btn) {
+        btn.disabled = true;
+        btn.innerHTML = '<span>⏳</span> ¡Girando Ruleta...!';
+        btn.style.background = '#64748B';
+    }
+
+    const total = st.retos.length;
+    const arc = (2 * Math.PI) / total;
+
+    // Priorizar retos no completados
+    let indicesPendientes = [];
+    st.retos.forEach((r, idx) => {
+        if (!r.completado) indicesPendientes.push(idx);
+    });
+    if (indicesPendientes.length === 0) {
+        indicesPendientes = st.retos.map((_, idx) => idx);
+    }
+    const ganadorIdx = indicesPendientes[Math.floor(Math.random() * indicesPendientes.length)];
+    st.indiceSeleccionado = ganadorIdx;
+
+    // El puntero está arriba en 3*PI/2 (270 grados).
+    const anguloPuntero = (3 * Math.PI) / 2;
+    const offsetCentroSector = ganadorIdx * arc + arc / 2;
+    const vueltasCompletas = (5 + Math.floor(Math.random() * 3)) * 2 * Math.PI;
+    
+    // Normalizar ángulo actual
+    const anguloInicial = st.anguloActual % (2 * Math.PI);
+    const anguloFinal = anguloInicial + vueltasCompletas + (anguloPuntero - (anguloInicial + offsetCentroSector) % (2 * Math.PI));
+
+    const duracionMs = 3500;
+    const tiempoInicio = performance.now();
+
+    function animarGiro(tiempoActual) {
+        const transcurrido = tiempoActual - tiempoInicio;
+        const progreso = Math.min(1, transcurrido / duracionMs);
+        
+        // Easing cúbico desacelerado (ease-out)
+        const factor = 1 - Math.pow(1 - progreso, 3);
+        st.anguloActual = anguloInicial + (anguloFinal - anguloInicial) * factor;
+
+        window.dibujarRuletaPictionaryCanvas();
+
+        if (progreso < 1) {
+            requestAnimationFrame(animarGiro);
+        } else {
+            st.estaGirando = false;
+            if (btn) {
+                btn.disabled = false;
+                btn.innerHTML = '<span>🎲</span> ¡GIRAR RULETA!';
+                btn.style.background = 'linear-gradient(135deg, #F59E0B, #D97706)';
+            }
+            setTimeout(() => {
+                window.abrirModalRetoPictionaryTabu(st.retos[ganadorIdx]);
+            }, 300);
+        }
+    }
+
+    requestAnimationFrame(animarGiro);
+};
+
+// Modal de Reto con Temporizador Regresivo de 60 segundos
+window.abrirModalRetoPictionaryTabu = function(reto) {
+    const st = window._estadoRuletaPictionaryTabu;
+    if (!st) return;
+
+    if (st.intervaloTimer) clearInterval(st.intervaloTimer);
+    st.segundosRestantes = 60;
+
+    const esTabu = reto.modalidad === 'TABÚ';
+
+    const modal = document.createElement('div');
+    modal.id = 'modal-reto-pictionary-tabu';
+    modal.style.cssText = "position: fixed; inset: 0; background: rgba(15,23,42,0.92); backdrop-filter: blur(10px); display: flex; align-items: center; justify-content: center; z-index: 999999; padding: 16px; font-family: system-ui, sans-serif;";
+
+    modal.innerHTML = `
+        <div style="background: linear-gradient(135deg, ${esTabu ? '#4A044E, #1E1B4B' : '#064E3B, #0F172A'}); border: 3px solid ${esTabu ? '#F43F5E' : '#38BDF8'}; border-radius: 24px; padding: 24px 20px; max-width: 500px; width: 100%; text-align: center; box-shadow: 0 0 50px rgba(0,0,0,0.6); color: white;">
+            
+            <!-- Badge de Modalidad -->
+            <div style="display: inline-flex; align-items: center; gap: 6px; background: ${esTabu ? '#BE123C' : '#0284C7'}; color: white; padding: 6px 16px; border-radius: 20px; font-size: 0.85rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px;">
+                <span>${esTabu ? '🚫' : '🎨'}</span> MODO ${reto.modalidad}
+            </div>
+
+            <!-- Título del Concepto -->
+            <h1 style="margin: 0 0 6px 0; font-size: 2.2rem; font-weight: 900; color: #FEF08A; line-height: 1.15;">
+                ${reto.concepto}
+            </h1>
+            <div style="font-size: 0.82rem; color: #CBD5E1; margin-bottom: 16px;">
+                ${reto.pista}
+            </div>
+
+            <!-- Instrucciones Específicas -->
+            <div style="background: rgba(255,255,255,0.08); border-radius: 14px; padding: 14px; margin-bottom: 16px; border: 1px solid rgba(255,255,255,0.15);">
+                ${esTabu ? `
+                    <div style="font-size: 0.78rem; font-weight: 900; color: #FCA5A5; text-transform: uppercase; margin-bottom: 8px;">
+                        ⚠️ PALABRAS PROHIBIDAS (¡NO PUEDES DECIRLAS!):
+                    </div>
+                    <div style="display: flex; gap: 8px; flex-wrap: wrap; justify-content: center;">
+                        ${reto.palabras_prohibidas.map(w => `
+                            <span style="background: #881337; color: #FECDD3; border: 1.5px solid #F43F5E; padding: 6px 12px; border-radius: 10px; font-weight: 900; font-size: 0.95rem;">
+                                🚫 ${w}
+                            </span>
+                        `).join('')}
+                    </div>
+                    <div style="font-size: 0.76rem; color: #E2E8F0; margin-top: 10px;">
+                        Explica el concepto a tu equipo usando sinónimos y analogías científicas.
+                    </div>
+                ` : `
+                    <div style="font-size: 0.78rem; font-weight: 900; color: #7DD3FC; text-transform: uppercase; margin-bottom: 6px;">
+                        ✏️ INSTRUCCIÓN DE PICTIONARY:
+                    </div>
+                    <div style="font-size: 1rem; font-weight: 800; color: #FFFFFF; line-height: 1.35;">
+                        Dibuja este concepto en la pizarra o papel.
+                    </div>
+                    <div style="font-size: 0.76rem; color: #BAE6FD; margin-top: 8px;">
+                        ¡Prohibido hablar, emitir sonidos o escribir letras, números o símbolos!
+                    </div>
+                `}
+            </div>
+
+            <!-- CRONÓMETRO REGRESIVO (60s) -->
+            <div style="background: rgba(0,0,0,0.3); border-radius: 16px; padding: 10px 16px; margin-bottom: 20px; display: flex; align-items: center; justify-content: space-between;">
+                <span style="font-size: 0.85rem; font-weight: 800; color: #94A3B8;">TIEMPO EN AULA:</span>
+                <div id="cronometro-ruleta-timer" style="font-size: 1.8rem; font-weight: 900; color: #4ADE80; font-family: monospace;">
+                    ⏱️ 60s
+                </div>
+            </div>
+
+            <!-- BOTONES DE EVALUACIÓN DOCENTE / EQUIPO -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                <button onclick="window.evaluarRetoPictionaryTabu(true)" style="background: linear-gradient(135deg, #10B981, #059669); color: white; border: none; padding: 14px 12px; border-radius: 14px; font-size: 1rem; font-weight: 900; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px; box-shadow: 0 4px 12px rgba(16,185,129,0.4);">
+                    <span>✅</span> ¡Superado!
+                </button>
+                <button onclick="window.evaluarRetoPictionaryTabu(false)" style="background: linear-gradient(135deg, #EF4444, #DC2626); color: white; border: none; padding: 14px 12px; border-radius: 14px; font-size: 1rem; font-weight: 900; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px; box-shadow: 0 4px 12px rgba(239,68,68,0.4);">
+                    <span>❌</span> Fallo / Tiempo
+                </button>
+            </div>
+        </div>
+    `;
+
+    document.body.appendChild(modal);
+
+    // Iniciar temporizador de 60 segundos
+    st.intervaloTimer = setInterval(() => {
+        st.segundosRestantes--;
+        const timerEl = document.getElementById('cronometro-ruleta-timer');
+        if (timerEl) {
+            timerEl.innerText = `⏱️ ${st.segundosRestantes}s`;
+            if (st.segundosRestantes <= 10) {
+                timerEl.style.color = '#EF4444';
+            } else if (st.segundosRestantes <= 30) {
+                timerEl.style.color = '#F59E0B';
+            }
+        }
+        if (st.segundosRestantes <= 0) {
+            clearInterval(st.intervaloTimer);
+            if (timerEl) timerEl.innerText = `🚨 ¡TIEMPO!`;
+        }
+    }, 1000);
+};
+
+// Evaluación de Reto y Actualización del Marcador
+window.evaluarRetoPictionaryTabu = function(esSuperado) {
+    const st = window._estadoRuletaPictionaryTabu;
+    if (!st) return;
+
+    if (st.intervaloTimer) clearInterval(st.intervaloTimer);
+    document.getElementById('modal-reto-pictionary-tabu')?.remove();
+
+    st.totalIntentos++;
+    if (esSuperado) {
+        st.retosSuperados++;
+        if (st.retos[st.indiceSeleccionado]) {
+            st.retos[st.indiceSeleccionado].completado = true;
+        }
+    }
+
+    window.renderizarTableroRuletaPictionaryTabuUI();
+
+    // Si se completaron todos los retos, finalizar automáticamente
+    const restantes = st.retos.filter(r => !r.completado).length;
+    if (restantes === 0) {
+        setTimeout(() => {
+            window.finalizarJuegoPictionaryTabu();
+        }, 400);
+    }
+};
+
+// Finalización del Juego, Calificación Socioformativa y Persistencia Dual
+window.finalizarJuegoPictionaryTabu = function() {
+    const st = window._estadoRuletaPictionaryTabu;
+    if (!st) return;
+
+    if (st.intervaloTimer) clearInterval(st.intervaloTimer);
+    document.getElementById('modal-reto-pictionary-tabu')?.remove();
+
+    const intentos = Math.max(1, st.totalIntentos);
+    const superados = st.retosSuperados;
+    const tasa = superados / intentos;
+
+    let calificacion = Math.min(5.0, Math.max(1.0, 1.0 + (tasa * 4.0)));
+    calificacion = parseFloat(calificacion.toFixed(1));
+    const xpGanado = Math.min(250, 60 + (superados * 20));
+
+    const nivelDesempeno = calificacion >= 4.6 ? 'Superior' : (calificacion >= 4.0 ? 'Alto' : (calificacion >= 3.0 ? 'Básico' : 'Bajo'));
+
+    // Guardar en la planilla docente
+    const user = (typeof window.obtenerUsuarioActual === 'function') ? window.obtenerUsuarioActual() : null;
+    const estId = (user && (user.documento || user.usuario)) || window.usuario_actual || 'estudiante_steam';
+    const grupo = st.base.grupo || st.base.grado || (user && user.grupo) || '7C';
+
+    if (typeof window.guardarCalificacionActividad === 'function') {
+        window.guardarCalificacionActividad({
+            id_estudiante: estId,
+            id_actividad: `pictionary_tabu_${Date.now()}`,
+            calificacion: calificacion,
+            titulo_actividad: `Ruleta Pictionary y Tabú: ${st.tema}`,
+            tipo_herramienta: 'pictionary_tabu',
+            materia: st.base.materia || 'Lenguaje, Arte y Ciencias STEAM',
+            grupo: grupo,
+            detalles: {
+                retos_superados: superados,
+                total_intentos: intentos,
+                tasa_exito: Math.round(tasa * 100),
+                xp_ganado: xpGanado
+            }
+        });
+    }
+
+    // Modal de Victoria Estándar
+    const modal = document.createElement('div');
+    modal.id = 'modal-fin-pictionary-tabu';
+    modal.style.cssText = "position: fixed; inset: 0; background: rgba(15,23,42,0.92); backdrop-filter: blur(10px); display: flex; align-items: center; justify-content: center; z-index: 999999; padding: 20px; font-family: system-ui, sans-serif;";
+
+    modal.innerHTML = `
+        <div style="background: linear-gradient(135deg, #1E1B4B, #0F172A); border: 3px solid #F59E0B; border-radius: 26px; padding: 32px 24px; max-width: 500px; width: 100%; text-align: center; box-shadow: 0 0 50px rgba(245,158,11,0.3); color: white;">
+            <div style="font-size: 3.5rem; margin-bottom: 8px;">🏆</div>
+            <h2 style="margin: 0 0 6px 0; font-size: 1.8rem; font-weight: 900; color: #FCD34D;">
+                ¡JORNADA STEAM CULMINADA!
+            </h2>
+            <p style="color: #CBD5E1; font-size: 0.88rem; margin: 0 0 20px 0; line-height: 1.4;">
+                Superaron <b>${superados}</b> retos de Pictionary y Tabú de un total de <b>${intentos}</b> intentos con gran dinamismo y trabajo en equipo.
+            </p>
+
+            <div style="background: rgba(255,255,255,0.06); border: 1.5px solid #F59E0B; border-radius: 16px; padding: 14px; margin-bottom: 22px;">
+                <div style="display: flex; justify-content: space-around; align-items: center;">
+                    <div>
+                        <div style="font-size: 0.72rem; color: #94A3B8; font-weight: 800;">CALIFICACIÓN MEN</div>
+                        <div style="font-size: 2.2rem; font-weight: 900; color: #FCD34D;">${calificacion.toFixed(1)}</div>
+                        <div style="font-size: 0.72rem; font-weight: 800; color: #A7F3D0;">Desempeño ${nivelDesempeno}</div>
+                    </div>
+                    <div style="width: 1px; height: 45px; background: #334155;"></div>
+                    <div>
+                        <div style="font-size: 0.72rem; color: #94A3B8; font-weight: 800;">RECOMPENSA</div>
+                        <div style="font-size: 2.2rem; font-weight: 900; color: #FCD34D;">+${xpGanado}</div>
+                        <div style="font-size: 0.72rem; font-weight: 800; color: #FDE68A;">Puntos de Experiencia</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Botones Finales: Jugar de nuevo y Guardar Oficial -->
+            <div style="display: flex; flex-direction: column; gap: 10px;">
+                <button onclick="document.getElementById('modal-fin-pictionary-tabu')?.remove(); window.iniciarRuletaPictionaryTabu(window._estadoRuletaPictionaryTabu.container, window._estadoRuletaPictionaryTabu.base);" style="width: 100%; padding: 12px; border-radius: 12px; border: 2px solid #CBD5E1; background: #F8FAFC; color: #334155; font-size: 0.92rem; font-weight: 800; cursor: pointer;">
+                    🔄 Jugar de Nuevo
+                </button>
+                <button onclick="window.confirmarFinalizacionPictionaryTabu()" style="width: 100%; padding: 14px; border-radius: 14px; border: none; background: linear-gradient(135deg, #10B981, #059669); color: white; font-size: 1rem; font-weight: 900; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 14px rgba(16,185,129,0.4);">
+                    <span>💾</span> Guardar Progreso & Salir
+                </button>
+            </div>
+        </div>
+    `;
+
+    document.body.appendChild(modal);
+};
+
+window.confirmarFinalizacionPictionaryTabu = function() {
+    document.getElementById('modal-fin-pictionary-tabu')?.remove();
+    document.getElementById('modal-pictionary-inbox')?.remove();
+
+    if (typeof window.intentarGuardarProgresoYFinalizarClase === 'function') {
+        window.intentarGuardarProgresoYFinalizarClase();
+    }
+};
+
+// Modal interactivo para el Buzón del Estudiante
+window.renderizarPictionaryTabuModal = function(actividad) {
+    let modal = document.getElementById('modal-pictionary-inbox');
+    if (!modal) {
+        modal = document.createElement('div');
+        modal.id = 'modal-pictionary-inbox';
+        modal.style.cssText = "position: fixed; inset: 0; background: #0F172A; z-index: 999999; display: flex; flex-direction: column; overflow-y: auto; font-family: system-ui, sans-serif; padding: 8px;";
+        document.body.appendChild(modal);
+    }
+
+    modal.innerHTML = `
+        <div style="flex: 1; display: flex; flex-direction: column; max-width: 650px; margin: 0 auto; width: 100%;">
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 8px 12px;">
+                <div style="display: flex; align-items: center; gap: 8px;">
+                    <span style="font-size: 1.5rem;">🎭</span>
+                    <h3 style="margin: 0; font-size: 1.1rem; font-weight: 900; color: #38BDF8;">
+                        Ruleta Pictionary y Tabú STEAM
+                    </h3>
+                </div>
+                <button onclick="document.getElementById('modal-pictionary-inbox')?.remove()" style="background: #334155; color: white; border: none; padding: 6px 12px; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 0.8rem;">
+                    ✖ Salir
+                </button>
+            </div>
+            <div id="contenedor-pictionary-stage" style="flex: 1; display: flex; flex-direction: column;"></div>
+        </div>
+    `;
+
+    const stageEl = document.getElementById('contenedor-pictionary-stage');
+    window.iniciarRuletaPictionaryTabu(stageEl, actividad);
+};
+
+// Punto de Entrada Oficial de la Plataforma
+window.renderizarPictionaryTabuTool = function(stage, base) {
+    window.iniciarRuletaPictionaryTabu(stage, base);
 };
 
 window.renderizarTriviaGiganteTool = function(stage, base) { window.renderizarPreguntaDetonante(stage, base); };

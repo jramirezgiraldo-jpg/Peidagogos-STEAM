@@ -1478,6 +1478,19 @@ Cada nodo debe contener exactamente:
 Asegúrate de incluir al menos 1 nodo "finalExito" y al menos 1 nodo "finalFalla" con retroalimentación constructiva.`;
         }
 
+        if (['pictionary_tabu', 'ruleta_pictionary', 'ruleta_tabu', 'juego_pictionary_tabu', 'pictionary', 'tabu'].includes(String(tipoFinal).toLowerCase())) {
+            promptIA += `\n\nREGLA ESTRICTA PARA RULETA PICTIONARY Y TABÚ STEAM (8 A 12 RETOS):
+Para esta herramienta ("${tipoFinal}"), genera un objeto JSON estricto con un arreglo "retos" de 8 a 12 desafíos sobre ${temaFinal} para grado ${gradoFinal}°.
+Cada objeto debe contener exactamente:
+{
+  "concepto": "Término o principio científico clave (1 a 3 palabras)",
+  "modalidad": "PICTIONARY" o "TABÚ" (distribuidos equitativamente),
+  "palabras_prohibidas": ["palabra1", "palabra2", "palabra3", "palabra4"] (obligatorio de 3 a 4 palabras si es TABÚ; arreglo vacío [] si es PICTIONARY),
+  "pista": "Contexto pedagógico breve"
+}
+Asegúrate de que los conceptos sean altamente representativos de ${temaFinal}.`;
+        }
+
         let rawContent = "";
         let finalError = null;
 
@@ -1817,6 +1830,26 @@ Asegúrate de incluir al menos 1 nodo "finalExito" y al menos 1 nodo "finalFalla
                         texto: `⚠️ Misión Inconclusa: Desistir ante la complejidad dejó desamparada a la comunidad. La resiliencia y la comunicación asertiva son competencias científicas fundamentales.`,
                         opciones: []
                     }
+                ];
+            }
+        }
+
+        // Garantizar de 8 a 12 retos para Ruleta Pictionary y Tabú STEAM
+        if (['pictionary_tabu', 'ruleta_pictionary', 'ruleta_tabu', 'juego_pictionary_tabu', 'pictionary', 'tabu'].includes(String(tipoFinal).toLowerCase())) {
+            jsonJuego.tipo_herramienta = 'pictionary_tabu';
+            if (!Array.isArray(jsonJuego.retos) || jsonJuego.retos.length < 8) {
+                const temaPic = jsonJuego.tema || temaFinal || 'Ciencia y Tecnología STEAM';
+                jsonJuego.retos = [
+                    { concepto: "Fotosíntesis", modalidad: "TABÚ", palabras_prohibidas: ["Planta", "Sol", "Luz", "Clorofila"], pista: "Transformación bioenergética autótrofa" },
+                    { concepto: "Microscopio", modalidad: "PICTIONARY", palabras_prohibidas: [], pista: "Instrumento de aumento celular" },
+                    { concepto: "Mitocondria", modalidad: "TABÚ", palabras_prohibidas: ["Energía", "ATP", "Célula", "Respiración"], pista: "Central energética de la célula eucariota" },
+                    { concepto: "Telescopio", modalidad: "PICTIONARY", palabras_prohibidas: [], pista: "Instrumento óptico astronómico" },
+                    { concepto: "Ecosistema", modalidad: "TABÚ", palabras_prohibidas: ["Animales", "Plantas", "Medio", "Ambiente"], pista: "Red de interacciones bióticas y abióticas" },
+                    { concepto: "Gravedad", modalidad: "PICTIONARY", palabras_prohibidas: [], pista: "Fuerza atractiva de los cuerpos masivos" },
+                    { concepto: "ADN", modalidad: "TABÚ", palabras_prohibidas: ["Gen", "Herencia", "Núcleo", "Hélice"], pista: "Molécula portadora del código biológico" },
+                    { concepto: "Circuito Eléctrico", modalidad: "PICTIONARY", palabras_prohibidas: [], pista: "Trayectoria cerrada de corriente y electrones" },
+                    { concepto: "Termómetro", modalidad: "TABÚ", palabras_prohibidas: ["Temperatura", "Calor", "Mercurio", "Grados"], pista: "Sensor de equilibrio térmico" },
+                    { concepto: "Robot", modalidad: "PICTIONARY", palabras_prohibidas: [], pista: "Mecanismo automatizado programable" }
                 ];
             }
         }

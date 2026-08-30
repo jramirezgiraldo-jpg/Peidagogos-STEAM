@@ -861,6 +861,23 @@ PROMPTS_JUEGOS['sudoku'] = PROMPTS_JUEGOS['sudoku_steam'];
 PROMPTS_JUEGOS['juego_sudoku'] = PROMPTS_JUEGOS['sudoku_steam'];
 PROMPTS_JUEGOS['kakuro'] = PROMPTS_JUEGOS['sudoku_steam'];
 
+// 23. Ruleta Pictionary y Tabú STEAM
+PROMPTS_JUEGOS['pictionary_tabu'] = (tema, nivel, instruccion) => `Ruleta Pictionary y Tabú STEAM
+TEMA PRINCIPAL: ${tema}
+NIVEL EDUCATIVO: ${nivel}
+INSTRUCCIÓN: ${instruccion || 'Gira la ruleta y supera el reto pedagógico en equipo (Pictionary o Tabú) con temporizador de 60 segundos.'}
+
+Actúa como un diseñador de dinámicas de gamificación activa y lúdica de aula STEAM.
+Genera un conjunto de 8 a 12 RETOS conceptuales en formato JSON estricto:
+- Cada reto debe incluir: "concepto" (1 a 3 palabras clave), "modalidad" ("PICTIONARY" o "TABÚ" distribuidos equitativamente), y "palabras_prohibidas" (3 a 4 palabras directamente relacionadas si es TABÚ; arreglo vacío si es PICTIONARY).
+- Provee la estructura JSON lista para alimentar la Ruleta Interactiva circular con temporizador y puntuación en aula.`;
+
+PROMPTS_JUEGOS['ruleta_pictionary'] = PROMPTS_JUEGOS['pictionary_tabu'];
+PROMPTS_JUEGOS['ruleta_tabu'] = PROMPTS_JUEGOS['pictionary_tabu'];
+PROMPTS_JUEGOS['juego_pictionary_tabu'] = PROMPTS_JUEGOS['pictionary_tabu'];
+PROMPTS_JUEGOS['pictionary'] = PROMPTS_JUEGOS['pictionary_tabu'];
+PROMPTS_JUEGOS['tabu'] = PROMPTS_JUEGOS['pictionary_tabu'];
+
 const DIRECTIVAS_UNIVERSALES_STEAM = `
 ================================================================================
 REGLAS UNIVERSALES DE ARQUITECTURA Y CÓDIGO (OBLIGATORIAS PARA TODOS LOS JUEGOS):
@@ -1038,8 +1055,47 @@ ESTRUCTURA JSON EXACTA OBLIGATORIA:
 }`;
 }
 
+function obtenerPromptJsonPictionaryTabu(tema, nivel, instruccion) {
+    const t = tema || 'Conceptos Científicos y Tecnológicos STEAM';
+    const n = nivel || 'Educación Básica/Media';
+    const i = instruccion || 'Gira la ruleta y supera el reto pedagógico en equipo (Pictionary o Tabú) antes de que se agote el tiempo.';
+    return `Actúa como diseñador pedagógico senior de dinámicas de gamificación activa y lúdica de aula en Peidagogos STEAM.
+Tu tarea es generar un objeto JSON estricto (SIN bloques markdown, SIN texto antes ni después) con un arreglo "retos" de 8 a 12 desafíos pedagógicos sobre "${t}" adaptados a grado ${n} para la Ruleta Pictionary y Tabú STEAM.
+
+REGLAS DE ESTRUCTURA Y PEDAGOGÍA:
+1. "retos": Arreglo de 8 a 12 objetos estructurados sobre "${t}".
+2. Para cada reto:
+   - "concepto": Término o principio científico/tecnológico clave (1 a 3 palabras, ej: "Mitocondria", "Gravedad", "Algoritmo", "Ecosistema").
+   - "modalidad": Distribuido alternadamente o aleatoriamente entre "PICTIONARY" o "TABÚ".
+   - "palabras_prohibidas": 
+     * Si "modalidad" es "TABÚ": Arreglo de 3 a 4 palabras clave directamente asociadas que el estudiante NO puede pronunciar al explicar (ej: para "Célula" -> ["Membrana", "Núcleo", "Microscopio", "Vida"]).
+     * Si "modalidad" es "PICTIONARY": Arreglo vacío [] (ya que el reto es netamente gráfico/mímico).
+   - "pista": Breve frase o contexto pedagógico para guiar la dinamización.
+
+ESTRUCTURA JSON EXACTA OBLIGATORIA:
+{
+  "tema": "${t}",
+  "nivel": "${n}",
+  "instruccion": "${i}",
+  "retos": [
+    {
+      "concepto": "Fotosíntesis",
+      "modalidad": "TABÚ",
+      "palabras_prohibidas": ["Planta", "Sol", "Luz", "Clorofila"],
+      "pista": "Proceso bioenergético autótrofo vegetal"
+    },
+    {
+      "concepto": "Telescopio",
+      "modalidad": "PICTIONARY",
+      "palabras_prohibidas": [],
+      "pista": "Instrumento óptico de exploración astronómica"
+    }
+  ]
+}`;
+}
+
 if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { PROMPTS_JUEGOS, obtenerPromptJuego, obtenerPromptJsonEmparejamiento, obtenerPromptJsonBingo, obtenerPromptJsonDomino, obtenerPromptJsonLaberinto };
+    module.exports = { PROMPTS_JUEGOS, obtenerPromptJuego, obtenerPromptJsonEmparejamiento, obtenerPromptJsonBingo, obtenerPromptJsonDomino, obtenerPromptJsonLaberinto, obtenerPromptJsonPictionaryTabu };
 }
 if (typeof window !== 'undefined') {
     window.PROMPTS_JUEGOS = PROMPTS_JUEGOS;
@@ -1048,4 +1104,5 @@ if (typeof window !== 'undefined') {
     window.obtenerPromptJsonBingo = obtenerPromptJsonBingo;
     window.obtenerPromptJsonDomino = obtenerPromptJsonDomino;
     window.obtenerPromptJsonLaberinto = obtenerPromptJsonLaberinto;
+    window.obtenerPromptJsonPictionaryTabu = obtenerPromptJsonPictionaryTabu;
 }
