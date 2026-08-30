@@ -80,7 +80,8 @@ app.use((req, res, next) => {
 app.use(express.static(path.join(__dirname))); // Servir archivos estáticos
 
 // Inicializar el sistema de rotación de API Keys
-const rawKeys = process.env.GEMINI_API_KEYS || process.env.GEMINI_API_KEY || "";
+// NOTA: Configurar GEMINI_API_KEYS (o GKEY) en las variables de entorno de Render
+const rawKeys = process.env.GEMINI_API_KEYS || process.env.GEMINI_API_KEY || process.env.GKEY || "";
 const apiKeys = rawKeys.split(',').map(k => k.trim()).filter(k => k.length > 0);
 let currentKeyIndex = 0;
 
@@ -292,7 +293,8 @@ Requisitos estrictos:
             // Intento 2: Fallback a Gemini REST API si DeepSeek falla o devuelve HTML inválido
             if (!htmlDiapositivas) {
                 const modelosDia = ['gemini-2.5-flash', 'gemini-flash-latest', 'gemini-1.5-flash'];
-                const geminiApiKey = apiKeys[0] || process.env.GEMINI_API_KEY || '';
+                // Cascada de claves: env rotativa → GEMINI_API_KEY env → GKEY env
+                const geminiApiKey = apiKeys[0] || process.env.GEMINI_API_KEY || process.env.GKEY || '';
                 const promptDiaConInstruccion = promptDiapositivas + '\n\nREGLA ABSOLUTA: Devuelve SOLO el código HTML completo, empezando con <!DOCTYPE html> y terminando con </html>. Sin texto adicional, sin bloques markdown, sin backticks.';
 
                 for (const modeloDia of modelosDia) {
