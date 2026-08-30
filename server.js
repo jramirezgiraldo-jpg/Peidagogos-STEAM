@@ -1453,6 +1453,12 @@ Cada par debe contener:
 Asegúrate de que los 7 pares correspondan fielmente a ${temaFinal} para grado ${gradoFinal}°.`;
         }
 
+        if (['sudoku', 'sudoku_steam', 'juego_sudoku', 'kakuro'].includes(String(tipoFinal).toLowerCase())) {
+            promptIA += `\n\nREGLA ESTRICTA PARA SUDOKU Y KAKURO LÓGICO STEAM:
+Para esta herramienta ("${tipoFinal}"), genera un reto de lógica matemática adaptado a grado ${gradoFinal}°.
+Define "tamano" (4 para primaria, 6 para secundaria, o 9 para media), "subFilas", "subCols", y un arreglo "conceptos_asociados" con términos STEAM clave de ${temaFinal}.`;
+        }
+
         let rawContent = "";
         let finalError = null;
 
@@ -1700,6 +1706,15 @@ Asegúrate de que los 7 pares correspondan fielmente a ${temaFinal} para grado $
                 }
                 jsonJuego.pares = pares7;
             }
+        }
+
+        // Garantizar configuración válida para Sudoku y Kakuro Lógico STEAM
+        if (['sudoku', 'sudoku_steam', 'juego_sudoku', 'kakuro'].includes(String(tipoFinal).toLowerCase())) {
+            const tamano = [4, 6, 9].includes(Number(jsonJuego.tamano)) ? Number(jsonJuego.tamano) : (Number(gradoFinal) <= 5 ? 4 : 6);
+            jsonJuego.tamano = tamano;
+            jsonJuego.subFilas = tamano === 4 ? 2 : (tamano === 6 ? 2 : 3);
+            jsonJuego.subCols = tamano === 4 ? 2 : (tamano === 6 ? 3 : 3);
+            jsonJuego.tipo_herramienta = 'sudoku_steam';
         }
 
         // Normalización final

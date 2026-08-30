@@ -9598,6 +9598,16 @@ window.abrirActividadDesdeInbox = function(id) {
         return;
     }
 
+    // Si la actividad es Sudoku y Kakuro Lógico STEAM
+    const esSudoku = (actividad.toolId && actividad.toolId.includes('sudoku')) ||
+                     (actividad.tipo_actividad && actividad.tipo_actividad.includes('sudoku')) ||
+                     (actividad.toolTitulo && actividad.toolTitulo.toLowerCase().includes('sudoku')) ||
+                     (actividad.titulo && actividad.titulo.toLowerCase().includes('sudoku'));
+    if (esSudoku && typeof window.renderizarSudokuModal === 'function') {
+        window.renderizarSudokuModal(actividad);
+        return;
+    }
+
     // Si la actividad cuenta con interactivo HTML5 generado de Caja 2
     if (actividad.htmlJuego || (actividad.actividad_data && actividad.actividad_data.htmlJuego)) {
         const htmlCode = actividad.htmlJuego || actividad.actividad_data.htmlJuego;
@@ -16190,20 +16200,528 @@ window.renderizarDominoConceptualTool = function(stage, base) {
     window.iniciarPartidaDominoPvE(stage, base, dataIA);
 };
 
-window.renderizarSudokuSteamTool = function(stage, base) {
-    stage.innerHTML = `
-        <div style="flex: 1; padding: 25px; background: white; display: flex; flex-direction: column; justify-content: space-between; text-align: center;">
-            <h3 style="margin: 0; font-size: 1.4rem; font-weight: 900; color: #1E1B4B;">🔢 Sudoku Lógico STEAM (4x4): Grado ${base.grado}°</h3>
-            <div style="display: grid; grid-template-columns: repeat(4, 50px); gap: 6px; justify-content: center; margin: 15px auto;">
-                ${['1', '', '3', '', '', '2', '', '4', '3', '', '2', '', '', '4', '', '1'].map(v => `
-                    <div style="width: 50px; height: 50px; border: 2px solid #1E293B; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; font-weight: 900; background: ${v ? '#EFF6FF' : 'white'};">
-                        ${v}
+// ============================================================================
+// MOTOR DE JUEGO LÓGICO: SUDOKU Y KAKURO STEAM (4x4, 6x6, 9x9 MOBILE-FIRST)
+// ============================================================================
+
+window.PUZZLES_SUDOKU_STEAM = {
+    4: [
+        {
+            tamano: 4,
+            subFilas: 2,
+            subCols: 2,
+            inicial: [
+                [1, 0, 3, 0],
+                [0, 4, 0, 2],
+                [2, 0, 4, 0],
+                [0, 3, 0, 1]
+            ],
+            solucion: [
+                [1, 2, 3, 4],
+                [3, 4, 1, 2],
+                [2, 1, 4, 3],
+                [4, 3, 2, 1]
+            ]
+        },
+        {
+            tamano: 4,
+            subFilas: 2,
+            subCols: 2,
+            inicial: [
+                [0, 2, 0, 4],
+                [4, 0, 2, 0],
+                [0, 4, 0, 3],
+                [3, 0, 4, 0]
+            ],
+            solucion: [
+                [1, 2, 3, 4],
+                [4, 3, 2, 1],
+                [2, 4, 1, 3],
+                [3, 1, 4, 2]
+            ]
+        }
+    ],
+    6: [
+        {
+            tamano: 6,
+            subFilas: 2,
+            subCols: 3,
+            inicial: [
+                [1, 0, 0, 4, 0, 6],
+                [0, 5, 6, 0, 2, 0],
+                [0, 3, 1, 5, 0, 0],
+                [0, 0, 4, 2, 3, 0],
+                [0, 1, 0, 6, 4, 0],
+                [6, 0, 5, 0, 0, 2]
+            ],
+            solucion: [
+                [1, 2, 3, 4, 5, 6],
+                [4, 5, 6, 1, 2, 3],
+                [2, 3, 1, 5, 6, 4],
+                [5, 6, 4, 2, 3, 1],
+                [3, 1, 2, 6, 4, 5],
+                [6, 4, 5, 3, 1, 2]
+            ]
+        }
+    ],
+    9: [
+        {
+            tamano: 9,
+            subFilas: 3,
+            subCols: 3,
+            inicial: [
+                [5, 3, 0, 0, 7, 0, 0, 0, 0],
+                [6, 0, 0, 1, 9, 5, 0, 0, 0],
+                [0, 9, 8, 0, 0, 0, 0, 6, 0],
+                [8, 0, 0, 0, 6, 0, 0, 0, 3],
+                [4, 0, 0, 8, 0, 3, 0, 0, 1],
+                [7, 0, 0, 0, 2, 0, 0, 0, 6],
+                [0, 6, 0, 0, 0, 0, 2, 8, 0],
+                [0, 0, 0, 4, 1, 9, 0, 0, 5],
+                [0, 0, 0, 0, 8, 0, 0, 7, 9]
+            ],
+            solucion: [
+                [5, 3, 4, 6, 7, 8, 9, 1, 2],
+                [6, 7, 2, 1, 9, 5, 3, 4, 8],
+                [1, 9, 8, 3, 4, 2, 5, 6, 7],
+                [8, 5, 9, 7, 6, 1, 4, 2, 3],
+                [4, 2, 6, 8, 5, 3, 7, 9, 1],
+                [7, 1, 3, 9, 2, 4, 8, 5, 6],
+                [9, 6, 1, 5, 3, 7, 2, 8, 4],
+                [2, 8, 7, 4, 1, 9, 6, 3, 5],
+                [3, 4, 5, 2, 8, 6, 1, 7, 9]
+            ]
+        }
+    ]
+};
+
+// Algoritmo de validación de reglas de Sudoku en tiempo real
+window.validarSudokuEstado = function(tablero, tamano, subFilas, subCols) {
+    const conflictos = new Set();
+    let celdasLlenas = 0;
+    const totalCeldas = tamano * tamano;
+
+    // 1. Validar Filas
+    for (let r = 0; r < tamano; r++) {
+        const mapa = {};
+        for (let c = 0; c < tamano; c++) {
+            const val = tablero[r][c];
+            if (val > 0) {
+                celdasLlenas++;
+                if (!mapa[val]) mapa[val] = [];
+                mapa[val].push(`${r}_${c}`);
+            }
+        }
+        for (const val in mapa) {
+            if (mapa[val].length > 1) {
+                mapa[val].forEach(key => conflictos.add(key));
+            }
+        }
+    }
+
+    // 2. Validar Columnas
+    for (let c = 0; c < tamano; c++) {
+        const mapa = {};
+        for (let r = 0; r < tamano; r++) {
+            const val = tablero[r][c];
+            if (val > 0) {
+                if (!mapa[val]) mapa[val] = [];
+                mapa[val].push(`${r}_${c}`);
+            }
+        }
+        for (const val in mapa) {
+            if (mapa[val].length > 1) {
+                mapa[val].forEach(key => conflictos.add(key));
+            }
+        }
+    }
+
+    // 3. Validar Subcuadrículas (Bloques)
+    for (let br = 0; br < tamano; br += subFilas) {
+        for (let bc = 0; bc < tamano; bc += subCols) {
+            const mapa = {};
+            for (let r = br; r < br + subFilas; r++) {
+                for (let c = bc; c < bc + subCols; c++) {
+                    const val = tablero[r][c];
+                    if (val > 0) {
+                        if (!mapa[val]) mapa[val] = [];
+                        mapa[val].push(`${r}_${c}`);
+                    }
+                }
+            }
+            for (const val in mapa) {
+                if (mapa[val].length > 1) {
+                    mapa[val].forEach(key => conflictos.add(key));
+                }
+            }
+        }
+    }
+
+    const estaLleno = (celdasLlenas === totalCeldas);
+    const esValido = estaLleno && (conflictos.size === 0);
+
+    return {
+        esValido: esValido,
+        conflictos: conflictos,
+        estaLleno: estaLleno
+    };
+};
+
+// Inicializar estado del juego Sudoku
+window.iniciarJuegoSudokuInteractivo = function(container, base, tamanoDeseado = null) {
+    base = base || {};
+    const gradoNum = parseInt(base.grado) || 7;
+
+    // Determinar tamaño de cuadrícula según grado o parámetro
+    let tamano = tamanoDeseado;
+    if (!tamano) {
+        if (base.tamano) tamano = parseInt(base.tamano);
+        else if (gradoNum <= 5) tamano = 4;
+        else if (gradoNum <= 8) tamano = 6;
+        else tamano = 9;
+    }
+    if (![4, 6, 9].includes(tamano)) tamano = 4;
+
+    const puzzlesDisponibles = window.PUZZLES_SUDOKU_STEAM[tamano] || window.PUZZLES_SUDOKU_STEAM[4];
+    const puzzle = puzzlesDisponibles[Math.floor(Math.random() * puzzlesDisponibles.length)];
+
+    // Crear copia de tablero actual y conjunto de celdas iniciales fijas
+    const tablero = puzzle.inicial.map(row => [...row]);
+    const celdasFijas = new Set();
+
+    for (let r = 0; r < tamano; r++) {
+        for (let c = 0; c < tamano; c++) {
+            if (puzzle.inicial[r][c] > 0) {
+                celdasFijas.add(`${r}_${c}`);
+            }
+        }
+    }
+
+    window._estadoSudokuActivo = {
+        container: container,
+        base: base,
+        tamano: tamano,
+        subFilas: puzzle.subFilas,
+        subCols: puzzle.subCols,
+        puzzle: puzzle,
+        tablero: tablero,
+        celdasFijas: celdasFijas,
+        celdaSeleccionada: null,
+        conflictos: new Set(),
+        juegoCompletado: false,
+        tema: base.tema || base.concepto || 'Lógica Matemática y Deducción STEAM'
+    };
+
+    window.renderizarTableroSudokuUI();
+};
+
+// Renderizado de la UI de Sudoku (Grid + Numpad táctil)
+window.renderizarTableroSudokuUI = function() {
+    const st = window._estadoSudokuActivo;
+    if (!st || !st.container) return;
+
+    const tamano = st.tamano;
+    const cellSize = tamano === 4 ? 64 : (tamano === 6 ? 48 : 38);
+    const fontSize = tamano === 4 ? '1.5rem' : (tamano === 6 ? '1.25rem' : '1.05rem');
+
+    st.container.innerHTML = `
+        <div style="flex: 1; padding: 18px 12px; background: #F8FAFC; display: flex; flex-direction: column; justify-content: space-between; align-items: center; font-family: system-ui, -apple-system, sans-serif; box-sizing: border-box; overflow-y: auto;">
+            
+            <!-- Encabezado y Selector de Tamaño -->
+            <div style="width: 100%; max-width: 480px; text-align: center; margin-bottom: 12px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <span style="font-size: 1.6rem;">🔢</span>
+                        <div style="text-align: left;">
+                            <h3 style="margin: 0; font-size: 1.15rem; font-weight: 900; color: #0F172A;">
+                                Sudoku Lógico STEAM (${tamano}x${tamano})
+                            </h3>
+                            <div style="font-size: 0.75rem; color: #64748B; font-weight: 600;">
+                                ${st.tema} • Grado ${st.base.grado || '7'}°
+                            </div>
+                        </div>
                     </div>
-                `).join('')}
+
+                    <!-- Selector de dificultad/tamaño -->
+                    <div style="display: flex; gap: 4px;">
+                        <button onclick="window.cambiarTamanoSudoku(4)" style="padding: 4px 8px; border-radius: 6px; font-size: 0.72rem; font-weight: 800; border: 1.5px solid ${tamano === 4 ? '#2563EB' : '#CBD5E1'}; background: ${tamano === 4 ? '#EFF6FF' : 'white'}; color: ${tamano === 4 ? '#1D4ED8' : '#475569'}; cursor: pointer;">4x4</button>
+                        <button onclick="window.cambiarTamanoSudoku(6)" style="padding: 4px 8px; border-radius: 6px; font-size: 0.72rem; font-weight: 800; border: 1.5px solid ${tamano === 6 ? '#2563EB' : '#CBD5E1'}; background: ${tamano === 6 ? '#EFF6FF' : 'white'}; color: ${tamano === 6 ? '#1D4ED8' : '#475569'}; cursor: pointer;">6x6</button>
+                        <button onclick="window.cambiarTamanoSudoku(9)" style="padding: 4px 8px; border-radius: 6px; font-size: 0.72rem; font-weight: 800; border: 1.5px solid ${tamano === 9 ? '#2563EB' : '#CBD5E1'}; background: ${tamano === 9 ? '#EFF6FF' : 'white'}; color: ${tamano === 9 ? '#1D4ED8' : '#475569'}; cursor: pointer;">9x9</button>
+                    </div>
+                </div>
+
+                <div style="background: #EFF6FF; border: 1px solid #BFDBFE; border-radius: 8px; padding: 6px 10px; font-size: 0.75rem; color: #1E40AF; text-align: center;">
+                    💡 <b>Instrucción:</b> Toca una celda vacía y selecciona un número en el teclado inferior sin repetir en fila, columna ni bloque.
+                </div>
             </div>
-            <div style="color: #64748B; font-size: 0.82rem;">🧩 Completa la cuadrícula sin repetir números ni símbolos por fila y columna.</div>
+
+            <!-- CUADRÍCULA SUDOKU INTERACTIVA (Tap-to-Select) -->
+            <div style="background: #0F172A; padding: 4px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.12); margin-bottom: 14px;">
+                <div style="display: grid; grid-template-columns: repeat(${tamano}, ${cellSize}px); grid-template-rows: repeat(${tamano}, ${cellSize}px); gap: 1.5px; background: #0F172A;">
+                    ${Array.from({ length: tamano }).map((_, r) => {
+                        return Array.from({ length: tamano }).map((_, c) => {
+                            const val = st.tablero[r][c];
+                            const key = `${r}_${c}`;
+                            const esFija = st.celdasFijas.has(key);
+                            const esConflicto = st.conflictos.has(key);
+                            const esSeleccionada = st.celdaSeleccionada && st.celdaSeleccionada.r === r && st.celdaSeleccionada.c === c;
+                            const mismaFilaOCol = st.celdaSeleccionada && (st.celdaSeleccionada.r === r || st.celdaSeleccionada.c === c);
+
+                            // Bordes gruesos de separación de bloques
+                            const borderRight = ((c + 1) % st.subCols === 0 && c !== tamano - 1) ? '3px solid #0F172A' : '1px solid #CBD5E1';
+                            const borderBottom = ((r + 1) % st.subFilas === 0 && r !== tamano - 1) ? '3px solid #0F172A' : '1px solid #CBD5E1';
+
+                            // Colores de estado
+                            let bgColor = 'white';
+                            let textColor = '#1E293B';
+                            let extraStyle = '';
+
+                            if (esFija) {
+                                bgColor = '#F1F5F9';
+                                textColor = '#0F172A';
+                            } else if (val > 0) {
+                                bgColor = '#FFFFFF';
+                                textColor = '#1D4ED8'; // Número de estudiante
+                            }
+
+                            if (mismaFilaOCol && !esSeleccionada) {
+                                bgColor = esFija ? '#E2E8F0' : '#F0F9FF';
+                            }
+
+                            if (esConflicto) {
+                                bgColor = '#FEE2E2';
+                                textColor = '#DC2626';
+                                extraStyle += 'animation: shake 0.3s;';
+                            }
+
+                            if (esSeleccionada) {
+                                bgColor = '#E0F2FE';
+                                extraStyle += 'box-shadow: inset 0 0 0 2.5px #0284C7, 0 0 10px rgba(56,189,248,0.5); z-index: 2;';
+                            }
+
+                            return `
+                                <div onclick="window.seleccionarCeldaSudoku(${r}, ${c})" style="width: ${cellSize}px; height: ${cellSize}px; background: ${bgColor}; color: ${textColor}; display: flex; align-items: center; justify-content: center; font-size: ${fontSize}; font-weight: ${esFija ? '900' : '800'}; border-right: ${borderRight}; border-bottom: ${borderBottom}; cursor: ${esFija ? 'default' : 'pointer'}; user-select: none; transition: all 0.15s; ${extraStyle}">
+                                    ${val > 0 ? val : ''}
+                                </div>
+                            `;
+                        }).join('');
+                    }).join('')}
+                </div>
+            </div>
+
+            <!-- TECLADO NUMÉRICO VIRTUAL (NUMPAD) MOBILE-FIRST -->
+            <div style="width: 100%; max-width: 440px; background: white; border: 2px solid #E2E8F0; border-radius: 16px; padding: 10px 14px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+                <div style="font-size: 0.72rem; font-weight: 800; color: #64748B; text-align: center; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px;">
+                    Teclado Numérico Táctil
+                </div>
+                <div style="display: flex; justify-content: center; gap: 8px; flex-wrap: wrap;">
+                    ${Array.from({ length: tamano }).map((_, i) => {
+                        const num = i + 1;
+                        return `
+                            <button onclick="window.ingresarNumeroNumpadSudoku(${num})" style="flex: 1; min-width: 44px; height: 48px; background: linear-gradient(135deg, #2563EB, #1D4ED8); color: white; border: none; border-radius: 10px; font-size: 1.3rem; font-weight: 900; cursor: pointer; box-shadow: 0 3px 8px rgba(37,99,235,0.3); transition: transform 0.1s;" onmousedown="this.style.transform='scale(0.95)'" onmouseup="this.style.transform='scale(1)'">
+                                ${num}
+                            </button>
+                        `;
+                    }).join('')}
+                    <!-- Botón Borrar -->
+                    <button onclick="window.borrarCeldaSudoku()" style="min-width: 58px; height: 48px; background: #F1F5F9; color: #DC2626; border: 2px solid #CBD5E1; border-radius: 10px; font-size: 1rem; font-weight: 900; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 4px;">
+                        <span>⌫</span> Borrar
+                    </button>
+                </div>
+            </div>
+
+            <!-- Botones de Acción / Reinicio -->
+            <div style="margin-top: 10px; display: flex; gap: 8px;">
+                <button onclick="window.reiniciarSudokuActual()" style="background: #F8FAFC; color: #64748B; border: 1.5px solid #CBD5E1; border-radius: 8px; padding: 6px 12px; font-size: 0.78rem; font-weight: 800; cursor: pointer;">
+                    🔄 Reiniciar Cuadrícula
+                </button>
+            </div>
         </div>
     `;
+};
+
+// 1. Tocar para seleccionar celda (Tap-to-Select)
+window.seleccionarCeldaSudoku = function(r, c) {
+    const st = window._estadoSudokuActivo;
+    if (!st || st.juegoCompletado) return;
+
+    st.celdaSeleccionada = { r, c };
+    window.renderizarTableroSudokuUI();
+};
+
+// 2. Ingresar número desde el Numpad Virtual
+window.ingresarNumeroNumpadSudoku = function(num) {
+    const st = window._estadoSudokuActivo;
+    if (!st || !st.celdaSeleccionada || st.juegoCompletado) return;
+
+    const { r, c } = st.celdaSeleccionada;
+    const key = `${r}_${c}`;
+
+    // Si es celda fija de las pistas iniciales, no se puede sobrescribir
+    if (st.celdasFijas.has(key)) return;
+
+    st.tablero[r][c] = num;
+
+    // Validación matemática en tiempo real
+    const resValidacion = window.validarSudokuEstado(st.tablero, st.tamano, st.subFilas, st.subCols);
+    st.conflictos = resValidacion.conflictos;
+
+    window.renderizarTableroSudokuUI();
+
+    // Comprobar condición de victoria: Tablero lleno y sin conflictos
+    if (resValidacion.esValido) {
+        st.juegoCompletado = true;
+        setTimeout(() => {
+            window.finalizarSudokuExitoso();
+        }, 300);
+    }
+};
+
+// 3. Borrar valor de celda seleccionada
+window.borrarCeldaSudoku = function() {
+    const st = window._estadoSudokuActivo;
+    if (!st || !st.celdaSeleccionada || st.juegoCompletado) return;
+
+    const { r, c } = st.celdaSeleccionada;
+    const key = `${r}_${c}`;
+
+    if (st.celdasFijas.has(key)) return;
+
+    st.tablero[r][c] = 0;
+
+    const resValidacion = window.validarSudokuEstado(st.tablero, st.tamano, st.subFilas, st.subCols);
+    st.conflictos = resValidacion.conflictos;
+
+    window.renderizarTableroSudokuUI();
+};
+
+// 4. Cambiar tamaño dinámico de la cuadrícula (4x4, 6x6, 9x9)
+window.cambiarTamanoSudoku = function(nuevoTamano) {
+    const st = window._estadoSudokuActivo;
+    if (!st) return;
+    window.iniciarJuegoSudokuInteractivo(st.container, st.base, nuevoTamano);
+};
+
+// 5. Reiniciar cuadrícula actual
+window.reiniciarSudokuActual = function() {
+    const st = window._estadoSudokuActivo;
+    if (!st) return;
+    window.iniciarJuegoSudokuInteractivo(st.container, st.base, st.tamano);
+};
+
+// 6. Condición de Victoria, Calificación 5.0 y Persistencia Dual Obligatoria
+window.finalizarSudokuExitoso = function() {
+    const st = window._estadoSudokuActivo;
+    if (!st) return;
+
+    const calificacion = 5.0;
+    const xpGanado = 150;
+
+    const user = (typeof window.obtenerUsuarioActual === 'function') ? window.obtenerUsuarioActual() : null;
+    const estId = (user && (user.documento || user.usuario)) || window.usuario_actual || 'estudiante_steam';
+    const grupo = st.base.grupo || st.base.grado || (user && user.grupo) || '7C';
+
+    // Persistir calificación en la planilla docente
+    if (typeof window.guardarCalificacionActividad === 'function') {
+        window.guardarCalificacionActividad({
+            id_estudiante: estId,
+            id_actividad: `sudoku_${Date.now()}`,
+            calificacion: calificacion,
+            titulo_actividad: `Sudoku Lógico STEAM (${st.tamano}x${st.tamano}): ${st.tema}`,
+            tipo_herramienta: 'sudoku_steam',
+            materia: st.base.materia || 'Matemáticas y Lógica STEAM',
+            grupo: grupo,
+            detalles: {
+                tamano: st.tamano,
+                resultado: 'COMPLETADO_EXITOSO',
+                xp_ganado: xpGanado
+            }
+        });
+    }
+
+    // Modal de Victoria Estándar con confeti y botón oficial
+    const modal = document.createElement('div');
+    modal.id = 'modal-victoria-sudoku';
+    modal.style.cssText = "position: fixed; inset: 0; background: rgba(15,23,42,0.92); backdrop-filter: blur(10px); display: flex; align-items: center; justify-content: center; z-index: 999999; padding: 20px; font-family: system-ui, sans-serif;";
+    modal.innerHTML = `
+        <div style="background: linear-gradient(135deg, #1E1B4B, #0F172A); border: 3px solid #38BDF8; border-radius: 26px; padding: 32px 24px; max-width: 480px; width: 100%; text-align: center; box-shadow: 0 0 50px rgba(56,189,248,0.4); color: white;">
+            <div style="font-size: 3.5rem; margin-bottom: 8px;">🎉</div>
+            <h2 style="margin: 0 0 6px 0; font-size: 1.8rem; font-weight: 900; color: #38BDF8;">
+                ¡SUDOKU COMPLETADO CON ÉXITO!
+            </h2>
+            <p style="color: #CBD5E1; font-size: 0.88rem; margin: 0 0 18px 0; line-height: 1.35;">
+                Has resuelto la cuadrícula lógica de <b>${st.tamano}x${st.tamano}</b> sin cometer errores de repetición. ¡Excelente deducción lógica!
+            </p>
+
+            <div style="background: rgba(255,255,255,0.06); border: 1.5px solid #3B82F6; border-radius: 16px; padding: 14px; margin-bottom: 22px;">
+                <div style="display: flex; justify-content: space-around; align-items: center;">
+                    <div>
+                        <div style="font-size: 0.72rem; color: #94A3B8; font-weight: 800;">CALIFICACIÓN MEN</div>
+                        <div style="font-size: 2.2rem; font-weight: 900; color: #38BDF8;">5.0</div>
+                        <div style="font-size: 0.72rem; font-weight: 800; color: #A7F3D0;">Desempeño Superior</div>
+                    </div>
+                    <div style="width: 1px; height: 45px; background: #334155;"></div>
+                    <div>
+                        <div style="font-size: 0.72rem; color: #94A3B8; font-weight: 800;">RECOMPENSA</div>
+                        <div style="font-size: 2.2rem; font-weight: 900; color: #FCD34D;">+${xpGanado}</div>
+                        <div style="font-size: 0.72rem; font-weight: 800; color: #FDE68A;">Puntos de Experiencia</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Botón Oficial de Salida y Persistencia -->
+            <button onclick="window.confirmarFinalizacionSudoku()" style="background: linear-gradient(135deg, #10B981, #059669); color: white; border: none; padding: 14px 28px; border-radius: 14px; font-weight: 900; font-size: 1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; margin: 0 auto; box-shadow: 0 4px 15px rgba(16,185,129,0.4);">
+                <span>💾</span> Guardar Progreso & Salir
+            </button>
+        </div>
+    `;
+
+    document.body.appendChild(modal);
+};
+
+window.confirmarFinalizacionSudoku = function() {
+    document.getElementById('modal-victoria-sudoku')?.remove();
+    document.getElementById('modal-sudoku-inbox')?.remove();
+
+    if (typeof window.intentarGuardarProgresoYFinalizarClase === 'function') {
+        window.intentarGuardarProgresoYFinalizarClase();
+    }
+};
+
+// 7. Apertura de Sudoku en Modal desde el Buzón del Estudiante
+window.renderizarSudokuModal = function(actividad) {
+    let modal = document.getElementById('modal-sudoku-inbox');
+    if (!modal) {
+        modal = document.createElement('div');
+        modal.id = 'modal-sudoku-inbox';
+        modal.style.cssText = "position: fixed; inset: 0; background: #0F172A; z-index: 999999; display: flex; flex-direction: column; overflow-y: auto; font-family: system-ui, sans-serif; padding: 8px;";
+        document.body.appendChild(modal);
+    }
+
+    modal.innerHTML = `
+        <div style="flex: 1; display: flex; flex-direction: column; max-width: 520px; margin: 0 auto; width: 100%;">
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 8px 10px;">
+                <div style="display: flex; align-items: center; gap: 8px;">
+                    <span style="font-size: 1.5rem;">🔢</span>
+                    <h3 style="margin: 0; font-size: 1.1rem; font-weight: 900; color: #38BDF8;">
+                        Sudoku y Kakuro Lógico STEAM
+                    </h3>
+                </div>
+                <button onclick="document.getElementById('modal-sudoku-inbox')?.remove()" style="background: #334155; color: white; border: none; padding: 6px 12px; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 0.8rem;">
+                    ✖ Salir
+                </button>
+            </div>
+            <div id="contenedor-sudoku-stage" style="flex: 1; display: flex; flex-direction: column;"></div>
+        </div>
+    `;
+
+    const stageEl = document.getElementById('contenedor-sudoku-stage');
+    window.iniciarJuegoSudokuInteractivo(stageEl, actividad);
+};
+
+// 8. Entrada Oficial en la Plataforma
+window.renderizarSudokuSteamTool = function(stage, base) {
+    window.iniciarJuegoSudokuInteractivo(stage, base);
 };
 
 window.renderizarLaberintoLogicoTool = function(stage, base) { window.renderizarCrucigramaTool(stage, base); };

@@ -841,6 +841,23 @@ PROMPTS_JUEGOS['domino'] = PROMPTS_JUEGOS['domino_conceptual'];
 PROMPTS_JUEGOS['juego_domino'] = PROMPTS_JUEGOS['domino_conceptual'];
 PROMPTS_JUEGOS['juego_domino_conceptual'] = PROMPTS_JUEGOS['domino_conceptual'];
 
+// 22. Sudoku y Kakuro Lógico STEAM
+PROMPTS_JUEGOS['sudoku_steam'] = (tema, nivel, instruccion) => `Sudoku y Kakuro Lógico STEAM
+TEMA PRINCIPAL: ${tema}
+NIVEL EDUCATIVO: ${nivel}
+INSTRUCCIÓN: ${instruccion || 'Resuelve la cuadrícula de lógica matemática sin repetir números en filas, columnas ni subcuadrículas.'}
+
+Actúa como un desarrollador frontend senior y especialista pedagógico en razonamiento lógico-matemático.
+Genera una actividad interactiva de Sudoku STEAM adaptada a ${nivel}:
+1. Cuadrícula de lógica numérica (4x4 para inicial, 6x6 intermedio o 9x9 avanzado).
+2. Interfaz táctil Mobile-First con sistema Tap-to-Select y Teclado Numérico Virtual (Numpad) en la parte inferior.
+3. Validación matemática en tiempo real que previene duplicados en filas, columnas y bloques.
+4. Evaluación formativa con nota 5.0 y transmisión de XP a la plataforma.`;
+
+PROMPTS_JUEGOS['sudoku'] = PROMPTS_JUEGOS['sudoku_steam'];
+PROMPTS_JUEGOS['juego_sudoku'] = PROMPTS_JUEGOS['sudoku_steam'];
+PROMPTS_JUEGOS['kakuro'] = PROMPTS_JUEGOS['sudoku_steam'];
+
 const DIRECTIVAS_UNIVERSALES_STEAM = `
 ================================================================================
 REGLAS UNIVERSALES DE ARQUITECTURA Y CÓDIGO (OBLIGATORIAS PARA TODOS LOS JUEGOS):
