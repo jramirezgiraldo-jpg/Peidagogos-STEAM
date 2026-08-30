@@ -673,6 +673,11 @@ window.inicializarPanelEstudiante = function(data) {
     const pLevelBadge = document.getElementById("student-xp-level-name");
     if (pLevelBadge) pLevelBadge.innerText = `Nivel ${nivelNum}: ${nivelNombre}`;
 
+    // Sincronizar Conversor / Indicador de Notas HUD
+    if (typeof window.actualizarConversorNotasHUD === 'function') {
+        window.actualizarConversorNotasHUD();
+    }
+
     // 3. Header de Guía (si se abre)
     const gAvatar = document.getElementById("student-guide-header-avatar");
     if (gAvatar) gAvatar.innerText = avatar;
@@ -7831,6 +7836,11 @@ window.sumarXPEstudiante = function(docClean, puntos, motivo) {
 
     const pLevelBadge = document.getElementById("student-xp-level-name");
     if (pLevelBadge) pLevelBadge.innerText = `Nivel ${nivelNum}: ${nivelNombre}`;
+
+    // Actualizar Conversor de Notas HUD con el nuevo total de XP
+    if (typeof window.actualizarConversorNotasHUD === 'function') {
+        window.actualizarConversorNotasHUD();
+    }
 
     // Sincronización en segundo plano con el servidor
     try {
@@ -22174,6 +22184,213 @@ window.renderizarJuegoCrucigrama = function(stage, base) {
 };
 
 // ============================================================================
+// CONVERSOR / INDICADOR DE NOTAS FORMATIVAS HUD (ESCALA OFICIAL MEN 1.0 A 5.0)
+// ============================================================================
+window.obtenerEstiloNotaMEN = function(nota) {
+    const n = parseFloat(nota);
+    if (isNaN(n) || n < 1.0) {
+        return {
+            bg: 'linear-gradient(135deg, #64748B, #475569)',
+            border: 'rgba(255, 255, 255, 0.3)',
+            text: '#FFFFFF',
+            desempeno: 'Sin Calificar'
+        };
+    }
+    // Semántica oficial MEN Colombia:
+    // 4.0 a 5.0: Verde (Desempeño Alto a Superior)
+    // 3.0 a 3.9: Naranja (Desempeño Básico)
+    // 1.0 a 2.9: Rojo (Desempeño Bajo)
+    if (n >= 4.0) {
+        return {
+            bg: 'linear-gradient(135deg, #10B981, #059669)',
+            border: '#34D399',
+            text: '#FFFFFF',
+            desempeno: n >= 4.6 ? 'Superior' : 'Alto'
+        };
+    } else if (n >= 3.0) {
+        return {
+            bg: 'linear-gradient(135deg, #F59E0B, #D97706)',
+            border: '#FBBF24',
+            text: '#FFFFFF',
+            desempeno: 'Básico'
+        };
+    } else {
+        return {
+            bg: 'linear-gradient(135deg, #EF4444, #DC2626)',
+            border: '#F87171',
+            text: '#FFFFFF',
+            desempeno: 'Bajo'
+        };
+    }
+};
+
+window.actualizarConversorNotasHUD = function(notaActividad, notaGlobalOpcional) {
+    if (typeof document === 'undefined') return { reto: null, global: 5.0 };
+    try {
+        // 1. Identificar estudiante activo
+        const user = (typeof window.obtenerUsuarioActual === 'function') ? window.obtenerUsuarioActual() : null;
+        let authUser = {};
+        try {
+            authUser = JSON.parse(localStorage.getItem('usuario_sesion') || sessionStorage.getItem('peidagogos_auth') || '{}');
+        } catch(e) {}
+        const idEstudiante = String((user && (user.documento || user.usuario)) || authUser.documento || authUser.usuario || window.usuario_actual || 'estudiante').trim();
+
+        // 2. Localizar o inyectar contenedor en el DOM
+        let container = document.getElementById('hud-conversor-notas-container');
+        if (!container) {
+            const scoreElem = document.getElementById('student-score-display');
+            if (scoreElem) {
+                const pillXP = scoreElem.closest('div');
+                if (pillXP && pillXP.parentNode) {
+                    container = document.createElement('div');
+                    container.id = 'hud-conversor-notas-container';
+                    container.className = 'hud-conversor-notas';
+                    container.title = 'Indicador oficial de calificaciones formativas (Escala MEN 1.0 a 5.0)';
+                    container.style.cssText = 'display: inline-flex; align-items: center; gap: 6px; background: rgba(15, 23, 42, 0.65); backdrop-filter: blur(8px); padding: 4px 10px; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.25); box-shadow: 0 4px 10px rgba(0,0,0,0.2);';
+                    container.innerHTML = `
+                        <div id="badge-nota-reto-hud" class="hud-nota-badge" style="background: linear-gradient(135deg, #64748B, #475569); border: 1px solid rgba(255,255,255,0.3); padding: 4px 10px; border-radius: 12px; font-size: 0.84rem; font-weight: 800; color: #FFFFFF; display: inline-flex; align-items: center; gap: 5px; white-space: nowrap;" title="Calificación del reto actual o más reciente">
+                            <span>🎯</span>
+                            <span class="hud-badge-label">Reto:</span>
+                            <span id="txt-nota-reto-hud" style="font-weight: 900; letter-spacing: 0.3px;">--</span>
+                        </div>
+                        <div id="badge-nota-global-hud" class="hud-nota-badge" style="background: linear-gradient(135deg, #10B981, #059669); border: 1px solid rgba(255,255,255,0.4); padding: 4px 10px; border-radius: 12px; font-size: 0.84rem; font-weight: 800; color: #FFFFFF; display: inline-flex; align-items: center; gap: 5px; white-space: nowrap;" title="Promedio formativo global acumulado (Escala MEN 1.0 a 5.0)">
+                            <span>⭐</span>
+                            <span class="hud-badge-label">Global:</span>
+                            <span id="txt-nota-global-hud" style="font-weight: 900; letter-spacing: 0.3px;">5.0</span>
+                        </div>
+                    `;
+                    pillXP.parentNode.insertBefore(container, pillXP.nextSibling);
+                }
+            }
+        }
+
+        const badgeReto = document.getElementById('badge-nota-reto-hud');
+        const txtReto = document.getElementById('txt-nota-reto-hud');
+        const badgeGlobal = document.getElementById('badge-nota-global-hud');
+        const txtGlobal = document.getElementById('txt-nota-global-hud');
+
+        // 3. Procesar Nota del Reto Actual
+        let numReto = null;
+        if (notaActividad !== undefined && notaActividad !== null) {
+            let parsed = parseFloat(notaActividad);
+            if (!isNaN(parsed)) {
+                numReto = Number(Math.max(1.0, Math.min(5.0, parsed)).toFixed(1));
+                try {
+                    sessionStorage.setItem('ultima_nota_reto_' + idEstudiante, numReto.toString());
+                } catch(e) {}
+            }
+        }
+        if (numReto === null) {
+            try {
+                const savedReto = sessionStorage.getItem('ultima_nota_reto_' + idEstudiante);
+                if (savedReto) {
+                    const p = parseFloat(savedReto);
+                    if (!isNaN(p)) numReto = Number(Math.max(1.0, Math.min(5.0, p)).toFixed(1));
+                }
+            } catch(e) {}
+        }
+        if (numReto === null) {
+            try {
+                const calList = JSON.parse(localStorage.getItem('calificaciones_' + idEstudiante) || '[]');
+                if (Array.isArray(calList) && calList.length > 0) {
+                    const ult = calList[calList.length - 1];
+                    const p = parseFloat(ult.calificacion !== undefined ? ult.calificacion : ult.nota);
+                    if (!isNaN(p)) numReto = Number(Math.max(1.0, Math.min(5.0, p)).toFixed(1));
+                }
+            } catch(e) {}
+        }
+
+        // Renderizar Badge de Reto
+        if (txtReto && badgeReto) {
+            if (numReto !== null) {
+                txtReto.innerText = numReto.toFixed(1);
+                const estiloReto = window.obtenerEstiloNotaMEN(numReto);
+                badgeReto.style.background = estiloReto.bg;
+                badgeReto.style.borderColor = estiloReto.border;
+                badgeReto.title = `🎯 Reto: ${numReto.toFixed(1)} - Desempeño ${estiloReto.desempeno} (Escala MEN 1.0 a 5.0)`;
+                badgeReto.style.transform = 'scale(1.08)';
+                setTimeout(() => { if (badgeReto) badgeReto.style.transform = 'scale(1)'; }, 300);
+            } else {
+                txtReto.innerText = '--';
+                const estiloNeutro = window.obtenerEstiloNotaMEN(null);
+                badgeReto.style.background = estiloNeutro.bg;
+                badgeReto.style.borderColor = estiloNeutro.border;
+                badgeReto.title = '🎯 Reto: Sin actividad completada en la sesión';
+            }
+        }
+
+        // 4. Procesar Nota Global / Promedio Acumulado
+        let numGlobal = null;
+        if (notaGlobalOpcional !== undefined && notaGlobalOpcional !== null) {
+            let parsedG = parseFloat(notaGlobalOpcional);
+            if (!isNaN(parsedG)) {
+                numGlobal = Number(Math.max(1.0, Math.min(5.0, parsedG)).toFixed(1));
+            }
+        }
+
+        if (numGlobal === null) {
+            let calList = [];
+            try {
+                calList = JSON.parse(localStorage.getItem('calificaciones_' + idEstudiante) || '[]');
+            } catch(e) {}
+
+            const notasValidas = Array.isArray(calList) ? calList
+                .map(c => parseFloat(c.calificacion !== undefined ? c.calificacion : c.nota))
+                .filter(n => !isNaN(n) && n >= 1.0 && n <= 5.0) : [];
+
+            if (notasValidas.length > 0) {
+                const suma = notasValidas.reduce((acc, curr) => acc + curr, 0);
+                numGlobal = Number((suma / notasValidas.length).toFixed(1));
+            } else {
+                let totalXP = 0;
+                try {
+                    totalXP = parseInt(localStorage.getItem(`xp_${idEstudiante}`)) || 0;
+                    if (totalXP === 0) {
+                        const diagXP = parseInt(localStorage.getItem(`prog_${idEstudiante}_diag_xp`)) || 0;
+                        totalXP = diagXP || 0;
+                    }
+                } catch(e) {}
+                if (totalXP === 0) {
+                    const scoreEl = document.getElementById('student-score-display');
+                    if (scoreEl) totalXP = parseInt(scoreEl.innerText) || 0;
+                }
+
+                // Fórmula de equivalencia formativa: base 3.5 hasta 5.0 proporcional al XP
+                let equivalenciaXP = 3.5 + (totalXP / 1000) * 1.5;
+                numGlobal = Number(Math.max(1.0, Math.min(5.0, equivalenciaXP)).toFixed(1));
+            }
+        }
+
+        // Renderizar Badge Global
+        if (txtGlobal && badgeGlobal) {
+            txtGlobal.innerText = numGlobal.toFixed(1);
+            const estiloGlobal = window.obtenerEstiloNotaMEN(numGlobal);
+            badgeGlobal.style.background = estiloGlobal.bg;
+            badgeGlobal.style.borderColor = estiloGlobal.border;
+            badgeGlobal.title = `⭐ Global: ${numGlobal.toFixed(1)} - Promedio acumulado (Desempeño ${estiloGlobal.desempeno} en Escala MEN)`;
+        }
+
+        return { reto: numReto, global: numGlobal };
+    } catch(err) {
+        console.warn('[HUD_NOTAS] Advertencia al actualizar conversor de notas:', err);
+    }
+};
+
+// Listener global para postMessage y eventos de finalización de actividades
+if (typeof window !== 'undefined') {
+    window.addEventListener('message', function(e) {
+        try {
+            if (e && e.data) {
+                const cal = e.data.calificacion !== undefined ? e.data.calificacion : e.data.nota;
+                if (cal !== undefined && typeof window.actualizarConversorNotasHUD === 'function') {
+                    window.actualizarConversorNotasHUD(cal);
+                }
+            }
+        } catch(err) {}
+    });
+}
+
+// ============================================================================
 // SERVICIO DE PERSISTENCIA DUAL DE CALIFICACIONES FORMATIVAS (ESCALA 1.0 A 5.0)
 // ============================================================================
 window.guardarCalificacionActividad = async function(datos) {
@@ -22246,6 +22463,13 @@ window.guardarCalificacionActividad = async function(datos) {
                 }, '*');
             }
         } catch(e) {}
+
+        // 4. Actualización reactiva del Conversor/Indicador de Notas HUD
+        try {
+            if (typeof window.actualizarConversorNotasHUD === 'function') {
+                window.actualizarConversorNotasHUD(calificacion);
+            }
+        } catch(hudErr) {}
 
         return payload;
     } catch(err) {

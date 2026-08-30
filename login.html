@@ -149,6 +149,46 @@
             0% { transform: translate(-50%, -40px); opacity: 0; }
             100% { transform: translate(-50%, 0); opacity: 1; }
         }
+        /* Conversor / Indicador de Notas HUD - Mobile First */
+        .hud-conversor-notas {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(15, 23, 42, 0.65);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            padding: 4px 10px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: all 0.25s ease;
+        }
+        .hud-nota-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.84rem;
+            font-weight: 800;
+            color: #FFFFFF;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+        @media (max-width: 640px) {
+            .hud-conversor-notas {
+                padding: 3px 6px !important;
+                gap: 4px !important;
+            }
+            .hud-conversor-notas .hud-badge-label {
+                display: none !important;
+            }
+            .hud-nota-badge {
+                padding: 3px 7px !important;
+                font-size: 0.78rem !important;
+            }
+        }
         /* Corrección Universal de Scroll */
     div[id^="modal-"], div[id*="-modal"], .modal-container, .modal-content, .modal-overlay { 
         overflow-y: auto !important; 
@@ -1785,6 +1825,23 @@
                 <!-- Puntos XP -->
                 <div style="background: linear-gradient(135deg, #10B981, #059669); padding: 8px 16px; border-radius: 20px; font-size: 0.95rem; font-weight: 800; color: white; box-shadow: 0 4px 6px rgba(16, 185, 129, 0.2); display: flex; align-items: center; gap: 6px;">
                     🌟 <span id="student-score-display">0</span> XP
+                </div>
+
+                <!-- CONVERSOR / INDICADOR DE NOTAS HUD (ESCALA OFICIAL MEN 1.0 A 5.0) -->
+                <div id="hud-conversor-notas-container" class="hud-conversor-notas" title="Indicador oficial de calificaciones formativas (Escala MEN 1.0 a 5.0)">
+                    <!-- Badge Reto Actividad Actual -->
+                    <div id="badge-nota-reto-hud" class="hud-nota-badge" style="background: linear-gradient(135deg, #64748B, #475569); border: 1px solid rgba(255,255,255,0.3);" title="Calificación del reto actual o más reciente (Escala MEN 1.0 a 5.0)">
+                        <span>🎯</span>
+                        <span class="hud-badge-label">Reto:</span>
+                        <span id="txt-nota-reto-hud" style="font-weight: 900; letter-spacing: 0.3px;">--</span>
+                    </div>
+
+                    <!-- Badge Promedio / Nota Global -->
+                    <div id="badge-nota-global-hud" class="hud-nota-badge" style="background: linear-gradient(135deg, #10B981, #059669); border: 1px solid rgba(255,255,255,0.4);" title="Promedio formativo global acumulado (Escala MEN 1.0 a 5.0)">
+                        <span>⭐</span>
+                        <span class="hud-badge-label">Global:</span>
+                        <span id="txt-nota-global-hud" style="font-weight: 900; letter-spacing: 0.3px;">5.0</span>
+                    </div>
                 </div>
 
                 <!-- BOTÓN OFICIAL: GUARDAR PROGRESO Y FINALIZAR CLASE -->
