@@ -2786,16 +2786,16 @@
                                     🕹️
                                 </div>
                                 <span style="background: #EEF2FF; color: #4338CA; font-weight: 900; font-size: 0.8rem; padding: 4px 12px; border-radius: 20px; border: 1px solid #C7D2FE;">
-                                    10 Herramientas
+                                    23 Herramientas
                                 </span>
                             </div>
                             <h3 style="margin: 0 0 6px 0; font-size: 1.2rem; font-weight: 900; color: #1E1B4B;">Caja 2: Juegos Dinámicos y Activación</h3>
                             <p style="margin: 0 0 14px 0; color: #64748B; font-size: 0.86rem; line-height: 1.45;">
-                                Sopa de letras, Crucigramas, Gran Bingo STEAM con balotera y 30 cartones PDF, Concurso Jeopardy ($100-$500), Memory Cards, Criptogramas, Sudokus...
+                                Sopa de letras, Crucigramas, Duelo de Emparejamiento / Concéntrese, Emparejar Columnas, Gran Bingo STEAM con balotera y 30 cartones PDF, Concurso Jeopardy ($100-$500), Sudokus, Dominó, Escape Room, Ahorcado, Trivia, Ruleta del Saber, Criptogramas, Anagramas, Tap & Sort, y más...
                             </p>
                         </div>
                         <button style="background: linear-gradient(135deg, #4F46E5, #7C3AED); color: white; border: none; padding: 11px 16px; border-radius: 12px; font-weight: 900; font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 12px rgba(79,70,229,0.3);">
-                            <span>📦</span> Abrir Caja de Juegos (10) ➔
+                            <span>📦</span> Abrir Caja de Juegos (23) ➔
                         </button>
                     </div>
 
@@ -3007,10 +3007,39 @@
                 </label>
                 <div style="display: grid; grid-template-columns: 1.2fr 1fr 0.8fr; gap: 12px; margin-bottom: 12px;">
                     <div>
-                        <label style="font-size: 0.78rem; font-weight: 800; color: #475569; display: block; margin-bottom: 4px;">👥 Asignar a Grupo / Grado:</label>
-                        <select id="modal-config-juego-grupo" style="width: 100%; padding: 9px 12px; border: 2px solid #3B82F6; border-radius: 8px; font-weight: 800; font-size: 0.85rem; background: #EFF6FF; color: #1E3A8A;">
-                            <option value="Todos">🏫 Todos los Grupos</option>
-                        </select>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                            <label style="font-size: 0.78rem; font-weight: 800; color: #475569;">👥 Asignar a Grupo / Grado:</label>
+                            <span id="modal-config-juego-grupo-resultado" style="font-size: 0.75rem; font-weight: 900; background: #EFF6FF; color: #1D4ED8; padding: 2px 8px; border-radius: 6px; border: 1px solid #BFDBFE;">Grado 7 - A</span>
+                        </div>
+                        <div style="display: grid; grid-template-columns: 1.25fr 0.95fr; gap: 6px;">
+                            <select id="modal-config-juego-grupo-grado" onchange="window.actualizarGrupoJuegoSeleccionado()" style="width: 100%; padding: 9px 8px; border: 2px solid #3B82F6; border-radius: 8px; font-weight: 800; font-size: 0.82rem; background: #EFF6FF; color: #1E3A8A;" title="Selecciona el Grado (Preescolar o 1 a 11)">
+                                <option value="Preescolar">Preescolar</option>
+                                <option value="1">1° Grado</option>
+                                <option value="2">2° Grado</option>
+                                <option value="3">3° Grado</option>
+                                <option value="4">4° Grado</option>
+                                <option value="5">5° Grado</option>
+                                <option value="6">6° Grado</option>
+                                <option value="7" selected>7° Grado</option>
+                                <option value="8">8° Grado</option>
+                                <option value="9">9° Grado</option>
+                                <option value="10">10° Grado</option>
+                                <option value="11">11° Grado</option>
+                            </select>
+                            <select id="modal-config-juego-grupo-letra" onchange="window.actualizarGrupoJuegoSeleccionado()" style="width: 100%; padding: 9px 8px; border: 2px solid #3B82F6; border-radius: 8px; font-weight: 800; font-size: 0.82rem; background: #EFF6FF; color: #1E3A8A;" title="Selecciona la Letra del Grupo (A a J)">
+                                <option value="A" selected>Grupo A</option>
+                                <option value="B">Grupo B</option>
+                                <option value="C">Grupo C</option>
+                                <option value="D">Grupo D</option>
+                                <option value="E">Grupo E</option>
+                                <option value="F">Grupo F</option>
+                                <option value="G">Grupo G</option>
+                                <option value="H">Grupo H</option>
+                                <option value="I">Grupo I</option>
+                                <option value="J">Grupo J</option>
+                            </select>
+                        </div>
+                        <input type="hidden" id="modal-config-juego-grupo" value="Grado 7 - A">
                     </div>
                     <div>
                         <label style="font-size: 0.78rem; font-weight: 800; color: #475569; display: block; margin-bottom: 4px;">Asignatura / Área:</label>

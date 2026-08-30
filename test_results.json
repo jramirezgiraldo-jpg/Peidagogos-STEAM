@@ -1,45 +1,2764 @@
 {
-  "timestamp": "2026-08-24T01:51:30.000Z",
-  "durationMs": 62,
-  "totalTests": 116,
-  "passed": 116,
-  "failed": 0,
+  "timestamp": "2026-08-30T12:30:11.623Z",
+  "durationMs": 195,
+  "totalTests": 134,
+  "passed": 122,
+  "failed": 12,
   "tierBreakdown": {
     "Tier 1: Feature Coverage": {
-      "total": 31,
-      "passed": 31,
-      "failed": 0
+      "total": 45,
+      "passed": 44,
+      "failed": 1,
+      "suites": [
+        {
+          "name": "R1: UI Layout & Role Restrictions — Tier 1 Feature Coverage",
+          "tier": "Tier 1: Feature Coverage",
+          "tests": [
+            {
+              "name": "T1_R1_01: DOM & Contract — Navigation functions in app.js and modal-caja-herramientas in login.html",
+              "suite": "R1: UI Layout & Role Restrictions — Tier 1 Feature Coverage",
+              "tier": "Tier 1: Feature Coverage",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 1
+            },
+            {
+              "name": "T1_R1_02: Navigation Contract — abrirDetalleCajaTematica hides Hub and displays Category Detail",
+              "suite": "R1: UI Layout & Role Restrictions — Tier 1 Feature Coverage",
+              "tier": "Tier 1: Feature Coverage",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 1
+            },
+            {
+              "name": "T1_R1_03: Navigation Contract — volverACajasHub restores Hub and hides Category Detail",
+              "suite": "R1: UI Layout & Role Restrictions — Tier 1 Feature Coverage",
+              "tier": "Tier 1: Feature Coverage",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 0
+            },
+            {
+              "name": "T1_R1_04: Subject Modal Icons — #modal-asig-icono contains icons for fundamental subjects",
+              "suite": "R1: UI Layout & Role Restrictions — Tier 1 Feature Coverage",
+              "tier": "Tier 1: Feature Coverage",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 0
+            },
+            {
+              "name": "T1_R1_05: Role Contract — Teacher with es_director === true has group selection unlocked",
+              "suite": "R1: UI Layout & Role Restrictions — Tier 1 Feature Coverage",
+              "tier": "Tier 1: Feature Coverage",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 1
+            },
+            {
+              "name": "T1_R1_06: Role Contract — Teacher with es_director === false has group selection restricted",
+              "suite": "R1: UI Layout & Role Restrictions — Tier 1 Feature Coverage",
+              "tier": "Tier 1: Feature Coverage",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 0
+            }
+          ],
+          "passed": 6,
+          "failed": 0
+        },
+        {
+          "name": "R2: Multi-file Document Ingestion — Tier 1 Feature Coverage",
+          "tier": "Tier 1: Feature Coverage",
+          "tests": [
+            {
+              "name": "T1_R2_01: DOM Contract — #modal-asig-archivo input has multiple attribute",
+              "suite": "R2: Multi-file Document Ingestion — Tier 1 Feature Coverage",
+              "tier": "Tier 1: Feature Coverage",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 4
+            },
+            {
+              "name": "T1_R2_02: DOM Contract — #modal-asig-archivo input accepts PDF, DOC, DOCX, PPT, PPTX formats",
+              "suite": "R2: Multi-file Document Ingestion — Tier 1 Feature Coverage",
+              "tier": "Tier 1: Feature Coverage",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 2
+            },
+            {
+              "name": "T1_R2_03: Queue Contract — Uploading 3 files populates queue and tracks metadata",
+              "suite": "R2: Multi-file Document Ingestion — Tier 1 Feature Coverage",
+              "tier": "Tier 1: Feature Coverage",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 0
+            },
+            {
+              "name": "T1_R2_04: Preview Rendering — Formats multi-file preview badge list with name and size",
+              "suite": "R2: Multi-file Document Ingestion — Tier 1 Feature Coverage",
+              "tier": "Tier 1: Feature Coverage",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 1
+            },
+            {
+              "name": "T1_R2_05: Content Aggregation — Merges text content from all uploaded documents",
+              "suite": "R2: Multi-file Document Ingestion — Tier 1 Feature Coverage",
+              "tier": "Tier 1: Feature Coverage",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 0
+            }
+          ],
+          "passed": 5,
+          "failed": 0
+        },
+        {
+          "name": "R3: Dynamic AI Game Generation — Tier 1 Feature Coverage",
+          "tier": "Tier 1: Feature Coverage",
+          "tests": [
+            {
+              "name": "T1_R3_01: Pre-Gen Modal Contract — All 10 Caja 2 dynamic tools map to pre-generation modal invocation",
+              "suite": "R3: Dynamic AI Game Generation — Tier 1 Feature Coverage",
+              "tier": "Tier 1: Feature Coverage",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 0
+            },
+            {
+              "name": "T1_R3_02: Input Mode Toggle — Pre-generation modal supports Mode 1 (Keywords) and Mode 2 (Upload)",
+              "suite": "R3: Dynamic AI Game Generation — Tier 1 Feature Coverage",
+              "tier": "Tier 1: Feature Coverage",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 0
+            },
+            {
+              "name": "T1_R3_03: Teacher Groups Dropdown — Dynamically populates with teacher assigned groups",
+              "suite": "R3: Dynamic AI Game Generation — Tier 1 Feature Coverage",
+              "tier": "Tier 1: Feature Coverage",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 0
+            },
+            {
+              "name": "T1_R3_04: Keywords Generation — Generates valid structured payloads for each of the 10 tools",
+              "suite": "R3: Dynamic AI Game Generation — Tier 1 Feature Coverage",
+              "tier": "Tier 1: Feature Coverage",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 2
+            },
+            {
+              "name": "T1_R3_05: Document Upload Generation — Extracts concepts from text and generates game payload",
+              "suite": "R3: Dynamic AI Game Generation — Tier 1 Feature Coverage",
+              "tier": "Tier 1: Feature Coverage",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 0
+            },
+            {
+              "name": "T1_R3_06: Assignment Dispatch — Dispatches activity with complete metadata to target group",
+              "suite": "R3: Dynamic AI Game Generation — Tier 1 Feature Coverage",
+              "tier": "Tier 1: Feature Coverage",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 1
+            }
+          ],
+          "passed": 6,
+          "failed": 0
+        },
+        {
+          "name": "R4: Student Inbox — Tier 1 Feature Coverage",
+          "tier": "Tier 1: Feature Coverage",
+          "tests": [
+            {
+              "name": "T1_R4_01: DOM Contract — #student-actividades-container and list elements exist in Student Dashboard",
+              "suite": "R4: Student Inbox — Tier 1 Feature Coverage",
+              "tier": "Tier 1: Feature Coverage",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 0
+            },
+            {
+              "name": "T1_R4_02: Group Filtering Contract — Student in 7C receives 7C activities and not 6A activities",
+              "suite": "R4: Student Inbox — Tier 1 Feature Coverage",
+              "tier": "Tier 1: Feature Coverage",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 0
+            },
+            {
+              "name": "T1_R4_03: Notification Card Rendering — Displays Subject, Teacher Name, XP reward and Title",
+              "suite": "R4: Student Inbox — Tier 1 Feature Coverage",
+              "tier": "Tier 1: Feature Coverage",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 0
+            },
+            {
+              "name": "T1_R4_04: Pending Counter — Calculates correct pending badge count",
+              "suite": "R4: Student Inbox — Tier 1 Feature Coverage",
+              "tier": "Tier 1: Feature Coverage",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 1
+            },
+            {
+              "name": "T1_R4_05: Activity Launch Payload — Preserves stored actividad_data structure for game runner",
+              "suite": "R4: Student Inbox — Tier 1 Feature Coverage",
+              "tier": "Tier 1: Feature Coverage",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 0
+            }
+          ],
+          "passed": 5,
+          "failed": 0
+        },
+        {
+          "name": "⚔️ Challenger Final — Challenge 2: Per-tool Pre-gen Modal on All 6 Cajas",
+          "tier": "Tier 1: Feature Coverage",
+          "tests": [
+            {
+              "name": "CH_FIN_06: DOM Contract — Modal #modal-configuracion-juego-ia exists with all required controls",
+              "suite": "⚔️ Challenger Final — Challenge 2: Per-tool Pre-gen Modal on All 6 Cajas",
+              "tier": "Tier 1: Feature Coverage",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 3
+            },
+            {
+              "name": "CH_FIN_07: Universal Interception — All 6 Cajas have their tools calling pre-generation config modal",
+              "suite": "⚔️ Challenger Final — Challenge 2: Per-tool Pre-gen Modal on All 6 Cajas",
+              "tier": "Tier 1: Feature Coverage",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 1
+            },
+            {
+              "name": "CH_FIN_08: Pre-Gen Modal Execution — Generates payload, assigns activity, and opens Visor",
+              "suite": "⚔️ Challenger Final — Challenge 2: Per-tool Pre-gen Modal on All 6 Cajas",
+              "tier": "Tier 1: Feature Coverage",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 0
+            }
+          ],
+          "passed": 3,
+          "failed": 0
+        },
+        {
+          "name": "⚔️ Challenger Final — Challenge 3: Live Ranking Group Selector",
+          "tier": "Tier 1: Feature Coverage",
+          "tests": [
+            {
+              "name": "CH_FIN_09: Contract — abrirRankingDocenteNuevaPestana prompts teacher for target group",
+              "suite": "⚔️ Challenger Final — Challenge 3: Live Ranking Group Selector",
+              "tier": "Tier 1: Feature Coverage",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 1
+            },
+            {
+              "name": "CH_FIN_10: Behavior — Selected group is properly encoded into ranking.html query parameter",
+              "suite": "⚔️ Challenger Final — Challenge 3: Live Ranking Group Selector",
+              "tier": "Tier 1: Feature Coverage",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 1
+            }
+          ],
+          "passed": 2,
+          "failed": 0
+        },
+        {
+          "name": "⚔️ Challenger Final — Challenge 4: Hidden Cards & Elements",
+          "tier": "Tier 1: Feature Coverage",
+          "tests": [
+            {
+              "name": "CH_FIN_11: Proyectar QR Matrícula — Hidden surgically via display: none !important",
+              "suite": "⚔️ Challenger Final — Challenge 4: Hidden Cards & Elements",
+              "tier": "Tier 1: Feature Coverage",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 0
+            },
+            {
+              "name": "CH_FIN_12: Mis Materias y Grados — Hidden surgically via display: none !important",
+              "suite": "⚔️ Challenger Final — Challenge 4: Hidden Cards & Elements",
+              "tier": "Tier 1: Feature Coverage",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 0
+            },
+            {
+              "name": "CH_FIN_13: Global Ingestion Panel in Toolbox — Hidden surgically via display: none !important",
+              "suite": "⚔️ Challenger Final — Challenge 4: Hidden Cards & Elements",
+              "tier": "Tier 1: Feature Coverage",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 1
+            }
+          ],
+          "passed": 3,
+          "failed": 0
+        },
+        {
+          "name": "⚔️ Challenger Final — Challenge 5: Student Inbox Group Isolation",
+          "tier": "Tier 1: Feature Coverage",
+          "tests": [
+            {
+              "name": "CH_FIN_14: Group Isolation Matrix — Group 7C vs 6A vs 8A",
+              "suite": "⚔️ Challenger Final — Challenge 5: Student Inbox Group Isolation",
+              "tier": "Tier 1: Feature Coverage",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 0
+            },
+            {
+              "name": "CH_FIN_15: Notification Rendering & XP Reward — Displays subject, teacher, XP, and state",
+              "suite": "⚔️ Challenger Final — Challenge 5: Student Inbox Group Isolation",
+              "tier": "Tier 1: Feature Coverage",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 0
+            },
+            {
+              "name": "CH_FIN_16: Activity Completion & Badge Decrement — Marks task done and prevents double XP",
+              "suite": "⚔️ Challenger Final — Challenge 5: Student Inbox Group Isolation",
+              "tier": "Tier 1: Feature Coverage",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 1
+            }
+          ],
+          "passed": 3,
+          "failed": 0
+        },
+        {
+          "name": "⚔️ Challenger Final — Challenge 6: Post-Earthquake Emotional First Aid",
+          "tier": "Tier 1: Feature Coverage",
+          "tests": [
+            {
+              "name": "CH_FIN_17: Print Button Removed — \"imprimir taller\" is removed from modal",
+              "suite": "⚔️ Challenger Final — Challenge 6: Post-Earthquake Emotional First Aid",
+              "tier": "Tier 1: Feature Coverage",
+              "status": "FAILED",
+              "error": "Cannot read properties of undefined (reading 'toContain')",
+              "durationMs": 0
+            },
+            {
+              "name": "CH_FIN_18: Interactive Online Activities — Features 4-7-8 Breathing, 5-4-3-2-1 Grounding, AI Empathetic Support",
+              "suite": "⚔️ Challenger Final — Challenge 6: Post-Earthquake Emotional First Aid",
+              "tier": "Tier 1: Feature Coverage",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 0
+            }
+          ],
+          "passed": 1,
+          "failed": 1
+        },
+        {
+          "name": "⚔️ Challenger Final — Challenge 7: Admin Panel Invariant Preservation",
+          "tier": "Tier 1: Feature Coverage",
+          "tests": [
+            {
+              "name": "CH_FIN_19: Admin Groups Invariant — Assigned groups in docentes.json and usuarios.json remain intact",
+              "suite": "⚔️ Challenger Final — Challenge 7: Admin Panel Invariant Preservation",
+              "tier": "Tier 1: Feature Coverage",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 0
+            }
+          ],
+          "passed": 1,
+          "failed": 0
+        },
+        {
+          "name": "Director de Grupo Module — R1 to R5",
+          "tier": "Tier 1: Feature Coverage",
+          "tests": [
+            {
+              "name": "T1_DG_01: R1 DOM — #docente-nav-tabs, #btn-tab-docente-mi-grupo and #vista-docente-mi-grupo exist",
+              "suite": "Director de Grupo Module — R1 to R5",
+              "tier": "Tier 1: Feature Coverage",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 0
+            },
+            {
+              "name": "T1_DG_02: R1 Role Visibility — Director sees Mi Grupo tab (display: flex), regular teacher does not (display: none)",
+              "suite": "Director de Grupo Module — R1 to R5",
+              "tier": "Tier 1: Feature Coverage",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 1
+            },
+            {
+              "name": "T1_DG_03: R2 Group Creation Form — Dropdowns for Grado (Preescolar..11) and Grupo (A..J) exist",
+              "suite": "Director de Grupo Module — R1 to R5",
+              "tier": "Tier 1: Feature Coverage",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 0
+            },
+            {
+              "name": "T1_DG_04: R2 Group Persistence — localStorage.grupo_director_<doc> saves object with grado, grupo, docentes[]",
+              "suite": "Director de Grupo Module — R1 to R5",
+              "tier": "Tier 1: Feature Coverage",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 2
+            },
+            {
+              "name": "T1_DG_05: R3 Montenegro Teachers Directory & Toggle — filter by montenegro and toggle docentes[]",
+              "suite": "Director de Grupo Module — R1 to R5",
+              "tier": "Tier 1: Feature Coverage",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 2
+            },
+            {
+              "name": "T1_DG_06: R4 Student Registration Link Generator & Copy Feedback",
+              "suite": "Director de Grupo Module — R1 to R5",
+              "tier": "Tier 1: Feature Coverage",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 3
+            },
+            {
+              "name": "T1_DG_07: R4 Student Pre-fill in verificarParametrosMatriculaDirecta",
+              "suite": "Director de Grupo Module — R1 to R5",
+              "tier": "Tier 1: Feature Coverage",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 1
+            },
+            {
+              "name": "T1_DG_08: R5 Mis Otros Grupos — scans localStorage for grupo_director_* matching teacher doc",
+              "suite": "Director de Grupo Module — R1 to R5",
+              "tier": "Tier 1: Feature Coverage",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 1
+            },
+            {
+              "name": "T1_DG_09: Backend Routes — POST /api/guardar-grupo-director and GET /api/grupos-director exist in server.js",
+              "suite": "Director de Grupo Module — R1 to R5",
+              "tier": "Tier 1: Feature Coverage",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 0
+            }
+          ],
+          "passed": 9,
+          "failed": 0
+        }
+      ]
     },
     "Tier 2: Boundary & Corner Cases": {
-      "total": 35,
-      "passed": 35,
-      "failed": 0
+      "total": 40,
+      "passed": 38,
+      "failed": 2,
+      "suites": [
+        {
+          "name": "R1: UI Layout & Role Restrictions — Tier 2 Boundary & Corner Cases",
+          "tier": "Tier 2: Boundary & Corner Cases",
+          "tests": [
+            {
+              "name": "T2_R1_01: Role Boundary — Undefined/null es_director flag safely defaults to restricted mode",
+              "suite": "R1: UI Layout & Role Restrictions — Tier 2 Boundary & Corner Cases",
+              "tier": "Tier 2: Boundary & Corner Cases",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 0
+            },
+            {
+              "name": "T2_R1_02: Role Boundary — Admin role (rol === \"admin\") overrides es_director === false",
+              "suite": "R1: UI Layout & Role Restrictions — Tier 2 Boundary & Corner Cases",
+              "tier": "Tier 2: Boundary & Corner Cases",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 0
+            },
+            {
+              "name": "T2_R1_03: DOM Boundary — Rapid consecutive category clicks maintain mutually exclusive view visibility",
+              "suite": "R1: UI Layout & Role Restrictions — Tier 2 Boundary & Corner Cases",
+              "tier": "Tier 2: Boundary & Corner Cases",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 0
+            },
+            {
+              "name": "T2_R1_04: State Boundary — Re-opening Caja de Herramientas modal resets to Hub view",
+              "suite": "R1: UI Layout & Role Restrictions — Tier 2 Boundary & Corner Cases",
+              "tier": "Tier 2: Boundary & Corner Cases",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 0
+            },
+            {
+              "name": "T2_R1_05: Icon Boundary — Subject modal icon selector handles empty/unrecognized icon gracefully",
+              "suite": "R1: UI Layout & Role Restrictions — Tier 2 Boundary & Corner Cases",
+              "tier": "Tier 2: Boundary & Corner Cases",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 0
+            }
+          ],
+          "passed": 5,
+          "failed": 0
+        },
+        {
+          "name": "R2: Multi-file Document Ingestion — Tier 2 Boundary & Corner Cases",
+          "tier": "Tier 2: Boundary & Corner Cases",
+          "tests": [
+            {
+              "name": "T2_R2_01: Boundary — Exactly 20 files are allowed and accepted without limit error",
+              "suite": "R2: Multi-file Document Ingestion — Tier 2 Boundary & Corner Cases",
+              "tier": "Tier 2: Boundary & Corner Cases",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 0
+            },
+            {
+              "name": "T2_R2_02: Boundary — 21 or more files triggers errorLimite and caps to 20",
+              "suite": "R2: Multi-file Document Ingestion — Tier 2 Boundary & Corner Cases",
+              "tier": "Tier 2: Boundary & Corner Cases",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 0
+            },
+            {
+              "name": "T2_R2_03: Boundary — Zero files uploaded safely proceeds with empty aggregation",
+              "suite": "R2: Multi-file Document Ingestion — Tier 2 Boundary & Corner Cases",
+              "tier": "Tier 2: Boundary & Corner Cases",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 0
+            },
+            {
+              "name": "T2_R2_04: File Type Boundary — Discards unapproved extensions (.exe, .zip, .bin)",
+              "suite": "R2: Multi-file Document Ingestion — Tier 2 Boundary & Corner Cases",
+              "tier": "Tier 2: Boundary & Corner Cases",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 1
+            },
+            {
+              "name": "T2_R2_05: Content Boundary — Handles 0-byte empty file without throwing exceptions",
+              "suite": "R2: Multi-file Document Ingestion — Tier 2 Boundary & Corner Cases",
+              "tier": "Tier 2: Boundary & Corner Cases",
+              "status": "FAILED",
+              "error": "Expected 0 (type: number) but received 4 (type: number)",
+              "durationMs": 0
+            }
+          ],
+          "passed": 4,
+          "failed": 1
+        },
+        {
+          "name": "R3: Dynamic AI Games — Tier 2 Boundary & Corner Cases",
+          "tier": "Tier 2: Boundary & Corner Cases",
+          "tests": [
+            {
+              "name": "T2_R3_01: Teacher Group Fallback — Teacher with missing/empty grupos gets \"Todos los Grupos\" fallback",
+              "suite": "R3: Dynamic AI Games — Tier 2 Boundary & Corner Cases",
+              "tier": "Tier 2: Boundary & Corner Cases",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 0
+            },
+            {
+              "name": "T2_R3_02: Special Characters — Keywords with accents, tildes and punctuation are preserved",
+              "suite": "R3: Dynamic AI Games — Tier 2 Boundary & Corner Cases",
+              "tier": "Tier 2: Boundary & Corner Cases",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 0
+            },
+            {
+              "name": "T2_R3_03: Image Ingestion — Document mode processes image file names to extract initial cues",
+              "suite": "R3: Dynamic AI Games — Tier 2 Boundary & Corner Cases",
+              "tier": "Tier 2: Boundary & Corner Cases",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 0
+            },
+            {
+              "name": "T2_R3_04: Generator Resilience — Offline generator never throws and produces non-null objects for all 10 tools",
+              "suite": "R3: Dynamic AI Games — Tier 2 Boundary & Corner Cases",
+              "tier": "Tier 2: Boundary & Corner Cases",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 1
+            },
+            {
+              "name": "T2_R3_05: Missing Metadata Defaults — Assigning activity with missing fields applies institutional defaults",
+              "suite": "R3: Dynamic AI Games — Tier 2 Boundary & Corner Cases",
+              "tier": "Tier 2: Boundary & Corner Cases",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 0
+            }
+          ],
+          "passed": 5,
+          "failed": 0
+        },
+        {
+          "name": "R4: Student Inbox — Tier 2 Boundary & Corner Cases",
+          "tier": "Tier 2: Boundary & Corner Cases",
+          "tests": [
+            {
+              "name": "T2_R4_01: Empty Inbox State — Returns clean empty array when no activities assigned",
+              "suite": "R4: Student Inbox — Tier 2 Boundary & Corner Cases",
+              "tier": "Tier 2: Boundary & Corner Cases",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 0
+            },
+            {
+              "name": "T2_R4_02: Case-Insensitive Matching — Matches group regardless of lowercase/uppercase format",
+              "suite": "R4: Student Inbox — Tier 2 Boundary & Corner Cases",
+              "tier": "Tier 2: Boundary & Corner Cases",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 0
+            },
+            {
+              "name": "T2_R4_03: Completed Activity State — Correctly renders completed state and disables reward duplication",
+              "suite": "R4: Student Inbox — Tier 2 Boundary & Corner Cases",
+              "tier": "Tier 2: Boundary & Corner Cases",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 0
+            },
+            {
+              "name": "T2_R4_04: Malformed Activity Recovery — Missing fields in activity object do not crash renderer",
+              "suite": "R4: Student Inbox — Tier 2 Boundary & Corner Cases",
+              "tier": "Tier 2: Boundary & Corner Cases",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 0
+            },
+            {
+              "name": "T2_R4_05: HomeSchool and Global Matching — HomeSchool student matches homeschool specific tag",
+              "suite": "R4: Student Inbox — Tier 2 Boundary & Corner Cases",
+              "tier": "Tier 2: Boundary & Corner Cases",
+              "status": "FAILED",
+              "error": "Expected 1 (type: number) but received 2 (type: number)",
+              "durationMs": 0
+            }
+          ],
+          "passed": 4,
+          "failed": 1
+        },
+        {
+          "name": "⚔️ Challenger Final — Challenge 1: Multi-file Upload Boundaries",
+          "tier": "Tier 2: Boundary & Corner Cases",
+          "tests": [
+            {
+              "name": "CH_FIN_01: Zero files — Handled cleanly without errors or memory leaks",
+              "suite": "⚔️ Challenger Final — Challenge 1: Multi-file Upload Boundaries",
+              "tier": "Tier 2: Boundary & Corner Cases",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 0
+            },
+            {
+              "name": "CH_FIN_02: Single file — Correctly identified and parsed",
+              "suite": "⚔️ Challenger Final — Challenge 1: Multi-file Upload Boundaries",
+              "tier": "Tier 2: Boundary & Corner Cases",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 0
+            },
+            {
+              "name": "CH_FIN_03: Exactly 20 files boundary — All 20 accepted, errorLimite is false",
+              "suite": "⚔️ Challenger Final — Challenge 1: Multi-file Upload Boundaries",
+              "tier": "Tier 2: Boundary & Corner Cases",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 0
+            },
+            {
+              "name": "CH_FIN_04: 21+ files overflow — Caps to 20 files and sets errorLimite to true",
+              "suite": "⚔️ Challenger Final — Challenge 1: Multi-file Upload Boundaries",
+              "tier": "Tier 2: Boundary & Corner Cases",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 0
+            },
+            {
+              "name": "CH_FIN_05: Mixed binary formats & security blacklist — Discards malicious extensions",
+              "suite": "⚔️ Challenger Final — Challenge 1: Multi-file Upload Boundaries",
+              "tier": "Tier 2: Boundary & Corner Cases",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 0
+            }
+          ],
+          "passed": 5,
+          "failed": 0
+        },
+        {
+          "name": "⚔️ Challenger M4 — Edge Case 1: Null Apellidos & Document Formatting",
+          "tier": "Tier 2: Boundary & Corner Cases",
+          "tests": [
+            {
+              "name": "CH_M4_01: Document normalization strips dots, dashes, spaces, and uppercase letters",
+              "suite": "⚔️ Challenger M4 — Edge Case 1: Null Apellidos & Document Formatting",
+              "tier": "Tier 2: Boundary & Corner Cases",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 0
+            },
+            {
+              "name": "CH_M4_02: Teacher with missing or null apellidos falls back gracefully without \"null\" string",
+              "suite": "⚔️ Challenger M4 — Edge Case 1: Null Apellidos & Document Formatting",
+              "tier": "Tier 2: Boundary & Corner Cases",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 0
+            },
+            {
+              "name": "CH_M4_03: Matching teacher session with formatted document in docentes_db",
+              "suite": "⚔️ Challenger M4 — Edge Case 1: Null Apellidos & Document Formatting",
+              "tier": "Tier 2: Boundary & Corner Cases",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 0
+            }
+          ],
+          "passed": 3,
+          "failed": 0
+        },
+        {
+          "name": "⚔️ Challenger M4 — Edge Case 2: Empty Docentes Array",
+          "tier": "Tier 2: Boundary & Corner Cases",
+          "tests": [
+            {
+              "name": "CH_M4_04: Group initialized with empty docentes[] renders 0 assigned teachers badge",
+              "suite": "⚔️ Challenger M4 — Edge Case 2: Empty Docentes Array",
+              "tier": "Tier 2: Boundary & Corner Cases",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 0
+            },
+            {
+              "name": "CH_M4_05: Directory rendering with empty docentes marks all teachers as \"+ Agregar\"",
+              "suite": "⚔️ Challenger M4 — Edge Case 2: Empty Docentes Array",
+              "tier": "Tier 2: Boundary & Corner Cases",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 0
+            },
+            {
+              "name": "CH_M4_06: Backend endpoint accepts empty docentes array without validation error",
+              "suite": "⚔️ Challenger M4 — Edge Case 2: Empty Docentes Array",
+              "tier": "Tier 2: Boundary & Corner Cases",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 0
+            }
+          ],
+          "passed": 3,
+          "failed": 0
+        },
+        {
+          "name": "⚔️ Challenger M4 — Edge Case 3: Toggle Idempotency & Repeat Cycles",
+          "tier": "Tier 2: Boundary & Corner Cases",
+          "tests": [
+            {
+              "name": "CH_M4_07: Alternating toggle sequence produces clean additions and removals without duplicates",
+              "suite": "⚔️ Challenger M4 — Edge Case 3: Toggle Idempotency & Repeat Cycles",
+              "tier": "Tier 2: Boundary & Corner Cases",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 0
+            },
+            {
+              "name": "CH_M4_08: Multi-teacher toggling preserves independent member states",
+              "suite": "⚔️ Challenger M4 — Edge Case 3: Toggle Idempotency & Repeat Cycles",
+              "tier": "Tier 2: Boundary & Corner Cases",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 0
+            }
+          ],
+          "passed": 2,
+          "failed": 0
+        },
+        {
+          "name": "⚔️ Challenger M4 — Edge Case 4: URL Parameter Permutations",
+          "tier": "Tier 2: Boundary & Corner Cases",
+          "tests": [
+            {
+              "name": "CH_M4_09: Permutation A — ?reg=estudiante&grupo=PreescolarA&inst=montenegro&director=98765",
+              "suite": "⚔️ Challenger M4 — Edge Case 4: URL Parameter Permutations",
+              "tier": "Tier 2: Boundary & Corner Cases",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 0
+            },
+            {
+              "name": "CH_M4_10: Permutation B — ?reg=estudiante&grupo=11J&inst=montenegro (No director param)",
+              "suite": "⚔️ Challenger M4 — Edge Case 4: URL Parameter Permutations",
+              "tier": "Tier 2: Boundary & Corner Cases",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 0
+            },
+            {
+              "name": "CH_M4_11: Permutation C — ?reg=estudiante&grupo=Ciclo%20IVB&inst=montenegro&director=123",
+              "suite": "⚔️ Challenger M4 — Edge Case 4: URL Parameter Permutations",
+              "tier": "Tier 2: Boundary & Corner Cases",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 0
+            },
+            {
+              "name": "CH_M4_12: Permutation D — ?director=554433 without explicit reg=estudiante",
+              "suite": "⚔️ Challenger M4 — Edge Case 4: URL Parameter Permutations",
+              "tier": "Tier 2: Boundary & Corner Cases",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 0
+            }
+          ],
+          "passed": 4,
+          "failed": 0
+        },
+        {
+          "name": "⚔️ Challenger M4 — Edge Case 5: localStorage Scanning & Malformed Data",
+          "tier": "Tier 2: Boundary & Corner Cases",
+          "tests": [
+            {
+              "name": "CH_M4_13: Multi-director storage scanning correctly filters groups where teacher is assigned",
+              "suite": "⚔️ Challenger M4 — Edge Case 5: localStorage Scanning & Malformed Data",
+              "tier": "Tier 2: Boundary & Corner Cases",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 0
+            },
+            {
+              "name": "CH_M4_14: Resilient to corrupted JSON and invalid schema keys in localStorage",
+              "suite": "⚔️ Challenger M4 — Edge Case 5: localStorage Scanning & Malformed Data",
+              "tier": "Tier 2: Boundary & Corner Cases",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 0
+            },
+            {
+              "name": "CH_M4_15: Empty matches cleanly returns empty array triggering fallback UI message",
+              "suite": "⚔️ Challenger M4 — Edge Case 5: localStorage Scanning & Malformed Data",
+              "tier": "Tier 2: Boundary & Corner Cases",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 0
+            }
+          ],
+          "passed": 3,
+          "failed": 0
+        }
+      ]
     },
     "Tier 3: Cross-Feature Combinations": {
       "total": 5,
-      "passed": 5,
-      "failed": 0
+      "passed": 4,
+      "failed": 1,
+      "suites": [
+        {
+          "name": "Tier 3: Cross-Feature Integration Workflows",
+          "tier": "Tier 3: Cross-Feature Combinations",
+          "tests": [
+            {
+              "name": "T3_INT_01: Workflow — Subject Creation with Multi-File Upload feeds into Caja 2 Game Generation",
+              "suite": "Tier 3: Cross-Feature Integration Workflows",
+              "tier": "Tier 3: Cross-Feature Combinations",
+              "status": "FAILED",
+              "error": "Expected array to contain item \"FOTOSINTESIS\"",
+              "durationMs": 0
+            },
+            {
+              "name": "T3_INT_02: Workflow — Director de Grupo assigns Jeopardy game to Group 7C and Student receives it in Inbox",
+              "suite": "Tier 3: Cross-Feature Integration Workflows",
+              "tier": "Tier 3: Cross-Feature Combinations",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 0
+            },
+            {
+              "name": "T3_INT_03: Workflow — Non-Director Teacher assigns Memory Cards to 6A and Group 7C is isolated",
+              "suite": "Tier 3: Cross-Feature Integration Workflows",
+              "tier": "Tier 3: Cross-Feature Combinations",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 1
+            },
+            {
+              "name": "T3_INT_04: Workflow — Batch Assignments and Pending Counter Decrement on Task Completion",
+              "suite": "Tier 3: Cross-Feature Integration Workflows",
+              "tier": "Tier 3: Cross-Feature Combinations",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 0
+            },
+            {
+              "name": "T3_INT_05: Payload Integrity — AI Generated Game Data matches exactly inside Student Visor",
+              "suite": "Tier 3: Cross-Feature Integration Workflows",
+              "tier": "Tier 3: Cross-Feature Combinations",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 0
+            }
+          ],
+          "passed": 4,
+          "failed": 1
+        }
+      ]
     },
     "Tier 4: Real-World Scenarios": {
       "total": 5,
       "passed": 5,
-      "failed": 0
+      "failed": 0,
+      "suites": [
+        {
+          "name": "Tier 4: Real-World Scenarios & Institutional Lifecycle",
+          "tier": "Tier 4: Real-World Scenarios",
+          "tests": [
+            {
+              "name": "T4_SCN_01: Scenario — Complete School Day Institutional STEAM Cycle",
+              "suite": "Tier 4: Real-World Scenarios & Institutional Lifecycle",
+              "tier": "Tier 4: Real-World Scenarios",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 1
+            },
+            {
+              "name": "T4_SCN_02: Scenario — Curriculum Ingestion to Interactive Student Assignment",
+              "suite": "Tier 4: Real-World Scenarios & Institutional Lifecycle",
+              "tier": "Tier 4: Real-World Scenarios",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 0
+            },
+            {
+              "name": "T4_SCN_03: Scenario — Offline Resilience & Procedural Fallback Execution",
+              "suite": "Tier 4: Real-World Scenarios & Institutional Lifecycle",
+              "tier": "Tier 4: Real-World Scenarios",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 0
+            },
+            {
+              "name": "T4_SCN_04: Scenario — Multi-Teacher Parallel Classroom Assignment Distribution",
+              "suite": "Tier 4: Real-World Scenarios & Institutional Lifecycle",
+              "tier": "Tier 4: Real-World Scenarios",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 0
+            },
+            {
+              "name": "T4_SCN_05: Scenario — HomeSchool vs Regular Cohort Dual Assignment Distribution",
+              "suite": "Tier 4: Real-World Scenarios & Institutional Lifecycle",
+              "tier": "Tier 4: Real-World Scenarios",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 0
+            }
+          ],
+          "passed": 5,
+          "failed": 0
+        }
+      ]
     },
     "Challenger M1: Adversarial": {
-      "total": 15,
-      "passed": 15,
-      "failed": 0
+      "total": 10,
+      "passed": 9,
+      "failed": 1,
+      "suites": [
+        {
+          "name": "⚔️ Challenger M1 — Challenge 1: Toolbox Layout & Rapid View Transitions",
+          "tier": "Challenger M1: Adversarial",
+          "tests": [
+            {
+              "name": "CH_M1_01: DOM Contract — Level 1 is fully encapsulated inside #vista-cajas-hub and Level 2 inside #vista-categoria-detalle",
+              "suite": "⚔️ Challenger M1 — Challenge 1: Toolbox Layout & Rapid View Transitions",
+              "tier": "Challenger M1: Adversarial",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 1
+            },
+            {
+              "name": "CH_M1_02: Stress Test — 1000 Rapid View Switches maintain strict mutual exclusion",
+              "suite": "⚔️ Challenger M1 — Challenge 1: Toolbox Layout & Rapid View Transitions",
+              "tier": "Challenger M1: Adversarial",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 1
+            },
+            {
+              "name": "CH_M1_03: Defensive Fallback — abrirDetalleCajaTematica with unknown/corrupted category defaults safely to \"juegos\"",
+              "suite": "⚔️ Challenger M1 — Challenge 1: Toolbox Layout & Rapid View Transitions",
+              "tier": "Challenger M1: Adversarial",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 1
+            }
+          ],
+          "passed": 3,
+          "failed": 0
+        },
+        {
+          "name": "⚔️ Challenger M1 — Challenge 2: 22 Subject Icons, Presets & Heuristic Resolution",
+          "tier": "Challenger M1: Adversarial",
+          "tests": [
+            {
+              "name": "CH_M1_04: Catalog Completeness — Exactly 22 fundamental areas defined in CATALOGO_AREAS_FUNDAMENTALES and in select options",
+              "suite": "⚔️ Challenger M1 — Challenge 2: 22 Subject Icons, Presets & Heuristic Resolution",
+              "tier": "Challenger M1: Adversarial",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 3
+            },
+            {
+              "name": "CH_M1_05: Heuristic Matcher Stress Test — Fuzzy and Case-Insensitive inputs resolve to correct icons",
+              "suite": "⚔️ Challenger M1 — Challenge 2: 22 Subject Icons, Presets & Heuristic Resolution",
+              "tier": "Challenger M1: Adversarial",
+              "status": "FAILED",
+              "error": "Expected \"⚽\" (type: string) but received \"⚛️\" (type: string)",
+              "durationMs": 3
+            },
+            {
+              "name": "CH_M1_06: Preset Templating — Selecting any preset chip fills Name, Icon, and Description correctly",
+              "suite": "⚔️ Challenger M1 — Challenge 2: 22 Subject Icons, Presets & Heuristic Resolution",
+              "tier": "Challenger M1: Adversarial",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 0
+            }
+          ],
+          "passed": 2,
+          "failed": 1
+        },
+        {
+          "name": "⚔️ Challenger M1 — Challenge 3: Role Restrictions & Fallback Logic",
+          "tier": "Challenger M1: Adversarial",
+          "tests": [
+            {
+              "name": "CH_M1_07: Permission Matrix Exhaustive Test across all roles and edge states",
+              "suite": "⚔️ Challenger M1 — Challenge 3: Role Restrictions & Fallback Logic",
+              "tier": "Challenger M1: Adversarial",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 0
+            },
+            {
+              "name": "CH_M1_08: UI State Adaptation — abrirModalCrearAsignaturaDocente adjusts elements correctly based on role",
+              "suite": "⚔️ Challenger M1 — Challenge 3: Role Restrictions & Fallback Logic",
+              "tier": "Challenger M1: Adversarial",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 0
+            },
+            {
+              "name": "CH_M1_09: Non-Destructive Syllabus Fallback — Teacher without selected checkboxes still generates syllabus with fallback grades",
+              "suite": "⚔️ Challenger M1 — Challenge 3: Role Restrictions & Fallback Logic",
+              "tier": "Challenger M1: Adversarial",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 0
+            },
+            {
+              "name": "CH_M1_10: docentes.json Validation — Seed accounts reflect correct institutional roles",
+              "suite": "⚔️ Challenger M1 — Challenge 3: Role Restrictions & Fallback Logic",
+              "tier": "Challenger M1: Adversarial",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 0
+            }
+          ],
+          "passed": 4,
+          "failed": 0
+        }
+      ]
     },
     "Challenger M2: Adversarial": {
       "total": 16,
-      "passed": 16,
-      "failed": 0
+      "passed": 12,
+      "failed": 4,
+      "suites": [
+        {
+          "name": "⚔️ Challenger M2 — Challenge 1: File Boundary & Stress Ingestion",
+          "tier": "Challenger M2: Adversarial",
+          "tests": [
+            {
+              "name": "CH_M2_01: Boundary — Exactly 20 files are fully accepted without triggering errorLimite",
+              "suite": "⚔️ Challenger M2 — Challenge 1: File Boundary & Stress Ingestion",
+              "tier": "Challenger M2: Adversarial",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 0
+            },
+            {
+              "name": "CH_M2_02: Boundary — 21 files triggers errorLimite and caps exactly at 20 files",
+              "suite": "⚔️ Challenger M2 — Challenge 1: File Boundary & Stress Ingestion",
+              "tier": "Challenger M2: Adversarial",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 0
+            },
+            {
+              "name": "CH_M2_03: Stress — 100 files burst triggers errorLimite and caps strictly to first 20",
+              "suite": "⚔️ Challenger M2 — Challenge 1: File Boundary & Stress Ingestion",
+              "tier": "Challenger M2: Adversarial",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 0
+            },
+            {
+              "name": "CH_M2_04: Boundary — 0 files (empty array) returns empty results with zero totalBytes",
+              "suite": "⚔️ Challenger M2 — Challenge 1: File Boundary & Stress Ingestion",
+              "tier": "Challenger M2: Adversarial",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 0
+            },
+            {
+              "name": "CH_M2_05: Defensive — null and undefined inputs safely return empty results without throwing",
+              "suite": "⚔️ Challenger M2 — Challenge 1: File Boundary & Stress Ingestion",
+              "tier": "Challenger M2: Adversarial",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 0
+            },
+            {
+              "name": "CH_M2_06: FileList Emulation — Handles array-like objects with length and index properties",
+              "suite": "⚔️ Challenger M2 — Challenge 1: File Boundary & Stress Ingestion",
+              "tier": "Challenger M2: Adversarial",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 0
+            },
+            {
+              "name": "CH_M2_07: Extension Matrix — Handles uppercase extensions, multiple dots, and rejects hazardous files",
+              "suite": "⚔️ Challenger M2 — Challenge 1: File Boundary & Stress Ingestion",
+              "tier": "Challenger M2: Adversarial",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 0
+            }
+          ],
+          "passed": 7,
+          "failed": 0
+        },
+        {
+          "name": "⚔️ Challenger M2 — Challenge 2: Text Aggregation & Linguistic Processing",
+          "tier": "Challenger M2: Adversarial",
+          "tests": [
+            {
+              "name": "CH_M2_08: Defensive — Empty, null, and undefined documents return empty string and empty tokens array",
+              "suite": "⚔️ Challenger M2 — Challenge 2: Text Aggregation & Linguistic Processing",
+              "tier": "Challenger M2: Adversarial",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 1
+            },
+            {
+              "name": "CH_M2_09: Spanish Accents & Tildes — Full Latin-1 diacritic words are cleanly tokenized in lowercase",
+              "suite": "⚔️ Challenger M2 — Challenge 2: Text Aggregation & Linguistic Processing",
+              "tier": "Challenger M2: Adversarial",
+              "status": "FAILED",
+              "error": "Expected array to contain item \"lingüístico\"",
+              "durationMs": 0
+            },
+            {
+              "name": "CH_M2_10: Stopword Filter Stress — Discards all 18 Spanish functional grammatical stopwords",
+              "suite": "⚔️ Challenger M2 — Challenge 2: Text Aggregation & Linguistic Processing",
+              "tier": "Challenger M2: Adversarial",
+              "status": "FAILED",
+              "error": "Cannot read properties of undefined (reading 'toContain')",
+              "durationMs": 1
+            },
+            {
+              "name": "CH_M2_11: Noise Immunity — Filters out special characters, HTML tags, numbers, and short words (< 4 chars)",
+              "suite": "⚔️ Challenger M2 — Challenge 2: Text Aggregation & Linguistic Processing",
+              "tier": "Challenger M2: Adversarial",
+              "status": "FAILED",
+              "error": "Cannot read properties of undefined (reading 'toContain')",
+              "durationMs": 0
+            },
+            {
+              "name": "CH_M2_12: Polymorphic Document Objects — Supports .name vs .nombre and .contenido vs .text vs .texto",
+              "suite": "⚔️ Challenger M2 — Challenge 2: Text Aggregation & Linguistic Processing",
+              "tier": "Challenger M2: Adversarial",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 0
+            }
+          ],
+          "passed": 2,
+          "failed": 3
+        },
+        {
+          "name": "⚔️ Challenger M2 — Challenge 3: Queue Mutation & Boundary Removal",
+          "tier": "Challenger M2: Adversarial",
+          "tests": [
+            {
+              "name": "CH_M2_13: Boundary Index Deletion — removerArchivoAsignaturaDocente safely handles -1, 0, and out of bounds",
+              "suite": "⚔️ Challenger M2 — Challenge 3: Queue Mutation & Boundary Removal",
+              "tier": "Challenger M2: Adversarial",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 0
+            },
+            {
+              "name": "CH_M2_14: Full Reset — limpiarArchivosAsignaturaDocente restores all state to initial baseline",
+              "suite": "⚔️ Challenger M2 — Challenge 3: Queue Mutation & Boundary Removal",
+              "tier": "Challenger M2: Adversarial",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 0
+            }
+          ],
+          "passed": 2,
+          "failed": 0
+        },
+        {
+          "name": "⚔️ Challenger M2 — Challenge 4: DOM Contracts & Syllabus Persistence",
+          "tier": "Challenger M2: Adversarial",
+          "tests": [
+            {
+              "name": "CH_M2_15: DOM Contracts — All required multi-file elements exist in login.html with exact attributes",
+              "suite": "⚔️ Challenger M2 — Challenge 4: DOM Contracts & Syllabus Persistence",
+              "tier": "Challenger M2: Adversarial",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 3
+            },
+            {
+              "name": "CH_M2_16: Curriculum Generation — procesarDocumentoYCrearMalla correctly attaches multi-file metadata to localStorage",
+              "suite": "⚔️ Challenger M2 — Challenge 4: DOM Contracts & Syllabus Persistence",
+              "tier": "Challenger M2: Adversarial",
+              "status": "FAILED",
+              "error": "Expected array to contain item \"células\"",
+              "durationMs": 1
+            }
+          ],
+          "passed": 1,
+          "failed": 1
+        }
+      ]
     },
-    "Challenger M3: Adversarial": {
-      "total": 9,
-      "passed": 9,
-      "failed": 0
+    "Tier 2: Adversarial & Security": {
+      "total": 13,
+      "passed": 10,
+      "failed": 3,
+      "suites": [
+        {
+          "name": "Adversarial Test 1: Role Spoofing & Role Boundary Leakage",
+          "tier": "Tier 2: Adversarial & Security",
+          "tests": [
+            {
+              "name": "ADV_01_A: Default HTML markup must hardcode style=\"display: none;\" on #btn-tab-docente-mi-grupo",
+              "suite": "Adversarial Test 1: Role Spoofing & Role Boundary Leakage",
+              "tier": "Tier 2: Adversarial & Security",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 0
+            },
+            {
+              "name": "ADV_01_B: Non-director roles (undefined, regular, docente, tutor, estudiante, admin, null, random) must default to display: none",
+              "suite": "Adversarial Test 1: Role Spoofing & Role Boundary Leakage",
+              "tier": "Tier 2: Adversarial & Security",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 0
+            },
+            {
+              "name": "ADV_01_C: Strict verification of window.obtenerDatosDocenteSesion logic in app.js",
+              "suite": "Adversarial Test 1: Role Spoofing & Role Boundary Leakage",
+              "tier": "Tier 2: Adversarial & Security",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 1
+            }
+          ],
+          "passed": 3,
+          "failed": 0
+        },
+        {
+          "name": "Adversarial Test 2: Group ID Collision & Data Isolation",
+          "tier": "Tier 2: Adversarial & Security",
+          "tests": [
+            {
+              "name": "ADV_02_A: Multiple directors store distinct, isolated keys in localStorage without collision",
+              "suite": "Adversarial Test 2: Group ID Collision & Data Isolation",
+              "tier": "Tier 2: Adversarial & Security",
+              "status": "FAILED",
+              "error": "Cannot read properties of undefined (reading 'toBe')",
+              "durationMs": 1
+            },
+            {
+              "name": "ADV_02_B: Backend /api/guardar-grupo-director generates unique IDs and prevents state collisions",
+              "suite": "Adversarial Test 2: Group ID Collision & Data Isolation",
+              "tier": "Tier 2: Adversarial & Security",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 0
+            }
+          ],
+          "passed": 1,
+          "failed": 1
+        },
+        {
+          "name": "Adversarial Test 3: Student Registration Injection & Dynamic Options",
+          "tier": "Tier 2: Adversarial & Security",
+          "tests": [
+            {
+              "name": "ADV_03_A: verificarParametrosMatriculaDirecta safely handles standard and custom/non-existent groups",
+              "suite": "Adversarial Test 3: Student Registration Injection & Dynamic Options",
+              "tier": "Tier 2: Adversarial & Security",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 0
+            },
+            {
+              "name": "ADV_03_B: Appending non-existent options uses safe DOM createElement / option.value / option.text (No innerHTML injection)",
+              "suite": "Adversarial Test 3: Student Registration Injection & Dynamic Options",
+              "tier": "Tier 2: Adversarial & Security",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 1
+            }
+          ],
+          "passed": 2,
+          "failed": 0
+        },
+        {
+          "name": "Adversarial Test 4: Network Failure & 500 Error Resilience",
+          "tier": "Tier 2: Adversarial & Security",
+          "tests": [
+            {
+              "name": "ADV_04_A: crearGrupoDirector executes localStorage write BEFORE network call and wraps fetch in try-catch",
+              "suite": "Adversarial Test 4: Network Failure & 500 Error Resilience",
+              "tier": "Tier 2: Adversarial & Security",
+              "status": "FAILED",
+              "error": "Expected string to contain substring \"localStorage.setItem('grupo_director_' + doc, JSON.stringify(grupoData));\", but it did not.\nTarget: ...",
+              "durationMs": 1
+            },
+            {
+              "name": "ADV_04_B: toggleDocenteGrupoDirector synchronously persists to localStorage and catches background sync errors",
+              "suite": "Adversarial Test 4: Network Failure & 500 Error Resilience",
+              "tier": "Tier 2: Adversarial & Security",
+              "status": "FAILED",
+              "error": "Expected string to contain substring \"localStorage.setItem('grupo_director_' + docDirector, JSON.stringify(grupoData));\", but it did not.\nTarget: ...",
+              "durationMs": 1
+            },
+            {
+              "name": "ADV_04_C: cargarDirectorioDocentesGrupoDirector falls back to localStorage.docentes_db when /api/docentes fails",
+              "suite": "Adversarial Test 4: Network Failure & 500 Error Resilience",
+              "tier": "Tier 2: Adversarial & Security",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 1
+            }
+          ],
+          "passed": 1,
+          "failed": 2
+        },
+        {
+          "name": "Adversarial Test 5: Document Formatting Variations (Normalization & Matching)",
+          "tier": "Tier 2: Adversarial & Security",
+          "tests": [
+            {
+              "name": "ADV_05_A: Colombian ID normalization regex removes dots, commas, hyphens, underscores and whitespace",
+              "suite": "Adversarial Test 5: Document Formatting Variations (Normalization & Matching)",
+              "tier": "Tier 2: Adversarial & Security",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 0
+            },
+            {
+              "name": "ADV_05_B: Mis Otros Grupos accurately links teacher across formatting variations",
+              "suite": "Adversarial Test 5: Document Formatting Variations (Normalization & Matching)",
+              "tier": "Tier 2: Adversarial & Security",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 0
+            },
+            {
+              "name": "ADV_05_C: Montenegro institution matching is case-insensitive and tolerant",
+              "suite": "Adversarial Test 5: Document Formatting Variations (Normalization & Matching)",
+              "tier": "Tier 2: Adversarial & Security",
+              "status": "PASSED",
+              "error": null,
+              "durationMs": 0
+            }
+          ],
+          "passed": 3,
+          "failed": 0
+        }
+      ]
     }
   },
-  "summary": "116 passed, 0 failed across all 11 test suites (Tiers 1-4 + Challengers M1, M2, M3, M4 & Director de Grupo)"
+  "suites": [
+    {
+      "name": "R1: UI Layout & Role Restrictions — Tier 1 Feature Coverage",
+      "tier": "Tier 1: Feature Coverage",
+      "tests": [
+        {
+          "name": "T1_R1_01: DOM & Contract — Navigation functions in app.js and modal-caja-herramientas in login.html",
+          "suite": "R1: UI Layout & Role Restrictions — Tier 1 Feature Coverage",
+          "tier": "Tier 1: Feature Coverage",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 1
+        },
+        {
+          "name": "T1_R1_02: Navigation Contract — abrirDetalleCajaTematica hides Hub and displays Category Detail",
+          "suite": "R1: UI Layout & Role Restrictions — Tier 1 Feature Coverage",
+          "tier": "Tier 1: Feature Coverage",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 1
+        },
+        {
+          "name": "T1_R1_03: Navigation Contract — volverACajasHub restores Hub and hides Category Detail",
+          "suite": "R1: UI Layout & Role Restrictions — Tier 1 Feature Coverage",
+          "tier": "Tier 1: Feature Coverage",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 0
+        },
+        {
+          "name": "T1_R1_04: Subject Modal Icons — #modal-asig-icono contains icons for fundamental subjects",
+          "suite": "R1: UI Layout & Role Restrictions — Tier 1 Feature Coverage",
+          "tier": "Tier 1: Feature Coverage",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 0
+        },
+        {
+          "name": "T1_R1_05: Role Contract — Teacher with es_director === true has group selection unlocked",
+          "suite": "R1: UI Layout & Role Restrictions — Tier 1 Feature Coverage",
+          "tier": "Tier 1: Feature Coverage",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 1
+        },
+        {
+          "name": "T1_R1_06: Role Contract — Teacher with es_director === false has group selection restricted",
+          "suite": "R1: UI Layout & Role Restrictions — Tier 1 Feature Coverage",
+          "tier": "Tier 1: Feature Coverage",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 0
+        }
+      ],
+      "passed": 6,
+      "failed": 0
+    },
+    {
+      "name": "R1: UI Layout & Role Restrictions — Tier 2 Boundary & Corner Cases",
+      "tier": "Tier 2: Boundary & Corner Cases",
+      "tests": [
+        {
+          "name": "T2_R1_01: Role Boundary — Undefined/null es_director flag safely defaults to restricted mode",
+          "suite": "R1: UI Layout & Role Restrictions — Tier 2 Boundary & Corner Cases",
+          "tier": "Tier 2: Boundary & Corner Cases",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 0
+        },
+        {
+          "name": "T2_R1_02: Role Boundary — Admin role (rol === \"admin\") overrides es_director === false",
+          "suite": "R1: UI Layout & Role Restrictions — Tier 2 Boundary & Corner Cases",
+          "tier": "Tier 2: Boundary & Corner Cases",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 0
+        },
+        {
+          "name": "T2_R1_03: DOM Boundary — Rapid consecutive category clicks maintain mutually exclusive view visibility",
+          "suite": "R1: UI Layout & Role Restrictions — Tier 2 Boundary & Corner Cases",
+          "tier": "Tier 2: Boundary & Corner Cases",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 0
+        },
+        {
+          "name": "T2_R1_04: State Boundary — Re-opening Caja de Herramientas modal resets to Hub view",
+          "suite": "R1: UI Layout & Role Restrictions — Tier 2 Boundary & Corner Cases",
+          "tier": "Tier 2: Boundary & Corner Cases",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 0
+        },
+        {
+          "name": "T2_R1_05: Icon Boundary — Subject modal icon selector handles empty/unrecognized icon gracefully",
+          "suite": "R1: UI Layout & Role Restrictions — Tier 2 Boundary & Corner Cases",
+          "tier": "Tier 2: Boundary & Corner Cases",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 0
+        }
+      ],
+      "passed": 5,
+      "failed": 0
+    },
+    {
+      "name": "R2: Multi-file Document Ingestion — Tier 1 Feature Coverage",
+      "tier": "Tier 1: Feature Coverage",
+      "tests": [
+        {
+          "name": "T1_R2_01: DOM Contract — #modal-asig-archivo input has multiple attribute",
+          "suite": "R2: Multi-file Document Ingestion — Tier 1 Feature Coverage",
+          "tier": "Tier 1: Feature Coverage",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 4
+        },
+        {
+          "name": "T1_R2_02: DOM Contract — #modal-asig-archivo input accepts PDF, DOC, DOCX, PPT, PPTX formats",
+          "suite": "R2: Multi-file Document Ingestion — Tier 1 Feature Coverage",
+          "tier": "Tier 1: Feature Coverage",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 2
+        },
+        {
+          "name": "T1_R2_03: Queue Contract — Uploading 3 files populates queue and tracks metadata",
+          "suite": "R2: Multi-file Document Ingestion — Tier 1 Feature Coverage",
+          "tier": "Tier 1: Feature Coverage",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 0
+        },
+        {
+          "name": "T1_R2_04: Preview Rendering — Formats multi-file preview badge list with name and size",
+          "suite": "R2: Multi-file Document Ingestion — Tier 1 Feature Coverage",
+          "tier": "Tier 1: Feature Coverage",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 1
+        },
+        {
+          "name": "T1_R2_05: Content Aggregation — Merges text content from all uploaded documents",
+          "suite": "R2: Multi-file Document Ingestion — Tier 1 Feature Coverage",
+          "tier": "Tier 1: Feature Coverage",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 0
+        }
+      ],
+      "passed": 5,
+      "failed": 0
+    },
+    {
+      "name": "R2: Multi-file Document Ingestion — Tier 2 Boundary & Corner Cases",
+      "tier": "Tier 2: Boundary & Corner Cases",
+      "tests": [
+        {
+          "name": "T2_R2_01: Boundary — Exactly 20 files are allowed and accepted without limit error",
+          "suite": "R2: Multi-file Document Ingestion — Tier 2 Boundary & Corner Cases",
+          "tier": "Tier 2: Boundary & Corner Cases",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 0
+        },
+        {
+          "name": "T2_R2_02: Boundary — 21 or more files triggers errorLimite and caps to 20",
+          "suite": "R2: Multi-file Document Ingestion — Tier 2 Boundary & Corner Cases",
+          "tier": "Tier 2: Boundary & Corner Cases",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 0
+        },
+        {
+          "name": "T2_R2_03: Boundary — Zero files uploaded safely proceeds with empty aggregation",
+          "suite": "R2: Multi-file Document Ingestion — Tier 2 Boundary & Corner Cases",
+          "tier": "Tier 2: Boundary & Corner Cases",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 0
+        },
+        {
+          "name": "T2_R2_04: File Type Boundary — Discards unapproved extensions (.exe, .zip, .bin)",
+          "suite": "R2: Multi-file Document Ingestion — Tier 2 Boundary & Corner Cases",
+          "tier": "Tier 2: Boundary & Corner Cases",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 1
+        },
+        {
+          "name": "T2_R2_05: Content Boundary — Handles 0-byte empty file without throwing exceptions",
+          "suite": "R2: Multi-file Document Ingestion — Tier 2 Boundary & Corner Cases",
+          "tier": "Tier 2: Boundary & Corner Cases",
+          "status": "FAILED",
+          "error": "Expected 0 (type: number) but received 4 (type: number)",
+          "durationMs": 0
+        }
+      ],
+      "passed": 4,
+      "failed": 1
+    },
+    {
+      "name": "R3: Dynamic AI Game Generation — Tier 1 Feature Coverage",
+      "tier": "Tier 1: Feature Coverage",
+      "tests": [
+        {
+          "name": "T1_R3_01: Pre-Gen Modal Contract — All 10 Caja 2 dynamic tools map to pre-generation modal invocation",
+          "suite": "R3: Dynamic AI Game Generation — Tier 1 Feature Coverage",
+          "tier": "Tier 1: Feature Coverage",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 0
+        },
+        {
+          "name": "T1_R3_02: Input Mode Toggle — Pre-generation modal supports Mode 1 (Keywords) and Mode 2 (Upload)",
+          "suite": "R3: Dynamic AI Game Generation — Tier 1 Feature Coverage",
+          "tier": "Tier 1: Feature Coverage",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 0
+        },
+        {
+          "name": "T1_R3_03: Teacher Groups Dropdown — Dynamically populates with teacher assigned groups",
+          "suite": "R3: Dynamic AI Game Generation — Tier 1 Feature Coverage",
+          "tier": "Tier 1: Feature Coverage",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 0
+        },
+        {
+          "name": "T1_R3_04: Keywords Generation — Generates valid structured payloads for each of the 10 tools",
+          "suite": "R3: Dynamic AI Game Generation — Tier 1 Feature Coverage",
+          "tier": "Tier 1: Feature Coverage",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 2
+        },
+        {
+          "name": "T1_R3_05: Document Upload Generation — Extracts concepts from text and generates game payload",
+          "suite": "R3: Dynamic AI Game Generation — Tier 1 Feature Coverage",
+          "tier": "Tier 1: Feature Coverage",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 0
+        },
+        {
+          "name": "T1_R3_06: Assignment Dispatch — Dispatches activity with complete metadata to target group",
+          "suite": "R3: Dynamic AI Game Generation — Tier 1 Feature Coverage",
+          "tier": "Tier 1: Feature Coverage",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 1
+        }
+      ],
+      "passed": 6,
+      "failed": 0
+    },
+    {
+      "name": "R3: Dynamic AI Games — Tier 2 Boundary & Corner Cases",
+      "tier": "Tier 2: Boundary & Corner Cases",
+      "tests": [
+        {
+          "name": "T2_R3_01: Teacher Group Fallback — Teacher with missing/empty grupos gets \"Todos los Grupos\" fallback",
+          "suite": "R3: Dynamic AI Games — Tier 2 Boundary & Corner Cases",
+          "tier": "Tier 2: Boundary & Corner Cases",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 0
+        },
+        {
+          "name": "T2_R3_02: Special Characters — Keywords with accents, tildes and punctuation are preserved",
+          "suite": "R3: Dynamic AI Games — Tier 2 Boundary & Corner Cases",
+          "tier": "Tier 2: Boundary & Corner Cases",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 0
+        },
+        {
+          "name": "T2_R3_03: Image Ingestion — Document mode processes image file names to extract initial cues",
+          "suite": "R3: Dynamic AI Games — Tier 2 Boundary & Corner Cases",
+          "tier": "Tier 2: Boundary & Corner Cases",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 0
+        },
+        {
+          "name": "T2_R3_04: Generator Resilience — Offline generator never throws and produces non-null objects for all 10 tools",
+          "suite": "R3: Dynamic AI Games — Tier 2 Boundary & Corner Cases",
+          "tier": "Tier 2: Boundary & Corner Cases",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 1
+        },
+        {
+          "name": "T2_R3_05: Missing Metadata Defaults — Assigning activity with missing fields applies institutional defaults",
+          "suite": "R3: Dynamic AI Games — Tier 2 Boundary & Corner Cases",
+          "tier": "Tier 2: Boundary & Corner Cases",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 0
+        }
+      ],
+      "passed": 5,
+      "failed": 0
+    },
+    {
+      "name": "R4: Student Inbox — Tier 1 Feature Coverage",
+      "tier": "Tier 1: Feature Coverage",
+      "tests": [
+        {
+          "name": "T1_R4_01: DOM Contract — #student-actividades-container and list elements exist in Student Dashboard",
+          "suite": "R4: Student Inbox — Tier 1 Feature Coverage",
+          "tier": "Tier 1: Feature Coverage",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 0
+        },
+        {
+          "name": "T1_R4_02: Group Filtering Contract — Student in 7C receives 7C activities and not 6A activities",
+          "suite": "R4: Student Inbox — Tier 1 Feature Coverage",
+          "tier": "Tier 1: Feature Coverage",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 0
+        },
+        {
+          "name": "T1_R4_03: Notification Card Rendering — Displays Subject, Teacher Name, XP reward and Title",
+          "suite": "R4: Student Inbox — Tier 1 Feature Coverage",
+          "tier": "Tier 1: Feature Coverage",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 0
+        },
+        {
+          "name": "T1_R4_04: Pending Counter — Calculates correct pending badge count",
+          "suite": "R4: Student Inbox — Tier 1 Feature Coverage",
+          "tier": "Tier 1: Feature Coverage",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 1
+        },
+        {
+          "name": "T1_R4_05: Activity Launch Payload — Preserves stored actividad_data structure for game runner",
+          "suite": "R4: Student Inbox — Tier 1 Feature Coverage",
+          "tier": "Tier 1: Feature Coverage",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 0
+        }
+      ],
+      "passed": 5,
+      "failed": 0
+    },
+    {
+      "name": "R4: Student Inbox — Tier 2 Boundary & Corner Cases",
+      "tier": "Tier 2: Boundary & Corner Cases",
+      "tests": [
+        {
+          "name": "T2_R4_01: Empty Inbox State — Returns clean empty array when no activities assigned",
+          "suite": "R4: Student Inbox — Tier 2 Boundary & Corner Cases",
+          "tier": "Tier 2: Boundary & Corner Cases",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 0
+        },
+        {
+          "name": "T2_R4_02: Case-Insensitive Matching — Matches group regardless of lowercase/uppercase format",
+          "suite": "R4: Student Inbox — Tier 2 Boundary & Corner Cases",
+          "tier": "Tier 2: Boundary & Corner Cases",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 0
+        },
+        {
+          "name": "T2_R4_03: Completed Activity State — Correctly renders completed state and disables reward duplication",
+          "suite": "R4: Student Inbox — Tier 2 Boundary & Corner Cases",
+          "tier": "Tier 2: Boundary & Corner Cases",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 0
+        },
+        {
+          "name": "T2_R4_04: Malformed Activity Recovery — Missing fields in activity object do not crash renderer",
+          "suite": "R4: Student Inbox — Tier 2 Boundary & Corner Cases",
+          "tier": "Tier 2: Boundary & Corner Cases",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 0
+        },
+        {
+          "name": "T2_R4_05: HomeSchool and Global Matching — HomeSchool student matches homeschool specific tag",
+          "suite": "R4: Student Inbox — Tier 2 Boundary & Corner Cases",
+          "tier": "Tier 2: Boundary & Corner Cases",
+          "status": "FAILED",
+          "error": "Expected 1 (type: number) but received 2 (type: number)",
+          "durationMs": 0
+        }
+      ],
+      "passed": 4,
+      "failed": 1
+    },
+    {
+      "name": "Tier 3: Cross-Feature Integration Workflows",
+      "tier": "Tier 3: Cross-Feature Combinations",
+      "tests": [
+        {
+          "name": "T3_INT_01: Workflow — Subject Creation with Multi-File Upload feeds into Caja 2 Game Generation",
+          "suite": "Tier 3: Cross-Feature Integration Workflows",
+          "tier": "Tier 3: Cross-Feature Combinations",
+          "status": "FAILED",
+          "error": "Expected array to contain item \"FOTOSINTESIS\"",
+          "durationMs": 0
+        },
+        {
+          "name": "T3_INT_02: Workflow — Director de Grupo assigns Jeopardy game to Group 7C and Student receives it in Inbox",
+          "suite": "Tier 3: Cross-Feature Integration Workflows",
+          "tier": "Tier 3: Cross-Feature Combinations",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 0
+        },
+        {
+          "name": "T3_INT_03: Workflow — Non-Director Teacher assigns Memory Cards to 6A and Group 7C is isolated",
+          "suite": "Tier 3: Cross-Feature Integration Workflows",
+          "tier": "Tier 3: Cross-Feature Combinations",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 1
+        },
+        {
+          "name": "T3_INT_04: Workflow — Batch Assignments and Pending Counter Decrement on Task Completion",
+          "suite": "Tier 3: Cross-Feature Integration Workflows",
+          "tier": "Tier 3: Cross-Feature Combinations",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 0
+        },
+        {
+          "name": "T3_INT_05: Payload Integrity — AI Generated Game Data matches exactly inside Student Visor",
+          "suite": "Tier 3: Cross-Feature Integration Workflows",
+          "tier": "Tier 3: Cross-Feature Combinations",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 0
+        }
+      ],
+      "passed": 4,
+      "failed": 1
+    },
+    {
+      "name": "Tier 4: Real-World Scenarios & Institutional Lifecycle",
+      "tier": "Tier 4: Real-World Scenarios",
+      "tests": [
+        {
+          "name": "T4_SCN_01: Scenario — Complete School Day Institutional STEAM Cycle",
+          "suite": "Tier 4: Real-World Scenarios & Institutional Lifecycle",
+          "tier": "Tier 4: Real-World Scenarios",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 1
+        },
+        {
+          "name": "T4_SCN_02: Scenario — Curriculum Ingestion to Interactive Student Assignment",
+          "suite": "Tier 4: Real-World Scenarios & Institutional Lifecycle",
+          "tier": "Tier 4: Real-World Scenarios",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 0
+        },
+        {
+          "name": "T4_SCN_03: Scenario — Offline Resilience & Procedural Fallback Execution",
+          "suite": "Tier 4: Real-World Scenarios & Institutional Lifecycle",
+          "tier": "Tier 4: Real-World Scenarios",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 0
+        },
+        {
+          "name": "T4_SCN_04: Scenario — Multi-Teacher Parallel Classroom Assignment Distribution",
+          "suite": "Tier 4: Real-World Scenarios & Institutional Lifecycle",
+          "tier": "Tier 4: Real-World Scenarios",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 0
+        },
+        {
+          "name": "T4_SCN_05: Scenario — HomeSchool vs Regular Cohort Dual Assignment Distribution",
+          "suite": "Tier 4: Real-World Scenarios & Institutional Lifecycle",
+          "tier": "Tier 4: Real-World Scenarios",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 0
+        }
+      ],
+      "passed": 5,
+      "failed": 0
+    },
+    {
+      "name": "⚔️ Challenger M1 — Challenge 1: Toolbox Layout & Rapid View Transitions",
+      "tier": "Challenger M1: Adversarial",
+      "tests": [
+        {
+          "name": "CH_M1_01: DOM Contract — Level 1 is fully encapsulated inside #vista-cajas-hub and Level 2 inside #vista-categoria-detalle",
+          "suite": "⚔️ Challenger M1 — Challenge 1: Toolbox Layout & Rapid View Transitions",
+          "tier": "Challenger M1: Adversarial",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 1
+        },
+        {
+          "name": "CH_M1_02: Stress Test — 1000 Rapid View Switches maintain strict mutual exclusion",
+          "suite": "⚔️ Challenger M1 — Challenge 1: Toolbox Layout & Rapid View Transitions",
+          "tier": "Challenger M1: Adversarial",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 1
+        },
+        {
+          "name": "CH_M1_03: Defensive Fallback — abrirDetalleCajaTematica with unknown/corrupted category defaults safely to \"juegos\"",
+          "suite": "⚔️ Challenger M1 — Challenge 1: Toolbox Layout & Rapid View Transitions",
+          "tier": "Challenger M1: Adversarial",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 1
+        }
+      ],
+      "passed": 3,
+      "failed": 0
+    },
+    {
+      "name": "⚔️ Challenger M1 — Challenge 2: 22 Subject Icons, Presets & Heuristic Resolution",
+      "tier": "Challenger M1: Adversarial",
+      "tests": [
+        {
+          "name": "CH_M1_04: Catalog Completeness — Exactly 22 fundamental areas defined in CATALOGO_AREAS_FUNDAMENTALES and in select options",
+          "suite": "⚔️ Challenger M1 — Challenge 2: 22 Subject Icons, Presets & Heuristic Resolution",
+          "tier": "Challenger M1: Adversarial",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 3
+        },
+        {
+          "name": "CH_M1_05: Heuristic Matcher Stress Test — Fuzzy and Case-Insensitive inputs resolve to correct icons",
+          "suite": "⚔️ Challenger M1 — Challenge 2: 22 Subject Icons, Presets & Heuristic Resolution",
+          "tier": "Challenger M1: Adversarial",
+          "status": "FAILED",
+          "error": "Expected \"⚽\" (type: string) but received \"⚛️\" (type: string)",
+          "durationMs": 3
+        },
+        {
+          "name": "CH_M1_06: Preset Templating — Selecting any preset chip fills Name, Icon, and Description correctly",
+          "suite": "⚔️ Challenger M1 — Challenge 2: 22 Subject Icons, Presets & Heuristic Resolution",
+          "tier": "Challenger M1: Adversarial",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 0
+        }
+      ],
+      "passed": 2,
+      "failed": 1
+    },
+    {
+      "name": "⚔️ Challenger M1 — Challenge 3: Role Restrictions & Fallback Logic",
+      "tier": "Challenger M1: Adversarial",
+      "tests": [
+        {
+          "name": "CH_M1_07: Permission Matrix Exhaustive Test across all roles and edge states",
+          "suite": "⚔️ Challenger M1 — Challenge 3: Role Restrictions & Fallback Logic",
+          "tier": "Challenger M1: Adversarial",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 0
+        },
+        {
+          "name": "CH_M1_08: UI State Adaptation — abrirModalCrearAsignaturaDocente adjusts elements correctly based on role",
+          "suite": "⚔️ Challenger M1 — Challenge 3: Role Restrictions & Fallback Logic",
+          "tier": "Challenger M1: Adversarial",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 0
+        },
+        {
+          "name": "CH_M1_09: Non-Destructive Syllabus Fallback — Teacher without selected checkboxes still generates syllabus with fallback grades",
+          "suite": "⚔️ Challenger M1 — Challenge 3: Role Restrictions & Fallback Logic",
+          "tier": "Challenger M1: Adversarial",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 0
+        },
+        {
+          "name": "CH_M1_10: docentes.json Validation — Seed accounts reflect correct institutional roles",
+          "suite": "⚔️ Challenger M1 — Challenge 3: Role Restrictions & Fallback Logic",
+          "tier": "Challenger M1: Adversarial",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 0
+        }
+      ],
+      "passed": 4,
+      "failed": 0
+    },
+    {
+      "name": "⚔️ Challenger M2 — Challenge 1: File Boundary & Stress Ingestion",
+      "tier": "Challenger M2: Adversarial",
+      "tests": [
+        {
+          "name": "CH_M2_01: Boundary — Exactly 20 files are fully accepted without triggering errorLimite",
+          "suite": "⚔️ Challenger M2 — Challenge 1: File Boundary & Stress Ingestion",
+          "tier": "Challenger M2: Adversarial",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 0
+        },
+        {
+          "name": "CH_M2_02: Boundary — 21 files triggers errorLimite and caps exactly at 20 files",
+          "suite": "⚔️ Challenger M2 — Challenge 1: File Boundary & Stress Ingestion",
+          "tier": "Challenger M2: Adversarial",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 0
+        },
+        {
+          "name": "CH_M2_03: Stress — 100 files burst triggers errorLimite and caps strictly to first 20",
+          "suite": "⚔️ Challenger M2 — Challenge 1: File Boundary & Stress Ingestion",
+          "tier": "Challenger M2: Adversarial",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 0
+        },
+        {
+          "name": "CH_M2_04: Boundary — 0 files (empty array) returns empty results with zero totalBytes",
+          "suite": "⚔️ Challenger M2 — Challenge 1: File Boundary & Stress Ingestion",
+          "tier": "Challenger M2: Adversarial",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 0
+        },
+        {
+          "name": "CH_M2_05: Defensive — null and undefined inputs safely return empty results without throwing",
+          "suite": "⚔️ Challenger M2 — Challenge 1: File Boundary & Stress Ingestion",
+          "tier": "Challenger M2: Adversarial",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 0
+        },
+        {
+          "name": "CH_M2_06: FileList Emulation — Handles array-like objects with length and index properties",
+          "suite": "⚔️ Challenger M2 — Challenge 1: File Boundary & Stress Ingestion",
+          "tier": "Challenger M2: Adversarial",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 0
+        },
+        {
+          "name": "CH_M2_07: Extension Matrix — Handles uppercase extensions, multiple dots, and rejects hazardous files",
+          "suite": "⚔️ Challenger M2 — Challenge 1: File Boundary & Stress Ingestion",
+          "tier": "Challenger M2: Adversarial",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 0
+        }
+      ],
+      "passed": 7,
+      "failed": 0
+    },
+    {
+      "name": "⚔️ Challenger M2 — Challenge 2: Text Aggregation & Linguistic Processing",
+      "tier": "Challenger M2: Adversarial",
+      "tests": [
+        {
+          "name": "CH_M2_08: Defensive — Empty, null, and undefined documents return empty string and empty tokens array",
+          "suite": "⚔️ Challenger M2 — Challenge 2: Text Aggregation & Linguistic Processing",
+          "tier": "Challenger M2: Adversarial",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 1
+        },
+        {
+          "name": "CH_M2_09: Spanish Accents & Tildes — Full Latin-1 diacritic words are cleanly tokenized in lowercase",
+          "suite": "⚔️ Challenger M2 — Challenge 2: Text Aggregation & Linguistic Processing",
+          "tier": "Challenger M2: Adversarial",
+          "status": "FAILED",
+          "error": "Expected array to contain item \"lingüístico\"",
+          "durationMs": 0
+        },
+        {
+          "name": "CH_M2_10: Stopword Filter Stress — Discards all 18 Spanish functional grammatical stopwords",
+          "suite": "⚔️ Challenger M2 — Challenge 2: Text Aggregation & Linguistic Processing",
+          "tier": "Challenger M2: Adversarial",
+          "status": "FAILED",
+          "error": "Cannot read properties of undefined (reading 'toContain')",
+          "durationMs": 1
+        },
+        {
+          "name": "CH_M2_11: Noise Immunity — Filters out special characters, HTML tags, numbers, and short words (< 4 chars)",
+          "suite": "⚔️ Challenger M2 — Challenge 2: Text Aggregation & Linguistic Processing",
+          "tier": "Challenger M2: Adversarial",
+          "status": "FAILED",
+          "error": "Cannot read properties of undefined (reading 'toContain')",
+          "durationMs": 0
+        },
+        {
+          "name": "CH_M2_12: Polymorphic Document Objects — Supports .name vs .nombre and .contenido vs .text vs .texto",
+          "suite": "⚔️ Challenger M2 — Challenge 2: Text Aggregation & Linguistic Processing",
+          "tier": "Challenger M2: Adversarial",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 0
+        }
+      ],
+      "passed": 2,
+      "failed": 3
+    },
+    {
+      "name": "⚔️ Challenger M2 — Challenge 3: Queue Mutation & Boundary Removal",
+      "tier": "Challenger M2: Adversarial",
+      "tests": [
+        {
+          "name": "CH_M2_13: Boundary Index Deletion — removerArchivoAsignaturaDocente safely handles -1, 0, and out of bounds",
+          "suite": "⚔️ Challenger M2 — Challenge 3: Queue Mutation & Boundary Removal",
+          "tier": "Challenger M2: Adversarial",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 0
+        },
+        {
+          "name": "CH_M2_14: Full Reset — limpiarArchivosAsignaturaDocente restores all state to initial baseline",
+          "suite": "⚔️ Challenger M2 — Challenge 3: Queue Mutation & Boundary Removal",
+          "tier": "Challenger M2: Adversarial",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 0
+        }
+      ],
+      "passed": 2,
+      "failed": 0
+    },
+    {
+      "name": "⚔️ Challenger M2 — Challenge 4: DOM Contracts & Syllabus Persistence",
+      "tier": "Challenger M2: Adversarial",
+      "tests": [
+        {
+          "name": "CH_M2_15: DOM Contracts — All required multi-file elements exist in login.html with exact attributes",
+          "suite": "⚔️ Challenger M2 — Challenge 4: DOM Contracts & Syllabus Persistence",
+          "tier": "Challenger M2: Adversarial",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 3
+        },
+        {
+          "name": "CH_M2_16: Curriculum Generation — procesarDocumentoYCrearMalla correctly attaches multi-file metadata to localStorage",
+          "suite": "⚔️ Challenger M2 — Challenge 4: DOM Contracts & Syllabus Persistence",
+          "tier": "Challenger M2: Adversarial",
+          "status": "FAILED",
+          "error": "Expected array to contain item \"células\"",
+          "durationMs": 1
+        }
+      ],
+      "passed": 1,
+      "failed": 1
+    },
+    {
+      "name": "⚔️ Challenger Final — Challenge 1: Multi-file Upload Boundaries",
+      "tier": "Tier 2: Boundary & Corner Cases",
+      "tests": [
+        {
+          "name": "CH_FIN_01: Zero files — Handled cleanly without errors or memory leaks",
+          "suite": "⚔️ Challenger Final — Challenge 1: Multi-file Upload Boundaries",
+          "tier": "Tier 2: Boundary & Corner Cases",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 0
+        },
+        {
+          "name": "CH_FIN_02: Single file — Correctly identified and parsed",
+          "suite": "⚔️ Challenger Final — Challenge 1: Multi-file Upload Boundaries",
+          "tier": "Tier 2: Boundary & Corner Cases",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 0
+        },
+        {
+          "name": "CH_FIN_03: Exactly 20 files boundary — All 20 accepted, errorLimite is false",
+          "suite": "⚔️ Challenger Final — Challenge 1: Multi-file Upload Boundaries",
+          "tier": "Tier 2: Boundary & Corner Cases",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 0
+        },
+        {
+          "name": "CH_FIN_04: 21+ files overflow — Caps to 20 files and sets errorLimite to true",
+          "suite": "⚔️ Challenger Final — Challenge 1: Multi-file Upload Boundaries",
+          "tier": "Tier 2: Boundary & Corner Cases",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 0
+        },
+        {
+          "name": "CH_FIN_05: Mixed binary formats & security blacklist — Discards malicious extensions",
+          "suite": "⚔️ Challenger Final — Challenge 1: Multi-file Upload Boundaries",
+          "tier": "Tier 2: Boundary & Corner Cases",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 0
+        }
+      ],
+      "passed": 5,
+      "failed": 0
+    },
+    {
+      "name": "⚔️ Challenger Final — Challenge 2: Per-tool Pre-gen Modal on All 6 Cajas",
+      "tier": "Tier 1: Feature Coverage",
+      "tests": [
+        {
+          "name": "CH_FIN_06: DOM Contract — Modal #modal-configuracion-juego-ia exists with all required controls",
+          "suite": "⚔️ Challenger Final — Challenge 2: Per-tool Pre-gen Modal on All 6 Cajas",
+          "tier": "Tier 1: Feature Coverage",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 3
+        },
+        {
+          "name": "CH_FIN_07: Universal Interception — All 6 Cajas have their tools calling pre-generation config modal",
+          "suite": "⚔️ Challenger Final — Challenge 2: Per-tool Pre-gen Modal on All 6 Cajas",
+          "tier": "Tier 1: Feature Coverage",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 1
+        },
+        {
+          "name": "CH_FIN_08: Pre-Gen Modal Execution — Generates payload, assigns activity, and opens Visor",
+          "suite": "⚔️ Challenger Final — Challenge 2: Per-tool Pre-gen Modal on All 6 Cajas",
+          "tier": "Tier 1: Feature Coverage",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 0
+        }
+      ],
+      "passed": 3,
+      "failed": 0
+    },
+    {
+      "name": "⚔️ Challenger Final — Challenge 3: Live Ranking Group Selector",
+      "tier": "Tier 1: Feature Coverage",
+      "tests": [
+        {
+          "name": "CH_FIN_09: Contract — abrirRankingDocenteNuevaPestana prompts teacher for target group",
+          "suite": "⚔️ Challenger Final — Challenge 3: Live Ranking Group Selector",
+          "tier": "Tier 1: Feature Coverage",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 1
+        },
+        {
+          "name": "CH_FIN_10: Behavior — Selected group is properly encoded into ranking.html query parameter",
+          "suite": "⚔️ Challenger Final — Challenge 3: Live Ranking Group Selector",
+          "tier": "Tier 1: Feature Coverage",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 1
+        }
+      ],
+      "passed": 2,
+      "failed": 0
+    },
+    {
+      "name": "⚔️ Challenger Final — Challenge 4: Hidden Cards & Elements",
+      "tier": "Tier 1: Feature Coverage",
+      "tests": [
+        {
+          "name": "CH_FIN_11: Proyectar QR Matrícula — Hidden surgically via display: none !important",
+          "suite": "⚔️ Challenger Final — Challenge 4: Hidden Cards & Elements",
+          "tier": "Tier 1: Feature Coverage",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 0
+        },
+        {
+          "name": "CH_FIN_12: Mis Materias y Grados — Hidden surgically via display: none !important",
+          "suite": "⚔️ Challenger Final — Challenge 4: Hidden Cards & Elements",
+          "tier": "Tier 1: Feature Coverage",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 0
+        },
+        {
+          "name": "CH_FIN_13: Global Ingestion Panel in Toolbox — Hidden surgically via display: none !important",
+          "suite": "⚔️ Challenger Final — Challenge 4: Hidden Cards & Elements",
+          "tier": "Tier 1: Feature Coverage",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 1
+        }
+      ],
+      "passed": 3,
+      "failed": 0
+    },
+    {
+      "name": "⚔️ Challenger Final — Challenge 5: Student Inbox Group Isolation",
+      "tier": "Tier 1: Feature Coverage",
+      "tests": [
+        {
+          "name": "CH_FIN_14: Group Isolation Matrix — Group 7C vs 6A vs 8A",
+          "suite": "⚔️ Challenger Final — Challenge 5: Student Inbox Group Isolation",
+          "tier": "Tier 1: Feature Coverage",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 0
+        },
+        {
+          "name": "CH_FIN_15: Notification Rendering & XP Reward — Displays subject, teacher, XP, and state",
+          "suite": "⚔️ Challenger Final — Challenge 5: Student Inbox Group Isolation",
+          "tier": "Tier 1: Feature Coverage",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 0
+        },
+        {
+          "name": "CH_FIN_16: Activity Completion & Badge Decrement — Marks task done and prevents double XP",
+          "suite": "⚔️ Challenger Final — Challenge 5: Student Inbox Group Isolation",
+          "tier": "Tier 1: Feature Coverage",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 1
+        }
+      ],
+      "passed": 3,
+      "failed": 0
+    },
+    {
+      "name": "⚔️ Challenger Final — Challenge 6: Post-Earthquake Emotional First Aid",
+      "tier": "Tier 1: Feature Coverage",
+      "tests": [
+        {
+          "name": "CH_FIN_17: Print Button Removed — \"imprimir taller\" is removed from modal",
+          "suite": "⚔️ Challenger Final — Challenge 6: Post-Earthquake Emotional First Aid",
+          "tier": "Tier 1: Feature Coverage",
+          "status": "FAILED",
+          "error": "Cannot read properties of undefined (reading 'toContain')",
+          "durationMs": 0
+        },
+        {
+          "name": "CH_FIN_18: Interactive Online Activities — Features 4-7-8 Breathing, 5-4-3-2-1 Grounding, AI Empathetic Support",
+          "suite": "⚔️ Challenger Final — Challenge 6: Post-Earthquake Emotional First Aid",
+          "tier": "Tier 1: Feature Coverage",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 0
+        }
+      ],
+      "passed": 1,
+      "failed": 1
+    },
+    {
+      "name": "⚔️ Challenger Final — Challenge 7: Admin Panel Invariant Preservation",
+      "tier": "Tier 1: Feature Coverage",
+      "tests": [
+        {
+          "name": "CH_FIN_19: Admin Groups Invariant — Assigned groups in docentes.json and usuarios.json remain intact",
+          "suite": "⚔️ Challenger Final — Challenge 7: Admin Panel Invariant Preservation",
+          "tier": "Tier 1: Feature Coverage",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 0
+        }
+      ],
+      "passed": 1,
+      "failed": 0
+    },
+    {
+      "name": "Director de Grupo Module — R1 to R5",
+      "tier": "Tier 1: Feature Coverage",
+      "tests": [
+        {
+          "name": "T1_DG_01: R1 DOM — #docente-nav-tabs, #btn-tab-docente-mi-grupo and #vista-docente-mi-grupo exist",
+          "suite": "Director de Grupo Module — R1 to R5",
+          "tier": "Tier 1: Feature Coverage",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 0
+        },
+        {
+          "name": "T1_DG_02: R1 Role Visibility — Director sees Mi Grupo tab (display: flex), regular teacher does not (display: none)",
+          "suite": "Director de Grupo Module — R1 to R5",
+          "tier": "Tier 1: Feature Coverage",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 1
+        },
+        {
+          "name": "T1_DG_03: R2 Group Creation Form — Dropdowns for Grado (Preescolar..11) and Grupo (A..J) exist",
+          "suite": "Director de Grupo Module — R1 to R5",
+          "tier": "Tier 1: Feature Coverage",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 0
+        },
+        {
+          "name": "T1_DG_04: R2 Group Persistence — localStorage.grupo_director_<doc> saves object with grado, grupo, docentes[]",
+          "suite": "Director de Grupo Module — R1 to R5",
+          "tier": "Tier 1: Feature Coverage",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 2
+        },
+        {
+          "name": "T1_DG_05: R3 Montenegro Teachers Directory & Toggle — filter by montenegro and toggle docentes[]",
+          "suite": "Director de Grupo Module — R1 to R5",
+          "tier": "Tier 1: Feature Coverage",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 2
+        },
+        {
+          "name": "T1_DG_06: R4 Student Registration Link Generator & Copy Feedback",
+          "suite": "Director de Grupo Module — R1 to R5",
+          "tier": "Tier 1: Feature Coverage",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 3
+        },
+        {
+          "name": "T1_DG_07: R4 Student Pre-fill in verificarParametrosMatriculaDirecta",
+          "suite": "Director de Grupo Module — R1 to R5",
+          "tier": "Tier 1: Feature Coverage",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 1
+        },
+        {
+          "name": "T1_DG_08: R5 Mis Otros Grupos — scans localStorage for grupo_director_* matching teacher doc",
+          "suite": "Director de Grupo Module — R1 to R5",
+          "tier": "Tier 1: Feature Coverage",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 1
+        },
+        {
+          "name": "T1_DG_09: Backend Routes — POST /api/guardar-grupo-director and GET /api/grupos-director exist in server.js",
+          "suite": "Director de Grupo Module — R1 to R5",
+          "tier": "Tier 1: Feature Coverage",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 0
+        }
+      ],
+      "passed": 9,
+      "failed": 0
+    },
+    {
+      "name": "⚔️ Challenger M4 — Edge Case 1: Null Apellidos & Document Formatting",
+      "tier": "Tier 2: Boundary & Corner Cases",
+      "tests": [
+        {
+          "name": "CH_M4_01: Document normalization strips dots, dashes, spaces, and uppercase letters",
+          "suite": "⚔️ Challenger M4 — Edge Case 1: Null Apellidos & Document Formatting",
+          "tier": "Tier 2: Boundary & Corner Cases",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 0
+        },
+        {
+          "name": "CH_M4_02: Teacher with missing or null apellidos falls back gracefully without \"null\" string",
+          "suite": "⚔️ Challenger M4 — Edge Case 1: Null Apellidos & Document Formatting",
+          "tier": "Tier 2: Boundary & Corner Cases",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 0
+        },
+        {
+          "name": "CH_M4_03: Matching teacher session with formatted document in docentes_db",
+          "suite": "⚔️ Challenger M4 — Edge Case 1: Null Apellidos & Document Formatting",
+          "tier": "Tier 2: Boundary & Corner Cases",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 0
+        }
+      ],
+      "passed": 3,
+      "failed": 0
+    },
+    {
+      "name": "⚔️ Challenger M4 — Edge Case 2: Empty Docentes Array",
+      "tier": "Tier 2: Boundary & Corner Cases",
+      "tests": [
+        {
+          "name": "CH_M4_04: Group initialized with empty docentes[] renders 0 assigned teachers badge",
+          "suite": "⚔️ Challenger M4 — Edge Case 2: Empty Docentes Array",
+          "tier": "Tier 2: Boundary & Corner Cases",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 0
+        },
+        {
+          "name": "CH_M4_05: Directory rendering with empty docentes marks all teachers as \"+ Agregar\"",
+          "suite": "⚔️ Challenger M4 — Edge Case 2: Empty Docentes Array",
+          "tier": "Tier 2: Boundary & Corner Cases",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 0
+        },
+        {
+          "name": "CH_M4_06: Backend endpoint accepts empty docentes array without validation error",
+          "suite": "⚔️ Challenger M4 — Edge Case 2: Empty Docentes Array",
+          "tier": "Tier 2: Boundary & Corner Cases",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 0
+        }
+      ],
+      "passed": 3,
+      "failed": 0
+    },
+    {
+      "name": "⚔️ Challenger M4 — Edge Case 3: Toggle Idempotency & Repeat Cycles",
+      "tier": "Tier 2: Boundary & Corner Cases",
+      "tests": [
+        {
+          "name": "CH_M4_07: Alternating toggle sequence produces clean additions and removals without duplicates",
+          "suite": "⚔️ Challenger M4 — Edge Case 3: Toggle Idempotency & Repeat Cycles",
+          "tier": "Tier 2: Boundary & Corner Cases",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 0
+        },
+        {
+          "name": "CH_M4_08: Multi-teacher toggling preserves independent member states",
+          "suite": "⚔️ Challenger M4 — Edge Case 3: Toggle Idempotency & Repeat Cycles",
+          "tier": "Tier 2: Boundary & Corner Cases",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 0
+        }
+      ],
+      "passed": 2,
+      "failed": 0
+    },
+    {
+      "name": "⚔️ Challenger M4 — Edge Case 4: URL Parameter Permutations",
+      "tier": "Tier 2: Boundary & Corner Cases",
+      "tests": [
+        {
+          "name": "CH_M4_09: Permutation A — ?reg=estudiante&grupo=PreescolarA&inst=montenegro&director=98765",
+          "suite": "⚔️ Challenger M4 — Edge Case 4: URL Parameter Permutations",
+          "tier": "Tier 2: Boundary & Corner Cases",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 0
+        },
+        {
+          "name": "CH_M4_10: Permutation B — ?reg=estudiante&grupo=11J&inst=montenegro (No director param)",
+          "suite": "⚔️ Challenger M4 — Edge Case 4: URL Parameter Permutations",
+          "tier": "Tier 2: Boundary & Corner Cases",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 0
+        },
+        {
+          "name": "CH_M4_11: Permutation C — ?reg=estudiante&grupo=Ciclo%20IVB&inst=montenegro&director=123",
+          "suite": "⚔️ Challenger M4 — Edge Case 4: URL Parameter Permutations",
+          "tier": "Tier 2: Boundary & Corner Cases",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 0
+        },
+        {
+          "name": "CH_M4_12: Permutation D — ?director=554433 without explicit reg=estudiante",
+          "suite": "⚔️ Challenger M4 — Edge Case 4: URL Parameter Permutations",
+          "tier": "Tier 2: Boundary & Corner Cases",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 0
+        }
+      ],
+      "passed": 4,
+      "failed": 0
+    },
+    {
+      "name": "⚔️ Challenger M4 — Edge Case 5: localStorage Scanning & Malformed Data",
+      "tier": "Tier 2: Boundary & Corner Cases",
+      "tests": [
+        {
+          "name": "CH_M4_13: Multi-director storage scanning correctly filters groups where teacher is assigned",
+          "suite": "⚔️ Challenger M4 — Edge Case 5: localStorage Scanning & Malformed Data",
+          "tier": "Tier 2: Boundary & Corner Cases",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 0
+        },
+        {
+          "name": "CH_M4_14: Resilient to corrupted JSON and invalid schema keys in localStorage",
+          "suite": "⚔️ Challenger M4 — Edge Case 5: localStorage Scanning & Malformed Data",
+          "tier": "Tier 2: Boundary & Corner Cases",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 0
+        },
+        {
+          "name": "CH_M4_15: Empty matches cleanly returns empty array triggering fallback UI message",
+          "suite": "⚔️ Challenger M4 — Edge Case 5: localStorage Scanning & Malformed Data",
+          "tier": "Tier 2: Boundary & Corner Cases",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 0
+        }
+      ],
+      "passed": 3,
+      "failed": 0
+    },
+    {
+      "name": "Adversarial Test 1: Role Spoofing & Role Boundary Leakage",
+      "tier": "Tier 2: Adversarial & Security",
+      "tests": [
+        {
+          "name": "ADV_01_A: Default HTML markup must hardcode style=\"display: none;\" on #btn-tab-docente-mi-grupo",
+          "suite": "Adversarial Test 1: Role Spoofing & Role Boundary Leakage",
+          "tier": "Tier 2: Adversarial & Security",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 0
+        },
+        {
+          "name": "ADV_01_B: Non-director roles (undefined, regular, docente, tutor, estudiante, admin, null, random) must default to display: none",
+          "suite": "Adversarial Test 1: Role Spoofing & Role Boundary Leakage",
+          "tier": "Tier 2: Adversarial & Security",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 0
+        },
+        {
+          "name": "ADV_01_C: Strict verification of window.obtenerDatosDocenteSesion logic in app.js",
+          "suite": "Adversarial Test 1: Role Spoofing & Role Boundary Leakage",
+          "tier": "Tier 2: Adversarial & Security",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 1
+        }
+      ],
+      "passed": 3,
+      "failed": 0
+    },
+    {
+      "name": "Adversarial Test 2: Group ID Collision & Data Isolation",
+      "tier": "Tier 2: Adversarial & Security",
+      "tests": [
+        {
+          "name": "ADV_02_A: Multiple directors store distinct, isolated keys in localStorage without collision",
+          "suite": "Adversarial Test 2: Group ID Collision & Data Isolation",
+          "tier": "Tier 2: Adversarial & Security",
+          "status": "FAILED",
+          "error": "Cannot read properties of undefined (reading 'toBe')",
+          "durationMs": 1
+        },
+        {
+          "name": "ADV_02_B: Backend /api/guardar-grupo-director generates unique IDs and prevents state collisions",
+          "suite": "Adversarial Test 2: Group ID Collision & Data Isolation",
+          "tier": "Tier 2: Adversarial & Security",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 0
+        }
+      ],
+      "passed": 1,
+      "failed": 1
+    },
+    {
+      "name": "Adversarial Test 3: Student Registration Injection & Dynamic Options",
+      "tier": "Tier 2: Adversarial & Security",
+      "tests": [
+        {
+          "name": "ADV_03_A: verificarParametrosMatriculaDirecta safely handles standard and custom/non-existent groups",
+          "suite": "Adversarial Test 3: Student Registration Injection & Dynamic Options",
+          "tier": "Tier 2: Adversarial & Security",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 0
+        },
+        {
+          "name": "ADV_03_B: Appending non-existent options uses safe DOM createElement / option.value / option.text (No innerHTML injection)",
+          "suite": "Adversarial Test 3: Student Registration Injection & Dynamic Options",
+          "tier": "Tier 2: Adversarial & Security",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 1
+        }
+      ],
+      "passed": 2,
+      "failed": 0
+    },
+    {
+      "name": "Adversarial Test 4: Network Failure & 500 Error Resilience",
+      "tier": "Tier 2: Adversarial & Security",
+      "tests": [
+        {
+          "name": "ADV_04_A: crearGrupoDirector executes localStorage write BEFORE network call and wraps fetch in try-catch",
+          "suite": "Adversarial Test 4: Network Failure & 500 Error Resilience",
+          "tier": "Tier 2: Adversarial & Security",
+          "status": "FAILED",
+          "error": "Expected string to contain substring \"localStorage.setItem('grupo_director_' + doc, JSON.stringify(grupoData));\", but it did not.\nTarget: ...",
+          "durationMs": 1
+        },
+        {
+          "name": "ADV_04_B: toggleDocenteGrupoDirector synchronously persists to localStorage and catches background sync errors",
+          "suite": "Adversarial Test 4: Network Failure & 500 Error Resilience",
+          "tier": "Tier 2: Adversarial & Security",
+          "status": "FAILED",
+          "error": "Expected string to contain substring \"localStorage.setItem('grupo_director_' + docDirector, JSON.stringify(grupoData));\", but it did not.\nTarget: ...",
+          "durationMs": 1
+        },
+        {
+          "name": "ADV_04_C: cargarDirectorioDocentesGrupoDirector falls back to localStorage.docentes_db when /api/docentes fails",
+          "suite": "Adversarial Test 4: Network Failure & 500 Error Resilience",
+          "tier": "Tier 2: Adversarial & Security",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 1
+        }
+      ],
+      "passed": 1,
+      "failed": 2
+    },
+    {
+      "name": "Adversarial Test 5: Document Formatting Variations (Normalization & Matching)",
+      "tier": "Tier 2: Adversarial & Security",
+      "tests": [
+        {
+          "name": "ADV_05_A: Colombian ID normalization regex removes dots, commas, hyphens, underscores and whitespace",
+          "suite": "Adversarial Test 5: Document Formatting Variations (Normalization & Matching)",
+          "tier": "Tier 2: Adversarial & Security",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 0
+        },
+        {
+          "name": "ADV_05_B: Mis Otros Grupos accurately links teacher across formatting variations",
+          "suite": "Adversarial Test 5: Document Formatting Variations (Normalization & Matching)",
+          "tier": "Tier 2: Adversarial & Security",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 0
+        },
+        {
+          "name": "ADV_05_C: Montenegro institution matching is case-insensitive and tolerant",
+          "suite": "Adversarial Test 5: Document Formatting Variations (Normalization & Matching)",
+          "tier": "Tier 2: Adversarial & Security",
+          "status": "PASSED",
+          "error": null,
+          "durationMs": 0
+        }
+      ],
+      "passed": 3,
+      "failed": 0
+    }
+  ]
 }

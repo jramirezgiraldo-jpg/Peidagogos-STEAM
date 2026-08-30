@@ -2578,12 +2578,6 @@ window.inicializarAppCore = function() {
 
             const selDocIE = document.getElementById("reg-docente-ie-select");
             const ieDocenteSeleccionada = (selDocIE && selDocIE.value.trim()) ? selDocIE.value.trim() : "IE Instituto Montenegro";
-            
-            const materiasDocente = (window.obtenerMateriasDocenteSeleccionadas) ? window.obtenerMateriasDocenteSeleccionadas() : [asig || "Ciencias Naturales y Educación Ambiental"];
-            const gradosDocente = (window.obtenerGradosDocenteSeleccionados) ? window.obtenerGradosDocenteSeleccionados() : ["6", "7", "8", "9"];
-            let asigDoc = materiasDocente.join(', ');
-            let graDoc = gradosDocente.join(', ');
-            let grupoDoc = gradosDocente.join(', ');
 
             const payloadDocente = {
                 tipo_doc: tipoDoc,
@@ -2601,11 +2595,13 @@ window.inicializarAppCore = function() {
                 tipo: 'docente_regular',
                 institucion: ieDocenteSeleccionada,
                 codigo_institucional: codigoInst,
-                asignatura: asigDoc,
-                materias: materiasDocente,
-                grados: gradosDocente,
-                grado: graDoc,
-                grupo: grupoDoc,
+                asignatura: '',
+                materias: [],
+                grados: [],
+                grupos: [],
+                carga_academica: [],
+                grado: '',
+                grupo: '',
                 pago_realizado: true,
                 pago_activo: true,
                 fecha_registro: new Date().toISOString()
@@ -2632,10 +2628,14 @@ window.inicializarAppCore = function() {
                 nombre: `${nom} ${ap}`.trim(),
                 rol: 'docente',
                 tipo: 'docente_regular',
-                institucion: 'IE Instituto Montenegro',
-                asignatura: asigDoc,
-                grado: graDoc,
-                grupo: grupoDoc,
+                institucion: ieDocenteSeleccionada,
+                asignatura: '',
+                materias: [],
+                grados: [],
+                grupos: [],
+                carga_academica: [],
+                grado: '',
+                grupo: '',
                 pago_activo: true,
                 pago_realizado: true,
                 usuarioObj: payloadDocente
@@ -5370,6 +5370,66 @@ window.verInformeEstudiante = async function(nombreOrDoc, progreso, grupoName, d
         `;
     });
 
+    // Consultar calificaciones formativas del estudiante (API + localStorage)
+    let listaCalificaciones = [];
+    try {
+        const resCal = await fetch(`/api/calificaciones-estudiante?documento=${encodeURIComponent(docId)}`);
+        if (resCal.ok) {
+            const dataCal = await resCal.json();
+            if (Array.isArray(dataCal.calificaciones)) listaCalificaciones = dataCal.calificaciones;
+        }
+    } catch(e) {}
+
+    if (listaCalificaciones.length === 0) {
+        try {
+            listaCalificaciones = JSON.parse(localStorage.getItem(`calificaciones_${docId}`) || '[]');
+        } catch(e) {}
+    }
+
+    let calificacionesHtml = '';
+    let promedioFormativo = '5.0';
+    if (listaCalificaciones.length > 0) {
+        const sumNotas = listaCalificaciones.reduce((acc, c) => acc + (parseFloat(c.calificacion) || 0), 0);
+        promedioFormativo = (sumNotas / listaCalificaciones.length).toFixed(1);
+
+        calificacionesHtml = `
+            <div style="display: flex; flex-direction: column; gap: 8px; max-height: 240px; overflow-y: auto;">
+                ${listaCalificaciones.map(c => {
+                    const nota = (parseFloat(c.calificacion) || 5.0).toFixed(1);
+                    const des = c.desempeno || (nota >= 4.6 ? 'Superior' : (nota >= 4.0 ? 'Alto' : (nota >= 3.0 ? 'Básico' : 'Bajo')));
+                    let badgeColor = '#047857';
+                    let badgeBg = '#ECFDF5';
+                    let badgeBorder = '#A7F3D0';
+                    if (des === 'Alto') { badgeColor = '#1D4ED8'; badgeBg = '#EFF6FF'; badgeBorder = '#BFDBFE'; }
+                    else if (des === 'Básico') { badgeColor = '#B45309'; badgeBg = '#FFFBEB'; badgeBorder = '#FDE68A'; }
+                    else if (des === 'Bajo') { badgeColor = '#B91C1C'; badgeBg = '#FEF2F2'; badgeBorder = '#FECACA'; }
+
+                    const fechaStr = c.fecha ? new Date(c.fecha).toLocaleDateString('es-CO', { day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit' }) : 'Reciente';
+
+                    return `
+                        <div style="background: white; border: 1.5px solid #E2E8F0; border-radius: 10px; padding: 10px 14px; display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap;">
+                            <div>
+                                <div style="font-weight: 800; font-size: 0.92rem; color: #1E293B;">🎮 ${c.titulo_actividad || 'Actividad STEAM'}</div>
+                                <div style="font-size: 0.76rem; color: #64748B; margin-top: 2px;">📅 ${fechaStr} • 📚 ${c.materia || 'Ciencias'}</div>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 8px;">
+                                <span style="background: ${badgeBg}; color: ${badgeColor}; border: 1px solid ${badgeBorder}; padding: 4px 10px; border-radius: 12px; font-weight: 900; font-size: 0.82rem;">
+                                    ⭐ ${nota} / 5.0 (${des})
+                                </span>
+                            </div>
+                        </div>
+                    `;
+                }).join('')}
+            </div>
+        `;
+    } else {
+        calificacionesHtml = `
+            <div style="background: #F8FAFC; border: 1.5px dashed #CBD5E1; border-radius: 10px; padding: 18px; text-align: center; color: #64748B; font-size: 0.88rem;">
+                <span>🎯</span> Aún no hay actividades evaluadas registradas para este estudiante. Las notas se sincronizan automáticamente en segundo plano al completar los juegos interactivos.
+            </div>
+        `;
+    }
+
     const estadoPago = estObj && (estObj.pago_realizado || estObj.pago_activo) ? '🟢 Matrícula Activa' : '🟡 Modo Freemium (1ª Guía Gratis)';
     const opcionesMaterias = materias.map(m => `<option value="${m.nombre}">${m.nombre}</option>`).join('');
 
@@ -5387,9 +5447,25 @@ window.verInformeEstudiante = async function(nombreOrDoc, progreso, grupoName, d
                         <div style="font-size: 1.3rem; font-weight: 900; color: #047857; margin-top: 4px;">${totalGuiasGeneradas}</div>
                     </div>
                     <div style="background: #FDF4FF; border: 1px solid #F0ABFC; padding: 12px 16px; border-radius: 8px;">
-                        <div style="color: #86198F; font-size: 0.8rem; font-weight: bold; text-transform: uppercase;">Materias Asignadas</div>
-                        <div style="font-size: 1.3rem; font-weight: 900; color: #701A75; margin-top: 4px;">${materias.length}</div>
+                        <div style="color: #86198F; font-size: 0.8rem; font-weight: bold; text-transform: uppercase;">Promedio Formativo</div>
+                        <div style="font-size: 1.3rem; font-weight: 900; color: #701A75; margin-top: 4px;">⭐ ${promedioFormativo} / 5.0</div>
                     </div>
+                </div>
+
+                <!-- SECCIÓN: REGISTRO DE CALIFICACIONES FORMATIVAS EN PLANILLA (1.0 A 5.0) -->
+                <div style="background: linear-gradient(135deg, #F8FAFC 0%, #F1F5F9 100%); border: 2px solid #CBD5E1; border-radius: 12px; padding: 18px; margin-bottom: 25px; box-shadow: 0 4px 12px rgba(0,0,0,0.03);">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <span style="font-size: 1.4rem;">📝</span>
+                            <h4 style="margin: 0; font-size: 1.1rem; color: #1E293B; font-weight: 900;">
+                                Registro Formativo en Planilla Docente (Escala 1.0 a 5.0)
+                            </h4>
+                        </div>
+                        <span style="background: #EFF6FF; color: #1E40AF; border: 1.5px solid #BFDBFE; padding: 4px 12px; border-radius: 16px; font-weight: 900; font-size: 0.85rem;">
+                            Promedio: ⭐ ${promedioFormativo} / 5.0
+                        </span>
+                    </div>
+                    ${calificacionesHtml}
                 </div>
 
                 <!-- SECCIÓN 1: EXPLORADOR DE GUÍAS CON SOLUCIONARIO -->
@@ -10980,6 +11056,27 @@ window.finalizarJuegoPantalla = async function(act, puntaje = 100, xpOtorgado = 
         }).catch(() => {});
     } catch(e) {}
 
+    // Persistir calificación formativa (escala 1.0 a 5.0) en la planilla docente
+    let notaNum = 5.0;
+    if (typeof puntaje === 'number') {
+        if (puntaje >= 1 && puntaje <= 5) notaNum = puntaje;
+        else notaNum = Math.max(1.0, (puntaje / 100) * 4.0 + 1.0);
+    }
+    const calificacionFinal = Number(Math.max(1.0, Math.min(5.0, notaNum)).toFixed(1));
+
+    if (typeof window.guardarCalificacionActividad === 'function') {
+        window.guardarCalificacionActividad({
+            id_estudiante: doc,
+            id_actividad: (act && act.id) ? act.id : 'act_steam',
+            calificacion: calificacionFinal,
+            titulo_actividad: (act && (act.titulo || act.tema)) || 'Actividad STEAM',
+            tipo_herramienta: (act && (act.tipo_actividad || act.herramienta_id)) || 'actividad_steam',
+            materia: (act && act.materia) || 'Ciencias Naturales',
+            grupo: (act && act.grupo) || (estudiante && (estudiante.grupo || estudiante.grado)) || '',
+            detalles: { puntaje, respuestas, xp_otorgado: xpOtorgado }
+        });
+    }
+
     // Guardar localmente
     localStorage.setItem(`act_completada_${act.id}_${doc}`, 'true');
 
@@ -11734,13 +11831,18 @@ window.abrirRankingDocenteNuevaPestana = function() {
         grupos = [...authSes.grupos_direccion];
     } else if (authSes && Array.isArray(authSes.grados) && authSes.grados.length > 0) {
         grupos = [...authSes.grados];
+    } else if (window.grupos_db && window.grupos_db.length > 0) {
+        grupos = window.grupos_db.map(g => g.id);
     } else {
-        grupos = ['7C', '6A', '8A'];
+        grupos = [];
     }
 
     const gruposUnicos = Array.from(new Set(grupos.filter(Boolean)));
-    const grupoDefault = gruposUnicos[0] || '7C';
-    const grupoSeleccionado = prompt(`¿Qué grupo deseas proyectar en el Ránking en Vivo?\n\nGrupos disponibles: ${gruposUnicos.join(', ')}`, grupoDefault);
+    const grupoDefault = gruposUnicos[0] || 'Grado 7 - A';
+    const msg = gruposUnicos.length > 0 
+        ? `¿Qué grupo deseas proyectar en el Ránking en Vivo?\n\nGrupos disponibles: ${gruposUnicos.join(', ')}`
+        : `¿Qué grupo deseas proyectar en el Ránking en Vivo? (ej: Grado 7 - A)`;
+    const grupoSeleccionado = prompt(msg, grupoDefault);
     if (!grupoSeleccionado) return;
 
     const asigSel = document.getElementById('filtro-asignatura');
@@ -11795,110 +11897,18 @@ window.herramientaActualActiva = null;
 
 // Lista maestra de las 40 herramientas pedagógicas
 window.LISTA_HERRAMIENTAS_PEDAGOGICAS = [
-    // --- CAJA 1: 🕹️ Juegos y Dinámicas de Activación (1-10) ---
+    // ─── CAJA 2: 🕹️ Juegos Dinámicos y Activación (23 Herramientas Únicas) ────────────
     {
         id: 'sopa_letras',
-        categoria: 'juegos',
-        caja: 'Caja 1: Juegos Dinámicos',
-        icono: '🔤',
-        titulo: 'Sopa de Letras Temática',
-        desc: 'Matriz interactiva con pistas deductivas y generador de hoja con solucionario en PDF.',
-        badges: ['📺 Proyectable', '🖨️ Imprimible', '🎮 +70 XP']
-    },
-    {
-        id: 'crucigrama',
-        categoria: 'juegos',
-        caja: 'Caja 1: Juegos Dinámicos',
-        icono: '🧩',
-        titulo: 'Crucigrama Conceptual',
-        desc: 'Cuadrícula con definiciones horizontales y verticales autovalidadas con hoja de respuestas.',
-        badges: ['📺 Proyectable', '🖨️ Imprimible', '🎮 +100 XP']
-    },
-    {
-        id: 'memory_cards',
-        categoria: 'juegos',
-        caja: 'Caja 1: Juegos Dinámicos',
-        icono: '🃏',
-        titulo: 'Duelo de Emparejamiento (Memory)',
-        desc: 'Juego de cartas volteables para asociar Conceptos y Definiciones, y fichas recortables.',
-        badges: ['📺 Proyectable', '🖨️ Recortable', '🎮 +80 XP']
-    },
-    {
-        id: 'bingo_steam',
-        categoria: 'juegos',
-        caja: 'Caja 1: Juegos Dinámicos',
-        icono: '🎯',
-        titulo: 'Bingo Pedagógico STEAM',
-        desc: 'Balotera digital proyectable que canta conceptos y generador de 30 cartones únicos en PDF.',
-        badges: ['📺 Proyectable', '🖨️ 30 Cartones PDF', '🎉 Grupal']
-    },
-    {
-        id: 'jeopardy',
-        categoria: 'juegos',
-        caja: 'Caja 1: Juegos Dinámicos',
-        icono: '🎪',
-        titulo: 'Tablero Concurso Jeopardy ($100-$500)',
-        desc: 'Tablero gigante de 5 categorías con 25 preguntas y pulsadores de equipo para pantalla grande.',
-        badges: ['📺 Pantalla Gigante', '🎮 Concurso', '🏆 +500 XP']
-    },
-    {
-        id: 'criptograma',
-        categoria: 'juegos',
-        caja: 'Caja 1: Juegos Dinámicos',
-        icono: '🔠',
-        titulo: 'Criptogramas y Anagramas Secretos',
-        desc: 'Mensajes científicos cifrados con tablas de sustitución y retos de decodificación.',
-        badges: ['📺 Proyectable', '🖨️ Imprimible', '🎮 +90 XP']
-    },
-    {
-        id: 'domino_conceptual',
-        categoria: 'juegos',
-        caja: 'Caja 1: Juegos Dinámicos',
-        icono: '🧱',
-        titulo: 'Dominó Conceptual de Saberes',
-        desc: 'Fichas de dominó con conceptos en un extremo y definiciones en el otro para encadenar en mesa.',
-        badges: ['🖨️ Imprimible', '🤝 Colaborativo']
-    },
-    {
-        id: 'sudoku_steam',
-        categoria: 'juegos',
-        caja: 'Caja 1: Juegos Dinámicos',
-        icono: '🔢',
-        titulo: 'Sudoku y Kakuro Lógico STEAM',
-        desc: 'Cuadrículas de lógica matemática con números o símbolos STEAM de 4x4 y 6x6.',
-        badges: ['📺 Proyectable', '🖨️ Imprimible', '🧠 Lógica']
-    },
-    {
-        id: 'laberinto_logico',
-        categoria: 'juegos',
-        caja: 'Caja 1: Juegos Dinámicos',
-        icono: '🗺️',
-        titulo: 'Laberinto Lógico de Decisiones',
-        desc: 'Laberinto interactivo donde avanzar requiere responder preguntas conceptuales correctas.',
-        badges: ['📺 Proyectable', '🖨️ Imprimible', '🎮 +85 XP']
-    },
-    {
-        id: 'pictionary_tabu',
-        categoria: 'juegos',
-        caja: 'Caja 1: Juegos Dinámicos',
-        icono: '🎭',
-        titulo: 'Ruleta Pictionary y Tabú STEAM',
-        desc: 'Tarjetas de reto: explica un concepto mediante mímica o dibujo sin decir palabras prohibidas.',
-        badges: ['📺 Dinámica de Aula', '🎭 Roleplay', '👥 Equipos']
-    },
-
-    // ─── CAJA 2: 🕹️ Juegos Dinámicos y Activación (titulos exactos) ────────────
-    {
-        id: 'juego_sopa_letras',
         categoria: 'juegos',
         caja: 'Caja 2: Juegos Dinámicos',
         icono: '🔤',
         titulo: 'Sopa de Letras',
-        desc: 'Genera una sopa de letras interactiva sobre cualquier tema con pistas y solucionario automático.',
+        desc: 'Genera una sopa de letras interactiva sobre cualquier tema con pistas deductivas y solucionario automático.',
         badges: ['⚡ IA Generativa', '📺 Proyectable', '🖨️ Imprimible']
     },
     {
-        id: 'juego_crucigrama',
+        id: 'crucigrama',
         categoria: 'juegos',
         caja: 'Caja 2: Juegos Dinámicos',
         icono: '🧩',
@@ -11907,25 +11917,25 @@ window.LISTA_HERRAMIENTAS_PEDAGOGICAS = [
         badges: ['⚡ IA Generativa', '📺 Proyectable', '🖨️ Imprimible']
     },
     {
-        id: 'juego_emparejar',
-        categoria: 'juegos',
-        caja: 'Caja 2: Juegos Dinámicos',
-        icono: '🔗',
-        titulo: 'Emparejar',
-        desc: 'Asocia conceptos con definiciones, imágenes o ejemplos en una actividad drag & drop generada por IA.',
-        badges: ['⚡ IA Generativa', '📺 Proyectable', '🎮 +80 XP']
-    },
-    {
-        id: 'juego_concentrese',
+        id: 'concentrese',
         categoria: 'juegos',
         caja: 'Caja 2: Juegos Dinámicos',
         icono: '🃏',
-        titulo: 'Concéntrese (Memoria)',
-        desc: 'Juego de memoria con pares de tarjetas (concepto + definición) generados por IA para tu tema.',
+        titulo: 'Duelo de Emparejamiento (Concéntrese / Memory)',
+        desc: 'Juego de memoria con pares de tarjetas volteables (concepto + definición) generados por IA.',
         badges: ['⚡ IA Generativa', '📺 Proyectable', '🎮 +90 XP']
     },
     {
-        id: 'juego_laberinto',
+        id: 'emparejar',
+        categoria: 'juegos',
+        caja: 'Caja 2: Juegos Dinámicos',
+        icono: '🔗',
+        titulo: 'Emparejar Columnas',
+        desc: 'Asocia conceptos con definiciones, imágenes o ejemplos en una actividad interactiva drag & drop / tap.',
+        badges: ['⚡ IA Generativa', '📺 Proyectable', '🎮 +80 XP']
+    },
+    {
+        id: 'laberinto_decisiones',
         categoria: 'juegos',
         caja: 'Caja 2: Juegos Dinámicos',
         icono: '🗺️',
@@ -11934,7 +11944,7 @@ window.LISTA_HERRAMIENTAS_PEDAGOGICAS = [
         badges: ['⚡ IA Generativa', '📺 Proyectable', '🧠 Pensamiento Crítico']
     },
     {
-        id: 'juego_tap_sort',
+        id: 'tap_sort',
         categoria: 'juegos',
         caja: 'Caja 2: Juegos Dinámicos',
         icono: '👆',
@@ -11943,7 +11953,7 @@ window.LISTA_HERRAMIENTAS_PEDAGOGICAS = [
         badges: ['⚡ IA Generativa', '📺 Táctil', '🎮 +75 XP']
     },
     {
-        id: 'juego_anagrama',
+        id: 'anagrama',
         categoria: 'juegos',
         caja: 'Caja 2: Juegos Dinámicos',
         icono: '🔠',
@@ -11952,25 +11962,25 @@ window.LISTA_HERRAMIENTAS_PEDAGOGICAS = [
         badges: ['⚡ IA Generativa', '📺 Proyectable', '🎮 +70 XP']
     },
     {
-        id: 'juego_ordenar_secuencias',
+        id: 'ordenar_secuencia',
         categoria: 'juegos',
         caja: 'Caja 2: Juegos Dinámicos',
         icono: '🔢',
-        titulo: 'Ordenar Secuencias',
+        titulo: 'Ordenar Secuencias (Línea de Tiempo)',
         desc: 'Organiza pasos de un proceso, cronología o protocolo. IA crea las secuencias con tu tema.',
         badges: ['⚡ IA Generativa', '📺 Proyectable', '🧠 Lógica']
     },
     {
-        id: 'juego_escape_room',
+        id: 'escape_room',
         categoria: 'juegos',
         caja: 'Caja 2: Juegos Dinámicos',
         icono: '🚪',
-        titulo: 'Escape Room',
+        titulo: 'Escape Room (Candado Digital)',
         desc: 'Aventura pedagógica de 3 salas con acertijos, códigos y narrativa inmersiva. Todo generado por IA.',
         badges: ['⚡ IA Generativa', '📺 Proyectable', '🏆 +200 XP']
     },
     {
-        id: 'juego_completar_parrafo',
+        id: 'completar_parrafo',
         categoria: 'juegos',
         caja: 'Caja 2: Juegos Dinámicos',
         icono: '📝',
@@ -11979,16 +11989,16 @@ window.LISTA_HERRAMIENTAS_PEDAGOGICAS = [
         badges: ['⚡ IA Generativa', '📺 Proyectable', '🖨️ Imprimible']
     },
     {
-        id: 'juego_etiquetar_diagrama',
+        id: 'etiquetar_diagrama',
         categoria: 'juegos',
         caja: 'Caja 2: Juegos Dinámicos',
         icono: '🏷️',
-        titulo: 'Etiquetar el Diagrama',
+        titulo: 'Etiquetar el Diagrama (Hotspots)',
         desc: 'Diagrama interactivo SVG con puntos calientes (hotspots). El estudiante identifica y ubica las partes conceptuales.',
         badges: ['⚡ IA Generativa', '📺 Táctil', '🧠 Visual']
     },
     {
-        id: 'juego_tarjetas_deslizamiento',
+        id: 'tarjetas_deslizamiento',
         categoria: 'juegos',
         caja: 'Caja 2: Juegos Dinámicos',
         icono: '🃏',
@@ -11997,7 +12007,7 @@ window.LISTA_HERRAMIENTAS_PEDAGOGICAS = [
         badges: ['⚡ IA Generativa', '📺 Swipe Táctil', '🎮 +95 XP']
     },
     {
-        id: 'juego_ahorcado',
+        id: 'ahorcado',
         categoria: 'juegos',
         caja: 'Caja 2: Juegos Dinámicos',
         icono: '🛡️',
@@ -12006,7 +12016,7 @@ window.LISTA_HERRAMIENTAS_PEDAGOGICAS = [
         badges: ['⚡ IA Generativa', '📺 Proyectable', '🎮 +85 XP']
     },
     {
-        id: 'juego_lluvia_conceptos',
+        id: 'lluvia_conceptos',
         categoria: 'juegos',
         caja: 'Caja 2: Juegos Dinámicos',
         icono: '🌧️',
@@ -12015,7 +12025,7 @@ window.LISTA_HERRAMIENTAS_PEDAGOGICAS = [
         badges: ['⚡ IA Generativa', '📺 Arcade', '🎮 +100 XP']
     },
     {
-        id: 'juego_rompecabezas_frases',
+        id: 'rompecabezas_frases',
         categoria: 'juegos',
         caja: 'Caja 2: Juegos Dinámicos',
         icono: '🧩',
@@ -12024,7 +12034,7 @@ window.LISTA_HERRAMIENTAS_PEDAGOGICAS = [
         badges: ['⚡ IA Generativa', '📺 Proyectable', '🧠 Estructura']
     },
     {
-        id: 'juego_trivia',
+        id: 'trivia',
         categoria: 'juegos',
         caja: 'Caja 2: Juegos Dinámicos',
         icono: '⏱️',
@@ -12033,7 +12043,7 @@ window.LISTA_HERRAMIENTAS_PEDAGOGICAS = [
         badges: ['⚡ IA Generativa', '📺 Quiz Show', '🔥 Racha XP']
     },
     {
-        id: 'juego_ruleta',
+        id: 'ruleta_saber',
         categoria: 'juegos',
         caja: 'Caja 2: Juegos Dinámicos',
         icono: '🎡',
@@ -12042,13 +12052,58 @@ window.LISTA_HERRAMIENTAS_PEDAGOGICAS = [
         badges: ['⚡ IA Generativa', '📺 Ruleta Física', '🎮 +120 XP']
     },
     {
-        id: 'juego_criptograma',
+        id: 'criptograma',
         categoria: 'juegos',
         caja: 'Caja 2: Juegos Dinámicos',
         icono: '🔐',
         titulo: 'Criptograma Científico Secreto',
         desc: 'Mensaje secreto codificado en runas o símbolos. Responde preguntas cognitivas para decodificar las letras.',
         badges: ['⚡ IA Generativa', '📺 Proyectable', '🏆 +150 XP']
+    },
+    {
+        id: 'bingo_steam',
+        categoria: 'juegos',
+        caja: 'Caja 2: Juegos Dinámicos',
+        icono: '🎯',
+        titulo: 'Bingo Pedagógico STEAM',
+        desc: 'Balotera digital proyectable que canta conceptos y generador de 30 cartones únicos en PDF.',
+        badges: ['⚡ IA Generativa', '📺 Proyectable', '🖨️ 30 Cartones PDF', '🎉 Grupal']
+    },
+    {
+        id: 'jeopardy',
+        categoria: 'juegos',
+        caja: 'Caja 2: Juegos Dinámicos',
+        icono: '🎪',
+        titulo: 'Tablero Concurso Jeopardy ($100-$500)',
+        desc: 'Tablero gigante de 5 categorías con 25 preguntas y pulsadores de equipo para pantalla grande.',
+        badges: ['⚡ IA Generativa', '📺 Pantalla Gigante', '🎮 Concurso', '🏆 +500 XP']
+    },
+    {
+        id: 'sudoku_steam',
+        categoria: 'juegos',
+        caja: 'Caja 2: Juegos Dinámicos',
+        icono: '🔢',
+        titulo: 'Sudoku y Kakuro Lógico STEAM',
+        desc: 'Cuadrículas de lógica matemática con números o símbolos STEAM de 4x4 y 6x6.',
+        badges: ['📺 Proyectable', '🖨️ Imprimible', '🧠 Lógica']
+    },
+    {
+        id: 'domino_conceptual',
+        categoria: 'juegos',
+        caja: 'Caja 2: Juegos Dinámicos',
+        icono: '🧱',
+        titulo: 'Dominó Conceptual de Saberes',
+        desc: 'Fichas de dominó con conceptos en un extremo y definiciones en el otro para encadenar en mesa.',
+        badges: ['🖨️ Imprimible', '🤝 Colaborativo']
+    },
+    {
+        id: 'pictionary_tabu',
+        categoria: 'juegos',
+        caja: 'Caja 2: Juegos Dinámicos',
+        icono: '🎭',
+        titulo: 'Ruleta Pictionary y Tabú STEAM',
+        desc: 'Tarjetas de reto: explica un concepto mediante mímica o dibujo sin decir palabras prohibidas.',
+        badges: ['📺 Dinámica de Aula', '🎭 Roleplay', '👥 Equipos']
     },
 
     // --- CAJA 2 (interna): 📺 Gestión de Aula en Vivo y Pantalla Gigante (11-16) ---
@@ -12463,7 +12518,7 @@ window.categoriaToolboxActual = 'imprimibles';
 
 window.METADATOS_CAJAS_TEMATICAS = {
     'imprimibles': { icono: '📋', titulo: '⭐ Caja 1: Planificación Curricular, Secuencias Didácticas & Mallas Oficiales (7 Herramientas)' },
-    'juegos': { icono: '🕹️', titulo: 'Caja 2: Juegos Dinámicos y Activación (10 Herramientas)' },
+    'juegos': { icono: '🕹️', titulo: 'Caja 2: Juegos Dinámicos y Activación (23 Herramientas)' },
     'aula': { icono: '📺', titulo: 'Caja 3: Gestión de Aula y Pantalla Gigante (6 Herramientas)' },
     'visual': { icono: '🧠', titulo: 'Caja 4: Pensamiento Visual & Mentefactos (8 Herramientas)' },
     'evaluacion': { icono: '🏆', titulo: 'Caja 5: Evaluación y Diseño Curricular (5 Herramientas)' },
@@ -12531,13 +12586,79 @@ window._textoArchivoConfigJuegoIA = '';
 window._nombreArchivoJuegoIA = '';
 window._palabrasArchivoJuegoIA = '';
 
+window.actualizarGrupoJuegoSeleccionado = function() {
+    const selGra = document.getElementById('modal-config-juego-grupo-grado');
+    const selLet = document.getElementById('modal-config-juego-grupo-letra');
+    const inGrp = document.getElementById('modal-config-juego-grupo');
+    const badge = document.getElementById('modal-config-juego-grupo-resultado');
+    if (!selGra || !selLet) {
+        return (inGrp && inGrp.value) ? inGrp.value : 'Grado 7 - A';
+    }
+    const grado = selGra.value || '7';
+    const letra = selLet.value || 'A';
+    const resultado = (grado === 'Preescolar') ? `Grado Preescolar - ${letra}` : `Grado ${grado} - ${letra}`;
+    if (inGrp) inGrp.value = resultado;
+    if (badge) badge.innerText = resultado;
+
+    // Sincronizar también con el selector curricular de grado si aplica
+    const selCurGra = document.getElementById('modal-config-juego-grado');
+    if (selCurGra && grado !== 'Preescolar' && [...selCurGra.options].some(o => o.value === grado)) {
+        selCurGra.value = grado;
+    }
+    return resultado;
+};
+
 window.abrirConfiguracionJuegoIA = function(toolId) {
     if(typeof pushSubView === 'function') pushSubView();
 
-    const tool = (typeof toolId === 'object' && toolId !== null) 
+    let tool = (typeof toolId === 'object' && toolId !== null) 
         ? toolId 
         : window.LISTA_HERRAMIENTAS_PEDAGOGICAS.find(h => h.id === toolId);
         
+    if (!tool && typeof toolId === 'string') {
+        const idNorm = toolId.toLowerCase();
+        const aliasMap = {
+            'juego_sopa_letras': 'sopa_letras',
+            'juego_crucigrama': 'crucigrama',
+            'memory_cards': 'concentrese',
+            'juego_concentrese': 'concentrese',
+            'duelo_parejas': 'concentrese',
+            'juego_emparejar': 'emparejar',
+            'juego_laberinto': 'laberinto_decisiones',
+            'laberinto_logico': 'laberinto_decisiones',
+            'laberinto': 'laberinto_decisiones',
+            'juego_tap_sort': 'tap_sort',
+            'clasificador_tapsort': 'tap_sort',
+            'juego_escape_room': 'escape_room',
+            'scape_room': 'escape_room',
+            'juego_completar_parrafo': 'completar_parrafo',
+            'juego_anagrama': 'anagrama',
+            'juego_ordenar_secuencias': 'ordenar_secuencia',
+            'linea_tiempo': 'ordenar_secuencia',
+            'juego_etiquetar_diagrama': 'etiquetar_diagrama',
+            'diagrama_hotspots': 'etiquetar_diagrama',
+            'juego_tarjetas_deslizamiento': 'tarjetas_deslizamiento',
+            'tarjetas_tinder': 'tarjetas_deslizamiento',
+            'juego_ahorcado': 'ahorcado',
+            'mision_rescate': 'ahorcado',
+            'juego_lluvia_conceptos': 'lluvia_conceptos',
+            'juego_rompecabezas_frases': 'rompecabezas_frases',
+            'juego_trivia': 'trivia',
+            'trivia_reloj': 'trivia',
+            'juego_ruleta': 'ruleta_saber',
+            'ruleta': 'ruleta_saber',
+            'juego_criptograma': 'criptograma',
+            'criptograma_cientifico': 'criptograma',
+            'juego_jeopardy': 'jeopardy',
+            'tablero_pistas': 'jeopardy',
+            'juego_bingo_steam': 'bingo_steam',
+            'bingo': 'bingo_steam',
+            'juego_bingo': 'bingo_steam'
+        };
+        const canon = aliasMap[idNorm];
+        if (canon) tool = window.LISTA_HERRAMIENTAS_PEDAGOGICAS.find(h => h.id === canon);
+    }
+
     if (!tool) {
         if (typeof toolId === 'string') {
             window.abrirVisorHerramienta(toolId, true);
@@ -12560,7 +12681,6 @@ window.abrirConfiguracionJuegoIA = function(toolId) {
     const inKw = document.getElementById('modal-config-juego-keywords') || document.getElementById('modal-juego-input-keywords') || document.getElementById('modal-juego-ia-keywords');
     const selMat = document.getElementById('modal-config-juego-materia') || document.getElementById('modal-juego-materia-select') || document.getElementById('modal-juego-ia-materia-select');
     const selGra = document.getElementById('modal-config-juego-grado') || document.getElementById('modal-juego-grado-select') || document.getElementById('modal-juego-ia-grado-select');
-    const selGrp = document.getElementById('modal-config-juego-grupo') || document.getElementById('modal-juego-grupo-select') || document.getElementById('modal-juego-ia-grupo-select');
     const inTema = document.getElementById('modal-config-juego-tema') || document.getElementById('modal-juego-ia-tema');
     const infoArch = document.getElementById('modal-config-juego-archivo-info') || document.getElementById('modal-juego-archivo-badge') || document.getElementById('modal-juego-ia-archivo-info');
 
@@ -12579,37 +12699,35 @@ window.abrirConfiguracionJuegoIA = function(toolId) {
     if (selGra && curGra && curGra.value) selGra.value = curGra.value;
     if (inKw && curPal && curPal.value.trim()) inKw.value = curPal.value.trim();
 
-    // Poblar grupos asignados del docente autenticado con fallbacks
-    if (selGrp) {
+    // Configuración dinámica de Grado y Letra de Grupo (sin valores quemados)
+    const selGrpGra = document.getElementById('modal-config-juego-grupo-grado');
+    const selGrpLet = document.getElementById('modal-config-juego-grupo-letra');
+    const selGrp = document.getElementById('modal-config-juego-grupo') || document.getElementById('modal-juego-grupo-select') || document.getElementById('modal-juego-ia-grupo-select');
+
+    if (selGrpGra && selGrpLet) {
         let authSes = {};
         try {
             authSes = JSON.parse(sessionStorage.getItem('peidagogos_auth') || localStorage.getItem('usuario_sesion') || localStorage.getItem('usuario_actual') || '{}');
         } catch(e) {}
-
-        const docKey = String(window.usuario_actual || authSes.usuario || authSes.documento || (authSes.usuarioObj && (authSes.usuarioObj.documento || authSes.usuarioObj.usuario)) || '').trim().toLowerCase();
-        let dList = [];
-        try { dList = JSON.parse(localStorage.getItem('docentes_db') || '[]'); } catch(e) {}
-        const docItem = dList.find(d => String(d.documento || d.cedula || d.usuario || '').trim().toLowerCase() === docKey) || authSes;
-
-        let grupos = [];
-        if (docItem && Array.isArray(docItem.grupos) && docItem.grupos.length > 0) {
-            grupos = docItem.grupos.map(g => (typeof g === 'object' ? g.nombre : g));
-        } else if (docItem && Array.isArray(docItem.grupos_direccion) && docItem.grupos_direccion.length > 0) {
-            grupos = [...docItem.grupos_direccion];
-        } else if (authSes && Array.isArray(authSes.grupos_direccion) && authSes.grupos_direccion.length > 0) {
-            grupos = [...authSes.grupos_direccion];
-        } else if (authSes && Array.isArray(authSes.grados) && authSes.grados.length > 0) {
-            grupos = [...authSes.grados];
-        } else if (window.grupos_db && window.grupos_db.length > 0) {
-            grupos = window.grupos_db.map(g => g.id);
-        } else {
-            grupos = ['7C', '6A', '8A'];
+        const docItem = authSes.usuarioObj || authSes;
+        let gradoSugerido = (selGra && selGra.value) ? selGra.value : '7';
+        if (docItem && Array.isArray(docItem.grados) && docItem.grados.length > 0) {
+            gradoSugerido = String(docItem.grados[0]);
         }
-
-        const gruposUnicos = Array.from(new Set(grupos.filter(Boolean)));
-        selGrp.innerHTML = '<option value="Todos">🏫 Todos los Grupos</option>' +
-            gruposUnicos.map(g => `<option value="${g}">Grupo ${g}</option>`).join('');
-        if (gruposUnicos.length > 0) selGrp.value = gruposUnicos[0];
+        if ([...selGrpGra.options].some(o => o.value === gradoSugerido)) {
+            selGrpGra.value = gradoSugerido;
+        } else {
+            selGrpGra.value = '7';
+        }
+        selGrpLet.value = 'A';
+        window.actualizarGrupoJuegoSeleccionado();
+    } else if (selGrp && selGrp.tagName === 'SELECT') {
+        selGrp.innerHTML = `
+            <option value="Grado 7 - A">Grado 7 - A</option>
+            <option value="Grado 6 - A">Grado 6 - A</option>
+            <option value="Grado 8 - A">Grado 8 - A</option>
+            <option value="Todos">🏫 Todos los Grupos</option>
+        `;
     }
 
     window.cambiarModoConfigJuegoIA('keywords');
@@ -13009,9 +13127,18 @@ window.proyectarJuegoHTML = function(htmlCode, titulo = 'Juego STEAM Interactivo
         <script>
         (function() {
             window.addEventListener('message', function(e) {
-                if (e.data && (e.data.tipo === 'juego_completado' || e.data.victoria)) {
+                if (e.data && (e.data.tipo === 'juego_completado' || e.data.victoria || e.data.tipo === 'calificacion_guardada')) {
+                    if (e.data.calificacion && window.parent && typeof window.parent.guardarCalificacionActividad === 'function') {
+                        window.parent.guardarCalificacionActividad({
+                            id_actividad: e.data.id_actividad || 'juego_interactivo',
+                            calificacion: e.data.calificacion,
+                            titulo_actividad: e.data.tema || e.data.titulo_actividad || 'Juego Interactivo',
+                            tipo_herramienta: e.data.tipo_herramienta || 'interactivo',
+                            detalles: { tiempo: e.data.tiempo, xp_otorgado: e.data.xp || ${xp} }
+                        });
+                    }
                     if (window.parent && window.parent.sumarPuntosJuegoCompletado) {
-                        window.parent.sumarPuntosJuegoCompletado(${xp});
+                        window.parent.sumarPuntosJuegoCompletado(e.data.xp || ${xp});
                     }
                 }
             });
@@ -13197,11 +13324,54 @@ window.renderizarTarjetasCajaHerramientas = function(categoria = 'juegos') {
 window.abrirVisorHerramienta = function(herramientaId, omitirIntercepcionIA = false) {
     if(typeof pushSubView === 'function') pushSubView();
 
-    const tool = window.LISTA_HERRAMIENTAS_PEDAGOGICAS.find(h => h.id === herramientaId);
+    let tool = window.LISTA_HERRAMIENTAS_PEDAGOGICAS.find(h => h.id === herramientaId);
+    if (!tool && typeof herramientaId === 'string') {
+        const idNorm = herramientaId.toLowerCase();
+        const aliasMap = {
+            'juego_sopa_letras': 'sopa_letras',
+            'juego_crucigrama': 'crucigrama',
+            'memory_cards': 'concentrese',
+            'juego_concentrese': 'concentrese',
+            'duelo_parejas': 'concentrese',
+            'juego_emparejar': 'emparejar',
+            'juego_laberinto': 'laberinto_decisiones',
+            'laberinto_logico': 'laberinto_decisiones',
+            'laberinto': 'laberinto_decisiones',
+            'juego_tap_sort': 'tap_sort',
+            'clasificador_tapsort': 'tap_sort',
+            'juego_escape_room': 'escape_room',
+            'scape_room': 'escape_room',
+            'juego_completar_parrafo': 'completar_parrafo',
+            'juego_anagrama': 'anagrama',
+            'juego_ordenar_secuencias': 'ordenar_secuencia',
+            'linea_tiempo': 'ordenar_secuencia',
+            'juego_etiquetar_diagrama': 'etiquetar_diagrama',
+            'diagrama_hotspots': 'etiquetar_diagrama',
+            'juego_tarjetas_deslizamiento': 'tarjetas_deslizamiento',
+            'tarjetas_tinder': 'tarjetas_deslizamiento',
+            'juego_ahorcado': 'ahorcado',
+            'mision_rescate': 'ahorcado',
+            'juego_lluvia_conceptos': 'lluvia_conceptos',
+            'juego_rompecabezas_frases': 'rompecabezas_frases',
+            'juego_trivia': 'trivia',
+            'trivia_reloj': 'trivia',
+            'juego_ruleta': 'ruleta_saber',
+            'ruleta': 'ruleta_saber',
+            'juego_criptograma': 'criptograma',
+            'criptograma_cientifico': 'criptograma',
+            'juego_jeopardy': 'jeopardy',
+            'tablero_pistas': 'jeopardy',
+            'juego_bingo_steam': 'bingo_steam',
+            'bingo': 'bingo_steam',
+            'juego_bingo': 'bingo_steam'
+        };
+        const canon = aliasMap[idNorm];
+        if (canon) tool = window.LISTA_HERRAMIENTAS_PEDAGOGICAS.find(h => h.id === canon);
+    }
     if (!tool) return;
 
     if (!omitirIntercepcionIA && typeof window.abrirConfiguracionJuegoIA === 'function') {
-        window.abrirConfiguracionJuegoIA(herramientaId);
+        window.abrirConfiguracionJuegoIA(tool.id || herramientaId);
         return;
     }
 
@@ -13507,14 +13677,20 @@ window.datosDinamicosFallback = function(materia, grado, tema, dificultad = 'med
             'Educación Artística': ['COMPOSICION', 'COLOR', 'PERSPECTIVA', 'TEXTURA', 'ARMONIA', 'EXPRESION', 'ESTETICA', 'TECNICA']
         };
 
-        const listaBase = sufijosArea[materia] || ['PRINCIPIO', 'SISTEMA', 'ESTRUCTURA', 'PROCESO', 'METODO', 'ANALISIS', 'INNOVACION', 'EQUILIBRIO'];
-        palabras = Array.from(new Set([...tokens, ...listaBase])).slice(0, 8);
+        const listaBase = sufijosArea[materia] || ['PRINCIPIO', 'SISTEMA', 'ESTRUCTURA', 'PROCESO', 'METODO', 'ANALISIS', 'INNOVACION', 'EQUILIBRIO', 'VARIABLE', 'HIPOTESIS'];
+        palabras = Array.from(new Set([...tokens, ...listaBase])).slice(0, 10);
     }
 
     // Crucigrama y Flashcards (Pistas y Respuestas)
     const definiciones = palabras.map((p, idx) => ({
         palabra: p,
         pista: `Término ${idx + 1}: Concepto clave vinculado a ${tema} en ${materia} (Grado ${grado}°).`
+    }));
+
+    // Pares para Duelo de Emparejamiento de Columnas (8 a 10 pares)
+    const pares = palabras.map((p, idx) => ({
+        izquierda: p,
+        derecha: (definiciones[idx] && definiciones[idx].pista) ? definiciones[idx].pista : `Definición conceptual de ${p} en ${materia}`
     }));
 
     // Jeopardy dinámico
@@ -13598,7 +13774,8 @@ window.datosDinamicosFallback = function(materia, grado, tema, dificultad = 'med
         experimentoLab,
         textoCloze,
         bancoCloze,
-        debateDetonante
+        debateDetonante,
+        pares
     };
 };
 
@@ -13654,29 +13831,115 @@ window.ejecutarRenderizadorHerramienta = function(id, stage, base) {
         case 'live_poll': window.renderizarLivePoll(stage, base); break;
         case 'pregunta_detonante': window.renderizarPreguntaDetonante(stage, base); break;
 
-        // Juegos y Retos
-        case 'sopa_letras': window.renderizarSopaLetrasTool(stage, base); break;
-        case 'crucigrama': window.renderizarCrucigramaTool(stage, base); break;
-        case 'jeopardy': window.renderizarJeopardyTool(stage, base); break;
-        case 'memory_cards': window.renderizarMemoryCardsTool(stage, base); break;
-        case 'bingo_steam': window.renderizarBingoSteamTool(stage, base); break;
-        case 'criptograma': window.renderizarCriptogramaTool(stage, base); break;
-        case 'domino_conceptual': window.renderizarDominoConceptualTool(stage, base); break;
-        case 'sudoku_steam': window.renderizarSudokuSteamTool(stage, base); break;
-        case 'laberinto_logico': window.renderizarLaberintoLogicoTool(stage, base); break;
-        case 'pictionary_tabu': window.renderizarPictionaryTabuTool(stage, base); break;
-
-        // Caja 2: Juegos Dinámicos y Activación
-        case 'juego_sopa_letras': window.renderizarJuegoSopaLetras(stage, base); break;
-        case 'juego_crucigrama': window.renderizarJuegoCrucigrama(stage, base); break;
-        case 'juego_emparejar': window.renderizarJuegoEmparejar(stage, base); break;
-        case 'juego_concentrese': window.renderizarJuegoConcentrese(stage, base); break;
-        case 'juego_laberinto': window.renderizarJuegoLaberinto(stage, base); break;
-        case 'juego_tap_sort': window.renderizarJuegoTapSort(stage, base); break;
-        case 'juego_anagrama': window.renderizarJuegoAnagrama(stage, base); break;
-        case 'juego_ordenar_secuencias': window.renderizarJuegoOrdenarSecuencias(stage, base); break;
-        case 'juego_escape_room': window.renderizarJuegoEscapeRoom(stage, base); break;
-        case 'juego_completar_parrafo': window.renderizarJuegoCompletarParrafo(stage, base); break;
+        // Caja 2: Juegos Dinámicos y Activación (23 Herramientas Únicas)
+        case 'sopa_letras':
+        case 'juego_sopa_letras':
+            if (typeof window.renderizarJuegoSopaLetras === 'function') window.renderizarJuegoSopaLetras(stage, base);
+            else window.renderizarSopaLetrasTool(stage, base);
+            break;
+        case 'crucigrama':
+        case 'juego_crucigrama':
+            if (typeof window.renderizarJuegoCrucigrama === 'function') window.renderizarJuegoCrucigrama(stage, base);
+            else window.renderizarCrucigramaTool(stage, base);
+            break;
+        case 'concentrese':
+        case 'memory_cards':
+        case 'juego_concentrese':
+            if (typeof window.renderizarJuegoConcentrese === 'function') window.renderizarJuegoConcentrese(stage, base);
+            else window.renderizarMemoryCardsTool(stage, base);
+            break;
+        case 'emparejar':
+        case 'juego_emparejar':
+            if (typeof window.renderizarJuegoEmparejar === 'function') window.renderizarJuegoEmparejar(stage, base);
+            else window.renderizarMemoryCardsTool(stage, base);
+            break;
+        case 'laberinto_decisiones':
+        case 'juego_laberinto':
+        case 'laberinto_logico':
+        case 'laberinto':
+            if (typeof window.renderizarJuegoLaberinto === 'function') window.renderizarJuegoLaberinto(stage, base);
+            else window.renderizarLaberintoLogicoTool(stage, base);
+            break;
+        case 'tap_sort':
+        case 'juego_tap_sort':
+        case 'clasificador_tapsort':
+            if (typeof window.renderizarJuegoTapSort === 'function') window.renderizarJuegoTapSort(stage, base);
+            break;
+        case 'anagrama':
+        case 'juego_anagrama':
+            if (typeof window.renderizarJuegoAnagrama === 'function') window.renderizarJuegoAnagrama(stage, base);
+            break;
+        case 'ordenar_secuencia':
+        case 'juego_ordenar_secuencias':
+        case 'linea_tiempo':
+            if (typeof window.renderizarJuegoOrdenarSecuencias === 'function') window.renderizarJuegoOrdenarSecuencias(stage, base);
+            break;
+        case 'escape_room':
+        case 'juego_escape_room':
+        case 'scape_room':
+            if (typeof window.renderizarJuegoEscapeRoom === 'function') window.renderizarJuegoEscapeRoom(stage, base);
+            break;
+        case 'completar_parrafo':
+        case 'juego_completar_parrafo':
+            if (typeof window.renderizarJuegoCompletarParrafo === 'function') window.renderizarJuegoCompletarParrafo(stage, base);
+            break;
+        case 'etiquetar_diagrama':
+        case 'juego_etiquetar_diagrama':
+        case 'diagrama_hotspots':
+            if (typeof window.renderizarJuegoEtiquetarDiagrama === 'function') window.renderizarJuegoEtiquetarDiagrama(stage, base);
+            break;
+        case 'tarjetas_deslizamiento':
+        case 'juego_tarjetas_deslizamiento':
+        case 'tarjetas_tinder':
+            if (typeof window.renderizarJuegoTarjetasDeslizamiento === 'function') window.renderizarJuegoTarjetasDeslizamiento(stage, base);
+            break;
+        case 'ahorcado':
+        case 'juego_ahorcado':
+        case 'mision_rescate':
+            if (typeof window.renderizarJuegoAhorcado === 'function') window.renderizarJuegoAhorcado(stage, base);
+            break;
+        case 'lluvia_conceptos':
+        case 'juego_lluvia_conceptos':
+            if (typeof window.renderizarJuegoLluviaConceptos === 'function') window.renderizarJuegoLluviaConceptos(stage, base);
+            break;
+        case 'rompecabezas_frases':
+        case 'juego_rompecabezas_frases':
+            if (typeof window.renderizarJuegoRompecabezasFrases === 'function') window.renderizarJuegoRompecabezasFrases(stage, base);
+            break;
+        case 'trivia':
+        case 'juego_trivia':
+        case 'trivia_reloj':
+            if (typeof window.renderizarJuegoTrivia === 'function') window.renderizarJuegoTrivia(stage, base);
+            break;
+        case 'ruleta_saber':
+        case 'juego_ruleta':
+        case 'ruleta':
+            if (typeof window.renderizarJuegoRuleta === 'function') window.renderizarJuegoRuleta(stage, base);
+            break;
+        case 'criptograma':
+        case 'juego_criptograma':
+        case 'criptograma_cientifico':
+            window.renderizarCriptogramaTool(stage, base);
+            break;
+        case 'bingo_steam':
+        case 'juego_bingo_steam':
+        case 'bingo':
+            window.renderizarBingoSteamTool(stage, base);
+            break;
+        case 'jeopardy':
+        case 'juego_jeopardy':
+        case 'tablero_pistas':
+            window.renderizarJeopardyTool(stage, base);
+            break;
+        case 'sudoku_steam':
+            window.renderizarSudokuSteamTool(stage, base);
+            break;
+        case 'domino_conceptual':
+            window.renderizarDominoConceptualTool(stage, base);
+            break;
+        case 'pictionary_tabu':
+            window.renderizarPictionaryTabuTool(stage, base);
+            break;
 
         // Gestión de Aula en Vivo
         case 'ruleta_turnos': window.renderizarRuletaTurnosTool(stage, base); break;
@@ -14466,28 +14729,11 @@ window.renderizarGeneradorRolesTool = function(stage, base) {
 };
 
 window.renderizarMemoryCardsTool = function(stage, base) {
-    const data = window.generarDatosPedagogicosDinamicos(base.materia, base.grado, base.concepto, base.dificultad);
-    stage.innerHTML = `
-        <div style="flex: 1; padding: 25px; background: #F8FAFC; display: flex; flex-direction: column; justify-content: space-between; text-align: center;">
-            <div>
-                <h3 style="margin: 0; font-size: 1.4rem; font-weight: 900; color: #1E1B4B;">🃏 Duelo de Emparejamiento (Memory Cards): ${data.tema}</h3>
-                <p style="margin: 2px 0 0 0; color: #64748B; font-size: 0.85rem;">Encuentra los pares de Concepto vs Definición</p>
-            </div>
-            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 15px 0;">
-                ${data.palabras.slice(0, 4).map((w, idx) => `
-                    <div onclick="this.innerHTML='<b>${w}</b>'; this.style.background='#3B82F6'; this.style.color='white';" style="background: white; border: 2px solid #CBD5E1; border-radius: 10px; padding: 16px 8px; font-weight: 900; font-size: 0.95rem; color: #3B82F6; cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,0.05); min-height: 60px; display: flex; align-items: center; justify-content: center;">
-                        ❓ Carta Concepto ${idx + 1}
-                    </div>
-                `).join('')}
-                ${data.definiciones.slice(0, 4).map((d, idx) => `
-                    <div onclick="this.innerHTML='<span style=\\'font-size:0.75rem;\\'>${d.pista}</span>'; this.style.background='#10B981'; this.style.color='white';" style="background: white; border: 2px solid #CBD5E1; border-radius: 10px; padding: 16px 8px; font-weight: 900; font-size: 0.95rem; color: #10B981; cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,0.05); min-height: 60px; display: flex; align-items: center; justify-content: center;">
-                        ❓ Carta Pista ${idx + 1}
-                    </div>
-                `).join('')}
-            </div>
-            <div style="color: #64748B; font-size: 0.82rem;">🃏 Haz clic para voltear las cartas y encontrar las parejas correspondientes.</div>
-        </div>
-    `;
+    if (typeof window.renderizarJuegoEmparejamientoAvanzado === 'function') {
+        window.renderizarJuegoEmparejamientoAvanzado(stage, base);
+    } else if (typeof window.renderizarJuegoEmparejar === 'function') {
+        window.renderizarJuegoEmparejar(stage, base);
+    }
 };
 
 window.renderizarCriptogramaTool = function(stage, base) {
@@ -16426,7 +16672,7 @@ window.cargarEstudiantesDocente = async function(docenteId) {
 
             const coincideIE = ieDocente ? (estIE === ieDocente || estIE.includes(ieDocente) || ieDocente.includes(estIE) || (ieDocente.includes('instituto') && estIE.includes('instituto'))) : true;
             
-            let coincideGrado = true;
+            let coincideGrado = false;
             if (gradosDocente.length > 0) {
                 coincideGrado = gradosDocente.some(gd => {
                     const gdClean = gd.replace(/[^0-9cicloivpens]/g, '');
@@ -16434,9 +16680,17 @@ window.cargarEstudiantesDocente = async function(docenteId) {
                     const estGrpClean = estGrp.replace(/[^0-9cicloivpens]/g, '');
                     return estGra === gd || estGrp === gd || estGra.startsWith(gd) || estGrp.startsWith(gd) || (gdClean && (estGraClean.includes(gdClean) || estGrpClean.includes(gdClean)));
                 });
+            } else if (docenteId === 'admin' || docenteId === 'jramirezgiraldo') {
+                coincideGrado = true;
             }
 
-            return coincideIE && coincideGrado;
+            const gruposDocente = (docentePerfil && Array.isArray(docentePerfil.grupos)) ? docentePerfil.grupos.map(g => (typeof g === 'object' ? g.nombre : String(g)).trim().toLowerCase()) : [];
+            let coincideGrupo = false;
+            if (gruposDocente.length > 0) {
+                coincideGrupo = gruposDocente.some(g => estGrp === g || estGra === g);
+            }
+
+            return (est.docente_id && String(est.docente_id).trim().toLowerCase() === String(docenteId).trim().toLowerCase()) || (coincideIE && (coincideGrado || coincideGrupo));
         });
 
         window.estudiantesDocenteCache = misEstudiantes;
@@ -16618,6 +16872,15 @@ window.renderizarTablaEstudiantesGrupo = function(listaEstudiantes) {
         const penaltyTotal = parseInt(localStorage.getItem(`penalty_total_${docClean}`)) || 0;
         let totalXPAcumulado = Math.max(0, xpEst + bonusTotal - penaltyTotal);
 
+        // Promedio de calificaciones formativas (1.0 a 5.0) en planilla
+        let califsEst = [];
+        try { califsEst = JSON.parse(localStorage.getItem(`calificaciones_${docClean}`) || '[]'); } catch(e) {}
+        let promFormativo = null;
+        if (califsEst.length > 0) {
+            const sum = califsEst.reduce((acc, c) => acc + (parseFloat(c.calificacion) || 0), 0);
+            promFormativo = (sum / califsEst.length).toFixed(1);
+        }
+
         htmlRows += `
             <tr style="border-bottom: 1px solid #F1F5F9;">
                 <td style="padding: 12px 10px; font-family: monospace; font-size: 0.9rem;">
@@ -16643,6 +16906,7 @@ window.renderizarTablaEstudiantesGrupo = function(listaEstudiantes) {
                     <span style="background: #ECFDF5; color: #047857; border: 1px solid #A7F3D0; padding: 4px 10px; border-radius: 16px; font-weight: 900; font-size: 0.85rem;">
                         🌟 ${totalXPAcumulado} XP
                     </span>
+                    ${promFormativo ? `<div style="margin-top: 4px;"><span style="background: #EFF6FF; color: #1D4ED8; border: 1px solid #BFDBFE; padding: 2px 8px; border-radius: 10px; font-weight: 800; font-size: 0.75rem; display: inline-block;">⭐ Nota: ${promFormativo}</span></div>` : ''}
                 </td>
                 <td style="padding: 12px 10px; text-align: center;">
                     <div style="display: flex; gap: 6px; justify-content: center; flex-wrap: wrap; align-items: center;">
@@ -16695,8 +16959,8 @@ window.abrirModalGestionMateriasGradosDocente = function() {
         if (!docentePerfil) docentePerfil = authSes;
     } catch(e) {}
 
-    const materiasActivas = (docentePerfil && Array.isArray(docentePerfil.materias)) ? docentePerfil.materias : ['Física', 'Ciencias Naturales'];
-    const gradosActivos = (docentePerfil && Array.isArray(docentePerfil.grados)) ? docentePerfil.grados : ['6', '7', '8', '9'];
+    const materiasActivas = (docentePerfil && Array.isArray(docentePerfil.materias)) ? docentePerfil.materias : [];
+    const gradosActivos = (docentePerfil && Array.isArray(docentePerfil.grados)) ? docentePerfil.grados : [];
 
     // 2. Renderizar catálogo de materias (Oficiales + Creadas por IA)
     const containerMaterias = document.getElementById('gestor-materias-pills-container');
@@ -17629,9 +17893,13 @@ window.procesarTokenDocenteDesdeUrl = function() {
             rolDocente: esDirectorReg ? 'director' : 'regular',
             es_director: esDirectorReg,
             institucion: ieFinal,
-            asignatura: matFinal,
-            materias: [matFinal],
-            grados: ['6', '7', '8', '9', '10', '11'],
+            asignatura: '',
+            materias: [],
+            grados: [],
+            grupos: [],
+            carga_academica: [],
+            grado: '',
+            grupo: '',
             pago_realizado: true,
             pago_activo: true,
             director_grupo_id: dirGrupoId || '',
@@ -19457,79 +19725,638 @@ window.renderizarJuegoCrucigrama = function(stage, base) {
     };
 };
 
-// 3. EMPAREJAR (`juego_emparejar`)
-window.renderizarJuegoEmparejar = function(stage, base) {
-    const dataIA = window._aiGameData || {};
-    const pares = (dataIA.pares && dataIA.pares.length) ? dataIA.pares : [
-        { izquierda: "Fotosíntesis", derecha: "Proceso de transformación de luz en energía química" },
-        { izquierda: "Mitocondria", derecha: "Central de energía celular" },
-        { izquierda: "ADN", derecha: "Molécula portadora del material genético" },
-        { izquierda: "Ecosistema", derecha: "Comunidad de seres vivos y su entorno" },
-        { izquierda: "Gravedad", derecha: "Fuerza de atracción entre cuerpos masivos" }
-    ];
+// ============================================================================
+// SERVICIO DE PERSISTENCIA DUAL DE CALIFICACIONES FORMATIVAS (ESCALA 1.0 A 5.0)
+// ============================================================================
+window.guardarCalificacionActividad = async function(datos) {
+    try {
+        if (!datos || typeof datos !== 'object') return;
+        const user = (typeof window.obtenerUsuarioActual === 'function') ? window.obtenerUsuarioActual() : null;
+        const authUser = JSON.parse(localStorage.getItem('usuario_sesion') || sessionStorage.getItem('peidagogos_auth') || '{}');
+        const id_estudiante = String(datos.id_estudiante || (user && (user.documento || user.usuario)) || authUser.documento || authUser.usuario || window.usuario_actual || 'estudiante_anonimo').trim();
+        const id_actividad = String(datos.id_actividad || 'actividad_steam').trim();
+        
+        let numNota = parseFloat(datos.calificacion !== undefined ? datos.calificacion : datos.nota);
+        if (isNaN(numNota)) numNota = 1.0;
+        const calificacion = Number(Math.max(1.0, Math.min(5.0, numNota)).toFixed(1));
+        
+        const fecha = datos.fecha || new Date().toISOString();
+        const payload = {
+            id_estudiante,
+            id_actividad,
+            calificacion,
+            fecha,
+            titulo_actividad: datos.titulo_actividad || datos.tema || 'Actividad Interactiva STEAM',
+            tipo_herramienta: datos.tipo_herramienta || datos.tipo || 'interactivo',
+            materia: datos.materia || (user && user.asignatura) || authUser.asignatura || 'Ciencias Naturales',
+            grupo: datos.grupo || (user && (user.grupo || user.grado)) || authUser.grupo || authUser.grado || '',
+            id_docente: datos.id_docente || (user && user.docente_id) || authUser.docente_id || '',
+            detalles: datos.detalles || {}
+        };
 
-    const cabecera = window.crearCabeceraJuego(stage, "🔗 Emparejar Conceptos", 90, () => window.renderizarJuegoEmparejar(stage, base));
-    const container = document.createElement('div');
-    container.style.cssText = "max-width: 460px; margin: 0 auto;";
+        // 1. Persistencia local inmediata (LocalStorage)
+        try {
+            const keyEst = `calificaciones_${id_estudiante}`;
+            let calList = JSON.parse(localStorage.getItem(keyEst) || '[]');
+            const idxC = calList.findIndex(c => String(c.id_actividad).trim().toLowerCase() === id_actividad.toLowerCase());
+            if (idxC >= 0) calList[idxC] = { ...calList[idxC], ...payload };
+            else calList.push(payload);
+            localStorage.setItem(keyEst, JSON.stringify(calList));
 
-    const conceptosLeft = [...pares].sort(() => Math.random() - 0.5);
-    const conceptosRight = [...pares].sort(() => Math.random() - 0.5);
+            let histGlobal = JSON.parse(localStorage.getItem('calificaciones_globales') || '[]');
+            const idxG = histGlobal.findIndex(h => String(h.id_estudiante).trim().toLowerCase() === id_estudiante.toLowerCase() && String(h.id_actividad).trim().toLowerCase() === id_actividad.toLowerCase());
+            if (idxG >= 0) histGlobal[idxG] = { ...histGlobal[idxG], ...payload };
+            else histGlobal.push(payload);
+            localStorage.setItem('calificaciones_globales', JSON.stringify(histGlobal));
+        } catch(locErr) {
+            console.warn('[CALIFICACIÓN_LOCAL] Advertencia al guardar localmente:', locErr);
+        }
 
-    let selectedLeft = null;
+        // 2. Persistencia en segundo plano en el servidor (Fetch no bloqueante)
+        try {
+            fetch('/api/guardar-calificacion', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            }).then(r => r.json()).then(res => {
+                console.log('✅ [CALIFICACIÓN] Persistida exitosamente en el servidor:', res);
+            }).catch(netErr => {
+                console.warn('⚠️ [CALIFICACIÓN_OFFLINE] Pendiente sincronización con servidor:', netErr.message);
+            });
+        } catch(netErr) {}
+
+        // 3. Emisión postMessage si la actividad se ejecuta en un iframe
+        try {
+            if (window.parent && window.parent !== window) {
+                window.parent.postMessage({
+                    tipo: 'calificacion_guardada',
+                    id_estudiante,
+                    id_actividad,
+                    calificacion,
+                    fecha,
+                    titulo_actividad: payload.titulo_actividad
+                }, '*');
+            }
+        } catch(e) {}
+
+        return payload;
+    } catch(err) {
+        console.error('Error en guardarCalificacionActividad:', err);
+    }
+};
+
+// 3. EMPAREJAR / DUELO DE EMPAREJAMIENTO (`juego_emparejar`, `emparejar`, `memory_cards`)
+window.renderizarJuegoEmparejamientoAvanzado = function(stage, base) {
+    if (!stage) return;
+    base = base || {};
+
+    // 1. OBTENCIÓN Y NORMALIZACIÓN DE 8 A 10 PARES (Conceptos vs Definiciones)
+    const dataIA = window._aiGameData || window._cacheDataDinamicaIA || {};
+    let paresCrudos = [];
+
+    if (Array.isArray(dataIA.pares) && dataIA.pares.length >= 4) {
+        paresCrudos = dataIA.pares;
+    } else if (Array.isArray(base.pares) && base.pares.length >= 4) {
+        paresCrudos = base.pares;
+    } else if (Array.isArray(dataIA.definiciones) && dataIA.definiciones.length >= 4) {
+        paresCrudos = dataIA.definiciones.map(d => ({ izquierda: d.palabra, derecha: d.pista }));
+    } else {
+        const dataPed = (typeof window.generarDatosPedagogicosDinamicos === 'function')
+            ? window.generarDatosPedagogicosDinamicos(base.materia, base.grado, base.concepto, base.dificultad)
+            : null;
+        if (dataPed && Array.isArray(dataPed.pares) && dataPed.pares.length >= 4) {
+            paresCrudos = dataPed.pares;
+        } else if (dataPed && Array.isArray(dataPed.definiciones)) {
+            paresCrudos = dataPed.definiciones.map(d => ({ izquierda: d.palabra, derecha: d.pista }));
+        }
+    }
+
+    // Banco de contingencia curricular si faltaran pares (Garantiza entre 8 y 10 pares completos)
+    if (!paresCrudos || paresCrudos.length < 8) {
+        paresCrudos = [
+            { izquierda: "Fotosíntesis", derecha: "Conversión de energía lumínica en energía química celular." },
+            { izquierda: "Mitocondria", derecha: "Orgánulo celular responsable de la respiración y síntesis de ATP." },
+            { izquierda: "ADN Genómico", derecha: "Macromolécula portadora de la información biológica hereditaria." },
+            { izquierda: "Ecosistema", derecha: "Comunidad de seres vivos que interactúan con su medio físico." },
+            { izquierda: "Gravedad", derecha: "Fuerza de atracción gravitatoria universal entre masas." },
+            { izquierda: "Termodinámica", derecha: "Estudio de las transformaciones de calor, energía y trabajo mecánico." },
+            { izquierda: "Homeostasis", derecha: "Autorregulación para preservar el equilibrio interno del organismo." },
+            { izquierda: "Biodiversidad", derecha: "Variedad de ecosistemas, especies y diversidad genética." },
+            { izquierda: "Osmosis", derecha: "Difusión pasiva del solvente mediante una membrana semipermeable." },
+            { izquierda: "Enzima Catalítica", derecha: "Proteína que incrementa la velocidad de reacciones metabólicas." }
+        ];
+    }
+
+    // Limitar exactamente a entre 8 y 10 pares
+    const totalPares = Math.min(Math.max(paresCrudos.length, 8), 10);
+    const listaPares = paresCrudos.slice(0, totalPares).map((item, idx) => ({
+        id: `par_${idx}`,
+        concepto: String(item.izquierda || item.concepto || item.palabra || `Concepto ${idx+1}`).trim(),
+        definicion: String(item.derecha || item.definicion || item.pista || `Definición ${idx+1}`).trim()
+    }));
+
+    // 2. MEZCLA INDEPENDIENTE (Shuffle) Y REGLA DE FILAS DIFERENTES
+    function shuffleArray(arr) {
+        const copy = [...arr];
+        for (let i = copy.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [copy[i], copy[j]] = [copy[j], copy[i]];
+        }
+        return copy;
+    }
+
+    let itemsA = shuffleArray(listaPares.map(p => ({ id: p.id, texto: p.concepto })));
+    let itemsB = shuffleArray(listaPares.map(p => ({ id: p.id, texto: p.definicion })));
+
+    // REGLA INQUEBRANTABLE: La respuesta correcta NUNCA debe estar en la misma fila inicial
+    let intentosMezcla = 0;
+    while (intentosMezcla < 50 && itemsB.some((b, idx) => b.id === itemsA[idx].id)) {
+        itemsB = shuffleArray(itemsB);
+        intentosMezcla++;
+    }
+    // Desempate forzado si alguna coincidencia persiste
+    for (let i = 0; i < itemsB.length; i++) {
+        if (itemsB[i].id === itemsA[i].id) {
+            const swapIdx = (i + 1) % itemsB.length;
+            const temp = itemsB[i];
+            itemsB[i] = itemsB[swapIdx];
+            itemsB[swapIdx] = temp;
+        }
+    }
+
+    // 3. VARIABLES DE ESTADO Y MÉTRICAS FORMATIVAS
+    let seleccionA = null;
+    let seleccionB = null;
     let aciertos = 0;
+    let errores = 0;
+    let bloqueoClick = false;
+    let segundos = 0;
+    let timerInterval = null;
 
-    container.innerHTML = `
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
-            <div id="col-left" style="display: flex; flex-direction: column; gap: 8px;">
-                ${conceptosLeft.map((p, i) => `
-                    <button data-id="${p.izquierda}" style="background: white; border: 2px solid #CBD5E1; padding: 12px; border-radius: 12px; font-weight: 800; font-size: 0.82rem; color: #1E293B; cursor: pointer; text-align: center; transition: 0.2s;">
-                        ${p.izquierda}
-                    </button>
-                `).join('')}
+    const temaTitulo = base.concepto || dataIA.tema || "Emparejamiento Conceptual";
+    const materiaTitulo = base.materia || dataIA.materia || "STEAM";
+    const gradoTitulo = base.grado || dataIA.grado || "Secundaria";
+
+    // 4. ESTRUCTURA VISUAL DEL CONTENEDOR Y ESTILOS
+    stage.innerHTML = '';
+    const wrapper = document.createElement('div');
+    wrapper.style.cssText = "width: 100%; max-width: 900px; margin: 0 auto; padding: 12px 14px; box-sizing: border-box; font-family: system-ui, -apple-system, sans-serif; background: #F8FAFC; border-radius: 18px;";
+
+    // Inyección de estilos y animaciones CSS
+    const styleElem = document.createElement('style');
+    styleElem.textContent = `
+        @keyframes shakeMatch {
+            0%, 100% { transform: translateX(0); }
+            20%, 60% { transform: translateX(-6px); }
+            40%, 80% { transform: translateX(6px); }
+        }
+        @keyframes popModal {
+            0% { transform: scale(0.88); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        @keyframes confettiDrop {
+            0% { transform: translateY(-20px) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+        }
+        .btn-tarjeta-emparejar {
+            background: #FFFFFF;
+            border: 2px solid #CBD5E1;
+            border-radius: 12px;
+            padding: 12px 14px;
+            font-size: clamp(14px, 2.4vw, 15px);
+            font-weight: 700;
+            color: #1E293B;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+            cursor: pointer;
+            text-align: left;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+            min-height: 58px;
+            line-height: 1.35;
+            width: 100%;
+            box-sizing: border-box;
+            word-break: break-word;
+            user-select: none;
+            outline: none;
+        }
+        .btn-tarjeta-emparejar:hover:not(:disabled):not(.activa) {
+            border-color: #94A3B8;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 12px rgba(0,0,0,0.07);
+        }
+        .btn-tarjeta-emparejar.activa {
+            border: 2.5px solid #2563EB !important;
+            background: #EFF6FF !important;
+            color: #1D4ED8 !important;
+            box-shadow: 0 4px 14px rgba(37,99,235,0.22) !important;
+            transform: scale(1.015);
+        }
+        .btn-tarjeta-emparejar.correcta {
+            background: #DCFCE7 !important;
+            border-color: #16A34A !important;
+            color: #15803D !important;
+            cursor: default !important;
+            box-shadow: 0 2px 4px rgba(22,163,74,0.12) !important;
+            transform: none !important;
+        }
+        .btn-tarjeta-emparejar.error {
+            background: #FEE2E2 !important;
+            border-color: #DC2626 !important;
+            color: #991B1B !important;
+            animation: shakeMatch 0.5s ease-in-out;
+        }
+    `;
+    wrapper.appendChild(styleElem);
+
+    // 5. HUD (ENCABEZADO Y MARCADORES)
+    const hud = document.createElement('div');
+    hud.style.cssText = "background: linear-gradient(135deg, #0F172A, #1E293B); color: white; border-radius: 16px; padding: 14px 18px; margin-bottom: 16px; box-shadow: 0 4px 12px rgba(15,23,42,0.15);";
+    hud.innerHTML = `
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 10px;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+                <span style="font-size: 1.4rem;">🃏</span>
+                <div>
+                    <h3 style="margin: 0; font-size: 1.05rem; font-weight: 900; color: #38BDF8;">Duelo de Emparejamiento: ${temaTitulo}</h3>
+                    <div style="font-size: 0.76rem; color: #94A3B8; font-weight: 600;">${materiaTitulo} • Grado ${gradoTitulo}</div>
+                </div>
             </div>
-            <div id="col-right" style="display: flex; flex-direction: column; gap: 8px;">
-                ${conceptosRight.map((p, i) => `
-                    <button data-id="${p.izquierda}" style="background: white; border: 2px solid #CBD5E1; padding: 12px; border-radius: 12px; font-weight: 700; font-size: 0.78rem; color: #475569; cursor: pointer; text-align: center; transition: 0.2s;">
-                        ${p.derecha}
-                    </button>
-                `).join('')}
+            <div style="display: flex; align-items: center; gap: 12px;">
+                <div id="hud-timer" style="background: rgba(255,255,255,0.08); padding: 4px 10px; border-radius: 8px; font-family: monospace; font-size: 1rem; font-weight: 900; color: #4ADE80;">⏱️ 00:00</div>
+                <button id="btn-reiniciar-hud" style="background: #334155; color: white; border: none; padding: 6px 12px; border-radius: 8px; font-size: 0.8rem; font-weight: 700; cursor: pointer; display: flex; align-items: center; gap: 4px;">🔄 Reiniciar</button>
+            </div>
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 10px; font-size: 0.84rem;">
+            <div style="color: #CBD5E1; display: flex; align-items: center; gap: 6px;">
+                <span>💡</span> <span>Toca un concepto en la izquierda y luego su definición en la derecha.</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 14px; font-weight: 800;">
+                <span id="hud-parejas" style="color: #38BDF8;">🎯 Parejas: 0 / ${totalPares}</span>
+                <span id="hud-fallos" style="color: #F87171;">❌ Fallos: 0</span>
             </div>
         </div>
     `;
-    stage.appendChild(container);
+    wrapper.appendChild(hud);
 
-    const leftBtns = container.querySelectorAll('#col-left button');
-    const rightBtns = container.querySelectorAll('#col-right button');
+    // 6. CONTENEDOR DE COLUMNAS (GRID RESPONSIVO MOBILE-FIRST)
+    const gridContainer = document.createElement('div');
+    gridContainer.style.cssText = "display: grid; grid-template-columns: 1fr 1fr; gap: 12px; width: 100%; box-sizing: border-box;";
 
-    leftBtns.forEach(btn => {
-        btn.onclick = () => {
-            leftBtns.forEach(b => { if(!b.disabled) b.style.borderColor = "#CBD5E1"; });
-            btn.style.borderColor = "#2563EB";
-            btn.style.background = "#EFF6FF";
-            selectedLeft = btn;
-        };
+    // Columna A (Conceptos)
+    const colA = document.createElement('div');
+    colA.style.cssText = "display: flex; flex-direction: column; gap: 10px;";
+    colA.innerHTML = `
+        <div style="font-size: 0.85rem; font-weight: 900; color: #1E293B; text-transform: uppercase; letter-spacing: 0.5px; padding-bottom: 4px; border-bottom: 2px solid #3B82F6; display: flex; align-items: center; gap: 6px;">
+            <span>📚</span> <span>Conceptos (${itemsA.length})</span>
+        </div>
+    `;
+
+    // Columna B (Definiciones)
+    const colB = document.createElement('div');
+    colB.style.cssText = "display: flex; flex-direction: column; gap: 10px;";
+    colB.innerHTML = `
+        <div style="font-size: 0.85rem; font-weight: 900; color: #1E293B; text-transform: uppercase; letter-spacing: 0.5px; padding-bottom: 4px; border-bottom: 2px solid #10B981; display: flex; align-items: center; gap: 6px;">
+            <span>📖</span> <span>Definiciones (${itemsB.length})</span>
+        </div>
+    `;
+
+    // Renderizado de botones de Columna A
+    itemsA.forEach(item => {
+        const btn = document.createElement('button');
+        btn.className = 'btn-tarjeta-emparejar';
+        btn.dataset.id = item.id;
+        btn.dataset.col = 'A';
+        btn.innerHTML = `
+            <span>${item.texto}</span>
+            <span class="badge-check" style="display: none; font-size: 1.1rem; color: #16A34A; font-weight: 900;">✓</span>
+        `;
+        colA.appendChild(btn);
     });
 
-    rightBtns.forEach(btn => {
+    // Renderizado de botones de Columna B
+    itemsB.forEach(item => {
+        const btn = document.createElement('button');
+        btn.className = 'btn-tarjeta-emparejar';
+        btn.dataset.id = item.id;
+        btn.dataset.col = 'B';
+        btn.innerHTML = `
+            <span style="font-weight: 600; color: #334155;">${item.texto}</span>
+            <span class="badge-check" style="display: none; font-size: 1.1rem; color: #16A34A; font-weight: 900;">✓</span>
+        `;
+        colB.appendChild(btn);
+    });
+
+    gridContainer.appendChild(colA);
+    gridContainer.appendChild(colB);
+    wrapper.appendChild(gridContainer);
+    stage.appendChild(wrapper);
+
+    // 7. CRONÓMETRO ACTIVO
+    function getTiempoFormatted() {
+        const mins = String(Math.floor(segundos / 60)).padStart(2, '0');
+        const secs = String(segundos % 60).padStart(2, '0');
+        return `${mins}:${secs}`;
+    }
+
+    timerInterval = setInterval(() => {
+        segundos++;
+        const timerElem = hud.querySelector('#hud-timer');
+        if (timerElem) timerElem.innerText = `⏱️ ${getTiempoFormatted()}`;
+    }, 1000);
+
+    hud.querySelector('#btn-reiniciar-hud').onclick = () => {
+        clearInterval(timerInterval);
+        window.renderizarJuegoEmparejamientoAvanzado(stage, base);
+    };
+
+    // 8. INTERACCIÓN Y VALIDACIÓN EN TIEMPO REAL (Bidireccional A->B o B->A)
+    const todosBotonesA = colA.querySelectorAll('.btn-tarjeta-emparejar');
+    const todosBotonesB = colB.querySelectorAll('.btn-tarjeta-emparejar');
+
+    function deseleccionarTarjeta(btn) {
+        if (!btn) return;
+        btn.classList.remove('activa');
+    }
+
+    function seleccionarTarjeta(btn) {
+        if (!btn) return;
+        btn.classList.add('activa');
+    }
+
+    function actualizarMarcadoresHUD() {
+        const pElem = hud.querySelector('#hud-parejas');
+        const fElem = hud.querySelector('#hud-fallos');
+        if (pElem) pElem.innerText = `🎯 Parejas: ${aciertos} / ${totalPares}`;
+        if (fElem) fElem.innerText = `❌ Fallos: ${errores}`;
+    }
+
+    function validarPareja(btnA, btnB) {
+        bloqueoClick = true;
+        const esCorrecto = (btnA.dataset.id === btnB.dataset.id);
+
+        if (esCorrecto) {
+            // Acierto
+            btnA.classList.remove('activa');
+            btnB.classList.remove('activa');
+            btnA.classList.add('correcta');
+            btnB.classList.add('correcta');
+            btnA.disabled = true;
+            btnB.disabled = true;
+
+            const checkA = btnA.querySelector('.badge-check');
+            const checkB = btnB.querySelector('.badge-check');
+            if (checkA) checkA.style.display = 'inline-block';
+            if (checkB) checkB.style.display = 'inline-block';
+
+            aciertos++;
+            actualizarMarcadoresHUD();
+            seleccionA = null;
+            seleccionB = null;
+            bloqueoClick = false;
+
+            if (aciertos === totalPares) {
+                clearInterval(timerInterval);
+                mostrarModalVictoriaSocioformativo();
+            }
+        } else {
+            // Error
+            errores++;
+            actualizarMarcadoresHUD();
+            btnA.classList.add('error');
+            btnB.classList.add('error');
+
+            setTimeout(() => {
+                btnA.classList.remove('activa', 'error');
+                btnB.classList.remove('activa', 'error');
+                seleccionA = null;
+                seleccionB = null;
+                bloqueoClick = false;
+            }, 800);
+        }
+    }
+
+    // Eventos Columna A
+    todosBotonesA.forEach(btn => {
         btn.onclick = () => {
-            if (!selectedLeft) return;
-            if (btn.dataset.id === selectedLeft.dataset.id) {
-                // Correcto
-                selectedLeft.style.background = "#10B981"; selectedLeft.style.color = "white"; selectedLeft.disabled = true;
-                btn.style.background = "#10B981"; btn.style.color = "white"; btn.disabled = true;
-                selectedLeft = null;
-                aciertos++;
-                if (aciertos === pares.length) {
-                    cabecera.stopTimer();
-                    window.mostrarModalVictoria("Emparejamiento Exitoso", cabecera.getTiempoFormatted(), 90, () => window.renderizarJuegoEmparejar(stage, base));
-                }
-            } else {
-                // Error
-                btn.style.borderColor = "#EF4444";
-                setTimeout(() => { btn.style.borderColor = "#CBD5E1"; }, 600);
+            if (bloqueoClick || btn.disabled) return;
+
+            // Segundo clic sobre la misma tarjeta -> deseleccionar
+            if (seleccionA === btn) {
+                deseleccionarTarjeta(btn);
+                seleccionA = null;
+                return;
+            }
+
+            // Cambiar selección en Columna A
+            if (seleccionA) deseleccionarTarjeta(seleccionA);
+            seleccionarTarjeta(btn);
+            seleccionA = btn;
+
+            // Si ya había una seleccionada en B -> validar pareja
+            if (seleccionB) {
+                validarPareja(seleccionA, seleccionB);
             }
         };
     });
+
+    // Eventos Columna B
+    todosBotonesB.forEach(btn => {
+        btn.onclick = () => {
+            if (bloqueoClick || btn.disabled) return;
+
+            // Segundo clic sobre la misma tarjeta -> deseleccionar
+            if (seleccionB === btn) {
+                deseleccionarTarjeta(btn);
+                seleccionB = null;
+                return;
+            }
+
+            // Cambiar selección en Columna B
+            if (seleccionB) deseleccionarTarjeta(seleccionB);
+            seleccionarTarjeta(btn);
+            seleccionB = btn;
+
+            // Si ya había una seleccionada en A -> validar pareja
+            if (seleccionA) {
+                validarPareja(seleccionA, seleccionB);
+            }
+        };
+    });
+
+    // 9. EVALUACIÓN SOCIOFORMATIVA (1.0 A 5.0) Y MODAL DE VICTORIA
+    function calcularNotaFormativa(numErrores) {
+        // Base 5.0 penalizando 0.25 por cada error, piso mínimo 1.0
+        const nota = Math.max(1.0, 5.0 - (numErrores * 0.25));
+        return Number(nota.toFixed(1));
+    }
+
+    function mostrarModalVictoriaSocioformativo() {
+        const calificacion = calcularNotaFormativa(errores);
+        const tiempoFinal = getTiempoFormatted();
+        const xpRecompensa = 120;
+
+        // Niveles de Desempeño Escala MEN Colombia
+        let nivelDesempeno = "";
+        let colorDesempeno = "";
+        let bgDesempeno = "";
+        if (calificacion >= 4.6) {
+            nivelDesempeno = "🌟 Desempeño Superior";
+            colorDesempeno = "#065F46";
+            bgDesempeno = "#ECFDF5";
+        } else if (calificacion >= 4.0) {
+            nivelDesempeno = "👍 Desempeño Alto";
+            colorDesempeno = "#0369A1";
+            bgDesempeno = "#F0F9FF";
+        } else if (calificacion >= 3.0) {
+            nivelDesempeno = "⚠️ Desempeño Básico";
+            colorDesempeno = "#B45309";
+            bgDesempeno = "#FFFBEB";
+        } else {
+            nivelDesempeno = "🔄 Desempeño Bajo";
+            colorDesempeno = "#B91C1C";
+            bgDesempeno = "#FEF2F2";
+        }
+
+        // Persistir la calificación formativa en la planilla docente en segundo plano
+        const uSesion = (typeof window.obtenerUsuarioActual === 'function') ? window.obtenerUsuarioActual() : null;
+        const authSes = JSON.parse(localStorage.getItem('usuario_sesion') || sessionStorage.getItem('peidagogos_auth') || '{}');
+        const docAlumno = (uSesion && (uSesion.documento || uSesion.usuario)) || authSes.documento || authSes.usuario || window.usuario_actual || 'estudiante_demo';
+        const idJuego = (base && base.id) ? String(base.id) : ('emparejar_' + temaTitulo.toLowerCase().replace(/[^a-z0-9]/g, '_'));
+
+        if (typeof window.guardarCalificacionActividad === 'function') {
+            window.guardarCalificacionActividad({
+                id_estudiante: docAlumno,
+                id_actividad: idJuego,
+                calificacion: calificacion,
+                titulo_actividad: `Duelo de Emparejamiento: ${temaTitulo}`,
+                tipo_herramienta: 'emparejar',
+                materia: base.materia || 'Ciencias Naturales',
+                grupo: base.grupo || base.grado || (uSesion && (uSesion.grupo || uSesion.grado)) || authSes.grupo || authSes.grado || '',
+                detalles: {
+                    errores: errores,
+                    tiempo: tiempoFinal,
+                    xp_otorgado: xpRecompensa
+                }
+            });
+        }
+
+        // Crear Modal Superpuesto
+        const modalOverlay = document.createElement('div');
+        modalOverlay.id = 'modal-victoria-emparejar';
+        modalOverlay.style.cssText = "position: fixed; inset: 0; background: rgba(15,23,42,0.85); backdrop-filter: blur(8px); display: flex; align-items: center; justify-content: center; z-index: 999999; padding: 16px; font-family: system-ui, -apple-system, sans-serif;";
+
+        // Confeti dinámico
+        let confetiHTML = '';
+        const coloresConfeti = ['#10B981', '#3B82F6', '#F59E0B', '#EC4899', '#8B5CF6', '#14B8A6'];
+        for (let c = 0; c < 24; c++) {
+            const left = Math.floor(Math.random() * 100);
+            const delay = (Math.random() * 2).toFixed(2);
+            const duration = (2.5 + Math.random() * 2).toFixed(2);
+            const color = coloresConfeti[c % coloresConfeti.length];
+            const size = Math.floor(8 + Math.random() * 8);
+            confetiHTML += `<div style="position: absolute; left: ${left}%; top: -20px; width: ${size}px; height: ${size}px; background: ${color}; border-radius: 2px; animation: confettiDrop ${duration}s ease-in ${delay}s infinite; pointer-events: none; z-index: 1;"></div>`;
+        }
+
+        modalOverlay.innerHTML = `
+            ${confetiHTML}
+            <div style="background: white; border-radius: 24px; padding: 32px 24px; max-width: 440px; width: 100%; text-align: center; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.4); border: 3px solid #10B981; position: relative; z-index: 10; animation: popModal 0.35s cubic-bezier(0.16, 1, 0.3, 1);">
+                <div style="font-size: 3.2rem; margin-bottom: 8px;">🏆</div>
+                <h2 style="margin: 0 0 6px 0; color: #065F46; font-size: 1.5rem; font-weight: 900;">¡EMPAREJAMIENTO EXITOSO!</h2>
+                <p style="margin: 0 0 16px 0; color: #64748B; font-size: 0.88rem; font-weight: 600;">Demostración de Dominio Conceptual: <b>${temaTitulo}</b></p>
+                
+                <!-- Tarjeta de Calificación Socioformativa -->
+                <div style="background: ${bgDesempeno}; border: 2px solid ${colorDesempeno}; border-radius: 16px; padding: 14px; margin-bottom: 18px;">
+                    <div style="font-size: 0.76rem; font-weight: 800; color: ${colorDesempeno}; text-transform: uppercase; letter-spacing: 0.5px;">EVALUACIÓN FORMATIVA (1.0 A 5.0)</div>
+                    <div style="font-size: 2.2rem; font-weight: 900; color: ${colorDesempeno}; margin: 4px 0;">⭐ ${calificacion.toFixed(1)} <span style="font-size: 1.1rem; color: #64748B; font-weight: 700;">/ 5.0</span></div>
+                    <div style="font-size: 0.92rem; font-weight: 800; color: ${colorDesempeno};">${nivelDesempeno}</div>
+                </div>
+
+                <!-- Métricas de Desempeño -->
+                <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-bottom: 20px;">
+                    <div style="background: #F8FAFC; border: 1.5px solid #CBD5E1; padding: 10px 6px; border-radius: 12px;">
+                        <div style="font-size: 0.68rem; font-weight: 800; color: #64748B;">TIEMPO</div>
+                        <div style="font-size: 1rem; font-weight: 900; color: #0F172A;">⏱️ ${tiempoFinal}</div>
+                    </div>
+                    <div style="background: #F8FAFC; border: 1.5px solid #CBD5E1; padding: 10px 6px; border-radius: 12px;">
+                        <div style="font-size: 0.68rem; font-weight: 800; color: #64748B;">ERRORES</div>
+                        <div style="font-size: 1rem; font-weight: 900; color: #DC2626;">❌ ${errores}</div>
+                    </div>
+                    <div style="background: #FEF3C7; border: 1.5px solid #FDE68A; padding: 10px 6px; border-radius: 12px;">
+                        <div style="font-size: 0.68rem; font-weight: 800; color: #B45309;">RECOMPENSA</div>
+                        <div style="font-size: 1rem; font-weight: 900; color: #B45309;">🎮 +${xpRecompensa} XP</div>
+                    </div>
+                </div>
+
+                <!-- Botones de Acción Gamificada -->
+                <div style="display: flex; flex-direction: column; gap: 10px;">
+                    <button id="btn-victoria-guardar-xp" style="background: linear-gradient(135deg, #10B981, #059669); color: white; border: none; padding: 12px 18px; border-radius: 12px; font-weight: 900; font-size: 0.95rem; cursor: pointer; box-shadow: 0 4px 12px rgba(16,185,129,0.35); display: flex; align-items: center; justify-content: center; gap: 8px;">
+                        <span>⚡</span> <span>Reclamar XP (+${xpRecompensa} XP)</span>
+                    </button>
+                    
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+                        <button id="btn-victoria-reiniciar" style="background: #F1F5F9; color: #334155; border: 1.5px solid #CBD5E1; padding: 10px; border-radius: 10px; font-weight: 800; font-size: 0.85rem; cursor: pointer;">
+                            🔄 Jugar de Nuevo
+                        </button>
+                        <button id="btn-victoria-guardar-salir" style="background: #EF4444; color: white; border: none; padding: 10px; border-radius: 10px; font-weight: 800; font-size: 0.85rem; cursor: pointer; box-shadow: 0 2px 8px rgba(239,68,68,0.25);">
+                            💾 Guardar & Salir
+                        </button>
+                    </div>
+                </div>
+            </div>
+        `;
+        document.body.appendChild(modalOverlay);
+
+        // 1. Reclamar XP
+        modalOverlay.querySelector('#btn-victoria-guardar-xp').onclick = (e) => {
+            const btn = e.currentTarget;
+            btn.disabled = true;
+            btn.style.opacity = '0.7';
+            btn.innerHTML = '<span>✅</span> <span>¡XP Reclamado con Éxito!</span>';
+
+            // Acreditar XP al estudiante autenticado
+            const user = (typeof window.obtenerUsuarioActual === 'function') ? window.obtenerUsuarioActual() : null;
+            const doc = (user && (user.documento || user.usuario)) || 'invitado';
+            if (typeof window.sumarXPEstudiante === 'function') {
+                window.sumarXPEstudiante(doc, xpRecompensa, `Duelo de Emparejamiento: ${temaTitulo} (Nota: ${calificacion})`);
+            }
+
+            // Notificar por postMessage a la plataforma si está embebido en un iframe
+            try {
+                if (window.parent && window.parent !== window) {
+                    window.parent.postMessage({
+                        tipo: 'juego_completado',
+                        victoria: true,
+                        xp: xpRecompensa,
+                        calificacion: calificacion,
+                        tema: temaTitulo,
+                        tiempo: tiempoFinal
+                    }, '*');
+                }
+            } catch (postErr) {}
+        };
+
+        // 2. Reiniciar
+        modalOverlay.querySelector('#btn-victoria-reiniciar').onclick = () => {
+            document.body.removeChild(modalOverlay);
+            window.renderizarJuegoEmparejamientoAvanzado(stage, base);
+        };
+
+        // 3. Guardar Progreso & Salir (Conexión Oficial de la Plataforma)
+        modalOverlay.querySelector('#btn-victoria-guardar-salir').onclick = () => {
+            document.body.removeChild(modalOverlay);
+            if (typeof window.intentarGuardarProgresoYFinalizarClase === 'function') {
+                window.intentarGuardarProgresoYFinalizarClase();
+            } else {
+                window.location.reload();
+            }
+        };
+    }
+};
+
+window.renderizarJuegoEmparejar = function(stage, base) {
+    window.renderizarJuegoEmparejamientoAvanzado(stage, base);
 };
 
 // 4. CONCÉNTRESE / MEMORIA (`juego_concentrese`)
@@ -20012,6 +20839,4 @@ window.renderizarJuegoCompletarParrafo = function(stage, base) {
             alert("❌ Hay algunos huecos incorrectos. Revisa e intenta de nuevo.");
         }
     };
-};
-
-
+};

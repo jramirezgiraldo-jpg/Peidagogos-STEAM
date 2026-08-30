@@ -88,38 +88,56 @@ REQUISITOS TÉCNICOS Y FUNCIONALES:
 ○ Modal de victoria con confeti o animación CSS al completar el 100%, mostrando la calificación, el tiempo final y un botón de "Reiniciar juego". Todo el código debe estar comentado en español.`,
 
     // 3. Emparejar (Páginas 3-5)
-    emparejar: (tema, nivel, instruccion) => `3. Emparejar
+    emparejar: (tema, nivel, instruccion) => `3. Emparejar (Duelo de Emparejamiento de Columnas)
 TEMA Y/O PALABRAS CLAVE: ${tema}
 NIVEL EDUCATIVO: ${nivel}
 INSTRUCCIÓN: ${instruccion || 'Toca un concepto en la columna izquierda y luego su definición correspondiente en la derecha para emparejarlos.'}
 
-Actúa como un desarrollador frontend senior y experto en pedagogía.
+Actúa como un desarrollador frontend senior y experto en pedagogía conceptual y gamificación formativa.
 
-FASE 1: GENERACIÓN DE CONTENIDO EDUCATIVO A partir del "TEMA Y/O PALABRAS CLAVE" y el "NIVEL EDUCATIVO" indicados arriba:
-1. Define exactamente 8 a 10 conceptos clave relevantes para el tema.
-2. Redacta 8 a 10 definiciones o descripciones claras, precisas y pedagógicamente adaptadas al nivel educativo para cada uno de esos conceptos.
+FASE 1: GENERACIÓN DE CONTENIDO EDUCATIVO (ESTRUCTURA DE PARES):
+A partir del "TEMA Y/O PALABRAS CLAVE" y el "NIVEL EDUCATIVO" indicados arriba:
+1. Define EXACTAMENTE entre 8 y 10 conceptos clave relevantes para el tema adaptados rigurosamente al nivel educativo (${nivel}).
+2. Redacta entre 8 y 10 definiciones o descripciones claras, concisas, precisas y pedagógicamente adaptadas para cada uno de esos conceptos.
+3. El formato de datos base debe ser una estructura JSON / arreglo JavaScript estricto procesable por el frontend:
+   [
+     {"izquierda": "Concepto 1", "derecha": "Definición pedagógica adaptada 1"},
+     {"izquierda": "Concepto 2", "derecha": "Definición pedagógica adaptada 2"}
+     ... hasta completar exactamente entre 8 y 10 pares
+   ]
 
 FASE 2: DESARROLLO DEL INTERACTIVO (JUEGO DE EMPAREJAR COLUMNAS)
 Con los conceptos y definiciones generados, crea un archivo único e interactivo en formato .html (que integre HTML5, CSS3 y JavaScript vanilla sin librerías externas ni CDNs).
 
 REQUISITOS TÉCNICOS Y FUNCIONALES:
 1. Construcción y Lógica Dinámica:
-○ Crea un arreglo de objetos en JavaScript que vincule cada concepto con su definición.
+○ Arreglo de Objetos: Integra el arreglo de pares (8 a 10 elementos) vinculando cada concepto con su definición.
 ○ Columnas Independientes: Renderiza dos columnas visuales: Columna A (Conceptos) y Columna B (Definiciones).
-○ Aleatorización: Mezcla (shuffle) el orden de los elementos en la Columna A y en la Columna B de forma independiente cada vez que se cargue el juego, para que la respuesta correcta nunca esté en la misma posición.
+○ Aleatorización Estricta: Mezcla (shuffle) el orden de los elementos en la Columna A y en la Columna B de forma totalmente independiente cada vez que se cargue el juego. REGLA INQUEBRANTABLE: La respuesta correcta NUNCA debe quedar en la misma fila (si alguna coincide al barajar, vuelve a mezclar o permútala).
+
 2. Diseño Mobile-First, Responsivo y Estético:
-○ FONDO Y TARJETAS: Usa un fondo de página claro (#f9f9f9 o blanco). Cada concepto y definición debe estar dentro de una "tarjeta" o botón estilizado (bordes redondeados, sombra suave, fondo blanco).
-○ ADAPTACIÓN MÓVIL: La interfaz debe adaptarse a smartphones (360px a 420px de ancho). Para pantallas pequeñas, usa un diseño de grid de 2 columnas donde los conceptos y definiciones encajen sin scroll horizontal. El texto debe tener un tamaño legible (mínimo 14px) y ajustarse automáticamente al interior de su tarjeta.
-3. Interacción y Retroalimentación (Navegación UX):
-○ Mecánica de Selección: El usuario debe poder tocar/hacer clic en una tarjeta de la Columna A y luego en una de la Columna B (el orden de selección no importa).
-○ Estado Activo: Al seleccionar el primer elemento, este debe quedar resaltado (ej. borde azul grueso o fondo azul muy claro) indicando que está esperando su pareja. Un segundo toque sobre el mismo elemento debe deseleccionarlo.
-○ Validación en Tiempo Real: Al seleccionar el segundo elemento, el sistema evalúa inmediatamente:
-■ Si es correcto: Ambas tarjetas cambian permanentemente a un color de éxito (ej. verde pastel), se deshabilitan para futuros clics y se consideran resueltas.
-■ Si es incorrecto: Ambas tarjetas se pintan de rojo temporalmente, reproducen una breve animación CSS de error (efecto shake) y luego se deseleccionan solas tras 800ms. Cuenta este error para la calificación final.
-4. Interfaz de Encabezado y Marcadores:
-○ Encabezado limpio con: Título del tema, Instrucción, Cronómetro activo y Contador de progreso (ej. "Parejas encontradas: 0 / 10").
-○ Sistema de Calificación (1 a 5): Al finalizar la actividad, el sistema debe calcular una nota numérica de 1.0 a 5.0 basándose en los emparejamientos incorrectos (ej. 0 errores = 5.0, perdiendo décimas por cada error). Muestra esta calificación de forma destacada.
-○ Modal de victoria con confeti o animación CSS limpia al completar el 100% de las parejas, mostrando la calificación, el tiempo final obtenido y un botón destacado para "Reiniciar juego". Todo el código debe estar comentado en español.`,
+○ FONDO Y TARJETAS: Fondo de pantalla claro (#f9f9f9 o blanco). Cada concepto y definición debe estar dentro de una "tarjeta" o botón estilizado (bordes redondeados de 12px, sombra suave, fondo blanco #ffffff, borde sutil #CBD5E1).
+○ ADAPTACIÓN MÓVIL (360px a 420px): Grid de 2 columnas donde los conceptos y definiciones encajan sin scroll horizontal. Tamaño de texto adaptativo y legible (mínimo 14px, lineHeight 1.35) que se ajusta al contenido.
+
+3. Interacción y Validación en Tiempo Real:
+○ Mecánica de Selección Bidireccional: El usuario puede tocar/hacer clic en una tarjeta de la Columna A y luego en la B, o en la B y luego en la A (el orden no importa).
+○ Estado Activo: Al primer clic, la tarjeta queda resaltada con borde azul grueso (ej. #2563EB) y fondo azul claro (#EFF6FF). Un segundo clic sobre la misma tarjeta la deselecciona inmediatamente. Si hace clic en otra de la misma columna, transfiere la selección.
+○ Validación Inmediata al Elegir Pareja:
+■ Acierto: Ambas tarjetas cambian permanentemente a color verde pastel (#DCFCE7, borde #16A34A, texto #15803D), se deshabilitan para futuros clics y suman una pareja encontrada.
+■ Error: Ambas tarjetas se pintan de rojo (#FEE2E2, borde #DC2626), reproducen una animación CSS de sacudida (@keyframes shake) y se deseleccionan automáticamente tras 800ms. Registra el error para la calificación formativa.
+
+4. Interfaz de Encabezado y Marcadores (HUD):
+○ Panel superior limpio con: Título del tema, Instrucción breve, Cronómetro activo (formato 00:00) y Contador de progreso dinámico (ej. "Parejas: 0 / 10").
+
+5. Evaluación Socioformativa (Escala 1.0 a 5.0) y Modal de Victoria:
+○ Fórmula Formativa: Al completar todas las parejas, calcula una calificación numérica de 1.0 a 5.0:
+  Nota = 5.0 - (errores * 0.25), con un piso mínimo absoluto de 1.0.
+○ Modal de Victoria Superpuesto: Con animación de confeti CSS o transformaciones limpias al completar el 100% de las parejas, mostrando:
+  - Calificación final obtenida (ej. "Nota: 4.8 / 5.0 - Desempeño Superior").
+  - Tiempo total empleado.
+  - Botón "Reiniciar juego".
+  - Botón para reclamar XP / Guardar Progreso (integrado con postMessage y la plataforma principal).
+Todo el código debe estar comentado en español.`,
 
     // 4. Concéntrese (Páginas 5-6)
     concentrese: (tema, nivel, instruccion) => `4. Concéntrese
@@ -828,6 +846,9 @@ PROMPTS_JUEGOS['juego_criptograma'] = PROMPTS_JUEGOS.criptograma;
 PROMPTS_JUEGOS['criptograma_cientifico'] = PROMPTS_JUEGOS.criptograma;
 PROMPTS_JUEGOS['juego_jeopardy'] = PROMPTS_JUEGOS.tablero_pistas;
 PROMPTS_JUEGOS['jeopardy'] = PROMPTS_JUEGOS.tablero_pistas;
+PROMPTS_JUEGOS['memory_cards'] = PROMPTS_JUEGOS.emparejar;
+PROMPTS_JUEGOS['duelo_parejas'] = PROMPTS_JUEGOS.emparejar;
+PROMPTS_JUEGOS['duelo_emparejamiento'] = PROMPTS_JUEGOS.emparejar;
 
 const DIRECTIVAS_UNIVERSALES_STEAM = `
 ================================================================================
@@ -862,11 +883,40 @@ function obtenerPromptJuego(tipoJuego, tema, nivel, instruccion) {
     return `${promptBase}\n\n${DIRECTIVAS_UNIVERSALES_STEAM}`;
 }
 
+function obtenerPromptJsonEmparejamiento(tema, nivel, instruccion) {
+    const t = tema || 'Conceptos clave de la temática';
+    const n = nivel || 'Estudiantes de secundaria, grados 6 a 11';
+    const i = instruccion || 'Toca un concepto en la columna izquierda y luego su definición correspondiente en la derecha para emparejarlos.';
+    return `Actúa como un Arquitecto de Software Educativo y Especialista en Pedagogía Conceptual del MEN Colombia.
+Genera EXACTAMENTE entre 8 y 10 pares de Conceptos y Definiciones adaptados rigurosamente al nivel educativo: "${n}".
+TEMA Y/O PALABRAS CLAVE: "${t}"
+INSTRUCCIÓN: "${i}"
+
+Devuelve ÚNICAMENTE un objeto JSON estricto procesable directamente por el frontend (sin bloques markdown, sin explicaciones fuera del JSON):
+{
+  "titulo": "Duelo de Emparejamiento: ${t}",
+  "tipo_herramienta": "emparejar",
+  "tema": "${t}",
+  "nivel": "${n}",
+  "instruccion": "${i}",
+  "pares": [
+    {"izquierda": "Concepto 1", "derecha": "Definición pedagógica adaptada 1"},
+    {"izquierda": "Concepto 2", "derecha": "Definición pedagógica adaptada 2"},
+    {"izquierda": "Concepto 3", "derecha": "Definición pedagógica adaptada 3"},
+    {"izquierda": "Concepto 4", "derecha": "Definición pedagógica adaptada 4"},
+    {"izquierda": "Concepto 5", "derecha": "Definición pedagógica adaptada 5"},
+    {"izquierda": "Concepto 6", "derecha": "Definición pedagógica adaptada 6"},
+    {"izquierda": "Concepto 7", "derecha": "Definición pedagógica adaptada 7"},
+    {"izquierda": "Concepto 8", "derecha": "Definición pedagógica adaptada 8"}
+  ]
+}`;
+}
 
 if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { PROMPTS_JUEGOS, obtenerPromptJuego };
+    module.exports = { PROMPTS_JUEGOS, obtenerPromptJuego, obtenerPromptJsonEmparejamiento };
 }
 if (typeof window !== 'undefined') {
     window.PROMPTS_JUEGOS = PROMPTS_JUEGOS;
     window.obtenerPromptJuego = obtenerPromptJuego;
+    window.obtenerPromptJsonEmparejamiento = obtenerPromptJsonEmparejamiento;
 }

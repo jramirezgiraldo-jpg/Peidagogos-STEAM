@@ -923,6 +923,30 @@ app.post('/api/registro-docente', (req, res) => {
     nuevo.pago_realizado = true;
     nuevo.pago_activo = true;
 
+    // ── BLINDAJE DE MATRÍCULA LIMPIA: Ignorar carga y grupos residuales del administrador ──
+    const dIdx = docentes.findIndex(d => String(d.documento || d.cedula || d.usuario || '').trim().toLowerCase().replace(/[\.\,\-\s]/g, '') === normDoc);
+    const esNuevoDocente = (dIdx < 0);
+
+    if (esNuevoDocente) {
+        nuevo.grupos = [];
+        nuevo.grados = [];
+        nuevo.materias = [];
+        nuevo.asignaturas = [];
+        nuevo.asignatura = '';
+        nuevo.materia = '';
+        nuevo.grado = '';
+        nuevo.grupo = '';
+        nuevo.carga_academica = [];
+    } else {
+        // Preservar la configuración propia del docente existente, no heredar del payload residual
+        nuevo.grupos = Array.isArray(docentes[dIdx].grupos) ? docentes[dIdx].grupos : [];
+        nuevo.grados = Array.isArray(docentes[dIdx].grados) ? docentes[dIdx].grados : [];
+        nuevo.materias = Array.isArray(docentes[dIdx].materias) ? docentes[dIdx].materias : [];
+        nuevo.asignaturas = Array.isArray(docentes[dIdx].asignaturas) ? docentes[dIdx].asignaturas : [];
+        nuevo.asignatura = docentes[dIdx].asignatura || '';
+        nuevo.carga_academica = Array.isArray(docentes[dIdx].carga_academica) ? docentes[dIdx].carga_academica : [];
+    }
+
     const fechaHoyCol = new Date().toLocaleDateString('es-CO', { day: '2-digit', month: '2-digit', year: 'numeric' });
     nuevo.fecha_creacion = nuevo.fecha_creacion || nuevo.fecha_registro || fechaHoyCol;
     nuevo.fecha_registro = nuevo.fecha_registro || nuevo.fecha_creacion || new Date().toISOString();
@@ -947,7 +971,6 @@ app.post('/api/registro-docente', (req, res) => {
     }
 
     // Actualizar o agregar en docentes.json
-    const dIdx = docentes.findIndex(d => String(d.documento || d.cedula || d.usuario || '').trim().toLowerCase().replace(/[\.\,\-\s]/g, '') === normDoc);
     if (dIdx >= 0) docentes[dIdx] = { ...docentes[dIdx], ...nuevo };
     else docentes.push(nuevo);
     writeJSON('docentes.json', docentes);
@@ -1392,6 +1415,18 @@ ESTRUCTURA DE RESPUESTA OBLIGATORIA (Adapta los campos al tipo "${tipoFinal}"):
 Garantiza contenido 100% real, específico sobre ${temaFinal} en ${materiaFinal} y apropiado para el tipo "${tipoFinal}".`;
         }
 
+        if (['emparejar', 'juego_emparejar', 'memory_cards', 'duelo_parejas', 'duelo_emparejamiento', 'concentrese', 'juego_concentrese'].includes(String(tipoFinal).toLowerCase())) {
+            promptIA += `\n\nREGLA ESTRICTA DE EMPAREJAMIENTO DE COLUMNAS (8 A 10 PARES):
+Para esta herramienta ("${tipoFinal}"), la clave "pares" es el campo principal y OBLIGATORIO.
+Debes generar EXACTAMENTE entre 8 y 10 objetos en el arreglo "pares" con la estructura:
+[
+  {"izquierda": "Concepto 1", "derecha": "Definición pedagógica adaptada a grado ${gradoFinal}° 1"},
+  ...
+  {"izquierda": "Concepto 8", "derecha": "Definición pedagógica adaptada a grado ${gradoFinal}° 8"}
+]
+Garantiza que los conceptos sean concisos y las definiciones claras, rigurosas y adaptadas al nivel escolar.`;
+        }
+
         let rawContent = "";
         let finalError = null;
 
@@ -1541,9 +1576,14 @@ Garantiza contenido 100% real, específico sobre ${temaFinal} en ${materiaFinal}
                     { id: 4, palabra: "SABER", pista: `Apropiación significativa del aprendizaje.`, dir: "V" }
                 ],
                 pares: [
-                    { izquierda: `Concepto Principal`, derecha: `Fundamento de ${temaFinal} en ${materiaFinal}.` },
-                    { izquierda: `Aplicación Práctica`, derecha: `Uso contextual en el entorno real.` },
-                    { izquierda: `Evaluación Formativa`, derecha: `Demostración de competencias y pensamiento crítico.` }
+                    { izquierda: `Concepto Principal`, derecha: `Fundamento esencial de ${temaFinal} en ${materiaFinal}.` },
+                    { izquierda: `Aplicación Práctica`, derecha: `Uso contextual y operativo en el entorno real.` },
+                    { izquierda: `Evaluación Formativa`, derecha: `Demostración de competencias y pensamiento crítico.` },
+                    { izquierda: `Metodología STEAM`, derecha: `Integración interdisciplinar para la resolución de problemas.` },
+                    { izquierda: `Evidencia Empírica`, derecha: `Datos y observaciones comprobables en la práctica científica.` },
+                    { izquierda: `Modelo Conceptual`, derecha: `Representación estructurada de los principios teóricos.` },
+                    { izquierda: `Innovación Tecnológica`, derecha: `Desarrollo de soluciones creativas y transformadoras.` },
+                    { izquierda: `Impacto Comunitario`, derecha: `Beneficio social y ambiental en el contexto escolar y local.` }
                 ],
                 nodos: [
                     {
@@ -2134,6 +2174,241 @@ app.post('/api/completar-actividad', (req, res) => {
     }
     
     res.json({ status: "success", xp_ganado: xpOtorgado, ya_completado: !!yaCompleto });
+});
+
+// ============================================================================
+// MÓDULO DE PERSISTENCIA DE CALIFICACIONES FORMATIVAS (ESCALA 1.0 A 5.0)
+// ============================================================================
+app.post('/api/guardar-calificacion', (req, res) => {
+    try {
+        const body = req.body || {};
+        const id_estudiante = String(body.id_estudiante || body.documento || body.usuario || '').trim();
+        const id_actividad = String(body.id_actividad || body.actividad_id || body.herramienta_id || 'actividad_steam').trim();
+        const rawCalificacion = body.calificacion !== undefined ? body.calificacion : body.nota;
+
+        if (!id_estudiante || !id_actividad || rawCalificacion === undefined || rawCalificacion === null) {
+            return res.status(400).json({ 
+                error: "Parámetros obligatorios faltantes: id_estudiante, id_actividad y calificacion." 
+            });
+        }
+
+        // Validación y acotamiento riguroso de la escala formativa MEN Colombia (1.0 a 5.0)
+        let numNota = parseFloat(rawCalificacion);
+        if (isNaN(numNota)) numNota = 1.0;
+        const calificacion = Number(Math.max(1.0, Math.min(5.0, numNota)).toFixed(1));
+
+        const fecha = body.fecha || new Date().toISOString();
+        const titulo_actividad = String(body.titulo_actividad || body.tema || 'Actividad STEAM').trim();
+        const tipo_herramienta = String(body.tipo_herramienta || body.tipo || 'interactivo').trim();
+        const materia = String(body.materia || 'Ciencias Naturales').trim();
+        const grupoReq = String(body.grupo || '').trim();
+        const id_docente = String(body.id_docente || body.docente_id || '').trim();
+        const detalles = (typeof body.detalles === 'object' && body.detalles !== null) ? body.detalles : {};
+
+        // Determinar escala cualitativa oficial MEN Colombia
+        let desempeno = 'Bajo';
+        if (calificacion >= 4.6) desempeno = 'Superior';
+        else if (calificacion >= 4.0) desempeno = 'Alto';
+        else if (calificacion >= 3.0) desempeno = 'Básico';
+        else desempeno = 'Bajo';
+
+        // 1. Obtener y actualizar información del estudiante en usuarios.json
+        let usuarios = readJSON('usuarios.json') || [];
+        const normDocEst = normalizarStr(id_estudiante);
+        let estudiante = usuarios.find(u => normalizarStr(u.documento || u.id || u.usuario) === normDocEst);
+        const grupoFinal = grupoReq || (estudiante ? (estudiante.grupo || estudiante.grado || '') : '');
+        const nombreEstudiante = estudiante 
+            ? (`${estudiante.nombre || estudiante.nombres || ''} ${estudiante.apellidos || ''}`).trim() || estudiante.documento
+            : 'Estudiante';
+        const instEstudiante = estudiante ? (estudiante.institucion || '') : '';
+
+        const registroCalificacion = {
+            id_estudiante,
+            id_actividad,
+            calificacion,
+            fecha,
+            nombre_estudiante: nombreEstudiante,
+            grupo: grupoFinal,
+            materia,
+            titulo_actividad,
+            tipo_herramienta,
+            desempeno,
+            detalles
+        };
+
+        if (estudiante) {
+            if (!Array.isArray(estudiante.calificaciones)) estudiante.calificaciones = [];
+            const idxCalEst = estudiante.calificaciones.findIndex(c => String(c.id_actividad).trim().toLowerCase() === id_actividad.toLowerCase());
+            if (idxCalEst >= 0) {
+                estudiante.calificaciones[idxCalEst] = { ...estudiante.calificaciones[idxCalEst], ...registroCalificacion };
+            } else {
+                estudiante.calificaciones.push(registroCalificacion);
+            }
+            writeJSON('usuarios.json', usuarios);
+        }
+
+        // 2. Persistir en la planilla del docente en docentes.json
+        let docentes = readJSON('docentes.json') || [];
+        let docentesAfectados = 0;
+
+        // Buscar docentes coincidentes: por ID explícito, por docente_id asignado, o por grupo/grado de la misma institución
+        docentes.forEach(d => {
+            const docDocente = normalizarStr(d.documento || d.cedula || d.id || d.usuario);
+            const instDoc = String(d.institucion || '').trim().toLowerCase();
+            const esMismaIE = !instDoc || !instEstudiante || instDoc === instEstudiante.toLowerCase() || instDoc.includes('instituto') && instEstudiante.toLowerCase().includes('instituto');
+
+            let leCorresponde = false;
+
+            if (id_docente && docDocente === normalizarStr(id_docente)) {
+                leCorresponde = true;
+            } else if (estudiante && estudiante.docente_id && docDocente === normalizarStr(estudiante.docente_id)) {
+                leCorresponde = true;
+            } else if (esMismaIE) {
+                const gruposDoc = Array.isArray(d.grupos_direccion) ? d.grupos_direccion : [];
+                const otrosGrupos = Array.isArray(d.grupos) ? d.grupos.map(g => (typeof g === 'object' ? g.nombre : g)) : [];
+                const todosGrupos = [...gruposDoc, ...otrosGrupos].map(g => String(g).trim().toLowerCase());
+                if (grupoFinal && todosGrupos.includes(grupoFinal.toLowerCase())) {
+                    leCorresponde = true;
+                }
+            }
+
+            // Si es director de grupo del estudiante o docente vinculado
+            if (leCorresponde) {
+                if (!Array.isArray(d.planilla)) d.planilla = [];
+                const idxP = d.planilla.findIndex(p => 
+                    normalizarStr(p.id_estudiante) === normDocEst && 
+                    String(p.id_actividad).trim().toLowerCase() === id_actividad.toLowerCase()
+                );
+                if (idxP >= 0) {
+                    d.planilla[idxP] = { ...d.planilla[idxP], ...registroCalificacion };
+                } else {
+                    d.planilla.push(registroCalificacion);
+                }
+                docentesAfectados++;
+            }
+        });
+
+        // Si ningún docente coincidió específicamente (ej: estudiante sin grupo asignado o tutor general),
+        // registrar en el primer docente o director institucional para no perder el dato
+        if (docentesAfectados === 0 && docentes.length > 0) {
+            const docenteFallback = docentes[0];
+            if (!Array.isArray(docenteFallback.planilla)) docenteFallback.planilla = [];
+            const idxP = docenteFallback.planilla.findIndex(p => 
+                normalizarStr(p.id_estudiante) === normDocEst && 
+                String(p.id_actividad).trim().toLowerCase() === id_actividad.toLowerCase()
+            );
+            if (idxP >= 0) {
+                docenteFallback.planilla[idxP] = { ...docenteFallback.planilla[idxP], ...registroCalificacion };
+            } else {
+                docenteFallback.planilla.push(registroCalificacion);
+            }
+            docentesAfectados++;
+        }
+
+        writeJSON('docentes.json', docentes);
+
+        // 3. Respaldo en calificaciones_historico.json
+        try {
+            let historico = readJSON('calificaciones_historico.json') || [];
+            if (!Array.isArray(historico)) historico = [];
+            const idxHist = historico.findIndex(h => 
+                normalizarStr(h.id_estudiante) === normDocEst && 
+                String(h.id_actividad).trim().toLowerCase() === id_actividad.toLowerCase()
+            );
+            if (idxHist >= 0) {
+                historico[idxHist] = { ...historico[idxHist], ...registroCalificacion };
+            } else {
+                historico.push(registroCalificacion);
+            }
+            writeJSON('calificaciones_historico.json', historico);
+        } catch(e) {}
+
+        console.log(`[CALIFICACIÓN] Persistida para estudiante ${id_estudiante} en actividad ${id_actividad}: ${calificacion} (${desempeno})`);
+
+        return res.json({
+            status: "success",
+            registro: registroCalificacion,
+            docentes_sincronizados: docentesAfectados,
+            message: "Calificación persistida correctamente en la planilla del docente."
+        });
+
+    } catch(err) {
+        console.error("[CALIFICACIÓN] Error al persistir calificación:", err);
+        return res.status(500).json({ error: "Error interno al persistir calificación: " + err.message });
+    }
+});
+
+// Consultar la planilla de un docente (todas o por grupo)
+app.get('/api/planilla-docente', (req, res) => {
+    try {
+        const docenteId = String(req.query.docente_id || '').trim();
+        const grupo = String(req.query.grupo || '').trim().toLowerCase();
+
+        const docentes = readJSON('docentes.json') || [];
+        let itemsPlanilla = [];
+
+        if (docenteId) {
+            const normDoc = normalizarStr(docenteId);
+            const doc = docentes.find(d => normalizarStr(d.documento || d.cedula || d.id || d.usuario) === normDoc);
+            if (doc && Array.isArray(doc.planilla)) {
+                itemsPlanilla = doc.planilla;
+            }
+        } else {
+            // Consolidar de todos los docentes
+            docentes.forEach(d => {
+                if (Array.isArray(d.planilla)) {
+                    d.planilla.forEach(item => {
+                        if (!itemsPlanilla.some(x => x.id_estudiante === item.id_estudiante && x.id_actividad === item.id_actividad)) {
+                            itemsPlanilla.push(item);
+                        }
+                    });
+                }
+            });
+        }
+
+        if (grupo) {
+            itemsPlanilla = itemsPlanilla.filter(p => String(p.grupo || '').toLowerCase() === grupo);
+        }
+
+        res.json({
+            status: "success",
+            total: itemsPlanilla.length,
+            planilla: itemsPlanilla
+        });
+    } catch(err) {
+        res.status(500).json({ error: err.message });
+    }
+});
+
+// Consultar calificaciones de un estudiante
+app.get('/api/calificaciones-estudiante', (req, res) => {
+    try {
+        const docEst = String(req.query.documento || req.query.id_estudiante || '').trim();
+        if (!docEst) return res.status(400).json({ error: "Falta parámetro documento." });
+
+        const usuarios = readJSON('usuarios.json') || [];
+        const normDoc = normalizarStr(docEst);
+        const estudiante = usuarios.find(u => normalizarStr(u.documento || u.id || u.usuario) === normDoc);
+
+        let calificaciones = (estudiante && Array.isArray(estudiante.calificaciones)) ? estudiante.calificaciones : [];
+
+        // Si no tiene en usuarios.json, buscar en calificaciones_historico.json
+        if (calificaciones.length === 0) {
+            const hist = readJSON('calificaciones_historico.json') || [];
+            if (Array.isArray(hist)) {
+                calificaciones = hist.filter(h => normalizarStr(h.id_estudiante) === normDoc);
+            }
+        }
+
+        res.json({
+            status: "success",
+            documento: docEst,
+            total: calificaciones.length,
+            calificaciones
+        });
+    } catch(err) {
+        res.status(500).json({ error: err.message });
+    }
 });
 
 // ==========================================
