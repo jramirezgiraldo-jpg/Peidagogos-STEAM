@@ -1832,7 +1832,51 @@ Asegúrate de que los conceptos sean altamente representativos de ${temaFinal}.`
             }
         }
 
-        // ── 4. PARSEO Y NORMALIZACIÓN DEL JSON ──
+        // ── 4. INTENTO CUATERNARIO: NVIDIA NIM API ──
+        if (!rawContent && process.env.NVIDIA_KEY) {
+            console.log('[CAJA_HERRAMIENTAS Fallback] Probando NVIDIA NIM API...');
+            const nvidiaModelsTool = [
+                'nvidia/llama-3.1-nemotron-ultra-253b-v1',
+                'meta/llama-3.3-70b-instruct',
+                'meta/llama-3.1-70b-instruct'
+            ];
+            for (const nvm of nvidiaModelsTool) {
+                if (rawContent) break;
+                try {
+                    const nvToolResp = await fetch('https://integrate.api.nvidia.com/v1/chat/completions', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': 'Bearer ' + process.env.NVIDIA_KEY
+                        },
+                        body: JSON.stringify({
+                            model: nvm,
+                            messages: [
+                                { role: 'system', content: 'Devuelve EXCLUSIVAMENTE un objeto JSON válido y completo, sin bloques markdown, sin backticks, sin texto adicional.' },
+                                { role: 'user', content: promptIA }
+                            ],
+                            temperature: 0.6,
+                            max_tokens: 8192
+                        })
+                    });
+                    if (nvToolResp.ok) {
+                        const nvToolData = await nvToolResp.json();
+                        const nvText = nvToolData?.choices?.[0]?.message?.content || '';
+                        if (nvText && nvText.length > 50) {
+                            rawContent = nvText;
+                            console.log(`[CAJA_HERRAMIENTAS Fallback] ✅ Generado con NVIDIA NIM (${nvm})`);
+                        }
+                    } else {
+                        console.warn(`[CAJA_HERRAMIENTAS Fallback] NVIDIA ${nvm} HTTP ${nvToolResp.status}`);
+                    }
+                } catch (nvToolErr) {
+                    console.warn(`[CAJA_HERRAMIENTAS Fallback] NVIDIA ${nvm} excepción:`, nvToolErr.message);
+                }
+            }
+        }
+
+        // ── 5. PARSEO Y NORMALIZACIÓN DEL JSON ──
+
         let jsonJuego = null;
         if (rawContent && rawContent.trim()) {
             try {
@@ -1848,7 +1892,7 @@ Asegúrate de que los conceptos sean altamente representativos de ${temaFinal}.`
             }
         }
 
-        // ── 5. FALLBACK PEDAGÓGICO DE ALTA CALIDAD (Garantía Cero 500) ──
+        // ── 6. FALLBACK PEDAGÓGICO DE ALTA CALIDAD (Garantía Cero 500) ──
         if (!jsonJuego) {
             console.log(`[CAJA_HERRAMIENTAS] Activando Generador Pedagógico Integrado para "${tipoFinal}" sobre "${temaFinal}"...`);
             jsonJuego = {
