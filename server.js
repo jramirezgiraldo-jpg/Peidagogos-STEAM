@@ -237,6 +237,24 @@ Requisitos estrictos:
 3. El diseño debe ser moderno, corporativo y de alto impacto (Tome, Gamma style).
 4. No devuelvas markdown, JSON ni backticks, solo el código HTML completo. Empieza con <!DOCTYPE html>`;
             
+            // Helper: limpiar bloques markdown de la respuesta HTML de la IA
+            function limpiarHTMLDeLaIA(texto) {
+                if (!texto || typeof texto !== 'string') return '';
+                let h = texto.trim();
+                // Eliminar bloque ```html ... ``` con cualquier variación de espacios/newlines
+                h = h.replace(/^```[\w]*\s*/i, '').replace(/\s*```\s*$/i, '').trim();
+                // Si hay bloques residuales internos (múltiples bloques), extraer desde <!DOCTYPE
+                const dtIdx = h.toLowerCase().indexOf('<!doctype');
+                if (dtIdx > 0) h = h.substring(dtIdx);
+                // Eliminar cualquier texto suelto después del </html> de cierre
+                const htmlCloseIdx = h.toLowerCase().lastIndexOf('</html>');
+                if (htmlCloseIdx !== -1) h = h.substring(0, htmlCloseIdx + 7);
+                return h.trim();
+            }
+
+            let htmlDiapositivas = '';
+
+            // Intento 1: DeepSeek (preferido para HTML)
             try {
                 const deepseekKey = (process.env.DEEPSEEK_API_KEY || 'sk-8bdd9c5adcfa4d8e958f1ea7a07e8167');
                 const ds_response = await fetch('https://api.deepseek.com/chat/completions', {
@@ -248,24 +266,63 @@ Requisitos estrictos:
                     body: JSON.stringify({
                         model: 'deepseek-chat',
                         messages: [
-                            { role: 'system', content: 'Devuelve EXCLUSIVAMENTE HTML. SIN MARKDOWN. Empieza directamente con <!DOCTYPE html>' },
+                            { role: 'system', content: 'Devuelve EXCLUSIVAMENTE HTML. SIN MARKDOWN. SIN backticks. Empieza directamente con <!DOCTYPE html> y termina con </html>.' },
                             { role: 'user', content: promptDiapositivas }
                         ]
                     })
                 });
-                
+
                 if (ds_response.ok) {
                     const ds_data = await ds_response.json();
-                    let htmlRes = ds_data.choices[0].message.content;
-                    htmlRes = htmlRes.replace(/^```html/i, '').replace(/```$/i, '').trim();
-                    return res.json({ html: htmlRes });
+                    const rawHTML = ds_data.choices?.[0]?.message?.content || '';
+                    htmlDiapositivas = limpiarHTMLDeLaIA(rawHTML);
+                    if (htmlDiapositivas && htmlDiapositivas.length > 500) {
+                        console.log(`[IA DIAPOSITIVAS] ✅ HTML generado por DeepSeek (${htmlDiapositivas.length} chars).`);
+                    } else {
+                        console.warn(`[IA DIAPOSITIVAS] ⚠️ DeepSeek devolvió HTML demasiado corto (${htmlDiapositivas.length} chars). Activando fallback Gemini...`);
+                        htmlDiapositivas = '';
+                    }
                 } else {
-                    return res.status(500).json({error: 'Fallo al generar HTML'});
+                    console.warn(`[IA DIAPOSITIVAS] DeepSeek HTTP ${ds_response.status}. Activando fallback Gemini...`);
                 }
-            } catch (err) {
-                return res.status(500).json({error: 'Fallo IA'});
+            } catch (dsErr) {
+                console.error(`[IA DIAPOSITIVAS] Error DeepSeek:`, dsErr.message, '→ Activando fallback Gemini...');
+            }
+
+            // Intento 2: Fallback a Gemini si DeepSeek falla o devuelve HTML inválido
+            if (!htmlDiapositivas) {
+                const modelosDia = ['gemini-2.5-flash', 'gemini-2.0-flash', 'gemini-flash-latest', 'gemini-1.5-flash'];
+                for (const modeloDia of modelosDia) {
+                    try {
+                        console.log(`[IA DIAPOSITIVAS FALLBACK] Intentando Gemini modelo: ${modeloDia}...`);
+                        const aiDia = getAIClient();
+                        if (!aiDia) break;
+                        const diaResp = await geminiQueue.add(() => aiDia.models.generateContent({
+                            model: modeloDia,
+                            contents: promptDiapositivas + '\n\nIMPORTANTE: Devuelve SOLO el código HTML completo, empezando con <!DOCTYPE html> y terminando con </html>. NO uses bloques markdown ni backticks.'
+                        }));
+                        if (diaResp && diaResp.text) {
+                            htmlDiapositivas = limpiarHTMLDeLaIA(diaResp.text);
+                            if (htmlDiapositivas && htmlDiapositivas.length > 500) {
+                                console.log(`[IA DIAPOSITIVAS FALLBACK] ✅ HTML generado por Gemini ${modeloDia}.`);
+                                break;
+                            }
+                        }
+                    } catch (gDiaErr) {
+                        console.warn(`[IA DIAPOSITIVAS FALLBACK] Gemini ${modeloDia} falló:`, gDiaErr.message);
+                    }
+                }
+            }
+
+            // Responder al cliente con el HTML generado
+            if (htmlDiapositivas && htmlDiapositivas.length > 200) {
+                return res.json({ html: htmlDiapositivas });
+            } else {
+                console.error('[IA DIAPOSITIVAS] Todas las IAs fallaron para generar HTML de presentación.');
+                return res.status(500).json({ error: 'No se pudo generar la presentación HTML. Por favor inténtalo de nuevo.' });
             }
         }
+
         
 const prompt = `Actúa como un ${rol}. Tu objetivo pedagógico es enseñar ${asignatura} en el contexto narrativo inmersivo de ${ambiente}.
 
@@ -369,13 +426,13 @@ DEBES DEVOLVER EXCLUSIVAMENTE UN OBJETO JSON VÁLIDO CON LA SIGUIENTE ESTRUCTURA
   }
 }`;
 
-        // Modelos Gemini compatibles y operativos en @google/genai
+        // Modelos Gemini compatibles y operativos en @google/genai (actualizados 2026)
         const modelos = [
-            'gemini-3.5-flash-lite',
+            'gemini-2.5-flash',
+            'gemini-2.0-flash',
             'gemini-flash-latest',
-            'gemini-3.5-flash',
-            'gemini-3.1-flash-lite',
-            'gemini-flash-lite-latest'
+            'gemini-2.0-flash-lite',
+            'gemini-1.5-flash'
         ];
         let responseText = "";
         let finalError = null;
@@ -474,19 +531,27 @@ DEBES DEVOLVER EXCLUSIVAMENTE UN OBJETO JSON VÁLIDO CON LA SIGUIENTE ESTRUCTURA
             return res.json({ text: JSON.stringify(fallbackGuia) });
         }
 
-        // Sanitización y parseo robusto del JSON
+        // Sanitización y parseo robusto del JSON (limpiador anti-markdown reforzado)
         let finalJson;
         try {
-            let limpio = responseText.replace(/```json/gi, "").replace(/```/g, "").trim();
+            let limpio = responseText;
+            // 1. Eliminar bloques markdown: ```json, ```JSON, ``` a inicio de línea
+            limpio = limpio.replace(/^```[\s\w]*\n?/gim, '').replace(/^```\s*$/gim, '').trim();
+            // 2. Eliminar comentarios JS/Python comunes que la IA puede insertar
+            limpio = limpio.replace(/^\/\/[^\n]*\n?/gm, '').replace(/^#[^\n]*\n?/gm, '');
+            // 3. Extraer el objeto JSON más externo {…} ignorando texto previo/posterior
             const firstBrace = limpio.indexOf('{');
             const lastBrace = limpio.lastIndexOf('}');
-            if (firstBrace !== -1 && lastBrace !== -1) {
+            if (firstBrace !== -1 && lastBrace !== -1 && lastBrace > firstBrace) {
                 limpio = limpio.substring(firstBrace, lastBrace + 1);
             }
+            // 4. Sanitizar caracteres de control inválidos en JSON (excepto \n \r \t)
+            limpio = limpio.replace(/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]/g, '');
             finalJson = JSON.parse(limpio);
         } catch (parseErr) {
-            console.error("Error parseando respuesta JSON de IA:", parseErr.message, responseText);
-            return res.status(500).json({ error: "La IA generó una respuesta pero el formato JSON vino incompleto. Por favor inténtalo de nuevo." });
+            console.error("[PARSE ERROR] Respuesta de la IA no parseó como JSON válido:", parseErr.message);
+            console.error("[PARSE ERROR] Primeros 500 chars:", String(responseText).substring(0, 500));
+            return res.status(500).json({ error: "La IA generó una respuesta pero el formato JSON vino incompleto o con bloques markdown no esperados. Por favor inténtalo de nuevo." });
         }
         
         // Guardar en caché
@@ -519,19 +584,71 @@ global.db = {
     herramientas_guardadas: []
 };
 
+// Helper: cargar JSON local como fallback de emergencia
+function loadLocalJSON(file, defaultVal = []) {
+    try {
+        const p = path.join(__dirname, file);
+        if (fs.existsSync(p)) {
+            const raw = fs.readFileSync(p, 'utf-8');
+            const parsed = JSON.parse(raw);
+            return Array.isArray(parsed) ? parsed : (parsed && typeof parsed === 'object' ? [parsed] : defaultVal);
+        }
+    } catch(e) {
+        console.warn(`[DB FALLBACK] No se pudo leer ${file}:`, e.message);
+    }
+    return defaultVal;
+}
+
 // Cargar la DB al iniciar el servidor
 async function initDB() {
-    const { data: u } = await supabase.from('usuarios').select('*');
-    if (u) global.db.usuarios = u;
-    const { data: d } = await supabase.from('docentes').select('*');
-    if (d) global.db.docentes = d;
-    const { data: a } = await supabase.from('asignaturas').select('*');
-    if (a) global.db.asignaturas = a;
-    const { data: aa } = await supabase.from('actividades_asignadas').select('*');
-    if (aa) global.db.actividades_asignadas = aa;
-    const { data: hg } = await supabase.from('herramientas_guardadas').select('*');
-    if (hg) global.db.herramientas_guardadas = hg;
-    console.log("🚀 [DB] Supabase sincronizado en memoria exitosamente.");
+    let supabaseOk = false;
+    try {
+        const { data: u, error: eu } = await supabase.from('usuarios').select('*');
+        if (!eu && Array.isArray(u) && u.length > 0) { global.db.usuarios = u; supabaseOk = true; }
+        else if (!eu && Array.isArray(u)) global.db.usuarios = u;
+
+        const { data: d, error: ed } = await supabase.from('docentes').select('*');
+        if (!ed && Array.isArray(d) && d.length > 0) { global.db.docentes = d; supabaseOk = true; }
+        else if (!ed && Array.isArray(d)) global.db.docentes = d;
+
+        const { data: a } = await supabase.from('asignaturas').select('*');
+        if (a && Array.isArray(a)) global.db.asignaturas = a;
+
+        const { data: aa } = await supabase.from('actividades_asignadas').select('*');
+        if (aa && Array.isArray(aa)) global.db.actividades_asignadas = aa;
+
+        const { data: hg } = await supabase.from('herramientas_guardadas').select('*');
+        if (hg && Array.isArray(hg)) global.db.herramientas_guardadas = hg;
+
+        if (supabaseOk) {
+            console.log("🚀 [DB] Supabase sincronizado en memoria exitosamente.");
+        } else {
+            console.warn("[DB] Supabase retornó datos vacíos → activando fallback local.");
+        }
+    } catch(err) {
+        console.error("[DB SUPABASE ERROR] Fallo de conexión:", err.message);
+    }
+
+    // ── BLINDAJE DE FALLBACK LOCAL: Si Supabase falla o devuelve vacío, cargar desde archivos JSON ──
+    if (!global.db.usuarios || global.db.usuarios.length === 0) {
+        const uLocal = loadLocalJSON('usuarios.json');
+        if (uLocal.length > 0) {
+            global.db.usuarios = uLocal;
+            console.log(`[DB FALLBACK] Usuarios cargados desde usuarios.json (${uLocal.length} registros).`);
+        }
+    }
+    if (!global.db.docentes || global.db.docentes.length === 0) {
+        const dLocal = loadLocalJSON('docentes.json');
+        if (dLocal.length > 0) {
+            global.db.docentes = dLocal;
+            console.log(`[DB FALLBACK] Docentes cargados desde docentes.json (${dLocal.length} registros).`);
+        }
+    }
+    if (!global.db.actividades_asignadas || global.db.actividades_asignadas.length === 0) {
+        const aaLocal = loadLocalJSON('actividades_asignadas.json');
+        if (aaLocal.length > 0) global.db.actividades_asignadas = aaLocal;
+    }
+    console.log(`[DB] Estado final en memoria: ${global.db.usuarios.length} usuarios, ${global.db.docentes.length} docentes.`);
 }
 initDB();
 
@@ -1497,9 +1614,9 @@ Asegúrate de que los conceptos sean altamente representativos de ${temaFinal}.`
         // ── 1. INTENTO PRINCIPAL: Google Gemini (Motor Oficial Peidagogos STEAM) ──
         const modelosGemini = [
             'gemini-2.5-flash',
+            'gemini-2.0-flash',
             'gemini-flash-latest',
-            'gemini-2.5-flash-lite',
-            'gemini-3.5-flash'
+            'gemini-2.0-flash-lite'
         ];
 
         const maxKeyAttempts = Math.max(apiKeys.length, 1);
@@ -1920,13 +2037,13 @@ REGLAS ESTRICTAS:
         let htmlResponse = "";
         let finalError = null;
 
-        // Modelos Gemini compatibles en @google/genai
+        // Modelos Gemini compatibles en @google/genai (actualizados 2026)
         const modelos = [
             'gemini-2.5-flash',
+            'gemini-2.0-flash',
             'gemini-flash-latest',
-            'gemini-2.5-flash-lite',
-            'gemini-3.5-flash',
-            'gemini-flash-lite-latest'
+            'gemini-2.0-flash-lite',
+            'gemini-1.5-flash'
         ];
 
         // 1. Intento con rotación de Gemini API Keys
@@ -2279,7 +2396,24 @@ app.post('/api/login', (req, res) => {
             usuarioObj
         });
     } else {
-        console.warn(`[LOGIN FALLIDO] Usuario no encontrado: ${uInput}`);
+        // ── BLINDAJE DE EMERGENCIA: Si nadie fue encontrado, verificar si global.db está vacío ──
+        // Puede ocurrir si Supabase tardó en cargar y el primer login llega antes de que initDB() complete.
+        if (global.db.usuarios.length === 0 && global.db.docentes.length === 0) {
+            console.warn(`[LOGIN GUARD] global.db vacío detectado en /api/login. Recargando desde JSON local...`);
+            try {
+                const uLocal = JSON.parse(fs.readFileSync(path.join(__dirname, 'usuarios.json'), 'utf-8') || '[]');
+                if (Array.isArray(uLocal) && uLocal.length > 0) global.db.usuarios = uLocal;
+            } catch(e) {}
+            try {
+                const dLocal = JSON.parse(fs.readFileSync(path.join(__dirname, 'docentes.json'), 'utf-8') || '[]');
+                if (Array.isArray(dLocal) && dLocal.length > 0) global.db.docentes = dLocal;
+            } catch(e) {}
+            if (global.db.usuarios.length > 0 || global.db.docentes.length > 0) {
+                console.log(`[LOGIN GUARD] BD local recargada: ${global.db.usuarios.length} usuarios, ${global.db.docentes.length} docentes. Reintentando login...`);
+                return res.status(503).json({ status: "retry", message: "El servidor está inicializando. Por favor inténtalo en 2 segundos." });
+            }
+        }
+        console.warn(`[LOGIN FALLIDO] Usuario no encontrado en DB: ${uInput} (${global.db.usuarios.length} usuarios, ${global.db.docentes.length} docentes en memoria)`);
         res.status(401).json({ status: "error", message: "Credenciales incorrectas o estudiante no registrado." });
     }
 });

@@ -1052,7 +1052,23 @@ window.ejecutarLogin = async function(e) {
                 body: JSON.stringify({ usuario: rawUser, clave: pass, rol: rol })
             });
             if (res.ok) {
-                data = await res.json();
+                const resData = await res.json();
+                // Manejar señal de reintento (503): servidor aún inicializando Supabase
+                if (resData && resData.status === 'retry') {
+                    console.info('[LOGIN] Servidor inicializando. Reintentando en 2 segundos...');
+                    await new Promise(r => setTimeout(r, 2000));
+                    const resRetry = await fetch('/api/login', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ usuario: rawUser, clave: pass, rol: rol })
+                    });
+                    if (resRetry.ok) {
+                        const retryData = await resRetry.json();
+                        if (retryData && retryData.status === 'success') data = retryData;
+                    }
+                } else {
+                    data = resData;
+                }
             }
         } catch (netErr) {
             console.warn("Fallo conectando al servidor backend, buscando respaldo local...", netErr);
