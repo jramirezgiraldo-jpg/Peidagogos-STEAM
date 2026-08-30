@@ -7,7 +7,7 @@ const cron = require('node-cron');
 const https = require('https');
 const { GoogleGenAI } = require('@google/genai');
 const { exec } = require('child_process');
-const { generarGuiaPredeterminada } = require('./diagnosticos_predeterminados');
+// generarGuiaPredeterminada eliminada — la cascada IA garantiza contenido 100% dinámico
 const { obtenerPromptJuego, PROMPTS_JUEGOS } = require('./prompts_juegos');
 
 
@@ -207,16 +207,9 @@ Estructura la reflexión a partir de dilemas morales reales, toma de decisiones 
             }
         }
         
-        // 2. Si no hay API Keys configuradas, servir la guía predeterminada garantizada
+        // 2. Sin keys de Gemini → la cascada continúa: DeepSeek y NVIDIA NIM actuarán como respaldo
         if (apiKeys.length === 0) {
-            console.log(`[DIAGNÓSTICO] Sirviendo guía predeterminada garantizada para ${nombreEstudiante} (${grado})...`);
-            const guiaPredeterminada = generarGuiaPredeterminada({
-                asignatura, grado, periodo, semana, rol, ambiente, nivel, enfoque, nombre_estudiante: nombreEstudiante, institucion, modo
-            });
-            try {
-                fs.writeFileSync(cacheFilePath, JSON.stringify(guiaPredeterminada, null, 2), 'utf-8');
-            } catch(e) {}
-            return res.json({ text: JSON.stringify(guiaPredeterminada) });
+            console.warn(`[DIAGNÓSTICO] Sin API Keys Gemini — la cascada usará DeepSeek y NVIDIA NIM directamente.`);
         }
         
         console.log(`[Caché MISS] Generando nueva guía personalizada para ${nombreEstudiante}: ${fileNameSafe}`);
@@ -392,12 +385,16 @@ Requisitos estrictos:
             if (htmlDiapositivas && htmlDiapositivas.length > 200) {
                 return res.json({ html: htmlDiapositivas });
             } else {
-                console.error('[IA DIAPOSITIVAS] Todas las IAs fallaron para generar HTML de presentación.');
-                return res.status(500).json({ error: 'No se pudo generar la presentación HTML. Por favor inténtalo de nuevo.' });
+                console.error("[IA DIAPOSITIVAS] CASCADA FALLIDA - Gemini, DeepSeek y NVIDIA agotados.");
+                return res.status(503).json({
+                    error: 'El servicio de generacion de diapositivas esta temporalmente no disponible. Intentalo en unos minutos.',
+                    codigo: 'CASCADE_EXHAUSTED'
+                });
             }
-        }
 
         
+        }
+
 const prompt = `Actúa como un ${rol}. Tu objetivo pedagógico es enseñar ${asignatura} en el contexto narrativo inmersivo de ${ambiente}.
 
 CONTEXTO INSTITUCIONAL Y PEDAGÓGICO:
@@ -638,14 +635,11 @@ DEBES DEVOLVER EXCLUSIVAMENTE UN OBJETO JSON VÁLIDO CON LA SIGUIENTE ESTRUCTURA
         }
 
         if (!responseText) {
-            console.log(`[IA Fallback] Todas las IAs no están disponibles, sirviendo guía pedagógica estructurada de respaldo para ${nombreEstudiante}...`);
-            const fallbackGuia = generarGuiaPredeterminada({
-                asignatura, grado, periodo, semana, rol, ambiente, nivel, enfoque, nombre_estudiante: nombreEstudiante, institucion, modo
+            console.error(`[IA CASCADE] FALLIDA TOTAL para ${nombreEstudiante} — Gemini, OpenAI, DeepSeek y NVIDIA NIM agotados.`);
+            return res.status(503).json({
+                error: 'El servicio de generación está temporalmente no disponible. Por favor inténtalo en unos minutos.',
+                codigo: 'CASCADE_EXHAUSTED'
             });
-            try {
-                fs.writeFileSync(cacheFilePath, JSON.stringify(fallbackGuia, null, 2), 'utf-8');
-            } catch(e) {}
-            return res.json({ text: JSON.stringify(fallbackGuia) });
         }
 
         // Sanitización y parseo robusto del JSON (limpiador anti-markdown reforzado)
@@ -1892,76 +1886,13 @@ Asegúrate de que los conceptos sean altamente representativos de ${temaFinal}.`
             }
         }
 
-        // ── 6. FALLBACK PEDAGÓGICO DE ALTA CALIDAD (Garantía Cero 500) ──
+        // -- 6. Cascada completamente agotada: retornar error informativo --
         if (!jsonJuego) {
-            console.log(`[CAJA_HERRAMIENTAS] Activando Generador Pedagógico Integrado para "${tipoFinal}" sobre "${temaFinal}"...`);
-            jsonJuego = {
-                titulo: `${tipoFinal}: ${temaFinal}`,
-                tipo_herramienta: tipoFinal,
-                tema: temaFinal,
-                materia: materiaFinal,
-                grado: gradoFinal,
-                descripcion: `Actividad pedagógica interactiva sobre ${temaFinal} para ${gradoFinal}° grado.`,
-                instruccion: instruccionFinal,
-                palabras: ["CONCEPTO CLAVE", "PRINCIPIO ACTIVO", "ANÁLISIS TEÓRICO", "EVALUACIÓN STEAM", "METODOLOGÍA"],
-                definiciones: [
-                    { palabra: "CONCEPTO CLAVE", pista: `Base fundamental del estudio de ${temaFinal}.` },
-                    { palabra: "PRINCIPIO ACTIVO", pista: `Componente dinámico observable en ${temaFinal}.` },
-                    { palabra: "ANÁLISIS TEÓRICO", pista: `Marco conceptual y rigor analítico aplicado a ${materiaFinal}.` }
-                ],
-                horizontales: [
-                    { id: 1, palabra: "METODO", pista: `Procedimiento riguroso para investigar ${temaFinal}.`, dir: "H" },
-                    { id: 2, palabra: "TEORIA", pista: `Conjunto organizado de ideas sobre ${temaFinal}.`, dir: "H" }
-                ],
-                verticales: [
-                    { id: 3, palabra: "CIENCIA", pista: `Conocimiento sistemático y estructurado en ${materiaFinal}.`, dir: "V" },
-                    { id: 4, palabra: "SABER", pista: `Apropiación significativa del aprendizaje.`, dir: "V" }
-                ],
-                pares: [
-                    { izquierda: `Concepto Principal`, derecha: `Fundamento esencial de ${temaFinal} en ${materiaFinal}.` },
-                    { izquierda: `Aplicación Práctica`, derecha: `Uso contextual y operativo en el entorno real.` },
-                    { izquierda: `Evaluación Formativa`, derecha: `Demostración de competencias y pensamiento crítico.` },
-                    { izquierda: `Metodología STEAM`, derecha: `Integración interdisciplinar para la resolución de problemas.` },
-                    { izquierda: `Evidencia Empírica`, derecha: `Datos y observaciones comprobables en la práctica científica.` },
-                    { izquierda: `Modelo Conceptual`, derecha: `Representación estructurada de los principios teóricos.` },
-                    { izquierda: `Innovación Tecnológica`, derecha: `Desarrollo de soluciones creativas y transformadoras.` },
-                    { izquierda: `Impacto Comunitario`, derecha: `Beneficio social y ambiental en el contexto escolar y local.` }
-                ],
-                nodos: [
-                    {
-                        id: 1,
-                        situacion: `Te encuentras analizando un reto científico sobre ${temaFinal} en ${materiaFinal}. ¿Cuál es el primer paso formativo que debes ejecutar?`,
-                        opciones: [
-                            { texto: "Formular una hipótesis fundamentada y revisar evidencias empíricas.", consecuencia: "¡Excelente decisión! El rigor analítico valida la ruta de investigación.", es_correcta: true, siguiente_nodo: 2 },
-                            { texto: "Concluir de inmediato sin contrastar las fuentes científicas.", consecuencia: "Acción precipitada. Es indispensable validar evidencias.", es_correcta: false, siguiente_nodo: 1 }
-                        ]
-                    },
-                    {
-                        id: 2,
-                        situacion: `Has recolectado datos sobre ${temaFinal}. ¿Cómo procedes para consolidar tu aprendizaje?`,
-                        opciones: [
-                            { texto: "Sintetizar los hallazgos en un mentefacto conceptual claro.", consecuencia: "¡Logro alcanzado! Demuestras dominio del tema.", es_correcta: true, siguiente_nodo: 2 },
-                            { texto: "Descartar los datos que contradigan tu opinión inicial.", consecuencia: "Sesgo detectado. La ciencia exige objetividad.", es_correcta: false, siguiente_nodo: 1 }
-                        ]
-                    }
-                ],
-                retos: [
-                    {
-                        id: 1,
-                        enunciado: `¿Cuál de las siguientes afirmaciones define de forma más precisa el concepto de ${temaFinal}?`,
-                        pregunta: `¿Cuál de las siguientes afirmaciones define de forma más precisa el concepto de ${temaFinal}?`,
-                        opciones: [
-                            `Es el núcleo conceptual fundamental en ${materiaFinal} para ${gradoFinal}° grado.`,
-                            `Un elemento secundario sin relación directa con el área.`,
-                            `Una suposición no comprobada empíricamente.`,
-                            `Una norma administrativa no pedagógica.`
-                        ],
-                        respuesta_correcta: 0,
-                        explicacion: `En el currículo de ${materiaFinal} (${gradoFinal}°), ${temaFinal} constituye un pilar esencial según los DBA del MEN.`
-                    }
-                ],
-                fallback_local: true
-            };
+            console.error(`[CAJA_HERRAMIENTAS] CASCADA FALLIDA para "${tipoFinal}" sobre "${temaFinal}"`);
+            return res.status(503).json({
+                error: 'El servicio de generacion de herramientas esta temporalmente no disponible. Intentalo en unos minutos.',
+                codigo: 'CASCADE_EXHAUSTED'
+            });
         }
 
         // Garantizar exactamente 25 pares para Bingo Pedagógico STEAM
