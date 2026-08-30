@@ -9578,6 +9578,16 @@ window.abrirActividadDesdeInbox = function(id) {
     let actividad = inbox.find(a => a.id === id);
     if (!actividad) return;
     
+    // Si la actividad es un Bingo Pedagógico STEAM Digital
+    const esBingo = (actividad.toolId && actividad.toolId.includes('bingo')) ||
+                    (actividad.tipo_actividad && actividad.tipo_actividad.includes('bingo')) ||
+                    (actividad.toolTitulo && actividad.toolTitulo.toLowerCase().includes('bingo')) ||
+                    (actividad.titulo && actividad.titulo.toLowerCase().includes('bingo'));
+    if (esBingo && typeof window.renderizarCartonEstudianteBingo === 'function') {
+        window.renderizarCartonEstudianteBingo(actividad);
+        return;
+    }
+
     // Si la actividad cuenta con interactivo HTML5 generado de Caja 2
     if (actividad.htmlJuego || (actividad.actividad_data && actividad.actividad_data.htmlJuego)) {
         const htmlCode = actividad.htmlJuego || actividad.actividad_data.htmlJuego;
@@ -14260,55 +14270,731 @@ window.abrirTarjetaJeopardy = function(categoria, pts) {
     alert(`🎪 JEOPARDY [${categoria} - $${pts} XP]\n\nTema: ${data.tema}\n\nPregunta para el aula:\n${q}\n\n(El equipo que levante primero la mano responde y suma los puntos en pantalla)`);
 };
 
-// 6. BINGO STEAM (Balotera Digital + Generador de Cartones PDF)
-window.renderizarBingoSteamTool = function(stage, base) {
-    const data = window.generarDatosPedagogicosDinamicos(base.materia, base.grado, base.concepto, base.dificultad);
+// 6. BINGO STEAM (Gamificación Híbrida: Balotera Cognitiva Proyectable + Cartones 5x5 + Buzón Digital)
+
+// 6.1 Algoritmo Fisher-Yates Shuffle
+window.fisherYatesShuffle = function(array) {
+    const arr = [...array];
+    for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+};
+
+// 6.2 Normalización estricta de 25 pares conceptuales para cuadrícula 5x5
+window.obtener25ParesBingo = function(base, dataIA) {
+    dataIA = dataIA || window._aiGameData || window._cacheDataDinamicaIA || {};
+    base = base || {};
+
+    const terminosSTEAMDefecto = [
+        { concepto: "Mitocondria", definicion: "Orgánulo celular responsable de la respiración celular y de producir ATP como energía biológica." },
+        { concepto: "Ribosoma", definicion: "Complejo macromolecular encargado de ensamblar aminoácidos para sintetizar proteínas celulares." },
+        { concepto: "Núcleo Celular", definicion: "Estructura membranosa que custodia y protege el material genético (ADN) en células eucariotas." },
+        { concepto: "Cloroplasto", definicion: "Estructura vegetal donde ocurre la fotosíntesis mediante la absorción de fotones de luz solar." },
+        { concepto: "Membrana Plasmática", definicion: "Bicapa lipídica semipermeable que delimita la célula y regula el intercambio con el medio." },
+        { concepto: "Citoplasma", definicion: "Medio acuoso y coloidal donde se encuentran suspendidos los diferentes orgánulos y biomoléculas." },
+        { concepto: "Aparato de Golgi", definicion: "Sistema de cisternas membranosas que clasifica, empaqueta y distribuye proteínas hacia su destino." },
+        { concepto: "Retículo Endoplásmico", definicion: "Red tubular interconectada responsable de la síntesis de lípidos y procesamiento proteico." },
+        { concepto: "Vacuola", definicion: "Vesícula celular de almacenamiento hídrico y mantenimiento de la presión de turgencia en plantas." },
+        { concepto: "Pared Celular", definicion: "Envoltura rígida de celulosa que provee soporte mecánico y protección a las células vegetales." },
+        { concepto: "ADN", definicion: "Molécula helicoidal portadora de las instrucciones genéticas hereditarias de todos los seres vivos." },
+        { concepto: "ARN Mensajero", definicion: "Ácido nucleico que transfiere el código genético desde el núcleo hacia los ribosomas celulares." },
+        { concepto: "Enzima", definicion: "Proteína globular con función de biocatalizador que acelera las reacciones químicas metabólicas." },
+        { concepto: "ATP", definicion: "Moneda energética principal de la célula indispensable para todas las funciones y transporte activo." },
+        { concepto: "Osmosis", definicion: "Difusión pasiva del agua a través de una membrana selectivamente permeable según gradiente." },
+        { concepto: "Difusión Simple", definicion: "Movimiento espontáneo de solutos desde una zona de mayor a menor concentración sin gasto de ATP." },
+        { concepto: "Fotosíntesis", definicion: "Proceso anabólico en el cual la energía lumínica se convierte en energía química (glucosa)." },
+        { concepto: "Respiración Celular", definicion: "Proceso catabólico que degrada carbohidratos en presencia de oxígeno para liberar energía." },
+        { concepto: "Mitosis", definicion: "División celular asexual que genera dos células hijas genéticamente idénticas a la progenitora." },
+        { concepto: "Meiosis", definicion: "División celular especializada que reduce a la mitad el número de cromosomas para formar gametos." },
+        { concepto: "Cromosoma", definicion: "Estructura condensada de cromatina altamente organizada presente durante la división celular." },
+        { concepto: "Mutación", definicion: "Alteración o cambio permanente en la secuencia de nucleótidos del genoma de un organismo." },
+        { concepto: "Homeostasis", definicion: "Capacidad de los organismos vivos de mantener un equilibrio interno dinámico frente al entorno." },
+        { concepto: "Metabolismo", definicion: "Conjunto integrado de reacciones químicas celulares divididas en anabolismo y catabolismo." },
+        { concepto: "Ecosistema", definicion: "Comunidad de seres vivos que interactúan de forma armónica con los factores abióticos de su hábitat." }
+    ];
+
+    let paresEncontrados = [];
+    if (Array.isArray(dataIA.pares) && dataIA.pares.length >= 10) {
+        paresEncontrados = dataIA.pares;
+    } else if (Array.isArray(base.pares) && base.pares.length >= 10) {
+        paresEncontrados = base.pares;
+    } else if (Array.isArray(dataIA.definiciones) && dataIA.definiciones.length >= 10) {
+        paresEncontrados = dataIA.definiciones.map(d => ({
+            concepto: d.palabra || d.concepto || d.termino,
+            definicion: d.pista || d.definicion || d.significado
+        }));
+    }
+
+    const paresFinales = [];
+    const usados = new Set();
+
+    paresEncontrados.forEach(p => {
+        const conc = String(p.concepto || p.izquierda || p.palabra || '').trim();
+        const def = String(p.definicion || p.derecha || p.pista || '').trim();
+        if (conc && def && !usados.has(conc.toLowerCase()) && paresFinales.length < 25) {
+            paresFinales.push({ concepto: conc, definicion: def });
+            usados.add(conc.toLowerCase());
+        }
+    });
+
+    for (let i = 0; i < terminosSTEAMDefecto.length && paresFinales.length < 25; i++) {
+        const defItem = terminosSTEAMDefecto[i];
+        if (!usados.has(defItem.concepto.toLowerCase())) {
+            paresFinales.push(defItem);
+            usados.add(defItem.concepto.toLowerCase());
+        }
+    }
+
+    return paresFinales;
+};
+
+// 6.3 Verificador de los 5 Patrones de Victoria en Matriz 5x5
+window.verificarPatronVictoriaBingo = function(celdasMarcadas, patron) {
+    const esMarcada = (idx) => idx === 12 || celdasMarcadas.has(idx);
+
+    if (patron === 'cuatro_esquinas') {
+        return [0, 4, 20, 24].every(esMarcada);
+    }
+    if (patron === 'carton_lleno') {
+        for (let i = 0; i < 25; i++) {
+            if (!esMarcada(i)) return false;
+        }
+        return true;
+    }
+    if (patron === 'letra_x') {
+        const diag1 = [0, 6, 12, 18, 24].every(esMarcada);
+        const diag2 = [4, 8, 12, 16, 20].every(esMarcada);
+        return diag1 && diag2;
+    }
+    if (patron === 'letra_l') {
+        const col0 = [0, 5, 10, 15, 20].every(esMarcada);
+        const row4 = [20, 21, 22, 23, 24].every(esMarcada);
+        return col0 && row4;
+    }
+
+    // Default: 'linea_recta' (5 filas, 5 columnas o 2 diagonales)
+    for (let r = 0; r < 5; r++) {
+        let filaCompleta = true;
+        for (let c = 0; c < 5; c++) {
+            if (!esMarcada(r * 5 + c)) { filaCompleta = false; break; }
+        }
+        if (filaCompleta) return true;
+    }
+    for (let c = 0; c < 5; c++) {
+        let colCompleta = true;
+        for (let r = 0; r < 5; r++) {
+            if (!esMarcada(r * 5 + c)) { colCompleta = false; break; }
+        }
+        if (colCompleta) return true;
+    }
+    if ([0, 6, 12, 18, 24].every(esMarcada)) return true;
+    if ([4, 8, 12, 16, 20].every(esMarcada)) return true;
+
+    return false;
+};
+
+// 6.4 Generador de Cartones PDF 5x5 Imprimibles (Fisher-Yates)
+window.imprimirCartonesBingo5x5 = function(pares, tema, base, cantidad = 30) {
+    let printArea = document.getElementById('print-area-bingo');
+    if (!printArea) {
+        printArea = document.createElement('div');
+        printArea.id = 'print-area-bingo';
+        document.body.appendChild(printArea);
+    }
+
+    let printStyle = document.getElementById('style-print-bingo-5x5');
+    if (!printStyle) {
+        printStyle = document.createElement('style');
+        printStyle.id = 'style-print-bingo-5x5';
+        printStyle.innerHTML = `
+            @media print {
+                body > *:not(#print-area-bingo) { display: none !important; }
+                #print-area-bingo { display: block !important; position: absolute; left: 0; top: 0; width: 100%; background: white; color: black; }
+                .pagina-bingo-5x5 { page-break-after: always; break-after: page; display: flex; flex-direction: column; justify-content: space-around; min-height: 98vh; padding: 8mm; box-sizing: border-box; }
+                .carton-card-5x5 { border: 2.5px solid #000; border-radius: 8px; padding: 10px; margin-bottom: 12px; box-sizing: border-box; page-break-inside: avoid; break-inside: avoid; font-family: system-ui, Arial, sans-serif; }
+                .carton-grid-5x5 { display: grid; grid-template-columns: repeat(5, 1fr); gap: 4px; margin-top: 6px; }
+                .carton-cell-5x5 { border: 1.5px solid #000; min-height: 38px; display: flex; align-items: center; justify-content: center; text-align: center; font-size: 10px; font-weight: 800; padding: 4px; word-break: break-word; }
+            }
+            @media screen { #print-area-bingo { display: none; } }
+        `;
+        document.head.appendChild(printStyle);
+    }
+
+    const conceptos = pares.map(p => p.concepto);
+    let htmlTotal = '';
+
+    for (let c = 1; c <= cantidad; c++) {
+        const barajados = window.fisherYatesShuffle(conceptos);
+        const seleccion = barajados.slice(0, 24);
+
+        if (c % 2 === 1) {
+            htmlTotal += '<div class="pagina-bingo-5x5">';
+        }
+
+        htmlTotal += `
+            <div class="carton-card-5x5">
+                <div style="border-bottom: 2px solid #000; padding-bottom: 4px; margin-bottom: 6px; text-align: center;">
+                    <div style="font-size: 13.5px; font-weight: 900; letter-spacing: 0.5px; text-transform: uppercase;">🎯 BINGO PEDAGÓGICO STEAM — ${tema}</div>
+                    <div style="font-size: 10px; font-weight: 700; color: #333; margin-top: 2px;">
+                        Asignatura: ${base.materia || 'Ciencias Naturales'} • Grado ${base.grado || '7'}°
+                    </div>
+                    <div style="display: flex; justify-content: space-between; font-size: 9px; margin-top: 4px;">
+                        <span>Estudiante: _____________________________________________</span>
+                        <span><b>Cartón N.° ${c}</b></span>
+                    </div>
+                </div>
+                <div class="carton-grid-5x5">
+                    ${Array.from({ length: 25 }).map((_, idx) => {
+                        if (idx === 12) {
+                            return '<div class="carton-cell-5x5" style="background: #F1F5F9; color: #1E293B; font-size: 9.5px;">⭐ STEAM<br>LIBRE</div>';
+                        }
+                        const conceptoTexto = idx < 12 ? seleccion[idx] : seleccion[idx - 1];
+                        return `<div class="carton-cell-5x5">${conceptoTexto || 'STEAM'}</div>`;
+                    }).join('')}
+                </div>
+            </div>
+        `;
+
+        if (c % 2 === 0 || c === cantidad) {
+            htmlTotal += '</div>';
+        }
+    }
+
+    printArea.innerHTML = htmlTotal;
+    setTimeout(() => {
+        window.print();
+    }, 250);
+};
+
+// 6.5 Panel de Configuración del Docente
+window.configurarBingoSteam = function(stage, base) {
+    if (!stage) return;
+    base = base || {};
+
+    const dataIA = window._aiGameData || window._cacheDataDinamicaIA || {};
+    const temaTitulo = dataIA.tema || base.tema || base.concepto || 'Conceptos Fundamentales STEAM';
+    const pares25 = window.obtener25ParesBingo(base, dataIA);
+
     stage.innerHTML = `
-        <div style="flex: 1; padding: 25px; background: #F8FAFC; display: flex; flex-direction: column; justify-content: space-between; text-align: center;">
-            <div style="border-bottom: 2px solid #E2E8F0; padding-bottom: 10px;">
-                <h2 style="margin: 0; font-size: 1.45rem; font-weight: 900; color: #1E1B4B;">🎯 Gran Bingo Pedagógico STEAM: ${data.tema}</h2>
-                <p style="margin: 2px 0 0 0; color: #64748B; font-size: 0.85rem;">Asignatura: <b>${base.materia}</b> • Grado ${base.grado}°</p>
-            </div>
-
-            <!-- Balotera Digital y Cartón Demostrativo -->
-            <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 20px; margin: 15px 0; align-items: center;">
-                <div style="background: linear-gradient(135deg, #1E293B, #0F172A); color: white; padding: 20px; border-radius: 16px; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.2);">
-                    <div style="font-size: 0.8rem; font-weight: 800; color: #38BDF8; text-transform: uppercase; margin-bottom: 6px;">Balota Cantada en Vivo:</div>
-                    <div id="bingo-balota-actual" style="font-size: 1.25rem; font-weight: 900; color: #FEF08A; min-height: 45px; display: flex; align-items: center; justify-content: center;">
-                        ¡Haz clic en "Girar Balotera"!
+        <div style="flex: 1; padding: 24px; background: #F8FAFC; display: flex; flex-direction: column; justify-content: center; align-items: center; font-family: system-ui, -apple-system, sans-serif;">
+            <div style="background: white; border: 2px solid #E2E8F0; border-radius: 24px; padding: 28px 24px; max-width: 580px; width: 100%; box-shadow: 0 12px 36px rgba(0,0,0,0.06);">
+                <div style="text-align: center; margin-bottom: 20px;">
+                    <div style="font-size: 2.5rem; margin-bottom: 6px;">🎯</div>
+                    <h2 style="margin: 0 0 4px 0; color: #0F172A; font-size: 1.45rem; font-weight: 900;">Configuración de Bingo STEAM</h2>
+                    <p style="margin: 0; color: #64748B; font-size: 0.88rem; font-weight: 600;">Tema: <b>${temaTitulo}</b> (${base.materia || 'Ciencias'} - Grado ${base.grado || '7'}°)</p>
+                    <div style="display: inline-block; margin-top: 6px; background: #ECFDF5; color: #047857; font-size: 0.76rem; font-weight: 800; padding: 2px 10px; border-radius: 12px; border: 1px solid #A7F3D0;">
+                        ✅ Banco de 25 Pares Conceptuales Listos
                     </div>
-                    <button onclick="window.girarBalotaBingo()" style="margin-top: 12px; background: linear-gradient(135deg, #F59E0B, #D97706); color: white; border: none; padding: 10px 20px; border-radius: 10px; font-weight: 900; font-size: 0.95rem; cursor: pointer; box-shadow: 0 4px 12px rgba(245,158,11,0.35);">
-                        🎲 Girar Balotera Digital
-                    </button>
                 </div>
 
-                <!-- Cartón Demostrativo de Términos -->
-                <div style="background: white; border: 2px dashed #3B82F6; border-radius: 16px; padding: 15px; text-align: center;">
-                    <span style="font-size: 2rem;">🖨️</span>
-                    <h4 style="margin: 4px 0 2px 0; font-size: 1rem; font-weight: 900; color: #1E1B4B;">30 Cartones con Términos Oficiales</h4>
-                    <p style="margin: 0 0 10px 0; color: #64748B; font-size: 0.8rem;">Generados a partir de los conceptos clave de <b>${data.tema}</b>.</p>
-                    <div style="display: flex; gap: 4px; flex-wrap: wrap; justify-content: center; margin-bottom: 10px;">
-                        ${data.palabras.slice(0, 6).map(w => `<span style="background: #EFF6FF; color: #1D4ED8; font-size: 0.72rem; padding: 2px 6px; border-radius: 4px; font-weight: 800;">${w}</span>`).join('')}
+                <div style="display: flex; flex-direction: column; gap: 16px;">
+                    <!-- A. Cantidad de Estudiantes / Cartones -->
+                    <div>
+                        <label style="display: block; font-size: 0.82rem; font-weight: 800; color: #334155; margin-bottom: 6px;">
+                            👥 Cantidad de Estudiantes / Cartones Únicos:
+                        </label>
+                        <select id="bingo-cfg-cantidad" style="width: 100%; padding: 10px 12px; border: 2px solid #CBD5E1; border-radius: 10px; font-weight: 800; font-size: 0.9rem; color: #1E293B; background: white;">
+                            <option value="15">15 Estudiantes / Cartones</option>
+                            <option value="25">25 Estudiantes / Cartones</option>
+                            <option value="30" selected>30 Estudiantes / Cartones (Recomendado)</option>
+                            <option value="40">40 Estudiantes / Cartones</option>
+                        </select>
                     </div>
-                    <button onclick="window.imprimirHerramientaActual()" style="background: #10B981; color: white; border: none; padding: 8px 16px; border-radius: 8px; font-weight: 800; font-size: 0.85rem; cursor: pointer;">
-                        📄 Imprimir Cartones PDF
+
+                    <!-- B. Modalidad de Juego -->
+                    <div>
+                        <label style="display: block; font-size: 0.82rem; font-weight: 800; color: #334155; margin-bottom: 6px;">
+                            🎮 Modalidad de Ejecución:
+                        </label>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                            <label style="display: flex; align-items: center; gap: 8px; background: #EFF6FF; border: 2px solid #3B82F6; padding: 12px 10px; border-radius: 12px; cursor: pointer;">
+                                <input type="radio" name="bingo-modalidad" value="digital" checked style="accent-color: #2563EB;">
+                                <div>
+                                    <div style="font-size: 0.86rem; font-weight: 900; color: #1E3A8A;">💻 En Vivo Digital</div>
+                                    <div style="font-size: 0.72rem; color: #60A5FA;">Asignar al Buzón</div>
+                                </div>
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 8px; background: #F8FAFC; border: 2px solid #CBD5E1; padding: 12px 10px; border-radius: 12px; cursor: pointer;">
+                                <input type="radio" name="bingo-modalidad" value="impreso" style="accent-color: #2563EB;">
+                                <div>
+                                    <div style="font-size: 0.86rem; font-weight: 900; color: #334155;">📄 Cartones Impresos</div>
+                                    <div style="font-size: 0.72rem; color: #64748B;">Generar PDFs 5x5</div>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- C. Patrón de Victoria -->
+                    <div>
+                        <label style="display: block; font-size: 0.82rem; font-weight: 800; color: #334155; margin-bottom: 6px;">
+                            🏆 Patrón de Victoria Requerido:
+                        </label>
+                        <select id="bingo-cfg-patron" style="width: 100%; padding: 10px 12px; border: 2px solid #CBD5E1; border-radius: 10px; font-weight: 800; font-size: 0.9rem; color: #1E293B; background: white;">
+                            <option value="linea_recta" selected>➖ Línea Recta (Fila, Columna o Diagonal)</option>
+                            <option value="cuatro_esquinas">⏹️ Cuatro Esquinas (4 esquinas del cartón)</option>
+                            <option value="carton_lleno">🏆 Cartón Lleno (25 casillas completas)</option>
+                            <option value="letra_x">✖️ Letra X (Las dos diagonales completas)</option>
+                            <option value="letra_l">🇱 Letra L (Primera columna + última fila)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div style="margin-top: 22px; display: flex; gap: 10px;">
+                    <button onclick="window.iniciarPartidaBingoDesdeConfiguracion()" style="flex: 1; background: linear-gradient(135deg, #2563EB, #1D4ED8); color: white; border: none; padding: 14px; border-radius: 14px; font-weight: 900; font-size: 1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 14px rgba(37,99,235,0.35);">
+                        <span>🚀</span> Iniciar Tablero Maestro de Control
                     </button>
                 </div>
-            </div>
-
-            <div style="background: #EFF6FF; border: 1px solid #BFDBFE; padding: 8px; border-radius: 8px; font-size: 0.82rem; color: #1E40AF;">
-                🎉 Cuando un estudiante completa una línea o el cartón completo, grita <b>"¡STEAM!"</b> y sustenta sus conceptos.
             </div>
         </div>
     `;
+
+    window._bingoConfigContexto = { stage, base, pares25, temaTitulo };
+};
+
+// 6.6 Iniciar Partida de Bingo Maestro
+window.iniciarPartidaBingoDesdeConfiguracion = async function() {
+    const ctx = window._bingoConfigContexto;
+    if (!ctx) return;
+
+    const cantidad = parseInt(document.getElementById('bingo-cfg-cantidad')?.value) || 30;
+    const patron = document.getElementById('bingo-cfg-patron')?.value || 'linea_recta';
+    const radios = document.getElementsByName('bingo-modalidad');
+    let modalidad = 'digital';
+    for (let r of radios) { if (r.checked) modalidad = r.value; }
+
+    const idPartida = `bingo_${Date.now()}`;
+    const userDocente = (typeof window.obtenerUsuarioActual === 'function') ? window.obtenerUsuarioActual() : null;
+    const docId = (userDocente && (userDocente.documento || userDocente.usuario)) || 'docente_master';
+    const grupo = ctx.base.grupo || ctx.base.grado || (userDocente && userDocente.grupo) || '7C';
+
+    const payloadPartida = {
+        id_partida: idPartida,
+        docente_id: docId,
+        grupo: grupo,
+        tema: ctx.temaTitulo,
+        materia: ctx.base.materia || 'Ciencias Naturales',
+        modalidad: modalidad,
+        patron_victoria: patron,
+        cantidad_cartones: cantidad,
+        pares: ctx.pares25
+    };
+
+    try {
+        localStorage.setItem('bingo_partida_activa', JSON.stringify(payloadPartida));
+    } catch(e) {}
+
+    if (modalidad === 'digital') {
+        try {
+            let inbox = JSON.parse(localStorage.getItem('inbox_estudiantes') || '[]');
+            const nuevaMisionBingo = {
+                id: idPartida,
+                toolId: 'bingo_steam',
+                toolTitulo: `Gran Bingo STEAM: ${ctx.temaTitulo}`,
+                toolIcono: '🎯',
+                materia: payloadPartida.materia,
+                tema: ctx.temaTitulo,
+                docente: (userDocente && (userDocente.nombres || userDocente.nombre)) || 'Docente Titular',
+                grupo: grupo,
+                fecha: new Date().toISOString(),
+                xp: 250,
+                tipo_actividad: 'bingo_steam',
+                patron_victoria: patron,
+                pares: ctx.pares25
+            };
+            inbox.unshift(nuevaMisionBingo);
+            localStorage.setItem('inbox_estudiantes', JSON.stringify(inbox));
+
+            fetch('/api/bingo/crear-partida', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payloadPartida)
+            }).catch(() => {});
+        } catch(e) {}
+    } else {
+        window.imprimirCartonesBingo5x5(ctx.pares25, ctx.temaTitulo, ctx.base, cantidad);
+    }
+
+    window.renderizarTableroMaestroBingo(ctx.stage, payloadPartida);
+};
+
+// 6.7 Tablero Maestro de Control (Proyección Docente en Pantalla)
+window.renderizarTableroMaestroBingo = function(stage, partida) {
+    if (!stage || !partida) return;
+
+    const pares = partida.pares || [];
+    let indiceActual = partida.indice_actual || 0;
+    let historial = partida.historial_cantadas || [];
+
+    const nombrePatronMap = {
+        'linea_recta': '➖ Línea Recta (Fila, Columna o Diagonal)',
+        'cuatro_esquinas': '⏹️ Cuatro Esquinas',
+        'carton_lleno': '🏆 Cartón Lleno (25 Casillas)',
+        'letra_x': '✖️ Letra X (Diagonales Cruzadas)',
+        'letra_l': '🇱 Letra L (Columna 1 + Fila 5)'
+    };
+
+    const renderContenido = () => {
+        const parActual = pares[indiceActual] || { concepto: 'FIN DE BALOTAS', definicion: 'Se han cantado todas las 25 definiciones disponibles.' };
+        const totalBalotas = pares.length;
+        const progresoPct = Math.round(((indiceActual + 1) / totalBalotas) * 100);
+
+        stage.innerHTML = `
+            <div style="flex: 1; background: #0B132B; color: white; display: flex; flex-direction: column; font-family: system-ui, -apple-system, sans-serif; position: relative; overflow-y: auto; padding: 20px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #1C2541; padding-bottom: 12px; margin-bottom: 16px; flex-wrap: wrap; gap: 10px;">
+                    <div>
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <span style="font-size: 1.8rem;">🎯</span>
+                            <h2 style="margin: 0; font-size: 1.5rem; font-weight: 900; color: #6FFFE9; letter-spacing: 0.5px;">
+                                TABLERO MAESTRO: ${partida.tema}
+                            </h2>
+                        </div>
+                        <div style="font-size: 0.85rem; color: #94A3B8; margin-top: 4px;">
+                            Grupo: <b>${partida.grupo}</b> • Modalidad: <b>${partida.modalidad === 'digital' ? '💻 En Vivo Digital' : '📄 Impreso'}</b> • Patrón: <b>${nombrePatronMap[partida.patron_victoria] || partida.patron_victoria}</b>
+                        </div>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <button onclick="window.dispararCelebracionBingoManual('${partida.id_partida}')" style="background: linear-gradient(135deg, #10B981, #059669); color: white; border: none; padding: 8px 14px; border-radius: 10px; font-weight: 900; font-size: 0.85rem; cursor: pointer; box-shadow: 0 4px 12px rgba(16,185,129,0.3); display: flex; align-items: center; gap: 6px;">
+                            <span>🎺</span> ¡Cantar BINGO!
+                        </button>
+                        <button onclick="window.configurarBingoSteam(document.getElementById('visor-tool-stage') || this.parentElement.parentElement.parentElement, ${JSON.stringify(partida).replace(/"/g, '&quot;')})" style="background: #334155; color: #F1F5F9; border: none; padding: 8px 12px; border-radius: 10px; font-weight: 800; font-size: 0.82rem; cursor: pointer;">
+                            ⚙️ Nueva Partida
+                        </button>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 16px;">
+                    <div style="display: flex; justify-content: space-between; font-size: 0.85rem; font-weight: 800; margin-bottom: 4px; color: #94A3B8;">
+                        <span>BALOTA CANTADA: <b>${indiceActual + 1} / ${totalBalotas}</b></span>
+                        <span>${progresoPct}% COMPLETADO</span>
+                    </div>
+                    <div style="width: 100%; height: 8px; background: #1C2541; border-radius: 4px; overflow: hidden;">
+                        <div style="width: ${progresoPct}%; height: 100%; background: linear-gradient(90deg, #3B82F6, #10B981); transition: width 0.3s;"></div>
+                    </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1.5fr 1fr; gap: 18px; flex: 1; align-items: stretch;">
+                    <div style="background: #1C2541; border: 2.5px solid #3A506B; border-radius: 20px; padding: 24px; display: flex; flex-direction: column; justify-content: space-between; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+                        <div>
+                            <div style="font-size: 0.82rem; font-weight: 900; color: #38BDF8; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 12px;">
+                                📢 DEFINICIÓN ANALÍTICA PARA EL AULA:
+                            </div>
+                            <div style="font-size: 1.55rem; font-weight: 900; line-height: 1.4; color: #FEF08A; padding: 18px 12px; background: rgba(11,19,43,0.7); border-radius: 16px; border: 1.5px dashed #F59E0B; min-height: 140px; display: flex; align-items: center; justify-content: center;">
+                                "${parActual.definicion || parActual.derecha}"
+                            </div>
+                            <div style="margin-top: 10px; font-size: 0.78rem; color: #94A3B8;">
+                                💡 <i>Los estudiantes deben deducir el concepto a partir de esta definición y marcarlo en su cartón.</i>
+                            </div>
+                        </div>
+
+                        <div style="margin-top: 20px; display: flex; flex-direction: column; gap: 8px;">
+                            <button onclick="window.avanzarSiguienteDefinicionBingo('${partida.id_partida}')" style="background: linear-gradient(135deg, #F59E0B, #D97706); color: white; border: none; padding: 14px 20px; border-radius: 14px; font-weight: 900; font-size: 1.15rem; cursor: pointer; box-shadow: 0 6px 20px rgba(245,158,11,0.4); display: flex; align-items: center; justify-content: center; gap: 10px; transition: transform 0.15s;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
+                                <span>⏩</span> Cantar Siguiente Definición (${indiceActual + 1}/${totalBalotas})
+                            </button>
+                            
+                            <details style="text-align: left; background: rgba(0,0,0,0.25); padding: 8px 12px; border-radius: 8px; font-size: 0.8rem; color: #64748B; cursor: pointer;">
+                                <summary style="font-weight: 700; color: #94A3B8;">👁️ Ver Concepto Oculto (Solo Docente)</summary>
+                                <div style="margin-top: 6px; font-size: 0.95rem; font-weight: 900; color: #6FFFE9;">
+                                    Concepto: ${parActual.concepto || parActual.izquierda}
+                                </div>
+                            </details>
+                        </div>
+                    </div>
+
+                    <div style="background: #1C2541; border: 2.5px solid #3A506B; border-radius: 20px; padding: 18px; display: flex; flex-direction: column; max-height: 480px;">
+                        <div style="font-size: 0.88rem; font-weight: 900; color: #6FFFE9; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center;">
+                            <span>📜 Historial de Conceptos Cantados:</span>
+                            <span style="background: #3A506B; color: white; padding: 2px 8px; border-radius: 10px; font-size: 0.75rem;">${historial.length}</span>
+                        </div>
+                        <div style="flex: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 8px; padding-right: 4px;">
+                            ${historial.length === 0 ? `
+                                <div style="color: #64748B; font-size: 0.85rem; text-align: center; margin-top: 40px;">
+                                    Aún no hay términos en el historial. Haz clic en "Cantar Siguiente Definición".
+                                </div>
+                            ` : historial.slice().reverse().map((item, idx) => `
+                                <div style="background: #0B132B; border-left: 3px solid #10B981; padding: 8px 10px; border-radius: 6px; font-size: 0.82rem;">
+                                    <div style="display: flex; justify-content: space-between; font-weight: 800; color: #6FFFE9;">
+                                        <span>#${item.numero || (historial.length - idx)}: ${item.concepto}</span>
+                                        <span style="color: #64748B; font-size: 0.72rem;">${item.hora || ''}</span>
+                                    </div>
+                                    <div style="color: #CBD5E1; font-size: 0.76rem; margin-top: 2px; line-height: 1.25;">
+                                        ${item.definicion}
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+    };
+
+    renderContenido();
+
+    window._actualizarTableroBingoMaestro = function(nuevaPartida) {
+        partida = nuevaPartida;
+        indiceActual = partida.indice_actual;
+        historial = partida.historial_cantadas;
+        renderContenido();
+    };
+};
+
+// 6.8 Botón Maestro de Avance para el Docente
+window.avanzarSiguienteDefinicionBingo = async function(idPartida) {
+    let partida = null;
+    try { partida = JSON.parse(localStorage.getItem('bingo_partida_activa') || '{}'); } catch(e) {}
+    if (!partida || !Array.isArray(partida.pares)) return;
+
+    if (!Array.isArray(partida.historial_cantadas)) partida.historial_cantadas = [];
+    const parActual = partida.pares[partida.indice_actual];
+    if (parActual && !partida.historial_cantadas.some(h => h.concepto === (parActual.concepto || parActual.izquierda))) {
+        partida.historial_cantadas.push({
+            concepto: parActual.concepto || parActual.izquierda,
+            definicion: parActual.definicion || parActual.derecha,
+            numero: partida.indice_actual + 1,
+            hora: new Date().toLocaleTimeString('es-CO')
+        });
+    }
+
+    if (partida.indice_actual + 1 < partida.pares.length) {
+        partida.indice_actual++;
+        partida.definicion_actual = partida.pares[partida.indice_actual].definicion || partida.pares[partida.indice_actual].derecha;
+        partida.concepto_actual = partida.pares[partida.indice_actual].concepto || partida.pares[partida.indice_actual].izquierda;
+    } else {
+        partida.estado = 'finalizada';
+    }
+
+    localStorage.setItem('bingo_partida_activa', JSON.stringify(partida));
+
+    fetch('/api/bingo/siguiente-definicion', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id_partida: idPartida })
+    }).catch(() => {});
+
+    if (typeof window._actualizarTableroBingoMaestro === 'function') {
+        window._actualizarTableroBingoMaestro(partida);
+    }
+};
+
+// 6.9 Módulo de Celebración Festivo "¡BINGO STEAM!"
+window.dispararCelebracionBingoManual = function(idPartida, ganador = null) {
+    const nombreGanador = ganador ? ganador.nombre : '¡Estudiante de la Clase!';
+    const xpGanado = ganador ? (ganador.xp_ganado || 500) : 500;
+
+    let confetiHTML = '';
+    const colores = ['#6FFFE9', '#F59E0B', '#10B981', '#EC4899', '#3B82F6'];
+    for (let i = 0; i < 30; i++) {
+        const left = Math.floor(Math.random() * 100);
+        const delay = (Math.random() * 2).toFixed(2);
+        const dur = (2 + Math.random() * 2).toFixed(2);
+        const col = colores[i % colores.length];
+        confetiHTML += `<div style="position: absolute; left: ${left}%; top: -20px; width: 10px; height: 10px; background: ${col}; border-radius: 2px; animation: confettiDrop ${dur}s ease-in ${delay}s infinite; pointer-events: none; z-index: 100001;"></div>`;
+    }
+
+    const modal = document.createElement('div');
+    modal.id = 'modal-celebracion-bingo';
+    modal.style.cssText = "position: fixed; inset: 0; background: rgba(11,19,43,0.92); backdrop-filter: blur(10px); display: flex; align-items: center; justify-content: center; z-index: 999999; padding: 20px; font-family: system-ui, sans-serif;";
+    modal.innerHTML = `
+        ${confetiHTML}
+        <div style="background: linear-gradient(135deg, #1C2541, #0B132B); border: 3.5px solid #6FFFE9; border-radius: 28px; padding: 36px 28px; max-width: 520px; width: 100%; text-align: center; box-shadow: 0 0 50px rgba(111,255,233,0.4); position: relative; z-index: 100002; animation: popModal 0.35s cubic-bezier(0.16, 1, 0.3, 1);">
+            <div style="font-size: 4rem; margin-bottom: 6px;">🏆</div>
+            <h1 style="margin: 0 0 8px 0; font-size: 2.3rem; font-weight: 900; color: #6FFFE9; text-shadow: 0 0 20px rgba(111,255,233,0.6); letter-spacing: 1px;">
+                ¡¡BINGO STEAM!!
+            </h1>
+            <p style="color: #FEF08A; font-size: 1.15rem; font-weight: 800; margin: 0 0 16px 0;">
+                ¡Patrón de Victoria Completado y Verificado!
+            </p>
+
+            <div style="background: rgba(255,255,255,0.06); border: 2px solid #3A506B; border-radius: 18px; padding: 18px; margin-bottom: 22px;">
+                <div style="font-size: 0.8rem; font-weight: 800; color: #94A3B8; text-transform: uppercase;">ESTUDIANTE DESTACADO:</div>
+                <div style="font-size: 1.6rem; font-weight: 900; color: white; margin: 4px 0;">🌟 ${nombreGanador}</div>
+                <div style="display: flex; justify-content: center; gap: 12px; margin-top: 8px;">
+                    <span style="background: #ECFDF5; color: #047857; font-weight: 900; font-size: 0.85rem; padding: 4px 12px; border-radius: 12px; border: 1px solid #A7F3D0;">
+                        ⭐ Calificación: 5.0 (Superior)
+                    </span>
+                    <span style="background: #FEF3C7; color: #92400E; font-weight: 900; font-size: 0.85rem; padding: 4px 12px; border-radius: 12px; border: 1px solid #FDE68A;">
+                        🔥 +${xpGanado} XP
+                    </span>
+                </div>
+            </div>
+
+            <button onclick="document.getElementById('modal-celebracion-bingo')?.remove()" style="background: linear-gradient(135deg, #10B981, #059669); color: white; border: none; padding: 14px 28px; border-radius: 14px; font-weight: 900; font-size: 1.05rem; cursor: pointer; box-shadow: 0 4px 14px rgba(16,185,129,0.4);">
+                ✅ Cerrar Celebración
+            </button>
+        </div>
+    `;
+
+    document.body.appendChild(modal);
+};
+
+// 6.10 Interfaz Digital del Estudiante (Buzón de Tareas)
+window.renderizarCartonEstudianteBingo = function(actividad) {
+    if (!actividad) return;
+
+    const dataIA = actividad.pares ? actividad : (actividad.dataIA || window._aiGameData || {});
+    const pares25 = window.obtener25ParesBingo(actividad, dataIA);
+    const conceptos = pares25.map(p => p.concepto);
+    const patronRequerido = actividad.patron_victoria || 'linea_recta';
+    const idPartida = actividad.id || `bingo_${Date.now()}`;
+
+    const conceptosBarajados = window.fisherYatesShuffle(conceptos).slice(0, 24);
+
+    const celdasMarcadas = new Set();
+    let aciertos = 0;
+    let errores = 0;
+    let yaGano = false;
+
+    const user = (typeof window.obtenerUsuarioActual === 'function') ? window.obtenerUsuarioActual() : null;
+    const docEst = (user && (user.documento || user.usuario)) || window.usuario_actual || 'estudiante_steam';
+    const nomEst = (user && (user.nombres || user.nombre || user.nombre_completo)) || 'Estudiante STEAM';
+
+    let modalCarton = document.getElementById('modal-carton-bingo-estudiante');
+    if (!modalCarton) {
+        modalCarton = document.createElement('div');
+        modalCarton.id = 'modal-carton-bingo-estudiante';
+        modalCarton.style.cssText = "position: fixed; inset: 0; background: #0F172A; z-index: 999999; display: flex; flex-direction: column; overflow-y: auto; font-family: system-ui, -apple-system, sans-serif;";
+        document.body.appendChild(modalCarton);
+    }
+
+    const renderVistaEstudiante = (definicionActualServidor = "Esperando que el docente cante la primera definición...") => {
+        modalCarton.innerHTML = `
+            <div style="flex: 1; max-width: 580px; margin: 0 auto; width: 100%; padding: 16px; display: flex; flex-direction: column; justify-content: space-between;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                    <div>
+                        <h2 style="margin: 0; font-size: 1.25rem; font-weight: 900; color: #38BDF8;">
+                            🎯 Mi Cartón BINGO STEAM
+                        </h2>
+                        <p style="margin: 2px 0 0 0; color: #94A3B8; font-size: 0.78rem;">
+                            Patrón: <b>${patronRequerido.replace(/_/g, ' ').toUpperCase()}</b>
+                        </p>
+                    </div>
+                    <button onclick="document.getElementById('modal-carton-bingo-estudiante')?.remove()" style="background: #334155; color: white; border: none; padding: 6px 12px; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 0.8rem;">
+                        ✖ Salir
+                    </button>
+                </div>
+
+                <div style="background: linear-gradient(135deg, #1E293B, #0F172A); border: 2px solid #3B82F6; border-radius: 14px; padding: 12px; text-align: center; margin-bottom: 14px; box-shadow: 0 4px 15px rgba(59,130,246,0.25);">
+                    <div style="font-size: 0.72rem; font-weight: 800; color: #60A5FA; text-transform: uppercase; margin-bottom: 4px;">
+                        📢 DEFINICIÓN CANTADA EN VIVO:
+                    </div>
+                    <div id="estudiante-bingo-definicion" style="font-size: 0.98rem; font-weight: 800; color: #FEF08A; min-height: 48px; display: flex; align-items: center; justify-content: center;">
+                        "${definicionActualServidor}"
+                    </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; margin-bottom: 14px;">
+                    ${Array.from({ length: 25 }).map((_, idx) => {
+                        if (idx === 12) {
+                            return `
+                                <div style="background: #10B981; color: white; border: 2px solid #059669; border-radius: 8px; min-height: 52px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; font-size: 0.75rem; font-weight: 900; padding: 2px; box-shadow: 0 2px 8px rgba(16,185,129,0.3);">
+                                    <span>⭐</span>
+                                    <span>LIBRE</span>
+                                </div>
+                            `;
+                        }
+                        const conceptoTexto = idx < 12 ? conceptosBarajados[idx] : conceptosBarajados[idx - 1];
+                        const estaMarcada = celdasMarcadas.has(idx);
+                        const bgCelda = estaMarcada ? 'linear-gradient(135deg, #2563EB, #1D4ED8)' : '#1E293B';
+                        const borderCelda = estaMarcada ? '#60A5FA' : '#334155';
+                        const shadowCelda = estaMarcada ? '0 0 10px rgba(96,165,250,0.5)' : 'none';
+
+                        return `
+                            <div onclick="window.tocarConceptoCartonBingo(${idx}, '${conceptoTexto.replace(/'/g, "\\'")}')" style="background: ${bgCelda}; color: white; border: 1.5px solid ${borderCelda}; border-radius: 8px; min-height: 52px; display: flex; align-items: center; justify-content: center; text-align: center; font-size: 0.72rem; font-weight: 800; padding: 3px; cursor: pointer; transition: all 0.15s; word-break: break-word; box-shadow: ${shadowCelda};" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">
+                                ${conceptoTexto}
+                            </div>
+                        `;
+                    }).join('')}
+                </div>
+
+                <div style="background: #1E293B; border-radius: 12px; padding: 10px 14px; display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem;">
+                    <div style="color: #94A3B8;">Aciertos: <b style="color: #10B981;">${aciertos}</b> | Fallos: <b style="color: #EF4444;">${errores}</b></div>
+                    <div style="color: #FBBF24; font-weight: 800;">🏆 +500 XP al ganar</div>
+                </div>
+            </div>
+        `;
+    };
+
+    renderVistaEstudiante();
+
+    window.tocarConceptoCartonBingo = function(idx, conceptoTexto) {
+        if (yaGano) return;
+        if (celdasMarcadas.has(idx)) return;
+
+        celdasMarcadas.add(idx);
+        aciertos++;
+
+        renderVistaEstudiante(document.getElementById('estudiante-bingo-definicion')?.innerText.replace(/"/g, '') || '');
+
+        const victoria = window.verificarPatronVictoriaBingo(celdasMarcadas, patronRequerido);
+        if (victoria && !yaGano) {
+            yaGano = true;
+            window.declararVictoriaBingoEstudiante(idPartida, docEst, nomEst, aciertos, errores);
+        }
+    };
+
+    window.declararVictoriaBingoEstudiante = async function(idPartida, idEst, nomEst, hits, miss) {
+        window.dispararCelebracionBingoManual(idPartida, { nombre: nomEst, xp_ganado: 500 });
+
+        if (typeof window.guardarCalificacionActividad === 'function') {
+            window.guardarCalificacionActividad({
+                id_estudiante: idEst,
+                id_actividad: idPartida,
+                calificacion: 5.0,
+                titulo_actividad: `Gran Bingo STEAM: ${actividad.tema || 'Ciencias'} (¡GANADOR!)`,
+                tipo_herramienta: 'bingo_steam',
+                materia: actividad.materia || 'Ciencias Naturales',
+                grupo: actividad.grupo || '7C',
+                detalles: { aciertos: hits, errores: miss, xp_otorgado: 500, resultado: 'BINGO STEAM GANADO' }
+            });
+        }
+
+        try {
+            fetch('/api/bingo/cantar-victoria', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    id_partida: idPartida,
+                    id_estudiante: idEst,
+                    nombre_estudiante: nomEst,
+                    grupo: actividad.grupo || '7C',
+                    aciertos: hits,
+                    errores: miss
+                })
+            }).catch(() => {});
+        } catch(e) {}
+    };
+
+    const pollingInterval = setInterval(async () => {
+        if (!document.getElementById('modal-carton-bingo-estudiante')) {
+            clearInterval(pollingInterval);
+            return;
+        }
+        try {
+            const res = await fetch(`/api/bingo/estado-partida?id_partida=${idPartida}`);
+            if (res.ok) {
+                const state = await res.json();
+                const defEl = document.getElementById('estudiante-bingo-definicion');
+                if (defEl && state.definicion_actual) {
+                    defEl.innerText = `"${state.definicion_actual}"`;
+                }
+                if (state.ganador && !yaGano) {
+                    clearInterval(pollingInterval);
+                    alert(`🏁 ¡La partida de BINGO ha culminado! El estudiante ${state.ganador.nombre} ha cantado BINGO.`);
+                }
+            }
+        } catch(e) {}
+    }, 3500);
+};
+
+// 6.11 Entrada Oficial para la Herramienta en Plataforma
+window.renderizarBingoSteamTool = function(stage, base) {
+    window.configurarBingoSteam(stage, base);
 };
 
 window.girarBalotaBingo = function() {
-    const base = window.obtenerContenidoBaseIngesta();
-    const data = window.generarDatosPedagogicosDinamicos(base.materia, base.grado, base.concepto, base.dificultad);
-    const elegida = data.palabras[Math.floor(Math.random() * data.palabras.length)] || `Principio Clave en ${data.tema}`;
-    const elem = document.getElementById('bingo-balota-actual');
-    if (elem) elem.innerText = `🎯 TÉRMINO: "${elegida}"`;
+    window.avanzarSiguienteDefinicionBingo('bingo_activa');
 };
 
 // 7. SEMÁFORO DE RUIDO AMBIENTAL EN VIVO (Web Audio API)

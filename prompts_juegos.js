@@ -735,78 +735,49 @@ Interfaz de Marcadores y Pantalla Final:
 ● Sistema de Calificación: Al finalizar, el sistema calcula una nota numérica clásica de 1.0 a 5.0 basándose en el porcentaje de puntos obtenidos frente al puntaje máximo posible del tablero.
 ● Modal de Victoria/Fin: Muestra un modal central con confeti (CSS puro), la calificación final obtenida (1.0 a 5.0), el puntaje total acumulado, un mensaje de felicitación según el rendimiento, y un botón grande para "Jugar de nuevo" que reinicie el tablero y el puntaje. Todo el código debe estar debidamente comentado en español.`,
 
-    // 20. Bingo Pedagógico STEAM (Balotera Digital + Generador de 30 Cartones PDF)
-    bingo_steam: (tema, nivel, instruccion) => `Bingo Pedagógico STEAM (Balotera Digital Proyectable + Generador de 30 Cartones PDF)
+    // 20. Bingo Pedagógico STEAM (Balotera Digital Proyectable + Generador de 30 Cartones PDF 5x5)
+    bingo_steam: (tema, nivel, instruccion) => `Bingo Pedagógico STEAM (Balotera Digital Proyectable + Generador de Cartones 5x5)
 TEMA PRINCIPAL: ${tema}
 NIVEL EDUCATIVO: ${nivel}
-INSTRUCCIÓN: ${instruccion || 'Gira la balotera digital en el aula mientras los estudiantes marcan los conceptos en sus cartones impresos.'}
+INSTRUCCIÓN: ${instruccion || 'El docente canta la definición analítica y los estudiantes deben deducir y marcar el concepto correspondiente en su cartón 5x5.'}
 
 Actúa como un desarrollador frontend senior, diseñador UX y pedagogo especialista en gamificación STEAM.
 
 FASE 1: GENERACIÓN DE CONTENIDO EDUCATIVO (CONCEPTOS Y DEFINICIONES)
-1. Define EXACTAMENTE entre 20 y 25 conceptos clave, términos científicos o principios fundamentales sobre "${tema}".
-2. Para cada concepto, redacta una pista o definición pedagógica concisa (1 o 2 líneas) que el docente cantará o proyectará con la balotera digital.
+1. Define EXACTAMENTE 25 conceptos clave, términos científicos o principios fundamentales sobre "${tema}".
+2. Para cada concepto, redacta una definición pedagógica analítica y profunda (1 o 2 oraciones) que desafíe al estudiante a inferir el concepto sin que la respuesta sea obvia.
 
 FASE 2: DESARROLLO DEL INTERACTIVO EN ARCHIVO ÚNICO .html (HTML5, CSS3 y JS Vanilla sin librerías externas ni CDNs)
 
 REQUISITOS TÉCNICOS Y FUNCIONALES:
-1. Estructura y Lógica Dinámica (Balotera Digital en Pantalla):
+1. Estructura y Lógica Dinámica (Balotera Digital en Pantalla - Vista Docente):
    - Escenario interactivo para el docente proyectable en pantalla gigante:
      * Título: "🎯 Gran Bingo Pedagógico STEAM: ${tema}".
-     * Visor central prominente de balotera que muestra el concepto cantado actual.
-     * Botón táctil grande: "🎲 Girar Balotera / Cantar Siguiente Término".
-     * Panel de historial con las balotas/conceptos ya cantados.
-     * Botón de reinicio de partida.
+     * VISOR CENTRAL DE BALOTERA COGNITIVA: Muestra en tamaño grande y alta legibilidad LA DEFINICIÓN (el concepto permanece oculto para obligar al análisis cognitivo de los estudiantes).
+     * BOTÓN MAESTRO DE AVANCE: "⏩ Cantar Siguiente Definición". El juego avanza exclusivamente cuando el docente lo presiona.
+     * Panel de historial lateral o inferior que registra cronológicamente los pares ya cantados (concepto y definición) para verificación rápida.
+     * Selector de Patrón de Victoria: Cartón Lleno, Cuatro Esquinas, Línea Recta, Letra X, Letra L.
+     * Módulo de Celebración Festivo: Banner animado con confeti que grita "¡BINGO STEAM!" al verificarse un ganador, con botón manual de activación docente.
 
-2. GENERADOR MATEMÁTICO DE 30 CARTONES IMPRIMIBLES (REQUISITO ESTRICTO):
-   - En la interfaz debe incluirse el botón: "📄 Imprimir 30 Cartones PDF".
-   - EL BOTÓN NO DEBE HACER SOLO window.print(). DEBE ejecutar obligatoriamente una función JavaScript que:
-     a) Baraje (shuffle) matemáticamente el banco de 20-25 conceptos para construir EXACTAMENTE 30 matrices únicas (cartones) distintas e irrepetibles.
-     b) La cuadrícula de cada cartón debe ser de 3x3 (9 casillas) o 4x4 (16 casillas), con la casilla central como "⭐ STEAM LIBRE".
-     c) Inyecte dinámicamente estas 30 cuadrículas HTML dentro de un contenedor dedicado: <div id="print-area"></div>.
-     d) Cada cartón generado dentro de #print-area debe contener:
-        - Encabezado: "🎯 BINGO PEDAGÓGICO STEAM — ${tema}".
-        - Subtítulo: "Estudiante: _______________________ Grado: ${nivel} • Cartón N.° [1 al 30]".
-        - Cuadrícula con bordes sólidos negros y celdas legibles.
-     e) Inmediatamente tras poblar #print-area con los 30 cartones, ejecutar window.print().
+2. GENERADOR MATEMÁTICO DE CARTONES IMPRIMIBLES 5x5 (REQUISITO ESTRICTO):
+   - Botón: "📄 Imprimir Cartones PDF".
+   - Ejecuta un algoritmo de barajado matemático (Fisher-Yates) que distribuye los 25 conceptos para construir 30 matrices únicas (cartones 5x5) distintas e irrepetibles con casilla central "⭐ STEAM LIBRE".
+   - Cada cartón generado dentro de #print-area debe contener:
+     * Encabezado: "🎯 BINGO PEDAGÓGICO STEAM — ${tema}".
+     * Subtítulo: "Estudiante: _______________________ Grado: ${nivel} • Cartón N.° [1 al 40]".
+     * Cuadrícula 5x5 con bordes sólidos y tipografía clara.
 
 3. CSS DE IMPRESIÓN ESTRICTO (@media print):
-   - Configura la regla @media print para ocultar completamente la interfaz del juego y mostrar únicamente el área de cartones:
+   - Oculta la interfaz del juego y muestra únicamente #print-area (2 cartones por hoja).
      @media print {
-       body > *:not(#print-area) {
-         display: none !important;
-       }
-       #print-area {
-         display: block !important;
-         position: absolute;
-         left: 0;
-         top: 0;
-         width: 100%;
-       }
-       .carton-bingo {
-         page-break-inside: avoid;
-         break-inside: avoid;
-         border: 2px solid #000;
-         padding: 10px;
-         box-sizing: border-box;
-         width: 48%;
-         display: inline-block;
-         vertical-align: top;
-         margin-bottom: 15px;
-       }
-       .pagina-impresion {
-         page-break-after: always;
-         break-after: page;
-         display: flex;
-         flex-wrap: wrap;
-         justify-content: space-between;
-       }
+       body > *:not(#print-area) { display: none !important; }
+       #print-area { display: block !important; position: absolute; left: 0; top: 0; width: 100%; }
+       .carton-bingo { page-break-inside: avoid; break-inside: avoid; border: 2px solid #000; padding: 8px; box-sizing: border-box; width: 48%; display: inline-block; vertical-align: top; margin-bottom: 12px; }
      }
-   - Distribuir 2 o 4 cartones por hoja tamaño carta para optimizar el papel.
-   - En pantalla normal (@media screen), #print-area debe tener display: none;.
 
-4. Gamificación y Final de Partida:
-   - Botón de verificación y modal de victoria festivo con confeti CSS cuando un alumno cante "¡BINGO STEAM!", mostrando calificación 5.0 y emitiendo postMessage({ tipo: 'juego_completado', victoria: true, xp: 250 }, '*').`
+4. Gamificación y Evaluación Formativa:
+   - Emisión de postMessage({ tipo: 'juego_completado', victoria: true, xp: 500, calificacion: 5.0 }, '*') al declarar victoria.
+   - Evaluación formativa automática (escala 1.0 a 5.0) basada en precisión de aciertos vs errores.`
 };
 
 // Aliases para soportar todos los identificadores posibles (con prefijo 'juego_', abreviaciones y nombres exactos)
@@ -912,11 +883,59 @@ Devuelve ÚNICAMENTE un objeto JSON estricto procesable directamente por el fron
 }`;
 }
 
+function obtenerPromptJsonBingo(tema, nivel, instruccion) {
+    const t = tema || 'Conceptos Fundamentales STEAM';
+    const n = nivel || 'Secundaria / Bachillerato';
+    const i = instruccion || 'Deduce el concepto a partir de la definición y márcalo en tu cartón.';
+    return `Actúa como especialista pedagógico en evaluación socioformativa y gamificación educativa STEAM.
+Tu tarea es generar un objeto JSON estricto (SIN bloques markdown, SIN texto antes ni después) que contenga EXACTAMENTE 25 pares ordenados de conceptos y definiciones sobre "${t}" adaptados a nivel ${n} para un Bingo Pedagógico STEAM con cuadrícula de 5x5.
+
+REGLAS PEDAGÓGICAS ESTRICTAS:
+1. "pares" debe contener exactamente 25 objetos.
+2. "concepto": Término clave corto (1 a 3 palabras).
+3. "definicion": Definición analítica y conceptual profunda (1 o 2 oraciones) que desafíe al estudiante a inferir el término sin que aparezca la palabra en la definición.
+
+ESTRUCTURA JSON EXACTA OBLIGATORIA:
+{
+  "tema": "${t}",
+  "nivel": "${n}",
+  "instruccion": "${i}",
+  "pares": [
+    {"concepto": "Concepto 1", "definicion": "Definición analítica pedagógica 1..."},
+    {"concepto": "Concepto 2", "definicion": "Definición analítica pedagógica 2..."},
+    {"concepto": "Concepto 3", "definicion": "Definición analítica pedagógica 3..."},
+    {"concepto": "Concepto 4", "definicion": "Definición analítica pedagógica 4..."},
+    {"concepto": "Concepto 5", "definicion": "Definición analítica pedagógica 5..."},
+    {"concepto": "Concepto 6", "definicion": "Definición analítica pedagógica 6..."},
+    {"concepto": "Concepto 7", "definicion": "Definición analítica pedagógica 7..."},
+    {"concepto": "Concepto 8", "definicion": "Definición analítica pedagógica 8..."},
+    {"concepto": "Concepto 9", "definicion": "Definición analítica pedagógica 9..."},
+    {"concepto": "Concepto 10", "definicion": "Definición analítica pedagógica 10..."},
+    {"concepto": "Concepto 11", "definicion": "Definición analítica pedagógica 11..."},
+    {"concepto": "Concepto 12", "definicion": "Definición analítica pedagógica 12..."},
+    {"concepto": "Concepto 13", "definicion": "Definición analítica pedagógica 13..."},
+    {"concepto": "Concepto 14", "definicion": "Definición analítica pedagógica 14..."},
+    {"concepto": "Concepto 15", "definicion": "Definición analítica pedagógica 15..."},
+    {"concepto": "Concepto 16", "definicion": "Definición analítica pedagógica 16..."},
+    {"concepto": "Concepto 17", "definicion": "Definición analítica pedagógica 17..."},
+    {"concepto": "Concepto 18", "definicion": "Definición analítica pedagógica 18..."},
+    {"concepto": "Concepto 19", "definicion": "Definición analítica pedagógica 19..."},
+    {"concepto": "Concepto 20", "definicion": "Definición analítica pedagógica 20..."},
+    {"concepto": "Concepto 21", "definicion": "Definición analítica pedagógica 21..."},
+    {"concepto": "Concepto 22", "definicion": "Definición analítica pedagógica 22..."},
+    {"concepto": "Concepto 23", "definicion": "Definición analítica pedagógica 23..."},
+    {"concepto": "Concepto 24", "definicion": "Definición analítica pedagógica 24..."},
+    {"concepto": "Concepto 25", "definicion": "Definición analítica pedagógica 25..."}
+  ]
+}`;
+}
+
 if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { PROMPTS_JUEGOS, obtenerPromptJuego, obtenerPromptJsonEmparejamiento };
+    module.exports = { PROMPTS_JUEGOS, obtenerPromptJuego, obtenerPromptJsonEmparejamiento, obtenerPromptJsonBingo };
 }
 if (typeof window !== 'undefined') {
     window.PROMPTS_JUEGOS = PROMPTS_JUEGOS;
     window.obtenerPromptJuego = obtenerPromptJuego;
     window.obtenerPromptJsonEmparejamiento = obtenerPromptJsonEmparejamiento;
+    window.obtenerPromptJsonBingo = obtenerPromptJsonBingo;
 }

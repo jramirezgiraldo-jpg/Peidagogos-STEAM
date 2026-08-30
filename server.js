@@ -1427,6 +1427,19 @@ Debes generar EXACTAMENTE entre 8 y 10 objetos en el arreglo "pares" con la estr
 Garantiza que los conceptos sean concisos y las definiciones claras, rigurosas y adaptadas al nivel escolar.`;
         }
 
+        if (['bingo', 'bingo_steam', 'juego_bingo_steam', 'juego_bingo'].includes(String(tipoFinal).toLowerCase())) {
+            promptIA += `\n\nREGLA ESTRICTA PARA BINGO PEDAGÓGICO STEAM (EXACTAMENTE 25 PARES 5x5):
+Para esta herramienta ("${tipoFinal}"), debes generar un arreglo "pares" con EXACTAMENTE 25 objetos estructurados para alimentar una cuadrícula de 5x5.
+Cada par debe contener:
+{
+  "concepto": "Término corto (1 a 3 palabras)",
+  "definicion": "Definición analítica, pedagógica y clara que rete al estudiante sin nombrar explícitamente el concepto",
+  "izquierda": "Término corto",
+  "derecha": "Definición analítica"
+}
+Asegúrate de que los 25 pares correspondan a ${temaFinal} para grado ${gradoFinal}°.`;
+        }
+
         let rawContent = "";
         let finalError = null;
 
@@ -1620,6 +1633,32 @@ Garantiza que los conceptos sean concisos y las definiciones claras, rigurosas y
                 ],
                 fallback_local: true
             };
+        }
+
+        // Garantizar exactamente 25 pares para Bingo Pedagógico STEAM
+        if (['bingo', 'bingo_steam', 'juego_bingo_steam', 'juego_bingo'].includes(String(tipoFinal).toLowerCase())) {
+            if (!Array.isArray(jsonJuego.pares) || jsonJuego.pares.length < 25) {
+                const terminosSTEAM = [
+                    "Hipótesis", "Variable", "Teoría", "Experimento", "Evidencia",
+                    "Método", "Observación", "Inferencia", "Análisis", "Conclusión",
+                    "Modelo", "Datos", "Postulado", "Lógica", "Inducción",
+                    "Deducción", "Principio", "Ley", "Sistema", "Energía",
+                    "Materia", "Proceso", "Síntesis", "Evaluación", "Innovación"
+                ];
+                const paresBase = Array.isArray(jsonJuego.pares) ? jsonJuego.pares : [];
+                const paresCompletos = [];
+                for (let i = 0; i < 25; i++) {
+                    const conceptoBase = (paresBase[i] && (paresBase[i].concepto || paresBase[i].izquierda)) || terminosSTEAM[i];
+                    const defBase = (paresBase[i] && (paresBase[i].definicion || paresBase[i].derecha)) || `Principio conceptual fundamental de ${temaFinal} aplicado en ${materiaFinal} (${i+1}).`;
+                    paresCompletos.push({
+                        concepto: conceptoBase,
+                        definicion: defBase,
+                        izquierda: conceptoBase,
+                        derecha: defBase
+                    });
+                }
+                jsonJuego.pares = paresCompletos;
+            }
         }
 
         // Normalización final
@@ -2408,6 +2447,302 @@ app.get('/api/calificaciones-estudiante', (req, res) => {
         });
     } catch(err) {
         res.status(500).json({ error: err.message });
+    }
+});
+
+// ============================================================================
+// MOTOR DE GAMIFICACIÓN HÍBRIDA: BINGO PEDAGÓGICO STEAM EN VIVO
+// ============================================================================
+
+// Memoria en caliente para partidas activas (con persistencia en bingo_partidas.json)
+let partidasBingoActivas = {};
+try {
+    const discoBingo = readJSON('bingo_partidas.json');
+    if (discoBingo && typeof discoBingo === 'object') {
+        partidasBingoActivas = discoBingo;
+    }
+} catch(e) {}
+
+function guardarPartidasBingoDisco() {
+    try {
+        writeJSON('bingo_partidas.json', partidasBingoActivas);
+    } catch(e) {}
+}
+
+// 1. Crear o reiniciar partida de Bingo en Vivo
+app.post('/api/bingo/crear-partida', (req, res) => {
+    try {
+        const body = req.body || {};
+        const id_partida = String(body.id_partida || `bingo_${Date.now()}`).trim();
+        const docente_id = String(body.docente_id || '').trim();
+        const grupo = String(body.grupo || 'Todos').trim();
+        const tema = String(body.tema || 'Conceptos Fundamentales STEAM').trim();
+        const materia = String(body.materia || 'Ciencias Naturales').trim();
+        const modalidad = String(body.modalidad || 'digital').trim(); // 'digital' o 'impreso'
+        const patron_victoria = String(body.patron_victoria || 'linea_recta').trim(); // 'carton_lleno', 'cuatro_esquinas', 'linea_recta', 'letra_x', 'letra_l'
+        const cantidad_cartones = parseInt(body.cantidad_cartones) || 30;
+
+        let pares = Array.isArray(body.pares) ? body.pares : [];
+        if (pares.length < 25) {
+            while (pares.length < 25) {
+                const idx = pares.length + 1;
+                pares.push({
+                    concepto: `Principio ${idx}`,
+                    definicion: `Definición conceptual correspondiente al principio ${idx} en el marco de ${tema}.`,
+                    izquierda: `Principio ${idx}`,
+                    derecha: `Definición conceptual correspondiente al principio ${idx}.`
+                });
+            }
+        }
+
+        const nuevaPartida = {
+            id_partida,
+            docente_id,
+            grupo,
+            tema,
+            materia,
+            modalidad,
+            patron_victoria,
+            cantidad_cartones,
+            pares,
+            indice_actual: 0,
+            definicion_actual: (pares[0] && (pares[0].definicion || pares[0].derecha)) || '',
+            concepto_actual: (pares[0] && (pares[0].concepto || pares[0].izquierda)) || '',
+            historial_cantadas: [],
+            ganador: null,
+            estado: 'en_curso',
+            fecha_inicio: new Date().toISOString()
+        };
+
+        partidasBingoActivas[id_partida] = nuevaPartida;
+        if (grupo) {
+            partidasBingoActivas[`grupo_${grupo.toLowerCase()}`] = id_partida;
+        }
+        guardarPartidasBingoDisco();
+
+        console.log(`[BINGO_STEAM] Partida creada: ID="${id_partida}", Grupo="${grupo}", Modalidad="${modalidad}", Patrón="${patron_victoria}"`);
+        return res.json({ status: "success", partida: nuevaPartida });
+    } catch(err) {
+        console.error('[BINGO_STEAM] Error en crear-partida:', err);
+        return res.status(500).json({ error: err.message });
+    }
+});
+
+// 2. Consultar el estado en tiempo real de una partida
+app.get('/api/bingo/estado-partida', (req, res) => {
+    try {
+        const id_partida = String(req.query.id_partida || '').trim();
+        const grupo = String(req.query.grupo || '').trim().toLowerCase();
+
+        let partida = null;
+        if (id_partida && partidasBingoActivas[id_partida]) {
+            partida = partidasBingoActivas[id_partida];
+        } else if (grupo && partidasBingoActivas[`grupo_${grupo}`]) {
+            const idRef = partidasBingoActivas[`grupo_${grupo}`];
+            partida = partidasBingoActivas[idRef];
+        } else {
+            const keys = Object.keys(partidasBingoActivas).filter(k => !k.startsWith('grupo_'));
+            if (keys.length > 0) {
+                partida = partidasBingoActivas[keys[keys.length - 1]];
+            }
+        }
+
+        if (!partida) {
+            return res.status(404).json({ error: "No hay ninguna partida de Bingo activa en este momento." });
+        }
+
+        return res.json({
+            status: "success",
+            id_partida: partida.id_partida,
+            tema: partida.tema,
+            materia: partida.materia,
+            grupo: partida.grupo,
+            modalidad: partida.modalidad,
+            patron_victoria: partida.patron_victoria,
+            indice_actual: partida.indice_actual,
+            total_balotas: partida.pares.length,
+            definicion_actual: partida.definicion_actual,
+            concepto_actual: req.query.es_docente === 'true' ? partida.concepto_actual : undefined,
+            historial_cantadas: partida.historial_cantadas,
+            ganador: partida.ganador,
+            estado: partida.estado
+        });
+    } catch(err) {
+        return res.status(500).json({ error: err.message });
+    }
+});
+
+// 3. Botón Maestro de Avance: Cantar siguiente definición (Solo docente)
+app.post('/api/bingo/siguiente-definicion', (req, res) => {
+    try {
+        const id_partida = String(req.body.id_partida || '').trim();
+        let partida = partidasBingoActivas[id_partida];
+        if (!partida) {
+            const keys = Object.keys(partidasBingoActivas).filter(k => !k.startsWith('grupo_'));
+            if (keys.length > 0) partida = partidasBingoActivas[keys[keys.length - 1]];
+        }
+
+        if (!partida) return res.status(404).json({ error: "Partida no encontrada." });
+        if (partida.estado === 'finalizada') {
+            return res.json({ status: "finalizada", mensaje: "La partida ya ha culminado.", partida });
+        }
+
+        if (partida.concepto_actual && !partida.historial_cantadas.some(h => h.concepto === partida.concepto_actual)) {
+            partida.historial_cantadas.push({
+                concepto: partida.concepto_actual,
+                definicion: partida.definicion_actual,
+                numero: partida.indice_actual + 1,
+                hora: new Date().toLocaleTimeString('es-CO')
+            });
+        }
+
+        const siguienteIdx = partida.indice_actual + 1;
+        if (siguienteIdx >= partida.pares.length) {
+            partida.estado = 'finalizada';
+            guardarPartidasBingoDisco();
+            return res.json({
+                status: "agotadas",
+                mensaje: "Se han cantado todas las 25 definiciones disponibles.",
+                historial_cantadas: partida.historial_cantadas,
+                partida
+            });
+        }
+
+        partida.indice_actual = siguienteIdx;
+        const parSiguiente = partida.pares[siguienteIdx];
+        partida.concepto_actual = parSiguiente.concepto || parSiguiente.izquierda;
+        partida.definicion_actual = parSiguiente.definicion || parSiguiente.derecha;
+
+        guardarPartidasBingoDisco();
+
+        return res.json({
+            status: "success",
+            indice_actual: partida.indice_actual,
+            total_balotas: partida.pares.length,
+            definicion_actual: partida.definicion_actual,
+            concepto_actual: partida.concepto_actual,
+            historial_cantadas: partida.historial_cantadas
+        });
+    } catch(err) {
+        return res.status(500).json({ error: err.message });
+    }
+});
+
+// 4. Cantar Victoria: BINGO STEAM (Estudiante digital o confirmación manual docente)
+app.post('/api/bingo/cantar-victoria', (req, res) => {
+    try {
+        const body = req.body || {};
+        const id_partida = String(body.id_partida || '').trim();
+        const id_estudiante = String(body.id_estudiante || 'estudiante_ganador').trim();
+        const nombre_estudiante = String(body.nombre_estudiante || 'Estudiante STEAM').trim();
+        const grupo = String(body.grupo || '').trim();
+
+        let partida = partidasBingoActivas[id_partida];
+        if (!partida) {
+            const keys = Object.keys(partidasBingoActivas).filter(k => !k.startsWith('grupo_'));
+            if (keys.length > 0) partida = partidasBingoActivas[keys[keys.length - 1]];
+        }
+
+        const ganadorInfo = {
+            id_estudiante,
+            nombre: nombre_estudiante,
+            grupo: grupo || (partida ? partida.grupo : ''),
+            fecha: new Date().toISOString(),
+            calificacion: 5.0,
+            xp_ganado: 500,
+            patron: (partida && partida.patron_victoria) || 'BINGO STEAM'
+        };
+
+        if (partida) {
+            partida.ganador = ganadorInfo;
+            partida.estado = 'finalizada';
+            guardarPartidasBingoDisco();
+        }
+
+        // Persistir automáticamente la calificación 5.0 y XP en la planilla del docente
+        try {
+            const fechaActual = new Date().toISOString();
+            const docRegCal = {
+                id_estudiante,
+                id_actividad: (partida && partida.id_partida) ? partida.id_partida : `bingo_${Date.now()}`,
+                calificacion: 5.0,
+                fecha: fechaActual,
+                nombre_estudiante,
+                grupo: ganadorInfo.grupo,
+                materia: (partida && partida.materia) || 'Ciencias Naturales',
+                titulo_actividad: `Gran Bingo Pedagógico STEAM: ${(partida && partida.tema) || 'STEAM'} (¡GANADOR!)`,
+                tipo_herramienta: 'bingo_steam',
+                desempeno: 'Superior',
+                detalles: {
+                    premio: '¡Ganador Oficial BINGO STEAM!',
+                    xp_otorgado: 500,
+                    patron: ganadorInfo.patron
+                }
+            };
+
+            let docs = readJSON('docentes.json') || [];
+            docs.forEach(d => {
+                if (!Array.isArray(d.planilla)) d.planilla = [];
+                const idxP = d.planilla.findIndex(p => p.id_estudiante === id_estudiante && p.id_actividad === docRegCal.id_actividad);
+                if (idxP >= 0) d.planilla[idxP] = { ...d.planilla[idxP], ...docRegCal };
+                else d.planilla.push(docRegCal);
+            });
+            writeJSON('docentes.json', docs);
+
+            let usrs = readJSON('usuarios.json') || [];
+            const est = usrs.find(u => normalizarStr(u.documento || u.id || u.usuario) === normalizarStr(id_estudiante));
+            if (est) {
+                if (!Array.isArray(est.calificaciones)) est.calificaciones = [];
+                est.calificaciones.push(docRegCal);
+                est.xp = (parseInt(est.xp) || 0) + 500;
+                writeJSON('usuarios.json', usrs);
+            }
+        } catch(eCal) {
+            console.warn('[BINGO_STEAM] Advertencia al registrar nota ganador:', eCal.message);
+        }
+
+        console.log(`[BINGO_STEAM] 🏆 ¡VICTORIA DECLARADA! Ganador: ${nombre_estudiante} (${id_estudiante}), Nota: 5.0, +500 XP`);
+
+        return res.json({
+            status: "success",
+            mensaje: "¡BINGO STEAM verificado exitosamente!",
+            ganador: ganadorInfo
+        });
+    } catch(err) {
+        return res.status(500).json({ error: err.message });
+    }
+});
+
+// 5. Evaluar a un estudiante por precisión (aciertos vs fallos)
+app.post('/api/bingo/evaluar-estudiante', (req, res) => {
+    try {
+        const body = req.body || {};
+        const id_estudiante = String(body.id_estudiante || '').trim();
+        const id_partida = String(body.id_partida || '').trim();
+        const aciertos = parseInt(body.aciertos) || 0;
+        const errores = parseInt(body.errores) || 0;
+        const total = Math.max(1, aciertos + errores);
+
+        if (!id_estudiante) return res.status(400).json({ error: "Falta id_estudiante" });
+
+        let nota = 1.0 + (aciertos / total) * 4.0;
+        nota = Number(Math.max(1.0, Math.min(5.0, nota)).toFixed(1));
+
+        let desempeno = 'Bajo';
+        if (nota >= 4.6) desempeno = 'Superior';
+        else if (nota >= 4.0) desempeno = 'Alto';
+        else if (nota >= 3.0) desempeno = 'Básico';
+
+        return res.json({
+            status: "success",
+            id_estudiante,
+            calificacion: nota,
+            desempeno,
+            aciertos,
+            errores
+        });
+    } catch(err) {
+        return res.status(500).json({ error: err.message });
     }
 });
 
