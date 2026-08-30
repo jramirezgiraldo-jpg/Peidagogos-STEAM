@@ -13051,7 +13051,7 @@ window.ejecutarGeneracionJuegoIA = async function(opciones = {}) {
         }
 
         // Comportamiento original para Caja 1 (actividades estructuradas tradicionales)
-        const payload = { materia, grado, tema, dificultad: 'media' };
+        const payload = { toolType: tool?.id || '', materia, grado, tema, instruccion, dificultad: 'media' };
         const res = await fetch('/api/generate-tool-ai', {
             method: 'POST',
             headers: headers,
@@ -13868,9 +13868,11 @@ window.prepararHerramientaIA = async function(base, stage) {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
+                toolType: base.herramienta_id || base.id || '',
                 materia: base.materia,
                 grado: base.grado,
-                tema: base.concepto,
+                tema: base.concepto || base.tema || '',
+                instruccion: base.instruccion || '',
                 dificultad: base.dificultad
             })
         });

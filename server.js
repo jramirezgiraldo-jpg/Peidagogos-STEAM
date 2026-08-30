@@ -1719,6 +1719,105 @@ Cada objeto debe contener exactamente:
 Asegúrate de que los conceptos sean altamente representativos de ${temaFinal}.`;
         }
 
+        // ── MENTEFACTO CONCEPTUAL (Pedagogía Conceptual — Zubiría Samper) ──
+        if (['mentefacto', 'mentefacto_conceptual', 'juego_mentefacto', 'mentefacto_novak'].includes(String(tipoFinal).toLowerCase())) {
+            promptIA += `\n\nREGLA ESTRICTA PARA MENTEFACTO CONCEPTUAL (PEDAGOGÍA CONCEPTUAL — ZUBIRÍA SAMPER):
+TEMA ESPECÍFICO A TRABAJAR: "${temaFinal}" — Materia: ${materiaFinal} — Grado: ${gradoFinal}°
+
+🚫 PROHIBIDO ABSOLUTO:
+- NO uses frases genéricas como "Bases teóricas de la asignatura", "Conceptos fundamentales", ni repitas el nombre del grado, periodo o asignatura como si fueran el concepto.
+- NO inventes categorías vagas. Cada campo debe contener conocimiento científico/académico REAL y verificable sobre "${temaFinal}".
+
+✅ ESTRUCTURA OBLIGATORIA DEL MENTEFACTO (JSON estricto con la clave "mentefacto"):
+{
+  "mentefacto": {
+    "concepto_central": "${temaFinal} — el concepto exacto tal como el docente lo ingresó",
+    "supraordinada": "La categoría científica SUPERIOR que incluye a '${temaFinal}'. Ejemplo si tema=Célula: 'Unidad fundamental de la vida'. Debe ser una categoría real, no una paráfrasis.",
+    "isoordinadas": [
+      "Propiedad intrínseca 1 que define a '${temaFinal}' y lo distingue de otros conceptos hermanos. Ej. si tema=Célula: 'Posee membrana plasmática'",
+      "Propiedad intrínseca 2 real y verificable de '${temaFinal}'",
+      "Propiedad intrínseca 3 que es característica exclusiva de '${temaFinal}'"
+    ],
+    "exclusiones": [
+      "Concepto hermano o similar que se CONFUNDE con '${temaFinal}' pero NO es lo mismo. Ej. si tema=Célula: 'Virus — no tiene metabolismo propio ni se reproduce de forma independiente'",
+      "Otro concepto que el estudiante podría confundir con '${temaFinal}'"
+    ],
+    "infraordinadas": [
+      "Subtipo o especie específica de '${temaFinal}'. Ej. si tema=Célula: 'Célula procariota (sin núcleo delimitado)'",
+      "Otro subtipo específico de '${temaFinal}'. Ej: 'Célula eucariota (con núcleo membranoso)'"
+    ],
+    "definicion_formal": "Definición científica precisa de '${temaFinal}' alineada con los DBA del MEN para grado ${gradoFinal}°. Mínimo 2 oraciones. Debe citar propiedades esenciales, no accidentales.",
+    "ejemplo_contextualizado": "Ejemplo concreto y observable de '${temaFinal}' en el contexto colombiano o cotidiano del estudiante de ${gradoFinal}°"
+  }
+}`;
+        }
+
+        // ── MAPA CONCEPTUAL (Modelo Novak — Proposiciones Lógicas) ──
+        if (['mapa_conceptual', 'mapa_novak', 'mapa_mental', 'juego_mapa_conceptual', 'mapa conceptual'].includes(String(tipoFinal).toLowerCase())) {
+            promptIA += `\n\nREGLA ESTRICTA PARA MAPA CONCEPTUAL — MODELO NOVAK (PROPOSICIONES LÓGICAS REALES):
+TEMA ESPECÍFICO A TRABAJAR: "${temaFinal}" — Materia: ${materiaFinal} — Grado: ${gradoFinal}°
+
+🚫 PROHIBIDO ABSOLUTO:
+- NO uses nodos genéricos como "Características", "Importancia", "Tipos", "Definición" sin contenido real.
+- NO conectes nodos con verbos vacíos como "tiene", "es" sin precisión científica.
+- NO repitas el grado, periodo, materia ni nombre de institución como si fueran conceptos del mapa.
+
+✅ REGLAS DE CONSTRUCCIÓN (Modelo Novak):
+1. El nodo raíz es EXACTAMENTE "${temaFinal}".
+2. Cada proposición = Nodo1 + [verbo conector científico] + Nodo2. Ej: "Célula" → "se clasifica en" → "Procariota".
+3. Los verbos conectores deben ser precisos: "se divide en", "está formada por", "realiza", "produce", "regula", "interactúa con", "se diferencia de", "depende de".
+4. Genera EXACTAMENTE entre 8 y 12 nodos conceptuales concretos sobre "${temaFinal}".
+5. Genera EXACTAMENTE entre 8 y 12 enlaces/aristas, cada uno con su verbo conector.
+
+JSON obligatorio con la clave "mapa_conceptual":
+{
+  "mapa_conceptual": {
+    "nodo_raiz": "${temaFinal}",
+    "nodos": [
+      {"id": 1, "concepto": "Nombre exacto de un componente, subtipo o propiedad REAL de '${temaFinal}'"},
+      {"id": 2, "concepto": "Otro componente/propiedad REAL de '${temaFinal}'"}
+    ],
+    "enlaces": [
+      {"origen": 0, "destino": 1, "conector": "verbo conector científico preciso (ej: 'se clasifica en', 'está compuesta por')"},
+      {"origen": 1, "destino": 2, "conector": "otro verbo conector científico"}
+    ],
+    "proposiciones_legibles": [
+      "'${temaFinal}' [verbo conector] [Nodo 1] — proposición completa y científicamente válida",
+      "[Nodo 1] [verbo conector] [Nodo 2] — segunda proposición"
+    ]
+  }
+}`;
+        }
+
+        // ── NUBE DE PALABRAS (Densidad conceptual diferenciada) ──
+        if (['nube_palabras', 'nube de palabras', 'nube_conceptos', 'word_cloud', 'wordcloud'].includes(String(tipoFinal).toLowerCase())) {
+            promptIA += `\n\nREGLA ESTRICTA PARA NUBE DE PALABRAS (DENSIDAD CONCEPTUAL DIFERENCIADA):
+TEMA ESPECÍFICO A TRABAJAR: "${temaFinal}" — Materia: ${materiaFinal} — Grado: ${gradoFinal}°
+
+🚫 PROHIBIDO ABSOLUTO:
+- NO uses palabras genéricas de relleno como "Aprendizaje", "Educación", "Ciencia", "Conocimiento", "Tema", "Grado", "Periodo".
+- TODOS los términos deben pertenecer EXCLUSIVAMENTE al campo conceptual REAL de "${temaFinal}".
+
+✅ REGLAS DE CONSTRUCCIÓN:
+1. Genera EXACTAMENTE 20 palabras clave específicas sobre "${temaFinal}".
+2. Asigna un peso (1-5) proporcional a la importancia conceptual: 5=concepto central, 4=concepto estructural, 3=propiedad clave, 2=concepto relacionado, 1=término secundario.
+3. Las palabras de peso 5 deben ser los conceptos más importantes de "${temaFinal}" (máximo 2-3 palabras de peso 5).
+4. Las palabras de peso 1 deben ser términos técnicos específicos del área, no palabras comunes.
+
+JSON obligatorio con la clave "nube_palabras":
+{
+  "nube_palabras": {
+    "tema": "${temaFinal}",
+    "palabras": [
+      {"texto": "TÉRMINO_ESPECÍFICO_DE_${temaFinal.toUpperCase()}", "peso": 5, "categoria": "concepto_central"},
+      {"texto": "COMPONENTE_REAL", "peso": 4, "categoria": "concepto_estructural"},
+      {"texto": "PROPIEDAD_ESPECÍFICA", "peso": 3, "categoria": "propiedad_clave"}
+    ]
+  }
+}
+Garantiza que TODAS las palabras sean términos científicos o técnicos REALES usados en el estudio de "${temaFinal}" para ${gradoFinal}° de ${materiaFinal}.`;
+        }
+
         let rawContent = "";
         let finalError = null;
 
