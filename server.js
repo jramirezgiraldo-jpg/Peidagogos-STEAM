@@ -1459,6 +1459,25 @@ Para esta herramienta ("${tipoFinal}"), genera un reto de lógica matemática ad
 Define "tamano" (4 para primaria, 6 para secundaria, o 9 para media), "subFilas", "subCols", y un arreglo "conceptos_asociados" con términos STEAM clave de ${temaFinal}.`;
         }
 
+        if (['laberinto', 'laberinto_decisiones', 'laberinto_logico', 'juego_laberinto', 'laberinto_nodos'].includes(String(tipoFinal).toLowerCase())) {
+            promptIA += `\n\nREGLA ESTRICTA PARA LABERINTO LÓGICO DE DECISIONES STEAM (MÍNIMO 8 NODOS):
+Para esta herramienta ("${tipoFinal}"), NO generes crucigramas ni texto plano. Debes generar un árbol narrativo interactivo ramificado en formato JSON estricto con un arreglo "nodos" de AL MENOS 8 escenas pedagógicas sobre ${temaFinal} para grado ${gradoFinal}°.
+Cada nodo debe contener exactamente:
+{
+  "id": "identificador_unico" (ej: "inicio", "n1_muestreo", "n2_analisis", "meta_exito", "falla_desierto", etc.),
+  "tipo": "inicio" | "decision" | "finalExito" | "finalFalla",
+  "texto": "Descripción inmersiva de la situación (mínimo 2-3 oraciones claras y contextualizadas)",
+  "opciones": [
+    {
+      "texto_opcion": "Descripción de la decisión o acción a tomar",
+      "nodo_destino": "id_del_nodo_destino",
+      "peso_evaluativo": 5.0
+    }
+  ]
+}
+Asegúrate de incluir al menos 1 nodo "finalExito" y al menos 1 nodo "finalFalla" con retroalimentación constructiva.`;
+        }
+
         let rawContent = "";
         let finalError = null;
 
@@ -1715,6 +1734,91 @@ Define "tamano" (4 para primaria, 6 para secundaria, o 9 para media), "subFilas"
             jsonJuego.subFilas = tamano === 4 ? 2 : (tamano === 6 ? 2 : 3);
             jsonJuego.subCols = tamano === 4 ? 2 : (tamano === 6 ? 3 : 3);
             jsonJuego.tipo_herramienta = 'sudoku_steam';
+        }
+
+        // Garantizar árbol narrativo válido de al menos 8 nodos para Laberinto de Decisiones STEAM
+        if (['laberinto', 'laberinto_decisiones', 'laberinto_logico', 'juego_laberinto', 'laberinto_nodos'].includes(String(tipoFinal).toLowerCase())) {
+            jsonJuego.tipo_herramienta = 'laberinto_decisiones';
+            if (!Array.isArray(jsonJuego.nodos) || jsonJuego.nodos.length < 8) {
+                const temaLab = jsonJuego.tema || temaFinal || 'Investigación y Pensamiento Crítico STEAM';
+                jsonJuego.nodos = [
+                    {
+                        id: "inicio",
+                        tipo: "inicio",
+                        texto: `Comienza una trascendental expedición científica sobre ${temaLab}. Tu equipo debe recolectar datos rigurosos y tomar decisiones éticas. ¿Cuál es tu primer paso metodológico?`,
+                        opciones: [
+                            { texto_opcion: "🔬 Calibrar instrumentos y diseñar protocolo de muestreo", nodo_destino: "n1_protocolo", peso_evaluativo: 5.0 },
+                            { texto_opcion: "⚡ Iniciar recolección inmediata en campo sin calibración", nodo_destino: "n2_recoleccion_rapida", peso_evaluativo: 2.5 }
+                        ]
+                    },
+                    {
+                        id: "n1_protocolo",
+                        tipo: "decision",
+                        texto: "Con los instrumentos calibrados, detectas una anomalía crítica en las muestras del ecosistema. Los pobladores locales expresan preocupación por el agua comunitaria.",
+                        opciones: [
+                            { texto_opcion: "🤝 Dialogar con líderes comunitarios y triangular datos con saberes ancestrales", nodo_destino: "n3_dialogo_comunitario", peso_evaluativo: 5.0 },
+                            { texto_opcion: "🧪 Aislarte en laboratorio y descartar las observaciones de los pobladores", nodo_destino: "n4_aislamiento", peso_evaluativo: 3.0 }
+                        ]
+                    },
+                    {
+                        id: "n2_recoleccion_rapida",
+                        tipo: "decision",
+                        texto: "Las muestras presentan valores contradictorios debido a la falta de calibración inicial. El tiempo se agota y los reactivos son escasos.",
+                        opciones: [
+                            { texto_opcion: "🔄 Detenerte, reconocer el error y recalibrar el equipo con rigor", nodo_destino: "n1_protocolo", peso_evaluativo: 4.5 },
+                            { texto_opcion: "📊 Alterar los datos para que coincidan con la hipótesis esperada", nodo_destino: "falla_fraude", peso_evaluativo: 1.0 }
+                        ]
+                    },
+                    {
+                        id: "n3_dialogo_comunitario",
+                        tipo: "decision",
+                        texto: "La comunidad te guía hacia una fuente tributaria oculta donde descubren una alteración química imprevista. Tienes los datos suficientes para formular una solución.",
+                        opciones: [
+                            { texto_opcion: "🌱 Diseñar un plan de biorremediación participativo y sostenible", nodo_destino: "meta_excelencia", peso_evaluativo: 5.0 },
+                            { texto_opcion: "🏭 Aplicar químicos sintéticos masivos sin evaluar impacto ambiental", nodo_destino: "falla_contaminacion", peso_evaluativo: 2.0 }
+                        ]
+                    },
+                    {
+                        id: "n4_aislamiento",
+                        tipo: "decision",
+                        texto: "Al ignorar el contexto local, tus análisis tardan demasiado y no logras identificar el origen puntual del problema. La comunidad pierde confianza en la ciencia.",
+                        opciones: [
+                            { texto_opcion: "📢 Rectificar, abrir el laboratorio a la comunidad y presentar hallazgos", nodo_destino: "meta_recuperacion", peso_evaluativo: 4.0 },
+                            { texto_opcion: "🚪 Abandonar el proyecto sin presentar conclusiones claras", nodo_destino: "falla_abandono", peso_evaluativo: 1.5 }
+                        ]
+                    },
+                    {
+                        id: "meta_excelencia",
+                        tipo: "finalExito",
+                        texto: `🏆 ¡Misión Científica Extraordinaria! Lograste una solución interdisciplinaria, ética y rigurosa sobre ${temaLab}. Tu liderazgo STEAM garantizó la sostenibilidad del ecosistema y el bienestar social.`,
+                        opciones: []
+                    },
+                    {
+                        id: "meta_recuperacion",
+                        tipo: "finalExito",
+                        texto: `🌿 ¡Éxito Formativo! Aunque hubo obstáculos iniciales, supiste rectificar con humildad científica y compromiso ético sobre ${temaLab}, alcanzando una solución viable.`,
+                        opciones: []
+                    },
+                    {
+                        id: "falla_contaminacion",
+                        tipo: "finalFalla",
+                        texto: `⚠️ Error de Impacto Ecológico: La aplicación indiscriminada de químicos alteró la biodiversidad. En la ciencia STEAM, el principio de precaución y la evaluación de impacto ambiental deben primar siempre.`,
+                        opciones: []
+                    },
+                    {
+                        id: "falla_fraude",
+                        tipo: "finalFalla",
+                        texto: `❌ Falta Ética Grave: La alteración de datos invalida cualquier investigación científica. La honestidad e integridad metodológica son la base inquebrantable de la ciencia.`,
+                        opciones: []
+                    },
+                    {
+                        id: "falla_abandono",
+                        tipo: "finalFalla",
+                        texto: `⚠️ Misión Inconclusa: Desistir ante la complejidad dejó desamparada a la comunidad. La resiliencia y la comunicación asertiva son competencias científicas fundamentales.`,
+                        opciones: []
+                    }
+                ];
+            }
         }
 
         // Normalización final

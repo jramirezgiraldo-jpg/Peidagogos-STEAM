@@ -792,6 +792,9 @@ PROMPTS_JUEGOS['juego_emparejar'] = PROMPTS_JUEGOS.emparejar;
 PROMPTS_JUEGOS['juego_concentrese'] = PROMPTS_JUEGOS.concentrese;
 PROMPTS_JUEGOS['juego_laberinto'] = PROMPTS_JUEGOS.laberinto_decisiones;
 PROMPTS_JUEGOS['laberinto'] = PROMPTS_JUEGOS.laberinto_decisiones;
+PROMPTS_JUEGOS['laberinto_decisiones'] = PROMPTS_JUEGOS.laberinto_decisiones;
+PROMPTS_JUEGOS['laberinto_logico'] = PROMPTS_JUEGOS.laberinto_decisiones;
+PROMPTS_JUEGOS['laberinto_nodos'] = PROMPTS_JUEGOS.laberinto_decisiones;
 PROMPTS_JUEGOS['juego_tap_sort'] = PROMPTS_JUEGOS.tap_sort;
 PROMPTS_JUEGOS['clasificador_tapsort'] = PROMPTS_JUEGOS.tap_sort;
 PROMPTS_JUEGOS['juego_escape_room'] = PROMPTS_JUEGOS.scape_room;
@@ -996,8 +999,47 @@ ESTRUCTURA JSON EXACTA OBLIGATORIA:
 }`;
 }
 
+function obtenerPromptJsonLaberinto(tema, nivel, instruccion) {
+    const t = tema || 'Toma de Decisiones y Pensamiento Crítico STEAM';
+    const n = nivel || 'Educación Básica/Media';
+    const i = instruccion || 'Toma decisiones estratégicas en cada escenario para superar la misión pedagógica.';
+    return `Actúa como diseñador instruccional senior y arquitecto de narrativas interactivas ramificadas (Branching Story) en Peidagogos STEAM.
+Tu tarea es generar un objeto JSON estricto (SIN bloques markdown, SIN texto antes ni después) con un árbol narrativo de AL MENOS 8 NODOS (escenas) sobre "${t}" para grado ${n}.
+
+ESTRUCTURA DE NODOS OBLIGATORIA:
+1. "nodos": Arreglo con mínimo 8 objetos estructurados.
+2. Cada nodo DEBE incluir:
+   - "id": Identificador único (ej: "inicio", "n1_muestreo", "n2_observacion", "meta_exito", "falla_desierto", etc.)
+   - "tipo": Uno de los siguientes valores exactos: "inicio", "decision", "finalExito", "finalFalla".
+   - "texto": Narración inmersiva, detallada y pedagógica de la situación (mínimo 2-3 oraciones).
+   - "opciones": Arreglo de opciones de decisión (vacío [] si tipo es "finalExito" o "finalFalla"; 2 o 3 opciones si es "inicio" o "decision").
+     Cada opción DEBE contener:
+     * "texto_opcion": Acción o elección reflexiva que tomará el estudiante.
+     * "nodo_destino": ID del nodo al cual avanza la historia.
+     * "peso_evaluativo": Número entre 1.0 y 5.0 evaluando la pertinencia pedagógica de esta opción.
+
+ESTRUCTURA JSON EXACTA OBLIGATORIA:
+{
+  "tema": "${t}",
+  "nivel": "${n}",
+  "instruccion": "${i}",
+  "nodo_inicial": "inicio",
+  "nodos": [
+    {
+      "id": "inicio",
+      "tipo": "inicio",
+      "texto": "Situación inicial que plantea el dilema de investigación científica...",
+      "opciones": [
+        { "texto_opcion": "Opción A reflexiva y ética", "nodo_destino": "n1", "peso_evaluativo": 5.0 },
+        { "texto_opcion": "Opción B apresurada o riesgosa", "nodo_destino": "n2", "peso_evaluativo": 3.0 }
+      ]
+    }
+  ]
+}`;
+}
+
 if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { PROMPTS_JUEGOS, obtenerPromptJuego, obtenerPromptJsonEmparejamiento, obtenerPromptJsonBingo, obtenerPromptJsonDomino };
+    module.exports = { PROMPTS_JUEGOS, obtenerPromptJuego, obtenerPromptJsonEmparejamiento, obtenerPromptJsonBingo, obtenerPromptJsonDomino, obtenerPromptJsonLaberinto };
 }
 if (typeof window !== 'undefined') {
     window.PROMPTS_JUEGOS = PROMPTS_JUEGOS;
@@ -1005,4 +1047,5 @@ if (typeof window !== 'undefined') {
     window.obtenerPromptJsonEmparejamiento = obtenerPromptJsonEmparejamiento;
     window.obtenerPromptJsonBingo = obtenerPromptJsonBingo;
     window.obtenerPromptJsonDomino = obtenerPromptJsonDomino;
+    window.obtenerPromptJsonLaberinto = obtenerPromptJsonLaberinto;
 }

@@ -9608,6 +9608,16 @@ window.abrirActividadDesdeInbox = function(id) {
         return;
     }
 
+    // Si la actividad es Laberinto Lógico de Decisiones STEAM
+    const esLaberinto = (actividad.toolId && actividad.toolId.includes('laberinto')) ||
+                        (actividad.tipo_actividad && actividad.tipo_actividad.includes('laberinto')) ||
+                        (actividad.toolTitulo && actividad.toolTitulo.toLowerCase().includes('laberinto')) ||
+                        (actividad.titulo && actividad.titulo.toLowerCase().includes('laberinto'));
+    if (esLaberinto && typeof window.renderizarLaberintoModal === 'function') {
+        window.renderizarLaberintoModal(actividad);
+        return;
+    }
+
     // Si la actividad cuenta con interactivo HTML5 generado de Caja 2
     if (actividad.htmlJuego || (actividad.actividad_data && actividad.actividad_data.htmlJuego)) {
         const htmlCode = actividad.htmlJuego || actividad.actividad_data.htmlJuego;
@@ -13887,8 +13897,7 @@ window.ejecutarRenderizadorHerramienta = function(id, stage, base) {
         case 'juego_laberinto':
         case 'laberinto_logico':
         case 'laberinto':
-            if (typeof window.renderizarJuegoLaberinto === 'function') window.renderizarJuegoLaberinto(stage, base);
-            else window.renderizarLaberintoLogicoTool(stage, base);
+            window.renderizarLaberintoDecisiones(stage, base);
             break;
         case 'tap_sort':
         case 'juego_tap_sort':
@@ -16724,7 +16733,9 @@ window.renderizarSudokuSteamTool = function(stage, base) {
     window.iniciarJuegoSudokuInteractivo(stage, base);
 };
 
-window.renderizarLaberintoLogicoTool = function(stage, base) { window.renderizarCrucigramaTool(stage, base); };
+window.renderizarLaberintoLogicoTool = function(stage, base) {
+    window.renderizarLaberintoDecisiones(stage, base);
+};
 
 window.renderizarPictionaryTabuTool = function(stage, base) {
     const data = window.generarDatosPedagogicosDinamicos(base.materia, base.grado, base.concepto, base.dificultad);
@@ -22361,50 +22372,392 @@ window.renderizarJuegoConcentrese = function(stage, base) {
     });
 };
 
-// 5. LABERINTO DE DECISIONES (`juego_laberinto`)
-window.renderizarJuegoLaberinto = function(stage, base) {
-    const dataIA = window._aiGameData || {};
-    const nodos = (dataIA.nodos && dataIA.nodos.length) ? dataIA.nodos : [
-        { id: "inicio", texto: "Te encuentras en la entrada de una expedición científica sobre Ecosistemas. ¿Qué ruta eliges?", opciones: [{ texto: "🌲 Explorar el bosque tropical", siguiente: "n1" }, { texto: "🏜️ Adentrarte en el desierto", siguiente: "n2" }] },
-        { id: "n1", texto: "Encuentras una especie endémica en peligro. ¿Cómo procedes?", opciones: [{ texto: "📸 Registrar coordenadas y notificar biólogos", siguiente: "meta" }, { texto: "🌿 Extraer la planta del suelo", siguiente: "trampa1" }] },
-        { id: "n2", texto: "El calor es extremo y las reservas de agua son bajas. ¿Qué decisión tomas?", opciones: [{ texto: "🧭 Buscar refugio con sombra", siguiente: "meta" }, { texto: "🏃 Correr sin descanso", siguiente: "trampa2" }] },
-        { id: "trampa1", texto: "❌ Alteraste el ecosistema y la misión fue cancelada.", opciones: [{ texto: "🔄 Reintentar", siguiente: "inicio" }] },
-        { id: "trampa2", texto: "❌ Sufriste deshidratación y perdiste la ruta.", opciones: [{ texto: "🔄 Reintentar", siguiente: "inicio" }] },
-        { id: "meta", texto: "🏆 ¡Excelente decisión! Completaste la misión científica con éxito.", opciones: [] }
+// ============================================================================
+// 5. MOTOR NARRATIVO Y DE PENSAMIENTO CRÍTICO: LABERINTO DE DECISIONES STEAM
+// ============================================================================
+
+window.renderizarLaberintoDecisiones = function(stage, base) {
+    base = base || {};
+    const dataIA = window._aiGameData || base.dataIA || base.actividad_data || {};
+    const temaLab = base.tema || dataIA.tema || base.concepto || 'Investigación y Toma de Decisiones STEAM';
+    const gradoLab = base.grado || dataIA.grado || '7';
+
+    // 1. Árbol de nodos por defecto (mínimo 8 nodos con ramificaciones)
+    const nodosFallback = [
+        {
+            id: "inicio",
+            tipo: "inicio",
+            texto: `Comienza una trascendental expedición científica sobre ${temaLab}. Tu equipo debe recolectar datos rigurosos y tomar decisiones éticas en el territorio. ¿Cuál es tu primer paso metodológico?`,
+            opciones: [
+                { texto_opcion: "🔬 Calibrar instrumentos y diseñar protocolo de muestreo", nodo_destino: "n1_protocolo", peso_evaluativo: 5.0 },
+                { texto_opcion: "⚡ Iniciar recolección inmediata en campo sin calibración previa", nodo_destino: "n2_recoleccion_rapida", peso_evaluativo: 2.5 }
+            ]
+        },
+        {
+            id: "n1_protocolo",
+            tipo: "decision",
+            texto: "Con los sensores calibrados, detectas una anomalía crítica en el ecosistema. Los líderes comunitarios expresan honda preocupación por la calidad del agua de la cuenca.",
+            opciones: [
+                { texto_opcion: "🤝 Dialogar con la comunidad y triangular datos científicos con saberes ancestrales", nodo_destino: "n3_dialogo_comunitario", peso_evaluativo: 5.0 },
+                { texto_opcion: "🧪 Aislarte en laboratorio y descartar las observaciones de los pobladores", nodo_destino: "n4_aislamiento", peso_evaluativo: 3.0 }
+            ]
+        },
+        {
+            id: "n2_recoleccion_rapida",
+            tipo: "decision",
+            texto: "Las muestras presentan valores contradictorios y erráticos por la falta de calibración inicial. Los reactivos son escasos y el tiempo apremia.",
+            opciones: [
+                { texto_opcion: "🔄 Detenerte, reconocer el error y recalibrar el equipo con rigor metodológico", nodo_destino: "n1_protocolo", peso_evaluativo: 4.5 },
+                { texto_opcion: "📊 Modificar los datos para ajustarlos artificialmente a la hipótesis esperada", nodo_destino: "falla_fraude", peso_evaluativo: 1.0 }
+            ]
+        },
+        {
+            id: "n3_dialogo_comunitario",
+            tipo: "decision",
+            texto: "La comunidad te guía hacia una fuente oculta donde descubren una alteración química imprevista. Tienes la evidencia empírica suficiente para proponer una intervención.",
+            opciones: [
+                { texto_opcion: "🌱 Diseñar un plan de biorremediación participativo, ecológico y sostenible", nodo_destino: "meta_excelencia", peso_evaluativo: 5.0 },
+                { texto_opcion: "🏭 Aplicar químicos sintéticos masivos sin evaluar impacto en la biodiversidad", nodo_destino: "falla_contaminacion", peso_evaluativo: 2.0 }
+            ]
+        },
+        {
+            id: "n4_aislamiento",
+            tipo: "decision",
+            texto: "Al prescindir del contexto territorial, tus análisis se retrasan y no logras identificar el origen puntual del problema. La comunidad pierde confianza en la investigación.",
+            opciones: [
+                { texto_opcion: "📢 Rectificar, abrir el laboratorio a la comunidad y socializar hallazgos", nodo_destino: "meta_recuperacion", peso_evaluativo: 4.0 },
+                { texto_opcion: "🚪 Abandonar el proyecto sin presentar conclusiones claras ni recomendaciones", nodo_destino: "falla_abandono", peso_evaluativo: 1.5 }
+            ]
+        },
+        {
+            id: "meta_excelencia",
+            tipo: "finalExito",
+            texto: `🏆 ¡Misión Científica Extraordinaria! Lograste una solución interdisciplinaria, ética y rigurosa sobre ${temaLab}. Tu liderazgo STEAM garantizó la sostenibilidad ambiental y el empoderamiento comunitario.`,
+            opciones: []
+        },
+        {
+            id: "meta_recuperacion",
+            tipo: "finalExito",
+            texto: `🌿 ¡Éxito Formativo! Aunque hubo tropiezos iniciales, supiste rectificar con humildad científica y compromiso ético sobre ${temaLab}, alcanzando una solución viable y concertada.`,
+            opciones: []
+        },
+        {
+            id: "falla_contaminacion",
+            tipo: "finalFalla",
+            texto: `⚠️ Error de Impacto Ecológico: La aplicación masiva de químicos alteró la biodiversidad. En la ciencia STEAM, el principio de precaución y la evaluación de impacto ambiental deben primar siempre sobre la inmediatez.`,
+            opciones: []
+        },
+        {
+            id: "falla_fraude",
+            tipo: "finalFalla",
+            texto: `❌ Falta Ética Grave: La alteración o manipulación de datos invalida cualquier investigación científica. La honestidad, trazabilidad y rigor son pilares indispensables del método científico.`,
+            opciones: []
+        },
+        {
+            id: "falla_abandono",
+            tipo: "finalFalla",
+            texto: `⚠️ Misión Inconclusa: Desistir ante la complejidad dejó desamparada a la comunidad. La resiliencia, perseverancia y comunicación asertiva son competencias científicas esenciales.`,
+            opciones: []
+        }
     ];
 
-    const cabecera = window.crearCabeceraJuego(stage, "🗺️ Laberinto de Decisiones", 110, () => window.renderizarJuegoLaberinto(stage, base));
-    const container = document.createElement('div');
-    container.style.cssText = "max-width: 440px; margin: 0 auto; text-align: left;";
+    // 2. Normalización de Nodos de la IA o Fallback
+    let nodos = Array.isArray(dataIA.nodos) && dataIA.nodos.length >= 8 ? dataIA.nodos : nodosFallback;
+    nodos = nodos.map(nodo => {
+        const rawId = String(nodo.id || '').trim();
+        let tipo = nodo.tipo;
+        if (!tipo) {
+            if (rawId.includes('meta') || rawId.includes('exito')) tipo = 'finalExito';
+            else if (rawId.includes('falla') || rawId.includes('trampa')) tipo = 'finalFalla';
+            else if (rawId === 'inicio') tipo = 'inicio';
+            else tipo = 'decision';
+        }
+        const opcionesNorm = Array.isArray(nodo.opciones) ? nodo.opciones.map(op => ({
+            texto_opcion: op.texto_opcion || op.texto || 'Continuar decisión',
+            nodo_destino: String(op.nodo_destino || op.siguiente || 'inicio'),
+            peso_evaluativo: typeof op.peso_evaluativo === 'number' ? op.peso_evaluativo : (typeof op.peso === 'number' ? op.peso : 4.0)
+        })) : [];
 
-    function renderNode(nodeId) {
+        return {
+            id: rawId,
+            tipo: tipo,
+            texto: nodo.texto || nodo.descripcion || 'Situación del laberinto...',
+            opciones: opcionesNorm
+        };
+    });
+
+    // 3. Estado de la Partida
+    let estado = {
+        nodoActualId: "inicio",
+        historialNodos: ["inicio"],
+        pesosAcumulados: [],
+        pasoActual: 1,
+        juegoTerminado: false
+    };
+
+    // 4. Estructura Principal del Contenedor (Mobile-First)
+    stage.innerHTML = "";
+    const wrapper = document.createElement('div');
+    wrapper.id = "laberinto-game-wrapper";
+    wrapper.style.cssText = "width: 100%; min-height: 520px; background: #f4f6f8; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; padding: 18px 12px; box-sizing: border-box; overflow-y: auto; font-family: system-ui, -apple-system, sans-serif;";
+
+    stage.appendChild(wrapper);
+
+    // 5. Función de Renderizado Dinámico de Escena
+    function renderizarEscena(nodeId, animar = true) {
         const nodo = nodos.find(n => n.id === nodeId) || nodos[0];
-        container.innerHTML = `
-            <div style="background: white; border: 1.5px solid #CBD5E1; border-radius: 16px; padding: 20px; box-shadow: 0 4px 14px rgba(0,0,0,0.05); transition: opacity 0.3s;" id="nodo-box">
-                <div style="font-size: 0.78rem; font-weight: 800; color: #2563EB; text-transform: uppercase; margin-bottom: 8px;">Escenario Activo</div>
-                <p style="margin: 0 0 20px 0; font-size: 0.95rem; font-weight: 700; color: #1E293B; line-height: 1.5;">${nodo.texto}</p>
-                <div style="display: flex; flex-direction: column; gap: 10px;">
-                    ${nodo.opciones.map(op => `
-                        <button data-next="${op.siguiente}" style="background: #F8FAFC; border: 2px solid #3B82F6; color: #1D4ED8; padding: 12px 16px; border-radius: 12px; font-weight: 800; font-size: 0.88rem; cursor: pointer; text-align: left; transition: 0.2s;">
-                            ${op.texto}
-                        </button>
-                    `).join('')}
+        estado.nodoActualId = nodo.id;
+
+        const esFinalExito = nodo.tipo === 'finalExito';
+        const esFinalFalla = nodo.tipo === 'finalFalla';
+        const esFinal = esFinalExito || esFinalFalla;
+
+        // Calcular calificación formativa al llegar al final
+        let calificacion = 5.0;
+        let xpGanado = 200;
+
+        if (esFinal) {
+            estado.juegoTerminado = true;
+            if (estado.pesosAcumulados.length > 0) {
+                const suma = estado.pesosAcumulados.reduce((a, b) => a + b, 0);
+                const prom = suma / estado.pesosAcumulados.length;
+                if (esFinalExito) {
+                    calificacion = Math.min(5.0, Math.max(4.5, prom));
+                } else {
+                    calificacion = Math.min(4.0, Math.max(1.0, prom));
+                }
+            } else {
+                calificacion = esFinalExito ? 5.0 : 3.0;
+            }
+            calificacion = parseFloat(calificacion.toFixed(1));
+            xpGanado = esFinalExito ? 200 : 80;
+
+            // Persistir automáticamente en la planilla del docente
+            const user = (typeof window.obtenerUsuarioActual === 'function') ? window.obtenerUsuarioActual() : null;
+            const estId = (user && (user.documento || user.usuario)) || window.usuario_actual || 'estudiante_steam';
+            const grupo = base.grupo || base.grado || (user && user.grupo) || '7C';
+
+            if (typeof window.guardarCalificacionActividad === 'function') {
+                window.guardarCalificacionActividad({
+                    id_estudiante: estId,
+                    id_actividad: `laberinto_${Date.now()}`,
+                    calificacion: calificacion,
+                    titulo_actividad: `Laberinto Lógico: ${temaLab} (${esFinalExito ? 'ÉXITO' : 'APRENDIZAJE'})`,
+                    tipo_herramienta: 'laberinto_decisiones',
+                    materia: base.materia || 'Pensamiento Crítico y Ciencia STEAM',
+                    grupo: grupo,
+                    detalles: {
+                        nodo_final: nodo.id,
+                        tipo_resultado: nodo.tipo,
+                        decisiones_tomadas: estado.pesosAcumulados.length,
+                        xp_ganado: xpGanado
+                    }
+                });
+            }
+        }
+
+        // Estilos de la tarjeta según tipo de nodo
+        let badgeColor = "#2563EB";
+        let badgeBg = "#EFF6FF";
+        let badgeText = `🧭 DECISIÓN ${estado.pasoActual}`;
+        let cardBorder = "1.5px solid #E2E8F0";
+
+        if (nodo.tipo === 'inicio') {
+            badgeColor = "#059669";
+            badgeBg = "#ECFDF5";
+            badgeText = "🎯 ESCENARIO INICIAL";
+        } else if (esFinalExito) {
+            badgeColor = "#047857";
+            badgeBg = "#D1FAE5";
+            badgeText = "🏆 ¡MISIÓN CIENTÍFICA SUPERADA!";
+            cardBorder = "2.5px solid #10B981";
+        } else if (esFinalFalla) {
+            badgeColor = "#B45309";
+            badgeBg = "#FEF3C7";
+            badgeText = "⚠️ ESCENARIO DE APRENDIZAJE Y REFLEXIÓN";
+            cardBorder = "2.5px solid #F59E0B";
+        }
+
+        wrapper.innerHTML = `
+            <!-- Encabezado con Progreso -->
+            <div style="width: 100%; max-width: 580px; margin-bottom: 12px; text-align: left;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                    <div style="font-size: 0.82rem; font-weight: 900; color: #1E293B; display: flex; align-items: center; gap: 6px;">
+                        <span>🗺️</span> Laberinto de Decisiones: <b>${temaLab}</b>
+                    </div>
+                    <div style="font-size: 0.72rem; color: #64748B; font-weight: 700;">
+                        Grado ${gradoLab}°
+                    </div>
+                </div>
+                <div style="background: #E2E8F0; height: 6px; border-radius: 6px; overflow: hidden;">
+                    <div style="width: ${Math.min(100, (estado.pasoActual / 5) * 100)}%; height: 100%; background: linear-gradient(90deg, #3B82F6, #10B981); transition: width 0.3s;"></div>
                 </div>
             </div>
+
+            <!-- TARJETA CENTRAL (CARD) -->
+            <div id="laberinto-card" style="background: #ffffff; border-radius: 20px; box-shadow: 0 10px 28px rgba(15,23,42,0.06); border: ${cardBorder}; max-width: 580px; width: 100%; padding: 26px 20px; box-sizing: border-box; transition: opacity 0.15s ease-out, transform 0.15s ease-out; opacity: 1; transform: translateY(0);">
+                
+                <!-- Badge de Tipo de Escena -->
+                <div style="display: inline-block; background: ${badgeBg}; color: ${badgeColor}; padding: 4px 12px; border-radius: 12px; font-size: 0.75rem; font-weight: 900; letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 12px;">
+                    ${badgeText}
+                </div>
+
+                <!-- Texto Inmersivo de la Situación (Tipografía Legible >= 16px) -->
+                <div style="font-size: 1.05rem; font-weight: 600; color: #1E293B; line-height: 1.6; margin-bottom: 22px; text-align: left;">
+                    ${nodo.texto}
+                </div>
+
+                ${!esFinal ? `
+                    <!-- OPCIONES DE DECISIÓN (BOTONES ANCHOS Y TÁCTILES MOBILE-FIRST) -->
+                    <div style="font-size: 0.78rem; font-weight: 800; color: #64748B; text-transform: uppercase; margin-bottom: 10px; letter-spacing: 0.5px; text-align: left;">
+                        ¿Qué camino o decisión eliges?
+                    </div>
+                    <div style="display: flex; flex-direction: column; gap: 12px;">
+                        ${nodo.opciones.map((op, idx) => `
+                            <button id="opcion-btn-${idx}" style="width: 100%; padding: 14px 18px; border-radius: 14px; border: 2px solid #3B82F6; background: #F8FAFC; color: #1E40AF; font-size: 0.95rem; font-weight: 800; text-align: left; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 12px; box-shadow: 0 2px 6px rgba(59,130,246,0.08); transition: transform 0.1s, background 0.15s;" onmouseover="this.style.background='#EFF6FF'; this.style.transform='scale(1.01)'" onmouseout="this.style.background='#F8FAFC'; this.style.transform='none'">
+                                <span>${op.texto_opcion}</span>
+                                <span style="font-size: 1.1rem; color: #3B82F6; flex-shrink: 0;">➔</span>
+                            </button>
+                        `).join('')}
+                    </div>
+                ` : `
+                    <!-- PANTALLA FINAL: EVALUACIÓN SOCIOFORMATIVA Y PERSISTENCIA -->
+                    <div style="background: ${esFinalExito ? '#F0FDF4' : '#FFFBEB'}; border: 1.5px solid ${esFinalExito ? '#86EFAC' : '#FDE68A'}; border-radius: 16px; padding: 18px; margin-bottom: 20px; text-align: center;">
+                        
+                        <div style="font-size: 3rem; margin-bottom: 6px;">
+                            ${esFinalExito ? '🎉' : '💡'}
+                        </div>
+
+                        <h3 style="margin: 0 0 6px 0; font-size: 1.35rem; font-weight: 900; color: ${esFinalExito ? '#047857' : '#92400E'};">
+                            ${esFinalExito ? '¡Misión Culminada con Éxito!' : 'Conclusión y Aprendizaje'}
+                        </h3>
+                        
+                        <p style="font-size: 0.85rem; color: #475569; margin: 0 0 16px 0; line-height: 1.4;">
+                            ${esFinalExito 
+                                ? 'Tus decisiones demostraron profundo pensamiento crítico, apego al método científico y responsabilidad ética.' 
+                                : 'Cada error en ciencia es una oportunidad formativa. Analiza el impacto de la ruta elegida y vuelve a intentarlo con nuevas hipótesis.'}
+                        </p>
+
+                        <!-- Puntuación Socioformativa y Recompensa -->
+                        <div style="display: flex; justify-content: space-around; align-items: center; background: white; border-radius: 12px; padding: 12px; border: 1px solid #E2E8F0;">
+                            <div>
+                                <div style="font-size: 0.72rem; color: #64748B; font-weight: 800;">CALIFICACIÓN MEN</div>
+                                <div style="font-size: 2.2rem; font-weight: 900; color: ${calificacion >= 4.0 ? '#059669' : '#D97706'};">
+                                    ${calificacion.toFixed(1)}
+                                </div>
+                                <div style="font-size: 0.72rem; font-weight: 800; color: ${calificacion >= 4.0 ? '#047857' : '#B45309'};">
+                                    ${calificacion >= 4.6 ? 'Superior' : (calificacion >= 4.0 ? 'Alto' : (calificacion >= 3.0 ? 'Básico' : 'Bajo'))}
+                                </div>
+                            </div>
+                            <div style="width: 1px; height: 45px; background: #CBD5E1;"></div>
+                            <div>
+                                <div style="font-size: 0.72rem; color: #64748B; font-weight: 800;">RECOMPENSA</div>
+                                <div style="font-size: 2.2rem; font-weight: 900; color: #D97706;">+${xpGanado}</div>
+                                <div style="font-size: 0.72rem; font-weight: 800; color: #B45309;">Puntos de Experiencia</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Botones de Acción Final: Reintentar y Guardar Oficial -->
+                    <div style="display: flex; flex-direction: column; gap: 10px;">
+                        <button id="btn-reintentar-laberinto" style="width: 100%; padding: 12px 18px; border-radius: 12px; border: 2px solid #CBD5E1; background: #F8FAFC; color: #334155; font-size: 0.92rem; font-weight: 800; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                            <span>🔄</span> Volver a Intentar
+                        </button>
+                        
+                        <!-- BOTÓN OFICIAL DE PERSISTENCIA -->
+                        <button id="btn-guardar-progreso-laberinto" style="width: 100%; padding: 14px 22px; border-radius: 14px; border: none; background: linear-gradient(135deg, #10B981, #059669); color: white; font-size: 1rem; font-weight: 900; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 14px rgba(16,185,129,0.35);">
+                            <span>💾</span> Guardar Progreso & Salir
+                        </button>
+                    </div>
+                `}
+            </div>
         `;
-        if (nodo.id === "meta") {
-            cabecera.stopTimer();
-            setTimeout(() => {
-                window.mostrarModalVictoria("Laberinto Superado", cabecera.getTiempoFormatted(), 110, () => window.renderizarJuegoLaberinto(stage, base));
-            }, 600);
+
+        // Eventos de selección con transición fade-out / fade-in y scroll suave al top
+        if (!esFinal) {
+            nodo.opciones.forEach((op, idx) => {
+                const btn = document.getElementById(`opcion-btn-${idx}`);
+                if (btn) {
+                    btn.onclick = () => {
+                        const card = document.getElementById('laberinto-card');
+                        if (card) {
+                            card.style.opacity = '0';
+                            card.style.transform = 'translateY(8px)';
+                        }
+                        setTimeout(() => {
+                            estado.pesosAcumulados.push(op.peso_evaluativo);
+                            estado.historialNodos.push(op.nodo_destino);
+                            estado.pasoActual++;
+                            renderizarEscena(op.nodo_destino);
+                            wrapper.scrollTop = 0;
+                        }, 150);
+                    };
+                }
+            });
+        } else {
+            const btnReintentar = document.getElementById('btn-reintentar-laberinto');
+            if (btnReintentar) {
+                btnReintentar.onclick = () => {
+                    estado = {
+                        nodoActualId: "inicio",
+                        historialNodos: ["inicio"],
+                        pesosAcumulados: [],
+                        pasoActual: 1,
+                        juegoTerminado: false
+                    };
+                    renderizarEscena("inicio");
+                    wrapper.scrollTop = 0;
+                };
+            }
+
+            const btnGuardar = document.getElementById('btn-guardar-progreso-laberinto');
+            if (btnGuardar) {
+                btnGuardar.onclick = () => {
+                    document.getElementById('modal-laberinto-inbox')?.remove();
+                    if (typeof window.intentarGuardarProgresoYFinalizarClase === 'function') {
+                        window.intentarGuardarProgresoYFinalizarClase();
+                    }
+                };
+            }
         }
-        container.querySelectorAll('button[data-next]').forEach(btn => {
-            btn.onclick = () => renderNode(btn.dataset.next);
-        });
     }
 
-    stage.appendChild(container);
-    renderNode("inicio");
+    // Iniciar desde el primer nodo
+    renderizarEscena("inicio", false);
+};
+
+// Aliases para compatibilidad total
+window.renderizarJuegoLaberinto = window.renderizarLaberintoDecisiones;
+
+// Modal interactivo para el Buzón del Estudiante
+window.renderizarLaberintoModal = function(actividad) {
+    let modal = document.getElementById('modal-laberinto-inbox');
+    if (!modal) {
+        modal = document.createElement('div');
+        modal.id = 'modal-laberinto-inbox';
+        modal.style.cssText = "position: fixed; inset: 0; background: #0F172A; z-index: 999999; display: flex; flex-direction: column; overflow-y: auto; font-family: system-ui, sans-serif; padding: 8px;";
+        document.body.appendChild(modal);
+    }
+
+    modal.innerHTML = `
+        <div style="flex: 1; display: flex; flex-direction: column; max-width: 620px; margin: 0 auto; width: 100%;">
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 8px 12px;">
+                <div style="display: flex; align-items: center; gap: 8px;">
+                    <span style="font-size: 1.5rem;">🗺️</span>
+                    <h3 style="margin: 0; font-size: 1.1rem; font-weight: 900; color: #38BDF8;">
+                        Laberinto Lógico de Decisiones STEAM
+                    </h3>
+                </div>
+                <button onclick="document.getElementById('modal-laberinto-inbox')?.remove()" style="background: #334155; color: white; border: none; padding: 6px 12px; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 0.8rem;">
+                    ✖ Salir
+                </button>
+            </div>
+            <div id="contenedor-laberinto-stage" style="flex: 1; display: flex; flex-direction: column;"></div>
+        </div>
+    `;
+
+    const stageEl = document.getElementById('contenedor-laberinto-stage');
+    window.renderizarLaberintoDecisiones(stageEl, actividad);
 };
 
 // 6. CLASIFICADOR TAP & SORT (`juego_tap_sort`)
