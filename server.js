@@ -289,27 +289,49 @@ Requisitos estrictos:
                 console.error(`[IA DIAPOSITIVAS] Error DeepSeek:`, dsErr.message, '→ Activando fallback Gemini...');
             }
 
-            // Intento 2: Fallback a Gemini si DeepSeek falla o devuelve HTML inválido
+            // Intento 2: Fallback a Gemini REST API si DeepSeek falla o devuelve HTML inválido
             if (!htmlDiapositivas) {
-                const modelosDia = ['gemini-2.5-flash', 'gemini-2.0-flash', 'gemini-flash-latest', 'gemini-1.5-flash'];
+                const modelosDia = ['gemini-2.5-flash', 'gemini-flash-latest', 'gemini-1.5-flash'];
+                const geminiApiKey = apiKeys[0] || process.env.GEMINI_API_KEY || '';
+                const promptDiaConInstruccion = promptDiapositivas + '\n\nREGLA ABSOLUTA: Devuelve SOLO el código HTML completo, empezando con <!DOCTYPE html> y terminando con </html>. Sin texto adicional, sin bloques markdown, sin backticks.';
+
                 for (const modeloDia of modelosDia) {
+                    if (htmlDiapositivas) break;
+                    if (!geminiApiKey) {
+                        console.warn('[IA DIAPOSITIVAS FALLBACK] No hay GEMINI_API_KEY configurada en el servidor.');
+                        break;
+                    }
                     try {
-                        console.log(`[IA DIAPOSITIVAS FALLBACK] Intentando Gemini modelo: ${modeloDia}...`);
-                        const aiDia = getAIClient();
-                        if (!aiDia) break;
-                        const diaResp = await geminiQueue.add(() => aiDia.models.generateContent({
-                            model: modeloDia,
-                            contents: promptDiapositivas + '\n\nIMPORTANTE: Devuelve SOLO el código HTML completo, empezando con <!DOCTYPE html> y terminando con </html>. NO uses bloques markdown ni backticks.'
-                        }));
-                        if (diaResp && diaResp.text) {
-                            htmlDiapositivas = limpiarHTMLDeLaIA(diaResp.text);
-                            if (htmlDiapositivas && htmlDiapositivas.length > 500) {
-                                console.log(`[IA DIAPOSITIVAS FALLBACK] ✅ HTML generado por Gemini ${modeloDia}.`);
-                                break;
+                        console.log(`[IA DIAPOSITIVAS FALLBACK] Intentando Gemini REST: ${modeloDia}...`);
+                        const geminiResp = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${modeloDia}:generateContent?key=${geminiApiKey}`, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({
+                                contents: [{ parts: [{ text: promptDiaConInstruccion }] }],
+                                generationConfig: { temperature: 0.7, maxOutputTokens: 8192 }
+                            })
+                        });
+                        if (geminiResp.ok) {
+                            const geminiData = await geminiResp.json();
+                            const partes = geminiData?.candidates?.[0]?.content?.parts;
+                            const textoGemini = Array.isArray(partes) ? partes.map(p => p.text || '').join('') : '';
+                            if (textoGemini && textoGemini.length > 200) {
+                                htmlDiapositivas = limpiarHTMLDeLaIA(textoGemini);
+                                if (htmlDiapositivas && htmlDiapositivas.length > 500) {
+                                    console.log(`[IA DIAPOSITIVAS FALLBACK] ✅ HTML generado por Gemini REST ${modeloDia} (${htmlDiapositivas.length} chars).`);
+                                } else {
+                                    console.warn(`[IA DIAPOSITIVAS FALLBACK] Gemini ${modeloDia} generó HTML inválido. Probando siguiente...`);
+                                    htmlDiapositivas = '';
+                                }
+                            } else {
+                                console.warn(`[IA DIAPOSITIVAS FALLBACK] Gemini ${modeloDia} devolvió texto vacío/corto.`);
                             }
+                        } else {
+                            const errGemini = await geminiResp.text();
+                            console.warn(`[IA DIAPOSITIVAS FALLBACK] Gemini ${modeloDia} HTTP ${geminiResp.status}:`, errGemini.substring(0, 200));
                         }
                     } catch (gDiaErr) {
-                        console.warn(`[IA DIAPOSITIVAS FALLBACK] Gemini ${modeloDia} falló:`, gDiaErr.message);
+                        console.warn(`[IA DIAPOSITIVAS FALLBACK] Gemini REST ${modeloDia} excepción:`, gDiaErr.message);
                     }
                 }
             }
@@ -2270,6 +2292,9 @@ app.post('/api/login', (req, res) => {
     const normUser = normalizarStr(uInput);
     let cInput = String(clave || '').trim();
     if (!cInput) cInput = uInput; // Si no ingresó contraseña, por defecto es su usuario/documento
+
+    // [DIAGNÓSTICO] Log de intento de login para debugging en Render
+    console.log(`[LOGIN INTENTO] usuario="${uInput}" normUser="${normUser}" rol="${rol || 'N/A'}" DB(usuarios=${global.db.usuarios.length}, docentes=${global.db.docentes.length})`);
 
     let encontrado = false;
     let nombre = "", grado = "", grupo = "", asignatura = "", rol_asignado = "", institucion = "";
