@@ -1440,6 +1440,19 @@ Cada par debe contener:
 Asegúrate de que los 25 pares correspondan a ${temaFinal} para grado ${gradoFinal}°.`;
         }
 
+        if (['domino', 'domino_conceptual', 'juego_domino_conceptual', 'juego_domino'].includes(String(tipoFinal).toLowerCase())) {
+            promptIA += `\n\nREGLA ESTRICTA PARA DOMINÓ CONCEPTUAL STEAM (EXACTAMENTE 7 PARES 0-6):
+Para esta herramienta ("${tipoFinal}"), NO intentes generar las 28 fichas. Debes generar un arreglo "pares" con EXACTAMENTE 7 objetos estructurados que actuarán matemáticamente como los valores del 0 al 6 de un dominó doble-6 tradicional.
+Cada par debe contener:
+{
+  "concepto": "Término clave corto (1 a 3 palabras)",
+  "definicion": "Definición analítica y conceptual profunda adaptada al nivel escolar",
+  "izquierda": "Término clave",
+  "derecha": "Definición analítica"
+}
+Asegúrate de que los 7 pares correspondan fielmente a ${temaFinal} para grado ${gradoFinal}°.`;
+        }
+
         let rawContent = "";
         let finalError = null;
 
@@ -1658,6 +1671,34 @@ Asegúrate de que los 25 pares correspondan a ${temaFinal} para grado ${gradoFin
                     });
                 }
                 jsonJuego.pares = paresCompletos;
+            }
+        }
+
+        // Garantizar exactamente 7 pares para Dominó Conceptual STEAM (Valores 0 a 6)
+        if (['domino', 'domino_conceptual', 'juego_domino_conceptual', 'juego_domino'].includes(String(tipoFinal).toLowerCase())) {
+            if (!Array.isArray(jsonJuego.pares) || jsonJuego.pares.length < 7) {
+                const terminosDomino = [
+                    { c: "Hipótesis", d: "Proposición tentativa contrastable mediante experimentación rigurosa." },
+                    { c: "Variable", d: "Propiedad cuantitativa o cualitativa susceptible de variar y medirse." },
+                    { c: "Teoría", d: "Explicación amplia y coherente sustentada por un cuerpo sólido de evidencias." },
+                    { c: "Experimento", d: "Procedimiento metodológico controlado para verificar una hipótesis." },
+                    { c: "Evidencia", d: "Conjunto de datos observables y objetivos que corroboran una afirmación." },
+                    { c: "Sistema", d: "Estructura organizada de elementos interdependientes en interacción dinámica." },
+                    { c: "Energía", d: "Propiedad de la materia que permite producir trabajo, movimiento o calor." }
+                ];
+                const paresBase = Array.isArray(jsonJuego.pares) ? jsonJuego.pares : [];
+                const pares7 = [];
+                for (let i = 0; i < 7; i++) {
+                    const conceptoBase = (paresBase[i] && (paresBase[i].concepto || paresBase[i].izquierda)) || terminosDomino[i].c;
+                    const defBase = (paresBase[i] && (paresBase[i].definicion || paresBase[i].derecha)) || terminosDomino[i].d;
+                    pares7.push({
+                        concepto: conceptoBase,
+                        definicion: defBase,
+                        izquierda: conceptoBase,
+                        derecha: defBase
+                    });
+                }
+                jsonJuego.pares = pares7;
             }
         }
 

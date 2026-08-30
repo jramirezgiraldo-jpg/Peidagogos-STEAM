@@ -821,6 +821,26 @@ PROMPTS_JUEGOS['memory_cards'] = PROMPTS_JUEGOS.emparejar;
 PROMPTS_JUEGOS['duelo_parejas'] = PROMPTS_JUEGOS.emparejar;
 PROMPTS_JUEGOS['duelo_emparejamiento'] = PROMPTS_JUEGOS.emparejar;
 
+// 21. Dominó Conceptual de Saberes (Motor PvE Estudiante vs Computadora con 28 Fichas)
+PROMPTS_JUEGOS['domino_conceptual'] = (tema, nivel, instruccion) => `Dominó Conceptual de Saberes STEAM (Motor PvE Estudiante vs Computadora con 28 Fichas)
+TEMA PRINCIPAL: ${tema}
+NIVEL EDUCATIVO: ${nivel}
+INSTRUCCIÓN: ${instruccion || 'Juega dominó conectando conceptos científicos con sus definiciones exactas contra la computadora.'}
+
+Actúa como un desarrollador senior de motores de juegos de mesa educativos y especialista pedagógico STEAM.
+
+REGLA DE GENERACIÓN FUNDAMENTAL:
+La IA NO debe intentar generar las 28 fichas. En su lugar, debe generar EXACTAMENTE 7 pares ordenados (7 Conceptos y sus 7 Definiciones adaptadas al nivel escolar) sobre "${tema}".
+Estas 7 duplas actuarán matemáticamente como los números del 0 al 6 de un dominó tradicional (Doble-6), permitiendo al motor combinatorio de Peidagogos STEAM generar el set estándar completo de 28 fichas únicas (7 para el estudiante, 7 para la computadora y 14 en el pozo).
+
+1. Define EXACTAMENTE 7 conceptos clave, términos científicos o principios fundamentales sobre "${tema}".
+2. Para cada concepto, redacta una definición pedagógica analítica y profunda (1 o 2 oraciones) adaptada a grado ${nivel}.
+3. Provee la estructura en formato JSON estricto con los 7 pares para alimentar el motor PvE.`;
+
+PROMPTS_JUEGOS['domino'] = PROMPTS_JUEGOS['domino_conceptual'];
+PROMPTS_JUEGOS['juego_domino'] = PROMPTS_JUEGOS['domino_conceptual'];
+PROMPTS_JUEGOS['juego_domino_conceptual'] = PROMPTS_JUEGOS['domino_conceptual'];
+
 const DIRECTIVAS_UNIVERSALES_STEAM = `
 ================================================================================
 REGLAS UNIVERSALES DE ARQUITECTURA Y CÓDIGO (OBLIGATORIAS PARA TODOS LOS JUEGOS):
@@ -930,12 +950,42 @@ ESTRUCTURA JSON EXACTA OBLIGATORIA:
 }`;
 }
 
+function obtenerPromptJsonDomino(tema, nivel, instruccion) {
+    const t = tema || 'Conceptos Fundamentales STEAM';
+    const n = nivel || 'Educación Básica/Media';
+    const i = instruccion || 'Juega dominó conectando conceptos con sus definiciones en el tablero contra la IA.';
+    return `Actúa como especialista pedagógico en evaluación socioformativa y gamificación educativa STEAM.
+Tu tarea es generar un objeto JSON estricto (SIN bloques markdown, SIN texto antes ni después) que contenga EXACTAMENTE 7 pares ordenados de conceptos y definiciones sobre "${t}" adaptados a nivel ${n} para alimentar un motor de juego de Dominó Conceptual PvE de 28 fichas (Doble-6).
+
+REGLAS PEDAGÓGICAS ESTRICTAS:
+1. "pares" debe contener EXACTAMENTE 7 objetos (representando los valores del 0 al 6 del dominó).
+2. "concepto": Término clave corto (1 a 3 palabras).
+3. "definicion": Definición analítica y conceptual adaptada al nivel escolar (1 oración clara).
+
+ESTRUCTURA JSON EXACTA OBLIGATORIA:
+{
+  "tema": "${t}",
+  "nivel": "${n}",
+  "instruccion": "${i}",
+  "pares": [
+    {"concepto": "Concepto 0", "definicion": "Definición conceptual pedagógica 0..."},
+    {"concepto": "Concepto 1", "definicion": "Definición conceptual pedagógica 1..."},
+    {"concepto": "Concepto 2", "definicion": "Definición conceptual pedagógica 2..."},
+    {"concepto": "Concepto 3", "definicion": "Definición conceptual pedagógica 3..."},
+    {"concepto": "Concepto 4", "definicion": "Definición conceptual pedagógica 4..."},
+    {"concepto": "Concepto 5", "definicion": "Definición conceptual pedagógica 5..."},
+    {"concepto": "Concepto 6", "definicion": "Definición conceptual pedagógica 6..."}
+  ]
+}`;
+}
+
 if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { PROMPTS_JUEGOS, obtenerPromptJuego, obtenerPromptJsonEmparejamiento, obtenerPromptJsonBingo };
+    module.exports = { PROMPTS_JUEGOS, obtenerPromptJuego, obtenerPromptJsonEmparejamiento, obtenerPromptJsonBingo, obtenerPromptJsonDomino };
 }
 if (typeof window !== 'undefined') {
     window.PROMPTS_JUEGOS = PROMPTS_JUEGOS;
     window.obtenerPromptJuego = obtenerPromptJuego;
     window.obtenerPromptJsonEmparejamiento = obtenerPromptJsonEmparejamiento;
     window.obtenerPromptJsonBingo = obtenerPromptJsonBingo;
+    window.obtenerPromptJsonDomino = obtenerPromptJsonDomino;
 }

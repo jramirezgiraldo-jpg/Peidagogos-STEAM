@@ -9588,6 +9588,16 @@ window.abrirActividadDesdeInbox = function(id) {
         return;
     }
 
+    // Si la actividad es Dominó Conceptual de Saberes PvE
+    const esDomino = (actividad.toolId && actividad.toolId.includes('domino')) ||
+                     (actividad.tipo_actividad && actividad.tipo_actividad.includes('domino')) ||
+                     (actividad.toolTitulo && actividad.toolTitulo.toLowerCase().includes('dominó')) ||
+                     (actividad.titulo && actividad.titulo.toLowerCase().includes('dominó'));
+    if (esDomino && typeof window.renderizarDominoPvEModal === 'function') {
+        window.renderizarDominoPvEModal(actividad);
+        return;
+    }
+
     // Si la actividad cuenta con interactivo HTML5 generado de Caja 2
     if (actividad.htmlJuego || (actividad.actividad_data && actividad.actividad_data.htmlJuego)) {
         const htmlCode = actividad.htmlJuego || actividad.actividad_data.htmlJuego;
@@ -15450,26 +15460,734 @@ window.renderizarCriptogramaTool = function(stage, base) {
     `;
 };
 
-window.renderizarDominoConceptualTool = function(stage, base) {
-    const data = window.generarDatosPedagogicosDinamicos(base.materia, base.grado, base.concepto, base.dificultad);
-    stage.innerHTML = `
-        <div style="flex: 1; padding: 25px; background: #F8FAFC; display: flex; flex-direction: column; justify-content: space-between; text-align: center;">
-            <h3 style="margin: 0; font-size: 1.35rem; font-weight: 900; color: #1E1B4B;">🀄 Dominó Conceptual: ${data.tema}</h3>
-            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 12px 0;">
-                ${data.palabras.slice(0, 3).map((w, idx) => `
-                    <div style="background: white; border: 2px solid #1E293B; border-radius: 10px; display: grid; grid-template-columns: 1fr 1fr; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.08);">
-                        <div style="background: #1E293B; color: white; padding: 10px; font-weight: 900; font-size: 0.88rem; display: flex; align-items: center; justify-content: center;">
-                            ${w}
+// ============================================================================
+// MOTOR DE JUEGO DE MESA: DOMINÓ CONCEPTUAL DE SABERES STEAM (PvE 28 FICHAS)
+// ============================================================================
+
+// 1. Extractor y normalizador de exactamente 7 pares (índices 0 al 6)
+window.obtener7ParesDomino = function(base, dataIA) {
+    dataIA = dataIA || window._aiGameData || window._cacheDataDinamicaIA || {};
+    base = base || {};
+
+    const fallback7 = [
+        { concepto: "Fotosíntesis", definicion: "Proceso anabólico celular en plantas que transforma energía solar en glucosa." },
+        { concepto: "Mitocondria", definicion: "Orgánulo celular responsable de la respiración y generación de ATP bioenergético." },
+        { concepto: "ADN", definicion: "Macromolécula helicoidal que almacena las instrucciones genéticas hereditarias." },
+        { concepto: "Ecosistema", definicion: "Comunidad biológica interactuando con los factores abióticos de su hábitat." },
+        { concepto: "Hipótesis", definicion: "Proposición científica tentativa sometida a prueba experimental rigurosa." },
+        { concepto: "Energía", definicion: "Propiedad física para realizar trabajo mecánico, eléctrico, químico o calórico." },
+        { concepto: "Homeostasis", definicion: "Capacidad de autorregulación de los seres vivos para conservar el equilibrio interno." }
+    ];
+
+    let paresCandidatos = [];
+    if (Array.isArray(dataIA.pares) && dataIA.pares.length >= 7) {
+        paresCandidatos = dataIA.pares;
+    } else if (Array.isArray(base.pares) && base.pares.length >= 7) {
+        paresCandidatos = base.pares;
+    } else if (Array.isArray(dataIA.definiciones) && dataIA.definiciones.length >= 7) {
+        paresCandidatos = dataIA.definiciones.map(d => ({
+            concepto: d.palabra || d.concepto || d.termino,
+            definicion: d.pista || d.definicion || d.significado
+        }));
+    }
+
+    const pares7 = [];
+    const usados = new Set();
+
+    paresCandidatos.forEach(p => {
+        const c = String(p.concepto || p.izquierda || p.palabra || '').trim();
+        const d = String(p.definicion || p.derecha || p.pista || '').trim();
+        if (c && d && !usados.has(c.toLowerCase()) && pares7.length < 7) {
+            pares7.push({ concepto: c, definicion: d });
+            usados.add(c.toLowerCase());
+        }
+    });
+
+    for (let i = 0; i < fallback7.length && pares7.length < 7; i++) {
+        const item = fallback7[i];
+        if (!usados.has(item.concepto.toLowerCase())) {
+            pares7.push(item);
+            usados.add(item.concepto.toLowerCase());
+        }
+    }
+
+    return pares7;
+};
+
+// 2. Generador combinatorio de las 28 fichas estándar (Doble-6)
+window.generarSet28FichasDomino = function(pares7) {
+    const fichas = [];
+    for (let i = 0; i <= 6; i++) {
+        for (let j = i; j <= 6; j++) {
+            const id = `f_${i}_${j}`;
+            let ladoA, ladoB, esDoble;
+
+            if (i === j) {
+                esDoble = true;
+                ladoA = { type: 'concepto', index: i, text: pares7[i].concepto, parId: i };
+                ladoB = { type: 'definicion', index: i, text: pares7[i].definicion, parId: i };
+            } else {
+                esDoble = false;
+                if ((i + j) % 2 === 0) {
+                    ladoA = { type: 'concepto', index: i, text: pares7[i].concepto, parId: i };
+                    ladoB = { type: 'definicion', index: j, text: pares7[j].definicion, parId: j };
+                } else {
+                    ladoA = { type: 'definicion', index: i, text: pares7[i].definicion, parId: i };
+                    ladoB = { type: 'concepto', index: j, text: pares7[j].concepto, parId: j };
+                }
+            }
+
+            fichas.push({
+                id: id,
+                valI: i,
+                valJ: j,
+                esDoble: esDoble,
+                peso: i + j,
+                ladoA: ladoA,
+                ladoB: ladoB
+            });
+        }
+    }
+    return fichas;
+};
+
+// 3. Regla conceptual de emparejamiento:
+// Concepto conecta con su Definición exacta del mismo índice, o viceversa.
+window.evaluarConexionDomino = function(ladoFicha, extremoMesa) {
+    if (!ladoFicha || !extremoMesa) return false;
+    return ladoFicha.index === extremoMesa.index && ladoFicha.type !== extremoMesa.type;
+};
+
+// 4. Verificador de jugadas válidas para una ficha en los extremos de la mesa
+window.obtenerJugadasPosiblesFicha = function(ficha, extremoIzq, extremoDer) {
+    const jugadas = [];
+
+    // Evaluar conexión con el extremo izquierdo
+    if (extremoIzq) {
+        if (window.evaluarConexionDomino(ficha.ladoA, extremoIzq)) {
+            jugadas.push({ extremo: 'izq', ladoConector: 'ladoA', nuevoExtremo: ficha.ladoB });
+        } else if (window.evaluarConexionDomino(ficha.ladoB, extremoIzq)) {
+            jugadas.push({ extremo: 'izq', ladoConector: 'ladoB', nuevoExtremo: ficha.ladoA });
+        }
+    }
+
+    // Evaluar conexión con el extremo derecho
+    if (extremoDer) {
+        if (window.evaluarConexionDomino(ficha.ladoA, extremoDer)) {
+            jugadas.push({ extremo: 'der', ladoConector: 'ladoA', nuevoExtremo: ficha.ladoB });
+        } else if (window.evaluarConexionDomino(ficha.ladoB, extremoDer)) {
+            jugadas.push({ extremo: 'der', ladoConector: 'ladoB', nuevoExtremo: ficha.ladoA });
+        }
+    }
+
+    return jugadas;
+};
+
+// 5. Inicialización de la Partida PvE
+window.iniciarPartidaDominoPvE = function(container, base, dataIA) {
+    const pares7 = window.obtener7ParesDomino(base, dataIA);
+    const todasLasFichas = window.generarSet28FichasDomino(pares7);
+    const barajadas = window.fisherYatesShuffle(todasLasFichas);
+
+    // Buscar el doble más alto para la ficha de arranque central
+    let starterIdx = barajadas.findIndex(f => f.valI === 6 && f.valJ === 6);
+    if (starterIdx === -1) starterIdx = barajadas.findIndex(f => f.esDoble);
+    if (starterIdx === -1) starterIdx = 0;
+
+    const fichaInicial = barajadas.splice(starterIdx, 1)[0];
+
+    // Reparto reglamentario: 7 estudiante, 7 computadora, 13 restantes en pozo
+    const manoJugador = barajadas.splice(0, 7);
+    const manoIA = barajadas.splice(0, 7);
+    const pozo = barajadas;
+
+    const mesa = [{
+        ficha: fichaInicial,
+        extremoConectado: 'inicial',
+        ladoIzquierdo: fichaInicial.ladoA,
+        ladoDerecho: fichaInicial.ladoB
+    }];
+
+    window._estadoDominoPvE = {
+        container: container,
+        base: base || {},
+        dataIA: dataIA || {},
+        pares7: pares7,
+        mesa: mesa,
+        extremoIzquierdo: fichaInicial.ladoA,
+        extremoDerecho: fichaInicial.ladoB,
+        manoJugador: manoJugador,
+        manoIA: manoIA,
+        pozo: pozo,
+        turno: 'jugador',
+        aciertosJugador: 0,
+        aciertosIA: 0,
+        pasesSeguidos: 0,
+        juegoTerminado: false,
+        mensajeEstado: "¡Tu turno! Elige una ficha iluminada de tu mano para conectar."
+    };
+
+    window.renderizarTableroDominoPvE();
+};
+
+// 6. Renderizado del Tablero Central y HUDs
+window.renderizarTableroDominoPvE = function() {
+    const st = window._estadoDominoPvE;
+    if (!st || !st.container) return;
+
+    // Calcular fichas jugables en la mano del estudiante
+    const jugablesJugador = st.manoJugador.map(f => {
+        const opciones = window.obtenerJugadasPosiblesFicha(f, st.extremoIzquierdo, st.extremoDerecho);
+        return { ficha: f, jugadas: opciones, esJugable: opciones.length > 0 };
+    });
+    const tieneJugada = jugablesJugador.some(j => j.esJugable);
+
+    // Formatear texto para extremos abiertos
+    const descExtremo = (ext) => {
+        if (!ext) return 'Libre';
+        const tipoBuscado = ext.type === 'concepto' ? 'Definición de' : 'Concepto de';
+        return `<b>${tipoBuscado}:</b> "${ext.text}"`;
+    };
+
+    st.container.innerHTML = `
+        <div style="flex: 1; min-height: 560px; background: radial-gradient(circle at center, #064E3B 0%, #022C22 100%); color: white; display: flex; flex-direction: column; justify-content: space-between; font-family: system-ui, -apple-system, sans-serif; position: relative; overflow: hidden; border-radius: 18px; box-shadow: inset 0 0 50px rgba(0,0,0,0.6); padding: 12px; box-sizing: border-box;">
+            
+            <!-- HUD SUPERIOR: Computadora / Oponente IA -->
+            <div style="background: rgba(2,44,34,0.85); border: 2px solid #047857; border-radius: 14px; padding: 8px 14px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <div style="width: 38px; height: 38px; border-radius: 50%; background: linear-gradient(135deg, #10B981, #047857); display: flex; align-items: center; justify-content: center; font-size: 1.3rem; box-shadow: 0 0 10px #10B981;">
+                        🤖
+                    </div>
+                    <div>
+                        <div style="font-size: 0.92rem; font-weight: 900; color: #6EE7B7;">Cerebro STEAM (IA)</div>
+                        <div style="font-size: 0.72rem; color: #A7F3D0;">${st.manoIA.length} fichas ocultas en mano</div>
+                    </div>
+                </div>
+
+                <!-- Reverso de las fichas de la IA -->
+                <div style="display: flex; gap: 4px; overflow-x: auto; max-width: 320px; padding: 2px;">
+                    ${st.manoIA.map(() => `
+                        <div style="width: 22px; height: 36px; background: linear-gradient(135deg, #1E293B, #0F172A); border: 1.5px solid #F59E0B; border-radius: 4px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 4px rgba(0,0,0,0.4);">
+                            <div style="width: 5px; height: 5px; background: #F59E0B; border-radius: 50%;"></div>
                         </div>
-                        <div style="background: #EFF6FF; color: #1E40AF; padding: 10px; font-weight: 700; font-size: 0.75rem; display: flex; align-items: center; justify-content: center; border-left: 2px dashed #94A3B8;">
-                            ${data.definiciones[idx] ? data.definiciones[idx].pista : 'Pista asociada'}
+                    `).join('')}
+                </div>
+
+                <!-- Turno y Estado -->
+                <div style="text-align: right;">
+                    <span style="display: inline-block; padding: 4px 10px; border-radius: 10px; font-size: 0.76rem; font-weight: 800; ${st.turno === 'jugador' ? 'background: #10B981; color: white;' : 'background: #F59E0B; color: #78350F; animation: pulse 1s infinite;'}">
+                        ${st.turno === 'jugador' ? '🟢 TU TURNO' : '⏳ TURNO IA...'}
+                    </span>
+                </div>
+            </div>
+
+            <!-- MESA CENTRAL: Cadena de Fichas de Dominó con Conexión Visual -->
+            <div style="flex: 1; margin: 10px 0; background: rgba(0,0,0,0.25); border: 2px dashed #059669; border-radius: 16px; display: flex; flex-direction: column; justify-content: space-between; padding: 10px; overflow: hidden; position: relative;">
+                
+                <!-- Barra de Extremos Requeridos -->
+                <div style="display: flex; justify-content: space-between; gap: 8px; font-size: 0.75rem; margin-bottom: 6px;">
+                    <div style="background: rgba(15,23,42,0.85); border: 1.5px solid #38BDF8; padding: 6px 10px; border-radius: 8px; max-width: 48%;">
+                        <span style="color: #38BDF8; font-weight: 900;">⬅️ EXTREMO IZQ:</span>
+                        <div style="color: #F1F5F9; font-size: 0.72rem; margin-top: 2px;">${descExtremo(st.extremoIzquierdo)}</div>
+                    </div>
+                    <div style="background: rgba(15,23,42,0.85); border: 1.5px solid #FCD34D; padding: 6px 10px; border-radius: 8px; max-width: 48%; text-align: right;">
+                        <span style="color: #FCD34D; font-weight: 900;">EXTREMO DER ➡️:</span>
+                        <div style="color: #F1F5F9; font-size: 0.72rem; margin-top: 2px;">${descExtremo(st.extremoDerecho)}</div>
+                    </div>
+                </div>
+
+                <!-- Tren de Fichas en Mesa (Scroll Horizontal Dinámico) -->
+                <div id="mesa-tren-domino" style="flex: 1; display: flex; align-items: center; gap: 8px; overflow-x: auto; padding: 12px 6px; scrollbar-width: thin; scroll-behavior: smooth;">
+                    ${st.mesa.map((nodo, idx) => {
+                        const f = nodo.ficha;
+                        return `
+                            <div style="flex-shrink: 0; display: flex; align-items: center; gap: 6px;">
+                                <!-- Ficha Dominó de Marfil con Perno Central -->
+                                <div style="width: 148px; min-height: 82px; background: linear-gradient(135deg, #FEFCE8, #F3F4F6); color: #0F172A; border: 2.5px solid #1E293B; border-radius: 10px; display: grid; grid-template-columns: 1fr 1fr; box-shadow: 0 8px 18px rgba(0,0,0,0.35); position: relative; overflow: hidden;">
+                                    
+                                    <!-- Perno Central Tradicional -->
+                                    <div style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 7px; height: 7px; background: #D97706; border-radius: 50%; border: 1px solid #78350F; z-index: 2;"></div>
+                                    <div style="position: absolute; left: 50%; top: 0; bottom: 0; width: 1.5px; background: #CBD5E1; z-index: 1;"></div>
+
+                                    <!-- Mitad A -->
+                                    <div style="padding: 6px 4px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: ${f.ladoA.type === 'concepto' ? '#EFF6FF' : '#FEF3C7'};">
+                                        <span style="font-size: 0.58rem; font-weight: 900; color: ${f.ladoA.type === 'concepto' ? '#1D4ED8' : '#B45309'}; text-transform: uppercase;">
+                                            ${f.ladoA.type === 'concepto' ? '💡 Concepto' : '📖 Definición'}
+                                        </span>
+                                        <div style="font-size: 0.68rem; font-weight: 800; margin-top: 2px; line-height: 1.15; max-height: 48px; overflow: hidden; word-break: break-word;">
+                                            ${f.ladoA.text}
+                                        </div>
+                                    </div>
+
+                                    <!-- Mitad B -->
+                                    <div style="padding: 6px 4px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: ${f.ladoB.type === 'concepto' ? '#EFF6FF' : '#FEF3C7'};">
+                                        <span style="font-size: 0.58rem; font-weight: 900; color: ${f.ladoB.type === 'concepto' ? '#1D4ED8' : '#B45309'}; text-transform: uppercase;">
+                                            ${f.ladoB.type === 'concepto' ? '💡 Concepto' : '📖 Definición'}
+                                        </span>
+                                        <div style="font-size: 0.68rem; font-weight: 800; margin-top: 2px; line-height: 1.15; max-height: 48px; overflow: hidden; word-break: break-word;">
+                                            ${f.ladoB.text}
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Unión con checkmark entre fichas -->
+                                ${idx < st.mesa.length - 1 ? `
+                                    <div style="background: #10B981; color: white; width: 18px; height: 18px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.65rem; font-weight: 900; box-shadow: 0 0 8px #10B981; flex-shrink: 0;">
+                                        ✓
+                                    </div>
+                                ` : ''}
+                            </div>
+                        `;
+                    }).join('')}
+                </div>
+
+                <!-- Mensaje de Estado / Feedback Táctico -->
+                <div style="background: rgba(15,23,42,0.75); padding: 6px 12px; border-radius: 8px; font-size: 0.78rem; color: #FCD34D; text-align: center; margin-top: 4px; border: 1px solid rgba(252,211,77,0.3);">
+                    ${st.mensajeEstado}
+                </div>
+            </div>
+
+            <!-- HUD INFERIOR: Estudiante + Pozo (Boneyard) -->
+            <div style="background: rgba(2,44,34,0.92); border: 2px solid #10B981; border-radius: 14px; padding: 10px 14px; display: flex; flex-direction: column; gap: 8px; box-shadow: 0 -4px 20px rgba(0,0,0,0.4);">
+                
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <span style="font-size: 1.2rem;">🧑‍🎓</span>
+                        <div style="font-size: 0.88rem; font-weight: 900; color: #A7F3D0;">
+                            Tus Fichas (${st.manoJugador.length}) • Aciertos: <b style="color: #6EE7B7;">${st.aciertosJugador}</b>
                         </div>
                     </div>
-                `).join('')}
+
+                    <!-- Controles del Pozo y Pasar -->
+                    <div style="display: flex; gap: 8px;">
+                        <button onclick="window.robarFichaPozoJugador()" style="background: ${!tieneJugada && st.pozo.length > 0 ? 'linear-gradient(135deg, #F59E0B, #D97706)' : '#334155'}; color: white; border: none; padding: 6px 12px; border-radius: 8px; font-weight: 800; font-size: 0.75rem; cursor: pointer; display: flex; align-items: center; gap: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.2); ${!tieneJugada && st.pozo.length > 0 ? 'animation: pulse 1s infinite;' : ''}">
+                            <span>🀄</span> Robar (${st.pozo.length} en Pozo)
+                        </button>
+                        <button onclick="window.pasarTurnoJugador()" style="background: ${!tieneJugada && st.pozo.length === 0 ? '#EF4444' : '#475569'}; color: white; border: none; padding: 6px 10px; border-radius: 8px; font-weight: 800; font-size: 0.75rem; cursor: pointer;">
+                            Pasar Turno
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Fichas en mano del Estudiante (Interactivas) -->
+                <div style="display: flex; gap: 10px; overflow-x: auto; padding: 6px 4px; min-height: 94px;">
+                    ${jugablesJugador.map(item => {
+                        const f = item.ficha;
+                        const esJugable = item.esJugable && st.turno === 'jugador';
+                        const borderStyle = esJugable ? '3px solid #38BDF8' : '1.5px solid #64748B';
+                        const shadowStyle = esJugable ? '0 0 16px rgba(56,189,248,0.7), 0 6px 12px rgba(0,0,0,0.3)' : '0 2px 6px rgba(0,0,0,0.2)';
+                        const transformStyle = esJugable ? 'translateY(-4px)' : 'none';
+                        const opacityStyle = esJugable ? '1' : '0.75';
+
+                        return `
+                            <div id="ficha-${f.id}" onclick="window.tocarFichaJugadorDomino('${f.id}')" style="flex-shrink: 0; width: 140px; background: linear-gradient(135deg, #FFFFFF, #F1F5F9); color: #0F172A; border: ${borderStyle}; border-radius: 10px; display: grid; grid-template-columns: 1fr 1fr; box-shadow: ${shadowStyle}; transform: ${transformStyle}; opacity: ${opacityStyle}; cursor: pointer; position: relative; overflow: hidden; transition: all 0.15s;" onmouseover="this.style.transform='translateY(-6px) scale(1.02)'" onmouseout="this.style.transform='${transformStyle}'">
+                                
+                                ${esJugable ? `
+                                    <div style="position: absolute; top: 0; left: 0; right: 0; background: #38BDF8; color: #0F172A; font-size: 0.52rem; font-weight: 900; text-align: center; z-index: 3; letter-spacing: 0.5px;">
+                                        ⭐ ¡JUGABLE!
+                                    </div>
+                                ` : ''}
+
+                                <div style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 6px; height: 6px; background: #D97706; border-radius: 50%; z-index: 2;"></div>
+                                <div style="position: absolute; left: 50%; top: 0; bottom: 0; width: 1px; background: #E2E8F0; z-index: 1;"></div>
+
+                                <!-- Mitad A -->
+                                <div style="padding: 8px 4px 4px 4px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: ${f.ladoA.type === 'concepto' ? '#EFF6FF' : '#FEF3C7'};">
+                                    <span style="font-size: 0.52rem; font-weight: 900; color: ${f.ladoA.type === 'concepto' ? '#1D4ED8' : '#B45309'}; text-transform: uppercase;">
+                                        ${f.ladoA.type === 'concepto' ? 'Concepto' : 'Definición'}
+                                    </span>
+                                    <div style="font-size: 0.65rem; font-weight: 800; margin-top: 2px; line-height: 1.15; max-height: 52px; overflow: hidden; word-break: break-word;">
+                                        ${f.ladoA.text}
+                                    </div>
+                                </div>
+
+                                <!-- Mitad B -->
+                                <div style="padding: 8px 4px 4px 4px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: ${f.ladoB.type === 'concepto' ? '#EFF6FF' : '#FEF3C7'};">
+                                    <span style="font-size: 0.52rem; font-weight: 900; color: ${f.ladoB.type === 'concepto' ? '#1D4ED8' : '#B45309'}; text-transform: uppercase;">
+                                        ${f.ladoB.type === 'concepto' ? 'Concepto' : 'Definición'}
+                                    </span>
+                                    <div style="font-size: 0.65rem; font-weight: 800; margin-top: 2px; line-height: 1.15; max-height: 52px; overflow: hidden; word-break: break-word;">
+                                        ${f.ladoB.text}
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                    }).join('')}
+                </div>
             </div>
-            <div style="color: #64748B; font-size: 0.82rem;">🀄 Conecta la ficha del concepto con la ficha de su definición en la cadena de juego.</div>
         </div>
     `;
+
+    // Auto-scroll del tren de fichas hacia el extremo más reciente
+    setTimeout(() => {
+        const tren = document.getElementById('mesa-tren-domino');
+        if (tren) tren.scrollLeft = tren.scrollWidth;
+    }, 100);
+};
+
+// 7. Interacción al tocar ficha de la mano
+window.tocarFichaJugadorDomino = function(fichaId) {
+    const st = window._estadoDominoPvE;
+    if (!st || st.turno !== 'jugador' || st.juegoTerminado) return;
+
+    const ficha = st.manoJugador.find(f => f.id === fichaId);
+    if (!ficha) return;
+
+    const jugadas = window.obtenerJugadasPosiblesFicha(ficha, st.extremoIzquierdo, st.extremoDerecho);
+
+    if (jugadas.length === 0) {
+        // Feedback visual de error
+        const el = document.getElementById(`ficha-${fichaId}`);
+        if (el) {
+            el.style.border = '3px solid #EF4444';
+            el.style.boxShadow = '0 0 15px #EF4444';
+            setTimeout(() => { window.renderizarTableroDominoPvE(); }, 600);
+        }
+        st.mensajeEstado = "❌ Ficha inválida: No conecta con el concepto o definición de ningún extremo abierto.";
+        const msgEl = st.container?.querySelector('#mesa-tren-domino + div');
+        if (msgEl) msgEl.innerText = st.mensajeEstado;
+        return;
+    }
+
+    if (jugadas.length === 1) {
+        window.ejecutarJugadaDomino('jugador', ficha, jugadas[0]);
+    } else {
+        // Puede conectar en ambos extremos: ofrecer elección rápida
+        const elegirExtremo = confirm(`Esta ficha puede conectar en ambos lados.\n\n¿Deseas colocarla en el EXTREMO DERECHO?\n(Aceptar: Derecha | Cancelar: Izquierda)`);
+        if (elegirExtremo) {
+            const jugDer = jugadas.find(j => j.extremo === 'der') || jugadas[0];
+            window.ejecutarJugadaDomino('jugador', ficha, jugDer);
+        } else {
+            const jugIzq = jugadas.find(j => j.extremo === 'izq') || jugadas[0];
+            window.ejecutarJugadaDomino('jugador', ficha, jugIzq);
+        }
+    }
+};
+
+// 8. Ejecución de Jugada (Colocación en Mesa)
+window.ejecutarJugadaDomino = function(quien, ficha, jugada) {
+    const st = window._estadoDominoPvE;
+    if (!st) return;
+
+    // Remover ficha de la mano
+    if (quien === 'jugador') {
+        const idx = st.manoJugador.findIndex(f => f.id === ficha.id);
+        if (idx !== -1) st.manoJugador.splice(idx, 1);
+        st.aciertosJugador++;
+    } else {
+        const idx = st.manoIA.findIndex(f => f.id === ficha.id);
+        if (idx !== -1) st.manoIA.splice(idx, 1);
+        st.aciertosIA++;
+    }
+
+    st.pasesSeguidos = 0;
+
+    // Insertar en la mesa según extremo
+    if (jugada.extremo === 'izq') {
+        st.mesa.unshift({
+            ficha: ficha,
+            extremoConectado: 'izq',
+            ladoIzquierdo: jugada.nuevoExtremo,
+            ladoDerecho: jugada.ladoConector === 'ladoA' ? ficha.ladoA : ficha.ladoB
+        });
+        st.extremoIzquierdo = jugada.nuevoExtremo;
+    } else {
+        st.mesa.push({
+            ficha: ficha,
+            extremoConectado: 'der',
+            ladoIzquierdo: jugada.ladoConector === 'ladoA' ? ficha.ladoA : ficha.ladoB,
+            ladoDerecho: jugada.nuevoExtremo
+        });
+        st.extremoDerecho = jugada.nuevoExtremo;
+    }
+
+    // Comprobar si alguien se quedó sin fichas (¡Dominó!)
+    if (st.manoJugador.length === 0) {
+        st.juegoTerminado = true;
+        window.renderizarTableroDominoPvE();
+        setTimeout(() => { window.finalizarPartidaDomino('victoria_estudiante'); }, 400);
+        return;
+    }
+
+    if (st.manoIA.length === 0) {
+        st.juegoTerminado = true;
+        window.renderizarTableroDominoPvE();
+        setTimeout(() => { window.finalizarPartidaDomino('victoria_ia'); }, 400);
+        return;
+    }
+
+    // Cambiar de turno
+    if (quien === 'jugador') {
+        st.turno = 'ia';
+        st.mensajeEstado = "🤖 La IA está evaluando sus fichas y pensando su jugada...";
+        window.renderizarTableroDominoPvE();
+        setTimeout(() => { window.ejecutarTurnoIADomino(); }, 1500);
+    } else {
+        st.turno = 'jugador';
+        st.mensajeEstado = "¡Tu turno! Elige una ficha iluminada para continuar la cadena.";
+        window.renderizarTableroDominoPvE();
+    }
+};
+
+// 9. Lógica del Oponente (IA Computadora)
+window.ejecutarTurnoIADomino = function() {
+    const st = window._estadoDominoPvE;
+    if (!st || st.juegoTerminado) return;
+
+    // Buscar jugadas posibles de la IA
+    const jugadasIA = [];
+    st.manoIA.forEach(f => {
+        const opciones = window.obtenerJugadasPosiblesFicha(f, st.extremoIzquierdo, st.extremoDerecho);
+        if (opciones.length > 0) {
+            jugadasIA.push({ ficha: f, jugada: opciones[0] });
+        }
+    });
+
+    if (jugadasIA.length > 0) {
+        // Priorizar dobles o fichas con mayor peso
+        jugadasIA.sort((a, b) => b.ficha.peso - a.ficha.peso);
+        const elegida = jugadasIA[0];
+        window.ejecutarJugadaDomino('ia', elegida.ficha, elegida.jugada);
+    } else {
+        // Si no tiene jugada, robar del pozo
+        if (st.pozo.length > 0) {
+            const robada = st.pozo.pop();
+            st.manoIA.push(robada);
+            const opcionesRobada = window.obtenerJugadasPosiblesFicha(robada, st.extremoIzquierdo, st.extremoDerecho);
+            if (opcionesRobada.length > 0) {
+                window.ejecutarJugadaDomino('ia', robada, opcionesRobada[0]);
+            } else {
+                st.mensajeEstado = "🤖 La IA robó 1 ficha del pozo pero no pudo jugar y pasa el turno.";
+                st.turno = 'jugador';
+                window.renderizarTableroDominoPvE();
+            }
+        } else {
+            // Pozo vacío, IA debe pasar
+            st.pasesSeguidos++;
+            if (st.pasesSeguidos >= 2) {
+                window.resolverCierreMesaDomino();
+                return;
+            }
+            st.mensajeEstado = "🤖 La IA no tiene fichas válidas y pasa el turno.";
+            st.turno = 'jugador';
+            window.renderizarTableroDominoPvE();
+        }
+    }
+};
+
+// 10. Acciones del Jugador: Robar y Pasar
+window.robarFichaPozoJugador = function() {
+    const st = window._estadoDominoPvE;
+    if (!st || st.turno !== 'jugador' || st.juegoTerminado) return;
+
+    if (st.pozo.length === 0) {
+        alert("El pozo está vacío. Si no tienes jugadas disponibles, debes pasar turno.");
+        return;
+    }
+
+    const robada = st.pozo.pop();
+    st.manoJugador.push(robada);
+    st.mensajeEstado = "Has robado una ficha del pozo. ¡Revisa si ahora puedes jugar!";
+    window.renderizarTableroDominoPvE();
+};
+
+window.pasarTurnoJugador = function() {
+    const st = window._estadoDominoPvE;
+    if (!st || st.turno !== 'jugador' || st.juegoTerminado) return;
+
+    const tieneJugada = st.manoJugador.some(f => window.obtenerJugadasPosiblesFicha(f, st.extremoIzquierdo, st.extremoDerecho).length > 0);
+    if (tieneJugada) {
+        alert("¡Tienes fichas jugables en tu mano! Están resaltadas en azul celeste.");
+        return;
+    }
+
+    if (st.pozo.length > 0) {
+        alert("Aún quedan fichas en el pozo. Debes robar del pozo antes de pasar.");
+        return;
+    }
+
+    st.pasesSeguidos++;
+    if (st.pasesSeguidos >= 2) {
+        window.resolverCierreMesaDomino();
+        return;
+    }
+
+    st.turno = 'ia';
+    st.mensajeEstado = "Has pasado tu turno. La IA está analizando la mesa...";
+    window.renderizarTableroDominoPvE();
+    setTimeout(() => { window.ejecutarTurnoIADomino(); }, 1500);
+};
+
+// 11. Resolución por Cierre o Tranca de Mesa
+window.resolverCierreMesaDomino = function() {
+    const st = window._estadoDominoPvE;
+    if (!st) return;
+
+    st.juegoTerminado = true;
+    const puntosJugador = st.manoJugador.reduce((acc, f) => acc + f.peso, 0);
+    const puntosIA = st.manoIA.reduce((acc, f) => acc + f.peso, 0);
+
+    if (st.manoJugador.length < st.manoIA.length || (st.manoJugador.length === st.manoIA.length && puntosJugador <= puntosIA)) {
+        window.finalizarPartidaDomino('cierre_estudiante');
+    } else {
+        window.finalizarPartidaDomino('cierre_ia');
+    }
+};
+
+// 12. Finalización, Calificación Socioformativa y Persistencia
+window.finalizarPartidaDomino = function(resultado) {
+    const st = window._estadoDominoPvE;
+    if (!st) return;
+
+    let calificacion = 5.0;
+    let xpGanado = 200;
+    let titulo = "🎉 ¡¡DOMINÓ Y VICTORIA STEAM!! 🏆";
+    let desc = "¡Has derrotado a la IA colocando todas tus fichas con impecable dominio conceptual!";
+    let esGanador = true;
+
+    if (resultado === 'victoria_estudiante') {
+        calificacion = 5.0;
+        xpGanado = 200;
+        esGanador = true;
+    } else if (resultado === 'cierre_estudiante') {
+        calificacion = 5.0;
+        xpGanado = 200;
+        titulo = "🔒 ¡Mesa Cerrada a tu Favor!";
+        desc = "La mesa se ha cerrado y tienes menor cantidad de fichas y puntos que la IA. ¡Victoria táctica!";
+        esGanador = true;
+    } else if (resultado === 'victoria_ia') {
+        esGanador = false;
+        calificacion = Math.min(4.0, Math.max(1.0, 1.0 + (st.aciertosJugador * 0.5)));
+        calificacion = parseFloat(calificacion.toFixed(1));
+        xpGanado = 90;
+        titulo = "🤖 Victoria de la Computadora";
+        desc = "La IA logró colocar todas sus fichas primero. ¡Excelente desempeño asociando conceptos científicos!";
+    } else if (resultado === 'cierre_ia') {
+        esGanador = false;
+        calificacion = Math.min(4.0, Math.max(1.0, 1.0 + (st.aciertosJugador * 0.5)));
+        calificacion = parseFloat(calificacion.toFixed(1));
+        xpGanado = 85;
+        titulo = "🔒 Mesa Cerrada a Favor de la IA";
+        desc = "La partida se ha trancado y la IA conservó menos puntos en su mano.";
+    }
+
+    const nivelDesempeno = calificacion >= 4.6 ? 'Superior' : (calificacion >= 4.0 ? 'Alto' : (calificacion >= 3.0 ? 'Básico' : 'Bajo'));
+
+    // Guardar calificación formativa en la planilla del docente
+    const user = (typeof window.obtenerUsuarioActual === 'function') ? window.obtenerUsuarioActual() : null;
+    const estId = (user && (user.documento || user.usuario)) || window.usuario_actual || 'estudiante_steam';
+    const estNombre = (user && (user.nombres || user.nombre || user.nombre_completo)) || 'Estudiante STEAM';
+    const grupo = st.base.grupo || st.base.grado || (user && user.grupo) || '7C';
+
+    if (typeof window.guardarCalificacionActividad === 'function') {
+        window.guardarCalificacionActividad({
+            id_estudiante: estId,
+            id_actividad: `domino_${Date.now()}`,
+            calificacion: calificacion,
+            titulo_actividad: `Dominó Conceptual: ${st.base.tema || 'Ciencias'} (${esGanador ? 'VICTORIA' : 'COMPLETADO'})`,
+            tipo_herramienta: 'domino_conceptual',
+            materia: st.base.materia || 'Ciencias Naturales',
+            grupo: grupo,
+            detalles: {
+                aciertos_estudiante: st.aciertosJugador,
+                fichas_restantes: st.manoJugador.length,
+                fichas_ia: st.manoIA.length,
+                resultado: resultado,
+                xp_ganado: xpGanado
+            }
+        });
+    }
+
+    // Modal de Victoria / Derrota
+    const modal = document.createElement('div');
+    modal.id = 'modal-fin-domino-pve';
+    modal.style.cssText = "position: fixed; inset: 0; background: rgba(2,44,34,0.92); backdrop-filter: blur(10px); display: flex; align-items: center; justify-content: center; z-index: 999999; padding: 20px; font-family: system-ui, sans-serif;";
+    modal.innerHTML = `
+        <div style="background: linear-gradient(135deg, #064E3B, #022C22); border: 3px solid ${esGanador ? '#10B981' : '#F59E0B'}; border-radius: 26px; padding: 32px 24px; max-width: 500px; width: 100%; text-align: center; box-shadow: 0 0 50px rgba(16,185,129,0.3); color: white;">
+            <div style="font-size: 3.5rem; margin-bottom: 8px;">${esGanador ? '🏆' : '🤖'}</div>
+            <h2 style="margin: 0 0 8px 0; font-size: 1.8rem; font-weight: 900; color: ${esGanador ? '#6EE7B7' : '#FDE68A'};">
+                ${titulo}
+            </h2>
+            <p style="color: #CBD5E1; font-size: 0.9rem; margin: 0 0 20px 0; line-height: 1.35;">
+                ${desc}
+            </p>
+
+            <div style="background: rgba(255,255,255,0.06); border: 1.5px solid #059669; border-radius: 16px; padding: 16px; margin-bottom: 22px;">
+                <div style="display: flex; justify-content: space-around; align-items: center;">
+                    <div>
+                        <div style="font-size: 0.75rem; color: #94A3B8; font-weight: 800;">CALIFICACIÓN MEN</div>
+                        <div style="font-size: 2.2rem; font-weight: 900; color: ${calificacion >= 4.0 ? '#6EE7B7' : '#FCD34D'};">
+                            ${calificacion.toFixed(1)}
+                        </div>
+                        <div style="font-size: 0.75rem; font-weight: 800; color: #A7F3D0;">Desempeño ${nivelDesempeno}</div>
+                    </div>
+                    <div style="width: 1px; height: 50px; background: #059669;"></div>
+                    <div>
+                        <div style="font-size: 0.75rem; color: #94A3B8; font-weight: 800;">RECOMPENSA</div>
+                        <div style="font-size: 2.2rem; font-weight: 900; color: #FCD34D;">+${xpGanado}</div>
+                        <div style="font-size: 0.75rem; font-weight: 800; color: #FDE68A;">Puntos de Experiencia</div>
+                    </div>
+                </div>
+                <div style="margin-top: 10px; font-size: 0.8rem; color: #CBD5E1;">
+                    Aciertos y Conexiones Logradas: <b>${st.aciertosJugador}</b>
+                </div>
+            </div>
+
+            <!-- Botón Oficial de Persistencia -->
+            <button onclick="window.confirmarFinalizacionDomino()" style="background: linear-gradient(135deg, #10B981, #059669); color: white; border: none; padding: 14px 28px; border-radius: 14px; font-weight: 900; font-size: 1.05rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; margin: 0 auto; box-shadow: 0 4px 15px rgba(16,185,129,0.4);">
+                <span>💾</span> Guardar Progreso & Salir
+            </button>
+        </div>
+    `;
+
+    document.body.appendChild(modal);
+};
+
+// 13. Acción de Cierre Oficial
+window.confirmarFinalizacionDomino = function() {
+    document.getElementById('modal-fin-domino-pve')?.remove();
+    document.getElementById('modal-domino-pve-inbox')?.remove();
+
+    if (typeof window.intentarGuardarProgresoYFinalizarClase === 'function') {
+        window.intentarGuardarProgresoYFinalizarClase();
+    }
+};
+
+// 14. Apertura en Modal desde el Buzón de Estudiantes
+window.renderizarDominoPvEModal = function(actividad) {
+    let modal = document.getElementById('modal-domino-pve-inbox');
+    if (!modal) {
+        modal = document.createElement('div');
+        modal.id = 'modal-domino-pve-inbox';
+        modal.style.cssText = "position: fixed; inset: 0; background: #022C22; z-index: 999999; display: flex; flex-direction: column; overflow-y: auto; font-family: system-ui, sans-serif; padding: 10px;";
+        document.body.appendChild(modal);
+    }
+
+    modal.innerHTML = `
+        <div style="flex: 1; display: flex; flex-direction: column; max-width: 900px; margin: 0 auto; width: 100%;">
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 8px 12px; margin-bottom: 6px;">
+                <div style="display: flex; align-items: center; gap: 8px;">
+                    <span style="font-size: 1.6rem;">🀄</span>
+                    <h2 style="margin: 0; font-size: 1.25rem; font-weight: 900; color: #6EE7B7;">
+                        Dominó Conceptual de Saberes STEAM (PvE 28 Fichas)
+                    </h2>
+                </div>
+                <button onclick="document.getElementById('modal-domino-pve-inbox')?.remove()" style="background: #334155; color: white; border: none; padding: 6px 12px; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 0.8rem;">
+                    ✖ Salir
+                </button>
+            </div>
+            <div id="contenedor-domino-inbox-stage" style="flex: 1; display: flex; flex-direction: column;"></div>
+        </div>
+    `;
+
+    const stageEl = document.getElementById('contenedor-domino-inbox-stage');
+    window.iniciarPartidaDominoPvE(stageEl, actividad, actividad.dataIA || actividad);
+};
+
+// 15. Punto de Entrada Oficial de la Caja de Juegos en la Plataforma
+window.renderizarDominoConceptualTool = function(stage, base) {
+    const dataIA = window._aiGameData || window._cacheDataDinamicaIA || {};
+    window.iniciarPartidaDominoPvE(stage, base, dataIA);
 };
 
 window.renderizarSudokuSteamTool = function(stage, base) {
