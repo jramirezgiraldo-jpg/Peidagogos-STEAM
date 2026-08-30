@@ -338,6 +338,56 @@ Requisitos estrictos:
                 }
             }
 
+            // Intento 3: Fallback a NVIDIA NIM API si Gemini también falla
+            if (!htmlDiapositivas && process.env.NVIDIA_KEY) {
+                const nvidiaModelos = [
+                    'nvidia/llama-3.1-nemotron-ultra-253b-v1',
+                    'meta/llama-3.1-70b-instruct',
+                    'meta/llama-3.3-70b-instruct'
+                ];
+                const promptNvidia = promptDiapositivas + '\n\nREGLA ABSOLUTA: Devuelve SOLO el código HTML completo. Empieza con <!DOCTYPE html> y termina con </html>. Sin markdown, sin backticks, sin texto adicional.';
+                for (const nvidiaModelo of nvidiaModelos) {
+                    if (htmlDiapositivas) break;
+                    try {
+                        console.log(`[IA DIAPOSITIVAS NVIDIA] Intentando: ${nvidiaModelo}...`);
+                        const nvidiaResp = await fetch('https://integrate.api.nvidia.com/v1/chat/completions', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'Authorization': 'Bearer ' + process.env.NVIDIA_KEY
+                            },
+                            body: JSON.stringify({
+                                model: nvidiaModelo,
+                                messages: [
+                                    { role: 'system', content: 'Eres un experto en diseño web. Genera SOLO código HTML completo y válido, empezando con <!DOCTYPE html> y terminando con </html>. Sin markdown ni backticks.' },
+                                    { role: 'user', content: promptNvidia }
+                                ],
+                                temperature: 0.6,
+                                max_tokens: 8192
+                            })
+                        });
+                        if (nvidiaResp.ok) {
+                            const nvidiaData = await nvidiaResp.json();
+                            const rawNvidia = nvidiaData?.choices?.[0]?.message?.content || '';
+                            if (rawNvidia && rawNvidia.length > 200) {
+                                htmlDiapositivas = limpiarHTMLDeLaIA(rawNvidia);
+                                if (htmlDiapositivas && htmlDiapositivas.length > 500) {
+                                    console.log(`[IA DIAPOSITIVAS NVIDIA] ✅ HTML generado por ${nvidiaModelo} (${htmlDiapositivas.length} chars).`);
+                                } else {
+                                    console.warn(`[IA DIAPOSITIVAS NVIDIA] ${nvidiaModelo} generó HTML inválido.`);
+                                    htmlDiapositivas = '';
+                                }
+                            }
+                        } else {
+                            const errNv = await nvidiaResp.text();
+                            console.warn(`[IA DIAPOSITIVAS NVIDIA] ${nvidiaModelo} HTTP ${nvidiaResp.status}:`, errNv.substring(0, 150));
+                        }
+                    } catch (nvErr) {
+                        console.warn(`[IA DIAPOSITIVAS NVIDIA] ${nvidiaModelo} excepción:`, nvErr.message);
+                    }
+                }
+            }
+
             // Responder al cliente con el HTML generado
             if (htmlDiapositivas && htmlDiapositivas.length > 200) {
                 return res.json({ html: htmlDiapositivas });
@@ -541,6 +591,49 @@ DEBES DEVOLVER EXCLUSIVAMENTE UN OBJETO JSON VÁLIDO CON LA SIGUIENTE ESTRUCTURA
                 }
             } catch (dsErr) {
                 console.error(`[IA Fallback] DeepSeek también falló:`, dsErr.message);
+            }
+        }
+
+        // ── FALLBACK NVIDIA NIM API (entre DeepSeek y guía predeterminada) ──
+        if (!responseText && process.env.NVIDIA_KEY) {
+            console.log('[IA Fallback] Intentando con NVIDIA NIM API...');
+            const nvidiaModelsGuia = [
+                'nvidia/llama-3.1-nemotron-ultra-253b-v1',
+                'meta/llama-3.3-70b-instruct',
+                'meta/llama-3.1-70b-instruct'
+            ];
+            for (const nvm of nvidiaModelsGuia) {
+                if (responseText) break;
+                try {
+                    const nvResp = await fetch('https://integrate.api.nvidia.com/v1/chat/completions', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': 'Bearer ' + process.env.NVIDIA_KEY
+                        },
+                        body: JSON.stringify({
+                            model: nvm,
+                            messages: [
+                                { role: 'system', content: 'Devuelve EXCLUSIVAMENTE UN OBJETO JSON VÁLIDO según las instrucciones. SIN markdown, SIN bloques ```json, SIN texto adicional.' },
+                                { role: 'user', content: prompt }
+                            ],
+                            temperature: 0.6,
+                            max_tokens: 8192
+                        })
+                    });
+                    if (nvResp.ok) {
+                        const nvData = await nvResp.json();
+                        const nvText = nvData?.choices?.[0]?.message?.content || '';
+                        if (nvText && nvText.length > 100) {
+                            responseText = nvText;
+                            console.log(`[IA Fallback] ✅ Guía generada con NVIDIA NIM (${nvm})`);
+                        }
+                    } else {
+                        console.warn(`[IA Fallback] NVIDIA ${nvm} HTTP ${nvResp.status}`);
+                    }
+                } catch (nvErr) {
+                    console.warn(`[IA Fallback] NVIDIA ${nvm} excepción:`, nvErr.message);
+                }
             }
         }
 
@@ -2152,6 +2245,49 @@ REGLAS ESTRICTAS:
                 }
             } catch (deepseekErr) {
                 console.error('[JUEGOS_IA Fallback] DeepSeek falló:', deepseekErr.message);
+            }
+        }
+
+        // ── FALLBACK NVIDIA NIM API para juegos HTML5 ──
+        if (!htmlResponse && process.env.NVIDIA_KEY) {
+            console.log('[JUEGOS_IA Fallback] Intentando con NVIDIA NIM API...');
+            const nvidiaModelsJuego = [
+                'nvidia/llama-3.1-nemotron-ultra-253b-v1',
+                'meta/llama-3.3-70b-instruct',
+                'meta/llama-3.1-70b-instruct'
+            ];
+            for (const nvm of nvidiaModelsJuego) {
+                if (htmlResponse) break;
+                try {
+                    const nvJuegoResp = await fetch('https://integrate.api.nvidia.com/v1/chat/completions', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': 'Bearer ' + process.env.NVIDIA_KEY
+                        },
+                        body: JSON.stringify({
+                            model: nvm,
+                            messages: [
+                                { role: 'system', content: systemPrompt },
+                                { role: 'user', content: promptGeneracion }
+                            ],
+                            temperature: 0.6,
+                            max_tokens: 8192
+                        })
+                    });
+                    if (nvJuegoResp.ok) {
+                        const nvJuegoData = await nvJuegoResp.json();
+                        const nvJuegoText = nvJuegoData?.choices?.[0]?.message?.content || '';
+                        if (nvJuegoText && nvJuegoText.length > 200) {
+                            htmlResponse = nvJuegoText;
+                            console.log(`[JUEGOS_IA Fallback] ✅ Juego HTML generado con NVIDIA NIM (${nvm})`);
+                        }
+                    } else {
+                        console.warn(`[JUEGOS_IA Fallback] NVIDIA ${nvm} HTTP ${nvJuegoResp.status}`);
+                    }
+                } catch (nvJuegoErr) {
+                    console.warn(`[JUEGOS_IA Fallback] NVIDIA ${nvm} excepción:`, nvJuegoErr.message);
+                }
             }
         }
 
