@@ -10,6 +10,16 @@ const { exec } = require('child_process');
 // generarGuiaPredeterminada eliminada — la cascada IA garantiza contenido 100% dinámico
 const { obtenerPromptJuego, PROMPTS_JUEGOS } = require('./prompts_juegos');
 
+// ── GUARDIANES DE PROCESO GLOBAL: evitan crasheos fatales por promesas no manejadas ──
+// En Node.js v15+, un UnhandledPromiseRejection mata el proceso → ERR_CONNECTION_CLOSED en el cliente
+process.on('unhandledRejection', (reason, promise) => {
+    console.error('[PROCESO] ⚠️ UnhandledRejection capturada (servidor protegido):', reason?.message || reason);
+});
+process.on('uncaughtException', (err) => {
+    console.error('[PROCESO] ⚠️ UncaughtException capturada (servidor protegido):', err.message);
+    // NO llamar process.exit() — el servidor sigue vivo
+});
+
 
 // ==========================================
 // SISTEMA DE ENCOLAMIENTO PARA GEMINI IA
@@ -497,12 +507,10 @@ DEBES DEVOLVER EXCLUSIVAMENTE UN OBJETO JSON VÁLIDO CON LA SIGUIENTE ESTRUCTURA
   }
 }`;
 
-        // Modelos Gemini compatibles y operativos en @google/genai (actualizados 2026)
+        // Modelos Gemini válidos y operativos (actualizados 2026)
         const modelos = [
             'gemini-2.5-flash',
-            'gemini-2.0-flash',
             'gemini-flash-latest',
-            'gemini-2.0-flash-lite',
             'gemini-1.5-flash'
         ];
         let responseText = "";
@@ -1824,9 +1832,8 @@ Garantiza que TODAS las palabras sean términos científicos o técnicos REALES 
         // ── 1. INTENTO PRINCIPAL: Google Gemini (Motor Oficial Peidagogos STEAM) ──
         const modelosGemini = [
             'gemini-2.5-flash',
-            'gemini-2.0-flash',
             'gemini-flash-latest',
-            'gemini-2.0-flash-lite'
+            'gemini-1.5-flash'
         ];
 
         const maxKeyAttempts = Math.max(apiKeys.length, 1);
@@ -2228,12 +2235,10 @@ REGLAS ESTRICTAS:
         let htmlResponse = "";
         let finalError = null;
 
-        // Modelos Gemini compatibles en @google/genai (actualizados 2026)
+        // Modelos Gemini válidos y operativos (actualizados 2026)
         const modelos = [
             'gemini-2.5-flash',
-            'gemini-2.0-flash',
             'gemini-flash-latest',
-            'gemini-2.0-flash-lite',
             'gemini-1.5-flash'
         ];
 
