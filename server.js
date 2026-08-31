@@ -7,28 +7,31 @@ const cron = require('node-cron');
 const https = require('https');
 const { GoogleGenAI } = require('@google/genai');
 const { exec } = require('child_process');
-// generarGuiaPredeterminada eliminada — la cascada IA garantiza contenido 100% dinámico
+const { generarGuiaPredeterminada } = require('./diagnosticos_predeterminados');
 const { obtenerPromptJuego, PROMPTS_JUEGOS } = require('./prompts_juegos');
 
-// ── GUARDIANES DE PROCESO GLOBAL: evitan crasheos fatales por promesas no manejadas ──
-// En Node.js v15+, un UnhandledPromiseRejection mata el proceso → ERR_CONNECTION_CLOSED en el cliente
+// ── GUARDIANES DE PROCESO: evitan crasheo total por promesa no capturada ──
 process.on('unhandledRejection', (reason, promise) => {
-    console.error('[PROCESO] ⚠️ UnhandledRejection capturada (servidor protegido):', reason?.message || reason);
+    console.error('[GUARDIAN] UnhandledRejection en:', promise, 'Razón:', reason);
 });
 process.on('uncaughtException', (err) => {
-    console.error('[PROCESO] ⚠️ UncaughtException capturada (servidor protegido):', err.message);
-    // NO llamar process.exit() — el servidor sigue vivo
+    console.error('[GUARDIAN] UncaughtException:', err.message, err.stack);
 });
 
-
-// ── HELPER: Timeout para llamadas IA — evita que el cascade supere el límite de Render (30s) ──
+// ── HELPERS DE TIMEOUT: sin estos, las llamadas IA pueden colgar indefinidamente ──
 const withTimeout = (promise, ms, label) => {
     let timer;
     const timeout = new Promise((_, reject) => {
-        timer = setTimeout(() => reject(new Error(`[TIMEOUT ${ms}ms] ${label || 'IA call'}`)), ms);
+        timer = setTimeout(() => reject(new Error(`[TIMEOUT ${ms}ms] ${label || 'IA'}`)), ms);
     });
     return Promise.race([promise, timeout]).finally(() => clearTimeout(timer));
 };
+const fetchWithTimeout = (url, options, ms) => {
+    const ctrl = new AbortController();
+    const id = setTimeout(() => ctrl.abort(), ms);
+    return fetch(url, { ...options, signal: ctrl.signal }).finally(() => clearTimeout(id));
+};
+
 
 // ==========================================
 // SISTEMA DE ENCOLAMIENTO PARA GEMINI IA
@@ -226,9 +229,16 @@ Estructura la reflexión a partir de dilemas morales reales, toma de decisiones 
             }
         }
         
-        // 2. Sin keys de Gemini → la cascada continúa: DeepSeek y NVIDIA NIM actuarán como respaldo
+        // 2. Si no hay API Keys configuradas, servir la guía predeterminada garantizada
         if (apiKeys.length === 0) {
-            console.warn(`[DIAGNÓSTICO] Sin API Keys Gemini — la cascada usará DeepSeek y NVIDIA NIM directamente.`);
+            console.log(`[DIAGNÓSTICO] Sirviendo guía predeterminada garantizada para ${nombreEstudiante} (${grado})...`);
+            const guiaPredeterminada = generarGuiaPredeterminada({
+                asignatura, grado, periodo, semana, rol, ambiente, nivel, enfoque, nombre_estudiante: nombreEstudiante, institucion, modo
+            });
+            try {
+                fs.writeFileSync(cacheFilePath, JSON.stringify(guiaPredeterminada, null, 2), 'utf-8');
+            } catch(e) {}
+            return res.json({ text: JSON.stringify(guiaPredeterminada) });
         }
         
         console.log(`[Caché MISS] Generando nueva guía personalizada para ${nombreEstudiante}: ${fileNameSafe}`);
@@ -404,16 +414,12 @@ Requisitos estrictos:
             if (htmlDiapositivas && htmlDiapositivas.length > 200) {
                 return res.json({ html: htmlDiapositivas });
             } else {
-                console.error("[IA DIAPOSITIVAS] CASCADA FALLIDA - Gemini, DeepSeek y NVIDIA agotados.");
-                return res.status(503).json({
-                    error: 'El servicio de generacion de diapositivas esta temporalmente no disponible. Intentalo en unos minutos.',
-                    codigo: 'CASCADE_EXHAUSTED'
-                });
+                console.error('[IA DIAPOSITIVAS] Todas las IAs fallaron para generar HTML de presentación.');
+                return res.status(500).json({ error: 'No se pudo generar la presentación HTML. Por favor inténtalo de nuevo.' });
             }
         }
 
         
-
 const prompt = `Actúa como un ${rol}. Tu objetivo pedagógico es enseñar ${asignatura} en el contexto narrativo inmersivo de ${ambiente}.
 
 CONTEXTO INSTITUCIONAL Y PEDAGÓGICO:
@@ -516,7 +522,7 @@ DEBES DEVOLVER EXCLUSIVAMENTE UN OBJETO JSON VÁLIDO CON LA SIGUIENTE ESTRUCTURA
   }
 }`;
 
-        // Modelos Gemini válidos y operativos (actualizados 2026)
+        // Modelos Gemini compatibles y operativos en @google/genai (actualizados 2026)
         const modelos = [
             'gemini-2.5-flash',
             'gemini-flash-latest',
@@ -532,13 +538,13 @@ DEBES DEVOLVER EXCLUSIVAMENTE UN OBJETO JSON VÁLIDO CON LA SIGUIENTE ESTRUCTURA
             for (let i = 0; i < modelos.length; i++) {
                 try {
                     console.log(`[IA] Generando guía con modelo: ${modelos[i]} (Intento key #${k+1})...`);
-                    const response = await withTimeout(geminiQueue.add(() => ai.models.generateContent({
+                    const response = await geminiQueue.add(() => ai.models.generateContent({
                         model: modelos[i],
                         contents: prompt,
                         config: {
                             responseMimeType: "application/json"
                         }
-                    })), 12000, `Gemini ${modelos[i]}`);
+                    }));
                     if (response && response.text) {
                         responseText = response.text;
                         console.log(`[IA] ✅ Guía generada exitosamente con ${modelos[i]}`);
@@ -652,11 +658,14 @@ DEBES DEVOLVER EXCLUSIVAMENTE UN OBJETO JSON VÁLIDO CON LA SIGUIENTE ESTRUCTURA
         }
 
         if (!responseText) {
-            console.error(`[IA CASCADE] FALLIDA TOTAL para ${nombreEstudiante} — Gemini, OpenAI, DeepSeek y NVIDIA NIM agotados.`);
-            return res.status(503).json({
-                error: 'El servicio de generación está temporalmente no disponible. Por favor inténtalo en unos minutos.',
-                codigo: 'CASCADE_EXHAUSTED'
+            console.log(`[IA Fallback] Todas las IAs no están disponibles, sirviendo guía pedagógica estructurada de respaldo para ${nombreEstudiante}...`);
+            const fallbackGuia = generarGuiaPredeterminada({
+                asignatura, grado, periodo, semana, rol, ambiente, nivel, enfoque, nombre_estudiante: nombreEstudiante, institucion, modo
             });
+            try {
+                fs.writeFileSync(cacheFilePath, JSON.stringify(fallbackGuia, null, 2), 'utf-8');
+            } catch(e) {}
+            return res.json({ text: JSON.stringify(fallbackGuia) });
         }
 
         // Sanitización y parseo robusto del JSON (limpiador anti-markdown reforzado)
@@ -789,39 +798,23 @@ const readJSON = (file) => {
 
 const writeJSON = (file, data) => {
     const table = file.replace('.json', '');
-    global.db[table] = data; // Respuesta instantánea en memoria
-    
-    // Identificar la llave primaria para upsert
+    global.db[table] = data;
     let conflictKey = 'id';
-    if (table === 'usuarios' || table === 'docentes') {
-        conflictKey = 'documento';
-    }
-
-    // ── SCHEMA WHITELIST: Solo enviar columnas que existen en Supabase ──
-    // Si se envían columnas extra (ej. asignatura, es_director, token_docente),
-    // Supabase rechaza el upsert completo con error silencioso → pérdida de datos
-    const SUPABASE_COLUMNS = {
-        docentes:  ['documento','clave','nombre','apellidos','institucion','tipo','asignaturas','grados'],
-        usuarios:  ['documento','nombre','apellidos','grado','grupo','institucion','tipo','clave','correo','rol','activo'],
-        default:   null // null = sin filtro
+    if (table === 'usuarios' || table === 'docentes') conflictKey = 'documento';
+    // ── SCHEMA WHITELIST: filtrar campos al schema real de Supabase (campos extra causan fallo silencioso) ──
+    const SUPABASE_COLS = {
+        docentes: ['documento','clave','nombre','apellidos','institucion','tipo','asignaturas','grados'],
+        usuarios: ['documento','nombre','apellidos','grado','grupo','institucion','tipo','clave','correo','rol','activo']
     };
-
     const sanitize = (rows, tbl) => {
-        const cols = SUPABASE_COLUMNS[tbl];
+        const cols = SUPABASE_COLS[tbl];
         if (!cols || !Array.isArray(rows)) return rows;
-        return rows.map(row => {
-            const clean = {};
-            cols.forEach(c => { if (row[c] !== undefined && row[c] !== null) clean[c] = row[c]; });
-            return clean;
-        }).filter(r => Object.keys(r).length > 0);
+        return rows.map(r => { const c={}; cols.forEach(k => { if(r[k]!==undefined&&r[k]!==null)c[k]=r[k]; }); return c; }).filter(r=>Object.keys(r).length>0);
     };
-
     const dataForSupabase = Array.isArray(data) ? sanitize(data, table) : data;
-
-    // Backup asíncrono en la nube (sin bloquear el hilo de Node.js)
-    supabase.from(table).upsert(dataForSupabase, { onConflict: conflictKey }).then(({ error }) => {
-        if (error) console.error(`[DB ERROR] Sincronizando ${table}:`, error.message, error.details || '');
-        else console.log(`[DB] ✅ Supabase sincronizado: ${table} (${Array.isArray(dataForSupabase) ? dataForSupabase.length : 1} registros)`);
+    supabase.from(table).upsert(dataForSupabase, { onConflict: conflictKey }).then(({error}) => {
+        if (error) console.error(`[DB ERROR] Supabase ${table}:`, error.message);
+        else console.log(`[DB] ✅ Supabase sync: ${table} (${Array.isArray(dataForSupabase)?dataForSupabase.length:1} filas)`);
     });
 };
 
@@ -1758,105 +1751,6 @@ Cada objeto debe contener exactamente:
 Asegúrate de que los conceptos sean altamente representativos de ${temaFinal}.`;
         }
 
-        // ── MENTEFACTO CONCEPTUAL (Pedagogía Conceptual — Zubiría Samper) ──
-        if (['mentefacto', 'mentefacto_conceptual', 'juego_mentefacto', 'mentefacto_novak'].includes(String(tipoFinal).toLowerCase())) {
-            promptIA += `\n\nREGLA ESTRICTA PARA MENTEFACTO CONCEPTUAL (PEDAGOGÍA CONCEPTUAL — ZUBIRÍA SAMPER):
-TEMA ESPECÍFICO A TRABAJAR: "${temaFinal}" — Materia: ${materiaFinal} — Grado: ${gradoFinal}°
-
-🚫 PROHIBIDO ABSOLUTO:
-- NO uses frases genéricas como "Bases teóricas de la asignatura", "Conceptos fundamentales", ni repitas el nombre del grado, periodo o asignatura como si fueran el concepto.
-- NO inventes categorías vagas. Cada campo debe contener conocimiento científico/académico REAL y verificable sobre "${temaFinal}".
-
-✅ ESTRUCTURA OBLIGATORIA DEL MENTEFACTO (JSON estricto con la clave "mentefacto"):
-{
-  "mentefacto": {
-    "concepto_central": "${temaFinal} — el concepto exacto tal como el docente lo ingresó",
-    "supraordinada": "La categoría científica SUPERIOR que incluye a '${temaFinal}'. Ejemplo si tema=Célula: 'Unidad fundamental de la vida'. Debe ser una categoría real, no una paráfrasis.",
-    "isoordinadas": [
-      "Propiedad intrínseca 1 que define a '${temaFinal}' y lo distingue de otros conceptos hermanos. Ej. si tema=Célula: 'Posee membrana plasmática'",
-      "Propiedad intrínseca 2 real y verificable de '${temaFinal}'",
-      "Propiedad intrínseca 3 que es característica exclusiva de '${temaFinal}'"
-    ],
-    "exclusiones": [
-      "Concepto hermano o similar que se CONFUNDE con '${temaFinal}' pero NO es lo mismo. Ej. si tema=Célula: 'Virus — no tiene metabolismo propio ni se reproduce de forma independiente'",
-      "Otro concepto que el estudiante podría confundir con '${temaFinal}'"
-    ],
-    "infraordinadas": [
-      "Subtipo o especie específica de '${temaFinal}'. Ej. si tema=Célula: 'Célula procariota (sin núcleo delimitado)'",
-      "Otro subtipo específico de '${temaFinal}'. Ej: 'Célula eucariota (con núcleo membranoso)'"
-    ],
-    "definicion_formal": "Definición científica precisa de '${temaFinal}' alineada con los DBA del MEN para grado ${gradoFinal}°. Mínimo 2 oraciones. Debe citar propiedades esenciales, no accidentales.",
-    "ejemplo_contextualizado": "Ejemplo concreto y observable de '${temaFinal}' en el contexto colombiano o cotidiano del estudiante de ${gradoFinal}°"
-  }
-}`;
-        }
-
-        // ── MAPA CONCEPTUAL (Modelo Novak — Proposiciones Lógicas) ──
-        if (['mapa_conceptual', 'mapa_novak', 'mapa_mental', 'juego_mapa_conceptual', 'mapa conceptual'].includes(String(tipoFinal).toLowerCase())) {
-            promptIA += `\n\nREGLA ESTRICTA PARA MAPA CONCEPTUAL — MODELO NOVAK (PROPOSICIONES LÓGICAS REALES):
-TEMA ESPECÍFICO A TRABAJAR: "${temaFinal}" — Materia: ${materiaFinal} — Grado: ${gradoFinal}°
-
-🚫 PROHIBIDO ABSOLUTO:
-- NO uses nodos genéricos como "Características", "Importancia", "Tipos", "Definición" sin contenido real.
-- NO conectes nodos con verbos vacíos como "tiene", "es" sin precisión científica.
-- NO repitas el grado, periodo, materia ni nombre de institución como si fueran conceptos del mapa.
-
-✅ REGLAS DE CONSTRUCCIÓN (Modelo Novak):
-1. El nodo raíz es EXACTAMENTE "${temaFinal}".
-2. Cada proposición = Nodo1 + [verbo conector científico] + Nodo2. Ej: "Célula" → "se clasifica en" → "Procariota".
-3. Los verbos conectores deben ser precisos: "se divide en", "está formada por", "realiza", "produce", "regula", "interactúa con", "se diferencia de", "depende de".
-4. Genera EXACTAMENTE entre 8 y 12 nodos conceptuales concretos sobre "${temaFinal}".
-5. Genera EXACTAMENTE entre 8 y 12 enlaces/aristas, cada uno con su verbo conector.
-
-JSON obligatorio con la clave "mapa_conceptual":
-{
-  "mapa_conceptual": {
-    "nodo_raiz": "${temaFinal}",
-    "nodos": [
-      {"id": 1, "concepto": "Nombre exacto de un componente, subtipo o propiedad REAL de '${temaFinal}'"},
-      {"id": 2, "concepto": "Otro componente/propiedad REAL de '${temaFinal}'"}
-    ],
-    "enlaces": [
-      {"origen": 0, "destino": 1, "conector": "verbo conector científico preciso (ej: 'se clasifica en', 'está compuesta por')"},
-      {"origen": 1, "destino": 2, "conector": "otro verbo conector científico"}
-    ],
-    "proposiciones_legibles": [
-      "'${temaFinal}' [verbo conector] [Nodo 1] — proposición completa y científicamente válida",
-      "[Nodo 1] [verbo conector] [Nodo 2] — segunda proposición"
-    ]
-  }
-}`;
-        }
-
-        // ── NUBE DE PALABRAS (Densidad conceptual diferenciada) ──
-        if (['nube_palabras', 'nube de palabras', 'nube_conceptos', 'word_cloud', 'wordcloud'].includes(String(tipoFinal).toLowerCase())) {
-            promptIA += `\n\nREGLA ESTRICTA PARA NUBE DE PALABRAS (DENSIDAD CONCEPTUAL DIFERENCIADA):
-TEMA ESPECÍFICO A TRABAJAR: "${temaFinal}" — Materia: ${materiaFinal} — Grado: ${gradoFinal}°
-
-🚫 PROHIBIDO ABSOLUTO:
-- NO uses palabras genéricas de relleno como "Aprendizaje", "Educación", "Ciencia", "Conocimiento", "Tema", "Grado", "Periodo".
-- TODOS los términos deben pertenecer EXCLUSIVAMENTE al campo conceptual REAL de "${temaFinal}".
-
-✅ REGLAS DE CONSTRUCCIÓN:
-1. Genera EXACTAMENTE 20 palabras clave específicas sobre "${temaFinal}".
-2. Asigna un peso (1-5) proporcional a la importancia conceptual: 5=concepto central, 4=concepto estructural, 3=propiedad clave, 2=concepto relacionado, 1=término secundario.
-3. Las palabras de peso 5 deben ser los conceptos más importantes de "${temaFinal}" (máximo 2-3 palabras de peso 5).
-4. Las palabras de peso 1 deben ser términos técnicos específicos del área, no palabras comunes.
-
-JSON obligatorio con la clave "nube_palabras":
-{
-  "nube_palabras": {
-    "tema": "${temaFinal}",
-    "palabras": [
-      {"texto": "TÉRMINO_ESPECÍFICO_DE_${temaFinal.toUpperCase()}", "peso": 5, "categoria": "concepto_central"},
-      {"texto": "COMPONENTE_REAL", "peso": 4, "categoria": "concepto_estructural"},
-      {"texto": "PROPIEDAD_ESPECÍFICA", "peso": 3, "categoria": "propiedad_clave"}
-    ]
-  }
-}
-Garantiza que TODAS las palabras sean términos científicos o técnicos REALES usados en el estudio de "${temaFinal}" para ${gradoFinal}° de ${materiaFinal}.`;
-        }
-
         let rawContent = "";
         let finalError = null;
 
@@ -1864,7 +1758,6 @@ Garantiza que TODAS las palabras sean términos científicos o técnicos REALES 
         const modelosGemini = [
             'gemini-2.5-flash',
             'gemini-flash-latest',
-            'gemini-1.5-flash'
         ];
 
         const maxKeyAttempts = Math.max(apiKeys.length, 1);
@@ -1874,13 +1767,13 @@ Garantiza que TODAS las palabras sean términos científicos o técnicos REALES 
             for (let i = 0; i < modelosGemini.length; i++) {
                 try {
                     console.log(`[CAJA_HERRAMIENTAS] Probando Gemini modelo ${modelosGemini[i]} (key #${k+1})...`);
-                    const response = await withTimeout(geminiQueue.add(() => ai.models.generateContent({
+                    const response = await geminiQueue.add(() => ai.models.generateContent({
                         model: modelosGemini[i],
                         contents: promptIA,
                         config: {
                             responseMimeType: "application/json"
                         }
-                    })), 12000, `Gemini ${modelosGemini[i]}`);
+                    }));
                     if (response && response.text && response.text.trim()) {
                         rawContent = response.text.trim();
                         console.log(`[CAJA_HERRAMIENTAS] ✅ Generado con éxito en Gemini (${modelosGemini[i]})`);
@@ -2023,13 +1916,76 @@ Garantiza que TODAS las palabras sean términos científicos o técnicos REALES 
             }
         }
 
-        // -- 6. Cascada completamente agotada: retornar error informativo --
+        // ── 6. FALLBACK PEDAGÓGICO DE ALTA CALIDAD (Garantía Cero 500) ──
         if (!jsonJuego) {
-            console.error(`[CAJA_HERRAMIENTAS] CASCADA FALLIDA para "${tipoFinal}" sobre "${temaFinal}"`);
-            return res.status(503).json({
-                error: 'El servicio de generacion de herramientas esta temporalmente no disponible. Intentalo en unos minutos.',
-                codigo: 'CASCADE_EXHAUSTED'
-            });
+            console.log(`[CAJA_HERRAMIENTAS] Activando Generador Pedagógico Integrado para "${tipoFinal}" sobre "${temaFinal}"...`);
+            jsonJuego = {
+                titulo: `${tipoFinal}: ${temaFinal}`,
+                tipo_herramienta: tipoFinal,
+                tema: temaFinal,
+                materia: materiaFinal,
+                grado: gradoFinal,
+                descripcion: `Actividad pedagógica interactiva sobre ${temaFinal} para ${gradoFinal}° grado.`,
+                instruccion: instruccionFinal,
+                palabras: ["CONCEPTO CLAVE", "PRINCIPIO ACTIVO", "ANÁLISIS TEÓRICO", "EVALUACIÓN STEAM", "METODOLOGÍA"],
+                definiciones: [
+                    { palabra: "CONCEPTO CLAVE", pista: `Base fundamental del estudio de ${temaFinal}.` },
+                    { palabra: "PRINCIPIO ACTIVO", pista: `Componente dinámico observable en ${temaFinal}.` },
+                    { palabra: "ANÁLISIS TEÓRICO", pista: `Marco conceptual y rigor analítico aplicado a ${materiaFinal}.` }
+                ],
+                horizontales: [
+                    { id: 1, palabra: "METODO", pista: `Procedimiento riguroso para investigar ${temaFinal}.`, dir: "H" },
+                    { id: 2, palabra: "TEORIA", pista: `Conjunto organizado de ideas sobre ${temaFinal}.`, dir: "H" }
+                ],
+                verticales: [
+                    { id: 3, palabra: "CIENCIA", pista: `Conocimiento sistemático y estructurado en ${materiaFinal}.`, dir: "V" },
+                    { id: 4, palabra: "SABER", pista: `Apropiación significativa del aprendizaje.`, dir: "V" }
+                ],
+                pares: [
+                    { izquierda: `Concepto Principal`, derecha: `Fundamento esencial de ${temaFinal} en ${materiaFinal}.` },
+                    { izquierda: `Aplicación Práctica`, derecha: `Uso contextual y operativo en el entorno real.` },
+                    { izquierda: `Evaluación Formativa`, derecha: `Demostración de competencias y pensamiento crítico.` },
+                    { izquierda: `Metodología STEAM`, derecha: `Integración interdisciplinar para la resolución de problemas.` },
+                    { izquierda: `Evidencia Empírica`, derecha: `Datos y observaciones comprobables en la práctica científica.` },
+                    { izquierda: `Modelo Conceptual`, derecha: `Representación estructurada de los principios teóricos.` },
+                    { izquierda: `Innovación Tecnológica`, derecha: `Desarrollo de soluciones creativas y transformadoras.` },
+                    { izquierda: `Impacto Comunitario`, derecha: `Beneficio social y ambiental en el contexto escolar y local.` }
+                ],
+                nodos: [
+                    {
+                        id: 1,
+                        situacion: `Te encuentras analizando un reto científico sobre ${temaFinal} en ${materiaFinal}. ¿Cuál es el primer paso formativo que debes ejecutar?`,
+                        opciones: [
+                            { texto: "Formular una hipótesis fundamentada y revisar evidencias empíricas.", consecuencia: "¡Excelente decisión! El rigor analítico valida la ruta de investigación.", es_correcta: true, siguiente_nodo: 2 },
+                            { texto: "Concluir de inmediato sin contrastar las fuentes científicas.", consecuencia: "Acción precipitada. Es indispensable validar evidencias.", es_correcta: false, siguiente_nodo: 1 }
+                        ]
+                    },
+                    {
+                        id: 2,
+                        situacion: `Has recolectado datos sobre ${temaFinal}. ¿Cómo procedes para consolidar tu aprendizaje?`,
+                        opciones: [
+                            { texto: "Sintetizar los hallazgos en un mentefacto conceptual claro.", consecuencia: "¡Logro alcanzado! Demuestras dominio del tema.", es_correcta: true, siguiente_nodo: 2 },
+                            { texto: "Descartar los datos que contradigan tu opinión inicial.", consecuencia: "Sesgo detectado. La ciencia exige objetividad.", es_correcta: false, siguiente_nodo: 1 }
+                        ]
+                    }
+                ],
+                retos: [
+                    {
+                        id: 1,
+                        enunciado: `¿Cuál de las siguientes afirmaciones define de forma más precisa el concepto de ${temaFinal}?`,
+                        pregunta: `¿Cuál de las siguientes afirmaciones define de forma más precisa el concepto de ${temaFinal}?`,
+                        opciones: [
+                            `Es el núcleo conceptual fundamental en ${materiaFinal} para ${gradoFinal}° grado.`,
+                            `Un elemento secundario sin relación directa con el área.`,
+                            `Una suposición no comprobada empíricamente.`,
+                            `Una norma administrativa no pedagógica.`
+                        ],
+                        respuesta_correcta: 0,
+                        explicacion: `En el currículo de ${materiaFinal} (${gradoFinal}°), ${temaFinal} constituye un pilar esencial según los DBA del MEN.`
+                    }
+                ],
+                fallback_local: true
+            };
         }
 
         // Garantizar exactamente 25 pares para Bingo Pedagógico STEAM
@@ -2266,7 +2222,7 @@ REGLAS ESTRICTAS:
         let htmlResponse = "";
         let finalError = null;
 
-        // Modelos Gemini válidos y operativos (actualizados 2026)
+        // Modelos Gemini compatibles en @google/genai (actualizados 2026)
         const modelos = [
             'gemini-2.5-flash',
             'gemini-flash-latest',
@@ -2281,14 +2237,14 @@ REGLAS ESTRICTAS:
             for (let i = 0; i < modelos.length; i++) {
                 try {
                     console.log(`[JUEGOS_IA] Solicitando modelo ${modelos[i]} (Key #${k+1})...`);
-                    const response = await withTimeout(geminiQueue.add(() => ai.models.generateContent({
+                    const response = await geminiQueue.add(() => ai.models.generateContent({
                         model: modelos[i],
                         contents: `${systemPrompt}\n\n${promptGeneracion}`,
                         config: {
                             systemInstruction: systemPrompt,
                             temperature: 0.7
                         }
-                    })), 12000, `Gemini ${modelos[i]}`);
+                    }));
                     if (response && response.text) {
                         htmlResponse = response.text;
                         console.log(`[JUEGOS_IA] ✅ Juego HTML generado exitosamente con ${modelos[i]}`);
