@@ -21,6 +21,15 @@ process.on('uncaughtException', (err) => {
 });
 
 
+// ── HELPER: Timeout para llamadas IA — evita que el cascade supere el límite de Render (30s) ──
+const withTimeout = (promise, ms, label) => {
+    let timer;
+    const timeout = new Promise((_, reject) => {
+        timer = setTimeout(() => reject(new Error(`[TIMEOUT ${ms}ms] ${label || 'IA call'}`)), ms);
+    });
+    return Promise.race([promise, timeout]).finally(() => clearTimeout(timer));
+};
+
 // ==========================================
 // SISTEMA DE ENCOLAMIENTO PARA GEMINI IA
 // ==========================================
@@ -523,13 +532,13 @@ DEBES DEVOLVER EXCLUSIVAMENTE UN OBJETO JSON VÁLIDO CON LA SIGUIENTE ESTRUCTURA
             for (let i = 0; i < modelos.length; i++) {
                 try {
                     console.log(`[IA] Generando guía con modelo: ${modelos[i]} (Intento key #${k+1})...`);
-                    const response = await geminiQueue.add(() => ai.models.generateContent({
+                    const response = await withTimeout(geminiQueue.add(() => ai.models.generateContent({
                         model: modelos[i],
                         contents: prompt,
                         config: {
                             responseMimeType: "application/json"
                         }
-                    }));
+                    })), 12000, `Gemini ${modelos[i]}`);
                     if (response && response.text) {
                         responseText = response.text;
                         console.log(`[IA] ✅ Guía generada exitosamente con ${modelos[i]}`);
@@ -1843,13 +1852,13 @@ Garantiza que TODAS las palabras sean términos científicos o técnicos REALES 
             for (let i = 0; i < modelosGemini.length; i++) {
                 try {
                     console.log(`[CAJA_HERRAMIENTAS] Probando Gemini modelo ${modelosGemini[i]} (key #${k+1})...`);
-                    const response = await geminiQueue.add(() => ai.models.generateContent({
+                    const response = await withTimeout(geminiQueue.add(() => ai.models.generateContent({
                         model: modelosGemini[i],
                         contents: promptIA,
                         config: {
                             responseMimeType: "application/json"
                         }
-                    }));
+                    })), 12000, `Gemini ${modelosGemini[i]}`);
                     if (response && response.text && response.text.trim()) {
                         rawContent = response.text.trim();
                         console.log(`[CAJA_HERRAMIENTAS] ✅ Generado con éxito en Gemini (${modelosGemini[i]})`);
@@ -2250,14 +2259,14 @@ REGLAS ESTRICTAS:
             for (let i = 0; i < modelos.length; i++) {
                 try {
                     console.log(`[JUEGOS_IA] Solicitando modelo ${modelos[i]} (Key #${k+1})...`);
-                    const response = await geminiQueue.add(() => ai.models.generateContent({
+                    const response = await withTimeout(geminiQueue.add(() => ai.models.generateContent({
                         model: modelos[i],
                         contents: `${systemPrompt}\n\n${promptGeneracion}`,
                         config: {
                             systemInstruction: systemPrompt,
                             temperature: 0.7
                         }
-                    }));
+                    })), 12000, `Gemini ${modelos[i]}`);
                     if (response && response.text) {
                         htmlResponse = response.text;
                         console.log(`[JUEGOS_IA] ✅ Juego HTML generado exitosamente con ${modelos[i]}`);
