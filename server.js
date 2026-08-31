@@ -789,17 +789,39 @@ const readJSON = (file) => {
 
 const writeJSON = (file, data) => {
     const table = file.replace('.json', '');
-    global.db[table] = data; // Respuesta instantánea para 1000 usuarios
+    global.db[table] = data; // Respuesta instantánea en memoria
     
     // Identificar la llave primaria para upsert
     let conflictKey = 'id';
     if (table === 'usuarios' || table === 'docentes') {
         conflictKey = 'documento';
     }
-    
+
+    // ── SCHEMA WHITELIST: Solo enviar columnas que existen en Supabase ──
+    // Si se envían columnas extra (ej. asignatura, es_director, token_docente),
+    // Supabase rechaza el upsert completo con error silencioso → pérdida de datos
+    const SUPABASE_COLUMNS = {
+        docentes:  ['documento','clave','nombre','apellidos','institucion','tipo','asignaturas','grados'],
+        usuarios:  ['documento','nombre','apellidos','grado','grupo','institucion','tipo','clave','correo','rol','activo'],
+        default:   null // null = sin filtro
+    };
+
+    const sanitize = (rows, tbl) => {
+        const cols = SUPABASE_COLUMNS[tbl];
+        if (!cols || !Array.isArray(rows)) return rows;
+        return rows.map(row => {
+            const clean = {};
+            cols.forEach(c => { if (row[c] !== undefined && row[c] !== null) clean[c] = row[c]; });
+            return clean;
+        }).filter(r => Object.keys(r).length > 0);
+    };
+
+    const dataForSupabase = Array.isArray(data) ? sanitize(data, table) : data;
+
     // Backup asíncrono en la nube (sin bloquear el hilo de Node.js)
-    supabase.from(table).upsert(data, { onConflict: conflictKey }).then(({error}) => {
-        if (error) console.error(`[DB ERROR] Sincronizando ${table}:`, error.message);
+    supabase.from(table).upsert(dataForSupabase, { onConflict: conflictKey }).then(({ error }) => {
+        if (error) console.error(`[DB ERROR] Sincronizando ${table}:`, error.message, error.details || '');
+        else console.log(`[DB] ✅ Supabase sincronizado: ${table} (${Array.isArray(dataForSupabase) ? dataForSupabase.length : 1} registros)`);
     });
 };
 
