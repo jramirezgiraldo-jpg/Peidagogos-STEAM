@@ -5,3 +5,11 @@ backup_*.js
 *_DAÑADO.html
 
 backups/
+
+# ── PEIDAGOGOS STEAM: Archivos de datos runtime (NO gitignorear los seeds) ──
+# Los archivos usuarios.json y docentes.json SON SEEDS DE BOOTSTRAP (en git).
+# Supabase es la fuente de la verdad para datos dinamicos de produccion.
+# Solo ignorar archivos de cache o logs generados en runtime:
+*.log
+render_data_cache/
+runtime_exports/
