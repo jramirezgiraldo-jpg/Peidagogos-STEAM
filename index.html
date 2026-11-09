@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Peidagogos STEAM — Plataforma de Gamificación con IA</title>
+  <meta name="description" content="Crea actividades y juegos educativos interactivos en 1 solo archivo HTML autónomo para tus estudiantes.">
+  <link rel="icon" type="image/png" href="./assets/favicon.png">
+  <link rel="apple-touch-icon" href="./assets/icon-192.png">
+  <link rel="manifest" href="./manifest.json">
+  <meta name="theme-color" content="#0f3d64">
+  <!-- Estilos 100% integrados sin depender de CDNs externos -->
+  <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+
+  <!-- ENCABEZADO PRINCIPAL -->
+  <header class="main-header">
+    <div class="container header-inner">
+      
+      <!-- Identidad Oficial Peidagogos STEAM -->
+      <div class="brand-wrapper">
+        <img src="./assets/logo.png" alt="Peidagogos STEAM Logo" class="brand-logo">
+        <div class="brand-info">
+          <div class="brand-title">
+            Peidagogos <span style="color: #0ea5e9;">STEAM</span>
+            <span class="badge-version">v1.0 IA</span>
+          </div>
+          <div class="brand-subtitle">Plataforma de Gamificación y Creación de OVA</div>
+        </div>
+      </div>
+
+      <!-- Estado de Conexión OpenRouter -->
+      <div>
+        <div id="api-status-pill" class="api-pill disconnected" title="Toca para configurar tu clave de OpenRouter">
+          <span class="pulse-dot"></span>
+          <span>Conectar OpenRouter</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Pestañas de Navegación -->
+    <nav class="container nav-bar">
+      <button data-tab="generator" class="nav-tab active">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        <span>Crear Actividad</span>
+      </button>
+
+      <button data-tab="catalog" class="nav-tab">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+        <span>Catálogo de Formatos (22)</span>
+      </button>
+
+      <button data-tab="library" class="nav-tab">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"/></svg>
+        <span>Mis Actividades</span>
+      </button>
+
+      <button data-tab="settings" class="nav-tab">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+        <span>Configuración OpenRouter</span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- CONTENIDO DINÁMICO -->
+  <main class="main-content container">
+
+    <!-- PESTAÑA 1: GENERADOR PRINCIPAL -->
+    <section id="tab-generator" class="tab-panel">
+
+      <!-- Paso 1: Configuración Pedagógica -->
+      <div class="card-panel">
+        <div class="panel-header">
+          <span class="step-badge">Paso 1: Parámetros Pedagógicos</span>
+          <h2 class="panel-title">¿Qué tema deseas trabajar hoy con tus alumnos?</h2>
+          <p class="panel-desc">Indica el tema y grado escolar. Peidagogos redactará el contenido, programará el juego interactivo y generará la lectura teórica con su taller para el cuaderno.</p>
+        </div>
+
+        <div class="form-grid">
+          
+          <div class="form-group">
+            <label class="form-label" for="topic-input">Tema de la Clase / Actividad *</label>
+            <input id="topic-input" type="text" class="form-input" placeholder="Ej.: La célula animal y vegetal, La Revolución Industrial, El Ciclo del Agua...">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="grade-select">Nivel Educativo / Grado *</label>
+            <select id="grade-select" class="form-select">
+              <option value="Grado Transición, 1° y 2° (Inicial)">Transición / 1° y 2° (Inicial)</option>
+              <option value="Primaria, Grados 3° a 5°">Primaria (3° a 5°)</option>
+              <option value="Secundaria, Grados 6° a 9°" selected>Secundaria (6° a 9°)</option>
+              <option value="Media Vocacional, Grados 10° y 11°">Media / Bachillerato (10° y 11°)</option>
+              <option value="Estudiantes con dificultades de lectoescritura">Adaptada (Inclusión / Dificultades)</option>
+              <option value="Educación Superior / Adultos">Educación Superior / Adultos</option>
+            </select>
+          </div>
+
+          <div class="form-group form-full">
+            <div class="form-label">
+              <span>Palabras Clave o Conceptos Clave (Opcional)</span>
+              <button id="suggest-keywords-btn" type="button" class="btn-suggest">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                <span>Sugerir con IA</span>
+              </button>
+            </div>
+            <input id="keywords-input" type="text" class="form-input" placeholder="Ej.: Núcleo, Membrana, Mitocondria, Citoplasma, Ribosoma... (o deja que la IA las genere automáticamente)">
+          </div>
+
+          <div class="form-group form-full">
+            <label class="form-label" for="instruction-input">Guía o Instrucción para el Estudiante</label>
+            <input id="instruction-input" type="text" class="form-input" placeholder="Instrucción que guiará al estudiante al comenzar el juego...">
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Paso 2: Selección del Formato Didáctico -->
+      <div class="card-panel">
+        <div class="panel-header" style="display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:10px;">
+          <div>
+            <span class="step-badge">Paso 2: Formato de Actividad</span>
+            <h2 class="panel-title">Elige el Tipo de Juego (Menú con 22 Formatos)</h2>
+            <p class="panel-desc">Selecciona en el menú desplegable la actividad pedagógica que deseas generar:</p>
+          </div>
+          <button onclick="document.querySelector('[data-tab=catalog]').click()" style="background:none; border:none; color:var(--primary); font-size:13px; font-weight:700; cursor:pointer;">
+            Ver catálogo completo con detalles →
+          </button>
+        </div>
+
+        <div class="form-group" style="margin-bottom: 16px;">
+          <select id="activity-select-dropdown" class="form-select" style="font-size:15px; font-weight:700; padding:14px 18px; border:2px solid var(--primary); background:#f8fafc; color:var(--slate-900);">
+            <optgroup label="📝 Juegos de Palabras y Léxico">
+              <option value="sopa-de-letras" selected>#1. Sopa de Letras — (Cuadrícula táctil 15x15 con trazo continuo)</option>
+              <option value="crucigrama">#2. Crucigrama Tradicional — (Celdas cruzadas con auto-recorte)</option>
+              <option value="completar-parrafo">#8. Completar el Párrafo — (Huecos en texto con palabras distractoras)</option>
+              <option value="anagrama">#9. Anagrama — (Fichas Scrabble desordenadas en 10 niveles)</option>
+              <option value="mision-rescate">#13. Misión Rescate — (Ahorcado moderno con escudo de energía)</option>
+              <option value="rompecabezas-frases">#15. Rompecabezas de Frases — (Reconstrucción de leyes y citas)</option>
+            </optgroup>
+            <optgroup label="🧠 Memoria, Asociación y Clasificación">
+              <option value="emparejar">#3. Emparejar Columnas — (Conceptos vs Definiciones)</option>
+              <option value="concentrese">#4. Concéntrese / Memoria — (Tablero de 20 cartas 3D flip)</option>
+              <option value="tap-and-sort">#6. Clasificador Tap & Sort — (Clasificación por categorías táctil)</option>
+              <option value="ordenar-secuencia">#10. Ordenar la Secuencia — (Línea de tiempo con flechas ⬆️ ⬇️)</option>
+            </optgroup>
+            <optgroup label="🚀 Aventura, Retos y Toma de Decisiones">
+              <option value="laberinto-decisiones">#5. Laberinto de Decisiones — (Historia ramificada con ≥8 escenas)</option>
+              <option value="escape-room">#7. Escape Room Digital — (4 salas, estilo cyberpunk con teclado virtual)</option>
+              <option value="criptograma">#18. Criptograma Científico — (Mensaje cifrado con runas y preguntas)</option>
+            </optgroup>
+            <optgroup label="⚡ Arcade, Concursos y Velocidad">
+              <option value="tarjetas-swipe">#12. Tarjetas Swipe — (Verdadero/Falso estilo Tinder con mazo)</option>
+              <option value="lluvia-conceptos">#14. Lluvia de Conceptos — (Arcade de palabras cayendo y vidas)</option>
+              <option value="trivia-reloj">#16. Trivia Contra Reloj — (Temporizador 15s con racha multiplicadora 🔥)</option>
+              <option value="ruleta-saber">#17. Ruleta del Saber — (Ruleta giratoria por categorías)</option>
+              <option value="jeopardy">#19. Tablero de Pistas Jeopardy — (Preguntas de 100, 200 y 300 puntos)</option>
+            </optgroup>
+            <optgroup label="🗺️ Diagramas y Localización">
+              <option value="etiquetar-diagrama">#11. Etiquetar Diagrama — (SVG interactivo con puntos calientes parpadeantes)</option>
+            </optgroup>
+            <optgroup label="🎹 Música y Simuladores">
+              <option value="piano-interactivo">#20. Simulador de Piano Interactivo — (Audio Web Audio API ADSR 2 octavas)</option>
+            </optgroup>
+            <optgroup label="📖 Lectoescritura e Inclusión Educativa">
+              <option value="lectoescritura-adaptada">#21. Lectoescritura Adaptada — (Lectura silábica coloreada, regleta y voz)</option>
+              <option value="lectoescritura-desde-cero">#22. SUPER PROMPT: Lectoescritura Inicial — (Sonidos de palmas 👏, tren y pizarra mágica)</option>
+            </optgroup>
+          </select>
+        </div>
+
+        <div id="selected-activity-summary" class="selected-summary-box">
+          <div class="card-icon" style="background:#e0f2fe; color:var(--primary); width:52px; height:52px; border-radius:12px; display:flex; align-items:center; justify-content:center;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16M6 4v16M12 4v16M18 4v16"/></svg>
+          </div>
+          <div style="flex:1;">
+            <div style="display:flex; align-items:center; gap:8px; margin-bottom:4px;">
+              <span style="background:#e0f2fe; color:var(--primary); font-size:11px; font-weight:800; padding:3px 10px; border-radius:6px;">Formato #1</span>
+              <span style="font-size:12px; font-weight:700; color:#15803d; background:#dcfce7; padding:3px 10px; border-radius:6px;">Léxico y Reconocimiento</span>
+              <span style="font-size:12px; color:var(--slate-500); font-weight:600;">• Recomendado: Primaria y Secundaria</span>
+            </div>
+            <h4 style="font-size:17px; font-weight:800; color:var(--slate-900); margin-bottom:4px;">Sopa de Letras</h4>
+            <p style="font-size:13px; color:var(--slate-600); line-height:1.5;">Cuadrícula táctil interactiva 15x15 con trazo continuo, palabras en horizontal, vertical y diagonal, con badges tachables.</p>
+          </div>
+        </div>
+
+        <button id="generate-btn" type="button" class="btn-generate">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+          <span>Generar Actividad Interactiva con IA</span>
+        </button>
+
+        <div id="generating-status" class="progress-container hidden">
+          <div class="progress-header">
+            <span id="generating-text">Conectando con OpenRouter...</span>
+            <span>Generando código 100% funcional</span>
+          </div>
+          <div class="progress-track">
+            <div id="progress-bar" class="progress-fill" style="width: 0%;"></div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- SECCIÓN DEL SIMULADOR EN VIVO -->
+      <div id="preview-section" class="preview-panel hidden">
+        
+        <div class="preview-toolbar">
+          <div>
+            <span class="step-badge" style="background:#dcfce7; color:#15803d;">¡Actividad Lista!</span>
+            <h3 id="preview-title" class="panel-title" style="font-size:20px; margin-top:4px;">Vista Previa Interactiva</h3>
+            <p id="preview-subtitle" class="panel-desc">Prueba el juego abajo. Haz scroll hacia abajo en el juego para ver la lectura teórica y el taller para el cuaderno.</p>
+          </div>
+
+          <div class="preview-actions">
+            
+            <div class="view-toggle">
+              <button id="preview-mode-mobile" class="view-toggle-btn active">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
+                <span>Celular</span>
+              </button>
+              <button id="preview-mode-desktop" class="view-toggle-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8m-4-4v4"/></svg>
+                <span>Pantalla Completa</span>
+              </button>
+            </div>
+
+            <button id="refresh-preview-btn" class="btn-action" title="Reiniciar juego">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+            </button>
+
+            <button id="copy-html-btn" class="btn-action" title="Copiar código HTML">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+              <span>Copiar</span>
+            </button>
+
+            <button id="open-new-tab-btn" class="btn-action" title="Abrir en pestaña nueva">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6m4-3h6v6m-11 5L21 3"/></svg>
+            </button>
+
+            <button id="download-btn" class="btn-action btn-download">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+              <span>Descargar .html Autónomo</span>
+            </button>
+
+          </div>
+        </div>
+
+        <div class="simulator-stage">
+          <div id="preview-wrapper" class="phone-mockup-wrapper">
+            <iframe id="preview-iframe" class="phone-mockup" sandbox="allow-scripts allow-modals"></iframe>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- PESTAÑA 2: CATÁLOGO DETALLADO -->
+    <section id="tab-catalog" class="tab-panel hidden">
+      <div class="card-panel">
+        
+        <div class="panel-header" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
+          <div>
+            <h2 class="panel-title">Catálogo Completo de Actividades (22)</h2>
+            <p class="panel-desc">Explora la colección de formatos didácticos interactivos listos para generar con IA.</p>
+          </div>
+          <input id="catalog-search" type="text" class="form-input" style="width:260px;" placeholder="Buscar formato por nombre...">
+        </div>
+
+        <div id="category-pills" class="catalog-filters">
+          <!-- Renderizado dinámico -->
+        </div>
+
+        <div id="catalog-grid" class="catalog-grid">
+          <!-- Renderizado dinámico -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PESTAÑA 3: BIBLIOTECA -->
+    <section id="tab-library" class="tab-panel hidden">
+      <div class="card-panel">
+        <div class="panel-header">
+          <h2 class="panel-title">Mis Actividades Creadas</h2>
+          <p class="panel-desc">Tus actividades se almacenan en este navegador para que puedas jugarlas o descargarlas cuando quieras.</p>
+        </div>
+
+        <div id="library-empty" style="text-align:center; padding:60px 20px;">
+          <div style="width:64px; height:64px; border-radius:16px; background:var(--primary-light); color:var(--primary); display:flex; align-items:center; justify-content:center; margin:0 auto 16px auto;">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"/></svg>
+          </div>
+          <h3 style="font-size:16px; font-weight:800; color:var(--slate-900); margin-bottom:4px;">No tienes actividades guardadas todavía</h3>
+          <p style="font-size:13px; color:var(--slate-500); margin-bottom:20px;">Crea tu primera actividad en la pestaña "Crear Actividad" para comenzar tu colección.</p>
+          <button onclick="document.querySelector('[data-tab=generator]').click()" class="btn-action" style="background:var(--primary); color:white; border:none; padding:10px 20px;">
+            Crear Actividad Ahora
+          </button>
+        </div>
+
+        <div id="library-grid" class="catalog-grid">
+          <!-- Renderizado dinámico -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PESTAÑA 4: CONFIGURACIÓN -->
+    <section id="tab-settings" class="tab-panel hidden">
+      <div class="card-panel" style="max-width:680px; margin:0 auto;">
+        <div class="panel-header">
+          <span class="step-badge">Motor de Inteligencia Artificial</span>
+          <h2 class="panel-title">Configuración de OpenRouter</h2>
+          <p class="panel-desc">Ingresa tu clave de OpenRouter. Se almacena localmente de forma privada en tu navegador (localStorage) y nunca viaja a ningún servidor externo.</p>
+        </div>
+
+        <div style="display:flex; flex-direction:column; gap:20px;">
+          
+          <div class="form-group">
+            <label class="form-label" for="api-key-input">Clave API de OpenRouter (sk-or-v1-...) *</label>
+            <input id="api-key-input" type="password" class="form-input" placeholder="sk-or-v1-xxxxxxxxxxxxxxxxxxxx">
+            <span style="font-size:11px; color:var(--slate-500); margin-top:4px;">
+              Consíguela en <a href="https://openrouter.ai/keys" target="_blank" style="color:var(--primary); font-weight:700;">openrouter.ai/keys</a>.
+            </span>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="model-select">Modelo de Inteligencia Artificial</label>
+            <select id="model-select" class="form-select">
+              <!-- Renderizado dinámico -->
+            </select>
+            <span style="font-size:11px; color:var(--slate-500); margin-top:4px;">
+              <strong>DeepSeek V3</strong> es la opción recomendada: genera código extenso y perfecto por una fracción de centavo.
+            </span>
+          </div>
+
+          <div style="background:#f0fdf4; border:1px solid #bbf7d0; border-radius:12px; padding:16px; font-size:12px; color:#166534;">
+            <p style="font-weight:800; margin-bottom:4px;">💡 Costo ultra accesible:</p>
+            <p>Generar una actividad completa cuesta ~$0.001 USD (~$4 COP). ¡Con $1 USD en OpenRouter puedes generar cerca de 1.000 juegos!</p>
+          </div>
+
+          <button id="save-settings-btn" type="button" class="btn-generate" style="margin-top:0;">
+            Guardar Configuración
+          </button>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- MODAL PARA VER/COPIAR PROMPT MAESTRO -->
+  <div id="prompt-modal" class="modal-overlay hidden">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="prompt-modal-title" style="font-size:15px; font-weight:800;">Prompt Maestro</h3>
+        <button id="prompt-modal-close-btn" style="background:none; border:none; color:white; cursor:pointer;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre id="prompt-modal-code" style="font-family:monospace; font-size:11px; color:var(--slate-800); white-space:pre-wrap; background:white; padding:16px; border-radius:10px; border:1px solid var(--slate-200); line-height:1.6;"></pre>
+      </div>
+      <div class="modal-footer">
+        <button onclick="document.getElementById('prompt-modal').classList.add('hidden')" class="btn-action">Cerrar</button>
+        <button id="prompt-modal-copy-btn" class="btn-action" style="background:var(--primary); color:white; border:none;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+          <span>Copiar Prompt</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTENEDOR DE TOASTS -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- PIE DE PÁGINA -->
+  <footer class="main-footer">
+    <div class="container footer-inner">
+      <div style="display:flex; align-items:center; gap:12px;">
+        <img src="./assets/logo.png" alt="Peidagogos STEAM Logo" style="height:32px; width:auto;">
+        <div>
+          <strong>Peidagogos STEAM</strong> (peidagogos.org) © 2026 — Plataforma de Gamificación con Inteligencia Artificial.
+        </div>
+      </div>
+      <div style="color:var(--slate-400);">
+        Actividades interactivas 100% offline listas para el aula escolar.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lógica auto-contenida (Cero restricciones CORS) -->
+  <script src="./js/bundle.js"></script>
+</body>
+</html>
