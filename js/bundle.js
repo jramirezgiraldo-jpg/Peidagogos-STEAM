@@ -686,35 +686,35 @@ function downloadHtmlFile(fileName, htmlContent) {
   setTimeout(() => URL.revokeObjectURL(url), 1000);
 }
 
-// Cliente de conexión con OpenRouter API para Peidagogos
+// Cliente de conexiÃ³n con OpenRouter API para Peidagogos
 const OPENROUTER_MODELS = [
   {
     id: "deepseek/deepseek-chat",
     name: "DeepSeek V3 (Recomendado)",
-    badge: "Ultra Económico y Rápido",
+    badge: "Ultra EconÃ³mico y RÃ¡pido",
     cost: "~$0.001 USD / actividad",
-    description: "Excelente generación de código frontend, JavaScript y lógica educativa sin truncamiento."
+    description: "Excelente generaciÃ³n de cÃ³digo frontend, JavaScript y lÃ³gica educativa sin truncamiento."
   },
   {
     id: "google/gemini-2.0-flash-001",
     name: "Google Gemini 2.0 Flash",
-    badge: "Máxima Velocidad",
+    badge: "MÃ¡xima Velocidad",
     cost: "~$0.0014 USD / actividad",
-    description: "Ultra rápido, contexto amplio y muy buena respuesta para estructuras HTML."
+    description: "Ultra rÃ¡pido, contexto amplio y muy buena respuesta para estructuras HTML."
   },
   {
     id: "openai/gpt-4o-mini",
     name: "OpenAI GPT-4o Mini",
-    badge: "Alta Precisión",
+    badge: "Alta PrecisiÃ³n",
     cost: "~$0.002 USD / actividad",
-    description: "Gran seguimiento de instrucciones pedagógicas complejas y diseño visual."
+    description: "Gran seguimiento de instrucciones pedagÃ³gicas complejas y diseÃ±o visual."
   },
   {
     id: "meta-llama/llama-3.3-70b-instruct",
     name: "Meta Llama 3.3 70B",
-    badge: "Código Abierto",
+    badge: "CÃ³digo Abierto",
     cost: "~$0.002 USD / actividad",
-    description: "Gran capacidad didáctica y estructuración de contenido teórico."
+    description: "Gran capacidad didÃ¡ctica y estructuraciÃ³n de contenido teÃ³rico."
   }
 ];
 
@@ -772,7 +772,7 @@ function extractCleanHtml(rawText) {
   return clean;
 }
 
-// Genera la actividad completa conectando con OpenRouter
+// Genera la actividad completa conectando primero con el servidor seguro o con OpenRouter
 async function generateActivityWithOpenRouter({
   prompt,
   model = "deepseek/deepseek-chat",
@@ -780,9 +780,30 @@ async function generateActivityWithOpenRouter({
   onChunk,
   onStatus
 }) {
+  // 1. Intentar primero a travÃ©s del backend seguro de Render (/api/generate)
+  try {
+    if (onStatus) onStatus("Conectando con el servidor Peidagogos...");
+    const serverRes = await fetch("/api/generate", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ prompt, model })
+    });
+
+    if (serverRes.ok) {
+      const data = await serverRes.json();
+      if (data.html) {
+        if (onStatus) onStatus("Â¡Actividad lista!");
+        return data.html;
+      }
+    }
+  } catch (serverErr) {
+    console.log("Servidor backend no disponible, intentando modo cliente directo...");
+  }
+
+  // 2. Modo Cliente Directo (si no hay servidor o para desarrollo local)
   const effectiveKey = apiKey || getStoredApiKey();
   if (!effectiveKey) {
-    throw new Error("No has configurado tu clave API de OpenRouter. Ingrésala en la barra superior o en Configuración.");
+    throw new Error("No hay conexiÃ³n con el servidor ni clave configurada. Por favor recarga la pÃ¡gina o ingresa tu clave en ConfiguraciÃ³n.");
   }
 
   if (onStatus) onStatus("Conectando con OpenRouter...");
@@ -801,13 +822,13 @@ async function generateActivityWithOpenRouter({
       messages: [
         {
           role: "system",
-          content: `Eres un desarrollador Frontend Senior y Diseñador Instruccional de clase mundial.
-Tu trabajo es generar un archivo HTML único, completo y 100% funcional que integre HTML5, CSS3 y JavaScript vanilla embebidos.
+          content: `Eres un desarrollador Frontend Senior y DiseÃ±ador Instruccional de clase mundial.
+Tu trabajo es generar un archivo HTML Ãºnico, completo y 100% funcional que integre HTML5, CSS3 y JavaScript vanilla embebidos.
 REGLAS SUPREMAS:
-1. No escribas NINGÚN texto conversacional de saludo ni despedida.
-2. Devuelve EXCLUSIVAMENTE el código HTML dentro de un solo bloque \`\`\`html ... \`\`\` que comience con <!DOCTYPE html> y termine con </html>.
-3. No uses CDNs externos ni librerías externas (cero Google Fonts, cero FontAwesome, cero frameworks externos). Todo debe funcionar 100% OFFLINE.
-4. Programa todo el código JS completo, sin 'TODO' ni 'implementar más tarde'.`
+1. No escribas NINGÃšN texto conversacional de saludo ni despedida.
+2. Devuelve EXCLUSIVAMENTE el cÃ³digo HTML dentro de un solo bloque \`\`\`html ... \`\`\` que comience con <!DOCTYPE html> y termine con </html>.
+3. No uses CDNs externos ni librerÃ­as externas (cero Google Fonts, cero FontAwesome, cero frameworks externos). Todo debe funcionar 100% OFFLINE.
+4. Programa todo el cÃ³digo JS completo, sin 'TODO' ni 'implementar mÃ¡s tarde'.`
         },
         {
           role: "user",
@@ -831,7 +852,7 @@ REGLAS SUPREMAS:
     throw new Error(errMessage);
   }
 
-  if (onStatus) onStatus("Generando código del juego y taller pedagógico...");
+  if (onStatus) onStatus("Generando cÃ³digo del juego y taller pedagÃ³gico...");
 
   // Procesamiento por Streaming (SSE)
   const reader = response.body.getReader();
@@ -867,17 +888,34 @@ REGLAS SUPREMAS:
 
   const cleanHtml = extractCleanHtml(accumulatedText);
   if (!cleanHtml || !cleanHtml.includes("<html")) {
-    throw new Error("La respuesta recibida no contiene una estructura HTML válida. Intenta nuevamente.");
+    throw new Error("La respuesta recibida no contiene una estructura HTML vÃ¡lida. Intenta nuevamente.");
   }
 
   return cleanHtml;
 }
 
-// Función asistida para que el maestro obtenga 10 palabras clave con 1 clic
+// FunciÃ³n asistida para que el maestro obtenga 10 palabras clave con 1 clic
 async function suggestKeywordsWithIA({ topic, grade, apiKey, model = "deepseek/deepseek-chat" }) {
+  // 1. Intentar primero a travÃ©s del backend seguro de Render
+  try {
+    const serverRes = await fetch("/api/suggest-keywords", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ topic, grade, model })
+    });
+
+    if (serverRes.ok) {
+      const data = await serverRes.json();
+      if (data.keywords) return data.keywords;
+    }
+  } catch (e) {
+    console.log("Servidor backend no disponible para sugerir palabras, intentando modo cliente...");
+  }
+
+  // 2. Modo Cliente Directo
   const effectiveKey = apiKey || getStoredApiKey();
   if (!effectiveKey) {
-    throw new Error("Se requiere la clave API de OpenRouter.");
+    throw new Error("Se requiere conexiÃ³n con el servidor o clave API de OpenRouter.");
   }
 
   const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
@@ -894,7 +932,7 @@ async function suggestKeywordsWithIA({ topic, grade, apiKey, model = "deepseek/d
       messages: [
         {
           role: "system",
-          content: "Eres un asistente pedagógico. Tu tarea es listar exactamente 10 palabras clave o conceptos cortos sobre el tema solicitado, adaptadas al grado indicado. Devuelve únicamente las 10 palabras separadas por comas, sin numeración ni comentarios."
+          content: "Eres un asistente pedagÃ³gico. Tu tarea es listar exactamente 10 palabras clave o conceptos cortos sobre el tema solicitado, adaptadas al grado indicado. Devuelve Ãºnicamente las 10 palabras separadas por comas, sin numeraciÃ³n ni comentarios."
         },
         {
           role: "user",
