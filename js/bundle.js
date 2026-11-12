@@ -1085,7 +1085,25 @@ function cacheDom() {
 }
 
 // InicializaciÃ³n de la app
-document.addEventListener("DOMContentLoaded", () => {
+function initApp() {
+  try { cacheDom(); } catch(e) { console.error("Error cacheDom:", e); }
+  try { initApiStatus(); } catch(e) { console.error("Error initApiStatus:", e); }
+  try { renderActivitySelectors(); } catch(e) { console.error("Error renderActivitySelectors:", e); }
+  try { renderCategoryPills(); } catch(e) { console.error("Error renderCategoryPills:", e); }
+  try { renderCatalog(); } catch(e) { console.error("Error renderCatalog:", e); }
+  try { renderModelOptions(); } catch(e) { console.error("Error renderModelOptions:", e); }
+  try { renderSavedActivities(); } catch(e) { console.error("Error renderSavedActivities:", e); }
+  try { attachEvents(); } catch(e) { console.error("Error attachEvents:", e); }
+  try { selectActivity("sopa-de-letras"); } catch(e) { console.error("Error selectActivity:", e); }
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initApp);
+} else {
+  initApp();
+}
+
+function _unusedInit() {
   cacheDom();
   initApiStatus();
   renderActivitySelectors();
@@ -1097,7 +1115,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Seleccionar la primera actividad por defecto
   selectActivity("sopa-de-letras");
-});
+}
 
 async function initApiStatus() {
   const key = getStoredApiKey();
@@ -1722,4 +1740,6 @@ function showToast(message, type = "info") {
   }, 3500);
 }
 
+  window.handleGenerateActivity = handleGenerateActivity;
+  window.showToast = showToast;
 })();

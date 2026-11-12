@@ -99,19 +99,26 @@ function cacheDom() {
 }
 
 // Inicialización de la app
-document.addEventListener("DOMContentLoaded", () => {
-  cacheDom();
-  initApiStatus();
-  renderActivitySelectors();
-  renderCategoryPills();
-  renderCatalog();
-  renderModelOptions();
-  renderSavedActivities();
-  attachEvents();
+function initApp() {
+  try { cacheDom(); } catch(e) { console.error("Error cacheDom:", e); }
+  try { initApiStatus(); } catch(e) { console.error("Error initApiStatus:", e); }
+  try { renderActivitySelectors(); } catch(e) { console.error("Error renderActivitySelectors:", e); }
+  try { renderCategoryPills(); } catch(e) { console.error("Error renderCategoryPills:", e); }
+  try { renderCatalog(); } catch(e) { console.error("Error renderCatalog:", e); }
+  try { renderModelOptions(); } catch(e) { console.error("Error renderModelOptions:", e); }
+  try { renderSavedActivities(); } catch(e) { console.error("Error renderSavedActivities:", e); }
+  try { attachEvents(); } catch(e) { console.error("Error attachEvents:", e); }
+  try { selectActivity("sopa-de-letras"); } catch(e) { console.error("Error selectActivity:", e); }
+}
 
-  // Seleccionar la primera actividad por defecto
-  selectActivity("sopa-de-letras");
-});
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initApp);
+} else {
+  initApp();
+}
+
+window.handleGenerateActivity = handleGenerateActivity;
+window.showToast = showToast;
 
 async function initApiStatus() {
   // Consultar al servidor si tiene la clave configurada en Render
