@@ -1491,7 +1491,19 @@ async function handleGenerateActivity() {
   const instruction = dom.instructionInput.value.trim();
 
   if (!topic) {
-    showToast("Por favor ingresa el tema de la actividad.", "warning");
+    if (dom.topicInput) {
+      dom.topicInput.focus();
+      dom.topicInput.scrollIntoView({ behavior: "smooth", block: "center" });
+      dom.topicInput.style.border = "3px solid #ef4444";
+      dom.topicInput.style.backgroundColor = "#fef2f2";
+      setTimeout(() => {
+        if (dom.topicInput) {
+          dom.topicInput.style.border = "";
+          dom.topicInput.style.backgroundColor = "";
+        }
+      }, 3500);
+    }
+    showToast("⚠️ Por favor ingresa el Tema de la Clase en el campo de arriba (Paso 1).", "warning");
     dom.topicInput.focus();
     return;
   }
