@@ -7,10 +7,13 @@
   <meta name="description" content="Crea actividades y juegos educativos interactivos en 1 solo archivo HTML autónomo para tus estudiantes.">
   <link rel="icon" type="image/png" href="./assets/favicon.png">
   <link rel="apple-touch-icon" href="./assets/icon-192.png">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
   <link rel="manifest" href="./manifest.json">
   <meta name="theme-color" content="#0f3d64">
   <!-- Estilos 100% integrados sin depender de CDNs externos -->
-  <link rel="stylesheet" href="./css/styles.css">
+  <link rel="stylesheet" href="./css/styles.css?v=2.2">
 </head>
 <body>
 
@@ -426,7 +429,24 @@
     </div>
   </footer>
 
+  <!-- Desactivar y limpiar cualquier Service Worker o caché viejo acumulado -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.getRegistrations().then(function(registrations) {
+        for (var reg of registrations) {
+          reg.unregister();
+        }
+      });
+    }
+    if ('caches' in window) {
+      caches.keys().then(function(names) {
+        for (var name of names) {
+          caches.delete(name);
+        }
+      });
+    }
+  </script>
   <!-- Lógica auto-contenida (Cero restricciones CORS) -->
-  <script src="./js/bundle.js?v=2.1"></script>
+  <script src="./js/bundle.js?v=2.2"></script>
 </body>
 </html>
