@@ -1011,7 +1011,9 @@ const state = {
   isGenerating: false,
   previewMode: "mobile", // "mobile" o "desktop"
   searchQuery: "",
-  serverHasKey: false
+  serverHasKey: false,
+  elapsedSeconds: 0,
+  timerInterval: null
 };
 
 // Elementos DOM
@@ -1033,7 +1035,11 @@ function cacheDom() {
   dom.selectedActivitySummary = document.getElementById("selected-activity-summary");
 
   // Barra de progreso y generaciÃ³n
-  dom.generatingStatus = document.getElementById("generating-status");
+  dom.generatingModal = document.getElementById("generating-modal");
+  dom.generatingElapsed = document.getElementById("generating-elapsed");
+  dom.generatingEstimate = document.getElementById("generating-estimate");
+  dom.generatingPhase = document.getElementById("generating-phase");
+  dom.generatingPct = document.getElementById("generating-pct");
   dom.generatingText = document.getElementById("generating-text");
   dom.progressBar = document.getElementById("progress-bar");
 
@@ -1203,7 +1209,7 @@ function attachEvents() {
         <svg class="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path></svg>
         <span>Generando...</span>
       `;
-      const keywords = await suggestKeywordsWithIA({ topic, grade, apiKey: key, model: getStoredModel() });
+      const keywords = await suggestKeywordsWithIA({ topic, grade, model: getStoredModel() });
       dom.keywordsInput.value = keywords;
       showToast("Â¡10 Palabras clave sugeridas con Ã©xito!", "success");
     } catch (err) {
@@ -1497,13 +1503,26 @@ async function handleGenerateActivity() {
     receivedHtml = await generateActivityWithOpenRouter({
       prompt: compiledPrompt,
       model: getStoredModel(),
-      apiKey: key,
+
       onStatus: statusMsg => {
         dom.generatingText.textContent = statusMsg;
       },
       onChunk: accumulatedText => {
         // Actualizar barra de progreso estimada
-        const progress = Math.min(95, Math.floor(accumulatedText.length / 50));
+        const len = accumulatedText.length;
+        const progress = Math.min(96, Math.max(15, Math.floor(len / 45)));
+        if (dom.generatingPct) dom.generatingPct.textContent = `${progress}%`;
+        if (dom.generatingPhase) {
+          if (progress < 30) {
+            dom.generatingPhase.textContent = "Estructurando contenidos didácticos...";
+          } else if (progress < 60) {
+            dom.generatingPhase.textContent = "Programando lógica del juego en JavaScript...";
+          } else if (progress < 85) {
+            dom.generatingPhase.textContent = "Diseñando taller para el cuaderno y estilos CSS...";
+          } else {
+            dom.generatingPhase.textContent = "Finalizando empaquetado autónomo...";
+          }
+        }
         dom.progressBar.style.width = `${progress}%`;
       }
     });
@@ -1550,7 +1569,16 @@ function updateGeneratingUI(isGenerating, message = "") {
       <svg class="w-5 h-5 animate-spin" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path></svg>
       <span>Creando Actividad Interactiva...</span>
     `;
-    dom.generatingStatus.classList.remove("hidden");
+    if (dom.generatingModal) dom.generatingModal.classList.remove("hidden");
+    if (dom.generatingPct) dom.generatingPct.textContent = "10%";
+    if (dom.generatingPhase) dom.generatingPhase.textContent = "Iniciando motor pedagógico...";
+    if (dom.generatingElapsed) dom.generatingElapsed.textContent = "0s";
+    state.elapsedSeconds = 0;
+    if (state.timerInterval) clearInterval(state.timerInterval);
+    state.timerInterval = setInterval(() => {
+      state.elapsedSeconds += 1;
+      if (dom.generatingElapsed) dom.generatingElapsed.textContent = `${state.elapsedSeconds}s`;
+    }, 1000);
     dom.generatingText.textContent = message;
     dom.progressBar.style.width = "15%";
   } else {
@@ -1558,7 +1586,12 @@ function updateGeneratingUI(isGenerating, message = "") {
       ${getIcon("sparkles")}
       <span>Generar Actividad Interactiva con IA</span>
     `;
-    dom.generatingStatus.classList.add("hidden");
+    if (state.timerInterval) {
+      clearInterval(state.timerInterval);
+      state.timerInterval = null;
+    }
+    if (dom.generatingModal) dom.generatingModal.classList.add("hidden");
+    if (dom.generatingPct) dom.generatingPct.textContent = "0%";
     dom.progressBar.style.width = "0%";
   }
 }

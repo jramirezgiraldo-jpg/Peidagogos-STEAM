@@ -190,15 +190,7 @@
           <span>Generar Actividad Interactiva con IA</span>
         </button>
 
-        <div id="generating-status" class="progress-container hidden">
-          <div class="progress-header">
-            <span id="generating-text">Conectando con OpenRouter...</span>
-            <span>Generando código 100% funcional</span>
-          </div>
-          <div class="progress-track">
-            <div id="progress-bar" class="progress-fill" style="width: 0%;"></div>
-          </div>
-        </div>
+
 
       </div>
 
@@ -347,6 +339,52 @@
     </section>
 
   </main>
+
+  <!-- MODAL DE GENERACIÓN CON TIEMPO ESTIMADO -->
+  <div id="generating-modal" class="modal-overlay hidden" style="z-index: 1000;">
+    <div class="modal-content" style="max-width: 440px; text-align: center; border-radius: 20px; overflow: hidden; box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.25);">
+      <div style="background: linear-gradient(135deg, #0f3d64 0%, #0369a1 100%); color: white; padding: 24px 20px 20px;">
+        <div style="width: 56px; height: 56px; border-radius: 16px; background: rgba(255, 255, 255, 0.15); display: inline-flex; align-items: center; justify-content: center; margin-bottom: 12px;">
+          <svg class="animate-spin" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
+          </svg>
+        </div>
+        <h3 style="font-size: 19px; font-weight: 800; margin-bottom: 4px;">Creando tu Actividad</h3>
+        <p id="generating-text" style="font-size: 13px; opacity: 0.9; line-height: 1.4;">Diseñando el juego y redactando el taller didáctico...</p>
+      </div>
+
+      <div style="padding: 24px; background: #ffffff;">
+        <!-- Cronómetro y Tiempo Estimado -->
+        <div style="display: flex; justify-content: space-around; align-items: center; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 14px; padding: 14px 12px; margin-bottom: 20px;">
+          <div>
+            <div style="font-size: 11px; text-transform: uppercase; color: #64748b; font-weight: 700; letter-spacing: 0.5px;">Tiempo Transcurrido</div>
+            <div id="generating-elapsed" style="font-size: 22px; font-weight: 800; color: #0f3d64; font-variant-numeric: tabular-nums;">0s</div>
+          </div>
+          <div style="width: 1px; height: 36px; background: #cbd5e1;"></div>
+          <div>
+            <div style="font-size: 11px; text-transform: uppercase; color: #64748b; font-weight: 700; letter-spacing: 0.5px;">Tiempo Estimado</div>
+            <div id="generating-estimate" style="font-size: 22px; font-weight: 800; color: #0284c7; font-variant-numeric: tabular-nums;">~20 - 35s</div>
+          </div>
+        </div>
+
+        <!-- Barra de Progreso Elegante -->
+        <div style="background: #e2e8f0; border-radius: 999px; height: 10px; overflow: hidden; margin-bottom: 12px;">
+          <div id="progress-bar" style="background: linear-gradient(90deg, #0284c7 0%, #10b981 100%); width: 0%; height: 100%; transition: width 0.3s ease; border-radius: 999px;"></div>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; font-size: 11px; color: #64748b; font-weight: 600;">
+          <span id="generating-phase">Iniciando motor de IA...</span>
+          <span id="generating-pct">0%</span>
+        </div>
+
+        <div style="margin-top: 18px; padding: 10px 14px; background: #f0fdf4; border-radius: 10px; border: 1px solid #bbf7d0; font-size: 11px; color: #166534; display: flex; align-items: center; gap: 8px; text-align: left;">
+          <span style="font-size: 16px;">💡</span>
+          <span>Programando lógica JavaScript, diseño móvil y taller sin conexión para el aula.</span>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- MODAL PARA VER/COPIAR PROMPT MAESTRO -->
   <div id="prompt-modal" class="modal-overlay hidden">
