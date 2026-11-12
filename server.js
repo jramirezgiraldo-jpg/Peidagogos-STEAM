@@ -1,4 +1,4 @@
-﻿const express = require("express");
+const express = require("express");
 const cors = require("cors");
 const path = require("path");
 
@@ -10,16 +10,25 @@ app.use(express.json({ limit: "10mb" }));
 app.use(express.static(path.join(__dirname, ".")));
 
 // La clave se lee de forma segura desde las variables de entorno de Render
-const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY || "";
+const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY || process.env.VITE_OPENROUTER_API_KEY || "";
+
+// Endpoint seguro para consultar si el servidor tiene la API Key configurada
+app.get("/api/config", (req, res) => {
+  res.json({
+    hasServerKey: Boolean(OPENROUTER_API_KEY && OPENROUTER_API_KEY.trim() !== ""),
+    defaultModel: "deepseek/deepseek-chat"
+  });
+});
 
 // Endpoint seguro para sugerir palabras clave
 app.post("/api/suggest-keywords", async (req, res) => {
   try {
     const { topic, grade, model = "deepseek/deepseek-chat" } = req.body;
-    const apiKey = OPENROUTER_API_KEY || req.headers.authorization?.replace("Bearer ", "");
+    const clientKey = req.body.apiKey || req.headers.authorization?.replace(/^Bearer\s+/i, "");
+    const apiKey = (clientKey && clientKey.trim()) || OPENROUTER_API_KEY;
 
     if (!apiKey) {
-      return res.status(400).json({ error: "No hay clave API de OpenRouter configurada en el servidor." });
+      return res.status(400).json({ error: "No hay clave API de OpenRouter configurada en el servidor (Render) ni ingresada en el cliente." });
     }
 
     const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
@@ -44,8 +53,12 @@ app.post("/api/suggest-keywords", async (req, res) => {
     });
 
     if (!response.ok) {
-      const err = await response.text();
-      return res.status(response.status).json({ error: err });
+      let errText = await response.text();
+      try {
+        const errObj = JSON.parse(errText);
+        if (errObj?.error?.message) errText = errObj.error.message;
+      } catch (_) {}
+      return res.status(response.status).json({ error: errText });
     }
 
     const data = await response.json();
@@ -61,10 +74,11 @@ app.post("/api/suggest-keywords", async (req, res) => {
 app.post("/api/generate", async (req, res) => {
   try {
     const { prompt, model = "deepseek/deepseek-chat" } = req.body;
-    const apiKey = OPENROUTER_API_KEY || req.headers.authorization?.replace("Bearer ", "");
+    const clientKey = req.body.apiKey || req.headers.authorization?.replace(/^Bearer\s+/i, "");
+    const apiKey = (clientKey && clientKey.trim()) || OPENROUTER_API_KEY;
 
     if (!apiKey) {
-      return res.status(400).json({ error: "No hay clave API de OpenRouter configurada en el servidor." });
+      return res.status(400).json({ error: "No hay clave API de OpenRouter configurada en el servidor (Render) ni ingresada en el cliente." });
     }
 
     const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
@@ -89,8 +103,12 @@ app.post("/api/generate", async (req, res) => {
     });
 
     if (!response.ok) {
-      const err = await response.text();
-      return res.status(response.status).json({ error: err });
+      let errText = await response.text();
+      try {
+        const errObj = JSON.parse(errText);
+        if (errObj?.error?.message) errText = errObj.error.message;
+      } catch (_) {}
+      return res.status(response.status).json({ error: errText });
     }
 
     const data = await response.json();

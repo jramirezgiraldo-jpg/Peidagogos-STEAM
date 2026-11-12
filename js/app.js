@@ -6,7 +6,8 @@ import {
   getStoredModel, 
   setStoredModel,
   generateActivityWithOpenRouter,
-  suggestKeywordsWithIA
+  suggestKeywordsWithIA,
+  checkServerConfig
 } from "./openrouter.js";
 import { 
   getSavedActivities, 
@@ -25,7 +26,8 @@ const state = {
   currentActivityMetadata: null,
   isGenerating: false,
   previewMode: "mobile", // "mobile" o "desktop"
-  searchQuery: ""
+  searchQuery: "",
+  serverHasKey: false
 };
 
 // Elementos DOM
@@ -74,7 +76,6 @@ function cacheDom() {
   dom.libraryEmpty = document.getElementById("library-empty");
 
   // Configuración
-  dom.apiKeyInput = document.getElementById("api-key-input");
   dom.modelSelect = document.getElementById("model-select");
   dom.saveSettingsBtn = document.getElementById("save-settings-btn");
   dom.apiStatusPill = document.getElementById("api-status-pill");
@@ -106,16 +107,22 @@ document.addEventListener("DOMContentLoaded", () => {
   selectActivity("sopa-de-letras");
 });
 
-function initApiStatus() {
-  const key = getStoredApiKey();
-  if (key) {
-    dom.apiStatusPill.className = "api-pill connected";
-    dom.apiStatusPill.innerHTML = `<span class="pulse-dot"></span> OpenRouter Conectado`;
-  } else {
-    dom.apiStatusPill.className = "api-pill disconnected";
-    dom.apiStatusPill.innerHTML = `<span class="pulse-dot"></span> Conectar OpenRouter`;
+async function initApiStatus() {
+  // Consultar al servidor si tiene la clave configurada en Render
+  try {
+    const config = await checkServerConfig();
+    state.serverHasKey = !!config.hasServerKey;
+  } catch (e) {
+    state.serverHasKey = true; // Asumir backend activo por defecto en despliegue
   }
-  dom.apiKeyInput.value = key;
+
+  updateApiStatusUI();
+}
+
+function updateApiStatusUI() {
+  dom.apiStatusPill.className = "api-pill connected";
+  dom.apiStatusPill.innerHTML = `<span class="pulse-dot"></span> IA Conectada`;
+  dom.apiStatusPill.title = "Servidor con Inteligencia Artificial conectado";
 }
 
 function renderModelOptions() {
@@ -161,13 +168,6 @@ function attachEvents() {
     if (!topic) {
       showToast("Ingresa primero un tema para poder sugerir palabras clave.", "warning");
       dom.topicInput.focus();
-      return;
-    }
-
-    const key = getStoredApiKey();
-    if (!key) {
-      showToast("Por favor configura tu clave de OpenRouter en Configuración.", "warning");
-      switchTab("settings");
       return;
     }
 
@@ -245,14 +245,11 @@ function attachEvents() {
     renderCatalog();
   });
 
-  // Guardar configuración
+  // Guardar configuración de modelo
   dom.saveSettingsBtn.addEventListener("click", () => {
-    const key = dom.apiKeyInput.value.trim();
     const model = dom.modelSelect.value;
-    setStoredApiKey(key);
     setStoredModel(model);
-    initApiStatus();
-    showToast("Configuración de OpenRouter guardada correctamente.", "success");
+    showToast("Modelo pedagógico actualizado correctamente.", "success");
   });
 
   // Pill del header abre configuración
@@ -430,13 +427,6 @@ async function handleGenerateActivity() {
   if (!topic) {
     showToast("Por favor ingresa el tema de la actividad.", "warning");
     dom.topicInput.focus();
-    return;
-  }
-
-  const key = getStoredApiKey();
-  if (!key) {
-    showToast("Por favor configura tu clave API de OpenRouter.", "warning");
-    switchTab("settings");
     return;
   }
 

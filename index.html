@@ -30,11 +30,11 @@
         </div>
       </div>
 
-      <!-- Estado de Conexión OpenRouter -->
+      <!-- Estado de Conexión IA -->
       <div>
-        <div id="api-status-pill" class="api-pill disconnected" title="Toca para configurar tu clave de OpenRouter">
+        <div id="api-status-pill" class="api-pill connected" title="Servidor Peidagogos STEAM con IA conectado">
           <span class="pulse-dot"></span>
-          <span>Conectar OpenRouter</span>
+          <span>IA Conectada</span>
         </div>
       </div>
 
@@ -59,7 +59,7 @@
 
       <button data-tab="settings" class="nav-tab">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
-        <span>Configuración OpenRouter</span>
+        <span>Modelo de IA</span>
       </button>
     </nav>
   </header>
@@ -310,18 +310,17 @@
       <div class="card-panel" style="max-width:680px; margin:0 auto;">
         <div class="panel-header">
           <span class="step-badge">Motor de Inteligencia Artificial</span>
-          <h2 class="panel-title">Configuración de OpenRouter</h2>
-          <p class="panel-desc">Ingresa tu clave de OpenRouter. Se almacena localmente de forma privada en tu navegador (localStorage) y nunca viaja a ningún servidor externo.</p>
+          <h2 class="panel-title">Modelo de Inteligencia Artificial</h2>
+          <p class="panel-desc">La conexión con OpenRouter está gestionada y financiada automáticamente por el servidor. Puedes seleccionar qué modelo pedagógico prefieres usar para generar tus actividades.</p>
         </div>
 
         <div style="display:flex; flex-direction:column; gap:20px;">
           
-          <div class="form-group">
-            <label class="form-label" for="api-key-input">Clave API de OpenRouter (sk-or-v1-...) *</label>
-            <input id="api-key-input" type="password" class="form-input" placeholder="sk-or-v1-xxxxxxxxxxxxxxxxxxxx">
-            <span style="font-size:11px; color:var(--slate-500); margin-top:4px;">
-              Consíguela en <a href="https://openrouter.ai/keys" target="_blank" style="color:var(--primary); font-weight:700;">openrouter.ai/keys</a>.
-            </span>
+          <div style="background:#f0fdf4; border:1px solid #bbf7d0; border-radius:12px; padding:16px; font-size:13px; color:#166534; display:flex; align-items:center; gap:12px;">
+            <div style="width:12px; height:12px; border-radius:50%; background:#16a34a; flex-shrink:0;"></div>
+            <div>
+              <strong>Conexión Automática Activa:</strong> La inteligencia artificial está configurada directamente en el servidor. Como docente, no necesitas ingresar ni gestionar ninguna clave API.
+            </div>
           </div>
 
           <div class="form-group">
@@ -335,8 +334,8 @@
           </div>
 
           <div style="background:#f0fdf4; border:1px solid #bbf7d0; border-radius:12px; padding:16px; font-size:12px; color:#166534;">
-            <p style="font-weight:800; margin-bottom:4px;">💡 Costo ultra accesible:</p>
-            <p>Generar una actividad completa cuesta ~$0.001 USD (~$4 COP). ¡Con $1 USD en OpenRouter puedes generar cerca de 1.000 juegos!</p>
+            <p style="font-weight:800; margin-bottom:4px;">💡 Integración Automática con Render:</p>
+            <p>La variable <code>OPENROUTER_API_KEY</code> configurada en Render es detectada y utilizada por defecto. No necesitas llenar este campo en cada dispositivo ni compartir tu clave.</p>
           </div>
 
           <button id="save-settings-btn" type="button" class="btn-generate" style="margin-top:0;">

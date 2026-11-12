@@ -84,6 +84,19 @@ export function extractCleanHtml(rawText) {
   return clean;
 }
 
+// Consulta si el servidor backend (Render) tiene configurada la clave OPENROUTER_API_KEY
+export async function checkServerConfig() {
+  try {
+    const res = await fetch("/api/config");
+    if (res.ok) {
+      return await res.json();
+    }
+  } catch (e) {
+    // Backend no disponible (modo offline o cliente estático)
+  }
+  return { hasServerKey: false };
+}
+
 // Genera la actividad completa conectando primero con el servidor seguro o con OpenRouter
 export async function generateActivityWithOpenRouter({
   prompt,
@@ -92,13 +105,24 @@ export async function generateActivityWithOpenRouter({
   onChunk,
   onStatus
 }) {
+  const effectiveKey = (apiKey || getStoredApiKey() || "").trim();
+
   // 1. Intentar primero a través del backend seguro de Render (/api/generate)
   try {
     if (onStatus) onStatus("Conectando con el servidor Peidagogos...");
+    const headers = { "Content-Type": "application/json" };
+    if (effectiveKey) {
+      headers["Authorization"] = `Bearer ${effectiveKey}`;
+    }
+
     const serverRes = await fetch("/api/generate", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ prompt, model })
+      headers,
+      body: JSON.stringify({
+        prompt,
+        model,
+        ...(effectiveKey ? { apiKey: effectiveKey } : {})
+      })
     });
 
     if (serverRes.ok) {
@@ -107,15 +131,31 @@ export async function generateActivityWithOpenRouter({
         if (onStatus) onStatus("¡Actividad lista!");
         return data.html;
       }
+    } else {
+      let serverErrMsg = "";
+      try {
+        const errJson = await serverRes.json();
+        serverErrMsg = errJson.error || errJson.message;
+      } catch (_) {
+        serverErrMsg = await serverRes.text().catch(() => "");
+      }
+
+      // Si el servidor devolvió un error explícito y no hay clave local, lanzar dicho error
+      if (!effectiveKey) {
+        throw new Error(serverErrMsg || `Error del servidor (${serverRes.status})`);
+      }
     }
   } catch (serverErr) {
-    console.log("Servidor backend no disponible, intentando modo cliente directo...");
+    // Si no tenemos clave local en el cliente para fallback directo, propagar el error
+    if (!effectiveKey) {
+      throw serverErr;
+    }
+    console.log("Servidor backend no disponible, intentando modo cliente directo con clave local...", serverErr);
   }
 
-  // 2. Modo Cliente Directo (si no hay servidor o para desarrollo local)
-  const effectiveKey = apiKey || getStoredApiKey();
+  // 2. Modo Cliente Directo (si hay clave local configurada o para desarrollo directo)
   if (!effectiveKey) {
-    throw new Error("No hay conexión con el servidor ni clave configurada. Por favor recarga la página o ingresa tu clave en Configuración.");
+    throw new Error("No hay conexión con el servidor ni clave API configurada en Render o en el navegador.");
   }
 
   if (onStatus) onStatus("Conectando con OpenRouter...");
@@ -208,24 +248,49 @@ REGLAS SUPREMAS:
 
 // Función asistida para que el maestro obtenga 10 palabras clave con 1 clic
 export async function suggestKeywordsWithIA({ topic, grade, apiKey, model = "deepseek/deepseek-chat" }) {
+  const effectiveKey = (apiKey || getStoredApiKey() || "").trim();
+
   // 1. Intentar primero a través del backend seguro de Render
   try {
+    const headers = { "Content-Type": "application/json" };
+    if (effectiveKey) {
+      headers["Authorization"] = `Bearer ${effectiveKey}`;
+    }
+
     const serverRes = await fetch("/api/suggest-keywords", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ topic, grade, model })
+      headers,
+      body: JSON.stringify({
+        topic,
+        grade,
+        model,
+        ...(effectiveKey ? { apiKey: effectiveKey } : {})
+      })
     });
 
     if (serverRes.ok) {
       const data = await serverRes.json();
       if (data.keywords) return data.keywords;
+    } else {
+      let serverErrMsg = "";
+      try {
+        const errJson = await serverRes.json();
+        serverErrMsg = errJson.error || errJson.message;
+      } catch (_) {
+        serverErrMsg = await serverRes.text().catch(() => "");
+      }
+      if (!effectiveKey) {
+        throw new Error(serverErrMsg || `Error del servidor (${serverRes.status})`);
+      }
     }
   } catch (e) {
-    console.log("Servidor backend no disponible para sugerir palabras, intentando modo cliente...");
+    if (!effectiveKey) {
+      throw e;
+    }
+    console.log("Servidor backend no disponible para sugerir palabras, intentando modo cliente con clave local...", e);
   }
 
   // 2. Modo Cliente Directo
-  const effectiveKey = apiKey || getStoredApiKey();
   if (!effectiveKey) {
     throw new Error("Se requiere conexión con el servidor o clave API de OpenRouter.");
   }

@@ -1,4 +1,4 @@
-﻿// PEIDAGOGOS STEAM BUNDLE AUTO-CONTENIDO (CERO ERRORES DE CORS EN FILE:///)
+// PEIDAGOGOS STEAM BUNDLE AUTO-CONTENIDO (CERO ERRORES DE CORS EN FILE:///)
 (function() {
 // Catálogo completo de las 22 actividades pedagógicas con metadatos y prompts
 const COMMON_PHASE_3 = `
@@ -772,6 +772,19 @@ function extractCleanHtml(rawText) {
   return clean;
 }
 
+// Consulta si el servidor backend (Render) tiene configurada la clave OPENROUTER_API_KEY
+async function checkServerConfig() {
+  try {
+    const res = await fetch("/api/config");
+    if (res.ok) {
+      return await res.json();
+    }
+  } catch (e) {
+    // Backend no disponible (modo offline o cliente estático)
+  }
+  return { hasServerKey: false };
+}
+
 // Genera la actividad completa conectando primero con el servidor seguro o con OpenRouter
 async function generateActivityWithOpenRouter({
   prompt,
@@ -780,13 +793,14 @@ async function generateActivityWithOpenRouter({
   onChunk,
   onStatus
 }) {
+  const effectiveKey = (apiKey || getStoredApiKey() || "").trim();
   // 1. Intentar primero a travÃ©s del backend seguro de Render (/api/generate)
   try {
     if (onStatus) onStatus("Conectando con el servidor Peidagogos...");
     const serverRes = await fetch("/api/generate", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ prompt, model })
+      headers: { "Content-Type": "application/json", ...(effectiveKey ? { "Authorization": `Bearer ${effectiveKey}` } : {}) },
+      body: JSON.stringify({ prompt, model, ...(effectiveKey ? { apiKey: effectiveKey } : {}) })
     });
 
     if (serverRes.ok) {
@@ -796,12 +810,27 @@ async function generateActivityWithOpenRouter({
         return data.html;
       }
     }
+ else {
+      let serverErrMsg = "";
+      try {
+        const errJson = await serverRes.json();
+        serverErrMsg = errJson.error || errJson.message;
+      } catch (_) {
+        serverErrMsg = await serverRes.text().catch(() => "");
+      }
+      if (!effectiveKey) {
+        throw new Error(serverErrMsg || `Error del servidor (${serverRes.status})`);
+      }
+    }
   } catch (serverErr) {
+    if (!effectiveKey) {
+      throw serverErr;
+    }
     console.log("Servidor backend no disponible, intentando modo cliente directo...");
   }
 
   // 2. Modo Cliente Directo (si no hay servidor o para desarrollo local)
-  const effectiveKey = apiKey || getStoredApiKey();
+  // Fallback si se ejecuta en cliente directo
   if (!effectiveKey) {
     throw new Error("No hay conexiÃ³n con el servidor ni clave configurada. Por favor recarga la pÃ¡gina o ingresa tu clave en ConfiguraciÃ³n.");
   }
@@ -896,24 +925,40 @@ REGLAS SUPREMAS:
 
 // FunciÃ³n asistida para que el maestro obtenga 10 palabras clave con 1 clic
 async function suggestKeywordsWithIA({ topic, grade, apiKey, model = "deepseek/deepseek-chat" }) {
+  const effectiveKey = (apiKey || getStoredApiKey() || "").trim();
   // 1. Intentar primero a travÃ©s del backend seguro de Render
   try {
     const serverRes = await fetch("/api/suggest-keywords", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ topic, grade, model })
+      headers: { "Content-Type": "application/json", ...(effectiveKey ? { "Authorization": `Bearer ${effectiveKey}` } : {}) },
+      body: JSON.stringify({ topic, grade, model, ...(effectiveKey ? { apiKey: effectiveKey } : {}) })
     });
 
     if (serverRes.ok) {
       const data = await serverRes.json();
       if (data.keywords) return data.keywords;
     }
+ else {
+      let serverErrMsg = "";
+      try {
+        const errJson = await serverRes.json();
+        serverErrMsg = errJson.error || errJson.message;
+      } catch (_) {
+        serverErrMsg = await serverRes.text().catch(() => "");
+      }
+      if (!effectiveKey) {
+        throw new Error(serverErrMsg || `Error del servidor (${serverRes.status})`);
+      }
+    }
   } catch (e) {
+    if (!effectiveKey) {
+      throw e;
+    }
     console.log("Servidor backend no disponible para sugerir palabras, intentando modo cliente...");
   }
 
   // 2. Modo Cliente Directo
-  const effectiveKey = apiKey || getStoredApiKey();
+  // Fallback a cliente directo si hay clave local
   if (!effectiveKey) {
     throw new Error("Se requiere conexiÃ³n con el servidor o clave API de OpenRouter.");
   }
@@ -965,7 +1010,8 @@ const state = {
   currentActivityMetadata: null,
   isGenerating: false,
   previewMode: "mobile", // "mobile" o "desktop"
-  searchQuery: ""
+  searchQuery: "",
+  serverHasKey: false
 };
 
 // Elementos DOM
@@ -1014,7 +1060,8 @@ function cacheDom() {
   dom.libraryEmpty = document.getElementById("library-empty");
 
   // ConfiguraciÃ³n
-  dom.apiKeyInput = document.getElementById("api-key-input");
+
+
   dom.modelSelect = document.getElementById("model-select");
   dom.saveSettingsBtn = document.getElementById("save-settings-btn");
   dom.apiStatusPill = document.getElementById("api-status-pill");
@@ -1046,16 +1093,54 @@ document.addEventListener("DOMContentLoaded", () => {
   selectActivity("sopa-de-letras");
 });
 
-function initApiStatus() {
+async function initApiStatus() {
   const key = getStoredApiKey();
+
+
+  // Consultar al servidor si tiene la clave configurada en Render
+  try {
+    const config = await checkServerConfig();
+    state.serverHasKey = !!config.hasServerKey;
+  } catch (e) {
+    state.serverHasKey = true;
+  }
+
+  updateApiStatusUI();
+}
+
+function updateApiStatusUI() {
+  dom.apiStatusPill.className = "api-pill connected";
+  dom.apiStatusPill.innerHTML = `<span class="pulse-dot"></span> IA Conectada`;
+  dom.apiStatusPill.title = "Servidor Peidagogos STEAM con IA conectado";
+  return;
   if (key) {
     dom.apiStatusPill.className = "api-pill connected";
-    dom.apiStatusPill.innerHTML = `<span class="pulse-dot"></span> OpenRouter Conectado`;
+    dom.apiStatusPill.innerHTML = `<span class="pulse-dot"></span> OpenRouter Conectado (Manual)`;
+    dom.apiStatusPill.title = "Usando clave personalizada guardada localmente";
+    dom.apiKeyInput.value = key;
+    if (dom.apiKeyHint) {
+      dom.apiKeyHint.innerHTML = `<span style="color:#15803d; font-weight:700;">✓ Usando tu clave manual guardada localmente en este navegador.</span>`;
+    }
+  } else if (state.serverHasKey) {
+    dom.apiStatusPill.className = "api-pill connected";
+    dom.apiStatusPill.innerHTML = `<span class="pulse-dot"></span> OpenRouter Conectado (Servidor)`;
+    dom.apiStatusPill.title = "Clave de Render configurada en el servidor";
+    dom.apiKeyInput.value = "";
+    dom.apiKeyInput.placeholder = "Usando clave del servidor Render (Opcional: ingresa una para reemplazarla)";
+    if (dom.apiKeyHint) {
+      dom.apiKeyHint.innerHTML = `<span style="color:#15803d; font-weight:700;">✓ Clave del servidor detectada en Render (OPENROUTER_API_KEY). No es necesario ingresar una clave aquí.</span>`;
+    }
   } else {
     dom.apiStatusPill.className = "api-pill disconnected";
     dom.apiStatusPill.innerHTML = `<span class="pulse-dot"></span> Conectar OpenRouter`;
+    dom.apiStatusPill.title = "Toca para configurar tu clave de OpenRouter";
+    dom.apiKeyInput.value = "";
+    dom.apiKeyInput.placeholder = "sk-or-v1-xxxxxxxxxxxxxxxxxxxx";
+    if (dom.apiKeyHint) {
+      dom.apiKeyHint.innerHTML = `Consíguela en <a href="https://openrouter.ai/keys" target="_blank" style="color:var(--primary); font-weight:700;">openrouter.ai/keys</a>.`;
+    }
   }
-  dom.apiKeyInput.value = key;
+
 }
 
 function renderModelOptions() {
@@ -1105,7 +1190,8 @@ function attachEvents() {
     }
 
     const key = getStoredApiKey();
-    if (!key) {
+
+    if (false && !key) {
       showToast("Por favor configura tu clave de OpenRouter en ConfiguraciÃ³n.", "warning");
       switchTab("settings");
       return;
@@ -1187,10 +1273,22 @@ function attachEvents() {
 
   // Guardar configuraciÃ³n
   dom.saveSettingsBtn.addEventListener("click", () => {
-    const key = dom.apiKeyInput.value.trim();
+    const model = dom.modelSelect.value;
+    setStoredModel(model);
+    showToast("Modelo pedagógico actualizado correctamente.", "success");
+    return;
     const model = dom.modelSelect.value;
     setStoredApiKey(key);
     setStoredModel(model);
+    updateApiStatusUI();
+    if (key) {
+      showToast("Configuración guardada: Usando clave manual.", "success");
+    } else if (state.serverHasKey) {
+      showToast("Configuración guardada: Usando clave del servidor (Render).", "success");
+    } else {
+      showToast("Configuración de OpenRouter guardada.", "info");
+    }
+    return;
     initApiStatus();
     showToast("ConfiguraciÃ³n de OpenRouter guardada correctamente.", "success");
   });
@@ -1374,7 +1472,8 @@ async function handleGenerateActivity() {
   }
 
   const key = getStoredApiKey();
-  if (!key) {
+
+  if (false && !key) {
     showToast("Por favor configura tu clave API de OpenRouter.", "warning");
     switchTab("settings");
     return;
