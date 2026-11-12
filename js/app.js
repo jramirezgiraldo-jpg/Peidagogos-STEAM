@@ -321,6 +321,7 @@ function selectActivity(activityId) {
 }
 
 function renderActivitySelectors() {
+  if (!dom.activitiesGrid) return;
   dom.activitiesGrid.innerHTML = ACTIVITIES.map(act => `
     <div data-id="${act.id}" class="activity-card">
       <div>

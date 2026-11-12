@@ -1197,7 +1197,7 @@ function attachEvents() {
 
     const key = getStoredApiKey();
 
-    if (false && !key) {
+    if (false) {
       showToast("Por favor configura tu clave de OpenRouter en ConfiguraciÃ³n.", "warning");
       switchTab("settings");
       return;
@@ -1362,6 +1362,7 @@ function selectActivity(activityId) {
 }
 
 function renderActivitySelectors() {
+  if (!dom.activitiesGrid) return;
   dom.activitiesGrid.innerHTML = ACTIVITIES.map(act => `
     <div data-id="${act.id}" class="activity-card">
       <div>
@@ -1477,9 +1478,9 @@ async function handleGenerateActivity() {
     return;
   }
 
-  const key = getStoredApiKey();
 
-  if (false && !key) {
+
+  if (false) {
     showToast("Por favor configura tu clave API de OpenRouter.", "warning");
     switchTab("settings");
     return;
