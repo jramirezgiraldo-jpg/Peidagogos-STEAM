@@ -455,8 +455,9 @@ async function handleGenerateActivity() {
     return;
   }
 
+  if (!state.selectedActivityId) state.selectedActivityId = 'sopa-de-letras';
   const act = ACTIVITIES.find(a => a.id === state.selectedActivityId);
-  if (!act) return;
+  if (!act) { showToast('Por favor selecciona un tipo de actividad del catÃ¡logo.', 'warning'); return; }
 
   const compiledPrompt = act.buildPrompt({
     topic,
@@ -562,7 +563,7 @@ function updateGeneratingUI(isGenerating, message = "") {
   } else {
     dom.generateBtn.innerHTML = `
       ${getIcon("sparkles")}
-      <span>Generar Actividad Interactiva con IA</span>
+      <span>Generar actividad interactiva</span>
     `;
 
     // Detener cronómetro
